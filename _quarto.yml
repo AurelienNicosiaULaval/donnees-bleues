@@ -9,7 +9,7 @@ project:
 
 website:
   title: "Données bleues"
-  site-url: "https://example.org/donnees-bleues"
+  site-url: "https://aureliennicosiaulaval.github.io/donnees-bleues/"
   navbar:
     background: "#003DA5"
     foreground: "#ffffff"

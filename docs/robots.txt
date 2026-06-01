@@ -1,1 +1,1 @@
-Sitemap: https://example.org/donnees-bleues/sitemap.xml
+Sitemap: https://aureliennicosiaulaval.github.io/donnees-bleues/sitemap.xml
