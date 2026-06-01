@@ -1,0 +1,36 @@
+---
+title: "Module visualisation"
+embed-resources: true
+---
+
+# Module visualisation
+
+## Objectif
+
+Amener les personnes étudiantes à choisir une visualisation adaptée à une question statistique et à formuler une interprétation prudente.
+
+## Jeux de données suggérés
+
+- BIXI pour les distributions, proportions et cartes simples.
+- Bibliothèques publiques pour les comparaisons régionales et les relations entre variables.
+- Stations RSQAQ pour la couverture territoriale et la présence ou absence de stations actives.
+
+## Déroulement
+
+1. Identifier l'unité statistique.
+2. Choisir une variable quantitative et une variable catégorielle.
+3. Produire un graphique descriptif.
+4. Modifier les titres, axes et légendes.
+5. Rédiger une interprétation en trois phrases : constat, limite, question suivante.
+
+## Exemple de consigne
+
+Produire une visualisation qui permet de comparer une caractéristique entre plusieurs groupes. Le graphique doit être lisible sans accès au code.
+
+## Critères d'évaluation
+
+- Le graphique répond à une question claire.
+- Le type de graphique convient aux variables.
+- Les axes sont nommés.
+- L'interprétation ne dépasse pas ce que les données permettent de dire.
+

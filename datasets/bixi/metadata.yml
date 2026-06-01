@@ -1,0 +1,38 @@
+id: bixi
+title: "État des stations BIXI"
+short_title: "BIXI"
+theme: "Mobilité urbaine"
+source_name: "BIXI Montréal"
+source_url: "https://www.donneesquebec.ca/recherche/dataset/vmtl-bixi-etat-des-stations"
+license: "Attribution (CC-BY 4.0)"
+access_date: "2026-06-01"
+geography: "Montréal"
+unit: "Station BIXI à un instant donné"
+data_type: "Tabulaire, géographique, flux temps réel"
+format: "GBFS JSON"
+n_rows: "1065 stations observées le 2026-06-01"
+n_cols: "25 variables avant sélection dans le script de préparation"
+update_frequency: "Flux GBFS temps réel; fréquence opérationnelle exacte à vérifier"
+level: "Introduction à intermédiaire"
+concepts:
+  - importation JSON
+  - jointure
+  - visualisation
+  - carte
+  - statistique descriptive
+  - indicateur opérationnel
+  - communication
+zero_waste:
+  contexte_quebecois: 3
+  accessibilite_pedagogique: 3
+  qualite_documentaire: 2
+  potentiel_nettoyage: 2
+  potentiel_visualisation: 3
+  potentiel_statistique_descriptive: 3
+  potentiel_inference: 2
+  potentiel_modelisation: 2
+  potentiel_ethique: 2
+  reutilisabilite: 3
+status: "source vérifiée"
+notes: "Les données utilisées dans le MVP proviennent des flux GBFS station_information et station_status."
+

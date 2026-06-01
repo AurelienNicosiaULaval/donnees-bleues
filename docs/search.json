@@ -1,0 +1,1003 @@
+[
+  {
+    "objectID": "zero-waste.html",
+    "href": "zero-waste.html",
+    "title": "Zero waste dataset",
+    "section": "",
+    "text": "Un zero waste dataset est un jeu de données pédagogique dont on maximise le potentiel d’apprentissage en l’exploitant à plusieurs niveaux : importation, nettoyage, exploration, visualisation, statistique descriptive, inférence, modélisation, communication, reproductibilité, éthique et extensions possibles.\nL’idée n’est pas de privilégier les gros jeux de données. Elle consiste plutôt à repérer les jeux de données qui ont un fort rendement pédagogique par rapport à leur taille, leur complexité et leur coût cognitif d’entrée.\n\n\nUn jeu de données peut être riche même s’il est petit. À l’inverse, un très grand fichier peut être peu utile en classe si sa documentation est faible, si sa structure est opaque ou si les tâches nécessaires à son utilisation masquent les objectifs d’apprentissage.\nLe rendement pédagogique dépend notamment :\n\nde la proximité du contexte avec les personnes étudiantes;\nde la clarté de l’unité statistique;\nde la qualité documentaire;\nde la possibilité d’enseigner plusieurs opérations avec le même objet;\ndes limites d’interprétation qui peuvent être discutées explicitement.\n\n\n\n\nChaque dimension est cotée de 0 à 3.\n\n\n\n\n\n\n\nDimension\nDescription synthétique\n\n\n\n\nContexte québécois\nLe jeu de données est lié à un territoire, une institution ou un enjeu québécois.\n\n\nAccessibilité pédagogique\nLes personnes étudiantes peuvent comprendre rapidement ce que représentent les données.\n\n\nQualité documentaire\nLa source, la licence, les variables et la structure sont suffisamment documentées.\n\n\nPotentiel de nettoyage\nLe jeu permet d’enseigner des opérations réalistes de préparation.\n\n\nPotentiel de visualisation\nLes variables se prêtent à des graphiques ou cartes pédagogiquement utiles.\n\n\nPotentiel de statistique descriptive\nLes résumés numériques sont interprétables.\n\n\nPotentiel d’inférence\nLe jeu permet de poser des questions avec incertitude ou comparaison.\n\n\nPotentiel de modélisation\nLe jeu se prête à une modélisation raisonnable pour le niveau visé.\n\n\nPotentiel de discussion éthique\nLe jeu permet de discuter limites, biais, territoire, services ou usages.\n\n\nRéutilisabilité dans plusieurs cours\nLe même jeu peut soutenir plusieurs modules ou niveaux.\n\n\n\nLe score maximal est 30.\n\n\n\nScore\nInterprétation\n\n\n\n\n0 à 10\nPotentiel limité ou usage très ciblé.\n\n\n11 à 20\nBon jeu pour une activité.\n\n\n21 à 25\nTrès bon jeu pour plusieurs modules.\n\n\n26 à 30\nJeu structurant pour un cours ou un projet complet.\n\n\n\n\n\n\nUn jeu de données sur des stations de vélopartage peut servir à :\n\nimporter des données JSON;\njoindre des tables de description et d’état;\ncalculer des indicateurs d’occupation;\nvisualiser une distribution;\nproduire une carte;\ndiscuter du caractère instantané des données;\npréparer un court rapport reproductible.\n\n\n\n\nLa fonction compute_zero_waste_score() calcule le total, le pourcentage et l’interprétation.\n\nsource(\"R/utils_zero_waste.R\")\n\nscores &lt;- c(\n  contexte_quebecois = 3,\n  accessibilite_pedagogique = 3,\n  qualite_documentaire = 2,\n  potentiel_nettoyage = 2,\n  potentiel_visualisation = 3,\n  potentiel_statistique_descriptive = 3,\n  potentiel_inference = 2,\n  potentiel_modelisation = 2,\n  potentiel_ethique = 2,\n  reutilisabilite = 3\n)\n\ncompute_zero_waste_score(scores)\n\n\n\n\nLa grille n’est pas une mesure scientifique validée. C’est un outil de conception pédagogique. Elle sert à rendre les choix explicites, pas à classer définitivement les jeux de données.\nIl ne faut pas forcer tous les apprentissages avec le même jeu. Si une source ne permet pas d’enseigner une notion de façon pertinente, il est préférable de le reconnaître et d’utiliser un autre exemple."
+  },
+  {
+    "objectID": "zero-waste.html#rendement-pédagogique",
+    "href": "zero-waste.html#rendement-pédagogique",
+    "title": "Zero waste dataset",
+    "section": "",
+    "text": "Un jeu de données peut être riche même s’il est petit. À l’inverse, un très grand fichier peut être peu utile en classe si sa documentation est faible, si sa structure est opaque ou si les tâches nécessaires à son utilisation masquent les objectifs d’apprentissage.\nLe rendement pédagogique dépend notamment :\n\nde la proximité du contexte avec les personnes étudiantes;\nde la clarté de l’unité statistique;\nde la qualité documentaire;\nde la possibilité d’enseigner plusieurs opérations avec le même objet;\ndes limites d’interprétation qui peuvent être discutées explicitement."
+  },
+  {
+    "objectID": "zero-waste.html#grille-dévaluation",
+    "href": "zero-waste.html#grille-dévaluation",
+    "title": "Zero waste dataset",
+    "section": "",
+    "text": "Chaque dimension est cotée de 0 à 3.\n\n\n\n\n\n\n\nDimension\nDescription synthétique\n\n\n\n\nContexte québécois\nLe jeu de données est lié à un territoire, une institution ou un enjeu québécois.\n\n\nAccessibilité pédagogique\nLes personnes étudiantes peuvent comprendre rapidement ce que représentent les données.\n\n\nQualité documentaire\nLa source, la licence, les variables et la structure sont suffisamment documentées.\n\n\nPotentiel de nettoyage\nLe jeu permet d’enseigner des opérations réalistes de préparation.\n\n\nPotentiel de visualisation\nLes variables se prêtent à des graphiques ou cartes pédagogiquement utiles.\n\n\nPotentiel de statistique descriptive\nLes résumés numériques sont interprétables.\n\n\nPotentiel d’inférence\nLe jeu permet de poser des questions avec incertitude ou comparaison.\n\n\nPotentiel de modélisation\nLe jeu se prête à une modélisation raisonnable pour le niveau visé.\n\n\nPotentiel de discussion éthique\nLe jeu permet de discuter limites, biais, territoire, services ou usages.\n\n\nRéutilisabilité dans plusieurs cours\nLe même jeu peut soutenir plusieurs modules ou niveaux.\n\n\n\nLe score maximal est 30.\n\n\n\nScore\nInterprétation\n\n\n\n\n0 à 10\nPotentiel limité ou usage très ciblé.\n\n\n11 à 20\nBon jeu pour une activité.\n\n\n21 à 25\nTrès bon jeu pour plusieurs modules.\n\n\n26 à 30\nJeu structurant pour un cours ou un projet complet."
+  },
+  {
+    "objectID": "zero-waste.html#exemple-dusages-multiples",
+    "href": "zero-waste.html#exemple-dusages-multiples",
+    "title": "Zero waste dataset",
+    "section": "",
+    "text": "Un jeu de données sur des stations de vélopartage peut servir à :\n\nimporter des données JSON;\njoindre des tables de description et d’état;\ncalculer des indicateurs d’occupation;\nvisualiser une distribution;\nproduire une carte;\ndiscuter du caractère instantané des données;\npréparer un court rapport reproductible."
+  },
+  {
+    "objectID": "zero-waste.html#fonction-r",
+    "href": "zero-waste.html#fonction-r",
+    "title": "Zero waste dataset",
+    "section": "",
+    "text": "La fonction compute_zero_waste_score() calcule le total, le pourcentage et l’interprétation.\n\nsource(\"R/utils_zero_waste.R\")\n\nscores &lt;- c(\n  contexte_quebecois = 3,\n  accessibilite_pedagogique = 3,\n  qualite_documentaire = 2,\n  potentiel_nettoyage = 2,\n  potentiel_visualisation = 3,\n  potentiel_statistique_descriptive = 3,\n  potentiel_inference = 2,\n  potentiel_modelisation = 2,\n  potentiel_ethique = 2,\n  reutilisabilite = 3\n)\n\ncompute_zero_waste_score(scores)"
+  },
+  {
+    "objectID": "zero-waste.html#limites-du-concept",
+    "href": "zero-waste.html#limites-du-concept",
+    "title": "Zero waste dataset",
+    "section": "",
+    "text": "La grille n’est pas une mesure scientifique validée. C’est un outil de conception pédagogique. Elle sert à rendre les choix explicites, pas à classer définitivement les jeux de données.\nIl ne faut pas forcer tous les apprentissages avec le même jeu. Si une source ne permet pas d’enseigner une notion de façon pertinente, il est préférable de le reconnaître et d’utiliser un autre exemple."
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Données bleues",
+    "section": "",
+    "text": "Des données québécoises pour enseigner la statistique et la science des données.\n\n\nUn jeu de données n’est pas seulement une table. C’est un territoire d’apprentissage. Données bleues transforme des données ouvertes québécoises en ressources pédagogiques prêtes à utiliser : fiches, activités, scripts R, grilles d’analyse et pistes de projet."
+  },
+  {
+    "objectID": "index.html#pourquoi-des-données-québécoises",
+    "href": "index.html#pourquoi-des-données-québécoises",
+    "title": "Données bleues",
+    "section": "Pourquoi des données québécoises?",
+    "text": "Pourquoi des données québécoises?\nLes données locales aident à situer les apprentissages dans des réalités proches des personnes étudiantes : mobilité urbaine, services publics, culture, environnement, territoire et politiques publiques. Elles permettent aussi d’aborder la donnée comme objet social, administratif et scientifique.\nLe MVP utilise des sources ouvertes vérifiées le 2026-06-01, notamment Données Québec, les flux GBFS de BIXI Montréal, Bibliothèque et Archives nationales du Québec et le ministère de l’Environnement, de la Lutte contre les changements climatiques, de la Faune et des Parcs."
+  },
+  {
+    "objectID": "index.html#pour-qui",
+    "href": "index.html#pour-qui",
+    "title": "Données bleues",
+    "section": "Pour qui?",
+    "text": "Pour qui?\n\nEnseignants et enseignantes en statistique, science des données et programmation R.\nÉtudiants et étudiantes qui apprennent à analyser des données réelles.\nResponsables de programmes qui cherchent des exemples contextualisés.\nPersonnes qui développent des ressources éducatives libres."
+  },
+  {
+    "objectID": "index.html#ce-que-contient-une-fiche",
+    "href": "index.html#ce-que-contient-une-fiche",
+    "title": "Données bleues",
+    "section": "Ce que contient une fiche",
+    "text": "Ce que contient une fiche\nChaque fiche vise à être utilisable sans longue préparation :\n\nune source vérifiée;\nune description de l’unité statistique;\nun tableau des variables principales;\nune grille zero waste dataset;\nune activité courte;\nune activité longue;\nun projet possible;\nun bloc de code R minimal;\ndes limites d’interprétation."
+  },
+  {
+    "objectID": "index.html#mvp-actuel",
+    "href": "index.html#mvp-actuel",
+    "title": "Données bleues",
+    "section": "MVP actuel",
+    "text": "MVP actuel\nCette version contient trois jeux de données québécois :\n\nl’état des stations BIXI;\nles statistiques des bibliothèques publiques du Québec;\nles stations du Réseau de surveillance de la qualité de l’air du Québec.\n\nLe projet inclut aussi des fonctions R pour interroger CKAN, calculer les scores zero waste dataset, bâtir le catalogue et vérifier la cohérence des fiches."
+  },
+  {
+    "objectID": "index.html#invitation-à-contribuer",
+    "href": "index.html#invitation-à-contribuer",
+    "title": "Données bleues",
+    "section": "Invitation à contribuer",
+    "text": "Invitation à contribuer\nDonnées bleues est conçu comme une infrastructure pédagogique ouverte. Les contributions les plus utiles pour la suite sont des sources vérifiées, des activités testées en classe, des corrigés enseignants et des améliorations reproductibles aux scripts R.\nVoir comment contribuer"
+  },
+  {
+    "objectID": "datasets/qualite-air/activite-longue.html",
+    "href": "datasets/qualite-air/activite-longue.html",
+    "title": "Stations RSQAQ - activité longue",
+    "section": "",
+    "text": "Une équipe souhaite comprendre comment présenter un répertoire de stations environnementales à des étudiantes et étudiants. Vous devez produire un rapport qui décrit les stations et les limites de ce type de données.\n\n\n\nUn rapport Quarto de 3 à 5 pages contenant un tableau de synthèse, une visualisation temporelle, une carte simple et une section sur les limites.\n\n\n\n\nImporter le fichier CSV.\nConvertir les dates.\nDéfinir une règle explicite pour le statut actif.\nRésumer les stations par région administrative et type de milieu.\nCalculer la durée d’activité pour les stations fermées.\nProduire une visualisation temporelle.\nProduire une carte de points à partir de la latitude et de la longitude.\nExpliquer ce que le fichier ne permet pas de conclure.\n\n\n\n\n\n\n\n\n\n\n\nCritère\nAttendu\n\n\n\n\nImportation\nLes colonnes et les types sont lus correctement.\n\n\nDates\nLes dates sont converties et utilisées explicitement.\n\n\nIndicateurs\nLe statut actif est défini avec prudence.\n\n\nVisualisation\nLes graphiques sont lisibles et reliés aux questions.\n\n\nLimites\nLe rapport distingue stations et mesures de pollution.\n\n\n\n\n\n\n\nComment le réseau de stations a-t-il évolué dans le temps?\nQuels types de milieux sont les plus fréquents?\nLes stations fermées ont-elles des durées d’activité similaires?\nQuelles régions semblent moins représentées?\nQuelles données faudrait-il joindre pour analyser les niveaux de pollution?\n\n\n\n\nLe rapport devrait éviter toute conclusion sur la qualité de l’air. Il peut conclure sur la structure du répertoire de stations, sur les dates disponibles et sur les limites de couverture.\n\n\n\n\nAjouter une carte avec ggplot2 seulement, sans package spatial.\nLimiter l’analyse aux stations actives selon la règle définie.\nComparer les stations urbaines et rurales si la variable TYPE_MILIEU le permet."
+  },
+  {
+    "objectID": "datasets/qualite-air/activite-longue.html#mise-en-situation-professionnelle",
+    "href": "datasets/qualite-air/activite-longue.html#mise-en-situation-professionnelle",
+    "title": "Stations RSQAQ - activité longue",
+    "section": "",
+    "text": "Une équipe souhaite comprendre comment présenter un répertoire de stations environnementales à des étudiantes et étudiants. Vous devez produire un rapport qui décrit les stations et les limites de ce type de données."
+  },
+  {
+    "objectID": "datasets/qualite-air/activite-longue.html#livrable-attendu",
+    "href": "datasets/qualite-air/activite-longue.html#livrable-attendu",
+    "title": "Stations RSQAQ - activité longue",
+    "section": "",
+    "text": "Un rapport Quarto de 3 à 5 pages contenant un tableau de synthèse, une visualisation temporelle, une carte simple et une section sur les limites."
+  },
+  {
+    "objectID": "datasets/qualite-air/activite-longue.html#étapes",
+    "href": "datasets/qualite-air/activite-longue.html#étapes",
+    "title": "Stations RSQAQ - activité longue",
+    "section": "",
+    "text": "Importer le fichier CSV.\nConvertir les dates.\nDéfinir une règle explicite pour le statut actif.\nRésumer les stations par région administrative et type de milieu.\nCalculer la durée d’activité pour les stations fermées.\nProduire une visualisation temporelle.\nProduire une carte de points à partir de la latitude et de la longitude.\nExpliquer ce que le fichier ne permet pas de conclure."
+  },
+  {
+    "objectID": "datasets/qualite-air/activite-longue.html#critères-dévaluation",
+    "href": "datasets/qualite-air/activite-longue.html#critères-dévaluation",
+    "title": "Stations RSQAQ - activité longue",
+    "section": "",
+    "text": "Critère\nAttendu\n\n\n\n\nImportation\nLes colonnes et les types sont lus correctement.\n\n\nDates\nLes dates sont converties et utilisées explicitement.\n\n\nIndicateurs\nLe statut actif est défini avec prudence.\n\n\nVisualisation\nLes graphiques sont lisibles et reliés aux questions.\n\n\nLimites\nLe rapport distingue stations et mesures de pollution."
+  },
+  {
+    "objectID": "datasets/qualite-air/activite-longue.html#questions-danalyse",
+    "href": "datasets/qualite-air/activite-longue.html#questions-danalyse",
+    "title": "Stations RSQAQ - activité longue",
+    "section": "",
+    "text": "Comment le réseau de stations a-t-il évolué dans le temps?\nQuels types de milieux sont les plus fréquents?\nLes stations fermées ont-elles des durées d’activité similaires?\nQuelles régions semblent moins représentées?\nQuelles données faudrait-il joindre pour analyser les niveaux de pollution?"
+  },
+  {
+    "objectID": "datasets/qualite-air/activite-longue.html#pistes-de-solution",
+    "href": "datasets/qualite-air/activite-longue.html#pistes-de-solution",
+    "title": "Stations RSQAQ - activité longue",
+    "section": "",
+    "text": "Le rapport devrait éviter toute conclusion sur la qualité de l’air. Il peut conclure sur la structure du répertoire de stations, sur les dates disponibles et sur les limites de couverture."
+  },
+  {
+    "objectID": "datasets/qualite-air/activite-longue.html#variantes-possibles",
+    "href": "datasets/qualite-air/activite-longue.html#variantes-possibles",
+    "title": "Stations RSQAQ - activité longue",
+    "section": "",
+    "text": "Ajouter une carte avec ggplot2 seulement, sans package spatial.\nLimiter l’analyse aux stations actives selon la règle définie.\nComparer les stations urbaines et rurales si la variable TYPE_MILIEU le permet."
+  },
+  {
+    "objectID": "datasets/bixi/fiche.html",
+    "href": "datasets/bixi/fiche.html",
+    "title": "État des stations BIXI",
+    "section": "",
+    "text": "Ce jeu de données décrit l’état instantané des stations BIXI à Montréal. Il est utile pour enseigner l’importation de données JSON, les jointures, la construction d’indicateurs simples et la visualisation spatiale de services urbains.\nLe contexte est concret : une station a une capacité, une localisation et un nombre de vélos ou de bornes disponibles. Les limites sont également pédagogiques, car un instantané ne permet pas de conclure sur la demande quotidienne ou saisonnière.\n\n\n\n\n\n\nChamp\nInformation\n\n\n\n\nOrganisme producteur\nBIXI Montréal\n\n\nURL Données Québec\nhttps://www.donneesquebec.ca/recherche/dataset/vmtl-bixi-etat-des-stations\n\n\nURL du flux GBFS\nhttps://gbfs.velobixi.com/gbfs/gbfs.json\n\n\nLicence\nAttribution (CC-BY 4.0) selon Données Québec\n\n\nDate d’accès\n2026-06-01\n\n\nFréquence de mise à jour\nFlux GBFS temps réel; fréquence opérationnelle exacte à vérifier\n\n\n\n\n\n\nUne ligne représente une station BIXI à un instant donné, après jointure entre les informations fixes de la station et son état courant.\n\n\n\n\n\n\n\n\n\n\n\n\n\nVariable\nType\nDescription\nExemple\nRemarques pédagogiques\n\n\n\n\nstation_id\ncaractère\nIdentifiant de station\n1\nClé de jointure entre les flux\n\n\nname\ncaractère\nNom de la station\nDrummond / de Maisonneuve\nVariable utile pour vérifier les données\n\n\nlat\nnumérique\nLatitude\n45.49965\nBase pour une carte simple\n\n\nlon\nnumérique\nLongitude\n-73.57634\nBase pour une carte simple\n\n\ncapacity\nentier\nCapacité de la station\n27\nDénominateur pour un taux d’occupation\n\n\nnum_bikes_available\nentier\nNombre de vélos disponibles\n15\nMesure instantanée\n\n\nnum_ebikes_available\nentier\nNombre de vélos électriques disponibles\n4\nPermet des proportions\n\n\nnum_docks_available\nentier\nNombre de points d’ancrage disponibles\n10\nComplément des vélos disponibles\n\n\nis_renting\nentier\nStation disponible pour la location\n1\nVariable binaire\n\n\nlast_reported_datetime\ndate-heure\nMoment du dernier rapport\n2026-06-01\nVariable temporelle\n\n\n\n\n\n\n\n\n\n\n\n\n\nÉlément\nInformation\n\n\n\n\nNombre de lignes\n1065 stations observées le 2026-06-01\n\n\nNombre de colonnes\n25 variables avant sélection dans le script de préparation\n\n\nStructure\nTabulaire après transformation de deux flux JSON\n\n\nFormat\nGBFS JSON\n\n\n\n\n\n\n\nimportation JSON;\njointure par identifiant;\ntransformation de date-heure;\ntaux et proportions;\nvisualisation de distributions;\ncarte simple avec longitude et latitude;\nlimites d’un instantané;\ncommunication d’un résultat opérationnel.\n\n\n\n\n\n\n\n\n\n\n\n\nDimension\nScore\nJustification\n\n\n\n\nContexte québécois\n3\nLe service est ancré dans la mobilité montréalaise.\n\n\nAccessibilité pédagogique\n3\nLes variables principales sont faciles à comprendre.\n\n\nQualité documentaire\n2\nLes flux sont standards, mais certains champs exigent de connaître GBFS.\n\n\nPotentiel de nettoyage\n2\nLa jointure et les types suffisent pour une activité réaliste.\n\n\nPotentiel de visualisation\n3\nLes coordonnées et les indicateurs de disponibilité sont très visuels.\n\n\nPotentiel de statistique descriptive\n3\nLes résumés par capacité, disponibilité et proportions sont directs.\n\n\nPotentiel d’inférence\n2\nDes comparaisons sont possibles, mais l’instantané limite la portée.\n\n\nPotentiel de modélisation\n2\nUne modélisation exploratoire est possible avec prudence.\n\n\nPotentiel de discussion éthique\n2\nLe jeu ouvre une discussion sur l’accès territorial aux services.\n\n\nRéutilisabilité dans plusieurs cours\n3\nLe jeu peut servir en importation, visualisation, cartographie et communication.\n\n\n\nTotal : 25 sur 30.\n\n\n\nEn 30 à 45 minutes, demander aux personnes étudiantes de calculer le taux d’occupation des stations et de produire un histogramme ou un nuage de points entre capacité et vélos disponibles.\n\n\n\nEn 2 à 3 heures, demander de construire un mini-rapport Quarto qui importe les deux flux GBFS, les joint, crée des indicateurs et discute les limites d’une analyse instantanée.\n\n\n\nConstruire un tableau de bord statique hebdomadaire à partir de plusieurs instantanés collectés à heures fixes. Le projet pourrait comparer des quartiers, mais il faudrait ajouter une source géographique fiable avant toute conclusion territoriale.\n\n\n\n\nQuelle est l’unité statistique après jointure?\nQuelle variable peut servir de dénominateur pour comparer les stations?\nUne station de grande capacité a-t-elle nécessairement plus de vélos disponibles?\nComment détecter les stations installées mais non disponibles à la location?\nPourquoi un instantané ne permet-il pas d’estimer la demande quotidienne?\nQuels graphiques conviennent à la distribution du taux d’occupation?\nQuelles précautions faut-il prendre avec les coordonnées géographiques?\nQuelle information supplémentaire serait nécessaire pour comparer des quartiers?\n\n\n\n\n\nlibrary(dplyr)\nlibrary(ggplot2)\nlibrary(jsonlite)\n\nstation_information_url &lt;- \"https://gbfs.velobixi.com/gbfs/fr/station_information.json\"\nstation_status_url &lt;- \"https://gbfs.velobixi.com/gbfs/fr/station_status.json\"\n\nstation_information &lt;- fromJSON(station_information_url, flatten = TRUE)$data$stations\nstation_status &lt;- fromJSON(station_status_url, flatten = TRUE)$data$stations\n\nstations &lt;- station_information |&gt;\n  left_join(station_status, by = \"station_id\") |&gt;\n  mutate(taux_occupation = num_bikes_available / capacity)\n\nglimpse(stations)\n\nggplot(stations, aes(x = taux_occupation)) +\n  geom_histogram(binwidth = 0.1, boundary = 0, fill = \"#2f75d6\", color = \"white\") +\n  labs(\n    x = \"Taux d'occupation instantané\",\n    y = \"Nombre de stations\",\n    title = \"Occupation instantanée des stations BIXI\"\n  )\n\n\n\n\n\nLes données décrivent un instantané, pas une journée complète.\nLes valeurs peuvent changer rapidement.\nLa disponibilité observée ne mesure pas directement la demande.\nLes coordonnées ne suffisent pas à analyser l’équité territoriale sans données de contexte.\nLes stations temporairement indisponibles doivent être traitées explicitement.\n\n\n\n\n\nExtension intro : comparer les distributions de capacité et de vélos disponibles.\nExtension intermédiaire : créer un indicateur d’occupation et l’analyser par groupes de capacité.\nExtension avancée : collecter plusieurs instantanés et étudier la variabilité temporelle.\nExtension communication scientifique : produire une note méthodologique sur ce qu’un flux temps réel permet et ne permet pas de conclure."
+  },
+  {
+    "objectID": "datasets/bixi/fiche.html#pourquoi-ce-jeu-est-intéressant",
+    "href": "datasets/bixi/fiche.html#pourquoi-ce-jeu-est-intéressant",
+    "title": "État des stations BIXI",
+    "section": "",
+    "text": "Ce jeu de données décrit l’état instantané des stations BIXI à Montréal. Il est utile pour enseigner l’importation de données JSON, les jointures, la construction d’indicateurs simples et la visualisation spatiale de services urbains.\nLe contexte est concret : une station a une capacité, une localisation et un nombre de vélos ou de bornes disponibles. Les limites sont également pédagogiques, car un instantané ne permet pas de conclure sur la demande quotidienne ou saisonnière."
+  },
+  {
+    "objectID": "datasets/bixi/fiche.html#source",
+    "href": "datasets/bixi/fiche.html#source",
+    "title": "État des stations BIXI",
+    "section": "",
+    "text": "Champ\nInformation\n\n\n\n\nOrganisme producteur\nBIXI Montréal\n\n\nURL Données Québec\nhttps://www.donneesquebec.ca/recherche/dataset/vmtl-bixi-etat-des-stations\n\n\nURL du flux GBFS\nhttps://gbfs.velobixi.com/gbfs/gbfs.json\n\n\nLicence\nAttribution (CC-BY 4.0) selon Données Québec\n\n\nDate d’accès\n2026-06-01\n\n\nFréquence de mise à jour\nFlux GBFS temps réel; fréquence opérationnelle exacte à vérifier"
+  },
+  {
+    "objectID": "datasets/bixi/fiche.html#ce-que-représente-une-ligne",
+    "href": "datasets/bixi/fiche.html#ce-que-représente-une-ligne",
+    "title": "État des stations BIXI",
+    "section": "",
+    "text": "Une ligne représente une station BIXI à un instant donné, après jointure entre les informations fixes de la station et son état courant."
+  },
+  {
+    "objectID": "datasets/bixi/fiche.html#variables-principales",
+    "href": "datasets/bixi/fiche.html#variables-principales",
+    "title": "État des stations BIXI",
+    "section": "",
+    "text": "Variable\nType\nDescription\nExemple\nRemarques pédagogiques\n\n\n\n\nstation_id\ncaractère\nIdentifiant de station\n1\nClé de jointure entre les flux\n\n\nname\ncaractère\nNom de la station\nDrummond / de Maisonneuve\nVariable utile pour vérifier les données\n\n\nlat\nnumérique\nLatitude\n45.49965\nBase pour une carte simple\n\n\nlon\nnumérique\nLongitude\n-73.57634\nBase pour une carte simple\n\n\ncapacity\nentier\nCapacité de la station\n27\nDénominateur pour un taux d’occupation\n\n\nnum_bikes_available\nentier\nNombre de vélos disponibles\n15\nMesure instantanée\n\n\nnum_ebikes_available\nentier\nNombre de vélos électriques disponibles\n4\nPermet des proportions\n\n\nnum_docks_available\nentier\nNombre de points d’ancrage disponibles\n10\nComplément des vélos disponibles\n\n\nis_renting\nentier\nStation disponible pour la location\n1\nVariable binaire\n\n\nlast_reported_datetime\ndate-heure\nMoment du dernier rapport\n2026-06-01\nVariable temporelle"
+  },
+  {
+    "objectID": "datasets/bixi/fiche.html#taille-et-structure",
+    "href": "datasets/bixi/fiche.html#taille-et-structure",
+    "title": "État des stations BIXI",
+    "section": "",
+    "text": "Élément\nInformation\n\n\n\n\nNombre de lignes\n1065 stations observées le 2026-06-01\n\n\nNombre de colonnes\n25 variables avant sélection dans le script de préparation\n\n\nStructure\nTabulaire après transformation de deux flux JSON\n\n\nFormat\nGBFS JSON"
+  },
+  {
+    "objectID": "datasets/bixi/fiche.html#concepts-enseignables",
+    "href": "datasets/bixi/fiche.html#concepts-enseignables",
+    "title": "État des stations BIXI",
+    "section": "",
+    "text": "importation JSON;\njointure par identifiant;\ntransformation de date-heure;\ntaux et proportions;\nvisualisation de distributions;\ncarte simple avec longitude et latitude;\nlimites d’un instantané;\ncommunication d’un résultat opérationnel."
+  },
+  {
+    "objectID": "datasets/bixi/fiche.html#score-zero-waste-dataset",
+    "href": "datasets/bixi/fiche.html#score-zero-waste-dataset",
+    "title": "État des stations BIXI",
+    "section": "",
+    "text": "Dimension\nScore\nJustification\n\n\n\n\nContexte québécois\n3\nLe service est ancré dans la mobilité montréalaise.\n\n\nAccessibilité pédagogique\n3\nLes variables principales sont faciles à comprendre.\n\n\nQualité documentaire\n2\nLes flux sont standards, mais certains champs exigent de connaître GBFS.\n\n\nPotentiel de nettoyage\n2\nLa jointure et les types suffisent pour une activité réaliste.\n\n\nPotentiel de visualisation\n3\nLes coordonnées et les indicateurs de disponibilité sont très visuels.\n\n\nPotentiel de statistique descriptive\n3\nLes résumés par capacité, disponibilité et proportions sont directs.\n\n\nPotentiel d’inférence\n2\nDes comparaisons sont possibles, mais l’instantané limite la portée.\n\n\nPotentiel de modélisation\n2\nUne modélisation exploratoire est possible avec prudence.\n\n\nPotentiel de discussion éthique\n2\nLe jeu ouvre une discussion sur l’accès territorial aux services.\n\n\nRéutilisabilité dans plusieurs cours\n3\nLe jeu peut servir en importation, visualisation, cartographie et communication.\n\n\n\nTotal : 25 sur 30."
+  },
+  {
+    "objectID": "datasets/bixi/fiche.html#activité-courte",
+    "href": "datasets/bixi/fiche.html#activité-courte",
+    "title": "État des stations BIXI",
+    "section": "",
+    "text": "En 30 à 45 minutes, demander aux personnes étudiantes de calculer le taux d’occupation des stations et de produire un histogramme ou un nuage de points entre capacité et vélos disponibles."
+  },
+  {
+    "objectID": "datasets/bixi/fiche.html#activité-longue",
+    "href": "datasets/bixi/fiche.html#activité-longue",
+    "title": "État des stations BIXI",
+    "section": "",
+    "text": "En 2 à 3 heures, demander de construire un mini-rapport Quarto qui importe les deux flux GBFS, les joint, crée des indicateurs et discute les limites d’une analyse instantanée."
+  },
+  {
+    "objectID": "datasets/bixi/fiche.html#projet-possible",
+    "href": "datasets/bixi/fiche.html#projet-possible",
+    "title": "État des stations BIXI",
+    "section": "",
+    "text": "Construire un tableau de bord statique hebdomadaire à partir de plusieurs instantanés collectés à heures fixes. Le projet pourrait comparer des quartiers, mais il faudrait ajouter une source géographique fiable avant toute conclusion territoriale."
+  },
+  {
+    "objectID": "datasets/bixi/fiche.html#questions-pédagogiques-possibles",
+    "href": "datasets/bixi/fiche.html#questions-pédagogiques-possibles",
+    "title": "État des stations BIXI",
+    "section": "",
+    "text": "Quelle est l’unité statistique après jointure?\nQuelle variable peut servir de dénominateur pour comparer les stations?\nUne station de grande capacité a-t-elle nécessairement plus de vélos disponibles?\nComment détecter les stations installées mais non disponibles à la location?\nPourquoi un instantané ne permet-il pas d’estimer la demande quotidienne?\nQuels graphiques conviennent à la distribution du taux d’occupation?\nQuelles précautions faut-il prendre avec les coordonnées géographiques?\nQuelle information supplémentaire serait nécessaire pour comparer des quartiers?"
+  },
+  {
+    "objectID": "datasets/bixi/fiche.html#code-r-minimal",
+    "href": "datasets/bixi/fiche.html#code-r-minimal",
+    "title": "État des stations BIXI",
+    "section": "",
+    "text": "library(dplyr)\nlibrary(ggplot2)\nlibrary(jsonlite)\n\nstation_information_url &lt;- \"https://gbfs.velobixi.com/gbfs/fr/station_information.json\"\nstation_status_url &lt;- \"https://gbfs.velobixi.com/gbfs/fr/station_status.json\"\n\nstation_information &lt;- fromJSON(station_information_url, flatten = TRUE)$data$stations\nstation_status &lt;- fromJSON(station_status_url, flatten = TRUE)$data$stations\n\nstations &lt;- station_information |&gt;\n  left_join(station_status, by = \"station_id\") |&gt;\n  mutate(taux_occupation = num_bikes_available / capacity)\n\nglimpse(stations)\n\nggplot(stations, aes(x = taux_occupation)) +\n  geom_histogram(binwidth = 0.1, boundary = 0, fill = \"#2f75d6\", color = \"white\") +\n  labs(\n    x = \"Taux d'occupation instantané\",\n    y = \"Nombre de stations\",\n    title = \"Occupation instantanée des stations BIXI\"\n  )"
+  },
+  {
+    "objectID": "datasets/bixi/fiche.html#limites-et-précautions",
+    "href": "datasets/bixi/fiche.html#limites-et-précautions",
+    "title": "État des stations BIXI",
+    "section": "",
+    "text": "Les données décrivent un instantané, pas une journée complète.\nLes valeurs peuvent changer rapidement.\nLa disponibilité observée ne mesure pas directement la demande.\nLes coordonnées ne suffisent pas à analyser l’équité territoriale sans données de contexte.\nLes stations temporairement indisponibles doivent être traitées explicitement."
+  },
+  {
+    "objectID": "datasets/bixi/fiche.html#extensions",
+    "href": "datasets/bixi/fiche.html#extensions",
+    "title": "État des stations BIXI",
+    "section": "",
+    "text": "Extension intro : comparer les distributions de capacité et de vélos disponibles.\nExtension intermédiaire : créer un indicateur d’occupation et l’analyser par groupes de capacité.\nExtension avancée : collecter plusieurs instantanés et étudier la variabilité temporelle.\nExtension communication scientifique : produire une note méthodologique sur ce qu’un flux temps réel permet et ne permet pas de conclure."
+  },
+  {
+    "objectID": "datasets/bixi/activite-courte.html",
+    "href": "datasets/bixi/activite-courte.html",
+    "title": "BIXI - activité courte",
+    "section": "",
+    "text": "Vous disposez d’un instantané des stations BIXI. L’objectif est de résumer la disponibilité des vélos sans confondre un état instantané avec une mesure de fréquentation.\n\n\n\n\nImporter deux flux JSON.\nRéaliser une jointure par identifiant.\nCalculer un indicateur de proportion.\nProduire un graphique descriptif.\n\n\n\n\nSource : BIXI Montréal, État des stations, publié sur Données Québec sous licence Attribution (CC-BY 4.0). Fiche : État des stations BIXI.\n\n\n\n\nImporter station_information.json et station_status.json.\nJoindre les deux tables avec station_id.\nCalculer taux_occupation = num_bikes_available / capacity.\nProduire un histogramme du taux d’occupation.\nIdentifier une limite importante de l’analyse.\n\n\n\n\n\nCombien de stations sont présentes dans l’instantané?\nQuelle est la capacité médiane des stations?\nQuelle proportion de stations a un taux d’occupation inférieur à 25 %?\nLe graphique suggère-t-il une distribution symétrique?\nQuelle conclusion serait injustifiée avec ces données?\n\n\n\n\nLe résultat attendu est un tableau joint contenant une ligne par station. Le taux d’occupation devrait être interprété comme une mesure instantanée. Une conclusion sur la demande quotidienne serait injustifiée sans données temporelles répétées.\n\n\n\nCréer un nuage de points entre capacity et num_bikes_available, puis commenter les stations qui semblent atypiques."
+  },
+  {
+    "objectID": "datasets/bixi/activite-courte.html#contexte",
+    "href": "datasets/bixi/activite-courte.html#contexte",
+    "title": "BIXI - activité courte",
+    "section": "",
+    "text": "Vous disposez d’un instantané des stations BIXI. L’objectif est de résumer la disponibilité des vélos sans confondre un état instantané avec une mesure de fréquentation."
+  },
+  {
+    "objectID": "datasets/bixi/activite-courte.html#objectifs-dapprentissage",
+    "href": "datasets/bixi/activite-courte.html#objectifs-dapprentissage",
+    "title": "BIXI - activité courte",
+    "section": "",
+    "text": "Importer deux flux JSON.\nRéaliser une jointure par identifiant.\nCalculer un indicateur de proportion.\nProduire un graphique descriptif."
+  },
+  {
+    "objectID": "datasets/bixi/activite-courte.html#données-utilisées",
+    "href": "datasets/bixi/activite-courte.html#données-utilisées",
+    "title": "BIXI - activité courte",
+    "section": "",
+    "text": "Source : BIXI Montréal, État des stations, publié sur Données Québec sous licence Attribution (CC-BY 4.0). Fiche : État des stations BIXI."
+  },
+  {
+    "objectID": "datasets/bixi/activite-courte.html#consignes",
+    "href": "datasets/bixi/activite-courte.html#consignes",
+    "title": "BIXI - activité courte",
+    "section": "",
+    "text": "Importer station_information.json et station_status.json.\nJoindre les deux tables avec station_id.\nCalculer taux_occupation = num_bikes_available / capacity.\nProduire un histogramme du taux d’occupation.\nIdentifier une limite importante de l’analyse."
+  },
+  {
+    "objectID": "datasets/bixi/activite-courte.html#questions",
+    "href": "datasets/bixi/activite-courte.html#questions",
+    "title": "BIXI - activité courte",
+    "section": "",
+    "text": "Combien de stations sont présentes dans l’instantané?\nQuelle est la capacité médiane des stations?\nQuelle proportion de stations a un taux d’occupation inférieur à 25 %?\nLe graphique suggère-t-il une distribution symétrique?\nQuelle conclusion serait injustifiée avec ces données?"
+  },
+  {
+    "objectID": "datasets/bixi/activite-courte.html#pistes-de-solution",
+    "href": "datasets/bixi/activite-courte.html#pistes-de-solution",
+    "title": "BIXI - activité courte",
+    "section": "",
+    "text": "Le résultat attendu est un tableau joint contenant une ligne par station. Le taux d’occupation devrait être interprété comme une mesure instantanée. Une conclusion sur la demande quotidienne serait injustifiée sans données temporelles répétées."
+  },
+  {
+    "objectID": "datasets/bixi/activite-courte.html#prolongement",
+    "href": "datasets/bixi/activite-courte.html#prolongement",
+    "title": "BIXI - activité courte",
+    "section": "",
+    "text": "Créer un nuage de points entre capacity et num_bikes_available, puis commenter les stations qui semblent atypiques."
+  },
+  {
+    "objectID": "datasets/bibliotheques-quebec/activite-longue.html",
+    "href": "datasets/bibliotheques-quebec/activite-longue.html",
+    "title": "Bibliothèques publiques - activité longue",
+    "section": "",
+    "text": "Un comité de programme veut un exemple complet d’analyse de données administratives québécoises. Vous devez produire un rapport qui décrit les services de bibliothèques publiques en 2024 et montre comment construire des indicateurs interprétables.\n\n\n\nUn rapport Quarto de 4 à 6 pages comprenant un script reproductible, un tableau de variables, deux visualisations et une discussion des limites.\n\n\n\n\nImporter les données 2024.\nNettoyer les noms de variables.\nSélectionner les variables liées à la population, aux visites, aux prêts, aux usagers et aux dépenses.\nConvertir les variables numériques si nécessaire.\nCréer des ratios par habitant.\nComparer les régions administratives.\nAjuster un modèle linéaire exploratoire.\nRédiger une section de limites.\n\n\n\n\n\n\n\n\n\n\n\nCritère\nAttendu\n\n\n\n\nImportation\nLe séparateur et les nombres sont traités correctement.\n\n\nNettoyage\nLes transformations sont documentées.\n\n\nIndicateurs\nLes ratios sont définis clairement.\n\n\nGraphiques\nLes visualisations répondent à une question précise.\n\n\nModélisation\nLe modèle est présenté comme exploratoire.\n\n\nLimites\nLes limites administratives et causales sont explicites.\n\n\n\n\n\n\n\nQuelles variables sont des volumes et lesquelles sont des ratios?\nLes bibliothèques desservant de grandes populations ont-elles plus de visites par habitant?\nLes dépenses de fonctionnement sont-elles associées aux visites?\nQuelle information manquerait pour évaluer l’accessibilité?\nPourquoi une corrélation ne suffit-elle pas à recommander une politique publique?\n\n\n\n\nUn rapport solide construit les ratios avant les comparaisons et évite d’attribuer les différences observées à une cause unique. La documentation de la source doit être citée dans la section des données.\n\n\n\n\nLimiter l’analyse à une région.\nComparer les prêts physiques et numériques si les variables sont retenues.\nProduire une fiche synthèse destinée à un conseil municipal fictif."
+  },
+  {
+    "objectID": "datasets/bibliotheques-quebec/activite-longue.html#mise-en-situation-professionnelle",
+    "href": "datasets/bibliotheques-quebec/activite-longue.html#mise-en-situation-professionnelle",
+    "title": "Bibliothèques publiques - activité longue",
+    "section": "",
+    "text": "Un comité de programme veut un exemple complet d’analyse de données administratives québécoises. Vous devez produire un rapport qui décrit les services de bibliothèques publiques en 2024 et montre comment construire des indicateurs interprétables."
+  },
+  {
+    "objectID": "datasets/bibliotheques-quebec/activite-longue.html#livrable-attendu",
+    "href": "datasets/bibliotheques-quebec/activite-longue.html#livrable-attendu",
+    "title": "Bibliothèques publiques - activité longue",
+    "section": "",
+    "text": "Un rapport Quarto de 4 à 6 pages comprenant un script reproductible, un tableau de variables, deux visualisations et une discussion des limites."
+  },
+  {
+    "objectID": "datasets/bibliotheques-quebec/activite-longue.html#étapes",
+    "href": "datasets/bibliotheques-quebec/activite-longue.html#étapes",
+    "title": "Bibliothèques publiques - activité longue",
+    "section": "",
+    "text": "Importer les données 2024.\nNettoyer les noms de variables.\nSélectionner les variables liées à la population, aux visites, aux prêts, aux usagers et aux dépenses.\nConvertir les variables numériques si nécessaire.\nCréer des ratios par habitant.\nComparer les régions administratives.\nAjuster un modèle linéaire exploratoire.\nRédiger une section de limites."
+  },
+  {
+    "objectID": "datasets/bibliotheques-quebec/activite-longue.html#critères-dévaluation",
+    "href": "datasets/bibliotheques-quebec/activite-longue.html#critères-dévaluation",
+    "title": "Bibliothèques publiques - activité longue",
+    "section": "",
+    "text": "Critère\nAttendu\n\n\n\n\nImportation\nLe séparateur et les nombres sont traités correctement.\n\n\nNettoyage\nLes transformations sont documentées.\n\n\nIndicateurs\nLes ratios sont définis clairement.\n\n\nGraphiques\nLes visualisations répondent à une question précise.\n\n\nModélisation\nLe modèle est présenté comme exploratoire.\n\n\nLimites\nLes limites administratives et causales sont explicites."
+  },
+  {
+    "objectID": "datasets/bibliotheques-quebec/activite-longue.html#questions-danalyse",
+    "href": "datasets/bibliotheques-quebec/activite-longue.html#questions-danalyse",
+    "title": "Bibliothèques publiques - activité longue",
+    "section": "",
+    "text": "Quelles variables sont des volumes et lesquelles sont des ratios?\nLes bibliothèques desservant de grandes populations ont-elles plus de visites par habitant?\nLes dépenses de fonctionnement sont-elles associées aux visites?\nQuelle information manquerait pour évaluer l’accessibilité?\nPourquoi une corrélation ne suffit-elle pas à recommander une politique publique?"
+  },
+  {
+    "objectID": "datasets/bibliotheques-quebec/activite-longue.html#pistes-de-solution",
+    "href": "datasets/bibliotheques-quebec/activite-longue.html#pistes-de-solution",
+    "title": "Bibliothèques publiques - activité longue",
+    "section": "",
+    "text": "Un rapport solide construit les ratios avant les comparaisons et évite d’attribuer les différences observées à une cause unique. La documentation de la source doit être citée dans la section des données."
+  },
+  {
+    "objectID": "datasets/bibliotheques-quebec/activite-longue.html#variantes-possibles",
+    "href": "datasets/bibliotheques-quebec/activite-longue.html#variantes-possibles",
+    "title": "Bibliothèques publiques - activité longue",
+    "section": "",
+    "text": "Limiter l’analyse à une région.\nComparer les prêts physiques et numériques si les variables sont retenues.\nProduire une fiche synthèse destinée à un conseil municipal fictif."
+  },
+  {
+    "objectID": "contribuer.html",
+    "href": "contribuer.html",
+    "title": "Contribuer",
+    "section": "",
+    "text": "Les contributions doivent améliorer la qualité pédagogique, la vérifiabilité ou la reproductibilité du projet.\n\n\nUne proposition devrait inclure :\n\nle nom du jeu de données;\nl’organisme producteur;\nl’URL officielle;\nla licence;\nla date d’accès;\nle format;\nune justification pédagogique;\nles limites connues.\n\n\n\n\n\nCopier templates/fiche-dataset-template.qmd.\nCréer un dossier dans datasets/.\nAjouter fiche.qmd, activite-courte.qmd, activite-longue.qmd, preparation.R et metadata.yml.\nVérifier que le script télécharge ou prépare réellement les données.\nExécuter Rscript scripts/check_datasets.R.\n\n\n\n\nUne fiche ne doit pas prétendre qu’une donnée existe si le script ne peut pas la télécharger ou si l’URL n’a pas été vérifiée. Si une information manque, écrire clairement : Je ne sais pas encore.\n\n\n\nLe score doit être argumenté. Il peut être révisé après une utilisation en classe.\n\n\n\nPour un dépôt GitHub, utiliser de préférence une URL SSH :\ngit remote add origin git@github.com:utilisateur/donnees-bleues.git\ngit checkout -b ajout-nouveau-dataset\ngit add .\ngit commit -m \"Ajouter une fiche de jeu de données\"\ngit push -u origin ajout-nouveau-dataset\n\n\n\n\nLes sources sont vérifiées.\nLes licences sont visibles.\nLes scripts sont reproductibles.\nLes chemins sont relatifs au projet.\nLes activités sont réalistes pour le niveau visé.\nLes limites d’interprétation sont explicites."
+  },
+  {
+    "objectID": "contribuer.html#proposer-un-jeu-de-données",
+    "href": "contribuer.html#proposer-un-jeu-de-données",
+    "title": "Contribuer",
+    "section": "",
+    "text": "Une proposition devrait inclure :\n\nle nom du jeu de données;\nl’organisme producteur;\nl’URL officielle;\nla licence;\nla date d’accès;\nle format;\nune justification pédagogique;\nles limites connues."
+  },
+  {
+    "objectID": "contribuer.html#créer-une-fiche",
+    "href": "contribuer.html#créer-une-fiche",
+    "title": "Contribuer",
+    "section": "",
+    "text": "Copier templates/fiche-dataset-template.qmd.\nCréer un dossier dans datasets/.\nAjouter fiche.qmd, activite-courte.qmd, activite-longue.qmd, preparation.R et metadata.yml.\nVérifier que le script télécharge ou prépare réellement les données.\nExécuter Rscript scripts/check_datasets.R."
+  },
+  {
+    "objectID": "contribuer.html#documenter-la-source",
+    "href": "contribuer.html#documenter-la-source",
+    "title": "Contribuer",
+    "section": "",
+    "text": "Une fiche ne doit pas prétendre qu’une donnée existe si le script ne peut pas la télécharger ou si l’URL n’a pas été vérifiée. Si une information manque, écrire clairement : Je ne sais pas encore."
+  },
+  {
+    "objectID": "contribuer.html#ajouter-un-score-zero-waste",
+    "href": "contribuer.html#ajouter-un-score-zero-waste",
+    "title": "Contribuer",
+    "section": "",
+    "text": "Le score doit être argumenté. Il peut être révisé après une utilisation en classe."
+  },
+  {
+    "objectID": "contribuer.html#ouvrir-une-pull-request",
+    "href": "contribuer.html#ouvrir-une-pull-request",
+    "title": "Contribuer",
+    "section": "",
+    "text": "Pour un dépôt GitHub, utiliser de préférence une URL SSH :\ngit remote add origin git@github.com:utilisateur/donnees-bleues.git\ngit checkout -b ajout-nouveau-dataset\ngit add .\ngit commit -m \"Ajouter une fiche de jeu de données\"\ngit push -u origin ajout-nouveau-dataset"
+  },
+  {
+    "objectID": "contribuer.html#principes-de-qualité",
+    "href": "contribuer.html#principes-de-qualité",
+    "title": "Contribuer",
+    "section": "",
+    "text": "Les sources sont vérifiées.\nLes licences sont visibles.\nLes scripts sont reproductibles.\nLes chemins sont relatifs au projet.\nLes activités sont réalistes pour le niveau visé.\nLes limites d’interprétation sont explicites."
+  },
+  {
+    "objectID": "activities/module-visualisation.html",
+    "href": "activities/module-visualisation.html",
+    "title": "Module visualisation",
+    "section": "",
+    "text": "Amener les personnes étudiantes à choisir une visualisation adaptée à une question statistique et à formuler une interprétation prudente.\n\n\n\n\nBIXI pour les distributions, proportions et cartes simples.\nBibliothèques publiques pour les comparaisons régionales et les relations entre variables.\nStations RSQAQ pour la couverture territoriale et la présence ou absence de stations actives.\n\n\n\n\n\nIdentifier l’unité statistique.\nChoisir une variable quantitative et une variable catégorielle.\nProduire un graphique descriptif.\nModifier les titres, axes et légendes.\nRédiger une interprétation en trois phrases : constat, limite, question suivante.\n\n\n\n\nProduire une visualisation qui permet de comparer une caractéristique entre plusieurs groupes. Le graphique doit être lisible sans accès au code.\n\n\n\n\nLe graphique répond à une question claire.\nLe type de graphique convient aux variables.\nLes axes sont nommés.\nL’interprétation ne dépasse pas ce que les données permettent de dire."
+  },
+  {
+    "objectID": "activities/module-visualisation.html#objectif",
+    "href": "activities/module-visualisation.html#objectif",
+    "title": "Module visualisation",
+    "section": "",
+    "text": "Amener les personnes étudiantes à choisir une visualisation adaptée à une question statistique et à formuler une interprétation prudente."
+  },
+  {
+    "objectID": "activities/module-visualisation.html#jeux-de-données-suggérés",
+    "href": "activities/module-visualisation.html#jeux-de-données-suggérés",
+    "title": "Module visualisation",
+    "section": "",
+    "text": "BIXI pour les distributions, proportions et cartes simples.\nBibliothèques publiques pour les comparaisons régionales et les relations entre variables.\nStations RSQAQ pour la couverture territoriale et la présence ou absence de stations actives."
+  },
+  {
+    "objectID": "activities/module-visualisation.html#déroulement",
+    "href": "activities/module-visualisation.html#déroulement",
+    "title": "Module visualisation",
+    "section": "",
+    "text": "Identifier l’unité statistique.\nChoisir une variable quantitative et une variable catégorielle.\nProduire un graphique descriptif.\nModifier les titres, axes et légendes.\nRédiger une interprétation en trois phrases : constat, limite, question suivante."
+  },
+  {
+    "objectID": "activities/module-visualisation.html#exemple-de-consigne",
+    "href": "activities/module-visualisation.html#exemple-de-consigne",
+    "title": "Module visualisation",
+    "section": "",
+    "text": "Produire une visualisation qui permet de comparer une caractéristique entre plusieurs groupes. Le graphique doit être lisible sans accès au code."
+  },
+  {
+    "objectID": "activities/module-visualisation.html#critères-dévaluation",
+    "href": "activities/module-visualisation.html#critères-dévaluation",
+    "title": "Module visualisation",
+    "section": "",
+    "text": "Le graphique répond à une question claire.\nLe type de graphique convient aux variables.\nLes axes sont nommés.\nL’interprétation ne dépasse pas ce que les données permettent de dire."
+  },
+  {
+    "objectID": "activities/module-modelisation.html",
+    "href": "activities/module-modelisation.html",
+    "title": "Module modélisation",
+    "section": "",
+    "text": "Introduire la modélisation comme un outil de résumé et de comparaison, en insistant sur les limites des données observationnelles.\n\n\n\n\nBibliothèques publiques pour expliquer une variable quantitative, par exemple les visites ou les prêts, à partir de la population desservie et de caractéristiques de service.\nBIXI pour modéliser un indicateur instantané d’occupation des stations, avec prudence puisque les données changent rapidement.\nStations RSQAQ pour discuter pourquoi un répertoire de stations ne suffit pas à conclure sur la qualité de l’air.\n\n\n\n\n\nFormuler une question modélisable.\nIdentifier la variable réponse et les variables explicatives.\nProduire une visualisation préalable.\nAjuster un modèle simple.\nVérifier les hypothèses de base.\nInterpréter les coefficients avec prudence.\n\n\n\n\n\nLa question est compatible avec les données.\nLa variable réponse est définie correctement.\nLes limites causales sont explicites.\nLe code est reproductible."
+  },
+  {
+    "objectID": "activities/module-modelisation.html#objectif",
+    "href": "activities/module-modelisation.html#objectif",
+    "title": "Module modélisation",
+    "section": "",
+    "text": "Introduire la modélisation comme un outil de résumé et de comparaison, en insistant sur les limites des données observationnelles."
+  },
+  {
+    "objectID": "activities/module-modelisation.html#jeux-de-données-suggérés",
+    "href": "activities/module-modelisation.html#jeux-de-données-suggérés",
+    "title": "Module modélisation",
+    "section": "",
+    "text": "Bibliothèques publiques pour expliquer une variable quantitative, par exemple les visites ou les prêts, à partir de la population desservie et de caractéristiques de service.\nBIXI pour modéliser un indicateur instantané d’occupation des stations, avec prudence puisque les données changent rapidement.\nStations RSQAQ pour discuter pourquoi un répertoire de stations ne suffit pas à conclure sur la qualité de l’air."
+  },
+  {
+    "objectID": "activities/module-modelisation.html#déroulement",
+    "href": "activities/module-modelisation.html#déroulement",
+    "title": "Module modélisation",
+    "section": "",
+    "text": "Formuler une question modélisable.\nIdentifier la variable réponse et les variables explicatives.\nProduire une visualisation préalable.\nAjuster un modèle simple.\nVérifier les hypothèses de base.\nInterpréter les coefficients avec prudence."
+  },
+  {
+    "objectID": "activities/module-modelisation.html#critères-dévaluation",
+    "href": "activities/module-modelisation.html#critères-dévaluation",
+    "title": "Module modélisation",
+    "section": "",
+    "text": "La question est compatible avec les données.\nLa variable réponse est définie correctement.\nLes limites causales sont explicites.\nLe code est reproductible."
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "À propos",
+    "section": "",
+    "text": "Données bleues est un projet d’infrastructure pédagogique ouverte pour l’enseignement de la statistique, de la programmation R et de la science des données à partir de données québécoises.\n\n\nLe projet repose sur une idée simple : les jeux de données utilisés en classe gagnent à être contextualisés, documentés et réutilisables. Une même source peut servir à apprendre l’importation, le nettoyage, la visualisation, l’inférence, la modélisation, la communication et la reproductibilité.\n\n\n\n\nPromouvoir les données ouvertes québécoises dans l’enseignement universitaire.\nContextualiser l’apprentissage à partir de situations proches des personnes étudiantes.\nDévelopper une culture de la donnée publique et de ses limites.\nFavoriser la reproductibilité avec Quarto, R et des scripts explicites.\nSoutenir la création de ressources éducatives libres.\nÉviter les jeux de données utilisés une seule fois puis oubliés.\n\n\n\n\nDonnées bleues ne vise pas à remplacer les jeux de données classiques. Le projet propose plutôt une base de ressources où la provenance, la documentation, les limites et les usages pédagogiques sont traités comme des éléments centraux.\nLe choix d’un jeu de données ne devrait pas seulement dépendre de son nombre de lignes ou de colonnes. Il devrait aussi tenir compte de son coût cognitif d’entrée, de sa documentation, de sa pertinence territoriale, de ses ambiguïtés et des discussions qu’il rend possibles.\n\n\n\nChaque fiche est accompagnée d’un script de préparation. Les scripts n’utilisent pas de chemins absolus et peuvent être exécutés depuis la racine du projet.\n\n\n\nLes sources générales et les fiches de données utilisées dans le MVP sont listées dans la page Références."
+  },
+  {
+    "objectID": "about.html#vision",
+    "href": "about.html#vision",
+    "title": "À propos",
+    "section": "",
+    "text": "Le projet repose sur une idée simple : les jeux de données utilisés en classe gagnent à être contextualisés, documentés et réutilisables. Une même source peut servir à apprendre l’importation, le nettoyage, la visualisation, l’inférence, la modélisation, la communication et la reproductibilité."
+  },
+  {
+    "objectID": "about.html#objectifs",
+    "href": "about.html#objectifs",
+    "title": "À propos",
+    "section": "",
+    "text": "Promouvoir les données ouvertes québécoises dans l’enseignement universitaire.\nContextualiser l’apprentissage à partir de situations proches des personnes étudiantes.\nDévelopper une culture de la donnée publique et de ses limites.\nFavoriser la reproductibilité avec Quarto, R et des scripts explicites.\nSoutenir la création de ressources éducatives libres.\nÉviter les jeux de données utilisés une seule fois puis oubliés."
+  },
+  {
+    "objectID": "about.html#positionnement-pédagogique",
+    "href": "about.html#positionnement-pédagogique",
+    "title": "À propos",
+    "section": "",
+    "text": "Données bleues ne vise pas à remplacer les jeux de données classiques. Le projet propose plutôt une base de ressources où la provenance, la documentation, les limites et les usages pédagogiques sont traités comme des éléments centraux.\nLe choix d’un jeu de données ne devrait pas seulement dépendre de son nombre de lignes ou de colonnes. Il devrait aussi tenir compte de son coût cognitif d’entrée, de sa documentation, de sa pertinence territoriale, de ses ambiguïtés et des discussions qu’il rend possibles."
+  },
+  {
+    "objectID": "about.html#reproductibilité",
+    "href": "about.html#reproductibilité",
+    "title": "À propos",
+    "section": "",
+    "text": "Chaque fiche est accompagnée d’un script de préparation. Les scripts n’utilisent pas de chemins absolus et peuvent être exécutés depuis la racine du projet."
+  },
+  {
+    "objectID": "about.html#sources",
+    "href": "about.html#sources",
+    "title": "À propos",
+    "section": "",
+    "text": "Les sources générales et les fiches de données utilisées dans le MVP sont listées dans la page Références."
+  },
+  {
+    "objectID": "activites.html",
+    "href": "activites.html",
+    "title": "Activités",
+    "section": "",
+    "text": "Les activités sont conçues pour des cours d’introduction à la statistique, à la programmation R ou à la science des données. Elles peuvent être utilisées telles quelles ou adaptées à un contexte de cours.\n\n\n\nModule visualisation\nModule nettoyage\nModule modélisation\n\n\n\n\n\n\n\nJeu de données\nActivité courte\nActivité longue\n\n\n\n\nBIXI\n30 à 45 minutes\n2 à 3 heures\n\n\nBibliothèques publiques\n30 à 45 minutes\n2 à 3 heures\n\n\nStations RSQAQ\n30 à 45 minutes\n2 à 3 heures"
+  },
+  {
+    "objectID": "activites.html#modules-transversaux",
+    "href": "activites.html#modules-transversaux",
+    "title": "Activités",
+    "section": "",
+    "text": "Module visualisation\nModule nettoyage\nModule modélisation"
+  },
+  {
+    "objectID": "activites.html#activités-par-jeu-de-données",
+    "href": "activites.html#activités-par-jeu-de-données",
+    "title": "Activités",
+    "section": "",
+    "text": "Jeu de données\nActivité courte\nActivité longue\n\n\n\n\nBIXI\n30 à 45 minutes\n2 à 3 heures\n\n\nBibliothèques publiques\n30 à 45 minutes\n2 à 3 heures\n\n\nStations RSQAQ\n30 à 45 minutes\n2 à 3 heures"
+  },
+  {
+    "objectID": "activities/module-nettoyage.html",
+    "href": "activities/module-nettoyage.html",
+    "title": "Module nettoyage",
+    "section": "",
+    "text": "Faire comprendre que le nettoyage est une étape analytique documentée, pas seulement une opération technique.\n\n\n\n\nBibliothèques publiques pour les noms de variables longs, les nombres avec virgules décimales et les colonnes nombreuses.\nBIXI pour les jointures entre description de station et état instantané.\nStations RSQAQ pour les dates d’ouverture, dates de fermeture et valeurs manquantes.\n\n\n\n\n\nImporter les données.\nExaminer les noms de variables.\nIdentifier les types mal lus ou ambigus.\nCréer une version réduite contenant les variables utiles.\nJustifier chaque transformation.\n\n\n\n\nUn script R commenté et un court paragraphe expliquant les décisions de nettoyage.\n\n\n\nUn nettoyage acceptable dépend de la question d’analyse. Les choix doivent être reproductibles et visibles."
+  },
+  {
+    "objectID": "activities/module-nettoyage.html#objectif",
+    "href": "activities/module-nettoyage.html#objectif",
+    "title": "Module nettoyage",
+    "section": "",
+    "text": "Faire comprendre que le nettoyage est une étape analytique documentée, pas seulement une opération technique."
+  },
+  {
+    "objectID": "activities/module-nettoyage.html#jeux-de-données-suggérés",
+    "href": "activities/module-nettoyage.html#jeux-de-données-suggérés",
+    "title": "Module nettoyage",
+    "section": "",
+    "text": "Bibliothèques publiques pour les noms de variables longs, les nombres avec virgules décimales et les colonnes nombreuses.\nBIXI pour les jointures entre description de station et état instantané.\nStations RSQAQ pour les dates d’ouverture, dates de fermeture et valeurs manquantes."
+  },
+  {
+    "objectID": "activities/module-nettoyage.html#déroulement",
+    "href": "activities/module-nettoyage.html#déroulement",
+    "title": "Module nettoyage",
+    "section": "",
+    "text": "Importer les données.\nExaminer les noms de variables.\nIdentifier les types mal lus ou ambigus.\nCréer une version réduite contenant les variables utiles.\nJustifier chaque transformation."
+  },
+  {
+    "objectID": "activities/module-nettoyage.html#livrable",
+    "href": "activities/module-nettoyage.html#livrable",
+    "title": "Module nettoyage",
+    "section": "",
+    "text": "Un script R commenté et un court paragraphe expliquant les décisions de nettoyage."
+  },
+  {
+    "objectID": "activities/module-nettoyage.html#discussion",
+    "href": "activities/module-nettoyage.html#discussion",
+    "title": "Module nettoyage",
+    "section": "",
+    "text": "Un nettoyage acceptable dépend de la question d’analyse. Les choix doivent être reproductibles et visibles."
+  },
+  {
+    "objectID": "catalogue.html",
+    "href": "catalogue.html",
+    "title": "Catalogue",
+    "section": "",
+    "text": "Catalogue\nLe catalogue est généré à partir des fichiers metadata.yml placés dans chaque dossier de jeu de données.\n\n\nStatistiques des bibliothèques publiques du Québec\n\nSource : Bibliothèque et Archives nationales du Québec\nThème : Culture et services publics\nTaille : 188 lignes pour la ressource 2024; 262 colonnes pour la ressource 2024\nType : Tabulaire\nNiveau : Introduction à avancé\nScore zero waste : 28/30\nConcepts : importation CSV, nettoyage de noms de variables, statistique descriptive, visualisation, ratios, comparaison régionale, régression, discussion éthique\n\n\n\nÉtat des stations BIXI\n\nSource : BIXI Montréal\nThème : Mobilité urbaine\nTaille : 1065 stations observées le 2026-06-01; 25 variables avant sélection dans le script de préparation\nType : Tabulaire, géographique, flux temps réel\nNiveau : Introduction à intermédiaire\nScore zero waste : 25/30\nConcepts : importation JSON, jointure, visualisation, carte, statistique descriptive, indicateur opérationnel, communication\n\n\n\nRSQAQ - Stations de la qualité de l’air\n\nSource : Ministère de l’Environnement, de la Lutte contre les changements climatiques, de la Faune et des Parcs\nThème : Environnement\nTaille : 245 lignes pour la ressource 1975-2025; 10 colonnes\nType : Tabulaire, géographique\nNiveau : Introduction à intermédiaire\nScore zero waste : 24/30\nConcepts : importation CSV, dates, données spatiales simples, visualisation, statistique descriptive, couverture territoriale, limites d’interprétation"
+  },
+  {
+    "objectID": "datasets/bibliotheques-quebec/activite-courte.html",
+    "href": "datasets/bibliotheques-quebec/activite-courte.html",
+    "title": "Bibliothèques publiques - activité courte",
+    "section": "",
+    "text": "Les bibliothèques publiques produisent des statistiques annuelles sur leurs services. Vous devez construire un indicateur simple de fréquentation et l’interpréter avec prudence.\n\n\n\n\nImporter un CSV avec séparateur point-virgule.\nSélectionner des variables pertinentes dans un fichier large.\nCalculer un ratio.\nProduire un graphique descriptif.\n\n\n\n\nSource : Bibliothèque et Archives nationales du Québec, Statistiques des bibliothèques publiques du Québec, publié sur Données Québec sous licence Attribution (CC-BY 4.0). Fiche : Statistiques des bibliothèques publiques du Québec.\n\n\n\n\nImporter la ressource 2024.\nSélectionner le nom de la bibliothèque, la région, la population desservie et les visites totales.\nCalculer les visites par habitant.\nProduire un histogramme des visites par habitant.\nÉcrire trois phrases d’interprétation.\n\n\n\n\n\nPourquoi les visites totales ne suffisent-elles pas pour comparer les bibliothèques?\nQuelle est la distribution des visites par habitant?\nCertaines valeurs semblent-elles atypiques?\nQuelles vérifications faut-il faire avant de commenter les valeurs extrêmes?\nQuelles limites le jeu de données impose-t-il?\n\n\n\n\nUne comparaison pertinente doit tenir compte de la population desservie. Les valeurs extrêmes doivent être vérifiées dans les données et dans la documentation avant d’être interprétées comme des situations réelles.\n\n\n\nComparer les visites par habitant entre régions administratives au moyen d’un graphique en boîtes."
+  },
+  {
+    "objectID": "datasets/bibliotheques-quebec/activite-courte.html#contexte",
+    "href": "datasets/bibliotheques-quebec/activite-courte.html#contexte",
+    "title": "Bibliothèques publiques - activité courte",
+    "section": "",
+    "text": "Les bibliothèques publiques produisent des statistiques annuelles sur leurs services. Vous devez construire un indicateur simple de fréquentation et l’interpréter avec prudence."
+  },
+  {
+    "objectID": "datasets/bibliotheques-quebec/activite-courte.html#objectifs-dapprentissage",
+    "href": "datasets/bibliotheques-quebec/activite-courte.html#objectifs-dapprentissage",
+    "title": "Bibliothèques publiques - activité courte",
+    "section": "",
+    "text": "Importer un CSV avec séparateur point-virgule.\nSélectionner des variables pertinentes dans un fichier large.\nCalculer un ratio.\nProduire un graphique descriptif."
+  },
+  {
+    "objectID": "datasets/bibliotheques-quebec/activite-courte.html#données-utilisées",
+    "href": "datasets/bibliotheques-quebec/activite-courte.html#données-utilisées",
+    "title": "Bibliothèques publiques - activité courte",
+    "section": "",
+    "text": "Source : Bibliothèque et Archives nationales du Québec, Statistiques des bibliothèques publiques du Québec, publié sur Données Québec sous licence Attribution (CC-BY 4.0). Fiche : Statistiques des bibliothèques publiques du Québec."
+  },
+  {
+    "objectID": "datasets/bibliotheques-quebec/activite-courte.html#consignes",
+    "href": "datasets/bibliotheques-quebec/activite-courte.html#consignes",
+    "title": "Bibliothèques publiques - activité courte",
+    "section": "",
+    "text": "Importer la ressource 2024.\nSélectionner le nom de la bibliothèque, la région, la population desservie et les visites totales.\nCalculer les visites par habitant.\nProduire un histogramme des visites par habitant.\nÉcrire trois phrases d’interprétation."
+  },
+  {
+    "objectID": "datasets/bibliotheques-quebec/activite-courte.html#questions",
+    "href": "datasets/bibliotheques-quebec/activite-courte.html#questions",
+    "title": "Bibliothèques publiques - activité courte",
+    "section": "",
+    "text": "Pourquoi les visites totales ne suffisent-elles pas pour comparer les bibliothèques?\nQuelle est la distribution des visites par habitant?\nCertaines valeurs semblent-elles atypiques?\nQuelles vérifications faut-il faire avant de commenter les valeurs extrêmes?\nQuelles limites le jeu de données impose-t-il?"
+  },
+  {
+    "objectID": "datasets/bibliotheques-quebec/activite-courte.html#pistes-de-solution",
+    "href": "datasets/bibliotheques-quebec/activite-courte.html#pistes-de-solution",
+    "title": "Bibliothèques publiques - activité courte",
+    "section": "",
+    "text": "Une comparaison pertinente doit tenir compte de la population desservie. Les valeurs extrêmes doivent être vérifiées dans les données et dans la documentation avant d’être interprétées comme des situations réelles."
+  },
+  {
+    "objectID": "datasets/bibliotheques-quebec/activite-courte.html#prolongement",
+    "href": "datasets/bibliotheques-quebec/activite-courte.html#prolongement",
+    "title": "Bibliothèques publiques - activité courte",
+    "section": "",
+    "text": "Comparer les visites par habitant entre régions administratives au moyen d’un graphique en boîtes."
+  },
+  {
+    "objectID": "datasets/bibliotheques-quebec/fiche.html",
+    "href": "datasets/bibliotheques-quebec/fiche.html",
+    "title": "Statistiques des bibliothèques publiques du Québec",
+    "section": "",
+    "text": "Ce jeu de données décrit les bibliothèques publiques du Québec à partir de nombreuses variables administratives, financières et de fréquentation. Il permet d’enseigner le nettoyage de fichiers larges, les ratios, les comparaisons régionales et les limites des indicateurs de services publics.\nIl est particulièrement riche pour un cours de science des données, car les variables sont nombreuses, les noms sont longs, les nombres utilisent une convention française et plusieurs indicateurs doivent être interprétés relativement à la population desservie.\n\n\n\n\n\n\nChamp\nInformation\n\n\n\n\nOrganisme producteur\nBibliothèque et Archives nationales du Québec\n\n\nURL\nhttps://www.donneesquebec.ca/recherche/dataset/statistiques_des_bibliotheques_publiques_du_quebec\n\n\nRessource utilisée\nStatistiques annuelles des bibliothèques publiques 2024\n\n\nLicence\nAttribution (CC-BY 4.0) selon Données Québec\n\n\nDate d’accès\n2026-06-01\n\n\nFréquence de mise à jour\nSérie annuelle; calendrier de publication exact à vérifier\n\n\n\n\n\n\nUne ligne représente une bibliothèque publique ou un centre régional dans la ressource annuelle utilisée.\n\n\n\n\n\n\n\n\n\n\n\n\n\nVariable\nType\nDescription\nExemple\nRemarques pédagogiques\n\n\n\n\nBibliothèque ou Centre régional\ncaractère\nNom de l’établissement ou du réseau\nAlma\nIdentifiant lisible\n\n\nRégion administrative\ncaractère\nRégion administrative du Québec\n02: Saguenay-Lac-Saint-Jean\nVariable de groupe\n\n\nPopulation desservie\nnumérique\nPopulation associée au service\n30649\nDénominateur pour les ratios\n\n\nVisites (Total)\nnumérique\nNombre total de visites\n55024\nPeut être rapporté à la population\n\n\nPrêts / Tous les doc. (Total)\nnumérique\nNombre total de prêts\n153411\nVariable de fréquentation\n\n\nUsagers inscrits (Total)\nnumérique\nNombre d’usagers inscrits\n9732\nBase pour des taux\n\n\nProgr. / Toutes les activités (Total)\nnumérique\nNombre d’activités\n450\nIndicateur de programmation\n\n\nDép. fonct. / Toutes les dépenses ($)\nnumérique\nDépenses de fonctionnement\n1166488,45\nVariable financière\n\n\n\n\n\n\n\n\n\nÉlément\nInformation\n\n\n\n\nNombre de lignes\n188 lignes pour la ressource 2024\n\n\nNombre de colonnes\n262 colonnes pour la ressource 2024\n\n\nStructure\nTabulaire large\n\n\nFormat\nCSV séparé par point-virgule\n\n\n\n\n\n\n\nimportation CSV avec séparateur point-virgule;\nnettoyage de noms de variables;\nconversion de nombres avec virgule décimale;\nsélection de variables;\nratios par population;\ngroup_by et summarise;\nvisualisation de comparaisons régionales;\nrégression exploratoire;\ndiscussion sur les indicateurs de services publics.\n\n\n\n\n\n\n\n\n\n\n\n\nDimension\nScore\nJustification\n\n\n\n\nContexte québécois\n3\nLe jeu décrit des bibliothèques publiques québécoises.\n\n\nAccessibilité pédagogique\n2\nLe thème est accessible, mais le fichier est large.\n\n\nQualité documentaire\n3\nUn dictionnaire de données est disponible sur la fiche Données Québec.\n\n\nPotentiel de nettoyage\n3\nLe fichier contient plusieurs défis réalistes de préparation.\n\n\nPotentiel de visualisation\n3\nLes comparaisons régionales et les ratios sont adaptés aux graphiques.\n\n\nPotentiel de statistique descriptive\n3\nPlusieurs variables quantitatives sont directement résumables.\n\n\nPotentiel d’inférence\n2\nDes comparaisons sont possibles, avec prudence sur l’échantillonnage.\n\n\nPotentiel de modélisation\n3\nLes variables permettent des modèles exploratoires simples.\n\n\nPotentiel de discussion éthique\n3\nLes indicateurs peuvent être discutés sous l’angle de l’accès aux services.\n\n\nRéutilisabilité dans plusieurs cours\n3\nLe même jeu peut soutenir nettoyage, EDA, modélisation et communication.\n\n\n\nTotal : 28 sur 30.\n\n\n\nEn 30 à 45 minutes, faire importer la ressource 2024, sélectionner cinq variables, calculer les visites par habitant et produire un graphique de comparaison.\n\n\n\nEn 2 à 3 heures, faire produire un rapport sur les relations entre population desservie, visites, prêts et dépenses de fonctionnement.\n\n\n\nConstruire un portrait régional des bibliothèques publiques du Québec, avec un tableau de bord statique et une discussion sur les limites des indicateurs administratifs.\n\n\n\n\nQuelle est l’unité statistique du fichier?\nPourquoi faut-il rapporter certaines variables à la population desservie?\nQuels problèmes causent les noms de colonnes très longs?\nComment vérifier que les nombres avec virgule décimale ont été bien importés?\nLa région administrative suffit-elle à expliquer les différences de visites?\nQuelle différence y a-t-il entre visites, prêts et usagers inscrits?\nQuelles variables devraient être transformées avant une régression?\nQuelles conclusions seraient trop fortes avec ces données administratives?\n\n\n\n\n\nlibrary(dplyr)\nlibrary(ggplot2)\nlibrary(readr)\nlibrary(stringr)\n\ndata_url &lt;- \"https://www.donneesquebec.ca/recherche/dataset/231a38a8-f28e-4bef-82ea-dc98a14c1b6f/resource/01183d3e-c79c-4d09-915c-f35ffe4dfda8/download/statistiques_bibliotheques_quebec_2024.csv\"\n\nbibliotheques &lt;- read_delim(\n  data_url,\n  delim = \";\",\n  locale = locale(encoding = \"UTF-8\", decimal_mark = \",\"),\n  show_col_types = FALSE\n)\n\nglimpse(bibliotheques)\n\nbibliotheques |&gt;\n  transmute(\n    bibliotheque = `Bibliothèque ou Centre régional`,\n    population = parse_number(as.character(`Population desservie`), locale = locale(decimal_mark = \",\")),\n    visites = parse_number(as.character(`Visites (Total)`), locale = locale(decimal_mark = \",\")),\n    visites_par_habitant = visites / population\n  ) |&gt;\n  filter(!is.na(visites_par_habitant), population &gt; 0) |&gt;\n  ggplot(aes(x = visites_par_habitant)) +\n  geom_histogram(binwidth = 0.5, fill = \"#2f75d6\", color = \"white\") +\n  labs(\n    x = \"Visites par habitant\",\n    y = \"Nombre de bibliothèques\",\n    title = \"Distribution des visites par habitant\"\n  )\n\n\n\n\n\nLes variables sont administratives et ne mesurent pas directement la qualité du service.\nLes comparaisons doivent tenir compte de la population desservie.\nLes pratiques de déclaration peuvent varier entre organisations.\nLe fichier est large; une activité d’introduction devrait réduire le nombre de variables.\nLes relations observées ne doivent pas être interprétées causalement sans plan d’analyse adapté.\n\n\n\n\n\nExtension intro : nettoyer les noms de variables et calculer trois ratios.\nExtension intermédiaire : comparer les régions administratives.\nExtension avancée : modéliser les visites en fonction de la population et de variables de service.\nExtension communication scientifique : rédiger un portrait régional en une page avec limites méthodologiques."
+  },
+  {
+    "objectID": "datasets/bibliotheques-quebec/fiche.html#pourquoi-ce-jeu-est-intéressant",
+    "href": "datasets/bibliotheques-quebec/fiche.html#pourquoi-ce-jeu-est-intéressant",
+    "title": "Statistiques des bibliothèques publiques du Québec",
+    "section": "",
+    "text": "Ce jeu de données décrit les bibliothèques publiques du Québec à partir de nombreuses variables administratives, financières et de fréquentation. Il permet d’enseigner le nettoyage de fichiers larges, les ratios, les comparaisons régionales et les limites des indicateurs de services publics.\nIl est particulièrement riche pour un cours de science des données, car les variables sont nombreuses, les noms sont longs, les nombres utilisent une convention française et plusieurs indicateurs doivent être interprétés relativement à la population desservie."
+  },
+  {
+    "objectID": "datasets/bibliotheques-quebec/fiche.html#source",
+    "href": "datasets/bibliotheques-quebec/fiche.html#source",
+    "title": "Statistiques des bibliothèques publiques du Québec",
+    "section": "",
+    "text": "Champ\nInformation\n\n\n\n\nOrganisme producteur\nBibliothèque et Archives nationales du Québec\n\n\nURL\nhttps://www.donneesquebec.ca/recherche/dataset/statistiques_des_bibliotheques_publiques_du_quebec\n\n\nRessource utilisée\nStatistiques annuelles des bibliothèques publiques 2024\n\n\nLicence\nAttribution (CC-BY 4.0) selon Données Québec\n\n\nDate d’accès\n2026-06-01\n\n\nFréquence de mise à jour\nSérie annuelle; calendrier de publication exact à vérifier"
+  },
+  {
+    "objectID": "datasets/bibliotheques-quebec/fiche.html#ce-que-représente-une-ligne",
+    "href": "datasets/bibliotheques-quebec/fiche.html#ce-que-représente-une-ligne",
+    "title": "Statistiques des bibliothèques publiques du Québec",
+    "section": "",
+    "text": "Une ligne représente une bibliothèque publique ou un centre régional dans la ressource annuelle utilisée."
+  },
+  {
+    "objectID": "datasets/bibliotheques-quebec/fiche.html#variables-principales",
+    "href": "datasets/bibliotheques-quebec/fiche.html#variables-principales",
+    "title": "Statistiques des bibliothèques publiques du Québec",
+    "section": "",
+    "text": "Variable\nType\nDescription\nExemple\nRemarques pédagogiques\n\n\n\n\nBibliothèque ou Centre régional\ncaractère\nNom de l’établissement ou du réseau\nAlma\nIdentifiant lisible\n\n\nRégion administrative\ncaractère\nRégion administrative du Québec\n02: Saguenay-Lac-Saint-Jean\nVariable de groupe\n\n\nPopulation desservie\nnumérique\nPopulation associée au service\n30649\nDénominateur pour les ratios\n\n\nVisites (Total)\nnumérique\nNombre total de visites\n55024\nPeut être rapporté à la population\n\n\nPrêts / Tous les doc. (Total)\nnumérique\nNombre total de prêts\n153411\nVariable de fréquentation\n\n\nUsagers inscrits (Total)\nnumérique\nNombre d’usagers inscrits\n9732\nBase pour des taux\n\n\nProgr. / Toutes les activités (Total)\nnumérique\nNombre d’activités\n450\nIndicateur de programmation\n\n\nDép. fonct. / Toutes les dépenses ($)\nnumérique\nDépenses de fonctionnement\n1166488,45\nVariable financière"
+  },
+  {
+    "objectID": "datasets/bibliotheques-quebec/fiche.html#taille-et-structure",
+    "href": "datasets/bibliotheques-quebec/fiche.html#taille-et-structure",
+    "title": "Statistiques des bibliothèques publiques du Québec",
+    "section": "",
+    "text": "Élément\nInformation\n\n\n\n\nNombre de lignes\n188 lignes pour la ressource 2024\n\n\nNombre de colonnes\n262 colonnes pour la ressource 2024\n\n\nStructure\nTabulaire large\n\n\nFormat\nCSV séparé par point-virgule"
+  },
+  {
+    "objectID": "datasets/bibliotheques-quebec/fiche.html#concepts-enseignables",
+    "href": "datasets/bibliotheques-quebec/fiche.html#concepts-enseignables",
+    "title": "Statistiques des bibliothèques publiques du Québec",
+    "section": "",
+    "text": "importation CSV avec séparateur point-virgule;\nnettoyage de noms de variables;\nconversion de nombres avec virgule décimale;\nsélection de variables;\nratios par population;\ngroup_by et summarise;\nvisualisation de comparaisons régionales;\nrégression exploratoire;\ndiscussion sur les indicateurs de services publics."
+  },
+  {
+    "objectID": "datasets/bibliotheques-quebec/fiche.html#score-zero-waste-dataset",
+    "href": "datasets/bibliotheques-quebec/fiche.html#score-zero-waste-dataset",
+    "title": "Statistiques des bibliothèques publiques du Québec",
+    "section": "",
+    "text": "Dimension\nScore\nJustification\n\n\n\n\nContexte québécois\n3\nLe jeu décrit des bibliothèques publiques québécoises.\n\n\nAccessibilité pédagogique\n2\nLe thème est accessible, mais le fichier est large.\n\n\nQualité documentaire\n3\nUn dictionnaire de données est disponible sur la fiche Données Québec.\n\n\nPotentiel de nettoyage\n3\nLe fichier contient plusieurs défis réalistes de préparation.\n\n\nPotentiel de visualisation\n3\nLes comparaisons régionales et les ratios sont adaptés aux graphiques.\n\n\nPotentiel de statistique descriptive\n3\nPlusieurs variables quantitatives sont directement résumables.\n\n\nPotentiel d’inférence\n2\nDes comparaisons sont possibles, avec prudence sur l’échantillonnage.\n\n\nPotentiel de modélisation\n3\nLes variables permettent des modèles exploratoires simples.\n\n\nPotentiel de discussion éthique\n3\nLes indicateurs peuvent être discutés sous l’angle de l’accès aux services.\n\n\nRéutilisabilité dans plusieurs cours\n3\nLe même jeu peut soutenir nettoyage, EDA, modélisation et communication.\n\n\n\nTotal : 28 sur 30."
+  },
+  {
+    "objectID": "datasets/bibliotheques-quebec/fiche.html#activité-courte",
+    "href": "datasets/bibliotheques-quebec/fiche.html#activité-courte",
+    "title": "Statistiques des bibliothèques publiques du Québec",
+    "section": "",
+    "text": "En 30 à 45 minutes, faire importer la ressource 2024, sélectionner cinq variables, calculer les visites par habitant et produire un graphique de comparaison."
+  },
+  {
+    "objectID": "datasets/bibliotheques-quebec/fiche.html#activité-longue",
+    "href": "datasets/bibliotheques-quebec/fiche.html#activité-longue",
+    "title": "Statistiques des bibliothèques publiques du Québec",
+    "section": "",
+    "text": "En 2 à 3 heures, faire produire un rapport sur les relations entre population desservie, visites, prêts et dépenses de fonctionnement."
+  },
+  {
+    "objectID": "datasets/bibliotheques-quebec/fiche.html#projet-possible",
+    "href": "datasets/bibliotheques-quebec/fiche.html#projet-possible",
+    "title": "Statistiques des bibliothèques publiques du Québec",
+    "section": "",
+    "text": "Construire un portrait régional des bibliothèques publiques du Québec, avec un tableau de bord statique et une discussion sur les limites des indicateurs administratifs."
+  },
+  {
+    "objectID": "datasets/bibliotheques-quebec/fiche.html#questions-pédagogiques-possibles",
+    "href": "datasets/bibliotheques-quebec/fiche.html#questions-pédagogiques-possibles",
+    "title": "Statistiques des bibliothèques publiques du Québec",
+    "section": "",
+    "text": "Quelle est l’unité statistique du fichier?\nPourquoi faut-il rapporter certaines variables à la population desservie?\nQuels problèmes causent les noms de colonnes très longs?\nComment vérifier que les nombres avec virgule décimale ont été bien importés?\nLa région administrative suffit-elle à expliquer les différences de visites?\nQuelle différence y a-t-il entre visites, prêts et usagers inscrits?\nQuelles variables devraient être transformées avant une régression?\nQuelles conclusions seraient trop fortes avec ces données administratives?"
+  },
+  {
+    "objectID": "datasets/bibliotheques-quebec/fiche.html#code-r-minimal",
+    "href": "datasets/bibliotheques-quebec/fiche.html#code-r-minimal",
+    "title": "Statistiques des bibliothèques publiques du Québec",
+    "section": "",
+    "text": "library(dplyr)\nlibrary(ggplot2)\nlibrary(readr)\nlibrary(stringr)\n\ndata_url &lt;- \"https://www.donneesquebec.ca/recherche/dataset/231a38a8-f28e-4bef-82ea-dc98a14c1b6f/resource/01183d3e-c79c-4d09-915c-f35ffe4dfda8/download/statistiques_bibliotheques_quebec_2024.csv\"\n\nbibliotheques &lt;- read_delim(\n  data_url,\n  delim = \";\",\n  locale = locale(encoding = \"UTF-8\", decimal_mark = \",\"),\n  show_col_types = FALSE\n)\n\nglimpse(bibliotheques)\n\nbibliotheques |&gt;\n  transmute(\n    bibliotheque = `Bibliothèque ou Centre régional`,\n    population = parse_number(as.character(`Population desservie`), locale = locale(decimal_mark = \",\")),\n    visites = parse_number(as.character(`Visites (Total)`), locale = locale(decimal_mark = \",\")),\n    visites_par_habitant = visites / population\n  ) |&gt;\n  filter(!is.na(visites_par_habitant), population &gt; 0) |&gt;\n  ggplot(aes(x = visites_par_habitant)) +\n  geom_histogram(binwidth = 0.5, fill = \"#2f75d6\", color = \"white\") +\n  labs(\n    x = \"Visites par habitant\",\n    y = \"Nombre de bibliothèques\",\n    title = \"Distribution des visites par habitant\"\n  )"
+  },
+  {
+    "objectID": "datasets/bibliotheques-quebec/fiche.html#limites-et-précautions",
+    "href": "datasets/bibliotheques-quebec/fiche.html#limites-et-précautions",
+    "title": "Statistiques des bibliothèques publiques du Québec",
+    "section": "",
+    "text": "Les variables sont administratives et ne mesurent pas directement la qualité du service.\nLes comparaisons doivent tenir compte de la population desservie.\nLes pratiques de déclaration peuvent varier entre organisations.\nLe fichier est large; une activité d’introduction devrait réduire le nombre de variables.\nLes relations observées ne doivent pas être interprétées causalement sans plan d’analyse adapté."
+  },
+  {
+    "objectID": "datasets/bibliotheques-quebec/fiche.html#extensions",
+    "href": "datasets/bibliotheques-quebec/fiche.html#extensions",
+    "title": "Statistiques des bibliothèques publiques du Québec",
+    "section": "",
+    "text": "Extension intro : nettoyer les noms de variables et calculer trois ratios.\nExtension intermédiaire : comparer les régions administratives.\nExtension avancée : modéliser les visites en fonction de la population et de variables de service.\nExtension communication scientifique : rédiger un portrait régional en une page avec limites méthodologiques."
+  },
+  {
+    "objectID": "datasets/bixi/activite-longue.html",
+    "href": "datasets/bixi/activite-longue.html",
+    "title": "BIXI - activité longue",
+    "section": "",
+    "text": "Une équipe pédagogique souhaite préparer une courte note sur l’état instantané d’un service de vélopartage. Votre rôle est de produire un mini-rapport reproductible qui décrit les stations, calcule des indicateurs simples et signale les limites d’interprétation.\n\n\n\nUn document Quarto de 3 à 5 pages contenant le code, les tableaux, au moins deux graphiques et une section de limites.\n\n\n\n\nImporter les flux GBFS.\nJoindre les informations de stations et l’état courant.\nCréer les variables taux_occupation et part_velos_electriques.\nProduire un tableau de résumé.\nProduire un histogramme du taux d’occupation.\nProduire une carte simple avec longitude et latitude.\nRédiger une interprétation prudente.\n\n\n\n\n\n\n\n\n\n\n\nCritère\nAttendu\n\n\n\n\nReproductibilité\nLe rapport se rend sans modification.\n\n\nNettoyage\nLes jointures et variables dérivées sont explicites.\n\n\nVisualisation\nLes graphiques sont lisibles et adaptés.\n\n\nInterprétation\nLes limites d’un instantané sont claires.\n\n\nCommunication\nLes résultats principaux sont compréhensibles pour un lectorat non technique.\n\n\n\n\n\n\n\nLes stations de grande capacité ont-elles plus de vélos disponibles en valeur absolue?\nLes stations presque vides et presque pleines demandent-elles la même interprétation?\nComment distinguer disponibilité opérationnelle et demande des usagers?\nQuelles données complémentaires seraient nécessaires pour une analyse temporelle?\n\n\n\n\nUn bon rapport distingue les variables fixes de la station et les variables instantanées. Les cartes doivent être interprétées comme une visualisation de points, pas comme une analyse de quartiers.\n\n\n\n\nComparer les vélos classiques et électriques.\nFiltrer les stations non disponibles à la location.\nCollecter deux instantanés à des moments différents et comparer les changements."
+  },
+  {
+    "objectID": "datasets/bixi/activite-longue.html#mise-en-situation-professionnelle",
+    "href": "datasets/bixi/activite-longue.html#mise-en-situation-professionnelle",
+    "title": "BIXI - activité longue",
+    "section": "",
+    "text": "Une équipe pédagogique souhaite préparer une courte note sur l’état instantané d’un service de vélopartage. Votre rôle est de produire un mini-rapport reproductible qui décrit les stations, calcule des indicateurs simples et signale les limites d’interprétation."
+  },
+  {
+    "objectID": "datasets/bixi/activite-longue.html#livrable-attendu",
+    "href": "datasets/bixi/activite-longue.html#livrable-attendu",
+    "title": "BIXI - activité longue",
+    "section": "",
+    "text": "Un document Quarto de 3 à 5 pages contenant le code, les tableaux, au moins deux graphiques et une section de limites."
+  },
+  {
+    "objectID": "datasets/bixi/activite-longue.html#étapes",
+    "href": "datasets/bixi/activite-longue.html#étapes",
+    "title": "BIXI - activité longue",
+    "section": "",
+    "text": "Importer les flux GBFS.\nJoindre les informations de stations et l’état courant.\nCréer les variables taux_occupation et part_velos_electriques.\nProduire un tableau de résumé.\nProduire un histogramme du taux d’occupation.\nProduire une carte simple avec longitude et latitude.\nRédiger une interprétation prudente."
+  },
+  {
+    "objectID": "datasets/bixi/activite-longue.html#critères-dévaluation",
+    "href": "datasets/bixi/activite-longue.html#critères-dévaluation",
+    "title": "BIXI - activité longue",
+    "section": "",
+    "text": "Critère\nAttendu\n\n\n\n\nReproductibilité\nLe rapport se rend sans modification.\n\n\nNettoyage\nLes jointures et variables dérivées sont explicites.\n\n\nVisualisation\nLes graphiques sont lisibles et adaptés.\n\n\nInterprétation\nLes limites d’un instantané sont claires.\n\n\nCommunication\nLes résultats principaux sont compréhensibles pour un lectorat non technique."
+  },
+  {
+    "objectID": "datasets/bixi/activite-longue.html#questions-danalyse",
+    "href": "datasets/bixi/activite-longue.html#questions-danalyse",
+    "title": "BIXI - activité longue",
+    "section": "",
+    "text": "Les stations de grande capacité ont-elles plus de vélos disponibles en valeur absolue?\nLes stations presque vides et presque pleines demandent-elles la même interprétation?\nComment distinguer disponibilité opérationnelle et demande des usagers?\nQuelles données complémentaires seraient nécessaires pour une analyse temporelle?"
+  },
+  {
+    "objectID": "datasets/bixi/activite-longue.html#pistes-de-solution",
+    "href": "datasets/bixi/activite-longue.html#pistes-de-solution",
+    "title": "BIXI - activité longue",
+    "section": "",
+    "text": "Un bon rapport distingue les variables fixes de la station et les variables instantanées. Les cartes doivent être interprétées comme une visualisation de points, pas comme une analyse de quartiers."
+  },
+  {
+    "objectID": "datasets/bixi/activite-longue.html#variantes-possibles",
+    "href": "datasets/bixi/activite-longue.html#variantes-possibles",
+    "title": "BIXI - activité longue",
+    "section": "",
+    "text": "Comparer les vélos classiques et électriques.\nFiltrer les stations non disponibles à la location.\nCollecter deux instantanés à des moments différents et comparer les changements."
+  },
+  {
+    "objectID": "datasets/qualite-air/activite-courte.html",
+    "href": "datasets/qualite-air/activite-courte.html",
+    "title": "Stations RSQAQ - activité courte",
+    "section": "",
+    "text": "Vous analysez un répertoire de stations de mesure de la qualité de l’air. Votre tâche est de décrire la structure du réseau, sans interpréter ce fichier comme une mesure de pollution.\n\n\n\n\nImporter un fichier CSV.\nConvertir des variables de dates.\nCréer une variable logique.\nProduire un tableau de fréquences.\n\n\n\n\nSource : ministère de l’Environnement, de la Lutte contre les changements climatiques, de la Faune et des Parcs, RSQAQ - Stations de la qualité de l’air, publié sur Données Québec sous licence Attribution (CC-BY 4.0). Fiche : RSQAQ - Stations de la qualité de l’air.\n\n\n\n\nImporter le fichier CSV.\nConvertir les dates d’ouverture et de fermeture.\nCréer une variable station_active.\nCompter les stations par type de milieu.\nRédiger une phrase qui distingue station de mesure et mesure de qualité de l’air.\n\n\n\n\n\nCombien de stations sont recensées?\nQuels types de milieux sont présents?\nCombien de stations semblent actives selon votre définition?\nComment une valeur manquante dans DATE_FERMETURE influence-t-elle l’analyse?\nPourquoi ce fichier ne suffit-il pas pour comparer la pollution entre régions?\n\n\n\n\nUne définition possible de station active est : date de fermeture manquante ou postérieure à la date d’analyse. Cette définition doit être présentée comme une règle de travail à vérifier, pas comme une vérité administrative définitive.\n\n\n\nCréer une visualisation du nombre de stations par région administrative."
+  },
+  {
+    "objectID": "datasets/qualite-air/activite-courte.html#contexte",
+    "href": "datasets/qualite-air/activite-courte.html#contexte",
+    "title": "Stations RSQAQ - activité courte",
+    "section": "",
+    "text": "Vous analysez un répertoire de stations de mesure de la qualité de l’air. Votre tâche est de décrire la structure du réseau, sans interpréter ce fichier comme une mesure de pollution."
+  },
+  {
+    "objectID": "datasets/qualite-air/activite-courte.html#objectifs-dapprentissage",
+    "href": "datasets/qualite-air/activite-courte.html#objectifs-dapprentissage",
+    "title": "Stations RSQAQ - activité courte",
+    "section": "",
+    "text": "Importer un fichier CSV.\nConvertir des variables de dates.\nCréer une variable logique.\nProduire un tableau de fréquences."
+  },
+  {
+    "objectID": "datasets/qualite-air/activite-courte.html#données-utilisées",
+    "href": "datasets/qualite-air/activite-courte.html#données-utilisées",
+    "title": "Stations RSQAQ - activité courte",
+    "section": "",
+    "text": "Source : ministère de l’Environnement, de la Lutte contre les changements climatiques, de la Faune et des Parcs, RSQAQ - Stations de la qualité de l’air, publié sur Données Québec sous licence Attribution (CC-BY 4.0). Fiche : RSQAQ - Stations de la qualité de l’air."
+  },
+  {
+    "objectID": "datasets/qualite-air/activite-courte.html#consignes",
+    "href": "datasets/qualite-air/activite-courte.html#consignes",
+    "title": "Stations RSQAQ - activité courte",
+    "section": "",
+    "text": "Importer le fichier CSV.\nConvertir les dates d’ouverture et de fermeture.\nCréer une variable station_active.\nCompter les stations par type de milieu.\nRédiger une phrase qui distingue station de mesure et mesure de qualité de l’air."
+  },
+  {
+    "objectID": "datasets/qualite-air/activite-courte.html#questions",
+    "href": "datasets/qualite-air/activite-courte.html#questions",
+    "title": "Stations RSQAQ - activité courte",
+    "section": "",
+    "text": "Combien de stations sont recensées?\nQuels types de milieux sont présents?\nCombien de stations semblent actives selon votre définition?\nComment une valeur manquante dans DATE_FERMETURE influence-t-elle l’analyse?\nPourquoi ce fichier ne suffit-il pas pour comparer la pollution entre régions?"
+  },
+  {
+    "objectID": "datasets/qualite-air/activite-courte.html#pistes-de-solution",
+    "href": "datasets/qualite-air/activite-courte.html#pistes-de-solution",
+    "title": "Stations RSQAQ - activité courte",
+    "section": "",
+    "text": "Une définition possible de station active est : date de fermeture manquante ou postérieure à la date d’analyse. Cette définition doit être présentée comme une règle de travail à vérifier, pas comme une vérité administrative définitive."
+  },
+  {
+    "objectID": "datasets/qualite-air/activite-courte.html#prolongement",
+    "href": "datasets/qualite-air/activite-courte.html#prolongement",
+    "title": "Stations RSQAQ - activité courte",
+    "section": "",
+    "text": "Créer une visualisation du nombre de stations par région administrative."
+  },
+  {
+    "objectID": "datasets/qualite-air/fiche.html",
+    "href": "datasets/qualite-air/fiche.html",
+    "title": "RSQAQ - Stations de la qualité de l’air",
+    "section": "",
+    "text": "Ce jeu de données recense des stations de mesure du Réseau de surveillance de la qualité de l’air du Québec. Il permet d’enseigner l’importation d’un CSV, la manipulation de dates, la présence ou absence de valeurs de fermeture et la visualisation d’une couverture territoriale.\nCette fiche porte sur les stations, pas sur les concentrations de polluants. Cette distinction est utile pédagogiquement : un répertoire d’infrastructures de mesure ne suffit pas à conclure sur la qualité de l’air.\n\n\n\n\n\n\nChamp\nInformation\n\n\n\n\nOrganisme producteur\nMinistère de l’Environnement, de la Lutte contre les changements climatiques, de la Faune et des Parcs\n\n\nURL\nhttps://www.donneesquebec.ca/recherche/dataset/rsqaq-stations\n\n\nRessource utilisée\nRSQAQ - Stations de la qualité de l’air\n\n\nLicence\nAttribution (CC-BY 4.0) selon Données Québec\n\n\nDate d’accès\n2026-06-01\n\n\nFréquence de mise à jour\nJe ne sais pas encore\n\n\n\n\n\n\nUne ligne représente une station de mesure de la qualité de l’air, avec son identifiant, sa localisation, son type de milieu et ses dates d’ouverture ou de fermeture.\n\n\n\n\n\n\n\n\n\n\n\n\n\nVariable\nType\nDescription\nExemple\nRemarques pédagogiques\n\n\n\n\nID_STATION\nentier\nIdentifiant de la station\n1802\nClé de référence\n\n\nNOM_STATION\ncaractère\nNom de la station\nMurdochville - École anglaise\nVariable descriptive\n\n\nRA\nentier\nRégion administrative codée\n11\nPeut être groupée\n\n\nADRESSE\ncaractère\nAdresse de la station\n5ième rue\nPeut contenir des variations textuelles\n\n\nMUNICIPALITE\ncaractère\nMunicipalité\nMurdochville\nVariable territoriale\n\n\nTYPE_MILIEU\ncaractère\nType de milieu\nUrbain\nVariable catégorielle\n\n\nDATE_OUVERTURE\ndate\nDate d’ouverture\n1975-01-23\nVariable temporelle\n\n\nDATE_FERMETURE\ndate\nDate de fermeture\n1995-10-30\nValeur manquante possible\n\n\nLATITUDE\nnumérique\nLatitude\n48.95982\nBase pour une carte\n\n\nLONGITUDE\nnumérique\nLongitude\n-65.498987\nBase pour une carte\n\n\n\n\n\n\n\n\n\nÉlément\nInformation\n\n\n\n\nNombre de lignes\n245 lignes pour la ressource 1975-2025\n\n\nNombre de colonnes\n10 colonnes\n\n\nStructure\nTabulaire avec coordonnées géographiques\n\n\nFormat\nCSV\n\n\n\n\n\n\n\nimportation CSV;\nconversion de dates;\nvaleurs manquantes;\ncréation d’une variable de station active;\nvisualisation de points géographiques;\ngroup_by et summarise;\ncouverture territoriale;\ndistinction entre données de mesure et métadonnées de mesure.\n\n\n\n\n\n\n\n\n\n\n\n\nDimension\nScore\nJustification\n\n\n\n\nContexte québécois\n3\nLes stations sont liées au territoire québécois.\n\n\nAccessibilité pédagogique\n3\nL’unité statistique est simple à expliquer.\n\n\nQualité documentaire\n2\nLa fiche Données Québec documente la source, mais certaines définitions exigent un complément.\n\n\nPotentiel de nettoyage\n2\nLes dates et valeurs manquantes offrent un nettoyage réaliste.\n\n\nPotentiel de visualisation\n3\nLes coordonnées permettent des cartes de points.\n\n\nPotentiel de statistique descriptive\n3\nLes stations peuvent être résumées par région, type et statut.\n\n\nPotentiel d’inférence\n1\nLe fichier décrit des stations, pas un échantillon analytique de pollution.\n\n\nPotentiel de modélisation\n1\nLa modélisation est limitée sans mesures de polluants.\n\n\nPotentiel de discussion éthique\n3\nLe jeu ouvre une discussion sur la couverture de mesure et les angles morts territoriaux.\n\n\nRéutilisabilité dans plusieurs cours\n3\nIl convient à l’importation, aux dates, aux cartes et aux limites d’interprétation.\n\n\n\nTotal : 24 sur 30.\n\n\n\nEn 30 à 45 minutes, faire importer le fichier, convertir les dates et compter les stations par type de milieu.\n\n\n\nEn 2 à 3 heures, faire produire un rapport sur l’évolution du réseau de stations, en distinguant stations ouvertes, fermées et statut inconnu si l’information est manquante.\n\n\n\nCréer un atlas statique des stations de mesure de la qualité de l’air du Québec, avec une section expliquant pourquoi la présence d’une station ne décrit pas directement l’exposition des populations.\n\n\n\n\nQuelle est l’unité statistique du fichier?\nPourquoi ce fichier ne permet-il pas de conclure sur la qualité de l’air?\nComment définir une station active?\nComment traiter une date de fermeture manquante?\nQuelles régions semblent plus représentées?\nQuels graphiques conviennent à la durée d’activité des stations?\nQuelles précautions faut-il prendre avec une carte de points?\nQuelles données faudrait-il ajouter pour analyser les polluants?\n\n\n\n\n\nlibrary(dplyr)\nlibrary(ggplot2)\nlibrary(lubridate)\nlibrary(readr)\nlibrary(stringr)\n\ndata_url &lt;- \"https://www.donneesquebec.ca/recherche/dataset/8656ad05-c174-41c5-9ed7-8c69d308beb9/resource/cebea532-a9e0-4a39-8c2d-54f33d937c73/download/rsqaq_station_1975-2025.csv\"\n\nstations &lt;- read_csv(data_url, show_col_types = FALSE) |&gt;\n  rename_with(str_to_lower) |&gt;\n  mutate(\n    date_ouverture = ymd(date_ouverture),\n    date_fermeture = ymd(date_fermeture),\n    station_active = is.na(date_fermeture) | date_fermeture &gt;= Sys.Date()\n  )\n\nglimpse(stations)\n\nstations |&gt;\n  count(type_milieu, station_active) |&gt;\n  ggplot(aes(x = type_milieu, y = n, fill = station_active)) +\n  geom_col(position = \"dodge\") +\n  labs(\n    x = \"Type de milieu\",\n    y = \"Nombre de stations\",\n    fill = \"Station active\",\n    title = \"Stations RSQAQ par type de milieu\"\n  )\n\n\n\n\n\nLe fichier décrit les stations, pas les niveaux de pollution.\nLes stations situées sur l’île de Montréal sont exclues selon la fiche Données Québec.\nUne station fermée ne signifie pas nécessairement une absence de surveillance actuelle dans la région.\nLes coordonnées doivent être utilisées avec prudence dans une activité d’introduction.\nLes dates de fermeture manquantes doivent être interprétées selon la documentation disponible.\n\n\n\n\n\nExtension intro : compter les stations par type de milieu.\nExtension intermédiaire : calculer la durée d’activité des stations fermées.\nExtension avancée : joindre une source de mesures de polluants si elle est vérifiée.\nExtension communication scientifique : expliquer en une page la différence entre infrastructure de mesure et indicateur environnemental."
+  },
+  {
+    "objectID": "datasets/qualite-air/fiche.html#pourquoi-ce-jeu-est-intéressant",
+    "href": "datasets/qualite-air/fiche.html#pourquoi-ce-jeu-est-intéressant",
+    "title": "RSQAQ - Stations de la qualité de l’air",
+    "section": "",
+    "text": "Ce jeu de données recense des stations de mesure du Réseau de surveillance de la qualité de l’air du Québec. Il permet d’enseigner l’importation d’un CSV, la manipulation de dates, la présence ou absence de valeurs de fermeture et la visualisation d’une couverture territoriale.\nCette fiche porte sur les stations, pas sur les concentrations de polluants. Cette distinction est utile pédagogiquement : un répertoire d’infrastructures de mesure ne suffit pas à conclure sur la qualité de l’air."
+  },
+  {
+    "objectID": "datasets/qualite-air/fiche.html#source",
+    "href": "datasets/qualite-air/fiche.html#source",
+    "title": "RSQAQ - Stations de la qualité de l’air",
+    "section": "",
+    "text": "Champ\nInformation\n\n\n\n\nOrganisme producteur\nMinistère de l’Environnement, de la Lutte contre les changements climatiques, de la Faune et des Parcs\n\n\nURL\nhttps://www.donneesquebec.ca/recherche/dataset/rsqaq-stations\n\n\nRessource utilisée\nRSQAQ - Stations de la qualité de l’air\n\n\nLicence\nAttribution (CC-BY 4.0) selon Données Québec\n\n\nDate d’accès\n2026-06-01\n\n\nFréquence de mise à jour\nJe ne sais pas encore"
+  },
+  {
+    "objectID": "datasets/qualite-air/fiche.html#ce-que-représente-une-ligne",
+    "href": "datasets/qualite-air/fiche.html#ce-que-représente-une-ligne",
+    "title": "RSQAQ - Stations de la qualité de l’air",
+    "section": "",
+    "text": "Une ligne représente une station de mesure de la qualité de l’air, avec son identifiant, sa localisation, son type de milieu et ses dates d’ouverture ou de fermeture."
+  },
+  {
+    "objectID": "datasets/qualite-air/fiche.html#variables-principales",
+    "href": "datasets/qualite-air/fiche.html#variables-principales",
+    "title": "RSQAQ - Stations de la qualité de l’air",
+    "section": "",
+    "text": "Variable\nType\nDescription\nExemple\nRemarques pédagogiques\n\n\n\n\nID_STATION\nentier\nIdentifiant de la station\n1802\nClé de référence\n\n\nNOM_STATION\ncaractère\nNom de la station\nMurdochville - École anglaise\nVariable descriptive\n\n\nRA\nentier\nRégion administrative codée\n11\nPeut être groupée\n\n\nADRESSE\ncaractère\nAdresse de la station\n5ième rue\nPeut contenir des variations textuelles\n\n\nMUNICIPALITE\ncaractère\nMunicipalité\nMurdochville\nVariable territoriale\n\n\nTYPE_MILIEU\ncaractère\nType de milieu\nUrbain\nVariable catégorielle\n\n\nDATE_OUVERTURE\ndate\nDate d’ouverture\n1975-01-23\nVariable temporelle\n\n\nDATE_FERMETURE\ndate\nDate de fermeture\n1995-10-30\nValeur manquante possible\n\n\nLATITUDE\nnumérique\nLatitude\n48.95982\nBase pour une carte\n\n\nLONGITUDE\nnumérique\nLongitude\n-65.498987\nBase pour une carte"
+  },
+  {
+    "objectID": "datasets/qualite-air/fiche.html#taille-et-structure",
+    "href": "datasets/qualite-air/fiche.html#taille-et-structure",
+    "title": "RSQAQ - Stations de la qualité de l’air",
+    "section": "",
+    "text": "Élément\nInformation\n\n\n\n\nNombre de lignes\n245 lignes pour la ressource 1975-2025\n\n\nNombre de colonnes\n10 colonnes\n\n\nStructure\nTabulaire avec coordonnées géographiques\n\n\nFormat\nCSV"
+  },
+  {
+    "objectID": "datasets/qualite-air/fiche.html#concepts-enseignables",
+    "href": "datasets/qualite-air/fiche.html#concepts-enseignables",
+    "title": "RSQAQ - Stations de la qualité de l’air",
+    "section": "",
+    "text": "importation CSV;\nconversion de dates;\nvaleurs manquantes;\ncréation d’une variable de station active;\nvisualisation de points géographiques;\ngroup_by et summarise;\ncouverture territoriale;\ndistinction entre données de mesure et métadonnées de mesure."
+  },
+  {
+    "objectID": "datasets/qualite-air/fiche.html#score-zero-waste-dataset",
+    "href": "datasets/qualite-air/fiche.html#score-zero-waste-dataset",
+    "title": "RSQAQ - Stations de la qualité de l’air",
+    "section": "",
+    "text": "Dimension\nScore\nJustification\n\n\n\n\nContexte québécois\n3\nLes stations sont liées au territoire québécois.\n\n\nAccessibilité pédagogique\n3\nL’unité statistique est simple à expliquer.\n\n\nQualité documentaire\n2\nLa fiche Données Québec documente la source, mais certaines définitions exigent un complément.\n\n\nPotentiel de nettoyage\n2\nLes dates et valeurs manquantes offrent un nettoyage réaliste.\n\n\nPotentiel de visualisation\n3\nLes coordonnées permettent des cartes de points.\n\n\nPotentiel de statistique descriptive\n3\nLes stations peuvent être résumées par région, type et statut.\n\n\nPotentiel d’inférence\n1\nLe fichier décrit des stations, pas un échantillon analytique de pollution.\n\n\nPotentiel de modélisation\n1\nLa modélisation est limitée sans mesures de polluants.\n\n\nPotentiel de discussion éthique\n3\nLe jeu ouvre une discussion sur la couverture de mesure et les angles morts territoriaux.\n\n\nRéutilisabilité dans plusieurs cours\n3\nIl convient à l’importation, aux dates, aux cartes et aux limites d’interprétation.\n\n\n\nTotal : 24 sur 30."
+  },
+  {
+    "objectID": "datasets/qualite-air/fiche.html#activité-courte",
+    "href": "datasets/qualite-air/fiche.html#activité-courte",
+    "title": "RSQAQ - Stations de la qualité de l’air",
+    "section": "",
+    "text": "En 30 à 45 minutes, faire importer le fichier, convertir les dates et compter les stations par type de milieu."
+  },
+  {
+    "objectID": "datasets/qualite-air/fiche.html#activité-longue",
+    "href": "datasets/qualite-air/fiche.html#activité-longue",
+    "title": "RSQAQ - Stations de la qualité de l’air",
+    "section": "",
+    "text": "En 2 à 3 heures, faire produire un rapport sur l’évolution du réseau de stations, en distinguant stations ouvertes, fermées et statut inconnu si l’information est manquante."
+  },
+  {
+    "objectID": "datasets/qualite-air/fiche.html#projet-possible",
+    "href": "datasets/qualite-air/fiche.html#projet-possible",
+    "title": "RSQAQ - Stations de la qualité de l’air",
+    "section": "",
+    "text": "Créer un atlas statique des stations de mesure de la qualité de l’air du Québec, avec une section expliquant pourquoi la présence d’une station ne décrit pas directement l’exposition des populations."
+  },
+  {
+    "objectID": "datasets/qualite-air/fiche.html#questions-pédagogiques-possibles",
+    "href": "datasets/qualite-air/fiche.html#questions-pédagogiques-possibles",
+    "title": "RSQAQ - Stations de la qualité de l’air",
+    "section": "",
+    "text": "Quelle est l’unité statistique du fichier?\nPourquoi ce fichier ne permet-il pas de conclure sur la qualité de l’air?\nComment définir une station active?\nComment traiter une date de fermeture manquante?\nQuelles régions semblent plus représentées?\nQuels graphiques conviennent à la durée d’activité des stations?\nQuelles précautions faut-il prendre avec une carte de points?\nQuelles données faudrait-il ajouter pour analyser les polluants?"
+  },
+  {
+    "objectID": "datasets/qualite-air/fiche.html#code-r-minimal",
+    "href": "datasets/qualite-air/fiche.html#code-r-minimal",
+    "title": "RSQAQ - Stations de la qualité de l’air",
+    "section": "",
+    "text": "library(dplyr)\nlibrary(ggplot2)\nlibrary(lubridate)\nlibrary(readr)\nlibrary(stringr)\n\ndata_url &lt;- \"https://www.donneesquebec.ca/recherche/dataset/8656ad05-c174-41c5-9ed7-8c69d308beb9/resource/cebea532-a9e0-4a39-8c2d-54f33d937c73/download/rsqaq_station_1975-2025.csv\"\n\nstations &lt;- read_csv(data_url, show_col_types = FALSE) |&gt;\n  rename_with(str_to_lower) |&gt;\n  mutate(\n    date_ouverture = ymd(date_ouverture),\n    date_fermeture = ymd(date_fermeture),\n    station_active = is.na(date_fermeture) | date_fermeture &gt;= Sys.Date()\n  )\n\nglimpse(stations)\n\nstations |&gt;\n  count(type_milieu, station_active) |&gt;\n  ggplot(aes(x = type_milieu, y = n, fill = station_active)) +\n  geom_col(position = \"dodge\") +\n  labs(\n    x = \"Type de milieu\",\n    y = \"Nombre de stations\",\n    fill = \"Station active\",\n    title = \"Stations RSQAQ par type de milieu\"\n  )"
+  },
+  {
+    "objectID": "datasets/qualite-air/fiche.html#limites-et-précautions",
+    "href": "datasets/qualite-air/fiche.html#limites-et-précautions",
+    "title": "RSQAQ - Stations de la qualité de l’air",
+    "section": "",
+    "text": "Le fichier décrit les stations, pas les niveaux de pollution.\nLes stations situées sur l’île de Montréal sont exclues selon la fiche Données Québec.\nUne station fermée ne signifie pas nécessairement une absence de surveillance actuelle dans la région.\nLes coordonnées doivent être utilisées avec prudence dans une activité d’introduction.\nLes dates de fermeture manquantes doivent être interprétées selon la documentation disponible."
+  },
+  {
+    "objectID": "datasets/qualite-air/fiche.html#extensions",
+    "href": "datasets/qualite-air/fiche.html#extensions",
+    "title": "RSQAQ - Stations de la qualité de l’air",
+    "section": "",
+    "text": "Extension intro : compter les stations par type de milieu.\nExtension intermédiaire : calculer la durée d’activité des stations fermées.\nExtension avancée : joindre une source de mesures de polluants si elle est vérifiée.\nExtension communication scientifique : expliquer en une page la différence entre infrastructure de mesure et indicateur environnemental."
+  },
+  {
+    "objectID": "references.html",
+    "href": "references.html",
+    "title": "Références et sources",
+    "section": "",
+    "text": "Cette page liste les sources générales et les sources de données utilisées dans le MVP. Les liens ont été vérifiés le 2026-06-01.\n\n\n\nDonnées Québec. Portail de données ouvertes du Québec. https://www.donneesquebec.ca/\nDonnées Québec. API CKAN du portail. https://www.donneesquebec.ca/recherche/api/3/action/package_search?q=*:*\nCKAN. Documentation officielle de l’API. https://docs.ckan.org/en/latest/api/\nQuarto. Documentation officielle des sites web. https://quarto.org/docs/websites/\nCreative Commons. Licence Attribution 4.0 International. https://creativecommons.org/licenses/by/4.0/\n\n\n\n\n\nBIXI Montréal. État des stations, jeu de données publié sur Données Québec. https://www.donneesquebec.ca/recherche/dataset/vmtl-bixi-etat-des-stations\nBIXI Montréal. Flux GBFS. https://gbfs.velobixi.com/gbfs/gbfs.json\nBibliothèque et Archives nationales du Québec. Statistiques des bibliothèques publiques du Québec, jeu de données publié sur Données Québec. https://www.donneesquebec.ca/recherche/dataset/statistiques_des_bibliotheques_publiques_du_quebec\nMinistère de l’Environnement, de la Lutte contre les changements climatiques, de la Faune et des Parcs. RSQAQ - Stations de la qualité de l’air, jeu de données publié sur Données Québec. https://www.donneesquebec.ca/recherche/dataset/rsqaq-stations\n\n\n\n\nLes scores zero waste dataset sont des évaluations pédagogiques internes au projet. Ils ne proviennent pas des organismes producteurs."
+  },
+  {
+    "objectID": "references.html#sources-générales",
+    "href": "references.html#sources-générales",
+    "title": "Références et sources",
+    "section": "",
+    "text": "Données Québec. Portail de données ouvertes du Québec. https://www.donneesquebec.ca/\nDonnées Québec. API CKAN du portail. https://www.donneesquebec.ca/recherche/api/3/action/package_search?q=*:*\nCKAN. Documentation officielle de l’API. https://docs.ckan.org/en/latest/api/\nQuarto. Documentation officielle des sites web. https://quarto.org/docs/websites/\nCreative Commons. Licence Attribution 4.0 International. https://creativecommons.org/licenses/by/4.0/"
+  },
+  {
+    "objectID": "references.html#sources-de-données-du-mvp",
+    "href": "references.html#sources-de-données-du-mvp",
+    "title": "Références et sources",
+    "section": "",
+    "text": "BIXI Montréal. État des stations, jeu de données publié sur Données Québec. https://www.donneesquebec.ca/recherche/dataset/vmtl-bixi-etat-des-stations\nBIXI Montréal. Flux GBFS. https://gbfs.velobixi.com/gbfs/gbfs.json\nBibliothèque et Archives nationales du Québec. Statistiques des bibliothèques publiques du Québec, jeu de données publié sur Données Québec. https://www.donneesquebec.ca/recherche/dataset/statistiques_des_bibliotheques_publiques_du_quebec\nMinistère de l’Environnement, de la Lutte contre les changements climatiques, de la Faune et des Parcs. RSQAQ - Stations de la qualité de l’air, jeu de données publié sur Données Québec. https://www.donneesquebec.ca/recherche/dataset/rsqaq-stations"
+  },
+  {
+    "objectID": "references.html#notes",
+    "href": "references.html#notes",
+    "title": "Références et sources",
+    "section": "",
+    "text": "Les scores zero waste dataset sont des évaluations pédagogiques internes au projet. Ils ne proviennent pas des organismes producteurs."
+  }
+]

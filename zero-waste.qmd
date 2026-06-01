@@ -1,0 +1,91 @@
+---
+title: "Zero waste dataset"
+embed-resources: true
+---
+
+# Zero waste dataset
+
+Un zero waste dataset est un jeu de données pédagogique dont on maximise le potentiel d'apprentissage en l'exploitant à plusieurs niveaux : importation, nettoyage, exploration, visualisation, statistique descriptive, inférence, modélisation, communication, reproductibilité, éthique et extensions possibles.
+
+L'idée n'est pas de privilégier les gros jeux de données. Elle consiste plutôt à repérer les jeux de données qui ont un fort rendement pédagogique par rapport à leur taille, leur complexité et leur coût cognitif d'entrée.
+
+## Rendement pédagogique
+
+Un jeu de données peut être riche même s'il est petit. À l'inverse, un très grand fichier peut être peu utile en classe si sa documentation est faible, si sa structure est opaque ou si les tâches nécessaires à son utilisation masquent les objectifs d'apprentissage.
+
+Le rendement pédagogique dépend notamment :
+
+- de la proximité du contexte avec les personnes étudiantes;
+- de la clarté de l'unité statistique;
+- de la qualité documentaire;
+- de la possibilité d'enseigner plusieurs opérations avec le même objet;
+- des limites d'interprétation qui peuvent être discutées explicitement.
+
+## Grille d'évaluation
+
+Chaque dimension est cotée de 0 à 3.
+
+| Dimension | Description synthétique |
+|---|---|
+| Contexte québécois | Le jeu de données est lié à un territoire, une institution ou un enjeu québécois. |
+| Accessibilité pédagogique | Les personnes étudiantes peuvent comprendre rapidement ce que représentent les données. |
+| Qualité documentaire | La source, la licence, les variables et la structure sont suffisamment documentées. |
+| Potentiel de nettoyage | Le jeu permet d'enseigner des opérations réalistes de préparation. |
+| Potentiel de visualisation | Les variables se prêtent à des graphiques ou cartes pédagogiquement utiles. |
+| Potentiel de statistique descriptive | Les résumés numériques sont interprétables. |
+| Potentiel d'inférence | Le jeu permet de poser des questions avec incertitude ou comparaison. |
+| Potentiel de modélisation | Le jeu se prête à une modélisation raisonnable pour le niveau visé. |
+| Potentiel de discussion éthique | Le jeu permet de discuter limites, biais, territoire, services ou usages. |
+| Réutilisabilité dans plusieurs cours | Le même jeu peut soutenir plusieurs modules ou niveaux. |
+
+Le score maximal est 30.
+
+| Score | Interprétation |
+|---:|---|
+| 0 à 10 | Potentiel limité ou usage très ciblé. |
+| 11 à 20 | Bon jeu pour une activité. |
+| 21 à 25 | Très bon jeu pour plusieurs modules. |
+| 26 à 30 | Jeu structurant pour un cours ou un projet complet. |
+
+## Exemple d'usages multiples
+
+Un jeu de données sur des stations de vélopartage peut servir à :
+
+- importer des données JSON;
+- joindre des tables de description et d'état;
+- calculer des indicateurs d'occupation;
+- visualiser une distribution;
+- produire une carte;
+- discuter du caractère instantané des données;
+- préparer un court rapport reproductible.
+
+## Fonction R
+
+La fonction `compute_zero_waste_score()` calcule le total, le pourcentage et l'interprétation.
+
+```{r}
+#| eval: false
+source("R/utils_zero_waste.R")
+
+scores <- c(
+  contexte_quebecois = 3,
+  accessibilite_pedagogique = 3,
+  qualite_documentaire = 2,
+  potentiel_nettoyage = 2,
+  potentiel_visualisation = 3,
+  potentiel_statistique_descriptive = 3,
+  potentiel_inference = 2,
+  potentiel_modelisation = 2,
+  potentiel_ethique = 2,
+  reutilisabilite = 3
+)
+
+compute_zero_waste_score(scores)
+```
+
+## Limites du concept
+
+La grille n'est pas une mesure scientifique validée. C'est un outil de conception pédagogique. Elle sert à rendre les choix explicites, pas à classer définitivement les jeux de données.
+
+Il ne faut pas forcer tous les apprentissages avec le même jeu. Si une source ne permet pas d'enseigner une notion de façon pertinente, il est préférable de le reconnaître et d'utiliser un autre exemple.
+

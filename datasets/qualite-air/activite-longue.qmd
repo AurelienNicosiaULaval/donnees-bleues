@@ -1,0 +1,54 @@
+---
+title: "Stations RSQAQ - activité longue"
+embed-resources: true
+---
+
+# Stations RSQAQ - activité longue
+
+## Mise en situation professionnelle
+
+Une équipe souhaite comprendre comment présenter un répertoire de stations environnementales à des étudiantes et étudiants. Vous devez produire un rapport qui décrit les stations et les limites de ce type de données.
+
+## Livrable attendu
+
+Un rapport Quarto de 3 à 5 pages contenant un tableau de synthèse, une visualisation temporelle, une carte simple et une section sur les limites.
+
+## Étapes
+
+1. Importer le fichier CSV.
+2. Convertir les dates.
+3. Définir une règle explicite pour le statut actif.
+4. Résumer les stations par région administrative et type de milieu.
+5. Calculer la durée d'activité pour les stations fermées.
+6. Produire une visualisation temporelle.
+7. Produire une carte de points à partir de la latitude et de la longitude.
+8. Expliquer ce que le fichier ne permet pas de conclure.
+
+## Critères d'évaluation
+
+| Critère | Attendu |
+|---|---|
+| Importation | Les colonnes et les types sont lus correctement. |
+| Dates | Les dates sont converties et utilisées explicitement. |
+| Indicateurs | Le statut actif est défini avec prudence. |
+| Visualisation | Les graphiques sont lisibles et reliés aux questions. |
+| Limites | Le rapport distingue stations et mesures de pollution. |
+
+## Questions d'analyse
+
+1. Comment le réseau de stations a-t-il évolué dans le temps?
+2. Quels types de milieux sont les plus fréquents?
+3. Les stations fermées ont-elles des durées d'activité similaires?
+4. Quelles régions semblent moins représentées?
+5. Quelles données faudrait-il joindre pour analyser les niveaux de pollution?
+
+## Pistes de solution
+
+Le rapport devrait éviter toute conclusion sur la qualité de l'air. Il peut conclure sur la structure du répertoire de stations, sur les dates disponibles et sur les limites de couverture.
+
+## Variantes possibles
+
+- Ajouter une carte avec `ggplot2` seulement, sans package spatial.
+- Limiter l'analyse aux stations actives selon la règle définie.
+- Comparer les stations urbaines et rurales si la variable `TYPE_MILIEU` le permet.
+

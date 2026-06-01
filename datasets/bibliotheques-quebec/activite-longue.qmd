@@ -1,0 +1,55 @@
+---
+title: "Bibliothèques publiques - activité longue"
+embed-resources: true
+---
+
+# Bibliothèques publiques - activité longue
+
+## Mise en situation professionnelle
+
+Un comité de programme veut un exemple complet d'analyse de données administratives québécoises. Vous devez produire un rapport qui décrit les services de bibliothèques publiques en 2024 et montre comment construire des indicateurs interprétables.
+
+## Livrable attendu
+
+Un rapport Quarto de 4 à 6 pages comprenant un script reproductible, un tableau de variables, deux visualisations et une discussion des limites.
+
+## Étapes
+
+1. Importer les données 2024.
+2. Nettoyer les noms de variables.
+3. Sélectionner les variables liées à la population, aux visites, aux prêts, aux usagers et aux dépenses.
+4. Convertir les variables numériques si nécessaire.
+5. Créer des ratios par habitant.
+6. Comparer les régions administratives.
+7. Ajuster un modèle linéaire exploratoire.
+8. Rédiger une section de limites.
+
+## Critères d'évaluation
+
+| Critère | Attendu |
+|---|---|
+| Importation | Le séparateur et les nombres sont traités correctement. |
+| Nettoyage | Les transformations sont documentées. |
+| Indicateurs | Les ratios sont définis clairement. |
+| Graphiques | Les visualisations répondent à une question précise. |
+| Modélisation | Le modèle est présenté comme exploratoire. |
+| Limites | Les limites administratives et causales sont explicites. |
+
+## Questions d'analyse
+
+1. Quelles variables sont des volumes et lesquelles sont des ratios?
+2. Les bibliothèques desservant de grandes populations ont-elles plus de visites par habitant?
+3. Les dépenses de fonctionnement sont-elles associées aux visites?
+4. Quelle information manquerait pour évaluer l'accessibilité?
+5. Pourquoi une corrélation ne suffit-elle pas à recommander une politique publique?
+
+## Pistes de solution
+
+Un rapport solide construit les ratios avant les comparaisons et évite d'attribuer les différences observées à une cause unique. La documentation de la source doit être citée dans la section des données.
+
+## Variantes possibles
+
+- Limiter l'analyse à une région.
+- Comparer les prêts physiques et numériques si les variables sont retenues.
+- Produire une fiche synthèse destinée à un conseil municipal fictif.
+

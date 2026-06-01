@@ -1,0 +1,34 @@
+id:
+title:
+short_title:
+theme:
+source_name:
+source_url:
+license:
+access_date:
+geography:
+unit:
+data_type:
+format:
+n_rows:
+n_cols:
+update_frequency:
+level:
+concepts:
+  - visualisation
+  - nettoyage
+  - statistique descriptive
+zero_waste:
+  contexte_quebecois:
+  accessibilite_pedagogique:
+  qualite_documentaire:
+  potentiel_nettoyage:
+  potentiel_visualisation:
+  potentiel_statistique_descriptive:
+  potentiel_inference:
+  potentiel_modelisation:
+  potentiel_ethique:
+  reutilisabilite:
+status:
+notes:
+

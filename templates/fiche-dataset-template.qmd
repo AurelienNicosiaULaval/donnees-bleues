@@ -1,0 +1,110 @@
+---
+title: "Nom du jeu de données"
+embed-resources: true
+---
+
+# Nom du jeu de données
+
+## Pourquoi ce jeu est intéressant
+
+Décrire le contexte pédagogique et québécois.
+
+## Source
+
+| Champ | Information |
+|---|---|
+| Organisme producteur | Je ne sais pas encore. |
+| URL | Je ne sais pas encore. |
+| Licence | Je ne sais pas encore. |
+| Date d'accès | Je ne sais pas encore. |
+| Fréquence de mise à jour | Je ne sais pas encore. |
+
+## Ce que représente une ligne
+
+Décrire l'unité statistique.
+
+## Variables principales
+
+| Variable | Type | Description | Exemple | Remarques pédagogiques |
+|---|---|---|---|---|
+| variable | type | description | exemple | remarque |
+
+## Taille et structure
+
+| Élément | Information |
+|---|---|
+| Nombre de lignes | Je ne sais pas encore. |
+| Nombre de colonnes | Je ne sais pas encore. |
+| Structure | Je ne sais pas encore. |
+| Format | Je ne sais pas encore. |
+
+## Concepts enseignables
+
+- importation
+- nettoyage
+- visualisation
+- statistique descriptive
+- communication
+
+## Score zero waste dataset
+
+| Dimension | Score | Justification |
+|---|---:|---|
+| Contexte québécois | 0 | À compléter. |
+| Accessibilité pédagogique | 0 | À compléter. |
+| Qualité documentaire | 0 | À compléter. |
+| Potentiel de nettoyage | 0 | À compléter. |
+| Potentiel de visualisation | 0 | À compléter. |
+| Potentiel de statistique descriptive | 0 | À compléter. |
+| Potentiel d'inférence | 0 | À compléter. |
+| Potentiel de modélisation | 0 | À compléter. |
+| Potentiel de discussion éthique | 0 | À compléter. |
+| Réutilisabilité dans plusieurs cours | 0 | À compléter. |
+
+Total : 0 sur 30.
+
+## Activité courte
+
+Décrire une activité de 30 à 45 minutes.
+
+## Activité longue
+
+Décrire une activité de 2 à 3 heures.
+
+## Projet possible
+
+Décrire un projet de session possible.
+
+## Questions pédagogiques possibles
+
+1. Question à compléter.
+2. Question à compléter.
+3. Question à compléter.
+4. Question à compléter.
+5. Question à compléter.
+6. Question à compléter.
+7. Question à compléter.
+8. Question à compléter.
+
+## Code R minimal
+
+```{r}
+#| eval: false
+library(readr)
+
+donnees <- read_csv("URL_SOURCE_VERIFIEE")
+
+glimpse(donnees)
+```
+
+## Limites et précautions
+
+- À compléter.
+
+## Extensions
+
+- Extension intro : à compléter.
+- Extension intermédiaire : à compléter.
+- Extension avancée : à compléter.
+- Extension communication scientifique : à compléter.
+

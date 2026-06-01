@@ -1,0 +1,46 @@
+---
+title: "Stations RSQAQ - activité courte"
+embed-resources: true
+---
+
+# Stations RSQAQ - activité courte
+
+## Contexte
+
+Vous analysez un répertoire de stations de mesure de la qualité de l'air. Votre tâche est de décrire la structure du réseau, sans interpréter ce fichier comme une mesure de pollution.
+
+## Objectifs d'apprentissage
+
+- Importer un fichier CSV.
+- Convertir des variables de dates.
+- Créer une variable logique.
+- Produire un tableau de fréquences.
+
+## Données utilisées
+
+Source : ministère de l'Environnement, de la Lutte contre les changements climatiques, de la Faune et des Parcs, RSQAQ - Stations de la qualité de l'air, publié sur Données Québec sous licence Attribution (CC-BY 4.0). Fiche : [RSQAQ - Stations de la qualité de l'air](fiche.qmd).
+
+## Consignes
+
+1. Importer le fichier CSV.
+2. Convertir les dates d'ouverture et de fermeture.
+3. Créer une variable `station_active`.
+4. Compter les stations par type de milieu.
+5. Rédiger une phrase qui distingue station de mesure et mesure de qualité de l'air.
+
+## Questions
+
+1. Combien de stations sont recensées?
+2. Quels types de milieux sont présents?
+3. Combien de stations semblent actives selon votre définition?
+4. Comment une valeur manquante dans `DATE_FERMETURE` influence-t-elle l'analyse?
+5. Pourquoi ce fichier ne suffit-il pas pour comparer la pollution entre régions?
+
+## Pistes de solution
+
+Une définition possible de station active est : date de fermeture manquante ou postérieure à la date d'analyse. Cette définition doit être présentée comme une règle de travail à vérifier, pas comme une vérité administrative définitive.
+
+## Prolongement
+
+Créer une visualisation du nombre de stations par région administrative.
+

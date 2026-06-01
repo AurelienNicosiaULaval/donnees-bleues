@@ -1,0 +1,23 @@
+---
+title: "Activités"
+embed-resources: true
+---
+
+# Activités
+
+Les activités sont conçues pour des cours d'introduction à la statistique, à la programmation R ou à la science des données. Elles peuvent être utilisées telles quelles ou adaptées à un contexte de cours.
+
+## Modules transversaux
+
+- [Module visualisation](activities/module-visualisation.qmd)
+- [Module nettoyage](activities/module-nettoyage.qmd)
+- [Module modélisation](activities/module-modelisation.qmd)
+
+## Activités par jeu de données
+
+| Jeu de données | Activité courte | Activité longue |
+|---|---|---|
+| BIXI | [30 à 45 minutes](datasets/bixi/activite-courte.qmd) | [2 à 3 heures](datasets/bixi/activite-longue.qmd) |
+| Bibliothèques publiques | [30 à 45 minutes](datasets/bibliotheques-quebec/activite-courte.qmd) | [2 à 3 heures](datasets/bibliotheques-quebec/activite-longue.qmd) |
+| Stations RSQAQ | [30 à 45 minutes](datasets/qualite-air/activite-courte.qmd) | [2 à 3 heures](datasets/qualite-air/activite-longue.qmd) |
+

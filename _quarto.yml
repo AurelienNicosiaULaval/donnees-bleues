@@ -1,0 +1,45 @@
+project:
+  type: website
+  output-dir: docs
+  render:
+    - "*.qmd"
+    - "datasets/**/*.qmd"
+    - "activities/**/*.qmd"
+    - "!templates/**/*.qmd"
+
+website:
+  title: "Données bleues"
+  site-url: "https://example.org/donnees-bleues"
+  navbar:
+    background: "#003DA5"
+    foreground: "#ffffff"
+    left:
+      - text: "Accueil"
+        href: index.qmd
+      - text: "Catalogue"
+        href: catalogue.qmd
+      - text: "Zero waste dataset"
+        href: zero-waste.qmd
+      - text: "Activités"
+        href: activites.qmd
+      - text: "Contribuer"
+        href: contribuer.qmd
+      - text: "À propos"
+        href: about.qmd
+  page-footer:
+    left: "Données bleues"
+    right: "Ressource pédagogique ouverte en développement"
+
+format:
+  html:
+    theme: cosmo
+    css: styles.css
+    toc: true
+    toc-depth: 3
+    code-copy: true
+    link-external-newwindow: true
+
+execute:
+  warning: false
+  message: false
+  freeze: auto

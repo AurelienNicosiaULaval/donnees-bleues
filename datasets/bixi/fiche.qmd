@@ -1,0 +1,147 @@
+---
+title: "État des stations BIXI"
+embed-resources: true
+---
+
+# État des stations BIXI
+
+## Pourquoi ce jeu est intéressant
+
+Ce jeu de données décrit l'état instantané des stations BIXI à Montréal. Il est utile pour enseigner l'importation de données JSON, les jointures, la construction d'indicateurs simples et la visualisation spatiale de services urbains.
+
+Le contexte est concret : une station a une capacité, une localisation et un nombre de vélos ou de bornes disponibles. Les limites sont également pédagogiques, car un instantané ne permet pas de conclure sur la demande quotidienne ou saisonnière.
+
+## Source
+
+| Champ | Information |
+|---|---|
+| Organisme producteur | BIXI Montréal |
+| URL Données Québec | <https://www.donneesquebec.ca/recherche/dataset/vmtl-bixi-etat-des-stations> |
+| URL du flux GBFS | <https://gbfs.velobixi.com/gbfs/gbfs.json> |
+| Licence | Attribution (CC-BY 4.0) selon Données Québec |
+| Date d'accès | 2026-06-01 |
+| Fréquence de mise à jour | Flux GBFS temps réel; fréquence opérationnelle exacte à vérifier |
+
+## Ce que représente une ligne
+
+Une ligne représente une station BIXI à un instant donné, après jointure entre les informations fixes de la station et son état courant.
+
+## Variables principales
+
+| Variable | Type | Description | Exemple | Remarques pédagogiques |
+|---|---|---|---|---|
+| station_id | caractère | Identifiant de station | 1 | Clé de jointure entre les flux |
+| name | caractère | Nom de la station | Drummond / de Maisonneuve | Variable utile pour vérifier les données |
+| lat | numérique | Latitude | 45.49965 | Base pour une carte simple |
+| lon | numérique | Longitude | -73.57634 | Base pour une carte simple |
+| capacity | entier | Capacité de la station | 27 | Dénominateur pour un taux d'occupation |
+| num_bikes_available | entier | Nombre de vélos disponibles | 15 | Mesure instantanée |
+| num_ebikes_available | entier | Nombre de vélos électriques disponibles | 4 | Permet des proportions |
+| num_docks_available | entier | Nombre de points d'ancrage disponibles | 10 | Complément des vélos disponibles |
+| is_renting | entier | Station disponible pour la location | 1 | Variable binaire |
+| last_reported_datetime | date-heure | Moment du dernier rapport | 2026-06-01 | Variable temporelle |
+
+## Taille et structure
+
+| Élément | Information |
+|---|---|
+| Nombre de lignes | 1065 stations observées le 2026-06-01 |
+| Nombre de colonnes | 25 variables avant sélection dans le script de préparation |
+| Structure | Tabulaire après transformation de deux flux JSON |
+| Format | GBFS JSON |
+
+## Concepts enseignables
+
+- importation JSON;
+- jointure par identifiant;
+- transformation de date-heure;
+- taux et proportions;
+- visualisation de distributions;
+- carte simple avec longitude et latitude;
+- limites d'un instantané;
+- communication d'un résultat opérationnel.
+
+## Score zero waste dataset
+
+| Dimension | Score | Justification |
+|---|---:|---|
+| Contexte québécois | 3 | Le service est ancré dans la mobilité montréalaise. |
+| Accessibilité pédagogique | 3 | Les variables principales sont faciles à comprendre. |
+| Qualité documentaire | 2 | Les flux sont standards, mais certains champs exigent de connaître GBFS. |
+| Potentiel de nettoyage | 2 | La jointure et les types suffisent pour une activité réaliste. |
+| Potentiel de visualisation | 3 | Les coordonnées et les indicateurs de disponibilité sont très visuels. |
+| Potentiel de statistique descriptive | 3 | Les résumés par capacité, disponibilité et proportions sont directs. |
+| Potentiel d'inférence | 2 | Des comparaisons sont possibles, mais l'instantané limite la portée. |
+| Potentiel de modélisation | 2 | Une modélisation exploratoire est possible avec prudence. |
+| Potentiel de discussion éthique | 2 | Le jeu ouvre une discussion sur l'accès territorial aux services. |
+| Réutilisabilité dans plusieurs cours | 3 | Le jeu peut servir en importation, visualisation, cartographie et communication. |
+
+Total : 25 sur 30.
+
+## Activité courte
+
+En 30 à 45 minutes, demander aux personnes étudiantes de calculer le taux d'occupation des stations et de produire un histogramme ou un nuage de points entre capacité et vélos disponibles.
+
+## Activité longue
+
+En 2 à 3 heures, demander de construire un mini-rapport Quarto qui importe les deux flux GBFS, les joint, crée des indicateurs et discute les limites d'une analyse instantanée.
+
+## Projet possible
+
+Construire un tableau de bord statique hebdomadaire à partir de plusieurs instantanés collectés à heures fixes. Le projet pourrait comparer des quartiers, mais il faudrait ajouter une source géographique fiable avant toute conclusion territoriale.
+
+## Questions pédagogiques possibles
+
+1. Quelle est l'unité statistique après jointure?
+2. Quelle variable peut servir de dénominateur pour comparer les stations?
+3. Une station de grande capacité a-t-elle nécessairement plus de vélos disponibles?
+4. Comment détecter les stations installées mais non disponibles à la location?
+5. Pourquoi un instantané ne permet-il pas d'estimer la demande quotidienne?
+6. Quels graphiques conviennent à la distribution du taux d'occupation?
+7. Quelles précautions faut-il prendre avec les coordonnées géographiques?
+8. Quelle information supplémentaire serait nécessaire pour comparer des quartiers?
+
+## Code R minimal
+
+```{r}
+#| eval: false
+library(dplyr)
+library(ggplot2)
+library(jsonlite)
+
+station_information_url <- "https://gbfs.velobixi.com/gbfs/fr/station_information.json"
+station_status_url <- "https://gbfs.velobixi.com/gbfs/fr/station_status.json"
+
+station_information <- fromJSON(station_information_url, flatten = TRUE)$data$stations
+station_status <- fromJSON(station_status_url, flatten = TRUE)$data$stations
+
+stations <- station_information |>
+  left_join(station_status, by = "station_id") |>
+  mutate(taux_occupation = num_bikes_available / capacity)
+
+glimpse(stations)
+
+ggplot(stations, aes(x = taux_occupation)) +
+  geom_histogram(binwidth = 0.1, boundary = 0, fill = "#2f75d6", color = "white") +
+  labs(
+    x = "Taux d'occupation instantané",
+    y = "Nombre de stations",
+    title = "Occupation instantanée des stations BIXI"
+  )
+```
+
+## Limites et précautions
+
+- Les données décrivent un instantané, pas une journée complète.
+- Les valeurs peuvent changer rapidement.
+- La disponibilité observée ne mesure pas directement la demande.
+- Les coordonnées ne suffisent pas à analyser l'équité territoriale sans données de contexte.
+- Les stations temporairement indisponibles doivent être traitées explicitement.
+
+## Extensions
+
+- Extension intro : comparer les distributions de capacité et de vélos disponibles.
+- Extension intermédiaire : créer un indicateur d'occupation et l'analyser par groupes de capacité.
+- Extension avancée : collecter plusieurs instantanés et étudier la variabilité temporelle.
+- Extension communication scientifique : produire une note méthodologique sur ce qu'un flux temps réel permet et ne permet pas de conclure.
+

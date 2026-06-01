@@ -1,0 +1,38 @@
+id: qualite-air
+title: "RSQAQ - Stations de la qualité de l'air"
+short_title: "Stations RSQAQ"
+theme: "Environnement"
+source_name: "Ministère de l’Environnement, de la Lutte contre les changements climatiques, de la Faune et des Parcs"
+source_url: "https://www.donneesquebec.ca/recherche/dataset/rsqaq-stations"
+license: "Attribution (CC-BY 4.0)"
+access_date: "2026-06-01"
+geography: "Québec, hors stations situées sur l'île de Montréal selon la fiche Données Québec"
+unit: "Station de mesure de la qualité de l'air"
+data_type: "Tabulaire, géographique"
+format: "CSV"
+n_rows: "245 lignes pour la ressource 1975-2025"
+n_cols: "10 colonnes"
+update_frequency: "Je ne sais pas encore"
+level: "Introduction à intermédiaire"
+concepts:
+  - importation CSV
+  - dates
+  - données spatiales simples
+  - visualisation
+  - statistique descriptive
+  - couverture territoriale
+  - limites d'interprétation
+zero_waste:
+  contexte_quebecois: 3
+  accessibilite_pedagogique: 3
+  qualite_documentaire: 2
+  potentiel_nettoyage: 2
+  potentiel_visualisation: 3
+  potentiel_statistique_descriptive: 3
+  potentiel_inference: 1
+  potentiel_modelisation: 1
+  potentiel_ethique: 3
+  reutilisabilite: 3
+status: "source vérifiée"
+notes: "Cette fiche porte sur le répertoire des stations, pas sur les concentrations de polluants."
+

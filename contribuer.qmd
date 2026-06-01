@@ -1,0 +1,59 @@
+---
+title: "Contribuer"
+embed-resources: true
+---
+
+# Contribuer
+
+Les contributions doivent améliorer la qualité pédagogique, la vérifiabilité ou la reproductibilité du projet.
+
+## Proposer un jeu de données
+
+Une proposition devrait inclure :
+
+- le nom du jeu de données;
+- l'organisme producteur;
+- l'URL officielle;
+- la licence;
+- la date d'accès;
+- le format;
+- une justification pédagogique;
+- les limites connues.
+
+## Créer une fiche
+
+1. Copier `templates/fiche-dataset-template.qmd`.
+2. Créer un dossier dans `datasets/`.
+3. Ajouter `fiche.qmd`, `activite-courte.qmd`, `activite-longue.qmd`, `preparation.R` et `metadata.yml`.
+4. Vérifier que le script télécharge ou prépare réellement les données.
+5. Exécuter `Rscript scripts/check_datasets.R`.
+
+## Documenter la source
+
+Une fiche ne doit pas prétendre qu'une donnée existe si le script ne peut pas la télécharger ou si l'URL n'a pas été vérifiée. Si une information manque, écrire clairement : Je ne sais pas encore.
+
+## Ajouter un score zero waste
+
+Le score doit être argumenté. Il peut être révisé après une utilisation en classe.
+
+## Ouvrir une pull request
+
+Pour un dépôt GitHub, utiliser de préférence une URL SSH :
+
+```bash
+git remote add origin git@github.com:utilisateur/donnees-bleues.git
+git checkout -b ajout-nouveau-dataset
+git add .
+git commit -m "Ajouter une fiche de jeu de données"
+git push -u origin ajout-nouveau-dataset
+```
+
+## Principes de qualité
+
+- Les sources sont vérifiées.
+- Les licences sont visibles.
+- Les scripts sont reproductibles.
+- Les chemins sont relatifs au projet.
+- Les activités sont réalistes pour le niveau visé.
+- Les limites d'interprétation sont explicites.
+

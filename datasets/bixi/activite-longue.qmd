@@ -1,0 +1,52 @@
+---
+title: "BIXI - activité longue"
+embed-resources: true
+---
+
+# BIXI - activité longue
+
+## Mise en situation professionnelle
+
+Une équipe pédagogique souhaite préparer une courte note sur l'état instantané d'un service de vélopartage. Votre rôle est de produire un mini-rapport reproductible qui décrit les stations, calcule des indicateurs simples et signale les limites d'interprétation.
+
+## Livrable attendu
+
+Un document Quarto de 3 à 5 pages contenant le code, les tableaux, au moins deux graphiques et une section de limites.
+
+## Étapes
+
+1. Importer les flux GBFS.
+2. Joindre les informations de stations et l'état courant.
+3. Créer les variables `taux_occupation` et `part_velos_electriques`.
+4. Produire un tableau de résumé.
+5. Produire un histogramme du taux d'occupation.
+6. Produire une carte simple avec longitude et latitude.
+7. Rédiger une interprétation prudente.
+
+## Critères d'évaluation
+
+| Critère | Attendu |
+|---|---|
+| Reproductibilité | Le rapport se rend sans modification. |
+| Nettoyage | Les jointures et variables dérivées sont explicites. |
+| Visualisation | Les graphiques sont lisibles et adaptés. |
+| Interprétation | Les limites d'un instantané sont claires. |
+| Communication | Les résultats principaux sont compréhensibles pour un lectorat non technique. |
+
+## Questions d'analyse
+
+1. Les stations de grande capacité ont-elles plus de vélos disponibles en valeur absolue?
+2. Les stations presque vides et presque pleines demandent-elles la même interprétation?
+3. Comment distinguer disponibilité opérationnelle et demande des usagers?
+4. Quelles données complémentaires seraient nécessaires pour une analyse temporelle?
+
+## Pistes de solution
+
+Un bon rapport distingue les variables fixes de la station et les variables instantanées. Les cartes doivent être interprétées comme une visualisation de points, pas comme une analyse de quartiers.
+
+## Variantes possibles
+
+- Comparer les vélos classiques et électriques.
+- Filtrer les stations non disponibles à la location.
+- Collecter deux instantanés à des moments différents et comparer les changements.
+

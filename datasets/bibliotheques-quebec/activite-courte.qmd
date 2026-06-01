@@ -1,0 +1,46 @@
+---
+title: "Bibliothèques publiques - activité courte"
+embed-resources: true
+---
+
+# Bibliothèques publiques - activité courte
+
+## Contexte
+
+Les bibliothèques publiques produisent des statistiques annuelles sur leurs services. Vous devez construire un indicateur simple de fréquentation et l'interpréter avec prudence.
+
+## Objectifs d'apprentissage
+
+- Importer un CSV avec séparateur point-virgule.
+- Sélectionner des variables pertinentes dans un fichier large.
+- Calculer un ratio.
+- Produire un graphique descriptif.
+
+## Données utilisées
+
+Source : Bibliothèque et Archives nationales du Québec, Statistiques des bibliothèques publiques du Québec, publié sur Données Québec sous licence Attribution (CC-BY 4.0). Fiche : [Statistiques des bibliothèques publiques du Québec](fiche.qmd).
+
+## Consignes
+
+1. Importer la ressource 2024.
+2. Sélectionner le nom de la bibliothèque, la région, la population desservie et les visites totales.
+3. Calculer les visites par habitant.
+4. Produire un histogramme des visites par habitant.
+5. Écrire trois phrases d'interprétation.
+
+## Questions
+
+1. Pourquoi les visites totales ne suffisent-elles pas pour comparer les bibliothèques?
+2. Quelle est la distribution des visites par habitant?
+3. Certaines valeurs semblent-elles atypiques?
+4. Quelles vérifications faut-il faire avant de commenter les valeurs extrêmes?
+5. Quelles limites le jeu de données impose-t-il?
+
+## Pistes de solution
+
+Une comparaison pertinente doit tenir compte de la population desservie. Les valeurs extrêmes doivent être vérifiées dans les données et dans la documentation avant d'être interprétées comme des situations réelles.
+
+## Prolongement
+
+Comparer les visites par habitant entre régions administratives au moyen d'un graphique en boîtes.
+

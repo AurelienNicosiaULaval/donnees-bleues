@@ -1,0 +1,28 @@
+---
+title: "Références et sources"
+embed-resources: true
+---
+
+# Références et sources
+
+Cette page liste les sources générales et les sources de données utilisées dans le MVP. Les liens ont été vérifiés le 2026-06-01.
+
+## Sources générales
+
+- Données Québec. Portail de données ouvertes du Québec. <https://www.donneesquebec.ca/>
+- Données Québec. API CKAN du portail. <https://www.donneesquebec.ca/recherche/api/3/action/package_search?q=*:*>
+- CKAN. Documentation officielle de l'API. <https://docs.ckan.org/en/latest/api/>
+- Quarto. Documentation officielle des sites web. <https://quarto.org/docs/websites/>
+- Creative Commons. Licence Attribution 4.0 International. <https://creativecommons.org/licenses/by/4.0/>
+
+## Sources de données du MVP
+
+- BIXI Montréal. État des stations, jeu de données publié sur Données Québec. <https://www.donneesquebec.ca/recherche/dataset/vmtl-bixi-etat-des-stations>
+- BIXI Montréal. Flux GBFS. <https://gbfs.velobixi.com/gbfs/gbfs.json>
+- Bibliothèque et Archives nationales du Québec. Statistiques des bibliothèques publiques du Québec, jeu de données publié sur Données Québec. <https://www.donneesquebec.ca/recherche/dataset/statistiques_des_bibliotheques_publiques_du_quebec>
+- Ministère de l'Environnement, de la Lutte contre les changements climatiques, de la Faune et des Parcs. RSQAQ - Stations de la qualité de l'air, jeu de données publié sur Données Québec. <https://www.donneesquebec.ca/recherche/dataset/rsqaq-stations>
+
+## Notes
+
+Les scores zero waste dataset sont des évaluations pédagogiques internes au projet. Ils ne proviennent pas des organismes producteurs.
+

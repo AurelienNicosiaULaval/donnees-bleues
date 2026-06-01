@@ -1,0 +1,43 @@
+---
+title: "Titre de l'activité"
+embed-resources: true
+---
+
+# Titre de l'activité
+
+## Contexte
+
+Décrire brièvement la situation.
+
+## Objectifs d'apprentissage
+
+- Objectif 1.
+- Objectif 2.
+- Objectif 3.
+
+## Données utilisées
+
+Indiquer la source vérifiée, la licence et le lien vers la fiche.
+
+## Consignes
+
+1. Importer les données.
+2. Examiner la structure.
+3. Produire un résumé.
+4. Produire une visualisation.
+5. Interpréter les résultats avec prudence.
+
+## Questions
+
+1. Question 1.
+2. Question 2.
+3. Question 3.
+
+## Pistes de solution
+
+Décrire les résultats attendus sans imposer une seule réponse.
+
+## Prolongement
+
+Proposer une extension réaliste.
+

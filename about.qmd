@@ -1,0 +1,36 @@
+---
+title: "À propos"
+embed-resources: true
+---
+
+# À propos
+
+Données bleues est un projet d'infrastructure pédagogique ouverte pour l'enseignement de la statistique, de la programmation R et de la science des données à partir de données québécoises.
+
+## Vision
+
+Le projet repose sur une idée simple : les jeux de données utilisés en classe gagnent à être contextualisés, documentés et réutilisables. Une même source peut servir à apprendre l'importation, le nettoyage, la visualisation, l'inférence, la modélisation, la communication et la reproductibilité.
+
+## Objectifs
+
+- Promouvoir les données ouvertes québécoises dans l'enseignement universitaire.
+- Contextualiser l'apprentissage à partir de situations proches des personnes étudiantes.
+- Développer une culture de la donnée publique et de ses limites.
+- Favoriser la reproductibilité avec Quarto, R et des scripts explicites.
+- Soutenir la création de ressources éducatives libres.
+- Éviter les jeux de données utilisés une seule fois puis oubliés.
+
+## Positionnement pédagogique
+
+Données bleues ne vise pas à remplacer les jeux de données classiques. Le projet propose plutôt une base de ressources où la provenance, la documentation, les limites et les usages pédagogiques sont traités comme des éléments centraux.
+
+Le choix d'un jeu de données ne devrait pas seulement dépendre de son nombre de lignes ou de colonnes. Il devrait aussi tenir compte de son coût cognitif d'entrée, de sa documentation, de sa pertinence territoriale, de ses ambiguïtés et des discussions qu'il rend possibles.
+
+## Reproductibilité
+
+Chaque fiche est accompagnée d'un script de préparation. Les scripts n'utilisent pas de chemins absolus et peuvent être exécutés depuis la racine du projet.
+
+## Sources
+
+Les sources générales et les fiches de données utilisées dans le MVP sont listées dans la page [Références](references.qmd).
+

@@ -1,0 +1,153 @@
+---
+title: "Statistiques des bibliothèques publiques du Québec"
+embed-resources: true
+---
+
+# Statistiques des bibliothèques publiques du Québec
+
+## Pourquoi ce jeu est intéressant
+
+Ce jeu de données décrit les bibliothèques publiques du Québec à partir de nombreuses variables administratives, financières et de fréquentation. Il permet d'enseigner le nettoyage de fichiers larges, les ratios, les comparaisons régionales et les limites des indicateurs de services publics.
+
+Il est particulièrement riche pour un cours de science des données, car les variables sont nombreuses, les noms sont longs, les nombres utilisent une convention française et plusieurs indicateurs doivent être interprétés relativement à la population desservie.
+
+## Source
+
+| Champ | Information |
+|---|---|
+| Organisme producteur | Bibliothèque et Archives nationales du Québec |
+| URL | <https://www.donneesquebec.ca/recherche/dataset/statistiques_des_bibliotheques_publiques_du_quebec> |
+| Ressource utilisée | Statistiques annuelles des bibliothèques publiques 2024 |
+| Licence | Attribution (CC-BY 4.0) selon Données Québec |
+| Date d'accès | 2026-06-01 |
+| Fréquence de mise à jour | Série annuelle; calendrier de publication exact à vérifier |
+
+## Ce que représente une ligne
+
+Une ligne représente une bibliothèque publique ou un centre régional dans la ressource annuelle utilisée.
+
+## Variables principales
+
+| Variable | Type | Description | Exemple | Remarques pédagogiques |
+|---|---|---|---|---|
+| Bibliothèque ou Centre régional | caractère | Nom de l'établissement ou du réseau | Alma | Identifiant lisible |
+| Région administrative | caractère | Région administrative du Québec | 02: Saguenay-Lac-Saint-Jean | Variable de groupe |
+| Population desservie | numérique | Population associée au service | 30649 | Dénominateur pour les ratios |
+| Visites (Total) | numérique | Nombre total de visites | 55024 | Peut être rapporté à la population |
+| Prêts / Tous les doc. (Total) | numérique | Nombre total de prêts | 153411 | Variable de fréquentation |
+| Usagers inscrits (Total) | numérique | Nombre d'usagers inscrits | 9732 | Base pour des taux |
+| Progr. / Toutes les activités (Total) | numérique | Nombre d'activités | 450 | Indicateur de programmation |
+| Dép. fonct. / Toutes les dépenses ($) | numérique | Dépenses de fonctionnement | 1166488,45 | Variable financière |
+
+## Taille et structure
+
+| Élément | Information |
+|---|---|
+| Nombre de lignes | 188 lignes pour la ressource 2024 |
+| Nombre de colonnes | 262 colonnes pour la ressource 2024 |
+| Structure | Tabulaire large |
+| Format | CSV séparé par point-virgule |
+
+## Concepts enseignables
+
+- importation CSV avec séparateur point-virgule;
+- nettoyage de noms de variables;
+- conversion de nombres avec virgule décimale;
+- sélection de variables;
+- ratios par population;
+- group_by et summarise;
+- visualisation de comparaisons régionales;
+- régression exploratoire;
+- discussion sur les indicateurs de services publics.
+
+## Score zero waste dataset
+
+| Dimension | Score | Justification |
+|---|---:|---|
+| Contexte québécois | 3 | Le jeu décrit des bibliothèques publiques québécoises. |
+| Accessibilité pédagogique | 2 | Le thème est accessible, mais le fichier est large. |
+| Qualité documentaire | 3 | Un dictionnaire de données est disponible sur la fiche Données Québec. |
+| Potentiel de nettoyage | 3 | Le fichier contient plusieurs défis réalistes de préparation. |
+| Potentiel de visualisation | 3 | Les comparaisons régionales et les ratios sont adaptés aux graphiques. |
+| Potentiel de statistique descriptive | 3 | Plusieurs variables quantitatives sont directement résumables. |
+| Potentiel d'inférence | 2 | Des comparaisons sont possibles, avec prudence sur l'échantillonnage. |
+| Potentiel de modélisation | 3 | Les variables permettent des modèles exploratoires simples. |
+| Potentiel de discussion éthique | 3 | Les indicateurs peuvent être discutés sous l'angle de l'accès aux services. |
+| Réutilisabilité dans plusieurs cours | 3 | Le même jeu peut soutenir nettoyage, EDA, modélisation et communication. |
+
+Total : 28 sur 30.
+
+## Activité courte
+
+En 30 à 45 minutes, faire importer la ressource 2024, sélectionner cinq variables, calculer les visites par habitant et produire un graphique de comparaison.
+
+## Activité longue
+
+En 2 à 3 heures, faire produire un rapport sur les relations entre population desservie, visites, prêts et dépenses de fonctionnement.
+
+## Projet possible
+
+Construire un portrait régional des bibliothèques publiques du Québec, avec un tableau de bord statique et une discussion sur les limites des indicateurs administratifs.
+
+## Questions pédagogiques possibles
+
+1. Quelle est l'unité statistique du fichier?
+2. Pourquoi faut-il rapporter certaines variables à la population desservie?
+3. Quels problèmes causent les noms de colonnes très longs?
+4. Comment vérifier que les nombres avec virgule décimale ont été bien importés?
+5. La région administrative suffit-elle à expliquer les différences de visites?
+6. Quelle différence y a-t-il entre visites, prêts et usagers inscrits?
+7. Quelles variables devraient être transformées avant une régression?
+8. Quelles conclusions seraient trop fortes avec ces données administratives?
+
+## Code R minimal
+
+```{r}
+#| eval: false
+library(dplyr)
+library(ggplot2)
+library(readr)
+library(stringr)
+
+data_url <- "https://www.donneesquebec.ca/recherche/dataset/231a38a8-f28e-4bef-82ea-dc98a14c1b6f/resource/01183d3e-c79c-4d09-915c-f35ffe4dfda8/download/statistiques_bibliotheques_quebec_2024.csv"
+
+bibliotheques <- read_delim(
+  data_url,
+  delim = ";",
+  locale = locale(encoding = "UTF-8", decimal_mark = ","),
+  show_col_types = FALSE
+)
+
+glimpse(bibliotheques)
+
+bibliotheques |>
+  transmute(
+    bibliotheque = `Bibliothèque ou Centre régional`,
+    population = parse_number(as.character(`Population desservie`), locale = locale(decimal_mark = ",")),
+    visites = parse_number(as.character(`Visites (Total)`), locale = locale(decimal_mark = ",")),
+    visites_par_habitant = visites / population
+  ) |>
+  filter(!is.na(visites_par_habitant), population > 0) |>
+  ggplot(aes(x = visites_par_habitant)) +
+  geom_histogram(binwidth = 0.5, fill = "#2f75d6", color = "white") +
+  labs(
+    x = "Visites par habitant",
+    y = "Nombre de bibliothèques",
+    title = "Distribution des visites par habitant"
+  )
+```
+
+## Limites et précautions
+
+- Les variables sont administratives et ne mesurent pas directement la qualité du service.
+- Les comparaisons doivent tenir compte de la population desservie.
+- Les pratiques de déclaration peuvent varier entre organisations.
+- Le fichier est large; une activité d'introduction devrait réduire le nombre de variables.
+- Les relations observées ne doivent pas être interprétées causalement sans plan d'analyse adapté.
+
+## Extensions
+
+- Extension intro : nettoyer les noms de variables et calculer trois ratios.
+- Extension intermédiaire : comparer les régions administratives.
+- Extension avancée : modéliser les visites en fonction de la population et de variables de service.
+- Extension communication scientifique : rédiger un portrait régional en une page avec limites méthodologiques.

@@ -1,0 +1,45 @@
+---
+title: "Catalogue"
+embed-resources: true
+---
+
+# Catalogue
+
+Le catalogue est généré à partir des fichiers `metadata.yml` placés dans chaque dossier de jeu de données.
+
+```{r}
+#| label: catalogue-table
+#| echo: false
+#| results: asis
+library(dplyr)
+library(readr)
+library(stringr)
+
+catalogue_path <- "data/metadata/catalogue.csv"
+
+if (file.exists(catalogue_path)) {
+  catalogue <- read_csv(catalogue_path, show_col_types = FALSE)
+
+  cat("::: {.card-grid}\n")
+
+  for (i in seq_len(nrow(catalogue))) {
+    row <- catalogue[i, ]
+    fiche_html <- str_replace(row$fiche, "\\.qmd$", ".html")
+
+    cat("::: {.db-card}\n")
+    cat("### [", row$title, "](", fiche_html, ")\n\n", sep = "")
+    cat("- Source : ", row$source_name, "\n", sep = "")
+    cat("- Thème : ", row$theme, "\n", sep = "")
+    cat("- Taille : ", row$n_rows, "; ", row$n_cols, "\n", sep = "")
+    cat("- Type : ", row$data_type, "\n", sep = "")
+    cat("- Niveau : ", row$level, "\n", sep = "")
+    cat("- Score zero waste : ", row$zero_waste_score, "/30\n", sep = "")
+    cat("- Concepts : ", str_replace_all(row$concepts, "; ", ", "), "\n", sep = "")
+    cat(":::\n\n")
+  }
+
+  cat(":::\n")
+} else {
+  cat("Le catalogue n'a pas encore été généré. Exécuter `Rscript scripts/build_catalogue.R`.")
+}
+```

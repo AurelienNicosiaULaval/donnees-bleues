@@ -1,0 +1,33 @@
+---
+title: "Module nettoyage"
+embed-resources: true
+---
+
+# Module nettoyage
+
+## Objectif
+
+Faire comprendre que le nettoyage est une étape analytique documentée, pas seulement une opération technique.
+
+## Jeux de données suggérés
+
+- Bibliothèques publiques pour les noms de variables longs, les nombres avec virgules décimales et les colonnes nombreuses.
+- BIXI pour les jointures entre description de station et état instantané.
+- Stations RSQAQ pour les dates d'ouverture, dates de fermeture et valeurs manquantes.
+
+## Déroulement
+
+1. Importer les données.
+2. Examiner les noms de variables.
+3. Identifier les types mal lus ou ambigus.
+4. Créer une version réduite contenant les variables utiles.
+5. Justifier chaque transformation.
+
+## Livrable
+
+Un script R commenté et un court paragraphe expliquant les décisions de nettoyage.
+
+## Discussion
+
+Un nettoyage acceptable dépend de la question d'analyse. Les choix doivent être reproductibles et visibles.
+

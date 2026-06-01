@@ -1,0 +1,47 @@
+source("R/utils_catalogue.R")
+source("R/utils_zero_waste.R")
+
+required_files <- c("fiche.qmd", "activite-courte.qmd", "activite-longue.qmd", "preparation.R", "metadata.yml")
+required_fields <- c(
+  "id", "title", "short_title", "theme", "source_name", "source_url",
+  "license", "access_date", "geography", "unit", "data_type", "format",
+  "n_rows", "n_cols", "update_frequency", "level", "concepts",
+  "zero_waste", "status"
+)
+
+dataset_dirs <- list.dirs("datasets", full.names = TRUE, recursive = FALSE)
+
+if (length(dataset_dirs) == 0L) {
+  stop("Aucun dossier trouvé dans datasets/.", call. = FALSE)
+}
+
+errors <- character()
+
+for (dataset_dir in dataset_dirs) {
+  missing_files <- required_files[!file.exists(file.path(dataset_dir, required_files))]
+  if (length(missing_files) > 0L) {
+    errors <- c(errors, paste(dataset_dir, "fichiers manquants :", paste(missing_files, collapse = ", ")))
+    next
+  }
+
+  metadata <- read_dataset_metadata(dataset_dir)
+  missing_fields <- required_fields[!required_fields %in% names(metadata)]
+  if (length(missing_fields) > 0L) {
+    errors <- c(errors, paste(dataset_dir, "champs metadata manquants :", paste(missing_fields, collapse = ", ")))
+  }
+
+  tryCatch(
+    validate_zero_waste_score(metadata$zero_waste),
+    error = function(e) {
+      errors <<- c(errors, paste(dataset_dir, "score zero waste invalide :", conditionMessage(e)))
+    }
+  )
+}
+
+if (length(errors) > 0L) {
+  cat(paste(errors, collapse = "\n"), "\n")
+  stop("La vérification des jeux de données a échoué.", call. = FALSE)
+}
+
+message("Tous les jeux de données déclarés sont cohérents.")
+

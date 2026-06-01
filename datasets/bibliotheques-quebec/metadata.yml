@@ -1,0 +1,39 @@
+id: bibliotheques-quebec
+title: "Statistiques des bibliothèques publiques du Québec"
+short_title: "Bibliothèques publiques"
+theme: "Culture et services publics"
+source_name: "Bibliothèque et Archives nationales du Québec"
+source_url: "https://www.donneesquebec.ca/recherche/dataset/statistiques_des_bibliotheques_publiques_du_quebec"
+license: "Attribution (CC-BY 4.0)"
+access_date: "2026-06-01"
+geography: "Québec"
+unit: "Bibliothèque publique ou centre régional"
+data_type: "Tabulaire"
+format: "CSV séparé par point-virgule"
+n_rows: "188 lignes pour la ressource 2024"
+n_cols: "262 colonnes pour la ressource 2024"
+update_frequency: "Série annuelle; calendrier de publication exact à vérifier"
+level: "Introduction à avancé"
+concepts:
+  - importation CSV
+  - nettoyage de noms de variables
+  - statistique descriptive
+  - visualisation
+  - ratios
+  - comparaison régionale
+  - régression
+  - discussion éthique
+zero_waste:
+  contexte_quebecois: 3
+  accessibilite_pedagogique: 2
+  qualite_documentaire: 3
+  potentiel_nettoyage: 3
+  potentiel_visualisation: 3
+  potentiel_statistique_descriptive: 3
+  potentiel_inference: 2
+  potentiel_modelisation: 3
+  potentiel_ethique: 3
+  reutilisabilite: 3
+status: "source vérifiée"
+notes: "La ressource 2024 et le dictionnaire de données sont disponibles sur Données Québec."
+

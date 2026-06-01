@@ -1,0 +1,33 @@
+---
+title: "Module modélisation"
+embed-resources: true
+---
+
+# Module modélisation
+
+## Objectif
+
+Introduire la modélisation comme un outil de résumé et de comparaison, en insistant sur les limites des données observationnelles.
+
+## Jeux de données suggérés
+
+- Bibliothèques publiques pour expliquer une variable quantitative, par exemple les visites ou les prêts, à partir de la population desservie et de caractéristiques de service.
+- BIXI pour modéliser un indicateur instantané d'occupation des stations, avec prudence puisque les données changent rapidement.
+- Stations RSQAQ pour discuter pourquoi un répertoire de stations ne suffit pas à conclure sur la qualité de l'air.
+
+## Déroulement
+
+1. Formuler une question modélisable.
+2. Identifier la variable réponse et les variables explicatives.
+3. Produire une visualisation préalable.
+4. Ajuster un modèle simple.
+5. Vérifier les hypothèses de base.
+6. Interpréter les coefficients avec prudence.
+
+## Critères d'évaluation
+
+- La question est compatible avec les données.
+- La variable réponse est définie correctement.
+- Les limites causales sont explicites.
+- Le code est reproductible.
+
