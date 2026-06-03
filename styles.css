@@ -74,6 +74,65 @@ a {
   color: var(--db-muted);
 }
 
+.activity-card {
+  min-height: 260px;
+}
+
+.activity-card ul {
+  padding-left: 1.1rem;
+}
+
+.activity-card li {
+  margin-bottom: 0.3rem;
+}
+
+.activity-question {
+  color: var(--db-ink);
+  font-size: 1rem;
+  line-height: 1.45;
+  margin-bottom: 0.8rem;
+}
+
+.tag-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  margin: 0.75rem 0;
+}
+
+.tag {
+  background: var(--db-blue-soft);
+  border: 1px solid var(--db-border);
+  border-radius: 6px;
+  color: var(--db-blue);
+  display: inline-block;
+  font-size: 0.86rem;
+  line-height: 1.2;
+  padding: 0.2rem 0.45rem;
+}
+
+.facet-grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  margin: 1rem 0 2rem;
+}
+
+.facet-block {
+  border-left: 3px solid var(--db-blue-mid);
+  padding-left: 0.9rem;
+}
+
+.facet-block h3 {
+  font-size: 1rem;
+  margin-bottom: 0.45rem;
+}
+
+.facet-block ul {
+  color: var(--db-muted);
+  margin-bottom: 0;
+}
+
 .callout-note {
   border-left-color: var(--db-blue-mid);
 }

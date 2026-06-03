@@ -69,7 +69,7 @@ install.packages(c(
 
 ## Construire le catalogue
 
-Le catalogue est généré à partir des fichiers `metadata.yml`.
+Le catalogue des jeux de données est généré à partir des fichiers `metadata.yml`.
 
 ```bash
 Rscript scripts/build_catalogue.R
@@ -82,13 +82,26 @@ data/metadata/catalogue.csv
 data/metadata/catalogue.rds
 ```
 
+Le catalogue des activités est généré à partir des fichiers `activite-*.yml`.
+
+```bash
+Rscript scripts/build_activity_catalogue.R
+```
+
+Cette commande produit :
+
+```text
+data/metadata/catalogue_activites.csv
+data/metadata/catalogue_activites.rds
+```
+
 ## Vérifier les fiches
 
 ```bash
 Rscript scripts/check_datasets.R
 ```
 
-La vérification contrôle la présence des fichiers obligatoires, les champs des métadonnées et les scores zero waste dataset.
+La vérification contrôle la présence des fichiers obligatoires, les champs des métadonnées, les scores zero waste dataset et les métadonnées des activités.
 
 ## Préparer les données
 
@@ -135,12 +148,14 @@ Créer un workflow GitHub Actions qui installe R, installe les packages, génèr
 3. Remplir `metadata.yml`.
 4. Rédiger `fiche.qmd`.
 5. Ajouter `activite-courte.qmd` et `activite-longue.qmd`.
-6. Écrire `preparation.R`.
-7. Exécuter :
+6. Ajouter `activite-courte.yml` et `activite-longue.yml`.
+7. Écrire `preparation.R`.
+8. Exécuter :
 
 ```bash
 Rscript scripts/check_datasets.R
 Rscript scripts/build_catalogue.R
+Rscript scripts/build_activity_catalogue.R
 quarto render
 ```
 
@@ -152,6 +167,7 @@ Le MVP contient :
 - une identité éditoriale en français;
 - trois fiches de jeux de données québécois;
 - six activités pédagogiques;
+- un catalogue d'activités indexé par question, niveau, type, concept, contexte et accroche;
 - trois modules transversaux;
 - des scripts R de préparation;
 - des fonctions utilitaires CKAN, catalogue et zero waste dataset;
@@ -175,6 +191,6 @@ Le MVP contient :
 - Ajouter une interface de contribution.
 - Ajouter des corrigés enseignants.
 - Ajouter des activités Quarto ou learnr.
+- Ajouter un filtre interactif pour chercher une activité par concept, niveau, durée ou accroche.
 - Ajouter une version anglaise éventuellement.
 - Ajouter une API ou un script de moissonnage Données Québec.
-

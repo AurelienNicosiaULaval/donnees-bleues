@@ -1,0 +1,25 @@
+id: bixi-disponibilite-stations-court
+title: "Disponibilité instantanée des stations BIXI"
+question: "Comment décrire la disponibilité des vélos BIXI dans un instantané?"
+dataset_id: bixi
+dataset_title: "État des stations BIXI"
+activity_url: "datasets/bixi/activite-courte.qmd"
+duration: "30-45 minutes"
+level: "Introductif"
+activity_type:
+  - "Exercice"
+  - "Exploration de données"
+concepts:
+  - "Données et mesure"
+  - "Statistique descriptive"
+  - "Visualisation"
+context: "Mobilité urbaine"
+hook: "Données en temps réel"
+materials:
+  - "énoncé"
+  - "code"
+  - "données"
+advanced_math_stats: false
+teacher_notes: "Prévoir une discussion sur la différence entre disponibilité instantanée et demande réelle."
+status: "prêt"
+

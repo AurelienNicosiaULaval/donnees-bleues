@@ -1,0 +1,25 @@
+id: rsqaq-stations-actives-court
+title: "Stations actives et types de milieux"
+question: "Comment définir une station active dans un répertoire environnemental?"
+dataset_id: qualite-air
+dataset_title: "RSQAQ - Stations de la qualité de l'air"
+activity_url: "datasets/qualite-air/activite-courte.qmd"
+duration: "30-45 minutes"
+level: "Introductif"
+activity_type:
+  - "Exercice"
+  - "Illustration de concept"
+concepts:
+  - "Données et mesure"
+  - "Statistique descriptive"
+  - "Visualisation"
+context: "Environnement"
+hook: "Défi de mesure"
+materials:
+  - "énoncé"
+  - "code"
+  - "données"
+advanced_math_stats: false
+teacher_notes: "Faire expliciter la règle utilisée pour traiter les dates de fermeture manquantes."
+status: "prêt"
+

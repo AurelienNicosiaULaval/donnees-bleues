@@ -1,0 +1,28 @@
+id: bibliotheques-portrait-regional-long
+title: "Portrait régional des bibliothèques publiques"
+question: "Comment construire des indicateurs comparables à partir de données administratives?"
+dataset_id: bibliotheques-quebec
+dataset_title: "Statistiques des bibliothèques publiques du Québec"
+activity_url: "datasets/bibliotheques-quebec/activite-longue.qmd"
+duration: "2-3 heures"
+level: "Intermédiaire"
+activity_type:
+  - "Étude de cas"
+  - "Projet ou tâche longue"
+  - "Exploration de données"
+concepts:
+  - "Données et mesure"
+  - "Statistique descriptive"
+  - "Modélisation et relations"
+  - "Communication"
+context: "Culture et services publics"
+hook: "Pertinence politique"
+materials:
+  - "énoncé"
+  - "code"
+  - "données"
+  - "notes enseignantes"
+advanced_math_stats: false
+teacher_notes: "Présenter la modélisation comme exploratoire et éviter les conclusions causales."
+status: "prêt"
+

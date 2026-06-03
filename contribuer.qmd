@@ -25,8 +25,23 @@ Une proposition devrait inclure :
 1. Copier `templates/fiche-dataset-template.qmd`.
 2. Créer un dossier dans `datasets/`.
 3. Ajouter `fiche.qmd`, `activite-courte.qmd`, `activite-longue.qmd`, `preparation.R` et `metadata.yml`.
-4. Vérifier que le script télécharge ou prépare réellement les données.
-5. Exécuter `Rscript scripts/check_datasets.R`.
+4. Ajouter `activite-courte.yml` et `activite-longue.yml` pour alimenter le catalogue des activités.
+5. Vérifier que le script télécharge ou prépare réellement les données.
+6. Exécuter `Rscript scripts/check_datasets.R`.
+
+## Décrire une activité
+
+Une activité doit être indexée comme un objet pédagogique autonome. Les champs les plus utiles sont :
+
+- une question directrice;
+- les concepts visés;
+- le niveau;
+- le type d'activité;
+- le contexte;
+- l'accroche;
+- la durée;
+- le matériel disponible;
+- la présence ou non de math/stats avancées.
 
 ## Documenter la source
 
@@ -56,4 +71,3 @@ git push -u origin ajout-nouveau-dataset
 - Les chemins sont relatifs au projet.
 - Les activités sont réalistes pour le niveau visé.
 - Les limites d'interprétation sont explicites.
-

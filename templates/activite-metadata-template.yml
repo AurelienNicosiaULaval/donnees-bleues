@@ -1,0 +1,23 @@
+id:
+title:
+question:
+dataset_id:
+dataset_title:
+activity_url:
+duration:
+level:
+activity_type:
+  - "Exercice"
+concepts:
+  - "Données et mesure"
+  - "Statistique descriptive"
+context:
+hook:
+materials:
+  - "énoncé"
+  - "code"
+  - "données"
+advanced_math_stats: false
+teacher_notes:
+status:
+

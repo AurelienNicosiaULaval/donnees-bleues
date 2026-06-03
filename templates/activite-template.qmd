@@ -19,6 +19,20 @@ Décrire brièvement la situation.
 
 Indiquer la source vérifiée, la licence et le lien vers la fiche.
 
+## Métadonnées pédagogiques
+
+| Champ | Information |
+|---|---|
+| Question directrice | À compléter. |
+| Concepts | À compléter. |
+| Niveau | À compléter. |
+| Type | À compléter. |
+| Contexte | À compléter. |
+| Accroche | À compléter. |
+| Durée | À compléter. |
+| Matériel | À compléter. |
+| Math/stats avancées | À compléter. |
+
 ## Consignes
 
 1. Importer les données.
@@ -40,4 +54,3 @@ Décrire les résultats attendus sans imposer une seule réponse.
 ## Prolongement
 
 Proposer une extension réaliste.
-

@@ -1,6 +1,8 @@
 project:
   type: website
   output-dir: docs
+  resources:
+    - favicon.svg
   render:
     - "*.qmd"
     - "datasets/**/*.qmd"
@@ -10,6 +12,7 @@ project:
 website:
   title: "Données bleues"
   site-url: "https://aureliennicosiaulaval.github.io/donnees-bleues/"
+  favicon: favicon.svg
   navbar:
     background: "#003DA5"
     foreground: "#ffffff"
@@ -32,7 +35,7 @@ website:
 
 format:
   html:
-    theme: cosmo
+    theme: default
     css: styles.css
     toc: true
     toc-depth: 3

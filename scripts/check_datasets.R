@@ -1,7 +1,16 @@
 source("R/utils_catalogue.R")
 source("R/utils_zero_waste.R")
+source("R/utils_activities.R")
 
-required_files <- c("fiche.qmd", "activite-courte.qmd", "activite-longue.qmd", "preparation.R", "metadata.yml")
+required_files <- c(
+  "fiche.qmd",
+  "activite-courte.qmd",
+  "activite-courte.yml",
+  "activite-longue.qmd",
+  "activite-longue.yml",
+  "preparation.R",
+  "metadata.yml"
+)
 required_fields <- c(
   "id", "title", "short_title", "theme", "source_name", "source_url",
   "license", "access_date", "geography", "unit", "data_type", "format",
@@ -38,10 +47,26 @@ for (dataset_dir in dataset_dirs) {
   )
 }
 
+catalogue_activites <- build_activity_catalogue("datasets")
+validate_activity_catalogue(catalogue_activites)
+
+missing_activity_pages <- catalogue_activites$activity_url[
+  !file.exists(catalogue_activites$activity_url)
+]
+
+if (length(missing_activity_pages) > 0L) {
+  errors <- c(
+    errors,
+    paste(
+      "Pages d'activités introuvables :",
+      paste(missing_activity_pages, collapse = ", ")
+    )
+  )
+}
+
 if (length(errors) > 0L) {
   cat(paste(errors, collapse = "\n"), "\n")
   stop("La vérification des jeux de données a échoué.", call. = FALSE)
 }
 
-message("Tous les jeux de données déclarés sont cohérents.")
-
+message("Tous les jeux de données et activités déclarés sont cohérents.")

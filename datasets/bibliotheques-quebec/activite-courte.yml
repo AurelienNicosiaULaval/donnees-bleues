@@ -1,0 +1,25 @@
+id: bibliotheques-visites-ratios-court
+title: "Visites par habitant dans les bibliothèques publiques"
+question: "Pourquoi les visites totales ne suffisent-elles pas pour comparer des bibliothèques?"
+dataset_id: bibliotheques-quebec
+dataset_title: "Statistiques des bibliothèques publiques du Québec"
+activity_url: "datasets/bibliotheques-quebec/activite-courte.qmd"
+duration: "30-45 minutes"
+level: "Introductif"
+activity_type:
+  - "Exercice"
+  - "Exploration de données"
+concepts:
+  - "Données et mesure"
+  - "Statistique descriptive"
+  - "Visualisation"
+context: "Culture et services publics"
+hook: "Défi de mesure"
+materials:
+  - "énoncé"
+  - "code"
+  - "données"
+advanced_math_stats: false
+teacher_notes: "Faire distinguer volumes, ratios et interprétations de services publics."
+status: "prêt"
+

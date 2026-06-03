@@ -7,17 +7,97 @@ embed-resources: true
 
 Les activités sont conçues pour des cours d'introduction à la statistique, à la programmation R ou à la science des données. Elles peuvent être utilisées telles quelles ou adaptées à un contexte de cours.
 
+Le catalogue d'activités part d'une question pédagogique. Chaque activité est aussi décrite par des facettes : concept, niveau, type, contexte, accroche, durée et matériel disponible.
+
+## Facettes pédagogiques
+
+::: {.facet-grid}
+::: {.facet-block}
+### Concepts
+
+- Données et mesure
+- Statistique descriptive
+- Plan d'étude et échantillonnage
+- Inférence statistique
+- Modélisation et relations
+- Visualisation
+:::
+
+::: {.facet-block}
+### Types
+
+- Discussion courte
+- Exercice
+- Exploration de données
+- Illustration de concept
+- Étude de cas
+- Projet ou tâche longue
+:::
+
+::: {.facet-block}
+### Accroches
+
+- Résultat surprenant
+- Résultat contre-intuitif
+- Cas historique réel
+- Données massives
+- Pertinence politique
+- Récit humain
+- Défi de mesure
+- Données en temps réel
+:::
+:::
+
+## Catalogue des activités
+
+```{r}
+#| label: catalogue-activites
+#| echo: false
+#| results: asis
+library(readr)
+library(stringr)
+
+activity_catalogue_path <- "data/metadata/catalogue_activites.csv"
+
+format_tags <- function(value) {
+  values <- str_split(value, ";\\s*")[[1]]
+  values <- values[values != ""]
+  paste0('<span class="tag">', values, '</span>', collapse = " ")
+}
+
+if (file.exists(activity_catalogue_path)) {
+  activities <- read_csv(activity_catalogue_path, show_col_types = FALSE)
+
+  cat("::: {.card-grid}\n")
+
+  for (i in seq_len(nrow(activities))) {
+    row <- activities[i, ]
+    activity_html <- str_replace(row$activity_url, "\\.qmd$", ".html")
+    advanced_label <- ifelse(row$advanced_math_stats, "oui", "non")
+
+    cat("::: {.db-card .activity-card}\n")
+    cat("### [", row$title, "](", activity_html, ")\n\n", sep = "")
+    cat('<p class="activity-question">', row$question, "</p>\n\n", sep = "")
+    cat('<div class="tag-list">', format_tags(row$concepts), "</div>\n\n", sep = "")
+    cat("- Jeu de données : ", row$dataset_title, "\n", sep = "")
+    cat("- Niveau : ", row$level, "\n", sep = "")
+    cat("- Type : ", str_replace_all(row$activity_type, "; ", ", "), "\n", sep = "")
+    cat("- Contexte : ", row$context, "\n", sep = "")
+    cat("- Accroche : ", row$hook, "\n", sep = "")
+    cat("- Durée : ", row$duration, "\n", sep = "")
+    cat("- Matériel : ", str_replace_all(row$materials, "; ", ", "), "\n", sep = "")
+    cat("- Math/stats avancées : ", advanced_label, "\n", sep = "")
+    cat(":::\n\n")
+  }
+
+  cat(":::\n")
+} else {
+  cat("Le catalogue d'activités n'a pas encore été généré. Exécuter `Rscript scripts/build_activity_catalogue.R`.")
+}
+```
+
 ## Modules transversaux
 
 - [Module visualisation](activities/module-visualisation.qmd)
 - [Module nettoyage](activities/module-nettoyage.qmd)
 - [Module modélisation](activities/module-modelisation.qmd)
-
-## Activités par jeu de données
-
-| Jeu de données | Activité courte | Activité longue |
-|---|---|---|
-| BIXI | [30 à 45 minutes](datasets/bixi/activite-courte.qmd) | [2 à 3 heures](datasets/bixi/activite-longue.qmd) |
-| Bibliothèques publiques | [30 à 45 minutes](datasets/bibliotheques-quebec/activite-courte.qmd) | [2 à 3 heures](datasets/bibliotheques-quebec/activite-longue.qmd) |
-| Stations RSQAQ | [30 à 45 minutes](datasets/qualite-air/activite-courte.qmd) | [2 à 3 heures](datasets/qualite-air/activite-longue.qmd) |
-
