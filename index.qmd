@@ -31,7 +31,7 @@ Consulter le catalogue, comparer les thèmes et repérer les concepts enseignabl
 :::
 
 ::: {.db-card}
-### Comprendre le zero waste dataset
+### Comprendre le jeu de données zéro déchet
 
 Évaluer le rendement pédagogique d'un jeu de données sans le réduire à sa taille.
 
@@ -67,7 +67,7 @@ Chaque fiche vise à être utilisable sans longue préparation :
 - une source vérifiée;
 - une description de l'unité statistique;
 - un tableau des variables principales;
-- une grille zero waste dataset;
+- une grille zéro déchet;
 - une activité courte;
 - une activité longue;
 - un projet possible;
@@ -85,7 +85,7 @@ Cette version contient six fiches de jeux de données québécois :
 - le registre des prélèvements d'eau autorisés;
 - les cohortes de diplomation.
 
-Le projet inclut aussi des fonctions R pour interroger CKAN, calculer les scores zero waste dataset, bâtir le catalogue et vérifier la cohérence des fiches.
+Le projet inclut aussi des fonctions R pour interroger CKAN, calculer les scores zéro déchet, bâtir le catalogue et vérifier la cohérence des fiches.
 
 ## Invitation à contribuer
 

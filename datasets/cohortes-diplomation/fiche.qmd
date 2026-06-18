@@ -60,7 +60,7 @@ Une ligne représente une cohorte agrégée selon un regroupement comme le sexe,
 - taille d'échantillon et agrégation;
 - limites d'interprétation des données publiques.
 
-## Score zero waste dataset
+## Score zéro déchet
 
 | Dimension | Score | Justification |
 |---|---:|---|

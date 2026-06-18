@@ -24,5 +24,5 @@ Cette page liste les sources générales et les sources de données utilisées d
 
 ## Notes
 
-Les scores zero waste dataset sont des évaluations pédagogiques internes au projet. Ils ne proviennent pas des organismes producteurs.
+Les scores zéro déchet sont des évaluations pédagogiques internes au projet. Ils ne proviennent pas des organismes producteurs.
 

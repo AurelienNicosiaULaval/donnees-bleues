@@ -42,7 +42,7 @@ for (dataset_dir in dataset_dirs) {
   tryCatch(
     validate_zero_waste_score(metadata$zero_waste),
     error = function(e) {
-      errors <<- c(errors, paste(dataset_dir, "score zero waste invalide :", conditionMessage(e)))
+      errors <<- c(errors, paste(dataset_dir, "score zéro déchet invalide :", conditionMessage(e)))
     }
   )
 }

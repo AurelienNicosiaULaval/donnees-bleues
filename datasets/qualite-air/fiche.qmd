@@ -61,7 +61,7 @@ Une ligne représente une station de mesure de la qualité de l'air, avec son id
 - couverture territoriale;
 - distinction entre données de mesure et métadonnées de mesure.
 
-## Score zero waste dataset
+## Score zéro déchet
 
 | Dimension | Score | Justification |
 |---|---:|---|
@@ -149,4 +149,3 @@ stations |>
 - Extension intermédiaire : calculer la durée d'activité des stations fermées.
 - Extension avancée : joindre une source de mesures de polluants si elle est vérifiée.
 - Extension communication scientifique : expliquer en une page la différence entre infrastructure de mesure et indicateur environnemental.
-

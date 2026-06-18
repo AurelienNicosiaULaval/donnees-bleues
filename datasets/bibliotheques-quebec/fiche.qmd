@@ -60,7 +60,7 @@ Une ligne représente une bibliothèque publique ou un centre régional dans la 
 - régression exploratoire;
 - discussion sur les indicateurs de services publics.
 
-## Score zero waste dataset
+## Score zéro déchet
 
 | Dimension | Score | Justification |
 |---|---:|---|

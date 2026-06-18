@@ -21,7 +21,7 @@ website:
         href: index.qmd
       - text: "Catalogue"
         href: catalogue.qmd
-      - text: "Zero waste dataset"
+      - text: "Zéro déchet"
         href: zero-waste.qmd
       - text: "Activités"
         href: activites.qmd

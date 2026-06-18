@@ -33,7 +33,7 @@ if (file.exists(catalogue_path)) {
     cat("- Taille : ", row$n_rows, "; ", row$n_cols, "\n", sep = "")
     cat("- Type : ", row$data_type, "\n", sep = "")
     cat("- Niveau : ", row$level, "\n", sep = "")
-    cat("- Score zero waste : ", row$zero_waste_score, "/30\n", sep = "")
+    cat("- Score zéro déchet : ", row$zero_waste_score, "/30\n", sep = "")
     cat("- Concepts : ", str_replace_all(row$concepts, "; ", ", "), "\n", sep = "")
     cat(":::\n\n")
   }

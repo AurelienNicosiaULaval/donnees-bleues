@@ -61,7 +61,7 @@ Une ligne représente un prélèvement d'eau autorisé ou déclaré pour une org
 - valeurs extrêmes;
 - limites d'une donnée administrative.
 
-## Score zero waste dataset
+## Score zéro déchet
 
 | Dimension | Score | Justification |
 |---|---:|---|

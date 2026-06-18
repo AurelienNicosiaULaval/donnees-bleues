@@ -47,7 +47,7 @@ Une activité doit être indexée comme un objet pédagogique autonome. Les cham
 
 Une fiche ne doit pas prétendre qu'une donnée existe si le script ne peut pas la télécharger ou si l'URL n'a pas été vérifiée. Si une information manque, écrire clairement : Je ne sais pas encore.
 
-## Ajouter un score zero waste
+## Ajouter un score zéro déchet
 
 Le score doit être argumenté. Il peut être révisé après une utilisation en classe.
 

@@ -1,11 +1,11 @@
 ---
-title: "Zero waste dataset"
+title: "Jeu de données zéro déchet"
 embed-resources: true
 ---
 
-# Zero waste dataset
+# Jeu de données zéro déchet
 
-Un zero waste dataset est un jeu de données pédagogique dont on maximise le potentiel d'apprentissage en l'exploitant à plusieurs niveaux : importation, nettoyage, exploration, visualisation, statistique descriptive, inférence, modélisation, communication, reproductibilité, éthique et extensions possibles.
+Un jeu de données zéro déchet est un jeu de données pédagogique dont on maximise le potentiel d'apprentissage en l'exploitant à plusieurs niveaux : importation, nettoyage, exploration, visualisation, statistique descriptive, inférence, modélisation, communication, reproductibilité, éthique et extensions possibles.
 
 L'idée n'est pas de privilégier les gros jeux de données. Elle consiste plutôt à repérer les jeux de données qui ont un fort rendement pédagogique par rapport à leur taille, leur complexité et leur coût cognitif d'entrée.
 
@@ -88,4 +88,3 @@ compute_zero_waste_score(scores)
 La grille n'est pas une mesure scientifique validée. C'est un outil de conception pédagogique. Elle sert à rendre les choix explicites, pas à classer définitivement les jeux de données.
 
 Il ne faut pas forcer tous les apprentissages avec le même jeu. Si une source ne permet pas d'enseigner une notion de façon pertinente, il est préférable de le reconnaître et d'utiliser un autre exemple.
-

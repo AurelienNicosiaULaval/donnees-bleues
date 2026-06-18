@@ -61,7 +61,7 @@ Une ligne représente une station BIXI à un instant donné, après jointure ent
 - limites d'un instantané;
 - communication d'un résultat opérationnel.
 
-## Score zero waste dataset
+## Score zéro déchet
 
 | Dimension | Score | Justification |
 |---|---:|---|
@@ -144,4 +144,3 @@ ggplot(stations, aes(x = taux_occupation)) +
 - Extension intermédiaire : créer un indicateur d'occupation et l'analyser par groupes de capacité.
 - Extension avancée : collecter plusieurs instantanés et étudier la variabilité temporelle.
 - Extension communication scientifique : produire une note méthodologique sur ce qu'un flux temps réel permet et ne permet pas de conclure.
-

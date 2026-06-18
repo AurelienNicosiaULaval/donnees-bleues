@@ -46,7 +46,7 @@ Décrire l'unité statistique.
 - statistique descriptive
 - communication
 
-## Score zero waste dataset
+## Score zéro déchet
 
 | Dimension | Score | Justification |
 |---|---:|---|
@@ -107,4 +107,3 @@ glimpse(donnees)
 - Extension intermédiaire : à compléter.
 - Extension avancée : à compléter.
 - Extension communication scientifique : à compléter.
-
