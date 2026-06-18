@@ -1,0 +1,24 @@
+id: qualite-eau-tendance-phosphore-court
+title: "Tendance du phosphore total par station"
+question: "Comment décrire l'évolution du phosphore total dans une station de suivi?"
+dataset_id: suivi-rivieres-fleuve
+dataset_title: "Suivi physicochimique et bactériologique des rivières et du fleuve"
+activity_url: "datasets/suivi-rivieres-fleuve/activite-courte.qmd"
+duration: "30-45 minutes"
+level: "Introductif"
+activity_type:
+  - "Exercice"
+  - "Exploration de données"
+concepts:
+  - "Séries temporelles"
+  - "Statistique descriptive"
+  - "Visualisation"
+context: "Qualité de l'eau"
+hook: "Suivi environnemental local"
+materials:
+  - "énoncé"
+  - "code"
+  - "données"
+advanced_math_stats: false
+teacher_notes: "Vérifier l'URL officielle et les unités avant de distribuer l'activité."
+status: "à vérifier"

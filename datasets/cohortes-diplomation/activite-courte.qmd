@@ -1,0 +1,60 @@
+---
+title: "Comparer des taux de diplomation"
+embed-resources: true
+---
+
+# Comparer des taux de diplomation
+
+## Contexte
+
+Cette activité utilise des taux de diplomation agrégés pour comparer des groupes. Elle met l'accent sur une interprétation prudente des taux et des effectifs.
+
+## Objectifs d'apprentissage
+
+- Lire un taux agrégé.
+- Comparer des groupes à partir d'un indicateur.
+- Utiliser le nombre d'élèves pour contextualiser un taux.
+
+## Données utilisées
+
+Fiche : [Cohortes de diplomation](fiche.qmd)
+
+Source : Institut de la statistique du Québec. URL officielle à vérifier.
+
+Licence : TODO: confirmer licence.
+
+## Métadonnées pédagogiques
+
+| Champ | Information |
+|---|---|
+| Question directrice | Comment comparer les taux de diplomation selon le sexe ou la région? |
+| Concepts | Taux; comparaison de groupes; statistique descriptive |
+| Niveau | Introductif |
+| Type | Exercice; exploration de données |
+| Contexte | Éducation |
+| Accroche | Interpréter un indicateur public d'éducation |
+| Durée | 30-45 minutes |
+| Matériel | énoncé; code; données |
+| Math/stats avancées | non |
+
+## Consignes
+
+1. Importer les données après vérification de la source.
+2. Choisir une cohorte.
+3. Comparer le taux de diplomation selon le sexe ou la région.
+4. Ajouter le nombre d'élèves dans le tableau de résultats.
+5. Rédiger une conclusion descriptive et prudente.
+
+## Questions
+
+1. Quel groupe a le taux de diplomation le plus élevé?
+2. Les effectifs sont-ils comparables entre groupes?
+3. Pourquoi ne faut-il pas interpréter ces taux comme des données individuelles?
+
+## Pistes de solution
+
+Une solution acceptable présente un tableau avec taux et effectifs, puis une phrase qui évite toute conclusion causale.
+
+## Prolongement
+
+Comparer deux cohortes ou produire un graphique en points avec les effectifs.

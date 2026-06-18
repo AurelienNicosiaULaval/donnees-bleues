@@ -1,0 +1,62 @@
+---
+title: "Carte et séries temporelles de qualité de l'eau"
+embed-resources: true
+---
+
+# Carte et séries temporelles de qualité de l'eau
+
+## Contexte
+
+Cette activité demande de construire un mini-rapport sur plusieurs stations de suivi. Elle combine comparaison temporelle, indicateurs descriptifs et représentation spatiale simple.
+
+## Objectifs d'apprentissage
+
+- Préparer des données environnementales longitudinales.
+- Comparer plusieurs stations ou bassins versants.
+- Produire une visualisation temporelle et une carte.
+- Discuter les limites d'une comparaison environnementale.
+
+## Données utilisées
+
+Fiche : [Suivi physicochimique et bactériologique des rivières et du fleuve](fiche.qmd)
+
+Source : Données Québec / MELCCFP. URL officielle à vérifier.
+
+Licence : Licence ouverte du Québec; Attribution (CC-BY 4.0).
+
+## Métadonnées pédagogiques
+
+| Champ | Information |
+|---|---|
+| Question directrice | Comment comparer la qualité de l'eau entre stations et dans le temps? |
+| Concepts | Séries temporelles; visualisation; données spatiales; communication |
+| Niveau | Intermédiaire |
+| Type | Étude de cas; projet ou tâche longue |
+| Contexte | Qualité de l'eau |
+| Accroche | Comparer des stations de suivi environnemental |
+| Durée | 2-3 heures |
+| Matériel | énoncé; code; données; notes enseignantes |
+| Math/stats avancées | non |
+
+## Consignes
+
+1. Importer les données après vérification de la source.
+2. Sélectionner au moins trois stations ou un bassin versant.
+3. Comparer phosphore total, azote total ou coliformes fécaux.
+4. Produire une carte des stations si les coordonnées sont disponibles.
+5. Produire un graphique temporel.
+6. Conclure en distinguant observation descriptive et explication causale.
+
+## Questions
+
+1. Les stations ont-elles les mêmes périodes d'observation?
+2. Les mesures semblent-elles saisonnières?
+3. Quel indicateur est le plus facile à expliquer à un public non spécialiste?
+
+## Pistes de solution
+
+Le rapport devrait inclure un court nettoyage documenté, deux visualisations, une table descriptive et une section de limites.
+
+## Prolongement
+
+Ajouter une analyse de sensibilité en comparant les résultats avec et sans valeurs extrêmes.

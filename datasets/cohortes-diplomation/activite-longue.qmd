@@ -1,0 +1,61 @@
+---
+title: "Tendances de diplomation par cohorte"
+embed-resources: true
+---
+
+# Tendances de diplomation par cohorte
+
+## Contexte
+
+Cette activité demande de produire un mini-rapport sur les tendances de diplomation par cohorte et par regroupement disponible.
+
+## Objectifs d'apprentissage
+
+- Visualiser une tendance de taux.
+- Comparer plusieurs groupes.
+- Utiliser les effectifs pour contextualiser les résultats.
+- Communiquer les limites de données agrégées.
+
+## Données utilisées
+
+Fiche : [Cohortes de diplomation](fiche.qmd)
+
+Source : Institut de la statistique du Québec. URL officielle à vérifier.
+
+Licence : TODO: confirmer licence.
+
+## Métadonnées pédagogiques
+
+| Champ | Information |
+|---|---|
+| Question directrice | Comment les taux de diplomation évoluent-ils selon les cohortes et les regroupements? |
+| Concepts | Séries temporelles; comparaison de groupes; visualisation; communication |
+| Niveau | Introductif à intermédiaire |
+| Type | Étude de cas; projet ou tâche longue |
+| Contexte | Éducation |
+| Accroche | Comparer les cohortes sans surinterpréter des taux agrégés |
+| Durée | 2-3 heures |
+| Matériel | énoncé; code; données; notes enseignantes |
+| Math/stats avancées | non |
+
+## Consignes
+
+1. Importer les données après vérification de la source.
+2. Choisir un regroupement principal, par exemple le sexe ou la région.
+3. Visualiser le taux de diplomation par cohorte.
+4. Ajouter une table des effectifs.
+5. Discuter les écarts observés et les limites d'interprétation.
+
+## Questions
+
+1. La tendance est-elle semblable pour tous les groupes?
+2. Les écarts sont-ils stables dans le temps?
+3. Quelle information manque pour interpréter les écarts socioéconomiques?
+
+## Pistes de solution
+
+Le mini-rapport devrait inclure un graphique temporel, une table des effectifs et une conclusion limitée aux tendances descriptives.
+
+## Prolongement
+
+Ajouter un regroupement socioéconomique seulement si la variable est disponible et documentée.

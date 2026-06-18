@@ -1,0 +1,152 @@
+---
+title: "Cohortes de diplomation"
+embed-resources: true
+---
+
+# Cohortes de diplomation
+
+## Pourquoi ce jeu est intéressant
+
+Ce jeu de données permet d'étudier des taux de diplomation par cohorte et par regroupement démographique ou territorial. Il convient particulièrement à l'enseignement des statistiques descriptives, des comparaisons de groupes et de la visualisation de tendances.
+
+Le contexte est sensible : les taux agrégés peuvent appuyer une discussion sur l'éducation et les politiques publiques, mais ils ne doivent pas être interprétés comme des mesures individuelles.
+
+## Source
+
+| Champ | Information |
+|---|---|
+| Source | Institut de la statistique du Québec |
+| Organisme producteur | Institut de la statistique du Québec |
+| Territoire | Québec |
+| URL officielle | TODO: vérifier URL officielle |
+| Licence | TODO: confirmer licence |
+| Date d'accès | TODO: vérifier après confirmation de l'URL officielle |
+| Fréquence de mise à jour | TODO: confirmer dans les métadonnées officielles |
+| Statut | à vérifier |
+
+## Ce que représente une ligne
+
+Une ligne représente une cohorte agrégée selon un regroupement comme le sexe, la région ou un groupe socioéconomique. La disponibilité exacte du groupe socioéconomique doit être vérifiée.
+
+## Variables principales
+
+| Variable | Type | Description | Exemple | Remarques pédagogiques |
+|---|---|---|---|---|
+| cohorte | caractère ou entier | Cohorte scolaire ou année d'entrée | 2015 | Base pour les tendances |
+| sexe | caractère | Catégorie de sexe | Filles | Permet une comparaison de groupes |
+| taux_diplomation | numérique | Taux de diplomation agrégé | 82.5 | Variable de résultat |
+| n_eleves | entier | Nombre d'élèves dans le regroupement | 1240 | Dénominateur pour évaluer la précision |
+| region | caractère | Région administrative ou regroupement territorial | Capitale-Nationale | Base pour les cartes ou comparaisons |
+| groupe_socioeconomique | caractère | Groupe socioéconomique si disponible | Quintile 1 | TODO: confirmer disponibilité |
+
+## Taille et structure
+
+| Élément | Information |
+|---|---|
+| Nombre de lignes | Données agrégées, quelques centaines de lignes selon les regroupements |
+| Nombre de colonnes | 5 ou 6 variables principales proposées; groupe_socioeconomique à confirmer |
+| Structure | Tabulaire agrégée et temporelle |
+| Format | TODO: confirmer format dans les métadonnées officielles |
+| Type de données | Indicateurs d'éducation agrégés |
+| Niveau pédagogique recommandé | Introduction |
+
+## Concepts enseignables
+
+- taux et proportions;
+- comparaison de groupes;
+- séries temporelles;
+- visualisation de tendances;
+- statistiques descriptives;
+- taille d'échantillon et agrégation;
+- limites d'interprétation des données publiques.
+
+## Score zero waste dataset
+
+| Dimension | Score | Justification |
+|---|---:|---|
+| Contexte québécois | 3 | Le jeu porte sur l'éducation au Québec. |
+| Accessibilité pédagogique | 3 | Les variables principales sont proches d'indicateurs courants. |
+| Qualité documentaire | 1 | L'URL, la licence et certains regroupements doivent être confirmés. |
+| Potentiel de nettoyage | 1 | Le jeu est probablement déjà agrégé. |
+| Potentiel de visualisation | 3 | Les taux par cohorte, sexe ou région sont faciles à représenter. |
+| Potentiel de statistique descriptive | 3 | Les comparaisons de taux sont directes. |
+| Potentiel d'inférence | 2 | Des comparaisons sont possibles avec prudence et en tenant compte des tailles. |
+| Potentiel de modélisation | 2 | Une modélisation exploratoire de tendances est possible. |
+| Potentiel de discussion éthique | 3 | Le jeu soulève des enjeux d'équité, de territoire et de communication responsable. |
+| Réutilisabilité dans plusieurs cours | 3 | Le jeu peut servir en statistique descriptive, visualisation et communication. |
+
+Total : 24 sur 30.
+
+## Activité courte
+
+En 30 à 45 minutes, demander aux personnes étudiantes de comparer les taux de diplomation selon le sexe ou la région pour une cohorte donnée.
+
+## Activité longue
+
+En 2 à 3 heures, demander de produire un mini-rapport sur les tendances de diplomation par cohorte, avec une discussion des écarts régionaux ou socioéconomiques si disponibles.
+
+## Projets possibles
+
+- Comparer les taux de diplomation selon le sexe ou la région.
+- Étudier les écarts associés aux indices socioéconomiques.
+- Visualiser les tendances de diplomation par cohorte.
+
+## Questions pédagogiques possibles
+
+1. Quelle est la différence entre un taux agrégé et une observation individuelle?
+2. Pourquoi faut-il conserver le nombre d'élèves avec le taux?
+3. Comment comparer deux régions sans surinterpréter un petit effectif?
+4. Quels graphiques conviennent à une série de cohortes?
+5. Comment représenter les écarts selon le sexe?
+6. Que faut-il vérifier avant d'utiliser un groupe socioéconomique?
+7. Quelles limites accompagnent une comparaison régionale?
+8. Comment formuler une conclusion prudente à partir de données agrégées?
+
+## Code R minimal
+
+```{r}
+#| eval: false
+library(dplyr)
+library(ggplot2)
+library(readr)
+
+source_url <- "TODO: vérifier URL officielle"
+
+if (identical(source_url, "TODO: vérifier URL officielle")) {
+  stop("Remplacer source_url par l'URL officielle vérifiée avant d'importer les données.", call. = FALSE)
+}
+
+diplomation <- read_csv(source_url, show_col_types = FALSE)
+
+diplomation |>
+  group_by(cohorte, sexe) |>
+  summarise(
+    taux_moyen = weighted.mean(taux_diplomation, w = n_eleves, na.rm = TRUE),
+    n_total = sum(n_eleves, na.rm = TRUE),
+    .groups = "drop"
+  ) |>
+  ggplot(aes(x = cohorte, y = taux_moyen, color = sexe, group = sexe)) +
+  geom_line() +
+  geom_point() +
+  labs(
+    x = "Cohorte",
+    y = "Taux de diplomation moyen",
+    title = "Tendances de diplomation par cohorte et sexe"
+  )
+```
+
+## Limites et précautions
+
+- TODO: vérifier URL officielle avant d'utiliser ce jeu.
+- TODO: confirmer licence dans les métadonnées officielles.
+- TODO: confirmer la disponibilité de la variable groupe_socioeconomique.
+- Les taux agrégés ne permettent pas de conclure au niveau individuel.
+- Les comparaisons doivent tenir compte du nombre d'élèves.
+- Les écarts observés ne suffisent pas à établir une cause.
+
+## Extensions
+
+- Extension intro : comparer les taux par sexe pour une cohorte.
+- Extension intermédiaire : visualiser les tendances par région.
+- Extension avancée : analyser les écarts associés à un indicateur socioéconomique.
+- Extension communication scientifique : rédiger une note courte sur les risques d'interprétation des taux agrégés.

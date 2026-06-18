@@ -1,0 +1,27 @@
+id: diplomation-tendances-cohortes-long
+title: "Tendances de diplomation par cohorte"
+question: "Comment les taux de diplomation évoluent-ils selon les cohortes et les regroupements?"
+dataset_id: cohortes-diplomation
+dataset_title: "Cohortes de diplomation"
+activity_url: "datasets/cohortes-diplomation/activite-longue.qmd"
+duration: "2-3 heures"
+level: "Introductif à intermédiaire"
+activity_type:
+  - "Étude de cas"
+  - "Projet ou tâche longue"
+  - "Exploration de données"
+concepts:
+  - "Séries temporelles"
+  - "Comparaison de groupes"
+  - "Visualisation"
+  - "Communication"
+context: "Éducation"
+hook: "Comparer les cohortes sans surinterpréter des taux agrégés"
+materials:
+  - "énoncé"
+  - "code"
+  - "données"
+  - "notes enseignantes"
+advanced_math_stats: false
+teacher_notes: "Faire vérifier la disponibilité de groupe_socioeconomique avant d'inclure cette dimension."
+status: "à vérifier"

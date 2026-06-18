@@ -1,0 +1,61 @@
+---
+title: "Évolution territoriale des prélèvements d'eau"
+embed-resources: true
+---
+
+# Évolution territoriale des prélèvements d'eau
+
+## Contexte
+
+Cette activité propose un mini-rapport sur les prélèvements d'eau selon les territoires, les usages et les années disponibles.
+
+## Objectifs d'apprentissage
+
+- Construire des agrégations territoriales.
+- Comparer des volumes dans le temps.
+- Identifier les plus grands préleveurs ou usages.
+- Communiquer les limites d'une donnée administrative.
+
+## Données utilisées
+
+Fiche : [Registre des prélèvements d'eau autorisés](fiche.qmd)
+
+Source : Données Québec / MELCCFP. URL officielle à vérifier.
+
+Licence : TODO: confirmer licence.
+
+## Métadonnées pédagogiques
+
+| Champ | Information |
+|---|---|
+| Question directrice | Comment les volumes d'eau prélevés varient-ils selon les territoires et les usages? |
+| Concepts | Agrégation territoriale; séries temporelles; visualisation; communication |
+| Niveau | Intermédiaire |
+| Type | Étude de cas; projet ou tâche longue |
+| Contexte | Prélèvements d'eau |
+| Accroche | Identifier les plus grands volumes et leur évolution |
+| Durée | 2-3 heures |
+| Matériel | énoncé; code; données; notes enseignantes |
+| Math/stats avancées | non |
+
+## Consignes
+
+1. Importer les données après vérification de la source.
+2. Nettoyer les variables de territoire, d'usage et d'année.
+3. Calculer les volumes par territoire et par usage.
+4. Visualiser l'évolution temporelle pour les principaux territoires ou préleveurs.
+5. Rédiger une conclusion qui distingue description, comparaison et explication.
+
+## Questions
+
+1. Quels territoires concentrent les plus grands volumes?
+2. Les usages dominants changent-ils dans le temps?
+3. Les données permettent-elles de conclure sur la pression réelle sur la ressource?
+
+## Pistes de solution
+
+Le rapport devrait contenir un tableau des volumes agrégés, un graphique temporel et une section sur les limites des données administratives.
+
+## Prolongement
+
+Ajouter un dénominateur territorial pertinent si une source fiable est disponible.

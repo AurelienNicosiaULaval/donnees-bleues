@@ -1,0 +1,24 @@
+id: diplomation-comparaison-groupes-court
+title: "Comparer des taux de diplomation"
+question: "Comment comparer les taux de diplomation selon le sexe ou la région?"
+dataset_id: cohortes-diplomation
+dataset_title: "Cohortes de diplomation"
+activity_url: "datasets/cohortes-diplomation/activite-courte.qmd"
+duration: "30-45 minutes"
+level: "Introductif"
+activity_type:
+  - "Exercice"
+  - "Exploration de données"
+concepts:
+  - "Taux"
+  - "Comparaison de groupes"
+  - "Statistique descriptive"
+context: "Éducation"
+hook: "Interpréter un indicateur public d'éducation"
+materials:
+  - "énoncé"
+  - "code"
+  - "données"
+advanced_math_stats: false
+teacher_notes: "Insister sur le rôle de n_eleves et sur le fait que les données sont agrégées."
+status: "à vérifier"

@@ -1,0 +1,27 @@
+id: qualite-eau-carte-series-long
+title: "Carte et séries temporelles de qualité de l'eau"
+question: "Comment comparer la qualité de l'eau entre stations et dans le temps?"
+dataset_id: suivi-rivieres-fleuve
+dataset_title: "Suivi physicochimique et bactériologique des rivières et du fleuve"
+activity_url: "datasets/suivi-rivieres-fleuve/activite-longue.qmd"
+duration: "2-3 heures"
+level: "Intermédiaire"
+activity_type:
+  - "Étude de cas"
+  - "Projet ou tâche longue"
+  - "Exploration de données"
+concepts:
+  - "Séries temporelles"
+  - "Visualisation"
+  - "Données spatiales"
+  - "Communication"
+context: "Qualité de l'eau"
+hook: "Comparer des stations de suivi environnemental"
+materials:
+  - "énoncé"
+  - "code"
+  - "données"
+  - "notes enseignantes"
+advanced_math_stats: false
+teacher_notes: "Prévoir une discussion sur la saisonnalité, les valeurs extrêmes et les limites d'une comparaison entre bassins."
+status: "à vérifier"

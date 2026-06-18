@@ -1,0 +1,24 @@
+id: prelevements-eau-usages-court
+title: "Volumes prélevés par usage"
+question: "Quels usages représentent les plus grands volumes d'eau prélevés?"
+dataset_id: prelevements-eau-autorises
+dataset_title: "Registre des prélèvements d'eau autorisés"
+activity_url: "datasets/prelevements-eau-autorises/activite-courte.qmd"
+duration: "30-45 minutes"
+level: "Intermédiaire"
+activity_type:
+  - "Exercice"
+  - "Exploration de données"
+concepts:
+  - "Agrégation"
+  - "Statistique descriptive"
+  - "Visualisation"
+context: "Prélèvements d'eau"
+hook: "Comparer des usages industriels, commerciaux et municipaux"
+materials:
+  - "énoncé"
+  - "code"
+  - "données"
+advanced_math_stats: false
+teacher_notes: "Confirmer la définition de volume_preleve_m3 avant toute interprétation."
+status: "à vérifier"

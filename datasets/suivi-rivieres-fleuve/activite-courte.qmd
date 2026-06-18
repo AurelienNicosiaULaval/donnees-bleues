@@ -1,0 +1,60 @@
+---
+title: "Tendance du phosphore total par station"
+embed-resources: true
+---
+
+# Tendance du phosphore total par station
+
+## Contexte
+
+Cette activité utilise le suivi de la qualité de l'eau pour produire une première lecture temporelle du phosphore total. La source officielle doit être confirmée avant utilisation en classe.
+
+## Objectifs d'apprentissage
+
+- Identifier l'unité statistique d'un suivi environnemental.
+- Résumer une variable numérique par station et par année.
+- Produire un graphique temporel interprétable.
+
+## Données utilisées
+
+Fiche : [Suivi physicochimique et bactériologique des rivières et du fleuve](fiche.qmd)
+
+Source : Données Québec / MELCCFP. URL officielle à vérifier.
+
+Licence : Licence ouverte du Québec; Attribution (CC-BY 4.0).
+
+## Métadonnées pédagogiques
+
+| Champ | Information |
+|---|---|
+| Question directrice | Comment décrire l'évolution du phosphore total dans une station de suivi? |
+| Concepts | Séries temporelles; statistique descriptive; visualisation |
+| Niveau | Introductif |
+| Type | Exercice; exploration de données |
+| Contexte | Qualité de l'eau |
+| Accroche | Suivi environnemental local |
+| Durée | 30-45 minutes |
+| Matériel | énoncé; code; données |
+| Math/stats avancées | non |
+
+## Consignes
+
+1. Importer le jeu après avoir remplacé l'URL par l'URL officielle vérifiée.
+2. Choisir une station avec plusieurs années d'observation.
+3. Résumer le phosphore total par année.
+4. Produire un graphique temporel.
+5. Rédiger deux phrases sur la tendance observée et les limites de l'analyse.
+
+## Questions
+
+1. Combien d'années sont disponibles pour la station choisie?
+2. La tendance est-elle stable, croissante ou décroissante?
+3. Quelle information manque pour interpréter la tendance avec prudence?
+
+## Pistes de solution
+
+Une solution acceptable présente un tableau de résumés annuels, un graphique clair et une interprétation prudente qui mentionne la saisonnalité, les unités et la période d'observation.
+
+## Prolongement
+
+Comparer deux stations ou ajouter une variable comme la température ou les coliformes fécaux.

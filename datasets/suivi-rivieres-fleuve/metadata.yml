@@ -1,0 +1,70 @@
+id: suivi-rivieres-fleuve
+title: "Suivi physicochimique et bactériologique des rivières et du fleuve"
+short_title: "Qualité de l'eau"
+theme: "Qualité de l'eau"
+source_name: "Données Québec / Ministère de l'Environnement, de la Lutte contre les changements climatiques, de la Faune et des Parcs"
+# TODO: vérifier URL officielle dans Données Québec avant de remplacer ce marqueur.
+source_url: "TODO: vérifier URL officielle"
+license: "Licence ouverte du Québec; Attribution (CC-BY 4.0)"
+access_date: "TODO: vérifier après confirmation de l'URL officielle"
+geography: "Québec"
+unit: "Observation annuelle par station de suivi de la qualité de l'eau"
+data_type: "Tabulaire, temporel, spatial"
+format: "TODO: confirmer format dans les métadonnées officielles"
+n_rows: "Données annuelles, plusieurs stations, milliers de lignes"
+n_cols: "10 variables principales à afficher; nombre total de colonnes à confirmer"
+update_frequency: "Annuelle"
+level: "Introduction à intermédiaire"
+organisme: "MELCCFP"
+territoire: "Québec"
+taille_approximative: "Données annuelles, plusieurs stations, milliers de lignes"
+niveau_pedagogique_recommande: "Introduction à intermédiaire"
+variables_principales:
+  - station_id
+  - date
+  - phosphore_total
+  - azote_total
+  - nitrites_nitrates
+  - chlorophylle_a
+  - coliformes_fecaux
+  - ph
+  - conductivite
+  - temperature
+  - aire_de_drainage
+idees_mini_projets:
+  - "Analyser la tendance du phosphore total par station ou par bassin versant."
+  - "Comparer la qualité de l'eau selon les saisons."
+  - "Produire une carte des stations et un graphique temporel interactif."
+tags:
+  - eau
+  - environnement
+  - Québec
+  - données ouvertes
+  - visualisation
+  - séries temporelles
+  - statistiques descriptives
+  - spatial
+concepts:
+  - eau
+  - environnement
+  - Québec
+  - données ouvertes
+  - visualisation
+  - séries temporelles
+  - statistiques descriptives
+  - spatial
+  - qualité de l'eau
+  - carte
+zero_waste:
+  contexte_quebecois: 3
+  accessibilite_pedagogique: 2
+  qualite_documentaire: 1
+  potentiel_nettoyage: 2
+  potentiel_visualisation: 3
+  potentiel_statistique_descriptive: 3
+  potentiel_inference: 2
+  potentiel_modelisation: 2
+  potentiel_ethique: 3
+  reutilisabilite: 3
+status: "à vérifier"
+notes: "TODO: vérifier URL officielle et confirmer les noms exacts des champs dans les métadonnées officielles avant exploitation."
