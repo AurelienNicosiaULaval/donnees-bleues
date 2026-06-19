@@ -3,7 +3,7 @@ project:
   output-dir: docs
   resources:
     - favicon.svg
-    - assets/cards/*.png
+    - assets/cards/*.jpg
   render:
     - "*.qmd"
     - "datasets/**/*.qmd"

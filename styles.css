@@ -107,6 +107,12 @@ a {
   padding-left: 2rem;
 }
 
+.image-credit-link {
+  color: var(--db-muted);
+  font-size: 0.9rem;
+  margin: -1rem 0 2rem;
+}
+
 .activity-card {
   min-height: 260px;
 }

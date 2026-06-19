@@ -25,7 +25,7 @@ if (file.exists(catalogue_path)) {
   for (i in seq_len(nrow(catalogue))) {
     row <- catalogue[i, ]
     fiche_html <- str_replace(row$fiche, "\\.qmd$", ".html")
-    image_path <- file.path("assets/cards", paste0(row$id, ".png"))
+    image_path <- file.path("assets/cards", paste0(row$id, ".jpg"))
     image_alt <- paste("Illustration du thème", row$theme)
     image_alt <- str_replace_all(image_alt, "\"", "&quot;")
 
@@ -49,3 +49,7 @@ if (file.exists(catalogue_path)) {
   cat("Le catalogue n'a pas encore été généré. Exécuter `Rscript scripts/build_catalogue.R`.")
 }
 ```
+
+::: {.image-credit-link}
+[Crédits des images](credits-images.qmd)
+:::
