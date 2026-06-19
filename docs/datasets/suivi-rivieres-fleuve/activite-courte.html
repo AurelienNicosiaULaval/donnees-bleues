@@ -4049,15 +4049,44 @@ margin: 1.5rem 0 2rem;
 background: #ffffff;
 border: 1px solid var(--db-border);
 border-radius: 8px;
-padding: 1rem;
+box-shadow: 0 8px 22px rgba(23, 32, 51, 0.07);
+display: flex;
+flex-direction: column;
 min-height: 150px;
+overflow: hidden;
+padding: 0;
+transition: border-color 160ms ease, box-shadow 160ms ease, transform 160ms ease;
+}
+.db-card:hover {
+border-color: rgba(47, 117, 214, 0.45);
+box-shadow: 0 12px 28px rgba(23, 32, 51, 0.12);
+transform: translateY(-2px);
+}
+.db-card-image {
+aspect-ratio: 16 / 9;
+background: var(--db-blue-soft);
+display: block;
+flex: 0 0 auto;
+object-fit: cover;
+width: 100%;
 }
 .db-card h3 {
 font-size: 1.1rem;
-margin-top: 0;
+line-height: 1.25;
+margin: 1rem 1rem 0.45rem;
 }
 .db-card p {
 color: var(--db-muted);
+margin-left: 1rem;
+margin-right: 1rem;
+}
+.db-card p:last-child {
+margin-bottom: 1rem;
+}
+.db-card ul {
+color: var(--db-muted);
+margin: 0.25rem 1rem 1rem 0;
+padding-left: 2rem;
 }
 .activity-card {
 min-height: 260px;

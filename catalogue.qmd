@@ -25,8 +25,14 @@ if (file.exists(catalogue_path)) {
   for (i in seq_len(nrow(catalogue))) {
     row <- catalogue[i, ]
     fiche_html <- str_replace(row$fiche, "\\.qmd$", ".html")
+    image_path <- file.path("assets/cards", paste0(row$id, ".png"))
+    image_alt <- paste("Illustration du thème", row$theme)
+    image_alt <- str_replace_all(image_alt, "\"", "&quot;")
 
     cat("::: {.db-card}\n")
+    if (file.exists(image_path)) {
+      cat("<img class=\"db-card-image\" src=\"", image_path, "\" alt=\"", image_alt, "\">\n\n", sep = "")
+    }
     cat("### [", row$title, "](", fiche_html, ")\n\n", sep = "")
     cat("- Source : ", row$source_name, "\n", sep = "")
     cat("- Thème : ", row$theme, "\n", sep = "")

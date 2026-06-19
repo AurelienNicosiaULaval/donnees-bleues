@@ -23,6 +23,8 @@ Ces jeux de données québécois permettent d'aborder des questions concrètes l
 
 ::: {.card-grid}
 ::: {.db-card}
+<img class="db-card-image" src="assets/cards/catalogue.png" alt="Illustration du catalogue de jeux de données">
+
 ### Explorer les jeux de données
 
 Consulter le catalogue, comparer les thèmes et repérer les concepts enseignables.
@@ -31,6 +33,8 @@ Consulter le catalogue, comparer les thèmes et repérer les concepts enseignabl
 :::
 
 ::: {.db-card}
+<img class="db-card-image" src="assets/cards/zero-dechet.png" alt="Illustration du cadre zéro déchet">
+
 ### Comprendre le jeu de données zéro déchet
 
 Évaluer le rendement pédagogique d'un jeu de données sans le réduire à sa taille.
@@ -39,6 +43,8 @@ Consulter le catalogue, comparer les thèmes et repérer les concepts enseignabl
 :::
 
 ::: {.db-card}
+<img class="db-card-image" src="assets/cards/activites.png" alt="Illustration des activités pédagogiques">
+
 ### Utiliser les activités en classe
 
 Adapter des activités courtes et longues pour des cours d'introduction à la statistique ou à la science des données.
