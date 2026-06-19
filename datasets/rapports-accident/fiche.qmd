@@ -1,9 +1,20 @@
 ---
 title: "Rapports d'accident"
 embed-resources: true
+page-layout: full
+toc: false
+execute:
+  freeze: false
 ---
 
-# Rapports d'accident
+```{r}
+#| label: dataset-detail-header
+#| echo: false
+#| results: asis
+source_path <- if (file.exists("R/utils_dataset_page.R")) "R/utils_dataset_page.R" else "../../R/utils_dataset_page.R"
+source(source_path)
+render_dataset_detail_header()
+```
 
 ## Pourquoi ce jeu est intéressant
 
@@ -118,3 +129,11 @@ source_url
 - Construire un tableau croisé gravité par météo.
 - Agréger par année et région administrative.
 - Modéliser une variable binaire de gravité avec validation simple.
+
+```{r}
+#| label: dataset-detail-footer
+#| echo: false
+#| results: asis
+render_dataset_detail_footer()
+```
+

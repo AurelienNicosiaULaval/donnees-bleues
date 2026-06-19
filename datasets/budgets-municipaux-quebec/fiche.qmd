@@ -1,9 +1,20 @@
 ---
 title: "Budgets municipaux du Québec"
 embed-resources: true
+page-layout: full
+toc: false
+execute:
+  freeze: false
 ---
 
-# Budgets municipaux du Québec
+```{r}
+#| label: dataset-detail-header
+#| echo: false
+#| results: asis
+source_path <- if (file.exists("R/utils_dataset_page.R")) "R/utils_dataset_page.R" else "../../R/utils_dataset_page.R"
+source(source_path)
+render_dataset_detail_header()
+```
 
 ## Pourquoi ce jeu est intéressant
 
@@ -121,3 +132,11 @@ donnees |>
 - Extension intermédiaire : ajouter une visualisation claire et une interprétation écrite.
 - Extension avancée : construire une version préparée et documentée dans `data_processed/`.
 - Extension communication scientifique : expliquer en une page ce que la source permet et ne permet pas de conclure.
+
+```{r}
+#| label: dataset-detail-footer
+#| echo: false
+#| results: asis
+render_dataset_detail_footer()
+```
+

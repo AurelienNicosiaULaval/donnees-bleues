@@ -1,27 +1,38 @@
 ---
 title: "Nom du jeu de données"
 embed-resources: true
+page-layout: full
+toc: false
+execute:
+  freeze: false
 ---
 
-# Nom du jeu de données
+```{r}
+#| label: dataset-detail-header
+#| echo: false
+#| results: asis
+source_path <- if (file.exists("R/utils_dataset_page.R")) "R/utils_dataset_page.R" else "../../R/utils_dataset_page.R"
+source(source_path)
+render_dataset_detail_header()
+```
 
 ## Pourquoi ce jeu est intéressant
 
-Décrire le contexte pédagogique et québécois.
+Décrire le contexte pédagogique, québécois ou canadien, et préciser ce que ce jeu permet réellement d'enseigner en statistique ou en science des données.
 
 ## Source
 
 | Champ | Information |
 |---|---|
-| Organisme producteur | Je ne sais pas encore. |
-| URL | Je ne sais pas encore. |
-| Licence | Je ne sais pas encore. |
-| Date d'accès | Je ne sais pas encore. |
-| Fréquence de mise à jour | Je ne sais pas encore. |
+| Organisme producteur | Je ne sais pas. |
+| URL | Je ne sais pas. |
+| Licence | Je ne sais pas. |
+| Date d'accès | Je ne sais pas. |
+| Fréquence de mise à jour | Je ne sais pas. |
 
 ## Ce que représente une ligne
 
-Décrire l'unité statistique.
+Décrire l'unité statistique avec précision. Indiquer si une ligne représente une personne, une station, une année, un territoire, un événement, une mesure ou une entité administrative.
 
 ## Variables principales
 
@@ -33,18 +44,19 @@ Décrire l'unité statistique.
 
 | Élément | Information |
 |---|---|
-| Nombre de lignes | Je ne sais pas encore. |
-| Nombre de colonnes | Je ne sais pas encore. |
-| Structure | Je ne sais pas encore. |
-| Format | Je ne sais pas encore. |
+| Nombre de lignes | Je ne sais pas. |
+| Nombre de colonnes | Je ne sais pas. |
+| Structure | Je ne sais pas. |
+| Format | Je ne sais pas. |
 
 ## Concepts enseignables
 
-- importation
-- nettoyage
-- visualisation
-- statistique descriptive
-- communication
+- importation;
+- nettoyage;
+- visualisation;
+- statistique descriptive;
+- communication;
+- limites d'interprétation.
 
 ## Score zéro déchet
 
@@ -82,9 +94,6 @@ Décrire un projet de session possible.
 3. Question à compléter.
 4. Question à compléter.
 5. Question à compléter.
-6. Question à compléter.
-7. Question à compléter.
-8. Question à compléter.
 
 ## Code R minimal
 
@@ -94,7 +103,7 @@ library(readr)
 
 donnees <- read_csv("URL_SOURCE_VERIFIEE")
 
-glimpse(donnees)
+str(donnees)
 ```
 
 ## Limites et précautions
@@ -107,3 +116,10 @@ glimpse(donnees)
 - Extension intermédiaire : à compléter.
 - Extension avancée : à compléter.
 - Extension communication scientifique : à compléter.
+
+```{r}
+#| label: dataset-detail-footer
+#| echo: false
+#| results: asis
+render_dataset_detail_footer()
+```

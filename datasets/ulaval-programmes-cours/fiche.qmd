@@ -1,9 +1,20 @@
 ---
 title: "Programmes et cours institutionnels ULaval"
 embed-resources: true
+page-layout: full
+toc: false
+execute:
+  freeze: false
 ---
 
-# Programmes et cours institutionnels ULaval
+```{r}
+#| label: dataset-detail-header
+#| echo: false
+#| results: asis
+source_path <- if (file.exists("R/utils_dataset_page.R")) "R/utils_dataset_page.R" else "../../R/utils_dataset_page.R"
+source(source_path)
+render_dataset_detail_header()
+```
 
 ## Pourquoi ce jeu est intéressant
 
@@ -174,3 +185,11 @@ str(programmes)
 - Extension intermédiaire : produire des tableaux de fréquence localement, sans publier les lignes.
 - Extension avancée : intégrer les fichiers GES en conservant `note` et `statut_quantification`.
 - Extension communication scientifique : rédiger une note méthodologique sur les limites de droits, de provenance et de publication.
+
+```{r}
+#| label: dataset-detail-footer
+#| echo: false
+#| results: asis
+render_dataset_detail_footer()
+```
+
