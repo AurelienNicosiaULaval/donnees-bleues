@@ -1,6 +1,8 @@
 ---
 title: "Activités"
 embed-resources: true
+execute:
+  freeze: false
 ---
 
 # Activités

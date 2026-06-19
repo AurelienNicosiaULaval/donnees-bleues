@@ -5,7 +5,9 @@ embed-resources: true
 
 # Crédits images
 
-Les vignettes des jeux de données sont des versions recadrées et recompressées en 16:9 de fichiers publiés sur Wikimedia Commons.
+Les vignettes photographiques des jeux de données sont des versions recadrées et recompressées en 16:9 de fichiers publiés sur Wikimedia Commons.
+
+Quand aucun fichier image spécifique n'est disponible pour un jeu de données, Données bleues génère automatiquement une vignette SVG locale à partir des métadonnées du jeu. Ces vignettes automatiques ne réutilisent pas d'image externe.
 
 | Carte | Image source | Auteur ou organisme | Licence |
 |---|---|---|---|

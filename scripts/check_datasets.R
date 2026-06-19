@@ -2,6 +2,7 @@ source("R/utils_catalogue.R")
 source("R/utils_zero_waste.R")
 source("R/utils_activities.R")
 source("R/utils_ulaval.R")
+source("R/utils_card_images.R")
 
 required_files <- c(
   "fiche.qmd",
@@ -47,6 +48,9 @@ for (dataset_dir in dataset_dirs) {
     }
   )
 }
+
+catalogue <- build_catalogue("datasets")
+ensure_card_images(catalogue)
 
 catalogue_activites <- build_activity_catalogue("datasets")
 validate_activity_catalogue(catalogue_activites)

@@ -84,6 +84,8 @@ data/metadata/catalogue.csv
 data/metadata/catalogue.rds
 ```
 
+Elle crée aussi automatiquement une vignette SVG dans `assets/cards/` lorsqu'un jeu de données n'a pas encore d'image spécifique.
+
 Le catalogue des activités est généré à partir des fichiers `activite-*.yml`.
 
 ```bash
