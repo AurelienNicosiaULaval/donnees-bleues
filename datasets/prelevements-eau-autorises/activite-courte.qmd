@@ -1,60 +1,60 @@
 ---
-title: "Volumes prélevés par usage"
+title: "Volumes autorisés par provenance de l'eau"
 embed-resources: true
 ---
 
-# Volumes prélevés par usage
+# Volumes autorisés par provenance de l'eau
 
 ## Contexte
 
-Cette activité explore les volumes d'eau prélevés selon les usages déclarés ou autorisés. La définition exacte du volume doit être confirmée dans les métadonnées officielles.
+Cette activité utilise le registre des prélèvements d'eau autorisés pour comparer des volumes maximaux autorisés selon la provenance de l'eau.
 
 ## Objectifs d'apprentissage
 
-- Regrouper des données par catégorie.
-- Calculer des volumes totaux.
-- Produire un graphique en barres lisible.
+- Lire une donnée administrative.
+- Agréger un volume par catégorie.
+- Distinguer volume autorisé et volume réel.
 
 ## Données utilisées
 
 Fiche : [Registre des prélèvements d'eau autorisés](fiche.qmd)
 
-Source : Données Québec / MELCCFP. URL officielle à vérifier.
+Source : Données Québec / MELCCFP, "Prélèvements d'eau autorisés par le MELCCFP".
 
-Licence : TODO: confirmer licence.
+Licence : Attribution (CC-BY 4.0).
 
 ## Métadonnées pédagogiques
 
 | Champ | Information |
 |---|---|
-| Question directrice | Quels usages représentent les plus grands volumes d'eau prélevés? |
+| Question directrice | Quels types de provenance représentent les plus grands volumes autorisés? |
 | Concepts | Agrégation; statistique descriptive; visualisation |
 | Niveau | Intermédiaire |
 | Type | Exercice; exploration de données |
 | Contexte | Prélèvements d'eau |
-| Accroche | Comparer des usages industriels, commerciaux et municipaux |
+| Accroche | Comparer des volumes autorisés liés à l'eau souterraine, de surface ou de dénoyage |
 | Durée | 30-45 minutes |
 | Matériel | énoncé; code; données |
 | Math/stats avancées | non |
 
 ## Consignes
 
-1. Importer les données après vérification de la source.
-2. Vérifier les unités de volume.
-3. Calculer le volume total par usage.
-4. Ordonner les usages du plus grand au plus petit volume.
+1. Importer le CSV officiel.
+2. Renommer les champs pour obtenir des noms lisibles.
+3. Convertir le volume autorisé de litres par jour en mètres cubes par jour.
+4. Calculer le volume total par provenance de l'eau.
 5. Produire un graphique et interpréter le résultat avec prudence.
 
 ## Questions
 
-1. Quel usage représente le plus grand volume?
+1. Quelle provenance représente le plus grand volume autorisé?
 2. Les volumes sont-ils dominés par quelques catégories?
-3. Quelle information faut-il confirmer avant de publier une conclusion?
+3. Pourquoi ne peut-on pas interpréter ces volumes comme des volumes réellement prélevés?
 
 ## Pistes de solution
 
-Une solution acceptable présente une agrégation par usage et un graphique en barres ordonné avec une mention explicite des limites.
+Une solution acceptable présente une agrégation par provenance et un graphique en barres ordonné avec une mention explicite des limites.
 
 ## Prolongement
 
-Répéter l'analyse pour une année ou un territoire précis.
+Répéter l'analyse en retirant les dix plus grands sites pour évaluer leur influence descriptive.

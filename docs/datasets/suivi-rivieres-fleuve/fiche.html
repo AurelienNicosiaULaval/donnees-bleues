@@ -1572,7 +1572,7 @@ const initMatch = () => ({
   i: 0,
   lohisByNode: new Map()
 })
-/** 
+/**
  * keeps track of the start (lo) and end (hi) index of the match per node (leaf)
  * note: mutates the contents of `matchContext`
  */
@@ -1584,16 +1584,16 @@ const advanceMatch = (leaf, leafi, matchContext) => {
   matchContext.lohisByNode.set(leaf, { lo: curLoHi?.lo ?? leafi, hi: leafi })
 }
 /**
- * Finds all non-overlapping matches for a search string in the document. 
+ * Finds all non-overlapping matches for a search string in the document.
  * The search string may be split between multiple consecutive leaf nodes.
- * 
+ *
  * Whitespace in the search string must be present in the document to match, but
  * there may be addititional whitespace in the document that is ignored.
- * 
+ *
  * e.g. searching for `dogs rock` would match `dogs  \n <span> rock</span>`,
- * and would contribute the match 
+ * and would contribute the match
  * `{ i:9, els: new Map([[textNode, {lo:0, hi:8}],[spanNode,{lo:0,hi:5}]]) }`
- * 
+ *
  * @returns {Map<HTMLElement,{lo:number,hi:number}>[]}
  */
 function searchMatches(inSearch, el) {
@@ -1638,7 +1638,7 @@ function searchMatches(inSearch, el) {
   return matches
 }
 
-/** 
+/**
  * e.g. `markMatches(myTextNode, [[0,5],[12,15]])` would wrap the
  * character sequences in myTextNode from 0-5 and 12-15 in marks.
  * Its important to mark all sequences in a text node at once
@@ -1700,7 +1700,7 @@ function scrollToFirstVisibleMatch(mainEl) {
  *
  * arrayMapPush(m, 'dog', 'Max')
  * console.log(m) // Map { dog->['Max'] }
- * 
+ *
  * arrayMapPush(m, 'dog', 'Samba')
  * arrayMapPush(m, 'cat', 'Scruffle')
  * console.log(m) // Map { dog->['Max', 'Samba'], cat->['Scruffle'] }
@@ -1714,7 +1714,7 @@ const arrayMapPush = (map, key, item) => {
 // copy&paste any string from a quarto page and
 // this should find that string in the page and highlight it.
 // exception: text that starts outside/inside a tabset and ends
-// inside/outside that tabset. 
+// inside/outside that tabset.
 function highlight(searchStr, el) {
   const matches = searchMatches(searchStr, el);
 
@@ -4123,6 +4123,11 @@ color: var(--db-muted);
 margin: 0.25rem 1rem 1rem 0;
 padding-left: 2rem;
 }
+.image-credit-link {
+color: var(--db-muted);
+font-size: 0.9rem;
+margin: -1rem 0 2rem;
+}
 .activity-card {
 min-height: 260px;
 }
@@ -4228,29 +4233,29 @@ font-size: 2.3rem;
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../index.html"> 
+    <a class="nav-link" href="../../index.html">
 <span class="menu-text">Accueil</span></a>
-  </li>  
+  </li>
   <li class="nav-item">
-    <a class="nav-link" href="../../catalogue.html"> 
+    <a class="nav-link" href="../../catalogue.html">
 <span class="menu-text">Catalogue</span></a>
-  </li>  
+  </li>
   <li class="nav-item">
-    <a class="nav-link" href="../../zero-waste.html"> 
+    <a class="nav-link" href="../../zero-waste.html">
 <span class="menu-text">Zéro déchet</span></a>
-  </li>  
+  </li>
   <li class="nav-item">
-    <a class="nav-link" href="../../activites.html"> 
+    <a class="nav-link" href="../../activites.html">
 <span class="menu-text">Activités</span></a>
-  </li>  
+  </li>
   <li class="nav-item">
-    <a class="nav-link" href="../../contribuer.html"> 
+    <a class="nav-link" href="../../contribuer.html">
 <span class="menu-text">Contribuer</span></a>
-  </li>  
+  </li>
   <li class="nav-item">
-    <a class="nav-link" href="../../about.html"> 
+    <a class="nav-link" href="../../about.html">
 <span class="menu-text">À propos</span></a>
-  </li>  
+  </li>
 </ul>
           </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
@@ -4265,7 +4270,7 @@ font-size: 2.3rem;
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">On this page</h2>
-   
+
   <ul>
   <li><a href="#suivi-physicochimique-et-bactériologique-des-rivières-et-du-fleuve" id="toc-suivi-physicochimique-et-bactériologique-des-rivières-et-du-fleuve" class="nav-link active" data-scroll-target="#suivi-physicochimique-et-bactériologique-des-rivières-et-du-fleuve">Suivi physicochimique et bactériologique des rivières et du fleuve</a>
   <ul class="collapse">
@@ -4299,11 +4304,11 @@ font-size: 2.3rem;
 
 <div class="quarto-title-meta">
 
-    
-  
-    
+
+
+
   </div>
-  
+
 
 
 </header>
@@ -4314,15 +4319,11 @@ font-size: 2.3rem;
 <section id="pourquoi-ce-jeu-est-intéressant" class="level2">
 <h2 class="anchored" data-anchor-id="pourquoi-ce-jeu-est-intéressant">Pourquoi ce jeu est intéressant</h2>
 <p>Ce jeu de données permet d’aborder la qualité de l’eau à partir d’observations québécoises liées aux rivières et au fleuve. Il convient à des activités d’analyse exploratoire, de visualisation temporelle et de cartographie simple.</p>
-<p>Le contexte est directement exploitable en enseignement : une station est observée dans le temps, plusieurs indicateurs physicochimiques ou bactériologiques peuvent être comparés, et les limites d’interprétation sont importantes.</p>
+<p>Le contexte est directement exploitable en enseignement : une station est suivie dans le temps, plusieurs indicateurs physicochimiques ou bactériologiques peuvent être comparés, et les limites d’interprétation sont importantes. Le CSV vérifié contient des indicateurs agrégés par station et par année de fin de suivi, ainsi qu’une table séparée d’aires de drainage.</p>
 </section>
 <section id="source" class="level2">
 <h2 class="anchored" data-anchor-id="source">Source</h2>
 <table class="caption-top table">
-<colgroup>
-<col style="width: 50%">
-<col style="width: 50%">
-</colgroup>
 <thead>
 <tr class="header">
 <th>Champ</th>
@@ -4344,15 +4345,15 @@ font-size: 2.3rem;
 </tr>
 <tr class="even">
 <td>URL officielle</td>
-<td>TODO: vérifier URL officielle</td>
+<td><a href="https://www.donneesquebec.ca/recherche/dataset/suivi-physicochimique-des-rivieres-et-du-fleuve" class="uri">https://www.donneesquebec.ca/recherche/dataset/suivi-physicochimique-des-rivieres-et-du-fleuve</a></td>
 </tr>
 <tr class="odd">
 <td>Licence</td>
-<td>Licence ouverte du Québec; Attribution (CC-BY 4.0)</td>
+<td>Attribution (CC-BY 4.0)</td>
 </tr>
 <tr class="even">
 <td>Date d’accès</td>
-<td>TODO: vérifier après confirmation de l’URL officielle</td>
+<td>2026-06-19</td>
 </tr>
 <tr class="odd">
 <td>Fréquence de mise à jour</td>
@@ -4360,14 +4361,15 @@ font-size: 2.3rem;
 </tr>
 <tr class="even">
 <td>Statut</td>
-<td>à vérifier</td>
+<td>source vérifiée</td>
 </tr>
 </tbody>
 </table>
 </section>
 <section id="ce-que-représente-une-ligne" class="level2">
 <h2 class="anchored" data-anchor-id="ce-que-représente-une-ligne">Ce que représente une ligne</h2>
-<p>Une ligne représente une observation annuelle de qualité de l’eau pour une station de suivi. La granularité exacte doit être confirmée dans les métadonnées officielles avant exploitation.</p>
+<p>Dans <code>stations_p.csv</code>, une ligne représente une station de suivi et une année de fin de période de suivi. Le dictionnaire officiel précise que plusieurs statistiques sont calculées à partir de mesures recueillies sur trois étés consécutifs afin d’améliorer leur représentativité.</p>
+<p>Dans <code>ad_s.csv</code>, une ligne représente une aire de drainage associée à une station de suivi.</p>
 </section>
 <section id="variables-principales" class="level2">
 <h2 class="anchored" data-anchor-id="variables-principales">Variables principales</h2>
@@ -4390,81 +4392,81 @@ font-size: 2.3rem;
 </thead>
 <tbody>
 <tr class="odd">
-<td>station_id</td>
+<td>no_bqma</td>
 <td>caractère</td>
-<td>Identifiant de station</td>
+<td>Numéro d’identification de la station BQMA</td>
 <td>03040001</td>
 <td>Clé pour regrouper les observations</td>
 </tr>
 <tr class="even">
-<td>date</td>
-<td>date</td>
-<td>Date ou année de mesure</td>
-<td>2021-08-15</td>
-<td>Base pour les séries temporelles</td>
+<td>annee</td>
+<td>entier</td>
+<td>Dernière année de suivi durant la période de trois ans</td>
+<td>2021</td>
+<td>Axe temporel</td>
 </tr>
 <tr class="odd">
-<td>phosphore_total</td>
+<td>ptot_med_mgl</td>
 <td>numérique</td>
-<td>Concentration de phosphore total</td>
+<td>Médiane du phosphore total en mg/l</td>
 <td>0.03</td>
 <td>Indicateur de qualité de l’eau</td>
 </tr>
 <tr class="even">
-<td>azote_total</td>
+<td>ntot_med_mgl</td>
 <td>numérique</td>
-<td>Concentration d’azote total</td>
+<td>Médiane de l’azote total en mg/l</td>
 <td>0.8</td>
-<td>Comparaison entre stations ou bassins</td>
+<td>Comparaison entre stations</td>
 </tr>
 <tr class="odd">
-<td>nitrites_nitrates</td>
+<td>nox_med_mgl</td>
 <td>numérique</td>
-<td>Concentration en nitrites et nitrates</td>
+<td>Médiane des nitrites et nitrates en mg/l</td>
 <td>0.25</td>
 <td>Variable utile pour les tendances</td>
 </tr>
 <tr class="even">
-<td>chlorophylle_a</td>
+<td>chla_med_ugl</td>
 <td>numérique</td>
-<td>Concentration de chlorophylle a</td>
+<td>Médiane de chlorophylle a en microgrammes par litre</td>
 <td>4.1</td>
 <td>Lien avec la productivité biologique</td>
 </tr>
 <tr class="odd">
-<td>coliformes_fecaux</td>
+<td>cf_med_ufc</td>
 <td>numérique</td>
-<td>Indicateur bactériologique</td>
+<td>Médiane des coliformes fécaux en UFC/100 ml</td>
 <td>120</td>
 <td>Peut nécessiter une échelle logarithmique</td>
 </tr>
 <tr class="even">
-<td>ph</td>
+<td>latitude</td>
 <td>numérique</td>
-<td>pH mesuré</td>
-<td>7.4</td>
-<td>Variable bornée à interpréter avec prudence</td>
+<td>Latitude de la station</td>
+<td>46.8</td>
+<td>Coordonnée pour cartographie</td>
 </tr>
 <tr class="odd">
-<td>conductivite</td>
+<td>longitude</td>
 <td>numérique</td>
-<td>Conductivité de l’eau</td>
-<td>230</td>
-<td>Indicateur physicochimique</td>
+<td>Longitude de la station</td>
+<td>-71.2</td>
+<td>Coordonnée pour cartographie</td>
 </tr>
 <tr class="even">
-<td>temperature</td>
+<td>superf_tot_km2</td>
 <td>numérique</td>
-<td>Température de l’eau</td>
-<td>18.2</td>
-<td>Forte composante saisonnière</td>
+<td>Superficie drainée à la station en km2</td>
+<td>1250</td>
+<td>Variable de contexte territorial dans <code>ad_s.csv</code></td>
 </tr>
 <tr class="odd">
-<td>aire_de_drainage</td>
+<td>pc_agricole</td>
 <td>numérique</td>
-<td>Aire drainée par la station</td>
-<td>1250</td>
-<td>Variable de contexte territorial</td>
+<td>Part agricole de l’aire de drainage</td>
+<td>22.5</td>
+<td>Contexte d’utilisation du territoire</td>
 </tr>
 </tbody>
 </table>
@@ -4485,23 +4487,23 @@ font-size: 2.3rem;
 <tbody>
 <tr class="odd">
 <td>Nombre de lignes</td>
-<td>Données annuelles, plusieurs stations, milliers de lignes</td>
+<td><code>stations_p.csv</code> : 6 990 lignes; <code>ad_s.csv</code> : 866 lignes dans le ZIP CSV consulté</td>
 </tr>
 <tr class="even">
 <td>Nombre de colonnes</td>
-<td>11 variables principales proposées; nombre total de colonnes à confirmer</td>
+<td><code>stations_p.csv</code> : 88 colonnes; <code>ad_s.csv</code> : 13 colonnes</td>
 </tr>
 <tr class="odd">
 <td>Structure</td>
-<td>Tabulaire, temporelle et spatiale</td>
+<td>Tabulaire, spatiale et temporelle agrégée</td>
 </tr>
 <tr class="even">
 <td>Format</td>
-<td>TODO: confirmer format dans les métadonnées officielles</td>
+<td>CSV ZIP, GeoJSON ZIP, GPKG ZIP, FGDB ZIP, REST, WMS et PDF de métadonnées</td>
 </tr>
 <tr class="odd">
 <td>Type de données</td>
-<td>Mesures environnementales par station</td>
+<td>Indicateurs environnementaux par station</td>
 </tr>
 <tr class="even">
 <td>Niveau pédagogique recommandé</td>
@@ -4514,11 +4516,12 @@ font-size: 2.3rem;
 <h2 class="anchored" data-anchor-id="concepts-enseignables">Concepts enseignables</h2>
 <ul>
 <li>importation de données ouvertes;</li>
-<li>séries temporelles;</li>
+<li>séries temporelles agrégées;</li>
 <li>visualisation de tendances;</li>
 <li>statistiques descriptives;</li>
 <li>comparaison par station ou bassin versant;</li>
 <li>cartographie simple;</li>
+<li>jointure entre stations et aires de drainage;</li>
 <li>discussion sur les limites des indicateurs environnementaux.</li>
 </ul>
 </section>
@@ -4546,12 +4549,12 @@ font-size: 2.3rem;
 <tr class="even">
 <td>Accessibilité pédagogique</td>
 <td style="text-align: right;">2</td>
-<td>Les variables sont compréhensibles, mais les unités doivent être confirmées.</td>
+<td>Les variables sont compréhensibles, mais les unités et statistiques doivent être expliquées.</td>
 </tr>
 <tr class="odd">
 <td>Qualité documentaire</td>
-<td style="text-align: right;">1</td>
-<td>L’URL officielle et les métadonnées doivent être vérifiées.</td>
+<td style="text-align: right;">3</td>
+<td>La page, la licence, les CSV et les dictionnaires PDF sont disponibles.</td>
 </tr>
 <tr class="even">
 <td>Potentiel de nettoyage</td>
@@ -4566,7 +4569,7 @@ font-size: 2.3rem;
 <tr class="even">
 <td>Potentiel de statistique descriptive</td>
 <td style="text-align: right;">3</td>
-<td>Les résumés par station, saison ou bassin sont directs.</td>
+<td>Les résumés par station ou bassin sont directs.</td>
 </tr>
 <tr class="odd">
 <td>Potentiel d’inférence</td>
@@ -4590,21 +4593,21 @@ font-size: 2.3rem;
 </tr>
 </tbody>
 </table>
-<p>Total : 24 sur 30.</p>
+<p>Total : 26 sur 30.</p>
 </section>
 <section id="activité-courte" class="level2">
 <h2 class="anchored" data-anchor-id="activité-courte">Activité courte</h2>
-<p>En 30 à 45 minutes, demander aux personnes étudiantes de choisir une station, de résumer le phosphore total par année et de produire un graphique temporel.</p>
+<p>En 30 à 45 minutes, demander aux personnes étudiantes de choisir une station, de résumer la médiane du phosphore total par année et de produire un graphique temporel.</p>
 </section>
 <section id="activité-longue" class="level2">
 <h2 class="anchored" data-anchor-id="activité-longue">Activité longue</h2>
-<p>En 2 à 3 heures, demander de comparer plusieurs stations ou bassins versants, puis de produire une carte des stations et un graphique temporel interactif.</p>
+<p>En 2 à 3 heures, demander de comparer plusieurs stations ou bassins versants, puis de produire une carte des stations et un graphique temporel.</p>
 </section>
 <section id="projets-possibles" class="level2">
 <h2 class="anchored" data-anchor-id="projets-possibles">Projets possibles</h2>
 <ul>
-<li>Analyser la tendance du phosphore total par station ou par bassin versant.</li>
-<li>Comparer la qualité de l’eau selon les saisons.</li>
+<li>Analyser la tendance de la médiane du phosphore total par station ou par bassin versant.</li>
+<li>Comparer plusieurs indicateurs de qualité de l’eau entre stations.</li>
 <li>Produire une carte des stations et un graphique temporel interactif.</li>
 </ul>
 </section>
@@ -4615,7 +4618,7 @@ font-size: 2.3rem;
 <li>Comment traiter les stations observées sur des périodes différentes?</li>
 <li>Quelle variable pourrait servir à comparer les stations malgré des bassins de tailles différentes?</li>
 <li>Quels graphiques permettent de voir une tendance temporelle?</li>
-<li>Pourquoi la saison peut-elle influencer les mesures?</li>
+<li>Pourquoi les statistiques sont-elles calculées sur plusieurs étés?</li>
 <li>Comment détecter des valeurs extrêmes sans les supprimer automatiquement?</li>
 <li>Quelles limites faut-il mentionner avant de comparer des bassins versants?</li>
 <li>Quelles informations géographiques seraient nécessaires pour une carte fiable?</li>
@@ -4628,46 +4631,66 @@ font-size: 2.3rem;
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>source_url <span class="ot">&lt;-</span> <span class="st">&quot;TODO: vérifier URL officielle&quot;</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="fu">identical</span>(source_url, <span class="st">&quot;TODO: vérifier URL officielle&quot;</span>)) {</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stop</span>(<span class="st">&quot;Remplacer source_url par l&#39;URL officielle vérifiée avant d&#39;importer les données.&quot;</span>, <span class="at">call. =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>qualite_eau <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(source_url, <span class="at">show_col_types =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>source_url <span class="ot">&lt;-</span> <span class="st">&quot;https://stqc380donopppdtce01.blob.core.windows.net/donnees-ouvertes/IQBP/DQ/IQBP_csv.zip&quot;</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>zip_path <span class="ot">&lt;-</span> <span class="fu">tempfile</span>(<span class="at">fileext =</span> <span class="st">&quot;.zip&quot;</span>)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>extract_dir <span class="ot">&lt;-</span> <span class="fu">tempfile</span>()</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">dir.create</span>(extract_dir)</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="fu">download.file</span>(source_url, zip_path, <span class="at">mode =</span> <span class="st">&quot;wb&quot;</span>, <span class="at">quiet =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="fu">unzip</span>(zip_path, <span class="at">exdir =</span> extract_dir)</span>
 <span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>qualite_eau <span class="sc">|&gt;</span></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(station_id, <span class="at">sort =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>qualite_eau <span class="sc">|&gt;</span></span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(phosphore_total)) <span class="sc">|&gt;</span></span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(station_id, <span class="at">annee =</span> <span class="fu">as.integer</span>(<span class="fu">format</span>(<span class="fu">as.Date</span>(date), <span class="st">&quot;%Y&quot;</span>))) <span class="sc">|&gt;</span></span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">phosphore_median =</span> <span class="fu">median</span>(phosphore_total, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), <span class="at">.groups =</span> <span class="st">&quot;drop&quot;</span>) <span class="sc">|&gt;</span></span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> annee, <span class="at">y =</span> phosphore_median, <span class="at">group =</span> station_id)) <span class="sc">+</span></span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">alpha =</span> <span class="fl">0.35</span>) <span class="sc">+</span></span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">&quot;Année&quot;</span>,</span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">&quot;Phosphore total médian&quot;</span>,</span>
-<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">&quot;Tendance du phosphore total par station&quot;</span></span>
-<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>stations <span class="ot">&lt;-</span> <span class="fu">read_delim</span>(</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">file.path</span>(extract_dir, <span class="st">&quot;stations_p.csv&quot;</span>),</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>  <span class="at">delim =</span> <span class="st">&quot;;&quot;</span>,</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>  <span class="at">show_col_types =</span> <span class="cn">FALSE</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>) <span class="sc">|&gt;</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename_with</span>(tolower) <span class="sc">|&gt;</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">transmute</span>(</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>    no_bqma,</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>    hydronyme,</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>    description,</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>    annee,</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>    ptot_med_mgl,</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>    ntot_med_mgl,</span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>    nox_med_mgl,</span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>    chla_med_ugl,</span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>    cf_med_ufc,</span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>    latitude,</span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>    longitude</span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>stations <span class="sc">|&gt;</span></span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(no_bqma, <span class="at">sort =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>stations <span class="sc">|&gt;</span></span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(ptot_med_mgl)) <span class="sc">|&gt;</span></span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(no_bqma, annee) <span class="sc">|&gt;</span></span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">phosphore_median_mgl =</span> <span class="fu">median</span>(ptot_med_mgl, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), <span class="at">.groups =</span> <span class="st">&quot;drop&quot;</span>) <span class="sc">|&gt;</span></span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> annee, <span class="at">y =</span> phosphore_median_mgl, <span class="at">group =</span> no_bqma)) <span class="sc">+</span></span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">alpha =</span> <span class="fl">0.35</span>) <span class="sc">+</span></span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">&quot;Année&quot;</span>,</span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">&quot;Phosphore total médian (mg/l)&quot;</span>,</span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">&quot;Tendance du phosphore total par station&quot;</span></span>
+<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="limites-et-précautions" class="level2">
 <h2 class="anchored" data-anchor-id="limites-et-précautions">Limites et précautions</h2>
 <ul>
-<li>TODO: vérifier URL officielle avant d’utiliser ce jeu.</li>
-<li>Les unités de mesure doivent être confirmées dans les métadonnées officielles.</li>
+<li>Les valeurs principales du CSV sont des statistiques agrégées, pas les mesures brutes individuelles.</li>
+<li>Les unités de mesure doivent être conservées dans les noms de variables ou dans les libellés.</li>
 <li>Les comparaisons entre stations doivent tenir compte de la période d’observation et du contexte hydrologique.</li>
 <li>Une tendance apparente ne suffit pas à établir une cause.</li>
-<li>Les variables géographiques exactes doivent être vérifiées avant toute carte.</li>
+<li>Les champs pH, conductivité et température sont mentionnés dans la description générale du réseau, mais ne figurent pas dans l’en-tête du CSV consulté.</li>
 </ul>
 </section>
 <section id="extensions" class="level2">
 <h2 class="anchored" data-anchor-id="extensions">Extensions</h2>
 <ul>
-<li>Extension intro : comparer les distributions de pH et de température.</li>
+<li>Extension intro : comparer les distributions de phosphore total et d’azote total.</li>
 <li>Extension intermédiaire : produire des tendances par station.</li>
-<li>Extension avancée : modéliser les tendances en tenant compte de la saison.</li>
+<li>Extension avancée : joindre les aires de drainage et analyser le contexte territorial.</li>
 <li>Extension communication scientifique : rédiger une note sur les limites d’une comparaison entre bassins versants.</li>
 </ul>
 
@@ -4687,7 +4710,7 @@ font-size: 2.3rem;
     anchorJS.add('.anchored');
     const isCodeAnnotation = (el) => {
       for (const clz of el.classList) {
-        if (clz.startsWith('code-annotation-')) {                     
+        if (clz.startsWith('code-annotation-')) {
           return true;
         }
       }
@@ -4707,11 +4730,11 @@ font-size: 2.3rem;
         button.setAttribute("data-bs-toggle", "tooltip");
         button.setAttribute("data-bs-placement", "left");
         button.setAttribute("data-bs-title", "Copied!");
-        tooltip = new bootstrap.Tooltip(button, 
-          { trigger: "manual", 
+        tooltip = new bootstrap.Tooltip(button,
+          { trigger: "manual",
             customClass: "code-copy-button-tooltip",
             offset: [0, -8]});
-        tooltip.show();    
+        tooltip.show();
       }
       setTimeout(function() {
         if (tooltip) {
@@ -4793,7 +4816,7 @@ font-size: 2.3rem;
       if (onUntriggerFn) {
         config.onUntrigger = onUntriggerFn;
       }
-      window.tippy(el, config); 
+      window.tippy(el, config);
     }
     const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
     for (var i=0; i<noterefs.length; i++) {
@@ -4868,7 +4891,7 @@ font-size: 2.3rem;
       tippyHover(xref, undefined, function(instance) {
         instance.disable();
         let url = xref.getAttribute('href');
-        let hash = undefined; 
+        let hash = undefined;
         if (url.startsWith('#')) {
           hash = url;
         } else {
@@ -4896,7 +4919,7 @@ font-size: 2.3rem;
               if (note !== null) {
                 const html = processXRef(id, note);
                 instance.setContent(html);
-              } 
+              }
             }).finally(() => {
               instance.enable();
               instance.show();
@@ -4920,7 +4943,7 @@ font-size: 2.3rem;
               }
               const html = processXRef(null, note);
               instance.setContent(html);
-            } 
+            }
           }).finally(() => {
             instance.enable();
             instance.show();
@@ -4960,7 +4983,7 @@ font-size: 2.3rem;
               height = bottom - top;
             }
             if (top !== null && height !== null && parent !== null) {
-              // cook up a div (if necessary) and position it 
+              // cook up a div (if necessary) and position it
               let div = window.document.getElementById("code-annotation-line-highlight");
               if (div === null) {
                 div = window.document.createElement("div");
@@ -5086,7 +5109,7 @@ font-size: 2.3rem;
   <div class="nav-footer">
     <div class="nav-footer-left">
 <p>Données bleues</p>
-</div>   
+</div>
     <div class="nav-footer-center">
        
     </div>

@@ -1,34 +1,34 @@
 ---
-title: "Tendances de diplomation par cohorte"
+title: "Tendances de diplomation selon l'IMSE"
 embed-resources: true
 ---
 
-# Tendances de diplomation par cohorte
+# Tendances de diplomation selon l'IMSE
 
 ## Contexte
 
-Cette activité demande de produire un mini-rapport sur les tendances de diplomation par cohorte et par regroupement disponible.
+Cette activité demande de produire un mini-rapport sur l'évolution de l'écart de diplomation et de qualification entre les élèves des déciles IMSE 1 et 10.
 
 ## Objectifs d'apprentissage
 
 - Visualiser une tendance de taux.
-- Comparer plusieurs groupes.
-- Utiliser les effectifs pour contextualiser les résultats.
+- Comparer deux groupes.
+- Interpréter un écart en points de pourcentage.
 - Communiquer les limites de données agrégées.
 
 ## Données utilisées
 
 Fiche : [Cohortes de diplomation](fiche.qmd)
 
-Source : Institut de la statistique du Québec. URL officielle à vérifier.
+Source : Institut de la statistique du Québec, indicateur "Écart de diplomation selon le milieu socio-économique".
 
-Licence : TODO: confirmer licence.
+Licence ou conditions : droit d'auteur du Gouvernement du Québec; reproduction soumise aux conditions de l'Institut de la statistique du Québec, sauf permission ou indication contraire.
 
 ## Métadonnées pédagogiques
 
 | Champ | Information |
 |---|---|
-| Question directrice | Comment les taux de diplomation évoluent-ils selon les cohortes et les regroupements? |
+| Question directrice | Comment l'écart de diplomation évolue-t-il selon les cohortes suivies? |
 | Concepts | Séries temporelles; comparaison de groupes; visualisation; communication |
 | Niveau | Introductif à intermédiaire |
 | Type | Étude de cas; projet ou tâche longue |
@@ -40,22 +40,22 @@ Licence : TODO: confirmer licence.
 
 ## Consignes
 
-1. Importer les données après vérification de la source.
-2. Choisir un regroupement principal, par exemple le sexe ou la région.
-3. Visualiser le taux de diplomation par cohorte.
-4. Ajouter une table des effectifs.
+1. Importer l'export XLSX officiel de l'ISQ.
+2. Nettoyer les lignes de notes afin de conserver les années scolaires.
+3. Visualiser les deux taux dans un premier graphique.
+4. Visualiser l'écart en points de pourcentage dans un second graphique.
 5. Discuter les écarts observés et les limites d'interprétation.
 
 ## Questions
 
-1. La tendance est-elle semblable pour tous les groupes?
+1. Les deux taux évoluent-ils de manière semblable?
 2. Les écarts sont-ils stables dans le temps?
-3. Quelle information manque pour interpréter les écarts socioéconomiques?
+3. Quelle limite impose le fait de comparer seulement deux déciles extrêmes?
 
 ## Pistes de solution
 
-Le mini-rapport devrait inclure un graphique temporel, une table des effectifs et une conclusion limitée aux tendances descriptives.
+Le mini-rapport devrait inclure deux graphiques, un tableau descriptif et une conclusion limitée aux tendances descriptives.
 
 ## Prolongement
 
-Ajouter un regroupement socioéconomique seulement si la variable est disponible et documentée.
+Comparer la lecture du graphique des taux avec celle du graphique de l'écart.

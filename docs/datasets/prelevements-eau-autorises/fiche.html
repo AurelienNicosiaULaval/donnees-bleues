@@ -1572,7 +1572,7 @@ const initMatch = () => ({
   i: 0,
   lohisByNode: new Map()
 })
-/** 
+/**
  * keeps track of the start (lo) and end (hi) index of the match per node (leaf)
  * note: mutates the contents of `matchContext`
  */
@@ -1584,16 +1584,16 @@ const advanceMatch = (leaf, leafi, matchContext) => {
   matchContext.lohisByNode.set(leaf, { lo: curLoHi?.lo ?? leafi, hi: leafi })
 }
 /**
- * Finds all non-overlapping matches for a search string in the document. 
+ * Finds all non-overlapping matches for a search string in the document.
  * The search string may be split between multiple consecutive leaf nodes.
- * 
+ *
  * Whitespace in the search string must be present in the document to match, but
  * there may be addititional whitespace in the document that is ignored.
- * 
+ *
  * e.g. searching for `dogs rock` would match `dogs  \n <span> rock</span>`,
- * and would contribute the match 
+ * and would contribute the match
  * `{ i:9, els: new Map([[textNode, {lo:0, hi:8}],[spanNode,{lo:0,hi:5}]]) }`
- * 
+ *
  * @returns {Map<HTMLElement,{lo:number,hi:number}>[]}
  */
 function searchMatches(inSearch, el) {
@@ -1638,7 +1638,7 @@ function searchMatches(inSearch, el) {
   return matches
 }
 
-/** 
+/**
  * e.g. `markMatches(myTextNode, [[0,5],[12,15]])` would wrap the
  * character sequences in myTextNode from 0-5 and 12-15 in marks.
  * Its important to mark all sequences in a text node at once
@@ -1700,7 +1700,7 @@ function scrollToFirstVisibleMatch(mainEl) {
  *
  * arrayMapPush(m, 'dog', 'Max')
  * console.log(m) // Map { dog->['Max'] }
- * 
+ *
  * arrayMapPush(m, 'dog', 'Samba')
  * arrayMapPush(m, 'cat', 'Scruffle')
  * console.log(m) // Map { dog->['Max', 'Samba'], cat->['Scruffle'] }
@@ -1714,7 +1714,7 @@ const arrayMapPush = (map, key, item) => {
 // copy&paste any string from a quarto page and
 // this should find that string in the page and highlight it.
 // exception: text that starts outside/inside a tabset and ends
-// inside/outside that tabset. 
+// inside/outside that tabset.
 function highlight(searchStr, el) {
   const matches = searchMatches(searchStr, el);
 
@@ -4123,6 +4123,11 @@ color: var(--db-muted);
 margin: 0.25rem 1rem 1rem 0;
 padding-left: 2rem;
 }
+.image-credit-link {
+color: var(--db-muted);
+font-size: 0.9rem;
+margin: -1rem 0 2rem;
+}
 .activity-card {
 min-height: 260px;
 }
@@ -4228,29 +4233,29 @@ font-size: 2.3rem;
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../index.html"> 
+    <a class="nav-link" href="../../index.html">
 <span class="menu-text">Accueil</span></a>
-  </li>  
+  </li>
   <li class="nav-item">
-    <a class="nav-link" href="../../catalogue.html"> 
+    <a class="nav-link" href="../../catalogue.html">
 <span class="menu-text">Catalogue</span></a>
-  </li>  
+  </li>
   <li class="nav-item">
-    <a class="nav-link" href="../../zero-waste.html"> 
+    <a class="nav-link" href="../../zero-waste.html">
 <span class="menu-text">Zéro déchet</span></a>
-  </li>  
+  </li>
   <li class="nav-item">
-    <a class="nav-link" href="../../activites.html"> 
+    <a class="nav-link" href="../../activites.html">
 <span class="menu-text">Activités</span></a>
-  </li>  
+  </li>
   <li class="nav-item">
-    <a class="nav-link" href="../../contribuer.html"> 
+    <a class="nav-link" href="../../contribuer.html">
 <span class="menu-text">Contribuer</span></a>
-  </li>  
+  </li>
   <li class="nav-item">
-    <a class="nav-link" href="../../about.html"> 
+    <a class="nav-link" href="../../about.html">
 <span class="menu-text">À propos</span></a>
-  </li>  
+  </li>
 </ul>
           </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
@@ -4265,7 +4270,7 @@ font-size: 2.3rem;
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">On this page</h2>
-   
+
   <ul>
   <li><a href="#registre-des-prélèvements-deau-autorisés" id="toc-registre-des-prélèvements-deau-autorisés" class="nav-link active" data-scroll-target="#registre-des-prélèvements-deau-autorisés">Registre des prélèvements d’eau autorisés</a>
   <ul class="collapse">
@@ -4299,11 +4304,11 @@ font-size: 2.3rem;
 
 <div class="quarto-title-meta">
 
-    
-  
-    
+
+
+
   </div>
-  
+
 
 
 </header>
@@ -4313,16 +4318,12 @@ font-size: 2.3rem;
 <h1>Registre des prélèvements d’eau autorisés</h1>
 <section id="pourquoi-ce-jeu-est-intéressant" class="level2">
 <h2 class="anchored" data-anchor-id="pourquoi-ce-jeu-est-intéressant">Pourquoi ce jeu est intéressant</h2>
-<p>Ce jeu de données permet d’étudier les prélèvements d’eau autorisés dans un contexte industriel, commercial ou municipal. Il est utile pour enseigner les agrégations territoriales, les comparaisons sectorielles et la visualisation de volumes dans le temps.</p>
-<p>Le sujet relie directement la statistique descriptive aux politiques publiques. Il exige aussi de distinguer les volumes autorisés, prélevés ou déclarés selon les définitions exactes de la source.</p>
+<p>Ce jeu de données permet d’étudier les sites de prélèvements d’eau autorisés au Québec et les volumes maximaux autorisés associés. Il est utile pour enseigner les agrégations, les comparaisons de volumes, la cartographie de points et les limites d’une donnée administrative.</p>
+<p>Le sujet relie directement la statistique descriptive aux politiques publiques. Il exige aussi de distinguer un volume autorisé, exprimé en litres par jour dans la source, d’un volume réellement prélevé ou déclaré.</p>
 </section>
 <section id="source" class="level2">
 <h2 class="anchored" data-anchor-id="source">Source</h2>
 <table class="caption-top table">
-<colgroup>
-<col style="width: 50%">
-<col style="width: 50%">
-</colgroup>
 <thead>
 <tr class="header">
 <th>Champ</th>
@@ -4344,30 +4345,30 @@ font-size: 2.3rem;
 </tr>
 <tr class="even">
 <td>URL officielle</td>
-<td>TODO: vérifier URL officielle</td>
+<td><a href="https://www.donneesquebec.ca/recherche/dataset/prelevements-eau-volumes-autorises-par-melccfp" class="uri">https://www.donneesquebec.ca/recherche/dataset/prelevements-eau-volumes-autorises-par-melccfp</a></td>
 </tr>
 <tr class="odd">
 <td>Licence</td>
-<td>TODO: confirmer licence</td>
+<td>Attribution (CC-BY 4.0)</td>
 </tr>
 <tr class="even">
 <td>Date d’accès</td>
-<td>TODO: vérifier après confirmation de l’URL officielle</td>
+<td>2026-06-19</td>
 </tr>
 <tr class="odd">
 <td>Fréquence de mise à jour</td>
-<td>Selon les années disponibles; fréquence à confirmer</td>
+<td>Annuelle; version de données 2025-09-15 selon le fichier source</td>
 </tr>
 <tr class="even">
 <td>Statut</td>
-<td>à vérifier</td>
+<td>source vérifiée</td>
 </tr>
 </tbody>
 </table>
 </section>
 <section id="ce-que-représente-une-ligne" class="level2">
 <h2 class="anchored" data-anchor-id="ce-que-représente-une-ligne">Ce que représente une ligne</h2>
-<p>Une ligne représente un prélèvement d’eau autorisé ou déclaré pour une organisation, un usage, un territoire et une année. La définition exacte de la ligne doit être confirmée dans les métadonnées officielles.</p>
+<p>Une ligne représente un site de prélèvement d’eau autorisé actif. Les métadonnées officielles indiquent que ces sites sont les points d’entrée de l’eau dans une installation aménagée afin d’effectuer un prélèvement d’eau, tant souterrain que de surface.</p>
 </section>
 <section id="variables-principales" class="level2">
 <h2 class="anchored" data-anchor-id="variables-principales">Variables principales</h2>
@@ -4390,53 +4391,67 @@ font-size: 2.3rem;
 </thead>
 <tbody>
 <tr class="odd">
-<td>entreprise</td>
+<td>no_doc</td>
 <td>caractère</td>
-<td>Nom de l’organisation ou de l’entreprise</td>
+<td>Numéro du document délivré</td>
+<td>401234567</td>
+<td>Un document peut être lié à plusieurs sites</td>
+</tr>
+<tr class="even">
+<td>site_id</td>
+<td>entier</td>
+<td>Identifiant unique du site dans le fichier</td>
+<td>123</td>
+<td>Clé technique</td>
+</tr>
+<tr class="odd">
+<td>nombre_sites_document</td>
+<td>entier</td>
+<td>Nombre de sites liés au document délivré</td>
+<td>2</td>
+<td>Utile pour interpréter les documents multi-sites</td>
+</tr>
+<tr class="even">
+<td>nom_intervenant</td>
+<td>caractère</td>
+<td>Nom de l’intervenant destinataire de l’autorisation</td>
 <td>Municipalité X</td>
 <td>Peut nécessiter une normalisation</td>
 </tr>
-<tr class="even">
-<td>annee</td>
-<td>entier</td>
-<td>Année de référence</td>
-<td>2022</td>
-<td>Base pour l’évolution temporelle</td>
-</tr>
 <tr class="odd">
-<td>volume_preleve_m3</td>
+<td>volume_autorise_l_j</td>
 <td>numérique</td>
-<td>Volume d’eau prélevé en mètres cubes</td>
-<td>125000</td>
+<td>Volume maximal autorisé en litres par jour</td>
+<td>100000</td>
 <td>Variable principale d’analyse</td>
 </tr>
 <tr class="even">
-<td>usage</td>
+<td>precision_volume</td>
 <td>caractère</td>
-<td>Usage déclaré ou autorisé</td>
-<td>Municipal</td>
-<td>Permet les comparaisons sectorielles</td>
+<td>Précisions relatives au prélèvement autorisé</td>
+<td>Condition particulière</td>
+<td>Texte à lire avant interprétation</td>
 </tr>
 <tr class="odd">
-<td>localisation</td>
+<td>provenance_eau</td>
 <td>caractère</td>
-<td>Territoire ou lieu associé</td>
-<td>Capitale-Nationale</td>
-<td>Peut servir aux regroupements</td>
+<td>Type de provenance de l’eau</td>
+<td>Souterraine</td>
+<td>Catégorie pour comparaison</td>
 </tr>
 <tr class="even">
-<td>coordonnees</td>
-<td>caractère ou géométrie</td>
-<td>Coordonnées spatiales si disponibles</td>
-<td>46.8, -71.2</td>
-<td>À transformer avant cartographie</td>
+<td>longitude</td>
+<td>numérique</td>
+<td>Longitude en degrés décimaux</td>
+<td>-71.2</td>
+<td>Coordonnée pour cartographie</td>
 </tr>
 <tr class="odd">
-<td>type_autorisation</td>
-<td>caractère</td>
-<td>Type d’autorisation administrative</td>
-<td>Autorisation ministérielle</td>
-<td>À vérifier dans le dictionnaire</td>
+<td>latitude</td>
+<td>numérique</td>
+<td>Latitude en degrés décimaux</td>
+<td>46.8</td>
+<td>Coordonnée pour cartographie</td>
 </tr>
 </tbody>
 </table>
@@ -4457,23 +4472,23 @@ font-size: 2.3rem;
 <tbody>
 <tr class="odd">
 <td>Nombre de lignes</td>
-<td>Plusieurs milliers à dizaines de milliers de lignes selon les années disponibles</td>
+<td>1 777 lignes dans le CSV consulté le 2026-06-19</td>
 </tr>
 <tr class="even">
 <td>Nombre de colonnes</td>
-<td>7 variables principales proposées; nombre total de colonnes à confirmer</td>
+<td>9 colonnes dans le CSV consulté</td>
 </tr>
 <tr class="odd">
 <td>Structure</td>
-<td>Tabulaire, temporelle et spatiale</td>
+<td>Tabulaire et spatiale</td>
 </tr>
 <tr class="even">
 <td>Format</td>
-<td>TODO: confirmer format dans les métadonnées officielles</td>
+<td>CSV, GeoJSON, GPKG, FGDB, SHP, XLSX, REST, WMS et PDF de métadonnées</td>
 </tr>
 <tr class="odd">
 <td>Type de données</td>
-<td>Données administratives sur les prélèvements d’eau</td>
+<td>Données administratives sur les prélèvements d’eau autorisés</td>
 </tr>
 <tr class="even">
 <td>Niveau pédagogique recommandé</td>
@@ -4485,12 +4500,12 @@ font-size: 2.3rem;
 <section id="concepts-enseignables" class="level2">
 <h2 class="anchored" data-anchor-id="concepts-enseignables">Concepts enseignables</h2>
 <ul>
-<li>agrégation par région, MRC ou secteur;</li>
+<li>agrégation par provenance de l’eau;</li>
 <li>statistiques descriptives de volumes;</li>
 <li>transformations d’unités;</li>
-<li>séries temporelles;</li>
-<li>cartes et visualisations territoriales;</li>
+<li>cartographie de points;</li>
 <li>valeurs extrêmes;</li>
+<li>distinction entre volume autorisé et volume réel;</li>
 <li>limites d’une donnée administrative.</li>
 </ul>
 </section>
@@ -4518,37 +4533,37 @@ font-size: 2.3rem;
 <tr class="even">
 <td>Accessibilité pédagogique</td>
 <td style="text-align: right;">2</td>
-<td>Le sujet est concret, mais les définitions administratives doivent être clarifiées.</td>
+<td>Le sujet est concret, mais les définitions administratives doivent être explicitées.</td>
 </tr>
 <tr class="odd">
 <td>Qualité documentaire</td>
-<td style="text-align: right;">1</td>
-<td>L’URL et la licence doivent être confirmées.</td>
+<td style="text-align: right;">3</td>
+<td>La page, la licence, le CSV et le dictionnaire PDF sont disponibles.</td>
 </tr>
 <tr class="even">
 <td>Potentiel de nettoyage</td>
 <td style="text-align: right;">2</td>
-<td>Les noms, usages et territoires peuvent nécessiter une harmonisation.</td>
+<td>Les noms, les textes de précision et les volumes peuvent nécessiter une harmonisation.</td>
 </tr>
 <tr class="odd">
 <td>Potentiel de visualisation</td>
 <td style="text-align: right;">3</td>
-<td>Les volumes, territoires et années se prêtent à plusieurs graphiques.</td>
+<td>Les volumes, provenances et coordonnées se prêtent à plusieurs graphiques et cartes.</td>
 </tr>
 <tr class="even">
 <td>Potentiel de statistique descriptive</td>
 <td style="text-align: right;">3</td>
-<td>Les agrégations par usage et territoire sont directes.</td>
+<td>Les agrégations par provenance et intervenant sont directes.</td>
 </tr>
 <tr class="odd">
 <td>Potentiel d’inférence</td>
 <td style="text-align: right;">2</td>
-<td>Des comparaisons exploratoires sont possibles après validation des définitions.</td>
+<td>Des comparaisons exploratoires sont possibles après lecture des définitions.</td>
 </tr>
 <tr class="even">
 <td>Potentiel de modélisation</td>
 <td style="text-align: right;">2</td>
-<td>Une modélisation de tendance peut être envisagée avec prudence.</td>
+<td>Une modélisation descriptive des volumes peut être envisagée avec prudence.</td>
 </tr>
 <tr class="odd">
 <td>Potentiel de discussion éthique</td>
@@ -4562,34 +4577,34 @@ font-size: 2.3rem;
 </tr>
 </tbody>
 </table>
-<p>Total : 24 sur 30.</p>
+<p>Total : 26 sur 30.</p>
 </section>
 <section id="activité-courte" class="level2">
 <h2 class="anchored" data-anchor-id="activité-courte">Activité courte</h2>
-<p>En 30 à 45 minutes, demander aux personnes étudiantes de calculer les volumes totaux par usage et de produire un graphique en barres.</p>
+<p>En 30 à 45 minutes, demander aux personnes étudiantes de calculer les volumes autorisés par provenance de l’eau et de produire un graphique en barres.</p>
 </section>
 <section id="activité-longue" class="level2">
 <h2 class="anchored" data-anchor-id="activité-longue">Activité longue</h2>
-<p>En 2 à 3 heures, demander de comparer les volumes par territoire et d’analyser l’évolution temporelle des plus grands préleveurs.</p>
+<p>En 2 à 3 heures, demander de produire un portrait descriptif des sites de prélèvement autorisés, avec une carte et une discussion des limites administratives.</p>
 </section>
 <section id="projets-possibles" class="level2">
 <h2 class="anchored" data-anchor-id="projets-possibles">Projets possibles</h2>
 <ul>
-<li>Calculer les volumes prélevés par région, MRC ou secteur économique.</li>
-<li>Comparer les usages de l’eau selon le territoire.</li>
-<li>Visualiser les plus grands préleveurs et leur évolution temporelle.</li>
+<li>Calculer les volumes autorisés par type de provenance de l’eau.</li>
+<li>Cartographier les sites de prélèvement autorisés.</li>
+<li>Comparer les plus grands volumes autorisés en distinguant volume autorisé et volume réel.</li>
 </ul>
 </section>
 <section id="questions-pédagogiques-possibles" class="level2">
 <h2 class="anchored" data-anchor-id="questions-pédagogiques-possibles">Questions pédagogiques possibles</h2>
 <ol type="1">
-<li>Quelle différence peut exister entre volume autorisé et volume réellement prélevé?</li>
+<li>Quelle différence existe entre volume autorisé et volume réellement prélevé?</li>
 <li>Quelle unité faut-il utiliser pour comparer les volumes?</li>
 <li>Comment traiter les organisations présentes sous plusieurs noms?</li>
-<li>Faut-il comparer les territoires avec des volumes bruts ou des taux?</li>
-<li>Quels regroupements territoriaux sont pertinents?</li>
-<li>Comment représenter les plus grands préleveurs sans masquer les autres?</li>
-<li>Quelles limites accompagnent une donnée administrative?</li>
+<li>Les volumes sont-ils dominés par quelques sites?</li>
+<li>Quels regroupements sont pertinents avec les champs disponibles?</li>
+<li>Comment représenter les plus grands volumes sans masquer les autres?</li>
+<li>Quelles limites accompagnent une donnée administrative sans valeur légale?</li>
 <li>Quelles métadonnées sont nécessaires avant une conclusion publique?</li>
 </ol>
 </section>
@@ -4600,45 +4615,52 @@ font-size: 2.3rem;
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>source_url <span class="ot">&lt;-</span> <span class="st">&quot;TODO: vérifier URL officielle&quot;</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>source_url <span class="ot">&lt;-</span> <span class="st">&quot;https://www.donneesquebec.ca/recherche/dataset/d9564fe0-6d50-4f89-b12e-47a461e1f68e/resource/5c090292-a681-4413-9399-f17bcdf62753/download/prelevement_autorise_20250915.csv&quot;</span></span>
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="fu">identical</span>(source_url, <span class="st">&quot;TODO: vérifier URL officielle&quot;</span>)) {</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stop</span>(<span class="st">&quot;Remplacer source_url par l&#39;URL officielle vérifiée avant d&#39;importer les données.&quot;</span>, <span class="at">call. =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>prelevements <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(source_url, <span class="at">show_col_types =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>prelevements <span class="sc">|&gt;</span></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(usage) <span class="sc">|&gt;</span></span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">volume_total_m3 =</span> <span class="fu">sum</span>(volume_preleve_m3, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), <span class="at">.groups =</span> <span class="st">&quot;drop&quot;</span>) <span class="sc">|&gt;</span></span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(volume_total_m3)) <span class="sc">|&gt;</span></span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">reorder</span>(usage, volume_total_m3), <span class="at">y =</span> volume_total_m3)) <span class="sc">+</span></span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="at">fill =</span> <span class="st">&quot;#2f75d6&quot;</span>) <span class="sc">+</span></span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>() <span class="sc">+</span></span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">&quot;Usage&quot;</span>,</span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">&quot;Volume prélevé total (m3)&quot;</span>,</span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">&quot;Volumes prélevés par usage&quot;</span></span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>prelevements <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(source_url, <span class="at">show_col_types =</span> <span class="cn">FALSE</span>) <span class="sc">|&gt;</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">transmute</span>(</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">no_doc =</span> <span class="fu">as.character</span>(no_doc),</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">site_id =</span> Id,</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">nombre_sites_document =</span> count_doc,</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">nom_intervenant =</span> int_nom,</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">volume_autorise_l_j =</span> vol_aut,</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">volume_autorise_m3_j =</span> vol_aut <span class="sc">/</span> <span class="dv">1000</span>,</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">precision_volume =</span> vol_prec,</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">provenance_eau =</span> eau_prov,</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">longitude =</span> long,</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">latitude =</span> lat</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>prelevements <span class="sc">|&gt;</span></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(provenance_eau) <span class="sc">|&gt;</span></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">volume_total_m3_j =</span> <span class="fu">sum</span>(volume_autorise_m3_j, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), <span class="at">.groups =</span> <span class="st">&quot;drop&quot;</span>) <span class="sc">|&gt;</span></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(volume_total_m3_j)) <span class="sc">|&gt;</span></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">reorder</span>(provenance_eau, volume_total_m3_j), <span class="at">y =</span> volume_total_m3_j)) <span class="sc">+</span></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="at">fill =</span> <span class="st">&quot;#2f75d6&quot;</span>) <span class="sc">+</span></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>() <span class="sc">+</span></span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">&quot;Provenance de l&#39;eau&quot;</span>,</span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">&quot;Volume autorisé total (m3/j)&quot;</span>,</span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">&quot;Volumes autorisés par provenance de l&#39;eau&quot;</span></span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="limites-et-précautions" class="level2">
 <h2 class="anchored" data-anchor-id="limites-et-précautions">Limites et précautions</h2>
 <ul>
-<li>TODO: vérifier URL officielle avant d’utiliser ce jeu.</li>
-<li>TODO: confirmer licence dans les métadonnées officielles.</li>
-<li>Les définitions de volume autorisé, prélevé ou déclaré doivent être confirmées.</li>
+<li>Le champ <code>vol_aut</code> représente un volume maximal autorisé en litres par jour, pas un volume réellement prélevé.</li>
+<li>Les métadonnées officielles indiquent que cette donnée n’a aucune valeur légale.</li>
 <li>Les grands volumes peuvent dominer les visualisations.</li>
-<li>Les comparaisons territoriales nécessitent des dénominateurs pertinents.</li>
-<li>Les coordonnées doivent être validées avant toute interprétation spatiale.</li>
+<li>Les comparaisons territoriales nécessitent des dénominateurs pertinents qui ne sont pas fournis dans ce fichier.</li>
+<li>Les coordonnées doivent être validées avant toute interprétation spatiale fine.</li>
 </ul>
 </section>
 <section id="extensions" class="level2">
 <h2 class="anchored" data-anchor-id="extensions">Extensions</h2>
 <ul>
-<li>Extension intro : classer les usages selon le volume total.</li>
-<li>Extension intermédiaire : comparer les volumes par territoire et par année.</li>
-<li>Extension avancée : détecter les ruptures ou tendances temporelles.</li>
+<li>Extension intro : classer les provenances selon le volume autorisé total.</li>
+<li>Extension intermédiaire : cartographier les sites après conversion en objet <code>sf</code>.</li>
+<li>Extension avancée : comparer les distributions de volumes avec et sans les plus grands sites.</li>
 <li>Extension communication scientifique : produire une note sur la portée des données administratives.</li>
 </ul>
 
@@ -4658,7 +4680,7 @@ font-size: 2.3rem;
     anchorJS.add('.anchored');
     const isCodeAnnotation = (el) => {
       for (const clz of el.classList) {
-        if (clz.startsWith('code-annotation-')) {                     
+        if (clz.startsWith('code-annotation-')) {
           return true;
         }
       }
@@ -4678,11 +4700,11 @@ font-size: 2.3rem;
         button.setAttribute("data-bs-toggle", "tooltip");
         button.setAttribute("data-bs-placement", "left");
         button.setAttribute("data-bs-title", "Copied!");
-        tooltip = new bootstrap.Tooltip(button, 
-          { trigger: "manual", 
+        tooltip = new bootstrap.Tooltip(button,
+          { trigger: "manual",
             customClass: "code-copy-button-tooltip",
             offset: [0, -8]});
-        tooltip.show();    
+        tooltip.show();
       }
       setTimeout(function() {
         if (tooltip) {
@@ -4764,7 +4786,7 @@ font-size: 2.3rem;
       if (onUntriggerFn) {
         config.onUntrigger = onUntriggerFn;
       }
-      window.tippy(el, config); 
+      window.tippy(el, config);
     }
     const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
     for (var i=0; i<noterefs.length; i++) {
@@ -4839,7 +4861,7 @@ font-size: 2.3rem;
       tippyHover(xref, undefined, function(instance) {
         instance.disable();
         let url = xref.getAttribute('href');
-        let hash = undefined; 
+        let hash = undefined;
         if (url.startsWith('#')) {
           hash = url;
         } else {
@@ -4867,7 +4889,7 @@ font-size: 2.3rem;
               if (note !== null) {
                 const html = processXRef(id, note);
                 instance.setContent(html);
-              } 
+              }
             }).finally(() => {
               instance.enable();
               instance.show();
@@ -4891,7 +4913,7 @@ font-size: 2.3rem;
               }
               const html = processXRef(null, note);
               instance.setContent(html);
-            } 
+            }
           }).finally(() => {
             instance.enable();
             instance.show();
@@ -4931,7 +4953,7 @@ font-size: 2.3rem;
               height = bottom - top;
             }
             if (top !== null && height !== null && parent !== null) {
-              // cook up a div (if necessary) and position it 
+              // cook up a div (if necessary) and position it
               let div = window.document.getElementById("code-annotation-line-highlight");
               if (div === null) {
                 div = window.document.createElement("div");
@@ -5057,7 +5079,7 @@ font-size: 2.3rem;
   <div class="nav-footer">
     <div class="nav-footer-left">
 <p>Données bleues</p>
-</div>   
+</div>
     <div class="nav-footer-center">
        
     </div>

@@ -1,33 +1,33 @@
 ---
-title: "Comparer des taux de diplomation"
+title: "Comparer des taux de diplomation selon l'IMSE"
 embed-resources: true
 ---
 
-# Comparer des taux de diplomation
+# Comparer des taux de diplomation selon l'IMSE
 
 ## Contexte
 
-Cette activité utilise des taux de diplomation agrégés pour comparer des groupes. Elle met l'accent sur une interprétation prudente des taux et des effectifs.
+Cette activité utilise l'indicateur ISQ sur l'écart de diplomation et de qualification après sept ans entre les élèves des déciles IMSE 1 et 10. Elle met l'accent sur une interprétation prudente des taux et des écarts en points de pourcentage.
 
 ## Objectifs d'apprentissage
 
 - Lire un taux agrégé.
-- Comparer des groupes à partir d'un indicateur.
-- Utiliser le nombre d'élèves pour contextualiser un taux.
+- Comparer deux groupes à partir d'un indicateur.
+- Distinguer pourcentage et point de pourcentage.
 
 ## Données utilisées
 
 Fiche : [Cohortes de diplomation](fiche.qmd)
 
-Source : Institut de la statistique du Québec. URL officielle à vérifier.
+Source : Institut de la statistique du Québec, indicateur "Écart de diplomation selon le milieu socio-économique".
 
-Licence : TODO: confirmer licence.
+Licence ou conditions : droit d'auteur du Gouvernement du Québec; reproduction soumise aux conditions de l'Institut de la statistique du Québec, sauf permission ou indication contraire.
 
 ## Métadonnées pédagogiques
 
 | Champ | Information |
 |---|---|
-| Question directrice | Comment comparer les taux de diplomation selon le sexe ou la région? |
+| Question directrice | Comment comparer les taux de diplomation des déciles IMSE 1 et 10? |
 | Concepts | Taux; comparaison de groupes; statistique descriptive |
 | Niveau | Introductif |
 | Type | Exercice; exploration de données |
@@ -39,22 +39,22 @@ Licence : TODO: confirmer licence.
 
 ## Consignes
 
-1. Importer les données après vérification de la source.
-2. Choisir une cohorte.
-3. Comparer le taux de diplomation selon le sexe ou la région.
-4. Ajouter le nombre d'élèves dans le tableau de résultats.
+1. Importer l'export XLSX officiel de l'ISQ.
+2. Extraire les lignes correspondant aux années scolaires.
+3. Comparer les taux des déciles IMSE 1 et 10 pour trois années.
+4. Calculer ou relire l'écart en points de pourcentage.
 5. Rédiger une conclusion descriptive et prudente.
 
 ## Questions
 
-1. Quel groupe a le taux de diplomation le plus élevé?
-2. Les effectifs sont-ils comparables entre groupes?
-3. Pourquoi ne faut-il pas interpréter ces taux comme des données individuelles?
+1. Quelle année scolaire présente l'écart le plus faible?
+2. L'écart est-il stable sur toute la période?
+3. Pourquoi cet indicateur ne doit-il pas être interprété comme une mesure individuelle?
 
 ## Pistes de solution
 
-Une solution acceptable présente un tableau avec taux et effectifs, puis une phrase qui évite toute conclusion causale.
+Une solution acceptable présente un tableau avec les deux taux et l'écart, puis une phrase qui évite toute conclusion causale.
 
 ## Prolongement
 
-Comparer deux cohortes ou produire un graphique en points avec les effectifs.
+Produire un graphique de l'écart en points de pourcentage selon l'année scolaire de fin de suivi.

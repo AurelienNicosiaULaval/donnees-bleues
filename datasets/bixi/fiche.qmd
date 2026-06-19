@@ -20,7 +20,7 @@ Le contexte est concret : une station a une capacité, une localisation et un no
 | URL du flux GBFS | <https://gbfs.velobixi.com/gbfs/gbfs.json> |
 | Licence | Attribution (CC-BY 4.0) selon Données Québec |
 | Date d'accès | 2026-06-01 |
-| Fréquence de mise à jour | Flux GBFS temps réel; fréquence opérationnelle exacte à vérifier |
+| Fréquence de mise à jour | Flux GBFS temps réel; ttl de 10 secondes observé dans `station_status` le 2026-06-19 |
 
 ## Ce que représente une ligne
 

@@ -1537,7 +1537,7 @@ const initMatch = () => ({
   i: 0,
   lohisByNode: new Map()
 })
-/** 
+/**
  * keeps track of the start (lo) and end (hi) index of the match per node (leaf)
  * note: mutates the contents of `matchContext`
  */
@@ -1549,16 +1549,16 @@ const advanceMatch = (leaf, leafi, matchContext) => {
   matchContext.lohisByNode.set(leaf, { lo: curLoHi?.lo ?? leafi, hi: leafi })
 }
 /**
- * Finds all non-overlapping matches for a search string in the document. 
+ * Finds all non-overlapping matches for a search string in the document.
  * The search string may be split between multiple consecutive leaf nodes.
- * 
+ *
  * Whitespace in the search string must be present in the document to match, but
  * there may be addititional whitespace in the document that is ignored.
- * 
+ *
  * e.g. searching for `dogs rock` would match `dogs  \n <span> rock</span>`,
- * and would contribute the match 
+ * and would contribute the match
  * `{ i:9, els: new Map([[textNode, {lo:0, hi:8}],[spanNode,{lo:0,hi:5}]]) }`
- * 
+ *
  * @returns {Map<HTMLElement,{lo:number,hi:number}>[]}
  */
 function searchMatches(inSearch, el) {
@@ -1603,7 +1603,7 @@ function searchMatches(inSearch, el) {
   return matches
 }
 
-/** 
+/**
  * e.g. `markMatches(myTextNode, [[0,5],[12,15]])` would wrap the
  * character sequences in myTextNode from 0-5 and 12-15 in marks.
  * Its important to mark all sequences in a text node at once
@@ -1665,7 +1665,7 @@ function scrollToFirstVisibleMatch(mainEl) {
  *
  * arrayMapPush(m, 'dog', 'Max')
  * console.log(m) // Map { dog->['Max'] }
- * 
+ *
  * arrayMapPush(m, 'dog', 'Samba')
  * arrayMapPush(m, 'cat', 'Scruffle')
  * console.log(m) // Map { dog->['Max', 'Samba'], cat->['Scruffle'] }
@@ -1679,7 +1679,7 @@ const arrayMapPush = (map, key, item) => {
 // copy&paste any string from a quarto page and
 // this should find that string in the page and highlight it.
 // exception: text that starts outside/inside a tabset and ends
-// inside/outside that tabset. 
+// inside/outside that tabset.
 function highlight(searchStr, el) {
   const matches = searchMatches(searchStr, el);
 
@@ -4088,6 +4088,11 @@ color: var(--db-muted);
 margin: 0.25rem 1rem 1rem 0;
 padding-left: 2rem;
 }
+.image-credit-link {
+color: var(--db-muted);
+font-size: 0.9rem;
+margin: -1rem 0 2rem;
+}
 .activity-card {
 min-height: 260px;
 }
@@ -4193,29 +4198,29 @@ font-size: 2.3rem;
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../index.html"> 
+    <a class="nav-link" href="../../index.html">
 <span class="menu-text">Accueil</span></a>
-  </li>  
+  </li>
   <li class="nav-item">
-    <a class="nav-link" href="../../catalogue.html"> 
+    <a class="nav-link" href="../../catalogue.html">
 <span class="menu-text">Catalogue</span></a>
-  </li>  
+  </li>
   <li class="nav-item">
-    <a class="nav-link" href="../../zero-waste.html"> 
+    <a class="nav-link" href="../../zero-waste.html">
 <span class="menu-text">Zéro déchet</span></a>
-  </li>  
+  </li>
   <li class="nav-item">
-    <a class="nav-link" href="../../activites.html"> 
+    <a class="nav-link" href="../../activites.html">
 <span class="menu-text">Activités</span></a>
-  </li>  
+  </li>
   <li class="nav-item">
-    <a class="nav-link" href="../../contribuer.html"> 
+    <a class="nav-link" href="../../contribuer.html">
 <span class="menu-text">Contribuer</span></a>
-  </li>  
+  </li>
   <li class="nav-item">
-    <a class="nav-link" href="../../about.html"> 
+    <a class="nav-link" href="../../about.html">
 <span class="menu-text">À propos</span></a>
-  </li>  
+  </li>
 </ul>
           </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
@@ -4230,7 +4235,7 @@ font-size: 2.3rem;
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">On this page</h2>
-   
+
   <ul>
   <li><a href="#carte-et-séries-temporelles-de-qualité-de-leau" id="toc-carte-et-séries-temporelles-de-qualité-de-leau" class="nav-link active" data-scroll-target="#carte-et-séries-temporelles-de-qualité-de-leau">Carte et séries temporelles de qualité de l’eau</a>
   <ul class="collapse">
@@ -4258,11 +4263,11 @@ font-size: 2.3rem;
 
 <div class="quarto-title-meta">
 
-    
-  
-    
+
+
+
   </div>
-  
+
 
 
 </header>
@@ -4272,7 +4277,7 @@ font-size: 2.3rem;
 <h1>Carte et séries temporelles de qualité de l’eau</h1>
 <section id="contexte" class="level2">
 <h2 class="anchored" data-anchor-id="contexte">Contexte</h2>
-<p>Cette activité demande de construire un mini-rapport sur plusieurs stations de suivi. Elle combine comparaison temporelle, indicateurs descriptifs et représentation spatiale simple.</p>
+<p>Cette activité demande de construire un mini-rapport sur plusieurs stations de suivi. Elle combine comparaison temporelle, indicateurs descriptifs, carte simple et discussion des limites environnementales.</p>
 </section>
 <section id="objectifs-dapprentissage" class="level2">
 <h2 class="anchored" data-anchor-id="objectifs-dapprentissage">Objectifs d’apprentissage</h2>
@@ -4286,8 +4291,8 @@ font-size: 2.3rem;
 <section id="données-utilisées" class="level2">
 <h2 class="anchored" data-anchor-id="données-utilisées">Données utilisées</h2>
 <p>Fiche : <a href="../../datasets/suivi-rivieres-fleuve/fiche.html">Suivi physicochimique et bactériologique des rivières et du fleuve</a></p>
-<p>Source : Données Québec / MELCCFP. URL officielle à vérifier.</p>
-<p>Licence : Licence ouverte du Québec; Attribution (CC-BY 4.0).</p>
+<p>Source : Données Québec / MELCCFP, “Suivi de la qualité de l’eau du fleuve et des rivières”.</p>
+<p>Licence : Attribution (CC-BY 4.0).</p>
 </section>
 <section id="métadonnées-pédagogiques" class="level2">
 <h2 class="anchored" data-anchor-id="métadonnées-pédagogiques">Métadonnées pédagogiques</h2>
@@ -4345,10 +4350,10 @@ font-size: 2.3rem;
 <section id="consignes" class="level2">
 <h2 class="anchored" data-anchor-id="consignes">Consignes</h2>
 <ol type="1">
-<li>Importer les données après vérification de la source.</li>
+<li>Importer le ZIP CSV officiel.</li>
 <li>Sélectionner au moins trois stations ou un bassin versant.</li>
-<li>Comparer phosphore total, azote total ou coliformes fécaux.</li>
-<li>Produire une carte des stations si les coordonnées sont disponibles.</li>
+<li>Comparer phosphore total, azote total, nitrites et nitrates ou coliformes fécaux.</li>
+<li>Produire une carte des stations avec latitude et longitude.</li>
 <li>Produire un graphique temporel.</li>
 <li>Conclure en distinguant observation descriptive et explication causale.</li>
 </ol>
@@ -4357,7 +4362,7 @@ font-size: 2.3rem;
 <h2 class="anchored" data-anchor-id="questions">Questions</h2>
 <ol type="1">
 <li>Les stations ont-elles les mêmes périodes d’observation?</li>
-<li>Les mesures semblent-elles saisonnières?</li>
+<li>Quels indicateurs montrent les plus fortes différences entre stations?</li>
 <li>Quel indicateur est le plus facile à expliquer à un public non spécialiste?</li>
 </ol>
 </section>
@@ -4385,7 +4390,7 @@ font-size: 2.3rem;
     anchorJS.add('.anchored');
     const isCodeAnnotation = (el) => {
       for (const clz of el.classList) {
-        if (clz.startsWith('code-annotation-')) {                     
+        if (clz.startsWith('code-annotation-')) {
           return true;
         }
       }
@@ -4405,11 +4410,11 @@ font-size: 2.3rem;
         button.setAttribute("data-bs-toggle", "tooltip");
         button.setAttribute("data-bs-placement", "left");
         button.setAttribute("data-bs-title", "Copied!");
-        tooltip = new bootstrap.Tooltip(button, 
-          { trigger: "manual", 
+        tooltip = new bootstrap.Tooltip(button,
+          { trigger: "manual",
             customClass: "code-copy-button-tooltip",
             offset: [0, -8]});
-        tooltip.show();    
+        tooltip.show();
       }
       setTimeout(function() {
         if (tooltip) {
@@ -4491,7 +4496,7 @@ font-size: 2.3rem;
       if (onUntriggerFn) {
         config.onUntrigger = onUntriggerFn;
       }
-      window.tippy(el, config); 
+      window.tippy(el, config);
     }
     const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
     for (var i=0; i<noterefs.length; i++) {
@@ -4566,7 +4571,7 @@ font-size: 2.3rem;
       tippyHover(xref, undefined, function(instance) {
         instance.disable();
         let url = xref.getAttribute('href');
-        let hash = undefined; 
+        let hash = undefined;
         if (url.startsWith('#')) {
           hash = url;
         } else {
@@ -4594,7 +4599,7 @@ font-size: 2.3rem;
               if (note !== null) {
                 const html = processXRef(id, note);
                 instance.setContent(html);
-              } 
+              }
             }).finally(() => {
               instance.enable();
               instance.show();
@@ -4618,7 +4623,7 @@ font-size: 2.3rem;
               }
               const html = processXRef(null, note);
               instance.setContent(html);
-            } 
+            }
           }).finally(() => {
             instance.enable();
             instance.show();
@@ -4658,7 +4663,7 @@ font-size: 2.3rem;
               height = bottom - top;
             }
             if (top !== null && height !== null && parent !== null) {
-              // cook up a div (if necessary) and position it 
+              // cook up a div (if necessary) and position it
               let div = window.document.getElementById("code-annotation-line-highlight");
               if (div === null) {
                 div = window.document.createElement("div");
@@ -4784,7 +4789,7 @@ font-size: 2.3rem;
   <div class="nav-footer">
     <div class="nav-footer-left">
 <p>Données bleues</p>
-</div>   
+</div>
     <div class="nav-footer-center">
        
     </div>

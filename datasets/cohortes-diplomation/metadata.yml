@@ -3,45 +3,43 @@ title: "Cohortes de diplomation"
 short_title: "Diplomation"
 theme: "Éducation"
 source_name: "Institut de la statistique du Québec"
-# TODO: vérifier URL officielle dans Statistique Québec avant de remplacer ce marqueur.
-source_url: "TODO: vérifier URL officielle"
-# TODO: confirmer licence dans les métadonnées officielles du jeu.
-license: "TODO: confirmer licence"
-access_date: "TODO: vérifier après confirmation de l'URL officielle"
+source_url: "https://statistique.quebec.ca/fr/produit/publication/indicateurs-progres-ecart-diplomation"
+license: "Droit d'auteur du Gouvernement du Québec; reproduction soumise aux conditions de l'Institut de la statistique du Québec, sauf permission ou indication contraire."
+access_date: "2026-06-19"
 geography: "Québec"
-unit: "Cohorte agrégée selon un regroupement démographique ou territorial"
-data_type: "Tabulaire agrégé, temporel"
-format: "TODO: confirmer format dans les métadonnées officielles"
-n_rows: "Données agrégées, quelques centaines de lignes selon les regroupements"
-n_cols: "5 ou 6 variables principales à afficher; groupe_socioeconomique à confirmer"
-update_frequency: "À confirmer dans les métadonnées officielles"
+unit: "Année scolaire de fin de suivi d'une cohorte, avec taux par décile IMSE"
+data_type: "Tableau agrégé, indicateur, temporel"
+format: "XLSX téléchargeable depuis l'export du graphique ISQ"
+n_rows: "13 années scolaires de fin de suivi dans l'export consulté; 30 lignes dans le fichier XLSX incluant notes et source"
+n_cols: "4 colonnes de données dans l'export XLSX"
+update_frequency: "Annuelle"
 level: "Introduction"
 organisme: "Institut de la statistique du Québec"
 territoire: "Québec"
 taille_approximative: "Données agrégées, quelques centaines de lignes selon les regroupements"
 niveau_pedagogique_recommande: "Introduction"
 variables_principales:
-  - cohorte
-  - sexe
-  - taux_diplomation
-  - n_eleves
-  - region
-  - groupe_socioeconomique
+  - annee_scolaire_fin_suivi
+  - taux_diplomation_decile_imse_1
+  - taux_diplomation_decile_imse_10
+  - ecart_points_pourcentage
+  - cohorte_entree_secondaire
+  - decile_imse
 idees_mini_projets:
-  - "Comparer les taux de diplomation selon le sexe ou la région."
-  - "Étudier les écarts associés aux indices socioéconomiques."
-  - "Visualiser les tendances de diplomation par cohorte."
+  - "Comparer les taux de diplomation des élèves des déciles IMSE 1 et 10."
+  - "Visualiser l'évolution de l'écart en points de pourcentage."
+  - "Discuter les limites d'un indicateur agrégé fondé sur le lieu de résidence."
 tags:
   - éducation
   - Québec
-  - données ouvertes
+  - données publiques
   - visualisation
   - séries temporelles
   - statistiques descriptives
 concepts:
   - éducation
   - Québec
-  - données ouvertes
+  - données publiques
   - visualisation
   - séries temporelles
   - statistiques descriptives
@@ -50,7 +48,7 @@ concepts:
 zero_waste:
   contexte_quebecois: 3
   accessibilite_pedagogique: 3
-  qualite_documentaire: 1
+  qualite_documentaire: 2
   potentiel_nettoyage: 1
   potentiel_visualisation: 3
   potentiel_statistique_descriptive: 3
@@ -58,5 +56,5 @@ zero_waste:
   potentiel_modelisation: 2
   potentiel_ethique: 3
   reutilisabilite: 3
-status: "à vérifier"
-notes: "TODO: vérifier URL officielle, confirmer licence et confirmer la disponibilité de groupe_socioeconomique."
+status: "source documentée"
+notes: "Page ISQ et export XLSX consultés le 2026-06-19. Le fichier vérifié couvre l'écart de diplomation selon les déciles IMSE 1 et 10, pas les découpages par sexe ou région."

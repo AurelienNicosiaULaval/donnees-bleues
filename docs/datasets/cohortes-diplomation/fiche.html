@@ -1572,7 +1572,7 @@ const initMatch = () => ({
   i: 0,
   lohisByNode: new Map()
 })
-/** 
+/**
  * keeps track of the start (lo) and end (hi) index of the match per node (leaf)
  * note: mutates the contents of `matchContext`
  */
@@ -1584,16 +1584,16 @@ const advanceMatch = (leaf, leafi, matchContext) => {
   matchContext.lohisByNode.set(leaf, { lo: curLoHi?.lo ?? leafi, hi: leafi })
 }
 /**
- * Finds all non-overlapping matches for a search string in the document. 
+ * Finds all non-overlapping matches for a search string in the document.
  * The search string may be split between multiple consecutive leaf nodes.
- * 
+ *
  * Whitespace in the search string must be present in the document to match, but
  * there may be addititional whitespace in the document that is ignored.
- * 
+ *
  * e.g. searching for `dogs rock` would match `dogs  \n <span> rock</span>`,
- * and would contribute the match 
+ * and would contribute the match
  * `{ i:9, els: new Map([[textNode, {lo:0, hi:8}],[spanNode,{lo:0,hi:5}]]) }`
- * 
+ *
  * @returns {Map<HTMLElement,{lo:number,hi:number}>[]}
  */
 function searchMatches(inSearch, el) {
@@ -1638,7 +1638,7 @@ function searchMatches(inSearch, el) {
   return matches
 }
 
-/** 
+/**
  * e.g. `markMatches(myTextNode, [[0,5],[12,15]])` would wrap the
  * character sequences in myTextNode from 0-5 and 12-15 in marks.
  * Its important to mark all sequences in a text node at once
@@ -1700,7 +1700,7 @@ function scrollToFirstVisibleMatch(mainEl) {
  *
  * arrayMapPush(m, 'dog', 'Max')
  * console.log(m) // Map { dog->['Max'] }
- * 
+ *
  * arrayMapPush(m, 'dog', 'Samba')
  * arrayMapPush(m, 'cat', 'Scruffle')
  * console.log(m) // Map { dog->['Max', 'Samba'], cat->['Scruffle'] }
@@ -1714,7 +1714,7 @@ const arrayMapPush = (map, key, item) => {
 // copy&paste any string from a quarto page and
 // this should find that string in the page and highlight it.
 // exception: text that starts outside/inside a tabset and ends
-// inside/outside that tabset. 
+// inside/outside that tabset.
 function highlight(searchStr, el) {
   const matches = searchMatches(searchStr, el);
 
@@ -4123,6 +4123,11 @@ color: var(--db-muted);
 margin: 0.25rem 1rem 1rem 0;
 padding-left: 2rem;
 }
+.image-credit-link {
+color: var(--db-muted);
+font-size: 0.9rem;
+margin: -1rem 0 2rem;
+}
 .activity-card {
 min-height: 260px;
 }
@@ -4228,29 +4233,29 @@ font-size: 2.3rem;
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../index.html"> 
+    <a class="nav-link" href="../../index.html">
 <span class="menu-text">Accueil</span></a>
-  </li>  
+  </li>
   <li class="nav-item">
-    <a class="nav-link" href="../../catalogue.html"> 
+    <a class="nav-link" href="../../catalogue.html">
 <span class="menu-text">Catalogue</span></a>
-  </li>  
+  </li>
   <li class="nav-item">
-    <a class="nav-link" href="../../zero-waste.html"> 
+    <a class="nav-link" href="../../zero-waste.html">
 <span class="menu-text">Zéro déchet</span></a>
-  </li>  
+  </li>
   <li class="nav-item">
-    <a class="nav-link" href="../../activites.html"> 
+    <a class="nav-link" href="../../activites.html">
 <span class="menu-text">Activités</span></a>
-  </li>  
+  </li>
   <li class="nav-item">
-    <a class="nav-link" href="../../contribuer.html"> 
+    <a class="nav-link" href="../../contribuer.html">
 <span class="menu-text">Contribuer</span></a>
-  </li>  
+  </li>
   <li class="nav-item">
-    <a class="nav-link" href="../../about.html"> 
+    <a class="nav-link" href="../../about.html">
 <span class="menu-text">À propos</span></a>
-  </li>  
+  </li>
 </ul>
           </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
@@ -4265,7 +4270,7 @@ font-size: 2.3rem;
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">On this page</h2>
-   
+
   <ul>
   <li><a href="#cohortes-de-diplomation" id="toc-cohortes-de-diplomation" class="nav-link active" data-scroll-target="#cohortes-de-diplomation">Cohortes de diplomation</a>
   <ul class="collapse">
@@ -4299,11 +4304,11 @@ font-size: 2.3rem;
 
 <div class="quarto-title-meta">
 
-    
-  
-    
+
+
+
   </div>
-  
+
 
 
 </header>
@@ -4313,16 +4318,12 @@ font-size: 2.3rem;
 <h1>Cohortes de diplomation</h1>
 <section id="pourquoi-ce-jeu-est-intéressant" class="level2">
 <h2 class="anchored" data-anchor-id="pourquoi-ce-jeu-est-intéressant">Pourquoi ce jeu est intéressant</h2>
-<p>Ce jeu de données permet d’étudier des taux de diplomation par cohorte et par regroupement démographique ou territorial. Il convient particulièrement à l’enseignement des statistiques descriptives, des comparaisons de groupes et de la visualisation de tendances.</p>
-<p>Le contexte est sensible : les taux agrégés peuvent appuyer une discussion sur l’éducation et les politiques publiques, mais ils ne doivent pas être interprétés comme des mesures individuelles.</p>
+<p>Ce jeu de données permet d’étudier l’écart de diplomation et de qualification après sept ans entre les élèves du décile 1 et du décile 10 de l’indice de milieu socioéconomique (IMSE). Il convient particulièrement à l’enseignement des statistiques descriptives, des comparaisons de groupes, de la visualisation de tendances et de la communication prudente d’indicateurs publics.</p>
+<p>Le contexte est sensible : les taux agrégés peuvent appuyer une discussion sur l’éducation et les politiques publiques, mais ils ne doivent pas être interprétés comme des mesures individuelles. L’ISQ précise que l’IMSE utilisé dans cet indicateur est fondé sur le lieu de résidence de l’élève au moment de la première inscription au secondaire.</p>
 </section>
 <section id="source" class="level2">
 <h2 class="anchored" data-anchor-id="source">Source</h2>
 <table class="caption-top table">
-<colgroup>
-<col style="width: 50%">
-<col style="width: 50%">
-</colgroup>
 <thead>
 <tr class="header">
 <th>Champ</th>
@@ -4336,7 +4337,7 @@ font-size: 2.3rem;
 </tr>
 <tr class="even">
 <td>Organisme producteur</td>
-<td>Institut de la statistique du Québec</td>
+<td>Institut de la statistique du Québec; source statistique : Ministère de l’Éducation du Québec</td>
 </tr>
 <tr class="odd">
 <td>Territoire</td>
@@ -4344,30 +4345,38 @@ font-size: 2.3rem;
 </tr>
 <tr class="even">
 <td>URL officielle</td>
-<td>TODO: vérifier URL officielle</td>
+<td><a href="https://statistique.quebec.ca/fr/produit/publication/indicateurs-progres-ecart-diplomation" class="uri">https://statistique.quebec.ca/fr/produit/publication/indicateurs-progres-ecart-diplomation</a></td>
 </tr>
 <tr class="odd">
-<td>Licence</td>
-<td>TODO: confirmer licence</td>
+<td>Export de données</td>
+<td><a href="https://statistique.quebec.ca/api/fr/produit/graphique/ecart-diplomation-selon-milieu-socio-economique/export" class="uri">https://statistique.quebec.ca/api/fr/produit/graphique/ecart-diplomation-selon-milieu-socio-economique/export</a></td>
 </tr>
 <tr class="even">
-<td>Date d’accès</td>
-<td>TODO: vérifier après confirmation de l’URL officielle</td>
+<td>Licence ou conditions</td>
+<td>Droit d’auteur du Gouvernement du Québec; reproduction soumise aux conditions de l’Institut de la statistique du Québec, sauf permission ou indication contraire</td>
 </tr>
 <tr class="odd">
+<td>Date d’accès</td>
+<td>2026-06-19</td>
+</tr>
+<tr class="even">
 <td>Fréquence de mise à jour</td>
-<td>TODO: confirmer dans les métadonnées officielles</td>
+<td>Annuelle</td>
+</tr>
+<tr class="odd">
+<td>Dernière mise à jour indiquée par l’ISQ</td>
+<td>21 août 2025</td>
 </tr>
 <tr class="even">
 <td>Statut</td>
-<td>à vérifier</td>
+<td>source documentée</td>
 </tr>
 </tbody>
 </table>
 </section>
 <section id="ce-que-représente-une-ligne" class="level2">
 <h2 class="anchored" data-anchor-id="ce-que-représente-une-ligne">Ce que représente une ligne</h2>
-<p>Une ligne représente une cohorte agrégée selon un regroupement comme le sexe, la région ou un groupe socioéconomique. La disponibilité exacte du groupe socioéconomique doit être vérifiée.</p>
+<p>Une ligne de la partie tabulaire de l’export représente une année scolaire de fin de suivi de cohorte. Par exemple, la cohorte formée en 2005-2006 est suivie jusqu’en 2011-2012, et la cohorte formée en 2017-2018 est suivie jusqu’en 2023-2024.</p>
 </section>
 <section id="variables-principales" class="level2">
 <h2 class="anchored" data-anchor-id="variables-principales">Variables principales</h2>
@@ -4390,46 +4399,46 @@ font-size: 2.3rem;
 </thead>
 <tbody>
 <tr class="odd">
-<td>cohorte</td>
-<td>caractère ou entier</td>
-<td>Cohorte scolaire ou année d’entrée</td>
-<td>2015</td>
-<td>Base pour les tendances</td>
+<td>annee_scolaire_fin_suivi</td>
+<td>caractère</td>
+<td>Année scolaire à la fin du suivi de sept ans</td>
+<td>2023-2024</td>
+<td>Sert d’axe temporel</td>
 </tr>
 <tr class="even">
-<td>sexe</td>
-<td>caractère</td>
-<td>Catégorie de sexe</td>
-<td>Filles</td>
-<td>Permet une comparaison de groupes</td>
-</tr>
-<tr class="odd">
-<td>taux_diplomation</td>
+<td>taux_diplomation_decile_imse_1</td>
 <td>numérique</td>
-<td>Taux de diplomation agrégé</td>
-<td>82.5</td>
-<td>Variable de résultat</td>
-</tr>
-<tr class="even">
-<td>n_eleves</td>
-<td>entier</td>
-<td>Nombre d’élèves dans le regroupement</td>
-<td>1240</td>
-<td>Dénominateur pour évaluer la précision</td>
+<td>Taux de diplomation et qualification des élèves du décile 1 de l’IMSE</td>
+<td>88.8</td>
+<td>Groupe le plus favorisé selon la définition de l’ISQ</td>
 </tr>
 <tr class="odd">
-<td>region</td>
-<td>caractère</td>
-<td>Région administrative ou regroupement territorial</td>
-<td>Capitale-Nationale</td>
-<td>Base pour les cartes ou comparaisons</td>
+<td>taux_diplomation_decile_imse_10</td>
+<td>numérique</td>
+<td>Taux de diplomation et qualification des élèves du décile 10 de l’IMSE</td>
+<td>63.9</td>
+<td>Groupe le plus défavorisé selon la définition de l’ISQ</td>
 </tr>
 <tr class="even">
-<td>groupe_socioeconomique</td>
+<td>ecart_points_pourcentage</td>
+<td>numérique</td>
+<td>Écart entre les deux taux</td>
+<td>24.9</td>
+<td>Variable principale pour la tendance</td>
+</tr>
+<tr class="odd">
+<td>cohorte_entree_secondaire</td>
 <td>caractère</td>
-<td>Groupe socioéconomique si disponible</td>
-<td>Quintile 1</td>
-<td>TODO: confirmer disponibilité</td>
+<td>Cohorte d’entrée au secondaire, déductible de l’année de fin de suivi</td>
+<td>2017-2018</td>
+<td>Le suivi couvre sept ans</td>
+</tr>
+<tr class="even">
+<td>decile_imse</td>
+<td>caractère</td>
+<td>Décile IMSE comparé dans l’indicateur</td>
+<td>Décile 1 ou décile 10</td>
+<td>L’indicateur compare seulement les extrêmes</td>
 </tr>
 </tbody>
 </table>
@@ -4450,23 +4459,23 @@ font-size: 2.3rem;
 <tbody>
 <tr class="odd">
 <td>Nombre de lignes</td>
-<td>Données agrégées, quelques centaines de lignes selon les regroupements</td>
+<td>13 années scolaires de fin de suivi dans l’export consulté; 30 lignes dans le fichier XLSX incluant notes et source</td>
 </tr>
 <tr class="even">
 <td>Nombre de colonnes</td>
-<td>5 ou 6 variables principales proposées; groupe_socioeconomique à confirmer</td>
+<td>4 colonnes de données dans l’export XLSX</td>
 </tr>
 <tr class="odd">
 <td>Structure</td>
-<td>Tabulaire agrégée et temporelle</td>
+<td>Tableau agrégé et temporel</td>
 </tr>
 <tr class="even">
 <td>Format</td>
-<td>TODO: confirmer format dans les métadonnées officielles</td>
+<td>XLSX téléchargeable depuis l’export du graphique ISQ</td>
 </tr>
 <tr class="odd">
 <td>Type de données</td>
-<td>Indicateurs d’éducation agrégés</td>
+<td>Indicateur d’éducation agrégé</td>
 </tr>
 <tr class="even">
 <td>Niveau pédagogique recommandé</td>
@@ -4483,8 +4492,8 @@ font-size: 2.3rem;
 <li>séries temporelles;</li>
 <li>visualisation de tendances;</li>
 <li>statistiques descriptives;</li>
-<li>taille d’échantillon et agrégation;</li>
-<li>limites d’interprétation des données publiques.</li>
+<li>limites d’interprétation des indicateurs agrégés;</li>
+<li>communication d’écarts sociaux sans conclusion causale abusive.</li>
 </ul>
 </section>
 <section id="score-zéro-déchet" class="level2">
@@ -4515,18 +4524,18 @@ font-size: 2.3rem;
 </tr>
 <tr class="odd">
 <td>Qualité documentaire</td>
-<td style="text-align: right;">1</td>
-<td>L’URL, la licence et certains regroupements doivent être confirmés.</td>
+<td style="text-align: right;">2</td>
+<td>La page, la méthode et l’export sont documentés, mais la réutilisation doit respecter les conditions de l’ISQ.</td>
 </tr>
 <tr class="even">
 <td>Potentiel de nettoyage</td>
 <td style="text-align: right;">1</td>
-<td>Le jeu est probablement déjà agrégé.</td>
+<td>Le jeu est déjà agrégé et l’export contient des lignes de notes à écarter.</td>
 </tr>
 <tr class="odd">
 <td>Potentiel de visualisation</td>
 <td style="text-align: right;">3</td>
-<td>Les taux par cohorte, sexe ou région sont faciles à représenter.</td>
+<td>L’écart par année scolaire est facile à représenter.</td>
 </tr>
 <tr class="even">
 <td>Potentiel de statistique descriptive</td>
@@ -4536,12 +4545,12 @@ font-size: 2.3rem;
 <tr class="odd">
 <td>Potentiel d’inférence</td>
 <td style="text-align: right;">2</td>
-<td>Des comparaisons sont possibles avec prudence et en tenant compte des tailles.</td>
+<td>Des comparaisons sont possibles avec prudence.</td>
 </tr>
 <tr class="even">
 <td>Potentiel de modélisation</td>
 <td style="text-align: right;">2</td>
-<td>Une modélisation exploratoire de tendances est possible.</td>
+<td>Une modélisation exploratoire de tendance est possible.</td>
 </tr>
 <tr class="odd">
 <td>Potentiel de discussion éthique</td>
@@ -4555,34 +4564,34 @@ font-size: 2.3rem;
 </tr>
 </tbody>
 </table>
-<p>Total : 24 sur 30.</p>
+<p>Total : 25 sur 30.</p>
 </section>
 <section id="activité-courte" class="level2">
 <h2 class="anchored" data-anchor-id="activité-courte">Activité courte</h2>
-<p>En 30 à 45 minutes, demander aux personnes étudiantes de comparer les taux de diplomation selon le sexe ou la région pour une cohorte donnée.</p>
+<p>En 30 à 45 minutes, demander aux personnes étudiantes de comparer les taux des déciles IMSE 1 et 10 pour quelques années scolaires et de décrire l’écart.</p>
 </section>
 <section id="activité-longue" class="level2">
 <h2 class="anchored" data-anchor-id="activité-longue">Activité longue</h2>
-<p>En 2 à 3 heures, demander de produire un mini-rapport sur les tendances de diplomation par cohorte, avec une discussion des écarts régionaux ou socioéconomiques si disponibles.</p>
+<p>En 2 à 3 heures, demander de produire un mini-rapport sur l’évolution de l’écart de diplomation selon l’IMSE, avec une discussion des limites de l’indicateur.</p>
 </section>
 <section id="projets-possibles" class="level2">
 <h2 class="anchored" data-anchor-id="projets-possibles">Projets possibles</h2>
 <ul>
-<li>Comparer les taux de diplomation selon le sexe ou la région.</li>
-<li>Étudier les écarts associés aux indices socioéconomiques.</li>
-<li>Visualiser les tendances de diplomation par cohorte.</li>
+<li>Comparer les taux de diplomation des élèves des déciles IMSE 1 et 10.</li>
+<li>Visualiser l’évolution de l’écart en points de pourcentage.</li>
+<li>Discuter les limites d’un indicateur agrégé fondé sur le lieu de résidence.</li>
 </ul>
 </section>
 <section id="questions-pédagogiques-possibles" class="level2">
 <h2 class="anchored" data-anchor-id="questions-pédagogiques-possibles">Questions pédagogiques possibles</h2>
 <ol type="1">
 <li>Quelle est la différence entre un taux agrégé et une observation individuelle?</li>
-<li>Pourquoi faut-il conserver le nombre d’élèves avec le taux?</li>
-<li>Comment comparer deux régions sans surinterpréter un petit effectif?</li>
-<li>Quels graphiques conviennent à une série de cohortes?</li>
-<li>Comment représenter les écarts selon le sexe?</li>
-<li>Que faut-il vérifier avant d’utiliser un groupe socioéconomique?</li>
-<li>Quelles limites accompagnent une comparaison régionale?</li>
+<li>Pourquoi l’écart est-il exprimé en points de pourcentage?</li>
+<li>Comment interpréter un indicateur construit sur deux déciles extrêmes?</li>
+<li>Quels graphiques conviennent à une série d’années scolaires?</li>
+<li>Quelle information l’IMSE mesure-t-il exactement?</li>
+<li>Pourquoi faut-il distinguer description et explication causale?</li>
+<li>Quelles limites accompagnent une comparaison fondée sur le lieu de résidence?</li>
 <li>Comment formuler une conclusion prudente à partir de données agrégées?</li>
 </ol>
 </section>
@@ -4592,49 +4601,71 @@ font-size: 2.3rem;
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>source_url <span class="ot">&lt;-</span> <span class="st">&quot;TODO: vérifier URL officielle&quot;</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyr)</span>
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="fu">identical</span>(source_url, <span class="st">&quot;TODO: vérifier URL officielle&quot;</span>)) {</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stop</span>(<span class="st">&quot;Remplacer source_url par l&#39;URL officielle vérifiée avant d&#39;importer les données.&quot;</span>, <span class="at">call. =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>diplomation <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(source_url, <span class="at">show_col_types =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>diplomation <span class="sc">|&gt;</span></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(cohorte, sexe) <span class="sc">|&gt;</span></span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">taux_moyen =</span> <span class="fu">weighted.mean</span>(taux_diplomation, <span class="at">w =</span> n_eleves, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">n_total =</span> <span class="fu">sum</span>(n_eleves, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">.groups =</span> <span class="st">&quot;drop&quot;</span></span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> cohorte, <span class="at">y =</span> taux_moyen, <span class="at">color =</span> sexe, <span class="at">group =</span> sexe)) <span class="sc">+</span></span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">&quot;Cohorte&quot;</span>,</span>
-<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">&quot;Taux de diplomation moyen&quot;</span>,</span>
-<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">&quot;Tendances de diplomation par cohorte et sexe&quot;</span></span>
-<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>source_url <span class="ot">&lt;-</span> <span class="st">&quot;https://statistique.quebec.ca/api/fr/produit/graphique/ecart-diplomation-selon-milieu-socio-economique/export&quot;</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>raw_path <span class="ot">&lt;-</span> <span class="fu">tempfile</span>(<span class="at">fileext =</span> <span class="st">&quot;.xlsx&quot;</span>)</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="fu">download.file</span>(source_url, raw_path, <span class="at">mode =</span> <span class="st">&quot;wb&quot;</span>, <span class="at">quiet =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>diplomation_raw <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(raw_path, <span class="at">col_names =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>diplomation <span class="ot">&lt;-</span> diplomation_raw <span class="sc">|&gt;</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice</span>(<span class="dv">8</span><span class="sc">:</span><span class="dv">20</span>) <span class="sc">|&gt;</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">transmute</span>(</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">annee_scolaire_fin_suivi =</span> <span class="fu">as.character</span>(...<span class="dv">1</span>),</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">taux_diplomation_decile_imse_1 =</span> <span class="fu">as.numeric</span>(...<span class="dv">2</span>),</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">taux_diplomation_decile_imse_10 =</span> <span class="fu">as.numeric</span>(...<span class="dv">3</span>),</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>    <span class="at">ecart_points_pourcentage =</span> <span class="fu">as.numeric</span>(...<span class="dv">4</span>)</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>diplomation_long <span class="ot">&lt;-</span> diplomation <span class="sc">|&gt;</span></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>    annee_scolaire_fin_suivi,</span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>    taux_diplomation_decile_imse_1,</span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>    taux_diplomation_decile_imse_10</span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(</span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>    <span class="at">cols =</span> <span class="fu">starts_with</span>(<span class="st">&quot;taux_diplomation&quot;</span>),</span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>    <span class="at">names_to =</span> <span class="st">&quot;groupe&quot;</span>,</span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>    <span class="at">values_to =</span> <span class="st">&quot;taux_diplomation&quot;</span></span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>    <span class="at">groupe =</span> <span class="fu">recode</span>(</span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>      groupe,</span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>      <span class="at">taux_diplomation_decile_imse_1 =</span> <span class="st">&quot;Décile IMSE 1&quot;</span>,</span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>      <span class="at">taux_diplomation_decile_imse_10 =</span> <span class="st">&quot;Décile IMSE 10&quot;</span></span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(diplomation_long, <span class="fu">aes</span>(<span class="at">x =</span> annee_scolaire_fin_suivi, <span class="at">y =</span> taux_diplomation, <span class="at">color =</span> groupe, <span class="at">group =</span> groupe)) <span class="sc">+</span></span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">&quot;Année scolaire de fin de suivi&quot;</span>,</span>
+<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">&quot;Taux de diplomation et qualification (%)&quot;</span>,</span>
+<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a>    <span class="at">color =</span> <span class="st">&quot;Groupe&quot;</span>,</span>
+<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">&quot;Taux de diplomation selon deux déciles IMSE&quot;</span></span>
+<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="limites-et-précautions" class="level2">
 <h2 class="anchored" data-anchor-id="limites-et-précautions">Limites et précautions</h2>
 <ul>
-<li>TODO: vérifier URL officielle avant d’utiliser ce jeu.</li>
-<li>TODO: confirmer licence dans les métadonnées officielles.</li>
-<li>TODO: confirmer la disponibilité de la variable groupe_socioeconomique.</li>
+<li>L’export vérifié compare les déciles IMSE 1 et 10, et ne fournit pas les découpages par sexe ou région.</li>
 <li>Les taux agrégés ne permettent pas de conclure au niveau individuel.</li>
-<li>Les comparaisons doivent tenir compte du nombre d’élèves.</li>
+<li>L’indicateur IMSE est fondé sur le lieu de résidence, pas sur la situation familiale individuelle.</li>
 <li>Les écarts observés ne suffisent pas à établir une cause.</li>
+<li>La réutilisation de contenu ISQ doit respecter les conditions de reproduction applicables.</li>
 </ul>
 </section>
 <section id="extensions" class="level2">
 <h2 class="anchored" data-anchor-id="extensions">Extensions</h2>
 <ul>
-<li>Extension intro : comparer les taux par sexe pour une cohorte.</li>
-<li>Extension intermédiaire : visualiser les tendances par région.</li>
-<li>Extension avancée : analyser les écarts associés à un indicateur socioéconomique.</li>
+<li>Extension intro : comparer les deux taux pour trois années scolaires.</li>
+<li>Extension intermédiaire : visualiser l’écart en points de pourcentage.</li>
+<li>Extension avancée : discuter la sensibilité d’une conclusion selon le choix de l’échelle du graphique.</li>
 <li>Extension communication scientifique : rédiger une note courte sur les risques d’interprétation des taux agrégés.</li>
 </ul>
 
@@ -4654,7 +4685,7 @@ font-size: 2.3rem;
     anchorJS.add('.anchored');
     const isCodeAnnotation = (el) => {
       for (const clz of el.classList) {
-        if (clz.startsWith('code-annotation-')) {                     
+        if (clz.startsWith('code-annotation-')) {
           return true;
         }
       }
@@ -4674,11 +4705,11 @@ font-size: 2.3rem;
         button.setAttribute("data-bs-toggle", "tooltip");
         button.setAttribute("data-bs-placement", "left");
         button.setAttribute("data-bs-title", "Copied!");
-        tooltip = new bootstrap.Tooltip(button, 
-          { trigger: "manual", 
+        tooltip = new bootstrap.Tooltip(button,
+          { trigger: "manual",
             customClass: "code-copy-button-tooltip",
             offset: [0, -8]});
-        tooltip.show();    
+        tooltip.show();
       }
       setTimeout(function() {
         if (tooltip) {
@@ -4760,7 +4791,7 @@ font-size: 2.3rem;
       if (onUntriggerFn) {
         config.onUntrigger = onUntriggerFn;
       }
-      window.tippy(el, config); 
+      window.tippy(el, config);
     }
     const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
     for (var i=0; i<noterefs.length; i++) {
@@ -4835,7 +4866,7 @@ font-size: 2.3rem;
       tippyHover(xref, undefined, function(instance) {
         instance.disable();
         let url = xref.getAttribute('href');
-        let hash = undefined; 
+        let hash = undefined;
         if (url.startsWith('#')) {
           hash = url;
         } else {
@@ -4863,7 +4894,7 @@ font-size: 2.3rem;
               if (note !== null) {
                 const html = processXRef(id, note);
                 instance.setContent(html);
-              } 
+              }
             }).finally(() => {
               instance.enable();
               instance.show();
@@ -4887,7 +4918,7 @@ font-size: 2.3rem;
               }
               const html = processXRef(null, note);
               instance.setContent(html);
-            } 
+            }
           }).finally(() => {
             instance.enable();
             instance.show();
@@ -4927,7 +4958,7 @@ font-size: 2.3rem;
               height = bottom - top;
             }
             if (top !== null && height !== null && parent !== null) {
-              // cook up a div (if necessary) and position it 
+              // cook up a div (if necessary) and position it
               let div = window.document.getElementById("code-annotation-line-highlight");
               if (div === null) {
                 div = window.document.createElement("div");
@@ -5053,7 +5084,7 @@ font-size: 2.3rem;
   <div class="nav-footer">
     <div class="nav-footer-left">
 <p>Données bleues</p>
-</div>   
+</div>
     <div class="nav-footer-center">
        
     </div>

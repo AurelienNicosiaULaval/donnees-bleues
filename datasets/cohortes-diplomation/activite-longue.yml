@@ -1,6 +1,6 @@
 id: diplomation-tendances-cohortes-long
-title: "Tendances de diplomation par cohorte"
-question: "Comment les taux de diplomation évoluent-ils selon les cohortes et les regroupements?"
+title: "Tendances de diplomation selon l'IMSE"
+question: "Comment l'écart de diplomation évolue-t-il selon les cohortes suivies?"
 dataset_id: cohortes-diplomation
 dataset_title: "Cohortes de diplomation"
 activity_url: "datasets/cohortes-diplomation/activite-longue.qmd"
@@ -23,5 +23,5 @@ materials:
   - "données"
   - "notes enseignantes"
 advanced_math_stats: false
-teacher_notes: "Faire vérifier la disponibilité de groupe_socioeconomique avant d'inclure cette dimension."
-status: "à vérifier"
+teacher_notes: "Demander une section explicite sur les limites d'un indicateur agrégé fondé sur le lieu de résidence."
+status: "source documentée"

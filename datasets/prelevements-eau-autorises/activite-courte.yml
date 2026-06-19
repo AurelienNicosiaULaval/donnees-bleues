@@ -1,6 +1,6 @@
-id: prelevements-eau-usages-court
-title: "Volumes prélevés par usage"
-question: "Quels usages représentent les plus grands volumes d'eau prélevés?"
+id: prelevements-eau-provenance-court
+title: "Volumes autorisés par provenance de l'eau"
+question: "Quels types de provenance représentent les plus grands volumes autorisés?"
 dataset_id: prelevements-eau-autorises
 dataset_title: "Registre des prélèvements d'eau autorisés"
 activity_url: "datasets/prelevements-eau-autorises/activite-courte.qmd"
@@ -14,11 +14,11 @@ concepts:
   - "Statistique descriptive"
   - "Visualisation"
 context: "Prélèvements d'eau"
-hook: "Comparer des usages industriels, commerciaux et municipaux"
+hook: "Comparer des volumes autorisés liés à l'eau souterraine, de surface ou de dénoyage"
 materials:
   - "énoncé"
   - "code"
   - "données"
 advanced_math_stats: false
-teacher_notes: "Confirmer la définition de volume_preleve_m3 avant toute interprétation."
-status: "à vérifier"
+teacher_notes: "Insister sur la distinction entre volume maximal autorisé et volume réellement prélevé."
+status: "source vérifiée"

@@ -12,7 +12,7 @@ data_type: "Tabulaire, géographique, flux temps réel"
 format: "GBFS JSON"
 n_rows: "1065 stations observées le 2026-06-01"
 n_cols: "25 variables avant sélection dans le script de préparation"
-update_frequency: "Flux GBFS temps réel; fréquence opérationnelle exacte à vérifier"
+update_frequency: "Flux GBFS temps réel; ttl de 10 secondes observé dans station_status le 2026-06-19"
 level: "Introduction à intermédiaire"
 concepts:
   - importation JSON
@@ -35,4 +35,3 @@ zero_waste:
   reutilisabilite: 3
 status: "source vérifiée"
 notes: "Les données utilisées dans le MVP proviennent des flux GBFS station_information et station_status."
-

@@ -20,7 +20,7 @@ Il est particulièrement riche pour un cours de science des données, car les va
 | Ressource utilisée | Statistiques annuelles des bibliothèques publiques 2024 |
 | Licence | Attribution (CC-BY 4.0) selon Données Québec |
 | Date d'accès | 2026-06-01 |
-| Fréquence de mise à jour | Série annuelle; calendrier de publication exact à vérifier |
+| Fréquence de mise à jour | Série annuelle; ressources disponibles par année de 2007 à 2024 dans Données Québec |
 
 ## Ce que représente une ligne
 

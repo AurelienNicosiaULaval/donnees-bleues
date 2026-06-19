@@ -20,5 +20,5 @@ materials:
   - "code"
   - "données"
 advanced_math_stats: false
-teacher_notes: "Vérifier l'URL officielle et les unités avant de distribuer l'activité."
-status: "à vérifier"
+teacher_notes: "Insister sur les unités des variables et sur le fait que les valeurs sont des statistiques agrégées."
+status: "source vérifiée"

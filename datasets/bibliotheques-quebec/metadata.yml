@@ -12,7 +12,7 @@ data_type: "Tabulaire"
 format: "CSV séparé par point-virgule"
 n_rows: "188 lignes pour la ressource 2024"
 n_cols: "262 colonnes pour la ressource 2024"
-update_frequency: "Série annuelle; calendrier de publication exact à vérifier"
+update_frequency: "Série annuelle; ressources disponibles par année de 2007 à 2024 dans Données Québec"
 level: "Introduction à avancé"
 concepts:
   - importation CSV
@@ -36,4 +36,3 @@ zero_waste:
   reutilisabilite: 3
 status: "source vérifiée"
 notes: "La ressource 2024 et le dictionnaire de données sont disponibles sur Données Québec."
-

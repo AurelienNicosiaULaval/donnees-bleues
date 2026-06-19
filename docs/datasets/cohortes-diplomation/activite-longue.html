@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Tendances de diplomation par cohorte – Données bleues</title>
+<title>Tendances de diplomation selon l’IMSE – Données bleues</title>
 <style>
 
 code{white-space: pre-wrap;}
@@ -1537,7 +1537,7 @@ const initMatch = () => ({
   i: 0,
   lohisByNode: new Map()
 })
-/** 
+/**
  * keeps track of the start (lo) and end (hi) index of the match per node (leaf)
  * note: mutates the contents of `matchContext`
  */
@@ -1549,16 +1549,16 @@ const advanceMatch = (leaf, leafi, matchContext) => {
   matchContext.lohisByNode.set(leaf, { lo: curLoHi?.lo ?? leafi, hi: leafi })
 }
 /**
- * Finds all non-overlapping matches for a search string in the document. 
+ * Finds all non-overlapping matches for a search string in the document.
  * The search string may be split between multiple consecutive leaf nodes.
- * 
+ *
  * Whitespace in the search string must be present in the document to match, but
  * there may be addititional whitespace in the document that is ignored.
- * 
+ *
  * e.g. searching for `dogs rock` would match `dogs  \n <span> rock</span>`,
- * and would contribute the match 
+ * and would contribute the match
  * `{ i:9, els: new Map([[textNode, {lo:0, hi:8}],[spanNode,{lo:0,hi:5}]]) }`
- * 
+ *
  * @returns {Map<HTMLElement,{lo:number,hi:number}>[]}
  */
 function searchMatches(inSearch, el) {
@@ -1603,7 +1603,7 @@ function searchMatches(inSearch, el) {
   return matches
 }
 
-/** 
+/**
  * e.g. `markMatches(myTextNode, [[0,5],[12,15]])` would wrap the
  * character sequences in myTextNode from 0-5 and 12-15 in marks.
  * Its important to mark all sequences in a text node at once
@@ -1665,7 +1665,7 @@ function scrollToFirstVisibleMatch(mainEl) {
  *
  * arrayMapPush(m, 'dog', 'Max')
  * console.log(m) // Map { dog->['Max'] }
- * 
+ *
  * arrayMapPush(m, 'dog', 'Samba')
  * arrayMapPush(m, 'cat', 'Scruffle')
  * console.log(m) // Map { dog->['Max', 'Samba'], cat->['Scruffle'] }
@@ -1679,7 +1679,7 @@ const arrayMapPush = (map, key, item) => {
 // copy&paste any string from a quarto page and
 // this should find that string in the page and highlight it.
 // exception: text that starts outside/inside a tabset and ends
-// inside/outside that tabset. 
+// inside/outside that tabset.
 function highlight(searchStr, el) {
   const matches = searchMatches(searchStr, el);
 
@@ -4088,6 +4088,11 @@ color: var(--db-muted);
 margin: 0.25rem 1rem 1rem 0;
 padding-left: 2rem;
 }
+.image-credit-link {
+color: var(--db-muted);
+font-size: 0.9rem;
+margin: -1rem 0 2rem;
+}
 .activity-card {
 min-height: 260px;
 }
@@ -4193,29 +4198,29 @@ font-size: 2.3rem;
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../index.html"> 
+    <a class="nav-link" href="../../index.html">
 <span class="menu-text">Accueil</span></a>
-  </li>  
+  </li>
   <li class="nav-item">
-    <a class="nav-link" href="../../catalogue.html"> 
+    <a class="nav-link" href="../../catalogue.html">
 <span class="menu-text">Catalogue</span></a>
-  </li>  
+  </li>
   <li class="nav-item">
-    <a class="nav-link" href="../../zero-waste.html"> 
+    <a class="nav-link" href="../../zero-waste.html">
 <span class="menu-text">Zéro déchet</span></a>
-  </li>  
+  </li>
   <li class="nav-item">
-    <a class="nav-link" href="../../activites.html"> 
+    <a class="nav-link" href="../../activites.html">
 <span class="menu-text">Activités</span></a>
-  </li>  
+  </li>
   <li class="nav-item">
-    <a class="nav-link" href="../../contribuer.html"> 
+    <a class="nav-link" href="../../contribuer.html">
 <span class="menu-text">Contribuer</span></a>
-  </li>  
+  </li>
   <li class="nav-item">
-    <a class="nav-link" href="../../about.html"> 
+    <a class="nav-link" href="../../about.html">
 <span class="menu-text">À propos</span></a>
-  </li>  
+  </li>
 </ul>
           </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
@@ -4230,9 +4235,9 @@ font-size: 2.3rem;
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">On this page</h2>
-   
+
   <ul>
-  <li><a href="#tendances-de-diplomation-par-cohorte" id="toc-tendances-de-diplomation-par-cohorte" class="nav-link active" data-scroll-target="#tendances-de-diplomation-par-cohorte">Tendances de diplomation par cohorte</a>
+  <li><a href="#tendances-de-diplomation-selon-limse" id="toc-tendances-de-diplomation-selon-limse" class="nav-link active" data-scroll-target="#tendances-de-diplomation-selon-limse">Tendances de diplomation selon l’IMSE</a>
   <ul class="collapse">
   <li><a href="#contexte" id="toc-contexte" class="nav-link" data-scroll-target="#contexte">Contexte</a></li>
   <li><a href="#objectifs-dapprentissage" id="toc-objectifs-dapprentissage" class="nav-link" data-scroll-target="#objectifs-dapprentissage">Objectifs d’apprentissage</a></li>
@@ -4251,43 +4256,43 @@ font-size: 2.3rem;
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Tendances de diplomation par cohorte</h1>
+<h1 class="title">Tendances de diplomation selon l’IMSE</h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
-    
-  
-    
+
+
+
   </div>
-  
+
 
 
 </header>
 
 
-<section id="tendances-de-diplomation-par-cohorte" class="level1">
-<h1>Tendances de diplomation par cohorte</h1>
+<section id="tendances-de-diplomation-selon-limse" class="level1">
+<h1>Tendances de diplomation selon l’IMSE</h1>
 <section id="contexte" class="level2">
 <h2 class="anchored" data-anchor-id="contexte">Contexte</h2>
-<p>Cette activité demande de produire un mini-rapport sur les tendances de diplomation par cohorte et par regroupement disponible.</p>
+<p>Cette activité demande de produire un mini-rapport sur l’évolution de l’écart de diplomation et de qualification entre les élèves des déciles IMSE 1 et 10.</p>
 </section>
 <section id="objectifs-dapprentissage" class="level2">
 <h2 class="anchored" data-anchor-id="objectifs-dapprentissage">Objectifs d’apprentissage</h2>
 <ul>
 <li>Visualiser une tendance de taux.</li>
-<li>Comparer plusieurs groupes.</li>
-<li>Utiliser les effectifs pour contextualiser les résultats.</li>
+<li>Comparer deux groupes.</li>
+<li>Interpréter un écart en points de pourcentage.</li>
 <li>Communiquer les limites de données agrégées.</li>
 </ul>
 </section>
 <section id="données-utilisées" class="level2">
 <h2 class="anchored" data-anchor-id="données-utilisées">Données utilisées</h2>
 <p>Fiche : <a href="../../datasets/cohortes-diplomation/fiche.html">Cohortes de diplomation</a></p>
-<p>Source : Institut de la statistique du Québec. URL officielle à vérifier.</p>
-<p>Licence : TODO: confirmer licence.</p>
+<p>Source : Institut de la statistique du Québec, indicateur “Écart de diplomation selon le milieu socio-économique”.</p>
+<p>Licence ou conditions : droit d’auteur du Gouvernement du Québec; reproduction soumise aux conditions de l’Institut de la statistique du Québec, sauf permission ou indication contraire.</p>
 </section>
 <section id="métadonnées-pédagogiques" class="level2">
 <h2 class="anchored" data-anchor-id="métadonnées-pédagogiques">Métadonnées pédagogiques</h2>
@@ -4305,7 +4310,7 @@ font-size: 2.3rem;
 <tbody>
 <tr class="odd">
 <td>Question directrice</td>
-<td>Comment les taux de diplomation évoluent-ils selon les cohortes et les regroupements?</td>
+<td>Comment l’écart de diplomation évolue-t-il selon les cohortes suivies?</td>
 </tr>
 <tr class="even">
 <td>Concepts</td>
@@ -4345,28 +4350,28 @@ font-size: 2.3rem;
 <section id="consignes" class="level2">
 <h2 class="anchored" data-anchor-id="consignes">Consignes</h2>
 <ol type="1">
-<li>Importer les données après vérification de la source.</li>
-<li>Choisir un regroupement principal, par exemple le sexe ou la région.</li>
-<li>Visualiser le taux de diplomation par cohorte.</li>
-<li>Ajouter une table des effectifs.</li>
+<li>Importer l’export XLSX officiel de l’ISQ.</li>
+<li>Nettoyer les lignes de notes afin de conserver les années scolaires.</li>
+<li>Visualiser les deux taux dans un premier graphique.</li>
+<li>Visualiser l’écart en points de pourcentage dans un second graphique.</li>
 <li>Discuter les écarts observés et les limites d’interprétation.</li>
 </ol>
 </section>
 <section id="questions" class="level2">
 <h2 class="anchored" data-anchor-id="questions">Questions</h2>
 <ol type="1">
-<li>La tendance est-elle semblable pour tous les groupes?</li>
+<li>Les deux taux évoluent-ils de manière semblable?</li>
 <li>Les écarts sont-ils stables dans le temps?</li>
-<li>Quelle information manque pour interpréter les écarts socioéconomiques?</li>
+<li>Quelle limite impose le fait de comparer seulement deux déciles extrêmes?</li>
 </ol>
 </section>
 <section id="pistes-de-solution" class="level2">
 <h2 class="anchored" data-anchor-id="pistes-de-solution">Pistes de solution</h2>
-<p>Le mini-rapport devrait inclure un graphique temporel, une table des effectifs et une conclusion limitée aux tendances descriptives.</p>
+<p>Le mini-rapport devrait inclure deux graphiques, un tableau descriptif et une conclusion limitée aux tendances descriptives.</p>
 </section>
 <section id="prolongement" class="level2">
 <h2 class="anchored" data-anchor-id="prolongement">Prolongement</h2>
-<p>Ajouter un regroupement socioéconomique seulement si la variable est disponible et documentée.</p>
+<p>Comparer la lecture du graphique des taux avec celle du graphique de l’écart.</p>
 
 
 </section>
@@ -4384,7 +4389,7 @@ font-size: 2.3rem;
     anchorJS.add('.anchored');
     const isCodeAnnotation = (el) => {
       for (const clz of el.classList) {
-        if (clz.startsWith('code-annotation-')) {                     
+        if (clz.startsWith('code-annotation-')) {
           return true;
         }
       }
@@ -4404,11 +4409,11 @@ font-size: 2.3rem;
         button.setAttribute("data-bs-toggle", "tooltip");
         button.setAttribute("data-bs-placement", "left");
         button.setAttribute("data-bs-title", "Copied!");
-        tooltip = new bootstrap.Tooltip(button, 
-          { trigger: "manual", 
+        tooltip = new bootstrap.Tooltip(button,
+          { trigger: "manual",
             customClass: "code-copy-button-tooltip",
             offset: [0, -8]});
-        tooltip.show();    
+        tooltip.show();
       }
       setTimeout(function() {
         if (tooltip) {
@@ -4490,7 +4495,7 @@ font-size: 2.3rem;
       if (onUntriggerFn) {
         config.onUntrigger = onUntriggerFn;
       }
-      window.tippy(el, config); 
+      window.tippy(el, config);
     }
     const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
     for (var i=0; i<noterefs.length; i++) {
@@ -4565,7 +4570,7 @@ font-size: 2.3rem;
       tippyHover(xref, undefined, function(instance) {
         instance.disable();
         let url = xref.getAttribute('href');
-        let hash = undefined; 
+        let hash = undefined;
         if (url.startsWith('#')) {
           hash = url;
         } else {
@@ -4593,7 +4598,7 @@ font-size: 2.3rem;
               if (note !== null) {
                 const html = processXRef(id, note);
                 instance.setContent(html);
-              } 
+              }
             }).finally(() => {
               instance.enable();
               instance.show();
@@ -4617,7 +4622,7 @@ font-size: 2.3rem;
               }
               const html = processXRef(null, note);
               instance.setContent(html);
-            } 
+            }
           }).finally(() => {
             instance.enable();
             instance.show();
@@ -4657,7 +4662,7 @@ font-size: 2.3rem;
               height = bottom - top;
             }
             if (top !== null && height !== null && parent !== null) {
-              // cook up a div (if necessary) and position it 
+              // cook up a div (if necessary) and position it
               let div = window.document.getElementById("code-annotation-line-highlight");
               if (div === null) {
                 div = window.document.createElement("div");
@@ -4783,7 +4788,7 @@ font-size: 2.3rem;
   <div class="nav-footer">
     <div class="nav-footer-left">
 <p>Données bleues</p>
-</div>   
+</div>
     <div class="nav-footer-center">
        
     </div>

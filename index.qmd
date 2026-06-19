@@ -57,7 +57,7 @@ Adapter des activités courtes et longues pour des cours d'introduction à la st
 
 Les données locales aident à situer les apprentissages dans des réalités proches des personnes étudiantes : mobilité urbaine, services publics, culture, environnement, territoire et politiques publiques. Elles permettent aussi d'aborder la donnée comme objet social, administratif et scientifique.
 
-Le MVP initial utilise des sources ouvertes vérifiées le 2026-06-01, notamment Données Québec, les flux GBFS de BIXI Montréal, Bibliothèque et Archives nationales du Québec et le ministère de l'Environnement, de la Lutte contre les changements climatiques, de la Faune et des Parcs. Les fiches plus récentes indiquent explicitement les éléments à vérifier avant exploitation.
+Le MVP initial utilise des sources ouvertes vérifiées le 2026-06-01, notamment Données Québec, les flux GBFS de BIXI Montréal, Bibliothèque et Archives nationales du Québec et le ministère de l'Environnement, de la Lutte contre les changements climatiques, de la Faune et des Parcs. Les fiches récentes documentent leurs sources, formats, licences ou conditions de réutilisation directement dans les métadonnées.
 
 ## Pour qui?
 

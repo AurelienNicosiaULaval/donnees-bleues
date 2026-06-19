@@ -7,7 +7,7 @@ embed-resources: true
 
 ## Contexte
 
-Cette activité demande de construire un mini-rapport sur plusieurs stations de suivi. Elle combine comparaison temporelle, indicateurs descriptifs et représentation spatiale simple.
+Cette activité demande de construire un mini-rapport sur plusieurs stations de suivi. Elle combine comparaison temporelle, indicateurs descriptifs, carte simple et discussion des limites environnementales.
 
 ## Objectifs d'apprentissage
 
@@ -20,9 +20,9 @@ Cette activité demande de construire un mini-rapport sur plusieurs stations de 
 
 Fiche : [Suivi physicochimique et bactériologique des rivières et du fleuve](fiche.qmd)
 
-Source : Données Québec / MELCCFP. URL officielle à vérifier.
+Source : Données Québec / MELCCFP, "Suivi de la qualité de l'eau du fleuve et des rivières".
 
-Licence : Licence ouverte du Québec; Attribution (CC-BY 4.0).
+Licence : Attribution (CC-BY 4.0).
 
 ## Métadonnées pédagogiques
 
@@ -40,17 +40,17 @@ Licence : Licence ouverte du Québec; Attribution (CC-BY 4.0).
 
 ## Consignes
 
-1. Importer les données après vérification de la source.
+1. Importer le ZIP CSV officiel.
 2. Sélectionner au moins trois stations ou un bassin versant.
-3. Comparer phosphore total, azote total ou coliformes fécaux.
-4. Produire une carte des stations si les coordonnées sont disponibles.
+3. Comparer phosphore total, azote total, nitrites et nitrates ou coliformes fécaux.
+4. Produire une carte des stations avec latitude et longitude.
 5. Produire un graphique temporel.
 6. Conclure en distinguant observation descriptive et explication causale.
 
 ## Questions
 
 1. Les stations ont-elles les mêmes périodes d'observation?
-2. Les mesures semblent-elles saisonnières?
+2. Quels indicateurs montrent les plus fortes différences entre stations?
 3. Quel indicateur est le plus facile à expliquer à un public non spécialiste?
 
 ## Pistes de solution

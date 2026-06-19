@@ -7,7 +7,7 @@ embed-resources: true
 
 ## Contexte
 
-Cette activité utilise le suivi de la qualité de l'eau pour produire une première lecture temporelle du phosphore total. La source officielle doit être confirmée avant utilisation en classe.
+Cette activité utilise le suivi de la qualité de l'eau pour produire une première lecture temporelle de la médiane du phosphore total. La source officielle Données Québec fournit un ZIP CSV contenant la table des stations et une table d'aires de drainage.
 
 ## Objectifs d'apprentissage
 
@@ -19,9 +19,9 @@ Cette activité utilise le suivi de la qualité de l'eau pour produire une premi
 
 Fiche : [Suivi physicochimique et bactériologique des rivières et du fleuve](fiche.qmd)
 
-Source : Données Québec / MELCCFP. URL officielle à vérifier.
+Source : Données Québec / MELCCFP, "Suivi de la qualité de l'eau du fleuve et des rivières".
 
-Licence : Licence ouverte du Québec; Attribution (CC-BY 4.0).
+Licence : Attribution (CC-BY 4.0).
 
 ## Métadonnées pédagogiques
 
@@ -39,22 +39,22 @@ Licence : Licence ouverte du Québec; Attribution (CC-BY 4.0).
 
 ## Consignes
 
-1. Importer le jeu après avoir remplacé l'URL par l'URL officielle vérifiée.
-2. Choisir une station avec plusieurs années d'observation.
-3. Résumer le phosphore total par année.
-4. Produire un graphique temporel.
+1. Importer le ZIP CSV officiel.
+2. Lire `stations_p.csv`.
+3. Choisir une station avec plusieurs années d'observation.
+4. Résumer ou tracer `ptot_med_mgl` par année.
 5. Rédiger deux phrases sur la tendance observée et les limites de l'analyse.
 
 ## Questions
 
 1. Combien d'années sont disponibles pour la station choisie?
 2. La tendance est-elle stable, croissante ou décroissante?
-3. Quelle information manque pour interpréter la tendance avec prudence?
+3. Pourquoi faut-il préciser que les valeurs sont des statistiques agrégées?
 
 ## Pistes de solution
 
-Une solution acceptable présente un tableau de résumés annuels, un graphique clair et une interprétation prudente qui mentionne la saisonnalité, les unités et la période d'observation.
+Une solution acceptable présente un tableau de résumés annuels, un graphique clair et une interprétation prudente qui mentionne les unités et la période d'observation.
 
 ## Prolongement
 
-Comparer deux stations ou ajouter une variable comme la température ou les coliformes fécaux.
+Comparer deux stations ou ajouter une variable comme l'azote total ou les coliformes fécaux.

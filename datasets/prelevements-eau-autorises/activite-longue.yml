@@ -1,6 +1,6 @@
 id: prelevements-eau-territoires-long
-title: "Évolution territoriale des prélèvements d'eau"
-question: "Comment les volumes d'eau prélevés varient-ils selon les territoires et les usages?"
+title: "Portrait spatial des prélèvements d'eau autorisés"
+question: "Comment décrire les volumes et la localisation des prélèvements d'eau autorisés?"
 dataset_id: prelevements-eau-autorises
 dataset_title: "Registre des prélèvements d'eau autorisés"
 activity_url: "datasets/prelevements-eau-autorises/activite-longue.qmd"
@@ -11,17 +11,17 @@ activity_type:
   - "Projet ou tâche longue"
   - "Exploration de données"
 concepts:
-  - "Agrégation territoriale"
-  - "Séries temporelles"
+  - "Agrégation"
+  - "Données spatiales"
   - "Visualisation"
   - "Communication"
 context: "Prélèvements d'eau"
-hook: "Identifier les plus grands volumes et leur évolution"
+hook: "Identifier les plus grands volumes autorisés et leur répartition spatiale"
 materials:
   - "énoncé"
   - "code"
   - "données"
   - "notes enseignantes"
 advanced_math_stats: false
-teacher_notes: "Demander une section explicite sur les limites des données administratives."
-status: "à vérifier"
+teacher_notes: "Demander une section explicite sur les limites des données administratives et sur l'absence de volumes réellement prélevés dans ce fichier."
+status: "source vérifiée"

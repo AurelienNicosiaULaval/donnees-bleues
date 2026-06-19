@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Évolution territoriale des prélèvements d’eau – Données bleues</title>
+<title>Portrait spatial des prélèvements d’eau autorisés – Données bleues</title>
 <style>
 
 code{white-space: pre-wrap;}
@@ -1537,7 +1537,7 @@ const initMatch = () => ({
   i: 0,
   lohisByNode: new Map()
 })
-/** 
+/**
  * keeps track of the start (lo) and end (hi) index of the match per node (leaf)
  * note: mutates the contents of `matchContext`
  */
@@ -1549,16 +1549,16 @@ const advanceMatch = (leaf, leafi, matchContext) => {
   matchContext.lohisByNode.set(leaf, { lo: curLoHi?.lo ?? leafi, hi: leafi })
 }
 /**
- * Finds all non-overlapping matches for a search string in the document. 
+ * Finds all non-overlapping matches for a search string in the document.
  * The search string may be split between multiple consecutive leaf nodes.
- * 
+ *
  * Whitespace in the search string must be present in the document to match, but
  * there may be addititional whitespace in the document that is ignored.
- * 
+ *
  * e.g. searching for `dogs rock` would match `dogs  \n <span> rock</span>`,
- * and would contribute the match 
+ * and would contribute the match
  * `{ i:9, els: new Map([[textNode, {lo:0, hi:8}],[spanNode,{lo:0,hi:5}]]) }`
- * 
+ *
  * @returns {Map<HTMLElement,{lo:number,hi:number}>[]}
  */
 function searchMatches(inSearch, el) {
@@ -1603,7 +1603,7 @@ function searchMatches(inSearch, el) {
   return matches
 }
 
-/** 
+/**
  * e.g. `markMatches(myTextNode, [[0,5],[12,15]])` would wrap the
  * character sequences in myTextNode from 0-5 and 12-15 in marks.
  * Its important to mark all sequences in a text node at once
@@ -1665,7 +1665,7 @@ function scrollToFirstVisibleMatch(mainEl) {
  *
  * arrayMapPush(m, 'dog', 'Max')
  * console.log(m) // Map { dog->['Max'] }
- * 
+ *
  * arrayMapPush(m, 'dog', 'Samba')
  * arrayMapPush(m, 'cat', 'Scruffle')
  * console.log(m) // Map { dog->['Max', 'Samba'], cat->['Scruffle'] }
@@ -1679,7 +1679,7 @@ const arrayMapPush = (map, key, item) => {
 // copy&paste any string from a quarto page and
 // this should find that string in the page and highlight it.
 // exception: text that starts outside/inside a tabset and ends
-// inside/outside that tabset. 
+// inside/outside that tabset.
 function highlight(searchStr, el) {
   const matches = searchMatches(searchStr, el);
 
@@ -4088,6 +4088,11 @@ color: var(--db-muted);
 margin: 0.25rem 1rem 1rem 0;
 padding-left: 2rem;
 }
+.image-credit-link {
+color: var(--db-muted);
+font-size: 0.9rem;
+margin: -1rem 0 2rem;
+}
 .activity-card {
 min-height: 260px;
 }
@@ -4193,29 +4198,29 @@ font-size: 2.3rem;
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../index.html"> 
+    <a class="nav-link" href="../../index.html">
 <span class="menu-text">Accueil</span></a>
-  </li>  
+  </li>
   <li class="nav-item">
-    <a class="nav-link" href="../../catalogue.html"> 
+    <a class="nav-link" href="../../catalogue.html">
 <span class="menu-text">Catalogue</span></a>
-  </li>  
+  </li>
   <li class="nav-item">
-    <a class="nav-link" href="../../zero-waste.html"> 
+    <a class="nav-link" href="../../zero-waste.html">
 <span class="menu-text">Zéro déchet</span></a>
-  </li>  
+  </li>
   <li class="nav-item">
-    <a class="nav-link" href="../../activites.html"> 
+    <a class="nav-link" href="../../activites.html">
 <span class="menu-text">Activités</span></a>
-  </li>  
+  </li>
   <li class="nav-item">
-    <a class="nav-link" href="../../contribuer.html"> 
+    <a class="nav-link" href="../../contribuer.html">
 <span class="menu-text">Contribuer</span></a>
-  </li>  
+  </li>
   <li class="nav-item">
-    <a class="nav-link" href="../../about.html"> 
+    <a class="nav-link" href="../../about.html">
 <span class="menu-text">À propos</span></a>
-  </li>  
+  </li>
 </ul>
           </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
@@ -4230,9 +4235,9 @@ font-size: 2.3rem;
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">On this page</h2>
-   
+
   <ul>
-  <li><a href="#évolution-territoriale-des-prélèvements-deau" id="toc-évolution-territoriale-des-prélèvements-deau" class="nav-link active" data-scroll-target="#évolution-territoriale-des-prélèvements-deau">Évolution territoriale des prélèvements d’eau</a>
+  <li><a href="#portrait-spatial-des-prélèvements-deau-autorisés" id="toc-portrait-spatial-des-prélèvements-deau-autorisés" class="nav-link active" data-scroll-target="#portrait-spatial-des-prélèvements-deau-autorisés">Portrait spatial des prélèvements d’eau autorisés</a>
   <ul class="collapse">
   <li><a href="#contexte" id="toc-contexte" class="nav-link" data-scroll-target="#contexte">Contexte</a></li>
   <li><a href="#objectifs-dapprentissage" id="toc-objectifs-dapprentissage" class="nav-link" data-scroll-target="#objectifs-dapprentissage">Objectifs d’apprentissage</a></li>
@@ -4251,43 +4256,43 @@ font-size: 2.3rem;
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Évolution territoriale des prélèvements d’eau</h1>
+<h1 class="title">Portrait spatial des prélèvements d’eau autorisés</h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
-    
-  
-    
+
+
+
   </div>
-  
+
 
 
 </header>
 
 
-<section id="évolution-territoriale-des-prélèvements-deau" class="level1">
-<h1>Évolution territoriale des prélèvements d’eau</h1>
+<section id="portrait-spatial-des-prélèvements-deau-autorisés" class="level1">
+<h1>Portrait spatial des prélèvements d’eau autorisés</h1>
 <section id="contexte" class="level2">
 <h2 class="anchored" data-anchor-id="contexte">Contexte</h2>
-<p>Cette activité propose un mini-rapport sur les prélèvements d’eau selon les territoires, les usages et les années disponibles.</p>
+<p>Cette activité propose un mini-rapport sur les sites de prélèvements d’eau autorisés selon leur provenance, leur volume maximal autorisé et leur localisation.</p>
 </section>
 <section id="objectifs-dapprentissage" class="level2">
 <h2 class="anchored" data-anchor-id="objectifs-dapprentissage">Objectifs d’apprentissage</h2>
 <ul>
-<li>Construire des agrégations territoriales.</li>
-<li>Comparer des volumes dans le temps.</li>
-<li>Identifier les plus grands préleveurs ou usages.</li>
+<li>Construire des agrégations par catégorie.</li>
+<li>Comparer des volumes autorisés.</li>
+<li>Produire une carte de points.</li>
 <li>Communiquer les limites d’une donnée administrative.</li>
 </ul>
 </section>
 <section id="données-utilisées" class="level2">
 <h2 class="anchored" data-anchor-id="données-utilisées">Données utilisées</h2>
 <p>Fiche : <a href="../../datasets/prelevements-eau-autorises/fiche.html">Registre des prélèvements d’eau autorisés</a></p>
-<p>Source : Données Québec / MELCCFP. URL officielle à vérifier.</p>
-<p>Licence : TODO: confirmer licence.</p>
+<p>Source : Données Québec / MELCCFP, “Prélèvements d’eau autorisés par le MELCCFP”.</p>
+<p>Licence : Attribution (CC-BY 4.0).</p>
 </section>
 <section id="métadonnées-pédagogiques" class="level2">
 <h2 class="anchored" data-anchor-id="métadonnées-pédagogiques">Métadonnées pédagogiques</h2>
@@ -4305,11 +4310,11 @@ font-size: 2.3rem;
 <tbody>
 <tr class="odd">
 <td>Question directrice</td>
-<td>Comment les volumes d’eau prélevés varient-ils selon les territoires et les usages?</td>
+<td>Comment décrire les volumes et la localisation des prélèvements d’eau autorisés?</td>
 </tr>
 <tr class="even">
 <td>Concepts</td>
-<td>Agrégation territoriale; séries temporelles; visualisation; communication</td>
+<td>Agrégation; données spatiales; visualisation; communication</td>
 </tr>
 <tr class="odd">
 <td>Niveau</td>
@@ -4325,7 +4330,7 @@ font-size: 2.3rem;
 </tr>
 <tr class="even">
 <td>Accroche</td>
-<td>Identifier les plus grands volumes et leur évolution</td>
+<td>Identifier les plus grands volumes autorisés et leur répartition spatiale</td>
 </tr>
 <tr class="odd">
 <td>Durée</td>
@@ -4345,24 +4350,25 @@ font-size: 2.3rem;
 <section id="consignes" class="level2">
 <h2 class="anchored" data-anchor-id="consignes">Consignes</h2>
 <ol type="1">
-<li>Importer les données après vérification de la source.</li>
-<li>Nettoyer les variables de territoire, d’usage et d’année.</li>
-<li>Calculer les volumes par territoire et par usage.</li>
-<li>Visualiser l’évolution temporelle pour les principaux territoires ou préleveurs.</li>
-<li>Rédiger une conclusion qui distingue description, comparaison et explication.</li>
+<li>Importer le CSV officiel.</li>
+<li>Nettoyer les variables de provenance, de volume et de coordonnées.</li>
+<li>Calculer les volumes autorisés par provenance.</li>
+<li>Identifier les principaux sites ou intervenants selon le volume autorisé.</li>
+<li>Produire une carte de points si les coordonnées sont exploitables.</li>
+<li>Rédiger une conclusion qui distingue description, comparaison et portée administrative.</li>
 </ol>
 </section>
 <section id="questions" class="level2">
 <h2 class="anchored" data-anchor-id="questions">Questions</h2>
 <ol type="1">
-<li>Quels territoires concentrent les plus grands volumes?</li>
-<li>Les usages dominants changent-ils dans le temps?</li>
+<li>Quels sites ou intervenants concentrent les plus grands volumes autorisés?</li>
+<li>La provenance de l’eau varie-t-elle selon les sites observés?</li>
 <li>Les données permettent-elles de conclure sur la pression réelle sur la ressource?</li>
 </ol>
 </section>
 <section id="pistes-de-solution" class="level2">
 <h2 class="anchored" data-anchor-id="pistes-de-solution">Pistes de solution</h2>
-<p>Le rapport devrait contenir un tableau des volumes agrégés, un graphique temporel et une section sur les limites des données administratives.</p>
+<p>Le rapport devrait contenir un tableau des volumes agrégés, un graphique de comparaison, une carte simple et une section sur les limites des données administratives.</p>
 </section>
 <section id="prolongement" class="level2">
 <h2 class="anchored" data-anchor-id="prolongement">Prolongement</h2>
@@ -4384,7 +4390,7 @@ font-size: 2.3rem;
     anchorJS.add('.anchored');
     const isCodeAnnotation = (el) => {
       for (const clz of el.classList) {
-        if (clz.startsWith('code-annotation-')) {                     
+        if (clz.startsWith('code-annotation-')) {
           return true;
         }
       }
@@ -4404,11 +4410,11 @@ font-size: 2.3rem;
         button.setAttribute("data-bs-toggle", "tooltip");
         button.setAttribute("data-bs-placement", "left");
         button.setAttribute("data-bs-title", "Copied!");
-        tooltip = new bootstrap.Tooltip(button, 
-          { trigger: "manual", 
+        tooltip = new bootstrap.Tooltip(button,
+          { trigger: "manual",
             customClass: "code-copy-button-tooltip",
             offset: [0, -8]});
-        tooltip.show();    
+        tooltip.show();
       }
       setTimeout(function() {
         if (tooltip) {
@@ -4490,7 +4496,7 @@ font-size: 2.3rem;
       if (onUntriggerFn) {
         config.onUntrigger = onUntriggerFn;
       }
-      window.tippy(el, config); 
+      window.tippy(el, config);
     }
     const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
     for (var i=0; i<noterefs.length; i++) {
@@ -4565,7 +4571,7 @@ font-size: 2.3rem;
       tippyHover(xref, undefined, function(instance) {
         instance.disable();
         let url = xref.getAttribute('href');
-        let hash = undefined; 
+        let hash = undefined;
         if (url.startsWith('#')) {
           hash = url;
         } else {
@@ -4593,7 +4599,7 @@ font-size: 2.3rem;
               if (note !== null) {
                 const html = processXRef(id, note);
                 instance.setContent(html);
-              } 
+              }
             }).finally(() => {
               instance.enable();
               instance.show();
@@ -4617,7 +4623,7 @@ font-size: 2.3rem;
               }
               const html = processXRef(null, note);
               instance.setContent(html);
-            } 
+            }
           }).finally(() => {
             instance.enable();
             instance.show();
@@ -4657,7 +4663,7 @@ font-size: 2.3rem;
               height = bottom - top;
             }
             if (top !== null && height !== null && parent !== null) {
-              // cook up a div (if necessary) and position it 
+              // cook up a div (if necessary) and position it
               let div = window.document.getElementById("code-annotation-line-highlight");
               if (div === null) {
                 div = window.document.createElement("div");
@@ -4783,7 +4789,7 @@ font-size: 2.3rem;
   <div class="nav-footer">
     <div class="nav-footer-left">
 <p>Données bleues</p>
-</div>   
+</div>
     <div class="nav-footer-center">
        
     </div>

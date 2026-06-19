@@ -1,6 +1,6 @@
-id: diplomation-comparaison-groupes-court
-title: "Comparer des taux de diplomation"
-question: "Comment comparer les taux de diplomation selon le sexe ou la région?"
+id: diplomation-comparaison-imse-court
+title: "Comparer des taux de diplomation selon l'IMSE"
+question: "Comment comparer les taux de diplomation des déciles IMSE 1 et 10?"
 dataset_id: cohortes-diplomation
 dataset_title: "Cohortes de diplomation"
 activity_url: "datasets/cohortes-diplomation/activite-courte.qmd"
@@ -20,5 +20,5 @@ materials:
   - "code"
   - "données"
 advanced_math_stats: false
-teacher_notes: "Insister sur le rôle de n_eleves et sur le fait que les données sont agrégées."
-status: "à vérifier"
+teacher_notes: "Insister sur la différence entre pourcentage et point de pourcentage, ainsi que sur le caractère agrégé de l'indicateur."
+status: "source documentée"
