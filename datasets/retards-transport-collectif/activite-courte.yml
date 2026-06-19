@@ -1,0 +1,25 @@
+id: retards-transport-collectif-court
+title: "Laboratoire - Retards transport"
+question: "Quelles lignes présentent les retards les plus importants?"
+dataset_id: retards-transport-collectif
+dataset_title: "Retards et ponctualité du transport collectif"
+activity_url: "datasets/retards-transport-collectif/activite-courte.qmd"
+duration: "60-90 minutes"
+level: "Intermédiaire"
+activity_type:
+  - "Laboratoire d'introduction"
+  - "Exploration de données"
+concepts:
+  - "statistiques descriptives"
+  - "distributions"
+  - "valeurs extrêmes"
+  - "séries temporelles"
+context: "Mobilité et performance de service"
+hook: "Question québécoise concrète"
+materials:
+  - "fiche"
+  - "code"
+  - "source officielle"
+advanced_math_stats: false
+teacher_notes: "Faire valider l'unité statistique et la provenance avant tout graphique."
+status: "prêt à adapter"

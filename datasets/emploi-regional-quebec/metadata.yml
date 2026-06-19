@@ -1,0 +1,35 @@
+id: emploi-regional-quebec
+title: "Emploi régional au Québec"
+short_title: "Emploi régional"
+theme: "Marché du travail"
+source_name: "Institut de la statistique du Québec / Statistique Canada, Enquête sur la population active"
+source_url: "https://statistique.quebec.ca/fr/document/population-active-emploi-et-chomage-regions-administratives-rmr-et-quebec"
+license: "Conditions de réutilisation de Statistique Québec à confirmer pour l'export retenu"
+access_date: "2026-06-19"
+geography: "Régions administratives, RMR et ensemble du Québec"
+unit: "Combinaison région et période"
+data_type: "Tableau agrégé, séries temporelles régionales"
+format: "Tableau web et exports à confirmer"
+n_rows: "Quelques centaines à quelques milliers de lignes selon la période et le niveau territorial retenus"
+n_cols: "Indicateurs de population active, emploi, chômage et taux associés"
+update_frequency: "Mensuelle, trimestrielle et annuelle selon la page de Statistique Québec"
+level: "Introduction à intermédiaire"
+concepts:
+  - séries temporelles
+  - comparaison de groupes
+  - analyse exploratoire
+  - statistiques descriptives
+  - indicateurs socioéconomiques
+zero_waste:
+  contexte_quebecois: 3
+  accessibilite_pedagogique: 3
+  qualite_documentaire: 2
+  potentiel_nettoyage: 2
+  potentiel_visualisation: 3
+  potentiel_statistique_descriptive: 3
+  potentiel_inference: 2
+  potentiel_modelisation: 2
+  potentiel_ethique: 3
+  reutilisabilite: 3
+status: "source documentée; licence et export exact à confirmer"
+notes: "La page de Statistique Québec diffuse les indicateurs de l'EPA par région administrative. Les données proviennent de Statistique Canada."

@@ -1,0 +1,25 @@
+id: budgets-municipaux-quebec-court
+title: "Laboratoire - Budgets municipaux"
+question: "Les municipalités dépensent-elles différemment selon leur taille?"
+dataset_id: budgets-municipaux-quebec
+dataset_title: "Budgets municipaux du Québec"
+activity_url: "datasets/budgets-municipaux-quebec/activite-courte.qmd"
+duration: "60-90 minutes"
+level: "Introduction"
+activity_type:
+  - "Laboratoire d'introduction"
+  - "Exploration de données"
+concepts:
+  - "regroupements"
+  - "ratios"
+  - "comparaisons"
+  - "statistiques descriptives"
+context: "Finances publiques municipales"
+hook: "Question québécoise concrète"
+materials:
+  - "fiche"
+  - "code"
+  - "source officielle"
+advanced_math_stats: false
+teacher_notes: "Faire valider l'unité statistique et la provenance avant tout graphique."
+status: "prêt à adapter"

@@ -1,0 +1,35 @@
+id: budgets-municipaux-quebec
+title: "Budgets municipaux du Québec"
+short_title: "Budgets municipaux"
+theme: "Finances publiques municipales"
+source_name: "Données Québec / Ministère des Affaires municipales et de l'Habitation"
+source_url: "https://www.donneesquebec.ca/recherche/dataset/profil-financier-des-municipalites-locales"
+license: "Attribution (CC-BY 4.0) selon les métadonnées CKAN vérifiées le 2026-06-19"
+access_date: "2026-06-19"
+geography: "Municipalités locales, MRC, régions administratives et ensemble du Québec selon la ressource retenue"
+unit: "Municipalité, agrégation territoriale ou poste financier selon le fichier choisi"
+data_type: "Tabulaire, financier, territorial"
+format: "CSV et XLSX"
+n_rows: "Plusieurs fichiers annuels; volume variable selon le niveau municipal ou agrégé"
+n_cols: "Colonnes financières et territoriales variables selon la ressource"
+update_frequency: "Annuelle; métadonnées CKAN modifiées le 2026-06-19"
+level: "Introduction"
+concepts:
+  - regroupements
+  - ratios
+  - comparaisons
+  - statistiques descriptives
+  - visualisation de proportions
+zero_waste:
+  contexte_quebecois: 3
+  accessibilite_pedagogique: 3
+  qualite_documentaire: 3
+  potentiel_nettoyage: 2
+  potentiel_visualisation: 3
+  potentiel_statistique_descriptive: 3
+  potentiel_inference: 2
+  potentiel_modelisation: 2
+  potentiel_ethique: 3
+  reutilisabilite: 3
+status: "source vérifiée; ressource exacte à sélectionner pour le laboratoire"
+notes: "Les noms de variables pédagogiques sont harmonisés; ils devront être mappés aux noms officiels du fichier annuel choisi."

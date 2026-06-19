@@ -1,0 +1,122 @@
+---
+title: "Emploi régional au Québec"
+embed-resources: true
+---
+
+# Emploi régional au Québec
+
+## Pourquoi ce jeu est intéressant
+
+Ce jeu de données place les étudiants et étudiantes devant une source québécoise réaliste, avec des variables interprétables et des décisions de nettoyage authentiques.
+
+Question d'analyse : Comment l'emploi varie-t-il selon les régions administratives?
+
+## Source
+
+| Champ | Information |
+|---|---|
+| Organisme producteur | Institut de la statistique du Québec / Statistique Canada, Enquête sur la population active |
+| Source | Population active, emploi et chômage, régions administratives, RMR et Québec |
+| URL | <https://statistique.quebec.ca/fr/document/population-active-emploi-et-chomage-regions-administratives-rmr-et-quebec> |
+| Licence | Conditions de réutilisation de Statistique Québec à confirmer pour l'export retenu |
+| Date d'accès | 2026-06-19 |
+| Fréquence de mise à jour | Mensuelle, trimestrielle et annuelle selon la page de Statistique Québec |
+| Statut | source documentée; licence et export exact à confirmer |
+
+## Ce que représente une ligne
+
+Combinaison région et période.
+
+## Variables principales
+
+| Variable | Type | Description | Exemple |
+|---|---|---|---|
+| `region` | caractère | Région administrative, RMR ou Québec. | Chaudière-Appalaches |
+| `annee` | entier | Année de référence. | 2025 |
+| `mois` | entier | Mois de référence lorsque les données sont mensuelles. | 5 |
+| `taux_chomage` | numérique | Taux de chômage. | 5.6 |
+| `taux_emploi` | numérique | Taux d'emploi. | 62.4 |
+| `population_active` | numérique | Population active, souvent en milliers de personnes. | 410.2 |
+
+## Taille et structure
+
+| Élément | Information |
+|---|---|
+| Nombre de lignes | Quelques centaines à quelques milliers de lignes selon la période et le niveau territorial retenus |
+| Nombre de colonnes | Indicateurs de population active, emploi, chômage et taux associés |
+| Structure | Tableau agrégé, séries temporelles régionales |
+| Format | Tableau web et exports à confirmer |
+| Couverture géographique | Régions administratives, RMR et ensemble du Québec |
+| Couverture temporelle | Séries mensuelles, trimestrielles et annuelles selon le tableau retenu |
+
+## Concepts enseignables
+
+- séries temporelles;
+- comparaison de groupes;
+- analyse exploratoire;
+- statistiques descriptives;
+- indicateurs socioéconomiques;
+
+## Visualisations suggérées
+
+- lignes temporelles;
+- cartes choroplèthes;
+- small multiples;
+
+## Score zéro déchet
+
+| Dimension | Score |
+|---|---:|
+| Contexte québécois | 3 |
+| Accessibilité pédagogique | 3 |
+| Qualité documentaire | 2 |
+| Potentiel de nettoyage | 2 |
+| Potentiel de visualisation | 3 |
+| Potentiel de statistique descriptive | 3 |
+| Potentiel d'inférence | 2 |
+| Potentiel de modélisation | 2 |
+| Potentiel de discussion éthique | 3 |
+| Réutilisabilité dans plusieurs cours | 3 |
+
+Total : 26 sur 30.
+
+## Activité courte
+
+[Laboratoire](activite-courte.qmd) : Comment l'emploi varie-t-il selon les régions administratives?
+
+## Activité longue
+
+[Mini-projet](activite-longue.qmd) : Comparer la dynamique du marché du travail entre régions avant et après une période économique donnée.
+
+## Code R minimal
+
+```{r}
+#| eval: false
+library(dplyr)
+library(readr)
+library(stringr)
+
+source_page <- "https://statistique.quebec.ca/fr/document/population-active-emploi-et-chomage-regions-administratives-rmr-et-quebec"
+
+# Étape 1 : ouvrir la page officielle et choisir la ressource documentée.
+# Étape 2 : enregistrer le fichier brut dans data_raw/.
+# Étape 3 : harmoniser les noms vers : `region`, `annee`, `mois`, `taux_chomage`, `taux_emploi`, `population_active`.
+
+donnees <- read_csv("data_raw/source_officielle_a_renommer.csv", show_col_types = FALSE)
+
+donnees |>
+  glimpse()
+```
+
+## Limites et précautions
+
+- La page de Statistique Québec diffuse les indicateurs de l'EPA par région administrative. Les données proviennent de Statistique Canada.
+- Les noms de variables proposés sont des noms pédagogiques harmonisés; ils doivent être mappés aux noms officiels après inspection de la ressource.
+- Aucune conclusion causale ne doit être tirée sans plan d'analyse plus avancé.
+
+## Extensions
+
+- Extension intro : produire un tableau de fréquences ou de moyennes par groupe.
+- Extension intermédiaire : ajouter une visualisation claire et une interprétation écrite.
+- Extension avancée : construire une version préparée et documentée dans `data_processed/`.
+- Extension communication scientifique : expliquer en une page ce que la source permet et ne permet pas de conclure.

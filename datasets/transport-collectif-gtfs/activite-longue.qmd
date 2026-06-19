@@ -1,0 +1,30 @@
+---
+title: "Mini-projet - GTFS Québec"
+embed-resources: true
+---
+
+# Mini-projet - GTFS Québec
+
+## Contexte
+
+Ce mini-projet prolonge le laboratoire court en demandant une préparation reproductible et une interprétation plus structurée.
+
+## Question directrice
+
+Comparer la couverture spatiale de deux réseaux GTFS en harmonisant leurs tables stops et routes.
+
+## Livrables
+
+1. Un fichier préparé dans `data_processed/`, ou une description précise du traitement si les données ne sont pas redistribuées.
+2. Un court dictionnaire des variables utilisées.
+3. Deux visualisations complémentaires.
+4. Un paragraphe sur la provenance, la licence et les limites.
+5. Une conclusion pédagogique adaptée à un public de première année.
+
+## Critères d'évaluation suggérés
+
+- Reproductibilité du traitement.
+- Qualité des noms de variables.
+- Pertinence des regroupements.
+- Lisibilité des graphiques.
+- Prudence de l'interprétation.

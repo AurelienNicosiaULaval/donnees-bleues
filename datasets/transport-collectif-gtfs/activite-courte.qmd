@@ -1,0 +1,33 @@
+---
+title: "Laboratoire - GTFS Québec"
+embed-resources: true
+---
+
+# Laboratoire - GTFS Québec
+
+## Contexte
+
+Ce laboratoire utilise la fiche [Réseaux de transport collectif GTFS au Québec](fiche.qmd) pour travailler une question québécoise concrète dans un format adapté à une activité d'introduction en science des données.
+
+## Objectifs d'apprentissage
+
+- Identifier l'unité statistique d'un jeu de données réel.
+- Importer ou préparer une ressource officielle sans perdre la provenance.
+- Produire une visualisation simple et interprétable.
+- Formuler une conclusion prudente en séparant description et explication.
+
+## Question directrice
+
+Quelle est la densité des arrêts de transport collectif selon le secteur?
+
+## Consignes
+
+1. Lire la fiche et repérer la source officielle.
+2. Identifier les variables nécessaires : `route_id`, `stop_id`, `stop_name`, `latitude`, `longitude`, `trip_id`.
+3. Décrire les valeurs manquantes, les types de variables et les unités.
+4. Produire au moins une visualisation parmi : cartes interactives, graphes de réseau, cartes de densité d'arrêts.
+5. Rédiger une conclusion de 5 à 8 lignes avec une limite méthodologique.
+
+## Pistes de solution
+
+Une bonne réponse décrit la tendance principale, nomme le regroupement utilisé et explicite au moins une limite de la source. Une réponse excellente justifie aussi le choix du graphique et signale les décisions de nettoyage.

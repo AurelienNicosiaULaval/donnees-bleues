@@ -1,0 +1,35 @@
+id: retards-transport-collectif
+title: "Retards et ponctualité du transport collectif"
+short_title: "Retards transport"
+theme: "Mobilité et performance de service"
+source_name: "STM / Données Québec / GTFS-realtime"
+source_url: "https://www.donneesquebec.ca/recherche/dataset/vmtl-stm-bus-temps-reel-gtfs-realtime"
+license: "Attribution (CC-BY 4.0) selon les métadonnées CKAN STM vérifiées le 2026-06-19"
+access_date: "2026-06-19"
+geography: "Réseau STM et autres réseaux québécois si des flux comparables sont validés"
+unit: "Observation de passage, véhicule ou ligne selon le flux et le traitement"
+data_type: "Flux temps réel, séries temporelles, données opérationnelles"
+format: "GTFS-realtime; table pédagogique dérivée en CSV recommandée"
+n_rows: "Variable selon la fréquence de collecte et la période archivée"
+n_cols: "Variables brutes du flux et variables dérivées de retard"
+update_frequency: "Temps réel ou quasi temps réel selon le service; l'archivage doit être construit par l'enseignant ou l'équipe pédagogique"
+level: "Intermédiaire"
+concepts:
+  - statistiques descriptives
+  - distributions
+  - valeurs extrêmes
+  - séries temporelles
+  - qualité de service
+zero_waste:
+  contexte_quebecois: 3
+  accessibilite_pedagogique: 2
+  qualite_documentaire: 2
+  potentiel_nettoyage: 3
+  potentiel_visualisation: 3
+  potentiel_statistique_descriptive: 3
+  potentiel_inference: 1
+  potentiel_modelisation: 3
+  potentiel_ethique: 3
+  reutilisabilite: 2
+status: "source temps réel vérifiée; jeu historique prêt à enseigner à construire"
+notes: "Ne pas présenter retard_minutes comme une colonne brute garantie. C'est une variable dérivée possible selon le flux et le protocole de collecte."

@@ -1,0 +1,121 @@
+---
+title: "Retards et ponctualité du transport collectif"
+embed-resources: true
+---
+
+# Retards et ponctualité du transport collectif
+
+## Pourquoi ce jeu est intéressant
+
+Ce jeu de données place les étudiants et étudiantes devant une source québécoise réaliste, avec des variables interprétables et des décisions de nettoyage authentiques.
+
+Question d'analyse : Quelles lignes présentent les retards les plus importants?
+
+## Source
+
+| Champ | Information |
+|---|---|
+| Organisme producteur | STM / Données Québec / GTFS-realtime |
+| Source | Horaires et positionnement des bus en temps réel (GTFS-realtime), lorsque les champs de délai sont disponibles |
+| URL | <https://www.donneesquebec.ca/recherche/dataset/vmtl-stm-bus-temps-reel-gtfs-realtime> |
+| Licence | Attribution (CC-BY 4.0) selon les métadonnées CKAN STM vérifiées le 2026-06-19 |
+| Date d'accès | 2026-06-19 |
+| Fréquence de mise à jour | Temps réel ou quasi temps réel selon le service; l'archivage doit être construit par l'enseignant ou l'équipe pédagogique |
+| Statut | source temps réel vérifiée; jeu historique prêt à enseigner à construire |
+
+## Ce que représente une ligne
+
+Observation de passage, véhicule ou ligne selon le flux et le traitement.
+
+## Variables principales
+
+| Variable | Type | Description | Exemple |
+|---|---|---|---|
+| `date` | date | Date de collecte ou de passage. | 2026-02-03 |
+| `ligne` | caractère | Ligne, route ou parcours. | 80 |
+| `retard_minutes` | numérique | Retard en minutes, dérivé du flux ou d'une comparaison horaire. | 4.5 |
+| `direction` | caractère | Direction du trajet. | Nord |
+| `secteur` | caractère | Secteur, arrondissement ou zone analytique. | Plateau-Mont-Royal |
+
+## Taille et structure
+
+| Élément | Information |
+|---|---|
+| Nombre de lignes | Variable selon la fréquence de collecte et la période archivée |
+| Nombre de colonnes | Variables brutes du flux et variables dérivées de retard |
+| Structure | Flux temps réel, séries temporelles, données opérationnelles |
+| Format | GTFS-realtime; table pédagogique dérivée en CSV recommandée |
+| Couverture géographique | Réseau STM et autres réseaux québécois si des flux comparables sont validés |
+| Couverture temporelle | Observations temps réel; historique seulement si un archivage est mis en place |
+
+## Concepts enseignables
+
+- statistiques descriptives;
+- distributions;
+- valeurs extrêmes;
+- séries temporelles;
+- qualité de service;
+
+## Visualisations suggérées
+
+- boxplots;
+- histogrammes;
+- séries temporelles;
+
+## Score zéro déchet
+
+| Dimension | Score |
+|---|---:|
+| Contexte québécois | 3 |
+| Accessibilité pédagogique | 2 |
+| Qualité documentaire | 2 |
+| Potentiel de nettoyage | 3 |
+| Potentiel de visualisation | 3 |
+| Potentiel de statistique descriptive | 3 |
+| Potentiel d'inférence | 1 |
+| Potentiel de modélisation | 3 |
+| Potentiel de discussion éthique | 3 |
+| Réutilisabilité dans plusieurs cours | 2 |
+
+Total : 25 sur 30.
+
+## Activité courte
+
+[Laboratoire](activite-courte.qmd) : Quelles lignes présentent les retards les plus importants?
+
+## Activité longue
+
+[Mini-projet](activite-longue.qmd) : Construire un protocole reproductible pour archiver un flux temps réel et résumer la ponctualité par ligne.
+
+## Code R minimal
+
+```{r}
+#| eval: false
+library(dplyr)
+library(readr)
+library(stringr)
+
+source_page <- "https://www.donneesquebec.ca/recherche/dataset/vmtl-stm-bus-temps-reel-gtfs-realtime"
+
+# Étape 1 : ouvrir la page officielle et choisir la ressource documentée.
+# Étape 2 : enregistrer le fichier brut dans data_raw/.
+# Étape 3 : harmoniser les noms vers : `date`, `ligne`, `retard_minutes`, `direction`, `secteur`.
+
+donnees <- read_csv("data_raw/source_officielle_a_renommer.csv", show_col_types = FALSE)
+
+donnees |>
+  glimpse()
+```
+
+## Limites et précautions
+
+- Ne pas présenter retard_minutes comme une colonne brute garantie. C'est une variable dérivée possible selon le flux et le protocole de collecte.
+- Les noms de variables proposés sont des noms pédagogiques harmonisés; ils doivent être mappés aux noms officiels après inspection de la ressource.
+- Aucune conclusion causale ne doit être tirée sans plan d'analyse plus avancé.
+
+## Extensions
+
+- Extension intro : produire un tableau de fréquences ou de moyennes par groupe.
+- Extension intermédiaire : ajouter une visualisation claire et une interprétation écrite.
+- Extension avancée : construire une version préparée et documentée dans `data_processed/`.
+- Extension communication scientifique : expliquer en une page ce que la source permet et ne permet pas de conclure.

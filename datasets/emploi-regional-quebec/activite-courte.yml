@@ -1,0 +1,25 @@
+id: emploi-regional-quebec-court
+title: "Laboratoire - Emploi régional"
+question: "Comment l'emploi varie-t-il selon les régions administratives?"
+dataset_id: emploi-regional-quebec
+dataset_title: "Emploi régional au Québec"
+activity_url: "datasets/emploi-regional-quebec/activite-courte.qmd"
+duration: "60-90 minutes"
+level: "Introduction à intermédiaire"
+activity_type:
+  - "Laboratoire d'introduction"
+  - "Exploration de données"
+concepts:
+  - "séries temporelles"
+  - "comparaison de groupes"
+  - "analyse exploratoire"
+  - "statistiques descriptives"
+context: "Marché du travail"
+hook: "Question québécoise concrète"
+materials:
+  - "fiche"
+  - "code"
+  - "source officielle"
+advanced_math_stats: false
+teacher_notes: "Faire valider l'unité statistique et la provenance avant tout graphique."
+status: "prêt à adapter"

@@ -1,0 +1,25 @@
+id: ecoles-quebec-court
+title: "Laboratoire - Écoles Québec"
+question: "Où sont localisées les écoles du Québec et quelles régions sont les plus densément desservies?"
+dataset_id: ecoles-quebec
+dataset_title: "Établissements scolaires du Québec"
+activity_url: "datasets/ecoles-quebec/activite-courte.qmd"
+duration: "60-90 minutes"
+level: "Introduction à intermédiaire"
+activity_type:
+  - "Laboratoire d'introduction"
+  - "Exploration de données"
+concepts:
+  - "géolocalisation"
+  - "cartographie"
+  - "jointures"
+  - "densité spatiale"
+context: "Éducation et territoire"
+hook: "Question québécoise concrète"
+materials:
+  - "fiche"
+  - "code"
+  - "source officielle"
+advanced_math_stats: false
+teacher_notes: "Faire valider l'unité statistique et la provenance avant tout graphique."
+status: "prêt à adapter"

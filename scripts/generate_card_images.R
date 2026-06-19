@@ -173,8 +173,8 @@ cards <- list(
     gravity = "center"
   ),
   list(
-    id = "stt1100-air-qualite",
-    label = "Qualité de l'air au Québec (STT-1100)",
+    id = "qualite-air-horaire",
+    label = "Qualité de l'air au Québec",
     commons_file = "Smog Montréal.jpg",
     source_title = "Smog Montréal.jpg",
     source_page = "https://commons.wikimedia.org/wiki/File:Smog_Montr%C3%A9al.jpg",
@@ -184,8 +184,8 @@ cards <- list(
     gravity = "center"
   ),
   list(
-    id = "stt1100-budgets-municipaux",
-    label = "Budgets municipaux du Québec (STT-1100)",
+    id = "budgets-municipaux-quebec",
+    label = "Budgets municipaux du Québec",
     commons_file = "Hôtel de Ville de Montréal, juin 2024.jpg",
     source_title = "Hôtel de Ville de Montréal, juin 2024.jpg",
     source_page = "https://commons.wikimedia.org/wiki/File:H%C3%B4tel_de_Ville_de_Montr%C3%A9al,_juin_2024.jpg",
@@ -195,8 +195,8 @@ cards <- list(
     gravity = "center"
   ),
   list(
-    id = "stt1100-ecoles-quebec",
-    label = "Établissements scolaires du Québec (STT-1100)",
+    id = "ecoles-quebec",
+    label = "Établissements scolaires du Québec",
     commons_file = "School bus in Quebec City.jpg",
     source_title = "School bus in Quebec City.jpg",
     source_page = "https://commons.wikimedia.org/wiki/File:School_bus_in_Quebec_City.jpg",
@@ -206,8 +206,8 @@ cards <- list(
     gravity = "center"
   ),
   list(
-    id = "stt1100-transport-collectif",
-    label = "Réseaux de transport collectif GTFS au Québec (STT-1100)",
+    id = "transport-collectif-gtfs",
+    label = "Réseaux de transport collectif GTFS au Québec",
     commons_file = "RTC Bus Québec City 14788128682.jpg",
     source_title = "RTC Bus Québec City 14788128682.jpg",
     source_page = "https://commons.wikimedia.org/wiki/File:RTC_Bus_Qu%C3%A9bec_City_14788128682.jpg",
@@ -217,8 +217,8 @@ cards <- list(
     gravity = "center"
   ),
   list(
-    id = "stt1100-retards-transport",
-    label = "Retards et ponctualité du transport collectif (STT-1100)",
+    id = "retards-transport-collectif",
+    label = "Retards et ponctualité du transport collectif",
     commons_file = "STM Bus back on line 114.jpg",
     source_title = "STM Bus back on line 114.jpg",
     source_page = "https://commons.wikimedia.org/wiki/File:STM_Bus_back_on_line_114.jpg",
@@ -228,8 +228,8 @@ cards <- list(
     gravity = "center"
   ),
   list(
-    id = "stt1100-emploi-regional",
-    label = "Emploi régional au Québec (STT-1100)",
+    id = "emploi-regional-quebec",
+    label = "Emploi régional au Québec",
     commons_file = "News. Men at Work Bleury and St. Catherine.jpg",
     source_title = "News. Men at Work Bleury and St. Catherine.jpg",
     source_page = "https://commons.wikimedia.org/wiki/File:News._Men_at_Work_Bleury_and_St._Catherine.jpg",

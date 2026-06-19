@@ -1,0 +1,27 @@
+id: transport-collectif-gtfs-long
+title: "Mini-projet - GTFS Québec"
+question: "Comparer la couverture spatiale de deux réseaux GTFS en harmonisant leurs tables stops et routes."
+dataset_id: transport-collectif-gtfs
+dataset_title: "Réseaux de transport collectif GTFS au Québec"
+activity_url: "datasets/transport-collectif-gtfs/activite-longue.qmd"
+duration: "2-3 heures"
+level: "Intermédiaire"
+activity_type:
+  - "Projet ou tâche longue"
+  - "Étude de cas"
+concepts:
+  - "données relationnelles"
+  - "jointures multiples"
+  - "visualisation spatiale"
+  - "réseaux"
+  - "normalisation de données"
+context: "Mobilité et transport collectif"
+hook: "Analyse territoriale québécoise"
+materials:
+  - "fiche"
+  - "code"
+  - "source officielle"
+  - "notes enseignantes"
+advanced_math_stats: false
+teacher_notes: "Demander un court paragraphe sur les limites de la source et les décisions de nettoyage."
+status: "prêt à adapter"

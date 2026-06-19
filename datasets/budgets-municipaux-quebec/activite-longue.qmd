@@ -1,0 +1,30 @@
+---
+title: "Mini-projet - Budgets municipaux"
+embed-resources: true
+---
+
+# Mini-projet - Budgets municipaux
+
+## Contexte
+
+Ce mini-projet prolonge le laboratoire court en demandant une préparation reproductible et une interprétation plus structurée.
+
+## Question directrice
+
+Comparer les profils financiers de municipalités de tailles différentes en documentant les limites des ratios par habitant.
+
+## Livrables
+
+1. Un fichier préparé dans `data_processed/`, ou une description précise du traitement si les données ne sont pas redistribuées.
+2. Un court dictionnaire des variables utilisées.
+3. Deux visualisations complémentaires.
+4. Un paragraphe sur la provenance, la licence et les limites.
+5. Une conclusion pédagogique adaptée à un public de première année.
+
+## Critères d'évaluation suggérés
+
+- Reproductibilité du traitement.
+- Qualité des noms de variables.
+- Pertinence des regroupements.
+- Lisibilité des graphiques.
+- Prudence de l'interprétation.

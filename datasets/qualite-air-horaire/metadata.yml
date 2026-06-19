@@ -1,0 +1,35 @@
+id: qualite-air-horaire
+title: "Qualité de l'air au Québec"
+short_title: "Air Québec"
+theme: "Environnement"
+source_name: "Données Québec / MELCCFP / RSQAQ"
+source_url: "https://www.donneesquebec.ca/recherche/dataset/rsqaq-donnees-horaires-continues"
+license: "Attribution (CC-BY 4.0) selon les métadonnées CKAN vérifiées le 2026-06-19"
+access_date: "2026-06-19"
+geography: "Québec"
+unit: "Mesure horaire de contaminant à une station RSQAQ"
+data_type: "Tabulaire, temporel, spatial"
+format: "CSV par année"
+n_rows: "Volume horaire potentiellement élevé; une ressource CSV par année"
+n_cols: "Variables de station, date-heure et contaminants; structure exacte à confirmer à partir de la ressource retenue"
+update_frequency: "Annuelle par ressource publiée; métadonnées CKAN modifiées le 2026-06-17"
+level: "Introduction à intermédiaire"
+concepts:
+  - séries temporelles
+  - nettoyage de données
+  - visualisation
+  - détection d'anomalies
+  - données environnementales
+zero_waste:
+  contexte_quebecois: 3
+  accessibilite_pedagogique: 3
+  qualite_documentaire: 3
+  potentiel_nettoyage: 3
+  potentiel_visualisation: 3
+  potentiel_statistique_descriptive: 3
+  potentiel_inference: 1
+  potentiel_modelisation: 2
+  potentiel_ethique: 3
+  reutilisabilite: 3
+status: "source vérifiée; préparation pédagogique à finaliser"
+notes: "Les variables de contaminants doivent être harmonisées après inspection de la ressource annuelle retenue. Les coordonnées peuvent provenir du jeu RSQAQ des stations."

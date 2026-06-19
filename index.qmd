@@ -84,7 +84,7 @@ Chaque fiche vise à être utilisable sans longue préparation :
 
 ## Catalogue actuel
 
-Le catalogue rassemble des fiches de jeux de données québécois sur l'environnement, l'eau, la mobilité, l'éducation, la démographie, la sécurité publique, les services municipaux et les politiques publiques. Il inclut maintenant six fiches adaptées aux laboratoires de science des données STT-1100.
+Le catalogue rassemble des fiches de jeux de données québécois sur l'environnement, l'eau, la mobilité, l'éducation, la démographie, la sécurité publique, les services municipaux et les politiques publiques. Il inclut maintenant six fiches adaptées aux laboratoires de science des données.
 
 Le projet inclut aussi des fonctions R pour interroger CKAN, calculer les scores zéro déchet, bâtir le catalogue et vérifier la cohérence des fiches.
 

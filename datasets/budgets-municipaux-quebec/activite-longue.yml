@@ -1,0 +1,27 @@
+id: budgets-municipaux-quebec-long
+title: "Mini-projet - Budgets municipaux"
+question: "Comparer les profils financiers de municipalités de tailles différentes en documentant les limites des ratios par habitant."
+dataset_id: budgets-municipaux-quebec
+dataset_title: "Budgets municipaux du Québec"
+activity_url: "datasets/budgets-municipaux-quebec/activite-longue.qmd"
+duration: "2-3 heures"
+level: "Introduction"
+activity_type:
+  - "Projet ou tâche longue"
+  - "Étude de cas"
+concepts:
+  - "regroupements"
+  - "ratios"
+  - "comparaisons"
+  - "statistiques descriptives"
+  - "visualisation de proportions"
+context: "Finances publiques municipales"
+hook: "Analyse territoriale québécoise"
+materials:
+  - "fiche"
+  - "code"
+  - "source officielle"
+  - "notes enseignantes"
+advanced_math_stats: false
+teacher_notes: "Demander un court paragraphe sur les limites de la source et les décisions de nettoyage."
+status: "prêt à adapter"

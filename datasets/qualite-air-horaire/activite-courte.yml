@@ -1,0 +1,25 @@
+id: qualite-air-horaire-court
+title: "Laboratoire - Air Québec"
+question: "Les concentrations de PM2.5 ont-elles augmenté durant certains épisodes particuliers?"
+dataset_id: qualite-air-horaire
+dataset_title: "Qualité de l'air au Québec"
+activity_url: "datasets/qualite-air-horaire/activite-courte.qmd"
+duration: "60-90 minutes"
+level: "Introduction à intermédiaire"
+activity_type:
+  - "Laboratoire d'introduction"
+  - "Exploration de données"
+concepts:
+  - "séries temporelles"
+  - "nettoyage de données"
+  - "visualisation"
+  - "détection d'anomalies"
+context: "Environnement"
+hook: "Question québécoise concrète"
+materials:
+  - "fiche"
+  - "code"
+  - "source officielle"
+advanced_math_stats: false
+teacher_notes: "Faire valider l'unité statistique et la provenance avant tout graphique."
+status: "prêt à adapter"

@@ -1,0 +1,125 @@
+---
+title: "Qualité de l'air au Québec"
+embed-resources: true
+---
+
+# Qualité de l'air au Québec
+
+## Pourquoi ce jeu est intéressant
+
+Ce jeu de données place les étudiants et étudiantes devant une source québécoise réaliste, avec des variables interprétables et des décisions de nettoyage authentiques.
+
+Question d'analyse : Les concentrations de PM2.5 ont-elles augmenté durant certains épisodes particuliers?
+
+## Source
+
+| Champ | Information |
+|---|---|
+| Organisme producteur | Données Québec / MELCCFP / RSQAQ |
+| Source | Réseau de surveillance de la qualité de l'air du Québec (RSQAQ) |
+| URL | <https://www.donneesquebec.ca/recherche/dataset/rsqaq-donnees-horaires-continues> |
+| Licence | Attribution (CC-BY 4.0) selon les métadonnées CKAN vérifiées le 2026-06-19 |
+| Date d'accès | 2026-06-19 |
+| Fréquence de mise à jour | Annuelle par ressource publiée; métadonnées CKAN modifiées le 2026-06-17 |
+| Statut | source vérifiée; préparation pédagogique à finaliser |
+
+## Ce que représente une ligne
+
+Mesure horaire de contaminant à une station RSQAQ.
+
+## Variables principales
+
+| Variable | Type | Description | Exemple |
+|---|---|---|---|
+| `date_heure` | datetime | Date et heure de la mesure ou de la période horaire. | 2025-01-15 14:00 |
+| `station` | caractère | Identifiant ou nom de la station de mesure. | Québec - Vieux-Limoilou |
+| `latitude` | numérique | Latitude de la station lorsque jointe aux métadonnées de stations. | 46.83 |
+| `longitude` | numérique | Longitude de la station lorsque jointe aux métadonnées de stations. | -71.22 |
+| `pm25` | numérique | Concentration horaire de particules fines PM2.5, si disponible. | 8.4 |
+| `ozone` | numérique | Concentration horaire d'ozone, si disponible. | 22.1 |
+| `no2` | numérique | Concentration horaire de dioxyde d'azote, si disponible. | 12.0 |
+| `so2` | numérique | Concentration horaire de dioxyde de soufre, si disponible. | 1.2 |
+| `co` | numérique | Concentration horaire de monoxyde de carbone, si disponible. | 0.3 |
+
+## Taille et structure
+
+| Élément | Information |
+|---|---|
+| Nombre de lignes | Volume horaire potentiellement élevé; une ressource CSV par année |
+| Nombre de colonnes | Variables de station, date-heure et contaminants; structure exacte à confirmer à partir de la ressource retenue |
+| Structure | Tabulaire, temporel, spatial |
+| Format | CSV par année |
+| Couverture géographique | Québec |
+| Couverture temporelle | Données horaires continues disponibles par année, de 1986 à 2025 selon les ressources CKAN consultées |
+
+## Concepts enseignables
+
+- séries temporelles;
+- nettoyage de données;
+- visualisation;
+- détection d'anomalies;
+- données environnementales;
+
+## Visualisations suggérées
+
+- séries temporelles;
+- cartes interactives;
+- heatmaps temporelles;
+
+## Score zéro déchet
+
+| Dimension | Score |
+|---|---:|
+| Contexte québécois | 3 |
+| Accessibilité pédagogique | 3 |
+| Qualité documentaire | 3 |
+| Potentiel de nettoyage | 3 |
+| Potentiel de visualisation | 3 |
+| Potentiel de statistique descriptive | 3 |
+| Potentiel d'inférence | 1 |
+| Potentiel de modélisation | 2 |
+| Potentiel de discussion éthique | 3 |
+| Réutilisabilité dans plusieurs cours | 3 |
+
+Total : 27 sur 30.
+
+## Activité courte
+
+[Laboratoire](activite-courte.qmd) : Les concentrations de PM2.5 ont-elles augmenté durant certains épisodes particuliers?
+
+## Activité longue
+
+[Mini-projet](activite-longue.qmd) : Construire un tableau de bord exploratoire des contaminants atmosphériques par station et par période.
+
+## Code R minimal
+
+```{r}
+#| eval: false
+library(dplyr)
+library(readr)
+library(stringr)
+
+source_page <- "https://www.donneesquebec.ca/recherche/dataset/rsqaq-donnees-horaires-continues"
+
+# Étape 1 : ouvrir la page officielle et choisir la ressource documentée.
+# Étape 2 : enregistrer le fichier brut dans data_raw/.
+# Étape 3 : harmoniser les noms vers : `date_heure`, `station`, `latitude`, `longitude`, `pm25`, `ozone`, `no2`, `so2`, `co`.
+
+donnees <- read_csv("data_raw/source_officielle_a_renommer.csv", show_col_types = FALSE)
+
+donnees |>
+  glimpse()
+```
+
+## Limites et précautions
+
+- Les variables de contaminants doivent être harmonisées après inspection de la ressource annuelle retenue. Les coordonnées peuvent provenir du jeu RSQAQ des stations.
+- Les noms de variables proposés sont des noms pédagogiques harmonisés; ils doivent être mappés aux noms officiels après inspection de la ressource.
+- Aucune conclusion causale ne doit être tirée sans plan d'analyse plus avancé.
+
+## Extensions
+
+- Extension intro : produire un tableau de fréquences ou de moyennes par groupe.
+- Extension intermédiaire : ajouter une visualisation claire et une interprétation écrite.
+- Extension avancée : construire une version préparée et documentée dans `data_processed/`.
+- Extension communication scientifique : expliquer en une page ce que la source permet et ne permet pas de conclure.
