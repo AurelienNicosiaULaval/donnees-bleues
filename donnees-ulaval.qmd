@@ -1,0 +1,111 @@
+---
+title: "Intégration des données institutionnelles ULaval"
+embed-resources: true
+---
+
+# Intégration des données institutionnelles ULaval
+
+## Statut
+
+Cette intégration prépare l'utilisation pédagogique de jeux de données structurés à partir de documents publics de l'Université Laval.
+
+Elle est une compilation indépendante et non officielle. Données bleues n’est pas un produit officiel ou approuvé par l’Université Laval.
+
+Les CSV institutionnels et les PDF sources ne sont pas versionnés dans Données bleues. La source canonique est le dépôt GitHub privé :
+
+```text
+git@github.com:AurelienNicosiaULaval/donnees-ulaval-institutionnelles.git
+```
+
+## Contraintes de droits
+
+Le paquet source consulté le 2026-06-19 indique qu'aucune licence ouverte explicite n'a été identifiée pour les données sources. Il indique aussi que les PDF sources ne sont pas redistribués et qu'une vérification auprès de l'Université Laval ou un avis juridique est recommandé avant une republication publique à grande échelle.
+
+Ce document ne constitue pas un avis juridique.
+
+## Source locale privée
+
+Le dépôt privé peut être cloné localement dans un dossier ignoré par Git :
+
+```bash
+mkdir -p .private
+git clone git@github.com:AurelienNicosiaULaval/donnees-ulaval-institutionnelles.git .private/donnees-ulaval-institutionnelles
+```
+
+Il peut aussi être référencé par la variable d'environnement :
+
+```bash
+export DONNEES_ULAVAL_SOURCE="/chemin/vers/donnees-ulaval-institutionnelles"
+```
+
+## Jeux intégrés en phase 1
+
+| Jeu | Fichier source privé | Lignes attendues | Clé contrôlée | Champs de provenance contrôlés |
+|---|---|---:|---|---|
+| Programmes actifs | `data/ulaval_programmes_actifs_2026_06.csv` | 753 | `code_programme` | `source_id`, `page_source` |
+| Cours accessibles | `data/ulaval_cours_accessibles_2026_01_29.csv` | 344 | `code_cours` | `source_id`, `page_source` |
+| Nouveaux cours | `data/ulaval_cours_nouveaux_2024_2025.csv` | 278 | `code_cours` | `source_id`, `page_source` |
+
+Les fichiers sont importés localement par copie binaire dans `data/processed/ulaval/`, qui est ignoré par Git. Les scripts ne réécrivent pas les CSV et ne modifient pas les valeurs numériques.
+
+## Jeux GES préparés
+
+| Jeu | Fichier source privé | Lignes attendues | Clé contrôlée | Champs de provenance et qualité contrôlés |
+|---|---|---:|---|---|
+| GES, portées 1 et 2 | `data/ulaval_ges_portees_1_2_historique.csv` | 15 | `periode` | `source_id`, `page_source`, `note` |
+| GES, bilan 2023-2024 | `data/ulaval_ges_bilan_2023_2024.csv` | 7 | `periode`, `element` | `source_id`, `page_source`, `note` |
+| GES, portée 3 | `data/ulaval_ges_portee_3_historique.csv` | 97 | `categorie_code`, `periode`, `metrique` | `source_id`, `page_source`, `note`, `statut_quantification` |
+
+Pour la portée 3, les cellules numériques vides restent vides. Elles ne doivent jamais être converties en zéros.
+
+## Phase 2
+
+Le fichier `data/ulaval_indicateurs_reperes_2025.csv` est réservé à une phase ultérieure. Il contient 165 lignes selon le paquet source, mais il n'est pas intégré au catalogue Données bleues dans cette phase.
+
+## Commandes
+
+Valider l'intégration depuis la source privée :
+
+```bash
+Rscript scripts/validate_ulaval_integration.R --phase=core,ges
+```
+
+Importer les fichiers prioritaires localement sans les publier :
+
+```bash
+Rscript scripts/import_ulaval_institutional_data.R --phase=core
+```
+
+Importer aussi les fichiers GES pour travail local :
+
+```bash
+Rscript scripts/import_ulaval_institutional_data.R --phase=core,ges
+```
+
+Valider le paquet source privé avec son script propre :
+
+```bash
+python3 scripts/validate_datasets.py --root .
+```
+
+à exécuter depuis la racine du dépôt privé `donnees-ulaval-institutionnelles`.
+
+## Contrôles automatisés ajoutés
+
+Les scripts de Données bleues contrôlent :
+
+- la présence des fichiers de référence du paquet privé;
+- la présence des CSV attendus;
+- le nombre de lignes attendu;
+- l'unicité des clés importantes;
+- la conservation des champs de provenance attendus;
+- l'absence de PDF sources dans le dépôt de plateforme;
+- la présence des mentions de droits et de statut non officiel;
+- la non-conversion des valeurs manquantes de portée 3 en zéros.
+
+## Limites restantes
+
+- L'autorisation de republication publique à grande échelle : Je ne sais pas.
+- La fréquence de mise à jour officielle des jeux intégrés : Je ne sais pas.
+- Les CSV restent privés par défaut dans Données bleues.
+- Les sorties publiques doivent conserver la mention de compilation indépendante et non officielle.

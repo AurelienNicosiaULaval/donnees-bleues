@@ -1,0 +1,176 @@
+---
+title: "Programmes et cours institutionnels ULaval"
+embed-resources: true
+---
+
+# Programmes et cours institutionnels ULaval
+
+## Pourquoi ce jeu est intéressant
+
+Cette fiche prépare l'utilisation pédagogique de trois jeux de données institutionnelles structurés à partir de documents publics de l'Université Laval :
+
+- `ulaval_programmes_actifs_2026_06.csv`;
+- `ulaval_cours_nouveaux_2024_2025.csv`;
+- `ulaval_cours_accessibles_2026_01_29.csv`.
+
+Les fichiers ne sont pas redistribués dans Données bleues. La source canonique demeure le dépôt GitHub privé `git@github.com:AurelienNicosiaULaval/donnees-ulaval-institutionnelles.git`.
+
+L'intérêt pédagogique principal est méthodologique : importer des fichiers CSV sans altérer les valeurs, conserver les champs de provenance, documenter les limites juridiques et produire des analyses descriptives prudentes.
+
+## Avertissement juridique et institutionnel
+
+Cette intégration est une compilation indépendante et non officielle. Elle n’est pas un produit officiel ou approuvé par l’Université Laval.
+
+Aucune licence ouverte explicite n'a été identifiée pour les données sources dans le paquet consulté le 2026-06-19. Les PDF sources ne doivent pas être redistribués dans ce dépôt. Une vérification auprès de l'Université Laval ou un avis juridique est recommandé avant toute republication publique à grande échelle.
+
+Ce document ne constitue pas un avis juridique.
+
+## Source
+
+| Champ | Information |
+|---|---|
+| Source canonique | Dépôt GitHub privé `git@github.com:AurelienNicosiaULaval/donnees-ulaval-institutionnelles.git` |
+| Statut | Compilation indépendante et non officielle |
+| Organisme source | Université Laval, Bureau de la qualité des programmes |
+| Date de consultation | 2026-06-19 |
+| Licence ouverte explicite | Aucune licence ouverte explicite identifiée dans le paquet source |
+| Autorisation de republication publique à grande échelle | Je ne sais pas. |
+| Fichiers PDF sources | Non redistribués dans Données bleues |
+
+## Sources officielles documentées dans le paquet privé
+
+| Jeu | Fichier privé | Source officielle | Date du document | Lignes |
+|---|---|---|---|---:|
+| Programmes actifs | `data/ulaval_programmes_actifs_2026_06.csv` | <https://www.bqp.ulaval.ca/fichiers/ressources/gestion/codes-programmes-actifs.pdf> | 2026-06 | 753 |
+| Nouveaux cours | `data/ulaval_cours_nouveaux_2024_2025.csv` | <https://www.bqp.ulaval.ca/fichiers/ressources/gestion/nouvelles-activit%C3%A9s-de-formation-cr%C3%A9%C3%A9es-2024-2025.pdf> | 2024-2025 | 278 |
+| Cours accessibles | `data/ulaval_cours_accessibles_2026_01_29.csv` | <https://www.bqp.ulaval.ca/fichiers/ressources/gestion/cours-accessibles-personnes-etudiantes.pdf> | 2026-01-29 | 344 |
+
+## Ce que représente une ligne
+
+| Fichier | Unité statistique |
+|---|---|
+| `ulaval_programmes_actifs_2026_06.csv` | Un programme actif publié dans la liste de juin 2026 |
+| `ulaval_cours_nouveaux_2024_2025.csv` | Une activité de formation créée en 2024-2025 |
+| `ulaval_cours_accessibles_2026_01_29.csv` | Un cours accessible à toutes les personnes étudiantes, selon le document mis à jour le 29 janvier 2026 |
+
+## Variables principales
+
+| Variable | Fichier | Type | Description | Remarques pédagogiques |
+|---|---|---|---|---|
+| `code_programme` | Programmes actifs | caractère | Code institutionnel du programme tel que publié | Clé unique du fichier |
+| `programme` | Programmes actifs | caractère | Nom du programme | Libellé source à conserver |
+| `code_cours` | Nouveaux cours, cours accessibles | caractère | Code du cours | Clé unique dans chaque fichier de cours |
+| `titre` | Nouveaux cours, cours accessibles | caractère | Titre du cours | Libellé source ou normalisé selon le paquet privé |
+| `faculte` | Nouveaux cours | caractère | Faculté normalisée | Variable utile pour résumer les créations de cours |
+| `credits` | Cours accessibles | entier | Nombre de crédits | Valeur numérique à ne pas transformer |
+| `source_id` | Tous les fichiers prioritaires | caractère | Clé vers le registre `data/sources.csv` du paquet privé | Champ de provenance à conserver |
+| `page_source` | Tous les fichiers prioritaires | entier | Page du PDF source | Champ de provenance à conserver |
+
+## Champs de provenance et de qualité
+
+Les champs suivants doivent être conservés lorsqu'ils sont présents dans les fichiers du paquet privé :
+
+- `source_id`;
+- `page_source`;
+- `note`;
+- `statut_valeur`;
+- `statut_quantification`.
+
+Pour les trois fichiers prioritaires, `source_id` et `page_source` sont présents. Les champs `note`, `statut_valeur` et `statut_quantification` ne sont pas présents dans ces trois fichiers selon le dictionnaire consulté le 2026-06-19.
+
+La préparation de l'intégration GES exige en plus de préserver `note` et `statut_quantification`. Les valeurs manquantes du fichier de portée 3 doivent rester manquantes. Elles ne doivent jamais être converties en zéros.
+
+## Taille et structure
+
+| Élément | Information |
+|---|---|
+| Nombre de lignes | 753 programmes actifs; 278 nouveaux cours; 344 cours accessibles |
+| Nombre de colonnes | 11 colonnes pour programmes actifs; 10 colonnes pour nouveaux cours; 11 colonnes pour cours accessibles |
+| Structure | Trois tables CSV UTF-8, plus registre de sources et dictionnaire de champs |
+| Format | CSV UTF-8 dans le dépôt privé source |
+
+## Concepts enseignables
+
+- importation contrôlée depuis une source privée;
+- clés primaires et unicité;
+- conservation de la provenance;
+- séparation entre données sources, données préparées localement et site public;
+- documentation des droits et limites de réutilisation;
+- statistique descriptive prudente.
+
+## Score zéro déchet
+
+| Dimension | Score | Justification |
+|---|---:|---|
+| Contexte québécois | 3 | Le contexte est directement universitaire et québécois. |
+| Accessibilité pédagogique | 2 | Les codes et libellés sont lisibles, mais le statut juridique impose un cadre strict. |
+| Qualité documentaire | 3 | Le paquet privé fournit dictionnaire, sources, guide d'importation et validation. |
+| Potentiel de nettoyage | 2 | Les fichiers permettent de discuter types, clés et provenance sans altérer les valeurs. |
+| Potentiel de visualisation | 2 | Des résumés par type de programme, faculté ou crédits sont possibles localement. |
+| Potentiel de statistique descriptive | 2 | Les dénombrements sont pertinents, mais la portée analytique doit rester descriptive. |
+| Potentiel d'inférence | 1 | Les fichiers sont des listes institutionnelles, pas un échantillon aléatoire. |
+| Potentiel de modélisation | 1 | La modélisation n'est pas l'objectif principal de cette intégration. |
+| Potentiel de discussion éthique | 3 | Les droits, la provenance et le statut non officiel sont centraux. |
+| Réutilisabilité dans plusieurs cours | 1 | La réutilisation publique est limitée par l'absence de licence ouverte explicite. |
+
+Total : 20 sur 30.
+
+## Activité courte
+
+Valider l'intégration locale des fichiers prioritaires : présence des fichiers, nombre de lignes attendu, unicité des clés, champs de provenance et absence de PDF dans le dépôt de plateforme.
+
+## Activité longue
+
+Construire un court rapport Quarto local, non publié, qui résume les programmes et les cours accessibles tout en affichant les limites de droits et de provenance.
+
+## Projet possible
+
+Préparer un protocole de publication responsable : déterminer ce qui peut être affiché publiquement, ce qui doit rester local, et quelles validations doivent être exécutées avant toute mise en ligne.
+
+## Questions pédagogiques possibles
+
+1. Pourquoi faut-il garder `code_programme` et `code_cours` comme chaînes de caractères?
+2. Quelle différence y a-t-il entre une source officielle et une compilation indépendante?
+3. Pourquoi le champ `page_source` est-il important pour un audit reproductible?
+4. Pourquoi une valeur manquante en portée 3 ne doit-elle pas être remplacée par zéro?
+5. Quelles informations peut-on afficher publiquement sans redistribuer les CSV?
+6. À quoi sert un registre `sources.csv`?
+7. Quelle validation détecterait une modification accidentelle des fichiers?
+8. Quelle information juridique manque avant une republication publique à grande échelle?
+
+## Code R minimal
+
+```{r}
+#| eval: false
+source("R/utils_ulaval.R")
+
+# Copier les fichiers prioritaires sans les réécrire.
+copied <- import_ulaval_datasets(
+  root = ".",
+  phases = "core"
+)
+
+# Lire une copie locale ignorée par Git.
+programmes <- read_ulaval_csv(
+  "data/processed/ulaval/data/ulaval_programmes_actifs_2026_06.csv"
+)
+
+str(programmes)
+```
+
+## Limites et précautions
+
+- Les CSV ne sont pas inclus dans le dépôt Données bleues.
+- Les PDF sources ne sont pas redistribués.
+- La source canonique demeure le dépôt privé.
+- Les valeurs numériques ne doivent pas être modifiées.
+- Les champs de provenance doivent rester disponibles.
+- Les sorties publiques ne doivent pas laisser croire à une approbation officielle par l'Université Laval.
+- La réutilisation publique à grande échelle exige une validation juridique ou institutionnelle. Pour cette autorisation, je ne sais pas.
+
+## Extensions
+
+- Extension intro : comparer les dimensions et les clés des trois fichiers prioritaires.
+- Extension intermédiaire : produire des tableaux de fréquence localement, sans publier les lignes.
+- Extension avancée : intégrer les fichiers GES en conservant `note` et `statut_quantification`.
+- Extension communication scientifique : rédiger une note méthodologique sur les limites de droits, de provenance et de publication.

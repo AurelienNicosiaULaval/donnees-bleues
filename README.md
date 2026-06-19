@@ -39,12 +39,13 @@ Le message éditorial du projet est le suivant : un jeu de données n'est pas se
 
 ## Jeux de données inclus
 
-Les sources ont été vérifiées le 2026-06-01.
+Les sources initiales ont été vérifiées le 2026-06-01. La source Statistique Canada ajoutée pour les pyramides des âges a été vérifiée le 2026-06-18.
 
 | Dossier | Jeu de données | Source |
 |---|---|---|
 | `datasets/bixi` | État des stations BIXI | BIXI Montréal, Données Québec |
 | `datasets/bibliotheques-quebec` | Statistiques des bibliothèques publiques du Québec | Bibliothèque et Archives nationales du Québec, Données Québec |
+| `datasets/pyramides-ages` | Pyramides des âges au Canada et au Québec | Statistique Canada |
 | `datasets/qualite-air` | RSQAQ - Stations de la qualité de l'air | MELCCFP, Données Québec |
 
 ## Installation minimale
@@ -53,6 +54,7 @@ Installer Quarto et R. Les packages R utilisés par le MVP sont :
 
 ```r
 install.packages(c(
+  "cansim",
   "dplyr",
   "ggplot2",
   "httr2",
@@ -110,10 +112,40 @@ Les scripts de préparation peuvent être lancés depuis la racine du projet :
 ```bash
 Rscript datasets/bixi/preparation.R
 Rscript datasets/bibliotheques-quebec/preparation.R
+Rscript datasets/pyramides-ages/preparation.R
 Rscript datasets/qualite-air/preparation.R
 ```
 
 Les fichiers téléchargés ou préparés sont écrits dans `data/raw/` et `data/processed/`. Ces dossiers sont ignorés par Git, sauf les fichiers `.gitkeep`.
+
+## Données institutionnelles ULaval
+
+L'intégration ULaval utilise comme source canonique le dépôt privé :
+
+```text
+git@github.com:AurelienNicosiaULaval/donnees-ulaval-institutionnelles.git
+```
+
+Les CSV institutionnels et les PDF sources ne sont pas versionnés dans Données bleues. Cloner la source privée dans un dossier ignoré :
+
+```bash
+mkdir -p .private
+git clone git@github.com:AurelienNicosiaULaval/donnees-ulaval-institutionnelles.git .private/donnees-ulaval-institutionnelles
+```
+
+Valider l'intégration depuis la source privée :
+
+```bash
+Rscript scripts/validate_ulaval_integration.R --phase=core,ges
+```
+
+Importer localement les trois fichiers prioritaires, sans les publier :
+
+```bash
+Rscript scripts/import_ulaval_institutional_data.R --phase=core
+```
+
+Les copies locales sont écrites dans `data/processed/ulaval/`, qui est ignoré par Git. Cette intégration est une compilation indépendante et non officielle; elle n'est pas un produit officiel ou approuvé par l'Université Laval. Aucune licence ouverte explicite n'a été identifiée pour les données sources dans le paquet consulté le 2026-06-19.
 
 ## Rendre le site
 
@@ -165,8 +197,8 @@ Le MVP contient :
 
 - un site Quarto publiable depuis `docs/`;
 - une identité éditoriale en français;
-- trois fiches de jeux de données québécois;
-- six activités pédagogiques;
+- quatre fiches de jeux de données québécois ou canadiens avec un usage québécois explicite;
+- huit activités pédagogiques;
 - un catalogue d'activités indexé par question, niveau, type, concept, contexte et accroche;
 - trois modules transversaux;
 - des scripts R de préparation;

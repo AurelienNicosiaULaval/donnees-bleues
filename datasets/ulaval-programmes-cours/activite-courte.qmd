@@ -1,0 +1,65 @@
+---
+title: "ULaval - validation d'import"
+embed-resources: true
+---
+
+# ULaval - validation d'import
+
+## Contexte
+
+Vous travaillez avec des données institutionnelles structurées dans un dépôt privé. L'objectif n'est pas de publier les lignes de données, mais de vérifier qu'un import local respecte les contraintes de provenance, de droits et de reproductibilité.
+
+## Objectifs d'apprentissage
+
+- Identifier les fichiers attendus.
+- Vérifier le nombre de lignes attendu.
+- Contrôler l'unicité des clés importantes.
+- Confirmer la conservation des champs de provenance.
+- Documenter les limites de réutilisation.
+
+## Données utilisées
+
+Source canonique : dépôt privé `git@github.com:AurelienNicosiaULaval/donnees-ulaval-institutionnelles.git`.
+
+Fiche : [Programmes et cours institutionnels ULaval](fiche.qmd).
+
+Cette activité utilise seulement une copie locale ignorée par Git. Les PDF sources et les CSV privés ne doivent pas être ajoutés au dépôt Données bleues.
+
+## Consignes
+
+1. Vérifier que le dépôt privé est disponible localement.
+2. Exécuter `Rscript scripts/validate_ulaval_integration.R --phase=core,ges`.
+3. Lire le rapport imprimé par le script.
+4. Identifier quelle validation protège contre une modification accidentelle des clés.
+5. Identifier quelle validation protège contre une perte de provenance.
+6. Expliquer pourquoi l'absence de licence ouverte explicite limite la publication publique.
+
+## Code R minimal
+
+```{r}
+#| eval: false
+source("R/utils_ulaval.R")
+
+validate_ulaval_private_source(
+  root = ".",
+  phases = c("core", "ges"),
+  require_source = TRUE
+)
+```
+
+## Questions
+
+1. Quels fichiers prioritaires sont contrôlés?
+2. Quelle clé est utilisée pour les programmes actifs?
+3. Quelle clé est utilisée pour les cours accessibles?
+4. Quels champs de provenance doivent être conservés?
+5. Pourquoi les PDF sources ne sont-ils pas copiés dans la plateforme?
+6. Que signifie la mention compilation indépendante et non officielle?
+
+## Pistes de solution
+
+Une validation réussie doit confirmer la présence des fichiers, les nombres de lignes attendus, l'unicité des clés, la présence des champs de provenance attendus et l'absence de PDF dans la plateforme. Elle ne donne pas une autorisation de republication publique.
+
+## Prolongement
+
+Modifier volontairement une copie locale ignorée par Git, puis relancer la validation pour observer quelle erreur est détectée. Ne jamais modifier le dépôt source canonique.

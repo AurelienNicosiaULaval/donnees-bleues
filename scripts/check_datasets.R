@@ -1,6 +1,7 @@
 source("R/utils_catalogue.R")
 source("R/utils_zero_waste.R")
 source("R/utils_activities.R")
+source("R/utils_ulaval.R")
 
 required_files <- c(
   "fiche.qmd",
@@ -49,6 +50,13 @@ for (dataset_dir in dataset_dirs) {
 
 catalogue_activites <- build_activity_catalogue("datasets")
 validate_activity_catalogue(catalogue_activites)
+
+tryCatch(
+  validate_ulaval_private_source(root = ".", phases = c("core", "ges"), require_source = FALSE),
+  error = function(e) {
+    errors <<- c(errors, paste("Validation ULaval invalide :", conditionMessage(e)))
+  }
+)
 
 missing_activity_pages <- catalogue_activites$activity_url[
   !file.exists(catalogue_activites$activity_url)

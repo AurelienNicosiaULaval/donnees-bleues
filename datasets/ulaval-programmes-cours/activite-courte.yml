@@ -1,0 +1,25 @@
+id: ulaval-validation-import-court
+title: "Valider un import institutionnel privé"
+question: "Comment vérifier qu'un import conserve les valeurs, les clés et la provenance?"
+dataset_id: ulaval-programmes-cours
+dataset_title: "Programmes et cours institutionnels ULaval"
+activity_url: "datasets/ulaval-programmes-cours/activite-courte.qmd"
+duration: "30-45 minutes"
+level: "Intermédiaire"
+activity_type:
+  - "Exercice"
+  - "Validation de données"
+concepts:
+  - "Importation CSV"
+  - "Provenance"
+  - "Validation"
+  - "Droits de réutilisation"
+context: "Éducation supérieure"
+hook: "Données institutionnelles privées, source officielle publique"
+materials:
+  - "énoncé"
+  - "code"
+  - "dépôt privé local"
+advanced_math_stats: false
+teacher_notes: "Ne pas publier les lignes de données. L'activité porte sur le protocole de validation et les métadonnées."
+status: "prêt"

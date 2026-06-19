@@ -1,0 +1,83 @@
+---
+title: "ULaval - rapport méthodologique local"
+embed-resources: true
+---
+
+# ULaval - rapport méthodologique local
+
+## Contexte
+
+Vous devez préparer un mini-rapport Quarto local à partir des fichiers institutionnels privés. Le rapport doit être reproductible, mais il ne doit pas redistribuer les données ni les PDF sources.
+
+## Objectifs d'apprentissage
+
+- Importer des CSV privés dans un dossier ignoré par Git.
+- Produire des statistiques descriptives locales.
+- Afficher les sources officielles et les limites de droits.
+- Distinguer source officielle, compilation indépendante et analyse pédagogique.
+- Documenter ce qui reste inconnu ou non vérifié.
+
+## Données utilisées
+
+Source canonique : dépôt privé `git@github.com:AurelienNicosiaULaval/donnees-ulaval-institutionnelles.git`.
+
+Fiche : [Programmes et cours institutionnels ULaval](fiche.qmd).
+
+Le rapport produit pour l'activité doit rester local tant que les droits de republication ne sont pas clarifiés.
+
+## Consignes
+
+1. Importer les fichiers prioritaires avec `Rscript scripts/import_ulaval_institutional_data.R --phase=core`.
+2. Vérifier l'import avec `Rscript scripts/validate_ulaval_integration.R --phase=core,ges`.
+3. Créer un rapport Quarto local qui contient :
+   - une section sur le statut non officiel;
+   - une section sur les sources officielles;
+   - un tableau des nombres de lignes par fichier;
+   - un résumé descriptif local, sans publier les lignes complètes;
+   - une section sur les limites de réutilisation.
+4. Indiquer explicitement les informations non vérifiées avec la formule : Je ne sais pas.
+
+## Code R minimal
+
+```{r}
+#| eval: false
+library(dplyr)
+
+source("R/utils_ulaval.R")
+
+import_ulaval_datasets(
+  root = ".",
+  phases = "core"
+)
+
+programmes <- read_ulaval_csv(
+  "data/processed/ulaval/data/ulaval_programmes_actifs_2026_06.csv"
+)
+
+cours_accessibles <- read_ulaval_csv(
+  "data/processed/ulaval/data/ulaval_cours_accessibles_2026_01_29.csv"
+)
+
+programmes |>
+  count(type_programme, sort = TRUE)
+
+cours_accessibles |>
+  count(credits, sort = TRUE)
+```
+
+## Questions
+
+1. Quelle partie du rapport peut être rendue publique sans redistribuer les lignes?
+2. Quelle partie doit rester locale?
+3. Pourquoi le script d'import copie-t-il les CSV au lieu de les réécrire?
+4. Quelles colonnes relient les lignes aux documents sources?
+5. Quelle information manque avant une republication publique à grande échelle?
+6. Comment formuler clairement le statut non officiel de la compilation?
+
+## Pistes de solution
+
+Le rapport local peut décrire la méthode, les contrôles et les sources officielles. Avant publication publique, il faut éviter les lignes complètes et toute reproduction substantielle des données tant que les droits ne sont pas clarifiés.
+
+## Prolongement
+
+Préparer une annexe méthodologique pour les fichiers GES. L'annexe doit conserver `note` et `statut_quantification`, et elle doit préciser que les cellules vides de portée 3 restent manquantes.

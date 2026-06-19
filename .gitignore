@@ -9,6 +9,8 @@ _freeze/
 /renv/staging/
 data/raw/
 data/processed/
+data/private/
+.private/
 !data/raw/.gitkeep
 !data/processed/.gitkeep
 docs/.quarto/

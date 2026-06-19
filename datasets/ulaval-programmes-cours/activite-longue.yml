@@ -1,0 +1,27 @@
+id: ulaval-rapport-methodologique-long
+title: "Rapport méthodologique sur des données institutionnelles"
+question: "Comment produire une analyse locale sans créer une diffusion publique non autorisée?"
+dataset_id: ulaval-programmes-cours
+dataset_title: "Programmes et cours institutionnels ULaval"
+activity_url: "datasets/ulaval-programmes-cours/activite-longue.qmd"
+duration: "2-3 heures"
+level: "Intermédiaire"
+activity_type:
+  - "Étude de cas"
+  - "Projet ou tâche longue"
+  - "Communication"
+concepts:
+  - "Provenance"
+  - "Statistique descriptive"
+  - "Rapport reproductible"
+  - "Droits de réutilisation"
+context: "Éducation supérieure"
+hook: "Rapport local avec contraintes de publication"
+materials:
+  - "énoncé"
+  - "code"
+  - "dépôt privé local"
+  - "notes méthodologiques"
+advanced_math_stats: false
+teacher_notes: "Demander un rendu local seulement. Vérifier que le rapport n'inclut pas les CSV complets ni les PDF sources."
+status: "prêt"
