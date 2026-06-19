@@ -7,7 +7,7 @@ execute:
 
 # Catalogue
 
-Le catalogue est généré à partir des fichiers `metadata.yml` placés dans chaque dossier de jeu de données.
+Le catalogue est généré à partir des fichiers `metadata.yml` ou `metadata/dataset.yaml` placés dans chaque dossier de jeu de données.
 
 ```{r}
 #| label: catalogue-table

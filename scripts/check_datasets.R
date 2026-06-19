@@ -20,10 +20,10 @@ required_fields <- c(
   "zero_waste", "status"
 )
 
-dataset_dirs <- list.dirs("datasets", full.names = TRUE, recursive = FALSE)
+dataset_dirs <- find_dataset_dirs("datasets")
 
 if (length(dataset_dirs) == 0L) {
-  stop("Aucun dossier trouvé dans datasets/.", call. = FALSE)
+  stop("Aucun dossier de jeu de données trouvé dans datasets/.", call. = FALSE)
 }
 
 errors <- character()

@@ -1,0 +1,25 @@
+id: stt1100-emploi-regional-court
+title: "Lab STT-1100 - Emploi régional"
+question: "Comment l'emploi varie-t-il selon les régions administratives?"
+dataset_id: stt1100-emploi-regional
+dataset_title: "Emploi régional au Québec (STT-1100)"
+activity_url: "datasets/quebec-stt1100/emploi_regional/activite-courte.qmd"
+duration: "60-90 minutes"
+level: "Introduction à intermédiaire"
+activity_type:
+  - "Laboratoire STT-1100"
+  - "Exploration de données"
+concepts:
+  - "séries temporelles"
+  - "comparaison de groupes"
+  - "analyse exploratoire"
+  - "statistiques descriptives"
+context: "Marché du travail"
+hook: "Question québécoise concrète"
+materials:
+  - "fiche"
+  - "code"
+  - "source officielle"
+advanced_math_stats: false
+teacher_notes: "Faire valider l'unité statistique et la provenance avant tout graphique."
+status: "prêt à adapter"

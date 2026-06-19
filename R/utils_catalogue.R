@@ -9,11 +9,25 @@ read_dataset_metadata <- function(path) {
 
   metadata_path <- path
   if (dir.exists(path)) {
-    metadata_path <- file.path(path, "metadata.yml")
+    metadata_candidates <- c(
+      file.path(path, "metadata.yml"),
+      file.path(path, "metadata", "dataset.yaml")
+    )
+    metadata_candidates <- metadata_candidates[file.exists(metadata_candidates)]
+
+    if (length(metadata_candidates) == 0L) {
+      stop(
+        "Fichier metadata.yml ou metadata/dataset.yaml introuvable : ",
+        path,
+        call. = FALSE
+      )
+    }
+
+    metadata_path <- metadata_candidates[[1]]
   }
 
   if (!file.exists(metadata_path)) {
-    stop("Fichier metadata.yml introuvable : ", metadata_path, call. = FALSE)
+    stop("Fichier de métadonnées introuvable : ", metadata_path, call. = FALSE)
   }
 
   yaml::read_yaml(metadata_path)
@@ -31,6 +45,20 @@ metadata_zero_waste_score <- function(metadata) {
 metadata_row <- function(metadata, dataset_dir) {
   concepts <- metadata$concepts %||% character()
   concepts <- paste(unlist(concepts), collapse = "; ")
+
+  fiche <- metadata$fiche %||% {
+    fiche_candidates <- c(
+      file.path(dataset_dir, "fiche.qmd"),
+      file.path(dataset_dir, "docs", "fiche.qmd")
+    )
+    fiche_candidates <- fiche_candidates[file.exists(fiche_candidates)]
+
+    if (length(fiche_candidates) == 0L) {
+      file.path(dataset_dir, "fiche.qmd")
+    } else {
+      fiche_candidates[[1]]
+    }
+  }
 
   data.frame(
     id = metadata$id %||% basename(dataset_dir),
@@ -51,10 +79,18 @@ metadata_row <- function(metadata, dataset_dir) {
     level = metadata$level %||% NA_character_,
     concepts = concepts,
     zero_waste_score = metadata_zero_waste_score(metadata),
-    fiche = file.path(dataset_dir, "fiche.qmd"),
+    fiche = fiche,
     status = metadata$status %||% NA_character_,
     stringsAsFactors = FALSE
   )
+}
+
+find_dataset_dirs <- function(datasets_dir = "datasets") {
+  dataset_dirs <- list.dirs(datasets_dir, full.names = TRUE, recursive = TRUE)
+  metadata_dirs <- dataset_dirs[file.exists(file.path(dataset_dirs, "metadata.yml")) |
+    file.exists(file.path(dataset_dirs, "metadata", "dataset.yaml"))]
+
+  unique(metadata_dirs)
 }
 
 build_catalogue <- function(datasets_dir = "datasets") {
@@ -62,11 +98,10 @@ build_catalogue <- function(datasets_dir = "datasets") {
     stop("Le dossier des jeux de données est introuvable : ", datasets_dir, call. = FALSE)
   }
 
-  dataset_dirs <- list.dirs(datasets_dir, full.names = TRUE, recursive = FALSE)
-  dataset_dirs <- dataset_dirs[file.exists(file.path(dataset_dirs, "metadata.yml"))]
+  dataset_dirs <- find_dataset_dirs(datasets_dir)
 
   if (length(dataset_dirs) == 0L) {
-    stop("Aucun fichier metadata.yml trouvé.", call. = FALSE)
+    stop("Aucun fichier metadata.yml ou metadata/dataset.yaml trouvé.", call. = FALSE)
   }
 
   rows <- lapply(dataset_dirs, function(dataset_dir) {
@@ -86,4 +121,3 @@ write_catalogue <- function(catalogue, path = "data/metadata/catalogue.csv") {
   readr::write_csv(catalogue, path)
   invisible(path)
 }
-

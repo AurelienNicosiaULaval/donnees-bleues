@@ -1537,7 +1537,7 @@ const initMatch = () => ({
   i: 0,
   lohisByNode: new Map()
 })
-/** 
+/**
  * keeps track of the start (lo) and end (hi) index of the match per node (leaf)
  * note: mutates the contents of `matchContext`
  */
@@ -1549,16 +1549,16 @@ const advanceMatch = (leaf, leafi, matchContext) => {
   matchContext.lohisByNode.set(leaf, { lo: curLoHi?.lo ?? leafi, hi: leafi })
 }
 /**
- * Finds all non-overlapping matches for a search string in the document. 
+ * Finds all non-overlapping matches for a search string in the document.
  * The search string may be split between multiple consecutive leaf nodes.
- * 
+ *
  * Whitespace in the search string must be present in the document to match, but
  * there may be addititional whitespace in the document that is ignored.
- * 
+ *
  * e.g. searching for `dogs rock` would match `dogs  \n <span> rock</span>`,
- * and would contribute the match 
+ * and would contribute the match
  * `{ i:9, els: new Map([[textNode, {lo:0, hi:8}],[spanNode,{lo:0,hi:5}]]) }`
- * 
+ *
  * @returns {Map<HTMLElement,{lo:number,hi:number}>[]}
  */
 function searchMatches(inSearch, el) {
@@ -1603,7 +1603,7 @@ function searchMatches(inSearch, el) {
   return matches
 }
 
-/** 
+/**
  * e.g. `markMatches(myTextNode, [[0,5],[12,15]])` would wrap the
  * character sequences in myTextNode from 0-5 and 12-15 in marks.
  * Its important to mark all sequences in a text node at once
@@ -1665,7 +1665,7 @@ function scrollToFirstVisibleMatch(mainEl) {
  *
  * arrayMapPush(m, 'dog', 'Max')
  * console.log(m) // Map { dog->['Max'] }
- * 
+ *
  * arrayMapPush(m, 'dog', 'Samba')
  * arrayMapPush(m, 'cat', 'Scruffle')
  * console.log(m) // Map { dog->['Max', 'Samba'], cat->['Scruffle'] }
@@ -1679,7 +1679,7 @@ const arrayMapPush = (map, key, item) => {
 // copy&paste any string from a quarto page and
 // this should find that string in the page and highlight it.
 // exception: text that starts outside/inside a tabset and ends
-// inside/outside that tabset. 
+// inside/outside that tabset.
 function highlight(searchStr, el) {
   const matches = searchMatches(searchStr, el);
 
@@ -4227,29 +4227,29 @@ font-size: 2.3rem;
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./index.html"> 
+    <a class="nav-link" href="./index.html">
 <span class="menu-text">Accueil</span></a>
-  </li>  
+  </li>
   <li class="nav-item">
-    <a class="nav-link" href="./catalogue.html"> 
+    <a class="nav-link" href="./catalogue.html">
 <span class="menu-text">Catalogue</span></a>
-  </li>  
+  </li>
   <li class="nav-item">
-    <a class="nav-link" href="./zero-waste.html"> 
+    <a class="nav-link" href="./zero-waste.html">
 <span class="menu-text">Zéro déchet</span></a>
-  </li>  
+  </li>
   <li class="nav-item">
-    <a class="nav-link active" href="./activites.html" aria-current="page"> 
+    <a class="nav-link active" href="./activites.html" aria-current="page">
 <span class="menu-text">Activités</span></a>
-  </li>  
+  </li>
   <li class="nav-item">
-    <a class="nav-link" href="./contribuer.html"> 
+    <a class="nav-link" href="./contribuer.html">
 <span class="menu-text">Contribuer</span></a>
-  </li>  
+  </li>
   <li class="nav-item">
-    <a class="nav-link" href="./about.html"> 
+    <a class="nav-link" href="./about.html">
 <span class="menu-text">À propos</span></a>
-  </li>  
+  </li>
 </ul>
           </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
@@ -4264,7 +4264,7 @@ font-size: 2.3rem;
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">On this page</h2>
-   
+
   <ul>
   <li><a href="#activités" id="toc-activités" class="nav-link active" data-scroll-target="#activités">Activités</a>
   <ul class="collapse">
@@ -4287,11 +4287,11 @@ font-size: 2.3rem;
 
 <div class="quarto-title-meta">
 
-    
-  
-    
+
+
+
   </div>
-  
+
 
 
 </header>
@@ -4838,6 +4838,234 @@ Quelles catégories de demandes dominent dans un arrondissement?
 <li>Math/stats avancées : non</li>
 </ul>
 </section>
+<section id="mini-projet-stt-1100---air-québec-stt-1100" class="level3 db-card activity-card">
+<h3 class="anchored" data-anchor-id="mini-projet-stt-1100---air-québec-stt-1100"><a href="datasets/quebec-stt1100/air_qualite/activite-longue.html">Mini-projet STT-1100 - Air Québec STT-1100</a></h3>
+<p class="activity-question">
+Construire un tableau de bord exploratoire des contaminants atmosphériques par station et par période.
+</p>
+<div class="tag-list">
+<span class="tag">séries temporelles</span> <span class="tag">nettoyage de données</span> <span class="tag">visualisation</span> <span class="tag">détection d’anomalies</span> <span class="tag">données environnementales</span>
+</div>
+<ul>
+<li>Jeu de données : Qualité de l’air au Québec (STT-1100)</li>
+<li>Niveau : Introduction à intermédiaire</li>
+<li>Type : Projet ou tâche longue, Étude de cas</li>
+<li>Contexte : Environnement</li>
+<li>Accroche : Analyse territoriale québécoise</li>
+<li>Durée : 2-3 heures</li>
+<li>Matériel : fiche, code, source officielle, notes enseignantes</li>
+<li>Math/stats avancées : non</li>
+</ul>
+</section>
+<section id="lab-stt-1100---air-québec-stt-1100" class="level3 db-card activity-card">
+<h3 class="anchored" data-anchor-id="lab-stt-1100---air-québec-stt-1100"><a href="datasets/quebec-stt1100/air_qualite/activite-courte.html">Lab STT-1100 - Air Québec STT-1100</a></h3>
+<p class="activity-question">
+Les concentrations de PM2.5 ont-elles augmenté durant certains épisodes particuliers?
+</p>
+<div class="tag-list">
+<span class="tag">séries temporelles</span> <span class="tag">nettoyage de données</span> <span class="tag">visualisation</span> <span class="tag">détection d’anomalies</span>
+</div>
+<ul>
+<li>Jeu de données : Qualité de l’air au Québec (STT-1100)</li>
+<li>Niveau : Introduction à intermédiaire</li>
+<li>Type : Laboratoire STT-1100, Exploration de données</li>
+<li>Contexte : Environnement</li>
+<li>Accroche : Question québécoise concrète</li>
+<li>Durée : 60-90 minutes</li>
+<li>Matériel : fiche, code, source officielle</li>
+<li>Math/stats avancées : non</li>
+</ul>
+</section>
+<section id="mini-projet-stt-1100---budgets-municipaux" class="level3 db-card activity-card">
+<h3 class="anchored" data-anchor-id="mini-projet-stt-1100---budgets-municipaux"><a href="datasets/quebec-stt1100/budgets_municipaux/activite-longue.html">Mini-projet STT-1100 - Budgets municipaux</a></h3>
+<p class="activity-question">
+Comparer les profils financiers de municipalités de tailles différentes en documentant les limites des ratios par habitant.
+</p>
+<div class="tag-list">
+<span class="tag">regroupements</span> <span class="tag">ratios</span> <span class="tag">comparaisons</span> <span class="tag">statistiques descriptives</span> <span class="tag">visualisation de proportions</span>
+</div>
+<ul>
+<li>Jeu de données : Budgets municipaux du Québec (STT-1100)</li>
+<li>Niveau : Introduction</li>
+<li>Type : Projet ou tâche longue, Étude de cas</li>
+<li>Contexte : Finances publiques municipales</li>
+<li>Accroche : Analyse territoriale québécoise</li>
+<li>Durée : 2-3 heures</li>
+<li>Matériel : fiche, code, source officielle, notes enseignantes</li>
+<li>Math/stats avancées : non</li>
+</ul>
+</section>
+<section id="lab-stt-1100---budgets-municipaux" class="level3 db-card activity-card">
+<h3 class="anchored" data-anchor-id="lab-stt-1100---budgets-municipaux"><a href="datasets/quebec-stt1100/budgets_municipaux/activite-courte.html">Lab STT-1100 - Budgets municipaux</a></h3>
+<p class="activity-question">
+Les municipalités dépensent-elles différemment selon leur taille?
+</p>
+<div class="tag-list">
+<span class="tag">regroupements</span> <span class="tag">ratios</span> <span class="tag">comparaisons</span> <span class="tag">statistiques descriptives</span>
+</div>
+<ul>
+<li>Jeu de données : Budgets municipaux du Québec (STT-1100)</li>
+<li>Niveau : Introduction</li>
+<li>Type : Laboratoire STT-1100, Exploration de données</li>
+<li>Contexte : Finances publiques municipales</li>
+<li>Accroche : Question québécoise concrète</li>
+<li>Durée : 60-90 minutes</li>
+<li>Matériel : fiche, code, source officielle</li>
+<li>Math/stats avancées : non</li>
+</ul>
+</section>
+<section id="mini-projet-stt-1100---écoles-québec" class="level3 db-card activity-card">
+<h3 class="anchored" data-anchor-id="mini-projet-stt-1100---écoles-québec"><a href="datasets/quebec-stt1100/ecoles_quebec/activite-longue.html">Mini-projet STT-1100 - Écoles Québec</a></h3>
+<p class="activity-question">
+Produire une carte interactive des établissements et discuter des limites d’une carte de points.
+</p>
+<div class="tag-list">
+<span class="tag">géolocalisation</span> <span class="tag">cartographie</span> <span class="tag">jointures</span> <span class="tag">densité spatiale</span> <span class="tag">données publiques</span>
+</div>
+<ul>
+<li>Jeu de données : Établissements scolaires du Québec (STT-1100)</li>
+<li>Niveau : Introduction à intermédiaire</li>
+<li>Type : Projet ou tâche longue, Étude de cas</li>
+<li>Contexte : Éducation et territoire</li>
+<li>Accroche : Analyse territoriale québécoise</li>
+<li>Durée : 2-3 heures</li>
+<li>Matériel : fiche, code, source officielle, notes enseignantes</li>
+<li>Math/stats avancées : non</li>
+</ul>
+</section>
+<section id="lab-stt-1100---écoles-québec" class="level3 db-card activity-card">
+<h3 class="anchored" data-anchor-id="lab-stt-1100---écoles-québec"><a href="datasets/quebec-stt1100/ecoles_quebec/activite-courte.html">Lab STT-1100 - Écoles Québec</a></h3>
+<p class="activity-question">
+Où sont localisées les écoles du Québec et quelles régions sont les plus densément desservies?
+</p>
+<div class="tag-list">
+<span class="tag">géolocalisation</span> <span class="tag">cartographie</span> <span class="tag">jointures</span> <span class="tag">densité spatiale</span>
+</div>
+<ul>
+<li>Jeu de données : Établissements scolaires du Québec (STT-1100)</li>
+<li>Niveau : Introduction à intermédiaire</li>
+<li>Type : Laboratoire STT-1100, Exploration de données</li>
+<li>Contexte : Éducation et territoire</li>
+<li>Accroche : Question québécoise concrète</li>
+<li>Durée : 60-90 minutes</li>
+<li>Matériel : fiche, code, source officielle</li>
+<li>Math/stats avancées : non</li>
+</ul>
+</section>
+<section id="mini-projet-stt-1100---emploi-régional" class="level3 db-card activity-card">
+<h3 class="anchored" data-anchor-id="mini-projet-stt-1100---emploi-régional"><a href="datasets/quebec-stt1100/emploi_regional/activite-longue.html">Mini-projet STT-1100 - Emploi régional</a></h3>
+<p class="activity-question">
+Comparer la dynamique du marché du travail entre régions avant et après une période économique donnée.
+</p>
+<div class="tag-list">
+<span class="tag">séries temporelles</span> <span class="tag">comparaison de groupes</span> <span class="tag">analyse exploratoire</span> <span class="tag">statistiques descriptives</span> <span class="tag">indicateurs socioéconomiques</span>
+</div>
+<ul>
+<li>Jeu de données : Emploi régional au Québec (STT-1100)</li>
+<li>Niveau : Introduction à intermédiaire</li>
+<li>Type : Projet ou tâche longue, Étude de cas</li>
+<li>Contexte : Marché du travail</li>
+<li>Accroche : Analyse territoriale québécoise</li>
+<li>Durée : 2-3 heures</li>
+<li>Matériel : fiche, code, source officielle, notes enseignantes</li>
+<li>Math/stats avancées : non</li>
+</ul>
+</section>
+<section id="lab-stt-1100---emploi-régional" class="level3 db-card activity-card">
+<h3 class="anchored" data-anchor-id="lab-stt-1100---emploi-régional"><a href="datasets/quebec-stt1100/emploi_regional/activite-courte.html">Lab STT-1100 - Emploi régional</a></h3>
+<p class="activity-question">
+Comment l’emploi varie-t-il selon les régions administratives?
+</p>
+<div class="tag-list">
+<span class="tag">séries temporelles</span> <span class="tag">comparaison de groupes</span> <span class="tag">analyse exploratoire</span> <span class="tag">statistiques descriptives</span>
+</div>
+<ul>
+<li>Jeu de données : Emploi régional au Québec (STT-1100)</li>
+<li>Niveau : Introduction à intermédiaire</li>
+<li>Type : Laboratoire STT-1100, Exploration de données</li>
+<li>Contexte : Marché du travail</li>
+<li>Accroche : Question québécoise concrète</li>
+<li>Durée : 60-90 minutes</li>
+<li>Matériel : fiche, code, source officielle</li>
+<li>Math/stats avancées : non</li>
+</ul>
+</section>
+<section id="mini-projet-stt-1100---retards-transport" class="level3 db-card activity-card">
+<h3 class="anchored" data-anchor-id="mini-projet-stt-1100---retards-transport"><a href="datasets/quebec-stt1100/retards_transport/activite-longue.html">Mini-projet STT-1100 - Retards transport</a></h3>
+<p class="activity-question">
+Construire un protocole reproductible pour archiver un flux temps réel et résumer la ponctualité par ligne.
+</p>
+<div class="tag-list">
+<span class="tag">statistiques descriptives</span> <span class="tag">distributions</span> <span class="tag">valeurs extrêmes</span> <span class="tag">séries temporelles</span> <span class="tag">qualité de service</span>
+</div>
+<ul>
+<li>Jeu de données : Retards et ponctualité du transport collectif (STT-1100)</li>
+<li>Niveau : Intermédiaire</li>
+<li>Type : Projet ou tâche longue, Étude de cas</li>
+<li>Contexte : Mobilité et performance de service</li>
+<li>Accroche : Analyse territoriale québécoise</li>
+<li>Durée : 2-3 heures</li>
+<li>Matériel : fiche, code, source officielle, notes enseignantes</li>
+<li>Math/stats avancées : non</li>
+</ul>
+</section>
+<section id="lab-stt-1100---retards-transport" class="level3 db-card activity-card">
+<h3 class="anchored" data-anchor-id="lab-stt-1100---retards-transport"><a href="datasets/quebec-stt1100/retards_transport/activite-courte.html">Lab STT-1100 - Retards transport</a></h3>
+<p class="activity-question">
+Quelles lignes présentent les retards les plus importants?
+</p>
+<div class="tag-list">
+<span class="tag">statistiques descriptives</span> <span class="tag">distributions</span> <span class="tag">valeurs extrêmes</span> <span class="tag">séries temporelles</span>
+</div>
+<ul>
+<li>Jeu de données : Retards et ponctualité du transport collectif (STT-1100)</li>
+<li>Niveau : Intermédiaire</li>
+<li>Type : Laboratoire STT-1100, Exploration de données</li>
+<li>Contexte : Mobilité et performance de service</li>
+<li>Accroche : Question québécoise concrète</li>
+<li>Durée : 60-90 minutes</li>
+<li>Matériel : fiche, code, source officielle</li>
+<li>Math/stats avancées : non</li>
+</ul>
+</section>
+<section id="mini-projet-stt-1100---gtfs-québec" class="level3 db-card activity-card">
+<h3 class="anchored" data-anchor-id="mini-projet-stt-1100---gtfs-québec"><a href="datasets/quebec-stt1100/transport_collectif/activite-longue.html">Mini-projet STT-1100 - GTFS Québec</a></h3>
+<p class="activity-question">
+Comparer la couverture spatiale de deux réseaux GTFS en harmonisant leurs tables stops et routes.
+</p>
+<div class="tag-list">
+<span class="tag">données relationnelles</span> <span class="tag">jointures multiples</span> <span class="tag">visualisation spatiale</span> <span class="tag">réseaux</span> <span class="tag">normalisation de données</span>
+</div>
+<ul>
+<li>Jeu de données : Réseaux de transport collectif GTFS au Québec (STT-1100)</li>
+<li>Niveau : Intermédiaire</li>
+<li>Type : Projet ou tâche longue, Étude de cas</li>
+<li>Contexte : Mobilité et transport collectif</li>
+<li>Accroche : Analyse territoriale québécoise</li>
+<li>Durée : 2-3 heures</li>
+<li>Matériel : fiche, code, source officielle, notes enseignantes</li>
+<li>Math/stats avancées : non</li>
+</ul>
+</section>
+<section id="lab-stt-1100---gtfs-québec" class="level3 db-card activity-card">
+<h3 class="anchored" data-anchor-id="lab-stt-1100---gtfs-québec"><a href="datasets/quebec-stt1100/transport_collectif/activite-courte.html">Lab STT-1100 - GTFS Québec</a></h3>
+<p class="activity-question">
+Quelle est la densité des arrêts de transport collectif selon le secteur?
+</p>
+<div class="tag-list">
+<span class="tag">données relationnelles</span> <span class="tag">jointures multiples</span> <span class="tag">visualisation spatiale</span> <span class="tag">réseaux</span>
+</div>
+<ul>
+<li>Jeu de données : Réseaux de transport collectif GTFS au Québec (STT-1100)</li>
+<li>Niveau : Intermédiaire</li>
+<li>Type : Laboratoire STT-1100, Exploration de données</li>
+<li>Contexte : Mobilité et transport collectif</li>
+<li>Accroche : Question québécoise concrète</li>
+<li>Durée : 60-90 minutes</li>
+<li>Matériel : fiche, code, source officielle</li>
+<li>Math/stats avancées : non</li>
+</ul>
+</section>
 <section id="carte-et-séries-temporelles-de-qualité-de-leau" class="level3 db-card activity-card">
 <h3 class="anchored" data-anchor-id="carte-et-séries-temporelles-de-qualité-de-leau"><a href="datasets/suivi-rivieres-fleuve/activite-longue.html">Carte et séries temporelles de qualité de l’eau</a></h3>
 <p class="activity-question">
@@ -4940,7 +5168,7 @@ Comment vérifier qu’un import conserve les valeurs, les clés et la provenanc
     anchorJS.add('.anchored');
     const isCodeAnnotation = (el) => {
       for (const clz of el.classList) {
-        if (clz.startsWith('code-annotation-')) {                     
+        if (clz.startsWith('code-annotation-')) {
           return true;
         }
       }
@@ -4960,11 +5188,11 @@ Comment vérifier qu’un import conserve les valeurs, les clés et la provenanc
         button.setAttribute("data-bs-toggle", "tooltip");
         button.setAttribute("data-bs-placement", "left");
         button.setAttribute("data-bs-title", "Copied!");
-        tooltip = new bootstrap.Tooltip(button, 
-          { trigger: "manual", 
+        tooltip = new bootstrap.Tooltip(button,
+          { trigger: "manual",
             customClass: "code-copy-button-tooltip",
             offset: [0, -8]});
-        tooltip.show();    
+        tooltip.show();
       }
       setTimeout(function() {
         if (tooltip) {
@@ -5046,7 +5274,7 @@ Comment vérifier qu’un import conserve les valeurs, les clés et la provenanc
       if (onUntriggerFn) {
         config.onUntrigger = onUntriggerFn;
       }
-      window.tippy(el, config); 
+      window.tippy(el, config);
     }
     const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
     for (var i=0; i<noterefs.length; i++) {
@@ -5121,7 +5349,7 @@ Comment vérifier qu’un import conserve les valeurs, les clés et la provenanc
       tippyHover(xref, undefined, function(instance) {
         instance.disable();
         let url = xref.getAttribute('href');
-        let hash = undefined; 
+        let hash = undefined;
         if (url.startsWith('#')) {
           hash = url;
         } else {
@@ -5149,7 +5377,7 @@ Comment vérifier qu’un import conserve les valeurs, les clés et la provenanc
               if (note !== null) {
                 const html = processXRef(id, note);
                 instance.setContent(html);
-              } 
+              }
             }).finally(() => {
               instance.enable();
               instance.show();
@@ -5173,7 +5401,7 @@ Comment vérifier qu’un import conserve les valeurs, les clés et la provenanc
               }
               const html = processXRef(null, note);
               instance.setContent(html);
-            } 
+            }
           }).finally(() => {
             instance.enable();
             instance.show();
@@ -5213,7 +5441,7 @@ Comment vérifier qu’un import conserve les valeurs, les clés et la provenanc
               height = bottom - top;
             }
             if (top !== null && height !== null && parent !== null) {
-              // cook up a div (if necessary) and position it 
+              // cook up a div (if necessary) and position it
               let div = window.document.getElementById("code-annotation-line-highlight");
               if (div === null) {
                 div = window.document.createElement("div");
@@ -5339,7 +5567,7 @@ Comment vérifier qu’un import conserve les valeurs, les clés et la provenanc
   <div class="nav-footer">
     <div class="nav-footer-left">
 <p>Données bleues</p>
-</div>   
+</div>
     <div class="nav-footer-center">
        
     </div>

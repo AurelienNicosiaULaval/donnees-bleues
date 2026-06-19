@@ -6,7 +6,7 @@
   </url>
   <url>
     <loc>https://aureliennicosiaulaval.github.io/donnees-bleues/index.html</loc>
-    <lastmod>2026-06-19T02:23:35.565Z</lastmod>
+    <lastmod>2026-06-19T12:26:16.936Z</lastmod>
   </url>
   <url>
     <loc>https://aureliennicosiaulaval.github.io/donnees-bleues/datasets/ulaval-programmes-cours/fiche.html</loc>
@@ -118,7 +118,7 @@
   </url>
   <url>
     <loc>https://aureliennicosiaulaval.github.io/donnees-bleues/activites.html</loc>
-    <lastmod>2026-06-03T13:19:49.000Z</lastmod>
+    <lastmod>2026-06-19T12:19:46.960Z</lastmod>
   </url>
   <url>
     <loc>https://aureliennicosiaulaval.github.io/donnees-bleues/activities/module-nettoyage.html</loc>
@@ -126,11 +126,11 @@
   </url>
   <url>
     <loc>https://aureliennicosiaulaval.github.io/donnees-bleues/catalogue.html</loc>
-    <lastmod>2026-06-19T00:38:36.986Z</lastmod>
+    <lastmod>2026-06-19T12:26:16.936Z</lastmod>
   </url>
   <url>
     <loc>https://aureliennicosiaulaval.github.io/donnees-bleues/credits-images.html</loc>
-    <lastmod>2026-06-19T01:49:49.583Z</lastmod>
+    <lastmod>2026-06-19T12:35:19.105Z</lastmod>
   </url>
   <url>
     <loc>https://aureliennicosiaulaval.github.io/donnees-bleues/datasets/actes-criminels-montreal/activite-longue.html</loc>
@@ -227,5 +227,81 @@
   <url>
     <loc>https://aureliennicosiaulaval.github.io/donnees-bleues/references.html</loc>
     <lastmod>2026-06-18T23:43:07.718Z</lastmod>
+  </url>
+  <url>
+    <loc>https://aureliennicosiaulaval.github.io/donnees-bleues/datasets/quebec-stt1100/index.html</loc>
+    <lastmod>2026-06-19T12:25:55.736Z</lastmod>
+  </url>
+  <url>
+    <loc>https://aureliennicosiaulaval.github.io/donnees-bleues/datasets/quebec-stt1100/air_qualite/activite-courte.html</loc>
+    <lastmod>2026-06-19T12:25:55.737Z</lastmod>
+  </url>
+  <url>
+    <loc>https://aureliennicosiaulaval.github.io/donnees-bleues/datasets/quebec-stt1100/air_qualite/activite-longue.html</loc>
+    <lastmod>2026-06-19T12:25:55.737Z</lastmod>
+  </url>
+  <url>
+    <loc>https://aureliennicosiaulaval.github.io/donnees-bleues/datasets/quebec-stt1100/air_qualite/fiche.html</loc>
+    <lastmod>2026-06-19T12:25:55.737Z</lastmod>
+  </url>
+  <url>
+    <loc>https://aureliennicosiaulaval.github.io/donnees-bleues/datasets/quebec-stt1100/budgets_municipaux/activite-courte.html</loc>
+    <lastmod>2026-06-19T12:25:55.738Z</lastmod>
+  </url>
+  <url>
+    <loc>https://aureliennicosiaulaval.github.io/donnees-bleues/datasets/quebec-stt1100/budgets_municipaux/activite-longue.html</loc>
+    <lastmod>2026-06-19T12:25:55.738Z</lastmod>
+  </url>
+  <url>
+    <loc>https://aureliennicosiaulaval.github.io/donnees-bleues/datasets/quebec-stt1100/budgets_municipaux/fiche.html</loc>
+    <lastmod>2026-06-19T12:25:55.737Z</lastmod>
+  </url>
+  <url>
+    <loc>https://aureliennicosiaulaval.github.io/donnees-bleues/datasets/quebec-stt1100/ecoles_quebec/activite-courte.html</loc>
+    <lastmod>2026-06-19T12:25:55.739Z</lastmod>
+  </url>
+  <url>
+    <loc>https://aureliennicosiaulaval.github.io/donnees-bleues/datasets/quebec-stt1100/ecoles_quebec/activite-longue.html</loc>
+    <lastmod>2026-06-19T12:25:55.739Z</lastmod>
+  </url>
+  <url>
+    <loc>https://aureliennicosiaulaval.github.io/donnees-bleues/datasets/quebec-stt1100/ecoles_quebec/fiche.html</loc>
+    <lastmod>2026-06-19T12:25:55.738Z</lastmod>
+  </url>
+  <url>
+    <loc>https://aureliennicosiaulaval.github.io/donnees-bleues/datasets/quebec-stt1100/emploi_regional/activite-courte.html</loc>
+    <lastmod>2026-06-19T12:25:55.741Z</lastmod>
+  </url>
+  <url>
+    <loc>https://aureliennicosiaulaval.github.io/donnees-bleues/datasets/quebec-stt1100/emploi_regional/activite-longue.html</loc>
+    <lastmod>2026-06-19T12:25:55.741Z</lastmod>
+  </url>
+  <url>
+    <loc>https://aureliennicosiaulaval.github.io/donnees-bleues/datasets/quebec-stt1100/emploi_regional/fiche.html</loc>
+    <lastmod>2026-06-19T12:25:55.741Z</lastmod>
+  </url>
+  <url>
+    <loc>https://aureliennicosiaulaval.github.io/donnees-bleues/datasets/quebec-stt1100/retards_transport/activite-courte.html</loc>
+    <lastmod>2026-06-19T12:25:55.740Z</lastmod>
+  </url>
+  <url>
+    <loc>https://aureliennicosiaulaval.github.io/donnees-bleues/datasets/quebec-stt1100/retards_transport/activite-longue.html</loc>
+    <lastmod>2026-06-19T12:25:55.741Z</lastmod>
+  </url>
+  <url>
+    <loc>https://aureliennicosiaulaval.github.io/donnees-bleues/datasets/quebec-stt1100/retards_transport/fiche.html</loc>
+    <lastmod>2026-06-19T12:25:55.740Z</lastmod>
+  </url>
+  <url>
+    <loc>https://aureliennicosiaulaval.github.io/donnees-bleues/datasets/quebec-stt1100/transport_collectif/activite-courte.html</loc>
+    <lastmod>2026-06-19T12:25:55.740Z</lastmod>
+  </url>
+  <url>
+    <loc>https://aureliennicosiaulaval.github.io/donnees-bleues/datasets/quebec-stt1100/transport_collectif/activite-longue.html</loc>
+    <lastmod>2026-06-19T12:25:55.740Z</lastmod>
+  </url>
+  <url>
+    <loc>https://aureliennicosiaulaval.github.io/donnees-bleues/datasets/quebec-stt1100/transport_collectif/fiche.html</loc>
+    <lastmod>2026-06-19T12:25:55.740Z</lastmod>
   </url>
 </urlset>

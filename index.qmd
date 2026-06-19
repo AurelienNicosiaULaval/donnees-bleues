@@ -53,6 +53,16 @@ Adapter des activités courtes et longues pour des cours d'introduction à la st
 
 [Voir les activités](activites.qmd)
 :::
+
+::: {.db-card}
+<img class="db-card-image" src="assets/cards/catalogue.png" alt="Illustration de la collection STT-1100">
+
+### Québec pour STT-1100
+
+Explorer six jeux québécois structurés pour des laboratoires de science des données de premier cycle.
+
+[Ouvrir la collection](datasets/quebec-stt1100/index.qmd)
+:::
 :::
 
 ## Pourquoi des données québécoises?
@@ -84,14 +94,7 @@ Chaque fiche vise à être utilisable sans longue préparation :
 
 ## Catalogue actuel
 
-Cette version contient six fiches de jeux de données québécois :
-
-- l'état des stations BIXI;
-- les statistiques des bibliothèques publiques du Québec;
-- les stations du Réseau de surveillance de la qualité de l'air du Québec.
-- le suivi physicochimique et bactériologique des rivières et du fleuve;
-- le registre des prélèvements d'eau autorisés;
-- les cohortes de diplomation.
+Le catalogue rassemble des fiches de jeux de données québécois sur l'environnement, l'eau, la mobilité, l'éducation, la démographie, la sécurité publique, les services municipaux et les politiques publiques. Il inclut maintenant une collection dédiée aux laboratoires de science des données de premier cycle : [Québec pour la science des données (STT-1100)](datasets/quebec-stt1100/index.qmd).
 
 Le projet inclut aussi des fonctions R pour interroger CKAN, calculer les scores zéro déchet, bâtir le catalogue et vérifier la cohérence des fiches.
 

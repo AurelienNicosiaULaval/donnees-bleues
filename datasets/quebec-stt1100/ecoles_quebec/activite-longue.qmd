@@ -1,0 +1,30 @@
+---
+title: "Mini-projet STT-1100 - Écoles Québec"
+embed-resources: true
+---
+
+# Mini-projet STT-1100 - Écoles Québec
+
+## Contexte
+
+Ce mini-projet prolonge le laboratoire court en demandant une préparation reproductible et une interprétation plus structurée.
+
+## Question directrice
+
+Produire une carte interactive des établissements et discuter des limites d'une carte de points.
+
+## Livrables
+
+1. Un fichier préparé dans `data_processed/`, ou une description précise du traitement si les données ne sont pas redistribuées.
+2. Un court dictionnaire des variables utilisées.
+3. Deux visualisations complémentaires.
+4. Un paragraphe sur la provenance, la licence et les limites.
+5. Une conclusion pédagogique adaptée à un public de première année.
+
+## Critères d'évaluation suggérés
+
+- Reproductibilité du traitement.
+- Qualité des noms de variables.
+- Pertinence des regroupements.
+- Lisibilité des graphiques.
+- Prudence de l'interprétation.

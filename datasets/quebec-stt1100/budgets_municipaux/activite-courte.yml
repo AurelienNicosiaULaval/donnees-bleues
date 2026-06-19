@@ -1,0 +1,25 @@
+id: stt1100-budgets-municipaux-court
+title: "Lab STT-1100 - Budgets municipaux"
+question: "Les municipalités dépensent-elles différemment selon leur taille?"
+dataset_id: stt1100-budgets-municipaux
+dataset_title: "Budgets municipaux du Québec (STT-1100)"
+activity_url: "datasets/quebec-stt1100/budgets_municipaux/activite-courte.qmd"
+duration: "60-90 minutes"
+level: "Introduction"
+activity_type:
+  - "Laboratoire STT-1100"
+  - "Exploration de données"
+concepts:
+  - "regroupements"
+  - "ratios"
+  - "comparaisons"
+  - "statistiques descriptives"
+context: "Finances publiques municipales"
+hook: "Question québécoise concrète"
+materials:
+  - "fiche"
+  - "code"
+  - "source officielle"
+advanced_math_stats: false
+teacher_notes: "Faire valider l'unité statistique et la provenance avant tout graphique."
+status: "prêt à adapter"
