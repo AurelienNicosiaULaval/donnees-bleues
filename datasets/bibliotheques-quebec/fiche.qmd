@@ -129,7 +129,7 @@ bibliotheques |>
   ) |>
   filter(!is.na(visites_par_habitant), population > 0) |>
   ggplot(aes(x = visites_par_habitant)) +
-  geom_histogram(binwidth = 0.5, fill = "#2f75d6", color = "white") +
+  geom_histogram(binwidth = 0.5, fill = "#325EA8", color = "white") +
   labs(
     x = "Visites par habitant",
     y = "Nombre de bibliothèques",

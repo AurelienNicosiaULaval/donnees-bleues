@@ -1,5 +1,17 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <rect width="64" height="64" rx="8" fill="#003DA5"/>
-  <path d="M12 44V16h12c9 0 15 5 15 14s-6 14-15 14H12zm8-7h4c5 0 8-3 8-7s-3-7-8-7h-4v14z" fill="#FFFFFF"/>
-  <path d="M42 44V16h10c6 0 10 3 10 8 0 3-2 5-4 6 3 1 5 3 5 7 0 5-4 7-11 7H42zm8-17h2c2 0 3-1 3-3s-1-3-3-3h-2v6zm0 12h3c3 0 4-1 4-3s-1-3-4-3h-3v6z" fill="#FFFFFF"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title desc">
+  <title id="title">Données bleues</title>
+  <desc id="desc">Hexagone bleu Québec avec fleur de lys et points de données.</desc>
+  <polygon points="256,26 456,141 456,371 256,486 56,371 56,141" fill="#325EA8"/>
+  <polygon points="256,52 433,154 433,358 256,460 79,358 79,154" fill="none" stroke="#FFFFFF" stroke-width="18"/>
+  <path d="M256 102C229 143 224 184 256 217C288 184 283 143 256 102Z" fill="#FFFFFF"/>
+  <path d="M221 204C186 170 151 174 132 210C169 207 199 222 215 251C198 262 177 266 154 261C171 284 205 292 233 272C237 306 225 334 205 363H307C287 334 275 306 279 272C307 292 341 284 358 261C335 266 314 262 297 251C313 222 343 207 380 210C361 174 326 170 291 204L256 239L221 204Z" fill="#FFFFFF"/>
+  <path d="M226 322H286" stroke="#325EA8" stroke-width="14" stroke-linecap="round"/>
+  <path d="M155 390L202 365L251 382L305 344L357 360" fill="none" stroke="#B7D8FF" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+  <g fill="#FFFFFF" stroke="#325EA8" stroke-width="8">
+    <circle cx="155" cy="390" r="16"/>
+    <circle cx="202" cy="365" r="16"/>
+    <circle cx="251" cy="382" r="16"/>
+    <circle cx="305" cy="344" r="16"/>
+    <circle cx="357" cy="360" r="16"/>
+  </g>
 </svg>

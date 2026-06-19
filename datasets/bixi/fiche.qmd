@@ -122,7 +122,7 @@ stations <- station_information |>
 glimpse(stations)
 
 ggplot(stations, aes(x = taux_occupation)) +
-  geom_histogram(binwidth = 0.1, boundary = 0, fill = "#2f75d6", color = "white") +
+  geom_histogram(binwidth = 0.1, boundary = 0, fill = "#325EA8", color = "white") +
   labs(
     x = "Taux d'occupation instantané",
     y = "Nombre de stations",

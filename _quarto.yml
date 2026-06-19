@@ -3,6 +3,7 @@ project:
   output-dir: docs
   resources:
     - favicon.svg
+    - assets/logo-donnees-bleues.svg
     - assets/cards/*.png
     - assets/cards/*.jpg
   render:
@@ -16,7 +17,9 @@ website:
   site-url: "https://aureliennicosiaulaval.github.io/donnees-bleues/"
   favicon: favicon.svg
   navbar:
-    background: "#003DA5"
+    logo: assets/logo-donnees-bleues.svg
+    logo-alt: "Logo Données bleues"
+    background: "#325EA8"
     foreground: "#ffffff"
     left:
       - text: "Accueil"

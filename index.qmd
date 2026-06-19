@@ -6,6 +6,8 @@ toc: false
 ---
 
 ::: {.hero}
+<img class="hero-logo" src="assets/logo-donnees-bleues.svg" alt="Logo Données bleues">
+
 # Données bleues
 
 ::: {.subtitle}

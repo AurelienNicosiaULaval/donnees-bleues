@@ -1,8 +1,18 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title desc">
   <title id="title">Données bleues</title>
-  <desc id="desc">Hexagone bleu Québec avec fleur de lys et points de données.</desc>
-  <polygon points="256,26 456,141 456,371 256,486 56,371 56,141" fill="#325EA8"/>
-  <polygon points="256,52 433,154 433,358 256,460 79,358 79,154" fill="none" stroke="#FFFFFF" stroke-width="18"/>
+  <desc id="desc">Logo hexagonal bleu Québec avec une fleur de lys et un graphe de données.</desc>
+  <defs>
+    <linearGradient id="db-blue-gradient" x1="96" y1="64" x2="416" y2="448" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#4F7CC9"/>
+      <stop offset="0.55" stop-color="#325EA8"/>
+      <stop offset="1" stop-color="#223F78"/>
+    </linearGradient>
+    <filter id="soft-shadow" x="-12%" y="-12%" width="124%" height="124%">
+      <feDropShadow dx="0" dy="12" stdDeviation="12" flood-color="#172033" flood-opacity="0.18"/>
+    </filter>
+  </defs>
+  <polygon points="256,26 456,141 456,371 256,486 56,371 56,141" fill="url(#db-blue-gradient)" filter="url(#soft-shadow)"/>
+  <polygon points="256,52 433,154 433,358 256,460 79,358 79,154" fill="none" stroke="#FFFFFF" stroke-width="18" stroke-linejoin="round"/>
   <path d="M256 102C229 143 224 184 256 217C288 184 283 143 256 102Z" fill="#FFFFFF"/>
   <path d="M221 204C186 170 151 174 132 210C169 207 199 222 215 251C198 262 177 266 154 261C171 284 205 292 233 272C237 306 225 334 205 363H307C287 334 275 306 279 272C307 292 341 284 358 261C335 266 314 262 297 251C313 222 343 207 380 210C361 174 326 170 291 204L256 239L221 204Z" fill="#FFFFFF"/>
   <path d="M226 322H286" stroke="#325EA8" stroke-width="14" stroke-linecap="round"/>

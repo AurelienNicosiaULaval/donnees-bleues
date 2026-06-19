@@ -1,10 +1,11 @@
 :root {
-  --db-blue: #003da5;
-  --db-blue-soft: #e8f1ff;
-  --db-blue-mid: #2f75d6;
+  --db-blue: #325ea8;
+  --db-blue-dark: #223f78;
+  --db-blue-soft: #eef5ff;
+  --db-blue-mid: #4f7cc9;
   --db-ink: #172033;
   --db-muted: #5d6b82;
-  --db-border: #d8e2f0;
+  --db-border: #d3dfef;
   --db-surface: #f7fbff;
 }
 
@@ -22,7 +23,28 @@ a {
 }
 
 .navbar {
-  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 1px 8px rgba(18, 46, 92, 0.18);
+}
+
+.navbar-brand img,
+.navbar-logo {
+  height: 2.1rem;
+  max-height: 2.1rem;
+  width: auto;
+}
+
+.navbar-brand {
+  overflow: visible;
+  text-overflow: clip;
+}
+
+.navbar-title {
+  font-weight: 700;
+  letter-spacing: 0;
+  max-width: none;
+  overflow: visible;
+  text-overflow: clip;
+  white-space: nowrap;
 }
 
 .hero {
@@ -30,6 +52,13 @@ a {
   border-bottom: 1px solid var(--db-border);
   margin: -1.5rem calc(50% - 50vw) 2rem;
   padding: 4rem max(1.5rem, calc((100vw - 1120px) / 2)) 3rem;
+}
+
+.hero-logo {
+  display: block;
+  height: auto;
+  margin: 0 0 1.1rem;
+  width: min(116px, 34vw);
 }
 
 .hero h1 {
@@ -71,7 +100,7 @@ a {
 }
 
 .db-card:hover {
-  border-color: rgba(47, 117, 214, 0.45);
+  border-color: rgba(50, 94, 168, 0.45);
   box-shadow: 0 12px 28px rgba(23, 32, 51, 0.12);
   transform: translateY(-2px);
 }
@@ -198,7 +227,7 @@ thead {
 }
 
 code {
-  color: #163b6e;
+  color: var(--db-blue-dark);
 }
 
 .compact-list li {

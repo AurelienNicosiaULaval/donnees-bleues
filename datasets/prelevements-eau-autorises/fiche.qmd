@@ -134,7 +134,7 @@ prelevements |>
   summarise(volume_total_m3_j = sum(volume_autorise_m3_j, na.rm = TRUE), .groups = "drop") |>
   arrange(desc(volume_total_m3_j)) |>
   ggplot(aes(x = reorder(provenance_eau, volume_total_m3_j), y = volume_total_m3_j)) +
-  geom_col(fill = "#2f75d6") +
+  geom_col(fill = "#325EA8") +
   coord_flip() +
   labs(
     x = "Provenance de l'eau",
