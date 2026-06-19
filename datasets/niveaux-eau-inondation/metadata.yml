@@ -1,0 +1,64 @@
+id: "niveaux-eau-inondation"
+title: "Niveaux d'eau lors d'une inondation"
+short_title: "Niveaux d'eau"
+theme: "Inondations et sécurité civile"
+source_name: "Données Québec / Ministère de la Sécurité intérieure"
+source_url: "https://www.donneesquebec.ca/recherche/dataset/niveaux-deau-inondation-msp"
+license: "Attribution (CC-BY 4.0)"
+access_date: "2026-06-19"
+geography: "Québec"
+unit: "Observation de niveau d'eau lors d'un événement d'inondation"
+data_type: "Tabulaire, spatial, événementiel"
+format: "CSV, GeoJSON, SHP, WMS et WFS"
+n_rows: "Nombre de lignes à confirmer dans la ressource WFS; jeu public depuis 2017"
+n_cols: "17 champs observés dans l'export CSV consulté le 2026-06-19"
+update_frequency: "Selon les mises à jour du ministère; métadonnées modifiées en 2026"
+level: "Introduction à intermédiaire"
+organisme: "Ministère de la Sécurité intérieure"
+territoire: "Québec"
+taille_approximative: "Nombre de lignes à confirmer dans la ressource WFS; jeu public depuis 2017"
+niveau_pedagogique_recommande: "Introduction à intermédiaire"
+variables_principales:
+  - "rapport"
+  - "date_obs"
+  - "heure_obs"
+  - "type_obs"
+  - "long_wgs84"
+  - "lat_wgs84"
+  - "alt_m_cgvd"
+  - "producteur"
+idees_mini_projets:
+  - "Cartographier les observations par événement ou par région."
+  - "Comparer la distribution des altitudes observées selon le type d'observation."
+  - "Construire une carte interactive des repères de crue et discuter des limites de mesure."
+tags:
+  - "eau"
+  - "environnement"
+  - "Québec"
+  - "données ouvertes"
+  - "visualisation"
+  - "spatial"
+  - "risques"
+  - "sécurité civile"
+concepts:
+  - "eau"
+  - "inondation"
+  - "sécurité civile"
+  - "spatial"
+  - "visualisation"
+  - "données ouvertes"
+  - "Québec"
+  - "statistiques descriptives"
+zero_waste:
+  contexte_quebecois: 3
+  accessibilite_pedagogique: 2
+  qualite_documentaire: 3
+  potentiel_nettoyage: 2
+  potentiel_visualisation: 3
+  potentiel_statistique_descriptive: 2
+  potentiel_inference: 1
+  potentiel_modelisation: 2
+  potentiel_ethique: 3
+  reutilisabilite: 3
+status: "source vérifiée"
+notes: "Source, licence et ressources CSV/GeoJSON vérifiées dans les métadonnées Données Québec. Nombre de lignes à confirmer au moment du téléchargement."

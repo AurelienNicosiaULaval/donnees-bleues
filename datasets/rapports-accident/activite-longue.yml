@@ -1,0 +1,25 @@
+id: "rapports-accident-modele-long"
+title: "Explorer les facteurs associés à la gravité"
+question: "Quels facteurs sont associés à la gravité des accidents, sans conclure trop vite à la causalité?"
+dataset_id: "rapports-accident"
+dataset_title: "Rapports d'accident"
+activity_url: "datasets/rapports-accident/activite-longue.qmd"
+duration: "2-3 heures"
+level: "Intermédiaire"
+activity_type:
+  - "Projet ou tâche longue"
+  - "Étude de cas"
+concepts:
+  - "Nettoyage"
+  - "Modélisation"
+  - "Validation"
+context: "Transport et sécurité routière"
+hook: "Décision publique et sécurité"
+materials:
+  - "énoncé"
+  - "code"
+  - "données"
+  - "notes enseignantes"
+advanced_math_stats: true
+teacher_notes: "Rappeler que les associations ne sont pas des effets causaux."
+status: "prêt"

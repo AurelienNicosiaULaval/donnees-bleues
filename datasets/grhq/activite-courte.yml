@@ -1,0 +1,24 @@
+id: "grhq-carte-court"
+title: "Explorer un index hydrographique"
+question: "Comment choisir une unité hydrographique à partir de l'index GRHQ?"
+dataset_id: "grhq"
+dataset_title: "Géobase du réseau hydrographique du Québec"
+activity_url: "datasets/grhq/activite-courte.qmd"
+duration: "30-45 minutes"
+level: "Intermédiaire"
+activity_type:
+  - "Exercice"
+  - "Exploration de données"
+concepts:
+  - "Données spatiales"
+  - "Métadonnées"
+  - "Cartographie"
+context: "Hydrographie"
+hook: "Réseau hydrographique du Québec"
+materials:
+  - "énoncé"
+  - "code"
+  - "données"
+advanced_math_stats: false
+teacher_notes: "Prévoir une démonstration si les étudiantes et étudiants découvrent `sf`."
+status: "prêt"

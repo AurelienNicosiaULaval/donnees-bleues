@@ -1,0 +1,25 @@
+id: "arbres-publics-carte-long"
+title: "Carte et qualité des données des arbres publics"
+question: "Comment cartographier un inventaire d'arbres tout en montrant ses limites?"
+dataset_id: "arbres-publics-montreal"
+dataset_title: "Arbres publics sur le territoire de Montréal"
+activity_url: "datasets/arbres-publics-montreal/activite-longue.qmd"
+duration: "2-3 heures"
+level: "Intermédiaire"
+activity_type:
+  - "Projet ou tâche longue"
+  - "Étude de cas"
+concepts:
+  - "Carte"
+  - "Données manquantes"
+  - "Statistique descriptive"
+context: "Foresterie urbaine"
+hook: "Foresterie urbaine"
+materials:
+  - "énoncé"
+  - "code"
+  - "données"
+  - "notes enseignantes"
+advanced_math_stats: false
+teacher_notes: "Insister sur la qualité des coordonnées et les limites d'inventaire."
+status: "prêt"

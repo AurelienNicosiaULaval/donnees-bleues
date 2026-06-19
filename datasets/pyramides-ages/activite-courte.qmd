@@ -1,0 +1,47 @@
+---
+title: "Pyramides des âges - activité courte"
+embed-resources: true
+---
+
+# Pyramides des âges - activité courte
+
+## Contexte
+
+Une pyramide des âges représente la population par groupe d'âge et par genre. Dans cette activité, vous construisez la pyramide des âges du Québec à partir d'une table ouverte de Statistique Canada.
+
+## Objectifs d'apprentissage
+
+- Importer une table StatCan avec `cansim`.
+- Filtrer une géographie, une année, deux catégories de genre et des groupes d'âge quinquennaux.
+- Créer une variable signée pour l'affichage.
+- Produire une pyramide des âges avec `ggplot2`.
+
+## Données utilisées
+
+Source : Statistique Canada, table 17-10-0005-01, Estimations de la population au 1er juillet, par âge et genre, sous Licence ouverte de Statistique Canada. Fiche : [Pyramides des âges au Canada et au Québec](fiche.qmd).
+
+## Consignes
+
+1. Importer la table avec `get_cansim("17-10-0005-01")`.
+2. Déterminer l'année la plus récente disponible.
+3. Garder seulement `GEO == "Quebec"`, `Gender %in% c("Men+", "Women+")` et `UOM == "Persons"`.
+4. Garder les groupes d'âge quinquennaux de `0 to 4 years` à `100 years and older`.
+5. Créer une variable négative pour `Men+` et positive pour `Women+`.
+6. Produire une pyramide avec `geom_col()` et `coord_flip()`.
+7. Écrire trois observations descriptives.
+
+## Questions
+
+1. Pourquoi la table doit-elle être filtrée avant le graphique?
+2. Pourquoi ne faut-il pas interpréter la valeur négative comme une population négative?
+3. Quels groupes d'âge sont les plus nombreux?
+4. La structure d'âge semble-t-elle symétrique entre les deux genres?
+5. Quelle information manque pour expliquer les causes des différences observées?
+
+## Pistes de solution
+
+Une solution correcte choisit explicitement les groupes d'âge quinquennaux. Elle évite d'inclure `All ages`, les âges simples, l'âge moyen ou l'âge médian. L'axe négatif sert seulement à placer un genre à gauche du graphique.
+
+## Prolongement
+
+Reproduire la même pyramide pour le Canada et comparer les deux graphiques en proportions plutôt qu'en effectifs absolus.

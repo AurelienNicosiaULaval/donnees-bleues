@@ -1,0 +1,61 @@
+id: "etablissements-enseignement"
+title: "Localisation des établissements d'enseignement au Québec"
+short_title: "Établissements scolaires"
+theme: "Éducation et territoire"
+source_name: "Données Québec / Ministère de l'Éducation et Ministère de l'Enseignement supérieur"
+source_url: "https://www.donneesquebec.ca/recherche/dataset/localisation-des-etablissements-d-enseignement-du-reseau-scolaire-au-quebec"
+license: "Attribution (CC-BY 4.0)"
+access_date: "2026-06-19"
+geography: "Québec"
+unit: "Établissement, immeuble ou siège social selon la ressource choisie"
+data_type: "Tabulaire, spatial, institutionnel"
+format: "CSV, GeoJSON, SHP, KML, WFS, WMS, FGDB et documentation PDF"
+n_rows: "Plusieurs ressources; fichiers CSV de quelques Ko à quelques Mo"
+n_cols: "34 champs observés dans l'en-tête du fichier `Écoles publiques` consulté le 2026-06-19"
+update_frequency: "Mises à jour fréquentes; métadonnées modifiées en 2026"
+level: "Introduction à intermédiaire"
+organisme: "Ministère de l'Éducation et Ministère de l'Enseignement supérieur"
+territoire: "Québec"
+taille_approximative: "Plusieurs ressources; fichiers CSV de quelques Ko à quelques Mo"
+niveau_pedagogique_recommande: "Introduction à intermédiaire"
+variables_principales:
+  - "nom_officiel"
+  - "nom_municipalite"
+  - "nom_mrc"
+  - "nom_region_administrative"
+  - "ordre_enseignement"
+  - "longitude"
+  - "latitude"
+idees_mini_projets:
+  - "Cartographier les écoles publiques d'une région administrative."
+  - "Comparer la répartition des ordres d'enseignement selon les régions."
+  - "Joindre les établissements à des indicateurs démographiques ou de diplomation."
+tags:
+  - "éducation"
+  - "Québec"
+  - "données ouvertes"
+  - "visualisation"
+  - "spatial"
+  - "statistiques descriptives"
+concepts:
+  - "éducation"
+  - "spatial"
+  - "Québec"
+  - "données ouvertes"
+  - "visualisation"
+  - "statistiques descriptives"
+  - "jointure"
+  - "territoire"
+zero_waste:
+  contexte_quebecois: 3
+  accessibilite_pedagogique: 3
+  qualite_documentaire: 3
+  potentiel_nettoyage: 2
+  potentiel_visualisation: 3
+  potentiel_statistique_descriptive: 3
+  potentiel_inference: 1
+  potentiel_modelisation: 2
+  potentiel_ethique: 2
+  reutilisabilite: 3
+status: "source vérifiée"
+notes: "Source, licence, formats CSV et GeoJSON vérifiés dans Données Québec. Choisir une ressource précise selon le niveau scolaire étudié."

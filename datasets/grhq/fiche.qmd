@@ -1,0 +1,117 @@
+---
+title: "Géobase du réseau hydrographique du Québec"
+embed-resources: true
+---
+
+# Géobase du réseau hydrographique du Québec
+
+## Pourquoi ce jeu est intéressant
+
+La GRHQ est un référentiel hydrographique pour le Québec. Elle est particulièrement utile pour des exercices de cartographie, de jointure spatiale et de préparation de données environnementales liées aux cours d'eau et bassins.
+
+## Source
+
+| Champ | Information |
+|---|---|
+| Source | Données Québec / Ministère des Ressources naturelles et des Forêts |
+| Organisme producteur | Ministère des Ressources naturelles et des Forêts |
+| Territoire | Québec |
+| URL officielle | <https://www.donneesquebec.ca/recherche/dataset/grhq> |
+| Licence | Attribution (CC-BY 4.0) |
+| Date d'accès | 2026-06-19 |
+| Fréquence de mise à jour | Selon les mises à jour du MRNF; métadonnées modifiées en 2026 |
+| Statut | source vérifiée |
+
+## Ce que représente une ligne
+
+Selon le fichier retenu, une ligne peut représenter une unité de découpage hydrographique dans l'index ou une entité du réseau hydrographique dans les fichiers détaillés.
+
+## Variables principales
+
+Les noms ci-dessous sont des noms propres proposés pour l'enseignement. Les noms exacts des champs sources doivent être conservés dans le script de préparation.
+
+| Variable proposée | Rôle pédagogique | Remarque |
+|---|---|---|
+| `bloc` | Bloc de téléchargement | Champ de l'index CSV |
+| `zone` | Zone ou unité de découpage | Champ de l'index CSV |
+| `fgdb` | Lien ou nom de fichier FGDB | Permet de choisir une ressource détaillée |
+| `geometry` | Géométrie spatiale | Présente dans les fichiers spatiaux détaillés |
+| `type_entite` | Type d'entité hydrographique | À confirmer dans le guide utilisateur |
+
+## Taille et structure
+
+| Élément | Information |
+|---|---|
+| Nombre de lignes | Volume important; index CSV et fichiers FGDB par unités de découpage hydrographique |
+| Nombre de colonnes | 3 champs dans l'index CSV consulté; structure détaillée à confirmer dans le guide GRHQ |
+| Structure | Spatial, réseau hydrographique, référentiel territorial |
+| Format | CSV, SHP, FGDB, WMS et documentation PDF |
+| Niveau pédagogique recommandé | Intermédiaire à avancé |
+
+## Concepts enseignables
+
+- eau
+- hydrographie
+- spatial
+- sf
+- jointure spatiale
+- Québec
+- données ouvertes
+- cartographie
+
+## Score zéro déchet
+
+| Dimension | Score |
+|---|---:|
+| Contexte québécois | 3 |
+| Accessibilité pédagogique | 1 |
+| Qualité documentaire | 3 |
+| Potentiel de nettoyage | 2 |
+| Potentiel de visualisation | 3 |
+| Potentiel de statistique descriptive | 2 |
+| Potentiel d'inférence | 1 |
+| Potentiel de modélisation | 2 |
+| Potentiel de discussion éthique | 2 |
+| Réutilisabilité dans plusieurs cours | 3 |
+
+Total : 22 sur 30.
+
+## Activité courte
+
+En 30 à 45 minutes, faire lire l'index de téléchargement et choisir une zone pour une analyse spatiale simple.
+
+## Activité longue
+
+En 2 à 3 heures, utiliser une unité GRHQ pour créer une carte et préparer une jointure avec un autre jeu environnemental.
+
+## Projets possibles
+
+- Télécharger une unité hydrographique et la cartographier.
+- Joindre des stations de qualité de l'eau à un réseau ou bassin.
+- Comparer la densité du réseau hydrographique entre deux régions.
+
+## Code R minimal
+
+```{r}
+#| eval: false
+library(dplyr)
+library(readr)
+
+source_url <- "https://www.donneesquebec.ca/recherche/dataset/grhq"
+
+# Télécharger la ressource appropriée depuis la page officielle,
+# puis documenter le fichier brut dans data/raw/ avant toute transformation.
+source_url
+```
+
+## Limites et précautions
+
+- Le jeu est plus technique que les tableaux CSV simples.
+- Les variables détaillées doivent être vérifiées dans le guide GRHQ.
+- Les traitements spatiaux peuvent être lourds pour une activité introductive.
+
+## Extensions
+
+- Utiliser `sf` pour lire une couche spatiale.
+- Simplifier les géométries pour une carte web.
+- Construire un exercice de jointure spatiale avec un autre jeu environnemental.

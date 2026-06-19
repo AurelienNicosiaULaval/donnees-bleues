@@ -1,0 +1,25 @@
+id: "niveaux-eau-rapport-long"
+title: "Mini-rapport sur les niveaux d'eau d'inondation"
+question: "Comment résumer des observations spatiales d'inondation sans surinterpréter?"
+dataset_id: "niveaux-eau-inondation"
+dataset_title: "Niveaux d'eau lors d'une inondation"
+activity_url: "datasets/niveaux-eau-inondation/activite-longue.qmd"
+duration: "2-3 heures"
+level: "Intermédiaire"
+activity_type:
+  - "Étude de cas"
+  - "Projet ou tâche longue"
+concepts:
+  - "Données spatiales"
+  - "Visualisation"
+  - "Communication"
+context: "Inondations et sécurité civile"
+hook: "Risque hydrologique local"
+materials:
+  - "énoncé"
+  - "code"
+  - "données"
+  - "notes enseignantes"
+advanced_math_stats: false
+teacher_notes: "Faire distinguer observation, événement et zone inondée."
+status: "prêt"

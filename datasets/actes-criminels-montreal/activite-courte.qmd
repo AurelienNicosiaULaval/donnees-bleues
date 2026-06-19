@@ -1,0 +1,60 @@
+---
+title: "Lire prudemment des données de sécurité publique"
+embed-resources: true
+---
+
+# Lire prudemment des données de sécurité publique
+
+## Contexte
+
+Cette activité met l'accent sur la lecture responsable des données publiques sensibles.
+
+## Objectifs d'apprentissage
+
+- Identifier l'unité statistique
+- Résumer des catégories
+- Formuler des limites éthiques
+
+## Données utilisées
+
+Fiche : [Actes criminels à Montréal](fiche.qmd)
+
+Source : Données Québec / Ville de Montréal.
+
+Licence : Attribution (CC-BY 4.0).
+
+## Métadonnées pédagogiques
+
+| Champ | Information |
+|---|---|
+| Question directrice | Que peut-on décrire sans transformer ces données en statistiques officielles? |
+| Concepts | Éthique des données; Catégories; Statistique descriptive |
+| Niveau | Intermédiaire |
+| Type | Discussion guidée; Exploration de données |
+| Contexte | Sécurité publique |
+| Accroche | Données sensibles et interprétation |
+| Durée | 30-45 minutes |
+| Matériel | énoncé; code; données |
+| Math/stats avancées | non |
+
+## Consignes
+
+1. Lire la description officielle
+2. Importer un extrait
+3. Compter les catégories
+4. Rédiger trois limites
+5. Présenter une visualisation non stigmatisante
+
+## Questions
+
+1. Pourquoi ce jeu n'est-il pas une statistique officielle?
+2. Quelles conclusions faut-il éviter?
+3. Quelle visualisation réduit les risques d'interprétation?
+
+## Pistes de solution
+
+Une solution acceptable contient autant de limites que de résultats descriptifs.
+
+## Prolongement
+
+Comparer deux catégories dans le temps sans cartographie fine.

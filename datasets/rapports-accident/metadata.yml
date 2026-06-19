@@ -1,0 +1,63 @@
+id: "rapports-accident"
+title: "Rapports d'accident"
+short_title: "Accidents routiers"
+theme: "Transport et sécurité routière"
+source_name: "Données Québec / Société de l'assurance automobile du Québec"
+source_url: "https://www.donneesquebec.ca/recherche/dataset/rapports-d-accident"
+license: "Attribution (CC-BY 4.0)"
+access_date: "2026-06-19"
+geography: "Québec"
+unit: "Rapport d'accident routier"
+data_type: "Tabulaire, temporel, catégoriel"
+format: "CSV annuel et documentation PDF"
+n_rows: "Fichiers annuels 2011 à 2022; fichiers CSV de l'ordre de dizaines de Mo par année"
+n_cols: "25 champs observés dans l'en-tête du fichier 2022 consulté le 2026-06-19"
+update_frequency: "Annuelle ou selon les publications de la SAAQ; métadonnées modifiées en 2023"
+level: "Intermédiaire"
+organisme: "Société de l'assurance automobile du Québec"
+territoire: "Québec"
+taille_approximative: "Fichiers annuels 2011 à 2022; fichiers CSV de l'ordre de dizaines de Mo par année"
+niveau_pedagogique_recommande: "Intermédiaire"
+variables_principales:
+  - "annee"
+  - "mois_accident"
+  - "heure_accident"
+  - "gravite"
+  - "nb_victimes_total"
+  - "nb_vehicules"
+  - "region_administrative"
+  - "condition_meteo"
+idees_mini_projets:
+  - "Comparer la gravité des accidents selon la saison."
+  - "Étudier les associations entre météo, éclairage et gravité."
+  - "Produire une série temporelle annuelle des accidents par région."
+tags:
+  - "transport"
+  - "Québec"
+  - "données ouvertes"
+  - "visualisation"
+  - "séries temporelles"
+  - "statistiques descriptives"
+  - "modélisation"
+concepts:
+  - "transport"
+  - "sécurité routière"
+  - "séries temporelles"
+  - "statistiques descriptives"
+  - "variables catégorielles"
+  - "Québec"
+  - "données ouvertes"
+  - "modélisation"
+zero_waste:
+  contexte_quebecois: 3
+  accessibilite_pedagogique: 2
+  qualite_documentaire: 3
+  potentiel_nettoyage: 3
+  potentiel_visualisation: 3
+  potentiel_statistique_descriptive: 3
+  potentiel_inference: 2
+  potentiel_modelisation: 3
+  potentiel_ethique: 3
+  reutilisabilite: 3
+status: "source vérifiée"
+notes: "Source, licence, documentation PDF et fichiers annuels vérifiés dans Données Québec. Les données ont été révisées pour la protection de la vie privée selon la description officielle."

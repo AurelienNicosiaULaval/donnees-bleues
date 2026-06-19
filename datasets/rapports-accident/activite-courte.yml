@@ -1,0 +1,24 @@
+id: "rapports-accident-gravite-court"
+title: "Décrire la gravité des accidents"
+question: "Comment la gravité varie-t-elle selon le mois ou la météo?"
+dataset_id: "rapports-accident"
+dataset_title: "Rapports d'accident"
+activity_url: "datasets/rapports-accident/activite-courte.qmd"
+duration: "30-45 minutes"
+level: "Intermédiaire"
+activity_type:
+  - "Exercice"
+  - "Exploration de données"
+concepts:
+  - "Tableaux croisés"
+  - "Visualisation"
+  - "Variables catégorielles"
+context: "Transport et sécurité routière"
+hook: "Sécurité routière"
+materials:
+  - "énoncé"
+  - "code"
+  - "données"
+advanced_math_stats: false
+teacher_notes: "Utiliser un seul fichier annuel pour garder l'activité légère."
+status: "prêt"

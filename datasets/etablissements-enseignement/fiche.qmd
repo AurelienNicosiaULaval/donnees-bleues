@@ -1,0 +1,119 @@
+---
+title: "Localisation des établissements d'enseignement au Québec"
+embed-resources: true
+---
+
+# Localisation des établissements d'enseignement au Québec
+
+## Pourquoi ce jeu est intéressant
+
+Ce jeu permet de cartographier les établissements d'enseignement du Québec et de travailler sur l'accès territorial, les ordres d'enseignement et la structure du réseau scolaire. Il complète bien les cohortes de diplomation.
+
+## Source
+
+| Champ | Information |
+|---|---|
+| Source | Données Québec / Ministère de l'Éducation et Ministère de l'Enseignement supérieur |
+| Organisme producteur | Ministère de l'Éducation et Ministère de l'Enseignement supérieur |
+| Territoire | Québec |
+| URL officielle | <https://www.donneesquebec.ca/recherche/dataset/localisation-des-etablissements-d-enseignement-du-reseau-scolaire-au-quebec> |
+| Licence | Attribution (CC-BY 4.0) |
+| Date d'accès | 2026-06-19 |
+| Fréquence de mise à jour | Mises à jour fréquentes; métadonnées modifiées en 2026 |
+| Statut | source vérifiée |
+
+## Ce que représente une ligne
+
+Une ligne représente un établissement, une installation, un immeuble ou un siège social selon le fichier CSV ou GeoJSON choisi. Le fichier `Écoles publiques` contient notamment les coordonnées et l'ordre d'enseignement.
+
+## Variables principales
+
+Les noms ci-dessous sont des noms propres proposés pour l'enseignement. Les noms exacts des champs sources doivent être conservés dans le script de préparation.
+
+| Variable proposée | Rôle pédagogique | Remarque |
+|---|---|---|
+| `nom_officiel` | Nom de l'organisme | Champ source apparent `NOM_OFFCL_ORGNS` |
+| `nom_municipalite` | Municipalité | Variable de regroupement territorial |
+| `nom_mrc` | MRC | Disponible dans certains fichiers |
+| `nom_region_administrative` | Région administrative | Variable de carte et de comparaison |
+| `ordre_enseignement` | Ordre d'enseignement | Préscolaire, primaire, secondaire ou autres selon la ressource |
+| `longitude` | Longitude | Champ source `COORD_X_LL84_IMM` dans le fichier consulté |
+| `latitude` | Latitude | Champ source `COORD_Y_LL84_IMM` dans le fichier consulté |
+
+## Taille et structure
+
+| Élément | Information |
+|---|---|
+| Nombre de lignes | Plusieurs ressources; fichiers CSV de quelques Ko à quelques Mo |
+| Nombre de colonnes | 34 champs observés dans l'en-tête du fichier `Écoles publiques` consulté le 2026-06-19 |
+| Structure | Tabulaire, spatial, institutionnel |
+| Format | CSV, GeoJSON, SHP, KML, WFS, WMS, FGDB et documentation PDF |
+| Niveau pédagogique recommandé | Introduction à intermédiaire |
+
+## Concepts enseignables
+
+- éducation
+- spatial
+- Québec
+- données ouvertes
+- visualisation
+- statistiques descriptives
+- jointure
+- territoire
+
+## Score zéro déchet
+
+| Dimension | Score |
+|---|---:|
+| Contexte québécois | 3 |
+| Accessibilité pédagogique | 3 |
+| Qualité documentaire | 3 |
+| Potentiel de nettoyage | 2 |
+| Potentiel de visualisation | 3 |
+| Potentiel de statistique descriptive | 3 |
+| Potentiel d'inférence | 1 |
+| Potentiel de modélisation | 2 |
+| Potentiel de discussion éthique | 2 |
+| Réutilisabilité dans plusieurs cours | 3 |
+
+Total : 25 sur 30.
+
+## Activité courte
+
+En 30 à 45 minutes, faire filtrer une région et produire une carte des établissements.
+
+## Activité longue
+
+En 2 à 3 heures, produire un portrait régional avec carte, tableau et limites d'interprétation.
+
+## Projets possibles
+
+- Cartographier les écoles publiques d'une région administrative.
+- Comparer la répartition des ordres d'enseignement selon les régions.
+- Joindre les établissements à des indicateurs démographiques ou de diplomation.
+
+## Code R minimal
+
+```{r}
+#| eval: false
+library(dplyr)
+library(readr)
+
+source_url <- "https://www.donneesquebec.ca/recherche/dataset/localisation-des-etablissements-d-enseignement-du-reseau-scolaire-au-quebec"
+
+# Télécharger la ressource appropriée depuis la page officielle,
+# puis documenter le fichier brut dans data/raw/ avant toute transformation.
+source_url
+```
+
+## Limites et précautions
+
+- L'unité statistique varie selon le fichier choisi.
+- Certains immeubles peuvent être liés à plusieurs organismes scolaires.
+- Les cartes d'accès exigent des données de population ou de transport complémentaires.
+
+## Extensions
+
+- Construire une carte avec `sf` ou `leaflet`.
+- Comparer établissements publics, privés, collégiaux et universitaires.
+- Joindre aux pyramides d'âge ou aux cohortes de diplomation.

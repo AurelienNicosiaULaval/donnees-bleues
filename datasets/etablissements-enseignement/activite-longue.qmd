@@ -1,0 +1,60 @@
+---
+title: "Portrait territorial des établissements d'enseignement"
+embed-resources: true
+---
+
+# Portrait territorial des établissements d'enseignement
+
+## Contexte
+
+Cette activité relie données institutionnelles et analyse territoriale.
+
+## Objectifs d'apprentissage
+
+- Choisir la bonne ressource
+- Produire des indicateurs régionaux
+- Communiquer les limites
+
+## Données utilisées
+
+Fiche : [Localisation des établissements d'enseignement au Québec](fiche.qmd)
+
+Source : Données Québec / Ministère de l'Éducation et Ministère de l'Enseignement supérieur.
+
+Licence : Attribution (CC-BY 4.0).
+
+## Métadonnées pédagogiques
+
+| Champ | Information |
+|---|---|
+| Question directrice | Comment décrire l'offre scolaire d'un territoire à partir de données ouvertes? |
+| Concepts | Jointure; Statistique descriptive; Cartographie |
+| Niveau | Intermédiaire |
+| Type | Projet ou tâche longue; Étude de cas |
+| Contexte | Éducation et territoire |
+| Accroche | Éducation et territoire |
+| Durée | 2-3 heures |
+| Matériel | énoncé; code; données; notes enseignantes |
+| Math/stats avancées | non |
+
+## Consignes
+
+1. Sélectionner une catégorie d'établissements
+2. Nettoyer les noms de régions
+3. Compter par région et ordre
+4. Créer une carte
+5. Rédiger un court rapport
+
+## Questions
+
+1. Quels établissements sont exclus?
+2. Quels indicateurs de population faudrait-il ajouter?
+3. Comment éviter de confondre nombre d'établissements et accessibilité?
+
+## Pistes de solution
+
+Un bon rapport présente la carte, un tableau régional et une discussion sur l'accessibilité non mesurée.
+
+## Prolongement
+
+Joindre les données de population par âge pour calculer des ratios exploratoires.

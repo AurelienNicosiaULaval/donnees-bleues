@@ -1,0 +1,60 @@
+---
+title: "Catégories de requêtes 311"
+embed-resources: true
+---
+
+# Catégories de requêtes 311
+
+## Contexte
+
+Cette activité utilise des demandes citoyennes pour pratiquer les résumés de variables catégorielles.
+
+## Objectifs d'apprentissage
+
+- Filtrer un arrondissement
+- Compter des catégories
+- Créer un graphique en barres
+
+## Données utilisées
+
+Fiche : [Demandes de services citoyennes 311 à Montréal](fiche.qmd)
+
+Source : Données Québec / Ville de Montréal.
+
+Licence : Attribution (CC-BY 4.0).
+
+## Métadonnées pédagogiques
+
+| Champ | Information |
+|---|---|
+| Question directrice | Quelles catégories de demandes dominent dans un arrondissement? |
+| Concepts | Comptage; Catégories; Visualisation |
+| Niveau | Introductif |
+| Type | Exercice; Exploration de données |
+| Contexte | Services municipaux |
+| Accroche | Services municipaux concrets |
+| Durée | 30-45 minutes |
+| Matériel | énoncé; code; données |
+| Math/stats avancées | non |
+
+## Consignes
+
+1. Importer un extrait ou une ressource CSV
+2. Filtrer un arrondissement
+3. Compter les valeurs de `ACTI_NOM`
+4. Tracer les dix catégories principales
+5. Interpréter avec prudence
+
+## Questions
+
+1. Quelle catégorie domine?
+2. Une forte fréquence signifie-t-elle plus de problèmes?
+3. Quels biais de déclaration sont possibles?
+
+## Pistes de solution
+
+Une solution acceptable présente un graphique clair et une phrase sur les biais de déclaration.
+
+## Prolongement
+
+Comparer deux arrondissements.

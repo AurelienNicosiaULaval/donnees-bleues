@@ -1,0 +1,60 @@
+---
+title: "Essences d'arbres par arrondissement"
+embed-resources: true
+---
+
+# Essences d'arbres par arrondissement
+
+## Contexte
+
+Cette activité utilise un inventaire urbain concret pour pratiquer les résumés catégoriels.
+
+## Objectifs d'apprentissage
+
+- Filtrer un arrondissement
+- Compter des catégories
+- Créer un graphique
+
+## Données utilisées
+
+Fiche : [Arbres publics sur le territoire de Montréal](fiche.qmd)
+
+Source : Données Québec / Ville de Montréal.
+
+Licence : Attribution (CC-BY 4.0).
+
+## Métadonnées pédagogiques
+
+| Champ | Information |
+|---|---|
+| Question directrice | Quelles essences d'arbres publics sont les plus fréquentes? |
+| Concepts | Comptage; Catégories; Visualisation |
+| Niveau | Introductif |
+| Type | Exercice; Exploration de données |
+| Contexte | Foresterie urbaine |
+| Accroche | Arbres visibles dans la ville |
+| Durée | 30-45 minutes |
+| Matériel | énoncé; code; données |
+| Math/stats avancées | non |
+
+## Consignes
+
+1. Importer un extrait du fichier consolidé
+2. Filtrer un arrondissement
+3. Compter les essences françaises
+4. Tracer les dix essences principales
+5. Décrire une limite
+
+## Questions
+
+1. Quelle essence domine?
+2. Les noms manquants posent-ils problème?
+3. Le résultat décrit-il tous les arbres de Montréal?
+
+## Pistes de solution
+
+Une solution acceptable présente un graphique des fréquences et mentionne la couverture de l'inventaire.
+
+## Prolongement
+
+Comparer deux arrondissements.

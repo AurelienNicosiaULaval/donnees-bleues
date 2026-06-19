@@ -1,0 +1,63 @@
+id: "arbres-publics-montreal"
+title: "Arbres publics sur le territoire de Montréal"
+short_title: "Arbres publics"
+theme: "Foresterie urbaine"
+source_name: "Données Québec / Ville de Montréal"
+source_url: "https://www.donneesquebec.ca/recherche/dataset/vmtl-arbres"
+license: "Attribution (CC-BY 4.0)"
+access_date: "2026-06-19"
+geography: "Montréal"
+unit: "Arbre public inventorié"
+data_type: "Tabulaire, spatial, environnement urbain"
+format: "CSV et dictionnaire PDF"
+n_rows: "Inventaire consolidé CSV d'environ 135 Mo; historique DHP d'environ 46 Mo"
+n_cols: "33 champs observés dans l'en-tête du fichier consolidé consulté le 2026-06-19"
+update_frequency: "Mise à jour fréquente; métadonnées modifiées en 2026"
+level: "Introduction à intermédiaire"
+organisme: "Ville de Montréal"
+territoire: "Montréal"
+taille_approximative: "Inventaire consolidé CSV d'environ 135 Mo; historique DHP d'environ 46 Mo"
+niveau_pedagogique_recommande: "Introduction à intermédiaire"
+variables_principales:
+  - "arrondissement"
+  - "essence_latin"
+  - "essence_fr"
+  - "dhp"
+  - "date_releve"
+  - "date_plantation"
+  - "longitude"
+  - "latitude"
+idees_mini_projets:
+  - "Comparer les essences d'arbres par arrondissement."
+  - "Cartographier la distribution des arbres publics et les données manquantes."
+  - "Analyser la relation entre diamètre, essence et date de plantation."
+tags:
+  - "environnement"
+  - "Montréal"
+  - "données ouvertes"
+  - "visualisation"
+  - "spatial"
+  - "statistiques descriptives"
+  - "arbres"
+concepts:
+  - "environnement urbain"
+  - "arbres"
+  - "Montréal"
+  - "spatial"
+  - "visualisation"
+  - "statistiques descriptives"
+  - "données manquantes"
+  - "données ouvertes"
+zero_waste:
+  contexte_quebecois: 3
+  accessibilite_pedagogique: 3
+  qualite_documentaire: 3
+  potentiel_nettoyage: 3
+  potentiel_visualisation: 3
+  potentiel_statistique_descriptive: 3
+  potentiel_inference: 2
+  potentiel_modelisation: 2
+  potentiel_ethique: 2
+  reutilisabilite: 3
+status: "source vérifiée"
+notes: "Source, licence, fichier consolidé et dictionnaire de données vérifiés dans Données Québec. La description officielle mentionne des localisations parfois imprécises ou non à jour."

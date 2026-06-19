@@ -1,0 +1,120 @@
+---
+title: "Arbres publics sur le territoire de Montréal"
+embed-resources: true
+---
+
+# Arbres publics sur le territoire de Montréal
+
+## Pourquoi ce jeu est intéressant
+
+Ce jeu est très riche pour l'enseignement : il relie espèces, mesures dendrométriques, arrondissement, localisation et qualité des données. Il permet de discuter biodiversité urbaine, valeurs manquantes, visualisation spatiale et nettoyage réaliste.
+
+## Source
+
+| Champ | Information |
+|---|---|
+| Source | Données Québec / Ville de Montréal |
+| Organisme producteur | Ville de Montréal |
+| Territoire | Montréal |
+| URL officielle | <https://www.donneesquebec.ca/recherche/dataset/vmtl-arbres> |
+| Licence | Attribution (CC-BY 4.0) |
+| Date d'accès | 2026-06-19 |
+| Fréquence de mise à jour | Mise à jour fréquente; métadonnées modifiées en 2026 |
+| Statut | source vérifiée |
+
+## Ce que représente une ligne
+
+Une ligne représente un arbre public inventorié ou une observation liée à l'inventaire, selon la ressource choisie. Le fichier consolidé contient notamment l'arrondissement, l'essence, le diamètre et les coordonnées.
+
+## Variables principales
+
+Les noms ci-dessous sont des noms propres proposés pour l'enseignement. Les noms exacts des champs sources doivent être conservés dans le script de préparation.
+
+| Variable proposée | Rôle pédagogique | Remarque |
+|---|---|---|
+| `arrondissement` | Arrondissement | Champ source `ARROND_NOM` |
+| `essence_latin` | Nom latin | Variable catégorielle riche |
+| `essence_fr` | Nom français | Utile pour la communication |
+| `dhp` | Diamètre à hauteur de poitrine | Variable quantitative |
+| `date_releve` | Date de relevé | Qualité temporelle de l'inventaire |
+| `date_plantation` | Date de plantation | Souvent utile mais potentiellement manquante |
+| `longitude` | Longitude | Coordonnée spatiale |
+| `latitude` | Latitude | Coordonnée spatiale |
+
+## Taille et structure
+
+| Élément | Information |
+|---|---|
+| Nombre de lignes | Inventaire consolidé CSV d'environ 135 Mo; historique DHP d'environ 46 Mo |
+| Nombre de colonnes | 33 champs observés dans l'en-tête du fichier consolidé consulté le 2026-06-19 |
+| Structure | Tabulaire, spatial, environnement urbain |
+| Format | CSV et dictionnaire PDF |
+| Niveau pédagogique recommandé | Introduction à intermédiaire |
+
+## Concepts enseignables
+
+- environnement urbain
+- arbres
+- Montréal
+- spatial
+- visualisation
+- statistiques descriptives
+- données manquantes
+- données ouvertes
+
+## Score zéro déchet
+
+| Dimension | Score |
+|---|---:|
+| Contexte québécois | 3 |
+| Accessibilité pédagogique | 3 |
+| Qualité documentaire | 3 |
+| Potentiel de nettoyage | 3 |
+| Potentiel de visualisation | 3 |
+| Potentiel de statistique descriptive | 3 |
+| Potentiel d'inférence | 2 |
+| Potentiel de modélisation | 2 |
+| Potentiel de discussion éthique | 2 |
+| Réutilisabilité dans plusieurs cours | 3 |
+
+Total : 27 sur 30.
+
+## Activité courte
+
+En 30 à 45 minutes, faire compter les essences principales dans un arrondissement.
+
+## Activité longue
+
+En 2 à 3 heures, demander une carte, un tableau de valeurs manquantes et une analyse par arrondissement.
+
+## Projets possibles
+
+- Comparer les essences d'arbres par arrondissement.
+- Cartographier la distribution des arbres publics et les données manquantes.
+- Analyser la relation entre diamètre, essence et date de plantation.
+
+## Code R minimal
+
+```{r}
+#| eval: false
+library(dplyr)
+library(readr)
+
+source_url <- "https://www.donneesquebec.ca/recherche/dataset/vmtl-arbres"
+
+# Télécharger la ressource appropriée depuis la page officielle,
+# puis documenter le fichier brut dans data/raw/ avant toute transformation.
+source_url
+```
+
+## Limites et précautions
+
+- La description officielle signale que certaines localisations peuvent être imprécises ou pas à jour.
+- Tous les arrondissements ou arbres de parc ne sont pas nécessairement représentés de la même façon.
+- Les analyses écologiques exigent des variables complémentaires sur l'environnement urbain.
+
+## Extensions
+
+- Créer une carte interactive des essences dominantes.
+- Étudier les valeurs manquantes de date de plantation.
+- Comparer les diamètres par essence avec des boîtes à moustaches.

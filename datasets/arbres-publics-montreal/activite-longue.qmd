@@ -1,0 +1,60 @@
+---
+title: "Carte et qualité des données des arbres publics"
+embed-resources: true
+---
+
+# Carte et qualité des données des arbres publics
+
+## Contexte
+
+Cette activité combine visualisation spatiale et audit de qualité des données.
+
+## Objectifs d'apprentissage
+
+- Lire des coordonnées
+- Évaluer les valeurs manquantes
+- Communiquer une carte avec limites
+
+## Données utilisées
+
+Fiche : [Arbres publics sur le territoire de Montréal](fiche.qmd)
+
+Source : Données Québec / Ville de Montréal.
+
+Licence : Attribution (CC-BY 4.0).
+
+## Métadonnées pédagogiques
+
+| Champ | Information |
+|---|---|
+| Question directrice | Comment cartographier un inventaire d'arbres tout en montrant ses limites? |
+| Concepts | Carte; Données manquantes; Statistique descriptive |
+| Niveau | Intermédiaire |
+| Type | Projet ou tâche longue; Étude de cas |
+| Contexte | Foresterie urbaine |
+| Accroche | Foresterie urbaine |
+| Durée | 2-3 heures |
+| Matériel | énoncé; code; données; notes enseignantes |
+| Math/stats avancées | non |
+
+## Consignes
+
+1. Importer le fichier
+2. Sélectionner les variables utiles
+3. Calculer les valeurs manquantes
+4. Tracer une carte
+5. Rédiger une note de prudence
+
+## Questions
+
+1. Quelles variables sont le plus souvent manquantes?
+2. La carte semble-t-elle complète?
+3. Quels usages seraient risqués avec ces données?
+
+## Pistes de solution
+
+Un bon rapport présente la carte et un court audit de qualité avant l'interprétation.
+
+## Prolongement
+
+Ajouter une analyse du diamètre par essence.

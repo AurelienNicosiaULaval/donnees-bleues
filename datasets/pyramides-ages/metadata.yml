@@ -1,0 +1,56 @@
+id: pyramides-ages
+title: "Pyramides des âges au Canada et au Québec"
+short_title: "Pyramides des âges"
+theme: "Démographie"
+source_name: "Statistique Canada"
+source_url: "https://www150.statcan.gc.ca/t1/tbl1/en/tv.action?pid=1710000501"
+license: "Licence ouverte de Statistique Canada"
+access_date: "2026-06-18"
+geography: "Canada, Québec, provinces et territoires"
+unit: "Combinaison année, géographie, genre et groupe d'âge"
+data_type: "Tabulaire, temporel, démographique"
+format: "Table StatCan accessible par cansim; CSV et SDMX disponibles"
+n_rows: "302610 lignes dans la version récupérée par cansim le 2026-06-18"
+n_cols: "24 colonnes dans la version récupérée par cansim le 2026-06-18"
+update_frequency: "Annuelle"
+level: "Introduction à intermédiaire"
+concepts:
+  - importation de données ouvertes
+  - nettoyage de données
+  - filtrage
+  - transformation de variables
+  - agrégation par groupe d'âge
+  - calcul de proportions
+  - statistique descriptive
+  - visualisation
+  - pyramide des âges
+  - comparaison temporelle
+  - comparaison territoriale
+  - interprétation démographique
+tags:
+  - données ouvertes
+  - Statistique Canada
+  - démographie
+  - population
+  - pyramide des âges
+  - Québec
+  - Canada
+  - visualisation
+  - ggplot2
+  - tidyverse
+  - science des données
+  - enseignement
+  - learnr
+zero_waste:
+  contexte_quebecois: 3
+  accessibilite_pedagogique: 3
+  qualite_documentaire: 3
+  potentiel_nettoyage: 2
+  potentiel_visualisation: 3
+  potentiel_statistique_descriptive: 3
+  potentiel_inference: 1
+  potentiel_modelisation: 2
+  potentiel_ethique: 3
+  reutilisabilite: 3
+status: "source vérifiée"
+notes: "Table Statistique Canada 17-10-0005-01, Estimations de la population au 1er juillet, par âge et genre. Périodes visibles vérifiées : 1971 à 2025. DOI : https://doi.org/10.25318/1710000501-fra."

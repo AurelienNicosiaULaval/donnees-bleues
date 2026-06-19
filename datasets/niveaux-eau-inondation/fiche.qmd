@@ -1,0 +1,120 @@
+---
+title: "Niveaux d'eau lors d'une inondation"
+embed-resources: true
+---
+
+# Niveaux d'eau lors d'une inondation
+
+## Pourquoi ce jeu est intéressant
+
+Ce jeu permet d'aborder les inondations à partir de repères de niveau d'eau géolocalisés. Il est utile pour introduire les données spatiales, la visualisation d'événements extrêmes, les limites de mesure et la communication des risques.
+
+## Source
+
+| Champ | Information |
+|---|---|
+| Source | Données Québec / Ministère de la Sécurité intérieure |
+| Organisme producteur | Ministère de la Sécurité intérieure |
+| Territoire | Québec |
+| URL officielle | <https://www.donneesquebec.ca/recherche/dataset/niveaux-deau-inondation-msp> |
+| Licence | Attribution (CC-BY 4.0) |
+| Date d'accès | 2026-06-19 |
+| Fréquence de mise à jour | Selon les mises à jour du ministère; métadonnées modifiées en 2026 |
+| Statut | source vérifiée |
+
+## Ce que représente une ligne
+
+Une ligne représente un repère ou une observation de niveau d'eau associée à un événement d'inondation, avec date, position et altitude lorsque ces champs sont disponibles.
+
+## Variables principales
+
+Les noms ci-dessous sont des noms propres proposés pour l'enseignement. Les noms exacts des champs sources doivent être conservés dans le script de préparation.
+
+| Variable proposée | Rôle pédagogique | Remarque |
+|---|---|---|
+| `rapport` | Identifiant ou référence de rapport | Champ source observé dans le CSV |
+| `date_obs` | Date d'observation | Base pour filtrer les événements |
+| `heure_obs` | Heure d'observation | Utile pour documenter la mesure |
+| `type_obs` | Type d'observation | Variable catégorielle à recoder au besoin |
+| `long_wgs84` | Longitude | Coordonnée WGS84 |
+| `lat_wgs84` | Latitude | Coordonnée WGS84 |
+| `alt_m_cgvd` | Altitude du repère | Variable quantitative principale |
+| `producteur` | Producteur de l'information | Métadonnée de provenance |
+
+## Taille et structure
+
+| Élément | Information |
+|---|---|
+| Nombre de lignes | Nombre de lignes à confirmer dans la ressource WFS; jeu public depuis 2017 |
+| Nombre de colonnes | 17 champs observés dans l'export CSV consulté le 2026-06-19 |
+| Structure | Tabulaire, spatial, événementiel |
+| Format | CSV, GeoJSON, SHP, WMS et WFS |
+| Niveau pédagogique recommandé | Introduction à intermédiaire |
+
+## Concepts enseignables
+
+- eau
+- inondation
+- sécurité civile
+- spatial
+- visualisation
+- données ouvertes
+- Québec
+- statistiques descriptives
+
+## Score zéro déchet
+
+| Dimension | Score |
+|---|---:|
+| Contexte québécois | 3 |
+| Accessibilité pédagogique | 2 |
+| Qualité documentaire | 3 |
+| Potentiel de nettoyage | 2 |
+| Potentiel de visualisation | 3 |
+| Potentiel de statistique descriptive | 2 |
+| Potentiel d'inférence | 1 |
+| Potentiel de modélisation | 2 |
+| Potentiel de discussion éthique | 3 |
+| Réutilisabilité dans plusieurs cours | 3 |
+
+Total : 24 sur 30.
+
+## Activité courte
+
+En 30 à 45 minutes, demander aux personnes étudiantes de télécharger l'export CSV ou GeoJSON, de filtrer quelques observations et de produire une carte simple.
+
+## Activité longue
+
+En 2 à 3 heures, demander de produire une carte, un résumé tabulaire et une courte note sur les limites des observations.
+
+## Projets possibles
+
+- Cartographier les observations par événement ou par région.
+- Comparer la distribution des altitudes observées selon le type d'observation.
+- Construire une carte interactive des repères de crue et discuter des limites de mesure.
+
+## Code R minimal
+
+```{r}
+#| eval: false
+library(dplyr)
+library(readr)
+
+source_url <- "https://www.donneesquebec.ca/recherche/dataset/niveaux-deau-inondation-msp"
+
+# Télécharger la ressource appropriée depuis la page officielle,
+# puis documenter le fichier brut dans data/raw/ avant toute transformation.
+source_url
+```
+
+## Limites et précautions
+
+- Les observations ne décrivent pas toute l'étendue d'une inondation.
+- La précision horizontale et verticale doit être prise en compte avant toute carte détaillée.
+- Les comparaisons entre événements exigent de vérifier les méthodes de collecte.
+
+## Extensions
+
+- Associer les repères à des bassins versants ou à des municipalités.
+- Comparer les formats CSV et GeoJSON dans un même exercice.
+- Produire une note de communication des risques avec carte et incertitudes.

@@ -1,0 +1,25 @@
+id: "actes-criminels-rapport-long"
+title: "Rapport descriptif et éthique sur les actes criminels"
+question: "Comment construire un rapport descriptif responsable avec des données policières ouvertes?"
+dataset_id: "actes-criminels-montreal"
+dataset_title: "Actes criminels à Montréal"
+activity_url: "datasets/actes-criminels-montreal/activite-longue.qmd"
+duration: "2-3 heures"
+level: "Avancé"
+activity_type:
+  - "Étude de cas"
+  - "Projet ou tâche longue"
+concepts:
+  - "Éthique"
+  - "Séries temporelles"
+  - "Cartographie agrégée"
+context: "Sécurité publique"
+hook: "Usage responsable de données sensibles"
+materials:
+  - "énoncé"
+  - "code"
+  - "données"
+  - "notes enseignantes"
+advanced_math_stats: false
+teacher_notes: "Exiger une section limites et interdire les conclusions sur les personnes ou communautés."
+status: "prêt"

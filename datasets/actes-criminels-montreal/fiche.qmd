@@ -1,0 +1,118 @@
+---
+title: "Actes criminels à Montréal"
+embed-resources: true
+---
+
+# Actes criminels à Montréal
+
+## Pourquoi ce jeu est intéressant
+
+Ce jeu peut servir à enseigner la prudence avec les données de sécurité publique : catégories, localisation, agrégation temporelle, cartographie et risques de surinterprétation. Il ne doit pas être présenté comme un portrait complet ou officiel de la criminalité.
+
+## Source
+
+| Champ | Information |
+|---|---|
+| Source | Données Québec / Ville de Montréal |
+| Organisme producteur | Ville de Montréal |
+| Territoire | Montréal |
+| URL officielle | <https://www.donneesquebec.ca/recherche/dataset/vmtl-actes-criminels> |
+| Licence | Attribution (CC-BY 4.0) |
+| Date d'accès | 2026-06-19 |
+| Fréquence de mise à jour | Mise à jour fréquente; métadonnées modifiées en 2026 |
+| Statut | source vérifiée avec prudence éthique |
+
+## Ce que représente une ligne
+
+Une ligne représente un acte criminel enregistré dans le jeu publié. La description officielle précise que ces données ne représentent pas les statistiques officielles du SPVM.
+
+## Variables principales
+
+Les noms ci-dessous sont des noms propres proposés pour l'enseignement. Les noms exacts des champs sources doivent être conservés dans le script de préparation.
+
+| Variable proposée | Rôle pédagogique | Remarque |
+|---|---|---|
+| `categorie` | Catégorie d'acte | Champ source `CATEGORIE` |
+| `date` | Date | Permet l'agrégation temporelle |
+| `quart` | Quart de journée | Variable catégorielle temporelle |
+| `pdq` | Poste de quartier | Découpage opérationnel |
+| `longitude` | Longitude | Champ source `LONGITUDE` |
+| `latitude` | Latitude | Champ source `LATITUDE` |
+
+## Taille et structure
+
+| Élément | Information |
+|---|---|
+| Nombre de lignes | CSV d'environ 32 Mo; GeoJSON d'environ 109 Mo |
+| Nombre de colonnes | 8 champs observés dans l'en-tête du CSV consulté le 2026-06-19 |
+| Structure | Tabulaire, spatial, temporel, catégoriel |
+| Format | CSV, GeoJSON et ZIP |
+| Niveau pédagogique recommandé | Intermédiaire à avancé |
+
+## Concepts enseignables
+
+- sécurité publique
+- Montréal
+- catégories
+- séries temporelles
+- spatial
+- éthique des données
+- visualisation
+- données ouvertes
+
+## Score zéro déchet
+
+| Dimension | Score |
+|---|---:|
+| Contexte québécois | 3 |
+| Accessibilité pédagogique | 2 |
+| Qualité documentaire | 2 |
+| Potentiel de nettoyage | 2 |
+| Potentiel de visualisation | 3 |
+| Potentiel de statistique descriptive | 2 |
+| Potentiel d'inférence | 1 |
+| Potentiel de modélisation | 1 |
+| Potentiel de discussion éthique | 3 |
+| Réutilisabilité dans plusieurs cours | 2 |
+
+Total : 21 sur 30.
+
+## Activité courte
+
+En 30 à 45 minutes, faire produire un résumé par catégorie et une note explicite sur les limites.
+
+## Activité longue
+
+En 2 à 3 heures, demander un rapport avec agrégation temporelle, visualisation prudente et section éthique.
+
+## Projets possibles
+
+- Comparer les catégories publiées par mois sans les traiter comme statistiques officielles.
+- Créer une carte agrégée par secteur ou grille plutôt qu'une carte de points sensibles.
+- Discuter des biais de déclaration et des risques d'interprétation.
+
+## Code R minimal
+
+```{r}
+#| eval: false
+library(dplyr)
+library(readr)
+
+source_url <- "https://www.donneesquebec.ca/recherche/dataset/vmtl-actes-criminels"
+
+# Télécharger la ressource appropriée depuis la page officielle,
+# puis documenter le fichier brut dans data/raw/ avant toute transformation.
+source_url
+```
+
+## Limites et précautions
+
+- Le jeu ne représente pas les statistiques officielles du SPVM selon la description Données Québec.
+- Les données de sécurité publique peuvent renforcer des interprétations stigmatisantes si elles sont mal contextualisées.
+- Les cartes de points doivent être agrégées ou floutées pour éviter une lecture trop fine.
+
+## Extensions
+
+- Agréger par mois et catégorie.
+- Construire une carte en grille au lieu d'afficher des points individuels.
+- Rédiger une note d'éthique sur les limites des données policières.

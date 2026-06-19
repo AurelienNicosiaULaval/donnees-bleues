@@ -1,0 +1,120 @@
+---
+title: "Rapports d'accident"
+embed-resources: true
+---
+
+# Rapports d'accident
+
+## Pourquoi ce jeu est intéressant
+
+Ce jeu permet d'étudier des accidents routiers à partir de variables temporelles, de gravité, de météo et de contexte routier. Il est utile pour les tableaux croisés, les séries temporelles, la visualisation et l'introduction prudente à la modélisation de variables catégorielles.
+
+## Source
+
+| Champ | Information |
+|---|---|
+| Source | Données Québec / Société de l'assurance automobile du Québec |
+| Organisme producteur | Société de l'assurance automobile du Québec |
+| Territoire | Québec |
+| URL officielle | <https://www.donneesquebec.ca/recherche/dataset/rapports-d-accident> |
+| Licence | Attribution (CC-BY 4.0) |
+| Date d'accès | 2026-06-19 |
+| Fréquence de mise à jour | Annuelle ou selon les publications de la SAAQ; métadonnées modifiées en 2023 |
+| Statut | source vérifiée |
+
+## Ce que représente une ligne
+
+Une ligne représente un accident déclaré dans un rapport rempli par les policiers, avec moment, gravité et caractéristiques routières ou météorologiques selon les champs disponibles.
+
+## Variables principales
+
+Les noms ci-dessous sont des noms propres proposés pour l'enseignement. Les noms exacts des champs sources doivent être conservés dans le script de préparation.
+
+| Variable proposée | Rôle pédagogique | Remarque |
+|---|---|---|
+| `annee` | Année du rapport | Champ source `AN` |
+| `mois_accident` | Mois de l'accident | Champ source `MS_ACCDN` |
+| `heure_accident` | Heure de l'accident | Champ source `HR_ACCDN` |
+| `gravite` | Gravité | Variable de réponse possible |
+| `nb_victimes_total` | Nombre total de victimes | Variable quantitative discrète |
+| `nb_vehicules` | Nombre de véhicules impliqués | Variable de contexte |
+| `region_administrative` | Région | Champ source `REG_ADM` |
+| `condition_meteo` | Condition météorologique | Variable catégorielle |
+
+## Taille et structure
+
+| Élément | Information |
+|---|---|
+| Nombre de lignes | Fichiers annuels 2011 à 2022; fichiers CSV de l'ordre de dizaines de Mo par année |
+| Nombre de colonnes | 25 champs observés dans l'en-tête du fichier 2022 consulté le 2026-06-19 |
+| Structure | Tabulaire, temporel, catégoriel |
+| Format | CSV annuel et documentation PDF |
+| Niveau pédagogique recommandé | Intermédiaire |
+
+## Concepts enseignables
+
+- transport
+- sécurité routière
+- séries temporelles
+- statistiques descriptives
+- variables catégorielles
+- Québec
+- données ouvertes
+- modélisation
+
+## Score zéro déchet
+
+| Dimension | Score |
+|---|---:|
+| Contexte québécois | 3 |
+| Accessibilité pédagogique | 2 |
+| Qualité documentaire | 3 |
+| Potentiel de nettoyage | 3 |
+| Potentiel de visualisation | 3 |
+| Potentiel de statistique descriptive | 3 |
+| Potentiel d'inférence | 2 |
+| Potentiel de modélisation | 3 |
+| Potentiel de discussion éthique | 3 |
+| Réutilisabilité dans plusieurs cours | 3 |
+
+Total : 28 sur 30.
+
+## Activité courte
+
+En 30 à 45 minutes, faire résumer un fichier annuel par mois et gravité, puis produire un graphique en barres.
+
+## Activité longue
+
+En 2 à 3 heures, demander un mini-rapport combinant nettoyage, graphiques et modèle simple de gravité.
+
+## Projets possibles
+
+- Comparer la gravité des accidents selon la saison.
+- Étudier les associations entre météo, éclairage et gravité.
+- Produire une série temporelle annuelle des accidents par région.
+
+## Code R minimal
+
+```{r}
+#| eval: false
+library(dplyr)
+library(readr)
+
+source_url <- "https://www.donneesquebec.ca/recherche/dataset/rapports-d-accident"
+
+# Télécharger la ressource appropriée depuis la page officielle,
+# puis documenter le fichier brut dans data/raw/ avant toute transformation.
+source_url
+```
+
+## Limites et précautions
+
+- Les données décrivent des accidents rapportés et ne mesurent pas directement le risque d'exposition.
+- Les codes catégoriels doivent être interprétés avec la documentation PDF.
+- Toute modélisation de gravité doit éviter les conclusions causales rapides.
+
+## Extensions
+
+- Construire un tableau croisé gravité par météo.
+- Agréger par année et région administrative.
+- Modéliser une variable binaire de gravité avec validation simple.

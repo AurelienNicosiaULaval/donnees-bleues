@@ -1,0 +1,24 @@
+id: "requetes-311-categories-court"
+title: "Catégories de requêtes 311"
+question: "Quelles catégories de demandes dominent dans un arrondissement?"
+dataset_id: "requetes-311"
+dataset_title: "Demandes de services citoyennes 311 à Montréal"
+activity_url: "datasets/requetes-311/activite-courte.qmd"
+duration: "30-45 minutes"
+level: "Introductif"
+activity_type:
+  - "Exercice"
+  - "Exploration de données"
+concepts:
+  - "Comptage"
+  - "Catégories"
+  - "Visualisation"
+context: "Services municipaux"
+hook: "Services municipaux concrets"
+materials:
+  - "énoncé"
+  - "code"
+  - "données"
+advanced_math_stats: false
+teacher_notes: "Préparer un extrait si le fichier complet est trop lourd."
+status: "prêt"

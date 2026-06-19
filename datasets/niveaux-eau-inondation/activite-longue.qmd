@@ -1,0 +1,60 @@
+---
+title: "Mini-rapport sur les niveaux d'eau d'inondation"
+embed-resources: true
+---
+
+# Mini-rapport sur les niveaux d'eau d'inondation
+
+## Contexte
+
+Cette activité transforme un jeu spatial de sécurité civile en rapport descriptif reproductible.
+
+## Objectifs d'apprentissage
+
+- Nettoyer les dates et coordonnées
+- Résumer les observations
+- Communiquer les limites
+
+## Données utilisées
+
+Fiche : [Niveaux d'eau lors d'une inondation](fiche.qmd)
+
+Source : Données Québec / Ministère de la Sécurité intérieure.
+
+Licence : Attribution (CC-BY 4.0).
+
+## Métadonnées pédagogiques
+
+| Champ | Information |
+|---|---|
+| Question directrice | Comment résumer des observations spatiales d'inondation sans surinterpréter? |
+| Concepts | Données spatiales; Visualisation; Communication |
+| Niveau | Intermédiaire |
+| Type | Étude de cas; Projet ou tâche longue |
+| Contexte | Inondations et sécurité civile |
+| Accroche | Risque hydrologique local |
+| Durée | 2-3 heures |
+| Matériel | énoncé; code; données; notes enseignantes |
+| Math/stats avancées | non |
+
+## Consignes
+
+1. Importer la ressource
+2. Nettoyer dates et coordonnées
+3. Résumer les observations par région ou producteur
+4. Créer une carte
+5. Rédiger une note de synthèse
+
+## Questions
+
+1. Quelle est l'unité statistique?
+2. Quelles observations semblent atypiques?
+3. Quelles conclusions seraient trop fortes?
+
+## Pistes de solution
+
+Un bon rapport sépare les résultats descriptifs, la carte et les limites de collecte.
+
+## Prolongement
+
+Joindre les points à une couche de régions administratives.

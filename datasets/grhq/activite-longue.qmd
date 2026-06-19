@@ -1,0 +1,60 @@
+---
+title: "Jointure spatiale avec le réseau hydrographique"
+embed-resources: true
+---
+
+# Jointure spatiale avec le réseau hydrographique
+
+## Contexte
+
+Cette activité mobilise un référentiel spatial pour structurer une analyse environnementale.
+
+## Objectifs d'apprentissage
+
+- Lire une couche spatiale
+- Vérifier un système de coordonnées
+- Préparer une jointure spatiale
+
+## Données utilisées
+
+Fiche : [Géobase du réseau hydrographique du Québec](fiche.qmd)
+
+Source : Données Québec / Ministère des Ressources naturelles et des Forêts.
+
+Licence : Attribution (CC-BY 4.0).
+
+## Métadonnées pédagogiques
+
+| Champ | Information |
+|---|---|
+| Question directrice | Comment utiliser un référentiel hydrographique pour enrichir un jeu environnemental? |
+| Concepts | sf; Jointure spatiale; Visualisation |
+| Niveau | Avancé |
+| Type | Projet ou tâche longue; Étude de cas |
+| Contexte | Hydrographie |
+| Accroche | Hydrographie et environnement |
+| Durée | 2-3 heures |
+| Matériel | énoncé; code; données; notes enseignantes |
+| Math/stats avancées | non |
+
+## Consignes
+
+1. Choisir une zone GRHQ
+2. Lire les données avec `sf`
+3. Nettoyer les attributs utiles
+4. Joindre ou superposer un autre jeu
+5. Produire une carte commentée
+
+## Questions
+
+1. Quel système de coordonnées est utilisé?
+2. Quelles entités sont pertinentes pour la question?
+3. Comment réduire la taille des données sans perdre le sens?
+
+## Pistes de solution
+
+Un bon rapport documente le fichier choisi, la projection et les limites de la jointure.
+
+## Prolongement
+
+Ajouter des stations de qualité de l'eau ou des repères de crue.

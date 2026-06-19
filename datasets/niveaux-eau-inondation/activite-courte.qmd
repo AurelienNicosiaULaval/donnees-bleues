@@ -1,0 +1,60 @@
+---
+title: "Cartographier des repères de crue"
+embed-resources: true
+---
+
+# Cartographier des repères de crue
+
+## Contexte
+
+Cette activité utilise les repères de crue pour introduire la lecture d'un jeu spatial public.
+
+## Objectifs d'apprentissage
+
+- Importer un fichier spatial ou tabulaire
+- Identifier les variables de localisation
+- Produire une carte simple
+
+## Données utilisées
+
+Fiche : [Niveaux d'eau lors d'une inondation](fiche.qmd)
+
+Source : Données Québec / Ministère de la Sécurité intérieure.
+
+Licence : Attribution (CC-BY 4.0).
+
+## Métadonnées pédagogiques
+
+| Champ | Information |
+|---|---|
+| Question directrice | Où se situent les observations de niveaux d'eau disponibles? |
+| Concepts | Données spatiales; Carte; Statistique descriptive |
+| Niveau | Introductif |
+| Type | Exercice; Exploration de données |
+| Contexte | Inondations et sécurité civile |
+| Accroche | Événement d'inondation |
+| Durée | 30-45 minutes |
+| Matériel | énoncé; code; données |
+| Math/stats avancées | non |
+
+## Consignes
+
+1. Ouvrir la page source officielle
+2. Choisir le format CSV ou GeoJSON
+3. Identifier les colonnes de latitude et longitude
+4. Tracer les points sur une carte
+5. Écrire deux limites d'interprétation
+
+## Questions
+
+1. Les points couvrent-ils tout le Québec?
+2. Quelles colonnes décrivent l'incertitude de mesure?
+3. Pourquoi une carte peut-elle être trompeuse sans contexte?
+
+## Pistes de solution
+
+Une solution acceptable montre une carte lisible, identifie les variables de localisation et mentionne les limites de précision.
+
+## Prolongement
+
+Ajouter une couleur selon le type d'observation.

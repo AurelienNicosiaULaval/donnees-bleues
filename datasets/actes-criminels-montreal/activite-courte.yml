@@ -1,0 +1,24 @@
+id: "actes-criminels-ethique-court"
+title: "Lire prudemment des données de sécurité publique"
+question: "Que peut-on décrire sans transformer ces données en statistiques officielles?"
+dataset_id: "actes-criminels-montreal"
+dataset_title: "Actes criminels à Montréal"
+activity_url: "datasets/actes-criminels-montreal/activite-courte.qmd"
+duration: "30-45 minutes"
+level: "Intermédiaire"
+activity_type:
+  - "Discussion guidée"
+  - "Exploration de données"
+concepts:
+  - "Éthique des données"
+  - "Catégories"
+  - "Statistique descriptive"
+context: "Sécurité publique"
+hook: "Données sensibles et interprétation"
+materials:
+  - "énoncé"
+  - "code"
+  - "données"
+advanced_math_stats: false
+teacher_notes: "Ne pas demander de classement de quartiers dangereux."
+status: "prêt"

@@ -1,0 +1,27 @@
+id: pyramides-ages-comparaison-long
+title: "Comparer la structure d'âge du Québec et du Canada"
+question: "Comment décrire l'évolution d'une structure démographique avec des données agrégées?"
+dataset_id: pyramides-ages
+dataset_title: "Pyramides des âges au Canada et au Québec"
+activity_url: "datasets/pyramides-ages/activite-longue.qmd"
+duration: "2-3 heures"
+level: "Intermédiaire"
+activity_type:
+  - "Étude de cas"
+  - "Projet ou tâche longue"
+  - "Exploration de données"
+concepts:
+  - "Données et mesure"
+  - "Statistique descriptive"
+  - "Visualisation"
+  - "Communication"
+context: "Démographie"
+hook: "Vieillissement démographique"
+materials:
+  - "énoncé"
+  - "code"
+  - "données ouvertes"
+  - "notes enseignantes"
+advanced_math_stats: false
+teacher_notes: "Demander de séparer les résultats descriptifs des interprétations causales; la table ne contient pas les composantes de la croissance démographique."
+status: "prêt"

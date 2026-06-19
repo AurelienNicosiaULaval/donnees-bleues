@@ -1,0 +1,60 @@
+id: "grhq"
+title: "Géobase du réseau hydrographique du Québec"
+short_title: "GRHQ"
+theme: "Hydrographie"
+source_name: "Données Québec / Ministère des Ressources naturelles et des Forêts"
+source_url: "https://www.donneesquebec.ca/recherche/dataset/grhq"
+license: "Attribution (CC-BY 4.0)"
+access_date: "2026-06-19"
+geography: "Québec"
+unit: "Entité hydrographique ou unité de téléchargement selon la ressource choisie"
+data_type: "Spatial, réseau hydrographique, référentiel territorial"
+format: "CSV, SHP, FGDB, WMS et documentation PDF"
+n_rows: "Volume important; index CSV et fichiers FGDB par unités de découpage hydrographique"
+n_cols: "3 champs dans l'index CSV consulté; structure détaillée à confirmer dans le guide GRHQ"
+update_frequency: "Selon les mises à jour du MRNF; métadonnées modifiées en 2026"
+level: "Intermédiaire à avancé"
+organisme: "Ministère des Ressources naturelles et des Forêts"
+territoire: "Québec"
+taille_approximative: "Volume important; index CSV et fichiers FGDB par unités de découpage hydrographique"
+niveau_pedagogique_recommande: "Intermédiaire à avancé"
+variables_principales:
+  - "bloc"
+  - "zone"
+  - "fgdb"
+  - "geometry"
+  - "type_entite"
+idees_mini_projets:
+  - "Télécharger une unité hydrographique et la cartographier."
+  - "Joindre des stations de qualité de l'eau à un réseau ou bassin."
+  - "Comparer la densité du réseau hydrographique entre deux régions."
+tags:
+  - "eau"
+  - "environnement"
+  - "Québec"
+  - "données ouvertes"
+  - "spatial"
+  - "cartographie"
+  - "hydrographie"
+concepts:
+  - "eau"
+  - "hydrographie"
+  - "spatial"
+  - "sf"
+  - "jointure spatiale"
+  - "Québec"
+  - "données ouvertes"
+  - "cartographie"
+zero_waste:
+  contexte_quebecois: 3
+  accessibilite_pedagogique: 1
+  qualite_documentaire: 3
+  potentiel_nettoyage: 2
+  potentiel_visualisation: 3
+  potentiel_statistique_descriptive: 2
+  potentiel_inference: 1
+  potentiel_modelisation: 2
+  potentiel_ethique: 2
+  reutilisabilite: 3
+status: "source vérifiée"
+notes: "Source et licence vérifiées dans Données Québec. Les variables détaillées dépendent du fichier spatial choisi."

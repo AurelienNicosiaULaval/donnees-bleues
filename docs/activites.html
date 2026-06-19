@@ -1537,7 +1537,7 @@ const initMatch = () => ({
   i: 0,
   lohisByNode: new Map()
 })
-/** 
+/**
  * keeps track of the start (lo) and end (hi) index of the match per node (leaf)
  * note: mutates the contents of `matchContext`
  */
@@ -1549,16 +1549,16 @@ const advanceMatch = (leaf, leafi, matchContext) => {
   matchContext.lohisByNode.set(leaf, { lo: curLoHi?.lo ?? leafi, hi: leafi })
 }
 /**
- * Finds all non-overlapping matches for a search string in the document. 
+ * Finds all non-overlapping matches for a search string in the document.
  * The search string may be split between multiple consecutive leaf nodes.
- * 
+ *
  * Whitespace in the search string must be present in the document to match, but
  * there may be addititional whitespace in the document that is ignored.
- * 
+ *
  * e.g. searching for `dogs rock` would match `dogs  \n <span> rock</span>`,
- * and would contribute the match 
+ * and would contribute the match
  * `{ i:9, els: new Map([[textNode, {lo:0, hi:8}],[spanNode,{lo:0,hi:5}]]) }`
- * 
+ *
  * @returns {Map<HTMLElement,{lo:number,hi:number}>[]}
  */
 function searchMatches(inSearch, el) {
@@ -1603,7 +1603,7 @@ function searchMatches(inSearch, el) {
   return matches
 }
 
-/** 
+/**
  * e.g. `markMatches(myTextNode, [[0,5],[12,15]])` would wrap the
  * character sequences in myTextNode from 0-5 and 12-15 in marks.
  * Its important to mark all sequences in a text node at once
@@ -1665,7 +1665,7 @@ function scrollToFirstVisibleMatch(mainEl) {
  *
  * arrayMapPush(m, 'dog', 'Max')
  * console.log(m) // Map { dog->['Max'] }
- * 
+ *
  * arrayMapPush(m, 'dog', 'Samba')
  * arrayMapPush(m, 'cat', 'Scruffle')
  * console.log(m) // Map { dog->['Max', 'Samba'], cat->['Scruffle'] }
@@ -1679,7 +1679,7 @@ const arrayMapPush = (map, key, item) => {
 // copy&paste any string from a quarto page and
 // this should find that string in the page and highlight it.
 // exception: text that starts outside/inside a tabset and ends
-// inside/outside that tabset. 
+// inside/outside that tabset.
 function highlight(searchStr, el) {
   const matches = searchMatches(searchStr, el);
 
@@ -4088,6 +4088,11 @@ color: var(--db-muted);
 margin: 0.25rem 1rem 1rem 0;
 padding-left: 2rem;
 }
+.image-credit-link {
+color: var(--db-muted);
+font-size: 0.9rem;
+margin: -1rem 0 2rem;
+}
 .activity-card {
 min-height: 260px;
 }
@@ -4193,29 +4198,29 @@ font-size: 2.3rem;
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./index.html"> 
+    <a class="nav-link" href="./index.html">
 <span class="menu-text">Accueil</span></a>
-  </li>  
+  </li>
   <li class="nav-item">
-    <a class="nav-link" href="./catalogue.html"> 
+    <a class="nav-link" href="./catalogue.html">
 <span class="menu-text">Catalogue</span></a>
-  </li>  
+  </li>
   <li class="nav-item">
-    <a class="nav-link" href="./zero-waste.html"> 
+    <a class="nav-link" href="./zero-waste.html">
 <span class="menu-text">Zéro déchet</span></a>
-  </li>  
+  </li>
   <li class="nav-item">
-    <a class="nav-link active" href="./activites.html" aria-current="page"> 
+    <a class="nav-link active" href="./activites.html" aria-current="page">
 <span class="menu-text">Activités</span></a>
-  </li>  
+  </li>
   <li class="nav-item">
-    <a class="nav-link" href="./contribuer.html"> 
+    <a class="nav-link" href="./contribuer.html">
 <span class="menu-text">Contribuer</span></a>
-  </li>  
+  </li>
   <li class="nav-item">
-    <a class="nav-link" href="./about.html"> 
+    <a class="nav-link" href="./about.html">
 <span class="menu-text">À propos</span></a>
-  </li>  
+  </li>
 </ul>
           </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
@@ -4230,7 +4235,7 @@ font-size: 2.3rem;
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">On this page</h2>
-   
+
   <ul>
   <li><a href="#activités" id="toc-activités" class="nav-link active" data-scroll-target="#activités">Activités</a>
   <ul class="collapse">
@@ -4253,11 +4258,11 @@ font-size: 2.3rem;
 
 <div class="quarto-title-meta">
 
-    
-  
-    
+
+
+
   </div>
-  
+
 
 
 </header>
@@ -4310,6 +4315,82 @@ font-size: 2.3rem;
 <section id="catalogue-des-activités" class="level2">
 <h2 class="anchored" data-anchor-id="catalogue-des-activités">Catalogue des activités</h2>
 <div class="card-grid">
+<section id="rapport-descriptif-et-éthique-sur-les-actes-criminels" class="level3 db-card activity-card">
+<h3 class="anchored" data-anchor-id="rapport-descriptif-et-éthique-sur-les-actes-criminels"><a href="datasets/actes-criminels-montreal/activite-longue.html">Rapport descriptif et éthique sur les actes criminels</a></h3>
+<p class="activity-question">
+Comment construire un rapport descriptif responsable avec des données policières ouvertes?
+</p>
+<div class="tag-list">
+<span class="tag">Éthique</span> <span class="tag">Séries temporelles</span> <span class="tag">Cartographie agrégée</span>
+</div>
+<ul>
+<li>Jeu de données : Actes criminels à Montréal</li>
+<li>Niveau : Avancé</li>
+<li>Type : Étude de cas, Projet ou tâche longue</li>
+<li>Contexte : Sécurité publique</li>
+<li>Accroche : Usage responsable de données sensibles</li>
+<li>Durée : 2-3 heures</li>
+<li>Matériel : énoncé, code, données, notes enseignantes</li>
+<li>Math/stats avancées : non</li>
+</ul>
+</section>
+<section id="lire-prudemment-des-données-de-sécurité-publique" class="level3 db-card activity-card">
+<h3 class="anchored" data-anchor-id="lire-prudemment-des-données-de-sécurité-publique"><a href="datasets/actes-criminels-montreal/activite-courte.html">Lire prudemment des données de sécurité publique</a></h3>
+<p class="activity-question">
+Que peut-on décrire sans transformer ces données en statistiques officielles?
+</p>
+<div class="tag-list">
+<span class="tag">Éthique des données</span> <span class="tag">Catégories</span> <span class="tag">Statistique descriptive</span>
+</div>
+<ul>
+<li>Jeu de données : Actes criminels à Montréal</li>
+<li>Niveau : Intermédiaire</li>
+<li>Type : Discussion guidée, Exploration de données</li>
+<li>Contexte : Sécurité publique</li>
+<li>Accroche : Données sensibles et interprétation</li>
+<li>Durée : 30-45 minutes</li>
+<li>Matériel : énoncé, code, données</li>
+<li>Math/stats avancées : non</li>
+</ul>
+</section>
+<section id="carte-et-qualité-des-données-des-arbres-publics" class="level3 db-card activity-card">
+<h3 class="anchored" data-anchor-id="carte-et-qualité-des-données-des-arbres-publics"><a href="datasets/arbres-publics-montreal/activite-longue.html">Carte et qualité des données des arbres publics</a></h3>
+<p class="activity-question">
+Comment cartographier un inventaire d’arbres tout en montrant ses limites?
+</p>
+<div class="tag-list">
+<span class="tag">Carte</span> <span class="tag">Données manquantes</span> <span class="tag">Statistique descriptive</span>
+</div>
+<ul>
+<li>Jeu de données : Arbres publics sur le territoire de Montréal</li>
+<li>Niveau : Intermédiaire</li>
+<li>Type : Projet ou tâche longue, Étude de cas</li>
+<li>Contexte : Foresterie urbaine</li>
+<li>Accroche : Foresterie urbaine</li>
+<li>Durée : 2-3 heures</li>
+<li>Matériel : énoncé, code, données, notes enseignantes</li>
+<li>Math/stats avancées : non</li>
+</ul>
+</section>
+<section id="essences-darbres-par-arrondissement" class="level3 db-card activity-card">
+<h3 class="anchored" data-anchor-id="essences-darbres-par-arrondissement"><a href="datasets/arbres-publics-montreal/activite-courte.html">Essences d’arbres par arrondissement</a></h3>
+<p class="activity-question">
+Quelles essences d’arbres publics sont les plus fréquentes?
+</p>
+<div class="tag-list">
+<span class="tag">Comptage</span> <span class="tag">Catégories</span> <span class="tag">Visualisation</span>
+</div>
+<ul>
+<li>Jeu de données : Arbres publics sur le territoire de Montréal</li>
+<li>Niveau : Introductif</li>
+<li>Type : Exercice, Exploration de données</li>
+<li>Contexte : Foresterie urbaine</li>
+<li>Accroche : Arbres visibles dans la ville</li>
+<li>Durée : 30-45 minutes</li>
+<li>Matériel : énoncé, code, données</li>
+<li>Math/stats avancées : non</li>
+</ul>
+</section>
 <section id="portrait-régional-des-bibliothèques-publiques" class="level3 db-card activity-card">
 <h3 class="anchored" data-anchor-id="portrait-régional-des-bibliothèques-publiques"><a href="datasets/bibliotheques-quebec/activite-longue.html">Portrait régional des bibliothèques publiques</a></h3>
 <p class="activity-question">
@@ -4419,6 +4500,120 @@ Comment comparer les taux de diplomation selon le sexe ou la région?
 <li>Type : Exercice, Exploration de données</li>
 <li>Contexte : Éducation</li>
 <li>Accroche : Interpréter un indicateur public d’éducation</li>
+<li>Durée : 30-45 minutes</li>
+<li>Matériel : énoncé, code, données</li>
+<li>Math/stats avancées : non</li>
+</ul>
+</section>
+<section id="portrait-territorial-des-établissements-denseignement" class="level3 db-card activity-card">
+<h3 class="anchored" data-anchor-id="portrait-territorial-des-établissements-denseignement"><a href="datasets/etablissements-enseignement/activite-longue.html">Portrait territorial des établissements d’enseignement</a></h3>
+<p class="activity-question">
+Comment décrire l’offre scolaire d’un territoire à partir de données ouvertes?
+</p>
+<div class="tag-list">
+<span class="tag">Jointure</span> <span class="tag">Statistique descriptive</span> <span class="tag">Cartographie</span>
+</div>
+<ul>
+<li>Jeu de données : Localisation des établissements d’enseignement au Québec</li>
+<li>Niveau : Intermédiaire</li>
+<li>Type : Projet ou tâche longue, Étude de cas</li>
+<li>Contexte : Éducation et territoire</li>
+<li>Accroche : Éducation et territoire</li>
+<li>Durée : 2-3 heures</li>
+<li>Matériel : énoncé, code, données, notes enseignantes</li>
+<li>Math/stats avancées : non</li>
+</ul>
+</section>
+<section id="cartographier-des-établissements-scolaires" class="level3 db-card activity-card">
+<h3 class="anchored" data-anchor-id="cartographier-des-établissements-scolaires"><a href="datasets/etablissements-enseignement/activite-courte.html">Cartographier des établissements scolaires</a></h3>
+<p class="activity-question">
+Comment les établissements scolaires sont-ils répartis sur un territoire?
+</p>
+<div class="tag-list">
+<span class="tag">Carte</span> <span class="tag">Données spatiales</span> <span class="tag">Regroupement</span>
+</div>
+<ul>
+<li>Jeu de données : Localisation des établissements d’enseignement au Québec</li>
+<li>Niveau : Introductif</li>
+<li>Type : Exercice, Exploration de données</li>
+<li>Contexte : Éducation et territoire</li>
+<li>Accroche : Écoles près de chez soi</li>
+<li>Durée : 30-45 minutes</li>
+<li>Matériel : énoncé, code, données</li>
+<li>Math/stats avancées : non</li>
+</ul>
+</section>
+<section id="jointure-spatiale-avec-le-réseau-hydrographique" class="level3 db-card activity-card">
+<h3 class="anchored" data-anchor-id="jointure-spatiale-avec-le-réseau-hydrographique"><a href="datasets/grhq/activite-longue.html">Jointure spatiale avec le réseau hydrographique</a></h3>
+<p class="activity-question">
+Comment utiliser un référentiel hydrographique pour enrichir un jeu environnemental?
+</p>
+<div class="tag-list">
+<span class="tag">sf</span> <span class="tag">Jointure spatiale</span> <span class="tag">Visualisation</span>
+</div>
+<ul>
+<li>Jeu de données : Géobase du réseau hydrographique du Québec</li>
+<li>Niveau : Avancé</li>
+<li>Type : Projet ou tâche longue, Étude de cas</li>
+<li>Contexte : Hydrographie</li>
+<li>Accroche : Hydrographie et environnement</li>
+<li>Durée : 2-3 heures</li>
+<li>Matériel : énoncé, code, données, notes enseignantes</li>
+<li>Math/stats avancées : non</li>
+</ul>
+</section>
+<section id="explorer-un-index-hydrographique" class="level3 db-card activity-card">
+<h3 class="anchored" data-anchor-id="explorer-un-index-hydrographique"><a href="datasets/grhq/activite-courte.html">Explorer un index hydrographique</a></h3>
+<p class="activity-question">
+Comment choisir une unité hydrographique à partir de l’index GRHQ?
+</p>
+<div class="tag-list">
+<span class="tag">Données spatiales</span> <span class="tag">Métadonnées</span> <span class="tag">Cartographie</span>
+</div>
+<ul>
+<li>Jeu de données : Géobase du réseau hydrographique du Québec</li>
+<li>Niveau : Intermédiaire</li>
+<li>Type : Exercice, Exploration de données</li>
+<li>Contexte : Hydrographie</li>
+<li>Accroche : Réseau hydrographique du Québec</li>
+<li>Durée : 30-45 minutes</li>
+<li>Matériel : énoncé, code, données</li>
+<li>Math/stats avancées : non</li>
+</ul>
+</section>
+<section id="mini-rapport-sur-les-niveaux-deau-dinondation" class="level3 db-card activity-card">
+<h3 class="anchored" data-anchor-id="mini-rapport-sur-les-niveaux-deau-dinondation"><a href="datasets/niveaux-eau-inondation/activite-longue.html">Mini-rapport sur les niveaux d’eau d’inondation</a></h3>
+<p class="activity-question">
+Comment résumer des observations spatiales d’inondation sans surinterpréter?
+</p>
+<div class="tag-list">
+<span class="tag">Données spatiales</span> <span class="tag">Visualisation</span> <span class="tag">Communication</span>
+</div>
+<ul>
+<li>Jeu de données : Niveaux d’eau lors d’une inondation</li>
+<li>Niveau : Intermédiaire</li>
+<li>Type : Étude de cas, Projet ou tâche longue</li>
+<li>Contexte : Inondations et sécurité civile</li>
+<li>Accroche : Risque hydrologique local</li>
+<li>Durée : 2-3 heures</li>
+<li>Matériel : énoncé, code, données, notes enseignantes</li>
+<li>Math/stats avancées : non</li>
+</ul>
+</section>
+<section id="cartographier-des-repères-de-crue" class="level3 db-card activity-card">
+<h3 class="anchored" data-anchor-id="cartographier-des-repères-de-crue"><a href="datasets/niveaux-eau-inondation/activite-courte.html">Cartographier des repères de crue</a></h3>
+<p class="activity-question">
+Où se situent les observations de niveaux d’eau disponibles?
+</p>
+<div class="tag-list">
+<span class="tag">Données spatiales</span> <span class="tag">Carte</span> <span class="tag">Statistique descriptive</span>
+</div>
+<ul>
+<li>Jeu de données : Niveaux d’eau lors d’une inondation</li>
+<li>Niveau : Introductif</li>
+<li>Type : Exercice, Exploration de données</li>
+<li>Contexte : Inondations et sécurité civile</li>
+<li>Accroche : Événement d’inondation</li>
 <li>Durée : 30-45 minutes</li>
 <li>Matériel : énoncé, code, données</li>
 <li>Math/stats avancées : non</li>
@@ -4538,6 +4733,82 @@ Comment définir une station active dans un répertoire environnemental?
 <li>Math/stats avancées : non</li>
 </ul>
 </section>
+<section id="explorer-les-facteurs-associés-à-la-gravité" class="level3 db-card activity-card">
+<h3 class="anchored" data-anchor-id="explorer-les-facteurs-associés-à-la-gravité"><a href="datasets/rapports-accident/activite-longue.html">Explorer les facteurs associés à la gravité</a></h3>
+<p class="activity-question">
+Quels facteurs sont associés à la gravité des accidents, sans conclure trop vite à la causalité?
+</p>
+<div class="tag-list">
+<span class="tag">Nettoyage</span> <span class="tag">Modélisation</span> <span class="tag">Validation</span>
+</div>
+<ul>
+<li>Jeu de données : Rapports d’accident</li>
+<li>Niveau : Intermédiaire</li>
+<li>Type : Projet ou tâche longue, Étude de cas</li>
+<li>Contexte : Transport et sécurité routière</li>
+<li>Accroche : Décision publique et sécurité</li>
+<li>Durée : 2-3 heures</li>
+<li>Matériel : énoncé, code, données, notes enseignantes</li>
+<li>Math/stats avancées : oui</li>
+</ul>
+</section>
+<section id="décrire-la-gravité-des-accidents" class="level3 db-card activity-card">
+<h3 class="anchored" data-anchor-id="décrire-la-gravité-des-accidents"><a href="datasets/rapports-accident/activite-courte.html">Décrire la gravité des accidents</a></h3>
+<p class="activity-question">
+Comment la gravité varie-t-elle selon le mois ou la météo?
+</p>
+<div class="tag-list">
+<span class="tag">Tableaux croisés</span> <span class="tag">Visualisation</span> <span class="tag">Variables catégorielles</span>
+</div>
+<ul>
+<li>Jeu de données : Rapports d’accident</li>
+<li>Niveau : Intermédiaire</li>
+<li>Type : Exercice, Exploration de données</li>
+<li>Contexte : Transport et sécurité routière</li>
+<li>Accroche : Sécurité routière</li>
+<li>Durée : 30-45 minutes</li>
+<li>Matériel : énoncé, code, données</li>
+<li>Math/stats avancées : non</li>
+</ul>
+</section>
+<section id="saisonnalité-des-requêtes-311" class="level3 db-card activity-card">
+<h3 class="anchored" data-anchor-id="saisonnalité-des-requêtes-311"><a href="datasets/requetes-311/activite-longue.html">Saisonnalité des requêtes 311</a></h3>
+<p class="activity-question">
+Les demandes de services municipaux varient-elles selon la saison?
+</p>
+<div class="tag-list">
+<span class="tag">Séries temporelles</span> <span class="tag">Nettoyage</span> <span class="tag">Communication</span>
+</div>
+<ul>
+<li>Jeu de données : Demandes de services citoyennes 311 à Montréal</li>
+<li>Niveau : Intermédiaire</li>
+<li>Type : Projet ou tâche longue, Étude de cas</li>
+<li>Contexte : Services municipaux</li>
+<li>Accroche : Vie quotidienne et services publics</li>
+<li>Durée : 2-3 heures</li>
+<li>Matériel : énoncé, code, données, notes enseignantes</li>
+<li>Math/stats avancées : non</li>
+</ul>
+</section>
+<section id="catégories-de-requêtes-311" class="level3 db-card activity-card">
+<h3 class="anchored" data-anchor-id="catégories-de-requêtes-311"><a href="datasets/requetes-311/activite-courte.html">Catégories de requêtes 311</a></h3>
+<p class="activity-question">
+Quelles catégories de demandes dominent dans un arrondissement?
+</p>
+<div class="tag-list">
+<span class="tag">Comptage</span> <span class="tag">Catégories</span> <span class="tag">Visualisation</span>
+</div>
+<ul>
+<li>Jeu de données : Demandes de services citoyennes 311 à Montréal</li>
+<li>Niveau : Introductif</li>
+<li>Type : Exercice, Exploration de données</li>
+<li>Contexte : Services municipaux</li>
+<li>Accroche : Services municipaux concrets</li>
+<li>Durée : 30-45 minutes</li>
+<li>Matériel : énoncé, code, données</li>
+<li>Math/stats avancées : non</li>
+</ul>
+</section>
 <section id="carte-et-séries-temporelles-de-qualité-de-leau" class="level3 db-card activity-card">
 <h3 class="anchored" data-anchor-id="carte-et-séries-temporelles-de-qualité-de-leau"><a href="datasets/suivi-rivieres-fleuve/activite-longue.html">Carte et séries temporelles de qualité de l’eau</a></h3>
 <p class="activity-question">
@@ -4602,7 +4873,7 @@ Comment décrire l’évolution du phosphore total dans une station de suivi?
     anchorJS.add('.anchored');
     const isCodeAnnotation = (el) => {
       for (const clz of el.classList) {
-        if (clz.startsWith('code-annotation-')) {                     
+        if (clz.startsWith('code-annotation-')) {
           return true;
         }
       }
@@ -4622,11 +4893,11 @@ Comment décrire l’évolution du phosphore total dans une station de suivi?
         button.setAttribute("data-bs-toggle", "tooltip");
         button.setAttribute("data-bs-placement", "left");
         button.setAttribute("data-bs-title", "Copied!");
-        tooltip = new bootstrap.Tooltip(button, 
-          { trigger: "manual", 
+        tooltip = new bootstrap.Tooltip(button,
+          { trigger: "manual",
             customClass: "code-copy-button-tooltip",
             offset: [0, -8]});
-        tooltip.show();    
+        tooltip.show();
       }
       setTimeout(function() {
         if (tooltip) {
@@ -4708,7 +4979,7 @@ Comment décrire l’évolution du phosphore total dans une station de suivi?
       if (onUntriggerFn) {
         config.onUntrigger = onUntriggerFn;
       }
-      window.tippy(el, config); 
+      window.tippy(el, config);
     }
     const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
     for (var i=0; i<noterefs.length; i++) {
@@ -4783,7 +5054,7 @@ Comment décrire l’évolution du phosphore total dans une station de suivi?
       tippyHover(xref, undefined, function(instance) {
         instance.disable();
         let url = xref.getAttribute('href');
-        let hash = undefined; 
+        let hash = undefined;
         if (url.startsWith('#')) {
           hash = url;
         } else {
@@ -4811,7 +5082,7 @@ Comment décrire l’évolution du phosphore total dans une station de suivi?
               if (note !== null) {
                 const html = processXRef(id, note);
                 instance.setContent(html);
-              } 
+              }
             }).finally(() => {
               instance.enable();
               instance.show();
@@ -4835,7 +5106,7 @@ Comment décrire l’évolution du phosphore total dans une station de suivi?
               }
               const html = processXRef(null, note);
               instance.setContent(html);
-            } 
+            }
           }).finally(() => {
             instance.enable();
             instance.show();
@@ -4875,7 +5146,7 @@ Comment décrire l’évolution du phosphore total dans une station de suivi?
               height = bottom - top;
             }
             if (top !== null && height !== null && parent !== null) {
-              // cook up a div (if necessary) and position it 
+              // cook up a div (if necessary) and position it
               let div = window.document.getElementById("code-annotation-line-highlight");
               if (div === null) {
                 div = window.document.createElement("div");
@@ -5001,7 +5272,7 @@ Comment décrire l’évolution du phosphore total dans une station de suivi?
   <div class="nav-footer">
     <div class="nav-footer-left">
 <p>Données bleues</p>
-</div>   
+</div>
     <div class="nav-footer-center">
        
     </div>

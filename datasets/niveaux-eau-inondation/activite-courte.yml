@@ -1,0 +1,24 @@
+id: "niveaux-eau-carte-court"
+title: "Cartographier des repères de crue"
+question: "Où se situent les observations de niveaux d'eau disponibles?"
+dataset_id: "niveaux-eau-inondation"
+dataset_title: "Niveaux d'eau lors d'une inondation"
+activity_url: "datasets/niveaux-eau-inondation/activite-courte.qmd"
+duration: "30-45 minutes"
+level: "Introductif"
+activity_type:
+  - "Exercice"
+  - "Exploration de données"
+concepts:
+  - "Données spatiales"
+  - "Carte"
+  - "Statistique descriptive"
+context: "Inondations et sécurité civile"
+hook: "Événement d'inondation"
+materials:
+  - "énoncé"
+  - "code"
+  - "données"
+advanced_math_stats: false
+teacher_notes: "Insister sur les limites de précision des coordonnées."
+status: "prêt"

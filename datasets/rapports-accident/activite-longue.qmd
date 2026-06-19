@@ -1,0 +1,60 @@
+---
+title: "Explorer les facteurs associés à la gravité"
+embed-resources: true
+---
+
+# Explorer les facteurs associés à la gravité
+
+## Contexte
+
+Cette activité utilise des données administratives volumineuses pour discuter d'association, de modèle et de limites.
+
+## Objectifs d'apprentissage
+
+- Préparer des variables catégorielles
+- Construire un modèle simple
+- Évaluer les limites d'interprétation
+
+## Données utilisées
+
+Fiche : [Rapports d'accident](fiche.qmd)
+
+Source : Données Québec / Société de l'assurance automobile du Québec.
+
+Licence : Attribution (CC-BY 4.0).
+
+## Métadonnées pédagogiques
+
+| Champ | Information |
+|---|---|
+| Question directrice | Quels facteurs sont associés à la gravité des accidents, sans conclure trop vite à la causalité? |
+| Concepts | Nettoyage; Modélisation; Validation |
+| Niveau | Intermédiaire |
+| Type | Projet ou tâche longue; Étude de cas |
+| Contexte | Transport et sécurité routière |
+| Accroche | Décision publique et sécurité |
+| Durée | 2-3 heures |
+| Matériel | énoncé; code; données; notes enseignantes |
+| Math/stats avancées | oui |
+
+## Consignes
+
+1. Sélectionner une ou deux années
+2. Recoder les variables documentées
+3. Définir une variable de gravité
+4. Ajuster un modèle simple
+5. Rédiger une interprétation prudente
+
+## Questions
+
+1. Quels biais de sélection sont possibles?
+2. Quelle variable représente le temps?
+3. Quels résultats seraient utiles pour la prévention?
+
+## Pistes de solution
+
+Un bon rapport présente une analyse descriptive avant le modèle et distingue association et causalité.
+
+## Prolongement
+
+Comparer deux années ou deux régions administratives.

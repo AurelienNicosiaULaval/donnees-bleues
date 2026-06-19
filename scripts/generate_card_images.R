@@ -83,6 +83,94 @@ cards <- list(
     license = "CC BY-SA 3.0",
     license_url = "https://creativecommons.org/licenses/by-sa/3.0/",
     gravity = "center"
+  ),
+  list(
+    id = "pyramides-ages",
+    label = "Pyramides des âges",
+    commons_file = "People dancing in the street of Montreal city in Canada 02.jpg",
+    source_title = "People dancing in the street of Montreal city in Canada 02.jpg",
+    source_page = "https://commons.wikimedia.org/wiki/File:People_dancing_in_the_street_of_Montreal_city_in_Canada_02.jpg",
+    author = "Wilfredor",
+    license = "CC0 1.0",
+    license_url = "https://creativecommons.org/publicdomain/zero/1.0/",
+    gravity = "center"
+  ),
+  list(
+    id = "niveaux-eau-inondation",
+    label = "Niveaux d'eau lors d'une inondation",
+    commons_file = "2017 Quebec Floods - Montreal (34504962346).jpg",
+    source_title = "2017 Quebec Floods - Montreal (34504962346).jpg",
+    source_page = "https://commons.wikimedia.org/wiki/File:2017_Quebec_Floods_-_Montreal_(34504962346).jpg",
+    author = "Exile on Ontario St",
+    license = "CC BY-SA 2.0",
+    license_url = "https://creativecommons.org/licenses/by-sa/2.0/",
+    gravity = "center"
+  ),
+  list(
+    id = "grhq",
+    label = "Géobase du réseau hydrographique du Québec",
+    commons_file = "Rivière Jacques-Cartier (Sainte-Catherine-de-la-Jacques-Cartier) - Vue aérienne 1.jpg",
+    source_title = "Rivière Jacques-Cartier (Sainte-Catherine-de-la-Jacques-Cartier) - Vue aérienne 1.jpg",
+    source_page = "https://commons.wikimedia.org/wiki/File:Rivi%C3%A8re_Jacques-Cartier_(Sainte-Catherine-de-la-Jacques-Cartier)_-_Vue_a%C3%A9rienne_1.jpg",
+    author = "Gabriel Picard",
+    license = "CC BY-SA 4.0",
+    license_url = "https://creativecommons.org/licenses/by-sa/4.0/",
+    gravity = "center"
+  ),
+  list(
+    id = "rapports-accident",
+    label = "Rapports d'accident",
+    commons_file = "Car Accident - Bellingham Police and Fire (17495152880).jpg",
+    source_title = "Car Accident - Bellingham Police and Fire (17495152880).jpg",
+    source_page = "https://commons.wikimedia.org/wiki/File:Car_Accident_-_Bellingham_Police_and_Fire_(17495152880).jpg",
+    author = "Alex Smith",
+    license = "CC0 1.0",
+    license_url = "https://creativecommons.org/publicdomain/zero/1.0/",
+    gravity = "center"
+  ),
+  list(
+    id = "etablissements-enseignement",
+    label = "Localisation des établissements d'enseignement au Québec",
+    commons_file = "School bus in Quebec City.jpg",
+    source_title = "School bus in Quebec City.jpg",
+    source_page = "https://commons.wikimedia.org/wiki/File:School_bus_in_Quebec_City.jpg",
+    author = "Wilfredor",
+    license = "CC0 1.0",
+    license_url = "https://creativecommons.org/publicdomain/zero/1.0/",
+    gravity = "center"
+  ),
+  list(
+    id = "requetes-311",
+    label = "Demandes de services citoyennes 311 à Montréal",
+    commons_file = "Hôtel de Ville de Montréal, juin 2024.jpg",
+    source_title = "Hôtel de Ville de Montréal, juin 2024.jpg",
+    source_page = "https://commons.wikimedia.org/wiki/File:H%C3%B4tel_de_Ville_de_Montr%C3%A9al,_juin_2024.jpg",
+    author = "Pierre5018",
+    license = "CC BY 4.0",
+    license_url = "https://creativecommons.org/licenses/by/4.0/",
+    gravity = "center"
+  ),
+  list(
+    id = "arbres-publics-montreal",
+    label = "Arbres publics sur le territoire de Montréal",
+    commons_file = "Montreal, Canada 017.jpg",
+    source_title = "Montreal, Canada 017.jpg",
+    source_page = "https://commons.wikimedia.org/wiki/File:Montreal,_Canada_017.jpg",
+    author = "Wilfredor",
+    license = "CC0 1.0",
+    license_url = "https://creativecommons.org/publicdomain/zero/1.0/",
+    gravity = "center"
+  ),
+  list(
+    id = "actes-criminels-montreal",
+    label = "Actes criminels à Montréal",
+    commons_file = "Crime Scene Do Not Cross (6874134473).jpg",
+    source_title = "Crime Scene Do Not Cross (6874134473).jpg",
+    source_page = "https://commons.wikimedia.org/wiki/File:Crime_Scene_Do_Not_Cross_(6874134473).jpg",
+    author = "Hubert Figuière",
+    license = "CC BY-SA 2.0",
+    license_url = "https://creativecommons.org/licenses/by-sa/2.0/",
+    gravity = "center"
   )
 )
 

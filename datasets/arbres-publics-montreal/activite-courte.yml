@@ -1,0 +1,24 @@
+id: "arbres-publics-essences-court"
+title: "Essences d'arbres par arrondissement"
+question: "Quelles essences d'arbres publics sont les plus fréquentes?"
+dataset_id: "arbres-publics-montreal"
+dataset_title: "Arbres publics sur le territoire de Montréal"
+activity_url: "datasets/arbres-publics-montreal/activite-courte.qmd"
+duration: "30-45 minutes"
+level: "Introductif"
+activity_type:
+  - "Exercice"
+  - "Exploration de données"
+concepts:
+  - "Comptage"
+  - "Catégories"
+  - "Visualisation"
+context: "Foresterie urbaine"
+hook: "Arbres visibles dans la ville"
+materials:
+  - "énoncé"
+  - "code"
+  - "données"
+advanced_math_stats: false
+teacher_notes: "Préparer un extrait si la taille du fichier ralentit les postes étudiants."
+status: "prêt"

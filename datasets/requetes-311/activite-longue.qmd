@@ -1,0 +1,60 @@
+---
+title: "Saisonnalité des requêtes 311"
+embed-resources: true
+---
+
+# Saisonnalité des requêtes 311
+
+## Contexte
+
+Cette activité relie séries temporelles et données administratives municipales.
+
+## Objectifs d'apprentissage
+
+- Nettoyer une date
+- Agréger par mois
+- Comparer des catégories
+
+## Données utilisées
+
+Fiche : [Demandes de services citoyennes 311 à Montréal](fiche.qmd)
+
+Source : Données Québec / Ville de Montréal.
+
+Licence : Attribution (CC-BY 4.0).
+
+## Métadonnées pédagogiques
+
+| Champ | Information |
+|---|---|
+| Question directrice | Les demandes de services municipaux varient-elles selon la saison? |
+| Concepts | Séries temporelles; Nettoyage; Communication |
+| Niveau | Intermédiaire |
+| Type | Projet ou tâche longue; Étude de cas |
+| Contexte | Services municipaux |
+| Accroche | Vie quotidienne et services publics |
+| Durée | 2-3 heures |
+| Matériel | énoncé; code; données; notes enseignantes |
+| Math/stats avancées | non |
+
+## Consignes
+
+1. Choisir deux ou trois catégories
+2. Nettoyer la date de création
+3. Agréger par mois
+4. Tracer les séries
+5. Rédiger une interprétation
+
+## Questions
+
+1. Quelles catégories sont saisonnières?
+2. Quels événements pourraient expliquer les pics?
+3. Quelles données externes seraient utiles?
+
+## Pistes de solution
+
+Un bon rapport montre une agrégation mensuelle et évite de confondre demandes et besoins réels.
+
+## Prolongement
+
+Ajouter un découpage par arrondissement.

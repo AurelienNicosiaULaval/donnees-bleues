@@ -1,0 +1,60 @@
+---
+title: "Cartographier des établissements scolaires"
+embed-resources: true
+---
+
+# Cartographier des établissements scolaires
+
+## Contexte
+
+Cette activité utilise des coordonnées institutionnelles pour introduire la cartographie.
+
+## Objectifs d'apprentissage
+
+- Lire un CSV
+- Filtrer un territoire
+- Tracer des points sur une carte
+
+## Données utilisées
+
+Fiche : [Localisation des établissements d'enseignement au Québec](fiche.qmd)
+
+Source : Données Québec / Ministère de l'Éducation et Ministère de l'Enseignement supérieur.
+
+Licence : Attribution (CC-BY 4.0).
+
+## Métadonnées pédagogiques
+
+| Champ | Information |
+|---|---|
+| Question directrice | Comment les établissements scolaires sont-ils répartis sur un territoire? |
+| Concepts | Carte; Données spatiales; Regroupement |
+| Niveau | Introductif |
+| Type | Exercice; Exploration de données |
+| Contexte | Éducation et territoire |
+| Accroche | Écoles près de chez soi |
+| Durée | 30-45 minutes |
+| Matériel | énoncé; code; données |
+| Math/stats avancées | non |
+
+## Consignes
+
+1. Choisir une ressource CSV
+2. Filtrer une région administrative
+3. Identifier latitude et longitude
+4. Tracer les établissements
+5. Décrire la couverture territoriale
+
+## Questions
+
+1. Quelle est l'unité statistique du fichier?
+2. Combien d'établissements apparaissent dans la région?
+3. Quelles limites a une carte de points?
+
+## Pistes de solution
+
+Une solution acceptable montre une carte et précise le fichier utilisé.
+
+## Prolongement
+
+Colorer les points selon l'ordre d'enseignement.

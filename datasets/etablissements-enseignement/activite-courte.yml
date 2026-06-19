@@ -1,0 +1,24 @@
+id: "etablissements-carte-court"
+title: "Cartographier des établissements scolaires"
+question: "Comment les établissements scolaires sont-ils répartis sur un territoire?"
+dataset_id: "etablissements-enseignement"
+dataset_title: "Localisation des établissements d'enseignement au Québec"
+activity_url: "datasets/etablissements-enseignement/activite-courte.qmd"
+duration: "30-45 minutes"
+level: "Introductif"
+activity_type:
+  - "Exercice"
+  - "Exploration de données"
+concepts:
+  - "Carte"
+  - "Données spatiales"
+  - "Regroupement"
+context: "Éducation et territoire"
+hook: "Écoles près de chez soi"
+materials:
+  - "énoncé"
+  - "code"
+  - "données"
+advanced_math_stats: false
+teacher_notes: "Commencer avec un seul fichier CSV pour éviter la complexité du portail."
+status: "prêt"

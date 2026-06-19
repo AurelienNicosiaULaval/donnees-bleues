@@ -1,0 +1,63 @@
+id: "requetes-311"
+title: "Demandes de services citoyennes 311 à Montréal"
+short_title: "Requêtes 311"
+theme: "Services municipaux"
+source_name: "Données Québec / Ville de Montréal"
+source_url: "https://www.donneesquebec.ca/recherche/dataset/vmtl-requete-311"
+license: "Attribution (CC-BY 4.0)"
+access_date: "2026-06-19"
+geography: "Montréal"
+unit: "Demande d'information ou de service au 311"
+data_type: "Tabulaire, temporel, spatial, services publics"
+format: "CSV et visualisation web"
+n_rows: "Fichiers CSV par période; plusieurs centaines de Mo pour les ressources récentes et archivées"
+n_cols: "29 champs observés dans l'en-tête du fichier 2022 à ce jour consulté le 2026-06-19"
+update_frequency: "Mise à jour fréquente; métadonnées modifiées en 2026"
+level: "Introduction à intermédiaire"
+organisme: "Ville de Montréal"
+territoire: "Montréal"
+taille_approximative: "Fichiers CSV par période; plusieurs centaines de Mo pour les ressources récentes et archivées"
+niveau_pedagogique_recommande: "Introduction à intermédiaire"
+variables_principales:
+  - "id_unique"
+  - "nature"
+  - "activite"
+  - "arrondissement"
+  - "date_creation"
+  - "provenance_originale"
+  - "dernier_statut"
+  - "longitude"
+idees_mini_projets:
+  - "Analyser la saisonnalité des demandes par catégorie."
+  - "Comparer les demandes par arrondissement."
+  - "Visualiser les catégories les plus fréquentes et leur évolution temporelle."
+tags:
+  - "Montréal"
+  - "données ouvertes"
+  - "visualisation"
+  - "séries temporelles"
+  - "statistiques descriptives"
+  - "spatial"
+  - "politiques publiques"
+concepts:
+  - "services publics"
+  - "Montréal"
+  - "séries temporelles"
+  - "catégories"
+  - "visualisation"
+  - "statistiques descriptives"
+  - "données ouvertes"
+  - "spatial"
+zero_waste:
+  contexte_quebecois: 3
+  accessibilite_pedagogique: 3
+  qualite_documentaire: 2
+  potentiel_nettoyage: 3
+  potentiel_visualisation: 3
+  potentiel_statistique_descriptive: 3
+  potentiel_inference: 2
+  potentiel_modelisation: 2
+  potentiel_ethique: 3
+  reutilisabilite: 3
+status: "source vérifiée"
+notes: "Source, licence et fichiers CSV vérifiés dans Données Québec. Les fichiers sont volumineux; prévoir un échantillon pour l'enseignement."

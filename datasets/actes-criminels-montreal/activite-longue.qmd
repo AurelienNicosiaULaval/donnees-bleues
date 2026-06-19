@@ -1,0 +1,60 @@
+---
+title: "Rapport descriptif et éthique sur les actes criminels"
+embed-resources: true
+---
+
+# Rapport descriptif et éthique sur les actes criminels
+
+## Contexte
+
+Cette activité combine compétences techniques et responsabilité analytique.
+
+## Objectifs d'apprentissage
+
+- Agréger des données sensibles
+- Choisir une visualisation responsable
+- Rédiger une interprétation limitée
+
+## Données utilisées
+
+Fiche : [Actes criminels à Montréal](fiche.qmd)
+
+Source : Données Québec / Ville de Montréal.
+
+Licence : Attribution (CC-BY 4.0).
+
+## Métadonnées pédagogiques
+
+| Champ | Information |
+|---|---|
+| Question directrice | Comment construire un rapport descriptif responsable avec des données policières ouvertes? |
+| Concepts | Éthique; Séries temporelles; Cartographie agrégée |
+| Niveau | Avancé |
+| Type | Étude de cas; Projet ou tâche longue |
+| Contexte | Sécurité publique |
+| Accroche | Usage responsable de données sensibles |
+| Durée | 2-3 heures |
+| Matériel | énoncé; code; données; notes enseignantes |
+| Math/stats avancées | non |
+
+## Consignes
+
+1. Lire la mise en garde officielle
+2. Nettoyer les dates
+3. Agréger par mois et catégorie
+4. Créer une visualisation agrégée
+5. Rédiger une section éthique
+
+## Questions
+
+1. Quel niveau d'agrégation est acceptable?
+2. Quels biais de déclaration peuvent exister?
+3. Comment écrire sans stigmatiser?
+
+## Pistes de solution
+
+Un bon rapport évite les cartes de points bruts et met la note d'éthique au même niveau que les résultats.
+
+## Prolongement
+
+Comparer avec le bilan mensuel officiel lorsque pertinent.

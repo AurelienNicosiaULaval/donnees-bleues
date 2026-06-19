@@ -1,0 +1,55 @@
+---
+title: "Pyramides des âges - activité longue"
+embed-resources: true
+---
+
+# Pyramides des âges - activité longue
+
+## Mise en situation professionnelle
+
+Un organisme de vulgarisation souhaite expliquer l'évolution récente de la structure d'âge au Québec et au Canada. Vous devez produire un court rapport reproductible fondé sur les estimations de population de Statistique Canada.
+
+## Livrable attendu
+
+Un rapport Quarto de 4 à 6 pages comprenant un script reproductible, deux pyramides des âges, un indicateur de part des 65 ans et plus, une comparaison Québec vs Canada et une section de limites.
+
+## Étapes
+
+1. Importer la table 17-10-0005-01 avec `cansim`.
+2. Sélectionner deux années, par exemple 2001 et l'année la plus récente disponible.
+3. Garder le Canada et le Québec.
+4. Garder `Men+`, `Women+`, `UOM == "Persons"` et les groupes d'âge pertinents.
+5. Construire des pyramides des âges en effectifs ou en proportions.
+6. Calculer la proportion de la population âgée de 65 ans et plus.
+7. Comparer les résultats entre géographies et années.
+8. Rédiger une interprétation descriptive en explicitant les limites.
+
+## Critères d'évaluation
+
+| Critère | Attendu |
+|---|---|
+| Importation | La table officielle est importée avec un code reproductible. |
+| Filtrage | Les géographies, années, genres, unités et groupes d'âge sont sélectionnés explicitement. |
+| Indicateurs | La proportion de 65 ans et plus est définie clairement. |
+| Graphiques | Les pyramides sont lisibles et les axes ne créent pas de contresens. |
+| Comparaison | Les différences Québec vs Canada sont décrites en distinguant effectifs et proportions. |
+| Limites | Les limites des données agrégées et descriptives sont explicites. |
+
+## Questions d'analyse
+
+1. La population québécoise présente-t-elle une structure d'âge différente de celle du Canada?
+2. Quels groupes d'âge ont le plus changé entre les deux années choisies?
+3. La part des 65 ans et plus augmente-t-elle dans les deux géographies?
+4. Les comparaisons en effectifs et en proportions racontent-elles la même histoire?
+5. Pourquoi ces données ne suffisent-elles pas à expliquer les causes du vieillissement démographique?
+
+## Pistes de solution
+
+Un bon rapport compare d'abord des proportions, puis utilise les effectifs pour donner un ordre de grandeur. Les résultats doivent être présentés comme descriptifs, puisque la table ne contient pas directement les naissances, décès, migrations ni incertitudes associées aux estimations.
+
+## Variantes possibles
+
+- Comparer le Québec avec une autre province.
+- Ajouter une animation temporelle.
+- Construire un tableau interactif avec `shiny`.
+- Transformer l'activité en tutoriel `learnr`.

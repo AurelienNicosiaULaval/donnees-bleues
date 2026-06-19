@@ -1,0 +1,60 @@
+---
+title: "Décrire la gravité des accidents"
+embed-resources: true
+---
+
+# Décrire la gravité des accidents
+
+## Contexte
+
+Cette activité introduit l'analyse de variables catégorielles dans un contexte de sécurité routière.
+
+## Objectifs d'apprentissage
+
+- Importer un CSV annuel
+- Créer un tableau croisé
+- Visualiser une distribution catégorielle
+
+## Données utilisées
+
+Fiche : [Rapports d'accident](fiche.qmd)
+
+Source : Données Québec / Société de l'assurance automobile du Québec.
+
+Licence : Attribution (CC-BY 4.0).
+
+## Métadonnées pédagogiques
+
+| Champ | Information |
+|---|---|
+| Question directrice | Comment la gravité varie-t-elle selon le mois ou la météo? |
+| Concepts | Tableaux croisés; Visualisation; Variables catégorielles |
+| Niveau | Intermédiaire |
+| Type | Exercice; Exploration de données |
+| Contexte | Transport et sécurité routière |
+| Accroche | Sécurité routière |
+| Durée | 30-45 minutes |
+| Matériel | énoncé; code; données |
+| Math/stats avancées | non |
+
+## Consignes
+
+1. Choisir une année
+2. Importer le CSV
+3. Consulter la documentation des codes
+4. Compter les accidents par gravité et mois
+5. Interpréter prudemment
+
+## Questions
+
+1. Quelle est l'unité statistique?
+2. Quels codes doivent être recodés?
+3. Qu'est-ce qui manque pour parler de risque?
+
+## Pistes de solution
+
+Une solution acceptable présente les fréquences par gravité et mentionne l'absence de dénominateur d'exposition.
+
+## Prolongement
+
+Ajouter la condition météo comme variable de facettage.

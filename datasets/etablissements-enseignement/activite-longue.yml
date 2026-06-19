@@ -1,0 +1,25 @@
+id: "etablissements-acces-long"
+title: "Portrait territorial des établissements d'enseignement"
+question: "Comment décrire l'offre scolaire d'un territoire à partir de données ouvertes?"
+dataset_id: "etablissements-enseignement"
+dataset_title: "Localisation des établissements d'enseignement au Québec"
+activity_url: "datasets/etablissements-enseignement/activite-longue.qmd"
+duration: "2-3 heures"
+level: "Intermédiaire"
+activity_type:
+  - "Projet ou tâche longue"
+  - "Étude de cas"
+concepts:
+  - "Jointure"
+  - "Statistique descriptive"
+  - "Cartographie"
+context: "Éducation et territoire"
+hook: "Éducation et territoire"
+materials:
+  - "énoncé"
+  - "code"
+  - "données"
+  - "notes enseignantes"
+advanced_math_stats: false
+teacher_notes: "Demander une discussion explicite sur ce que les données ne mesurent pas."
+status: "prêt"

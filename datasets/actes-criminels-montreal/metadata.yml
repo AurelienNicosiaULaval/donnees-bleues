@@ -1,0 +1,61 @@
+id: "actes-criminels-montreal"
+title: "Actes criminels à Montréal"
+short_title: "Actes criminels"
+theme: "Sécurité publique"
+source_name: "Données Québec / Ville de Montréal"
+source_url: "https://www.donneesquebec.ca/recherche/dataset/vmtl-actes-criminels"
+license: "Attribution (CC-BY 4.0)"
+access_date: "2026-06-19"
+geography: "Montréal"
+unit: "Acte criminel enregistré par le SPVM dans ce jeu de données"
+data_type: "Tabulaire, spatial, temporel, catégoriel"
+format: "CSV, GeoJSON et ZIP"
+n_rows: "CSV d'environ 32 Mo; GeoJSON d'environ 109 Mo"
+n_cols: "8 champs observés dans l'en-tête du CSV consulté le 2026-06-19"
+update_frequency: "Mise à jour fréquente; métadonnées modifiées en 2026"
+level: "Intermédiaire à avancé"
+organisme: "Ville de Montréal"
+territoire: "Montréal"
+taille_approximative: "CSV d'environ 32 Mo; GeoJSON d'environ 109 Mo"
+niveau_pedagogique_recommande: "Intermédiaire à avancé"
+variables_principales:
+  - "categorie"
+  - "date"
+  - "quart"
+  - "pdq"
+  - "longitude"
+  - "latitude"
+idees_mini_projets:
+  - "Comparer les catégories publiées par mois sans les traiter comme statistiques officielles."
+  - "Créer une carte agrégée par secteur ou grille plutôt qu'une carte de points sensibles."
+  - "Discuter des biais de déclaration et des risques d'interprétation."
+tags:
+  - "Montréal"
+  - "données ouvertes"
+  - "visualisation"
+  - "séries temporelles"
+  - "spatial"
+  - "statistiques descriptives"
+  - "éthique"
+concepts:
+  - "sécurité publique"
+  - "Montréal"
+  - "catégories"
+  - "séries temporelles"
+  - "spatial"
+  - "éthique des données"
+  - "visualisation"
+  - "données ouvertes"
+zero_waste:
+  contexte_quebecois: 3
+  accessibilite_pedagogique: 2
+  qualite_documentaire: 2
+  potentiel_nettoyage: 2
+  potentiel_visualisation: 3
+  potentiel_statistique_descriptive: 2
+  potentiel_inference: 1
+  potentiel_modelisation: 1
+  potentiel_ethique: 3
+  reutilisabilite: 2
+status: "source vérifiée avec prudence éthique"
+notes: "Source et licence vérifiées dans Données Québec. La description officielle indique que le jeu ne représente pas les statistiques officielles du SPVM; inclure une note d'éthique dans toute activité."
