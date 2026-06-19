@@ -1,4 +1,4 @@
-# Generate local card thumbnails for the Donnees bleues gallery.
+# Generate local dataset card thumbnails for the Donnees bleues catalogue.
 #
 # The source images are Wikimedia Commons files with reusable licenses.
 # This script crops them to a consistent 16:9 format and writes a public
@@ -18,39 +18,6 @@ if (length(missing_packages) > 0) {
 dir.create("assets/cards", recursive = TRUE, showWarnings = FALSE)
 
 cards <- list(
-  list(
-    id = "catalogue",
-    label = "Explorer les jeux de données",
-    commons_file = "Library Of Congress Card Catalog.jpg",
-    source_title = "Library Of Congress Card Catalog.jpg",
-    source_page = "https://commons.wikimedia.org/wiki/File:Library_Of_Congress_Card_Catalog.jpg",
-    author = "rochelle hartman",
-    license = "CC BY 2.0",
-    license_url = "https://creativecommons.org/licenses/by/2.0/",
-    gravity = "center"
-  ),
-  list(
-    id = "zero-dechet",
-    label = "Comprendre le jeu de données zéro déchet",
-    commons_file = "Glass recycling bins.jpg",
-    source_title = "Glass recycling bins.jpg",
-    source_page = "https://commons.wikimedia.org/wiki/File:Glass_recycling_bins.jpg",
-    author = "Digitura",
-    license = "CC0 1.0",
-    license_url = "https://creativecommons.org/publicdomain/zero/1.0/",
-    gravity = "center"
-  ),
-  list(
-    id = "activites",
-    label = "Utiliser les activités en classe",
-    commons_file = "Students working on class assignment in computer lab.jpg",
-    source_title = "Students working on class assignment in computer lab.jpg",
-    source_page = "https://commons.wikimedia.org/wiki/File:Students_working_on_class_assignment_in_computer_lab.jpg",
-    author = "Michael Surran",
-    license = "CC BY-SA 2.0",
-    license_url = "https://creativecommons.org/licenses/by-sa/2.0/",
-    gravity = "center"
-  ),
   list(
     id = "bixi",
     label = "État des stations BIXI",
@@ -213,7 +180,7 @@ write_credits_page <- function(cards) {
     "",
     "# Crédits images",
     "",
-    "Les vignettes de la galerie sont des versions recadrées et recompressées en 16:9 de fichiers publiés sur Wikimedia Commons.",
+    "Les vignettes des jeux de données sont des versions recadrées et recompressées en 16:9 de fichiers publiés sur Wikimedia Commons.",
     "",
     "| Carte | Image source | Auteur ou organisme | Licence |",
     "|---|---|---|---|",

@@ -5,13 +5,10 @@ embed-resources: true
 
 # Crédits images
 
-Les vignettes de la galerie sont des versions recadrées et recompressées en 16:9 de fichiers publiés sur Wikimedia Commons.
+Les vignettes des jeux de données sont des versions recadrées et recompressées en 16:9 de fichiers publiés sur Wikimedia Commons.
 
 | Carte | Image source | Auteur ou organisme | Licence |
 |---|---|---|---|
-| Explorer les jeux de données | [Library Of Congress Card Catalog.jpg](https://commons.wikimedia.org/wiki/File:Library_Of_Congress_Card_Catalog.jpg) | rochelle hartman | [CC BY 2.0](https://creativecommons.org/licenses/by/2.0/) |
-| Comprendre le jeu de données zéro déchet | [Glass recycling bins.jpg](https://commons.wikimedia.org/wiki/File:Glass_recycling_bins.jpg) | Digitura | [CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/) |
-| Utiliser les activités en classe | [Students working on class assignment in computer lab.jpg](https://commons.wikimedia.org/wiki/File:Students_working_on_class_assignment_in_computer_lab.jpg) | Michael Surran | [CC BY-SA 2.0](https://creativecommons.org/licenses/by-sa/2.0/) |
 | État des stations BIXI | [Bixi bike sharing Montreal.jpg](https://commons.wikimedia.org/wiki/File:Bixi_bike_sharing_Montreal.jpg) | JasonVogel | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) |
 | Bibliothèques publiques du Québec | [Grande bibliotheque du Quebec-main hall.jpg](https://commons.wikimedia.org/wiki/File:Grande_bibliotheque_du_Quebec-main_hall.jpg) | Montrealais | [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/) |
 | Stations de qualité de l'air | [Smog Montréal.jpg](https://commons.wikimedia.org/wiki/File:Smog_Montr%C3%A9al.jpg) | DubyDub2009 | [CC BY 2.0](https://creativecommons.org/licenses/by/2.0/) |
