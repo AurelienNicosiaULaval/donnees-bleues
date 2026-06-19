@@ -6,7 +6,6 @@ project:
     - assets/logo-donnees-bleues.svg
     - assets/cards/*.png
     - assets/cards/*.jpg
-    - assets/cards/*.svg
   render:
     - "*.qmd"
     - "datasets/**/*.qmd"

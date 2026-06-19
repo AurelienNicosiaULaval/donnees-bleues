@@ -171,6 +171,83 @@ cards <- list(
     license = "CC BY-SA 2.0",
     license_url = "https://creativecommons.org/licenses/by-sa/2.0/",
     gravity = "center"
+  ),
+  list(
+    id = "stt1100-air-qualite",
+    label = "Qualité de l'air au Québec (STT-1100)",
+    commons_file = "Smog Montréal.jpg",
+    source_title = "Smog Montréal.jpg",
+    source_page = "https://commons.wikimedia.org/wiki/File:Smog_Montr%C3%A9al.jpg",
+    author = "DubyDub2009",
+    license = "CC BY 2.0",
+    license_url = "https://creativecommons.org/licenses/by/2.0/",
+    gravity = "center"
+  ),
+  list(
+    id = "stt1100-budgets-municipaux",
+    label = "Budgets municipaux du Québec (STT-1100)",
+    commons_file = "Hôtel de Ville de Montréal, juin 2024.jpg",
+    source_title = "Hôtel de Ville de Montréal, juin 2024.jpg",
+    source_page = "https://commons.wikimedia.org/wiki/File:H%C3%B4tel_de_Ville_de_Montr%C3%A9al,_juin_2024.jpg",
+    author = "Pierre5018",
+    license = "CC BY 4.0",
+    license_url = "https://creativecommons.org/licenses/by/4.0/",
+    gravity = "center"
+  ),
+  list(
+    id = "stt1100-ecoles-quebec",
+    label = "Établissements scolaires du Québec (STT-1100)",
+    commons_file = "School bus in Quebec City.jpg",
+    source_title = "School bus in Quebec City.jpg",
+    source_page = "https://commons.wikimedia.org/wiki/File:School_bus_in_Quebec_City.jpg",
+    author = "Wilfredor",
+    license = "CC0 1.0",
+    license_url = "https://creativecommons.org/publicdomain/zero/1.0/",
+    gravity = "center"
+  ),
+  list(
+    id = "stt1100-transport-collectif",
+    label = "Réseaux de transport collectif GTFS au Québec (STT-1100)",
+    commons_file = "RTC Bus Québec City 14788128682.jpg",
+    source_title = "RTC Bus Québec City 14788128682.jpg",
+    source_page = "https://commons.wikimedia.org/wiki/File:RTC_Bus_Qu%C3%A9bec_City_14788128682.jpg",
+    author = "Tony Webster",
+    license = "CC BY-SA 4.0",
+    license_url = "https://creativecommons.org/licenses/by-sa/4.0/",
+    gravity = "center"
+  ),
+  list(
+    id = "stt1100-retards-transport",
+    label = "Retards et ponctualité du transport collectif (STT-1100)",
+    commons_file = "STM Bus back on line 114.jpg",
+    source_title = "STM Bus back on line 114.jpg",
+    source_page = "https://commons.wikimedia.org/wiki/File:STM_Bus_back_on_line_114.jpg",
+    author = "JustYou80",
+    license = "CC BY 4.0",
+    license_url = "https://creativecommons.org/licenses/by/4.0/",
+    gravity = "center"
+  ),
+  list(
+    id = "stt1100-emploi-regional",
+    label = "Emploi régional au Québec (STT-1100)",
+    commons_file = "News. Men at Work Bleury and St. Catherine.jpg",
+    source_title = "News. Men at Work Bleury and St. Catherine.jpg",
+    source_page = "https://commons.wikimedia.org/wiki/File:News._Men_at_Work_Bleury_and_St._Catherine.jpg",
+    author = "Conrad Poirier",
+    license = "Domaine public",
+    license_url = NA_character_,
+    gravity = "center"
+  ),
+  list(
+    id = "ulaval-programmes-cours",
+    label = "Programmes et cours institutionnels ULaval",
+    commons_file = "ULaval campus.jpg",
+    source_title = "ULaval campus.jpg",
+    source_page = "https://commons.wikimedia.org/wiki/File:ULaval_campus.jpg",
+    author = "René Bélanger",
+    license = "CC0 1.0",
+    license_url = "https://creativecommons.org/publicdomain/zero/1.0/",
+    gravity = "center"
   )
 )
 
@@ -247,14 +324,20 @@ write_credits_page <- function(cards) {
   rows <- vapply(
     cards,
     function(card) {
+      license <- escape_markdown_table(card$license)
+      license_cell <- if (is.null(card$license_url) || is.na(card$license_url) || !nzchar(card$license_url)) {
+        license
+      } else {
+        sprintf("[%s](%s)", license, card$license_url)
+      }
+
       sprintf(
-        "| %s | [%s](%s) | %s | [%s](%s) |",
+        "| %s | [%s](%s) | %s | %s |",
         escape_markdown_table(card$label),
         escape_markdown_table(card$source_title),
         card$source_page,
         escape_markdown_table(card$author),
-        escape_markdown_table(card$license),
-        card$license_url
+        license_cell
       )
     },
     character(1)
@@ -268,18 +351,34 @@ write_credits_page <- function(cards) {
     "",
     "# Crédits images",
     "",
-    "Les vignettes photographiques des jeux de données sont des versions recadrées et recompressées en 16:9 de fichiers publiés sur Wikimedia Commons.",
-    "",
-    "Quand aucun fichier image spécifique n'est disponible pour un jeu de données, Données bleues génère automatiquement une vignette SVG locale à partir des métadonnées du jeu. Ces vignettes automatiques ne réutilisent pas d'image externe.",
+    "Les vignettes des jeux de données sont des versions recadrées et recompressées en 16:9 de fichiers publiés sur Wikimedia Commons.",
     "",
     "| Carte | Image source | Auteur ou organisme | Licence |",
     "|---|---|---|---|",
-    rows,
-    ""
+    rows
   )
 
   writeLines(page, "credits-images.qmd", useBytes = TRUE)
 }
 
-invisible(lapply(cards, write_card_image))
+selected_ids <- commandArgs(trailingOnly = TRUE)
+
+if (length(selected_ids) > 0L) {
+  known_ids <- vapply(cards, `[[`, character(1), "id")
+  unknown_ids <- setdiff(selected_ids, known_ids)
+
+  if (length(unknown_ids) > 0L) {
+    stop(
+      "Unknown card id(s): ",
+      paste(unknown_ids, collapse = ", "),
+      call. = FALSE
+    )
+  }
+
+  cards_to_write <- cards[known_ids %in% selected_ids]
+} else {
+  cards_to_write <- cards
+}
+
+invisible(lapply(cards_to_write, write_card_image))
 write_credits_page(cards)

@@ -84,7 +84,7 @@ data/metadata/catalogue.csv
 data/metadata/catalogue.rds
 ```
 
-Elle crée aussi automatiquement une vignette SVG dans `assets/cards/` lorsqu'un jeu de données n'a pas encore d'image spécifique.
+Elle vérifie aussi qu'une vraie vignette existe dans `assets/cards/` pour chaque jeu de données. Les vignettes Wikimedia Commons sont déclarées et générées par `scripts/generate_card_images.R`.
 
 Le catalogue des activités est généré à partir des fichiers `activite-*.yml`.
 

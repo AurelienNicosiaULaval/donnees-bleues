@@ -22,7 +22,7 @@ catalogue_path <- "data/metadata/catalogue.csv"
 
 if (file.exists(catalogue_path)) {
   catalogue <- read_csv(catalogue_path, show_col_types = FALSE)
-  ensure_card_images(catalogue)
+  validate_card_images(catalogue)
 
   cat("::: {.card-grid}\n")
 

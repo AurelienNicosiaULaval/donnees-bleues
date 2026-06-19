@@ -50,7 +50,7 @@ for (dataset_dir in dataset_dirs) {
 }
 
 catalogue <- build_catalogue("datasets")
-ensure_card_images(catalogue)
+validate_card_images(catalogue)
 
 catalogue_activites <- build_activity_catalogue("datasets")
 validate_activity_catalogue(catalogue_activites)

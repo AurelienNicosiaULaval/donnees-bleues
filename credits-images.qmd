@@ -5,9 +5,7 @@ embed-resources: true
 
 # Crédits images
 
-Les vignettes photographiques des jeux de données sont des versions recadrées et recompressées en 16:9 de fichiers publiés sur Wikimedia Commons.
-
-Quand aucun fichier image spécifique n'est disponible pour un jeu de données, Données bleues génère automatiquement une vignette SVG locale à partir des métadonnées du jeu. Ces vignettes automatiques ne réutilisent pas d'image externe.
+Les vignettes des jeux de données sont des versions recadrées et recompressées en 16:9 de fichiers publiés sur Wikimedia Commons.
 
 | Carte | Image source | Auteur ou organisme | Licence |
 |---|---|---|---|
@@ -31,3 +29,4 @@ Quand aucun fichier image spécifique n'est disponible pour un jeu de données, 
 | Réseaux de transport collectif GTFS au Québec (STT-1100) | [RTC Bus Québec City 14788128682.jpg](https://commons.wikimedia.org/wiki/File:RTC_Bus_Qu%C3%A9bec_City_14788128682.jpg) | Tony Webster | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) |
 | Retards et ponctualité du transport collectif (STT-1100) | [STM Bus back on line 114.jpg](https://commons.wikimedia.org/wiki/File:STM_Bus_back_on_line_114.jpg) | JustYou80 | [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) |
 | Emploi régional au Québec (STT-1100) | [News. Men at Work Bleury and St. Catherine.jpg](https://commons.wikimedia.org/wiki/File:News._Men_at_Work_Bleury_and_St._Catherine.jpg) | Conrad Poirier | Domaine public |
+| Programmes et cours institutionnels ULaval | [ULaval campus.jpg](https://commons.wikimedia.org/wiki/File:ULaval_campus.jpg) | René Bélanger | [CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/) |
