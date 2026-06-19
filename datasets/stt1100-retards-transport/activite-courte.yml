@@ -1,0 +1,25 @@
+id: stt1100-retards-transport-court
+title: "Lab STT-1100 - Retards transport"
+question: "Quelles lignes présentent les retards les plus importants?"
+dataset_id: stt1100-retards-transport
+dataset_title: "Retards et ponctualité du transport collectif (STT-1100)"
+activity_url: "datasets/stt1100-retards-transport/activite-courte.qmd"
+duration: "60-90 minutes"
+level: "Intermédiaire"
+activity_type:
+  - "Laboratoire STT-1100"
+  - "Exploration de données"
+concepts:
+  - "statistiques descriptives"
+  - "distributions"
+  - "valeurs extrêmes"
+  - "séries temporelles"
+context: "Mobilité et performance de service"
+hook: "Question québécoise concrète"
+materials:
+  - "fiche"
+  - "code"
+  - "source officielle"
+advanced_math_stats: false
+teacher_notes: "Faire valider l'unité statistique et la provenance avant tout graphique."
+status: "prêt à adapter"

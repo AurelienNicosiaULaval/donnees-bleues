@@ -1,0 +1,27 @@
+id: stt1100-retards-transport-long
+title: "Mini-projet STT-1100 - Retards transport"
+question: "Construire un protocole reproductible pour archiver un flux temps réel et résumer la ponctualité par ligne."
+dataset_id: stt1100-retards-transport
+dataset_title: "Retards et ponctualité du transport collectif (STT-1100)"
+activity_url: "datasets/stt1100-retards-transport/activite-longue.qmd"
+duration: "2-3 heures"
+level: "Intermédiaire"
+activity_type:
+  - "Projet ou tâche longue"
+  - "Étude de cas"
+concepts:
+  - "statistiques descriptives"
+  - "distributions"
+  - "valeurs extrêmes"
+  - "séries temporelles"
+  - "qualité de service"
+context: "Mobilité et performance de service"
+hook: "Analyse territoriale québécoise"
+materials:
+  - "fiche"
+  - "code"
+  - "source officielle"
+  - "notes enseignantes"
+advanced_math_stats: false
+teacher_notes: "Demander un court paragraphe sur les limites de la source et les décisions de nettoyage."
+status: "prêt à adapter"

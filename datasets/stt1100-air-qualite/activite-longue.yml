@@ -1,0 +1,27 @@
+id: stt1100-air-qualite-long
+title: "Mini-projet STT-1100 - Air Québec STT-1100"
+question: "Construire un tableau de bord exploratoire des contaminants atmosphériques par station et par période."
+dataset_id: stt1100-air-qualite
+dataset_title: "Qualité de l'air au Québec (STT-1100)"
+activity_url: "datasets/stt1100-air-qualite/activite-longue.qmd"
+duration: "2-3 heures"
+level: "Introduction à intermédiaire"
+activity_type:
+  - "Projet ou tâche longue"
+  - "Étude de cas"
+concepts:
+  - "séries temporelles"
+  - "nettoyage de données"
+  - "visualisation"
+  - "détection d'anomalies"
+  - "données environnementales"
+context: "Environnement"
+hook: "Analyse territoriale québécoise"
+materials:
+  - "fiche"
+  - "code"
+  - "source officielle"
+  - "notes enseignantes"
+advanced_math_stats: false
+teacher_notes: "Demander un court paragraphe sur les limites de la source et les décisions de nettoyage."
+status: "prêt à adapter"

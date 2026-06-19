@@ -1,0 +1,25 @@
+id: stt1100-transport-collectif-court
+title: "Lab STT-1100 - GTFS Québec"
+question: "Quelle est la densité des arrêts de transport collectif selon le secteur?"
+dataset_id: stt1100-transport-collectif
+dataset_title: "Réseaux de transport collectif GTFS au Québec (STT-1100)"
+activity_url: "datasets/stt1100-transport-collectif/activite-courte.qmd"
+duration: "60-90 minutes"
+level: "Intermédiaire"
+activity_type:
+  - "Laboratoire STT-1100"
+  - "Exploration de données"
+concepts:
+  - "données relationnelles"
+  - "jointures multiples"
+  - "visualisation spatiale"
+  - "réseaux"
+context: "Mobilité et transport collectif"
+hook: "Question québécoise concrète"
+materials:
+  - "fiche"
+  - "code"
+  - "source officielle"
+advanced_math_stats: false
+teacher_notes: "Faire valider l'unité statistique et la provenance avant tout graphique."
+status: "prêt à adapter"
