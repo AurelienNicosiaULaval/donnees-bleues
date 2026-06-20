@@ -1537,7 +1537,7 @@ const initMatch = () => ({
   i: 0,
   lohisByNode: new Map()
 })
-/** 
+/**
  * keeps track of the start (lo) and end (hi) index of the match per node (leaf)
  * note: mutates the contents of `matchContext`
  */
@@ -1549,16 +1549,16 @@ const advanceMatch = (leaf, leafi, matchContext) => {
   matchContext.lohisByNode.set(leaf, { lo: curLoHi?.lo ?? leafi, hi: leafi })
 }
 /**
- * Finds all non-overlapping matches for a search string in the document. 
+ * Finds all non-overlapping matches for a search string in the document.
  * The search string may be split between multiple consecutive leaf nodes.
- * 
+ *
  * Whitespace in the search string must be present in the document to match, but
  * there may be addititional whitespace in the document that is ignored.
- * 
+ *
  * e.g. searching for `dogs rock` would match `dogs  \n <span> rock</span>`,
- * and would contribute the match 
+ * and would contribute the match
  * `{ i:9, els: new Map([[textNode, {lo:0, hi:8}],[spanNode,{lo:0,hi:5}]]) }`
- * 
+ *
  * @returns {Map<HTMLElement,{lo:number,hi:number}>[]}
  */
 function searchMatches(inSearch, el) {
@@ -1603,7 +1603,7 @@ function searchMatches(inSearch, el) {
   return matches
 }
 
-/** 
+/**
  * e.g. `markMatches(myTextNode, [[0,5],[12,15]])` would wrap the
  * character sequences in myTextNode from 0-5 and 12-15 in marks.
  * Its important to mark all sequences in a text node at once
@@ -1665,7 +1665,7 @@ function scrollToFirstVisibleMatch(mainEl) {
  *
  * arrayMapPush(m, 'dog', 'Max')
  * console.log(m) // Map { dog->['Max'] }
- * 
+ *
  * arrayMapPush(m, 'dog', 'Samba')
  * arrayMapPush(m, 'cat', 'Scruffle')
  * console.log(m) // Map { dog->['Max', 'Samba'], cat->['Scruffle'] }
@@ -1679,7 +1679,7 @@ const arrayMapPush = (map, key, item) => {
 // copy&paste any string from a quarto page and
 // this should find that string in the page and highlight it.
 // exception: text that starts outside/inside a tabset and ends
-// inside/outside that tabset. 
+// inside/outside that tabset.
 function highlight(searchStr, el) {
   const matches = searchMatches(searchStr, el);
 
@@ -4246,6 +4246,43 @@ font-size: 1rem;
 font-weight: 750;
 margin: 0 0 0.55rem;
 }
+.dataset-contributor-badge,
+.db-card-contributor {
+align-items: flex-start;
+background: #f6f8fb;
+border: 1px solid #d9e2ef;
+border-radius: 5px;
+color: #172033;
+display: inline-flex;
+flex-direction: column;
+gap: 0.08rem;
+}
+.dataset-contributor-badge {
+margin: 0 0 0.75rem;
+max-width: min(100%, 340px);
+padding: 0.45rem 0.62rem;
+}
+.dataset-contributor-badge span,
+.db-card-contributor span {
+color: #5b677d;
+font-size: 0.68rem;
+font-weight: 800;
+letter-spacing: 0;
+line-height: 1.15;
+text-transform: uppercase;
+}
+.dataset-contributor-badge strong,
+.db-card-contributor strong {
+color: #0045a5;
+font-size: 0.88rem;
+line-height: 1.2;
+}
+.dataset-contributor-badge small,
+.db-card-contributor small {
+color: #475467;
+font-size: 0.74rem;
+line-height: 1.25;
+}
 .dataset-hero-summary {
 color: #344054;
 font-size: 1.05rem;
@@ -5052,6 +5089,11 @@ overflow: hidden;
 -webkit-box-orient: vertical;
 -webkit-line-clamp: 2;
 }
+.db-card-contributor {
+margin: -0.12rem 0 0.5rem;
+padding: 0.38rem 0.48rem;
+width: 100%;
+}
 .dataset-source {
 color: #344054;
 font-size: 0.82rem;
@@ -5389,29 +5431,41 @@ grid-template-columns: 1fr;
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../index.html"> 
+    <a class="nav-link" href="../index.html">
 <span class="menu-text">Accueil</span></a>
-  </li>  
+  </li>
   <li class="nav-item">
-    <a class="nav-link" href="../catalogue.html"> 
+    <a class="nav-link" href="../catalogue.html">
 <span class="menu-text">Catalogue</span></a>
-  </li>  
+  </li>
   <li class="nav-item">
-    <a class="nav-link" href="../zero-waste.html"> 
+    <a class="nav-link" href="../zero-waste.html">
 <span class="menu-text">Zéro déchet</span></a>
-  </li>  
+  </li>
   <li class="nav-item">
-    <a class="nav-link" href="../activites.html"> 
+    <a class="nav-link" href="../activites.html">
 <span class="menu-text">Activités</span></a>
-  </li>  
+  </li>
   <li class="nav-item">
-    <a class="nav-link" href="../contribuer.html"> 
-<span class="menu-text">Contribuer</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../about.html"> 
+    <a class="nav-link" href="../about.html">
 <span class="menu-text">À propos</span></a>
-  </li>  
+  </li>
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../references.html"> <i class="bi bi-book" role="img">
+</i>
+<span class="menu-text">Documentation</span></a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="https://github.com/AurelienNicosiaULaval/donnees-bleues"> <i class="bi bi-github" role="img">
+</i>
+<span class="menu-text">GitHub</span></a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="../contribuer.html">
+<span class="menu-text">Contribuer</span></a>
+  </li>
 </ul>
           </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
@@ -5426,7 +5480,7 @@ grid-template-columns: 1fr;
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">On this page</h2>
-   
+
   <ul>
   <li><a href="#module-modélisation" id="toc-module-modélisation" class="nav-link active" data-scroll-target="#module-modélisation">Module modélisation</a>
   <ul class="collapse">
@@ -5450,11 +5504,11 @@ grid-template-columns: 1fr;
 
 <div class="quarto-title-meta">
 
-    
-  
-    
+
+
+
   </div>
-  
+
 
 
 </header>
@@ -5510,7 +5564,7 @@ grid-template-columns: 1fr;
     anchorJS.add('.anchored');
     const isCodeAnnotation = (el) => {
       for (const clz of el.classList) {
-        if (clz.startsWith('code-annotation-')) {                     
+        if (clz.startsWith('code-annotation-')) {
           return true;
         }
       }
@@ -5530,11 +5584,11 @@ grid-template-columns: 1fr;
         button.setAttribute("data-bs-toggle", "tooltip");
         button.setAttribute("data-bs-placement", "left");
         button.setAttribute("data-bs-title", "Copied!");
-        tooltip = new bootstrap.Tooltip(button, 
-          { trigger: "manual", 
+        tooltip = new bootstrap.Tooltip(button,
+          { trigger: "manual",
             customClass: "code-copy-button-tooltip",
             offset: [0, -8]});
-        tooltip.show();    
+        tooltip.show();
       }
       setTimeout(function() {
         if (tooltip) {
@@ -5616,7 +5670,7 @@ grid-template-columns: 1fr;
       if (onUntriggerFn) {
         config.onUntrigger = onUntriggerFn;
       }
-      window.tippy(el, config); 
+      window.tippy(el, config);
     }
     const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
     for (var i=0; i<noterefs.length; i++) {
@@ -5691,7 +5745,7 @@ grid-template-columns: 1fr;
       tippyHover(xref, undefined, function(instance) {
         instance.disable();
         let url = xref.getAttribute('href');
-        let hash = undefined; 
+        let hash = undefined;
         if (url.startsWith('#')) {
           hash = url;
         } else {
@@ -5719,7 +5773,7 @@ grid-template-columns: 1fr;
               if (note !== null) {
                 const html = processXRef(id, note);
                 instance.setContent(html);
-              } 
+              }
             }).finally(() => {
               instance.enable();
               instance.show();
@@ -5743,7 +5797,7 @@ grid-template-columns: 1fr;
               }
               const html = processXRef(null, note);
               instance.setContent(html);
-            } 
+            }
           }).finally(() => {
             instance.enable();
             instance.show();
@@ -5783,7 +5837,7 @@ grid-template-columns: 1fr;
               height = bottom - top;
             }
             if (top !== null && height !== null && parent !== null) {
-              // cook up a div (if necessary) and position it 
+              // cook up a div (if necessary) and position it
               let div = window.document.getElementById("code-annotation-line-highlight");
               if (div === null) {
                 div = window.document.createElement("div");
@@ -5909,7 +5963,7 @@ grid-template-columns: 1fr;
   <div class="nav-footer">
     <div class="nav-footer-left">
 <p>Données bleues</p>
-</div>   
+</div>
     <div class="nav-footer-center">
        
     </div>

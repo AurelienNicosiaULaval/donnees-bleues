@@ -58,6 +58,7 @@ zero_waste:
   potentiel_modelisation: 2
   potentiel_ethique: 2
   reutilisabilite: 3
+contributor_name: "Aurélien Nicosia"
+contributor_role: "Responsable pédagogique STT-1100"
 status: "source pédagogique vérifiée dans UlavalSSD; source primaire ECCC documentée par weathercan"
 notes: "Utilisé dans l'aventure 1 de STT-1100. La documentation locale d'UlavalSSD indique les stations 5251 et 26892; weathercan associe ces identifiants à Québec/Jean-Lesage."
-

@@ -59,6 +59,7 @@ zero_waste:
   potentiel_modelisation: 3
   potentiel_ethique: 3
   reutilisabilite: 3
+contributor_name: "Aurélien Nicosia"
+contributor_role: "Responsable pédagogique STT-1100"
 status: "source officielle vérifiée; fichier utilisé dans l'aventure 9 de STT-1100"
 notes: "La ressource vérifiée est le CSV des écoles primaires publiques 2025-2026. Les lignes avec Diffusion = NON nécessitent une interprétation prudente."
-

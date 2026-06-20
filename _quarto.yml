@@ -30,10 +30,17 @@ website:
         href: zero-waste.qmd
       - text: "Activités"
         href: activites.qmd
-      - text: "Contribuer"
-        href: contribuer.qmd
       - text: "À propos"
         href: about.qmd
+    right:
+      - icon: book
+        text: "Documentation"
+        href: references.qmd
+      - icon: github
+        text: "GitHub"
+        href: https://github.com/AurelienNicosiaULaval/donnees-bleues
+      - text: "Contribuer"
+        href: contribuer.qmd
   page-footer:
     left: "Données bleues"
     right: "Ressource pédagogique ouverte en développement"

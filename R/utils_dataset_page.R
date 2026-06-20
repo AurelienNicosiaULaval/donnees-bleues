@@ -145,6 +145,24 @@ dataset_activity_cards <- function(metadata, ctx) {
   paste(cards, collapse = "\n")
 }
 
+dataset_contributor_badge <- function(metadata) {
+  name <- dataset_squish(metadata$contributor_name, "")
+  if (name == "") {
+    return("")
+  }
+
+  role <- dataset_squish(metadata$contributor_role, "")
+  role_html <- if (role == "") "" else paste0("<small>", dataset_html_escape(role), "</small>")
+
+  paste0(
+    '<div class="dataset-contributor-badge">',
+    '<span>Personne à contacter</span>',
+    "<strong>", dataset_html_escape(name), "</strong>",
+    role_html,
+    "</div>"
+  )
+}
+
 dataset_processed_csv <- function(metadata, ctx) {
   NA_character_
 }
@@ -372,6 +390,7 @@ render_dataset_detail_header <- function() {
   }
   activities <- dataset_activity_cards(metadata, ctx)
   source_url <- dataset_squish(metadata$source_url, "")
+  contributor_badge <- dataset_contributor_badge(metadata)
   source_button <- if (source_url == "") {
     ""
   } else {
@@ -401,6 +420,7 @@ render_dataset_detail_header <- function() {
     dataset_html_escape(dataset_squish(metadata$theme)), '</span></nav>\n',
     '<h1>', dataset_html_escape(dataset_squish(metadata$title, "Jeu de données")), '</h1>\n',
     '<p class="dataset-hero-source">', dataset_html_escape(dataset_squish(metadata$source_name)), '</p>\n',
+    contributor_badge,
     '<p class="dataset-hero-summary">', dataset_html_escape(dataset_squish(metadata$unit)), '</p>\n',
     '<div class="dataset-hero-actions">',
     '<a class="dataset-button" href="#r-en-action">Voir les résultats R</a>',

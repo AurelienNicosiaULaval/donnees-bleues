@@ -1,13 +1,9 @@
 ---
 title: "Catalogue"
 embed-resources: true
-execute:
-  freeze: false
+toc: false
+page-layout: full
 ---
-
-# Catalogue
-
-Le catalogue est généré à partir des fichiers `metadata.yml` ou `metadata/dataset.yaml` placés dans chaque dossier de jeu de données.
 
 ```{r}
 #| label: catalogue-table
@@ -16,44 +12,421 @@ Le catalogue est généré à partir des fichiers `metadata.yml` ou `metadata/da
 library(dplyr)
 library(readr)
 library(stringr)
-source("R/utils_card_images.R")
 
 catalogue_path <- "data/metadata/catalogue.csv"
+activity_catalogue_path <- "data/metadata/catalogue_activites.csv"
+
+html_escape <- function(value) {
+  value <- as.character(value)
+  value[is.na(value)] <- ""
+  value <- str_replace_all(value, "&", "&amp;")
+  value <- str_replace_all(value, "<", "&lt;")
+  value <- str_replace_all(value, ">", "&gt;")
+  value <- str_replace_all(value, '"', "&quot;")
+  value <- str_replace_all(value, "'", "&#39;")
+  value
+}
+
+clean_value <- function(value, fallback = "Je ne sais pas.") {
+  value <- str_squish(as.character(value))
+  if (length(value) == 0L || is.na(value) || value == "") {
+    fallback
+  } else {
+    value
+  }
+}
+
+split_concepts <- function(value) {
+  values <- str_split(clean_value(value, ""), ";\\s*")[[1]]
+  values[str_squish(values) != ""]
+}
+
+format_score <- function(value) {
+  score <- suppressWarnings(as.numeric(value))
+  if (is.na(score)) {
+    list(label = "Je ne sais pas.", percent = 0, filled = 0)
+  } else {
+    percent <- max(0, min(100, round(score / 30 * 100)))
+    filled <- max(0, min(5, ceiling(percent / 20)))
+    list(label = paste0(score, "/30"), percent = percent, filled = filled)
+  }
+}
+
+format_score_segments <- function(score) {
+  paste(vapply(seq_len(5), function(i) {
+    class <- if (i <= score$filled) "score-segment is-filled" else "score-segment"
+    paste0('<span class="', class, '"></span>')
+  }, character(1)), collapse = "")
+}
+
+list_tokens <- function(value) {
+  tokens <- str_split(clean_value(value, ""), ",\\s*|;\\s*")[[1]]
+  tokens <- str_squish(tokens)
+  tokens[tokens != ""]
+}
+
+first_token <- function(value) {
+  values <- split_concepts(value)
+  if (length(values) == 0L) {
+    ""
+  } else {
+    values[[1]]
+  }
+}
+
+format_learning_focus <- function(row) {
+  mini_project <- first_token(row$idees_mini_projets)
+  if (mini_project != "") {
+    return(str_trunc(mini_project, 118))
+  }
+
+  activity_question <- clean_value(row$activity_question, "")
+  if (activity_question != "") {
+    return(str_trunc(activity_question, 118))
+  }
+
+  concepts <- split_concepts(row$concepts)
+  if (length(concepts) > 0L) {
+    return(paste0("Travailler ", str_to_lower(paste(head(concepts, 2), collapse = " et ")), "."))
+  }
+
+  "Explorer la structure, les limites et les usages pédagogiques du jeu de données."
+}
+
+format_filter_group <- function(values, name, max_options = Inf, more_label = "Voir plus") {
+  values <- str_squish(as.character(values))
+  values <- values[!is.na(values) & values != ""]
+  counts <- sort(table(values), decreasing = TRUE)
+  has_more <- is.finite(max_options) && length(counts) > max_options
+
+  options <- paste(vapply(seq_along(counts), function(i) {
+    value <- names(counts)[i]
+    input_id <- paste0(name, "-", i)
+    hidden <- if (has_more && i > max_options) " is-extra" else ""
+    paste0(
+      '<label class="filter-option', hidden, '" for="', html_escape(input_id), '">',
+      '<input id="', html_escape(input_id), '" type="checkbox" name="', html_escape(name), '" value="', html_escape(value), '">',
+      '<span>', html_escape(value), '</span>',
+      '<strong>', as.integer(counts[[i]]), '</strong>',
+      '</label>'
+    )
+  }, character(1)), collapse = "\n")
+
+  if (has_more) {
+    options <- paste0(
+      options,
+      '\n<button class="filter-more" type="button" data-toggle-filter-group="',
+      html_escape(name),
+      '">',
+      html_escape(more_label),
+      "</button>"
+    )
+  }
+
+  options
+}
+
+format_chip <- function(label, attrs = "", active = FALSE) {
+  class <- if (active) "filter-chip is-active" else "filter-chip"
+  paste0('<button class="', class, '" type="button" ', attrs, '>', html_escape(label), "</button>")
+}
+
+contributor_badge <- function(row) {
+  name <- clean_value(row$contributor_name, "")
+  if (name == "") {
+    return("")
+  }
+
+  role <- clean_value(row$contributor_role, "")
+  role_html <- if (role == "") "" else paste0("<small>", html_escape(role), "</small>")
+
+  paste0(
+    '<p class="db-card-contributor">',
+    '<span>Personne à contacter</span>',
+    "<strong>", html_escape(name), "</strong>",
+    role_html,
+    "</p>\n"
+  )
+}
 
 if (file.exists(catalogue_path)) {
   catalogue <- read_csv(catalogue_path, show_col_types = FALSE)
-  validate_card_images(catalogue)
 
-  cat("::: {.card-grid}\n")
+  if (file.exists(activity_catalogue_path)) {
+    activity_questions <- read_csv(activity_catalogue_path, show_col_types = FALSE) |>
+      group_by(dataset_id) |>
+      summarise(activity_question = first(question), .groups = "drop")
+
+    catalogue <- catalogue |>
+      left_join(activity_questions, by = c("id" = "dataset_id"))
+  } else {
+    catalogue$activity_question <- NA_character_
+  }
+
+  catalogue <- catalogue |>
+    arrange(theme, title)
+
+  theme_filters <- format_filter_group(catalogue$theme, "theme", max_options = 5)
+  level_filters <- format_filter_group(catalogue$level, "level")
+  concept_values <- unlist(lapply(catalogue$concepts, split_concepts))
+  concept_filters <- format_filter_group(concept_values, "concept", max_options = 6)
+  license_filters <- format_filter_group(catalogue$license, "license", max_options = 3)
+
+  cat('<section class="catalogue-page page-full catalogue-reference" data-catalogue>\n')
+  cat('<div class="catalogue-hero-row">\n')
+  cat('<div class="catalogue-title-block">\n')
+  cat('<h1>Catalogue</h1>\n')
+  cat('<p>Explorez des données ouvertes pour vos analyses et projets pédagogiques. Recherchez et filtrez rapidement les fiches utiles.</p>\n')
+  cat('</div>\n')
+  cat('<div class="catalogue-top-controls" role="search" aria-label="Recherche dans le catalogue">\n')
+  cat('<div class="catalogue-search-row">\n')
+  cat('<label class="catalogue-search-box" for="dataset-search"><i class="bi bi-search" aria-hidden="true"></i><span class="visually-hidden">Recherche</span><input id="dataset-search" type="search" placeholder="Rechercher un jeu de données (ex. qualité de l’eau, mobilité...)" autocomplete="off"></label>\n')
+  cat('<button class="catalogue-help" type="button"><i class="bi bi-question-circle" aria-hidden="true"></i>Conseils de recherche</button>\n')
+  cat('</div>\n')
+  cat('<div class="catalogue-chip-row" aria-label="Filtres rapides">\n')
+  cat('<span class="filter-kicker">Thème <i class="bi bi-chevron-down" aria-hidden="true"></i></span>\n')
+  cat(format_chip("Tous les thèmes", 'data-clear-group="theme"', active = TRUE), "\n", sep = "")
+  cat('<span class="filter-kicker">Niveau <i class="bi bi-chevron-down" aria-hidden="true"></i></span>\n')
+  cat(format_chip("Tous les niveaux", 'data-clear-group="level"', active = TRUE), "\n", sep = "")
+  cat(format_chip("Introduction", 'data-level-fragment="Introduction"'), "\n", sep = "")
+  cat(format_chip("Intermédiaire", 'data-level-fragment="Intermédiaire"'), "\n", sep = "")
+  cat(format_chip("Avancé", 'data-level-fragment="avancé"'), "\n", sep = "")
+  cat('<span class="filter-spacer"></span>\n')
+  cat('<button class="more-filters" type="button" data-focus-filters>Plus de filtres <i class="bi bi-sliders" aria-hidden="true"></i></button>\n')
+  cat('<button class="catalogue-reset-link top-reset" type="button" data-reset-catalogue>Réinitialiser</button>\n')
+  cat('</div>\n')
+  cat('</div>\n')
+  cat('</div>\n')
+
+  cat('<div class="catalogue-layout">\n')
+  cat('<div class="catalogue-sidebar" role="complementary" aria-label="Filtres du catalogue">\n')
+  cat('<div class="catalogue-sidebar-head">\n')
+  cat('<h2>Affiner les résultats</h2>\n')
+  cat('<button class="catalogue-reset-link" type="button" data-reset-catalogue>Réinitialiser les filtres</button>\n')
+  cat('</div>\n')
+  cat('<div class="filter-group"><h3>Thème</h3>', theme_filters, '</div>\n', sep = "")
+  cat('<div class="filter-group"><h3>Niveau recommandé</h3>', level_filters, '</div>\n', sep = "")
+  cat('<div class="filter-group"><h3>Notions pédagogiques</h3>', concept_filters, '</div>\n', sep = "")
+  cat('<div class="filter-group"><h3>Licence</h3>', license_filters, '</div>\n', sep = "")
+  cat('</div>\n')
+
+  cat('<main class="catalogue-results">\n')
+  cat('<div class="catalogue-results-bar">\n')
+  cat('<p class="catalogue-count" data-result-count aria-live="polite">', nrow(catalogue), ' jeux de données</p>\n', sep = "")
+  cat('<label class="catalogue-sort">Trier par <select id="dataset-sort"><option value="relevance">Pertinence</option><option value="title">Titre</option><option value="score">Score zéro déchet</option></select></label>\n')
+  cat('</div>\n')
+
+  cat('<div class="dataset-grid">\n')
 
   for (i in seq_len(nrow(catalogue))) {
     row <- catalogue[i, ]
     fiche_html <- str_replace(row$fiche, "\\.qmd$", ".html")
-    image_path <- card_image_path(row$id)
-    image_alt <- paste("Illustration du thème", row$theme)
-    image_alt <- str_replace_all(image_alt, "\"", "&quot;")
-
-    cat("::: {.db-card}\n")
-    if (!is.na(image_path) && file.exists(image_path)) {
-      cat("<img class=\"db-card-image\" src=\"", image_path, "\" alt=\"", image_alt, "\">\n\n", sep = "")
+    image_candidates <- file.path(
+      "assets/cards",
+      paste0(row$id, c(".jpg", ".jpeg", ".png", ".webp"))
+    )
+    image_path <- image_candidates[file.exists(image_candidates)][1]
+    if (length(image_path) == 0 || is.na(image_path)) {
+      image_path <- file.path("assets/cards", "catalogue.png")
     }
-    cat("### [", row$title, "](", fiche_html, ")\n\n", sep = "")
-    cat("- Source : ", row$source_name, "\n", sep = "")
-    cat("- Thème : ", row$theme, "\n", sep = "")
-    cat("- Taille : ", row$n_rows, "; ", row$n_cols, "\n", sep = "")
-    cat("- Type : ", row$data_type, "\n", sep = "")
-    cat("- Niveau : ", row$level, "\n", sep = "")
-    cat("- Score zéro déchet : ", row$zero_waste_score, "/30\n", sep = "")
-    cat("- Concepts : ", str_replace_all(row$concepts, "; ", ", "), "\n", sep = "")
-    cat(":::\n\n")
+    image_alt <- paste("Illustration du thème", row$theme)
+    score <- format_score(row$zero_waste_score)
+    concept_tokens <- split_concepts(row$concepts)
+    learning_focus <- format_learning_focus(row)
+    source_line <- paste(
+      clean_value(row$theme, ""),
+      clean_value(row$source_name, ""),
+      sep = " · "
+    )
+    source_line <- str_replace(source_line, "^( · | · )", "")
+    search_text <- paste(
+      row$title,
+      row$short_title,
+      row$theme,
+      row$source_name,
+      row$geography,
+      row$unit,
+      row$data_type,
+      row$format,
+      row$level,
+      row$license,
+      row$concepts,
+      row$idees_mini_projets,
+      row$contributor_name,
+      row$contributor_role,
+      row$activity_question,
+      row$status,
+      sep = " "
+    )
+
+    cat(
+      '<article class="db-card dataset-card" data-theme="',
+      html_escape(clean_value(row$theme, "")),
+      '" data-level="',
+      html_escape(clean_value(row$level, "")),
+      '" data-search="',
+      html_escape(search_text),
+      '" data-concepts="',
+      html_escape(paste(concept_tokens, collapse = "||")),
+      '" data-license="',
+      html_escape(clean_value(row$license, "")),
+      '" data-score="',
+      html_escape(suppressWarnings(as.numeric(row$zero_waste_score))),
+      '" data-title="',
+      html_escape(clean_value(row$title, "")),
+      '">\n',
+      sep = ""
+    )
+
+    cat(
+      '<a class="dataset-media" href="',
+      html_escape(fiche_html),
+      '"><img class="db-card-image" src="',
+      html_escape(image_path),
+      '" alt="',
+      html_escape(image_alt),
+      '"></a>\n',
+      sep = ""
+    )
+
+    cat('<div class="dataset-card-body">\n')
+    cat('<h3><a href="', html_escape(fiche_html), '">', html_escape(row$title), "</a></h3>\n", sep = "")
+    cat(contributor_badge(row))
+    cat('<p class="dataset-source">', html_escape(source_line), "</p>\n", sep = "")
+    cat('<div class="dataset-facts">\n')
+    cat('<span><i class="bi bi-mortarboard" aria-hidden="true"></i>', html_escape(clean_value(row$level)), '</span>\n', sep = "")
+    cat('<span><i class="bi bi-geo-alt" aria-hidden="true"></i>', html_escape(clean_value(row$geography)), '</span>\n', sep = "")
+    cat('</div>\n')
+    cat('<div class="dataset-learning"><span>Idée en classe</span><p>', html_escape(learning_focus), '</p></div>\n', sep = "")
+    cat('<div class="dataset-score" aria-label="Score zéro déchet ', html_escape(score$label), '">\n', sep = "")
+    cat('<div class="dataset-score-label"><span>Potentiel pédagogique <i class="bi bi-info-circle" aria-hidden="true"></i></span></div>\n', sep = "")
+    cat('<div class="dataset-score-track">', format_score_segments(score), "</div>\n", sep = "")
+    cat("</div>\n")
+    cat('<a class="dataset-action" href="', html_escape(fiche_html), '">Voir la fiche <i class="bi bi-arrow-right" aria-hidden="true"></i></a>\n', sep = "")
+    cat("</div>\n")
+    cat("</article>\n\n")
   }
 
-  cat(":::\n")
+  cat("</div>\n")
+  cat('<p class="catalogue-empty" data-empty-catalogue hidden>Aucune fiche ne correspond aux filtres actuels.</p>\n')
+  cat('</main>\n')
+  cat("</div>\n")
+  cat("</section>\n")
+  cat('<script>\n')
+  cat('(function () {\n')
+  cat('  const root = document.querySelector("[data-catalogue]");\n')
+  cat('  if (!root) return;\n')
+  cat('  const searchInput = root.querySelector("#dataset-search");\n')
+  cat('  const resetButtons = Array.from(root.querySelectorAll("[data-reset-catalogue]"));\n')
+  cat('  const sortSelect = root.querySelector("#dataset-sort");\n')
+  cat('  const countNode = root.querySelector("[data-result-count]");\n')
+  cat('  const emptyNode = root.querySelector("[data-empty-catalogue]");\n')
+  cat('  const grid = root.querySelector(".dataset-grid");\n')
+  cat('  const cards = Array.from(root.querySelectorAll(".dataset-card"));\n')
+  cat('  let activeLevelFragment = "";\n')
+  cat('  const normalize = function (value) {\n')
+  cat('    return (value || "").toString().toLowerCase().normalize("NFD").replace(/[\\u0300-\\u036f]/g, "");\n')
+  cat('  };\n')
+  cat('  const pluralize = function (count) {\n')
+  cat('    return count + " jeu" + (count > 1 ? "x" : "") + " de données";\n')
+  cat('  };\n')
+  cat('  const checked = function (name) {\n')
+  cat('    return Array.from(root.querySelectorAll("input[name=\\"" + name + "\\"]:checked")).map(function (input) { return input.value; });\n')
+  cat('  };\n')
+  cat('  const matchesList = function (selected, value) {\n')
+  cat('    return selected.length === 0 || selected.includes(value || "");\n')
+  cat('  };\n')
+  cat('  const matchesTokens = function (selected, value) {\n')
+  cat('    if (selected.length === 0) return true;\n')
+  cat('    const tokens = (value || "").split("||");\n')
+  cat('    return selected.some(function (item) { return tokens.includes(item); });\n')
+  cat('  };\n')
+  cat('  const sortCards = function () {\n')
+  cat('    const mode = sortSelect ? sortSelect.value : "relevance";\n')
+  cat('    const sorted = cards.slice().sort(function (a, b) {\n')
+  cat('      if (mode === "title") return (a.dataset.title || "").localeCompare(b.dataset.title || "", "fr");\n')
+  cat('      if (mode === "score") return (Number(b.dataset.score) || 0) - (Number(a.dataset.score) || 0);\n')
+  cat('      return cards.indexOf(a) - cards.indexOf(b);\n')
+  cat('    });\n')
+  cat('    sorted.forEach(function (card) { grid.appendChild(card); });\n')
+  cat('  };\n')
+  cat('  const update = function () {\n')
+  cat('    const query = normalize(searchInput.value);\n')
+  cat('    const themes = checked("theme");\n')
+  cat('    const levels = checked("level");\n')
+  cat('    const concepts = checked("concept");\n')
+  cat('    const licenses = checked("license");\n')
+  cat('    let visible = 0;\n')
+  cat('    cards.forEach(function (card) {\n')
+  cat('      const matchesQuery = !query || normalize(card.dataset.search).includes(query);\n')
+  cat('      const matchesTheme = matchesList(themes, card.dataset.theme);\n')
+  cat('      const matchesLevel = matchesList(levels, card.dataset.level) && (!activeLevelFragment || normalize(card.dataset.level).includes(normalize(activeLevelFragment)));\n')
+  cat('      const matchesConcept = matchesTokens(concepts, card.dataset.concepts);\n')
+  cat('      const matchesLicense = matchesList(licenses, card.dataset.license);\n')
+  cat('      const show = matchesQuery && matchesTheme && matchesLevel && matchesConcept && matchesLicense;\n')
+  cat('      card.hidden = !show;\n')
+  cat('      if (show) visible += 1;\n')
+  cat('    });\n')
+  cat('    countNode.textContent = pluralize(visible);\n')
+  cat('    emptyNode.hidden = visible !== 0;\n')
+  cat('    root.querySelector("[data-clear-group=\\"theme\\"]")?.classList.toggle("is-active", themes.length === 0);\n')
+  cat('    root.querySelector("[data-clear-group=\\"level\\"]")?.classList.toggle("is-active", levels.length === 0 && !activeLevelFragment);\n')
+  cat('    root.querySelectorAll("[data-level-fragment]").forEach(function (button) {\n')
+  cat('      button.classList.toggle("is-active", button.dataset.levelFragment === activeLevelFragment);\n')
+  cat('    });\n')
+  cat('  };\n')
+  cat('  searchInput.addEventListener("input", update);\n')
+  cat('  if (sortSelect) sortSelect.addEventListener("change", function () { sortCards(); update(); });\n')
+  cat('  root.querySelectorAll(".catalogue-sidebar input").forEach(function (input) {\n')
+  cat('    input.addEventListener("change", update);\n')
+  cat('  });\n')
+  cat('  root.querySelectorAll("[data-clear-group]").forEach(function (button) {\n')
+  cat('    button.addEventListener("click", function () {\n')
+  cat('      const name = button.dataset.clearGroup;\n')
+  cat('      root.querySelectorAll("input[name=\\"" + name + "\\"]").forEach(function (input) { input.checked = false; });\n')
+  cat('      if (name === "level") activeLevelFragment = "";\n')
+  cat('      update();\n')
+  cat('    });\n')
+  cat('  });\n')
+  cat('  root.querySelectorAll("[data-level-fragment]").forEach(function (button) {\n')
+  cat('    button.addEventListener("click", function () {\n')
+  cat('      activeLevelFragment = activeLevelFragment === button.dataset.levelFragment ? "" : button.dataset.levelFragment;\n')
+  cat('      root.querySelectorAll("input[name=\\"level\\"]").forEach(function (input) { input.checked = false; });\n')
+  cat('      update();\n')
+  cat('    });\n')
+  cat('  });\n')
+  cat('  root.querySelectorAll("[data-toggle-filter-group]").forEach(function (button) {\n')
+  cat('    button.addEventListener("click", function () {\n')
+  cat('      const group = button.closest(".filter-group");\n')
+  cat('      group.classList.toggle("is-expanded");\n')
+  cat('      button.textContent = group.classList.contains("is-expanded") ? "Voir moins" : "Voir plus";\n')
+  cat('    });\n')
+  cat('  });\n')
+  cat('  root.querySelector("[data-focus-filters]")?.addEventListener("click", function () {\n')
+  cat('    root.querySelector(".catalogue-sidebar")?.scrollIntoView({ behavior: "smooth", block: "start" });\n')
+  cat('  });\n')
+  cat('  resetButtons.forEach(function (button) {\n')
+  cat('    button.addEventListener("click", function () {\n')
+  cat('      searchInput.value = "";\n')
+  cat('      root.querySelectorAll(".catalogue-sidebar input").forEach(function (input) { input.checked = false; });\n')
+  cat('      activeLevelFragment = "";\n')
+  cat('      if (sortSelect) sortSelect.value = "relevance";\n')
+  cat('      sortCards();\n')
+  cat('      update();\n')
+  cat('      searchInput.focus();\n')
+  cat('    });\n')
+  cat('  });\n')
+  cat('  sortCards();\n')
+  cat('  update();\n')
+  cat('})();\n')
+  cat('</script>\n')
 } else {
   cat("Le catalogue n'a pas encore été généré. Exécuter `Rscript scripts/build_catalogue.R`.")
 }
 ```
 
+::: {.catalogue-page .page-full}
 ::: {.image-credit-link}
 [Crédits des images](credits-images.qmd)
+:::
 :::

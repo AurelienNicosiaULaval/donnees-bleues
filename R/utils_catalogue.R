@@ -42,9 +42,14 @@ metadata_zero_waste_score <- function(metadata) {
   compute_zero_waste_score(metadata$zero_waste)$total
 }
 
+collapse_metadata_field <- function(x) {
+  paste(unlist(x %||% character()), collapse = "; ")
+}
+
 metadata_row <- function(metadata, dataset_dir) {
-  concepts <- metadata$concepts %||% character()
-  concepts <- paste(unlist(concepts), collapse = "; ")
+  concepts <- collapse_metadata_field(metadata$concepts)
+  variables_principales <- collapse_metadata_field(metadata$variables_principales)
+  idees_mini_projets <- collapse_metadata_field(metadata$idees_mini_projets)
 
   fiche <- metadata$fiche %||% {
     fiche_candidates <- c(
@@ -78,9 +83,13 @@ metadata_row <- function(metadata, dataset_dir) {
     update_frequency = metadata$update_frequency %||% NA_character_,
     level = metadata$level %||% NA_character_,
     concepts = concepts,
+    variables_principales = variables_principales,
+    idees_mini_projets = idees_mini_projets,
     zero_waste_score = metadata_zero_waste_score(metadata),
     fiche = fiche,
     status = metadata$status %||% NA_character_,
+    contributor_name = metadata$contributor_name %||% NA_character_,
+    contributor_role = metadata$contributor_role %||% NA_character_,
     stringsAsFactors = FALSE
   )
 }

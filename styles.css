@@ -288,6 +288,48 @@ body:has(.dataset-detail-page) main.content {
   margin: 0 0 0.55rem;
 }
 
+.dataset-contributor-badge,
+.db-card-contributor {
+  align-items: flex-start;
+  background: #f6f8fb;
+  border: 1px solid #d9e2ef;
+  border-radius: 5px;
+  color: #172033;
+  display: inline-flex;
+  flex-direction: column;
+  gap: 0.08rem;
+}
+
+.dataset-contributor-badge {
+  margin: 0 0 0.75rem;
+  max-width: min(100%, 340px);
+  padding: 0.45rem 0.62rem;
+}
+
+.dataset-contributor-badge span,
+.db-card-contributor span {
+  color: #5b677d;
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0;
+  line-height: 1.15;
+  text-transform: uppercase;
+}
+
+.dataset-contributor-badge strong,
+.db-card-contributor strong {
+  color: #0045a5;
+  font-size: 0.88rem;
+  line-height: 1.2;
+}
+
+.dataset-contributor-badge small,
+.db-card-contributor small {
+  color: #475467;
+  font-size: 0.74rem;
+  line-height: 1.25;
+}
+
 .dataset-hero-summary {
   color: #344054;
   font-size: 1.05rem;
@@ -1216,6 +1258,12 @@ body:has(.catalogue-reference) main.content {
   overflow: hidden;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
+}
+
+.db-card-contributor {
+  margin: -0.12rem 0 0.5rem;
+  padding: 0.38rem 0.48rem;
+  width: 100%;
 }
 
 .dataset-source {

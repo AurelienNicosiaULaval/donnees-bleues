@@ -58,6 +58,7 @@ zero_waste:
   potentiel_modelisation: 1
   potentiel_ethique: 3
   reutilisabilite: 3
+contributor_name: "Aurélien Nicosia"
+contributor_role: "Responsable pédagogique STT-1100"
 status: "source officielle vérifiée; version pédagogique nettoyée dans UlavalSSD"
 notes: "Utilisé dans l'aventure 3 de STT-1100. La version du cours conserve les colonnes essentielles pour travailler les variables catégorielles, les dates et les amendes."
-
