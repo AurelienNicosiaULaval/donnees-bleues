@@ -5547,8 +5547,11 @@ grid-template-columns: 1fr;
 <p class="dataset-hero-source">
 Données Québec / Ministère de l&#39;Éducation et Ministère de l&#39;Enseignement supérieur
 </p>
+<div class="dataset-contributor-badge">
+<span>Personne à contacter</span><strong>Aurélien Nicosia</strong><small>Révision pédagogique et statistique</small>
+</div>
 <p class="dataset-hero-summary">
-Établissement, école, immeuble ou siège social selon la couche choisie
+Lien école publique-immeuble scolaire
 </p>
 <div class="dataset-hero-actions">
 <a class="dataset-button no-external" href="#r-en-action">Voir les résultats R</a><a class="dataset-button secondary" href="https://www.donneesquebec.ca/recherche/dataset/localisation-des-etablissements-d-enseignement-du-reseau-scolaire-au-quebec">Source officielle</a>
@@ -5566,17 +5569,17 @@ Données Québec / Ministère de l&#39;Éducation et Ministère de l&#39;Enseign
 <span>Niveau</span><strong>Introduction à intermédiaire</strong>
 </div>
 <div class="dataset-fact">
-<span>Structure</span><strong>Tabulaire et géospatial</strong>
+<span>Structure</span><strong>Tabulaire avec coordonnées géographiques WGS84</strong>
 </div>
 <div class="dataset-fact">
-<span>Format</span><strong>CSV, GeoJSON, SHP, KML, WFS, WMS et FGDB</strong>
+<span>Format</span><strong>CSV officiel; autres formats disponibles dans le paquet</strong>
 </div>
 </div>
 <div class="dataset-pedagogy-band">
 <div class="dataset-pedagogy-main">
 <span>Question de départ</span>
 <p>
-Explorer éducation et territoire avec une question descriptive.
+Cartographier les liens école-immeuble et discuter les risques de double comptage.
 </p>
 </div>
 <div class="dataset-score-box">
@@ -5587,7 +5590,7 @@ Explorer éducation et territoire avec une question descriptive.
 </div>
 </div>
 <div class="dataset-chip-strip">
-<span>géolocalisation</span><span>cartographie</span><span>jointures</span><span>densité spatiale</span><span>données publiques</span>
+<span>géolocalisation</span><span>cartographie</span><span>jointures</span><span>unité statistique</span><span>double comptage</span><span>données publiques</span>
 </div>
 <section class="dataset-r-lab" id="r-en-action">
 <div class="dataset-section-heading">
@@ -5618,13 +5621,13 @@ Résultats R
 </div>
 <div class="dataset-r-stats">
 <div class="dataset-r-stat">
-<span>Lignes déclarées</span><strong>Volume variable selon la couche; plusieurs ressources par type d&#39;établissement</strong>
+<span>Lignes déclarées</span><strong>5 466 liens école-immeuble dans le CSV Écoles publiques</strong>
 </div>
 <div class="dataset-r-stat">
-<span>Colonnes déclarées</span><strong>Variables de nom, type, organisme, territoire et coordonnées</strong>
+<span>Colonnes déclarées</span><strong>34 colonnes officielles; 48 colonnes après préparation locale</strong>
 </div>
 <div class="dataset-r-stat">
-<span>Format</span><strong>CSV, GeoJSON, SHP, KML, WFS, WMS et FGDB</strong>
+<span>Format</span><strong>CSV officiel; autres formats disponibles dans le paquet</strong>
 </div>
 <div class="dataset-r-stat">
 <span>Aperçu</span><strong>Métadonnées</strong>
@@ -5664,7 +5667,7 @@ Québec
 unite
 </td>
 <td>
-Établissement, école, immeuble …
+Lien école publique-immeuble sc…
 </td>
 </tr>
 <tr>
@@ -5680,7 +5683,7 @@ Introduction à intermédiaire
 format
 </td>
 <td>
-CSV, GeoJSON, SHP, KML, WFS, WM…
+CSV officiel; autres formats di…
 </td>
 </tr>
 </tbody>
@@ -5692,7 +5695,7 @@ CSV, GeoJSON, SHP, KML, WFS, WM…
 Lecture statistique
 </div>
 <svg class="dataset-r-chart" viewbox="0 0 320 210" role="img" aria-label="Concepts pédagogiques">
-<text x="0" y="30" class="dataset-svg-label">géolocalisation</text><rect x="150" y="18" width="90" height="14" rx="3" class="dataset-svg-bar" /><text x="0" y="54" class="dataset-svg-label">cartographie</text><rect x="150" y="42" width="90" height="14" rx="3" class="dataset-svg-bar" /><text x="0" y="78" class="dataset-svg-label">jointures</text><rect x="150" y="66" width="90" height="14" rx="3" class="dataset-svg-bar" /><text x="0" y="102" class="dataset-svg-label">densité spatiale</text><rect x="150" y="90" width="90" height="14" rx="3" class="dataset-svg-bar" /><text x="0" y="126" class="dataset-svg-label">données publiques</text><rect x="150" y="114" width="90" height="14" rx="3" class="dataset-svg-bar" />
+<text x="0" y="30" class="dataset-svg-label">géolocalisation</text><rect x="150" y="18" width="90" height="14" rx="3" class="dataset-svg-bar" /><text x="0" y="54" class="dataset-svg-label">cartographie</text><rect x="150" y="42" width="90" height="14" rx="3" class="dataset-svg-bar" /><text x="0" y="78" class="dataset-svg-label">jointures</text><rect x="150" y="66" width="90" height="14" rx="3" class="dataset-svg-bar" /><text x="0" y="102" class="dataset-svg-label">unité statistique</text><rect x="150" y="90" width="90" height="14" rx="3" class="dataset-svg-bar" /><text x="0" y="126" class="dataset-svg-label">double comptage</text><rect x="150" y="114" width="90" height="14" rx="3" class="dataset-svg-bar" /><text x="0" y="150" class="dataset-svg-label">données publiques</text><rect x="150" y="138" width="90" height="14" rx="3" class="dataset-svg-bar" />
 </svg>
 </div>
 </div>
@@ -5702,7 +5705,13 @@ Lecture statistique
 <span>Mini-projets</span>
 <ul>
 <li>
-Explorer éducation et territoire avec une question descriptive.
+Cartographier les liens école-immeuble et discuter les risques de double comptage.
+</li>
+<li>
+Comparer les ordres d&#39;enseignement selon les régions administratives.
+</li>
+<li>
+Construire un indicateur descriptif simple par région sans le présenter comme une mesure d&#39;accès.
 </li>
 </ul>
 </div>
@@ -5712,13 +5721,13 @@ Explorer éducation et territoire avec une question descriptive.
 <div class="dataset-activity-card">
 <span>60-90 minutes</span><strong>Laboratoire - Écoles Québec</strong>
 <p>
-Où sont localisées les écoles du Québec et quelles régions sont les plus densément desservies?
+Comment les écoles publiques du Québec sont-elles localisées, et que compte-t-on exactement quand on regroupe les lignes par région?
 </p>
 </div>
 <div class="dataset-activity-card">
 <span>2-3 heures</span><strong>Mini-projet - Écoles Québec</strong>
 <p>
-Produire une carte interactive des établissements et discuter des limites d&#39;une carte de points.
+Comment produire une carte utile des écoles publiques du Québec sans transformer des points géographiques en conclusion sur l&#39;accès scolaire?
 </p>
 </div>
 </div>
@@ -5727,11 +5736,69 @@ Produire une carte interactive des établissements et discuter des limites d&#39
 <div class="dataset-detail-content">
 <section id="pourquoi-ce-jeu-est-intéressant" class="level2">
 <h2 class="anchored" data-anchor-id="pourquoi-ce-jeu-est-intéressant">Pourquoi ce jeu est intéressant</h2>
-<p>Ce jeu de données place les étudiants et étudiantes devant une source québécoise réaliste, avec des variables interprétables et des décisions de nettoyage authentiques.</p>
-<p>Question d’analyse : Où sont localisées les écoles du Québec et quelles régions sont les plus densément desservies?</p>
+<p>Ce jeu de données place les personnes étudiantes devant une source québécoise réaliste : des écoles publiques, des immeubles scolaires, des coordonnées géographiques, des régions administratives et plusieurs décisions de comptage qui changent l’interprétation.</p>
+<p>La fiche porte sur la ressource CSV <code>Écoles publiques</code> du paquet Données Québec. Ce choix rend l’activité reproductible, parce que la ressource est directement lisible en R sans logiciel géomatique.</p>
+<p>Question d’analyse : comment cartographier les écoles publiques du Québec sans confondre une école, un immeuble et un lien école-immeuble?</p>
 </section>
-<section id="source" class="level2">
-<h2 class="anchored" data-anchor-id="source">Source</h2>
+<section id="ce-qui-a-été-vérifié" class="level2">
+<h2 class="anchored" data-anchor-id="ce-qui-a-été-vérifié">Ce qui a été vérifié</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Élément vérifié</th>
+<th>Résultat</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Paquet officiel</td>
+<td>Données Québec, jeu “Localisation des établissements d’enseignement du réseau scolaire au Québec”</td>
+</tr>
+<tr class="even">
+<td>Ressource utilisée</td>
+<td><code>Écoles publiques</code>, CSV actif</td>
+</tr>
+<tr class="odd">
+<td>Producteur officiel</td>
+<td>Ministère de l’Éducation et Ministère de l’Enseignement supérieur</td>
+</tr>
+<tr class="even">
+<td>Licence officielle</td>
+<td>Attribution (CC-BY 4.0) selon l’API CKAN</td>
+</tr>
+<tr class="odd">
+<td>Fréquence officielle</td>
+<td>Hebdomadaire selon l’API CKAN</td>
+</tr>
+<tr class="even">
+<td>Dernière modification du paquet</td>
+<td>2026-06-16 12:11:24</td>
+</tr>
+<tr class="odd">
+<td>Dernière modification de la ressource CSV</td>
+<td>2026-06-16 12:09:53</td>
+</tr>
+<tr class="even">
+<td>Taille officielle observée</td>
+<td>2 307 638 octets</td>
+</tr>
+<tr class="odd">
+<td>CSV officiel consulté</td>
+<td>5 466 lignes et 34 colonnes</td>
+</tr>
+<tr class="even">
+<td>Préparation locale</td>
+<td>5 466 lignes et 48 colonnes après ajout de variables de lecture pédagogique</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="source-et-conditions" class="level2">
+<h2 class="anchored" data-anchor-id="source-et-conditions">Source et conditions</h2>
 <table class="caption-top table">
 <thead>
 <tr class="header">
@@ -5749,40 +5816,66 @@ Produire une carte interactive des établissements et discuter des limites d&#39
 <td>Localisation des établissements d’enseignement du réseau scolaire au Québec</td>
 </tr>
 <tr class="odd">
-<td>URL</td>
+<td>Page officielle</td>
 <td><a href="https://www.donneesquebec.ca/recherche/dataset/localisation-des-etablissements-d-enseignement-du-reseau-scolaire-au-quebec" class="uri">https://www.donneesquebec.ca/recherche/dataset/localisation-des-etablissements-d-enseignement-du-reseau-scolaire-au-quebec</a></td>
 </tr>
 <tr class="even">
-<td>Licence</td>
-<td>Attribution (CC-BY 4.0) selon les métadonnées CKAN vérifiées le 2026-06-19</td>
+<td>Ressource CSV retenue</td>
+<td><a href="https://www.donneesquebec.ca/recherche/dataset/localisation-des-etablissements-d-enseignement-du-reseau-scolaire-au-quebec/resource/c6640a54-bc4b-43ec-864e-6c325dce61bc" class="uri">https://www.donneesquebec.ca/recherche/dataset/localisation-des-etablissements-d-enseignement-du-reseau-scolaire-au-quebec/resource/c6640a54-bc4b-43ec-864e-6c325dce61bc</a></td>
 </tr>
 <tr class="odd">
-<td>Date d’accès</td>
-<td>2026-06-19</td>
+<td>API CKAN du paquet</td>
+<td><a href="https://www.donneesquebec.ca/recherche/api/3/action/package_show?id=localisation-des-etablissements-d-enseignement-du-reseau-scolaire-au-quebec" class="uri">https://www.donneesquebec.ca/recherche/api/3/action/package_show?id=localisation-des-etablissements-d-enseignement-du-reseau-scolaire-au-quebec</a></td>
 </tr>
 <tr class="even">
-<td>Fréquence de mise à jour</td>
-<td>Mise à jour fréquente; métadonnées CKAN modifiées le 2026-06-16</td>
+<td>API CKAN de la ressource</td>
+<td><a href="https://www.donneesquebec.ca/recherche/api/3/action/resource_show?id=c6640a54-bc4b-43ec-864e-6c325dce61bc" class="uri">https://www.donneesquebec.ca/recherche/api/3/action/resource_show?id=c6640a54-bc4b-43ec-864e-6c325dce61bc</a></td>
+</tr>
+<tr class="odd">
+<td>CSV officiel</td>
+<td><a href="https://www.donneesquebec.ca/recherche/dataset/2d3b5cf8-b347-49c7-ad3b-bd6a9c15e443/resource/c6640a54-bc4b-43ec-864e-6c325dce61bc/download/pps_public_ecole.csv" class="uri">https://www.donneesquebec.ca/recherche/dataset/2d3b5cf8-b347-49c7-ad3b-bd6a9c15e443/resource/c6640a54-bc4b-43ec-864e-6c325dce61bc/download/pps_public_ecole.csv</a></td>
+</tr>
+<tr class="even">
+<td>Licence</td>
+<td>Attribution (CC-BY 4.0) selon les métadonnées CKAN vérifiées le 2026-06-20</td>
+</tr>
+<tr class="odd">
+<td>Redistribution locale</td>
+<td>Le CSV préparé sert aux vérifications et aux activités locales; les lignes nominatives ne sont pas intégrées au rendu public de la fiche.</td>
+</tr>
+<tr class="even">
+<td>Date d’accès</td>
+<td>2026-06-20</td>
 </tr>
 <tr class="odd">
 <td>Statut</td>
-<td>source vérifiée; couche précise à choisir selon le laboratoire</td>
+<td>source officielle vérifiée; ressource CSV <code>Écoles publiques</code> préparée localement</td>
 </tr>
 </tbody>
 </table>
 </section>
 <section id="ce-que-représente-une-ligne" class="level2">
 <h2 class="anchored" data-anchor-id="ce-que-représente-une-ligne">Ce que représente une ligne</h2>
-<p>Établissement, école, immeuble ou siège social selon la couche choisie.</p>
+<p>Une ligne représente un lien entre une école publique et un immeuble scolaire. Ce n’est pas exactement une école unique. La description officielle précise qu’une école peut utiliser plusieurs immeubles pour dispenser son enseignement et qu’un immeuble peut accueillir plusieurs écoles différentes.</p>
+<p>Cette distinction est l’intérêt statistique principal de la fiche. Selon le regroupement choisi, on peut compter :</p>
+<ul>
+<li>les 5 466 liens école-immeuble;</li>
+<li>les 2 777 organismes scolaires distincts;</li>
+<li>les 3 610 immeubles scolaires distincts;</li>
+<li>les 72 centres de services scolaires ou commissions scolaires;</li>
+<li>les 17 régions administratives.</li>
+</ul>
+<p>Ces nombres ne répondent pas à la même question. Une carte de points construite à partir de toutes les lignes montre des liens école-immeuble, pas directement une carte des écoles uniques.</p>
 </section>
 <section id="variables-principales" class="level2">
 <h2 class="anchored" data-anchor-id="variables-principales">Variables principales</h2>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 25%">
-<col style="width: 25%">
-<col style="width: 25%">
-<col style="width: 25%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -5790,44 +5883,135 @@ Produire une carte interactive des établissements et discuter des limites d&#39
 <th>Type</th>
 <th>Description</th>
 <th>Exemple</th>
+<th>Point de vigilance</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td><code>nom_ecole</code></td>
-<td>caractère</td>
-<td>Nom de l’école ou de l’établissement.</td>
-<td>École primaire Exemple</td>
-</tr>
-<tr class="even">
-<td><code>type</code></td>
-<td>caractère</td>
-<td>Type d’organisme ou d’établissement.</td>
-<td>École publique</td>
-</tr>
-<tr class="odd">
-<td><code>centre_services</code></td>
-<td>caractère</td>
-<td>Centre de services scolaire ou organisme responsable.</td>
-<td>CSS de la Capitale</td>
-</tr>
-<tr class="even">
-<td><code>region</code></td>
-<td>caractère</td>
-<td>Région administrative ou territoire associé.</td>
-<td>Capitale-Nationale</td>
-</tr>
-<tr class="odd">
-<td><code>latitude</code></td>
+<td><code>CD_ORGNS</code></td>
 <td>numérique</td>
-<td>Latitude en WGS84 ou issue de la couche géographique.</td>
-<td>46.81</td>
+<td>Code unique de l’organisme scolaire</td>
+<td><code>689007</code></td>
+<td>Identifie l’école ou l’organisme</td>
 </tr>
 <tr class="even">
+<td><code>NOM_OFFCL_ORGNS</code></td>
+<td>caractère</td>
+<td>Nom officiel de l’organisme</td>
+<td><code>École exemple</code></td>
+<td>Nom public, à utiliser avec retenue</td>
+</tr>
+<tr class="odd">
+<td><code>CD_IMM</code></td>
+<td>numérique</td>
+<td>Code unique de l’immeuble</td>
+<td><code>689024</code></td>
+<td>Identifie le bâtiment</td>
+</tr>
+<tr class="even">
+<td><code>NOM_IMM</code></td>
+<td>caractère</td>
+<td>Nom de l’immeuble</td>
+<td><code>Immeuble exemple</code></td>
+<td>Peut différer du nom de l’école</td>
+</tr>
+<tr class="odd">
+<td><code>ORDRE_ENS</code></td>
+<td>caractère</td>
+<td>Ordre d’enseignement affiché</td>
+<td><code>Préscolaire - Primaire</code></td>
+<td>Une ligne peut combiner plusieurs ordres</td>
+</tr>
+<tr class="even">
+<td><code>PRESC</code></td>
+<td>numérique</td>
+<td>Droit de donner la formation préscolaire</td>
+<td><code>1</code></td>
+<td>Indicateur 0/1</td>
+</tr>
+<tr class="odd">
+<td><code>PRIM</code></td>
+<td>numérique</td>
+<td>Droit de donner la formation primaire</td>
+<td><code>1</code></td>
+<td>Indicateur 0/1</td>
+</tr>
+<tr class="even">
+<td><code>SEC</code></td>
+<td>numérique</td>
+<td>Droit de donner la formation secondaire</td>
+<td><code>0</code></td>
+<td>Indicateur 0/1</td>
+</tr>
+<tr class="odd">
+<td><code>FORM_PRO</code></td>
+<td>numérique</td>
+<td>Droit de donner la formation professionnelle</td>
+<td><code>0</code></td>
+<td>Indicateur 0/1</td>
+</tr>
+<tr class="even">
+<td><code>ADULTE</code></td>
+<td>numérique</td>
+<td>Droit de donner la formation aux adultes</td>
+<td><code>0</code></td>
+<td>Indicateur 0/1</td>
+</tr>
+<tr class="odd">
+<td><code>COORD_X_LL84_IMM</code></td>
+<td>numérique</td>
+<td>Longitude WGS84 de l’immeuble</td>
+<td><code>-71.21</code></td>
+<td>Coordonnée du bâtiment, pas du domicile des élèves</td>
+</tr>
+<tr class="even">
+<td><code>COORD_Y_LL84_IMM</code></td>
+<td>numérique</td>
+<td>Latitude WGS84 de l’immeuble</td>
+<td><code>46.81</code></td>
+<td>Coordonnée du bâtiment</td>
+</tr>
+<tr class="odd">
+<td><code>TYPE_CS</code></td>
+<td>caractère</td>
+<td>Type de réseau public</td>
+<td><code>Franco</code></td>
+<td>Francophone, anglophone ou statut particulier</td>
+</tr>
+<tr class="even">
+<td><code>NOM_CS</code></td>
+<td>caractère</td>
+<td>Centre de services scolaire ou commission scolaire</td>
+<td><code>Centre de services scolaire exemple</code></td>
+<td>Variable administrative</td>
+</tr>
+<tr class="odd">
+<td><code>NOM_REG_ADM</code></td>
+<td>caractère</td>
+<td>Région administrative</td>
+<td><code>Capitale-Nationale</code></td>
+<td>Sert au regroupement territorial</td>
+</tr>
+<tr class="even">
+<td><code>lien_ecole_immeuble_id</code></td>
+<td>caractère</td>
+<td>Identifiant local créé par préparation</td>
+<td><code>689007-689024</code></td>
+<td>Recréé à partir de <code>CD_ORGNS</code> et <code>CD_IMM</code></td>
+</tr>
+<tr class="odd">
 <td><code>longitude</code></td>
 <td>numérique</td>
-<td>Longitude en WGS84 ou issue de la couche géographique.</td>
-<td>-71.21</td>
+<td>Nom pédagogique de <code>COORD_X_LL84_IMM</code></td>
+<td><code>-71.21</code></td>
+<td>Variable dérivée</td>
+</tr>
+<tr class="even">
+<td><code>latitude</code></td>
+<td>numérique</td>
+<td>Nom pédagogique de <code>COORD_Y_LL84_IMM</code></td>
+<td><code>46.81</code></td>
+<td>Variable dérivée</td>
 </tr>
 </tbody>
 </table>
@@ -5848,19 +6032,27 @@ Produire une carte interactive des établissements et discuter des limites d&#39
 <tbody>
 <tr class="odd">
 <td>Nombre de lignes</td>
-<td>Volume variable selon la couche; plusieurs ressources par type d’établissement</td>
+<td>5 466 liens école-immeuble dans le CSV <code>Écoles publiques</code></td>
 </tr>
 <tr class="even">
-<td>Nombre de colonnes</td>
-<td>Variables de nom, type, organisme, territoire et coordonnées</td>
+<td>Nombre de colonnes officielles</td>
+<td>34 colonnes</td>
 </tr>
 <tr class="odd">
-<td>Structure</td>
-<td>Tabulaire et géospatial</td>
+<td>Nombre de colonnes préparées</td>
+<td>48 colonnes</td>
 </tr>
 <tr class="even">
-<td>Format</td>
-<td>CSV, GeoJSON, SHP, KML, WFS, WMS et FGDB</td>
+<td>Structure</td>
+<td>Tableau avec coordonnées géographiques WGS84</td>
+</tr>
+<tr class="odd">
+<td>Format retenu</td>
+<td>CSV officiel</td>
+</tr>
+<tr class="even">
+<td>Formats aussi disponibles</td>
+<td>GeoJSON, SHP, KML, WFS, WMS, FGDB et PDF de documentation</td>
 </tr>
 <tr class="odd">
 <td>Couverture géographique</td>
@@ -5868,10 +6060,165 @@ Produire une carte interactive des établissements et discuter des limites d&#39
 </tr>
 <tr class="even">
 <td>Couverture temporelle</td>
-<td>État courant des établissements selon la ressource téléchargée</td>
+<td>État courant selon la ressource téléchargée le 2026-06-20</td>
+</tr>
+<tr class="odd">
+<td>Format préparé local</td>
+<td>CSV ignoré par Git dans <code>data/processed/ecoles-quebec/</code></td>
+</tr>
+<tr class="even">
+<td>Niveau pédagogique recommandé</td>
+<td>Introduction à intermédiaire</td>
 </tr>
 </tbody>
 </table>
+</section>
+<section id="lecture-statistique" class="level2">
+<h2 class="anchored" data-anchor-id="lecture-statistique">Lecture statistique</h2>
+<p>La première décision d’analyse est le dénominateur. Si on compte les lignes, on compte des liens école-immeuble. Si on veut compter des écoles, il faut regrouper par <code>CD_ORGNS</code>. Si on veut compter des bâtiments, il faut regrouper par <code>CD_IMM</code>.</p>
+<p>La question “quelle région est la mieux desservie?” ne peut pas être tranchée avec ce fichier seul. Il manque au minimum une population scolaire, une population totale, la superficie, les distances de déplacement ou la capacité des établissements. La fiche peut donc soutenir une analyse descriptive de localisation, mais pas une mesure complète d’accès à l’école.</p>
+<p>La colonne officielle <code>COMBINE_NUO_NUI</code> est vide dans le CSV consulté le 2026-06-20. Je ne sais pas pourquoi cette colonne est vide. Le script de préparation crée donc <code>lien_ecole_immeuble_id</code> à partir de <code>CD_ORGNS</code> et <code>CD_IMM</code>, et vérifie que cet identifiant est unique.</p>
+</section>
+<section id="résultats-r-vérifiés" class="level2">
+<h2 class="anchored" data-anchor-id="résultats-r-vérifiés">Résultats R vérifiés</h2>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Contrôle</th>
+<th style="text-align: right;">Résultat calculé sur le CSV <code>Écoles publiques</code></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Lignes lues</td>
+<td style="text-align: right;">5 466</td>
+</tr>
+<tr class="even">
+<td>Colonnes officielles lues</td>
+<td style="text-align: right;">34</td>
+</tr>
+<tr class="odd">
+<td>Colonnes après préparation locale</td>
+<td style="text-align: right;">48</td>
+</tr>
+<tr class="even">
+<td>Organismes scolaires distincts</td>
+<td style="text-align: right;">2 777</td>
+</tr>
+<tr class="odd">
+<td>Immeubles scolaires distincts</td>
+<td style="text-align: right;">3 610</td>
+</tr>
+<tr class="even">
+<td>Centres de services ou commissions scolaires</td>
+<td style="text-align: right;">72</td>
+</tr>
+<tr class="odd">
+<td>Régions administratives</td>
+<td style="text-align: right;">17</td>
+</tr>
+<tr class="even">
+<td>Coordonnées manquantes</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="odd">
+<td>Longitude minimale</td>
+<td style="text-align: right;">-79,49031</td>
+</tr>
+<tr class="even">
+<td>Longitude maximale</td>
+<td style="text-align: right;">-57,18733</td>
+</tr>
+<tr class="odd">
+<td>Latitude minimale</td>
+<td style="text-align: right;">45,01175</td>
+</tr>
+<tr class="even">
+<td>Latitude maximale</td>
+<td style="text-align: right;">62,41524</td>
+</tr>
+<tr class="odd">
+<td>Lignes réseau francophone</td>
+<td style="text-align: right;">4 758</td>
+</tr>
+<tr class="even">
+<td>Lignes réseau anglophone</td>
+<td style="text-align: right;">585</td>
+</tr>
+<tr class="odd">
+<td>Lignes statut particulier</td>
+<td style="text-align: right;">123</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="résultats-par-ordre-denseignement" class="level2">
+<h2 class="anchored" data-anchor-id="résultats-par-ordre-denseignement">Résultats par ordre d’enseignement</h2>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Indicateur officiel</th>
+<th style="text-align: right;">Lignes où l’indicateur vaut 1</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>PRESC</code></td>
+<td style="text-align: right;">2 480</td>
+</tr>
+<tr class="even">
+<td><code>PRIM</code></td>
+<td style="text-align: right;">2 735</td>
+</tr>
+<tr class="odd">
+<td><code>SEC</code></td>
+<td style="text-align: right;">861</td>
+</tr>
+<tr class="even">
+<td><code>FORM_PRO</code></td>
+<td style="text-align: right;">810</td>
+</tr>
+<tr class="odd">
+<td><code>ADULTE</code></td>
+<td style="text-align: right;">1 312</td>
+</tr>
+</tbody>
+</table>
+<p>Ces indicateurs ne sont pas exclusifs. Une même ligne peut autoriser plusieurs ordres d’enseignement.</p>
+</section>
+<section id="régions-les-plus-représentées-dans-les-lignes" class="level2">
+<h2 class="anchored" data-anchor-id="régions-les-plus-représentées-dans-les-lignes">Régions les plus représentées dans les lignes</h2>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Région administrative</th>
+<th style="text-align: right;">Liens école-immeuble</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Montérégie</td>
+<td style="text-align: right;">901</td>
+</tr>
+<tr class="even">
+<td>Montréal</td>
+<td style="text-align: right;">698</td>
+</tr>
+<tr class="odd">
+<td>Chaudière-Appalaches</td>
+<td style="text-align: right;">437</td>
+</tr>
+<tr class="even">
+<td>Estrie</td>
+<td style="text-align: right;">356</td>
+</tr>
+<tr class="odd">
+<td>Laurentides</td>
+<td style="text-align: right;">351</td>
+</tr>
+</tbody>
+</table>
+<p>Ces nombres sont des comptes de lignes. Ils ne doivent pas être interprétés comme des taux de desserte.</p>
 </section>
 <section id="concepts-enseignables" class="level2">
 <h2 class="anchored" data-anchor-id="concepts-enseignables">Concepts enseignables</h2>
@@ -5879,67 +6226,85 @@ Produire une carte interactive des établissements et discuter des limites d&#39
 <li>géolocalisation;</li>
 <li>cartographie;</li>
 <li>jointures;</li>
-<li>densité spatiale;</li>
+<li>unité statistique;</li>
+<li>regroupement et double comptage;</li>
 <li>données publiques;</li>
 </ul>
 </section>
 <section id="visualisations-suggérées" class="level2">
 <h2 class="anchored" data-anchor-id="visualisations-suggérées">Visualisations suggérées</h2>
 <ul>
-<li>cartes Leaflet;</li>
-<li>clustering spatial;</li>
-<li>cartes de points;</li>
+<li>carte de points des immeubles scolaires;</li>
+<li>facettes par type de réseau public;</li>
+<li>tableau ou graphique des comptes par région administrative;</li>
+<li>comparaison entre comptes de liens, organismes et immeubles.</li>
 </ul>
 </section>
 <section id="score-zéro-déchet" class="level2">
 <h2 class="anchored" data-anchor-id="score-zéro-déchet">Score zéro déchet</h2>
 <table class="caption-top table">
+<colgroup>
+<col style="width: 30%">
+<col style="width: 40%">
+<col style="width: 30%">
+</colgroup>
 <thead>
 <tr class="header">
 <th>Dimension</th>
 <th style="text-align: right;">Score</th>
+<th>Justification</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td>Contexte québécois</td>
 <td style="text-align: right;">3</td>
+<td>La source couvre les écoles publiques du Québec.</td>
 </tr>
 <tr class="even">
 <td>Accessibilité pédagogique</td>
 <td style="text-align: right;">3</td>
+<td>Le CSV est directement lisible en R et les variables sont concrètes.</td>
 </tr>
 <tr class="odd">
 <td>Qualité documentaire</td>
 <td style="text-align: right;">3</td>
+<td>La ressource fournit descriptions, coordonnées, licence et métadonnées CKAN.</td>
 </tr>
 <tr class="even">
 <td>Potentiel de nettoyage</td>
 <td style="text-align: right;">2</td>
+<td>Le nettoyage est modéré, mais l’unité statistique exige une préparation explicite.</td>
 </tr>
 <tr class="odd">
 <td>Potentiel de visualisation</td>
 <td style="text-align: right;">3</td>
+<td>Les coordonnées permettent des cartes et des graphiques territoriaux.</td>
 </tr>
 <tr class="even">
 <td>Potentiel de statistique descriptive</td>
 <td style="text-align: right;">3</td>
+<td>Les regroupements par région, ordre et réseau sont immédiats.</td>
 </tr>
 <tr class="odd">
 <td>Potentiel d’inférence</td>
 <td style="text-align: right;">1</td>
+<td>L’inférence est limitée sans données de population, distance ou capacité.</td>
 </tr>
 <tr class="even">
 <td>Potentiel de modélisation</td>
 <td style="text-align: right;">2</td>
+<td>Le jeu peut soutenir une introduction aux regroupements spatiaux, mais pas une prédiction forte seul.</td>
 </tr>
 <tr class="odd">
 <td>Potentiel de discussion éthique</td>
 <td style="text-align: right;">3</td>
+<td>Les noms et adresses d’écoles sont publics, mais demandent une communication prudente.</td>
 </tr>
 <tr class="even">
 <td>Réutilisabilité dans plusieurs cours</td>
 <td style="text-align: right;">3</td>
+<td>Le jeu convient à la cartographie, au nettoyage, aux jointures et à la communication.</td>
 </tr>
 </tbody>
 </table>
@@ -5947,46 +6312,90 @@ Produire une carte interactive des établissements et discuter des limites d&#39
 </section>
 <section id="activité-courte" class="level2">
 <h2 class="anchored" data-anchor-id="activité-courte">Activité courte</h2>
-<p><a href="../../datasets/ecoles-quebec/activite-courte.html">Laboratoire</a> : Où sont localisées les écoles du Québec et quelles régions sont les plus densément desservies?</p>
+<p>En 60 à 90 minutes, demander aux personnes étudiantes de distinguer un lien école-immeuble, un organisme et un immeuble. Elles doivent ensuite produire un graphique des comptes par région et une carte simple des coordonnées.</p>
 </section>
 <section id="activité-longue" class="level2">
 <h2 class="anchored" data-anchor-id="activité-longue">Activité longue</h2>
-<p><a href="../../datasets/ecoles-quebec/activite-longue.html">Mini-projet</a> : Produire une carte interactive des établissements et discuter des limites d’une carte de points.</p>
+<p>En 2 à 3 heures, demander un mini-rapport reproductible avec une carte, deux regroupements territoriaux et une section qui explique pourquoi les comptes ne mesurent pas directement l’accès à l’école.</p>
+</section>
+<section id="questions-pédagogiques-possibles" class="level2">
+<h2 class="anchored" data-anchor-id="questions-pédagogiques-possibles">Questions pédagogiques possibles</h2>
+<ol type="1">
+<li>Quelle est l’unité statistique de la ressource <code>Écoles publiques</code>?</li>
+<li>Pourquoi le nombre de lignes est-il différent du nombre d’organismes scolaires?</li>
+<li>Pourquoi le nombre d’immeubles est-il différent du nombre d’écoles?</li>
+<li>Quelle variable faut-il utiliser pour compter les organismes?</li>
+<li>Quelle variable faut-il utiliser pour compter les immeubles?</li>
+<li>Pourquoi les comptes par région ne sont-ils pas des taux de desserte?</li>
+<li>Quelle information manque pour parler d’accès géographique à l’école?</li>
+<li>Comment présenter une carte sans surinterpréter les concentrations de points?</li>
+</ol>
 </section>
 <section id="code-r-minimal" class="level2">
 <h2 class="anchored" data-anchor-id="code-r-minimal">Code R minimal</h2>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(stringr)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>source_page <span class="ot">&lt;-</span> <span class="st">&quot;https://www.donneesquebec.ca/recherche/dataset/localisation-des-etablissements-d-enseignement-du-reseau-scolaire-au-quebec&quot;</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>url <span class="ot">&lt;-</span> <span class="st">&quot;https://www.donneesquebec.ca/recherche/dataset/2d3b5cf8-b347-49c7-ad3b-bd6a9c15e443/resource/c6640a54-bc4b-43ec-864e-6c325dce61bc/download/pps_public_ecole.csv&quot;</span></span>
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Étape 1 : ouvrir la page officielle et choisir la ressource documentée.</span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Étape 2 : enregistrer le fichier brut dans data_raw/.</span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Étape 3 : harmoniser les noms vers : `nom_ecole`, `type`, `centre_services`, `region`, `latitude`, `longitude`.</span></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>donnees <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;data_raw/source_officielle_a_renommer.csv&quot;</span>, <span class="at">show_col_types =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>donnees <span class="sc">|&gt;</span></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">glimpse</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>ecoles <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(url, <span class="at">show_col_types =</span> <span class="cn">FALSE</span>) <span class="sc">|&gt;</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">lien_ecole_immeuble_id =</span> <span class="fu">paste</span>(CD_ORGNS, CD_IMM, <span class="at">sep =</span> <span class="st">&quot;-&quot;</span>),</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">longitude =</span> COORD_X_LL84_IMM,</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">latitude =</span> COORD_Y_LL84_IMM,</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">region_administrative =</span> NOM_REG_ADM,</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">type_reseau_public =</span> <span class="fu">case_when</span>(</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>      TYPE_CS <span class="sc">==</span> <span class="st">&quot;Franco&quot;</span> <span class="sc">~</span> <span class="st">&quot;Francophone&quot;</span>,</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>      TYPE_CS <span class="sc">==</span> <span class="st">&quot;Anglo&quot;</span> <span class="sc">~</span> <span class="st">&quot;Anglophone&quot;</span>,</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>      TYPE_CS <span class="sc">==</span> <span class="st">&quot;Statut&quot;</span> <span class="sc">~</span> <span class="st">&quot;Statut particulier&quot;</span>,</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>      <span class="cn">TRUE</span> <span class="sc">~</span> TYPE_CS</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>ecoles <span class="sc">|&gt;</span></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>    <span class="at">liens_ecole_immeuble =</span> <span class="fu">n</span>(),</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>    <span class="at">organismes =</span> <span class="fu">n_distinct</span>(CD_ORGNS),</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>    <span class="at">immeubles =</span> <span class="fu">n_distinct</span>(CD_IMM),</span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>    <span class="at">regions =</span> <span class="fu">n_distinct</span>(region_administrative)</span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>ecoles <span class="sc">|&gt;</span></span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(region_administrative, <span class="at">sort =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>ecoles <span class="sc">|&gt;</span></span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> longitude, <span class="at">y =</span> latitude, <span class="at">color =</span> type_reseau_public)) <span class="sc">+</span></span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.45</span>, <span class="at">size =</span> <span class="fl">0.8</span>) <span class="sc">+</span></span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_quickmap</span>() <span class="sc">+</span></span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">&quot;Longitude&quot;</span>,</span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">&quot;Latitude&quot;</span>,</span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>    <span class="at">color =</span> <span class="st">&quot;Réseau&quot;</span>,</span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">&quot;Liens école-immeuble du réseau public québécois&quot;</span></span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="limites-et-précautions" class="level2">
 <h2 class="anchored" data-anchor-id="limites-et-précautions">Limites et précautions</h2>
 <ul>
-<li>Le jeu officiel contient plusieurs couches; la couche Écoles publiques est souvent la plus simple pour l’enseignement de la science des données.</li>
-<li>Les noms de variables proposés sont des noms pédagogiques harmonisés; ils doivent être mappés aux noms officiels après inspection de la ressource.</li>
-<li>Aucune conclusion causale ne doit être tirée sans plan d’analyse plus avancé.</li>
+<li>Une ligne représente un lien école-immeuble, pas automatiquement une école unique.</li>
+<li>Les noms et adresses d’écoles sont publics, mais ne doivent pas être mis en évidence inutilement.</li>
+<li>Les comptes par région ne tiennent pas compte de la population, de la superficie, de la distance ou de la capacité.</li>
+<li>Les coordonnées représentent les immeubles scolaires, pas les lieux de résidence des élèves.</li>
+<li>Une carte de points peut donner une impression de densité qui dépend surtout de la population et de l’urbanisation.</li>
+<li>Aucune conclusion causale ou normative ne doit être tirée sans données complémentaires.</li>
 </ul>
 </section>
 <section id="extensions" class="level2">
 <h2 class="anchored" data-anchor-id="extensions">Extensions</h2>
 <ul>
-<li>Extension intro : produire un tableau de fréquences ou de moyennes par groupe.</li>
-<li>Extension intermédiaire : ajouter une visualisation claire et une interprétation écrite.</li>
-<li>Extension avancée : construire une version préparée et documentée dans <code>data_processed/</code>.</li>
-<li>Extension communication scientifique : expliquer en une page ce que la source permet et ne permet pas de conclure.</li>
+<li>Extension intro : comparer le nombre de lignes, d’organismes et d’immeubles.</li>
+<li>Extension visualisation : produire une carte de points par type de réseau public.</li>
+<li>Extension jointure : joindre un tableau de population régionale et calculer un ratio descriptif.</li>
+<li>Extension spatial : transformer les coordonnées en objet <code>sf</code> et projeter au Québec.</li>
+<li>Extension communication : rédiger une note qui explique pourquoi une carte ne mesure pas directement l’accès scolaire.</li>
 </ul>
 </section>
 </div>

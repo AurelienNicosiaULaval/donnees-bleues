@@ -2,10 +2,12 @@
 
 Source officielle : https://www.donneesquebec.ca/recherche/dataset/localisation-des-etablissements-d-enseignement-du-reseau-scolaire-au-quebec
 
-Question d'analyse : Où sont localisées les écoles du Québec et quelles régions sont les plus densément desservies?
+Ressource retenue : CSV `Écoles publiques`.
 
-Variables pédagogiques proposées : `nom_ecole`, `type`, `centre_services`, `region`, `latitude`, `longitude`.
+Question d'analyse : comment cartographier les écoles publiques du Québec sans confondre une école, un immeuble et un lien école-immeuble?
 
-Notes : Le jeu officiel contient plusieurs couches; la couche Écoles publiques est souvent la plus simple pour l'enseignement de la science des données.
+Variables pédagogiques centrales : `CD_ORGNS`, `CD_IMM`, `ORDRE_ENS`, `TYPE_CS`, `NOM_REG_ADM`, `COORD_X_LL84_IMM`, `COORD_Y_LL84_IMM`, `lien_ecole_immeuble_id`, `longitude`, `latitude`.
 
-Les fichiers bruts ne sont pas redistribués par défaut. Déposer la ressource officielle retenue dans `data_raw/`, puis utiliser `preparation.R` pour produire une version préparée dans `data_processed/`.
+Notes : une ligne représente un lien entre une école publique et un immeuble scolaire. Les comptes par région ne mesurent pas directement l'accès scolaire sans données complémentaires sur la population, les distances ou la capacité.
+
+Les fichiers bruts ne sont pas redistribués par défaut. Exécuter `preparation.R` pour télécharger la ressource officielle dans `data/raw/ecoles-quebec/` et produire une version préparée dans `data/processed/ecoles-quebec/`.

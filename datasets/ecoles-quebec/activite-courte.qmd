@@ -7,27 +7,29 @@ embed-resources: true
 
 ## Contexte
 
-Ce laboratoire utilise la fiche [Établissements scolaires du Québec](fiche.qmd) pour travailler une question québécoise concrète dans un format adapté à une activité d'introduction en science des données.
+Ce laboratoire utilise la fiche [Établissements scolaires du Québec](fiche.qmd) pour travailler une question québécoise concrète : comment compter et cartographier des écoles publiques sans confondre écoles, immeubles et liens école-immeuble.
 
 ## Objectifs d'apprentissage
 
 - Identifier l'unité statistique d'un jeu de données réel.
 - Importer ou préparer une ressource officielle sans perdre la provenance.
+- Comparer plusieurs niveaux de comptage.
 - Produire une visualisation simple et interprétable.
 - Formuler une conclusion prudente en séparant description et explication.
 
 ## Question directrice
 
-Où sont localisées les écoles du Québec et quelles régions sont les plus densément desservies?
+Comment les écoles publiques du Québec sont-elles localisées, et que compte-t-on exactement quand on regroupe les lignes par région?
 
 ## Consignes
 
 1. Lire la fiche et repérer la source officielle.
-2. Identifier les variables nécessaires : `nom_ecole`, `type`, `centre_services`, `region`, `latitude`, `longitude`.
-3. Décrire les valeurs manquantes, les types de variables et les unités.
-4. Produire au moins une visualisation parmi : cartes Leaflet, clustering spatial, cartes de points.
-5. Rédiger une conclusion de 5 à 8 lignes avec une limite méthodologique.
+2. Importer le CSV `Écoles publiques`.
+3. Calculer trois nombres : nombre de lignes, nombre d'organismes distincts et nombre d'immeubles distincts.
+4. Produire un tableau de comptes par région administrative.
+5. Produire une carte simple des coordonnées des immeubles.
+6. Rédiger une conclusion de 5 à 8 lignes avec une limite méthodologique.
 
 ## Pistes de solution
 
-Une bonne réponse décrit la tendance principale, nomme le regroupement utilisé et explicite au moins une limite de la source. Une réponse excellente justifie aussi le choix du graphique et signale les décisions de nettoyage.
+Une bonne réponse nomme explicitement l'unité statistique avant le graphique. Une réponse excellente explique pourquoi les comptes par région ne mesurent pas directement l'accès à l'école.

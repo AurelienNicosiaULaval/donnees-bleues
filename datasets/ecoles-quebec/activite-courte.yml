@@ -1,6 +1,6 @@
 id: ecoles-quebec-court
 title: "Laboratoire - Écoles Québec"
-question: "Où sont localisées les écoles du Québec et quelles régions sont les plus densément desservies?"
+question: "Comment les écoles publiques du Québec sont-elles localisées, et que compte-t-on exactement quand on regroupe les lignes par région?"
 dataset_id: ecoles-quebec
 dataset_title: "Établissements scolaires du Québec"
 activity_url: "datasets/ecoles-quebec/activite-courte.qmd"
@@ -13,7 +13,8 @@ concepts:
   - "géolocalisation"
   - "cartographie"
   - "jointures"
-  - "densité spatiale"
+  - "unité statistique"
+  - "double comptage"
 context: "Éducation et territoire"
 hook: "Question québécoise concrète"
 materials:
@@ -21,5 +22,5 @@ materials:
   - "code"
   - "source officielle"
 advanced_math_stats: false
-teacher_notes: "Faire valider l'unité statistique et la provenance avant tout graphique."
-status: "prêt à adapter"
+teacher_notes: "Faire valider l'unité statistique avant tout graphique; une ligne est un lien école-immeuble."
+status: "source officielle vérifiée le 2026-06-20"

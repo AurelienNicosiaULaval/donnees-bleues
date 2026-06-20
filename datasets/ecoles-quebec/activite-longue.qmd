@@ -7,19 +7,21 @@ embed-resources: true
 
 ## Contexte
 
-Ce mini-projet prolonge le laboratoire court en demandant une préparation reproductible et une interprétation plus structurée.
+Ce mini-projet prolonge le laboratoire court en demandant une préparation reproductible, une carte et une interprétation structurée des limites.
 
 ## Question directrice
 
-Produire une carte interactive des établissements et discuter des limites d'une carte de points.
+Comment produire une carte utile des écoles publiques du Québec sans transformer des points géographiques en conclusion sur l'accès scolaire?
 
 ## Livrables
 
-1. Un fichier préparé dans `data_processed/`, ou une description précise du traitement si les données ne sont pas redistribuées.
+1. Un fichier préparé dans `data/processed/ecoles-quebec/`, ou une description précise du traitement si les données ne sont pas redistribuées.
 2. Un court dictionnaire des variables utilisées.
-3. Deux visualisations complémentaires.
-4. Un paragraphe sur la provenance, la licence et les limites.
-5. Une conclusion pédagogique adaptée à un public de première année.
+3. Une carte de points des immeubles scolaires.
+4. Un graphique ou tableau comparant les régions administratives.
+5. Une comparaison entre lignes, organismes et immeubles.
+6. Un paragraphe sur la provenance, la licence et les limites.
+7. Une conclusion pédagogique adaptée à un public de première année.
 
 ## Critères d'évaluation suggérés
 
@@ -28,3 +30,8 @@ Produire une carte interactive des établissements et discuter des limites d'une
 - Pertinence des regroupements.
 - Lisibilité des graphiques.
 - Prudence de l'interprétation.
+- Distinction claire entre carte descriptive et mesure d'accès.
+
+## Contraintes d'interprétation
+
+Le rapport doit contenir une phrase qui explique pourquoi un nombre élevé de points dans une région n'est pas automatiquement une meilleure desserte scolaire. Il doit aussi indiquer quelle variable est utilisée pour compter les organismes et quelle variable est utilisée pour compter les immeubles.

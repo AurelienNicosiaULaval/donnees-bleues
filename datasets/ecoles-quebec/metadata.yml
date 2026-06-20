@@ -4,21 +4,51 @@ short_title: "Écoles Québec"
 theme: "Éducation et territoire"
 source_name: "Données Québec / Ministère de l'Éducation et Ministère de l'Enseignement supérieur"
 source_url: "https://www.donneesquebec.ca/recherche/dataset/localisation-des-etablissements-d-enseignement-du-reseau-scolaire-au-quebec"
-license: "Attribution (CC-BY 4.0) selon les métadonnées CKAN vérifiées le 2026-06-19"
-access_date: "2026-06-19"
+source_resource_url: "https://www.donneesquebec.ca/recherche/dataset/localisation-des-etablissements-d-enseignement-du-reseau-scolaire-au-quebec/resource/c6640a54-bc4b-43ec-864e-6c325dce61bc"
+source_data_url: "https://www.donneesquebec.ca/recherche/dataset/2d3b5cf8-b347-49c7-ad3b-bd6a9c15e443/resource/c6640a54-bc4b-43ec-864e-6c325dce61bc/download/pps_public_ecole.csv"
+license: "Attribution (CC-BY 4.0) selon les métadonnées CKAN vérifiées le 2026-06-20"
+access_date: "2026-06-20"
 geography: "Québec"
-unit: "Établissement, école, immeuble ou siège social selon la couche choisie"
-data_type: "Tabulaire et géospatial"
-format: "CSV, GeoJSON, SHP, KML, WFS, WMS et FGDB"
-n_rows: "Volume variable selon la couche; plusieurs ressources par type d'établissement"
-n_cols: "Variables de nom, type, organisme, territoire et coordonnées"
-update_frequency: "Mise à jour fréquente; métadonnées CKAN modifiées le 2026-06-16"
+unit: "Lien école publique-immeuble scolaire"
+data_type: "Tabulaire avec coordonnées géographiques WGS84"
+format: "CSV officiel; autres formats disponibles dans le paquet"
+n_rows: "5 466 liens école-immeuble dans le CSV Écoles publiques"
+n_cols: "34 colonnes officielles; 48 colonnes après préparation locale"
+update_frequency: "Hebdomadaire selon l'API CKAN; paquet modifié le 2026-06-16"
 level: "Introduction à intermédiaire"
+organisme: "Ministère de l'Éducation et Ministère de l'Enseignement supérieur"
+territoire: "Québec"
+taille_approximative: "CSV officiel de 2 307 638 octets vérifié le 2026-06-20"
+niveau_pedagogique_recommande: "Introduction à intermédiaire"
+processed_file: "data/processed/ecoles-quebec/ecoles_publiques_quebec.csv"
+embed_processed_preview: false
+variables_principales:
+  - CD_ORGNS
+  - NOM_OFFCL_ORGNS
+  - CD_IMM
+  - NOM_IMM
+  - ORDRE_ENS
+  - CD_CS
+  - TYPE_CS
+  - NOM_CS
+  - NOM_REG_ADM
+  - COORD_X_LL84_IMM
+  - COORD_Y_LL84_IMM
+  - lien_ecole_immeuble_id
+  - longitude
+  - latitude
+  - type_reseau_public
+  - nb_ordres_autorises
+idees_mini_projets:
+  - "Cartographier les liens école-immeuble et discuter les risques de double comptage."
+  - "Comparer les ordres d'enseignement selon les régions administratives."
+  - "Construire un indicateur descriptif simple par région sans le présenter comme une mesure d'accès."
 concepts:
   - géolocalisation
   - cartographie
   - jointures
-  - densité spatiale
+  - unité statistique
+  - double comptage
   - données publiques
 zero_waste:
   contexte_quebecois: 3
@@ -31,5 +61,7 @@ zero_waste:
   potentiel_modelisation: 2
   potentiel_ethique: 3
   reutilisabilite: 3
-status: "source vérifiée; couche précise à choisir selon le laboratoire"
-notes: "Le jeu officiel contient plusieurs couches; la couche Écoles publiques est souvent la plus simple pour l'enseignement de la science des données."
+contributor_name: "Aurélien Nicosia"
+contributor_role: "Révision pédagogique et statistique"
+status: "source officielle vérifiée; ressource CSV Écoles publiques préparée localement"
+notes: "La ressource retenue est le CSV Écoles publiques. Une ligne représente un lien entre une école publique et un immeuble scolaire, pas nécessairement une école unique."

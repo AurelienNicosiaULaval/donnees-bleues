@@ -18,119 +18,262 @@ render_dataset_detail_header()
 
 ## Pourquoi ce jeu est intéressant
 
-Ce jeu de données place les étudiants et étudiantes devant une source québécoise réaliste, avec des variables interprétables et des décisions de nettoyage authentiques.
+Ce jeu de données place les personnes étudiantes devant une source québécoise réaliste : des écoles publiques, des immeubles scolaires, des coordonnées géographiques, des régions administratives et plusieurs décisions de comptage qui changent l'interprétation.
 
-Question d'analyse : Où sont localisées les écoles du Québec et quelles régions sont les plus densément desservies?
+La fiche porte sur la ressource CSV `Écoles publiques` du paquet Données Québec. Ce choix rend l'activité reproductible, parce que la ressource est directement lisible en R sans logiciel géomatique.
 
-## Source
+Question d'analyse : comment cartographier les écoles publiques du Québec sans confondre une école, un immeuble et un lien école-immeuble?
+
+## Ce qui a été vérifié
+
+| Élément vérifié | Résultat |
+|---|---|
+| Paquet officiel | Données Québec, jeu "Localisation des établissements d'enseignement du réseau scolaire au Québec" |
+| Ressource utilisée | `Écoles publiques`, CSV actif |
+| Producteur officiel | Ministère de l'Éducation et Ministère de l'Enseignement supérieur |
+| Licence officielle | Attribution (CC-BY 4.0) selon l'API CKAN |
+| Fréquence officielle | Hebdomadaire selon l'API CKAN |
+| Dernière modification du paquet | 2026-06-16 12:11:24 |
+| Dernière modification de la ressource CSV | 2026-06-16 12:09:53 |
+| Taille officielle observée | 2 307 638 octets |
+| CSV officiel consulté | 5 466 lignes et 34 colonnes |
+| Préparation locale | 5 466 lignes et 48 colonnes après ajout de variables de lecture pédagogique |
+
+## Source et conditions
 
 | Champ | Information |
 |---|---|
 | Organisme producteur | Données Québec / Ministère de l'Éducation et Ministère de l'Enseignement supérieur |
 | Source | Localisation des établissements d'enseignement du réseau scolaire au Québec |
-| URL | <https://www.donneesquebec.ca/recherche/dataset/localisation-des-etablissements-d-enseignement-du-reseau-scolaire-au-quebec> |
-| Licence | Attribution (CC-BY 4.0) selon les métadonnées CKAN vérifiées le 2026-06-19 |
-| Date d'accès | 2026-06-19 |
-| Fréquence de mise à jour | Mise à jour fréquente; métadonnées CKAN modifiées le 2026-06-16 |
-| Statut | source vérifiée; couche précise à choisir selon le laboratoire |
+| Page officielle | <https://www.donneesquebec.ca/recherche/dataset/localisation-des-etablissements-d-enseignement-du-reseau-scolaire-au-quebec> |
+| Ressource CSV retenue | <https://www.donneesquebec.ca/recherche/dataset/localisation-des-etablissements-d-enseignement-du-reseau-scolaire-au-quebec/resource/c6640a54-bc4b-43ec-864e-6c325dce61bc> |
+| API CKAN du paquet | <https://www.donneesquebec.ca/recherche/api/3/action/package_show?id=localisation-des-etablissements-d-enseignement-du-reseau-scolaire-au-quebec> |
+| API CKAN de la ressource | <https://www.donneesquebec.ca/recherche/api/3/action/resource_show?id=c6640a54-bc4b-43ec-864e-6c325dce61bc> |
+| CSV officiel | <https://www.donneesquebec.ca/recherche/dataset/2d3b5cf8-b347-49c7-ad3b-bd6a9c15e443/resource/c6640a54-bc4b-43ec-864e-6c325dce61bc/download/pps_public_ecole.csv> |
+| Licence | Attribution (CC-BY 4.0) selon les métadonnées CKAN vérifiées le 2026-06-20 |
+| Redistribution locale | Le CSV préparé sert aux vérifications et aux activités locales; les lignes nominatives ne sont pas intégrées au rendu public de la fiche. |
+| Date d'accès | 2026-06-20 |
+| Statut | source officielle vérifiée; ressource CSV `Écoles publiques` préparée localement |
 
 ## Ce que représente une ligne
 
-Établissement, école, immeuble ou siège social selon la couche choisie.
+Une ligne représente un lien entre une école publique et un immeuble scolaire. Ce n'est pas exactement une école unique. La description officielle précise qu'une école peut utiliser plusieurs immeubles pour dispenser son enseignement et qu'un immeuble peut accueillir plusieurs écoles différentes.
+
+Cette distinction est l'intérêt statistique principal de la fiche. Selon le regroupement choisi, on peut compter :
+
+- les 5 466 liens école-immeuble;
+- les 2 777 organismes scolaires distincts;
+- les 3 610 immeubles scolaires distincts;
+- les 72 centres de services scolaires ou commissions scolaires;
+- les 17 régions administratives.
+
+Ces nombres ne répondent pas à la même question. Une carte de points construite à partir de toutes les lignes montre des liens école-immeuble, pas directement une carte des écoles uniques.
 
 ## Variables principales
 
-| Variable | Type | Description | Exemple |
-|---|---|---|---|
-| `nom_ecole` | caractère | Nom de l'école ou de l'établissement. | École primaire Exemple |
-| `type` | caractère | Type d'organisme ou d'établissement. | École publique |
-| `centre_services` | caractère | Centre de services scolaire ou organisme responsable. | CSS de la Capitale |
-| `region` | caractère | Région administrative ou territoire associé. | Capitale-Nationale |
-| `latitude` | numérique | Latitude en WGS84 ou issue de la couche géographique. | 46.81 |
-| `longitude` | numérique | Longitude en WGS84 ou issue de la couche géographique. | -71.21 |
+| Variable | Type | Description | Exemple | Point de vigilance |
+|---|---|---|---|---|
+| `CD_ORGNS` | numérique | Code unique de l'organisme scolaire | `689007` | Identifie l'école ou l'organisme |
+| `NOM_OFFCL_ORGNS` | caractère | Nom officiel de l'organisme | `École exemple` | Nom public, à utiliser avec retenue |
+| `CD_IMM` | numérique | Code unique de l'immeuble | `689024` | Identifie le bâtiment |
+| `NOM_IMM` | caractère | Nom de l'immeuble | `Immeuble exemple` | Peut différer du nom de l'école |
+| `ORDRE_ENS` | caractère | Ordre d'enseignement affiché | `Préscolaire - Primaire` | Une ligne peut combiner plusieurs ordres |
+| `PRESC` | numérique | Droit de donner la formation préscolaire | `1` | Indicateur 0/1 |
+| `PRIM` | numérique | Droit de donner la formation primaire | `1` | Indicateur 0/1 |
+| `SEC` | numérique | Droit de donner la formation secondaire | `0` | Indicateur 0/1 |
+| `FORM_PRO` | numérique | Droit de donner la formation professionnelle | `0` | Indicateur 0/1 |
+| `ADULTE` | numérique | Droit de donner la formation aux adultes | `0` | Indicateur 0/1 |
+| `COORD_X_LL84_IMM` | numérique | Longitude WGS84 de l'immeuble | `-71.21` | Coordonnée du bâtiment, pas du domicile des élèves |
+| `COORD_Y_LL84_IMM` | numérique | Latitude WGS84 de l'immeuble | `46.81` | Coordonnée du bâtiment |
+| `TYPE_CS` | caractère | Type de réseau public | `Franco` | Francophone, anglophone ou statut particulier |
+| `NOM_CS` | caractère | Centre de services scolaire ou commission scolaire | `Centre de services scolaire exemple` | Variable administrative |
+| `NOM_REG_ADM` | caractère | Région administrative | `Capitale-Nationale` | Sert au regroupement territorial |
+| `lien_ecole_immeuble_id` | caractère | Identifiant local créé par préparation | `689007-689024` | Recréé à partir de `CD_ORGNS` et `CD_IMM` |
+| `longitude` | numérique | Nom pédagogique de `COORD_X_LL84_IMM` | `-71.21` | Variable dérivée |
+| `latitude` | numérique | Nom pédagogique de `COORD_Y_LL84_IMM` | `46.81` | Variable dérivée |
 
 ## Taille et structure
 
 | Élément | Information |
 |---|---|
-| Nombre de lignes | Volume variable selon la couche; plusieurs ressources par type d'établissement |
-| Nombre de colonnes | Variables de nom, type, organisme, territoire et coordonnées |
-| Structure | Tabulaire et géospatial |
-| Format | CSV, GeoJSON, SHP, KML, WFS, WMS et FGDB |
+| Nombre de lignes | 5 466 liens école-immeuble dans le CSV `Écoles publiques` |
+| Nombre de colonnes officielles | 34 colonnes |
+| Nombre de colonnes préparées | 48 colonnes |
+| Structure | Tableau avec coordonnées géographiques WGS84 |
+| Format retenu | CSV officiel |
+| Formats aussi disponibles | GeoJSON, SHP, KML, WFS, WMS, FGDB et PDF de documentation |
 | Couverture géographique | Québec |
-| Couverture temporelle | État courant des établissements selon la ressource téléchargée |
+| Couverture temporelle | État courant selon la ressource téléchargée le 2026-06-20 |
+| Format préparé local | CSV ignoré par Git dans `data/processed/ecoles-quebec/` |
+| Niveau pédagogique recommandé | Introduction à intermédiaire |
+
+## Lecture statistique
+
+La première décision d'analyse est le dénominateur. Si on compte les lignes, on compte des liens école-immeuble. Si on veut compter des écoles, il faut regrouper par `CD_ORGNS`. Si on veut compter des bâtiments, il faut regrouper par `CD_IMM`.
+
+La question "quelle région est la mieux desservie?" ne peut pas être tranchée avec ce fichier seul. Il manque au minimum une population scolaire, une population totale, la superficie, les distances de déplacement ou la capacité des établissements. La fiche peut donc soutenir une analyse descriptive de localisation, mais pas une mesure complète d'accès à l'école.
+
+La colonne officielle `COMBINE_NUO_NUI` est vide dans le CSV consulté le 2026-06-20. Je ne sais pas pourquoi cette colonne est vide. Le script de préparation crée donc `lien_ecole_immeuble_id` à partir de `CD_ORGNS` et `CD_IMM`, et vérifie que cet identifiant est unique.
+
+## Résultats R vérifiés
+
+| Contrôle | Résultat calculé sur le CSV `Écoles publiques` |
+|---|---:|
+| Lignes lues | 5 466 |
+| Colonnes officielles lues | 34 |
+| Colonnes après préparation locale | 48 |
+| Organismes scolaires distincts | 2 777 |
+| Immeubles scolaires distincts | 3 610 |
+| Centres de services ou commissions scolaires | 72 |
+| Régions administratives | 17 |
+| Coordonnées manquantes | 0 |
+| Longitude minimale | -79,49031 |
+| Longitude maximale | -57,18733 |
+| Latitude minimale | 45,01175 |
+| Latitude maximale | 62,41524 |
+| Lignes réseau francophone | 4 758 |
+| Lignes réseau anglophone | 585 |
+| Lignes statut particulier | 123 |
+
+## Résultats par ordre d'enseignement
+
+| Indicateur officiel | Lignes où l'indicateur vaut 1 |
+|---|---:|
+| `PRESC` | 2 480 |
+| `PRIM` | 2 735 |
+| `SEC` | 861 |
+| `FORM_PRO` | 810 |
+| `ADULTE` | 1 312 |
+
+Ces indicateurs ne sont pas exclusifs. Une même ligne peut autoriser plusieurs ordres d'enseignement.
+
+## Régions les plus représentées dans les lignes
+
+| Région administrative | Liens école-immeuble |
+|---|---:|
+| Montérégie | 901 |
+| Montréal | 698 |
+| Chaudière-Appalaches | 437 |
+| Estrie | 356 |
+| Laurentides | 351 |
+
+Ces nombres sont des comptes de lignes. Ils ne doivent pas être interprétés comme des taux de desserte.
 
 ## Concepts enseignables
 
 - géolocalisation;
 - cartographie;
 - jointures;
-- densité spatiale;
+- unité statistique;
+- regroupement et double comptage;
 - données publiques;
 
 ## Visualisations suggérées
 
-- cartes Leaflet;
-- clustering spatial;
-- cartes de points;
+- carte de points des immeubles scolaires;
+- facettes par type de réseau public;
+- tableau ou graphique des comptes par région administrative;
+- comparaison entre comptes de liens, organismes et immeubles.
 
 ## Score zéro déchet
 
-| Dimension | Score |
-|---|---:|
-| Contexte québécois | 3 |
-| Accessibilité pédagogique | 3 |
-| Qualité documentaire | 3 |
-| Potentiel de nettoyage | 2 |
-| Potentiel de visualisation | 3 |
-| Potentiel de statistique descriptive | 3 |
-| Potentiel d'inférence | 1 |
-| Potentiel de modélisation | 2 |
-| Potentiel de discussion éthique | 3 |
-| Réutilisabilité dans plusieurs cours | 3 |
+| Dimension | Score | Justification |
+|---|---:|---|
+| Contexte québécois | 3 | La source couvre les écoles publiques du Québec. |
+| Accessibilité pédagogique | 3 | Le CSV est directement lisible en R et les variables sont concrètes. |
+| Qualité documentaire | 3 | La ressource fournit descriptions, coordonnées, licence et métadonnées CKAN. |
+| Potentiel de nettoyage | 2 | Le nettoyage est modéré, mais l'unité statistique exige une préparation explicite. |
+| Potentiel de visualisation | 3 | Les coordonnées permettent des cartes et des graphiques territoriaux. |
+| Potentiel de statistique descriptive | 3 | Les regroupements par région, ordre et réseau sont immédiats. |
+| Potentiel d'inférence | 1 | L'inférence est limitée sans données de population, distance ou capacité. |
+| Potentiel de modélisation | 2 | Le jeu peut soutenir une introduction aux regroupements spatiaux, mais pas une prédiction forte seul. |
+| Potentiel de discussion éthique | 3 | Les noms et adresses d'écoles sont publics, mais demandent une communication prudente. |
+| Réutilisabilité dans plusieurs cours | 3 | Le jeu convient à la cartographie, au nettoyage, aux jointures et à la communication. |
 
 Total : 26 sur 30.
 
 ## Activité courte
 
-[Laboratoire](activite-courte.qmd) : Où sont localisées les écoles du Québec et quelles régions sont les plus densément desservies?
+En 60 à 90 minutes, demander aux personnes étudiantes de distinguer un lien école-immeuble, un organisme et un immeuble. Elles doivent ensuite produire un graphique des comptes par région et une carte simple des coordonnées.
 
 ## Activité longue
 
-[Mini-projet](activite-longue.qmd) : Produire une carte interactive des établissements et discuter des limites d'une carte de points.
+En 2 à 3 heures, demander un mini-rapport reproductible avec une carte, deux regroupements territoriaux et une section qui explique pourquoi les comptes ne mesurent pas directement l'accès à l'école.
+
+## Questions pédagogiques possibles
+
+1. Quelle est l'unité statistique de la ressource `Écoles publiques`?
+2. Pourquoi le nombre de lignes est-il différent du nombre d'organismes scolaires?
+3. Pourquoi le nombre d'immeubles est-il différent du nombre d'écoles?
+4. Quelle variable faut-il utiliser pour compter les organismes?
+5. Quelle variable faut-il utiliser pour compter les immeubles?
+6. Pourquoi les comptes par région ne sont-ils pas des taux de desserte?
+7. Quelle information manque pour parler d'accès géographique à l'école?
+8. Comment présenter une carte sans surinterpréter les concentrations de points?
 
 ## Code R minimal
 
 ```{r}
 #| eval: false
 library(dplyr)
+library(ggplot2)
 library(readr)
-library(stringr)
 
-source_page <- "https://www.donneesquebec.ca/recherche/dataset/localisation-des-etablissements-d-enseignement-du-reseau-scolaire-au-quebec"
+url <- "https://www.donneesquebec.ca/recherche/dataset/2d3b5cf8-b347-49c7-ad3b-bd6a9c15e443/resource/c6640a54-bc4b-43ec-864e-6c325dce61bc/download/pps_public_ecole.csv"
 
-# Étape 1 : ouvrir la page officielle et choisir la ressource documentée.
-# Étape 2 : enregistrer le fichier brut dans data_raw/.
-# Étape 3 : harmoniser les noms vers : `nom_ecole`, `type`, `centre_services`, `region`, `latitude`, `longitude`.
+ecoles <- read_csv(url, show_col_types = FALSE) |>
+  mutate(
+    lien_ecole_immeuble_id = paste(CD_ORGNS, CD_IMM, sep = "-"),
+    longitude = COORD_X_LL84_IMM,
+    latitude = COORD_Y_LL84_IMM,
+    region_administrative = NOM_REG_ADM,
+    type_reseau_public = case_when(
+      TYPE_CS == "Franco" ~ "Francophone",
+      TYPE_CS == "Anglo" ~ "Anglophone",
+      TYPE_CS == "Statut" ~ "Statut particulier",
+      TRUE ~ TYPE_CS
+    )
+  )
 
-donnees <- read_csv("data_raw/source_officielle_a_renommer.csv", show_col_types = FALSE)
+ecoles |>
+  summarise(
+    liens_ecole_immeuble = n(),
+    organismes = n_distinct(CD_ORGNS),
+    immeubles = n_distinct(CD_IMM),
+    regions = n_distinct(region_administrative)
+  )
 
-donnees |>
-  glimpse()
+ecoles |>
+  count(region_administrative, sort = TRUE)
+
+ecoles |>
+  ggplot(aes(x = longitude, y = latitude, color = type_reseau_public)) +
+  geom_point(alpha = 0.45, size = 0.8) +
+  coord_quickmap() +
+  labs(
+    x = "Longitude",
+    y = "Latitude",
+    color = "Réseau",
+    title = "Liens école-immeuble du réseau public québécois"
+  )
 ```
 
 ## Limites et précautions
 
-- Le jeu officiel contient plusieurs couches; la couche Écoles publiques est souvent la plus simple pour l'enseignement de la science des données.
-- Les noms de variables proposés sont des noms pédagogiques harmonisés; ils doivent être mappés aux noms officiels après inspection de la ressource.
-- Aucune conclusion causale ne doit être tirée sans plan d'analyse plus avancé.
+- Une ligne représente un lien école-immeuble, pas automatiquement une école unique.
+- Les noms et adresses d'écoles sont publics, mais ne doivent pas être mis en évidence inutilement.
+- Les comptes par région ne tiennent pas compte de la population, de la superficie, de la distance ou de la capacité.
+- Les coordonnées représentent les immeubles scolaires, pas les lieux de résidence des élèves.
+- Une carte de points peut donner une impression de densité qui dépend surtout de la population et de l'urbanisation.
+- Aucune conclusion causale ou normative ne doit être tirée sans données complémentaires.
 
 ## Extensions
 
-- Extension intro : produire un tableau de fréquences ou de moyennes par groupe.
-- Extension intermédiaire : ajouter une visualisation claire et une interprétation écrite.
-- Extension avancée : construire une version préparée et documentée dans `data_processed/`.
-- Extension communication scientifique : expliquer en une page ce que la source permet et ne permet pas de conclure.
+- Extension intro : comparer le nombre de lignes, d'organismes et d'immeubles.
+- Extension visualisation : produire une carte de points par type de réseau public.
+- Extension jointure : joindre un tableau de population régionale et calculer un ratio descriptif.
+- Extension spatial : transformer les coordonnées en objet `sf` et projeter au Québec.
+- Extension communication : rédiger une note qui explique pourquoi une carte ne mesure pas directement l'accès scolaire.
 
 ```{r}
 #| label: dataset-detail-footer
@@ -138,4 +281,3 @@ donnees |>
 #| results: asis
 render_dataset_detail_footer()
 ```
-
