@@ -1,0 +1,25 @@
+id: defavorisation-ecoles-primaires-court
+title: "Laboratoire - Défavorisation des écoles"
+question: "Quels liens observe-t-on entre IMSE, SFR et nombre d'élèves?"
+dataset_id: defavorisation-ecoles-primaires
+dataset_title: "Indices de défavorisation des écoles primaires du Québec"
+activity_url: "datasets/defavorisation-ecoles-primaires/activite-courte.qmd"
+duration: "60-90 minutes"
+level: "Introduction à intermédiaire"
+activity_type:
+  - "Laboratoire d'introduction"
+  - "Exploration de données"
+concepts:
+  - "variables numériques"
+  - "régression linéaire"
+  - "valeurs manquantes"
+context: "Éducation et équité"
+hook: "Prédiction responsable"
+materials:
+  - "fiche"
+  - "code"
+  - "source officielle"
+advanced_math_stats: false
+teacher_notes: "Faire discuter la variable Diffusion avant toute prédiction."
+status: "prêt à adapter"
+

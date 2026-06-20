@@ -1,0 +1,27 @@
+id: condamnations-alimentaires-quebec-long
+title: "Mini-projet - Condamnations alimentaires"
+question: "Produire un court article reproductible sur les infractions alimentaires."
+dataset_id: condamnations-alimentaires-quebec
+dataset_title: "Condamnations des établissements alimentaires au Québec"
+activity_url: "datasets/condamnations-alimentaires-quebec/activite-longue.qmd"
+duration: "2-3 heures"
+level: "Introduction à intermédiaire"
+activity_type:
+  - "Projet ou tâche longue"
+  - "Étude de cas"
+concepts:
+  - "variables catégorielles"
+  - "dates"
+  - "montants"
+  - "communication publique"
+context: "Santé publique et alimentation"
+hook: "Journalisme de données"
+materials:
+  - "fiche"
+  - "code"
+  - "source officielle"
+  - "notes enseignantes"
+advanced_math_stats: false
+teacher_notes: "Demander une section sur les limites, surtout l'absence de dénominateur."
+status: "prêt à adapter"
+

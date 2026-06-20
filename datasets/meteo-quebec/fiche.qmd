@@ -1,0 +1,136 @@
+---
+title: "Météo quotidienne à Québec"
+embed-resources: true
+page-layout: full
+toc: false
+execute:
+  freeze: false
+---
+
+```{r}
+#| label: dataset-detail-header
+#| echo: false
+#| results: asis
+source_path <- if (file.exists("R/utils_dataset_page.R")) "R/utils_dataset_page.R" else "../../R/utils_dataset_page.R"
+source(source_path)
+render_dataset_detail_header()
+```
+
+## Pourquoi ce jeu est intéressant
+
+Ce jeu est utilisé dans l'aventure 1 de STT-1100 pour faire les premiers gestes d'exploration dans R. Il est assez simple pour commencer, mais assez riche pour introduire les dates, les valeurs manquantes, les résumés numériques, les saisons et les graphiques de séries temporelles.
+
+Question d'analyse : comment les températures, la pluie, la neige et les précipitations totales varient-elles au fil des années à Québec?
+
+## Source
+
+| Champ | Information |
+|---|---|
+| Jeu utilisé dans le cours | `UlavalSSD::MeteoQuebec` |
+| Source primaire | Environnement et Changement climatique Canada, via `weathercan` |
+| URL officielle | <https://climate.weather.gc.ca/historical_data/search_historic_data_e.html> |
+| Documentation weathercan | <https://github.com/ropensci/weathercan> |
+| Licence | Données météorologiques sous Licence du gouvernement ouvert Canada selon weathercan; paquet UlavalSSD sous licence MIT |
+| Date d'accès | 2026-06-20 |
+| Statut | source pédagogique vérifiée dans UlavalSSD; source primaire ECCC documentée par weathercan |
+
+## Ce que représente une ligne
+
+Une ligne représente une observation météorologique quotidienne pour une station située dans la province de Québec. La documentation locale d'UlavalSSD indique les stations 5251 et 26892; `weathercan::stations()` les associe à Québec/Jean-Lesage.
+
+## Variables principales
+
+| Variable | Type | Description | Exemple |
+|---|---|---|---|
+| `year` | numérique | Année de l'observation | 2025 |
+| `month` | caractère | Mois de l'observation | 01 |
+| `day` | caractère | Jour du mois | 15 |
+| `max_temp` | numérique | Température maximale quotidienne en degrés Celsius | 2.4 |
+| `mean_temp` | numérique | Température moyenne quotidienne en degrés Celsius | -1.1 |
+| `min_temp` | numérique | Température minimale quotidienne en degrés Celsius | -5.2 |
+| `total_precip` | numérique | Précipitations totales quotidiennes en millimètres | 8.6 |
+| `total_rain` | numérique | Pluie quotidienne en millimètres | 4.2 |
+| `total_snow` | numérique | Neige quotidienne en centimètres | 3.0 |
+| `snow_grnd` | numérique | Neige au sol en centimètres | 24 |
+
+## Taille et structure
+
+| Élément | Information |
+|---|---|
+| Nombre de lignes | 20 111 lignes dans UlavalSSD 0.2.0 |
+| Nombre de colonnes | 11 colonnes |
+| Structure | Tableau temporel quotidien |
+| Format | `data.frame` R dans UlavalSSD; export possible en CSV |
+| Couverture temporelle | 1970 à 2025 dans la version consultée |
+| Couverture géographique | Station Québec/Jean-Lesage, Québec |
+
+## Concepts enseignables
+
+- reconnaître les variables numériques et temporelles;
+- créer une date à partir de `year`, `month` et `day`;
+- détecter et décrire les valeurs manquantes;
+- résumer des températures et précipitations;
+- visualiser une tendance ou une saisonnalité.
+
+## Activité courte
+
+[Laboratoire](activite-courte.qmd) : Quelle saison présente la plus forte variabilité de température?
+
+## Activité longue
+
+[Mini-projet](activite-longue.qmd) : Construire un portrait descriptif de la météo quotidienne à Québec.
+
+## Code R minimal
+
+```{r}
+#| eval: false
+library(dplyr)
+library(ggplot2)
+library(lubridate)
+library(UlavalSSD)
+
+meteo <- MeteoQuebec |>
+  mutate(
+    date = make_date(year, as.integer(month), as.integer(day)),
+    mois = month(date, label = TRUE, abbr = FALSE)
+  )
+
+meteo |>
+  summarise(
+    lignes = n(),
+    temperature_moyenne = mean(mean_temp, na.rm = TRUE),
+    precipitation_moyenne = mean(total_precip, na.rm = TRUE)
+  )
+
+meteo |>
+  filter(year >= 2020) |>
+  ggplot(aes(x = date, y = mean_temp)) +
+  geom_line(alpha = 0.7) +
+  labs(
+    x = "Date",
+    y = "Température moyenne quotidienne",
+    title = "Température quotidienne moyenne à Québec"
+  )
+```
+
+## Limites et précautions
+
+- Le jeu dans UlavalSSD est une version pédagogique fixe; vérifier la source ECCC si l'objectif est une analyse officielle à jour.
+- Les variables de pluie et de neige contiennent de nombreuses valeurs manquantes dans la version consultée.
+- Les résultats ne décrivent pas tout le Québec, mais une station météorologique.
+- Les tendances climatiques exigent un plan d'analyse plus rigoureux qu'un simple graphique descriptif.
+
+## Extensions
+
+- Extension intro : calculer la moyenne de température par mois.
+- Extension intermédiaire : comparer les distributions par saison.
+- Extension avancée : ajuster une tendance temporelle avec une discussion des hypothèses.
+- Extension communication scientifique : expliquer la différence entre météo quotidienne et climat.
+
+```{r}
+#| label: dataset-detail-footer
+#| echo: false
+#| results: asis
+render_dataset_detail_footer()
+```
+

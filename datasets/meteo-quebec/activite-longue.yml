@@ -1,0 +1,27 @@
+id: meteo-quebec-long
+title: "Mini-projet - Météo Québec"
+question: "Construire un portrait descriptif de la météo quotidienne à Québec."
+dataset_id: meteo-quebec
+dataset_title: "Météo quotidienne à Québec"
+activity_url: "datasets/meteo-quebec/activite-longue.qmd"
+duration: "2-3 heures"
+level: "Introduction à intermédiaire"
+activity_type:
+  - "Projet ou tâche longue"
+  - "Étude de cas"
+concepts:
+  - "séries temporelles"
+  - "valeurs manquantes"
+  - "visualisation"
+  - "statistiques descriptives"
+context: "Météorologie québécoise"
+hook: "Données familières"
+materials:
+  - "fiche"
+  - "code"
+  - "source officielle"
+  - "notes enseignantes"
+advanced_math_stats: false
+teacher_notes: "Exiger une section courte sur les limites d'une seule station."
+status: "prêt à adapter"
+

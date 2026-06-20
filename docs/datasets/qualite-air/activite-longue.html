@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.9.37">
+<meta name="generator" content="quarto-1.9.38">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -1537,7 +1537,7 @@ const initMatch = () => ({
   i: 0,
   lohisByNode: new Map()
 })
-/**
+/** 
  * keeps track of the start (lo) and end (hi) index of the match per node (leaf)
  * note: mutates the contents of `matchContext`
  */
@@ -1549,16 +1549,16 @@ const advanceMatch = (leaf, leafi, matchContext) => {
   matchContext.lohisByNode.set(leaf, { lo: curLoHi?.lo ?? leafi, hi: leafi })
 }
 /**
- * Finds all non-overlapping matches for a search string in the document.
+ * Finds all non-overlapping matches for a search string in the document. 
  * The search string may be split between multiple consecutive leaf nodes.
- *
+ * 
  * Whitespace in the search string must be present in the document to match, but
  * there may be addititional whitespace in the document that is ignored.
- *
+ * 
  * e.g. searching for `dogs rock` would match `dogs  \n <span> rock</span>`,
- * and would contribute the match
+ * and would contribute the match 
  * `{ i:9, els: new Map([[textNode, {lo:0, hi:8}],[spanNode,{lo:0,hi:5}]]) }`
- *
+ * 
  * @returns {Map<HTMLElement,{lo:number,hi:number}>[]}
  */
 function searchMatches(inSearch, el) {
@@ -1603,7 +1603,7 @@ function searchMatches(inSearch, el) {
   return matches
 }
 
-/**
+/** 
  * e.g. `markMatches(myTextNode, [[0,5],[12,15]])` would wrap the
  * character sequences in myTextNode from 0-5 and 12-15 in marks.
  * Its important to mark all sequences in a text node at once
@@ -1665,7 +1665,7 @@ function scrollToFirstVisibleMatch(mainEl) {
  *
  * arrayMapPush(m, 'dog', 'Max')
  * console.log(m) // Map { dog->['Max'] }
- *
+ * 
  * arrayMapPush(m, 'dog', 'Samba')
  * arrayMapPush(m, 'cat', 'Scruffle')
  * console.log(m) // Map { dog->['Max', 'Samba'], cat->['Scruffle'] }
@@ -1679,7 +1679,7 @@ const arrayMapPush = (map, key, item) => {
 // copy&paste any string from a quarto page and
 // this should find that string in the page and highlight it.
 // exception: text that starts outside/inside a tabset and ends
-// inside/outside that tabset.
+// inside/outside that tabset. 
 function highlight(searchStr, el) {
   const matches = searchMatches(searchStr, el);
 
@@ -4001,14 +4001,22 @@ vertical-align: -.125em;
 --db-blue-dark: #223f78;
 --db-blue-soft: #eef5ff;
 --db-blue-mid: #4f7cc9;
+--db-cyan-soft: #e8fbff;
+--db-green: #2d8a63;
+--db-green-soft: #eaf7f0;
+--db-gold: #b97918;
+--db-gold-soft: #fff5df;
 --db-ink: #172033;
 --db-muted: #5d6b82;
+--db-muted-soft: #edf2f8;
 --db-border: #d3dfef;
 --db-surface: #f7fbff;
+--db-shadow: 0 14px 34px rgba(23, 32, 51, 0.1);
 }
 body {
 color: var(--db-ink);
 background: #ffffff;
+letter-spacing: 0;
 }
 #title-block-header {
 display: none;
@@ -4017,12 +4025,21 @@ a {
 color: var(--db-blue);
 }
 .navbar {
-box-shadow: 0 1px 8px rgba(18, 46, 92, 0.18);
+background: #ffffff !important;
+border-bottom: 1px solid #e5e7eb;
+box-shadow: none;
+min-height: 58px;
+}
+.navbar .navbar-container {
+max-width: 100%;
+min-height: 58px;
+padding-left: 1.6rem;
+padding-right: 1.6rem;
 }
 .navbar-brand img,
 .navbar-logo {
-height: 2.1rem;
-max-height: 2.1rem;
+height: 1.55rem;
+max-height: 1.55rem;
 width: auto;
 }
 .navbar-brand {
@@ -4030,18 +4047,56 @@ overflow: visible;
 text-overflow: clip;
 }
 .navbar-title {
-font-weight: 700;
+color: #0045a5;
+font-size: 1.32rem;
+font-weight: 800;
 letter-spacing: 0;
 max-width: none;
 overflow: visible;
 text-overflow: clip;
 white-space: nowrap;
 }
+.navbar .nav-link {
+color: #111827 !important;
+font-size: 0.95rem;
+font-weight: 600;
+padding: 0.95rem 1.05rem 0.9rem;
+}
+.navbar .nav-link.active {
+border-bottom: 3px solid #0b57d0;
+color: #0045a5 !important;
+}
+.navbar .navbar-nav.ms-auto .nav-link {
+align-items: center;
+display: inline-flex;
+gap: 0.4rem;
+font-size: 0.82rem;
+padding-left: 0.75rem;
+padding-right: 0.75rem;
+}
+.navbar .navbar-nav.ms-auto .nav-item:last-child .nav-link {
+background: #0645ad;
+border: 1px solid #0645ad;
+border-radius: 4px;
+color: #ffffff !important;
+margin-left: 0.45rem;
+min-height: 34px;
+padding: 0.42rem 0.9rem;
+}
+.navbar .navbar-nav.ms-auto .nav-item:last-child .nav-link:hover,
+.navbar .navbar-nav.ms-auto .nav-item:last-child .nav-link:focus {
+background: #003f9a;
+border-color: #003f9a;
+}
+.quarto-search-button,
+.aa-DetachedSearchButton {
+color: #0045a5 !important;
+}
 .hero {
-background: linear-gradient(180deg, var(--db-blue-soft), #ffffff);
+background: #f8fbff;
 border-bottom: 1px solid var(--db-border);
-margin: -1.5rem calc(50% - 50vw) 2rem;
-padding: 4rem max(1.5rem, calc((100vw - 1120px) / 2)) 3rem;
+margin: -0.5rem calc(50% - 50vw) 2rem;
+padding: 3.6rem max(1.5rem, calc((100vw - 1120px) / 2)) 3rem;
 }
 .hero-logo {
 display: block;
@@ -4067,14 +4122,14 @@ max-width: 820px;
 .card-grid {
 display: grid;
 gap: 1rem;
-grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
 margin: 1.5rem 0 2rem;
 }
 .db-card {
 background: #ffffff;
-border: 1px solid var(--db-border);
-border-radius: 8px;
-box-shadow: 0 8px 22px rgba(23, 32, 51, 0.07);
+border: 1px solid #d9dee7;
+border-radius: 5px;
+box-shadow: none;
 display: flex;
 flex-direction: column;
 min-height: 150px;
@@ -4083,9 +4138,9 @@ padding: 0;
 transition: border-color 160ms ease, box-shadow 160ms ease, transform 160ms ease;
 }
 .db-card:hover {
-border-color: rgba(50, 94, 168, 0.45);
-box-shadow: 0 12px 28px rgba(23, 32, 51, 0.12);
-transform: translateY(-2px);
+border-color: #b9c4d5;
+box-shadow: 0 8px 18px rgba(15, 23, 42, 0.08);
+transform: none;
 }
 .db-card-image {
 aspect-ratio: 16 / 9;
@@ -4099,6 +4154,16 @@ width: 100%;
 font-size: 1.1rem;
 line-height: 1.25;
 margin: 1rem 1rem 0.45rem;
+}
+.db-card h3 a {
+color: var(--db-ink);
+text-decoration: none;
+}
+.db-card h3 a:hover,
+.db-card h3 a:focus {
+color: var(--db-blue);
+text-decoration: underline;
+text-underline-offset: 0.16em;
 }
 .db-card p {
 color: var(--db-muted);
@@ -4117,6 +4182,998 @@ padding-left: 2rem;
 color: var(--db-muted);
 font-size: 0.9rem;
 margin: -1rem 0 2rem;
+}
+body:has(.dataset-detail-page) main.content {
+max-width: none;
+padding-left: 0;
+padding-right: 0;
+}
+.dataset-detail-page {
+background: #ffffff;
+margin: -0.5rem calc(50% - 50vw) 0;
+padding-bottom: 4rem;
+}
+.dataset-detail-hero,
+.dataset-overview-grid,
+.dataset-pedagogy-band,
+.dataset-chip-strip,
+.dataset-r-lab,
+.dataset-teaching-panel,
+.dataset-detail-content {
+margin-left: auto;
+margin-right: auto;
+max-width: 1180px;
+width: calc(100% - 3rem);
+}
+.dataset-detail-hero {
+align-items: end;
+display: grid;
+gap: 2rem;
+grid-template-columns: minmax(0, 1.05fr) minmax(340px, 0.78fr);
+padding: 3rem 0 1.4rem;
+}
+.dataset-breadcrumb {
+align-items: center;
+color: #5b677d;
+display: flex;
+flex-wrap: wrap;
+font-size: 0.84rem;
+font-weight: 650;
+gap: 0.42rem;
+margin-bottom: 0.85rem;
+}
+.dataset-breadcrumb a {
+color: #0045a5;
+text-decoration: none;
+}
+.dataset-breadcrumb a:hover,
+.dataset-breadcrumb a:focus {
+text-decoration: underline;
+text-underline-offset: 0.18em;
+}
+.dataset-hero-copy h1 {
+color: #101828;
+font-size: clamp(2.25rem, 4vw, 3.6rem);
+font-weight: 850;
+letter-spacing: 0;
+line-height: 1.02;
+margin: 0 0 0.8rem;
+max-width: 780px;
+}
+.dataset-hero-source {
+color: #0045a5;
+font-size: 1rem;
+font-weight: 750;
+margin: 0 0 0.55rem;
+}
+.dataset-hero-summary {
+color: #344054;
+font-size: 1.05rem;
+line-height: 1.55;
+margin: 0;
+max-width: 760px;
+}
+.dataset-hero-actions {
+align-items: center;
+display: flex;
+flex-wrap: wrap;
+gap: 0.65rem;
+margin-top: 1.35rem;
+}
+.dataset-button {
+align-items: center;
+background: #0645ad;
+border: 1px solid #0645ad;
+border-radius: 5px;
+color: #ffffff;
+display: inline-flex;
+font-size: 0.9rem;
+font-weight: 750;
+justify-content: center;
+min-height: 38px;
+padding: 0.55rem 0.9rem;
+text-decoration: none;
+}
+.dataset-button:hover,
+.dataset-button:focus {
+background: #003f9a;
+border-color: #003f9a;
+color: #ffffff;
+}
+.dataset-button.secondary {
+background: #ffffff;
+border-color: #cfd8e7;
+color: #0045a5;
+}
+.dataset-button.secondary:hover,
+.dataset-button.secondary:focus {
+background: #f8fbff;
+color: #003f9a;
+}
+.dataset-hero-media {
+background: #f4f8ff;
+border: 1px solid #d5dfec;
+border-radius: 6px;
+overflow: hidden;
+}
+.dataset-hero-media img {
+aspect-ratio: 16 / 9;
+display: block;
+object-fit: cover;
+width: 100%;
+}
+.dataset-overview-grid {
+display: grid;
+gap: 0.75rem;
+grid-template-columns: repeat(4, minmax(0, 1fr));
+margin-top: 0.35rem;
+}
+.dataset-fact {
+background: #ffffff;
+border: 1px solid #d9e2ef;
+border-radius: 6px;
+min-width: 0;
+padding: 0.9rem;
+}
+.dataset-fact span,
+.dataset-pedagogy-main span,
+.dataset-score-box span,
+.dataset-section-heading span,
+.dataset-card-label,
+.dataset-teaching-panel span {
+color: #0045a5;
+display: block;
+font-size: 0.73rem;
+font-weight: 850;
+letter-spacing: 0.02em;
+margin-bottom: 0.35rem;
+text-transform: uppercase;
+}
+.dataset-fact strong {
+color: #172033;
+display: block;
+font-size: 0.94rem;
+font-weight: 700;
+line-height: 1.32;
+}
+.dataset-pedagogy-band {
+align-items: stretch;
+background: #f8fbff;
+border: 1px solid #d6e3f4;
+border-radius: 6px;
+display: grid;
+gap: 1rem;
+grid-template-columns: minmax(0, 1fr) minmax(230px, 0.28fr);
+margin-top: 0.9rem;
+padding: 1rem;
+}
+.dataset-pedagogy-main p {
+color: #172033;
+font-size: 1.05rem;
+font-weight: 700;
+line-height: 1.35;
+margin: 0;
+}
+.dataset-score-box {
+background: #ffffff;
+border: 1px solid #d9e2ef;
+border-radius: 6px;
+padding: 0.85rem;
+}
+.dataset-score-box strong {
+color: #172033;
+display: block;
+font-size: 1.2rem;
+line-height: 1;
+margin-bottom: 0.7rem;
+}
+.dataset-score-track {
+display: grid;
+gap: 0.28rem;
+grid-template-columns: repeat(5, minmax(0, 1fr));
+}
+.dataset-score-segment {
+background: #d9dee7;
+border-radius: 999px;
+display: block;
+height: 6px;
+}
+.dataset-score-segment.is-filled {
+background: #3d9b35;
+}
+.dataset-chip-strip {
+display: flex;
+flex-wrap: wrap;
+gap: 0.45rem;
+margin-top: 0.9rem;
+}
+.dataset-chip-strip span {
+background: #ffffff;
+border: 1px solid #d6e0ee;
+border-radius: 5px;
+color: #344054;
+font-size: 0.81rem;
+font-weight: 650;
+padding: 0.32rem 0.55rem;
+}
+.dataset-r-lab {
+border-top: 1px solid #e5e7eb;
+margin-top: 2rem;
+padding-top: 1.8rem;
+}
+.dataset-section-heading {
+display: grid;
+gap: 0.3rem;
+margin-bottom: 1rem;
+max-width: 760px;
+}
+.dataset-section-heading h2 {
+color: #101828;
+font-size: clamp(1.5rem, 2.4vw, 2rem);
+font-weight: 850;
+letter-spacing: 0;
+line-height: 1.12;
+margin: 0;
+}
+.dataset-section-heading p {
+color: #56637a;
+line-height: 1.5;
+margin: 0;
+}
+.dataset-r-grid {
+display: grid;
+gap: 0.9rem;
+grid-template-columns: minmax(280px, 0.95fr) minmax(280px, 1fr) minmax(240px, 0.75fr);
+}
+.dataset-code-card,
+.dataset-result-card,
+.dataset-chart-card {
+background: #ffffff;
+border: 1px solid #d9e2ef;
+border-radius: 6px;
+min-width: 0;
+padding: 0.9rem;
+}
+.dataset-code-card pre {
+background: #101828;
+border-radius: 5px;
+color: #f8fbff;
+font-size: 0.78rem;
+line-height: 1.5;
+margin: 0;
+max-height: 330px;
+overflow: auto;
+padding: 0.9rem;
+}
+.dataset-code-card code {
+color: inherit;
+}
+.dataset-r-stats {
+display: grid;
+gap: 0.45rem;
+grid-template-columns: repeat(2, minmax(0, 1fr));
+margin-bottom: 0.8rem;
+}
+.dataset-r-stat {
+background: #f8fbff;
+border: 1px solid #e0e8f4;
+border-radius: 5px;
+min-width: 0;
+padding: 0.55rem;
+}
+.dataset-r-stat span {
+color: #5b677d;
+display: block;
+font-size: 0.72rem;
+font-weight: 700;
+margin-bottom: 0.2rem;
+}
+.dataset-r-stat strong {
+color: #101828;
+display: block;
+font-size: 0.86rem;
+line-height: 1.25;
+overflow-wrap: anywhere;
+}
+.dataset-result-table-wrap {
+border: 1px solid #e0e8f4;
+border-radius: 5px;
+overflow: auto;
+}
+.dataset-result-table {
+border-collapse: collapse;
+font-size: 0.78rem;
+margin: 0;
+min-width: 100%;
+}
+.dataset-result-table th,
+.dataset-result-table td {
+border-bottom: 1px solid #e6edf6;
+padding: 0.46rem 0.55rem;
+text-align: left;
+white-space: nowrap;
+}
+.dataset-result-table th {
+background: #f3f7fd;
+color: #344054;
+font-weight: 800;
+}
+.dataset-result-table tr:last-child td {
+border-bottom: 0;
+}
+.dataset-r-chart {
+display: block;
+height: auto;
+max-height: 260px;
+width: 100%;
+}
+.dataset-svg-axis {
+stroke: #d1dbea;
+stroke-width: 1.5;
+}
+.dataset-svg-line {
+fill: none;
+stroke: #0b57d0;
+stroke-linecap: round;
+stroke-linejoin: round;
+stroke-width: 3.5;
+}
+.dataset-svg-point {
+fill: #ffffff;
+stroke: #0b57d0;
+stroke-width: 2.3;
+}
+.dataset-svg-bar {
+fill: #2f8d47;
+}
+.dataset-svg-label,
+.dataset-svg-title,
+.dataset-svg-value {
+fill: #475467;
+font-family: inherit;
+font-size: 10px;
+}
+.dataset-svg-title {
+fill: #172033;
+font-size: 12px;
+font-weight: 800;
+}
+.dataset-empty-result {
+color: #5b677d;
+font-size: 0.9rem;
+margin: 0;
+}
+.dataset-teaching-panel {
+background: #ffffff;
+border: 1px solid #d9e2ef;
+border-radius: 6px;
+display: grid;
+gap: 1rem;
+grid-template-columns: minmax(0, 1fr) minmax(280px, 0.85fr);
+margin-top: 1rem;
+padding: 1rem;
+}
+.dataset-teaching-panel ul {
+color: #344054;
+line-height: 1.45;
+margin: 0;
+padding-left: 1.1rem;
+}
+.dataset-teaching-panel li + li {
+margin-top: 0.4rem;
+}
+.dataset-activity-grid {
+display: grid;
+gap: 0.55rem;
+}
+.dataset-activity-card {
+border: 1px solid #d9e2ef;
+border-radius: 5px;
+display: block;
+padding: 0.7rem;
+text-decoration: none;
+}
+.dataset-activity-card span {
+color: #667085;
+font-size: 0.72rem;
+margin-bottom: 0.22rem;
+}
+.dataset-activity-card strong {
+color: #0045a5;
+display: block;
+font-size: 0.94rem;
+line-height: 1.25;
+margin-bottom: 0.28rem;
+}
+.dataset-activity-card p {
+color: #475467;
+font-size: 0.84rem;
+line-height: 1.35;
+margin: 0;
+}
+.dataset-activity-card:hover,
+.dataset-activity-card:focus {
+background: #f8fbff;
+border-color: #b8c8df;
+}
+.dataset-detail-content {
+color: #172033;
+margin-top: 2.2rem;
+}
+.dataset-detail-content > h2 {
+border-top: 1px solid #e5e7eb;
+color: #101828;
+font-size: clamp(1.35rem, 2vw, 1.8rem);
+font-weight: 850;
+letter-spacing: 0;
+line-height: 1.15;
+margin: 2rem 0 0.8rem;
+padding-top: 1.35rem;
+}
+.dataset-detail-content > h2:first-child {
+margin-top: 0;
+}
+.dataset-detail-content p,
+.dataset-detail-content li {
+color: #344054;
+line-height: 1.62;
+}
+.dataset-detail-content table {
+border: 1px solid #d9e2ef;
+border-collapse: separate;
+border-radius: 6px;
+border-spacing: 0;
+display: block;
+font-size: 0.9rem;
+margin: 0.8rem 0 1.4rem;
+max-width: 100%;
+overflow: auto;
+}
+.dataset-detail-content th,
+.dataset-detail-content td {
+border-bottom: 1px solid #e5ecf5;
+padding: 0.58rem 0.7rem;
+vertical-align: top;
+}
+.dataset-detail-content th {
+background: #f3f7fd;
+color: #344054;
+font-weight: 800;
+}
+.dataset-detail-content tr:last-child td {
+border-bottom: 0;
+}
+.dataset-detail-content div.sourceCode {
+border-radius: 6px;
+margin: 0.9rem 0 1.5rem;
+}
+body:has(.catalogue-reference) .navbar {
+background: #ffffff !important;
+border-bottom: 1px solid #e5e7eb;
+height: 58px;
+box-shadow: none;
+min-height: 58px;
+}
+body:has(.catalogue-reference) .navbar .navbar-container {
+min-height: 58px;
+max-width: 100%;
+padding-left: 1.6rem;
+padding-right: 1.6rem;
+}
+body:has(.catalogue-reference) .navbar-title {
+color: #0045a5;
+font-size: 1.32rem;
+font-weight: 800;
+}
+body:has(.catalogue-reference) .navbar-logo {
+height: 1.55rem;
+max-height: 1.55rem;
+}
+body:has(.catalogue-reference) .navbar .nav-link {
+color: #111827 !important;
+font-size: 0.95rem;
+font-weight: 600;
+padding: 0.95rem 1.05rem 0.9rem;
+}
+body:has(.catalogue-reference) .navbar .nav-link.active {
+border-bottom: 3px solid #0b57d0;
+color: #0045a5 !important;
+}
+body:has(.catalogue-reference) .quarto-search-button,
+body:has(.catalogue-reference) .aa-DetachedSearchButton {
+color: #0045a5 !important;
+}
+body:has(.catalogue-reference) main.content {
+grid-column: screen-start / screen-end;
+max-width: none;
+width: 100%;
+}
+.catalogue-page {
+box-sizing: border-box;
+margin-left: auto;
+margin-right: auto;
+max-width: none;
+padding-left: 1.6rem;
+padding-right: 1.6rem;
+width: min(100vw, 1560px);
+}
+.catalogue-hero-row {
+align-items: start;
+display: grid;
+gap: 2rem;
+grid-template-columns: minmax(360px, 0.92fr) minmax(520px, 1.55fr);
+margin: 0.8rem 0 1.45rem;
+}
+.catalogue-title-block h1 {
+color: #0f172a;
+font-size: clamp(2rem, 3.2vw, 2.6rem);
+font-weight: 800;
+letter-spacing: 0;
+line-height: 1.05;
+margin: 0 0 1rem;
+}
+.catalogue-title-block p {
+color: #344054;
+font-size: 0.94rem;
+line-height: 1.45;
+margin: 0;
+max-width: 560px;
+}
+.catalogue-top-controls {
+display: grid;
+gap: 1.45rem;
+margin-top: 0.15rem;
+}
+.catalogue-search-row {
+align-items: center;
+display: flex;
+gap: 0.8rem;
+}
+.catalogue-search-row > p,
+.catalogue-chip-row > p {
+align-items: center;
+display: flex;
+flex: 1 1 auto;
+flex-wrap: inherit;
+gap: inherit;
+margin: 0;
+min-width: 0;
+width: 100%;
+}
+.catalogue-search-box {
+align-items: center;
+background: #ffffff;
+border: 1px solid #d0d5dd;
+border-radius: 4px;
+color: #667085;
+display: grid;
+flex: 1 1 auto;
+gap: 0.65rem;
+grid-template-columns: auto minmax(0, 1fr);
+min-width: 0;
+min-height: 46px;
+padding: 0 0.9rem;
+}
+.catalogue-search-box:focus-within {
+border-color: #0b57d0;
+box-shadow: 0 0 0 3px rgba(11, 87, 208, 0.12);
+}
+.catalogue-search-box input {
+border: 0;
+color: #111827;
+font: inherit;
+font-size: 0.94rem;
+min-width: 0;
+outline: none;
+padding: 0;
+width: 100%;
+}
+.catalogue-search-box input::placeholder {
+color: #667085;
+}
+.catalogue-help {
+align-items: center;
+background: #ffffff;
+border: 1px solid #d0d5dd;
+border-radius: 4px;
+color: #344054;
+display: inline-flex;
+font: inherit;
+font-size: 0.84rem;
+font-weight: 600;
+gap: 0.5rem;
+flex: 0 0 auto;
+min-height: 38px;
+padding: 0.4rem 0.8rem;
+white-space: nowrap;
+}
+.catalogue-chip-row {
+align-items: center;
+display: flex;
+flex-wrap: wrap;
+gap: 0.38rem;
+min-width: 0;
+}
+.filter-kicker,
+.more-filters,
+.catalogue-reset-link {
+color: #111827;
+font-size: 0.79rem;
+font-weight: 600;
+}
+.filter-kicker {
+align-items: center;
+display: inline-flex;
+gap: 0.25rem;
+padding-right: 0.2rem;
+}
+.filter-chip {
+background: #ffffff;
+border: 1px solid #d0d5dd;
+border-radius: 5px;
+color: #344054;
+cursor: pointer;
+font: inherit;
+font-size: 0.79rem;
+font-weight: 600;
+min-height: 28px;
+padding: 0.22rem 0.52rem;
+white-space: nowrap;
+}
+.filter-chip.is-active {
+background: #f8fbff;
+border-color: #0b57d0;
+color: #0045a5;
+box-shadow: inset 0 0 0 1px rgba(11, 87, 208, 0.2);
+}
+.more-filters {
+align-items: center;
+background: transparent;
+border: 0;
+cursor: pointer;
+display: inline-flex;
+gap: 0.3rem;
+margin-left: auto;
+white-space: nowrap;
+padding: 0.15rem 0.18rem;
+}
+.filter-spacer {
+flex: 1 1 1rem;
+}
+.top-reset {
+flex: 0 0 auto;
+white-space: nowrap;
+}
+.catalogue-layout {
+display: grid;
+gap: 1.35rem;
+grid-template-columns: 220px minmax(0, 1fr);
+margin-bottom: 2.2rem;
+}
+.catalogue-sidebar {
+align-self: start;
+border-right: 1px solid #e5e7eb;
+padding-right: 1.45rem;
+position: sticky;
+top: 4.6rem;
+}
+.catalogue-reset-link,
+.dataset-action {
+align-items: center;
+border-radius: 4px;
+display: inline-flex;
+font-weight: 650;
+justify-content: center;
+line-height: 1.1;
+text-decoration: none;
+}
+.catalogue-sidebar-head {
+border-bottom: 1px solid #e5e7eb;
+margin-bottom: 0.9rem;
+padding-bottom: 0.85rem;
+}
+.catalogue-sidebar h2 {
+color: #111827;
+font-size: 0.92rem;
+font-weight: 800;
+letter-spacing: 0;
+margin: 0 0 0.65rem;
+}
+.catalogue-reset-link {
+background: transparent;
+border: 0;
+color: #0045a5;
+cursor: pointer;
+font: inherit;
+font-size: 0.82rem;
+justify-content: start;
+min-height: auto;
+padding: 0;
+}
+.catalogue-reset-link:hover,
+.catalogue-reset-link:focus {
+color: #00357f;
+text-decoration: underline;
+text-underline-offset: 0.16em;
+}
+.filter-group {
+border-bottom: 1px solid #e5e7eb;
+display: grid;
+gap: 0.7rem;
+padding: 0 0 1.15rem;
+margin-bottom: 1.15rem;
+}
+.filter-group h3 {
+color: #111827;
+font-size: 0.88rem;
+font-weight: 800;
+letter-spacing: 0;
+margin: 0;
+}
+.filter-option {
+align-items: center;
+color: #111827;
+cursor: pointer;
+display: grid;
+font-size: 0.84rem;
+gap: 0.45rem;
+grid-template-columns: auto minmax(0, 1fr) auto;
+line-height: 1.25;
+}
+.filter-option input {
+accent-color: #0b57d0;
+height: 0.85rem;
+margin: 0;
+width: 0.85rem;
+}
+.filter-option span {
+overflow-wrap: anywhere;
+}
+.filter-option strong {
+color: #667085;
+font-size: 0.8rem;
+font-weight: 600;
+}
+.filter-option.is-extra {
+display: none;
+}
+.filter-group.is-expanded .filter-option.is-extra {
+display: grid;
+}
+.filter-more {
+background: transparent;
+border: 0;
+color: #0045a5;
+cursor: pointer;
+font: inherit;
+font-size: 0.82rem;
+font-weight: 700;
+justify-self: start;
+padding: 0.15rem 0 0;
+}
+.catalogue-results {
+margin: 0;
+min-width: 0;
+}
+.catalogue-results-bar {
+align-items: center;
+display: flex;
+gap: 1rem;
+justify-content: space-between;
+margin: 0 0 0.7rem;
+}
+.catalogue-results-bar > p {
+align-items: center;
+display: flex;
+margin: 0;
+}
+.catalogue-count {
+color: #172033;
+font-size: 0.9rem;
+font-weight: 500;
+margin: 0;
+}
+.catalogue-sort {
+align-items: center;
+color: #344054;
+display: inline-flex;
+font-size: 0.86rem;
+gap: 0.55rem;
+margin: 0;
+}
+.catalogue-sort select {
+appearance: none;
+background:
+linear-gradient(45deg, transparent 50%, #111827 50%),
+linear-gradient(135deg, #111827 50%, transparent 50%),
+#ffffff;
+background-position:
+calc(100% - 15px) 50%,
+calc(100% - 10px) 50%;
+background-repeat: no-repeat;
+background-size: 5px 5px, 5px 5px;
+border: 1px solid #d0d5dd;
+border-radius: 4px;
+color: #111827;
+font: inherit;
+min-width: 180px;
+padding: 0.45rem 2rem 0.45rem 0.7rem;
+}
+.dataset-grid {
+display: grid;
+gap: 1rem;
+grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+margin: 0 0 2rem;
+}
+.dataset-card {
+border-color: #d9dee7;
+border-radius: 5px;
+box-shadow: none;
+min-height: 100%;
+}
+.dataset-card:hover {
+border-color: #b9c4d5;
+box-shadow: 0 8px 18px rgba(15, 23, 42, 0.08);
+transform: none;
+}
+.dataset-card[hidden] {
+display: none;
+}
+.dataset-media {
+display: block;
+margin: 0.65rem 0.65rem 0;
+overflow: hidden;
+}
+.dataset-media .db-card-image {
+aspect-ratio: 2.45 / 1;
+border-radius: 3px;
+height: auto;
+transition: transform 220ms ease;
+}
+.dataset-card:hover .dataset-media .db-card-image {
+transform: none;
+}
+.dataset-card-body {
+display: flex;
+flex: 1 1 auto;
+flex-direction: column;
+padding: 0.68rem 0.78rem 0.72rem;
+}
+.dataset-card h3 {
+font-size: 1rem;
+font-weight: 800;
+line-height: 1.18;
+margin: 0 0 0.45rem;
+}
+.dataset-card h3 a {
+color: #0045a5;
+display: -webkit-box;
+overflow: hidden;
+-webkit-box-orient: vertical;
+-webkit-line-clamp: 2;
+}
+.dataset-source {
+color: #344054;
+font-size: 0.82rem;
+line-height: 1.35;
+margin: 0 0 0.22rem;
+}
+.dataset-card .dataset-source {
+margin-left: 0;
+margin-right: 0;
+}
+.dataset-source {
+display: -webkit-box;
+min-height: 2.15em;
+overflow: hidden;
+-webkit-box-orient: vertical;
+-webkit-line-clamp: 2;
+}
+.dataset-facts {
+display: grid;
+gap: 0.32rem;
+margin: 0.18rem 0 0.55rem;
+}
+.dataset-facts span {
+align-items: start;
+color: #344054;
+display: grid;
+font-size: 0.79rem;
+gap: 0.38rem;
+grid-template-columns: auto minmax(0, 1fr);
+line-height: 1.3;
+}
+.dataset-facts i {
+color: #0045a5;
+font-size: 0.86rem;
+line-height: 1.25;
+margin-top: 0.02rem;
+}
+.dataset-learning {
+background: #f8fbff;
+border: 1px solid #dbe7f7;
+border-left: 3px solid #0b57d0;
+border-radius: 4px;
+margin: 0 0 0.6rem;
+padding: 0.52rem 0.58rem;
+}
+.dataset-learning > span {
+color: #0045a5;
+display: block;
+font-size: 0.72rem;
+font-weight: 800;
+letter-spacing: 0;
+line-height: 1.2;
+margin-bottom: 0.22rem;
+text-transform: uppercase;
+}
+.dataset-learning p {
+color: #172033;
+display: -webkit-box;
+font-size: 0.82rem;
+line-height: 1.35;
+margin: 0;
+overflow: hidden;
+-webkit-box-orient: vertical;
+-webkit-line-clamp: 3;
+}
+.dataset-score {
+margin-bottom: 0.45rem;
+}
+.dataset-score-label {
+align-items: center;
+display: flex;
+gap: 0.6rem;
+justify-content: start;
+margin-bottom: 0.38rem;
+}
+.dataset-score-label span {
+color: #111827;
+font-size: 0.78rem;
+font-weight: 500;
+}
+.dataset-score-track {
+display: grid;
+gap: 0.25rem;
+grid-template-columns: repeat(5, 1fr);
+height: 0.32rem;
+}
+.score-segment {
+background: #d9dee7;
+border-radius: 999px;
+display: block;
+}
+.score-segment.is-filled {
+background: #4a9f38;
+}
+.dataset-card-body > p:has(.dataset-action) {
+display: flex;
+margin: auto 0 0;
+}
+.dataset-action {
+background: transparent;
+color: #0045a5;
+gap: 0.55rem;
+justify-content: start;
+margin-top: auto;
+min-height: auto;
+padding: 0;
+}
+.dataset-action:hover,
+.dataset-action:focus {
+background: transparent;
+color: #00357f;
+text-decoration: underline;
+text-underline-offset: 0.16em;
+}
+.catalogue-empty {
+background: var(--db-gold-soft);
+border: 1px solid rgba(185, 121, 24, 0.25);
+border-radius: 8px;
+color: #66420d;
+font-weight: 700;
+margin: 1rem 0 2rem;
+padding: 1rem;
 }
 .activity-card {
 min-height: 260px;
@@ -4140,14 +5197,18 @@ gap: 0.35rem;
 margin: 0.75rem 0;
 }
 .tag {
-background: var(--db-blue-soft);
-border: 1px solid var(--db-border);
-border-radius: 6px;
-color: var(--db-blue);
+background: #f8fafc;
+border: 1px solid #d0d5dd;
+border-radius: 4px;
+color: #344054;
 display: inline-block;
-font-size: 0.86rem;
+font-size: 0.76rem;
 line-height: 1.2;
-padding: 0.2rem 0.45rem;
+max-width: 100%;
+overflow: hidden;
+padding: 0.24rem 0.45rem;
+text-overflow: ellipsis;
+white-space: nowrap;
 }
 .facet-grid {
 display: grid;
@@ -4194,12 +5255,113 @@ color: var(--db-blue-dark);
 .compact-list li {
 margin-bottom: 0.25rem;
 }
+@media (max-width: 900px) {
+.dataset-detail-hero,
+.dataset-r-grid,
+.dataset-teaching-panel {
+grid-template-columns: 1fr;
+}
+.dataset-hero-media {
+max-width: 680px;
+}
+.dataset-overview-grid {
+grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+.catalogue-hero-row,
+.catalogue-search-row,
+.catalogue-layout {
+grid-template-columns: 1fr;
+}
+.catalogue-chip-row {
+display: flex;
+flex-wrap: wrap;
+}
+.filter-spacer {
+display: none;
+}
+.more-filters,
+.top-reset {
+justify-self: start;
+}
+.catalogue-sidebar {
+border-bottom: 0;
+border-right: 0;
+border-top: 1px solid #e5e7eb;
+order: 2;
+padding: 1rem 0 0.5rem;
+position: static;
+}
+.catalogue-results {
+order: 1;
+}
+.filter-group {
+grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+}
+.filter-group h3 {
+grid-column: 1 / -1;
+}
+.catalogue-results-bar {
+align-items: start;
+flex-direction: column;
+}
+}
 @media (max-width: 640px) {
 .hero {
 padding-top: 2.7rem;
 }
 .hero h1 {
 font-size: 2.3rem;
+}
+.dataset-detail-hero,
+.dataset-overview-grid,
+.dataset-pedagogy-band,
+.dataset-chip-strip,
+.dataset-r-lab,
+.dataset-teaching-panel,
+.dataset-detail-content {
+width: calc(100% - 2rem);
+}
+.dataset-detail-hero {
+padding-top: 2.2rem;
+}
+.dataset-overview-grid,
+.dataset-pedagogy-band,
+.dataset-r-stats {
+grid-template-columns: 1fr;
+}
+.dataset-hero-actions {
+align-items: stretch;
+flex-direction: column;
+}
+.dataset-button {
+width: 100%;
+}
+.catalogue-page {
+margin-left: auto;
+margin-right: auto;
+padding-left: 1rem;
+padding-right: 1rem;
+width: auto;
+}
+.catalogue-help {
+justify-content: center;
+width: 100%;
+}
+.catalogue-search-row > p {
+flex-wrap: wrap;
+}
+.catalogue-search-box {
+flex: 1 0 100%;
+width: 100%;
+}
+.catalogue-chip-row {
+gap: 0.45rem;
+}
+.filter-kicker {
+width: 100%;
+}
+.dataset-grid {
+grid-template-columns: 1fr;
 }
 }
 </style>
@@ -4227,29 +5389,29 @@ font-size: 2.3rem;
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../index.html">
+    <a class="nav-link" href="../../index.html"> 
 <span class="menu-text">Accueil</span></a>
-  </li>
+  </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../catalogue.html">
+    <a class="nav-link" href="../../catalogue.html"> 
 <span class="menu-text">Catalogue</span></a>
-  </li>
+  </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../zero-waste.html">
+    <a class="nav-link" href="../../zero-waste.html"> 
 <span class="menu-text">Zéro déchet</span></a>
-  </li>
+  </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../activites.html">
+    <a class="nav-link" href="../../activites.html"> 
 <span class="menu-text">Activités</span></a>
-  </li>
+  </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../contribuer.html">
+    <a class="nav-link" href="../../contribuer.html"> 
 <span class="menu-text">Contribuer</span></a>
-  </li>
+  </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../about.html">
+    <a class="nav-link" href="../../about.html"> 
 <span class="menu-text">À propos</span></a>
-  </li>
+  </li>  
 </ul>
           </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
@@ -4264,7 +5426,7 @@ font-size: 2.3rem;
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">On this page</h2>
-
+   
   <ul>
   <li><a href="#stations-rsqaq---activité-longue" id="toc-stations-rsqaq---activité-longue" class="nav-link active" data-scroll-target="#stations-rsqaq---activité-longue">Stations RSQAQ - activité longue</a>
   <ul class="collapse">
@@ -4291,11 +5453,11 @@ font-size: 2.3rem;
 
 <div class="quarto-title-meta">
 
-
-
-
+    
+  
+    
   </div>
-
+  
 
 
 </header>
@@ -4399,7 +5561,7 @@ font-size: 2.3rem;
     anchorJS.add('.anchored');
     const isCodeAnnotation = (el) => {
       for (const clz of el.classList) {
-        if (clz.startsWith('code-annotation-')) {
+        if (clz.startsWith('code-annotation-')) {                     
           return true;
         }
       }
@@ -4419,11 +5581,11 @@ font-size: 2.3rem;
         button.setAttribute("data-bs-toggle", "tooltip");
         button.setAttribute("data-bs-placement", "left");
         button.setAttribute("data-bs-title", "Copied!");
-        tooltip = new bootstrap.Tooltip(button,
-          { trigger: "manual",
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
             customClass: "code-copy-button-tooltip",
             offset: [0, -8]});
-        tooltip.show();
+        tooltip.show();    
       }
       setTimeout(function() {
         if (tooltip) {
@@ -4505,7 +5667,7 @@ font-size: 2.3rem;
       if (onUntriggerFn) {
         config.onUntrigger = onUntriggerFn;
       }
-      window.tippy(el, config);
+      window.tippy(el, config); 
     }
     const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
     for (var i=0; i<noterefs.length; i++) {
@@ -4580,7 +5742,7 @@ font-size: 2.3rem;
       tippyHover(xref, undefined, function(instance) {
         instance.disable();
         let url = xref.getAttribute('href');
-        let hash = undefined;
+        let hash = undefined; 
         if (url.startsWith('#')) {
           hash = url;
         } else {
@@ -4608,7 +5770,7 @@ font-size: 2.3rem;
               if (note !== null) {
                 const html = processXRef(id, note);
                 instance.setContent(html);
-              }
+              } 
             }).finally(() => {
               instance.enable();
               instance.show();
@@ -4632,7 +5794,7 @@ font-size: 2.3rem;
               }
               const html = processXRef(null, note);
               instance.setContent(html);
-            }
+            } 
           }).finally(() => {
             instance.enable();
             instance.show();
@@ -4672,7 +5834,7 @@ font-size: 2.3rem;
               height = bottom - top;
             }
             if (top !== null && height !== null && parent !== null) {
-              // cook up a div (if necessary) and position it
+              // cook up a div (if necessary) and position it 
               let div = window.document.getElementById("code-annotation-line-highlight");
               if (div === null) {
                 div = window.document.createElement("div");
@@ -4798,7 +5960,7 @@ font-size: 2.3rem;
   <div class="nav-footer">
     <div class="nav-footer-left">
 <p>Données bleues</p>
-</div>
+</div>   
     <div class="nav-footer-center">
        
     </div>

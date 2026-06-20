@@ -1,0 +1,64 @@
+id: defavorisation-ecoles-primaires
+title: "Indices de défavorisation des écoles primaires du Québec"
+short_title: "Défavorisation écoles"
+theme: "Éducation et équité"
+source_name: "Données Québec / Ministère de l'Éducation et Ministère de l'Enseignement supérieur"
+source_url: "https://www.donneesquebec.ca/recherche/dataset/indices-de-defavorisation/resource/6c5d4a5d-ba3b-40a6-b570-916f43ab622c"
+license: "Attribution (CC-BY 4.0) selon les métadonnées CKAN vérifiées le 2026-06-20"
+access_date: "2026-06-20"
+geography: "Écoles primaires publiques du Québec"
+unit: "École primaire publique pour une année scolaire"
+data_type: "Tabulaire, éducatif, indicateurs socioéconomiques"
+format: "CSV officiel"
+n_rows: "1 963 lignes dans le fichier 2025-2026 vérifié"
+n_cols: "11 colonnes"
+update_frequency: "Annuelle; métadonnées CKAN modifiées le 2026-05-27"
+level: "Introduction à intermédiaire"
+organisme: "Ministère de l'Éducation et Ministère de l'Enseignement supérieur"
+territoire: "Québec"
+taille_approximative: "CSV officiel de 306 642 octets vérifié le 2026-06-20"
+niveau_pedagogique_recommande: "Introduction à intermédiaire"
+variables_principales:
+  - Code_Cs
+  - Nom_Cs
+  - Code_Org
+  - Nom_Org
+  - IMSE
+  - Rang_Decile_IMSE
+  - SFR
+  - Rang_Decile_SFR
+  - Nbre_Eleves
+  - Diffusion
+  - Annee_Scol
+idees_mini_projets:
+  - "Construire un modèle linéaire simple pour prédire l'IMSE à partir du SFR et du nombre d'élèves."
+  - "Comparer les écoles selon les déciles IMSE et SFR."
+  - "Discuter les risques d'interprétation et de biais dans une prédiction éducative."
+tags:
+  - "éducation"
+  - "Québec"
+  - "équité"
+  - "modélisation"
+  - "biais algorithmiques"
+concepts:
+  - "régression linéaire"
+  - "biais algorithmiques"
+  - "variables numériques"
+  - "valeurs manquantes"
+  - "indicateurs socioéconomiques"
+  - "prédiction"
+  - "éthique"
+zero_waste:
+  contexte_quebecois: 3
+  accessibilite_pedagogique: 3
+  qualite_documentaire: 3
+  potentiel_nettoyage: 2
+  potentiel_visualisation: 3
+  potentiel_statistique_descriptive: 3
+  potentiel_inference: 2
+  potentiel_modelisation: 3
+  potentiel_ethique: 3
+  reutilisabilite: 3
+status: "source officielle vérifiée; fichier utilisé dans l'aventure 9 de STT-1100"
+notes: "La ressource vérifiée est le CSV des écoles primaires publiques 2025-2026. Les lignes avec Diffusion = NON nécessitent une interprétation prudente."
+

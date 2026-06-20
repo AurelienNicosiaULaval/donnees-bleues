@@ -1,0 +1,34 @@
+---
+title: "Laboratoire - Défavorisation des écoles"
+embed-resources: true
+---
+
+# Laboratoire - Défavorisation des écoles
+
+## Contexte
+
+Ce laboratoire reprend la première mission de l'aventure 9 de STT-1100. Il sert à explorer les indicateurs de défavorisation avant de construire un modèle.
+
+## Objectifs d'apprentissage
+
+- Importer un fichier CSV officiel.
+- Identifier les lignes diffusées et non diffusées.
+- Explorer des relations entre variables numériques.
+- Interpréter une corrélation avec prudence.
+
+## Question directrice
+
+Quels liens observe-t-on entre IMSE, SFR et nombre d'élèves?
+
+## Consignes
+
+1. Lire le fichier CSV officiel ou le fichier fourni dans l'aventure.
+2. Décrire les variables `IMSE`, `SFR`, `Nbre_Eleves` et `Diffusion`.
+3. Produire un graphique de `IMSE` selon `SFR`.
+4. Comparer les résultats selon `Diffusion`.
+5. Rédiger une conclusion prudente sur ce que les graphiques montrent.
+
+## Pistes de solution
+
+Une bonne réponse distingue les écoles diffusées et non diffusées. Une réponse excellente explique pourquoi une prédiction pour les écoles non diffusées doit être présentée comme exploratoire.
+

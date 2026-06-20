@@ -1,0 +1,31 @@
+---
+title: "Mini-projet - Condamnations alimentaires"
+embed-resources: true
+---
+
+# Mini-projet - Condamnations alimentaires
+
+## Contexte
+
+Ce mini-projet prolonge l'aventure 3 en demandant un court article de données reproductible.
+
+## Question directrice
+
+Produire un court article reproductible sur les infractions alimentaires.
+
+## Livrables
+
+1. Un fichier Quarto qui charge, nettoie et résume les données.
+2. Un tableau des principaux types d'établissements.
+3. Une visualisation claire des infractions ou des montants d'amende.
+4. Une note méthodologique sur les limites du fichier.
+5. Une conclusion accessible à un public non spécialiste.
+
+## Critères d'évaluation suggérés
+
+- Exactitude du nettoyage de `Amende`.
+- Qualité des tableaux de fréquences.
+- Lisibilité du graphique.
+- Prudence de l'interprétation.
+- Clarté de la note méthodologique.
+

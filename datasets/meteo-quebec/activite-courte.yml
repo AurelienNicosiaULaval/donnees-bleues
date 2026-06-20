@@ -1,0 +1,25 @@
+id: meteo-quebec-court
+title: "Laboratoire - Météo Québec"
+question: "Quelle saison présente la plus forte variabilité de température?"
+dataset_id: meteo-quebec
+dataset_title: "Météo quotidienne à Québec"
+activity_url: "datasets/meteo-quebec/activite-courte.qmd"
+duration: "45-60 minutes"
+level: "Introduction"
+activity_type:
+  - "Laboratoire d'introduction"
+  - "Exploration de données"
+concepts:
+  - "séries temporelles"
+  - "statistiques descriptives"
+  - "visualisation"
+context: "Météorologie québécoise"
+hook: "Données familières"
+materials:
+  - "fiche"
+  - "code"
+  - "package UlavalSSD"
+advanced_math_stats: false
+teacher_notes: "Faire construire une vraie variable date avant les graphiques."
+status: "prêt à adapter"
+

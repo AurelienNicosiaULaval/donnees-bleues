@@ -1,0 +1,25 @@
+id: condamnations-alimentaires-quebec-court
+title: "Laboratoire - Condamnations alimentaires"
+question: "Quels types d'établissements apparaissent le plus souvent dans la version pédagogique?"
+dataset_id: condamnations-alimentaires-quebec
+dataset_title: "Condamnations des établissements alimentaires au Québec"
+activity_url: "datasets/condamnations-alimentaires-quebec/activite-courte.qmd"
+duration: "60-90 minutes"
+level: "Introduction à intermédiaire"
+activity_type:
+  - "Laboratoire d'introduction"
+  - "Exploration de données"
+concepts:
+  - "variables catégorielles"
+  - "nettoyage de chaînes"
+  - "tableaux de fréquences"
+context: "Santé publique et alimentation"
+hook: "Journalisme de données"
+materials:
+  - "fiche"
+  - "code"
+  - "package UlavalSSD"
+advanced_math_stats: false
+teacher_notes: "Insister sur le fait que compter des cas ne donne pas un taux de risque."
+status: "prêt à adapter"
+

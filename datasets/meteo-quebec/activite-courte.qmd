@@ -1,0 +1,34 @@
+---
+title: "Laboratoire - Météo Québec"
+embed-resources: true
+---
+
+# Laboratoire - Météo Québec
+
+## Contexte
+
+Ce laboratoire reprend le jeu `MeteoQuebec` utilisé dans l'aventure 1 de STT-1100. Il sert à passer d'un tableau brut à une première lecture statistique.
+
+## Objectifs d'apprentissage
+
+- Charger un jeu de données fourni par un package R.
+- Créer une variable date.
+- Calculer des résumés par groupe.
+- Produire un graphique clair et interprétable.
+
+## Question directrice
+
+Quelle saison présente la plus forte variabilité de température?
+
+## Consignes
+
+1. Charger `UlavalSSD` et afficher la structure de `MeteoQuebec`.
+2. Créer une variable `date` avec `lubridate::make_date()`.
+3. Créer une variable de saison ou de mois.
+4. Comparer `mean_temp` par saison avec un tableau et un graphique.
+5. Rédiger une conclusion de 5 à 8 lignes avec une limite méthodologique.
+
+## Pistes de solution
+
+Une bonne réponse nomme la variable analysée, décrit la dispersion observée et signale les valeurs manquantes. Une réponse excellente précise aussi pourquoi une seule station ne représente pas tout le Québec.
+

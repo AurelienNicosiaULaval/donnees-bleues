@@ -248,6 +248,39 @@ cards <- list(
     license = "CC0 1.0",
     license_url = "https://creativecommons.org/publicdomain/zero/1.0/",
     gravity = "center"
+  ),
+  list(
+    id = "meteo-quebec",
+    label = "Météo quotidienne à Québec",
+    commons_file = "YQB terminal interior.jpg",
+    source_title = "YQB terminal interior.jpg",
+    source_page = "https://commons.wikimedia.org/wiki/File:YQB_terminal_interior.jpg",
+    author = "Quintin Soloviev",
+    license = "CC BY 4.0",
+    license_url = "https://creativecommons.org/licenses/by/4.0/",
+    gravity = "center"
+  ),
+  list(
+    id = "condamnations-alimentaires-quebec",
+    label = "Condamnations des établissements alimentaires au Québec",
+    commons_file = "Food at WIkimanian 2017 02.jpg",
+    source_title = "Food at WIkimanian 2017 02.jpg",
+    source_page = "https://commons.wikimedia.org/wiki/File:Food_at_WIkimanian_2017_02.jpg",
+    author = "Camelia.boban",
+    license = "CC BY-SA 4.0",
+    license_url = "https://creativecommons.org/licenses/by-sa/4.0/",
+    gravity = "center"
+  ),
+  list(
+    id = "defavorisation-ecoles-primaires",
+    label = "Indices de défavorisation des écoles primaires du Québec",
+    commons_file = "École primaire Courval - Neuville.JPG",
+    source_title = "École primaire Courval - Neuville.JPG",
+    source_page = "https://commons.wikimedia.org/wiki/File:%C3%89cole_primaire_Courval_-_Neuville.JPG",
+    author = "Sylvainbrousseau",
+    license = "CC BY-SA 3.0",
+    license_url = "https://creativecommons.org/licenses/by-sa/3.0/",
+    gravity = "center"
   )
 )
 

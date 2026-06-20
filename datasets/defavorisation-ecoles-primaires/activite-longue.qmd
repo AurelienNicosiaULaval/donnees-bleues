@@ -1,0 +1,31 @@
+---
+title: "Mini-projet - Défavorisation des écoles"
+embed-resources: true
+---
+
+# Mini-projet - Défavorisation des écoles
+
+## Contexte
+
+Ce mini-projet reprend la logique de l'aventure 9: construire un modèle prédictif simple, puis discuter ses limites et les risques de biais.
+
+## Question directrice
+
+Reproduire la mission de prédiction et de biais de l'aventure 9.
+
+## Livrables
+
+1. Un fichier Quarto reproductible.
+2. Une exploration descriptive des variables clés.
+3. Un modèle linéaire pour prédire `IMSE`.
+4. Une section sur les prédictions pour les écoles avec diffusion limitée.
+5. Une discussion sur les limites statistiques et éthiques.
+
+## Critères d'évaluation suggérés
+
+- Reproductibilité du code.
+- Interprétation correcte des coefficients.
+- Qualité de la visualisation.
+- Prudence dans les prédictions.
+- Discussion claire des biais potentiels.
+

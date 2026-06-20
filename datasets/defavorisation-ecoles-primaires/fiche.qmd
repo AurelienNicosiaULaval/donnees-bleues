@@ -1,0 +1,136 @@
+---
+title: "Indices de défavorisation des écoles primaires du Québec"
+embed-resources: true
+page-layout: full
+toc: false
+execute:
+  freeze: false
+---
+
+```{r}
+#| label: dataset-detail-header
+#| echo: false
+#| results: asis
+source_path <- if (file.exists("R/utils_dataset_page.R")) "R/utils_dataset_page.R" else "../../R/utils_dataset_page.R"
+source(source_path)
+render_dataset_detail_header()
+```
+
+## Pourquoi ce jeu est intéressant
+
+Ce jeu est utilisé dans l'aventure 9 de STT-1100 pour travailler la prédiction, les biais algorithmiques et l'interprétation prudente des indicateurs éducatifs. Il est très pédagogique parce que les variables sont peu nombreuses, mais les enjeux statistiques et éthiques sont réels.
+
+Question d'analyse : peut-on prédire l'IMSE d'une école primaire à partir du SFR et du nombre d'élèves, et quelles limites faut-il communiquer?
+
+## Source
+
+| Champ | Information |
+|---|---|
+| Producteur officiel | Ministère de l'Éducation et Ministère de l'Enseignement supérieur |
+| Portail | Données Québec |
+| Ressource utilisée | Défavorisation - Écoles primaires 2025-2026 |
+| URL de la ressource | <https://www.donneesquebec.ca/recherche/dataset/indices-de-defavorisation/resource/6c5d4a5d-ba3b-40a6-b570-916f43ab622c> |
+| Licence | Attribution (CC-BY 4.0) selon les métadonnées CKAN vérifiées le 2026-06-20 |
+| Date d'accès | 2026-06-20 |
+| Statut | source officielle vérifiée; fichier utilisé dans l'aventure 9 de STT-1100 |
+
+## Ce que représente une ligne
+
+Une ligne représente une école primaire publique du Québec pour l'année scolaire 2025-2026. Certaines écoles ne diffusent pas les indices, notamment dans des cas où l'effectif est faible; ces lignes doivent être traitées avec prudence.
+
+## Variables principales
+
+| Variable | Type | Description | Exemple |
+|---|---|---|---|
+| `Code_Cs` | numérique | Code du centre de services scolaire ou de la commission scolaire | 711000 |
+| `Nom_Cs` | caractère | Nom du centre de services scolaire | Centre de services scolaire de la Capitale |
+| `Code_Org` | numérique | Code de l'école ou de l'organisme | 711002 |
+| `Nom_Org` | caractère | Nom de l'école | École primaire Exemple |
+| `IMSE` | numérique | Indice de milieu socioéconomique | 10.4 |
+| `Rang_Decile_IMSE` | numérique | Décile de l'IMSE | 9 |
+| `SFR` | numérique | Indice du seuil de faible revenu | 1.33 |
+| `Rang_Decile_SFR` | numérique | Décile du SFR | 2 |
+| `Nbre_Eleves` | numérique | Nombre total d'élèves | 250 |
+| `Diffusion` | caractère | Indique si les indices sont diffusés | OUI |
+| `Annee_Scol` | caractère | Année scolaire | 2025-2026 |
+
+## Taille et structure
+
+| Élément | Information |
+|---|---|
+| Nombre de lignes | 1 963 lignes dans le fichier 2025-2026 vérifié |
+| Nombre de colonnes | 11 colonnes |
+| Structure | Tableau d'indicateurs éducatifs |
+| Format | CSV officiel |
+| Couverture géographique | Écoles primaires publiques du Québec |
+| Fréquence de mise à jour | Annuelle |
+
+## Concepts enseignables
+
+- variables numériques et catégorielles;
+- valeurs manquantes et diffusion partielle;
+- régression linéaire simple;
+- prédiction et extrapolation;
+- biais algorithmiques;
+- communication responsable d'indicateurs sensibles.
+
+## Activité courte
+
+[Laboratoire](activite-courte.qmd) : Quels liens observe-t-on entre IMSE, SFR et nombre d'élèves?
+
+## Activité longue
+
+[Mini-projet](activite-longue.qmd) : Reproduire la mission de prédiction et de biais de l'aventure 9.
+
+## Code R minimal
+
+```{r}
+#| eval: false
+library(dplyr)
+library(ggplot2)
+library(readr)
+
+url <- "https://www.donneesquebec.ca/recherche/dataset/004de02c-19f1-4da0-9af8-33f893e41972/resource/6c5d4a5d-ba3b-40a6-b570-916f43ab622c/download/defav_ecole_prim_public.csv"
+
+ecoles <- read_csv(url, show_col_types = FALSE)
+
+ecoles_modele <- ecoles |>
+  filter(Diffusion == "OUI") |>
+  select(IMSE, SFR, Nbre_Eleves) |>
+  tidyr::drop_na()
+
+modele <- lm(IMSE ~ SFR + Nbre_Eleves, data = ecoles_modele)
+summary(modele)
+
+ecoles_modele |>
+  ggplot(aes(x = SFR, y = IMSE)) +
+  geom_point(alpha = 0.35) +
+  geom_smooth(method = "lm", se = FALSE) +
+  labs(
+    x = "SFR",
+    y = "IMSE",
+    title = "Relation entre SFR et IMSE dans les écoles primaires"
+  )
+```
+
+## Limites et précautions
+
+- Les indices sont des indicateurs administratifs et ne décrivent pas directement chaque élève.
+- Les lignes où `Diffusion` vaut `NON` exigent une attention particulière.
+- Un modèle prédictif simple ne justifie pas une décision individuelle.
+- Les conclusions doivent séparer performance statistique, interprétation sociale et prudence éthique.
+
+## Extensions
+
+- Extension intro : décrire la distribution de `IMSE` et `SFR`.
+- Extension intermédiaire : ajuster et interpréter un modèle linéaire.
+- Extension avancée : comparer les prédictions pour les écoles les plus petites et les plus grandes.
+- Extension communication scientifique : écrire une note sur les limites d'une décision automatisée.
+
+```{r}
+#| label: dataset-detail-footer
+#| echo: false
+#| results: asis
+render_dataset_detail_footer()
+```
+

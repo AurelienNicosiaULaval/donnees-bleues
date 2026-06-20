@@ -1,0 +1,63 @@
+id: meteo-quebec
+title: "Météo quotidienne à Québec"
+short_title: "Météo Québec"
+theme: "Météorologie"
+source_name: "UlavalSSD::MeteoQuebec, construit avec weathercan à partir d'ECCC"
+source_url: "https://climate.weather.gc.ca/historical_data/search_historic_data_e.html"
+license: "Données météorologiques sous Licence du gouvernement ouvert Canada selon weathercan; paquet UlavalSSD sous licence MIT"
+access_date: "2026-06-20"
+geography: "Station Québec/Jean-Lesage, Québec"
+unit: "Observation météorologique quotidienne pour une station située dans la province de Québec"
+data_type: "Temporel, météorologique, tabulaire"
+format: "data.frame R dans UlavalSSD; export possible en CSV"
+n_rows: "20 111 lignes dans UlavalSSD 0.2.0"
+n_cols: "11 colonnes"
+update_frequency: "Jeu pédagogique gelé dans UlavalSSD 0.2.0; source ECCC mise à jour régulièrement"
+level: "Introduction"
+organisme: "Environnement et Changement climatique Canada; adaptation pédagogique dans UlavalSSD"
+territoire: "Québec"
+taille_approximative: "20 111 observations quotidiennes"
+niveau_pedagogique_recommande: "Introduction"
+variables_principales:
+  - year
+  - month
+  - day
+  - max_temp
+  - mean_temp
+  - min_temp
+  - total_precip
+  - total_rain
+  - total_snow
+  - snow_grnd
+idees_mini_projets:
+  - "Comparer les températures moyennes quotidiennes selon les saisons."
+  - "Visualiser l'évolution annuelle des précipitations totales."
+  - "Détecter les journées extrêmes de froid, de chaleur ou de précipitations."
+tags:
+  - "météo"
+  - "Québec"
+  - "séries temporelles"
+  - "statistiques descriptives"
+  - "visualisation"
+concepts:
+  - "séries temporelles"
+  - "variables numériques"
+  - "valeurs manquantes"
+  - "statistiques descriptives"
+  - "visualisation"
+  - "saisonnalité"
+  - "données météorologiques"
+zero_waste:
+  contexte_quebecois: 3
+  accessibilite_pedagogique: 3
+  qualite_documentaire: 2
+  potentiel_nettoyage: 2
+  potentiel_visualisation: 3
+  potentiel_statistique_descriptive: 3
+  potentiel_inference: 2
+  potentiel_modelisation: 2
+  potentiel_ethique: 2
+  reutilisabilite: 3
+status: "source pédagogique vérifiée dans UlavalSSD; source primaire ECCC documentée par weathercan"
+notes: "Utilisé dans l'aventure 1 de STT-1100. La documentation locale d'UlavalSSD indique les stations 5251 et 26892; weathercan associe ces identifiants à Québec/Jean-Lesage."
+

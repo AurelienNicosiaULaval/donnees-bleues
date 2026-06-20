@@ -1,0 +1,134 @@
+---
+title: "Condamnations des établissements alimentaires au Québec"
+embed-resources: true
+page-layout: full
+toc: false
+execute:
+  freeze: false
+---
+
+```{r}
+#| label: dataset-detail-header
+#| echo: false
+#| results: asis
+source_path <- if (file.exists("R/utils_dataset_page.R")) "R/utils_dataset_page.R" else "../../R/utils_dataset_page.R"
+source(source_path)
+render_dataset_detail_header()
+```
+
+## Pourquoi ce jeu est intéressant
+
+Ce jeu est utilisé dans l'aventure 3 de STT-1100 pour placer les personnes étudiantes dans une posture de journalisme de données. Il donne un contexte concret pour pratiquer les variables catégorielles, le nettoyage de texte, les dates, les tableaux de fréquences et une interprétation prudente de données publiques.
+
+Question d'analyse : quels types d'infractions et d'établissements apparaissent le plus souvent dans la version pédagogique du fichier?
+
+## Source
+
+| Champ | Information |
+|---|---|
+| Producteur officiel | Ministère de l'Agriculture, des Pêcheries et de l'Alimentation |
+| Portail | Données Québec |
+| Jeu utilisé dans le cours | `UlavalSSD::listecondamnation` |
+| URL officielle | <https://www.donneesquebec.ca/recherche/dataset/condamnations-des-etablissements-alimentaires-et-condamnations-concernant-le-bien-etre-des-anim> |
+| Licence | Attribution (CC-BY 4.0) selon les métadonnées CKAN vérifiées le 2026-06-20 |
+| Date d'accès | 2026-06-20 |
+| Statut | source officielle vérifiée; version pédagogique nettoyée dans UlavalSSD |
+
+## Ce que représente une ligne
+
+Une ligne représente une condamnation publiée pour un établissement alimentaire dans la version pédagogique du jeu. La ressource officielle Données Québec peut évoluer; la version `UlavalSSD` utilisée dans STT-1100 est fixe.
+
+## Variables principales
+
+| Variable | Type | Description | Exemple |
+|---|---|---|---|
+| `Nom_exploitant` | caractère | Nom de l'exploitant | 9390-5172 QUEBEC INC. |
+| `Raison_sociale` | caractère | Nom commercial de l'établissement | DELI 365 |
+| `Description_infraction` | caractère | Description textuelle de l'infraction | Les lieux doivent être propres |
+| `Adresse_lieu_infraction` | caractère | Adresse du lieu associé à l'infraction | Montréal, QC |
+| `Type_etablissement` | caractère | Type d'établissement | RESTAURANT |
+| `Date_infraction` | date-heure | Date de l'infraction | 2021-11-09 |
+| `Date_jugement` | date-heure | Date du jugement | 2023-03-13 |
+| `Date_publication` | date-heure | Date de publication | 2023-03-13 |
+| `Amende` | caractère | Montant de l'amende dans la version brute | 5 000 $ |
+| `SOC_NOM_ARTCL_INFRC` | caractère | Nature de l'infraction selon la législation | INSALUBRITE |
+
+## Taille et structure
+
+| Élément | Information |
+|---|---|
+| Nombre de lignes | 1 712 lignes dans UlavalSSD 0.2.0 |
+| Nombre de colonnes | 10 colonnes |
+| Structure | Tableau administratif avec texte, dates et montants |
+| Format | CSV officiel; `data.frame` R nettoyé dans UlavalSSD |
+| Couverture géographique | Québec |
+| Dernière modification officielle observée | 2026-06-20 selon CKAN |
+
+## Concepts enseignables
+
+- compter des catégories et interpréter des fréquences;
+- nettoyer des chaînes de caractères;
+- transformer un montant en variable numérique;
+- manipuler des dates;
+- communiquer des résultats publics sans stigmatiser inutilement.
+
+## Activité courte
+
+[Laboratoire](activite-courte.qmd) : Quels types d'établissements apparaissent le plus souvent dans la version pédagogique?
+
+## Activité longue
+
+[Mini-projet](activite-longue.qmd) : Produire un court article reproductible sur les infractions alimentaires.
+
+## Code R minimal
+
+```{r}
+#| eval: false
+library(dplyr)
+library(ggplot2)
+library(readr)
+library(stringr)
+library(UlavalSSD)
+
+condamnations <- listecondamnation |>
+  mutate(
+    amende_num = parse_number(Amende, locale = locale(grouping_mark = " ")),
+    ville_montreal = str_detect(Adresse_lieu_infraction, regex("MONTREAL|MONTRÉAL", ignore_case = TRUE))
+  )
+
+condamnations |>
+  count(Type_etablissement, sort = TRUE) |>
+  slice_head(n = 8)
+
+condamnations |>
+  filter(!is.na(amende_num)) |>
+  group_by(Type_etablissement) |>
+  summarise(
+    n = n(),
+    amende_mediane = median(amende_num),
+    .groups = "drop"
+  ) |>
+  arrange(desc(n))
+```
+
+## Limites et précautions
+
+- La version `UlavalSSD` est une version pédagogique nettoyée et fixe.
+- Les fréquences observées ne doivent pas être interprétées comme un taux de risque sans dénominateur fiable.
+- La variable `Amende` doit être nettoyée avant toute analyse numérique.
+- Le fichier contient des noms et des adresses publics; les visualisations et textes doivent éviter le sensationnalisme.
+
+## Extensions
+
+- Extension intro : produire un tableau des types d'établissements.
+- Extension intermédiaire : nettoyer `Amende` et comparer les montants.
+- Extension avancée : créer une courte analyse temporelle par date de publication.
+- Extension communication scientifique : rédiger un article de données avec une note méthodologique.
+
+```{r}
+#| label: dataset-detail-footer
+#| echo: false
+#| results: asis
+render_dataset_detail_footer()
+```
+
