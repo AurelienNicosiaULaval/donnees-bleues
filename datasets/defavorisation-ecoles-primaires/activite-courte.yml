@@ -1,6 +1,6 @@
 id: defavorisation-ecoles-primaires-court
-title: "Laboratoire - Défavorisation des écoles"
-question: "Quels liens observe-t-on entre IMSE, SFR et nombre d'élèves?"
+title: "Laboratoire - Diffusion et indices de défavorisation"
+question: "Quels liens observe-t-on entre IMSE, SFR et nombre d'élèves parmi les écoles dont les indices sont diffusés?"
 dataset_id: defavorisation-ecoles-primaires
 dataset_title: "Indices de défavorisation des écoles primaires du Québec"
 activity_url: "datasets/defavorisation-ecoles-primaires/activite-courte.qmd"
@@ -13,6 +13,7 @@ concepts:
   - "variables numériques"
   - "régression linéaire"
   - "valeurs manquantes"
+  - "diffusion partielle"
 context: "Éducation et équité"
 hook: "Prédiction responsable"
 materials:
@@ -20,6 +21,5 @@ materials:
   - "code"
   - "source officielle"
 advanced_math_stats: false
-teacher_notes: "Faire discuter la variable Diffusion avant toute prédiction."
-status: "prêt à adapter"
-
+teacher_notes: "Faire discuter la variable Diffusion avant toute analyse numérique; les lignes non diffusées ne sont pas de simples valeurs manquantes."
+status: "source officielle vérifiée le 2026-06-20"

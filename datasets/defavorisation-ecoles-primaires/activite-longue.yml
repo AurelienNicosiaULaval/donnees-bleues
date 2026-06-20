@@ -1,6 +1,6 @@
 id: defavorisation-ecoles-primaires-long
 title: "Mini-projet - Défavorisation des écoles"
-question: "Reproduire la mission de prédiction et de biais de l'aventure 9."
+question: "Comment construire un modèle descriptif de l'IMSE sans transformer un indicateur éducatif sensible en outil de décision non justifié?"
 dataset_id: defavorisation-ecoles-primaires
 dataset_title: "Indices de défavorisation des écoles primaires du Québec"
 activity_url: "datasets/defavorisation-ecoles-primaires/activite-longue.qmd"
@@ -12,6 +12,8 @@ activity_type:
 concepts:
   - "régression linéaire"
   - "prédiction"
+  - "résidus"
+  - "validation entraînement-test"
   - "biais algorithmiques"
   - "éthique"
 context: "Éducation et équité"
@@ -22,6 +24,5 @@ materials:
   - "source officielle"
   - "notes enseignantes"
 advanced_math_stats: false
-teacher_notes: "Demander une interprétation en langage simple des coefficients du modèle."
-status: "prêt à adapter"
-
+teacher_notes: "Demander une interprétation en langage simple des coefficients, une mesure d'erreur et une distinction claire entre prédiction statistique et indice officiel."
+status: "source officielle vérifiée le 2026-06-20"

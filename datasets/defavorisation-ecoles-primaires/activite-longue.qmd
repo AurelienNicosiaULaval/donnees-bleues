@@ -7,25 +7,31 @@ embed-resources: true
 
 ## Contexte
 
-Ce mini-projet reprend la logique de l'aventure 9: construire un modèle prédictif simple, puis discuter ses limites et les risques de biais.
+Ce mini-projet reprend la logique de l'aventure 9 : construire un modèle prédictif simple, évaluer ses erreurs, puis discuter ses limites et les risques de biais.
 
 ## Question directrice
 
-Reproduire la mission de prédiction et de biais de l'aventure 9.
+Comment construire un modèle descriptif de l'IMSE sans transformer un indicateur éducatif sensible en outil de décision non justifié?
 
 ## Livrables
 
 1. Un fichier Quarto reproductible.
 2. Une exploration descriptive des variables clés.
-3. Un modèle linéaire pour prédire `IMSE`.
-4. Une section sur les prédictions pour les écoles avec diffusion limitée.
-5. Une discussion sur les limites statistiques et éthiques.
+3. Un modèle linéaire pour prédire `IMSE` à partir de `SFR` et `Nbre_Eleves`.
+4. Une validation simple par séparation entraînement-test.
+5. Un graphique des résidus.
+6. Une section sur les lignes où `Diffusion` vaut `NON`.
+7. Une discussion sur les limites statistiques et éthiques.
 
 ## Critères d'évaluation suggérés
 
 - Reproductibilité du code.
 - Interprétation correcte des coefficients.
 - Qualité de la visualisation.
-- Prudence dans les prédictions.
+- Évaluation explicite des erreurs de prédiction.
+- Prudence dans les prédictions pour les écoles non diffusées.
 - Discussion claire des biais potentiels.
 
+## Contraintes d'interprétation
+
+Le rapport doit contenir une phrase qui refuse explicitement l'interprétation causale du modèle. Il doit aussi distinguer un résultat descriptif, une prédiction statistique et un indice officiel publié.

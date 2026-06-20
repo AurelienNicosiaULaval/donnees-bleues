@@ -4,20 +4,23 @@ short_title: "Défavorisation écoles"
 theme: "Éducation et équité"
 source_name: "Données Québec / Ministère de l'Éducation et Ministère de l'Enseignement supérieur"
 source_url: "https://www.donneesquebec.ca/recherche/dataset/indices-de-defavorisation/resource/6c5d4a5d-ba3b-40a6-b570-916f43ab622c"
+source_data_url: "https://www.donneesquebec.ca/recherche/dataset/004de02c-19f1-4da0-9af8-33f893e41972/resource/6c5d4a5d-ba3b-40a6-b570-916f43ab622c/download/defav_ecole_prim_public.csv"
 license: "Attribution (CC-BY 4.0) selon les métadonnées CKAN vérifiées le 2026-06-20"
 access_date: "2026-06-20"
 geography: "Écoles primaires publiques du Québec"
 unit: "École primaire publique pour une année scolaire"
 data_type: "Tabulaire, éducatif, indicateurs socioéconomiques"
 format: "CSV officiel"
-n_rows: "1 963 lignes dans le fichier 2025-2026 vérifié"
-n_cols: "11 colonnes"
-update_frequency: "Annuelle; métadonnées CKAN modifiées le 2026-05-27"
+n_rows: "1 963 lignes dans le CSV primaire public 2025-2026"
+n_cols: "11 colonnes officielles; 13 colonnes après préparation locale"
+update_frequency: "Annuelle; paquet CKAN modifié le 2026-05-27 et ressource CSV modifiée le 2026-05-26"
 level: "Introduction à intermédiaire"
 organisme: "Ministère de l'Éducation et Ministère de l'Enseignement supérieur"
 territoire: "Québec"
 taille_approximative: "CSV officiel de 306 642 octets vérifié le 2026-06-20"
 niveau_pedagogique_recommande: "Introduction à intermédiaire"
+processed_file: "data/processed/defavorisation-ecoles-primaires/defavorisation_ecoles_primaires.csv"
+embed_processed_preview: false
 variables_principales:
   - Code_Cs
   - Nom_Cs
@@ -30,10 +33,12 @@ variables_principales:
   - Nbre_Eleves
   - Diffusion
   - Annee_Scol
+  - diffusion_indices
+  - groupe_imse
 idees_mini_projets:
-  - "Construire un modèle linéaire simple pour prédire l'IMSE à partir du SFR et du nombre d'élèves."
+  - "Construire un modèle linéaire descriptif pour prédire l'IMSE à partir du SFR et du nombre d'élèves."
   - "Comparer les écoles selon les déciles IMSE et SFR."
-  - "Discuter les risques d'interprétation et de biais dans une prédiction éducative."
+  - "Discuter les risques d'interprétation et de biais dans une prédiction appliquée à un indicateur éducatif sensible."
 tags:
   - "éducation"
   - "Québec"
@@ -55,11 +60,11 @@ zero_waste:
   potentiel_nettoyage: 2
   potentiel_visualisation: 3
   potentiel_statistique_descriptive: 3
-  potentiel_inference: 2
+  potentiel_inference: 1
   potentiel_modelisation: 3
   potentiel_ethique: 3
   reutilisabilite: 3
 contributor_name: "Aurélien Nicosia"
-contributor_role: "Responsable pédagogique STT-1100"
-status: "source officielle vérifiée; fichier utilisé dans l'aventure 9 de STT-1100"
-notes: "La ressource vérifiée est le CSV des écoles primaires publiques 2025-2026. Les lignes avec Diffusion = NON nécessitent une interprétation prudente."
+contributor_role: "Révision pédagogique et statistique"
+status: "source officielle vérifiée; CSV primaire public 2025-2026 préparé localement"
+notes: "La ressource vérifiée est le CSV des écoles primaires publiques 2025-2026. Le fichier contient 1 895 lignes diffusées et 68 lignes non diffusées. Les lignes non diffusées doivent être traitées comme une absence structurelle d'indice, pas comme une valeur numérique manquante ordinaire."

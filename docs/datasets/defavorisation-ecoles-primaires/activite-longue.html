@@ -5488,6 +5488,7 @@ grid-template-columns: 1fr;
   <li><a href="#question-directrice" id="toc-question-directrice" class="nav-link" data-scroll-target="#question-directrice">Question directrice</a></li>
   <li><a href="#livrables" id="toc-livrables" class="nav-link" data-scroll-target="#livrables">Livrables</a></li>
   <li><a href="#critères-dévaluation-suggérés" id="toc-critères-dévaluation-suggérés" class="nav-link" data-scroll-target="#critères-dévaluation-suggérés">Critères d’évaluation suggérés</a></li>
+  <li><a href="#contraintes-dinterprétation" id="toc-contraintes-dinterprétation" class="nav-link" data-scroll-target="#contraintes-dinterprétation">Contraintes d’interprétation</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -5518,19 +5519,21 @@ grid-template-columns: 1fr;
 <h1>Mini-projet - Défavorisation des écoles</h1>
 <section id="contexte" class="level2">
 <h2 class="anchored" data-anchor-id="contexte">Contexte</h2>
-<p>Ce mini-projet reprend la logique de l’aventure 9: construire un modèle prédictif simple, puis discuter ses limites et les risques de biais.</p>
+<p>Ce mini-projet reprend la logique de l’aventure 9 : construire un modèle prédictif simple, évaluer ses erreurs, puis discuter ses limites et les risques de biais.</p>
 </section>
 <section id="question-directrice" class="level2">
 <h2 class="anchored" data-anchor-id="question-directrice">Question directrice</h2>
-<p>Reproduire la mission de prédiction et de biais de l’aventure 9.</p>
+<p>Comment construire un modèle descriptif de l’IMSE sans transformer un indicateur éducatif sensible en outil de décision non justifié?</p>
 </section>
 <section id="livrables" class="level2">
 <h2 class="anchored" data-anchor-id="livrables">Livrables</h2>
 <ol type="1">
 <li>Un fichier Quarto reproductible.</li>
 <li>Une exploration descriptive des variables clés.</li>
-<li>Un modèle linéaire pour prédire <code>IMSE</code>.</li>
-<li>Une section sur les prédictions pour les écoles avec diffusion limitée.</li>
+<li>Un modèle linéaire pour prédire <code>IMSE</code> à partir de <code>SFR</code> et <code>Nbre_Eleves</code>.</li>
+<li>Une validation simple par séparation entraînement-test.</li>
+<li>Un graphique des résidus.</li>
+<li>Une section sur les lignes où <code>Diffusion</code> vaut <code>NON</code>.</li>
 <li>Une discussion sur les limites statistiques et éthiques.</li>
 </ol>
 </section>
@@ -5540,9 +5543,14 @@ grid-template-columns: 1fr;
 <li>Reproductibilité du code.</li>
 <li>Interprétation correcte des coefficients.</li>
 <li>Qualité de la visualisation.</li>
-<li>Prudence dans les prédictions.</li>
+<li>Évaluation explicite des erreurs de prédiction.</li>
+<li>Prudence dans les prédictions pour les écoles non diffusées.</li>
 <li>Discussion claire des biais potentiels.</li>
 </ul>
+</section>
+<section id="contraintes-dinterprétation" class="level2">
+<h2 class="anchored" data-anchor-id="contraintes-dinterprétation">Contraintes d’interprétation</h2>
+<p>Le rapport doit contenir une phrase qui refuse explicitement l’interprétation causale du modèle. Il doit aussi distinguer un résultat descriptif, une prédiction statistique et un indice officiel publié.</p>
 
 
 </section>

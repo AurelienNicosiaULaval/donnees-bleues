@@ -18,11 +18,28 @@ render_dataset_detail_header()
 
 ## Pourquoi ce jeu est intéressant
 
-Ce jeu est utilisé dans l'aventure 9 de STT-1100 pour travailler la prédiction, les biais algorithmiques et l'interprétation prudente des indicateurs éducatifs. Il est très pédagogique parce que les variables sont peu nombreuses, mais les enjeux statistiques et éthiques sont réels.
+Ce jeu est utilisé dans l'aventure 9 de STT-1100 pour travailler la prédiction, les biais algorithmiques et l'interprétation prudente des indicateurs éducatifs. Il est très pédagogique parce que les variables sont peu nombreuses, mais les enjeux statistiques, sociaux et éthiques sont réels.
 
-Question d'analyse : peut-on prédire l'IMSE d'une école primaire à partir du SFR et du nombre d'élèves, et quelles limites faut-il communiquer?
+La question d'analyse centrale est volontairement délicate : peut-on prédire l'IMSE d'une école primaire à partir du SFR et du nombre d'élèves, et quelles limites faut-il communiquer avant toute utilisation?
 
-## Source
+Cette fiche doit être utilisée comme une étude de cas en statistique descriptive, modélisation exploratoire et communication responsable. Elle ne doit pas servir à produire un classement public simpliste des écoles.
+
+## Ce qui a été vérifié
+
+| Élément vérifié | Résultat |
+|---|---|
+| Paquet officiel | Données Québec, jeu "Indices de défavorisation" |
+| Ressource utilisée | `Défavorisation - Écoles primaires 2025-2026`, CSV actif |
+| Producteur officiel | Ministère de l'Éducation et Ministère de l'Enseignement supérieur |
+| Licence officielle | Attribution (CC-BY 4.0) selon l'API CKAN |
+| Taille officielle observée | 306 642 octets |
+| Dernière modification de la ressource | 2026-05-26 22:55:03 |
+| Dernière modification du paquet | 2026-05-27 12:35:42 |
+| CSV officiel consulté | 1 963 lignes et 11 colonnes |
+| Préparation locale | 1 963 lignes et 13 colonnes après ajout de deux variables de lecture pédagogique |
+| Diffusion des indices | 1 895 lignes avec `Diffusion == "OUI"` et 68 lignes avec `Diffusion == "NON"` |
+
+## Source et conditions
 
 | Champ | Information |
 |---|---|
@@ -30,45 +47,127 @@ Question d'analyse : peut-on prédire l'IMSE d'une école primaire à partir du 
 | Portail | Données Québec |
 | Ressource utilisée | Défavorisation - Écoles primaires 2025-2026 |
 | URL de la ressource | <https://www.donneesquebec.ca/recherche/dataset/indices-de-defavorisation/resource/6c5d4a5d-ba3b-40a6-b570-916f43ab622c> |
+| API CKAN du paquet | <https://www.donneesquebec.ca/recherche/api/3/action/package_show?id=004de02c-19f1-4da0-9af8-33f893e41972> |
+| API CKAN de la ressource | <https://www.donneesquebec.ca/recherche/api/3/action/resource_show?id=6c5d4a5d-ba3b-40a6-b570-916f43ab622c> |
+| CSV officiel | <https://www.donneesquebec.ca/recherche/dataset/004de02c-19f1-4da0-9af8-33f893e41972/resource/6c5d4a5d-ba3b-40a6-b570-916f43ab622c/download/defav_ecole_prim_public.csv> |
 | Licence | Attribution (CC-BY 4.0) selon les métadonnées CKAN vérifiées le 2026-06-20 |
+| Redistribution locale | Le CSV préparé sert aux vérifications et aux activités locales; les lignes d'écoles ne sont pas intégrées au rendu public de la fiche. |
 | Date d'accès | 2026-06-20 |
-| Statut | source officielle vérifiée; fichier utilisé dans l'aventure 9 de STT-1100 |
+| Statut | source officielle vérifiée; CSV primaire public 2025-2026 préparé localement |
+
+## Définition des indicateurs
+
+Le paquet officiel décrit deux indicateurs.
+
+L'IMSE, ou indice de milieu socioéconomique, combine deux composantes : la proportion des familles avec enfants dont la mère n'a pas de diplôme, certificat ou grade, avec un poids de deux tiers, et la proportion de ménages dont les parents n'étaient pas à l'emploi durant la semaine de référence du recensement canadien, avec un poids d'un tiers.
+
+Le SFR, ou indice du seuil de faible revenu, correspond à la proportion des familles avec enfants dont le revenu est situé près ou sous le seuil de faible revenu. Le paquet officiel précise que les données socioéconomiques utilisées pour 2025-2026 proviennent du recensement canadien de 2021 et portent sur les familles québécoises ayant au moins un enfant âgé de 0 à 18 ans.
+
+Les indices des écoles sont ensuite classés en rang décile afin de situer chaque école relativement aux autres écoles publiques. Un rang 1 correspond au niveau le moins défavorisé dans l'indicateur concerné, et un rang 10 correspond au niveau le plus défavorisé.
 
 ## Ce que représente une ligne
 
-Une ligne représente une école primaire publique du Québec pour l'année scolaire 2025-2026. Certaines écoles ne diffusent pas les indices, notamment dans des cas où l'effectif est faible; ces lignes doivent être traitées avec prudence.
+Une ligne représente une école primaire publique du Québec pour l'année scolaire 2025-2026. La ligne contient le centre de services scolaire ou la commission scolaire, le code et le nom de l'école, les indices IMSE et SFR, leurs déciles, le nombre d'élèves, la variable `Diffusion` et l'année scolaire.
+
+Les lignes avec `Diffusion == "NON"` ne sont pas des observations numériques ordinaires. La description officielle indique que les écoles institutionnelles avec entente MEQ-MSSS ne sont pas diffusées et que les écoles de moins de 30 élèves présents au 30 septembre 2025 ne diffusent pas les indices. Ces lignes doivent donc être exclues d'un modèle numérique ou traitées dans une catégorie distincte.
 
 ## Variables principales
 
-| Variable | Type | Description | Exemple |
-|---|---|---|---|
-| `Code_Cs` | numérique | Code du centre de services scolaire ou de la commission scolaire | 711000 |
-| `Nom_Cs` | caractère | Nom du centre de services scolaire | Centre de services scolaire de la Capitale |
-| `Code_Org` | numérique | Code de l'école ou de l'organisme | 711002 |
-| `Nom_Org` | caractère | Nom de l'école | École primaire Exemple |
-| `IMSE` | numérique | Indice de milieu socioéconomique | 10.4 |
-| `Rang_Decile_IMSE` | numérique | Décile de l'IMSE | 9 |
-| `SFR` | numérique | Indice du seuil de faible revenu | 1.33 |
-| `Rang_Decile_SFR` | numérique | Décile du SFR | 2 |
-| `Nbre_Eleves` | numérique | Nombre total d'élèves | 250 |
-| `Diffusion` | caractère | Indique si les indices sont diffusés | OUI |
-| `Annee_Scol` | caractère | Année scolaire | 2025-2026 |
+| Variable | Type | Description | Exemple | Point de vigilance |
+|---|---|---|---|---|
+| `Code_Cs` | numérique | Code du centre de services scolaire ou de la commission scolaire | `711000` | Identifiant administratif |
+| `Nom_Cs` | caractère | Nom du centre de services scolaire ou de la commission scolaire | `Centre de services scolaire exemple` | Ne pas utiliser pour comparer des personnes |
+| `Code_Org` | numérique | Code de l'école ou de l'organisme | `711002` | Identifiant administratif |
+| `Nom_Org` | caractère | Nom de l'école | `École primaire exemple` | Donnée publique, mais sensible en communication |
+| `IMSE` | numérique | Indice de milieu socioéconomique | `10.4` | Absent quand `Diffusion == "NON"` |
+| `Rang_Decile_IMSE` | numérique | Décile de l'IMSE | `9` | Rang relatif, pas mesure absolue |
+| `SFR` | numérique | Indice du seuil de faible revenu | `1.33` | Absent quand `Diffusion == "NON"` |
+| `Rang_Decile_SFR` | numérique | Décile du SFR | `2` | Rang relatif selon le SFR |
+| `Nbre_Eleves` | numérique | Nombre total d'élèves | `250` | Effectif de l'école, pas dénominateur de familles |
+| `Diffusion` | caractère | Indique si les indices sont diffusés | `OUI` | Définit l'échantillon analysable |
+| `Annee_Scol` | caractère | Année scolaire | `2025-2026` | Une seule année dans ce CSV |
+| `diffusion_indices` | logique | Variable locale indiquant si les indices sont diffusés | `TRUE` | Variable dérivée |
+| `groupe_imse` | caractère | Regroupement pédagogique des déciles IMSE | `Déciles 8 à 10` | Variable dérivée |
 
 ## Taille et structure
 
 | Élément | Information |
 |---|---|
-| Nombre de lignes | 1 963 lignes dans le fichier 2025-2026 vérifié |
-| Nombre de colonnes | 11 colonnes |
+| Nombre de lignes | 1 963 lignes dans le CSV primaire public 2025-2026 |
+| Nombre de colonnes officielles | 11 colonnes |
+| Nombre de colonnes préparées | 13 colonnes |
 | Structure | Tableau d'indicateurs éducatifs |
 | Format | CSV officiel |
 | Couverture géographique | Écoles primaires publiques du Québec |
 | Fréquence de mise à jour | Annuelle |
+| Format préparé local | CSV ignoré par Git dans `data/processed/defavorisation-ecoles-primaires/` |
+| Niveau pédagogique recommandé | Introduction à intermédiaire |
+
+## Lecture statistique
+
+La première lecture doit séparer trois objets différents : les indices numériques, les rangs déciles et la variable de diffusion. Les rangs déciles donnent une position relative. Ils ne disent pas que deux écoles d'un même décile sont identiques, ni que l'écart entre deux déciles est constant.
+
+Pour un laboratoire de modélisation, l'échantillon raisonnable est l'ensemble des lignes avec `Diffusion == "OUI"`. Prédire `IMSE` à partir de `SFR` et `Nbre_Eleves` peut servir à enseigner la régression linéaire, mais ce modèle doit rester descriptif. Il ne mesure pas une cause et ne doit pas être appliqué aux écoles non diffusées comme si l'indice était simplement oublié.
+
+La description globale du paquet Données Québec indique que 675 écoles primaires sont dans les déciles IMSE 8, 9 ou 10 en 2025-2026. Le CSV primaire public téléchargé dans cette fiche donne 641 lignes avec `Rang_Decile_IMSE` dans 8, 9 ou 10. Je ne sais pas pourquoi ces deux totaux ne concordent pas à partir des seules informations disponibles dans le CSV et les métadonnées CKAN. La fiche retient donc les résultats reproductibles sur le CSV téléchargé.
+
+## Résultats R vérifiés
+
+| Contrôle | Résultat calculé sur le CSV primaire public |
+|---|---:|
+| Lignes lues | 1 963 |
+| Colonnes officielles lues | 11 |
+| Colonnes après préparation locale | 13 |
+| Lignes avec `Diffusion == "OUI"` | 1 895 |
+| Lignes avec `Diffusion == "NON"` | 68 |
+| Valeurs manquantes de `IMSE` | 68 |
+| Valeurs manquantes de `SFR` | 68 |
+| Médiane de `IMSE` parmi les lignes diffusées | 7,06545 |
+| Médiane de `SFR` parmi les lignes diffusées | 3,50742 |
+| Nombre médian d'élèves parmi les lignes diffusées | 262 |
+| Corrélation `IMSE` et `SFR` parmi les lignes diffusées | 0,463 |
+| Écoles en déciles IMSE 8 à 10 dans le CSV | 641 |
+| Élèves dans les écoles en déciles IMSE 8 à 10 dans le CSV | 157 597 |
+
+## Modèle descriptif de référence
+
+Le modèle linéaire minimal utilisé comme repère pédagogique est :
+
+`IMSE ~ SFR + Nbre_Eleves`
+
+Il est ajusté uniquement sur les 1 895 lignes diffusées.
+
+| Élément du modèle | Valeur |
+|---|---:|
+| Coefficient de `SFR` | 0,429 |
+| Coefficient de `Nbre_Eleves` | -0,00745 |
+| R2 | 0,287 |
+| Écart-type résiduel | 3,56 |
+
+Ce résultat montre une association positive entre `SFR` et `IMSE`, mais le modèle explique une fraction limitée de la variabilité. Il est donc utile pour enseigner la prédiction et les résidus, mais il ne suffit pas pour justifier une décision sur une école.
+
+## Score zéro déchet
+
+| Dimension | Score | Justification |
+|---|---:|---|
+| Contexte québécois | 3 | Le jeu porte sur les écoles primaires publiques du Québec. |
+| Accessibilité pédagogique | 3 | Les variables principales sont lisibles et directement utilisables en R. |
+| Qualité documentaire | 3 | Le portail expose la ressource, la licence, la fréquence et les définitions principales. |
+| Potentiel de nettoyage | 2 | Le nettoyage est limité, mais la variable `Diffusion` exige une décision d'analyse explicite. |
+| Potentiel de visualisation | 3 | Les déciles, les distributions et les relations entre indices se visualisent clairement. |
+| Potentiel de statistique descriptive | 3 | Les tableaux par décile et les résumés numériques sont immédiats. |
+| Potentiel d'inférence | 1 | L'inférence causale ou populationnelle est fortement limitée par la nature administrative des indicateurs. |
+| Potentiel de modélisation | 3 | Le jeu est utile pour introduire la régression et les limites d'un modèle prédictif simple. |
+| Potentiel de discussion éthique | 3 | Les indicateurs touchent des écoles nommées et exigent une communication responsable. |
+| Réutilisabilité dans plusieurs cours | 3 | Le jeu convient à STT-1100, visualisation, modélisation et éthique des données. |
+
+Total : 27 sur 30.
 
 ## Concepts enseignables
 
 - variables numériques et catégorielles;
 - valeurs manquantes et diffusion partielle;
+- rangs déciles et comparaison relative;
 - régression linéaire simple;
 - prédiction et extrapolation;
 - biais algorithmiques;
@@ -76,11 +175,22 @@ Une ligne représente une école primaire publique du Québec pour l'année scol
 
 ## Activité courte
 
-[Laboratoire](activite-courte.qmd) : Quels liens observe-t-on entre IMSE, SFR et nombre d'élèves?
+En 60 à 90 minutes, demander aux personnes étudiantes de lire le CSV, de distinguer les lignes diffusées et non diffusées, puis de produire un nuage de points `SFR` selon `IMSE`. La conclusion doit expliquer pourquoi les lignes non diffusées ne doivent pas être traitées comme de simples valeurs manquantes.
 
 ## Activité longue
 
-[Mini-projet](activite-longue.qmd) : Reproduire la mission de prédiction et de biais de l'aventure 9.
+En 2 à 3 heures, demander un mini-rapport reproductible avec un modèle linéaire, un graphique des résidus, une validation simple par séparation entraînement-test et une section éthique sur l'utilisation possible d'une prédiction dans un contexte scolaire.
+
+## Questions pédagogiques possibles
+
+1. Quelle est l'unité statistique de la table?
+2. Pourquoi faut-il filtrer `Diffusion == "OUI"` avant d'ajuster le modèle?
+3. Quelle différence y a-t-il entre `IMSE` et `Rang_Decile_IMSE`?
+4. Pourquoi un rang décile ne doit-il pas être traité comme une mesure continue ordinaire?
+5. Que signifie une corrélation positive entre `SFR` et `IMSE`?
+6. Pourquoi le coefficient de `Nbre_Eleves` ne doit-il pas être interprété causalement?
+7. Quelle information est perdue quand on regroupe seulement les déciles 8 à 10?
+8. Quelle phrase de conclusion serait statistiquement prudente et socialement responsable?
 
 ## Code R minimal
 
@@ -99,8 +209,25 @@ ecoles_modele <- ecoles |>
   select(IMSE, SFR, Nbre_Eleves) |>
   tidyr::drop_na()
 
-modele <- lm(IMSE ~ SFR + Nbre_Eleves, data = ecoles_modele)
+set.seed(1100)
+index_entrainement <- sample(seq_len(nrow(ecoles_modele)), size = 0.8 * nrow(ecoles_modele))
+entrainement <- ecoles_modele[index_entrainement, ]
+test <- ecoles_modele[-index_entrainement, ]
+
+modele <- lm(IMSE ~ SFR + Nbre_Eleves, data = entrainement)
 summary(modele)
+
+predictions <- test |>
+  mutate(
+    imse_predit = predict(modele, newdata = test),
+    residu = IMSE - imse_predit
+  )
+
+predictions |>
+  summarise(
+    rmse = sqrt(mean(residu^2)),
+    mae = mean(abs(residu))
+  )
 
 ecoles_modele |>
   ggplot(aes(x = SFR, y = IMSE)) +
@@ -111,21 +238,34 @@ ecoles_modele |>
     y = "IMSE",
     title = "Relation entre SFR et IMSE dans les écoles primaires"
   )
+
+predictions |>
+  ggplot(aes(x = imse_predit, y = residu)) +
+  geom_hline(yintercept = 0, linetype = "dashed") +
+  geom_point(alpha = 0.35) +
+  labs(
+    x = "IMSE prédit",
+    y = "Résidu",
+    title = "Résidus du modèle descriptif"
+  )
 ```
 
 ## Limites et précautions
 
 - Les indices sont des indicateurs administratifs et ne décrivent pas directement chaque élève.
-- Les lignes où `Diffusion` vaut `NON` exigent une attention particulière.
+- Les lignes où `Diffusion` vaut `NON` ne doivent pas recevoir une prédiction présentée comme un indice officiel.
 - Un modèle prédictif simple ne justifie pas une décision individuelle.
+- Les noms d'écoles sont publics, mais il faut éviter une mise en évidence inutilement stigmatisante dans les travaux.
+- Les rangs déciles sont des positions relatives; ils ne sont pas des mesures à intervalles constants.
 - Les conclusions doivent séparer performance statistique, interprétation sociale et prudence éthique.
 
 ## Extensions
 
-- Extension intro : décrire la distribution de `IMSE` et `SFR`.
-- Extension intermédiaire : ajuster et interpréter un modèle linéaire.
-- Extension avancée : comparer les prédictions pour les écoles les plus petites et les plus grandes.
-- Extension communication scientifique : écrire une note sur les limites d'une décision automatisée.
+- Extension intro : décrire la distribution de `IMSE`, `SFR` et `Nbre_Eleves`.
+- Extension visualisation : comparer les distributions de `IMSE` par décile SFR.
+- Extension modélisation : comparer un modèle linéaire et un arbre de régression simple.
+- Extension validation : ajouter une séparation entraînement-test et calculer RMSE et MAE.
+- Extension communication scientifique : écrire une note sur les limites d'une décision automatisée dans un contexte scolaire.
 
 ```{r}
 #| label: dataset-detail-footer
@@ -133,4 +273,3 @@ ecoles_modele |>
 #| results: asis
 render_dataset_detail_footer()
 ```
-

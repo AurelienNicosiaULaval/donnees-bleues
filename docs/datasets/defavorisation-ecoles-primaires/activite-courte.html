@@ -5519,7 +5519,7 @@ grid-template-columns: 1fr;
 <h1>Laboratoire - Défavorisation des écoles</h1>
 <section id="contexte" class="level2">
 <h2 class="anchored" data-anchor-id="contexte">Contexte</h2>
-<p>Ce laboratoire reprend la première mission de l’aventure 9 de STT-1100. Il sert à explorer les indicateurs de défavorisation avant de construire un modèle.</p>
+<p>Ce laboratoire reprend la première mission de l’aventure 9 de STT-1100. Il sert à explorer les indicateurs de défavorisation avant de construire un modèle, avec une attention particulière à la variable <code>Diffusion</code>.</p>
 </section>
 <section id="objectifs-dapprentissage" class="level2">
 <h2 class="anchored" data-anchor-id="objectifs-dapprentissage">Objectifs d’apprentissage</h2>
@@ -5528,25 +5528,27 @@ grid-template-columns: 1fr;
 <li>Identifier les lignes diffusées et non diffusées.</li>
 <li>Explorer des relations entre variables numériques.</li>
 <li>Interpréter une corrélation avec prudence.</li>
+<li>Expliquer pourquoi une valeur non diffusée n’est pas une simple valeur manquante.</li>
 </ul>
 </section>
 <section id="question-directrice" class="level2">
 <h2 class="anchored" data-anchor-id="question-directrice">Question directrice</h2>
-<p>Quels liens observe-t-on entre IMSE, SFR et nombre d’élèves?</p>
+<p>Quels liens observe-t-on entre IMSE, SFR et nombre d’élèves parmi les écoles dont les indices sont diffusés?</p>
 </section>
 <section id="consignes" class="level2">
 <h2 class="anchored" data-anchor-id="consignes">Consignes</h2>
 <ol type="1">
 <li>Lire le fichier CSV officiel ou le fichier fourni dans l’aventure.</li>
-<li>Décrire les variables <code>IMSE</code>, <code>SFR</code>, <code>Nbre_Eleves</code> et <code>Diffusion</code>.</li>
+<li>Compter les lignes où <code>Diffusion</code> vaut <code>OUI</code> et celles où <code>Diffusion</code> vaut <code>NON</code>.</li>
+<li>Décrire les variables <code>IMSE</code>, <code>SFR</code> et <code>Nbre_Eleves</code> seulement pour les lignes diffusées.</li>
 <li>Produire un graphique de <code>IMSE</code> selon <code>SFR</code>.</li>
-<li>Comparer les résultats selon <code>Diffusion</code>.</li>
-<li>Rédiger une conclusion prudente sur ce que les graphiques montrent.</li>
+<li>Calculer la corrélation entre <code>IMSE</code> et <code>SFR</code>.</li>
+<li>Rédiger une conclusion prudente sur ce que le graphique montre et ne montre pas.</li>
 </ol>
 </section>
 <section id="pistes-de-solution" class="level2">
 <h2 class="anchored" data-anchor-id="pistes-de-solution">Pistes de solution</h2>
-<p>Une bonne réponse distingue les écoles diffusées et non diffusées. Une réponse excellente explique pourquoi une prédiction pour les écoles non diffusées doit être présentée comme exploratoire.</p>
+<p>Une bonne réponse distingue les écoles diffusées et non diffusées avant toute analyse numérique. Une réponse excellente explique que les lignes non diffusées ne doivent pas recevoir un indice prédit présenté comme officiel.</p>
 
 
 </section>

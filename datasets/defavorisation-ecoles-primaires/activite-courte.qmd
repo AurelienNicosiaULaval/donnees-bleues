@@ -7,7 +7,7 @@ embed-resources: true
 
 ## Contexte
 
-Ce laboratoire reprend la première mission de l'aventure 9 de STT-1100. Il sert à explorer les indicateurs de défavorisation avant de construire un modèle.
+Ce laboratoire reprend la première mission de l'aventure 9 de STT-1100. Il sert à explorer les indicateurs de défavorisation avant de construire un modèle, avec une attention particulière à la variable `Diffusion`.
 
 ## Objectifs d'apprentissage
 
@@ -15,20 +15,21 @@ Ce laboratoire reprend la première mission de l'aventure 9 de STT-1100. Il sert
 - Identifier les lignes diffusées et non diffusées.
 - Explorer des relations entre variables numériques.
 - Interpréter une corrélation avec prudence.
+- Expliquer pourquoi une valeur non diffusée n'est pas une simple valeur manquante.
 
 ## Question directrice
 
-Quels liens observe-t-on entre IMSE, SFR et nombre d'élèves?
+Quels liens observe-t-on entre IMSE, SFR et nombre d'élèves parmi les écoles dont les indices sont diffusés?
 
 ## Consignes
 
 1. Lire le fichier CSV officiel ou le fichier fourni dans l'aventure.
-2. Décrire les variables `IMSE`, `SFR`, `Nbre_Eleves` et `Diffusion`.
-3. Produire un graphique de `IMSE` selon `SFR`.
-4. Comparer les résultats selon `Diffusion`.
-5. Rédiger une conclusion prudente sur ce que les graphiques montrent.
+2. Compter les lignes où `Diffusion` vaut `OUI` et celles où `Diffusion` vaut `NON`.
+3. Décrire les variables `IMSE`, `SFR` et `Nbre_Eleves` seulement pour les lignes diffusées.
+4. Produire un graphique de `IMSE` selon `SFR`.
+5. Calculer la corrélation entre `IMSE` et `SFR`.
+6. Rédiger une conclusion prudente sur ce que le graphique montre et ne montre pas.
 
 ## Pistes de solution
 
-Une bonne réponse distingue les écoles diffusées et non diffusées. Une réponse excellente explique pourquoi une prédiction pour les écoles non diffusées doit être présentée comme exploratoire.
-
+Une bonne réponse distingue les écoles diffusées et non diffusées avant toute analyse numérique. Une réponse excellente explique que les lignes non diffusées ne doivent pas recevoir un indice prédit présenté comme officiel.

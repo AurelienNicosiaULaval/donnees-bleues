@@ -5548,7 +5548,7 @@ Indices de défavorisation des écoles primaires du Québec
 Données Québec / Ministère de l&#39;Éducation et Ministère de l&#39;Enseignement supérieur
 </p>
 <div class="dataset-contributor-badge">
-<span>Personne à contacter</span><strong>Aurélien Nicosia</strong><small>Responsable pédagogique STT-1100</small>
+<span>Personne à contacter</span><strong>Aurélien Nicosia</strong><small>Révision pédagogique et statistique</small>
 </div>
 <p class="dataset-hero-summary">
 École primaire publique pour une année scolaire
@@ -5579,11 +5579,11 @@ Données Québec / Ministère de l&#39;Éducation et Ministère de l&#39;Enseign
 <div class="dataset-pedagogy-main">
 <span>Question de départ</span>
 <p>
-Construire un modèle linéaire simple pour prédire l&#39;IMSE à partir du SFR et du nombre d&#39;élèves.
+Construire un modèle linéaire descriptif pour prédire l&#39;IMSE à partir du SFR et du nombre d&#39;élèves.
 </p>
 </div>
 <div class="dataset-score-box">
-<span>Potentiel pédagogique</span><strong>28 / 30</strong>
+<span>Potentiel pédagogique</span><strong>27 / 30</strong>
 <div class="dataset-score-track">
 <span class="dataset-score-segment is-filled"></span><span class="dataset-score-segment is-filled"></span><span class="dataset-score-segment is-filled"></span><span class="dataset-score-segment is-filled"></span><span class="dataset-score-segment is-filled"></span>
 </div>
@@ -5621,10 +5621,10 @@ Résultats R
 </div>
 <div class="dataset-r-stats">
 <div class="dataset-r-stat">
-<span>Lignes déclarées</span><strong>1 963 lignes dans le fichier 2025-2026 vérifié</strong>
+<span>Lignes déclarées</span><strong>1 963 lignes dans le CSV primaire public 2025-2026</strong>
 </div>
 <div class="dataset-r-stat">
-<span>Colonnes déclarées</span><strong>11 colonnes</strong>
+<span>Colonnes déclarées</span><strong>11 colonnes officielles; 13 colonnes après préparation locale</strong>
 </div>
 <div class="dataset-r-stat">
 <span>Format</span><strong>CSV officiel</strong>
@@ -5705,13 +5705,13 @@ Lecture statistique
 <span>Mini-projets</span>
 <ul>
 <li>
-Construire un modèle linéaire simple pour prédire l&#39;IMSE à partir du SFR et du nombre d&#39;élèves.
+Construire un modèle linéaire descriptif pour prédire l&#39;IMSE à partir du SFR et du nombre d&#39;élèves.
 </li>
 <li>
 Comparer les écoles selon les déciles IMSE et SFR.
 </li>
 <li>
-Discuter les risques d&#39;interprétation et de biais dans une prédiction éducative.
+Discuter les risques d&#39;interprétation et de biais dans une prédiction appliquée à un indicateur éducatif sensible.
 </li>
 </ul>
 </div>
@@ -5719,15 +5719,15 @@ Discuter les risques d&#39;interprétation et de biais dans une prédiction édu
 <span>Activités liées</span>
 <div class="dataset-activity-grid">
 <div class="dataset-activity-card">
-<span>60-90 minutes</span><strong>Laboratoire - Défavorisation des écoles</strong>
+<span>60-90 minutes</span><strong>Laboratoire - Diffusion et indices de défavorisation</strong>
 <p>
-Quels liens observe-t-on entre IMSE, SFR et nombre d&#39;élèves?
+Quels liens observe-t-on entre IMSE, SFR et nombre d&#39;élèves parmi les écoles dont les indices sont diffusés?
 </p>
 </div>
 <div class="dataset-activity-card">
 <span>2-3 heures</span><strong>Mini-projet - Défavorisation des écoles</strong>
 <p>
-Reproduire la mission de prédiction et de biais de l&#39;aventure 9.
+Comment construire un modèle descriptif de l&#39;IMSE sans transformer un indicateur éducatif sensible en outil de décision non justifié?
 </p>
 </div>
 </div>
@@ -5736,11 +5736,69 @@ Reproduire la mission de prédiction et de biais de l&#39;aventure 9.
 <div class="dataset-detail-content">
 <section id="pourquoi-ce-jeu-est-intéressant" class="level2">
 <h2 class="anchored" data-anchor-id="pourquoi-ce-jeu-est-intéressant">Pourquoi ce jeu est intéressant</h2>
-<p>Ce jeu est utilisé dans l’aventure 9 de STT-1100 pour travailler la prédiction, les biais algorithmiques et l’interprétation prudente des indicateurs éducatifs. Il est très pédagogique parce que les variables sont peu nombreuses, mais les enjeux statistiques et éthiques sont réels.</p>
-<p>Question d’analyse : peut-on prédire l’IMSE d’une école primaire à partir du SFR et du nombre d’élèves, et quelles limites faut-il communiquer?</p>
+<p>Ce jeu est utilisé dans l’aventure 9 de STT-1100 pour travailler la prédiction, les biais algorithmiques et l’interprétation prudente des indicateurs éducatifs. Il est très pédagogique parce que les variables sont peu nombreuses, mais les enjeux statistiques, sociaux et éthiques sont réels.</p>
+<p>La question d’analyse centrale est volontairement délicate : peut-on prédire l’IMSE d’une école primaire à partir du SFR et du nombre d’élèves, et quelles limites faut-il communiquer avant toute utilisation?</p>
+<p>Cette fiche doit être utilisée comme une étude de cas en statistique descriptive, modélisation exploratoire et communication responsable. Elle ne doit pas servir à produire un classement public simpliste des écoles.</p>
 </section>
-<section id="source" class="level2">
-<h2 class="anchored" data-anchor-id="source">Source</h2>
+<section id="ce-qui-a-été-vérifié" class="level2">
+<h2 class="anchored" data-anchor-id="ce-qui-a-été-vérifié">Ce qui a été vérifié</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Élément vérifié</th>
+<th>Résultat</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Paquet officiel</td>
+<td>Données Québec, jeu “Indices de défavorisation”</td>
+</tr>
+<tr class="even">
+<td>Ressource utilisée</td>
+<td><code>Défavorisation - Écoles primaires 2025-2026</code>, CSV actif</td>
+</tr>
+<tr class="odd">
+<td>Producteur officiel</td>
+<td>Ministère de l’Éducation et Ministère de l’Enseignement supérieur</td>
+</tr>
+<tr class="even">
+<td>Licence officielle</td>
+<td>Attribution (CC-BY 4.0) selon l’API CKAN</td>
+</tr>
+<tr class="odd">
+<td>Taille officielle observée</td>
+<td>306 642 octets</td>
+</tr>
+<tr class="even">
+<td>Dernière modification de la ressource</td>
+<td>2026-05-26 22:55:03</td>
+</tr>
+<tr class="odd">
+<td>Dernière modification du paquet</td>
+<td>2026-05-27 12:35:42</td>
+</tr>
+<tr class="even">
+<td>CSV officiel consulté</td>
+<td>1 963 lignes et 11 colonnes</td>
+</tr>
+<tr class="odd">
+<td>Préparation locale</td>
+<td>1 963 lignes et 13 colonnes après ajout de deux variables de lecture pédagogique</td>
+</tr>
+<tr class="even">
+<td>Diffusion des indices</td>
+<td>1 895 lignes avec <code>Diffusion == &quot;OUI&quot;</code> et 68 lignes avec <code>Diffusion == &quot;NON&quot;</code></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="source-et-conditions" class="level2">
+<h2 class="anchored" data-anchor-id="source-et-conditions">Source et conditions</h2>
 <table class="caption-top table">
 <thead>
 <tr class="header">
@@ -5766,8 +5824,24 @@ Reproduire la mission de prédiction et de biais de l&#39;aventure 9.
 <td><a href="https://www.donneesquebec.ca/recherche/dataset/indices-de-defavorisation/resource/6c5d4a5d-ba3b-40a6-b570-916f43ab622c" class="uri">https://www.donneesquebec.ca/recherche/dataset/indices-de-defavorisation/resource/6c5d4a5d-ba3b-40a6-b570-916f43ab622c</a></td>
 </tr>
 <tr class="odd">
+<td>API CKAN du paquet</td>
+<td><a href="https://www.donneesquebec.ca/recherche/api/3/action/package_show?id=004de02c-19f1-4da0-9af8-33f893e41972" class="uri">https://www.donneesquebec.ca/recherche/api/3/action/package_show?id=004de02c-19f1-4da0-9af8-33f893e41972</a></td>
+</tr>
+<tr class="even">
+<td>API CKAN de la ressource</td>
+<td><a href="https://www.donneesquebec.ca/recherche/api/3/action/resource_show?id=6c5d4a5d-ba3b-40a6-b570-916f43ab622c" class="uri">https://www.donneesquebec.ca/recherche/api/3/action/resource_show?id=6c5d4a5d-ba3b-40a6-b570-916f43ab622c</a></td>
+</tr>
+<tr class="odd">
+<td>CSV officiel</td>
+<td><a href="https://www.donneesquebec.ca/recherche/dataset/004de02c-19f1-4da0-9af8-33f893e41972/resource/6c5d4a5d-ba3b-40a6-b570-916f43ab622c/download/defav_ecole_prim_public.csv" class="uri">https://www.donneesquebec.ca/recherche/dataset/004de02c-19f1-4da0-9af8-33f893e41972/resource/6c5d4a5d-ba3b-40a6-b570-916f43ab622c/download/defav_ecole_prim_public.csv</a></td>
+</tr>
+<tr class="even">
 <td>Licence</td>
 <td>Attribution (CC-BY 4.0) selon les métadonnées CKAN vérifiées le 2026-06-20</td>
+</tr>
+<tr class="odd">
+<td>Redistribution locale</td>
+<td>Le CSV préparé sert aux vérifications et aux activités locales; les lignes d’écoles ne sont pas intégrées au rendu public de la fiche.</td>
 </tr>
 <tr class="even">
 <td>Date d’accès</td>
@@ -5775,23 +5849,32 @@ Reproduire la mission de prédiction et de biais de l&#39;aventure 9.
 </tr>
 <tr class="odd">
 <td>Statut</td>
-<td>source officielle vérifiée; fichier utilisé dans l’aventure 9 de STT-1100</td>
+<td>source officielle vérifiée; CSV primaire public 2025-2026 préparé localement</td>
 </tr>
 </tbody>
 </table>
 </section>
+<section id="définition-des-indicateurs" class="level2">
+<h2 class="anchored" data-anchor-id="définition-des-indicateurs">Définition des indicateurs</h2>
+<p>Le paquet officiel décrit deux indicateurs.</p>
+<p>L’IMSE, ou indice de milieu socioéconomique, combine deux composantes : la proportion des familles avec enfants dont la mère n’a pas de diplôme, certificat ou grade, avec un poids de deux tiers, et la proportion de ménages dont les parents n’étaient pas à l’emploi durant la semaine de référence du recensement canadien, avec un poids d’un tiers.</p>
+<p>Le SFR, ou indice du seuil de faible revenu, correspond à la proportion des familles avec enfants dont le revenu est situé près ou sous le seuil de faible revenu. Le paquet officiel précise que les données socioéconomiques utilisées pour 2025-2026 proviennent du recensement canadien de 2021 et portent sur les familles québécoises ayant au moins un enfant âgé de 0 à 18 ans.</p>
+<p>Les indices des écoles sont ensuite classés en rang décile afin de situer chaque école relativement aux autres écoles publiques. Un rang 1 correspond au niveau le moins défavorisé dans l’indicateur concerné, et un rang 10 correspond au niveau le plus défavorisé.</p>
+</section>
 <section id="ce-que-représente-une-ligne" class="level2">
 <h2 class="anchored" data-anchor-id="ce-que-représente-une-ligne">Ce que représente une ligne</h2>
-<p>Une ligne représente une école primaire publique du Québec pour l’année scolaire 2025-2026. Certaines écoles ne diffusent pas les indices, notamment dans des cas où l’effectif est faible; ces lignes doivent être traitées avec prudence.</p>
+<p>Une ligne représente une école primaire publique du Québec pour l’année scolaire 2025-2026. La ligne contient le centre de services scolaire ou la commission scolaire, le code et le nom de l’école, les indices IMSE et SFR, leurs déciles, le nombre d’élèves, la variable <code>Diffusion</code> et l’année scolaire.</p>
+<p>Les lignes avec <code>Diffusion == &quot;NON&quot;</code> ne sont pas des observations numériques ordinaires. La description officielle indique que les écoles institutionnelles avec entente MEQ-MSSS ne sont pas diffusées et que les écoles de moins de 30 élèves présents au 30 septembre 2025 ne diffusent pas les indices. Ces lignes doivent donc être exclues d’un modèle numérique ou traitées dans une catégorie distincte.</p>
 </section>
 <section id="variables-principales" class="level2">
 <h2 class="anchored" data-anchor-id="variables-principales">Variables principales</h2>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 25%">
-<col style="width: 25%">
-<col style="width: 25%">
-<col style="width: 25%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -5799,6 +5882,7 @@ Reproduire la mission de prédiction et de biais de l&#39;aventure 9.
 <th>Type</th>
 <th>Description</th>
 <th>Exemple</th>
+<th>Point de vigilance</th>
 </tr>
 </thead>
 <tbody>
@@ -5806,67 +5890,92 @@ Reproduire la mission de prédiction et de biais de l&#39;aventure 9.
 <td><code>Code_Cs</code></td>
 <td>numérique</td>
 <td>Code du centre de services scolaire ou de la commission scolaire</td>
-<td>711000</td>
+<td><code>711000</code></td>
+<td>Identifiant administratif</td>
 </tr>
 <tr class="even">
 <td><code>Nom_Cs</code></td>
 <td>caractère</td>
-<td>Nom du centre de services scolaire</td>
-<td>Centre de services scolaire de la Capitale</td>
+<td>Nom du centre de services scolaire ou de la commission scolaire</td>
+<td><code>Centre de services scolaire exemple</code></td>
+<td>Ne pas utiliser pour comparer des personnes</td>
 </tr>
 <tr class="odd">
 <td><code>Code_Org</code></td>
 <td>numérique</td>
 <td>Code de l’école ou de l’organisme</td>
-<td>711002</td>
+<td><code>711002</code></td>
+<td>Identifiant administratif</td>
 </tr>
 <tr class="even">
 <td><code>Nom_Org</code></td>
 <td>caractère</td>
 <td>Nom de l’école</td>
-<td>École primaire Exemple</td>
+<td><code>École primaire exemple</code></td>
+<td>Donnée publique, mais sensible en communication</td>
 </tr>
 <tr class="odd">
 <td><code>IMSE</code></td>
 <td>numérique</td>
 <td>Indice de milieu socioéconomique</td>
-<td>10.4</td>
+<td><code>10.4</code></td>
+<td>Absent quand <code>Diffusion == &quot;NON&quot;</code></td>
 </tr>
 <tr class="even">
 <td><code>Rang_Decile_IMSE</code></td>
 <td>numérique</td>
 <td>Décile de l’IMSE</td>
-<td>9</td>
+<td><code>9</code></td>
+<td>Rang relatif, pas mesure absolue</td>
 </tr>
 <tr class="odd">
 <td><code>SFR</code></td>
 <td>numérique</td>
 <td>Indice du seuil de faible revenu</td>
-<td>1.33</td>
+<td><code>1.33</code></td>
+<td>Absent quand <code>Diffusion == &quot;NON&quot;</code></td>
 </tr>
 <tr class="even">
 <td><code>Rang_Decile_SFR</code></td>
 <td>numérique</td>
 <td>Décile du SFR</td>
-<td>2</td>
+<td><code>2</code></td>
+<td>Rang relatif selon le SFR</td>
 </tr>
 <tr class="odd">
 <td><code>Nbre_Eleves</code></td>
 <td>numérique</td>
 <td>Nombre total d’élèves</td>
-<td>250</td>
+<td><code>250</code></td>
+<td>Effectif de l’école, pas dénominateur de familles</td>
 </tr>
 <tr class="even">
 <td><code>Diffusion</code></td>
 <td>caractère</td>
 <td>Indique si les indices sont diffusés</td>
-<td>OUI</td>
+<td><code>OUI</code></td>
+<td>Définit l’échantillon analysable</td>
 </tr>
 <tr class="odd">
 <td><code>Annee_Scol</code></td>
 <td>caractère</td>
 <td>Année scolaire</td>
-<td>2025-2026</td>
+<td><code>2025-2026</code></td>
+<td>Une seule année dans ce CSV</td>
+</tr>
+<tr class="even">
+<td><code>diffusion_indices</code></td>
+<td>logique</td>
+<td>Variable locale indiquant si les indices sont diffusés</td>
+<td><code>TRUE</code></td>
+<td>Variable dérivée</td>
+</tr>
+<tr class="odd">
+<td><code>groupe_imse</code></td>
+<td>caractère</td>
+<td>Regroupement pédagogique des déciles IMSE</td>
+<td><code>Déciles 8 à 10</code></td>
+<td>Variable dérivée</td>
 </tr>
 </tbody>
 </table>
@@ -5874,6 +5983,10 @@ Reproduire la mission de prédiction et de biais de l&#39;aventure 9.
 <section id="taille-et-structure" class="level2">
 <h2 class="anchored" data-anchor-id="taille-et-structure">Taille et structure</h2>
 <table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
 <thead>
 <tr class="header">
 <th>Élément</th>
@@ -5883,36 +5996,223 @@ Reproduire la mission de prédiction et de biais de l&#39;aventure 9.
 <tbody>
 <tr class="odd">
 <td>Nombre de lignes</td>
-<td>1 963 lignes dans le fichier 2025-2026 vérifié</td>
+<td>1 963 lignes dans le CSV primaire public 2025-2026</td>
 </tr>
 <tr class="even">
-<td>Nombre de colonnes</td>
+<td>Nombre de colonnes officielles</td>
 <td>11 colonnes</td>
 </tr>
 <tr class="odd">
+<td>Nombre de colonnes préparées</td>
+<td>13 colonnes</td>
+</tr>
+<tr class="even">
 <td>Structure</td>
 <td>Tableau d’indicateurs éducatifs</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Format</td>
 <td>CSV officiel</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Couverture géographique</td>
 <td>Écoles primaires publiques du Québec</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Fréquence de mise à jour</td>
 <td>Annuelle</td>
 </tr>
+<tr class="even">
+<td>Format préparé local</td>
+<td>CSV ignoré par Git dans <code>data/processed/defavorisation-ecoles-primaires/</code></td>
+</tr>
+<tr class="odd">
+<td>Niveau pédagogique recommandé</td>
+<td>Introduction à intermédiaire</td>
+</tr>
 </tbody>
 </table>
+</section>
+<section id="lecture-statistique" class="level2">
+<h2 class="anchored" data-anchor-id="lecture-statistique">Lecture statistique</h2>
+<p>La première lecture doit séparer trois objets différents : les indices numériques, les rangs déciles et la variable de diffusion. Les rangs déciles donnent une position relative. Ils ne disent pas que deux écoles d’un même décile sont identiques, ni que l’écart entre deux déciles est constant.</p>
+<p>Pour un laboratoire de modélisation, l’échantillon raisonnable est l’ensemble des lignes avec <code>Diffusion == &quot;OUI&quot;</code>. Prédire <code>IMSE</code> à partir de <code>SFR</code> et <code>Nbre_Eleves</code> peut servir à enseigner la régression linéaire, mais ce modèle doit rester descriptif. Il ne mesure pas une cause et ne doit pas être appliqué aux écoles non diffusées comme si l’indice était simplement oublié.</p>
+<p>La description globale du paquet Données Québec indique que 675 écoles primaires sont dans les déciles IMSE 8, 9 ou 10 en 2025-2026. Le CSV primaire public téléchargé dans cette fiche donne 641 lignes avec <code>Rang_Decile_IMSE</code> dans 8, 9 ou 10. Je ne sais pas pourquoi ces deux totaux ne concordent pas à partir des seules informations disponibles dans le CSV et les métadonnées CKAN. La fiche retient donc les résultats reproductibles sur le CSV téléchargé.</p>
+</section>
+<section id="résultats-r-vérifiés" class="level2">
+<h2 class="anchored" data-anchor-id="résultats-r-vérifiés">Résultats R vérifiés</h2>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Contrôle</th>
+<th style="text-align: right;">Résultat calculé sur le CSV primaire public</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Lignes lues</td>
+<td style="text-align: right;">1 963</td>
+</tr>
+<tr class="even">
+<td>Colonnes officielles lues</td>
+<td style="text-align: right;">11</td>
+</tr>
+<tr class="odd">
+<td>Colonnes après préparation locale</td>
+<td style="text-align: right;">13</td>
+</tr>
+<tr class="even">
+<td>Lignes avec <code>Diffusion == &quot;OUI&quot;</code></td>
+<td style="text-align: right;">1 895</td>
+</tr>
+<tr class="odd">
+<td>Lignes avec <code>Diffusion == &quot;NON&quot;</code></td>
+<td style="text-align: right;">68</td>
+</tr>
+<tr class="even">
+<td>Valeurs manquantes de <code>IMSE</code></td>
+<td style="text-align: right;">68</td>
+</tr>
+<tr class="odd">
+<td>Valeurs manquantes de <code>SFR</code></td>
+<td style="text-align: right;">68</td>
+</tr>
+<tr class="even">
+<td>Médiane de <code>IMSE</code> parmi les lignes diffusées</td>
+<td style="text-align: right;">7,06545</td>
+</tr>
+<tr class="odd">
+<td>Médiane de <code>SFR</code> parmi les lignes diffusées</td>
+<td style="text-align: right;">3,50742</td>
+</tr>
+<tr class="even">
+<td>Nombre médian d’élèves parmi les lignes diffusées</td>
+<td style="text-align: right;">262</td>
+</tr>
+<tr class="odd">
+<td>Corrélation <code>IMSE</code> et <code>SFR</code> parmi les lignes diffusées</td>
+<td style="text-align: right;">0,463</td>
+</tr>
+<tr class="even">
+<td>Écoles en déciles IMSE 8 à 10 dans le CSV</td>
+<td style="text-align: right;">641</td>
+</tr>
+<tr class="odd">
+<td>Élèves dans les écoles en déciles IMSE 8 à 10 dans le CSV</td>
+<td style="text-align: right;">157 597</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="modèle-descriptif-de-référence" class="level2">
+<h2 class="anchored" data-anchor-id="modèle-descriptif-de-référence">Modèle descriptif de référence</h2>
+<p>Le modèle linéaire minimal utilisé comme repère pédagogique est :</p>
+<p><code>IMSE ~ SFR + Nbre_Eleves</code></p>
+<p>Il est ajusté uniquement sur les 1 895 lignes diffusées.</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Élément du modèle</th>
+<th style="text-align: right;">Valeur</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Coefficient de <code>SFR</code></td>
+<td style="text-align: right;">0,429</td>
+</tr>
+<tr class="even">
+<td>Coefficient de <code>Nbre_Eleves</code></td>
+<td style="text-align: right;">-0,00745</td>
+</tr>
+<tr class="odd">
+<td>R2</td>
+<td style="text-align: right;">0,287</td>
+</tr>
+<tr class="even">
+<td>Écart-type résiduel</td>
+<td style="text-align: right;">3,56</td>
+</tr>
+</tbody>
+</table>
+<p>Ce résultat montre une association positive entre <code>SFR</code> et <code>IMSE</code>, mais le modèle explique une fraction limitée de la variabilité. Il est donc utile pour enseigner la prédiction et les résidus, mais il ne suffit pas pour justifier une décision sur une école.</p>
+</section>
+<section id="score-zéro-déchet" class="level2">
+<h2 class="anchored" data-anchor-id="score-zéro-déchet">Score zéro déchet</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 30%">
+<col style="width: 40%">
+<col style="width: 30%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Dimension</th>
+<th style="text-align: right;">Score</th>
+<th>Justification</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Contexte québécois</td>
+<td style="text-align: right;">3</td>
+<td>Le jeu porte sur les écoles primaires publiques du Québec.</td>
+</tr>
+<tr class="even">
+<td>Accessibilité pédagogique</td>
+<td style="text-align: right;">3</td>
+<td>Les variables principales sont lisibles et directement utilisables en R.</td>
+</tr>
+<tr class="odd">
+<td>Qualité documentaire</td>
+<td style="text-align: right;">3</td>
+<td>Le portail expose la ressource, la licence, la fréquence et les définitions principales.</td>
+</tr>
+<tr class="even">
+<td>Potentiel de nettoyage</td>
+<td style="text-align: right;">2</td>
+<td>Le nettoyage est limité, mais la variable <code>Diffusion</code> exige une décision d’analyse explicite.</td>
+</tr>
+<tr class="odd">
+<td>Potentiel de visualisation</td>
+<td style="text-align: right;">3</td>
+<td>Les déciles, les distributions et les relations entre indices se visualisent clairement.</td>
+</tr>
+<tr class="even">
+<td>Potentiel de statistique descriptive</td>
+<td style="text-align: right;">3</td>
+<td>Les tableaux par décile et les résumés numériques sont immédiats.</td>
+</tr>
+<tr class="odd">
+<td>Potentiel d’inférence</td>
+<td style="text-align: right;">1</td>
+<td>L’inférence causale ou populationnelle est fortement limitée par la nature administrative des indicateurs.</td>
+</tr>
+<tr class="even">
+<td>Potentiel de modélisation</td>
+<td style="text-align: right;">3</td>
+<td>Le jeu est utile pour introduire la régression et les limites d’un modèle prédictif simple.</td>
+</tr>
+<tr class="odd">
+<td>Potentiel de discussion éthique</td>
+<td style="text-align: right;">3</td>
+<td>Les indicateurs touchent des écoles nommées et exigent une communication responsable.</td>
+</tr>
+<tr class="even">
+<td>Réutilisabilité dans plusieurs cours</td>
+<td style="text-align: right;">3</td>
+<td>Le jeu convient à STT-1100, visualisation, modélisation et éthique des données.</td>
+</tr>
+</tbody>
+</table>
+<p>Total : 27 sur 30.</p>
 </section>
 <section id="concepts-enseignables" class="level2">
 <h2 class="anchored" data-anchor-id="concepts-enseignables">Concepts enseignables</h2>
 <ul>
 <li>variables numériques et catégorielles;</li>
 <li>valeurs manquantes et diffusion partielle;</li>
+<li>rangs déciles et comparaison relative;</li>
 <li>régression linéaire simple;</li>
 <li>prédiction et extrapolation;</li>
 <li>biais algorithmiques;</li>
@@ -5921,11 +6221,24 @@ Reproduire la mission de prédiction et de biais de l&#39;aventure 9.
 </section>
 <section id="activité-courte" class="level2">
 <h2 class="anchored" data-anchor-id="activité-courte">Activité courte</h2>
-<p><a href="../../datasets/defavorisation-ecoles-primaires/activite-courte.html">Laboratoire</a> : Quels liens observe-t-on entre IMSE, SFR et nombre d’élèves?</p>
+<p>En 60 à 90 minutes, demander aux personnes étudiantes de lire le CSV, de distinguer les lignes diffusées et non diffusées, puis de produire un nuage de points <code>SFR</code> selon <code>IMSE</code>. La conclusion doit expliquer pourquoi les lignes non diffusées ne doivent pas être traitées comme de simples valeurs manquantes.</p>
 </section>
 <section id="activité-longue" class="level2">
 <h2 class="anchored" data-anchor-id="activité-longue">Activité longue</h2>
-<p><a href="../../datasets/defavorisation-ecoles-primaires/activite-longue.html">Mini-projet</a> : Reproduire la mission de prédiction et de biais de l’aventure 9.</p>
+<p>En 2 à 3 heures, demander un mini-rapport reproductible avec un modèle linéaire, un graphique des résidus, une validation simple par séparation entraînement-test et une section éthique sur l’utilisation possible d’une prédiction dans un contexte scolaire.</p>
+</section>
+<section id="questions-pédagogiques-possibles" class="level2">
+<h2 class="anchored" data-anchor-id="questions-pédagogiques-possibles">Questions pédagogiques possibles</h2>
+<ol type="1">
+<li>Quelle est l’unité statistique de la table?</li>
+<li>Pourquoi faut-il filtrer <code>Diffusion == &quot;OUI&quot;</code> avant d’ajuster le modèle?</li>
+<li>Quelle différence y a-t-il entre <code>IMSE</code> et <code>Rang_Decile_IMSE</code>?</li>
+<li>Pourquoi un rang décile ne doit-il pas être traité comme une mesure continue ordinaire?</li>
+<li>Que signifie une corrélation positive entre <code>SFR</code> et <code>IMSE</code>?</li>
+<li>Pourquoi le coefficient de <code>Nbre_Eleves</code> ne doit-il pas être interprété causalement?</li>
+<li>Quelle information est perdue quand on regroupe seulement les déciles 8 à 10?</li>
+<li>Quelle phrase de conclusion serait statistiquement prudente et socialement responsable?</li>
+</ol>
 </section>
 <section id="code-r-minimal" class="level2">
 <h2 class="anchored" data-anchor-id="code-r-minimal">Code R minimal</h2>
@@ -5943,36 +6256,66 @@ Reproduire la mission de prédiction et de biais de l&#39;aventure 9.
 <span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(IMSE, SFR, Nbre_Eleves) <span class="sc">|&gt;</span></span>
 <span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>  tidyr<span class="sc">::</span><span class="fu">drop_na</span>()</span>
 <span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>modele <span class="ot">&lt;-</span> <span class="fu">lm</span>(IMSE <span class="sc">~</span> SFR <span class="sc">+</span> Nbre_Eleves, <span class="at">data =</span> ecoles_modele)</span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(modele)</span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>ecoles_modele <span class="sc">|&gt;</span></span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> SFR, <span class="at">y =</span> IMSE)) <span class="sc">+</span></span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.35</span>) <span class="sc">+</span></span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">&quot;lm&quot;</span>, <span class="at">se =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">&quot;SFR&quot;</span>,</span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">&quot;IMSE&quot;</span>,</span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">&quot;Relation entre SFR et IMSE dans les écoles primaires&quot;</span></span>
-<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1100</span>)</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>index_entrainement <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="fu">seq_len</span>(<span class="fu">nrow</span>(ecoles_modele)), <span class="at">size =</span> <span class="fl">0.8</span> <span class="sc">*</span> <span class="fu">nrow</span>(ecoles_modele))</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>entrainement <span class="ot">&lt;-</span> ecoles_modele[index_entrainement, ]</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>test <span class="ot">&lt;-</span> ecoles_modele[<span class="sc">-</span>index_entrainement, ]</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>modele <span class="ot">&lt;-</span> <span class="fu">lm</span>(IMSE <span class="sc">~</span> SFR <span class="sc">+</span> Nbre_Eleves, <span class="at">data =</span> entrainement)</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(modele)</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>predictions <span class="ot">&lt;-</span> test <span class="sc">|&gt;</span></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>    <span class="at">imse_predit =</span> <span class="fu">predict</span>(modele, <span class="at">newdata =</span> test),</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>    <span class="at">residu =</span> IMSE <span class="sc">-</span> imse_predit</span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>predictions <span class="sc">|&gt;</span></span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>    <span class="at">rmse =</span> <span class="fu">sqrt</span>(<span class="fu">mean</span>(residu<span class="sc">^</span><span class="dv">2</span>)),</span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>    <span class="at">mae =</span> <span class="fu">mean</span>(<span class="fu">abs</span>(residu))</span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>ecoles_modele <span class="sc">|&gt;</span></span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> SFR, <span class="at">y =</span> IMSE)) <span class="sc">+</span></span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.35</span>) <span class="sc">+</span></span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">&quot;lm&quot;</span>, <span class="at">se =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">&quot;SFR&quot;</span>,</span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">&quot;IMSE&quot;</span>,</span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">&quot;Relation entre SFR et IMSE dans les écoles primaires&quot;</span></span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a>predictions <span class="sc">|&gt;</span></span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> imse_predit, <span class="at">y =</span> residu)) <span class="sc">+</span></span>
+<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="dv">0</span>, <span class="at">linetype =</span> <span class="st">&quot;dashed&quot;</span>) <span class="sc">+</span></span>
+<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.35</span>) <span class="sc">+</span></span>
+<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">&quot;IMSE prédit&quot;</span>,</span>
+<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">&quot;Résidu&quot;</span>,</span>
+<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">&quot;Résidus du modèle descriptif&quot;</span></span>
+<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="limites-et-précautions" class="level2">
 <h2 class="anchored" data-anchor-id="limites-et-précautions">Limites et précautions</h2>
 <ul>
 <li>Les indices sont des indicateurs administratifs et ne décrivent pas directement chaque élève.</li>
-<li>Les lignes où <code>Diffusion</code> vaut <code>NON</code> exigent une attention particulière.</li>
+<li>Les lignes où <code>Diffusion</code> vaut <code>NON</code> ne doivent pas recevoir une prédiction présentée comme un indice officiel.</li>
 <li>Un modèle prédictif simple ne justifie pas une décision individuelle.</li>
+<li>Les noms d’écoles sont publics, mais il faut éviter une mise en évidence inutilement stigmatisante dans les travaux.</li>
+<li>Les rangs déciles sont des positions relatives; ils ne sont pas des mesures à intervalles constants.</li>
 <li>Les conclusions doivent séparer performance statistique, interprétation sociale et prudence éthique.</li>
 </ul>
 </section>
 <section id="extensions" class="level2">
 <h2 class="anchored" data-anchor-id="extensions">Extensions</h2>
 <ul>
-<li>Extension intro : décrire la distribution de <code>IMSE</code> et <code>SFR</code>.</li>
-<li>Extension intermédiaire : ajuster et interpréter un modèle linéaire.</li>
-<li>Extension avancée : comparer les prédictions pour les écoles les plus petites et les plus grandes.</li>
-<li>Extension communication scientifique : écrire une note sur les limites d’une décision automatisée.</li>
+<li>Extension intro : décrire la distribution de <code>IMSE</code>, <code>SFR</code> et <code>Nbre_Eleves</code>.</li>
+<li>Extension visualisation : comparer les distributions de <code>IMSE</code> par décile SFR.</li>
+<li>Extension modélisation : comparer un modèle linéaire et un arbre de régression simple.</li>
+<li>Extension validation : ajouter une séparation entraînement-test et calculer RMSE et MAE.</li>
+<li>Extension communication scientifique : écrire une note sur les limites d’une décision automatisée dans un contexte scolaire.</li>
 </ul>
 </section>
 </div>
