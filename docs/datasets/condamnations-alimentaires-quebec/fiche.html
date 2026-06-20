@@ -5545,13 +5545,13 @@ grid-template-columns: 1fr;
 Condamnations des établissements alimentaires au Québec
 </h1>
 <p class="dataset-hero-source">
-Données Québec / MAPAQ; version nettoyée dans UlavalSSD
+Données Québec / MAPAQ; version pédagogique fixe dans UlavalSSD
 </p>
 <div class="dataset-contributor-badge">
-<span>Personne à contacter</span><strong>Aurélien Nicosia</strong><small>Responsable pédagogique STT-1100</small>
+<span>Personne à contacter</span><strong>Aurélien Nicosia</strong><small>Révision pédagogique et statistique</small>
 </div>
 <p class="dataset-hero-summary">
-Condamnation publiée pour un établissement alimentaire
+Condamnation publiée dans la version pédagogique du jeu
 </p>
 <div class="dataset-hero-actions">
 <a class="dataset-button no-external" href="#r-en-action">Voir les résultats R</a><a class="dataset-button secondary" href="https://www.donneesquebec.ca/recherche/dataset/condamnations-des-etablissements-alimentaires-et-condamnations-concernant-le-bien-etre-des-anim">Source officielle</a>
@@ -5569,10 +5569,10 @@ Condamnation publiée pour un établissement alimentaire
 <span>Niveau</span><strong>Introduction à intermédiaire</strong>
 </div>
 <div class="dataset-fact">
-<span>Structure</span><strong>Tabulaire, administratif, catégoriel, dates</strong>
+<span>Structure</span><strong>Tableau administratif, variables catégorielles, dates, montants</strong>
 </div>
 <div class="dataset-fact">
-<span>Format</span><strong>CSV officiel; data.frame R nettoyé dans UlavalSSD</strong>
+<span>Format</span><strong>CSV officiel dynamique; data.frame R fixe dans UlavalSSD</strong>
 </div>
 </div>
 <div class="dataset-pedagogy-band">
@@ -5583,7 +5583,7 @@ Identifier les types d&#39;établissements les plus souvent présents dans la ve
 </p>
 </div>
 <div class="dataset-score-box">
-<span>Potentiel pédagogique</span><strong>27 / 30</strong>
+<span>Potentiel pédagogique</span><strong>26 / 30</strong>
 <div class="dataset-score-track">
 <span class="dataset-score-segment is-filled"></span><span class="dataset-score-segment is-filled"></span><span class="dataset-score-segment is-filled"></span><span class="dataset-score-segment is-filled"></span><span class="dataset-score-segment is-filled"></span>
 </div>
@@ -5621,13 +5621,13 @@ Résultats R
 </div>
 <div class="dataset-r-stats">
 <div class="dataset-r-stat">
-<span>Lignes déclarées</span><strong>1 712 lignes et 10 variables dans UlavalSSD 0.2.0</strong>
+<span>Lignes déclarées</span><strong>1 712 lignes dans UlavalSSD 0.2.0; 2 988 lignes dans le CSV officiel consulté le 2026-06-20</strong>
 </div>
 <div class="dataset-r-stat">
-<span>Colonnes déclarées</span><strong>10 colonnes dans la version pédagogique</strong>
+<span>Colonnes déclarées</span><strong>10 colonnes dans UlavalSSD; 14 colonnes après préparation locale; 20 colonnes dans le CSV officiel</strong>
 </div>
 <div class="dataset-r-stat">
-<span>Format</span><strong>CSV officiel; data.frame R nettoyé dans UlavalSSD</strong>
+<span>Format</span><strong>CSV officiel dynamique; data.frame R fixe dans UlavalSSD</strong>
 </div>
 <div class="dataset-r-stat">
 <span>Aperçu</span><strong>Métadonnées</strong>
@@ -5667,7 +5667,7 @@ Québec
 unite
 </td>
 <td>
-Condamnation publiée pour un ét…
+Condamnation publiée dans la ve…
 </td>
 </tr>
 <tr>
@@ -5683,7 +5683,7 @@ Introduction à intermédiaire
 format
 </td>
 <td>
-CSV officiel; data.frame R nett…
+CSV officiel dynamique; data.fr…
 </td>
 </tr>
 </tbody>
@@ -5721,13 +5721,13 @@ Rédiger un court article de données sur les infractions alimentaires à Montr�
 <div class="dataset-activity-card">
 <span>60-90 minutes</span><strong>Laboratoire - Condamnations alimentaires</strong>
 <p>
-Quels types d&#39;établissements apparaissent le plus souvent dans la version pédagogique?
+Quels types d&#39;établissements apparaissent le plus souvent dans la version pédagogique, et que peut-on conclure sans dénominateur?
 </p>
 </div>
 <div class="dataset-activity-card">
 <span>2-3 heures</span><strong>Mini-projet - Condamnations alimentaires</strong>
 <p>
-Produire un court article reproductible sur les infractions alimentaires.
+Produire un court article reproductible sur les condamnations alimentaires sans interprétation sensationnaliste.
 </p>
 </div>
 </div>
@@ -5736,11 +5736,68 @@ Produire un court article reproductible sur les infractions alimentaires.
 <div class="dataset-detail-content">
 <section id="pourquoi-ce-jeu-est-intéressant" class="level2">
 <h2 class="anchored" data-anchor-id="pourquoi-ce-jeu-est-intéressant">Pourquoi ce jeu est intéressant</h2>
-<p>Ce jeu est utilisé dans l’aventure 3 de STT-1100 pour placer les personnes étudiantes dans une posture de journalisme de données. Il donne un contexte concret pour pratiquer les variables catégorielles, le nettoyage de texte, les dates, les tableaux de fréquences et une interprétation prudente de données publiques.</p>
-<p>Question d’analyse : quels types d’infractions et d’établissements apparaissent le plus souvent dans la version pédagogique du fichier?</p>
+<p>Ce jeu place les personnes étudiantes dans une situation proche du journalisme de données : une liste publique de condamnations, des noms d’établissements, des descriptions textuelles, des dates, des montants d’amende et un besoin immédiat de prudence. Il est utile pour enseigner les tableaux de fréquences, le nettoyage de chaînes, la conversion de montants et la communication responsable de résultats publics.</p>
+<p>La fiche porte sur la version pédagogique <code>UlavalSSD::listecondamnation</code>, utilisée dans l’aventure 3 de STT-1100. Cette version est fixe, alors que la ressource officielle Données Québec est mise à jour régulièrement. Les deux doivent donc être distinguées dans toute analyse.</p>
 </section>
-<section id="source" class="level2">
-<h2 class="anchored" data-anchor-id="source">Source</h2>
+<section id="ce-qui-a-été-vérifié" class="level2">
+<h2 class="anchored" data-anchor-id="ce-qui-a-été-vérifié">Ce qui a été vérifié</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Élément vérifié</th>
+<th>Résultat</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Fiche officielle</td>
+<td>Données Québec, jeu “Condamnations des établissements alimentaires et condamnations concernant le bien-être des animaux”</td>
+</tr>
+<tr class="even">
+<td>Producteur</td>
+<td>Ministère de l’Agriculture, des Pêcheries et de l’Alimentation</td>
+</tr>
+<tr class="odd">
+<td>Ressource officielle</td>
+<td><code>Liste des condamnations</code>, CSV actif</td>
+</tr>
+<tr class="even">
+<td>Licence officielle</td>
+<td>Attribution (CC-BY 4.0) selon l’API CKAN</td>
+</tr>
+<tr class="odd">
+<td>Fréquence officielle</td>
+<td>Quotidienne selon l’API CKAN</td>
+</tr>
+<tr class="even">
+<td>Dernière modification officielle observée</td>
+<td>2026-06-20 09:45:22 pour la ressource CSV</td>
+</tr>
+<tr class="odd">
+<td>Taille officielle observée</td>
+<td>1 738 609 octets</td>
+</tr>
+<tr class="even">
+<td>CSV officiel consulté</td>
+<td>2 988 lignes et 20 colonnes</td>
+</tr>
+<tr class="odd">
+<td>Version pédagogique</td>
+<td><code>UlavalSSD</code> 0.2.0, 1 712 lignes et 10 colonnes avant préparation</td>
+</tr>
+<tr class="even">
+<td>Préparation locale</td>
+<td>1 712 lignes et 14 colonnes après ajout de variables dérivées</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="source-et-conditions" class="level2">
+<h2 class="anchored" data-anchor-id="source-et-conditions">Source et conditions</h2>
 <table class="caption-top table">
 <thead>
 <tr class="header">
@@ -5750,48 +5807,58 @@ Produire un court article reproductible sur les infractions alimentaires.
 </thead>
 <tbody>
 <tr class="odd">
-<td>Producteur officiel</td>
-<td>Ministère de l’Agriculture, des Pêcheries et de l’Alimentation</td>
-</tr>
-<tr class="even">
 <td>Portail</td>
 <td>Données Québec</td>
 </tr>
+<tr class="even">
+<td>Producteur</td>
+<td>Ministère de l’Agriculture, des Pêcheries et de l’Alimentation</td>
+</tr>
 <tr class="odd">
-<td>Jeu utilisé dans le cours</td>
-<td><code>UlavalSSD::listecondamnation</code></td>
+<td>Page officielle</td>
+<td><a href="https://www.donneesquebec.ca/recherche/dataset/condamnations-des-etablissements-alimentaires-et-condamnations-concernant-le-bien-etre-des-anim" class="uri">https://www.donneesquebec.ca/recherche/dataset/condamnations-des-etablissements-alimentaires-et-condamnations-concernant-le-bien-etre-des-anim</a></td>
 </tr>
 <tr class="even">
-<td>URL officielle</td>
-<td><a href="https://www.donneesquebec.ca/recherche/dataset/condamnations-des-etablissements-alimentaires-et-condamnations-concernant-le-bien-etre-des-anim" class="uri">https://www.donneesquebec.ca/recherche/dataset/condamnations-des-etablissements-alimentaires-et-condamnations-concernant-le-bien-etre-des-anim</a></td>
+<td>API CKAN vérifiée</td>
+<td><a href="https://www.donneesquebec.ca/recherche/api/3/action/package_show?id=condamnations-des-etablissements-alimentaires-et-condamnations-concernant-le-bien-etre-des-anim" class="uri">https://www.donneesquebec.ca/recherche/api/3/action/package_show?id=condamnations-des-etablissements-alimentaires-et-condamnations-concernant-le-bien-etre-des-anim</a></td>
+</tr>
+<tr class="odd">
+<td>CSV officiel</td>
+<td><a href="https://www.donneesquebec.ca/recherche/dataset/515374ee-ce34-464f-9875-7d1af3fa9b2a/resource/40105615-3abf-414b-bcba-182e8f2c5eb2/download/listecondamnation.csv" class="uri">https://www.donneesquebec.ca/recherche/dataset/515374ee-ce34-464f-9875-7d1af3fa9b2a/resource/40105615-3abf-414b-bcba-182e8f2c5eb2/download/listecondamnation.csv</a></td>
+</tr>
+<tr class="even">
+<td>Page Québec.ca liée au registre</td>
+<td><a href="https://www.quebec.ca/sante/alimentation/surveillance-plaintes/condamnations-etablissements-alimentaires" class="uri">https://www.quebec.ca/sante/alimentation/surveillance-plaintes/condamnations-etablissements-alimentaires</a></td>
 </tr>
 <tr class="odd">
 <td>Licence</td>
-<td>Attribution (CC-BY 4.0) selon les métadonnées CKAN vérifiées le 2026-06-20</td>
+<td>Attribution (CC-BY 4.0) pour la ressource officielle; paquet <code>UlavalSSD</code> sous licence MIT</td>
 </tr>
 <tr class="even">
-<td>Date d’accès</td>
-<td>2026-06-20</td>
+<td>Redistribution locale</td>
+<td>Le CSV préparé sert aux vérifications et aux activités locales; les lignes nominatives ne sont pas intégrées au rendu public de la fiche.</td>
 </tr>
 <tr class="odd">
-<td>Statut</td>
-<td>source officielle vérifiée; version pédagogique nettoyée dans UlavalSSD</td>
+<td>Date d’accès de cette fiche</td>
+<td>2026-06-20</td>
 </tr>
 </tbody>
 </table>
 </section>
 <section id="ce-que-représente-une-ligne" class="level2">
 <h2 class="anchored" data-anchor-id="ce-que-représente-une-ligne">Ce que représente une ligne</h2>
-<p>Une ligne représente une condamnation publiée pour un établissement alimentaire dans la version pédagogique du jeu. La ressource officielle Données Québec peut évoluer; la version <code>UlavalSSD</code> utilisée dans STT-1100 est fixe.</p>
+<p>Une ligne de la version pédagogique représente une condamnation publiée dans le jeu <code>UlavalSSD::listecondamnation</code>. La ligne décrit un exploitant, un établissement ou une raison sociale, une infraction, un lieu, des dates et un montant d’amende.</p>
+<p>L’unité statistique n’est pas un restaurant au sens général. C’est une condamnation publiée. Un même établissement peut apparaître plus d’une fois, et une fréquence élevée dans la table ne donne pas un taux de risque sans connaître le nombre total d’établissements comparables.</p>
 </section>
 <section id="variables-principales" class="level2">
 <h2 class="anchored" data-anchor-id="variables-principales">Variables principales</h2>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 25%">
-<col style="width: 25%">
-<col style="width: 25%">
-<col style="width: 25%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -5799,68 +5866,107 @@ Produire un court article reproductible sur les infractions alimentaires.
 <th>Type</th>
 <th>Description</th>
 <th>Exemple</th>
+<th>Point de vigilance</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td><code>Nom_exploitant</code></td>
 <td>caractère</td>
-<td>Nom de l’exploitant</td>
-<td>9390-5172 QUEBEC INC.</td>
+<td>Nom légal ou administratif de l’exploitant</td>
+<td><code>EXPLOITANT EXEMPLE</code></td>
+<td>Donnée publique, mais nominative</td>
 </tr>
 <tr class="even">
 <td><code>Raison_sociale</code></td>
 <td>caractère</td>
 <td>Nom commercial de l’établissement</td>
-<td>DELI 365</td>
+<td><code>NOM COMMERCIAL</code></td>
+<td>Peut être absent ou différer du nom légal</td>
 </tr>
 <tr class="odd">
 <td><code>Description_infraction</code></td>
 <td>caractère</td>
 <td>Description textuelle de l’infraction</td>
-<td>Les lieux doivent être propres</td>
+<td><code>LES LIEUX ... DOIVENT ETRE PROPRES</code></td>
+<td>Texte long, souvent en majuscules et sans accents</td>
 </tr>
 <tr class="even">
 <td><code>Adresse_lieu_infraction</code></td>
 <td>caractère</td>
-<td>Adresse du lieu associé à l’infraction</td>
-<td>Montréal, QC</td>
+<td>Adresse associée au lieu d’infraction</td>
+<td><code>123 RUE EXEMPLE MONTREAL</code></td>
+<td>À utiliser avec prudence dans les cartes et exemples publics</td>
 </tr>
 <tr class="odd">
 <td><code>Type_etablissement</code></td>
 <td>caractère</td>
-<td>Type d’établissement</td>
-<td>RESTAURANT</td>
+<td>Catégorie administrative de l’établissement</td>
+<td><code>RESTAURANT</code></td>
+<td>Catégories à nettoyer avant comparaison</td>
 </tr>
 <tr class="even">
 <td><code>Date_infraction</code></td>
-<td>date-heure</td>
+<td>date</td>
 <td>Date de l’infraction</td>
-<td>2021-11-09</td>
+<td><code>2021-11-09</code></td>
+<td>Ne pas confondre avec la date de jugement</td>
 </tr>
 <tr class="odd">
 <td><code>Date_jugement</code></td>
-<td>date-heure</td>
+<td>date</td>
 <td>Date du jugement</td>
-<td>2023-03-13</td>
+<td><code>2023-03-13</code></td>
+<td>Peut être longtemps après l’infraction</td>
 </tr>
 <tr class="even">
 <td><code>Date_publication</code></td>
-<td>date-heure</td>
-<td>Date de publication</td>
-<td>2023-03-13</td>
+<td>date</td>
+<td>Date de publication dans le registre</td>
+<td><code>2023-03-13</code></td>
+<td>Sert souvent d’axe temporel public</td>
 </tr>
 <tr class="odd">
 <td><code>Amende</code></td>
 <td>caractère</td>
-<td>Montant de l’amende dans la version brute</td>
-<td>5 000 $</td>
+<td>Montant d’amende tel qu’affiché</td>
+<td><code>5 000 $</code></td>
+<td>À convertir avant analyse numérique</td>
 </tr>
 <tr class="even">
 <td><code>SOC_NOM_ARTCL_INFRC</code></td>
 <td>caractère</td>
-<td>Nature de l’infraction selon la législation</td>
-<td>INSALUBRITE</td>
+<td>Nature ou regroupement de l’infraction</td>
+<td><code>INSALUBRITE</code></td>
+<td>Des valeurs peuvent être manquantes</td>
+</tr>
+<tr class="odd">
+<td><code>amende_num</code></td>
+<td>numérique</td>
+<td>Montant d’amende après préparation locale</td>
+<td><code>5000</code></td>
+<td>Variable dérivée, non présente dans la version brute</td>
+</tr>
+<tr class="even">
+<td><code>ville_montreal</code></td>
+<td>logique</td>
+<td>Détection simple de Montréal dans l’adresse</td>
+<td><code>TRUE</code></td>
+<td>Détection approximative par chaîne de caractères</td>
+</tr>
+<tr class="odd">
+<td><code>delai_infraction_jugement_jours</code></td>
+<td>entier</td>
+<td>Délai entre infraction et jugement</td>
+<td><code>489</code></td>
+<td>Mesure administrative, pas un délai sanitaire</td>
+</tr>
+<tr class="even">
+<td><code>delai_jugement_publication_jours</code></td>
+<td>entier</td>
+<td>Délai entre jugement et publication</td>
+<td><code>0</code></td>
+<td>Peut varier selon les dossiers</td>
 </tr>
 </tbody>
 </table>
@@ -5868,6 +5974,10 @@ Produire un court article reproductible sur les infractions alimentaires.
 <section id="taille-et-structure" class="level2">
 <h2 class="anchored" data-anchor-id="taille-et-structure">Taille et structure</h2>
 <table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
 <thead>
 <tr class="header">
 <th>Élément</th>
@@ -5876,49 +5986,186 @@ Produire un court article reproductible sur les infractions alimentaires.
 </thead>
 <tbody>
 <tr class="odd">
-<td>Nombre de lignes</td>
-<td>1 712 lignes dans UlavalSSD 0.2.0</td>
+<td>Version officielle consultée</td>
+<td>2 988 lignes et 20 colonnes</td>
 </tr>
 <tr class="even">
-<td>Nombre de colonnes</td>
-<td>10 colonnes</td>
+<td>Version pédagogique <code>UlavalSSD</code></td>
+<td>1 712 lignes et 10 colonnes</td>
 </tr>
 <tr class="odd">
-<td>Structure</td>
-<td>Tableau administratif avec texte, dates et montants</td>
+<td>Version préparée localement</td>
+<td>1 712 lignes et 14 colonnes</td>
 </tr>
 <tr class="even">
-<td>Format</td>
-<td>CSV officiel; <code>data.frame</code> R nettoyé dans UlavalSSD</td>
+<td>Format officiel</td>
+<td>CSV</td>
 </tr>
 <tr class="odd">
-<td>Couverture géographique</td>
-<td>Québec</td>
+<td>Format pédagogique</td>
+<td><code>data.frame</code> R dans <code>UlavalSSD</code></td>
 </tr>
 <tr class="even">
-<td>Dernière modification officielle observée</td>
-<td>2026-06-20 selon CKAN</td>
+<td>Format préparé local</td>
+<td>CSV ignoré par Git dans <code>data/processed/condamnations-alimentaires-quebec/</code></td>
+</tr>
+<tr class="odd">
+<td>Niveau pédagogique recommandé</td>
+<td>Introduction à intermédiaire</td>
 </tr>
 </tbody>
 </table>
 </section>
-<section id="concepts-enseignables" class="level2">
-<h2 class="anchored" data-anchor-id="concepts-enseignables">Concepts enseignables</h2>
+<section id="lecture-statistique" class="level2">
+<h2 class="anchored" data-anchor-id="lecture-statistique">Lecture statistique</h2>
+<p>La première analyse doit être descriptive. Les questions solides portent sur la composition de la table : types d’établissements, montants d’amende, délais administratifs et catégories d’infraction.</p>
+<p>Trois erreurs doivent être évitées :</p>
 <ul>
-<li>compter des catégories et interpréter des fréquences;</li>
-<li>nettoyer des chaînes de caractères;</li>
-<li>transformer un montant en variable numérique;</li>
-<li>manipuler des dates;</li>
-<li>communiquer des résultats publics sans stigmatiser inutilement.</li>
+<li>parler de “risque” par type d’établissement sans dénominateur fiable;</li>
+<li>conclure qu’un lieu est dangereux à partir d’une condamnation publique isolée;</li>
+<li>confondre la date d’infraction, la date de jugement et la date de publication.</li>
 </ul>
+<p>Dans <code>UlavalSSD</code> 0.2.0, les quatre modalités observées de <code>Type_etablissement</code> sont liées aux restaurants. Le CSV officiel courant est plus large et contient aussi des catégories comme l’épicerie, la pâtisserie, la ferme laitière et le bien-être animal. Cette différence justifie de nommer précisément la version analysée.</p>
+</section>
+<section id="résultats-r-vérifiés" class="level2">
+<h2 class="anchored" data-anchor-id="résultats-r-vérifiés">Résultats R vérifiés</h2>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Contrôle</th>
+<th style="text-align: right;">Résultat dans <code>UlavalSSD</code> 0.2.0</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Lignes</td>
+<td style="text-align: right;">1 712</td>
+</tr>
+<tr class="even">
+<td>Colonnes avant préparation</td>
+<td style="text-align: right;">10</td>
+</tr>
+<tr class="odd">
+<td>Colonnes après préparation</td>
+<td style="text-align: right;">14</td>
+</tr>
+<tr class="even">
+<td>Amendes converties manquantes</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="odd">
+<td>Amende médiane</td>
+<td style="text-align: right;">1 000 $</td>
+</tr>
+<tr class="even">
+<td>Montant maximal observé</td>
+<td style="text-align: right;">10 500 $</td>
+</tr>
+<tr class="odd">
+<td>Lignes détectées à Montréal</td>
+<td style="text-align: right;">759</td>
+</tr>
+<tr class="even">
+<td>Délai médian entre infraction et jugement</td>
+<td style="text-align: right;">280 jours</td>
+</tr>
+<tr class="odd">
+<td>Délai médian entre jugement et publication</td>
+<td style="text-align: right;">3 jours</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="score-zéro-déchet" class="level2">
+<h2 class="anchored" data-anchor-id="score-zéro-déchet">Score zéro déchet</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 30%">
+<col style="width: 40%">
+<col style="width: 30%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Dimension</th>
+<th style="text-align: right;">Score</th>
+<th>Justification</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Contexte québécois</td>
+<td style="text-align: right;">3</td>
+<td>Le jeu porte sur des condamnations publiques au Québec.</td>
+</tr>
+<tr class="even">
+<td>Accessibilité pédagogique</td>
+<td style="text-align: right;">3</td>
+<td>Les variables principales sont lisibles et concrètes.</td>
+</tr>
+<tr class="odd">
+<td>Qualité documentaire</td>
+<td style="text-align: right;">3</td>
+<td>La ressource officielle expose la licence, la fréquence, le producteur et le CSV.</td>
+</tr>
+<tr class="even">
+<td>Potentiel de nettoyage</td>
+<td style="text-align: right;">3</td>
+<td>Les montants, les dates, les textes et les catégories demandent un nettoyage utile.</td>
+</tr>
+<tr class="odd">
+<td>Potentiel de visualisation</td>
+<td style="text-align: right;">3</td>
+<td>Les fréquences, montants et délais se visualisent clairement.</td>
+</tr>
+<tr class="even">
+<td>Potentiel de statistique descriptive</td>
+<td style="text-align: right;">3</td>
+<td>Les tableaux de fréquences et résumés numériques sont immédiats.</td>
+</tr>
+<tr class="odd">
+<td>Potentiel d’inférence</td>
+<td style="text-align: right;">1</td>
+<td>L’absence de dénominateur limite fortement toute inférence.</td>
+</tr>
+<tr class="even">
+<td>Potentiel de modélisation</td>
+<td style="text-align: right;">1</td>
+<td>La modélisation serait fragile sans population de référence.</td>
+</tr>
+<tr class="odd">
+<td>Potentiel de discussion éthique</td>
+<td style="text-align: right;">3</td>
+<td>Les noms, adresses et interprétations publiques exigent une communication responsable.</td>
+</tr>
+<tr class="even">
+<td>Réutilisabilité dans plusieurs cours</td>
+<td style="text-align: right;">3</td>
+<td>Le jeu convient à STT-1100, visualisation, nettoyage et communication.</td>
+</tr>
+</tbody>
+</table>
+<p>Total : 26 sur 30.</p>
 </section>
 <section id="activité-courte" class="level2">
 <h2 class="anchored" data-anchor-id="activité-courte">Activité courte</h2>
-<p><a href="../../datasets/condamnations-alimentaires-quebec/activite-courte.html">Laboratoire</a> : Quels types d’établissements apparaissent le plus souvent dans la version pédagogique?</p>
+<p>En 60 à 90 minutes, demander aux personnes étudiantes d’identifier l’unité statistique, de produire un tableau de fréquences de <code>Type_etablissement</code>, de convertir <code>Amende</code> en variable numérique et de rédiger une conclusion qui refuse explicitement l’interprétation en taux de risque.</p>
 </section>
 <section id="activité-longue" class="level2">
 <h2 class="anchored" data-anchor-id="activité-longue">Activité longue</h2>
-<p><a href="../../datasets/condamnations-alimentaires-quebec/activite-longue.html">Mini-projet</a> : Produire un court article reproductible sur les infractions alimentaires.</p>
+<p>En 2 à 3 heures, demander un court article de données reproductible. Le texte doit inclure un tableau, un graphique, un nettoyage documenté de <code>Amende</code>, une comparaison de dates et une note de prudence sur les noms et adresses.</p>
+</section>
+<section id="questions-pédagogiques-possibles" class="level2">
+<h2 class="anchored" data-anchor-id="questions-pédagogiques-possibles">Questions pédagogiques possibles</h2>
+<ol type="1">
+<li>Quelle est l’unité statistique : établissement, infraction ou condamnation?</li>
+<li>Pourquoi un nombre de condamnations n’est-il pas un taux de risque?</li>
+<li>Quelle différence y a-t-il entre date d’infraction, date de jugement et date de publication?</li>
+<li>Pourquoi faut-il convertir <code>Amende</code> avant de calculer une médiane?</li>
+<li>Comment regrouper des catégories textuelles sans cacher une information importante?</li>
+<li>Quelles informations faut-il éviter de mettre en évidence inutilement dans une visualisation publique?</li>
+<li>Pourquoi la version <code>UlavalSSD</code> et le CSV officiel ne doivent-ils pas être mélangés?</li>
+<li>Quelle phrase de conclusion serait descriptive sans être sensationnaliste?</li>
+</ol>
 </section>
 <section id="code-r-minimal" class="level2">
 <h2 class="anchored" data-anchor-id="code-r-minimal">Code R minimal</h2>
@@ -5931,41 +6178,58 @@ Produire un court article reproductible sur les infractions alimentaires.
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>condamnations <span class="ot">&lt;-</span> listecondamnation <span class="sc">|&gt;</span></span>
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">amende_num =</span> <span class="fu">parse_number</span>(Amende, <span class="at">locale =</span> <span class="fu">locale</span>(<span class="at">grouping_mark =</span> <span class="st">&quot; &quot;</span>)),</span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">ville_montreal =</span> <span class="fu">str_detect</span>(Adresse_lieu_infraction, <span class="fu">regex</span>(<span class="st">&quot;MONTREAL|MONTRÉAL&quot;</span>, <span class="at">ignore_case =</span> <span class="cn">TRUE</span>))</span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>condamnations <span class="sc">|&gt;</span></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(Type_etablissement, <span class="at">sort =</span> <span class="cn">TRUE</span>) <span class="sc">|&gt;</span></span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice_head</span>(<span class="at">n =</span> <span class="dv">8</span>)</span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>condamnations <span class="sc">|&gt;</span></span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(amende_num)) <span class="sc">|&gt;</span></span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Type_etablissement) <span class="sc">|&gt;</span></span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>    <span class="at">n =</span> <span class="fu">n</span>(),</span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>    <span class="at">amende_mediane =</span> <span class="fu">median</span>(amende_num),</span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>    <span class="at">.groups =</span> <span class="st">&quot;drop&quot;</span></span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
-<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(n))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">across</span>(<span class="fu">c</span>(Date_infraction, Date_jugement, Date_publication), as.Date),</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">amende_num =</span> <span class="fu">parse_number</span>(Amende, <span class="at">locale =</span> <span class="fu">locale</span>(<span class="at">grouping_mark =</span> <span class="st">&quot; &quot;</span>)),</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">ville_montreal =</span> <span class="fu">str_detect</span>(</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>      Adresse_lieu_infraction,</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>      <span class="fu">regex</span>(<span class="st">&quot;MONTREAL|MONTRÉAL&quot;</span>, <span class="at">ignore_case =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>    ),</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">delai_infraction_jugement_jours =</span> <span class="fu">as.integer</span>(Date_jugement <span class="sc">-</span> Date_infraction),</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">delai_jugement_publication_jours =</span> <span class="fu">as.integer</span>(Date_publication <span class="sc">-</span> Date_jugement)</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>condamnations <span class="sc">|&gt;</span></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(Type_etablissement, <span class="at">sort =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>condamnations <span class="sc">|&gt;</span></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>    <span class="at">n =</span> <span class="fu">n</span>(),</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>    <span class="at">amende_mediane =</span> <span class="fu">median</span>(amende_num),</span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>    <span class="at">amende_max =</span> <span class="fu">max</span>(amende_num),</span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>    <span class="at">delai_median_infraction_jugement =</span> <span class="fu">median</span>(delai_infraction_jugement_jours),</span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>    <span class="at">delai_median_jugement_publication =</span> <span class="fu">median</span>(delai_jugement_publication_jours)</span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>condamnations <span class="sc">|&gt;</span></span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(Type_etablissement, <span class="at">sort =</span> <span class="cn">TRUE</span>) <span class="sc">|&gt;</span></span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">reorder</span>(Type_etablissement, n), <span class="at">y =</span> n)) <span class="sc">+</span></span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>() <span class="sc">+</span></span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>() <span class="sc">+</span></span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">&quot;Type d&#39;établissement&quot;</span>,</span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">&quot;Nombre de condamnations dans la version pédagogique&quot;</span>,</span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">&quot;Condamnations par type d&#39;établissement&quot;</span></span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="limites-et-précautions" class="level2">
 <h2 class="anchored" data-anchor-id="limites-et-précautions">Limites et précautions</h2>
 <ul>
-<li>La version <code>UlavalSSD</code> est une version pédagogique nettoyée et fixe.</li>
-<li>Les fréquences observées ne doivent pas être interprétées comme un taux de risque sans dénominateur fiable.</li>
-<li>La variable <code>Amende</code> doit être nettoyée avant toute analyse numérique.</li>
-<li>Le fichier contient des noms et des adresses publics; les visualisations et textes doivent éviter le sensationnalisme.</li>
+<li>La version <code>UlavalSSD</code> est une version pédagogique fixe; elle ne remplace pas le CSV officiel courant.</li>
+<li>Les fréquences sont des nombres de condamnations publiées, pas des taux d’infraction.</li>
+<li>Il manque un dénominateur fiable : nombre d’établissements par type, exposition temporelle, volume d’activité.</li>
+<li>Les noms, raisons sociales et adresses sont publics, mais doivent être traités avec retenue dans un contexte pédagogique.</li>
+<li>Les catégories textuelles peuvent changer entre la version pédagogique et la ressource officielle.</li>
+<li>Les délais entre infraction, jugement et publication sont administratifs; ils ne mesurent pas directement un risque sanitaire.</li>
 </ul>
 </section>
 <section id="extensions" class="level2">
 <h2 class="anchored" data-anchor-id="extensions">Extensions</h2>
 <ul>
-<li>Extension intro : produire un tableau des types d’établissements.</li>
-<li>Extension intermédiaire : nettoyer <code>Amende</code> et comparer les montants.</li>
-<li>Extension avancée : créer une courte analyse temporelle par date de publication.</li>
-<li>Extension communication scientifique : rédiger un article de données avec une note méthodologique.</li>
+<li>Extension intro : produire un tableau de fréquences de <code>Type_etablissement</code>.</li>
+<li>Extension nettoyage : convertir <code>Amende</code> et vérifier les montants extrêmes.</li>
+<li>Extension dates : comparer les délais entre infraction, jugement et publication.</li>
+<li>Extension communication : rédiger un court article qui distingue observation descriptive et interprétation abusive.</li>
 </ul>
 </section>
 </div>

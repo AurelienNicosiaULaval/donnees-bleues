@@ -2,18 +2,21 @@ id: condamnations-alimentaires-quebec
 title: "Condamnations des établissements alimentaires au Québec"
 short_title: "Condamnations alimentaires"
 theme: "Santé publique et alimentation"
-source_name: "Données Québec / MAPAQ; version nettoyée dans UlavalSSD"
+source_name: "Données Québec / MAPAQ; version pédagogique fixe dans UlavalSSD"
 source_url: "https://www.donneesquebec.ca/recherche/dataset/condamnations-des-etablissements-alimentaires-et-condamnations-concernant-le-bien-etre-des-anim"
+source_data_url: "https://www.donneesquebec.ca/recherche/dataset/515374ee-ce34-464f-9875-7d1af3fa9b2a/resource/40105615-3abf-414b-bcba-182e8f2c5eb2/download/listecondamnation.csv"
 license: "Attribution (CC-BY 4.0) selon les métadonnées CKAN vérifiées le 2026-06-20; paquet UlavalSSD sous licence MIT"
 access_date: "2026-06-20"
 geography: "Québec"
-unit: "Condamnation publiée pour un établissement alimentaire"
-data_type: "Tabulaire, administratif, catégoriel, dates"
-format: "CSV officiel; data.frame R nettoyé dans UlavalSSD"
-n_rows: "1 712 lignes et 10 variables dans UlavalSSD 0.2.0"
-n_cols: "10 colonnes dans la version pédagogique"
-update_frequency: "Ressource officielle modifiée le 2026-06-20 selon CKAN; version UlavalSSD fixe"
+unit: "Condamnation publiée dans la version pédagogique du jeu"
+data_type: "Tableau administratif, variables catégorielles, dates, montants"
+format: "CSV officiel dynamique; data.frame R fixe dans UlavalSSD"
+n_rows: "1 712 lignes dans UlavalSSD 0.2.0; 2 988 lignes dans le CSV officiel consulté le 2026-06-20"
+n_cols: "10 colonnes dans UlavalSSD; 14 colonnes après préparation locale; 20 colonnes dans le CSV officiel"
+update_frequency: "Quotidienne pour la ressource officielle; version UlavalSSD fixe pour le cours"
 level: "Introduction à intermédiaire"
+processed_file: "data/processed/condamnations-alimentaires-quebec/condamnations_alimentaires_quebec.csv"
+embed_processed_preview: false
 organisme: "Ministère de l'Agriculture, des Pêcheries et de l'Alimentation"
 territoire: "Québec"
 taille_approximative: "CSV officiel de 1 738 609 octets vérifié le 2026-06-20"
@@ -54,11 +57,11 @@ zero_waste:
   potentiel_nettoyage: 3
   potentiel_visualisation: 3
   potentiel_statistique_descriptive: 3
-  potentiel_inference: 2
+  potentiel_inference: 1
   potentiel_modelisation: 1
   potentiel_ethique: 3
   reutilisabilite: 3
 contributor_name: "Aurélien Nicosia"
-contributor_role: "Responsable pédagogique STT-1100"
-status: "source officielle vérifiée; version pédagogique nettoyée dans UlavalSSD"
-notes: "Utilisé dans l'aventure 3 de STT-1100. La version du cours conserve les colonnes essentielles pour travailler les variables catégorielles, les dates et les amendes."
+contributor_role: "Révision pédagogique et statistique"
+status: "source officielle vérifiée; version pédagogique fixe dans UlavalSSD"
+notes: "Utilisé dans l'aventure 3 de STT-1100. La ressource officielle est dynamique et contient 20 colonnes; la version pédagogique UlavalSSD 0.2.0 conserve 10 colonnes pour travailler les variables catégorielles, les dates et les amendes. Les lignes nominatives ne sont pas intégrées au rendu public de la fiche."

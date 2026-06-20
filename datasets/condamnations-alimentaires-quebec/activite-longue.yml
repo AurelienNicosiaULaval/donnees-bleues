@@ -1,6 +1,6 @@
 id: condamnations-alimentaires-quebec-long
 title: "Mini-projet - Condamnations alimentaires"
-question: "Produire un court article reproductible sur les infractions alimentaires."
+question: "Produire un court article reproductible sur les condamnations alimentaires sans interprétation sensationnaliste."
 dataset_id: condamnations-alimentaires-quebec
 dataset_title: "Condamnations des établissements alimentaires au Québec"
 activity_url: "datasets/condamnations-alimentaires-quebec/activite-longue.qmd"
@@ -22,6 +22,5 @@ materials:
   - "source officielle"
   - "notes enseignantes"
 advanced_math_stats: false
-teacher_notes: "Demander une section sur les limites, surtout l'absence de dénominateur."
-status: "prêt à adapter"
-
+teacher_notes: "Demander une section sur les limites, surtout l'absence de dénominateur, les délais administratifs et les précautions liées aux noms et adresses publics."
+status: "source officielle vérifiée le 2026-06-20"

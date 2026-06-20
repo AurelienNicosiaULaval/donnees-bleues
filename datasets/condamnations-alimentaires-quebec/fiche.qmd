@@ -18,67 +18,137 @@ render_dataset_detail_header()
 
 ## Pourquoi ce jeu est intéressant
 
-Ce jeu est utilisé dans l'aventure 3 de STT-1100 pour placer les personnes étudiantes dans une posture de journalisme de données. Il donne un contexte concret pour pratiquer les variables catégorielles, le nettoyage de texte, les dates, les tableaux de fréquences et une interprétation prudente de données publiques.
+Ce jeu place les personnes étudiantes dans une situation proche du journalisme de données : une liste publique de condamnations, des noms d'établissements, des descriptions textuelles, des dates, des montants d'amende et un besoin immédiat de prudence. Il est utile pour enseigner les tableaux de fréquences, le nettoyage de chaînes, la conversion de montants et la communication responsable de résultats publics.
 
-Question d'analyse : quels types d'infractions et d'établissements apparaissent le plus souvent dans la version pédagogique du fichier?
+La fiche porte sur la version pédagogique `UlavalSSD::listecondamnation`, utilisée dans l'aventure 3 de STT-1100. Cette version est fixe, alors que la ressource officielle Données Québec est mise à jour régulièrement. Les deux doivent donc être distinguées dans toute analyse.
 
-## Source
+## Ce qui a été vérifié
+
+| Élément vérifié | Résultat |
+|---|---|
+| Fiche officielle | Données Québec, jeu "Condamnations des établissements alimentaires et condamnations concernant le bien-être des animaux" |
+| Producteur | Ministère de l'Agriculture, des Pêcheries et de l'Alimentation |
+| Ressource officielle | `Liste des condamnations`, CSV actif |
+| Licence officielle | Attribution (CC-BY 4.0) selon l'API CKAN |
+| Fréquence officielle | Quotidienne selon l'API CKAN |
+| Dernière modification officielle observée | 2026-06-20 09:45:22 pour la ressource CSV |
+| Taille officielle observée | 1 738 609 octets |
+| CSV officiel consulté | 2 988 lignes et 20 colonnes |
+| Version pédagogique | `UlavalSSD` 0.2.0, 1 712 lignes et 10 colonnes avant préparation |
+| Préparation locale | 1 712 lignes et 14 colonnes après ajout de variables dérivées |
+
+## Source et conditions
 
 | Champ | Information |
 |---|---|
-| Producteur officiel | Ministère de l'Agriculture, des Pêcheries et de l'Alimentation |
 | Portail | Données Québec |
-| Jeu utilisé dans le cours | `UlavalSSD::listecondamnation` |
-| URL officielle | <https://www.donneesquebec.ca/recherche/dataset/condamnations-des-etablissements-alimentaires-et-condamnations-concernant-le-bien-etre-des-anim> |
-| Licence | Attribution (CC-BY 4.0) selon les métadonnées CKAN vérifiées le 2026-06-20 |
-| Date d'accès | 2026-06-20 |
-| Statut | source officielle vérifiée; version pédagogique nettoyée dans UlavalSSD |
+| Producteur | Ministère de l'Agriculture, des Pêcheries et de l'Alimentation |
+| Page officielle | <https://www.donneesquebec.ca/recherche/dataset/condamnations-des-etablissements-alimentaires-et-condamnations-concernant-le-bien-etre-des-anim> |
+| API CKAN vérifiée | <https://www.donneesquebec.ca/recherche/api/3/action/package_show?id=condamnations-des-etablissements-alimentaires-et-condamnations-concernant-le-bien-etre-des-anim> |
+| CSV officiel | <https://www.donneesquebec.ca/recherche/dataset/515374ee-ce34-464f-9875-7d1af3fa9b2a/resource/40105615-3abf-414b-bcba-182e8f2c5eb2/download/listecondamnation.csv> |
+| Page Québec.ca liée au registre | <https://www.quebec.ca/sante/alimentation/surveillance-plaintes/condamnations-etablissements-alimentaires> |
+| Licence | Attribution (CC-BY 4.0) pour la ressource officielle; paquet `UlavalSSD` sous licence MIT |
+| Redistribution locale | Le CSV préparé sert aux vérifications et aux activités locales; les lignes nominatives ne sont pas intégrées au rendu public de la fiche. |
+| Date d'accès de cette fiche | 2026-06-20 |
 
 ## Ce que représente une ligne
 
-Une ligne représente une condamnation publiée pour un établissement alimentaire dans la version pédagogique du jeu. La ressource officielle Données Québec peut évoluer; la version `UlavalSSD` utilisée dans STT-1100 est fixe.
+Une ligne de la version pédagogique représente une condamnation publiée dans le jeu `UlavalSSD::listecondamnation`. La ligne décrit un exploitant, un établissement ou une raison sociale, une infraction, un lieu, des dates et un montant d'amende.
+
+L'unité statistique n'est pas un restaurant au sens général. C'est une condamnation publiée. Un même établissement peut apparaître plus d'une fois, et une fréquence élevée dans la table ne donne pas un taux de risque sans connaître le nombre total d'établissements comparables.
 
 ## Variables principales
 
-| Variable | Type | Description | Exemple |
-|---|---|---|---|
-| `Nom_exploitant` | caractère | Nom de l'exploitant | 9390-5172 QUEBEC INC. |
-| `Raison_sociale` | caractère | Nom commercial de l'établissement | DELI 365 |
-| `Description_infraction` | caractère | Description textuelle de l'infraction | Les lieux doivent être propres |
-| `Adresse_lieu_infraction` | caractère | Adresse du lieu associé à l'infraction | Montréal, QC |
-| `Type_etablissement` | caractère | Type d'établissement | RESTAURANT |
-| `Date_infraction` | date-heure | Date de l'infraction | 2021-11-09 |
-| `Date_jugement` | date-heure | Date du jugement | 2023-03-13 |
-| `Date_publication` | date-heure | Date de publication | 2023-03-13 |
-| `Amende` | caractère | Montant de l'amende dans la version brute | 5 000 $ |
-| `SOC_NOM_ARTCL_INFRC` | caractère | Nature de l'infraction selon la législation | INSALUBRITE |
+| Variable | Type | Description | Exemple | Point de vigilance |
+|---|---|---|---|---|
+| `Nom_exploitant` | caractère | Nom légal ou administratif de l'exploitant | `EXPLOITANT EXEMPLE` | Donnée publique, mais nominative |
+| `Raison_sociale` | caractère | Nom commercial de l'établissement | `NOM COMMERCIAL` | Peut être absent ou différer du nom légal |
+| `Description_infraction` | caractère | Description textuelle de l'infraction | `LES LIEUX ... DOIVENT ETRE PROPRES` | Texte long, souvent en majuscules et sans accents |
+| `Adresse_lieu_infraction` | caractère | Adresse associée au lieu d'infraction | `123 RUE EXEMPLE MONTREAL` | À utiliser avec prudence dans les cartes et exemples publics |
+| `Type_etablissement` | caractère | Catégorie administrative de l'établissement | `RESTAURANT` | Catégories à nettoyer avant comparaison |
+| `Date_infraction` | date | Date de l'infraction | `2021-11-09` | Ne pas confondre avec la date de jugement |
+| `Date_jugement` | date | Date du jugement | `2023-03-13` | Peut être longtemps après l'infraction |
+| `Date_publication` | date | Date de publication dans le registre | `2023-03-13` | Sert souvent d'axe temporel public |
+| `Amende` | caractère | Montant d'amende tel qu'affiché | `5 000 $` | À convertir avant analyse numérique |
+| `SOC_NOM_ARTCL_INFRC` | caractère | Nature ou regroupement de l'infraction | `INSALUBRITE` | Des valeurs peuvent être manquantes |
+| `amende_num` | numérique | Montant d'amende après préparation locale | `5000` | Variable dérivée, non présente dans la version brute |
+| `ville_montreal` | logique | Détection simple de Montréal dans l'adresse | `TRUE` | Détection approximative par chaîne de caractères |
+| `delai_infraction_jugement_jours` | entier | Délai entre infraction et jugement | `489` | Mesure administrative, pas un délai sanitaire |
+| `delai_jugement_publication_jours` | entier | Délai entre jugement et publication | `0` | Peut varier selon les dossiers |
 
 ## Taille et structure
 
 | Élément | Information |
 |---|---|
-| Nombre de lignes | 1 712 lignes dans UlavalSSD 0.2.0 |
-| Nombre de colonnes | 10 colonnes |
-| Structure | Tableau administratif avec texte, dates et montants |
-| Format | CSV officiel; `data.frame` R nettoyé dans UlavalSSD |
-| Couverture géographique | Québec |
-| Dernière modification officielle observée | 2026-06-20 selon CKAN |
+| Version officielle consultée | 2 988 lignes et 20 colonnes |
+| Version pédagogique `UlavalSSD` | 1 712 lignes et 10 colonnes |
+| Version préparée localement | 1 712 lignes et 14 colonnes |
+| Format officiel | CSV |
+| Format pédagogique | `data.frame` R dans `UlavalSSD` |
+| Format préparé local | CSV ignoré par Git dans `data/processed/condamnations-alimentaires-quebec/` |
+| Niveau pédagogique recommandé | Introduction à intermédiaire |
 
-## Concepts enseignables
+## Lecture statistique
 
-- compter des catégories et interpréter des fréquences;
-- nettoyer des chaînes de caractères;
-- transformer un montant en variable numérique;
-- manipuler des dates;
-- communiquer des résultats publics sans stigmatiser inutilement.
+La première analyse doit être descriptive. Les questions solides portent sur la composition de la table : types d'établissements, montants d'amende, délais administratifs et catégories d'infraction.
+
+Trois erreurs doivent être évitées :
+
+- parler de "risque" par type d'établissement sans dénominateur fiable;
+- conclure qu'un lieu est dangereux à partir d'une condamnation publique isolée;
+- confondre la date d'infraction, la date de jugement et la date de publication.
+
+Dans `UlavalSSD` 0.2.0, les quatre modalités observées de `Type_etablissement` sont liées aux restaurants. Le CSV officiel courant est plus large et contient aussi des catégories comme l'épicerie, la pâtisserie, la ferme laitière et le bien-être animal. Cette différence justifie de nommer précisément la version analysée.
+
+## Résultats R vérifiés
+
+| Contrôle | Résultat dans `UlavalSSD` 0.2.0 |
+|---|---:|
+| Lignes | 1 712 |
+| Colonnes avant préparation | 10 |
+| Colonnes après préparation | 14 |
+| Amendes converties manquantes | 0 |
+| Amende médiane | 1 000 $ |
+| Montant maximal observé | 10 500 $ |
+| Lignes détectées à Montréal | 759 |
+| Délai médian entre infraction et jugement | 280 jours |
+| Délai médian entre jugement et publication | 3 jours |
+
+## Score zéro déchet
+
+| Dimension | Score | Justification |
+|---|---:|---|
+| Contexte québécois | 3 | Le jeu porte sur des condamnations publiques au Québec. |
+| Accessibilité pédagogique | 3 | Les variables principales sont lisibles et concrètes. |
+| Qualité documentaire | 3 | La ressource officielle expose la licence, la fréquence, le producteur et le CSV. |
+| Potentiel de nettoyage | 3 | Les montants, les dates, les textes et les catégories demandent un nettoyage utile. |
+| Potentiel de visualisation | 3 | Les fréquences, montants et délais se visualisent clairement. |
+| Potentiel de statistique descriptive | 3 | Les tableaux de fréquences et résumés numériques sont immédiats. |
+| Potentiel d'inférence | 1 | L'absence de dénominateur limite fortement toute inférence. |
+| Potentiel de modélisation | 1 | La modélisation serait fragile sans population de référence. |
+| Potentiel de discussion éthique | 3 | Les noms, adresses et interprétations publiques exigent une communication responsable. |
+| Réutilisabilité dans plusieurs cours | 3 | Le jeu convient à STT-1100, visualisation, nettoyage et communication. |
+
+Total : 26 sur 30.
 
 ## Activité courte
 
-[Laboratoire](activite-courte.qmd) : Quels types d'établissements apparaissent le plus souvent dans la version pédagogique?
+En 60 à 90 minutes, demander aux personnes étudiantes d'identifier l'unité statistique, de produire un tableau de fréquences de `Type_etablissement`, de convertir `Amende` en variable numérique et de rédiger une conclusion qui refuse explicitement l'interprétation en taux de risque.
 
 ## Activité longue
 
-[Mini-projet](activite-longue.qmd) : Produire un court article reproductible sur les infractions alimentaires.
+En 2 à 3 heures, demander un court article de données reproductible. Le texte doit inclure un tableau, un graphique, un nettoyage documenté de `Amende`, une comparaison de dates et une note de prudence sur les noms et adresses.
+
+## Questions pédagogiques possibles
+
+1. Quelle est l'unité statistique : établissement, infraction ou condamnation?
+2. Pourquoi un nombre de condamnations n'est-il pas un taux de risque?
+3. Quelle différence y a-t-il entre date d'infraction, date de jugement et date de publication?
+4. Pourquoi faut-il convertir `Amende` avant de calculer une médiane?
+5. Comment regrouper des catégories textuelles sans cacher une information importante?
+6. Quelles informations faut-il éviter de mettre en évidence inutilement dans une visualisation publique?
+7. Pourquoi la version `UlavalSSD` et le CSV officiel ne doivent-ils pas être mélangés?
+8. Quelle phrase de conclusion serait descriptive sans être sensationnaliste?
 
 ## Code R minimal
 
@@ -92,38 +162,55 @@ library(UlavalSSD)
 
 condamnations <- listecondamnation |>
   mutate(
+    across(c(Date_infraction, Date_jugement, Date_publication), as.Date),
     amende_num = parse_number(Amende, locale = locale(grouping_mark = " ")),
-    ville_montreal = str_detect(Adresse_lieu_infraction, regex("MONTREAL|MONTRÉAL", ignore_case = TRUE))
+    ville_montreal = str_detect(
+      Adresse_lieu_infraction,
+      regex("MONTREAL|MONTRÉAL", ignore_case = TRUE)
+    ),
+    delai_infraction_jugement_jours = as.integer(Date_jugement - Date_infraction),
+    delai_jugement_publication_jours = as.integer(Date_publication - Date_jugement)
+  )
+
+condamnations |>
+  count(Type_etablissement, sort = TRUE)
+
+condamnations |>
+  summarise(
+    n = n(),
+    amende_mediane = median(amende_num),
+    amende_max = max(amende_num),
+    delai_median_infraction_jugement = median(delai_infraction_jugement_jours),
+    delai_median_jugement_publication = median(delai_jugement_publication_jours)
   )
 
 condamnations |>
   count(Type_etablissement, sort = TRUE) |>
-  slice_head(n = 8)
-
-condamnations |>
-  filter(!is.na(amende_num)) |>
-  group_by(Type_etablissement) |>
-  summarise(
-    n = n(),
-    amende_mediane = median(amende_num),
-    .groups = "drop"
-  ) |>
-  arrange(desc(n))
+  ggplot(aes(x = reorder(Type_etablissement, n), y = n)) +
+  geom_col() +
+  coord_flip() +
+  labs(
+    x = "Type d'établissement",
+    y = "Nombre de condamnations dans la version pédagogique",
+    title = "Condamnations par type d'établissement"
+  )
 ```
 
 ## Limites et précautions
 
-- La version `UlavalSSD` est une version pédagogique nettoyée et fixe.
-- Les fréquences observées ne doivent pas être interprétées comme un taux de risque sans dénominateur fiable.
-- La variable `Amende` doit être nettoyée avant toute analyse numérique.
-- Le fichier contient des noms et des adresses publics; les visualisations et textes doivent éviter le sensationnalisme.
+- La version `UlavalSSD` est une version pédagogique fixe; elle ne remplace pas le CSV officiel courant.
+- Les fréquences sont des nombres de condamnations publiées, pas des taux d'infraction.
+- Il manque un dénominateur fiable : nombre d'établissements par type, exposition temporelle, volume d'activité.
+- Les noms, raisons sociales et adresses sont publics, mais doivent être traités avec retenue dans un contexte pédagogique.
+- Les catégories textuelles peuvent changer entre la version pédagogique et la ressource officielle.
+- Les délais entre infraction, jugement et publication sont administratifs; ils ne mesurent pas directement un risque sanitaire.
 
 ## Extensions
 
-- Extension intro : produire un tableau des types d'établissements.
-- Extension intermédiaire : nettoyer `Amende` et comparer les montants.
-- Extension avancée : créer une courte analyse temporelle par date de publication.
-- Extension communication scientifique : rédiger un article de données avec une note méthodologique.
+- Extension intro : produire un tableau de fréquences de `Type_etablissement`.
+- Extension nettoyage : convertir `Amende` et vérifier les montants extrêmes.
+- Extension dates : comparer les délais entre infraction, jugement et publication.
+- Extension communication : rédiger un court article qui distingue observation descriptive et interprétation abusive.
 
 ```{r}
 #| label: dataset-detail-footer
@@ -131,4 +218,3 @@ condamnations |>
 #| results: asis
 render_dataset_detail_footer()
 ```
-

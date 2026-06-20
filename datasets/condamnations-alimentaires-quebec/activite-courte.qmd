@@ -7,7 +7,7 @@ embed-resources: true
 
 ## Contexte
 
-Ce laboratoire reprend le jeu `listecondamnation` de l'aventure 3 de STT-1100. Il sert à travailler les variables catégorielles et la communication prudente de résultats publics.
+Ce laboratoire reprend le jeu `listecondamnation` de l'aventure 3 de STT-1100. Il sert à travailler les variables catégorielles, le nettoyage de montants et la communication prudente de résultats publics.
 
 ## Objectifs d'apprentissage
 
@@ -18,17 +18,17 @@ Ce laboratoire reprend le jeu `listecondamnation` de l'aventure 3 de STT-1100. I
 
 ## Question directrice
 
-Quels types d'établissements apparaissent le plus souvent dans la version pédagogique?
+Quels types d'établissements apparaissent le plus souvent dans la version pédagogique, et que peut-on conclure sans dénominateur?
 
 ## Consignes
 
 1. Charger `UlavalSSD` et afficher la structure de `listecondamnation`.
-2. Identifier les variables catégorielles principales.
+2. Identifier l'unité statistique de la table.
 3. Produire un tableau de fréquences pour `Type_etablissement`.
 4. Nettoyer `Amende` pour obtenir une variable numérique.
-5. Rédiger une conclusion en expliquant ce que le tableau permet et ne permet pas de dire.
+5. Calculer la médiane et le maximum des amendes.
+6. Rédiger une conclusion en expliquant ce que le tableau permet et ne permet pas de dire.
 
 ## Pistes de solution
 
-Une bonne réponse présente les catégories principales et précise l'unité statistique. Une réponse excellente explique pourquoi il manque un dénominateur pour parler de risque par type d'établissement.
-
+Une bonne réponse présente les catégories principales et précise que l'unité statistique est une condamnation publiée. Une réponse excellente explique pourquoi il manque un dénominateur pour parler de risque par type d'établissement.

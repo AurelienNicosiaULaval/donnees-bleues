@@ -1,6 +1,6 @@
 id: condamnations-alimentaires-quebec-court
 title: "Laboratoire - Condamnations alimentaires"
-question: "Quels types d'établissements apparaissent le plus souvent dans la version pédagogique?"
+question: "Quels types d'établissements apparaissent le plus souvent dans la version pédagogique, et que peut-on conclure sans dénominateur?"
 dataset_id: condamnations-alimentaires-quebec
 dataset_title: "Condamnations des établissements alimentaires au Québec"
 activity_url: "datasets/condamnations-alimentaires-quebec/activite-courte.qmd"
@@ -20,6 +20,5 @@ materials:
   - "code"
   - "package UlavalSSD"
 advanced_math_stats: false
-teacher_notes: "Insister sur le fait que compter des cas ne donne pas un taux de risque."
-status: "prêt à adapter"
-
+teacher_notes: "Insister sur l'unité statistique, la conversion de l'amende et le fait que compter des condamnations ne donne pas un taux de risque."
+status: "source officielle vérifiée le 2026-06-20"
