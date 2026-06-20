@@ -7,7 +7,7 @@ embed-resources: true
 
 ## Contexte
 
-Cette activité utilise l'indicateur ISQ sur l'écart de diplomation et de qualification après sept ans entre les élèves des déciles IMSE 1 et 10. Elle met l'accent sur une interprétation prudente des taux et des écarts en points de pourcentage.
+Cette activité utilise l'indicateur ISQ sur l'écart de diplomation et de qualification après sept ans entre les élèves associés aux déciles IMSE 1 et 10. Elle met l'accent sur une interprétation prudente des taux agrégés et des écarts en points de pourcentage.
 
 ## Objectifs d'apprentissage
 
@@ -21,13 +21,13 @@ Fiche : [Cohortes de diplomation](fiche.qmd)
 
 Source : Institut de la statistique du Québec, indicateur "Écart de diplomation selon le milieu socio-économique".
 
-Licence ou conditions : droit d'auteur du Gouvernement du Québec; reproduction soumise aux conditions de l'Institut de la statistique du Québec, sauf permission ou indication contraire.
+Conditions : la reproduction de l'information du site de l'ISQ est interdite sauf permission écrite. Pour l'activité, utiliser l'export officiel comme source consultée et citer l'ISQ.
 
 ## Métadonnées pédagogiques
 
 | Champ | Information |
 |---|---|
-| Question directrice | Comment comparer les taux de diplomation des déciles IMSE 1 et 10? |
+| Question directrice | Comment comparer correctement deux taux de diplomation agrégés? |
 | Concepts | Taux; comparaison de groupes; statistique descriptive |
 | Niveau | Introductif |
 | Type | Exercice; exploration de données |
@@ -40,9 +40,9 @@ Licence ou conditions : droit d'auteur du Gouvernement du Québec; reproduction 
 ## Consignes
 
 1. Importer l'export XLSX officiel de l'ISQ.
-2. Extraire les lignes correspondant aux années scolaires.
+2. Repérer les lignes dont la première colonne est une année scolaire au format `YYYY-YYYY`.
 3. Comparer les taux des déciles IMSE 1 et 10 pour trois années.
-4. Calculer ou relire l'écart en points de pourcentage.
+4. Vérifier que l'écart correspond au taux du décile 1 moins le taux du décile 10.
 5. Rédiger une conclusion descriptive et prudente.
 
 ## Questions
@@ -53,7 +53,7 @@ Licence ou conditions : droit d'auteur du Gouvernement du Québec; reproduction 
 
 ## Pistes de solution
 
-Une solution acceptable présente un tableau avec les deux taux et l'écart, puis une phrase qui évite toute conclusion causale.
+Une solution acceptable présente un tableau avec les deux taux et l'écart, puis une phrase qui évite toute conclusion causale. La phrase doit préciser qu'il s'agit d'un indicateur agrégé fondé sur le lieu de résidence.
 
 ## Prolongement
 

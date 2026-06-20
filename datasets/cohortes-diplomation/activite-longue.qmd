@@ -7,7 +7,7 @@ embed-resources: true
 
 ## Contexte
 
-Cette activité demande de produire un mini-rapport sur l'évolution de l'écart de diplomation et de qualification entre les élèves des déciles IMSE 1 et 10.
+Cette activité demande de produire un mini-rapport sur l'évolution de l'écart de diplomation et de qualification entre les élèves associés aux déciles IMSE 1 et 10. Le travail vise autant la visualisation que la prudence d'interprétation.
 
 ## Objectifs d'apprentissage
 
@@ -22,7 +22,7 @@ Fiche : [Cohortes de diplomation](fiche.qmd)
 
 Source : Institut de la statistique du Québec, indicateur "Écart de diplomation selon le milieu socio-économique".
 
-Licence ou conditions : droit d'auteur du Gouvernement du Québec; reproduction soumise aux conditions de l'Institut de la statistique du Québec, sauf permission ou indication contraire.
+Conditions : la reproduction de l'information du site de l'ISQ est interdite sauf permission écrite. Le mini-rapport doit citer la page officielle et l'export utilisé.
 
 ## Métadonnées pédagogiques
 
@@ -41,10 +41,11 @@ Licence ou conditions : droit d'auteur du Gouvernement du Québec; reproduction 
 ## Consignes
 
 1. Importer l'export XLSX officiel de l'ISQ.
-2. Nettoyer les lignes de notes afin de conserver les années scolaires.
+2. Nettoyer l'export en conservant seulement les lignes dont la première colonne est une année scolaire.
 3. Visualiser les deux taux dans un premier graphique.
 4. Visualiser l'écart en points de pourcentage dans un second graphique.
-5. Discuter les écarts observés et les limites d'interprétation.
+5. Vérifier que l'écart publié correspond aux deux taux importés.
+6. Discuter les tendances observées et les limites d'interprétation.
 
 ## Questions
 
@@ -54,8 +55,8 @@ Licence ou conditions : droit d'auteur du Gouvernement du Québec; reproduction 
 
 ## Pistes de solution
 
-Le mini-rapport devrait inclure deux graphiques, un tableau descriptif et une conclusion limitée aux tendances descriptives.
+Le mini-rapport devrait inclure deux graphiques, un tableau descriptif et une conclusion limitée aux tendances descriptives. Une section doit expliquer pourquoi l'indicateur ne mesure pas une situation familiale individuelle.
 
 ## Prolongement
 
-Comparer la lecture du graphique des taux avec celle du graphique de l'écart.
+Comparer la lecture du graphique des taux avec celle du graphique de l'écart, puis expliquer lequel est le plus clair pour communiquer l'évolution des inégalités.

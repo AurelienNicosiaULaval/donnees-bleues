@@ -4,19 +4,22 @@ short_title: "Diplomation"
 theme: "Éducation"
 source_name: "Institut de la statistique du Québec"
 source_url: "https://statistique.quebec.ca/fr/produit/publication/indicateurs-progres-ecart-diplomation"
-license: "Droit d'auteur du Gouvernement du Québec; reproduction soumise aux conditions de l'Institut de la statistique du Québec, sauf permission ou indication contraire."
-access_date: "2026-06-19"
+source_data_url: "https://statistique.quebec.ca/api/fr/produit/graphique/ecart-diplomation-selon-milieu-socio-economique/export"
+license: "Reproduction de l'information du site de l'Institut de la statistique du Québec interdite sauf permission écrite."
+access_date: "2026-06-20"
 geography: "Québec"
 unit: "Année scolaire de fin de suivi d'une cohorte, avec taux par décile IMSE"
 data_type: "Tableau agrégé, indicateur, temporel"
 format: "XLSX téléchargeable depuis l'export du graphique ISQ"
-n_rows: "13 années scolaires de fin de suivi dans l'export consulté; 30 lignes dans le fichier XLSX incluant notes et source"
-n_cols: "4 colonnes de données dans l'export XLSX"
+n_rows: "13 années scolaires de fin de suivi dans la table préparée; 30 lignes dans l'export XLSX incluant titres, notes et source"
+n_cols: "5 colonnes dans la table préparée; 4 colonnes de données dans l'export XLSX"
 update_frequency: "Annuelle"
 level: "Introduction"
+processed_file: "data/processed/cohortes-diplomation/ecart_diplomation_imse.csv"
+embed_processed_preview: false
 organisme: "Institut de la statistique du Québec"
 territoire: "Québec"
-taille_approximative: "Données agrégées, quelques centaines de lignes selon les regroupements"
+taille_approximative: "13 observations annuelles préparées à partir de l'export XLSX"
 niveau_pedagogique_recommande: "Introduction"
 variables_principales:
   - annee_scolaire_fin_suivi
@@ -24,7 +27,6 @@ variables_principales:
   - taux_diplomation_decile_imse_10
   - ecart_points_pourcentage
   - cohorte_entree_secondaire
-  - decile_imse
 idees_mini_projets:
   - "Comparer les taux de diplomation des élèves des déciles IMSE 1 et 10."
   - "Visualiser l'évolution de l'écart en points de pourcentage."
@@ -48,13 +50,15 @@ concepts:
 zero_waste:
   contexte_quebecois: 3
   accessibilite_pedagogique: 3
-  qualite_documentaire: 2
-  potentiel_nettoyage: 1
+  qualite_documentaire: 3
+  potentiel_nettoyage: 2
   potentiel_visualisation: 3
   potentiel_statistique_descriptive: 3
-  potentiel_inference: 2
-  potentiel_modelisation: 2
+  potentiel_inference: 1
+  potentiel_modelisation: 1
   potentiel_ethique: 3
   reutilisabilite: 3
-status: "source documentée"
-notes: "Page ISQ et export XLSX consultés le 2026-06-19. Le fichier vérifié couvre l'écart de diplomation selon les déciles IMSE 1 et 10, pas les découpages par sexe ou région."
+contributor_name: "Aurélien Nicosia"
+contributor_role: "Révision pédagogique et statistique"
+status: "source officielle vérifiée; export XLSX préparé localement"
+notes: "Page ISQ, droits de reproduction et export XLSX consultés le 2026-06-20. La table préparée couvre 2011-2012 à 2023-2024 et l'écart entre les déciles IMSE 1 et 10; elle ne contient pas les découpages par sexe, réseau ou région."

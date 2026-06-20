@@ -18,73 +18,95 @@ render_dataset_detail_header()
 
 ## Pourquoi ce jeu est intéressant
 
-Ce jeu de données permet d'étudier l'écart de diplomation et de qualification après sept ans entre les élèves du décile 1 et du décile 10 de l'indice de milieu socioéconomique (IMSE). Il convient particulièrement à l'enseignement des statistiques descriptives, des comparaisons de groupes, de la visualisation de tendances et de la communication prudente d'indicateurs publics.
+Ce jeu de données permet d'étudier un indicateur public d'inégalités scolaires : l'écart entre le taux de diplomation et de qualification après sept ans des élèves associés au décile 1 de l'IMSE et celui des élèves associés au décile 10. Il est bien adapté à une première activité de statistique descriptive, parce qu'il combine des taux, un écart en points de pourcentage, une série temporelle courte et une question d'interprétation sociale.
 
-Le contexte est sensible : les taux agrégés peuvent appuyer une discussion sur l'éducation et les politiques publiques, mais ils ne doivent pas être interprétés comme des mesures individuelles. L'ISQ précise que l'IMSE utilisé dans cet indicateur est fondé sur le lieu de résidence de l'élève au moment de la première inscription au secondaire.
+La fiche doit être utilisée comme une étude de cas descriptive. Les données ne décrivent pas des élèves individuels. Elles ne permettent pas non plus d'attribuer causalement un écart de diplomation au milieu socioéconomique. L'intérêt pédagogique vient précisément de cette tension : le jeu est simple à visualiser, mais demande une communication statistique prudente.
 
-## Source
+## Ce qui a été vérifié
+
+| Élément vérifié | Résultat |
+|---|---|
+| Page officielle | Page ISQ "Écart de diplomation selon le milieu socio-économique", consultée le 2026-06-20 |
+| Export de données | Export XLSX du graphique ISQ, consulté le 2026-06-20 |
+| Période couverte | 2011-2012 à 2023-2024 |
+| Valeur récente publiée | 24,9 points de pourcentage en 2023-2024 |
+| Cohérence interne | L'écart publié correspond au taux du décile IMSE 1 moins le taux du décile IMSE 10, à l'arrondissement près |
+| Notes méthodologiques | L'IMSE est attribué selon le lieu de résidence au moment de la première inscription au secondaire |
+| Conditions de reproduction | La reproduction de l'information du site de l'ISQ est interdite sauf permission écrite |
+
+## Source et conditions
 
 | Champ | Information |
 |---|---|
 | Source | Institut de la statistique du Québec |
-| Organisme producteur | Institut de la statistique du Québec; source statistique : Ministère de l'Éducation du Québec |
-| Territoire | Québec |
-| URL officielle | <https://statistique.quebec.ca/fr/produit/publication/indicateurs-progres-ecart-diplomation> |
+| Page officielle | <https://statistique.quebec.ca/fr/produit/publication/indicateurs-progres-ecart-diplomation> |
 | Export de données | <https://statistique.quebec.ca/api/fr/produit/graphique/ecart-diplomation-selon-milieu-socio-economique/export> |
-| Licence ou conditions | Droit d'auteur du Gouvernement du Québec; reproduction soumise aux conditions de l'Institut de la statistique du Québec, sauf permission ou indication contraire |
-| Date d'accès | 2026-06-19 |
-| Fréquence de mise à jour | Annuelle |
+| Source statistique indiquée dans l'export | Ministère de l'Éducation du Québec |
+| Territoire | Québec |
 | Dernière mise à jour indiquée par l'ISQ | 21 août 2025 |
-| Statut | source documentée |
+| Fréquence de mise à jour | Annuelle |
+| Conditions de reproduction | <https://statistique.quebec.ca/fr/institut/nous-joindre/droits-auteur-permission-reproduction> |
+| Redistribution locale | Le CSV préparé sert aux vérifications et aux activités locales; il n'est pas intégré au rendu public de la fiche. |
+| Date d'accès de cette fiche | 2026-06-20 |
+
+## Définition de l'indicateur
+
+L'indicateur mesure la différence entre deux taux de diplomation et de qualification après sept ans :
+
+1. le taux des élèves dont le lieu de résidence était associé au décile 1 de l'IMSE au moment de la première inscription au secondaire;
+2. le taux des élèves dont le lieu de résidence était associé au décile 10 de l'IMSE au même moment.
+
+Le décile 1 correspond au milieu le plus favorisé dans la définition utilisée par l'ISQ, tandis que le décile 10 correspond au milieu le plus défavorisé. L'écart est exprimé en points de pourcentage.
 
 ## Ce que représente une ligne
 
-Une ligne de la partie tabulaire de l'export représente une année scolaire de fin de suivi de cohorte. Par exemple, la cohorte formée en 2005-2006 est suivie jusqu'en 2011-2012, et la cohorte formée en 2017-2018 est suivie jusqu'en 2023-2024.
+Une ligne de la table préparée représente une année scolaire de fin de suivi d'une cohorte. Par exemple, la cohorte formée en 2005-2006 est suivie jusqu'en 2011-2012, et la cohorte formée en 2017-2018 est suivie jusqu'en 2023-2024.
+
+La table préparée n'est pas une base de microdonnées. Elle contient 13 observations agrégées. Elle sert donc à lire une tendance et à apprendre à formuler une conclusion descriptive limitée.
 
 ## Variables principales
 
-| Variable | Type | Description | Exemple | Remarques pédagogiques |
+| Variable | Type | Description | Exemple | Point de vigilance |
 |---|---|---|---|---|
-| annee_scolaire_fin_suivi | caractère | Année scolaire à la fin du suivi de sept ans | 2023-2024 | Sert d'axe temporel |
-| taux_diplomation_decile_imse_1 | numérique | Taux de diplomation et qualification des élèves du décile 1 de l'IMSE | 88.8 | Groupe le plus favorisé selon la définition de l'ISQ |
-| taux_diplomation_decile_imse_10 | numérique | Taux de diplomation et qualification des élèves du décile 10 de l'IMSE | 63.9 | Groupe le plus défavorisé selon la définition de l'ISQ |
-| ecart_points_pourcentage | numérique | Écart entre les deux taux | 24.9 | Variable principale pour la tendance |
-| cohorte_entree_secondaire | caractère | Cohorte d'entrée au secondaire, déductible de l'année de fin de suivi | 2017-2018 | Le suivi couvre sept ans |
-| decile_imse | caractère | Décile IMSE comparé dans l'indicateur | Décile 1 ou décile 10 | L'indicateur compare seulement les extrêmes |
+| `cohorte_entree_secondaire` | caractère | Cohorte d'entrée au secondaire, déduite de l'année de fin de suivi | `2017-2018` | Variable reconstruite dans le script de préparation |
+| `annee_scolaire_fin_suivi` | caractère | Année scolaire à la fin du suivi de sept ans | `2023-2024` | Sert d'axe temporel |
+| `taux_diplomation_decile_imse_1` | numérique | Taux de diplomation et qualification du décile IMSE 1 | `88.8` | Décile le plus favorisé |
+| `taux_diplomation_decile_imse_10` | numérique | Taux de diplomation et qualification du décile IMSE 10 | `63.9` | Décile le plus défavorisé |
+| `ecart_points_pourcentage` | numérique | Écart entre les deux taux | `24.9` | À interpréter en points de pourcentage, pas en pourcentage relatif |
 
 ## Taille et structure
 
 | Élément | Information |
 |---|---|
-| Nombre de lignes | 13 années scolaires de fin de suivi dans l'export consulté; 30 lignes dans le fichier XLSX incluant notes et source |
-| Nombre de colonnes | 4 colonnes de données dans l'export XLSX |
-| Structure | Tableau agrégé et temporel |
-| Format | XLSX téléchargeable depuis l'export du graphique ISQ |
-| Type de données | Indicateur d'éducation agrégé |
+| Table préparée | 13 lignes et 5 colonnes |
+| Export XLSX brut | 30 lignes, incluant titres, notes méthodologiques et source |
+| Structure | Série temporelle agrégée |
+| Format brut | XLSX téléchargé depuis l'export du graphique ISQ |
+| Format préparé local | CSV ignoré par Git dans `data/processed/cohortes-diplomation/` |
 | Niveau pédagogique recommandé | Introduction |
 
-## Concepts enseignables
+## Lecture statistique
 
-- taux et proportions;
-- comparaison de groupes;
-- séries temporelles;
-- visualisation de tendances;
-- statistiques descriptives;
-- limites d'interprétation des indicateurs agrégés;
-- communication d'écarts sociaux sans conclusion causale abusive.
+La lecture statistique minimale consiste à comparer deux séries de taux, puis à analyser l'écart. La variable centrale est `ecart_points_pourcentage`, car elle résume la différence entre les deux déciles extrêmes.
+
+Une bonne interprétation doit respecter trois contraintes :
+
+- ne pas confondre point de pourcentage et pourcentage relatif;
+- ne pas transformer un indicateur agrégé en diagnostic individuel;
+- ne pas tirer de conclusion causale à partir d'une série de 13 observations agrégées.
 
 ## Score zéro déchet
 
 | Dimension | Score | Justification |
 |---|---:|---|
 | Contexte québécois | 3 | Le jeu porte sur l'éducation au Québec. |
-| Accessibilité pédagogique | 3 | Les variables principales sont proches d'indicateurs courants. |
-| Qualité documentaire | 2 | La page, la méthode et l'export sont documentés, mais la réutilisation doit respecter les conditions de l'ISQ. |
-| Potentiel de nettoyage | 1 | Le jeu est déjà agrégé et l'export contient des lignes de notes à écarter. |
-| Potentiel de visualisation | 3 | L'écart par année scolaire est facile à représenter. |
-| Potentiel de statistique descriptive | 3 | Les comparaisons de taux sont directes. |
-| Potentiel d'inférence | 2 | Des comparaisons sont possibles avec prudence. |
-| Potentiel de modélisation | 2 | Une modélisation exploratoire de tendance est possible. |
+| Accessibilité pédagogique | 3 | Les variables principales sont simples : deux taux et un écart. |
+| Qualité documentaire | 3 | La page officielle fournit la définition, la méthode, les limites et la date de mise à jour. |
+| Potentiel de nettoyage | 2 | L'export contient des titres et notes à exclure, mais la table utile est courte. |
+| Potentiel de visualisation | 3 | Les deux taux et l'écart se visualisent directement. |
+| Potentiel de statistique descriptive | 3 | La comparaison de groupes est immédiate. |
+| Potentiel d'inférence | 1 | L'inférence est très limitée par le caractère agrégé et le faible nombre d'observations. |
+| Potentiel de modélisation | 1 | Une tendance peut être explorée, mais pas modélisée sérieusement sans contexte additionnel. |
 | Potentiel de discussion éthique | 3 | Le jeu soulève des enjeux d'équité, de territoire et de communication responsable. |
 | Réutilisabilité dans plusieurs cours | 3 | Le jeu peut servir en statistique descriptive, visualisation et communication. |
 
@@ -92,28 +114,22 @@ Total : 25 sur 30.
 
 ## Activité courte
 
-En 30 à 45 minutes, demander aux personnes étudiantes de comparer les taux des déciles IMSE 1 et 10 pour quelques années scolaires et de décrire l'écart.
+En 30 à 45 minutes, demander aux personnes étudiantes de lire trois années scolaires, de comparer les deux taux et de formuler une phrase descriptive sur l'écart. L'objectif n'est pas de produire un modèle, mais de distinguer correctement un taux, un écart en points de pourcentage et une conclusion prudente.
 
 ## Activité longue
 
-En 2 à 3 heures, demander de produire un mini-rapport sur l'évolution de l'écart de diplomation selon l'IMSE, avec une discussion des limites de l'indicateur.
-
-## Projets possibles
-
-- Comparer les taux de diplomation des élèves des déciles IMSE 1 et 10.
-- Visualiser l'évolution de l'écart en points de pourcentage.
-- Discuter les limites d'un indicateur agrégé fondé sur le lieu de résidence.
+En 2 à 3 heures, demander de produire un mini-rapport avec deux graphiques : un graphique des deux taux et un graphique de l'écart. Le rapport doit inclure une section explicite sur les limites de l'indicateur.
 
 ## Questions pédagogiques possibles
 
 1. Quelle est la différence entre un taux agrégé et une observation individuelle?
 2. Pourquoi l'écart est-il exprimé en points de pourcentage?
-3. Comment interpréter un indicateur construit sur deux déciles extrêmes?
-4. Quels graphiques conviennent à une série d'années scolaires?
-5. Quelle information l'IMSE mesure-t-il exactement?
-6. Pourquoi faut-il distinguer description et explication causale?
-7. Quelles limites accompagnent une comparaison fondée sur le lieu de résidence?
-8. Comment formuler une conclusion prudente à partir de données agrégées?
+3. Quelle information est perdue quand on compare seulement deux déciles extrêmes?
+4. Pourquoi le lieu de résidence ne doit-il pas être confondu avec la situation familiale réelle?
+5. Quels graphiques conviennent à une série d'années scolaires?
+6. Que peut-on dire descriptivement de l'évolution de l'écart?
+7. Qu'est-ce qu'on ne peut pas conclure avec ces données?
+8. Comment rédiger une conclusion qui évite la causalité abusive?
 
 ## Code R minimal
 
@@ -130,15 +146,39 @@ raw_path <- tempfile(fileext = ".xlsx")
 
 download.file(source_url, raw_path, mode = "wb", quiet = TRUE)
 
-diplomation_raw <- read_excel(raw_path, col_names = FALSE)
+diplomation_raw <- read_excel(raw_path, col_names = FALSE, .name_repair = "minimal")
+names(diplomation_raw) <- paste0("col", seq_along(diplomation_raw))
 
 diplomation <- diplomation_raw |>
-  slice(8:20) |>
-  transmute(
-    annee_scolaire_fin_suivi = as.character(...1),
-    taux_diplomation_decile_imse_1 = as.numeric(...2),
-    taux_diplomation_decile_imse_10 = as.numeric(...3),
-    ecart_points_pourcentage = as.numeric(...4)
+  filter(grepl("^\\d{4}-\\d{4}$", as.character(col1))) |>
+  setNames(c(
+    "annee_scolaire_fin_suivi",
+    "taux_diplomation_decile_imse_1",
+    "taux_diplomation_decile_imse_10",
+    "ecart_points_pourcentage"
+  )) |>
+  mutate(
+    annee_debut_fin_suivi = as.integer(substr(annee_scolaire_fin_suivi, 1, 4)),
+    cohorte_entree_secondaire = paste0(
+      annee_debut_fin_suivi - 6,
+      "-",
+      annee_debut_fin_suivi - 5
+    ),
+    across(
+      c(
+        taux_diplomation_decile_imse_1,
+        taux_diplomation_decile_imse_10,
+        ecart_points_pourcentage
+      ),
+      ~ parse_number(as.character(.x), locale = locale(decimal_mark = "."))
+    )
+  ) |>
+  select(
+    cohorte_entree_secondaire,
+    annee_scolaire_fin_suivi,
+    taux_diplomation_decile_imse_1,
+    taux_diplomation_decile_imse_10,
+    ecart_points_pourcentage
   )
 
 diplomation_long <- diplomation |>
@@ -160,7 +200,15 @@ diplomation_long <- diplomation |>
     )
   )
 
-ggplot(diplomation_long, aes(x = annee_scolaire_fin_suivi, y = taux_diplomation, color = groupe, group = groupe)) +
+ggplot(
+  diplomation_long,
+  aes(
+    x = annee_scolaire_fin_suivi,
+    y = taux_diplomation,
+    color = groupe,
+    group = groupe
+  )
+) +
   geom_line() +
   geom_point() +
   labs(
@@ -173,18 +221,19 @@ ggplot(diplomation_long, aes(x = annee_scolaire_fin_suivi, y = taux_diplomation,
 
 ## Limites et précautions
 
-- L'export vérifié compare les déciles IMSE 1 et 10, et ne fournit pas les découpages par sexe ou région.
+- L'indicateur compare les déciles IMSE 1 et 10; il ne résume pas toute la distribution.
 - Les taux agrégés ne permettent pas de conclure au niveau individuel.
-- L'indicateur IMSE est fondé sur le lieu de résidence, pas sur la situation familiale individuelle.
+- L'IMSE est fondé sur le lieu de résidence, pas sur la situation familiale réelle.
 - Les écarts observés ne suffisent pas à établir une cause.
-- La réutilisation de contenu ISQ doit respecter les conditions de reproduction applicables.
+- La série préparée contient 13 observations, ce qui limite fortement toute modélisation.
+- La réutilisation du contenu ISQ doit respecter les conditions de reproduction applicables.
 
 ## Extensions
 
 - Extension intro : comparer les deux taux pour trois années scolaires.
-- Extension intermédiaire : visualiser l'écart en points de pourcentage.
-- Extension avancée : discuter la sensibilité d'une conclusion selon le choix de l'échelle du graphique.
-- Extension communication scientifique : rédiger une note courte sur les risques d'interprétation des taux agrégés.
+- Extension visualisation : représenter l'écart en points de pourcentage.
+- Extension critique : comparer ce que montre un graphique des taux et ce que montre un graphique des écarts.
+- Extension communication : rédiger une note courte qui distingue résultat descriptif et explication causale.
 
 ```{r}
 #| label: dataset-detail-footer
@@ -192,4 +241,3 @@ ggplot(diplomation_long, aes(x = annee_scolaire_fin_suivi, y = taux_diplomation,
 #| results: asis
 render_dataset_detail_footer()
 ```
-

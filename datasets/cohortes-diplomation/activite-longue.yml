@@ -1,6 +1,6 @@
 id: diplomation-tendances-cohortes-long
 title: "Tendances de diplomation selon l'IMSE"
-question: "Comment l'écart de diplomation évolue-t-il selon les cohortes suivies?"
+question: "Comment l'écart de diplomation évolue-t-il, et quelles limites faut-il expliciter?"
 dataset_id: cohortes-diplomation
 dataset_title: "Cohortes de diplomation"
 activity_url: "datasets/cohortes-diplomation/activite-longue.qmd"
@@ -23,5 +23,5 @@ materials:
   - "données"
   - "notes enseignantes"
 advanced_math_stats: false
-teacher_notes: "Demander une section explicite sur les limites d'un indicateur agrégé fondé sur le lieu de résidence."
-status: "source documentée"
+teacher_notes: "Demander une section explicite sur les limites d'un indicateur agrégé fondé sur le lieu de résidence, ainsi qu'un contrôle de cohérence entre les deux taux et l'écart publié."
+status: "source officielle vérifiée le 2026-06-20"

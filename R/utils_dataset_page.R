@@ -164,7 +164,38 @@ dataset_contributor_badge <- function(metadata) {
 }
 
 dataset_processed_csv <- function(metadata, ctx) {
-  NA_character_
+  if (identical(metadata$embed_processed_preview, FALSE)) {
+    return(NA_character_)
+  }
+
+  id <- dataset_squish(metadata$id, basename(ctx$dataset_dir))
+  declared <- dataset_squish(metadata$processed_file %||% metadata$processed_path, "")
+
+  candidates <- character()
+  if (declared != "") {
+    candidates <- c(candidates, file.path(ctx$root, declared))
+  }
+
+  candidates <- c(
+    candidates,
+    list.files(
+      file.path(ctx$root, "data", "processed", id),
+      pattern = "[.]csv$",
+      full.names = TRUE
+    ),
+    list.files(
+      file.path(ctx$dataset_dir, "data_processed"),
+      pattern = "[.]csv$",
+      full.names = TRUE
+    )
+  )
+
+  candidates <- unique(candidates[file.exists(candidates)])
+  if (length(candidates) == 0L) {
+    NA_character_
+  } else {
+    candidates[[1]]
+  }
 }
 
 dataset_relative_path <- function(path, root) {
@@ -423,7 +454,7 @@ render_dataset_detail_header <- function() {
     contributor_badge,
     '<p class="dataset-hero-summary">', dataset_html_escape(dataset_squish(metadata$unit)), '</p>\n',
     '<div class="dataset-hero-actions">',
-    '<a class="dataset-button" href="#r-en-action">Voir les résultats R</a>',
+    '<a class="dataset-button no-external" href="#r-en-action">Voir les résultats R</a>',
     source_button,
     '</div>\n',
     '</div>\n',
