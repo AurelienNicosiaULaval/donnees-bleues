@@ -1,38 +1,76 @@
 id: qualite-air
-title: "RSQAQ - Stations de la qualité de l'air"
+title: "Stations du réseau de qualité de l'air du Québec"
 short_title: "Stations RSQAQ"
 theme: "Environnement"
-source_name: "Ministère de l’Environnement, de la Lutte contre les changements climatiques, de la Faune et des Parcs"
+source_name: "Données Québec / MELCCFP / RSQAQ"
 source_url: "https://www.donneesquebec.ca/recherche/dataset/rsqaq-stations"
-license: "Attribution (CC-BY 4.0)"
-access_date: "2026-06-01"
-geography: "Québec, hors stations situées sur l'île de Montréal selon la fiche Données Québec"
-unit: "Station de mesure de la qualité de l'air"
-data_type: "Tabulaire, géographique"
-format: "CSV"
-n_rows: "245 lignes pour la ressource 1975-2025"
-n_cols: "10 colonnes"
-update_frequency: "Je ne sais pas encore"
+source_api_url: "https://www.donneesquebec.ca/recherche/api/3/action/package_show?id=rsqaq-stations"
+source_csv_url: "https://www.donneesquebec.ca/recherche/dataset/8656ad05-c174-41c5-9ed7-8c69d308beb9/resource/cebea532-a9e0-4a39-8c2d-54f33d937c73/download/rsqaq_stations_de_la_qualite_de_lair.csv"
+source_secondary_url: "https://www.environnement.gouv.qc.ca/air/reseau-surveillance/Carte.asp"
+license: "Attribution (CC-BY 4.0) selon les métadonnées CKAN vérifiées le 2026-06-21"
+access_date: "2026-06-21"
+geography: "Québec, hors stations situées sur l'île de Montréal selon les métadonnées CKAN"
+unit: "Station de mesure incluse dans le répertoire public RSQAQ"
+data_type: "Répertoire d'infrastructure de mesure, tabulaire, spatial et temporel"
+format: "CSV officiel préparé localement"
+n_rows: "245 stations préparées"
+n_cols: "10 colonnes dans le CSV source; 20 colonnes préparées"
+processed_file: "data/processed/qualite-air/rsqaq_stations.csv"
+type_summary_file: "data/processed/qualite-air/resume_types_milieu_rsqaq_stations.csv"
+region_summary_file: "data/processed/qualite-air/resume_regions_rsqaq_stations.csv"
+missing_summary_file: "data/processed/qualite-air/valeurs_manquantes_rsqaq_stations.csv"
+update_frequency: "Ressource CSV modifiée le 2026-06-19; paquet CKAN modifié le 2026-06-19"
 level: "Introduction à intermédiaire"
+organisme: "MELCCFP"
+territoire: "Québec"
+taille_approximative: "245 stations; 51 sans date de fermeture; 16 régions administratives; 3 types de milieu"
+niveau_pedagogique_recommande: "Introduction à intermédiaire"
+variables_principales:
+  - station_id
+  - station_name
+  - region_code
+  - region_administrative
+  - municipalite
+  - type_milieu
+  - date_ouverture
+  - date_fermeture
+  - station_sans_date_fermeture
+  - latitude
+  - longitude
+idees_mini_projets:
+  - "Comparer les stations sans date de fermeture selon les régions et les types de milieu."
+  - "Visualiser l'évolution du réseau par décennie d'ouverture."
+  - "Construire une carte de points et expliquer pourquoi elle ne mesure pas directement la pollution."
+tags:
+  - qualité de l'air
+  - environnement
+  - Québec
+  - données ouvertes
+  - stations
+  - dates
+  - cartographie
+  - statistique descriptive
 concepts:
   - importation CSV
   - dates
+  - valeurs manquantes
+  - statut préparé
   - données spatiales simples
-  - visualisation
-  - statistique descriptive
   - couverture territoriale
-  - limites d'interprétation
+  - statistique descriptive
+  - communication prudente
 zero_waste:
   contexte_quebecois: 3
   accessibilite_pedagogique: 3
-  qualite_documentaire: 2
-  potentiel_nettoyage: 2
+  qualite_documentaire: 3
+  potentiel_nettoyage: 3
   potentiel_visualisation: 3
   potentiel_statistique_descriptive: 3
   potentiel_inference: 1
   potentiel_modelisation: 1
   potentiel_ethique: 3
   reutilisabilite: 3
-status: "source vérifiée"
-notes: "Cette fiche porte sur le répertoire des stations, pas sur les concentrations de polluants."
-
+status: "source officielle vérifiée; CSV des stations RSQAQ préparé localement"
+notes: "Cette fiche porte sur un répertoire de stations, pas sur les concentrations de polluants. Une date de fermeture manquante est traitée comme une station sans date de fermeture au 2026-06-21, pas comme une preuve administrative indépendante."
+contributor_name: "Aurélien Nicosia"
+contributor_role: "Révision pédagogique et statistique"

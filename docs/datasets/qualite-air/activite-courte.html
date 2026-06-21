@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Stations RSQAQ - activité courte – Données bleues</title>
+<title>Stations RSQAQ - types de milieu et statut préparé – Données bleues</title>
 <style>
 
 code{white-space: pre-wrap;}
@@ -19,6 +19,41 @@ ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
 width: 0.8em;
 margin: 0 0.8em 0.2em -1em;  vertical-align: middle;
+}
+
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+{ counter-reset: source-line 0; }
+pre.numberSource code > span
+{ position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+{ content: counter(source-line);
+position: relative; left: -1em; text-align: right; vertical-align: baseline;
+border: none; display: inline-block;
+-webkit-touch-callout: none; -webkit-user-select: none;
+-khtml-user-select: none; -moz-user-select: none;
+-ms-user-select: none; user-select: none;
+padding: 0 4px; width: 4em;
+}
+pre.numberSource { margin-left: 3em; padding-left: 4px; }
+div.sourceCode
+{ }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -5482,15 +5517,16 @@ grid-template-columns: 1fr;
     <h2 id="toc-title">On this page</h2>
 
   <ul>
-  <li><a href="#stations-rsqaq---activité-courte" id="toc-stations-rsqaq---activité-courte" class="nav-link active" data-scroll-target="#stations-rsqaq---activité-courte">Stations RSQAQ - activité courte</a>
+  <li><a href="#stations-rsqaq---types-de-milieu-et-statut-préparé" id="toc-stations-rsqaq---types-de-milieu-et-statut-préparé" class="nav-link active" data-scroll-target="#stations-rsqaq---types-de-milieu-et-statut-préparé">Stations RSQAQ - types de milieu et statut préparé</a>
   <ul class="collapse">
   <li><a href="#contexte" id="toc-contexte" class="nav-link" data-scroll-target="#contexte">Contexte</a></li>
   <li><a href="#objectifs-dapprentissage" id="toc-objectifs-dapprentissage" class="nav-link" data-scroll-target="#objectifs-dapprentissage">Objectifs d’apprentissage</a></li>
-  <li><a href="#données-utilisées" id="toc-données-utilisées" class="nav-link" data-scroll-target="#données-utilisées">Données utilisées</a></li>
+  <li><a href="#question-directrice" id="toc-question-directrice" class="nav-link" data-scroll-target="#question-directrice">Question directrice</a></li>
+  <li><a href="#données-à-utiliser" id="toc-données-à-utiliser" class="nav-link" data-scroll-target="#données-à-utiliser">Données à utiliser</a></li>
+  <li><a href="#code-de-départ" id="toc-code-de-départ" class="nav-link" data-scroll-target="#code-de-départ">Code de départ</a></li>
   <li><a href="#consignes" id="toc-consignes" class="nav-link" data-scroll-target="#consignes">Consignes</a></li>
   <li><a href="#questions" id="toc-questions" class="nav-link" data-scroll-target="#questions">Questions</a></li>
-  <li><a href="#pistes-de-solution" id="toc-pistes-de-solution" class="nav-link" data-scroll-target="#pistes-de-solution">Pistes de solution</a></li>
-  <li><a href="#prolongement" id="toc-prolongement" class="nav-link" data-scroll-target="#prolongement">Prolongement</a></li>
+  <li><a href="#attendu" id="toc-attendu" class="nav-link" data-scroll-target="#attendu">Attendu</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -5500,7 +5536,7 @@ grid-template-columns: 1fr;
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Stations RSQAQ - activité courte</h1>
+<h1 class="title">Stations RSQAQ - types de milieu et statut préparé</h1>
 </div>
 
 
@@ -5517,32 +5553,81 @@ grid-template-columns: 1fr;
 </header>
 
 
-<section id="stations-rsqaq---activité-courte" class="level1">
-<h1>Stations RSQAQ - activité courte</h1>
+<section id="stations-rsqaq---types-de-milieu-et-statut-préparé" class="level1">
+<h1>Stations RSQAQ - types de milieu et statut préparé</h1>
 <section id="contexte" class="level2">
 <h2 class="anchored" data-anchor-id="contexte">Contexte</h2>
 <p>Vous analysez un répertoire de stations de mesure de la qualité de l’air. Votre tâche est de décrire la structure du réseau, sans interpréter ce fichier comme une mesure de pollution.</p>
+<p>La variable importante de l’activité est <code>station_sans_date_fermeture</code>. Elle est construite à partir de la date de fermeture publiée. Elle doit être décrite comme une règle de préparation, pas comme une preuve administrative indépendante.</p>
 </section>
 <section id="objectifs-dapprentissage" class="level2">
 <h2 class="anchored" data-anchor-id="objectifs-dapprentissage">Objectifs d’apprentissage</h2>
 <ul>
-<li>Importer un fichier CSV.</li>
-<li>Convertir des variables de dates.</li>
-<li>Créer une variable logique.</li>
+<li>Importer une table préparée.</li>
+<li>Identifier l’unité statistique.</li>
+<li>Travailler avec une valeur manquante utile.</li>
 <li>Produire un tableau de fréquences.</li>
+<li>Produire un graphique à barres.</li>
+<li>Formuler une limite d’interprétation.</li>
 </ul>
 </section>
-<section id="données-utilisées" class="level2">
-<h2 class="anchored" data-anchor-id="données-utilisées">Données utilisées</h2>
-<p>Source : ministère de l’Environnement, de la Lutte contre les changements climatiques, de la Faune et des Parcs, RSQAQ - Stations de la qualité de l’air, publié sur Données Québec sous licence Attribution (CC-BY 4.0). Fiche : <a href="../../datasets/qualite-air/fiche.html">RSQAQ - Stations de la qualité de l’air</a>.</p>
+<section id="question-directrice" class="level2">
+<h2 class="anchored" data-anchor-id="question-directrice">Question directrice</h2>
+<p>Comment les stations sans date de fermeture se répartissent-elles selon le type de milieu?</p>
+</section>
+<section id="données-à-utiliser" class="level2">
+<h2 class="anchored" data-anchor-id="données-à-utiliser">Données à utiliser</h2>
+<p>Fichier préparé : <code>data/processed/qualite-air/rsqaq_stations.csv</code>.</p>
+<p>Si le fichier n’est pas présent, exécuter depuis la racine du projet :</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">&quot;datasets/qualite-air/preparation.R&quot;</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="code-de-départ" class="level2">
+<h2 class="anchored" data-anchor-id="code-de-départ">Code de départ</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load libraries</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Import prepared data</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>stations <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;data/processed/qualite-air/rsqaq_stations.csv&quot;</span>,</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">show_col_types =</span> <span class="cn">FALSE</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Count stations by type and prepared status</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>resume_types <span class="ot">&lt;-</span> stations <span class="sc">|&gt;</span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(type_milieu, station_sans_date_fermeture) <span class="sc">|&gt;</span></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">stations =</span> <span class="fu">n</span>(),</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">.groups =</span> <span class="st">&quot;drop&quot;</span></span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>resume_types</span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a><span class="co"># Visualise counts</span></span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(</span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>  resume_types,</span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">aes</span>(<span class="at">x =</span> type_milieu, <span class="at">y =</span> stations, <span class="at">fill =</span> station_sans_date_fermeture)</span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>) <span class="sc">+</span></span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="at">position =</span> <span class="st">&quot;dodge&quot;</span>) <span class="sc">+</span></span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">&quot;Type de milieu&quot;</span>,</span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">&quot;Nombre de stations&quot;</span>,</span>
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a>    <span class="at">fill =</span> <span class="st">&quot;Sans date de fermeture&quot;</span>,</span>
+<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">&quot;Stations RSQAQ par type de milieu&quot;</span>,</span>
+<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="st">&quot;Répertoire des stations, pas mesures de pollution&quot;</span></span>
+<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
 </section>
 <section id="consignes" class="level2">
 <h2 class="anchored" data-anchor-id="consignes">Consignes</h2>
 <ol type="1">
-<li>Importer le fichier CSV.</li>
-<li>Convertir les dates d’ouverture et de fermeture.</li>
-<li>Créer une variable <code>station_active</code>.</li>
-<li>Compter les stations par type de milieu.</li>
+<li>Lire la fiche du jeu de données.</li>
+<li>Expliquer ce que représente une ligne.</li>
+<li>Compter les stations par <code>type_milieu</code>.</li>
+<li>Compter les stations selon <code>station_sans_date_fermeture</code>.</li>
+<li>Produire un graphique comparant les types de milieu.</li>
 <li>Rédiger une phrase qui distingue station de mesure et mesure de qualité de l’air.</li>
 </ol>
 </section>
@@ -5551,18 +5636,14 @@ grid-template-columns: 1fr;
 <ol type="1">
 <li>Combien de stations sont recensées?</li>
 <li>Quels types de milieux sont présents?</li>
-<li>Combien de stations semblent actives selon votre définition?</li>
-<li>Comment une valeur manquante dans <code>DATE_FERMETURE</code> influence-t-elle l’analyse?</li>
+<li>Combien de stations n’ont pas de date de fermeture?</li>
+<li>Pourquoi une date de fermeture manquante doit-elle être interprétée avec prudence?</li>
 <li>Pourquoi ce fichier ne suffit-il pas pour comparer la pollution entre régions?</li>
 </ol>
 </section>
-<section id="pistes-de-solution" class="level2">
-<h2 class="anchored" data-anchor-id="pistes-de-solution">Pistes de solution</h2>
-<p>Une définition possible de station active est : date de fermeture manquante ou postérieure à la date d’analyse. Cette définition doit être présentée comme une règle de travail à vérifier, pas comme une vérité administrative définitive.</p>
-</section>
-<section id="prolongement" class="level2">
-<h2 class="anchored" data-anchor-id="prolongement">Prolongement</h2>
-<p>Créer une visualisation du nombre de stations par région administrative.</p>
+<section id="attendu" class="level2">
+<h2 class="anchored" data-anchor-id="attendu">Attendu</h2>
+<p>Une bonne réponse décrit la structure du répertoire et explicite la règle de statut préparé. Une excellente réponse ajoute une limite sur les stations de Montréal et sur l’absence de mesures de contaminants dans ce fichier.</p>
 
 
 </section>

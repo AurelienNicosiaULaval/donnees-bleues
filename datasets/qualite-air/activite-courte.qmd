@@ -1,46 +1,96 @@
 ---
-title: "Stations RSQAQ - activité courte"
+title: "Stations RSQAQ - types de milieu et statut préparé"
 embed-resources: true
 ---
 
-# Stations RSQAQ - activité courte
+# Stations RSQAQ - types de milieu et statut préparé
 
 ## Contexte
 
 Vous analysez un répertoire de stations de mesure de la qualité de l'air. Votre tâche est de décrire la structure du réseau, sans interpréter ce fichier comme une mesure de pollution.
 
+La variable importante de l'activité est `station_sans_date_fermeture`. Elle est construite à partir de la date de fermeture publiée. Elle doit être décrite comme une règle de préparation, pas comme une preuve administrative indépendante.
+
 ## Objectifs d'apprentissage
 
-- Importer un fichier CSV.
-- Convertir des variables de dates.
-- Créer une variable logique.
+- Importer une table préparée.
+- Identifier l'unité statistique.
+- Travailler avec une valeur manquante utile.
 - Produire un tableau de fréquences.
+- Produire un graphique à barres.
+- Formuler une limite d'interprétation.
 
-## Données utilisées
+## Question directrice
 
-Source : ministère de l'Environnement, de la Lutte contre les changements climatiques, de la Faune et des Parcs, RSQAQ - Stations de la qualité de l'air, publié sur Données Québec sous licence Attribution (CC-BY 4.0). Fiche : [RSQAQ - Stations de la qualité de l'air](fiche.qmd).
+Comment les stations sans date de fermeture se répartissent-elles selon le type de milieu?
+
+## Données à utiliser
+
+Fichier préparé : `data/processed/qualite-air/rsqaq_stations.csv`.
+
+Si le fichier n'est pas présent, exécuter depuis la racine du projet :
+
+```r
+source("datasets/qualite-air/preparation.R")
+```
+
+## Code de départ
+
+```{r}
+#| eval: false
+# Load libraries
+library(dplyr)
+library(ggplot2)
+library(readr)
+
+# Import prepared data
+stations <- read_csv(
+  "data/processed/qualite-air/rsqaq_stations.csv",
+  show_col_types = FALSE
+)
+
+# Count stations by type and prepared status
+resume_types <- stations |>
+  group_by(type_milieu, station_sans_date_fermeture) |>
+  summarise(
+    stations = n(),
+    .groups = "drop"
+  )
+
+resume_types
+
+# Visualise counts
+ggplot(
+  resume_types,
+  aes(x = type_milieu, y = stations, fill = station_sans_date_fermeture)
+) +
+  geom_col(position = "dodge") +
+  labs(
+    x = "Type de milieu",
+    y = "Nombre de stations",
+    fill = "Sans date de fermeture",
+    title = "Stations RSQAQ par type de milieu",
+    subtitle = "Répertoire des stations, pas mesures de pollution"
+  )
+```
 
 ## Consignes
 
-1. Importer le fichier CSV.
-2. Convertir les dates d'ouverture et de fermeture.
-3. Créer une variable `station_active`.
-4. Compter les stations par type de milieu.
-5. Rédiger une phrase qui distingue station de mesure et mesure de qualité de l'air.
+1. Lire la fiche du jeu de données.
+2. Expliquer ce que représente une ligne.
+3. Compter les stations par `type_milieu`.
+4. Compter les stations selon `station_sans_date_fermeture`.
+5. Produire un graphique comparant les types de milieu.
+6. Rédiger une phrase qui distingue station de mesure et mesure de qualité de l'air.
 
 ## Questions
 
 1. Combien de stations sont recensées?
 2. Quels types de milieux sont présents?
-3. Combien de stations semblent actives selon votre définition?
-4. Comment une valeur manquante dans `DATE_FERMETURE` influence-t-elle l'analyse?
+3. Combien de stations n'ont pas de date de fermeture?
+4. Pourquoi une date de fermeture manquante doit-elle être interprétée avec prudence?
 5. Pourquoi ce fichier ne suffit-il pas pour comparer la pollution entre régions?
 
-## Pistes de solution
+## Attendu
 
-Une définition possible de station active est : date de fermeture manquante ou postérieure à la date d'analyse. Cette définition doit être présentée comme une règle de travail à vérifier, pas comme une vérité administrative définitive.
-
-## Prolongement
-
-Créer une visualisation du nombre de stations par région administrative.
-
+Une bonne réponse décrit la structure du répertoire et explicite la règle de statut préparé. Une excellente réponse ajoute une limite sur les stations de Montréal et sur l'absence de mesures de contaminants dans ce fichier.

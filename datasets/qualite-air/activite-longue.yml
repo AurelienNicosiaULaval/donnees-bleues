@@ -1,26 +1,28 @@
-id: rsqaq-couverture-territoriale-long
-title: "Couverture territoriale des stations RSQAQ"
-question: "Que révèle un répertoire de stations sur la mesure environnementale?"
+id: rsqaq-couverture-stations-long
+title: "Couverture territoriale et temporelle des stations RSQAQ"
+question: "Que révèle un répertoire de stations sur la mesure environnementale, et que ne révèle-t-il pas?"
 dataset_id: qualite-air
-dataset_title: "RSQAQ - Stations de la qualité de l'air"
+dataset_title: "Stations du réseau de qualité de l'air du Québec"
 activity_url: "datasets/qualite-air/activite-longue.qmd"
 duration: "2-3 heures"
-level: "Intermédiaire"
+level: "Introduction à intermédiaire"
 activity_type:
   - "Étude de cas"
   - "Projet ou tâche longue"
+  - "Exploration de données"
 concepts:
   - "Données et mesure"
-  - "Visualisation"
-  - "Communication"
+  - "Dates"
+  - "Carte de points"
+  - "Couverture territoriale"
+  - "Communication prudente"
 context: "Environnement"
-hook: "Défi de mesure"
+hook: "Une carte de stations n'est pas une carte de qualité de l'air"
 materials:
   - "énoncé"
   - "code"
-  - "données"
+  - "table préparée"
   - "notes enseignantes"
 advanced_math_stats: false
-teacher_notes: "Rappeler que les stations ne sont pas des mesures directes de pollution."
-status: "prêt"
-
+teacher_notes: "Exiger une section qui distingue répertoire de stations, mesures horaires, contaminants et qualité de l'air."
+status: "source officielle vérifiée"

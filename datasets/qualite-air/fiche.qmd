@@ -1,5 +1,5 @@
 ---
-title: "RSQAQ - Stations de la qualité de l'air"
+title: "Stations du réseau de qualité de l'air du Québec"
 embed-resources: true
 page-layout: full
 toc: false
@@ -18,148 +18,243 @@ render_dataset_detail_header()
 
 ## Pourquoi ce jeu est intéressant
 
-Ce jeu de données recense des stations de mesure du Réseau de surveillance de la qualité de l'air du Québec. Il permet d'enseigner l'importation d'un CSV, la manipulation de dates, la présence ou absence de valeurs de fermeture et la visualisation d'une couverture territoriale.
+Ce jeu décrit l'infrastructure de mesure du Réseau de surveillance de la qualité de l'air du Québec. Il ne donne pas directement les concentrations de polluants. Cette distinction en fait une bonne fiche pédagogique : les étudiants doivent comprendre ce qu'une donnée représente avant de produire une carte ou un graphique.
 
-Cette fiche porte sur les stations, pas sur les concentrations de polluants. Cette distinction est utile pédagogiquement : un répertoire d'infrastructures de mesure ne suffit pas à conclure sur la qualité de l'air.
+Le fichier permet de travailler l'importation d'un CSV officiel, les dates d'ouverture et de fermeture, les valeurs manquantes, les catégories de milieu, les coordonnées géographiques et les limites d'un répertoire de stations.
 
-## Source
+Question d'analyse : comment décrire la couverture du réseau de stations sans la confondre avec la qualité de l'air mesurée?
+
+## Ce qui a été vérifié
+
+| Élément | Résultat vérifié |
+|---|---|
+| Paquet CKAN | `8656ad05-c174-41c5-9ed7-8c69d308beb9` |
+| Source officielle | Données Québec / MELCCFP / RSQAQ |
+| Ressources dans le paquet | 1 ressource |
+| Ressource préparée ici | `rsqaq_stations_de_la_qualite_de_lair.csv` |
+| Licence | Attribution (CC-BY 4.0), selon les métadonnées CKAN consultées le 2026-06-21 |
+| Dernière modification du paquet CKAN | 2026-06-19 |
+| Dernière modification du CSV | 2026-06-19 |
+| Table préparée | `data/processed/qualite-air/rsqaq_stations.csv` |
+| Résumés préparés | ressources, valeurs manquantes, types de milieu, régions, décennies d'ouverture |
+
+## Source et conditions
 
 | Champ | Information |
 |---|---|
-| Organisme producteur | Ministère de l'Environnement, de la Lutte contre les changements climatiques, de la Faune et des Parcs |
-| URL | <https://www.donneesquebec.ca/recherche/dataset/rsqaq-stations> |
-| Ressource utilisée | RSQAQ - Stations de la qualité de l'air |
-| Licence | Attribution (CC-BY 4.0) selon Données Québec |
-| Date d'accès | 2026-06-01 |
-| Fréquence de mise à jour | Je ne sais pas encore |
+| Page Données Québec | <https://www.donneesquebec.ca/recherche/dataset/rsqaq-stations> |
+| API CKAN | <https://www.donneesquebec.ca/recherche/api/3/action/package_show?id=rsqaq-stations> |
+| CSV officiel | <https://www.donneesquebec.ca/recherche/dataset/8656ad05-c174-41c5-9ed7-8c69d308beb9/resource/cebea532-a9e0-4a39-8c2d-54f33d937c73/download/rsqaq_stations_de_la_qualite_de_lair.csv> |
+| Page RSQAQ du MELCCFP | <https://www.environnement.gouv.qc.ca/air/reseau-surveillance/Carte.asp> |
+| Territoire | Québec, hors stations situées sur l'île de Montréal selon les métadonnées CKAN |
+| Date d'accès | 2026-06-21 |
+| Fréquence observée | Ressource CSV et paquet CKAN modifiés le 2026-06-19 |
+
+Les métadonnées CKAN indiquent que le fichier contient l'identification et la localisation des stations du RSQAQ. Elles précisent aussi que seules les stations liées aux jeux de données horaires continues et séquentielles sont incluses, et que les stations de l'île de Montréal sont exclues.
+
+La page du MELCCFP indique que le réseau produit des données sur la qualité de l'air ambiant au moyen de stations réparties sur le territoire québécois. Elle présente aussi plusieurs objectifs du réseau, dont le suivi à long terme, la diffusion d'information à la population et la préservation de l'historique des données.
 
 ## Ce que représente une ligne
 
-Une ligne représente une station de mesure de la qualité de l'air, avec son identifiant, sa localisation, son type de milieu et ses dates d'ouverture ou de fermeture.
+Une ligne représente une station de mesure incluse dans le répertoire public RSQAQ. La ligne contient un identifiant, un nom, une région administrative codée, une municipalité, un type de milieu, des dates d'ouverture et de fermeture, puis des coordonnées.
+
+Une ligne n'est pas une observation de pollution, une mesure horaire, un indice de qualité de l'air, ni une estimation d'exposition de la population.
 
 ## Variables principales
 
-| Variable | Type | Description | Exemple | Remarques pédagogiques |
-|---|---|---|---|---|
-| ID_STATION | entier | Identifiant de la station | 1802 | Clé de référence |
-| NOM_STATION | caractère | Nom de la station | Murdochville - École anglaise | Variable descriptive |
-| RA | entier | Région administrative codée | 11 | Peut être groupée |
-| ADRESSE | caractère | Adresse de la station | 5ième rue | Peut contenir des variations textuelles |
-| MUNICIPALITE | caractère | Municipalité | Murdochville | Variable territoriale |
-| TYPE_MILIEU | caractère | Type de milieu | Urbain | Variable catégorielle |
-| DATE_OUVERTURE | date | Date d'ouverture | 1975-01-23 | Variable temporelle |
-| DATE_FERMETURE | date | Date de fermeture | 1995-10-30 | Valeur manquante possible |
-| LATITUDE | numérique | Latitude | 48.95982 | Base pour une carte |
-| LONGITUDE | numérique | Longitude | -65.498987 | Base pour une carte |
+| Variable préparée | Rôle | Point de vigilance |
+|---|---|---|
+| `station_id` | Identifiant numérique de la station | Clé de référence |
+| `station_name` | Nom de la station | Variable descriptive |
+| `region_code` | Code de région administrative | 16 régions sont représentées dans le CSV |
+| `region_administrative` | Nom ajouté dans la préparation | Dérivé du code officiel |
+| `municipalite` | Municipalité publiée | Une valeur manquante |
+| `type_milieu` | Agricole, forêt ou urbain | Catégorie principale pour les résumés |
+| `date_ouverture` | Date d'ouverture | Première date observée : 1975-01-01 |
+| `date_fermeture` | Date de fermeture | Manquante pour 51 stations |
+| `station_sans_date_fermeture` | Indicateur préparé | Règle de travail, pas preuve administrative indépendante |
+| `latitude`, `longitude` | Coordonnées | Utiles pour une carte de points |
 
-## Taille et structure
+## RÉSULTATS R
 
-| Élément | Information |
-|---|---|
-| Nombre de lignes | 245 lignes pour la ressource 1975-2025 |
-| Nombre de colonnes | 10 colonnes |
-| Structure | Tabulaire avec coordonnées géographiques |
-| Format | CSV |
+| Indicateur | Valeur |
+|---|---:|
+| Ressources CKAN documentées | 1 |
+| Lignes dans le CSV source | 245 |
+| Colonnes dans le CSV source | 10 |
+| Stations préparées | 245 |
+| Colonnes préparées | 20 |
+| Régions administratives représentées | 16 |
+| Types de milieu | 3 |
+| Stations sans date de fermeture au 2026-06-21 | 51 |
+| Stations fermées selon la date publiée | 194 |
+| Première date d'ouverture | 1975-01-01 |
+| Dernière date d'ouverture | 2024-07-16 |
+| Dernière date de fermeture publiée | 2025-07-12 |
+
+## Types de milieu
+
+| Type de milieu | Stations | Sans date de fermeture | Fermées | Première ouverture | Dernière ouverture | Durée médiane des stations fermées |
+|---|---:|---:|---:|---|---|---:|
+| Urbain | 214 | 38 | 176 | 1975-01-01 | 2024-07-16 | 3 161 jours |
+| Forêt | 18 | 9 | 9 | 1988-05-01 | 2017-11-28 | 9 814 jours |
+| Agricole | 13 | 4 | 9 | 1984-05-30 | 2004-06-11 | 6 108 jours |
+
+Lecture pédagogique : la majorité des stations publiées sont urbaines, mais la proportion de stations sans date de fermeture diffère selon le type de milieu. Cette table décrit le répertoire, pas l'intensité de pollution.
+
+## Régions avec le plus de stations sans date de fermeture
+
+| Région administrative | Stations | Sans date de fermeture | Fermées | Types de milieu | Première ouverture | Dernière ouverture |
+|---|---:|---:|---:|---:|---|---|
+| Abitibi-Témiscamingue | 19 | 10 | 9 | 2 | 1975-01-01 | 2024-01-09 |
+| Capitale-Nationale | 43 | 7 | 36 | 3 | 1975-01-01 | 2020-02-05 |
+| Mauricie | 29 | 5 | 24 | 2 | 1975-01-04 | 2014-07-23 |
+| Montérégie | 29 | 4 | 25 | 2 | 1975-01-02 | 2022-03-12 |
+| Saguenay-Lac-Saint-Jean | 25 | 4 | 21 | 2 | 1975-01-13 | 2002-09-24 |
+| Estrie | 21 | 4 | 17 | 2 | 1975-01-01 | 2023-03-16 |
+| Centre-du-Québec | 11 | 4 | 7 | 2 | 1985-09-19 | 2022-02-04 |
+| Chaudière-Appalaches | 21 | 3 | 18 | 2 | 1975-01-01 | 2013-07-09 |
+
+Cette table est utile pour discuter de couverture territoriale. Elle ne permet pas de dire qu'une région a un air meilleur ou moins bon.
+
+## Ouvertures par décennie
+
+| Décennie d'ouverture | Stations |
+|---|---:|
+| 1970s | 93 |
+| 1980s | 55 |
+| 1990s | 45 |
+| 2000s | 22 |
+| 2010s | 18 |
+| 2020s | 12 |
+
+Le grand nombre de stations ouvertes dans les années 1970 reflète l'historique du répertoire. Pour analyser l'évolution du réseau, il faut toujours tenir compte des fermetures.
+
+## Valeurs manquantes
+
+| Variable | Valeurs manquantes | Pourcentage |
+|---|---:|---:|
+| `date_fermeture` | 51 | 20,82 % |
+| `annee_fermeture` | 51 | 20,82 % |
+| `duree_fermee_jours` | 51 | 20,82 % |
+| `adresse` | 6 | 2,45 % |
+| `municipalite` | 1 | 0,41 % |
+
+La date de fermeture manquante est utile, mais elle doit être formulée précisément. Dans cette fiche, elle devient `station_sans_date_fermeture`, une règle de préparation figée à la date d'accès.
+
+## Lecture statistique
+
+Une analyse prudente suit cet ordre :
+
+1. vérifier que l'unité est la station;
+2. distinguer les métadonnées de stations des mesures de polluants;
+3. définir explicitement le statut préparé à partir de `date_fermeture`;
+4. résumer les stations par type de milieu ou région;
+5. cartographier les points sans interpréter la carte comme une carte de pollution;
+6. joindre les mesures horaires seulement si la question porte sur les concentrations.
+
+Les données permettent de décrire le répertoire des stations du RSQAQ. Elles ne permettent pas, seules, de comparer la qualité de l'air entre régions ou municipalités.
 
 ## Concepts enseignables
 
-- importation CSV;
+- importation d'un CSV officiel;
 - conversion de dates;
 - valeurs manquantes;
-- création d'une variable de station active;
-- visualisation de points géographiques;
-- group_by et summarise;
+- statut préparé reproductible;
+- tableau de fréquences;
+- carte de points;
 - couverture territoriale;
-- distinction entre données de mesure et métadonnées de mesure.
+- distinction entre infrastructure de mesure et mesure environnementale.
 
 ## Score zéro déchet
 
 | Dimension | Score | Justification |
 |---|---:|---|
-| Contexte québécois | 3 | Les stations sont liées au territoire québécois. |
-| Accessibilité pédagogique | 3 | L'unité statistique est simple à expliquer. |
-| Qualité documentaire | 2 | La fiche Données Québec documente la source, mais certaines définitions exigent un complément. |
-| Potentiel de nettoyage | 2 | Les dates et valeurs manquantes offrent un nettoyage réaliste. |
-| Potentiel de visualisation | 3 | Les coordonnées permettent des cartes de points. |
-| Potentiel de statistique descriptive | 3 | Les stations peuvent être résumées par région, type et statut. |
-| Potentiel d'inférence | 1 | Le fichier décrit des stations, pas un échantillon analytique de pollution. |
-| Potentiel de modélisation | 1 | La modélisation est limitée sans mesures de polluants. |
-| Potentiel de discussion éthique | 3 | Le jeu ouvre une discussion sur la couverture de mesure et les angles morts territoriaux. |
-| Réutilisabilité dans plusieurs cours | 3 | Il convient à l'importation, aux dates, aux cartes et aux limites d'interprétation. |
+| Contexte québécois | 3 | Répertoire officiel du réseau québécois |
+| Accessibilité pédagogique | 3 | Unité statistique simple et variables concrètes |
+| Qualité documentaire | 3 | Page Données Québec, API CKAN et page ministérielle |
+| Potentiel de nettoyage | 3 | Dates, valeurs manquantes, régions et statut préparé |
+| Potentiel de visualisation | 3 | Cartes, barres et séries d'ouvertures |
+| Potentiel de statistique descriptive | 3 | Résumés naturels par région, type et statut |
+| Potentiel d'inférence | 1 | Non adapté à l'inférence sur la pollution |
+| Potentiel de modélisation | 1 | Modélisation limitée sans mesures de contaminants |
+| Potentiel éthique | 3 | Risques d'interprétation publique des cartes |
+| Réutilisabilité | 3 | Utile en données ouvertes, visualisation et méthodologie |
 
-Total : 24 sur 30.
+Total : 26 sur 30.
 
 ## Activité courte
 
-En 30 à 45 minutes, faire importer le fichier, convertir les dates et compter les stations par type de milieu.
+En 30 à 45 minutes, compter les stations par type de milieu et discuter la règle utilisée pour identifier les stations sans date de fermeture.
 
 ## Activité longue
 
-En 2 à 3 heures, faire produire un rapport sur l'évolution du réseau de stations, en distinguant stations ouvertes, fermées et statut inconnu si l'information est manquante.
-
-## Projet possible
-
-Créer un atlas statique des stations de mesure de la qualité de l'air du Québec, avec une section expliquant pourquoi la présence d'une station ne décrit pas directement l'exposition des populations.
-
-## Questions pédagogiques possibles
-
-1. Quelle est l'unité statistique du fichier?
-2. Pourquoi ce fichier ne permet-il pas de conclure sur la qualité de l'air?
-3. Comment définir une station active?
-4. Comment traiter une date de fermeture manquante?
-5. Quelles régions semblent plus représentées?
-6. Quels graphiques conviennent à la durée d'activité des stations?
-7. Quelles précautions faut-il prendre avec une carte de points?
-8. Quelles données faudrait-il ajouter pour analyser les polluants?
+En 2 à 3 heures, produire un court rapport sur la couverture territoriale et temporelle du réseau, avec une carte de points et une section explicite sur les limites.
 
 ## Code R minimal
 
+À exécuter depuis la racine du projet.
+
 ```{r}
 #| eval: false
+# Load libraries
 library(dplyr)
 library(ggplot2)
-library(lubridate)
 library(readr)
-library(stringr)
 
-data_url <- "https://www.donneesquebec.ca/recherche/dataset/8656ad05-c174-41c5-9ed7-8c69d308beb9/resource/cebea532-a9e0-4a39-8c2d-54f33d937c73/download/rsqaq_station_1975-2025.csv"
+# Prepare official CSV resource
+source("datasets/qualite-air/preparation.R")
 
-stations <- read_csv(data_url, show_col_types = FALSE) |>
-  rename_with(str_to_lower) |>
-  mutate(
-    date_ouverture = ymd(date_ouverture),
-    date_fermeture = ymd(date_fermeture),
-    station_active = is.na(date_fermeture) | date_fermeture >= Sys.Date()
-  )
+# Import prepared data
+stations <- read_csv(
+  "data/processed/qualite-air/rsqaq_stations.csv",
+  show_col_types = FALSE
+)
 
-glimpse(stations)
+# Summarise by type of environment
+resume_types <- stations |>
+  group_by(type_milieu, station_sans_date_fermeture) |>
+  summarise(stations = n(), .groups = "drop")
 
-stations |>
-  count(type_milieu, station_active) |>
-  ggplot(aes(x = type_milieu, y = n, fill = station_active)) +
+resume_types
+
+# Plot station counts
+ggplot(
+  resume_types,
+  aes(x = type_milieu, y = stations, fill = station_sans_date_fermeture)
+) +
   geom_col(position = "dodge") +
   labs(
     x = "Type de milieu",
     y = "Nombre de stations",
-    fill = "Station active",
-    title = "Stations RSQAQ par type de milieu"
+    fill = "Sans date de fermeture",
+    title = "Stations RSQAQ par type de milieu",
+    subtitle = "Répertoire des stations, pas mesures de pollution"
   )
 ```
 
 ## Limites et précautions
 
-- Le fichier décrit les stations, pas les niveaux de pollution.
-- Les stations situées sur l'île de Montréal sont exclues selon la fiche Données Québec.
-- Une station fermée ne signifie pas nécessairement une absence de surveillance actuelle dans la région.
-- Les coordonnées doivent être utilisées avec prudence dans une activité d'introduction.
-- Les dates de fermeture manquantes doivent être interprétées selon la documentation disponible.
+- Le fichier décrit les stations, pas les concentrations de polluants.
+- Les stations situées sur l'île de Montréal sont exclues selon les métadonnées CKAN.
+- Une station sans date de fermeture ne doit pas être interprétée sans vérification comme une station administrativement active.
+- Une station fermée ne signifie pas nécessairement une absence de surveillance actuelle dans une région.
+- Une carte de points peut donner une fausse impression de couverture si elle n'est pas accompagnée d'une discussion méthodologique.
+- Pour analyser la qualité de l'air, il faut joindre des mesures de contaminants, par exemple les données horaires continues.
 
 ## Extensions
 
-- Extension intro : compter les stations par type de milieu.
-- Extension intermédiaire : calculer la durée d'activité des stations fermées.
-- Extension avancée : joindre une source de mesures de polluants si elle est vérifiée.
-- Extension communication scientifique : expliquer en une page la différence entre infrastructure de mesure et indicateur environnemental.
+- Comparer les stations sans date de fermeture et les stations fermées par région.
+- Construire une visualisation des ouvertures par décennie.
+- Produire une carte simple avec `ggplot2`.
+- Joindre le résumé journalier de la fiche `qualite-air-horaire`.
+- Rédiger une note expliquant la différence entre réseau de mesure, station, contaminant et observation horaire.
+
+## Références utilisées
+
+- Données Québec. 2026. RSQAQ - Stations de la qualité de l'air. <https://www.donneesquebec.ca/recherche/dataset/rsqaq-stations>
+- Données Québec. 2026. API CKAN du paquet RSQAQ - Stations de la qualité de l'air. <https://www.donneesquebec.ca/recherche/api/3/action/package_show?id=rsqaq-stations>
+- Ministère de l'Environnement, de la Lutte contre les changements climatiques, de la Faune et des Parcs. 2026. Réseau de surveillance de la qualité de l'air du Québec. <https://www.environnement.gouv.qc.ca/air/reseau-surveillance/Carte.asp>
 
 ```{r}
 #| label: dataset-detail-footer
@@ -167,4 +262,3 @@ stations |>
 #| results: asis
 render_dataset_detail_footer()
 ```
-

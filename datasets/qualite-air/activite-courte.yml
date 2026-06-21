@@ -1,25 +1,25 @@
-id: rsqaq-stations-actives-court
-title: "Stations actives et types de milieux"
-question: "Comment définir une station active dans un répertoire environnemental?"
+id: rsqaq-stations-types-court
+title: "Types de milieu et statut préparé des stations"
+question: "Comment les stations sans date de fermeture se répartissent-elles selon le type de milieu?"
 dataset_id: qualite-air
-dataset_title: "RSQAQ - Stations de la qualité de l'air"
+dataset_title: "Stations du réseau de qualité de l'air du Québec"
 activity_url: "datasets/qualite-air/activite-courte.qmd"
 duration: "30-45 minutes"
-level: "Introductif"
+level: "Introduction"
 activity_type:
   - "Exercice"
-  - "Illustration de concept"
+  - "Exploration de données"
 concepts:
   - "Données et mesure"
+  - "Valeurs manquantes"
   - "Statistique descriptive"
   - "Visualisation"
 context: "Environnement"
-hook: "Défi de mesure"
+hook: "Une station de mesure n'est pas une mesure de pollution"
 materials:
   - "énoncé"
   - "code"
-  - "données"
+  - "table préparée"
 advanced_math_stats: false
-teacher_notes: "Faire expliciter la règle utilisée pour traiter les dates de fermeture manquantes."
-status: "prêt"
-
+teacher_notes: "Faire expliciter que station_sans_date_fermeture est une règle de préparation basée sur la date de fermeture publiée."
+status: "source officielle vérifiée"
