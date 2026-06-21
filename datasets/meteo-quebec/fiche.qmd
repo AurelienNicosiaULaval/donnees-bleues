@@ -18,114 +18,207 @@ render_dataset_detail_header()
 
 ## Pourquoi ce jeu est intéressant
 
-Ce jeu est utilisé dans l'aventure 1 de STT-1100 pour faire les premiers gestes d'exploration dans R. Il est assez simple pour commencer, mais assez riche pour introduire les dates, les valeurs manquantes, les résumés numériques, les saisons et les graphiques de séries temporelles.
+Ce jeu est très utile pour une première expérience de science des données en R. Les variables sont concrètes, les unités sont faciles à comprendre et les graphiques deviennent rapidement interprétables. Il permet d'introduire les dates, les séries temporelles, les valeurs manquantes, les statistiques descriptives et les limites d'une interprétation.
 
-Question d'analyse : comment les températures, la pluie, la neige et les précipitations totales varient-elles au fil des années à Québec?
+La question pédagogique centrale est simple : que peut-on dire de la météo quotidienne observée à une station, et que ne peut-on pas conclure sans analyse climatique plus rigoureuse?
 
-## Source
+## Ce qui a été vérifié
+
+| Élément | Résultat vérifié |
+|---|---|
+| Jeu pédagogique | `UlavalSSD::MeteoQuebec` |
+| Version du paquet | `UlavalSSD` 0.2.0 |
+| Source primaire documentée | Environnement et Changement climatique Canada, via `weathercan` |
+| Station documentée | Québec/Jean-Lesage |
+| Identifiants de station mentionnés | 5251 et 26892 |
+| Lignes dans l'objet source | 20 111 |
+| Colonnes dans l'objet source | 11 |
+| Table préparée | `data/processed/meteo-quebec/meteo_quebec.csv` |
+| Lignes préparées | 20 111 |
+| Colonnes préparées | 15 |
+| Période préparée | 1970-01-01 à 2025-01-22 |
+
+## Source et conditions
 
 | Champ | Information |
 |---|---|
-| Jeu utilisé dans le cours | `UlavalSSD::MeteoQuebec` |
-| Source primaire | Environnement et Changement climatique Canada, via `weathercan` |
-| URL officielle | <https://climate.weather.gc.ca/historical_data/search_historic_data_e.html> |
-| Documentation weathercan | <https://github.com/ropensci/weathercan> |
-| Licence | Données météorologiques sous Licence du gouvernement ouvert Canada selon weathercan; paquet UlavalSSD sous licence MIT |
-| Date d'accès | 2026-06-20 |
-| Statut | source pédagogique vérifiée dans UlavalSSD; source primaire ECCC documentée par weathercan |
+| Source pédagogique | <https://github.com/AurelienNicosiaULaval/UlavalSSD> |
+| Source primaire ECCC | <https://climate.weather.gc.ca/historical_data/search_historic_data_e.html> |
+| Package `weathercan` | <https://github.com/ropensci/weathercan> |
+| Licence ECCC | <https://climate.weather.gc.ca/prods_servs/attachment1_e.html> |
+| Licence du paquet pédagogique | MIT |
+| Date d'accès | 2026-06-21 |
+| Statut | source pédagogique vérifiée dans `UlavalSSD` 0.2.0; préparation locale reproductible |
 
 ## Ce que représente une ligne
 
-Une ligne représente une observation météorologique quotidienne pour une station située dans la province de Québec. La documentation locale d'UlavalSSD indique les stations 5251 et 26892; `weathercan::stations()` les associe à Québec/Jean-Lesage.
+Une ligne représente une observation météorologique quotidienne pour la station Québec/Jean-Lesage. Elle ne représente pas toute la région de Québec, ni toute la province, ni une moyenne climatique officielle.
 
-## Variables principales
-
-| Variable | Type | Description | Exemple |
-|---|---|---|---|
-| `year` | numérique | Année de l'observation | 2025 |
-| `month` | caractère | Mois de l'observation | 01 |
-| `day` | caractère | Jour du mois | 15 |
-| `max_temp` | numérique | Température maximale quotidienne en degrés Celsius | 2.4 |
-| `mean_temp` | numérique | Température moyenne quotidienne en degrés Celsius | -1.1 |
-| `min_temp` | numérique | Température minimale quotidienne en degrés Celsius | -5.2 |
-| `total_precip` | numérique | Précipitations totales quotidiennes en millimètres | 8.6 |
-| `total_rain` | numérique | Pluie quotidienne en millimètres | 4.2 |
-| `total_snow` | numérique | Neige quotidienne en centimètres | 3.0 |
-| `snow_grnd` | numérique | Neige au sol en centimètres | 24 |
-
-## Taille et structure
-
-| Élément | Information |
+| Variable préparée | Rôle |
 |---|---|
-| Nombre de lignes | 20 111 lignes dans UlavalSSD 0.2.0 |
-| Nombre de colonnes | 11 colonnes |
-| Structure | Tableau temporel quotidien |
-| Format | `data.frame` R dans UlavalSSD; export possible en CSV |
-| Couverture temporelle | 1970 à 2025 dans la version consultée |
-| Couverture géographique | Station Québec/Jean-Lesage, Québec |
+| `source_dataset` | Origine pédagogique du jeu |
+| `station_label` | Station documentée |
+| `date` | Date complète de l'observation |
+| `annee`, `mois_num`, `mois`, `jour` | Variables temporelles dérivées |
+| `saison` | Saison construite à partir du mois |
+| `max_temp`, `mean_temp`, `min_temp` | Températures quotidiennes en degrés Celsius |
+| `total_precip` | Précipitations totales quotidiennes en millimètres |
+| `total_rain` | Pluie quotidienne en millimètres |
+| `total_snow` | Neige quotidienne en centimètres |
+| `snow_grnd` | Neige au sol en centimètres |
+
+## Taille et résultats R vérifiés
+
+| Indicateur | Valeur |
+|---|---:|
+| Observations quotidiennes | 20 111 |
+| Colonnes préparées | 15 |
+| Première date | 1970-01-01 |
+| Dernière date | 2025-01-22 |
+| Moyenne de `mean_temp` | 4,55 °C |
+| Minimum de `mean_temp` | -30,6 °C |
+| Maximum de `mean_temp` | 28,1 °C |
+| Moyenne de `total_precip` | 3,28 mm |
+| Maximum de `total_precip` | 108,5 mm |
+
+## Valeurs manquantes
+
+| Variable | Valeurs manquantes | Pourcentage |
+|---|---:|---:|
+| `total_snow` | 10 587 | 52,64 % |
+| `total_rain` | 10 490 | 52,16 % |
+| `snow_grnd` | 8 912 | 44,31 % |
+| `total_precip` | 97 | 0,48 % |
+| `mean_temp` | 54 | 0,27 % |
+| `max_temp` | 53 | 0,26 % |
+| `min_temp` | 40 | 0,20 % |
+
+Cette table est un excellent point d'entrée pour enseigner que les variables d'un même jeu n'ont pas toutes la même complétude. Dans un laboratoire d'introduction, il est plus prudent de commencer avec `mean_temp` ou `total_precip` qu'avec `total_rain` ou `total_snow`.
+
+## Résumé par saison
+
+| Saison | Observations | Moyenne de `mean_temp` | Écart-type de `mean_temp` | Précipitation moyenne |
+|---|---:|---:|---:|---:|
+| Automne | 5 005 | 6,64 °C | 6,94 °C | 3,53 mm |
+| Hiver | 4 986 | -10,20 °C | 6,81 °C | 2,82 mm |
+| Printemps | 5 060 | 3,53 °C | 8,06 °C | 2,93 mm |
+| Été | 5 060 | 18,10 °C | 3,38 °C | 3,85 mm |
+
+Dans cette version du jeu, le printemps présente la plus forte dispersion saisonnière de `mean_temp` selon l'écart-type descriptif.
+
+## Lecture statistique
+
+Le jeu convient très bien à une première analyse descriptive :
+
+1. construire une vraie variable `date`;
+2. vérifier les valeurs manquantes;
+3. choisir une variable météorologique;
+4. résumer par mois, saison ou année;
+5. visualiser sans surinterpréter.
+
+Il faut toutefois éviter une erreur fréquente : transformer un graphique de météo quotidienne en conclusion climatique générale. Une analyse climatique demanderait un protocole explicite, une réflexion sur les stations, la continuité des mesures, les normales climatiques, les changements d'instrumentation et les incertitudes.
 
 ## Concepts enseignables
 
-- reconnaître les variables numériques et temporelles;
-- créer une date à partir de `year`, `month` et `day`;
-- détecter et décrire les valeurs manquantes;
-- résumer des températures et précipitations;
-- visualiser une tendance ou une saisonnalité.
+- création d'une variable date;
+- séries temporelles quotidiennes;
+- statistiques descriptives;
+- valeurs manquantes;
+- saisonnalité;
+- visualisation avec `ggplot2`;
+- différence entre météo et climat;
+- communication prudente.
+
+## Score zéro déchet
+
+| Dimension | Score | Justification |
+|---|---:|---|
+| Contexte québécois | 3 | Station météo située à Québec |
+| Accessibilité pédagogique | 3 | Variables familières et interprétables |
+| Qualité documentaire | 3 | Documentation locale, source ECCC et package `weathercan` |
+| Potentiel de nettoyage | 3 | Dates, saisons et valeurs manquantes |
+| Potentiel de visualisation | 3 | Séries temporelles, distributions et saisons |
+| Potentiel de statistique descriptive | 3 | Moyennes, écarts-types, extrêmes et regroupements |
+| Potentiel d'inférence | 2 | Possible, mais demande un protocole plus strict |
+| Potentiel de modélisation | 2 | Modélisation temporelle introductive possible |
+| Potentiel éthique | 2 | Discussion sur interprétation publique des données météo |
+| Réutilisabilité | 3 | Très réutilisable dans des laboratoires d'introduction |
+
+Total : 27 sur 30.
 
 ## Activité courte
 
-[Laboratoire](activite-courte.qmd) : Quelle saison présente la plus forte variabilité de température?
+En 45 à 60 minutes, construire une variable date, définir les saisons et répondre à la question : quelle saison présente la plus forte variabilité de température?
 
 ## Activité longue
 
-[Mini-projet](activite-longue.qmd) : Construire un portrait descriptif de la météo quotidienne à Québec.
+En 2 à 3 heures, produire un portrait descriptif de la météo quotidienne à Québec avec au moins deux graphiques, une section sur les valeurs manquantes et une conclusion prudente.
 
 ## Code R minimal
 
+À exécuter depuis la racine du projet.
+
 ```{r}
 #| eval: false
+# Load libraries
 library(dplyr)
 library(ggplot2)
-library(lubridate)
-library(UlavalSSD)
+library(readr)
 
-meteo <- MeteoQuebec |>
-  mutate(
-    date = make_date(year, as.integer(month), as.integer(day)),
-    mois = month(date, label = TRUE, abbr = FALSE)
-  )
+# Prepare the pedagogical dataset
+source("datasets/meteo-quebec/preparation.R")
 
+# Import prepared data
+meteo <- read_csv(
+  "data/processed/meteo-quebec/meteo_quebec.csv",
+  show_col_types = FALSE
+)
+
+# Seasonal descriptive summary
 meteo |>
+  group_by(saison) |>
   summarise(
-    lignes = n(),
-    temperature_moyenne = mean(mean_temp, na.rm = TRUE),
-    precipitation_moyenne = mean(total_precip, na.rm = TRUE)
-  )
+    n = n(),
+    moyenne = mean(mean_temp, na.rm = TRUE),
+    ecart_type = sd(mean_temp, na.rm = TRUE),
+    .groups = "drop"
+  ) |>
+  arrange(desc(ecart_type))
 
+# Recent daily temperature graph
 meteo |>
-  filter(year >= 2020) |>
+  filter(annee >= 2020) |>
   ggplot(aes(x = date, y = mean_temp)) +
-  geom_line(alpha = 0.7) +
+  geom_line(alpha = 0.7, linewidth = 0.3) +
   labs(
     x = "Date",
-    y = "Température moyenne quotidienne",
-    title = "Température quotidienne moyenne à Québec"
+    y = "Température moyenne quotidienne (°C)",
+    title = "Température quotidienne moyenne à Québec",
+    subtitle = "Station Québec/Jean-Lesage, version pédagogique UlavalSSD 0.2.0"
   )
 ```
 
 ## Limites et précautions
 
-- Le jeu dans UlavalSSD est une version pédagogique fixe; vérifier la source ECCC si l'objectif est une analyse officielle à jour.
-- Les variables de pluie et de neige contiennent de nombreuses valeurs manquantes dans la version consultée.
-- Les résultats ne décrivent pas tout le Québec, mais une station météorologique.
-- Les tendances climatiques exigent un plan d'analyse plus rigoureux qu'un simple graphique descriptif.
+- Le jeu préparé est une version pédagogique fixe, pas une extraction ECCC en temps réel.
+- Les résultats décrivent une station, pas tout le Québec.
+- Les variables `total_rain`, `total_snow` et `snow_grnd` contiennent beaucoup de valeurs manquantes.
+- Une tendance visuelle ne suffit pas à établir une conclusion climatique.
+- Les analyses officielles devraient repartir de la source ECCC et documenter les stations, les périodes et les critères de qualité.
 
 ## Extensions
 
-- Extension intro : calculer la moyenne de température par mois.
-- Extension intermédiaire : comparer les distributions par saison.
-- Extension avancée : ajuster une tendance temporelle avec une discussion des hypothèses.
-- Extension communication scientifique : expliquer la différence entre météo quotidienne et climat.
+- Comparer les distributions de `mean_temp` par saison.
+- Calculer le nombre de jours sous -20 °C ou au-dessus de 25 °C par année.
+- Visualiser les précipitations extrêmes.
+- Comparer météo quotidienne et normales climatiques si une source supplémentaire est ajoutée.
+- Rédiger une courte note de communication scientifique sur la différence entre météo et climat.
+
+## Références utilisées
+
+- Environnement et Changement climatique Canada. 2026. Données historiques climatiques. <https://climate.weather.gc.ca/historical_data/search_historic_data_e.html>
+- LaZerte et Albers. 2018. `weathercan`: Download and format weather data from Environment and Climate Change Canada. <https://github.com/ropensci/weathercan>
+- UlavalSSD. 2025. `MeteoQuebec`, version 0.2.0. <https://github.com/AurelienNicosiaULaval/UlavalSSD>
 
 ```{r}
 #| label: dataset-detail-footer
@@ -133,4 +226,3 @@ meteo |>
 #| results: asis
 render_dataset_detail_footer()
 ```
-

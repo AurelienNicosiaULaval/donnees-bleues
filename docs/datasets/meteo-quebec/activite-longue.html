@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Mini-projet - Météo Québec – Données bleues</title>
+<title>Portrait descriptif de la météo quotidienne à Québec – Données bleues</title>
 <style>
 
 code{white-space: pre-wrap;}
@@ -19,6 +19,41 @@ ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
 width: 0.8em;
 margin: 0 0.8em 0.2em -1em;  vertical-align: middle;
+}
+
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+{ counter-reset: source-line 0; }
+pre.numberSource code > span
+{ position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+{ content: counter(source-line);
+position: relative; left: -1em; text-align: right; vertical-align: baseline;
+border: none; display: inline-block;
+-webkit-touch-callout: none; -webkit-user-select: none;
+-khtml-user-select: none; -moz-user-select: none;
+-ms-user-select: none; user-select: none;
+padding: 0 4px; width: 4em;
+}
+pre.numberSource { margin-left: 3em; padding-left: 4px; }
+div.sourceCode
+{ }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -5482,12 +5517,20 @@ grid-template-columns: 1fr;
     <h2 id="toc-title">On this page</h2>
 
   <ul>
-  <li><a href="#mini-projet---météo-québec" id="toc-mini-projet---météo-québec" class="nav-link active" data-scroll-target="#mini-projet---météo-québec">Mini-projet - Météo Québec</a>
+  <li><a href="#portrait-descriptif-de-la-météo-quotidienne-à-québec" id="toc-portrait-descriptif-de-la-météo-quotidienne-à-québec" class="nav-link active" data-scroll-target="#portrait-descriptif-de-la-météo-quotidienne-à-québec">Portrait descriptif de la météo quotidienne à Québec</a>
   <ul class="collapse">
   <li><a href="#contexte" id="toc-contexte" class="nav-link" data-scroll-target="#contexte">Contexte</a></li>
-  <li><a href="#question-directrice" id="toc-question-directrice" class="nav-link" data-scroll-target="#question-directrice">Question directrice</a></li>
-  <li><a href="#livrables" id="toc-livrables" class="nav-link" data-scroll-target="#livrables">Livrables</a></li>
-  <li><a href="#critères-dévaluation-suggérés" id="toc-critères-dévaluation-suggérés" class="nav-link" data-scroll-target="#critères-dévaluation-suggérés">Critères d’évaluation suggérés</a></li>
+  <li><a href="#objectifs-dapprentissage" id="toc-objectifs-dapprentissage" class="nav-link" data-scroll-target="#objectifs-dapprentissage">Objectifs d’apprentissage</a></li>
+  <li><a href="#données-utilisées" id="toc-données-utilisées" class="nav-link" data-scroll-target="#données-utilisées">Données utilisées</a></li>
+  <li><a href="#métadonnées-pédagogiques" id="toc-métadonnées-pédagogiques" class="nav-link" data-scroll-target="#métadonnées-pédagogiques">Métadonnées pédagogiques</a></li>
+  <li><a href="#mandat" id="toc-mandat" class="nav-link" data-scroll-target="#mandat">Mandat</a></li>
+  <li><a href="#étapes-recommandées" id="toc-étapes-recommandées" class="nav-link" data-scroll-target="#étapes-recommandées">Étapes recommandées</a></li>
+  <li><a href="#code-de-départ" id="toc-code-de-départ" class="nav-link" data-scroll-target="#code-de-départ">Code de départ</a></li>
+  <li><a href="#visualisations-suggérées" id="toc-visualisations-suggérées" class="nav-link" data-scroll-target="#visualisations-suggérées">Visualisations suggérées</a></li>
+  <li><a href="#questions-à-traiter-dans-le-rapport" id="toc-questions-à-traiter-dans-le-rapport" class="nav-link" data-scroll-target="#questions-à-traiter-dans-le-rapport">Questions à traiter dans le rapport</a></li>
+  <li><a href="#critères-de-réussite" id="toc-critères-de-réussite" class="nav-link" data-scroll-target="#critères-de-réussite">Critères de réussite</a></li>
+  <li><a href="#pistes-de-solution" id="toc-pistes-de-solution" class="nav-link" data-scroll-target="#pistes-de-solution">Pistes de solution</a></li>
+  <li><a href="#prolongements" id="toc-prolongements" class="nav-link" data-scroll-target="#prolongements">Prolongements</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -5497,7 +5540,7 @@ grid-template-columns: 1fr;
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Mini-projet - Météo Québec</h1>
+<h1 class="title">Portrait descriptif de la météo quotidienne à Québec</h1>
 </div>
 
 
@@ -5514,34 +5557,216 @@ grid-template-columns: 1fr;
 </header>
 
 
-<section id="mini-projet---météo-québec" class="level1">
-<h1>Mini-projet - Météo Québec</h1>
+<section id="portrait-descriptif-de-la-météo-quotidienne-à-québec" class="level1">
+<h1>Portrait descriptif de la météo quotidienne à Québec</h1>
 <section id="contexte" class="level2">
 <h2 class="anchored" data-anchor-id="contexte">Contexte</h2>
-<p>Ce mini-projet prolonge le laboratoire court en demandant un portrait reproductible de la météo quotidienne à Québec.</p>
+<p>Ce mini-projet prolonge le laboratoire court. Il demande un portrait reproductible de la météo quotidienne observée à Québec, avec une attention explicite aux dates, aux valeurs manquantes et aux limites d’interprétation.</p>
 </section>
-<section id="question-directrice" class="level2">
-<h2 class="anchored" data-anchor-id="question-directrice">Question directrice</h2>
-<p>Construire un portrait descriptif de la météo quotidienne à Québec.</p>
+<section id="objectifs-dapprentissage" class="level2">
+<h2 class="anchored" data-anchor-id="objectifs-dapprentissage">Objectifs d’apprentissage</h2>
+<ul>
+<li>Construire un court rapport Quarto reproductible</li>
+<li>Préparer et importer une table météorologique</li>
+<li>Résumer les températures et les précipitations</li>
+<li>Visualiser une série temporelle quotidienne</li>
+<li>Comparer des distributions saisonnières</li>
+<li>Documenter les valeurs manquantes</li>
+<li>Distinguer analyse descriptive et conclusion climatique</li>
+</ul>
 </section>
-<section id="livrables" class="level2">
-<h2 class="anchored" data-anchor-id="livrables">Livrables</h2>
+<section id="données-utilisées" class="level2">
+<h2 class="anchored" data-anchor-id="données-utilisées">Données utilisées</h2>
+<p>Fiche : <a href="../../datasets/meteo-quebec/fiche.html">Météo quotidienne à Québec</a></p>
+<p>Source pédagogique : <code>UlavalSSD::MeteoQuebec</code>.</p>
+<p>Source primaire documentée : Environnement et Changement climatique Canada, via <code>weathercan</code>.</p>
+<p>Fichier préparé : <code>data/processed/meteo-quebec/meteo_quebec.csv</code></p>
+</section>
+<section id="métadonnées-pédagogiques" class="level2">
+<h2 class="anchored" data-anchor-id="métadonnées-pédagogiques">Métadonnées pédagogiques</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Champ</th>
+<th>Information</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Question directrice</td>
+<td>Comment produire un portrait descriptif prudent de la météo quotidienne à Québec?</td>
+</tr>
+<tr class="even">
+<td>Concepts</td>
+<td>Séries temporelles; Valeurs manquantes; Visualisation; Statistiques descriptives</td>
+</tr>
+<tr class="odd">
+<td>Niveau</td>
+<td>Introduction à intermédiaire</td>
+</tr>
+<tr class="even">
+<td>Type</td>
+<td>Projet ou tâche longue; Étude de cas</td>
+</tr>
+<tr class="odd">
+<td>Contexte</td>
+<td>Météorologie québécoise</td>
+</tr>
+<tr class="even">
+<td>Accroche</td>
+<td>Un graphique météo est parlant, mais il doit rester statistiquement prudent</td>
+</tr>
+<tr class="odd">
+<td>Durée</td>
+<td>2-3 heures</td>
+</tr>
+<tr class="even">
+<td>Matériel</td>
+<td>fiche; code; table préparée; source officielle; notes enseignantes</td>
+</tr>
+<tr class="odd">
+<td>Math/stats avancées</td>
+<td>non</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="mandat" class="level2">
+<h2 class="anchored" data-anchor-id="mandat">Mandat</h2>
+<p>Produire un rapport Quarto de 3 à 5 pages qui décrit la météo quotidienne à la station Québec/Jean-Lesage dans la version pédagogique <code>UlavalSSD</code> 0.2.0. Le rapport doit contenir :</p>
 <ol type="1">
-<li>Un fichier Quarto avec le code, les graphiques et les conclusions.</li>
-<li>Un dictionnaire court des variables utilisées.</li>
-<li>Deux visualisations complémentaires.</li>
-<li>Un paragraphe sur les valeurs manquantes.</li>
-<li>Une conclusion qui distingue description météorologique et interprétation climatique.</li>
+<li>une question d’analyse;</li>
+<li>un court dictionnaire des variables utilisées;</li>
+<li>un tableau de valeurs manquantes;</li>
+<li>un résumé descriptif par saison ou par année;</li>
+<li>deux visualisations complémentaires;</li>
+<li>une conclusion qui distingue météo descriptive et climat.</li>
 </ol>
 </section>
-<section id="critères-dévaluation-suggérés" class="level2">
-<h2 class="anchored" data-anchor-id="critères-dévaluation-suggérés">Critères d’évaluation suggérés</h2>
+<section id="étapes-recommandées" class="level2">
+<h2 class="anchored" data-anchor-id="étapes-recommandées">Étapes recommandées</h2>
+<ol type="1">
+<li>Exécuter <code>datasets/meteo-quebec/preparation.R</code>.</li>
+<li>Importer la table préparée.</li>
+<li>Vérifier la période couverte.</li>
+<li>Choisir deux variables principales, par exemple <code>mean_temp</code> et <code>total_precip</code>.</li>
+<li>Résumer les valeurs manquantes.</li>
+<li>Produire une visualisation temporelle.</li>
+<li>Produire une visualisation comparative par saison ou par mois.</li>
+<li>Rédiger les limites avant la conclusion.</li>
+</ol>
+</section>
+<section id="code-de-départ" class="level2">
+<h2 class="anchored" data-anchor-id="code-de-départ">Code de départ</h2>
+<p>À exécuter depuis la racine du projet.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load libraries</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Prepare data</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">&quot;datasets/meteo-quebec/preparation.R&quot;</span>)</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Import prepared files</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>meteo <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;data/processed/meteo-quebec/meteo_quebec.csv&quot;</span>,</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">show_col_types =</span> <span class="cn">FALSE</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>valeurs_manquantes <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;data/processed/meteo-quebec/valeurs_manquantes_meteo_quebec.csv&quot;</span>,</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>  <span class="at">show_col_types =</span> <span class="cn">FALSE</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>resume_saisons <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;data/processed/meteo-quebec/resume_saisons_meteo_quebec.csv&quot;</span>,</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>  <span class="at">show_col_types =</span> <span class="cn">FALSE</span></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a><span class="co"># Key checks</span></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>meteo <span class="sc">|&gt;</span></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>    <span class="at">lignes =</span> <span class="fu">n</span>(),</span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>    <span class="at">premiere_date =</span> <span class="fu">min</span>(date),</span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>    <span class="at">derniere_date =</span> <span class="fu">max</span>(date),</span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>    <span class="at">moyenne_temperature =</span> <span class="fu">mean</span>(mean_temp, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>    <span class="at">moyenne_precipitation =</span> <span class="fu">mean</span>(total_precip, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>valeurs_manquantes <span class="sc">|&gt;</span></span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(n_missing <span class="sc">&gt;</span> <span class="dv">0</span>) <span class="sc">|&gt;</span></span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(n_missing))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="visualisations-suggérées" class="level2">
+<h2 class="anchored" data-anchor-id="visualisations-suggérées">Visualisations suggérées</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Temperature since 2020</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>meteo <span class="sc">|&gt;</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(annee <span class="sc">&gt;=</span> <span class="dv">2020</span>) <span class="sc">|&gt;</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> date, <span class="at">y =</span> mean_temp)) <span class="sc">+</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">alpha =</span> <span class="fl">0.7</span>, <span class="at">linewidth =</span> <span class="fl">0.3</span>) <span class="sc">+</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">&quot;Date&quot;</span>,</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">&quot;Température moyenne quotidienne (°C)&quot;</span>,</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">&quot;Température quotidienne moyenne à Québec depuis 2020&quot;</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Seasonal precipitation distribution</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(meteo, <span class="fu">aes</span>(<span class="at">x =</span> saison, <span class="at">y =</span> total_precip)) <span class="sc">+</span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="at">outlier.alpha =</span> <span class="fl">0.25</span>) <span class="sc">+</span></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_cartesian</span>(<span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">30</span>)) <span class="sc">+</span></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">&quot;Saison&quot;</span>,</span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">&quot;Précipitations totales quotidiennes (mm)&quot;</span>,</span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">&quot;Distribution saisonnière des précipitations quotidiennes&quot;</span></span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="questions-à-traiter-dans-le-rapport" class="level2">
+<h2 class="anchored" data-anchor-id="questions-à-traiter-dans-le-rapport">Questions à traiter dans le rapport</h2>
+<ol type="1">
+<li>Quelle période le jeu couvre-t-il?</li>
+<li>Quelles variables sont les plus complètes?</li>
+<li>Pourquoi <code>total_rain</code> et <code>total_snow</code> doivent-elles être analysées avec prudence?</li>
+<li>Que montre le graphique temporel?</li>
+<li>Que montre la comparaison saisonnière?</li>
+<li>Quelles conclusions seraient excessives avec une seule station?</li>
+</ol>
+</section>
+<section id="critères-de-réussite" class="level2">
+<h2 class="anchored" data-anchor-id="critères-de-réussite">Critères de réussite</h2>
+<p>Un rapport solide :</p>
 <ul>
-<li>Qualité de la variable date.</li>
-<li>Pertinence des résumés numériques.</li>
-<li>Lisibilité des graphiques.</li>
-<li>Discussion des valeurs manquantes.</li>
-<li>Prudence de l’interprétation.</li>
+<li>utilise une variable <code>date</code> correcte;</li>
+<li>cite la source pédagogique et la source primaire;</li>
+<li>présente les valeurs manquantes avant les conclusions;</li>
+<li>contient deux graphiques lisibles;</li>
+<li>indique les unités des variables;</li>
+<li>ne généralise pas à tout le Québec;</li>
+<li>distingue météo quotidienne et climat.</li>
+</ul>
+</section>
+<section id="pistes-de-solution" class="level2">
+<h2 class="anchored" data-anchor-id="pistes-de-solution">Pistes de solution</h2>
+<p>Une conclusion prudente peut prendre cette forme :</p>
+<blockquote class="blockquote">
+<p>La station Québec/Jean-Lesage montre une forte saisonnalité des températures quotidiennes et des précipitations observables sur toute la période préparée. Ces résultats décrivent une station et une version pédagogique du jeu; ils ne suffisent pas, seuls, à établir une tendance climatique officielle.</p>
+</blockquote>
+</section>
+<section id="prolongements" class="level2">
+<h2 class="anchored" data-anchor-id="prolongements">Prolongements</h2>
+<ul>
+<li>Calculer le nombre de jours sous -20 °C par année.</li>
+<li>Décrire les journées de précipitations extrêmes.</li>
+<li>Comparer les résultats avant et après 2000.</li>
+<li>Ajouter une source sur les normales climatiques.</li>
+<li>Construire une courte capsule sur la différence entre météo, variabilité et climat.</li>
 </ul>
 
 

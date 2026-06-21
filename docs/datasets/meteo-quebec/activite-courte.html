@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Laboratoire - Météo Québec – Données bleues</title>
+<title>Variabilité saisonnière de la température à Québec – Données bleues</title>
 <style>
 
 code{white-space: pre-wrap;}
@@ -19,6 +19,41 @@ ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
 width: 0.8em;
 margin: 0 0.8em 0.2em -1em;  vertical-align: middle;
+}
+
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+{ counter-reset: source-line 0; }
+pre.numberSource code > span
+{ position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+{ content: counter(source-line);
+position: relative; left: -1em; text-align: right; vertical-align: baseline;
+border: none; display: inline-block;
+-webkit-touch-callout: none; -webkit-user-select: none;
+-khtml-user-select: none; -moz-user-select: none;
+-ms-user-select: none; user-select: none;
+padding: 0 4px; width: 4em;
+}
+pre.numberSource { margin-left: 3em; padding-left: 4px; }
+div.sourceCode
+{ }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -5482,13 +5517,17 @@ grid-template-columns: 1fr;
     <h2 id="toc-title">On this page</h2>
 
   <ul>
-  <li><a href="#laboratoire---météo-québec" id="toc-laboratoire---météo-québec" class="nav-link active" data-scroll-target="#laboratoire---météo-québec">Laboratoire - Météo Québec</a>
+  <li><a href="#variabilité-saisonnière-de-la-température-à-québec" id="toc-variabilité-saisonnière-de-la-température-à-québec" class="nav-link active" data-scroll-target="#variabilité-saisonnière-de-la-température-à-québec">Variabilité saisonnière de la température à Québec</a>
   <ul class="collapse">
   <li><a href="#contexte" id="toc-contexte" class="nav-link" data-scroll-target="#contexte">Contexte</a></li>
   <li><a href="#objectifs-dapprentissage" id="toc-objectifs-dapprentissage" class="nav-link" data-scroll-target="#objectifs-dapprentissage">Objectifs d’apprentissage</a></li>
-  <li><a href="#question-directrice" id="toc-question-directrice" class="nav-link" data-scroll-target="#question-directrice">Question directrice</a></li>
+  <li><a href="#données-utilisées" id="toc-données-utilisées" class="nav-link" data-scroll-target="#données-utilisées">Données utilisées</a></li>
+  <li><a href="#métadonnées-pédagogiques" id="toc-métadonnées-pédagogiques" class="nav-link" data-scroll-target="#métadonnées-pédagogiques">Métadonnées pédagogiques</a></li>
   <li><a href="#consignes" id="toc-consignes" class="nav-link" data-scroll-target="#consignes">Consignes</a></li>
+  <li><a href="#code-de-départ" id="toc-code-de-départ" class="nav-link" data-scroll-target="#code-de-départ">Code de départ</a></li>
+  <li><a href="#questions" id="toc-questions" class="nav-link" data-scroll-target="#questions">Questions</a></li>
   <li><a href="#pistes-de-solution" id="toc-pistes-de-solution" class="nav-link" data-scroll-target="#pistes-de-solution">Pistes de solution</a></li>
+  <li><a href="#prolongement" id="toc-prolongement" class="nav-link" data-scroll-target="#prolongement">Prolongement</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -5498,7 +5537,7 @@ grid-template-columns: 1fr;
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Laboratoire - Météo Québec</h1>
+<h1 class="title">Variabilité saisonnière de la température à Québec</h1>
 </div>
 
 
@@ -5515,38 +5554,169 @@ grid-template-columns: 1fr;
 </header>
 
 
-<section id="laboratoire---météo-québec" class="level1">
-<h1>Laboratoire - Météo Québec</h1>
+<section id="variabilité-saisonnière-de-la-température-à-québec" class="level1">
+<h1>Variabilité saisonnière de la température à Québec</h1>
 <section id="contexte" class="level2">
 <h2 class="anchored" data-anchor-id="contexte">Contexte</h2>
-<p>Ce laboratoire reprend le jeu <code>MeteoQuebec</code> utilisé dans l’aventure 1 de STT-1100. Il sert à passer d’un tableau brut à une première lecture statistique.</p>
+<p>Cette activité utilise le jeu <code>MeteoQuebec</code> de <code>UlavalSSD</code> pour introduire les dates, les saisons, les résumés par groupe et les graphiques simples. Le but n’est pas de conclure sur le climat, mais de produire une première description fiable de la météo quotidienne observée à une station.</p>
 </section>
 <section id="objectifs-dapprentissage" class="level2">
 <h2 class="anchored" data-anchor-id="objectifs-dapprentissage">Objectifs d’apprentissage</h2>
 <ul>
-<li>Charger un jeu de données fourni par un package R.</li>
-<li>Créer une variable date.</li>
-<li>Calculer des résumés par groupe.</li>
-<li>Produire un graphique clair et interprétable.</li>
+<li>Préparer un jeu météorologique pédagogique</li>
+<li>Lire un CSV préparé localement</li>
+<li>Utiliser une variable date</li>
+<li>Décrire les valeurs manquantes</li>
+<li>Comparer la variabilité de température par saison</li>
+<li>Produire un graphique lisible</li>
 </ul>
 </section>
-<section id="question-directrice" class="level2">
-<h2 class="anchored" data-anchor-id="question-directrice">Question directrice</h2>
-<p>Quelle saison présente la plus forte variabilité de température?</p>
+<section id="données-utilisées" class="level2">
+<h2 class="anchored" data-anchor-id="données-utilisées">Données utilisées</h2>
+<p>Fiche : <a href="../../datasets/meteo-quebec/fiche.html">Météo quotidienne à Québec</a></p>
+<p>Source pédagogique : <code>UlavalSSD::MeteoQuebec</code>.</p>
+<p>Source primaire documentée : Environnement et Changement climatique Canada, via <code>weathercan</code>.</p>
+<p>Fichier préparé : <code>data/processed/meteo-quebec/meteo_quebec.csv</code></p>
+</section>
+<section id="métadonnées-pédagogiques" class="level2">
+<h2 class="anchored" data-anchor-id="métadonnées-pédagogiques">Métadonnées pédagogiques</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Champ</th>
+<th>Information</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Question directrice</td>
+<td>Quelle saison présente la plus forte variabilité de température à Québec?</td>
+</tr>
+<tr class="even">
+<td>Concepts</td>
+<td>Séries temporelles; Statistiques descriptives; Valeurs manquantes; Visualisation</td>
+</tr>
+<tr class="odd">
+<td>Niveau</td>
+<td>Introduction</td>
+</tr>
+<tr class="even">
+<td>Type</td>
+<td>Laboratoire d’introduction; Exploration de données</td>
+</tr>
+<tr class="odd">
+<td>Contexte</td>
+<td>Météorologie québécoise</td>
+</tr>
+<tr class="even">
+<td>Accroche</td>
+<td>Des données météo familières pour apprendre à résumer une série temporelle</td>
+</tr>
+<tr class="odd">
+<td>Durée</td>
+<td>45-60 minutes</td>
+</tr>
+<tr class="even">
+<td>Matériel</td>
+<td>fiche; code; table préparée</td>
+</tr>
+<tr class="odd">
+<td>Math/stats avancées</td>
+<td>non</td>
+</tr>
+</tbody>
+</table>
 </section>
 <section id="consignes" class="level2">
 <h2 class="anchored" data-anchor-id="consignes">Consignes</h2>
 <ol type="1">
-<li>Charger <code>UlavalSSD</code> et afficher la structure de <code>MeteoQuebec</code>.</li>
-<li>Créer une variable <code>date</code> avec <code>lubridate::make_date()</code>.</li>
-<li>Créer une variable de saison ou de mois.</li>
-<li>Comparer <code>mean_temp</code> par saison avec un tableau et un graphique.</li>
+<li>Exécuter <code>datasets/meteo-quebec/preparation.R</code>.</li>
+<li>Importer <code>data/processed/meteo-quebec/meteo_quebec.csv</code>.</li>
+<li>Vérifier le nombre de lignes et la période couverte.</li>
+<li>Résumer les valeurs manquantes des variables de température.</li>
+<li>Calculer la moyenne et l’écart-type de <code>mean_temp</code> par saison.</li>
+<li>Produire un graphique de distribution de <code>mean_temp</code> par saison.</li>
 <li>Rédiger une conclusion de 5 à 8 lignes avec une limite méthodologique.</li>
+</ol>
+</section>
+<section id="code-de-départ" class="level2">
+<h2 class="anchored" data-anchor-id="code-de-départ">Code de départ</h2>
+<p>À exécuter depuis la racine du projet.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load libraries</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Prepare data</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">&quot;datasets/meteo-quebec/preparation.R&quot;</span>)</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Import prepared data</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>meteo <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;data/processed/meteo-quebec/meteo_quebec.csv&quot;</span>,</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">show_col_types =</span> <span class="cn">FALSE</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Check structure</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>meteo <span class="sc">|&gt;</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">lignes =</span> <span class="fu">n</span>(),</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">premiere_date =</span> <span class="fu">min</span>(date),</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>    <span class="at">derniere_date =</span> <span class="fu">max</span>(date)</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a><span class="co"># Missing values for temperature variables</span></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>meteo <span class="sc">|&gt;</span></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>    <span class="at">max_temp_manquant =</span> <span class="fu">sum</span>(<span class="fu">is.na</span>(max_temp)),</span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>    <span class="at">mean_temp_manquant =</span> <span class="fu">sum</span>(<span class="fu">is.na</span>(mean_temp)),</span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>    <span class="at">min_temp_manquant =</span> <span class="fu">sum</span>(<span class="fu">is.na</span>(min_temp))</span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a><span class="co"># Seasonal summary</span></span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>resume_saison <span class="ot">&lt;-</span> meteo <span class="sc">|&gt;</span></span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(saison) <span class="sc">|&gt;</span></span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>    <span class="at">n =</span> <span class="fu">n</span>(),</span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>    <span class="at">moyenne =</span> <span class="fu">mean</span>(mean_temp, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>    <span class="at">ecart_type =</span> <span class="fu">sd</span>(mean_temp, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>    <span class="at">.groups =</span> <span class="st">&quot;drop&quot;</span></span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(ecart_type))</span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a>resume_saison</span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a><span class="co"># Seasonal distribution</span></span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(meteo, <span class="fu">aes</span>(<span class="at">x =</span> saison, <span class="at">y =</span> mean_temp)) <span class="sc">+</span></span>
+<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="at">outlier.alpha =</span> <span class="fl">0.25</span>) <span class="sc">+</span></span>
+<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">&quot;Saison&quot;</span>,</span>
+<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">&quot;Température moyenne quotidienne (°C)&quot;</span>,</span>
+<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">&quot;Variabilité saisonnière de la température à Québec&quot;</span></span>
+<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="questions" class="level2">
+<h2 class="anchored" data-anchor-id="questions">Questions</h2>
+<ol type="1">
+<li>Quelle période le jeu préparé couvre-t-il?</li>
+<li>Combien de valeurs manquantes contient <code>mean_temp</code>?</li>
+<li>Quelle saison a le plus grand écart-type de <code>mean_temp</code>?</li>
+<li>Cette réponse change-t-elle si l’on regarde seulement les années récentes?</li>
+<li>Pourquoi ce résultat ne permet-il pas de conclure sur le climat du Québec?</li>
 </ol>
 </section>
 <section id="pistes-de-solution" class="level2">
 <h2 class="anchored" data-anchor-id="pistes-de-solution">Pistes de solution</h2>
-<p>Une bonne réponse nomme la variable analysée, décrit la dispersion observée et signale les valeurs manquantes. Une réponse excellente précise aussi pourquoi une seule station ne représente pas tout le Québec.</p>
+<p>Dans la version <code>UlavalSSD</code> 0.2.0, le printemps présente le plus grand écart-type descriptif de <code>mean_temp</code>. Une bonne conclusion doit préciser que ce résultat décrit la station Québec/Jean-Lesage dans la version pédagogique du jeu.</p>
+</section>
+<section id="prolongement" class="level2">
+<h2 class="anchored" data-anchor-id="prolongement">Prolongement</h2>
+<p>Refaire le calcul pour les années 2000 et plus, puis comparer l’ordre des saisons.</p>
 
 
 </section>

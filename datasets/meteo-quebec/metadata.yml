@@ -4,41 +4,49 @@ short_title: "Météo Québec"
 theme: "Météorologie"
 source_name: "UlavalSSD::MeteoQuebec, construit avec weathercan à partir d'ECCC"
 source_url: "https://climate.weather.gc.ca/historical_data/search_historic_data_e.html"
-license: "Données météorologiques sous Licence du gouvernement ouvert Canada selon weathercan; paquet UlavalSSD sous licence MIT"
-access_date: "2026-06-20"
+source_weathercan_url: "https://github.com/ropensci/weathercan"
+source_license_url: "https://climate.weather.gc.ca/prods_servs/attachment1_e.html"
+source_package_url: "https://github.com/AurelienNicosiaULaval/UlavalSSD"
+license: "Données ECCC soumises à l'entente de licence d'ECCC; paquet UlavalSSD sous licence MIT"
+access_date: "2026-06-21"
 geography: "Station Québec/Jean-Lesage, Québec"
-unit: "Observation météorologique quotidienne pour une station située dans la province de Québec"
-data_type: "Temporel, météorologique, tabulaire"
-format: "data.frame R dans UlavalSSD; export possible en CSV"
-n_rows: "20 111 lignes dans UlavalSSD 0.2.0"
-n_cols: "11 colonnes"
+unit: "Observation météorologique quotidienne pour la station Québec/Jean-Lesage"
+data_type: "Série temporelle quotidienne, météorologique et tabulaire"
+format: "Objet data.frame dans UlavalSSD 0.2.0; CSV préparé localement"
+n_rows: "20 111 observations quotidiennes préparées"
+n_cols: "15 colonnes préparées; 11 colonnes dans l'objet UlavalSSD source"
+processed_file: "data/processed/meteo-quebec/meteo_quebec.csv"
+missing_summary_file: "data/processed/meteo-quebec/valeurs_manquantes_meteo_quebec.csv"
+season_summary_file: "data/processed/meteo-quebec/resume_saisons_meteo_quebec.csv"
 update_frequency: "Jeu pédagogique gelé dans UlavalSSD 0.2.0; source ECCC mise à jour régulièrement"
 level: "Introduction"
 organisme: "Environnement et Changement climatique Canada; adaptation pédagogique dans UlavalSSD"
-territoire: "Québec"
-taille_approximative: "20 111 observations quotidiennes"
+territoire: "Québec/Jean-Lesage"
+taille_approximative: "20 111 observations quotidiennes, de 1970-01-01 à 2025-01-22"
 niveau_pedagogique_recommande: "Introduction"
 variables_principales:
-  - year
-  - month
-  - day
-  - max_temp
-  - mean_temp
-  - min_temp
-  - total_precip
-  - total_rain
-  - total_snow
-  - snow_grnd
+  - "date"
+  - "annee"
+  - "mois"
+  - "saison"
+  - "max_temp"
+  - "mean_temp"
+  - "min_temp"
+  - "total_precip"
+  - "total_rain"
+  - "total_snow"
+  - "snow_grnd"
 idees_mini_projets:
   - "Comparer les températures moyennes quotidiennes selon les saisons."
   - "Visualiser l'évolution annuelle des précipitations totales."
-  - "Détecter les journées extrêmes de froid, de chaleur ou de précipitations."
+  - "Décrire les valeurs manquantes avant de comparer pluie, neige et précipitations."
 tags:
   - "météo"
   - "Québec"
   - "séries temporelles"
   - "statistiques descriptives"
   - "visualisation"
+  - "valeurs manquantes"
 concepts:
   - "séries temporelles"
   - "variables numériques"
@@ -47,11 +55,12 @@ concepts:
   - "visualisation"
   - "saisonnalité"
   - "données météorologiques"
+  - "communication prudente"
 zero_waste:
   contexte_quebecois: 3
   accessibilite_pedagogique: 3
-  qualite_documentaire: 2
-  potentiel_nettoyage: 2
+  qualite_documentaire: 3
+  potentiel_nettoyage: 3
   potentiel_visualisation: 3
   potentiel_statistique_descriptive: 3
   potentiel_inference: 2
@@ -59,6 +68,6 @@ zero_waste:
   potentiel_ethique: 2
   reutilisabilite: 3
 contributor_name: "Aurélien Nicosia"
-contributor_role: "Responsable pédagogique STT-1100"
-status: "source pédagogique vérifiée dans UlavalSSD; source primaire ECCC documentée par weathercan"
-notes: "Utilisé dans l'aventure 1 de STT-1100. La documentation locale d'UlavalSSD indique les stations 5251 et 26892; weathercan associe ces identifiants à Québec/Jean-Lesage."
+contributor_role: "Révision pédagogique et statistique"
+status: "source pédagogique vérifiée dans UlavalSSD 0.2.0; préparation locale reproductible"
+notes: "Jeu utilisé dans STT-1100. Ne pas extrapoler à tout le Québec : il s'agit d'une station. Les variables total_rain, total_snow et snow_grnd contiennent beaucoup de valeurs manquantes."

@@ -1,34 +1,128 @@
 ---
-title: "Laboratoire - Météo Québec"
+title: "Variabilité saisonnière de la température à Québec"
 embed-resources: true
 ---
 
-# Laboratoire - Météo Québec
+# Variabilité saisonnière de la température à Québec
 
 ## Contexte
 
-Ce laboratoire reprend le jeu `MeteoQuebec` utilisé dans l'aventure 1 de STT-1100. Il sert à passer d'un tableau brut à une première lecture statistique.
+Cette activité utilise le jeu `MeteoQuebec` de `UlavalSSD` pour introduire les dates, les saisons, les résumés par groupe et les graphiques simples. Le but n'est pas de conclure sur le climat, mais de produire une première description fiable de la météo quotidienne observée à une station.
 
 ## Objectifs d'apprentissage
 
-- Charger un jeu de données fourni par un package R.
-- Créer une variable date.
-- Calculer des résumés par groupe.
-- Produire un graphique clair et interprétable.
+- Préparer un jeu météorologique pédagogique
+- Lire un CSV préparé localement
+- Utiliser une variable date
+- Décrire les valeurs manquantes
+- Comparer la variabilité de température par saison
+- Produire un graphique lisible
 
-## Question directrice
+## Données utilisées
 
-Quelle saison présente la plus forte variabilité de température?
+Fiche : [Météo quotidienne à Québec](fiche.qmd)
+
+Source pédagogique : `UlavalSSD::MeteoQuebec`.
+
+Source primaire documentée : Environnement et Changement climatique Canada, via `weathercan`.
+
+Fichier préparé : `data/processed/meteo-quebec/meteo_quebec.csv`
+
+## Métadonnées pédagogiques
+
+| Champ | Information |
+|---|---|
+| Question directrice | Quelle saison présente la plus forte variabilité de température à Québec? |
+| Concepts | Séries temporelles; Statistiques descriptives; Valeurs manquantes; Visualisation |
+| Niveau | Introduction |
+| Type | Laboratoire d'introduction; Exploration de données |
+| Contexte | Météorologie québécoise |
+| Accroche | Des données météo familières pour apprendre à résumer une série temporelle |
+| Durée | 45-60 minutes |
+| Matériel | fiche; code; table préparée |
+| Math/stats avancées | non |
 
 ## Consignes
 
-1. Charger `UlavalSSD` et afficher la structure de `MeteoQuebec`.
-2. Créer une variable `date` avec `lubridate::make_date()`.
-3. Créer une variable de saison ou de mois.
-4. Comparer `mean_temp` par saison avec un tableau et un graphique.
-5. Rédiger une conclusion de 5 à 8 lignes avec une limite méthodologique.
+1. Exécuter `datasets/meteo-quebec/preparation.R`.
+2. Importer `data/processed/meteo-quebec/meteo_quebec.csv`.
+3. Vérifier le nombre de lignes et la période couverte.
+4. Résumer les valeurs manquantes des variables de température.
+5. Calculer la moyenne et l'écart-type de `mean_temp` par saison.
+6. Produire un graphique de distribution de `mean_temp` par saison.
+7. Rédiger une conclusion de 5 à 8 lignes avec une limite méthodologique.
+
+## Code de départ
+
+À exécuter depuis la racine du projet.
+
+```{r}
+#| eval: false
+# Load libraries
+library(dplyr)
+library(ggplot2)
+library(readr)
+
+# Prepare data
+source("datasets/meteo-quebec/preparation.R")
+
+# Import prepared data
+meteo <- read_csv(
+  "data/processed/meteo-quebec/meteo_quebec.csv",
+  show_col_types = FALSE
+)
+
+# Check structure
+meteo |>
+  summarise(
+    lignes = n(),
+    premiere_date = min(date),
+    derniere_date = max(date)
+  )
+
+# Missing values for temperature variables
+meteo |>
+  summarise(
+    max_temp_manquant = sum(is.na(max_temp)),
+    mean_temp_manquant = sum(is.na(mean_temp)),
+    min_temp_manquant = sum(is.na(min_temp))
+  )
+
+# Seasonal summary
+resume_saison <- meteo |>
+  group_by(saison) |>
+  summarise(
+    n = n(),
+    moyenne = mean(mean_temp, na.rm = TRUE),
+    ecart_type = sd(mean_temp, na.rm = TRUE),
+    .groups = "drop"
+  ) |>
+  arrange(desc(ecart_type))
+
+resume_saison
+
+# Seasonal distribution
+ggplot(meteo, aes(x = saison, y = mean_temp)) +
+  geom_boxplot(outlier.alpha = 0.25) +
+  labs(
+    x = "Saison",
+    y = "Température moyenne quotidienne (°C)",
+    title = "Variabilité saisonnière de la température à Québec"
+  )
+```
+
+## Questions
+
+1. Quelle période le jeu préparé couvre-t-il?
+2. Combien de valeurs manquantes contient `mean_temp`?
+3. Quelle saison a le plus grand écart-type de `mean_temp`?
+4. Cette réponse change-t-elle si l'on regarde seulement les années récentes?
+5. Pourquoi ce résultat ne permet-il pas de conclure sur le climat du Québec?
 
 ## Pistes de solution
 
-Une bonne réponse nomme la variable analysée, décrit la dispersion observée et signale les valeurs manquantes. Une réponse excellente précise aussi pourquoi une seule station ne représente pas tout le Québec.
+Dans la version `UlavalSSD` 0.2.0, le printemps présente le plus grand écart-type descriptif de `mean_temp`. Une bonne conclusion doit préciser que ce résultat décrit la station Québec/Jean-Lesage dans la version pédagogique du jeu.
 
+## Prolongement
+
+Refaire le calcul pour les années 2000 et plus, puis comparer l'ordre des saisons.

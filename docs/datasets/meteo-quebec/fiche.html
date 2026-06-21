@@ -5548,10 +5548,10 @@ Météo quotidienne à Québec
 UlavalSSD::MeteoQuebec, construit avec weathercan à partir d&#39;ECCC
 </p>
 <div class="dataset-contributor-badge">
-<span>Personne à contacter</span><strong>Aurélien Nicosia</strong><small>Responsable pédagogique STT-1100</small>
+<span>Personne à contacter</span><strong>Aurélien Nicosia</strong><small>Révision pédagogique et statistique</small>
 </div>
 <p class="dataset-hero-summary">
-Observation météorologique quotidienne pour une station située dans la province de Québec
+Observation météorologique quotidienne pour la station Québec/Jean-Lesage
 </p>
 <div class="dataset-hero-actions">
 <a class="dataset-button no-external" href="#r-en-action">Voir les résultats R</a><a class="dataset-button secondary" href="https://climate.weather.gc.ca/historical_data/search_historic_data_e.html">Source officielle</a>
@@ -5569,10 +5569,10 @@ Observation météorologique quotidienne pour une station située dans la provin
 <span>Niveau</span><strong>Introduction</strong>
 </div>
 <div class="dataset-fact">
-<span>Structure</span><strong>Temporel, météorologique, tabulaire</strong>
+<span>Structure</span><strong>Série temporelle quotidienne, météorologique et tabulaire</strong>
 </div>
 <div class="dataset-fact">
-<span>Format</span><strong>data.frame R dans UlavalSSD; export possible en CSV</strong>
+<span>Format</span><strong>Objet data.frame dans UlavalSSD 0.2.0; CSV préparé localement</strong>
 </div>
 </div>
 <div class="dataset-pedagogy-band">
@@ -5583,7 +5583,7 @@ Comparer les températures moyennes quotidiennes selon les saisons.
 </p>
 </div>
 <div class="dataset-score-box">
-<span>Potentiel pédagogique</span><strong>25 / 30</strong>
+<span>Potentiel pédagogique</span><strong>27 / 30</strong>
 <div class="dataset-score-track">
 <span class="dataset-score-segment is-filled"></span><span class="dataset-score-segment is-filled"></span><span class="dataset-score-segment is-filled"></span><span class="dataset-score-segment is-filled"></span><span class="dataset-score-segment is-filled"></span>
 </div>
@@ -5599,7 +5599,7 @@ Comparer les températures moyennes quotidiennes selon les saisons.
 Aperçu reproductible
 </h2>
 <p>
-Aperçu léger calculé par R à partir des métadonnées vérifiées afin de garder la fiche rapide et stable au rendu.
+Aperçu calculé par R à partir de data/processed/meteo-quebec/meteo_quebec.csv.
 </p>
 </div>
 <div class="dataset-r-grid">
@@ -5607,13 +5607,12 @@ Aperçu léger calculé par R à partir des métadonnées vérifiées afin de ga
 <div class="dataset-card-label">
 Code minimal
 </div>
-<pre><code class="language-r">library(yaml)
+<pre><code class="language-r">library(dplyr)
 
-metadata &lt;- yaml::read_yaml(&quot;datasets/meteo-quebec/metadata.yml&quot;)
-data.frame(
-  champ = c(&quot;theme&quot;, &quot;territoire&quot;, &quot;unite&quot;, &quot;niveau&quot;),
-  valeur = c(metadata$theme, metadata$geography, metadata$unit, metadata$level)
-)</code></pre>
+donnees &lt;- read.csv(&quot;data/processed/meteo-quebec/meteo_quebec.csv&quot;, check.names = FALSE)
+
+glimpse(donnees)
+donnees |&gt; summarise(lignes = n(), colonnes = ncol(donnees))</code></pre>
 </div>
 <div class="dataset-result-card">
 <div class="dataset-card-label">
@@ -5621,16 +5620,19 @@ Résultats R
 </div>
 <div class="dataset-r-stats">
 <div class="dataset-r-stat">
-<span>Lignes déclarées</span><strong>20 111 lignes dans UlavalSSD 0.2.0</strong>
+<span>Lignes lues</span><strong>2 500</strong>
 </div>
 <div class="dataset-r-stat">
-<span>Colonnes déclarées</span><strong>11 colonnes</strong>
+<span>Colonnes</span><strong>15</strong>
 </div>
 <div class="dataset-r-stat">
-<span>Format</span><strong>data.frame R dans UlavalSSD; export possible en CSV</strong>
+<span>Variables num.</span><strong>10</strong>
 </div>
 <div class="dataset-r-stat">
-<span>Aperçu</span><strong>Métadonnées</strong>
+<span>Valeurs manquantes</span><strong>0 %</strong>
+</div>
+<div class="dataset-r-stat">
+<span>Aperçu</span><strong>meteo_quebec.csv</strong>
 </div>
 </div>
 <div class="dataset-result-table-wrap">
@@ -5638,52 +5640,144 @@ Résultats R
 <thead>
 <tr>
 <th>
-champ
+source_dataset
 </th>
 <th>
-valeur
+station_label
+</th>
+<th>
+date
+</th>
+<th>
+annee
+</th>
+<th>
+mois_num
+</th>
+<th>
+mois
 </th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>
-theme
+UlavalSSD::MeteoQuebec
 </td>
 <td>
-Météorologie
-</td>
-</tr>
-<tr>
-<td>
-territoire
+Québec/Jean-Lesage
 </td>
 <td>
-Station Québec/Jean-Lesage, Québec
-</td>
-</tr>
-<tr>
-<td>
-unite
+1970-01-01
 </td>
 <td>
-Observation météorologique quot…
+1970
+</td>
+<td>
+1
+</td>
+<td>
+January
 </td>
 </tr>
 <tr>
 <td>
-niveau
+UlavalSSD::MeteoQuebec
 </td>
 <td>
-Introduction
+Québec/Jean-Lesage
+</td>
+<td>
+1970-01-02
+</td>
+<td>
+1970
+</td>
+<td>
+1
+</td>
+<td>
+January
 </td>
 </tr>
 <tr>
 <td>
-format
+UlavalSSD::MeteoQuebec
 </td>
 <td>
-data.frame R dans UlavalSSD; ex…
+Québec/Jean-Lesage
+</td>
+<td>
+1970-01-03
+</td>
+<td>
+1970
+</td>
+<td>
+1
+</td>
+<td>
+January
+</td>
+</tr>
+<tr>
+<td>
+UlavalSSD::MeteoQuebec
+</td>
+<td>
+Québec/Jean-Lesage
+</td>
+<td>
+1970-01-04
+</td>
+<td>
+1970
+</td>
+<td>
+1
+</td>
+<td>
+January
+</td>
+</tr>
+<tr>
+<td>
+UlavalSSD::MeteoQuebec
+</td>
+<td>
+Québec/Jean-Lesage
+</td>
+<td>
+1970-01-05
+</td>
+<td>
+1970
+</td>
+<td>
+1
+</td>
+<td>
+January
+</td>
+</tr>
+<tr>
+<td>
+UlavalSSD::MeteoQuebec
+</td>
+<td>
+Québec/Jean-Lesage
+</td>
+<td>
+1970-01-06
+</td>
+<td>
+1970
+</td>
+<td>
+1
+</td>
+<td>
+January
 </td>
 </tr>
 </tbody>
@@ -5694,8 +5788,8 @@ data.frame R dans UlavalSSD; ex…
 <div class="dataset-card-label">
 Lecture statistique
 </div>
-<svg class="dataset-r-chart" viewbox="0 0 320 210" role="img" aria-label="Concepts pédagogiques">
-<text x="0" y="30" class="dataset-svg-label">séries temporelles</text><rect x="150" y="18" width="90" height="14" rx="3" class="dataset-svg-bar" /><text x="0" y="54" class="dataset-svg-label">variables numériques</text><rect x="150" y="42" width="90" height="14" rx="3" class="dataset-svg-bar" /><text x="0" y="78" class="dataset-svg-label">valeurs manquantes</text><rect x="150" y="66" width="90" height="14" rx="3" class="dataset-svg-bar" /><text x="0" y="102" class="dataset-svg-label">statistiques descriptives</text><rect x="150" y="90" width="90" height="14" rx="3" class="dataset-svg-bar" /><text x="0" y="126" class="dataset-svg-label">visualisation</text><rect x="150" y="114" width="90" height="14" rx="3" class="dataset-svg-bar" /><text x="0" y="150" class="dataset-svg-label">saisonnalité</text><rect x="150" y="138" width="90" height="14" rx="3" class="dataset-svg-bar" /><text x="0" y="174" class="dataset-svg-label">données météorologiques</text><rect x="150" y="162" width="90" height="14" rx="3" class="dataset-svg-bar" />
+<svg class="dataset-r-chart" viewbox="0 0 320 210" role="img" aria-label="Aperçu numérique généré par R">
+<line x1="34" y1="158" x2="292" y2="158" class="dataset-svg-axis"></line><line x1="34" y1="36" x2="34" y2="158" class="dataset-svg-axis"></line><polyline points="34,127.3 40.4,139.7 46.7,158 53.1,158 59.4,158 65.8,158 72.2,158 78.5,158 84.9,158 91.2,158 97.6,158 103.9,156.3 110.3,130.1 116.7,46 123,139.7 129.4,158 135.7,157 142.1,151.8 148.5,145.6 154.8,155.2 161.2,152.8 167.5,158 173.9,158 180.3,158 186.6,130.1 193,91.5 199.3,156.3 205.7,158 212.1,158 218.4,147.7 224.8,157 231.1,158 237.5,131.8 243.8,158 250.2,158 256.6,112.5 262.9,156.3 269.3,158 275.6,155.2 282,127.3" class="dataset-svg-line"></polyline><circle cx="34" cy="127.3" r="3.2" class="dataset-svg-point"></circle><circle cx="40.4" cy="139.7" r="3.2" class="dataset-svg-point"></circle><circle cx="46.7" cy="158" r="3.2" class="dataset-svg-point"></circle><circle cx="53.1" cy="158" r="3.2" class="dataset-svg-point"></circle><circle cx="59.4" cy="158" r="3.2" class="dataset-svg-point"></circle><circle cx="65.8" cy="158" r="3.2" class="dataset-svg-point"></circle><circle cx="72.2" cy="158" r="3.2" class="dataset-svg-point"></circle><circle cx="78.5" cy="158" r="3.2" class="dataset-svg-point"></circle><circle cx="84.9" cy="158" r="3.2" class="dataset-svg-point"></circle><circle cx="91.2" cy="158" r="3.2" class="dataset-svg-point"></circle><circle cx="97.6" cy="158" r="3.2" class="dataset-svg-point"></circle><circle cx="103.9" cy="156.3" r="3.2" class="dataset-svg-point"></circle><circle cx="110.3" cy="130.1" r="3.2" class="dataset-svg-point"></circle><circle cx="116.7" cy="46" r="3.2" class="dataset-svg-point"></circle><circle cx="123" cy="139.7" r="3.2" class="dataset-svg-point"></circle><circle cx="129.4" cy="158" r="3.2" class="dataset-svg-point"></circle><circle cx="135.7" cy="157" r="3.2" class="dataset-svg-point"></circle><circle cx="142.1" cy="151.8" r="3.2" class="dataset-svg-point"></circle><circle cx="148.5" cy="145.6" r="3.2" class="dataset-svg-point"></circle><circle cx="154.8" cy="155.2" r="3.2" class="dataset-svg-point"></circle><circle cx="161.2" cy="152.8" r="3.2" class="dataset-svg-point"></circle><circle cx="167.5" cy="158" r="3.2" class="dataset-svg-point"></circle><circle cx="173.9" cy="158" r="3.2" class="dataset-svg-point"></circle><circle cx="180.3" cy="158" r="3.2" class="dataset-svg-point"></circle><circle cx="186.6" cy="130.1" r="3.2" class="dataset-svg-point"></circle><circle cx="193" cy="91.5" r="3.2" class="dataset-svg-point"></circle><circle cx="199.3" cy="156.3" r="3.2" class="dataset-svg-point"></circle><circle cx="205.7" cy="158" r="3.2" class="dataset-svg-point"></circle><circle cx="212.1" cy="158" r="3.2" class="dataset-svg-point"></circle><circle cx="218.4" cy="147.7" r="3.2" class="dataset-svg-point"></circle><circle cx="224.8" cy="157" r="3.2" class="dataset-svg-point"></circle><circle cx="231.1" cy="158" r="3.2" class="dataset-svg-point"></circle><circle cx="237.5" cy="131.8" r="3.2" class="dataset-svg-point"></circle><circle cx="243.8" cy="158" r="3.2" class="dataset-svg-point"></circle><circle cx="250.2" cy="158" r="3.2" class="dataset-svg-point"></circle><circle cx="256.6" cy="112.5" r="3.2" class="dataset-svg-point"></circle><circle cx="262.9" cy="156.3" r="3.2" class="dataset-svg-point"></circle><circle cx="269.3" cy="158" r="3.2" class="dataset-svg-point"></circle><circle cx="275.6" cy="155.2" r="3.2" class="dataset-svg-point"></circle><circle cx="282" cy="127.3" r="3.2" class="dataset-svg-point"></circle><text x="34" y="24" class="dataset-svg-title">total_precip</text><text x="34" y="186" class="dataset-svg-label">0</text><text x="230" y="186" class="dataset-svg-label">32.5</text>
 </svg>
 </div>
 </div>
@@ -5711,7 +5805,7 @@ Comparer les températures moyennes quotidiennes selon les saisons.
 Visualiser l&#39;évolution annuelle des précipitations totales.
 </li>
 <li>
-Détecter les journées extrêmes de froid, de chaleur ou de précipitations.
+Décrire les valeurs manquantes avant de comparer pluie, neige et précipitations.
 </li>
 </ul>
 </div>
@@ -5719,15 +5813,15 @@ Détecter les journées extrêmes de froid, de chaleur ou de précipitations.
 <span>Activités liées</span>
 <div class="dataset-activity-grid">
 <div class="dataset-activity-card">
-<span>45-60 minutes</span><strong>Laboratoire - Météo Québec</strong>
+<span>45-60 minutes</span><strong>Variabilité saisonnière de la température à Québec</strong>
 <p>
-Quelle saison présente la plus forte variabilité de température?
+Quelle saison présente la plus forte variabilité de température à Québec?
 </p>
 </div>
 <div class="dataset-activity-card">
-<span>2-3 heures</span><strong>Mini-projet - Météo Québec</strong>
+<span>2-3 heures</span><strong>Portrait descriptif de la météo quotidienne à Québec</strong>
 <p>
-Construire un portrait descriptif de la météo quotidienne à Québec.
+Comment produire un portrait descriptif prudent de la météo quotidienne à Québec?
 </p>
 </div>
 </div>
@@ -5736,11 +5830,72 @@ Construire un portrait descriptif de la météo quotidienne à Québec.
 <div class="dataset-detail-content">
 <section id="pourquoi-ce-jeu-est-intéressant" class="level2">
 <h2 class="anchored" data-anchor-id="pourquoi-ce-jeu-est-intéressant">Pourquoi ce jeu est intéressant</h2>
-<p>Ce jeu est utilisé dans l’aventure 1 de STT-1100 pour faire les premiers gestes d’exploration dans R. Il est assez simple pour commencer, mais assez riche pour introduire les dates, les valeurs manquantes, les résumés numériques, les saisons et les graphiques de séries temporelles.</p>
-<p>Question d’analyse : comment les températures, la pluie, la neige et les précipitations totales varient-elles au fil des années à Québec?</p>
+<p>Ce jeu est très utile pour une première expérience de science des données en R. Les variables sont concrètes, les unités sont faciles à comprendre et les graphiques deviennent rapidement interprétables. Il permet d’introduire les dates, les séries temporelles, les valeurs manquantes, les statistiques descriptives et les limites d’une interprétation.</p>
+<p>La question pédagogique centrale est simple : que peut-on dire de la météo quotidienne observée à une station, et que ne peut-on pas conclure sans analyse climatique plus rigoureuse?</p>
 </section>
-<section id="source" class="level2">
-<h2 class="anchored" data-anchor-id="source">Source</h2>
+<section id="ce-qui-a-été-vérifié" class="level2">
+<h2 class="anchored" data-anchor-id="ce-qui-a-été-vérifié">Ce qui a été vérifié</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Élément</th>
+<th>Résultat vérifié</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Jeu pédagogique</td>
+<td><code>UlavalSSD::MeteoQuebec</code></td>
+</tr>
+<tr class="even">
+<td>Version du paquet</td>
+<td><code>UlavalSSD</code> 0.2.0</td>
+</tr>
+<tr class="odd">
+<td>Source primaire documentée</td>
+<td>Environnement et Changement climatique Canada, via <code>weathercan</code></td>
+</tr>
+<tr class="even">
+<td>Station documentée</td>
+<td>Québec/Jean-Lesage</td>
+</tr>
+<tr class="odd">
+<td>Identifiants de station mentionnés</td>
+<td>5251 et 26892</td>
+</tr>
+<tr class="even">
+<td>Lignes dans l’objet source</td>
+<td>20 111</td>
+</tr>
+<tr class="odd">
+<td>Colonnes dans l’objet source</td>
+<td>11</td>
+</tr>
+<tr class="even">
+<td>Table préparée</td>
+<td><code>data/processed/meteo-quebec/meteo_quebec.csv</code></td>
+</tr>
+<tr class="odd">
+<td>Lignes préparées</td>
+<td>20 111</td>
+</tr>
+<tr class="even">
+<td>Colonnes préparées</td>
+<td>15</td>
+</tr>
+<tr class="odd">
+<td>Période préparée</td>
+<td>1970-01-01 à 2025-01-22</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="source-et-conditions" class="level2">
+<h2 class="anchored" data-anchor-id="source-et-conditions">Source et conditions</h2>
 <table class="caption-top table">
 <thead>
 <tr class="header">
@@ -5750,224 +5905,416 @@ Construire un portrait descriptif de la météo quotidienne à Québec.
 </thead>
 <tbody>
 <tr class="odd">
-<td>Jeu utilisé dans le cours</td>
-<td><code>UlavalSSD::MeteoQuebec</code></td>
+<td>Source pédagogique</td>
+<td><a href="https://github.com/AurelienNicosiaULaval/UlavalSSD" class="uri">https://github.com/AurelienNicosiaULaval/UlavalSSD</a></td>
 </tr>
 <tr class="even">
-<td>Source primaire</td>
-<td>Environnement et Changement climatique Canada, via <code>weathercan</code></td>
-</tr>
-<tr class="odd">
-<td>URL officielle</td>
+<td>Source primaire ECCC</td>
 <td><a href="https://climate.weather.gc.ca/historical_data/search_historic_data_e.html" class="uri">https://climate.weather.gc.ca/historical_data/search_historic_data_e.html</a></td>
 </tr>
-<tr class="even">
-<td>Documentation weathercan</td>
+<tr class="odd">
+<td>Package <code>weathercan</code></td>
 <td><a href="https://github.com/ropensci/weathercan" class="uri">https://github.com/ropensci/weathercan</a></td>
 </tr>
+<tr class="even">
+<td>Licence ECCC</td>
+<td><a href="https://climate.weather.gc.ca/prods_servs/attachment1_e.html" class="uri">https://climate.weather.gc.ca/prods_servs/attachment1_e.html</a></td>
+</tr>
 <tr class="odd">
-<td>Licence</td>
-<td>Données météorologiques sous Licence du gouvernement ouvert Canada selon weathercan; paquet UlavalSSD sous licence MIT</td>
+<td>Licence du paquet pédagogique</td>
+<td>MIT</td>
 </tr>
 <tr class="even">
 <td>Date d’accès</td>
-<td>2026-06-20</td>
+<td>2026-06-21</td>
 </tr>
 <tr class="odd">
 <td>Statut</td>
-<td>source pédagogique vérifiée dans UlavalSSD; source primaire ECCC documentée par weathercan</td>
+<td>source pédagogique vérifiée dans <code>UlavalSSD</code> 0.2.0; préparation locale reproductible</td>
 </tr>
 </tbody>
 </table>
 </section>
 <section id="ce-que-représente-une-ligne" class="level2">
 <h2 class="anchored" data-anchor-id="ce-que-représente-une-ligne">Ce que représente une ligne</h2>
-<p>Une ligne représente une observation météorologique quotidienne pour une station située dans la province de Québec. La documentation locale d’UlavalSSD indique les stations 5251 et 26892; <code>weathercan::stations()</code> les associe à Québec/Jean-Lesage.</p>
-</section>
-<section id="variables-principales" class="level2">
-<h2 class="anchored" data-anchor-id="variables-principales">Variables principales</h2>
+<p>Une ligne représente une observation météorologique quotidienne pour la station Québec/Jean-Lesage. Elle ne représente pas toute la région de Québec, ni toute la province, ni une moyenne climatique officielle.</p>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 25%">
-<col style="width: 25%">
-<col style="width: 25%">
-<col style="width: 25%">
+<col style="width: 50%">
+<col style="width: 50%">
 </colgroup>
 <thead>
 <tr class="header">
-<th>Variable</th>
-<th>Type</th>
-<th>Description</th>
-<th>Exemple</th>
+<th>Variable préparée</th>
+<th>Rôle</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td><code>year</code></td>
-<td>numérique</td>
-<td>Année de l’observation</td>
-<td>2025</td>
+<td><code>source_dataset</code></td>
+<td>Origine pédagogique du jeu</td>
 </tr>
 <tr class="even">
-<td><code>month</code></td>
-<td>caractère</td>
-<td>Mois de l’observation</td>
-<td>01</td>
+<td><code>station_label</code></td>
+<td>Station documentée</td>
 </tr>
 <tr class="odd">
-<td><code>day</code></td>
-<td>caractère</td>
-<td>Jour du mois</td>
-<td>15</td>
+<td><code>date</code></td>
+<td>Date complète de l’observation</td>
 </tr>
 <tr class="even">
-<td><code>max_temp</code></td>
-<td>numérique</td>
-<td>Température maximale quotidienne en degrés Celsius</td>
-<td>2.4</td>
+<td><code>annee</code>, <code>mois_num</code>, <code>mois</code>, <code>jour</code></td>
+<td>Variables temporelles dérivées</td>
 </tr>
 <tr class="odd">
-<td><code>mean_temp</code></td>
-<td>numérique</td>
-<td>Température moyenne quotidienne en degrés Celsius</td>
-<td>-1.1</td>
+<td><code>saison</code></td>
+<td>Saison construite à partir du mois</td>
 </tr>
 <tr class="even">
-<td><code>min_temp</code></td>
-<td>numérique</td>
-<td>Température minimale quotidienne en degrés Celsius</td>
-<td>-5.2</td>
+<td><code>max_temp</code>, <code>mean_temp</code>, <code>min_temp</code></td>
+<td>Températures quotidiennes en degrés Celsius</td>
 </tr>
 <tr class="odd">
 <td><code>total_precip</code></td>
-<td>numérique</td>
 <td>Précipitations totales quotidiennes en millimètres</td>
-<td>8.6</td>
 </tr>
 <tr class="even">
 <td><code>total_rain</code></td>
-<td>numérique</td>
 <td>Pluie quotidienne en millimètres</td>
-<td>4.2</td>
 </tr>
 <tr class="odd">
 <td><code>total_snow</code></td>
-<td>numérique</td>
 <td>Neige quotidienne en centimètres</td>
-<td>3.0</td>
 </tr>
 <tr class="even">
 <td><code>snow_grnd</code></td>
-<td>numérique</td>
 <td>Neige au sol en centimètres</td>
-<td>24</td>
 </tr>
 </tbody>
 </table>
 </section>
-<section id="taille-et-structure" class="level2">
-<h2 class="anchored" data-anchor-id="taille-et-structure">Taille et structure</h2>
+<section id="taille-et-résultats-r-vérifiés" class="level2">
+<h2 class="anchored" data-anchor-id="taille-et-résultats-r-vérifiés">Taille et résultats R vérifiés</h2>
 <table class="caption-top table">
 <thead>
 <tr class="header">
-<th>Élément</th>
-<th>Information</th>
+<th>Indicateur</th>
+<th style="text-align: right;">Valeur</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>Nombre de lignes</td>
-<td>20 111 lignes dans UlavalSSD 0.2.0</td>
+<td>Observations quotidiennes</td>
+<td style="text-align: right;">20 111</td>
 </tr>
 <tr class="even">
-<td>Nombre de colonnes</td>
-<td>11 colonnes</td>
+<td>Colonnes préparées</td>
+<td style="text-align: right;">15</td>
 </tr>
 <tr class="odd">
-<td>Structure</td>
-<td>Tableau temporel quotidien</td>
+<td>Première date</td>
+<td style="text-align: right;">1970-01-01</td>
 </tr>
 <tr class="even">
-<td>Format</td>
-<td><code>data.frame</code> R dans UlavalSSD; export possible en CSV</td>
+<td>Dernière date</td>
+<td style="text-align: right;">2025-01-22</td>
 </tr>
 <tr class="odd">
-<td>Couverture temporelle</td>
-<td>1970 à 2025 dans la version consultée</td>
+<td>Moyenne de <code>mean_temp</code></td>
+<td style="text-align: right;">4,55 °C</td>
 </tr>
 <tr class="even">
-<td>Couverture géographique</td>
-<td>Station Québec/Jean-Lesage, Québec</td>
+<td>Minimum de <code>mean_temp</code></td>
+<td style="text-align: right;">-30,6 °C</td>
+</tr>
+<tr class="odd">
+<td>Maximum de <code>mean_temp</code></td>
+<td style="text-align: right;">28,1 °C</td>
+</tr>
+<tr class="even">
+<td>Moyenne de <code>total_precip</code></td>
+<td style="text-align: right;">3,28 mm</td>
+</tr>
+<tr class="odd">
+<td>Maximum de <code>total_precip</code></td>
+<td style="text-align: right;">108,5 mm</td>
 </tr>
 </tbody>
 </table>
+</section>
+<section id="valeurs-manquantes" class="level2">
+<h2 class="anchored" data-anchor-id="valeurs-manquantes">Valeurs manquantes</h2>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Variable</th>
+<th style="text-align: right;">Valeurs manquantes</th>
+<th style="text-align: right;">Pourcentage</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>total_snow</code></td>
+<td style="text-align: right;">10 587</td>
+<td style="text-align: right;">52,64 %</td>
+</tr>
+<tr class="even">
+<td><code>total_rain</code></td>
+<td style="text-align: right;">10 490</td>
+<td style="text-align: right;">52,16 %</td>
+</tr>
+<tr class="odd">
+<td><code>snow_grnd</code></td>
+<td style="text-align: right;">8 912</td>
+<td style="text-align: right;">44,31 %</td>
+</tr>
+<tr class="even">
+<td><code>total_precip</code></td>
+<td style="text-align: right;">97</td>
+<td style="text-align: right;">0,48 %</td>
+</tr>
+<tr class="odd">
+<td><code>mean_temp</code></td>
+<td style="text-align: right;">54</td>
+<td style="text-align: right;">0,27 %</td>
+</tr>
+<tr class="even">
+<td><code>max_temp</code></td>
+<td style="text-align: right;">53</td>
+<td style="text-align: right;">0,26 %</td>
+</tr>
+<tr class="odd">
+<td><code>min_temp</code></td>
+<td style="text-align: right;">40</td>
+<td style="text-align: right;">0,20 %</td>
+</tr>
+</tbody>
+</table>
+<p>Cette table est un excellent point d’entrée pour enseigner que les variables d’un même jeu n’ont pas toutes la même complétude. Dans un laboratoire d’introduction, il est plus prudent de commencer avec <code>mean_temp</code> ou <code>total_precip</code> qu’avec <code>total_rain</code> ou <code>total_snow</code>.</p>
+</section>
+<section id="résumé-par-saison" class="level2">
+<h2 class="anchored" data-anchor-id="résumé-par-saison">Résumé par saison</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 15%">
+<col style="width: 21%">
+<col style="width: 21%">
+<col style="width: 21%">
+<col style="width: 21%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Saison</th>
+<th style="text-align: right;">Observations</th>
+<th style="text-align: right;">Moyenne de <code>mean_temp</code></th>
+<th style="text-align: right;">Écart-type de <code>mean_temp</code></th>
+<th style="text-align: right;">Précipitation moyenne</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Automne</td>
+<td style="text-align: right;">5 005</td>
+<td style="text-align: right;">6,64 °C</td>
+<td style="text-align: right;">6,94 °C</td>
+<td style="text-align: right;">3,53 mm</td>
+</tr>
+<tr class="even">
+<td>Hiver</td>
+<td style="text-align: right;">4 986</td>
+<td style="text-align: right;">-10,20 °C</td>
+<td style="text-align: right;">6,81 °C</td>
+<td style="text-align: right;">2,82 mm</td>
+</tr>
+<tr class="odd">
+<td>Printemps</td>
+<td style="text-align: right;">5 060</td>
+<td style="text-align: right;">3,53 °C</td>
+<td style="text-align: right;">8,06 °C</td>
+<td style="text-align: right;">2,93 mm</td>
+</tr>
+<tr class="even">
+<td>Été</td>
+<td style="text-align: right;">5 060</td>
+<td style="text-align: right;">18,10 °C</td>
+<td style="text-align: right;">3,38 °C</td>
+<td style="text-align: right;">3,85 mm</td>
+</tr>
+</tbody>
+</table>
+<p>Dans cette version du jeu, le printemps présente la plus forte dispersion saisonnière de <code>mean_temp</code> selon l’écart-type descriptif.</p>
+</section>
+<section id="lecture-statistique" class="level2">
+<h2 class="anchored" data-anchor-id="lecture-statistique">Lecture statistique</h2>
+<p>Le jeu convient très bien à une première analyse descriptive :</p>
+<ol type="1">
+<li>construire une vraie variable <code>date</code>;</li>
+<li>vérifier les valeurs manquantes;</li>
+<li>choisir une variable météorologique;</li>
+<li>résumer par mois, saison ou année;</li>
+<li>visualiser sans surinterpréter.</li>
+</ol>
+<p>Il faut toutefois éviter une erreur fréquente : transformer un graphique de météo quotidienne en conclusion climatique générale. Une analyse climatique demanderait un protocole explicite, une réflexion sur les stations, la continuité des mesures, les normales climatiques, les changements d’instrumentation et les incertitudes.</p>
 </section>
 <section id="concepts-enseignables" class="level2">
 <h2 class="anchored" data-anchor-id="concepts-enseignables">Concepts enseignables</h2>
 <ul>
-<li>reconnaître les variables numériques et temporelles;</li>
-<li>créer une date à partir de <code>year</code>, <code>month</code> et <code>day</code>;</li>
-<li>détecter et décrire les valeurs manquantes;</li>
-<li>résumer des températures et précipitations;</li>
-<li>visualiser une tendance ou une saisonnalité.</li>
+<li>création d’une variable date;</li>
+<li>séries temporelles quotidiennes;</li>
+<li>statistiques descriptives;</li>
+<li>valeurs manquantes;</li>
+<li>saisonnalité;</li>
+<li>visualisation avec <code>ggplot2</code>;</li>
+<li>différence entre météo et climat;</li>
+<li>communication prudente.</li>
 </ul>
+</section>
+<section id="score-zéro-déchet" class="level2">
+<h2 class="anchored" data-anchor-id="score-zéro-déchet">Score zéro déchet</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 30%">
+<col style="width: 40%">
+<col style="width: 30%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Dimension</th>
+<th style="text-align: right;">Score</th>
+<th>Justification</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Contexte québécois</td>
+<td style="text-align: right;">3</td>
+<td>Station météo située à Québec</td>
+</tr>
+<tr class="even">
+<td>Accessibilité pédagogique</td>
+<td style="text-align: right;">3</td>
+<td>Variables familières et interprétables</td>
+</tr>
+<tr class="odd">
+<td>Qualité documentaire</td>
+<td style="text-align: right;">3</td>
+<td>Documentation locale, source ECCC et package <code>weathercan</code></td>
+</tr>
+<tr class="even">
+<td>Potentiel de nettoyage</td>
+<td style="text-align: right;">3</td>
+<td>Dates, saisons et valeurs manquantes</td>
+</tr>
+<tr class="odd">
+<td>Potentiel de visualisation</td>
+<td style="text-align: right;">3</td>
+<td>Séries temporelles, distributions et saisons</td>
+</tr>
+<tr class="even">
+<td>Potentiel de statistique descriptive</td>
+<td style="text-align: right;">3</td>
+<td>Moyennes, écarts-types, extrêmes et regroupements</td>
+</tr>
+<tr class="odd">
+<td>Potentiel d’inférence</td>
+<td style="text-align: right;">2</td>
+<td>Possible, mais demande un protocole plus strict</td>
+</tr>
+<tr class="even">
+<td>Potentiel de modélisation</td>
+<td style="text-align: right;">2</td>
+<td>Modélisation temporelle introductive possible</td>
+</tr>
+<tr class="odd">
+<td>Potentiel éthique</td>
+<td style="text-align: right;">2</td>
+<td>Discussion sur interprétation publique des données météo</td>
+</tr>
+<tr class="even">
+<td>Réutilisabilité</td>
+<td style="text-align: right;">3</td>
+<td>Très réutilisable dans des laboratoires d’introduction</td>
+</tr>
+</tbody>
+</table>
+<p>Total : 27 sur 30.</p>
 </section>
 <section id="activité-courte" class="level2">
 <h2 class="anchored" data-anchor-id="activité-courte">Activité courte</h2>
-<p><a href="../../datasets/meteo-quebec/activite-courte.html">Laboratoire</a> : Quelle saison présente la plus forte variabilité de température?</p>
+<p>En 45 à 60 minutes, construire une variable date, définir les saisons et répondre à la question : quelle saison présente la plus forte variabilité de température?</p>
 </section>
 <section id="activité-longue" class="level2">
 <h2 class="anchored" data-anchor-id="activité-longue">Activité longue</h2>
-<p><a href="../../datasets/meteo-quebec/activite-longue.html">Mini-projet</a> : Construire un portrait descriptif de la météo quotidienne à Québec.</p>
+<p>En 2 à 3 heures, produire un portrait descriptif de la météo quotidienne à Québec avec au moins deux graphiques, une section sur les valeurs manquantes et une conclusion prudente.</p>
 </section>
 <section id="code-r-minimal" class="level2">
 <h2 class="anchored" data-anchor-id="code-r-minimal">Code R minimal</h2>
+<p>À exécuter depuis la racine du projet.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lubridate)</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(UlavalSSD)</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load libraries</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>meteo <span class="ot">&lt;-</span> MeteoQuebec <span class="sc">|&gt;</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">date =</span> <span class="fu">make_date</span>(year, <span class="fu">as.integer</span>(month), <span class="fu">as.integer</span>(day)),</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">mois =</span> <span class="fu">month</span>(date, <span class="at">label =</span> <span class="cn">TRUE</span>, <span class="at">abbr =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>meteo <span class="sc">|&gt;</span></span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">lignes =</span> <span class="fu">n</span>(),</span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">temperature_moyenne =</span> <span class="fu">mean</span>(mean_temp, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">precipitation_moyenne =</span> <span class="fu">mean</span>(total_precip, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>meteo <span class="sc">|&gt;</span></span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(year <span class="sc">&gt;=</span> <span class="dv">2020</span>) <span class="sc">|&gt;</span></span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> date, <span class="at">y =</span> mean_temp)) <span class="sc">+</span></span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">alpha =</span> <span class="fl">0.7</span>) <span class="sc">+</span></span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">&quot;Date&quot;</span>,</span>
-<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">&quot;Température moyenne quotidienne&quot;</span>,</span>
-<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">&quot;Température quotidienne moyenne à Québec&quot;</span></span>
-<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Prepare the pedagogical dataset</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">&quot;datasets/meteo-quebec/preparation.R&quot;</span>)</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Import prepared data</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>meteo <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;data/processed/meteo-quebec/meteo_quebec.csv&quot;</span>,</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">show_col_types =</span> <span class="cn">FALSE</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Seasonal descriptive summary</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>meteo <span class="sc">|&gt;</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(saison) <span class="sc">|&gt;</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">n =</span> <span class="fu">n</span>(),</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>    <span class="at">moyenne =</span> <span class="fu">mean</span>(mean_temp, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>    <span class="at">ecart_type =</span> <span class="fu">sd</span>(mean_temp, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>    <span class="at">.groups =</span> <span class="st">&quot;drop&quot;</span></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(ecart_type))</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a><span class="co"># Recent daily temperature graph</span></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>meteo <span class="sc">|&gt;</span></span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(annee <span class="sc">&gt;=</span> <span class="dv">2020</span>) <span class="sc">|&gt;</span></span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> date, <span class="at">y =</span> mean_temp)) <span class="sc">+</span></span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">alpha =</span> <span class="fl">0.7</span>, <span class="at">linewidth =</span> <span class="fl">0.3</span>) <span class="sc">+</span></span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">&quot;Date&quot;</span>,</span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">&quot;Température moyenne quotidienne (°C)&quot;</span>,</span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">&quot;Température quotidienne moyenne à Québec&quot;</span>,</span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="st">&quot;Station Québec/Jean-Lesage, version pédagogique UlavalSSD 0.2.0&quot;</span></span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="limites-et-précautions" class="level2">
 <h2 class="anchored" data-anchor-id="limites-et-précautions">Limites et précautions</h2>
 <ul>
-<li>Le jeu dans UlavalSSD est une version pédagogique fixe; vérifier la source ECCC si l’objectif est une analyse officielle à jour.</li>
-<li>Les variables de pluie et de neige contiennent de nombreuses valeurs manquantes dans la version consultée.</li>
-<li>Les résultats ne décrivent pas tout le Québec, mais une station météorologique.</li>
-<li>Les tendances climatiques exigent un plan d’analyse plus rigoureux qu’un simple graphique descriptif.</li>
+<li>Le jeu préparé est une version pédagogique fixe, pas une extraction ECCC en temps réel.</li>
+<li>Les résultats décrivent une station, pas tout le Québec.</li>
+<li>Les variables <code>total_rain</code>, <code>total_snow</code> et <code>snow_grnd</code> contiennent beaucoup de valeurs manquantes.</li>
+<li>Une tendance visuelle ne suffit pas à établir une conclusion climatique.</li>
+<li>Les analyses officielles devraient repartir de la source ECCC et documenter les stations, les périodes et les critères de qualité.</li>
 </ul>
 </section>
 <section id="extensions" class="level2">
 <h2 class="anchored" data-anchor-id="extensions">Extensions</h2>
 <ul>
-<li>Extension intro : calculer la moyenne de température par mois.</li>
-<li>Extension intermédiaire : comparer les distributions par saison.</li>
-<li>Extension avancée : ajuster une tendance temporelle avec une discussion des hypothèses.</li>
-<li>Extension communication scientifique : expliquer la différence entre météo quotidienne et climat.</li>
+<li>Comparer les distributions de <code>mean_temp</code> par saison.</li>
+<li>Calculer le nombre de jours sous -20 °C ou au-dessus de 25 °C par année.</li>
+<li>Visualiser les précipitations extrêmes.</li>
+<li>Comparer météo quotidienne et normales climatiques si une source supplémentaire est ajoutée.</li>
+<li>Rédiger une courte note de communication scientifique sur la différence entre météo et climat.</li>
+</ul>
+</section>
+<section id="références-utilisées" class="level2">
+<h2 class="anchored" data-anchor-id="références-utilisées">Références utilisées</h2>
+<ul>
+<li>Environnement et Changement climatique Canada. 2026. Données historiques climatiques. <a href="https://climate.weather.gc.ca/historical_data/search_historic_data_e.html" class="uri">https://climate.weather.gc.ca/historical_data/search_historic_data_e.html</a></li>
+<li>LaZerte et Albers. 2018. <code>weathercan</code>: Download and format weather data from Environment and Climate Change Canada. <a href="https://github.com/ropensci/weathercan" class="uri">https://github.com/ropensci/weathercan</a></li>
+<li>UlavalSSD. 2025. <code>MeteoQuebec</code>, version 0.2.0. <a href="https://github.com/AurelienNicosiaULaval/UlavalSSD" class="uri">https://github.com/AurelienNicosiaULaval/UlavalSSD</a></li>
 </ul>
 </section>
 </div>
