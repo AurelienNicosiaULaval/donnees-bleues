@@ -1,5 +1,5 @@
 ---
-title: "Actes criminels à Montréal"
+title: "Actes criminels enregistrés à Montréal"
 embed-resources: true
 page-layout: full
 toc: false
@@ -18,115 +18,244 @@ render_dataset_detail_header()
 
 ## Pourquoi ce jeu est intéressant
 
-Ce jeu peut servir à enseigner la prudence avec les données de sécurité publique : catégories, localisation, agrégation temporelle, cartographie et risques de surinterprétation. Il ne doit pas être présenté comme un portrait complet ou officiel de la criminalité.
+Ce jeu peut servir à enseigner la prudence avec les données de sécurité publique : catégories administratives, dates, quarts, postes de quartier, localisation partielle, agrégation et risques de surinterprétation.
 
-## Source
+L'intérêt pédagogique n'est pas de produire un classement de quartiers. Il est plutôt de montrer qu'une analyse descriptive responsable commence par l'unité statistique, la source, la portée officielle, les valeurs manquantes et les limites éthiques.
+
+Question d'analyse : que peut-on décrire sans transformer ces données ouvertes en statistiques officielles de la criminalité?
+
+## Ce qui a été vérifié
+
+| Élément | Résultat vérifié |
+|---|---|
+| Paquet CKAN | `5829b5b0-ea6f-476f-be94-bc2b8797769a` |
+| Source officielle | Données Québec / Ville de Montréal / SPVM |
+| Ressources dans le paquet | 3 ressources : CSV, GeoJSON et ZIP |
+| Ressource préparée ici | `actes-criminels.csv` |
+| Licence | Attribution (CC-BY 4.0), selon les métadonnées CKAN consultées le 2026-06-21 |
+| Dernière modification du paquet CKAN | 2026-06-20 |
+| Dernière modification du CSV | 2026-06-20 |
+| Table préparée | `data/processed/actes-criminels-montreal/actes_criminels_montreal.csv` |
+| Résumés préparés | ressources, catégories, quarts, années, mois par catégorie, valeurs manquantes |
+
+## Source et conditions
 
 | Champ | Information |
 |---|---|
-| Source | Données Québec / Ville de Montréal |
-| Organisme producteur | Ville de Montréal |
+| Page Données Québec | <https://www.donneesquebec.ca/recherche/dataset/vmtl-actes-criminels> |
+| API CKAN | <https://www.donneesquebec.ca/recherche/api/3/action/package_show?id=vmtl-actes-criminels> |
+| CSV officiel | <https://donnees.montreal.ca/dataset/5829b5b0-ea6f-476f-be94-bc2b8797769a/resource/c6f482bf-bf0f-4960-8b2f-9982c211addd/download/actes-criminels.csv> |
+| Bilan mensuel officiel mentionné par la source | <https://donnees.montreal.ca/dataset/bilan-mensuel-criminalite> |
+| Visualisation publique mentionnée par la source | <https://ville.montreal.qc.ca/vuesurlasecuritepublique/> |
 | Territoire | Montréal |
-| URL officielle | <https://www.donneesquebec.ca/recherche/dataset/vmtl-actes-criminels> |
-| Licence | Attribution (CC-BY 4.0) |
-| Date d'accès | 2026-06-19 |
-| Fréquence de mise à jour | Mise à jour fréquente; métadonnées modifiées en 2026 |
-| Statut | source vérifiée avec prudence éthique |
+| Date d'accès | 2026-06-21 |
+
+La description officielle indique que le jeu contient une liste d'actes criminels enregistrés par le SPVM. Elle précise aussi que ces données ne représentent pas les statistiques officielles du SPVM et renvoie au bilan mensuel de la criminalité pour un portrait mensuel officiel.
 
 ## Ce que représente une ligne
 
-Une ligne représente un acte criminel enregistré dans le jeu publié. La description officielle précise que ces données ne représentent pas les statistiques officielles du SPVM.
+Une ligne représente un acte criminel enregistré dans le jeu publié. Elle contient une catégorie, une date, un quart de journée, un poste de quartier et, lorsque disponible, une localisation.
+
+Une ligne n'est pas une personne, une accusation, une condamnation, une victimisation, une mesure de risque individuel, ni une statistique officielle complète de la criminalité.
 
 ## Variables principales
 
-Les noms ci-dessous sont des noms propres proposés pour l'enseignement. Les noms exacts des champs sources doivent être conservés dans le script de préparation.
-
-| Variable proposée | Rôle pédagogique | Remarque |
+| Variable préparée | Rôle | Point de vigilance |
 |---|---|---|
-| `categorie` | Catégorie d'acte | Champ source `CATEGORIE` |
-| `date` | Date | Permet l'agrégation temporelle |
-| `quart` | Quart de journée | Variable catégorielle temporelle |
-| `pdq` | Poste de quartier | Découpage opérationnel |
-| `longitude` | Longitude | Champ source `LONGITUDE` |
-| `latitude` | Latitude | Champ source `LATITUDE` |
+| `categorie` | Catégorie d'acte criminel | Catégorie administrative publiée |
+| `date` | Date de l'acte enregistré | Utile seulement après agrégation |
+| `annee`, `mois` | Variables temporelles préparées | 2026 est une année partielle dans le fichier |
+| `quart` | Jour, soir ou nuit | Catégorie temporelle grossière |
+| `pdq` | Poste de quartier | Découpage opérationnel, pas classement social |
+| `longitude`, `latitude` | Coordonnées publiées | 58 974 lignes n'ont pas de coordonnées |
+| `localisation_disponible` | Indicateur préparé | Ne pas interpréter comme qualité d'enquête |
 
-## Taille et structure
+## RÉSULTATS R
 
-| Élément | Information |
-|---|---|
-| Nombre de lignes | CSV d'environ 32 Mo; GeoJSON d'environ 109 Mo |
-| Nombre de colonnes | 8 champs observés dans l'en-tête du CSV consulté le 2026-06-19 |
-| Structure | Tabulaire, spatial, temporel, catégoriel |
-| Format | CSV, GeoJSON et ZIP |
-| Niveau pédagogique recommandé | Intermédiaire à avancé |
+Les résultats ci-dessous proviennent de `preparation.R`, exécuté sur le CSV téléchargé le 2026-06-21.
+
+| Indicateur | Valeur |
+|---|---:|
+| Ressources CKAN documentées | 3 |
+| Lignes dans le CSV source | 352 366 |
+| Colonnes dans le CSV source | 8 |
+| Lignes préparées | 352 366 |
+| Colonnes préparées | 13 |
+| Première date observée | 2015-01-01 |
+| Dernière date observée | 2026-06-18 |
+| Catégories | 6 |
+| Quarts | 3 |
+| PDQ non manquants | 34 |
+| PDQ manquants | 6 |
+| Coordonnées manquantes | 58 974 |
+| Part des coordonnées manquantes | 16,7 % |
+
+## Catégories publiées
+
+| Catégorie | Actes | Pourcentage |
+|---|---:|---:|
+| Vol dans / sur véhicule à moteur | 100 116 | 28,4 % |
+| Introduction | 82 955 | 23,5 % |
+| Méfait | 76 339 | 21,7 % |
+| Vol de véhicule à moteur | 71 945 | 20,4 % |
+| Vols qualifiés | 20 682 | 5,9 % |
+| Infractions entrainant la mort | 329 | 0,1 % |
+
+Cette table décrit la composition du fichier ouvert. Elle ne décrit pas à elle seule la criminalité réelle, la victimisation ou les risques subis par la population.
+
+## Quarts de journée
+
+| Quart | Actes | Pourcentage |
+|---|---:|---:|
+| jour | 180 030 | 51,1 % |
+| soir | 115 725 | 32,8 % |
+| nuit | 56 611 | 16,1 % |
+
+Le quart est utile pour une première description, mais il ne suffit pas à expliquer les mécanismes sociaux, policiers ou territoriaux.
+
+## Années observées
+
+| Année | Actes | Note |
+|---|---:|---|
+| 2015 | 35 609 | année complète dans le fichier |
+| 2016 | 33 760 | année complète dans le fichier |
+| 2017 | 32 664 | année complète dans le fichier |
+| 2018 | 28 387 | année complète dans le fichier |
+| 2019 | 27 155 | année complète dans le fichier |
+| 2020 | 25 460 | année complète dans le fichier |
+| 2021 | 26 823 | année complète dans le fichier |
+| 2022 | 32 625 | année complète dans le fichier |
+| 2023 | 34 966 | année complète dans le fichier |
+| 2024 | 32 854 | année complète dans le fichier |
+| 2025 | 29 832 | année complète dans le fichier |
+| 2026 | 12 231 | année partielle dans le fichier |
+
+Il ne faut pas comparer 2026 aux années complètes sans restreindre les périodes comparées.
+
+## Valeurs manquantes
+
+| Variable | Valeurs manquantes | Pourcentage |
+|---|---:|---:|
+| `x_mtm8` | 58 974 | 16,74 % |
+| `y_mtm8` | 58 974 | 16,74 % |
+| `longitude` | 58 974 | 16,74 % |
+| `latitude` | 58 974 | 16,74 % |
+| `pdq` | 6 | 0,00 % |
+
+Les coordonnées manquantes rendent les cartes de points incomplètes. Même lorsque les coordonnées existent, une cartographie responsable doit privilégier l'agrégation.
+
+## Lecture statistique
+
+Une analyse prudente suit cet ordre :
+
+1. rappeler que la source ne constitue pas les statistiques officielles du SPVM;
+2. définir l'unité comme un acte enregistré dans le fichier ouvert;
+3. choisir une période comparable, surtout si 2026 est inclus;
+4. agréger par mois, année ou catégorie avant de visualiser;
+5. éviter les cartes de points bruts et les classements de quartiers;
+6. accompagner chaque résultat d'une limite sur la déclaration, l'enregistrement et la publication.
+
+Les données permettent de produire des descriptions agrégées. Elles ne permettent pas, seules, d'inférer le niveau réel de criminalité, de comparer la sécurité des quartiers ou d'attribuer des causes.
 
 ## Concepts enseignables
 
-- sécurité publique
-- Montréal
-- catégories
-- séries temporelles
-- spatial
-- éthique des données
-- visualisation
-- données ouvertes
+- données sensibles;
+- unité statistique;
+- catégories administratives;
+- agrégation temporelle;
+- valeurs manquantes;
+- visualisation responsable;
+- biais de déclaration;
+- communication des limites.
 
 ## Score zéro déchet
 
-| Dimension | Score |
-|---|---:|
-| Contexte québécois | 3 |
-| Accessibilité pédagogique | 2 |
-| Qualité documentaire | 2 |
-| Potentiel de nettoyage | 2 |
-| Potentiel de visualisation | 3 |
-| Potentiel de statistique descriptive | 2 |
-| Potentiel d'inférence | 1 |
-| Potentiel de modélisation | 1 |
-| Potentiel de discussion éthique | 3 |
-| Réutilisabilité dans plusieurs cours | 2 |
+| Dimension | Score | Justification |
+|---|---:|---|
+| Contexte québécois | 3 | Source publique montréalaise |
+| Accessibilité pédagogique | 2 | Variables lisibles mais sujet sensible |
+| Qualité documentaire | 3 | Page Données Québec, API CKAN et mise en garde officielle |
+| Potentiel de nettoyage | 2 | Dates, noms, coordonnées et valeurs manquantes |
+| Potentiel de visualisation | 3 | Séries temporelles et cartes agrégées |
+| Potentiel de statistique descriptive | 2 | Résumés utiles, mais interprétation limitée |
+| Potentiel d'inférence | 1 | Non adapté seul à l'inférence causale ou territoriale |
+| Potentiel de modélisation | 1 | Modélisation à éviter sans cadre éthique et données complémentaires |
+| Potentiel éthique | 3 | Excellent cas pour discuter les risques de stigmatisation |
+| Réutilisabilité | 2 | Utile avec encadrement pédagogique strict |
 
-Total : 21 sur 30.
+Total : 22 sur 30.
 
 ## Activité courte
 
-En 30 à 45 minutes, faire produire un résumé par catégorie et une note explicite sur les limites.
+En 30 à 45 minutes, produire un résumé par catégorie et rédiger une note sur les limites de la source.
 
 ## Activité longue
 
-En 2 à 3 heures, demander un rapport avec agrégation temporelle, visualisation prudente et section éthique.
-
-## Projets possibles
-
-- Comparer les catégories publiées par mois sans les traiter comme statistiques officielles.
-- Créer une carte agrégée par secteur ou grille plutôt qu'une carte de points sensibles.
-- Discuter des biais de déclaration et des risques d'interprétation.
+En 2 à 3 heures, produire un rapport descriptif par mois et catégorie, avec une visualisation agrégée et une section éthique au même niveau que les résultats.
 
 ## Code R minimal
 
+À exécuter depuis la racine du projet.
+
 ```{r}
 #| eval: false
+# Load libraries
 library(dplyr)
+library(ggplot2)
 library(readr)
 
-source_url <- "https://www.donneesquebec.ca/recherche/dataset/vmtl-actes-criminels"
+# Download and prepare official CSV resource
+source("datasets/actes-criminels-montreal/preparation.R")
 
-# Télécharger la ressource appropriée depuis la page officielle,
-# puis documenter le fichier brut dans data/raw/ avant toute transformation.
-source_url
+# Import prepared data
+actes <- read_csv(
+  "data/processed/actes-criminels-montreal/actes_criminels_montreal.csv",
+  show_col_types = FALSE
+)
+
+# Summarise by month and category
+resume_mois <- actes |>
+  group_by(mois, categorie) |>
+  summarise(n_actes = n(), .groups = "drop")
+
+resume_mois
+
+# Visualise without mapping individual points
+ggplot(resume_mois, aes(x = mois, y = n_actes, color = categorie, group = categorie)) +
+  geom_line() +
+  labs(
+    x = "Mois",
+    y = "Nombre d'actes enregistrés",
+    color = "Catégorie",
+    title = "Actes criminels enregistrés par mois et catégorie",
+    subtitle = "Données ouvertes du SPVM; ne pas interpréter comme statistiques officielles"
+  ) +
+  theme(axis.text.x = element_text(angle = 90, hjust = 1))
 ```
 
 ## Limites et précautions
 
 - Le jeu ne représente pas les statistiques officielles du SPVM selon la description Données Québec.
 - Les données de sécurité publique peuvent renforcer des interprétations stigmatisantes si elles sont mal contextualisées.
-- Les cartes de points doivent être agrégées ou floutées pour éviter une lecture trop fine.
+- Les cartes de points bruts sont à éviter dans un contexte pédagogique.
+- Les coordonnées sont manquantes pour 58 974 lignes dans le CSV téléchargé le 2026-06-21.
+- Une variation observée dans le fichier peut refléter des changements de déclaration, d'enregistrement, de publication ou de contexte.
+- Une comparaison territoriale exige un dénominateur, une période comparable, une géographie définie et une discussion éthique.
 
 ## Extensions
 
-- Agréger par mois et catégorie.
-- Construire une carte en grille au lieu d'afficher des points individuels.
-- Rédiger une note d'éthique sur les limites des données policières.
+- Agréger par mois et catégorie, puis exclure les années partielles dans une comparaison annuelle.
+- Comparer les résultats ouverts avec le bilan mensuel officiel lorsque la question porte sur un portrait officiel.
+- Construire une carte en grille ou par zone agrégée, sans afficher les points individuels.
+- Rédiger une note méthodologique expliquant pourquoi un classement de quartiers serait trompeur.
+
+## Références utilisées
+
+- Données Québec. 2026. Actes criminels. <https://www.donneesquebec.ca/recherche/dataset/vmtl-actes-criminels>
+- Données Québec. 2026. API CKAN du paquet Actes criminels. <https://www.donneesquebec.ca/recherche/api/3/action/package_show?id=vmtl-actes-criminels>
+- Ville de Montréal. 2026. Actes criminels, CSV. <https://donnees.montreal.ca/dataset/5829b5b0-ea6f-476f-be94-bc2b8797769a/resource/c6f482bf-bf0f-4960-8b2f-9982c211addd/download/actes-criminels.csv>
+- Ville de Montréal. 2026. Bilan mensuel de la criminalité. <https://donnees.montreal.ca/dataset/bilan-mensuel-criminalite>
+- Ville de Montréal. 2026. Vue sur la sécurité publique. <https://ville.montreal.qc.ca/vuesurlasecuritepublique/>
 
 ```{r}
 #| label: dataset-detail-footer
@@ -134,4 +263,3 @@ source_url
 #| results: asis
 render_dataset_detail_footer()
 ```
-

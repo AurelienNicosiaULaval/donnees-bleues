@@ -1,60 +1,31 @@
 ---
-title: "Rapport descriptif et éthique sur les actes criminels"
+title: "Mini-projet - Rapport descriptif et éthique sur les actes criminels"
 embed-resources: true
 ---
 
-# Rapport descriptif et éthique sur les actes criminels
+# Mini-projet - Rapport descriptif et éthique sur les actes criminels
 
 ## Contexte
 
-Cette activité combine compétences techniques et responsabilité analytique.
+Cette activité combine préparation de données, agrégation temporelle et responsabilité analytique. Le produit attendu est un rapport descriptif prudent, pas un classement de quartiers ni une analyse causale.
 
-## Objectifs d'apprentissage
+## Question directrice
 
-- Agréger des données sensibles
-- Choisir une visualisation responsable
-- Rédiger une interprétation limitée
+Comment construire un rapport descriptif responsable avec des données policières ouvertes?
 
-## Données utilisées
+## Livrables
 
-Fiche : [Actes criminels à Montréal](fiche.qmd)
+1. Un script reproductible qui exécute `preparation.R`.
+2. Un dictionnaire court des variables utilisées.
+3. Une table par mois et catégorie.
+4. Une visualisation temporelle agrégée.
+5. Une section explicite sur la provenance, la licence et la mise en garde officielle.
+6. Une section éthique qui nomme les conclusions interdites ou non justifiées.
 
-Source : Données Québec / Ville de Montréal.
+## Critères d'évaluation suggérés
 
-Licence : Attribution (CC-BY 4.0).
-
-## Métadonnées pédagogiques
-
-| Champ | Information |
-|---|---|
-| Question directrice | Comment construire un rapport descriptif responsable avec des données policières ouvertes? |
-| Concepts | Éthique; Séries temporelles; Cartographie agrégée |
-| Niveau | Avancé |
-| Type | Étude de cas; Projet ou tâche longue |
-| Contexte | Sécurité publique |
-| Accroche | Usage responsable de données sensibles |
-| Durée | 2-3 heures |
-| Matériel | énoncé; code; données; notes enseignantes |
-| Math/stats avancées | non |
-
-## Consignes
-
-1. Lire la mise en garde officielle
-2. Nettoyer les dates
-3. Agréger par mois et catégorie
-4. Créer une visualisation agrégée
-5. Rédiger une section éthique
-
-## Questions
-
-1. Quel niveau d'agrégation est acceptable?
-2. Quels biais de déclaration peuvent exister?
-3. Comment écrire sans stigmatiser?
-
-## Pistes de solution
-
-Un bon rapport évite les cartes de points bruts et met la note d'éthique au même niveau que les résultats.
-
-## Prolongement
-
-Comparer avec le bilan mensuel officiel lorsque pertinent.
+- Exactitude de l'unité statistique.
+- Respect de la mise en garde officielle.
+- Traitement correct des années partielles.
+- Visualisation non stigmatisante.
+- Qualité de la section limites.

@@ -1,60 +1,35 @@
 ---
-title: "Lire prudemment des données de sécurité publique"
+title: "Laboratoire - Lire prudemment des données de sécurité publique"
 embed-resources: true
 ---
 
-# Lire prudemment des données de sécurité publique
+# Laboratoire - Lire prudemment des données de sécurité publique
 
 ## Contexte
 
-Cette activité met l'accent sur la lecture responsable des données publiques sensibles.
+Cette activité utilise la fiche [Actes criminels enregistrés à Montréal](fiche.qmd). L'objectif est de produire une description honnête d'un fichier sensible, sans le transformer en portrait officiel de la criminalité.
 
 ## Objectifs d'apprentissage
 
-- Identifier l'unité statistique
-- Résumer des catégories
-- Formuler des limites éthiques
+- Identifier l'unité statistique d'un fichier de sécurité publique.
+- Résumer des catégories avec une table de fréquences.
+- Reconnaître une année partielle.
+- Écrire une limite méthodologique et une limite éthique.
+- Éviter une visualisation stigmatisante.
 
-## Données utilisées
+## Question directrice
 
-Fiche : [Actes criminels à Montréal](fiche.qmd)
-
-Source : Données Québec / Ville de Montréal.
-
-Licence : Attribution (CC-BY 4.0).
-
-## Métadonnées pédagogiques
-
-| Champ | Information |
-|---|---|
-| Question directrice | Que peut-on décrire sans transformer ces données en statistiques officielles? |
-| Concepts | Éthique des données; Catégories; Statistique descriptive |
-| Niveau | Intermédiaire |
-| Type | Discussion guidée; Exploration de données |
-| Contexte | Sécurité publique |
-| Accroche | Données sensibles et interprétation |
-| Durée | 30-45 minutes |
-| Matériel | énoncé; code; données |
-| Math/stats avancées | non |
+Que peut-on décrire sans transformer ces données ouvertes en statistiques officielles?
 
 ## Consignes
 
-1. Lire la description officielle
-2. Importer un extrait
-3. Compter les catégories
-4. Rédiger trois limites
-5. Présenter une visualisation non stigmatisante
-
-## Questions
-
-1. Pourquoi ce jeu n'est-il pas une statistique officielle?
-2. Quelles conclusions faut-il éviter?
-3. Quelle visualisation réduit les risques d'interprétation?
+1. Exécuter `datasets/actes-criminels-montreal/preparation.R`.
+2. Importer `data/processed/actes-criminels-montreal/actes_criminels_montreal.csv`.
+3. Compter les actes par `categorie`.
+4. Vérifier la première et la dernière date du fichier.
+5. Identifier pourquoi 2026 ne doit pas être comparée directement aux années complètes.
+6. Rédiger une note de 5 à 8 lignes qui contient autant de limites que de résultats.
 
 ## Pistes de solution
 
-Une solution acceptable contient autant de limites que de résultats descriptifs.
-
-## Prolongement
-
-Comparer deux catégories dans le temps sans cartographie fine.
+Une bonne réponse donne un tableau par catégorie et rappelle que le jeu ne représente pas les statistiques officielles du SPVM. Une réponse excellente explique aussi pourquoi les points localisés ne doivent pas être cartographiés sans agrégation.
