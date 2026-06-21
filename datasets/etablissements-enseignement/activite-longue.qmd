@@ -1,6 +1,5 @@
 ---
 title: "Portrait territorial prudent des établissements d'enseignement"
-embed-resources: true
 ---
 
 # Portrait territorial prudent des établissements d'enseignement

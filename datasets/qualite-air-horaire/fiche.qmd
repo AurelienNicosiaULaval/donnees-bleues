@@ -1,6 +1,5 @@
 ---
 title: "Qualité de l'air au Québec"
-embed-resources: true
 page-layout: full
 toc: false
 execute:

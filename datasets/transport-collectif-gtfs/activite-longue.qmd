@@ -1,6 +1,5 @@
 ---
 title: "Mini-projet - Offre planifiée du RTC en GTFS"
-embed-resources: true
 ---
 
 # Mini-projet - Offre planifiée du RTC en GTFS

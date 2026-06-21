@@ -1,6 +1,5 @@
 ---
 title: "Laboratoire - Phosphore total par station"
-embed-resources: true
 ---
 
 # Laboratoire - Phosphore total par station

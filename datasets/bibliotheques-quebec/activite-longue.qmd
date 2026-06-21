@@ -1,6 +1,5 @@
 ---
 title: "Mini-projet - Portrait régional des bibliothèques publiques"
-embed-resources: true
 ---
 
 # Mini-projet - Portrait régional des bibliothèques publiques

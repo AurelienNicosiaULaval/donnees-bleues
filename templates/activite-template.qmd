@@ -1,6 +1,5 @@
 ---
 title: "Titre de l'activité"
-embed-resources: true
 ---
 
 # Titre de l'activité

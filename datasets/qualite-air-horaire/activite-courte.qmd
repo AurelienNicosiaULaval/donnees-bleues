@@ -1,6 +1,5 @@
 ---
 title: "PM2.5 et journées élevées en 2025"
-embed-resources: true
 ---
 
 # PM2.5 et journées élevées en 2025

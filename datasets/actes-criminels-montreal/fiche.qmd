@@ -1,6 +1,5 @@
 ---
 title: "Actes criminels enregistrés à Montréal"
-embed-resources: true
 page-layout: full
 toc: false
 execute:

@@ -1,6 +1,5 @@
 ---
 title: "Préparer une analyse spatiale avec la GRHQ"
-embed-resources: true
 ---
 
 # Préparer une analyse spatiale avec la GRHQ

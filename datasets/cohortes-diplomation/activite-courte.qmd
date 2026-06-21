@@ -1,6 +1,5 @@
 ---
 title: "Comparer des taux de diplomation selon l'IMSE"
-embed-resources: true
 ---
 
 # Comparer des taux de diplomation selon l'IMSE

@@ -1,6 +1,5 @@
 ---
 title: "Variabilité saisonnière de la température à Québec"
-embed-resources: true
 ---
 
 # Variabilité saisonnière de la température à Québec

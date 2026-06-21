@@ -1,6 +1,5 @@
 ---
 title: "Mini-projet - Portrait descriptif des profils financiers municipaux"
-embed-resources: true
 ---
 
 # Mini-projet - Portrait descriptif des profils financiers municipaux

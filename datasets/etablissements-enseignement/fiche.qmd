@@ -1,6 +1,5 @@
 ---
 title: "Localisation des établissements d'enseignement au Québec"
-embed-resources: true
 page-layout: full
 toc: false
 execute:

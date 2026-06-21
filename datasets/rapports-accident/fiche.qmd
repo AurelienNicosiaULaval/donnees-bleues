@@ -1,6 +1,5 @@
 ---
 title: "Rapports d'accident"
-embed-resources: true
 page-layout: full
 toc: false
 execute:

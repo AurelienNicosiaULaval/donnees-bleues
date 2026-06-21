@@ -1,6 +1,5 @@
 ---
 title: "Horaires, arrêts et parcours GTFS du RTC"
-embed-resources: true
 page-layout: full
 toc: false
 execute:

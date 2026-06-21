@@ -1,6 +1,5 @@
 ---
 title: "Activités"
-embed-resources: true
 toc: false
 page-layout: full
 ---

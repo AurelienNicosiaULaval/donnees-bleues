@@ -1,6 +1,5 @@
 ---
 title: "Établissements scolaires du Québec"
-embed-resources: true
 page-layout: full
 toc: false
 execute:

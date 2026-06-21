@@ -1,6 +1,5 @@
 ---
 title: "Portrait descriptif de la météo quotidienne à Québec"
-embed-resources: true
 ---
 
 # Portrait descriptif de la météo quotidienne à Québec

@@ -1,6 +1,5 @@
 ---
 title: "Cohortes de diplomation"
-embed-resources: true
 page-layout: full
 toc: false
 execute:

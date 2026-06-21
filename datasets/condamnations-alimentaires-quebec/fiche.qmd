@@ -1,6 +1,5 @@
 ---
 title: "Condamnations des établissements alimentaires au Québec"
-embed-resources: true
 page-layout: full
 toc: false
 execute:

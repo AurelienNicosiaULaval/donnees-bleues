@@ -1,6 +1,5 @@
 ---
 title: "Mini-projet - Rapport descriptif et éthique sur les actes criminels"
-embed-resources: true
 ---
 
 # Mini-projet - Rapport descriptif et éthique sur les actes criminels

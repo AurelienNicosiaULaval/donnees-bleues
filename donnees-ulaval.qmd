@@ -1,6 +1,5 @@
 ---
 title: "Intégration des données institutionnelles ULaval"
-embed-resources: true
 ---
 
 # Intégration des données institutionnelles ULaval

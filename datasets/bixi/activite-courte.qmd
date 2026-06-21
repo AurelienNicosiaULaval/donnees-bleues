@@ -1,6 +1,5 @@
 ---
 title: "Laboratoire - Disponibilité instantanée des stations BIXI"
-embed-resources: true
 ---
 
 # Laboratoire - Disponibilité instantanée des stations BIXI

@@ -57,6 +57,7 @@ format:
   html:
     theme: default
     css: styles.css
+    embed-resources: false
     toc: true
     toc-depth: 3
     code-copy: true

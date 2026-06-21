@@ -1,6 +1,5 @@
 ---
 title: "Laboratoire - Condamnations alimentaires"
-embed-resources: true
 ---
 
 # Laboratoire - Condamnations alimentaires

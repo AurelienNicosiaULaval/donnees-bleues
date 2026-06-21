@@ -1,6 +1,5 @@
 ---
 title: "Portrait spatial des prélèvements d'eau autorisés"
-embed-resources: true
 ---
 
 # Portrait spatial des prélèvements d'eau autorisés

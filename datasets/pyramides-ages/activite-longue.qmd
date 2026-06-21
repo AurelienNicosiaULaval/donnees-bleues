@@ -1,6 +1,5 @@
 ---
 title: "Comparer la structure d'âge du Québec et du Canada"
-embed-resources: true
 ---
 
 # Comparer la structure d'âge du Québec et du Canada

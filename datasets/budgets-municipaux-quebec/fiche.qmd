@@ -1,6 +1,5 @@
 ---
 title: "Profil financier des municipalités locales du Québec"
-embed-resources: true
 page-layout: full
 toc: false
 execute:

@@ -1,6 +1,5 @@
 ---
 title: "Indices de défavorisation des écoles primaires du Québec"
-embed-resources: true
 page-layout: full
 toc: false
 execute:

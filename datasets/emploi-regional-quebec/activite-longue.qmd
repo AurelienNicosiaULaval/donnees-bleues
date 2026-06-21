@@ -1,6 +1,5 @@
 ---
 title: "Mini-projet - Emploi régional"
-embed-resources: true
 ---
 
 # Mini-projet - Emploi régional

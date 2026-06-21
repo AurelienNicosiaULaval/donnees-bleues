@@ -1,6 +1,5 @@
 ---
 title: "Laboratoire - Lire prudemment des données de sécurité publique"
-embed-resources: true
 ---
 
 # Laboratoire - Lire prudemment des données de sécurité publique

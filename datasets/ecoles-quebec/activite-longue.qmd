@@ -1,6 +1,5 @@
 ---
 title: "Mini-projet - Écoles Québec"
-embed-resources: true
 ---
 
 # Mini-projet - Écoles Québec

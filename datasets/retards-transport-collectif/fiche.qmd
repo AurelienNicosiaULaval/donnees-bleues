@@ -1,6 +1,5 @@
 ---
 title: "Flux temps réel STM et ponctualité des bus"
-embed-resources: true
 page-layout: full
 toc: false
 execute:

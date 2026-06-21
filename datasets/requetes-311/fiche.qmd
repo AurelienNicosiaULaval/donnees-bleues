@@ -1,6 +1,5 @@
 ---
 title: "Demandes de services citoyennes 311 à Montréal"
-embed-resources: true
 page-layout: full
 toc: false
 execute:

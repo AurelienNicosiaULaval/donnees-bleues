@@ -1,6 +1,5 @@
 ---
 title: "Météo quotidienne à Québec"
-embed-resources: true
 page-layout: full
 toc: false
 execute:

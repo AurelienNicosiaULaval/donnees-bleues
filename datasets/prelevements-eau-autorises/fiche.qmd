@@ -1,6 +1,5 @@
 ---
 title: "Registre des prélèvements d'eau autorisés"
-embed-resources: true
 page-layout: full
 toc: false
 execute:

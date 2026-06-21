@@ -1,6 +1,5 @@
 ---
 title: "Cartographier une ressource scolaire sans mélanger les unités"
-embed-resources: true
 ---
 
 # Cartographier une ressource scolaire sans mélanger les unités

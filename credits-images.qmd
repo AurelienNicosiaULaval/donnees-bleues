@@ -1,6 +1,5 @@
 ---
 title: "Crédits images"
-embed-resources: true
 ---
 
 # Crédits images

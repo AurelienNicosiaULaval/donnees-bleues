@@ -1,6 +1,5 @@
 ---
 title: "Nom du jeu de données"
-embed-resources: true
 page-layout: full
 toc: false
 execute:

@@ -1,6 +1,5 @@
 ---
 title: "Choisir une unité GRHQ avec l'index de téléchargement"
-embed-resources: true
 ---
 
 # Choisir une unité GRHQ avec l'index de téléchargement

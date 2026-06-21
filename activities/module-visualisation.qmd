@@ -1,6 +1,5 @@
 ---
 title: "Module visualisation"
-embed-resources: true
 ---
 
 # Module visualisation

@@ -1,6 +1,5 @@
 ---
 title: "Programmes et cours institutionnels ULaval"
-embed-resources: true
 page-layout: full
 toc: false
 execute:

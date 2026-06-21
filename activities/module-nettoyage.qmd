@@ -1,6 +1,5 @@
 ---
 title: "Module nettoyage"
-embed-resources: true
 ---
 
 # Module nettoyage

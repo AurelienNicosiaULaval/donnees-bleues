@@ -1,6 +1,5 @@
 ---
 title: "Cartographier des marqueurs de niveaux d'eau"
-embed-resources: true
 ---
 
 # Cartographier des marqueurs de niveaux d'eau

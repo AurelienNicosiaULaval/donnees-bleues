@@ -1,6 +1,5 @@
 ---
 title: "Laboratoire - Profils fonciers par classe de population"
-embed-resources: true
 ---
 
 # Laboratoire - Profils fonciers par classe de population

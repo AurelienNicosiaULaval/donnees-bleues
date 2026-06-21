@@ -1,6 +1,5 @@
 ---
 title: "Pyramides des âges au Canada et au Québec"
-embed-resources: true
 page-layout: full
 toc: false
 execute:

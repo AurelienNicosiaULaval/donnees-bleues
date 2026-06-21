@@ -1,6 +1,5 @@
 ---
 title: "Références et sources"
-embed-resources: true
 ---
 
 # Références et sources

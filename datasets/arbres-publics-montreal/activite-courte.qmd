@@ -1,6 +1,5 @@
 ---
 title: "Laboratoire - Essences d'arbres par arrondissement"
-embed-resources: true
 ---
 
 # Laboratoire - Essences d'arbres par arrondissement

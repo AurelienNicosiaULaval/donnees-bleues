@@ -1,6 +1,5 @@
 ---
 title: "Pyramide des âges du Québec en 2025"
-embed-resources: true
 ---
 
 # Pyramide des âges du Québec en 2025

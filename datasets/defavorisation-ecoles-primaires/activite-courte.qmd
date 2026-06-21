@@ -1,6 +1,5 @@
 ---
 title: "Laboratoire - Défavorisation des écoles"
-embed-resources: true
 ---
 
 # Laboratoire - Défavorisation des écoles

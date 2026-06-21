@@ -1,6 +1,5 @@
 ---
 title: "Arbres publics sur le territoire de Montréal"
-embed-resources: true
 page-layout: full
 toc: false
 execute:

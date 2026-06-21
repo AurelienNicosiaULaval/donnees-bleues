@@ -1,6 +1,5 @@
 ---
 title: "Stations RSQAQ - couverture territoriale et temporelle"
-embed-resources: true
 ---
 
 # Stations RSQAQ - couverture territoriale et temporelle

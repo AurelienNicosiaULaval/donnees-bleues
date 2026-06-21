@@ -1,6 +1,5 @@
 ---
 title: "Module modélisation"
-embed-resources: true
 ---
 
 # Module modélisation
