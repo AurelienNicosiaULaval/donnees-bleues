@@ -1,19 +1,22 @@
 ---
-title: "Jointure spatiale avec le réseau hydrographique"
+title: "Préparer une analyse spatiale avec la GRHQ"
 embed-resources: true
 ---
 
-# Jointure spatiale avec le réseau hydrographique
+# Préparer une analyse spatiale avec la GRHQ
 
 ## Contexte
 
-Cette activité mobilise un référentiel spatial pour structurer une analyse environnementale.
+Cette activité simule le début d'un projet environnemental avec un référentiel spatial officiel. Le livrable attendu n'est pas seulement une carte. Il faut produire un plan d'analyse reproductible : choix de l'unité GRHQ, justification du périmètre, documentation des ressources, stratégie de lecture avec `sf` et limites.
 
 ## Objectifs d'apprentissage
 
-- Lire une couche spatiale
-- Vérifier un système de coordonnées
-- Préparer une jointure spatiale
+- Utiliser un index officiel pour limiter un téléchargement spatial
+- Documenter une ressource FGDB avant son importation
+- Préparer une lecture avec `sf`
+- Distinguer visualisation WMS et données analysables
+- Concevoir une jointure spatiale avec un autre jeu environnemental
+- Communiquer les limites d'un référentiel spatial
 
 ## Données utilisées
 
@@ -21,40 +24,133 @@ Fiche : [Géobase du réseau hydrographique du Québec](fiche.qmd)
 
 Source : Données Québec / Ministère des Ressources naturelles et des Forêts.
 
-Licence : Attribution (CC-BY 4.0).
+Licence : Attribution (CC-BY 4.0), selon les métadonnées CKAN consultées le 2026-06-21.
+
+Fichier préparé : `data/processed/grhq/grhq_index_telechargement.csv`
 
 ## Métadonnées pédagogiques
 
 | Champ | Information |
 |---|---|
-| Question directrice | Comment utiliser un référentiel hydrographique pour enrichir un jeu environnemental? |
-| Concepts | sf; Jointure spatiale; Visualisation |
-| Niveau | Avancé |
+| Question directrice | Comment préparer une analyse spatiale avec la GRHQ sans télécharger inutilement tout le Québec? |
+| Concepts | Index spatial; FGDB; `sf`; Jointure spatiale; Limites computationnelles |
+| Niveau | Intermédiaire à avancé |
 | Type | Projet ou tâche longue; Étude de cas |
 | Contexte | Hydrographie |
-| Accroche | Hydrographie et environnement |
+| Accroche | Un bon projet spatial commence par un bon périmètre |
 | Durée | 2-3 heures |
-| Matériel | énoncé; code; données; notes enseignantes |
+| Matériel | énoncé; code; index préparé; notes enseignantes |
 | Math/stats avancées | non |
 
-## Consignes
+## Mandat
 
-1. Choisir une zone GRHQ
-2. Lire les données avec `sf`
-3. Nettoyer les attributs utiles
-4. Joindre ou superposer un autre jeu
-5. Produire une carte commentée
+Produire une courte note technique de 2 à 4 pages qui prépare une analyse spatiale avec la GRHQ. La note doit contenir :
 
-## Questions
+1. une question d'analyse;
+2. l'unité GRHQ choisie;
+3. l'URL FGDB correspondante;
+4. la liste des ressources CKAN utiles;
+5. une stratégie de lecture avec `sf`;
+6. une proposition de jointure avec un autre jeu environnemental;
+7. une section de limites.
 
-1. Quel système de coordonnées est utilisé?
-2. Quelles entités sont pertinentes pour la question?
-3. Comment réduire la taille des données sans perdre le sens?
+## Étapes recommandées
+
+1. Exécuter `datasets/grhq/preparation.R`.
+2. Importer l'index préparé.
+3. Choisir une unité de téléchargement.
+4. Documenter si l'unité est complète ou fractionnée.
+5. Identifier le rôle du WMS simple et du WMS détaillé.
+6. Préparer le code qui lirait une FGDB téléchargée localement.
+7. Proposer une jointure avec des stations de qualité de l'eau, des repères de crue ou un autre jeu environnemental.
+8. Rédiger les limites avant toute interprétation.
+
+## Code de départ
+
+À exécuter depuis la racine du projet.
+
+```{r}
+#| eval: false
+# Load libraries
+library(dplyr)
+library(readr)
+
+# Prepare official metadata and index
+source("datasets/grhq/preparation.R")
+
+# Import prepared files
+index_grhq <- read_csv(
+  "data/processed/grhq/grhq_index_telechargement.csv",
+  show_col_types = FALSE
+)
+
+ressources_grhq <- read_csv(
+  "data/processed/grhq/ressources_grhq.csv",
+  show_col_types = FALSE
+)
+
+# Select one unit
+unite_choisie <- index_grhq |>
+  filter(bloc == "08")
+
+unite_choisie |>
+  select(bloc, zone, unit_kind, fgdb_url)
+
+# Identify official resource types
+ressources_grhq |>
+  count(format, sort = TRUE)
+```
+
+## Exemple de code après téléchargement
+
+Ce bloc n'est pas exécuté tant que la FGDB n'est pas téléchargée localement.
+
+```{r}
+#| eval: false
+# Load spatial package
+library(sf)
+
+# Replace this path with the local FGDB extracted from the selected unit
+fgdb_path <- "data/raw/grhq/08/08.gdb"
+
+# Inspect available layers
+st_layers(fgdb_path)
+
+# Read one selected layer after inspection
+# cours_eau <- st_read(fgdb_path, layer = "NOM_DE_LA_COUCHE")
+```
+
+## Questions à traiter
+
+1. Quelle question environnementale justifie l'utilisation de la GRHQ?
+2. Pourquoi l'unité choisie est-elle raisonnable pour un laboratoire?
+3. Le WMS suffit-il pour l'analyse, ou faut-il télécharger une FGDB?
+4. Quelle couche faudrait-il lire dans la FGDB?
+5. Quelle donnée externe pourrait être jointe spatialement?
+6. Quels résultats seraient invalides si l'on utilisait seulement l'index?
+
+## Critères de réussite
+
+Un bon rapport :
+
+- ne télécharge pas tout le référentiel sans justification;
+- distingue index, WMS et FGDB;
+- indique clairement ce que représente une ligne de l'index;
+- propose un code de lecture spatial réaliste;
+- formule une question d'analyse compatible avec les données;
+- cite la source et la licence;
+- documente les limites de taille, de projection et de précision.
 
 ## Pistes de solution
 
-Un bon rapport documente le fichier choisi, la projection et les limites de la jointure.
+Une conclusion prudente peut prendre cette forme :
 
-## Prolongement
+> L'index GRHQ permet de sélectionner une unité de téléchargement, mais il ne contient pas les entités hydrographiques détaillées. Pour mesurer ou joindre spatialement le réseau, il faut télécharger la FGDB de l'unité choisie, inspecter ses couches et documenter la projection avant l'analyse.
 
-Ajouter des stations de qualité de l'eau ou des repères de crue.
+## Prolongements
+
+- Comparer le rendu WMS simple et détaillé.
+- Lire une couche FGDB avec `sf`.
+- Joindre des stations de qualité de l'eau à une unité GRHQ.
+- Simplifier une géométrie pour une carte web.
+- Discuter la différence entre données de référence et données d'observation.

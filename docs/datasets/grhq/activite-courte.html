@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Explorer un index hydrographique – Données bleues</title>
+<title>Choisir une unité GRHQ avec l’index de téléchargement – Données bleues</title>
 <style>
 
 code{white-space: pre-wrap;}
@@ -19,6 +19,41 @@ ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
 width: 0.8em;
 margin: 0 0.8em 0.2em -1em;  vertical-align: middle;
+}
+
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+{ counter-reset: source-line 0; }
+pre.numberSource code > span
+{ position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+{ content: counter(source-line);
+position: relative; left: -1em; text-align: right; vertical-align: baseline;
+border: none; display: inline-block;
+-webkit-touch-callout: none; -webkit-user-select: none;
+-khtml-user-select: none; -moz-user-select: none;
+-ms-user-select: none; user-select: none;
+padding: 0 4px; width: 4em;
+}
+pre.numberSource { margin-left: 3em; padding-left: 4px; }
+div.sourceCode
+{ }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -5482,13 +5517,14 @@ grid-template-columns: 1fr;
     <h2 id="toc-title">On this page</h2>
 
   <ul>
-  <li><a href="#explorer-un-index-hydrographique" id="toc-explorer-un-index-hydrographique" class="nav-link active" data-scroll-target="#explorer-un-index-hydrographique">Explorer un index hydrographique</a>
+  <li><a href="#choisir-une-unité-grhq-avec-lindex-de-téléchargement" id="toc-choisir-une-unité-grhq-avec-lindex-de-téléchargement" class="nav-link active" data-scroll-target="#choisir-une-unité-grhq-avec-lindex-de-téléchargement">Choisir une unité GRHQ avec l’index de téléchargement</a>
   <ul class="collapse">
   <li><a href="#contexte" id="toc-contexte" class="nav-link" data-scroll-target="#contexte">Contexte</a></li>
   <li><a href="#objectifs-dapprentissage" id="toc-objectifs-dapprentissage" class="nav-link" data-scroll-target="#objectifs-dapprentissage">Objectifs d’apprentissage</a></li>
   <li><a href="#données-utilisées" id="toc-données-utilisées" class="nav-link" data-scroll-target="#données-utilisées">Données utilisées</a></li>
   <li><a href="#métadonnées-pédagogiques" id="toc-métadonnées-pédagogiques" class="nav-link" data-scroll-target="#métadonnées-pédagogiques">Métadonnées pédagogiques</a></li>
   <li><a href="#consignes" id="toc-consignes" class="nav-link" data-scroll-target="#consignes">Consignes</a></li>
+  <li><a href="#code-de-départ" id="toc-code-de-départ" class="nav-link" data-scroll-target="#code-de-départ">Code de départ</a></li>
   <li><a href="#questions" id="toc-questions" class="nav-link" data-scroll-target="#questions">Questions</a></li>
   <li><a href="#pistes-de-solution" id="toc-pistes-de-solution" class="nav-link" data-scroll-target="#pistes-de-solution">Pistes de solution</a></li>
   <li><a href="#prolongement" id="toc-prolongement" class="nav-link" data-scroll-target="#prolongement">Prolongement</a></li>
@@ -5501,7 +5537,7 @@ grid-template-columns: 1fr;
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Explorer un index hydrographique</h1>
+<h1 class="title">Choisir une unité GRHQ avec l’index de téléchargement</h1>
 </div>
 
 
@@ -5518,25 +5554,28 @@ grid-template-columns: 1fr;
 </header>
 
 
-<section id="explorer-un-index-hydrographique" class="level1">
-<h1>Explorer un index hydrographique</h1>
+<section id="choisir-une-unité-grhq-avec-lindex-de-téléchargement" class="level1">
+<h1>Choisir une unité GRHQ avec l’index de téléchargement</h1>
 <section id="contexte" class="level2">
 <h2 class="anchored" data-anchor-id="contexte">Contexte</h2>
-<p>Cette activité porte sur le choix documenté d’une ressource spatiale dans un référentiel volumineux.</p>
+<p>Cette activité porte sur un geste de science des données souvent négligé : choisir le bon fichier avant de commencer l’analyse. La GRHQ est volumineuse. Pour un exercice court, on travaille donc avec l’index officiel de téléchargement et non avec toutes les géodatabases du Québec.</p>
 </section>
 <section id="objectifs-dapprentissage" class="level2">
 <h2 class="anchored" data-anchor-id="objectifs-dapprentissage">Objectifs d’apprentissage</h2>
 <ul>
-<li>Lire un index de données</li>
+<li>Lire un index de téléchargement officiel</li>
 <li>Identifier une unité de téléchargement</li>
-<li>Documenter un choix de ressource</li>
+<li>Distinguer index et données géométriques détaillées</li>
+<li>Justifier un choix de ressource</li>
+<li>Préparer une étape de téléchargement reproductible</li>
 </ul>
 </section>
 <section id="données-utilisées" class="level2">
 <h2 class="anchored" data-anchor-id="données-utilisées">Données utilisées</h2>
 <p>Fiche : <a href="../../datasets/grhq/fiche.html">Géobase du réseau hydrographique du Québec</a></p>
 <p>Source : Données Québec / Ministère des Ressources naturelles et des Forêts.</p>
-<p>Licence : Attribution (CC-BY 4.0).</p>
+<p>Licence : Attribution (CC-BY 4.0), selon les métadonnées CKAN consultées le 2026-06-21.</p>
+<p>Fichier préparé : <code>data/processed/grhq/grhq_index_telechargement.csv</code></p>
 </section>
 <section id="métadonnées-pédagogiques" class="level2">
 <h2 class="anchored" data-anchor-id="métadonnées-pédagogiques">Métadonnées pédagogiques</h2>
@@ -5554,11 +5593,11 @@ grid-template-columns: 1fr;
 <tbody>
 <tr class="odd">
 <td>Question directrice</td>
-<td>Comment choisir une unité hydrographique à partir de l’index GRHQ?</td>
+<td>Comment choisir une unité GRHQ avant de télécharger une géodatabase?</td>
 </tr>
 <tr class="even">
 <td>Concepts</td>
-<td>Données spatiales; Métadonnées; Cartographie</td>
+<td>Index de téléchargement; Métadonnées; Données spatiales; Reproductibilité</td>
 </tr>
 <tr class="odd">
 <td>Niveau</td>
@@ -5574,7 +5613,7 @@ grid-template-columns: 1fr;
 </tr>
 <tr class="even">
 <td>Accroche</td>
-<td>Réseau hydrographique du Québec</td>
+<td>Avant la carte, il faut choisir le bon fichier</td>
 </tr>
 <tr class="odd">
 <td>Durée</td>
@@ -5582,7 +5621,7 @@ grid-template-columns: 1fr;
 </tr>
 <tr class="even">
 <td>Matériel</td>
-<td>énoncé; code; données</td>
+<td>énoncé; code; index préparé; page source</td>
 </tr>
 <tr class="odd">
 <td>Math/stats avancées</td>
@@ -5594,28 +5633,61 @@ grid-template-columns: 1fr;
 <section id="consignes" class="level2">
 <h2 class="anchored" data-anchor-id="consignes">Consignes</h2>
 <ol type="1">
-<li>Ouvrir la page source</li>
-<li>Lire l’index CSV</li>
-<li>Choisir une zone</li>
-<li>Décrire les fichiers disponibles</li>
-<li>Préparer un plan de téléchargement</li>
+<li>Exécuter le script <code>datasets/grhq/preparation.R</code>.</li>
+<li>Importer l’index préparé.</li>
+<li>Compter les unités complètes et les unités fractionnées.</li>
+<li>Choisir une unité de téléchargement.</li>
+<li>Copier l’URL FGDB associée à cette unité.</li>
+<li>Expliquer pourquoi il ne faut pas télécharger tout le référentiel pour cet exercice.</li>
 </ol>
+</section>
+<section id="code-de-départ" class="level2">
+<h2 class="anchored" data-anchor-id="code-de-départ">Code de départ</h2>
+<p>À exécuter depuis la racine du projet.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load libraries</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Prepare official metadata and index</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">&quot;datasets/grhq/preparation.R&quot;</span>)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Import prepared index</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>index_grhq <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;data/processed/grhq/grhq_index_telechargement.csv&quot;</span>,</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">show_col_types =</span> <span class="cn">FALSE</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Count download units</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>index_grhq <span class="sc">|&gt;</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(unit_kind, <span class="at">sort =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Choose one unit</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>unite_choisie <span class="ot">&lt;-</span> index_grhq <span class="sc">|&gt;</span></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(bloc <span class="sc">==</span> <span class="st">&quot;08&quot;</span>)</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>unite_choisie <span class="sc">|&gt;</span></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(bloc, zone, fgdb_url)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
 </section>
 <section id="questions" class="level2">
 <h2 class="anchored" data-anchor-id="questions">Questions</h2>
 <ol type="1">
+<li>Combien d’unités de téléchargement contient l’index?</li>
+<li>Combien d’unités sont des régions complètes?</li>
+<li>Combien d’unités sont des parties de régions?</li>
+<li>Quelle unité avez-vous choisie?</li>
 <li>Que représente une ligne de l’index?</li>
-<li>Pourquoi ne pas télécharger tout le référentiel pour un exercice court?</li>
-<li>Quelle autre donnée pourrait être jointe à la GRHQ?</li>
+<li>Pourquoi cette table ne permet-elle pas encore de calculer une longueur de cours d’eau?</li>
 </ol>
 </section>
 <section id="pistes-de-solution" class="level2">
 <h2 class="anchored" data-anchor-id="pistes-de-solution">Pistes de solution</h2>
-<p>Une solution acceptable décrit clairement la zone choisie et les fichiers nécessaires.</p>
+<p>Une solution acceptable identifie une unité, donne son URL FGDB et explique que l’index sert seulement à sélectionner un téléchargement. Une bonne solution précise que la géométrie hydrographique n’est pas encore lue à cette étape.</p>
 </section>
 <section id="prolongement" class="level2">
 <h2 class="anchored" data-anchor-id="prolongement">Prolongement</h2>
-<p>Télécharger une petite zone et l’afficher avec <code>sf</code>.</p>
+<p>Télécharger seulement l’unité choisie, puis inspecter les couches disponibles avec <code>sf::st_layers()</code>.</p>
 
 
 </section>

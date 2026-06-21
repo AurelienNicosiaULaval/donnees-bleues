@@ -5547,8 +5547,11 @@ Géobase du réseau hydrographique du Québec
 <p class="dataset-hero-source">
 Données Québec / Ministère des Ressources naturelles et des Forêts
 </p>
+<div class="dataset-contributor-badge">
+<span>Personne à contacter</span><strong>Aurélien Nicosia</strong><small>Révision pédagogique et statistique</small>
+</div>
 <p class="dataset-hero-summary">
-Entité hydrographique ou unité de téléchargement selon la ressource choisie
+Une ligne préparée correspond à une unité de téléchargement de l&#39;index GRHQ
 </p>
 <div class="dataset-hero-actions">
 <a class="dataset-button no-external" href="#r-en-action">Voir les résultats R</a><a class="dataset-button secondary" href="https://www.donneesquebec.ca/recherche/dataset/grhq">Source officielle</a>
@@ -5566,28 +5569,28 @@ Entité hydrographique ou unité de téléchargement selon la ressource choisie
 <span>Niveau</span><strong>Intermédiaire à avancé</strong>
 </div>
 <div class="dataset-fact">
-<span>Structure</span><strong>Spatial, réseau hydrographique, référentiel territorial</strong>
+<span>Structure</span><strong>Index spatial, métadonnées de téléchargement et référentiel hydrographique</strong>
 </div>
 <div class="dataset-fact">
-<span>Format</span><strong>CSV, SHP, FGDB, WMS et documentation PDF</strong>
+<span>Format</span><strong>Index CSV préparé localement; ressources officielles FGDB, SHP, WMS et PDF documentées</strong>
 </div>
 </div>
 <div class="dataset-pedagogy-band">
 <div class="dataset-pedagogy-main">
 <span>Question de départ</span>
 <p>
-Télécharger une unité hydrographique et la cartographier.
+Choisir une unité de téléchargement GRHQ et justifier ce choix.
 </p>
 </div>
 <div class="dataset-score-box">
-<span>Potentiel pédagogique</span><strong>22 / 30</strong>
+<span>Potentiel pédagogique</span><strong>24 / 30</strong>
 <div class="dataset-score-track">
 <span class="dataset-score-segment is-filled"></span><span class="dataset-score-segment is-filled"></span><span class="dataset-score-segment is-filled"></span><span class="dataset-score-segment is-filled"></span><span class="dataset-score-segment"></span>
 </div>
 </div>
 </div>
 <div class="dataset-chip-strip">
-<span>eau</span><span>hydrographie</span><span>spatial</span><span>sf</span><span>jointure spatiale</span><span>Québec</span><span>données ouvertes</span>
+<span>hydrographie</span><span>index de téléchargement</span><span>données spatiales</span><span>métadonnées</span><span>unité statistique</span><span>sf</span><span>jointure spatiale</span>
 </div>
 <section class="dataset-r-lab" id="r-en-action">
 <div class="dataset-section-heading">
@@ -5596,7 +5599,7 @@ Télécharger une unité hydrographique et la cartographier.
 Aperçu reproductible
 </h2>
 <p>
-Aperçu léger calculé par R à partir des métadonnées vérifiées afin de garder la fiche rapide et stable au rendu.
+Aperçu calculé par R à partir de data/processed/grhq/grhq_index_telechargement.csv.
 </p>
 </div>
 <div class="dataset-r-grid">
@@ -5604,13 +5607,12 @@ Aperçu léger calculé par R à partir des métadonnées vérifiées afin de ga
 <div class="dataset-card-label">
 Code minimal
 </div>
-<pre><code class="language-r">library(yaml)
+<pre><code class="language-r">library(dplyr)
 
-metadata &lt;- yaml::read_yaml(&quot;datasets/grhq/metadata.yml&quot;)
-data.frame(
-  champ = c(&quot;theme&quot;, &quot;territoire&quot;, &quot;unite&quot;, &quot;niveau&quot;),
-  valeur = c(metadata$theme, metadata$geography, metadata$unit, metadata$level)
-)</code></pre>
+donnees &lt;- read.csv(&quot;data/processed/grhq/grhq_index_telechargement.csv&quot;, check.names = FALSE)
+
+glimpse(donnees)
+donnees |&gt; summarise(lignes = n(), colonnes = ncol(donnees))</code></pre>
 </div>
 <div class="dataset-result-card">
 <div class="dataset-card-label">
@@ -5618,16 +5620,19 @@ Résultats R
 </div>
 <div class="dataset-r-stats">
 <div class="dataset-r-stat">
-<span>Lignes déclarées</span><strong>Volume important; index CSV et fichiers FGDB par unités de découpage hydrographique</strong>
+<span>Lignes lues</span><strong>16</strong>
 </div>
 <div class="dataset-r-stat">
-<span>Colonnes déclarées</span><strong>3 champs dans l&#39;index CSV consulté; structure détaillée à confirmer dans le guide GRHQ</strong>
+<span>Colonnes</span><strong>11</strong>
 </div>
 <div class="dataset-r-stat">
-<span>Format</span><strong>CSV, SHP, FGDB, WMS et documentation PDF</strong>
+<span>Variables num.</span><strong>2</strong>
 </div>
 <div class="dataset-r-stat">
-<span>Aperçu</span><strong>Métadonnées</strong>
+<span>Valeurs manquantes</span><strong>5.1 %</strong>
+</div>
+<div class="dataset-r-stat">
+<span>Aperçu</span><strong>grhq_index_telechargement.csv</strong>
 </div>
 </div>
 <div class="dataset-result-table-wrap">
@@ -5635,52 +5640,138 @@ Résultats R
 <thead>
 <tr>
 <th>
-champ
+bloc
 </th>
 <th>
-valeur
+region_hydrographique
+</th>
+<th>
+partie
+</th>
+<th>
+is_split_unit
+</th>
+<th>
+unit_kind
+</th>
+<th>
+zone
 </th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>
-theme
+00
 </td>
 <td>
-Hydrographie
-</td>
-</tr>
-<tr>
-<td>
-territoire
+0
 </td>
 <td>
-Québec
-</td>
-</tr>
-<tr>
-<td>
-unite
 </td>
 <td>
-Entité hydrographique ou unité …
+FALSE
+</td>
+<td>
+Région hydrographique complète
+</td>
+<td>
+Région hydrographique 00
 </td>
 </tr>
 <tr>
 <td>
-niveau
+01
 </td>
 <td>
-Intermédiaire à avancé
+1
+</td>
+<td>
+</td>
+<td>
+FALSE
+</td>
+<td>
+Région hydrographique complète
+</td>
+<td>
+Région hydrographique 01
 </td>
 </tr>
 <tr>
 <td>
-format
+02
 </td>
 <td>
-CSV, SHP, FGDB, WMS et document…
+2
+</td>
+<td>
+</td>
+<td>
+FALSE
+</td>
+<td>
+Région hydrographique complète
+</td>
+<td>
+Région hydrographique 02
+</td>
+</tr>
+<tr>
+<td>
+03
+</td>
+<td>
+3
+</td>
+<td>
+</td>
+<td>
+FALSE
+</td>
+<td>
+Région hydrographique complète
+</td>
+<td>
+Région hydrographique 03
+</td>
+</tr>
+<tr>
+<td>
+04
+</td>
+<td>
+4
+</td>
+<td>
+</td>
+<td>
+FALSE
+</td>
+<td>
+Région hydrographique complète
+</td>
+<td>
+Région hydrographique 04
+</td>
+</tr>
+<tr>
+<td>
+05
+</td>
+<td>
+5
+</td>
+<td>
+</td>
+<td>
+FALSE
+</td>
+<td>
+Région hydrographique complète
+</td>
+<td>
+Région hydrographique 05
 </td>
 </tr>
 </tbody>
@@ -5691,8 +5782,8 @@ CSV, SHP, FGDB, WMS et document…
 <div class="dataset-card-label">
 Lecture statistique
 </div>
-<svg class="dataset-r-chart" viewbox="0 0 320 210" role="img" aria-label="Concepts pédagogiques">
-<text x="0" y="30" class="dataset-svg-label">eau</text><rect x="150" y="18" width="90" height="14" rx="3" class="dataset-svg-bar" /><text x="0" y="54" class="dataset-svg-label">hydrographie</text><rect x="150" y="42" width="90" height="14" rx="3" class="dataset-svg-bar" /><text x="0" y="78" class="dataset-svg-label">spatial</text><rect x="150" y="66" width="90" height="14" rx="3" class="dataset-svg-bar" /><text x="0" y="102" class="dataset-svg-label">sf</text><rect x="150" y="90" width="90" height="14" rx="3" class="dataset-svg-bar" /><text x="0" y="126" class="dataset-svg-label">jointure spatiale</text><rect x="150" y="114" width="90" height="14" rx="3" class="dataset-svg-bar" /><text x="0" y="150" class="dataset-svg-label">Québec</text><rect x="150" y="138" width="90" height="14" rx="3" class="dataset-svg-bar" /><text x="0" y="174" class="dataset-svg-label">données ouvertes</text><rect x="150" y="162" width="90" height="14" rx="3" class="dataset-svg-bar" />
+<svg class="dataset-r-chart" viewbox="0 0 320 210" role="img" aria-label="Aperçu numérique généré par R">
+<line x1="34" y1="158" x2="292" y2="158" class="dataset-svg-axis"></line><line x1="34" y1="36" x2="34" y2="158" class="dataset-svg-axis"></line><polyline points="34,158 50.5,150 67.1,142 83.6,134 100.1,126 116.7,118 133.2,110 149.7,102 166.3,102 182.8,94 199.3,86 215.9,86 232.4,86 248.9,78 265.5,78 282,46" class="dataset-svg-line"></polyline><circle cx="34" cy="158" r="3.2" class="dataset-svg-point"></circle><circle cx="50.5" cy="150" r="3.2" class="dataset-svg-point"></circle><circle cx="67.1" cy="142" r="3.2" class="dataset-svg-point"></circle><circle cx="83.6" cy="134" r="3.2" class="dataset-svg-point"></circle><circle cx="100.1" cy="126" r="3.2" class="dataset-svg-point"></circle><circle cx="116.7" cy="118" r="3.2" class="dataset-svg-point"></circle><circle cx="133.2" cy="110" r="3.2" class="dataset-svg-point"></circle><circle cx="149.7" cy="102" r="3.2" class="dataset-svg-point"></circle><circle cx="166.3" cy="102" r="3.2" class="dataset-svg-point"></circle><circle cx="182.8" cy="94" r="3.2" class="dataset-svg-point"></circle><circle cx="199.3" cy="86" r="3.2" class="dataset-svg-point"></circle><circle cx="215.9" cy="86" r="3.2" class="dataset-svg-point"></circle><circle cx="232.4" cy="86" r="3.2" class="dataset-svg-point"></circle><circle cx="248.9" cy="78" r="3.2" class="dataset-svg-point"></circle><circle cx="265.5" cy="78" r="3.2" class="dataset-svg-point"></circle><circle cx="282" cy="46" r="3.2" class="dataset-svg-point"></circle><text x="34" y="24" class="dataset-svg-title">region_hydrographique</text><text x="34" y="186" class="dataset-svg-label">0</text><text x="230" y="186" class="dataset-svg-label">14</text>
 </svg>
 </div>
 </div>
@@ -5702,13 +5793,13 @@ Lecture statistique
 <span>Mini-projets</span>
 <ul>
 <li>
-Télécharger une unité hydrographique et la cartographier.
+Choisir une unité de téléchargement GRHQ et justifier ce choix.
 </li>
 <li>
-Joindre des stations de qualité de l&#39;eau à un réseau ou bassin.
+Comparer les unités complètes et les unités fractionnées de l&#39;index.
 </li>
 <li>
-Comparer la densité du réseau hydrographique entre deux régions.
+Préparer le plan d&#39;une jointure spatiale avec des stations de qualité de l&#39;eau.
 </li>
 </ul>
 </div>
@@ -5716,15 +5807,15 @@ Comparer la densité du réseau hydrographique entre deux régions.
 <span>Activités liées</span>
 <div class="dataset-activity-grid">
 <div class="dataset-activity-card">
-<span>30-45 minutes</span><strong>Explorer un index hydrographique</strong>
+<span>30-45 minutes</span><strong>Choisir une unité GRHQ avec l&#39;index de téléchargement</strong>
 <p>
-Comment choisir une unité hydrographique à partir de l&#39;index GRHQ?
+Comment choisir une unité GRHQ avant de télécharger une géodatabase?
 </p>
 </div>
 <div class="dataset-activity-card">
-<span>2-3 heures</span><strong>Jointure spatiale avec le réseau hydrographique</strong>
+<span>2-3 heures</span><strong>Préparer une analyse spatiale avec la GRHQ</strong>
 <p>
-Comment utiliser un référentiel hydrographique pour enrichir un jeu environnemental?
+Comment préparer une analyse spatiale avec la GRHQ sans télécharger inutilement tout le Québec?
 </p>
 </div>
 </div>
@@ -5733,10 +5824,72 @@ Comment utiliser un référentiel hydrographique pour enrichir un jeu environnem
 <div class="dataset-detail-content">
 <section id="pourquoi-ce-jeu-est-intéressant" class="level2">
 <h2 class="anchored" data-anchor-id="pourquoi-ce-jeu-est-intéressant">Pourquoi ce jeu est intéressant</h2>
-<p>La GRHQ est un référentiel hydrographique pour le Québec. Elle est particulièrement utile pour des exercices de cartographie, de jointure spatiale et de préparation de données environnementales liées aux cours d’eau et bassins.</p>
+<p>La GRHQ est un bon jeu pour enseigner une idée importante en données spatiales : avant de lire une couche géométrique, il faut comprendre l’index, le format, l’unité de téléchargement et la taille implicite des fichiers. La fiche ne transforme donc pas la GRHQ en simple CSV. Elle prépare l’index officiel qui sert à choisir une unité hydrographique, puis elle documente les ressources spatiales détaillées disponibles.</p>
+<p>Cette approche est adaptée à un cours de science des données parce qu’elle montre un vrai flux de travail : consulter les métadonnées, choisir un périmètre raisonnable, éviter de télécharger tout le Québec, puis seulement ensuite passer à <code>sf</code>, aux cartes et aux jointures spatiales.</p>
 </section>
-<section id="source" class="level2">
-<h2 class="anchored" data-anchor-id="source">Source</h2>
+<section id="ce-qui-a-été-vérifié" class="level2">
+<h2 class="anchored" data-anchor-id="ce-qui-a-été-vérifié">Ce qui a été vérifié</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Élément</th>
+<th>Résultat vérifié</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Paquet CKAN</td>
+<td><code>bfbdeb1d-8398-444b-ad78-ab81f9d14e60</code></td>
+</tr>
+<tr class="even">
+<td>Source officielle</td>
+<td>Données Québec / Ministère des Ressources naturelles et des Forêts</td>
+</tr>
+<tr class="odd">
+<td>Ressources dans le paquet</td>
+<td>9 ressources</td>
+</tr>
+<tr class="even">
+<td>Index CSV préparé ici</td>
+<td>16 unités de téléchargement</td>
+</tr>
+<tr class="odd">
+<td>Régions hydrographiques distinctes dans l’index</td>
+<td>12</td>
+</tr>
+<tr class="even">
+<td>Unités complètes</td>
+<td>9</td>
+</tr>
+<tr class="odd">
+<td>Unités fractionnées en parties</td>
+<td>7</td>
+</tr>
+<tr class="even">
+<td>Licence</td>
+<td>Attribution (CC-BY 4.0), selon les métadonnées CKAN consultées le 2026-06-21</td>
+</tr>
+<tr class="odd">
+<td>Dernière modification du paquet CKAN</td>
+<td>2026-06-11</td>
+</tr>
+<tr class="even">
+<td>Table préparée</td>
+<td><code>data/processed/grhq/grhq_index_telechargement.csv</code></td>
+</tr>
+<tr class="odd">
+<td>Ressources documentées</td>
+<td><code>data/processed/grhq/ressources_grhq.csv</code></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="source-et-conditions" class="level2">
+<h2 class="anchored" data-anchor-id="source-et-conditions">Source et conditions</h2>
 <table class="caption-top table">
 <thead>
 <tr class="header">
@@ -5746,236 +5899,471 @@ Comment utiliser un référentiel hydrographique pour enrichir un jeu environnem
 </thead>
 <tbody>
 <tr class="odd">
-<td>Source</td>
-<td>Données Québec / Ministère des Ressources naturelles et des Forêts</td>
+<td>Page Données Québec</td>
+<td><a href="https://www.donneesquebec.ca/recherche/dataset/grhq" class="uri">https://www.donneesquebec.ca/recherche/dataset/grhq</a></td>
 </tr>
 <tr class="even">
-<td>Organisme producteur</td>
-<td>Ministère des Ressources naturelles et des Forêts</td>
+<td>API CKAN</td>
+<td><a href="https://www.donneesquebec.ca/recherche/api/3/action/package_show?id=grhq" class="uri">https://www.donneesquebec.ca/recherche/api/3/action/package_show?id=grhq</a></td>
+</tr>
+<tr class="odd">
+<td>Page MRNF</td>
+<td><a href="https://mrnf.gouv.qc.ca/repertoire-geographique/reseau-hydrographique-grhq/" class="uri">https://mrnf.gouv.qc.ca/repertoire-geographique/reseau-hydrographique-grhq/</a></td>
+</tr>
+<tr class="even">
+<td>Miroir ouvert.canada.ca</td>
+<td><a href="https://open.canada.ca/data/fr/dataset/bfbdeb1d-8398-444b-ad78-ab81f9d14e60" class="uri">https://open.canada.ca/data/fr/dataset/bfbdeb1d-8398-444b-ad78-ab81f9d14e60</a></td>
 </tr>
 <tr class="odd">
 <td>Territoire</td>
-<td>Québec</td>
-</tr>
-<tr class="even">
-<td>URL officielle</td>
-<td><a href="https://www.donneesquebec.ca/recherche/dataset/grhq" class="uri">https://www.donneesquebec.ca/recherche/dataset/grhq</a></td>
-</tr>
-<tr class="odd">
-<td>Licence</td>
-<td>Attribution (CC-BY 4.0)</td>
+<td>Tout le Québec</td>
 </tr>
 <tr class="even">
 <td>Date d’accès</td>
-<td>2026-06-19</td>
+<td>2026-06-21</td>
 </tr>
 <tr class="odd">
 <td>Fréquence de mise à jour</td>
-<td>Selon les mises à jour du MRNF; métadonnées modifiées en 2026</td>
+<td>Au besoin selon la page MRNF</td>
 </tr>
 <tr class="even">
-<td>Statut</td>
-<td>source vérifiée</td>
+<td>Redistribution pédagogique</td>
+<td>Possible sous réserve du respect de la licence Attribution (CC-BY 4.0)</td>
 </tr>
 </tbody>
 </table>
 </section>
 <section id="ce-que-représente-une-ligne" class="level2">
 <h2 class="anchored" data-anchor-id="ce-que-représente-une-ligne">Ce que représente une ligne</h2>
-<p>Selon le fichier retenu, une ligne peut représenter une unité de découpage hydrographique dans l’index ou une entité du réseau hydrographique dans les fichiers détaillés.</p>
-</section>
-<section id="variables-principales" class="level2">
-<h2 class="anchored" data-anchor-id="variables-principales">Variables principales</h2>
-<p>Les noms ci-dessous sont des noms propres proposés pour l’enseignement. Les noms exacts des champs sources doivent être conservés dans le script de préparation.</p>
+<p>Dans la table préparée, une ligne représente une unité de téléchargement de l’index GRHQ. Ce n’est pas une rivière, un lac, un bassin versant, une jonction ou une surface hydrographique.</p>
 <table class="caption-top table">
-<colgroup>
-<col style="width: 33%">
-<col style="width: 33%">
-<col style="width: 33%">
-</colgroup>
 <thead>
 <tr class="header">
-<th>Variable proposée</th>
-<th>Rôle pédagogique</th>
-<th>Remarque</th>
+<th>Variable</th>
+<th>Rôle</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td><code>bloc</code></td>
-<td>Bloc de téléchargement</td>
-<td>Champ de l’index CSV</td>
+<td>Identifiant de l’unité de téléchargement dans l’index</td>
+</tr>
+<tr class="even">
+<td><code>region_hydrographique</code></td>
+<td>Région hydrographique extraite du bloc</td>
+</tr>
+<tr class="odd">
+<td><code>partie</code></td>
+<td>Numéro de partie lorsque la région est fractionnée</td>
+</tr>
+<tr class="even">
+<td><code>is_split_unit</code></td>
+<td>Indique si l’unité est une partie d’une région</td>
+</tr>
+<tr class="odd">
+<td><code>unit_kind</code></td>
+<td>Type d’unité de téléchargement</td>
 </tr>
 <tr class="even">
 <td><code>zone</code></td>
-<td>Zone ou unité de découpage</td>
-<td>Champ de l’index CSV</td>
+<td>Libellé source de la zone</td>
 </tr>
 <tr class="odd">
-<td><code>fgdb</code></td>
-<td>Lien ou nom de fichier FGDB</td>
-<td>Permet de choisir une ressource détaillée</td>
-</tr>
-<tr class="even">
-<td><code>geometry</code></td>
-<td>Géométrie spatiale</td>
-<td>Présente dans les fichiers spatiaux détaillés</td>
-</tr>
-<tr class="odd">
-<td><code>type_entite</code></td>
-<td>Type d’entité hydrographique</td>
-<td>À confirmer dans le guide utilisateur</td>
+<td><code>fgdb_url</code></td>
+<td>URL du fichier FGDB correspondant</td>
 </tr>
 </tbody>
 </table>
+<p>Cette distinction est essentielle. L’index sert à décider quoi télécharger. Les analyses de longueur de cours d’eau, de surfaces hydrographiques ou de connectivité du réseau exigent ensuite de lire une géodatabase détaillée.</p>
 </section>
-<section id="taille-et-structure" class="level2">
-<h2 class="anchored" data-anchor-id="taille-et-structure">Taille et structure</h2>
+<section id="structure-des-ressources" class="level2">
+<h2 class="anchored" data-anchor-id="structure-des-ressources">Structure des ressources</h2>
 <table class="caption-top table">
-<colgroup>
-<col style="width: 50%">
-<col style="width: 50%">
-</colgroup>
 <thead>
 <tr class="header">
-<th>Élément</th>
-<th>Information</th>
+<th>Format</th>
+<th style="text-align: right;">Nombre de ressources CKAN</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>Nombre de lignes</td>
-<td>Volume important; index CSV et fichiers FGDB par unités de découpage hydrographique</td>
+<td>PDF</td>
+<td style="text-align: right;">2</td>
 </tr>
 <tr class="even">
-<td>Nombre de colonnes</td>
-<td>3 champs dans l’index CSV consulté; structure détaillée à confirmer dans le guide GRHQ</td>
+<td>SHP</td>
+<td style="text-align: right;">2</td>
 </tr>
 <tr class="odd">
-<td>Structure</td>
-<td>Spatial, réseau hydrographique, référentiel territorial</td>
+<td>WMS</td>
+<td style="text-align: right;">2</td>
 </tr>
 <tr class="even">
-<td>Format</td>
-<td>CSV, SHP, FGDB, WMS et documentation PDF</td>
+<td>CSV</td>
+<td style="text-align: right;">1</td>
 </tr>
 <tr class="odd">
-<td>Niveau pédagogique recommandé</td>
-<td>Intermédiaire à avancé</td>
+<td>FGDB</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td>HTML</td>
+<td style="text-align: right;">1</td>
+</tr>
+</tbody>
+</table>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Ressource</th>
+<th>Format</th>
+<th>Rôle pédagogique</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Index de téléchargement</td>
+<td>CSV</td>
+<td>Choisir une unité de téléchargement</td>
+</tr>
+<tr class="even">
+<td>Index de téléchargement</td>
+<td>SHP</td>
+<td>Visualiser spatialement les unités de téléchargement</td>
+</tr>
+<tr class="odd">
+<td>Répertoire complet</td>
+<td>FGDB</td>
+<td>Accéder aux géodatabases détaillées</td>
+</tr>
+<tr class="even">
+<td>Guide de l’utilisateur</td>
+<td>PDF</td>
+<td>Comprendre la structure du référentiel</td>
+</tr>
+<tr class="odd">
+<td>Carte de téléchargement des UDH</td>
+<td>HTML</td>
+<td>Sélectionner une unité par interface cartographique</td>
+</tr>
+<tr class="even">
+<td>Inventaire des UDH disponibles</td>
+<td>SHP</td>
+<td>Documenter les unités disponibles</td>
+</tr>
+<tr class="odd">
+<td>Service WMS GRHQ simple</td>
+<td>WMS</td>
+<td>Visualisation légère</td>
+</tr>
+<tr class="even">
+<td>Service WMS GRHQ détaillée</td>
+<td>WMS</td>
+<td>Visualisation complète</td>
+</tr>
+<tr class="odd">
+<td>Légendes GRHQ</td>
+<td>PDF</td>
+<td>Interpréter la symbologie</td>
 </tr>
 </tbody>
 </table>
 </section>
+<section id="taille-et-résultats-r-vérifiés" class="level2">
+<h2 class="anchored" data-anchor-id="taille-et-résultats-r-vérifiés">Taille et résultats R vérifiés</h2>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Indicateur</th>
+<th style="text-align: right;">Valeur</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Lignes préparées dans l’index</td>
+<td style="text-align: right;">16</td>
+</tr>
+<tr class="even">
+<td>Colonnes préparées</td>
+<td style="text-align: right;">11</td>
+</tr>
+<tr class="odd">
+<td>Régions hydrographiques distinctes</td>
+<td style="text-align: right;">12</td>
+</tr>
+<tr class="even">
+<td>Unités complètes</td>
+<td style="text-align: right;">9</td>
+</tr>
+<tr class="odd">
+<td>Unités fractionnées</td>
+<td style="text-align: right;">7</td>
+</tr>
+<tr class="even">
+<td>Ressources CKAN documentées</td>
+<td style="text-align: right;">9</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="unités-de-téléchargement" class="level2">
+<h2 class="anchored" data-anchor-id="unités-de-téléchargement">Unités de téléchargement</h2>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Bloc</th>
+<th>Zone</th>
+<th>Type</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>00</td>
+<td>Région hydrographique 00</td>
+<td>complète</td>
+</tr>
+<tr class="even">
+<td>01</td>
+<td>Région hydrographique 01</td>
+<td>complète</td>
+</tr>
+<tr class="odd">
+<td>02</td>
+<td>Région hydrographique 02</td>
+<td>complète</td>
+</tr>
+<tr class="even">
+<td>03</td>
+<td>Région hydrographique 03</td>
+<td>complète</td>
+</tr>
+<tr class="odd">
+<td>04</td>
+<td>Région hydrographique 04</td>
+<td>complète</td>
+</tr>
+<tr class="even">
+<td>05</td>
+<td>Région hydrographique 05</td>
+<td>complète</td>
+</tr>
+<tr class="odd">
+<td>06</td>
+<td>Région hydrographique 06</td>
+<td>complète</td>
+</tr>
+<tr class="even">
+<td>07_1</td>
+<td>Région hydrographique 07, partie 1</td>
+<td>fractionnée</td>
+</tr>
+<tr class="odd">
+<td>07_2</td>
+<td>Région hydrographique 07, partie 2</td>
+<td>fractionnée</td>
+</tr>
+<tr class="even">
+<td>08</td>
+<td>Région hydrographique 08</td>
+<td>complète</td>
+</tr>
+<tr class="odd">
+<td>09_1</td>
+<td>Région hydrographique 09, partie 1</td>
+<td>fractionnée</td>
+</tr>
+<tr class="even">
+<td>09_2</td>
+<td>Région hydrographique 09, partie 2</td>
+<td>fractionnée</td>
+</tr>
+<tr class="odd">
+<td>09_3</td>
+<td>Région hydrographique 09, partie 3</td>
+<td>fractionnée</td>
+</tr>
+<tr class="even">
+<td>10_1</td>
+<td>Région hydrographique 10, partie 1</td>
+<td>fractionnée</td>
+</tr>
+<tr class="odd">
+<td>10_2</td>
+<td>Région hydrographique 10, partie 2</td>
+<td>fractionnée</td>
+</tr>
+<tr class="even">
+<td>14</td>
+<td>Région hydrographique 14</td>
+<td>complète</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="lecture-statistique" class="level2">
+<h2 class="anchored" data-anchor-id="lecture-statistique">Lecture statistique</h2>
+<p>La GRHQ est un référentiel, pas un tableau d’observations indépendantes. Une bonne utilisation pédagogique suit cet ordre :</p>
+<ol type="1">
+<li>lire l’index;</li>
+<li>choisir une unité de téléchargement;</li>
+<li>documenter le format et la projection;</li>
+<li>lire seulement la couche nécessaire;</li>
+<li>interpréter les résultats comme des objets géographiques, pas comme un échantillon statistique ordinaire.</li>
+</ol>
+<p>La page MRNF indique que le produit vectoriel est offert en FGDB, avec système de projection CCL, à une échelle de 1/20 000 à 1/50 000 et une précision de 4 à 10 m en planimétrie. Ces informations doivent être conservées dans toute analyse cartographique.</p>
+</section>
 <section id="concepts-enseignables" class="level2">
 <h2 class="anchored" data-anchor-id="concepts-enseignables">Concepts enseignables</h2>
 <ul>
-<li>eau</li>
-<li>hydrographie</li>
-<li>spatial</li>
-<li>sf</li>
+<li>index de téléchargement</li>
+<li>métadonnées spatiales</li>
+<li>unité de téléchargement</li>
+<li>système de projection</li>
+<li>données vectorielles</li>
+<li>service WMS</li>
+<li>lecture avec <code>sf</code></li>
 <li>jointure spatiale</li>
-<li>Québec</li>
-<li>données ouvertes</li>
-<li>cartographie</li>
+<li>limites computationnelles</li>
 </ul>
 </section>
 <section id="score-zéro-déchet" class="level2">
 <h2 class="anchored" data-anchor-id="score-zéro-déchet">Score zéro déchet</h2>
 <table class="caption-top table">
+<colgroup>
+<col style="width: 30%">
+<col style="width: 40%">
+<col style="width: 30%">
+</colgroup>
 <thead>
 <tr class="header">
 <th>Dimension</th>
 <th style="text-align: right;">Score</th>
+<th>Justification</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td>Contexte québécois</td>
 <td style="text-align: right;">3</td>
+<td>Référentiel hydrographique officiel pour le Québec</td>
 </tr>
 <tr class="even">
 <td>Accessibilité pédagogique</td>
-<td style="text-align: right;">1</td>
+<td style="text-align: right;">2</td>
+<td>Très riche, mais technique et volumineux</td>
 </tr>
 <tr class="odd">
 <td>Qualité documentaire</td>
 <td style="text-align: right;">3</td>
+<td>Page MRNF, guide, index, WMS et métadonnées CKAN</td>
 </tr>
 <tr class="even">
 <td>Potentiel de nettoyage</td>
-<td style="text-align: right;">2</td>
+<td style="text-align: right;">3</td>
+<td>Choix de ressources, index, formats et couches à documenter</td>
 </tr>
 <tr class="odd">
 <td>Potentiel de visualisation</td>
 <td style="text-align: right;">3</td>
+<td>Cartographie hydrographique naturelle</td>
 </tr>
 <tr class="even">
 <td>Potentiel de statistique descriptive</td>
 <td style="text-align: right;">2</td>
+<td>Résumés possibles après lecture de couches spatiales</td>
 </tr>
 <tr class="odd">
 <td>Potentiel d’inférence</td>
 <td style="text-align: right;">1</td>
+<td>Peu adapté à l’inférence sans question environnementale précise</td>
 </tr>
 <tr class="even">
 <td>Potentiel de modélisation</td>
 <td style="text-align: right;">2</td>
+<td>Réseau hydrographique utile pour modèles spatiaux après préparation</td>
 </tr>
 <tr class="odd">
-<td>Potentiel de discussion éthique</td>
+<td>Potentiel éthique</td>
 <td style="text-align: right;">2</td>
+<td>Discussion sur territoire, ressources en eau et usages publics</td>
 </tr>
 <tr class="even">
-<td>Réutilisabilité dans plusieurs cours</td>
+<td>Réutilisabilité</td>
 <td style="text-align: right;">3</td>
+<td>Réutilisable avec qualité de l’eau, inondations et environnement</td>
 </tr>
 </tbody>
 </table>
-<p>Total : 22 sur 30.</p>
+<p>Total : 24 sur 30.</p>
 </section>
 <section id="activité-courte" class="level2">
 <h2 class="anchored" data-anchor-id="activité-courte">Activité courte</h2>
-<p>En 30 à 45 minutes, faire lire l’index de téléchargement et choisir une zone pour une analyse spatiale simple.</p>
+<p>En 30 à 45 minutes, lire l’index préparé, choisir une unité GRHQ et justifier ce choix sans télécharger tout le référentiel.</p>
 </section>
 <section id="activité-longue" class="level2">
 <h2 class="anchored" data-anchor-id="activité-longue">Activité longue</h2>
-<p>En 2 à 3 heures, utiliser une unité GRHQ pour créer une carte et préparer une jointure avec un autre jeu environnemental.</p>
-</section>
-<section id="projets-possibles" class="level2">
-<h2 class="anchored" data-anchor-id="projets-possibles">Projets possibles</h2>
-<ul>
-<li>Télécharger une unité hydrographique et la cartographier.</li>
-<li>Joindre des stations de qualité de l’eau à un réseau ou bassin.</li>
-<li>Comparer la densité du réseau hydrographique entre deux régions.</li>
-</ul>
+<p>En 2 à 3 heures, préparer un plan d’analyse spatiale : choisir une unité, documenter le format FGDB, lister les couches attendues et proposer une jointure avec un autre jeu environnemental.</p>
 </section>
 <section id="code-r-minimal" class="level2">
 <h2 class="anchored" data-anchor-id="code-r-minimal">Code R minimal</h2>
+<p>À exécuter depuis la racine du projet.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>source_url <span class="ot">&lt;-</span> <span class="st">&quot;https://www.donneesquebec.ca/recherche/dataset/grhq&quot;</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Télécharger la ressource appropriée depuis la page officielle,</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co"># puis documenter le fichier brut dans data/raw/ avant toute transformation.</span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>source_url</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load libraries</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Prepare official metadata and download index</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">&quot;datasets/grhq/preparation.R&quot;</span>)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Import prepared index</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>index_grhq <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;data/processed/grhq/grhq_index_telechargement.csv&quot;</span>,</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">show_col_types =</span> <span class="cn">FALSE</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Summarize available units</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>index_grhq <span class="sc">|&gt;</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(unit_kind, <span class="at">sort =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Select one unit before downloading a geodatabase</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>unite_choisie <span class="ot">&lt;-</span> index_grhq <span class="sc">|&gt;</span></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(bloc <span class="sc">==</span> <span class="st">&quot;08&quot;</span>)</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>unite_choisie <span class="sc">|&gt;</span></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(bloc, zone, fgdb_url)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="limites-et-précautions" class="level2">
 <h2 class="anchored" data-anchor-id="limites-et-précautions">Limites et précautions</h2>
 <ul>
-<li>Le jeu est plus technique que les tableaux CSV simples.</li>
-<li>Les variables détaillées doivent être vérifiées dans le guide GRHQ.</li>
-<li>Les traitements spatiaux peuvent être lourds pour une activité introductive.</li>
+<li>L’index préparé ne contient pas les géométries hydrographiques détaillées.</li>
+<li>Télécharger tout le référentiel peut être inutilement lourd pour un laboratoire.</li>
+<li>Une ligne de l’index n’est pas une entité hydrographique.</li>
+<li>Les analyses de longueur, surface, densité ou connectivité exigent la lecture d’une couche spatiale détaillée.</li>
+<li>Les résultats cartographiques doivent documenter la projection, l’échelle et les simplifications éventuelles.</li>
 </ul>
 </section>
 <section id="extensions" class="level2">
 <h2 class="anchored" data-anchor-id="extensions">Extensions</h2>
 <ul>
-<li>Utiliser <code>sf</code> pour lire une couche spatiale.</li>
-<li>Simplifier les géométries pour une carte web.</li>
-<li>Construire un exercice de jointure spatiale avec un autre jeu environnemental.</li>
+<li>Lire une FGDB avec <code>sf::st_read()</code> après avoir choisi une unité.</li>
+<li>Comparer le WMS simple et le WMS détaillé.</li>
+<li>Joindre des stations de qualité de l’eau à une unité GRHQ.</li>
+<li>Construire une carte des unités de téléchargement à partir du SHP de l’index.</li>
+<li>Discuter la différence entre référentiel spatial et échantillon statistique.</li>
+</ul>
+</section>
+<section id="références-utilisées" class="level2">
+<h2 class="anchored" data-anchor-id="références-utilisées">Références utilisées</h2>
+<ul>
+<li>Données Québec. 2026. Géobase du réseau hydrographique du Québec (GRHQ). <a href="https://www.donneesquebec.ca/recherche/dataset/grhq" class="uri">https://www.donneesquebec.ca/recherche/dataset/grhq</a></li>
+<li>Ministère des Ressources naturelles et des Forêts. 2026. Réseau hydrographique, GRHQ. <a href="https://mrnf.gouv.qc.ca/repertoire-geographique/reseau-hydrographique-grhq/" class="uri">https://mrnf.gouv.qc.ca/repertoire-geographique/reseau-hydrographique-grhq/</a></li>
+<li>Gouvernement du Canada. 2026. Géobase du réseau hydrographique du Québec (GRHQ), miroir ouvert.canada.ca. <a href="https://open.canada.ca/data/fr/dataset/bfbdeb1d-8398-444b-ad78-ab81f9d14e60" class="uri">https://open.canada.ca/data/fr/dataset/bfbdeb1d-8398-444b-ad78-ab81f9d14e60</a></li>
 </ul>
 </section>
 </div>

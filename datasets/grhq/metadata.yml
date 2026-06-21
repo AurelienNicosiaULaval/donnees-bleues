@@ -4,30 +4,38 @@ short_title: "GRHQ"
 theme: "Hydrographie"
 source_name: "Données Québec / Ministère des Ressources naturelles et des Forêts"
 source_url: "https://www.donneesquebec.ca/recherche/dataset/grhq"
-license: "Attribution (CC-BY 4.0)"
-access_date: "2026-06-19"
+source_api_url: "https://www.donneesquebec.ca/recherche/api/3/action/package_show?id=grhq"
+source_mrnf_url: "https://mrnf.gouv.qc.ca/repertoire-geographique/reseau-hydrographique-grhq/"
+source_secondary_url: "https://open.canada.ca/data/fr/dataset/bfbdeb1d-8398-444b-ad78-ab81f9d14e60"
+license: "Attribution (CC-BY 4.0) selon les métadonnées CKAN vérifiées le 2026-06-21"
+access_date: "2026-06-21"
 geography: "Québec"
-unit: "Entité hydrographique ou unité de téléchargement selon la ressource choisie"
-data_type: "Spatial, réseau hydrographique, référentiel territorial"
-format: "CSV, SHP, FGDB, WMS et documentation PDF"
-n_rows: "Volume important; index CSV et fichiers FGDB par unités de découpage hydrographique"
-n_cols: "3 champs dans l'index CSV consulté; structure détaillée à confirmer dans le guide GRHQ"
-update_frequency: "Selon les mises à jour du MRNF; métadonnées modifiées en 2026"
+unit: "Une ligne préparée correspond à une unité de téléchargement de l'index GRHQ"
+data_type: "Index spatial, métadonnées de téléchargement et référentiel hydrographique"
+format: "Index CSV préparé localement; ressources officielles FGDB, SHP, WMS et PDF documentées"
+n_rows: "16 unités de téléchargement dans l'index CSV préparé"
+n_cols: "11 colonnes dans la table préparée"
+processed_file: "data/processed/grhq/grhq_index_telechargement.csv"
+resource_summary_file: "data/processed/grhq/ressources_grhq.csv"
+update_frequency: "Au besoin selon la page MRNF; paquet CKAN modifié le 11 juin 2026"
 level: "Intermédiaire à avancé"
 organisme: "Ministère des Ressources naturelles et des Forêts"
 territoire: "Québec"
-taille_approximative: "Volume important; index CSV et fichiers FGDB par unités de découpage hydrographique"
+taille_approximative: "16 unités de téléchargement dans l'index; géodatabases détaillées volumineuses"
 niveau_pedagogique_recommande: "Intermédiaire à avancé"
 variables_principales:
   - "bloc"
+  - "region_hydrographique"
+  - "partie"
+  - "is_split_unit"
+  - "unit_kind"
   - "zone"
-  - "fgdb"
-  - "geometry"
-  - "type_entite"
+  - "fgdb_zip_file"
+  - "fgdb_url"
 idees_mini_projets:
-  - "Télécharger une unité hydrographique et la cartographier."
-  - "Joindre des stations de qualité de l'eau à un réseau ou bassin."
-  - "Comparer la densité du réseau hydrographique entre deux régions."
+  - "Choisir une unité de téléchargement GRHQ et justifier ce choix."
+  - "Comparer les unités complètes et les unités fractionnées de l'index."
+  - "Préparer le plan d'une jointure spatiale avec des stations de qualité de l'eau."
 tags:
   - "eau"
   - "environnement"
@@ -37,24 +45,26 @@ tags:
   - "cartographie"
   - "hydrographie"
 concepts:
-  - "eau"
   - "hydrographie"
-  - "spatial"
+  - "index de téléchargement"
+  - "données spatiales"
+  - "métadonnées"
+  - "unité statistique"
   - "sf"
   - "jointure spatiale"
-  - "Québec"
-  - "données ouvertes"
   - "cartographie"
 zero_waste:
   contexte_quebecois: 3
-  accessibilite_pedagogique: 1
+  accessibilite_pedagogique: 2
   qualite_documentaire: 3
-  potentiel_nettoyage: 2
+  potentiel_nettoyage: 3
   potentiel_visualisation: 3
   potentiel_statistique_descriptive: 2
   potentiel_inference: 1
   potentiel_modelisation: 2
   potentiel_ethique: 2
   reutilisabilite: 3
-status: "source vérifiée"
-notes: "Source et licence vérifiées dans Données Québec. Les variables détaillées dépendent du fichier spatial choisi."
+status: "source officielle vérifiée; index CSV préparé localement"
+notes: "La fiche prépare l'index officiel de téléchargement, pas les géodatabases complètes. Les analyses spatiales doivent sélectionner une seule unité GRHQ avant de télécharger une FGDB."
+contributor_name: "Aurélien Nicosia"
+contributor_role: "Révision pédagogique et statistique"

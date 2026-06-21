@@ -1,19 +1,21 @@
 ---
-title: "Explorer un index hydrographique"
+title: "Choisir une unité GRHQ avec l'index de téléchargement"
 embed-resources: true
 ---
 
-# Explorer un index hydrographique
+# Choisir une unité GRHQ avec l'index de téléchargement
 
 ## Contexte
 
-Cette activité porte sur le choix documenté d'une ressource spatiale dans un référentiel volumineux.
+Cette activité porte sur un geste de science des données souvent négligé : choisir le bon fichier avant de commencer l'analyse. La GRHQ est volumineuse. Pour un exercice court, on travaille donc avec l'index officiel de téléchargement et non avec toutes les géodatabases du Québec.
 
 ## Objectifs d'apprentissage
 
-- Lire un index de données
+- Lire un index de téléchargement officiel
 - Identifier une unité de téléchargement
-- Documenter un choix de ressource
+- Distinguer index et données géométriques détaillées
+- Justifier un choix de ressource
+- Préparer une étape de téléchargement reproductible
 
 ## Données utilisées
 
@@ -21,40 +23,77 @@ Fiche : [Géobase du réseau hydrographique du Québec](fiche.qmd)
 
 Source : Données Québec / Ministère des Ressources naturelles et des Forêts.
 
-Licence : Attribution (CC-BY 4.0).
+Licence : Attribution (CC-BY 4.0), selon les métadonnées CKAN consultées le 2026-06-21.
+
+Fichier préparé : `data/processed/grhq/grhq_index_telechargement.csv`
 
 ## Métadonnées pédagogiques
 
 | Champ | Information |
 |---|---|
-| Question directrice | Comment choisir une unité hydrographique à partir de l'index GRHQ? |
-| Concepts | Données spatiales; Métadonnées; Cartographie |
+| Question directrice | Comment choisir une unité GRHQ avant de télécharger une géodatabase? |
+| Concepts | Index de téléchargement; Métadonnées; Données spatiales; Reproductibilité |
 | Niveau | Intermédiaire |
 | Type | Exercice; Exploration de données |
 | Contexte | Hydrographie |
-| Accroche | Réseau hydrographique du Québec |
+| Accroche | Avant la carte, il faut choisir le bon fichier |
 | Durée | 30-45 minutes |
-| Matériel | énoncé; code; données |
+| Matériel | énoncé; code; index préparé; page source |
 | Math/stats avancées | non |
 
 ## Consignes
 
-1. Ouvrir la page source
-2. Lire l'index CSV
-3. Choisir une zone
-4. Décrire les fichiers disponibles
-5. Préparer un plan de téléchargement
+1. Exécuter le script `datasets/grhq/preparation.R`.
+2. Importer l'index préparé.
+3. Compter les unités complètes et les unités fractionnées.
+4. Choisir une unité de téléchargement.
+5. Copier l'URL FGDB associée à cette unité.
+6. Expliquer pourquoi il ne faut pas télécharger tout le référentiel pour cet exercice.
+
+## Code de départ
+
+À exécuter depuis la racine du projet.
+
+```{r}
+#| eval: false
+# Load libraries
+library(dplyr)
+library(readr)
+
+# Prepare official metadata and index
+source("datasets/grhq/preparation.R")
+
+# Import prepared index
+index_grhq <- read_csv(
+  "data/processed/grhq/grhq_index_telechargement.csv",
+  show_col_types = FALSE
+)
+
+# Count download units
+index_grhq |>
+  count(unit_kind, sort = TRUE)
+
+# Choose one unit
+unite_choisie <- index_grhq |>
+  filter(bloc == "08")
+
+unite_choisie |>
+  select(bloc, zone, fgdb_url)
+```
 
 ## Questions
 
-1. Que représente une ligne de l'index?
-2. Pourquoi ne pas télécharger tout le référentiel pour un exercice court?
-3. Quelle autre donnée pourrait être jointe à la GRHQ?
+1. Combien d'unités de téléchargement contient l'index?
+2. Combien d'unités sont des régions complètes?
+3. Combien d'unités sont des parties de régions?
+4. Quelle unité avez-vous choisie?
+5. Que représente une ligne de l'index?
+6. Pourquoi cette table ne permet-elle pas encore de calculer une longueur de cours d'eau?
 
 ## Pistes de solution
 
-Une solution acceptable décrit clairement la zone choisie et les fichiers nécessaires.
+Une solution acceptable identifie une unité, donne son URL FGDB et explique que l'index sert seulement à sélectionner un téléchargement. Une bonne solution précise que la géométrie hydrographique n'est pas encore lue à cette étape.
 
 ## Prolongement
 
-Télécharger une petite zone et l'afficher avec `sf`.
+Télécharger seulement l'unité choisie, puis inspecter les couches disponibles avec `sf::st_layers()`.

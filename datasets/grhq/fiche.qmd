@@ -18,114 +18,211 @@ render_dataset_detail_header()
 
 ## Pourquoi ce jeu est intéressant
 
-La GRHQ est un référentiel hydrographique pour le Québec. Elle est particulièrement utile pour des exercices de cartographie, de jointure spatiale et de préparation de données environnementales liées aux cours d'eau et bassins.
+La GRHQ est un bon jeu pour enseigner une idée importante en données spatiales : avant de lire une couche géométrique, il faut comprendre l'index, le format, l'unité de téléchargement et la taille implicite des fichiers. La fiche ne transforme donc pas la GRHQ en simple CSV. Elle prépare l'index officiel qui sert à choisir une unité hydrographique, puis elle documente les ressources spatiales détaillées disponibles.
 
-## Source
+Cette approche est adaptée à un cours de science des données parce qu'elle montre un vrai flux de travail : consulter les métadonnées, choisir un périmètre raisonnable, éviter de télécharger tout le Québec, puis seulement ensuite passer à `sf`, aux cartes et aux jointures spatiales.
+
+## Ce qui a été vérifié
+
+| Élément | Résultat vérifié |
+|---|---|
+| Paquet CKAN | `bfbdeb1d-8398-444b-ad78-ab81f9d14e60` |
+| Source officielle | Données Québec / Ministère des Ressources naturelles et des Forêts |
+| Ressources dans le paquet | 9 ressources |
+| Index CSV préparé ici | 16 unités de téléchargement |
+| Régions hydrographiques distinctes dans l'index | 12 |
+| Unités complètes | 9 |
+| Unités fractionnées en parties | 7 |
+| Licence | Attribution (CC-BY 4.0), selon les métadonnées CKAN consultées le 2026-06-21 |
+| Dernière modification du paquet CKAN | 2026-06-11 |
+| Table préparée | `data/processed/grhq/grhq_index_telechargement.csv` |
+| Ressources documentées | `data/processed/grhq/ressources_grhq.csv` |
+
+## Source et conditions
 
 | Champ | Information |
 |---|---|
-| Source | Données Québec / Ministère des Ressources naturelles et des Forêts |
-| Organisme producteur | Ministère des Ressources naturelles et des Forêts |
-| Territoire | Québec |
-| URL officielle | <https://www.donneesquebec.ca/recherche/dataset/grhq> |
-| Licence | Attribution (CC-BY 4.0) |
-| Date d'accès | 2026-06-19 |
-| Fréquence de mise à jour | Selon les mises à jour du MRNF; métadonnées modifiées en 2026 |
-| Statut | source vérifiée |
+| Page Données Québec | <https://www.donneesquebec.ca/recherche/dataset/grhq> |
+| API CKAN | <https://www.donneesquebec.ca/recherche/api/3/action/package_show?id=grhq> |
+| Page MRNF | <https://mrnf.gouv.qc.ca/repertoire-geographique/reseau-hydrographique-grhq/> |
+| Miroir ouvert.canada.ca | <https://open.canada.ca/data/fr/dataset/bfbdeb1d-8398-444b-ad78-ab81f9d14e60> |
+| Territoire | Tout le Québec |
+| Date d'accès | 2026-06-21 |
+| Fréquence de mise à jour | Au besoin selon la page MRNF |
+| Redistribution pédagogique | Possible sous réserve du respect de la licence Attribution (CC-BY 4.0) |
 
 ## Ce que représente une ligne
 
-Selon le fichier retenu, une ligne peut représenter une unité de découpage hydrographique dans l'index ou une entité du réseau hydrographique dans les fichiers détaillés.
+Dans la table préparée, une ligne représente une unité de téléchargement de l'index GRHQ. Ce n'est pas une rivière, un lac, un bassin versant, une jonction ou une surface hydrographique.
 
-## Variables principales
-
-Les noms ci-dessous sont des noms propres proposés pour l'enseignement. Les noms exacts des champs sources doivent être conservés dans le script de préparation.
-
-| Variable proposée | Rôle pédagogique | Remarque |
-|---|---|---|
-| `bloc` | Bloc de téléchargement | Champ de l'index CSV |
-| `zone` | Zone ou unité de découpage | Champ de l'index CSV |
-| `fgdb` | Lien ou nom de fichier FGDB | Permet de choisir une ressource détaillée |
-| `geometry` | Géométrie spatiale | Présente dans les fichiers spatiaux détaillés |
-| `type_entite` | Type d'entité hydrographique | À confirmer dans le guide utilisateur |
-
-## Taille et structure
-
-| Élément | Information |
+| Variable | Rôle |
 |---|---|
-| Nombre de lignes | Volume important; index CSV et fichiers FGDB par unités de découpage hydrographique |
-| Nombre de colonnes | 3 champs dans l'index CSV consulté; structure détaillée à confirmer dans le guide GRHQ |
-| Structure | Spatial, réseau hydrographique, référentiel territorial |
-| Format | CSV, SHP, FGDB, WMS et documentation PDF |
-| Niveau pédagogique recommandé | Intermédiaire à avancé |
+| `bloc` | Identifiant de l'unité de téléchargement dans l'index |
+| `region_hydrographique` | Région hydrographique extraite du bloc |
+| `partie` | Numéro de partie lorsque la région est fractionnée |
+| `is_split_unit` | Indique si l'unité est une partie d'une région |
+| `unit_kind` | Type d'unité de téléchargement |
+| `zone` | Libellé source de la zone |
+| `fgdb_url` | URL du fichier FGDB correspondant |
+
+Cette distinction est essentielle. L'index sert à décider quoi télécharger. Les analyses de longueur de cours d'eau, de surfaces hydrographiques ou de connectivité du réseau exigent ensuite de lire une géodatabase détaillée.
+
+## Structure des ressources
+
+| Format | Nombre de ressources CKAN |
+|---|---:|
+| PDF | 2 |
+| SHP | 2 |
+| WMS | 2 |
+| CSV | 1 |
+| FGDB | 1 |
+| HTML | 1 |
+
+| Ressource | Format | Rôle pédagogique |
+|---|---|---|
+| Index de téléchargement | CSV | Choisir une unité de téléchargement |
+| Index de téléchargement | SHP | Visualiser spatialement les unités de téléchargement |
+| Répertoire complet | FGDB | Accéder aux géodatabases détaillées |
+| Guide de l'utilisateur | PDF | Comprendre la structure du référentiel |
+| Carte de téléchargement des UDH | HTML | Sélectionner une unité par interface cartographique |
+| Inventaire des UDH disponibles | SHP | Documenter les unités disponibles |
+| Service WMS GRHQ simple | WMS | Visualisation légère |
+| Service WMS GRHQ détaillée | WMS | Visualisation complète |
+| Légendes GRHQ | PDF | Interpréter la symbologie |
+
+## Taille et résultats R vérifiés
+
+| Indicateur | Valeur |
+|---|---:|
+| Lignes préparées dans l'index | 16 |
+| Colonnes préparées | 11 |
+| Régions hydrographiques distinctes | 12 |
+| Unités complètes | 9 |
+| Unités fractionnées | 7 |
+| Ressources CKAN documentées | 9 |
+
+## Unités de téléchargement
+
+| Bloc | Zone | Type |
+|---|---|---|
+| 00 | Région hydrographique 00 | complète |
+| 01 | Région hydrographique 01 | complète |
+| 02 | Région hydrographique 02 | complète |
+| 03 | Région hydrographique 03 | complète |
+| 04 | Région hydrographique 04 | complète |
+| 05 | Région hydrographique 05 | complète |
+| 06 | Région hydrographique 06 | complète |
+| 07_1 | Région hydrographique 07, partie 1 | fractionnée |
+| 07_2 | Région hydrographique 07, partie 2 | fractionnée |
+| 08 | Région hydrographique 08 | complète |
+| 09_1 | Région hydrographique 09, partie 1 | fractionnée |
+| 09_2 | Région hydrographique 09, partie 2 | fractionnée |
+| 09_3 | Région hydrographique 09, partie 3 | fractionnée |
+| 10_1 | Région hydrographique 10, partie 1 | fractionnée |
+| 10_2 | Région hydrographique 10, partie 2 | fractionnée |
+| 14 | Région hydrographique 14 | complète |
+
+## Lecture statistique
+
+La GRHQ est un référentiel, pas un tableau d'observations indépendantes. Une bonne utilisation pédagogique suit cet ordre :
+
+1. lire l'index;
+2. choisir une unité de téléchargement;
+3. documenter le format et la projection;
+4. lire seulement la couche nécessaire;
+5. interpréter les résultats comme des objets géographiques, pas comme un échantillon statistique ordinaire.
+
+La page MRNF indique que le produit vectoriel est offert en FGDB, avec système de projection CCL, à une échelle de 1/20 000 à 1/50 000 et une précision de 4 à 10 m en planimétrie. Ces informations doivent être conservées dans toute analyse cartographique.
 
 ## Concepts enseignables
 
-- eau
-- hydrographie
-- spatial
-- sf
+- index de téléchargement
+- métadonnées spatiales
+- unité de téléchargement
+- système de projection
+- données vectorielles
+- service WMS
+- lecture avec `sf`
 - jointure spatiale
-- Québec
-- données ouvertes
-- cartographie
+- limites computationnelles
 
 ## Score zéro déchet
 
-| Dimension | Score |
-|---|---:|
-| Contexte québécois | 3 |
-| Accessibilité pédagogique | 1 |
-| Qualité documentaire | 3 |
-| Potentiel de nettoyage | 2 |
-| Potentiel de visualisation | 3 |
-| Potentiel de statistique descriptive | 2 |
-| Potentiel d'inférence | 1 |
-| Potentiel de modélisation | 2 |
-| Potentiel de discussion éthique | 2 |
-| Réutilisabilité dans plusieurs cours | 3 |
+| Dimension | Score | Justification |
+|---|---:|---|
+| Contexte québécois | 3 | Référentiel hydrographique officiel pour le Québec |
+| Accessibilité pédagogique | 2 | Très riche, mais technique et volumineux |
+| Qualité documentaire | 3 | Page MRNF, guide, index, WMS et métadonnées CKAN |
+| Potentiel de nettoyage | 3 | Choix de ressources, index, formats et couches à documenter |
+| Potentiel de visualisation | 3 | Cartographie hydrographique naturelle |
+| Potentiel de statistique descriptive | 2 | Résumés possibles après lecture de couches spatiales |
+| Potentiel d'inférence | 1 | Peu adapté à l'inférence sans question environnementale précise |
+| Potentiel de modélisation | 2 | Réseau hydrographique utile pour modèles spatiaux après préparation |
+| Potentiel éthique | 2 | Discussion sur territoire, ressources en eau et usages publics |
+| Réutilisabilité | 3 | Réutilisable avec qualité de l'eau, inondations et environnement |
 
-Total : 22 sur 30.
+Total : 24 sur 30.
 
 ## Activité courte
 
-En 30 à 45 minutes, faire lire l'index de téléchargement et choisir une zone pour une analyse spatiale simple.
+En 30 à 45 minutes, lire l'index préparé, choisir une unité GRHQ et justifier ce choix sans télécharger tout le référentiel.
 
 ## Activité longue
 
-En 2 à 3 heures, utiliser une unité GRHQ pour créer une carte et préparer une jointure avec un autre jeu environnemental.
-
-## Projets possibles
-
-- Télécharger une unité hydrographique et la cartographier.
-- Joindre des stations de qualité de l'eau à un réseau ou bassin.
-- Comparer la densité du réseau hydrographique entre deux régions.
+En 2 à 3 heures, préparer un plan d'analyse spatiale : choisir une unité, documenter le format FGDB, lister les couches attendues et proposer une jointure avec un autre jeu environnemental.
 
 ## Code R minimal
 
+À exécuter depuis la racine du projet.
+
 ```{r}
 #| eval: false
+# Load libraries
 library(dplyr)
 library(readr)
 
-source_url <- "https://www.donneesquebec.ca/recherche/dataset/grhq"
+# Prepare official metadata and download index
+source("datasets/grhq/preparation.R")
 
-# Télécharger la ressource appropriée depuis la page officielle,
-# puis documenter le fichier brut dans data/raw/ avant toute transformation.
-source_url
+# Import prepared index
+index_grhq <- read_csv(
+  "data/processed/grhq/grhq_index_telechargement.csv",
+  show_col_types = FALSE
+)
+
+# Summarize available units
+index_grhq |>
+  count(unit_kind, sort = TRUE)
+
+# Select one unit before downloading a geodatabase
+unite_choisie <- index_grhq |>
+  filter(bloc == "08")
+
+unite_choisie |>
+  select(bloc, zone, fgdb_url)
 ```
 
 ## Limites et précautions
 
-- Le jeu est plus technique que les tableaux CSV simples.
-- Les variables détaillées doivent être vérifiées dans le guide GRHQ.
-- Les traitements spatiaux peuvent être lourds pour une activité introductive.
+- L'index préparé ne contient pas les géométries hydrographiques détaillées.
+- Télécharger tout le référentiel peut être inutilement lourd pour un laboratoire.
+- Une ligne de l'index n'est pas une entité hydrographique.
+- Les analyses de longueur, surface, densité ou connectivité exigent la lecture d'une couche spatiale détaillée.
+- Les résultats cartographiques doivent documenter la projection, l'échelle et les simplifications éventuelles.
 
 ## Extensions
 
-- Utiliser `sf` pour lire une couche spatiale.
-- Simplifier les géométries pour une carte web.
-- Construire un exercice de jointure spatiale avec un autre jeu environnemental.
+- Lire une FGDB avec `sf::st_read()` après avoir choisi une unité.
+- Comparer le WMS simple et le WMS détaillé.
+- Joindre des stations de qualité de l'eau à une unité GRHQ.
+- Construire une carte des unités de téléchargement à partir du SHP de l'index.
+- Discuter la différence entre référentiel spatial et échantillon statistique.
+
+## Références utilisées
+
+- Données Québec. 2026. Géobase du réseau hydrographique du Québec (GRHQ). <https://www.donneesquebec.ca/recherche/dataset/grhq>
+- Ministère des Ressources naturelles et des Forêts. 2026. Réseau hydrographique, GRHQ. <https://mrnf.gouv.qc.ca/repertoire-geographique/reseau-hydrographique-grhq/>
+- Gouvernement du Canada. 2026. Géobase du réseau hydrographique du Québec (GRHQ), miroir ouvert.canada.ca. <https://open.canada.ca/data/fr/dataset/bfbdeb1d-8398-444b-ad78-ab81f9d14e60>
 
 ```{r}
 #| label: dataset-detail-footer
@@ -133,4 +230,3 @@ source_url
 #| results: asis
 render_dataset_detail_footer()
 ```
-

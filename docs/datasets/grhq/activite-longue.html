@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Jointure spatiale avec le réseau hydrographique – Données bleues</title>
+<title>Préparer une analyse spatiale avec la GRHQ – Données bleues</title>
 <style>
 
 code{white-space: pre-wrap;}
@@ -19,6 +19,41 @@ ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
 width: 0.8em;
 margin: 0 0.8em 0.2em -1em;  vertical-align: middle;
+}
+
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+{ counter-reset: source-line 0; }
+pre.numberSource code > span
+{ position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+{ content: counter(source-line);
+position: relative; left: -1em; text-align: right; vertical-align: baseline;
+border: none; display: inline-block;
+-webkit-touch-callout: none; -webkit-user-select: none;
+-khtml-user-select: none; -moz-user-select: none;
+-ms-user-select: none; user-select: none;
+padding: 0 4px; width: 4em;
+}
+pre.numberSource { margin-left: 3em; padding-left: 4px; }
+div.sourceCode
+{ }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -5482,16 +5517,20 @@ grid-template-columns: 1fr;
     <h2 id="toc-title">On this page</h2>
 
   <ul>
-  <li><a href="#jointure-spatiale-avec-le-réseau-hydrographique" id="toc-jointure-spatiale-avec-le-réseau-hydrographique" class="nav-link active" data-scroll-target="#jointure-spatiale-avec-le-réseau-hydrographique">Jointure spatiale avec le réseau hydrographique</a>
+  <li><a href="#préparer-une-analyse-spatiale-avec-la-grhq" id="toc-préparer-une-analyse-spatiale-avec-la-grhq" class="nav-link active" data-scroll-target="#préparer-une-analyse-spatiale-avec-la-grhq">Préparer une analyse spatiale avec la GRHQ</a>
   <ul class="collapse">
   <li><a href="#contexte" id="toc-contexte" class="nav-link" data-scroll-target="#contexte">Contexte</a></li>
   <li><a href="#objectifs-dapprentissage" id="toc-objectifs-dapprentissage" class="nav-link" data-scroll-target="#objectifs-dapprentissage">Objectifs d’apprentissage</a></li>
   <li><a href="#données-utilisées" id="toc-données-utilisées" class="nav-link" data-scroll-target="#données-utilisées">Données utilisées</a></li>
   <li><a href="#métadonnées-pédagogiques" id="toc-métadonnées-pédagogiques" class="nav-link" data-scroll-target="#métadonnées-pédagogiques">Métadonnées pédagogiques</a></li>
-  <li><a href="#consignes" id="toc-consignes" class="nav-link" data-scroll-target="#consignes">Consignes</a></li>
-  <li><a href="#questions" id="toc-questions" class="nav-link" data-scroll-target="#questions">Questions</a></li>
+  <li><a href="#mandat" id="toc-mandat" class="nav-link" data-scroll-target="#mandat">Mandat</a></li>
+  <li><a href="#étapes-recommandées" id="toc-étapes-recommandées" class="nav-link" data-scroll-target="#étapes-recommandées">Étapes recommandées</a></li>
+  <li><a href="#code-de-départ" id="toc-code-de-départ" class="nav-link" data-scroll-target="#code-de-départ">Code de départ</a></li>
+  <li><a href="#exemple-de-code-après-téléchargement" id="toc-exemple-de-code-après-téléchargement" class="nav-link" data-scroll-target="#exemple-de-code-après-téléchargement">Exemple de code après téléchargement</a></li>
+  <li><a href="#questions-à-traiter" id="toc-questions-à-traiter" class="nav-link" data-scroll-target="#questions-à-traiter">Questions à traiter</a></li>
+  <li><a href="#critères-de-réussite" id="toc-critères-de-réussite" class="nav-link" data-scroll-target="#critères-de-réussite">Critères de réussite</a></li>
   <li><a href="#pistes-de-solution" id="toc-pistes-de-solution" class="nav-link" data-scroll-target="#pistes-de-solution">Pistes de solution</a></li>
-  <li><a href="#prolongement" id="toc-prolongement" class="nav-link" data-scroll-target="#prolongement">Prolongement</a></li>
+  <li><a href="#prolongements" id="toc-prolongements" class="nav-link" data-scroll-target="#prolongements">Prolongements</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -5501,7 +5540,7 @@ grid-template-columns: 1fr;
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Jointure spatiale avec le réseau hydrographique</h1>
+<h1 class="title">Préparer une analyse spatiale avec la GRHQ</h1>
 </div>
 
 
@@ -5518,25 +5557,29 @@ grid-template-columns: 1fr;
 </header>
 
 
-<section id="jointure-spatiale-avec-le-réseau-hydrographique" class="level1">
-<h1>Jointure spatiale avec le réseau hydrographique</h1>
+<section id="préparer-une-analyse-spatiale-avec-la-grhq" class="level1">
+<h1>Préparer une analyse spatiale avec la GRHQ</h1>
 <section id="contexte" class="level2">
 <h2 class="anchored" data-anchor-id="contexte">Contexte</h2>
-<p>Cette activité mobilise un référentiel spatial pour structurer une analyse environnementale.</p>
+<p>Cette activité simule le début d’un projet environnemental avec un référentiel spatial officiel. Le livrable attendu n’est pas seulement une carte. Il faut produire un plan d’analyse reproductible : choix de l’unité GRHQ, justification du périmètre, documentation des ressources, stratégie de lecture avec <code>sf</code> et limites.</p>
 </section>
 <section id="objectifs-dapprentissage" class="level2">
 <h2 class="anchored" data-anchor-id="objectifs-dapprentissage">Objectifs d’apprentissage</h2>
 <ul>
-<li>Lire une couche spatiale</li>
-<li>Vérifier un système de coordonnées</li>
-<li>Préparer une jointure spatiale</li>
+<li>Utiliser un index officiel pour limiter un téléchargement spatial</li>
+<li>Documenter une ressource FGDB avant son importation</li>
+<li>Préparer une lecture avec <code>sf</code></li>
+<li>Distinguer visualisation WMS et données analysables</li>
+<li>Concevoir une jointure spatiale avec un autre jeu environnemental</li>
+<li>Communiquer les limites d’un référentiel spatial</li>
 </ul>
 </section>
 <section id="données-utilisées" class="level2">
 <h2 class="anchored" data-anchor-id="données-utilisées">Données utilisées</h2>
 <p>Fiche : <a href="../../datasets/grhq/fiche.html">Géobase du réseau hydrographique du Québec</a></p>
 <p>Source : Données Québec / Ministère des Ressources naturelles et des Forêts.</p>
-<p>Licence : Attribution (CC-BY 4.0).</p>
+<p>Licence : Attribution (CC-BY 4.0), selon les métadonnées CKAN consultées le 2026-06-21.</p>
+<p>Fichier préparé : <code>data/processed/grhq/grhq_index_telechargement.csv</code></p>
 </section>
 <section id="métadonnées-pédagogiques" class="level2">
 <h2 class="anchored" data-anchor-id="métadonnées-pédagogiques">Métadonnées pédagogiques</h2>
@@ -5554,15 +5597,15 @@ grid-template-columns: 1fr;
 <tbody>
 <tr class="odd">
 <td>Question directrice</td>
-<td>Comment utiliser un référentiel hydrographique pour enrichir un jeu environnemental?</td>
+<td>Comment préparer une analyse spatiale avec la GRHQ sans télécharger inutilement tout le Québec?</td>
 </tr>
 <tr class="even">
 <td>Concepts</td>
-<td>sf; Jointure spatiale; Visualisation</td>
+<td>Index spatial; FGDB; <code>sf</code>; Jointure spatiale; Limites computationnelles</td>
 </tr>
 <tr class="odd">
 <td>Niveau</td>
-<td>Avancé</td>
+<td>Intermédiaire à avancé</td>
 </tr>
 <tr class="even">
 <td>Type</td>
@@ -5574,7 +5617,7 @@ grid-template-columns: 1fr;
 </tr>
 <tr class="even">
 <td>Accroche</td>
-<td>Hydrographie et environnement</td>
+<td>Un bon projet spatial commence par un bon périmètre</td>
 </tr>
 <tr class="odd">
 <td>Durée</td>
@@ -5582,7 +5625,7 @@ grid-template-columns: 1fr;
 </tr>
 <tr class="even">
 <td>Matériel</td>
-<td>énoncé; code; données; notes enseignantes</td>
+<td>énoncé; code; index préparé; notes enseignantes</td>
 </tr>
 <tr class="odd">
 <td>Math/stats avancées</td>
@@ -5591,31 +5634,123 @@ grid-template-columns: 1fr;
 </tbody>
 </table>
 </section>
-<section id="consignes" class="level2">
-<h2 class="anchored" data-anchor-id="consignes">Consignes</h2>
+<section id="mandat" class="level2">
+<h2 class="anchored" data-anchor-id="mandat">Mandat</h2>
+<p>Produire une courte note technique de 2 à 4 pages qui prépare une analyse spatiale avec la GRHQ. La note doit contenir :</p>
 <ol type="1">
-<li>Choisir une zone GRHQ</li>
-<li>Lire les données avec <code>sf</code></li>
-<li>Nettoyer les attributs utiles</li>
-<li>Joindre ou superposer un autre jeu</li>
-<li>Produire une carte commentée</li>
+<li>une question d’analyse;</li>
+<li>l’unité GRHQ choisie;</li>
+<li>l’URL FGDB correspondante;</li>
+<li>la liste des ressources CKAN utiles;</li>
+<li>une stratégie de lecture avec <code>sf</code>;</li>
+<li>une proposition de jointure avec un autre jeu environnemental;</li>
+<li>une section de limites.</li>
 </ol>
 </section>
-<section id="questions" class="level2">
-<h2 class="anchored" data-anchor-id="questions">Questions</h2>
+<section id="étapes-recommandées" class="level2">
+<h2 class="anchored" data-anchor-id="étapes-recommandées">Étapes recommandées</h2>
 <ol type="1">
-<li>Quel système de coordonnées est utilisé?</li>
-<li>Quelles entités sont pertinentes pour la question?</li>
-<li>Comment réduire la taille des données sans perdre le sens?</li>
+<li>Exécuter <code>datasets/grhq/preparation.R</code>.</li>
+<li>Importer l’index préparé.</li>
+<li>Choisir une unité de téléchargement.</li>
+<li>Documenter si l’unité est complète ou fractionnée.</li>
+<li>Identifier le rôle du WMS simple et du WMS détaillé.</li>
+<li>Préparer le code qui lirait une FGDB téléchargée localement.</li>
+<li>Proposer une jointure avec des stations de qualité de l’eau, des repères de crue ou un autre jeu environnemental.</li>
+<li>Rédiger les limites avant toute interprétation.</li>
 </ol>
+</section>
+<section id="code-de-départ" class="level2">
+<h2 class="anchored" data-anchor-id="code-de-départ">Code de départ</h2>
+<p>À exécuter depuis la racine du projet.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load libraries</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Prepare official metadata and index</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">&quot;datasets/grhq/preparation.R&quot;</span>)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Import prepared files</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>index_grhq <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;data/processed/grhq/grhq_index_telechargement.csv&quot;</span>,</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">show_col_types =</span> <span class="cn">FALSE</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>ressources_grhq <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;data/processed/grhq/ressources_grhq.csv&quot;</span>,</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>  <span class="at">show_col_types =</span> <span class="cn">FALSE</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Select one unit</span></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>unite_choisie <span class="ot">&lt;-</span> index_grhq <span class="sc">|&gt;</span></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(bloc <span class="sc">==</span> <span class="st">&quot;08&quot;</span>)</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>unite_choisie <span class="sc">|&gt;</span></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(bloc, zone, unit_kind, fgdb_url)</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a><span class="co"># Identify official resource types</span></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>ressources_grhq <span class="sc">|&gt;</span></span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(format, <span class="at">sort =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="exemple-de-code-après-téléchargement" class="level2">
+<h2 class="anchored" data-anchor-id="exemple-de-code-après-téléchargement">Exemple de code après téléchargement</h2>
+<p>Ce bloc n’est pas exécuté tant que la FGDB n’est pas téléchargée localement.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load spatial package</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(sf)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Replace this path with the local FGDB extracted from the selected unit</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>fgdb_path <span class="ot">&lt;-</span> <span class="st">&quot;data/raw/grhq/08/08.gdb&quot;</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Inspect available layers</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="fu">st_layers</span>(fgdb_path)</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Read one selected layer after inspection</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="co"># cours_eau &lt;- st_read(fgdb_path, layer = &quot;NOM_DE_LA_COUCHE&quot;)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="questions-à-traiter" class="level2">
+<h2 class="anchored" data-anchor-id="questions-à-traiter">Questions à traiter</h2>
+<ol type="1">
+<li>Quelle question environnementale justifie l’utilisation de la GRHQ?</li>
+<li>Pourquoi l’unité choisie est-elle raisonnable pour un laboratoire?</li>
+<li>Le WMS suffit-il pour l’analyse, ou faut-il télécharger une FGDB?</li>
+<li>Quelle couche faudrait-il lire dans la FGDB?</li>
+<li>Quelle donnée externe pourrait être jointe spatialement?</li>
+<li>Quels résultats seraient invalides si l’on utilisait seulement l’index?</li>
+</ol>
+</section>
+<section id="critères-de-réussite" class="level2">
+<h2 class="anchored" data-anchor-id="critères-de-réussite">Critères de réussite</h2>
+<p>Un bon rapport :</p>
+<ul>
+<li>ne télécharge pas tout le référentiel sans justification;</li>
+<li>distingue index, WMS et FGDB;</li>
+<li>indique clairement ce que représente une ligne de l’index;</li>
+<li>propose un code de lecture spatial réaliste;</li>
+<li>formule une question d’analyse compatible avec les données;</li>
+<li>cite la source et la licence;</li>
+<li>documente les limites de taille, de projection et de précision.</li>
+</ul>
 </section>
 <section id="pistes-de-solution" class="level2">
 <h2 class="anchored" data-anchor-id="pistes-de-solution">Pistes de solution</h2>
-<p>Un bon rapport documente le fichier choisi, la projection et les limites de la jointure.</p>
+<p>Une conclusion prudente peut prendre cette forme :</p>
+<blockquote class="blockquote">
+<p>L’index GRHQ permet de sélectionner une unité de téléchargement, mais il ne contient pas les entités hydrographiques détaillées. Pour mesurer ou joindre spatialement le réseau, il faut télécharger la FGDB de l’unité choisie, inspecter ses couches et documenter la projection avant l’analyse.</p>
+</blockquote>
 </section>
-<section id="prolongement" class="level2">
-<h2 class="anchored" data-anchor-id="prolongement">Prolongement</h2>
-<p>Ajouter des stations de qualité de l’eau ou des repères de crue.</p>
+<section id="prolongements" class="level2">
+<h2 class="anchored" data-anchor-id="prolongements">Prolongements</h2>
+<ul>
+<li>Comparer le rendu WMS simple et détaillé.</li>
+<li>Lire une couche FGDB avec <code>sf</code>.</li>
+<li>Joindre des stations de qualité de l’eau à une unité GRHQ.</li>
+<li>Simplifier une géométrie pour une carte web.</li>
+<li>Discuter la différence entre données de référence et données d’observation.</li>
+</ul>
 
 
 </section>
