@@ -3436,14 +3436,41 @@ body:has(.home-page) main.content {
 .home-path-card {
   display: flex;
   flex-direction: column;
-  overflow: hidden;
+  min-height: 230px;
+  padding: 1.05rem;
 }
 
-.home-path-card img {
-  aspect-ratio: 16 / 9;
-  display: block;
-  object-fit: cover;
-  width: 100%;
+.home-path-card:nth-child(1) {
+  border-top: 4px solid #0045a5;
+}
+
+.home-path-card:nth-child(2) {
+  background: #f8fffb;
+  border-color: #cde8d9;
+  border-top: 4px solid #1d704d;
+}
+
+.home-path-card:nth-child(3) {
+  background: #fffaf3;
+  border-color: #ffd4a8;
+  border-top: 4px solid #b65b14;
+}
+
+.home-path-eyebrow {
+  color: #0045a5;
+  font-size: 0.78rem;
+  font-weight: 850;
+  letter-spacing: 0.06em;
+  margin-bottom: 1.35rem;
+  text-transform: uppercase;
+}
+
+.home-path-card:nth-child(2) .home-path-eyebrow {
+  color: #1d704d;
+}
+
+.home-path-card:nth-child(3) .home-path-eyebrow {
+  color: #8b3a12;
 }
 
 .home-path-card h3,
@@ -3451,6 +3478,10 @@ body:has(.home-page) main.content {
 .home-dataset-card h3 {
   font-size: 1.12rem;
   margin: 1rem 1rem 0.55rem;
+}
+
+.home-path-card h3 {
+  margin: 0 0 0.55rem;
 }
 
 .home-promise-item h3 {
@@ -3464,9 +3495,16 @@ body:has(.home-page) main.content {
   margin-right: 1rem;
 }
 
+.home-path-card p {
+  margin-left: 0;
+  margin-right: 0;
+}
+
 .home-path-card p:last-child {
+  border-top: 1px solid #e4ebf4;
   margin-bottom: 1rem;
   margin-top: auto;
+  padding-top: 0.85rem;
 }
 
 .home-path-card a {
