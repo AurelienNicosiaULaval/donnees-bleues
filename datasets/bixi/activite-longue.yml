@@ -1,5 +1,5 @@
 id: bixi-rapport-stations-long
-title: "Mini-rapport sur un service de vélopartage"
+title: "Mini-projet - Rapport BIXI sur un instantané GBFS"
 question: "Que peut-on conclure, et ne pas conclure, à partir d'un instantané BIXI?"
 dataset_id: bixi
 dataset_title: "État des stations BIXI"
@@ -16,13 +16,13 @@ concepts:
   - "Visualisation"
   - "Communication"
 context: "Mobilité urbaine"
-hook: "Dispositif, démo ou application intéressante"
+hook: "Un instantané opérationnel exige des limites explicites"
 materials:
-  - "énoncé"
-  - "code"
-  - "données"
+  - "fiche vérifiée"
+  - "script de préparation"
+  - "table préparée"
+  - "résumés de capacité"
   - "notes enseignantes"
 advanced_math_stats: false
-teacher_notes: "Insister sur la portée limitée d'un instantané et sur les données complémentaires nécessaires."
-status: "prêt"
-
+teacher_notes: "Exiger une section séparant variables fixes, variables instantanées et conclusions impossibles sans données temporelles."
+status: "source officielle vérifiée"

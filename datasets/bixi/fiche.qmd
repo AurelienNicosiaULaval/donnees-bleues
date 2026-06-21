@@ -18,143 +18,238 @@ render_dataset_detail_header()
 
 ## Pourquoi ce jeu est intéressant
 
-Ce jeu de données décrit l'état instantané des stations BIXI à Montréal. Il est utile pour enseigner l'importation de données JSON, les jointures, la construction d'indicateurs simples et la visualisation spatiale de services urbains.
+Ce jeu de données décrit l'état instantané des stations BIXI à Montréal. Il relie trois dimensions très pédagogiques : localisation, capacité et disponibilité opérationnelle.
 
-Le contexte est concret : une station a une capacité, une localisation et un nombre de vélos ou de bornes disponibles. Les limites sont également pédagogiques, car un instantané ne permet pas de conclure sur la demande quotidienne ou saisonnière.
+Il est utile en science des données parce qu'il oblige à joindre deux flux JSON, à construire des ratios, à distinguer variables fixes et variables instantanées, et à contrôler les coordonnées avant de cartographier.
 
-## Source
+Question d'analyse : que peut-on dire de la disponibilité des vélos dans un instantané BIXI, et quelles conclusions faut-il éviter sans série temporelle?
+
+## Ce qui a été vérifié
+
+| Élément | Résultat vérifié |
+|---|---|
+| Paquet CKAN | `89fdc53c-cf70-485f-ab1a-9b10044d9f15` |
+| Ressource CKAN | `b50b99c2-fd80-4dad-ae1b-47d5e0654500` |
+| Source officielle | Données Québec / BIXI Montréal |
+| Ressources dans le paquet | 1 ressource |
+| Ressource officielle | Flux GBFS `https://gbfs.velobixi.com/gbfs/gbfs.json` |
+| Flux préparés ici | `station_information.json` et `station_status.json`, version française |
+| Licence | Attribution (CC-BY 4.0), selon les métadonnées CKAN consultées le 2026-06-21 |
+| Dernière modification du paquet CKAN | 2026-06-21 |
+| Dernière modification de la ressource CKAN | 2026-06-21 |
+| Table préparée | `data/processed/bixi/stations_bixi_snapshot.csv` |
+| Résumés préparés | ressources CKAN, flux GBFS, groupes de capacité, état opérationnel, valeurs manquantes |
+
+## Source et conditions
 
 | Champ | Information |
 |---|---|
-| Organisme producteur | BIXI Montréal |
-| URL Données Québec | <https://www.donneesquebec.ca/recherche/dataset/vmtl-bixi-etat-des-stations> |
-| URL du flux GBFS | <https://gbfs.velobixi.com/gbfs/gbfs.json> |
-| Licence | Attribution (CC-BY 4.0) selon Données Québec |
-| Date d'accès | 2026-06-01 |
-| Fréquence de mise à jour | Flux GBFS temps réel; ttl de 10 secondes observé dans `station_status` le 2026-06-19 |
+| Page Données Québec | <https://www.donneesquebec.ca/recherche/dataset/vmtl-bixi-etat-des-stations> |
+| API CKAN | <https://www.donneesquebec.ca/recherche/api/3/action/package_show?id=vmtl-bixi-etat-des-stations> |
+| Découverte GBFS | <https://gbfs.velobixi.com/gbfs/gbfs.json> |
+| Flux stations | <https://gbfs.velobixi.com/gbfs/fr/station_information.json> |
+| Flux état | <https://gbfs.velobixi.com/gbfs/fr/station_status.json> |
+| Territoire | Montréal |
+| Date d'accès | 2026-06-21 |
+| Instantané préparé | 2026-06-21 à 08:20 EDT |
+| TTL observé | 10 secondes |
+
+La description officielle indique que le jeu présente les stations du réseau de vélos en libre-service BIXI Montréal, notamment leur position géographique, le nombre de vélos disponibles et le nombre de bornes disponibles. Les droits de propriété intellectuelle sont attribués à BIXI Montréal dans la fiche Données Québec.
 
 ## Ce que représente une ligne
 
-Une ligne représente une station BIXI à un instant donné, après jointure entre les informations fixes de la station et son état courant.
+Une ligne représente une station BIXI dans un instantané du flux GBFS, après jointure entre les informations fixes de la station et son état opérationnel courant.
+
+Une ligne n'est pas un trajet, une personne, une journée complète, ni une mesure directe de la demande. Les valeurs peuvent changer quelques secondes plus tard.
 
 ## Variables principales
 
-| Variable | Type | Description | Exemple | Remarques pédagogiques |
-|---|---|---|---|---|
-| station_id | caractère | Identifiant de station | 1 | Clé de jointure entre les flux |
-| name | caractère | Nom de la station | Drummond / de Maisonneuve | Variable utile pour vérifier les données |
-| lat | numérique | Latitude | 45.49965 | Base pour une carte simple |
-| lon | numérique | Longitude | -73.57634 | Base pour une carte simple |
-| capacity | entier | Capacité de la station | 27 | Dénominateur pour un taux d'occupation |
-| num_bikes_available | entier | Nombre de vélos disponibles | 15 | Mesure instantanée |
-| num_ebikes_available | entier | Nombre de vélos électriques disponibles | 4 | Permet des proportions |
-| num_docks_available | entier | Nombre de points d'ancrage disponibles | 10 | Complément des vélos disponibles |
-| is_renting | entier | Station disponible pour la location | 1 | Variable binaire |
-| last_reported_datetime | date-heure | Moment du dernier rapport | 2026-06-01 | Variable temporelle |
+| Variable préparée | Rôle | Point de vigilance |
+|---|---|---|
+| `station_id` | Clé de jointure | Identifiant commun aux deux flux |
+| `name` | Nom de la station | Utile pour inspecter les cas particuliers |
+| `lat`, `lon` | Coordonnées publiées | 8 stations ont `0,0` dans l'instantané et doivent être exclues des cartes |
+| `capacity` | Nombre de bornes | Dénominateur principal |
+| `groupe_capacite` | Classe préparée de capacité | Aide à comparer les petites et grandes stations |
+| `num_bikes_available` | Vélos disponibles | Mesure instantanée |
+| `num_bikes_classic_available` | Vélos classiques disponibles | Calculé à partir du total et des vélos électriques |
+| `num_ebikes_available` | Vélos électriques disponibles | Sert à calculer la part électrique |
+| `num_docks_available` | Bornes disponibles | Complément opérationnel des vélos disponibles |
+| `taux_occupation` | Vélos disponibles divisés par capacité | Calculé seulement si la capacité est positive |
+| `taux_bornes_libres` | Bornes disponibles divisées par capacité | Mesure l'espace disponible pour retourner un vélo |
+| `part_velos_electriques` | Vélos électriques disponibles divisés par vélos disponibles | Manquante quand aucun vélo n'est disponible |
+| `etat_operationnel` | État préparé de la station | Distingue les stations disponibles et non installées |
+| `coordonnees_valides` | Contrôle préparé des coordonnées | Nécessaire avant toute carte |
 
-## Taille et structure
+## RÉSULTATS R
 
-| Élément | Information |
-|---|---|
-| Nombre de lignes | 1065 stations observées le 2026-06-01 |
-| Nombre de colonnes | 25 variables avant sélection dans le script de préparation |
-| Structure | Tabulaire après transformation de deux flux JSON |
-| Format | GBFS JSON |
+Les résultats ci-dessous proviennent de `preparation.R`, exécuté sur les flux GBFS téléchargés le 2026-06-21 à 08:20 EDT.
+
+| Indicateur | Valeur |
+|---|---:|
+| Ressources CKAN documentées | 1 |
+| Flux français dans le fichier de découverte GBFS | 4 |
+| Lignes dans `station_information` | 1 084 |
+| Colonnes dans `station_information` | 13 |
+| Lignes dans `station_status` | 1 084 |
+| Colonnes dans `station_status` | 13 |
+| Lignes préparées | 1 084 |
+| Colonnes préparées | 28 |
+| Stations installées | 1 072 |
+| Stations disponibles pour location et retour | 1 072 |
+| Stations avec coordonnées valides | 1 076 |
+| Stations avec coordonnées `0,0` | 8 |
+| Capacité totale | 24 183 bornes |
+| Capacité médiane | 21 bornes |
+| Vélos disponibles | 10 800 |
+| Vélos classiques disponibles | 8 522 |
+| Vélos électriques disponibles | 2 278 |
+| Bornes disponibles | 12 501 |
+| Vélos désactivés | 792 |
+| Bornes désactivées | 90 |
+| Taux d'occupation médian | 0,444 |
+| Part médiane de vélos électriques parmi les vélos disponibles | 0,143 |
+| Stations sous 25 % d'occupation | 28,0 % |
+| Stations au-dessus de 75 % d'occupation | 19,1 % |
+| Stations sans vélo disponible | 63 |
+| Stations sans borne disponible | 36 |
+
+## Groupes de capacité
+
+| Groupe de capacité | Stations | Capacité totale | Vélos disponibles | Vélos électriques disponibles | Bornes disponibles | Occupation médiane |
+|---|---:|---:|---:|---:|---:|---:|
+| Station moyenne, 16 à 25 bornes | 625 | 12 972 | 6 160 | 1 387 | 6 321 | 0,474 |
+| Grande station, 26 à 35 bornes | 213 | 6 221 | 2 674 | 387 | 3 364 | 0,371 |
+| Petite station, 15 bornes ou moins | 196 | 2 769 | 1 280 | 424 | 1 333 | 0,467 |
+| Très grande station, 36 bornes ou plus | 50 | 2 221 | 686 | 80 | 1 483 | 0,154 |
+
+Cette table décrit un instantané. Elle ne mesure pas la demande, la rotation des vélos ou la performance du rééquilibrage.
+
+## État opérationnel
+
+| État opérationnel | Stations | Pourcentage |
+|---|---:|---:|
+| Disponible pour location et retour | 1 072 | 98,9 % |
+| Non installée | 12 | 1,1 % |
+
+Les stations non installées ne doivent pas être traitées comme des stations vides ordinaires. Plusieurs ont aussi des coordonnées non cartographiables.
+
+## Valeurs manquantes principales
+
+| Variable | Valeurs manquantes | Pourcentage |
+|---|---:|---:|
+| `part_velos_electriques` | 63 | 5,81 % |
+| `taux_bornes_libres` | 2 | 0,18 % |
+| `taux_occupation` | 2 | 0,18 % |
+
+La variable `part_velos_electriques` est manquante lorsque le dénominateur est nul, c'est-à-dire lorsqu'aucun vélo n'est disponible dans la station.
+
+## Lecture statistique
+
+Une analyse prudente suit cet ordre :
+
+1. identifier l'instant exact du téléchargement;
+2. joindre `station_information` et `station_status` par `station_id`;
+3. distinguer variables fixes et variables instantanées;
+4. filtrer les coordonnées invalides avant les cartes;
+5. calculer les ratios seulement avec une capacité positive;
+6. séparer disponibilité opérationnelle et demande des usagers;
+7. éviter toute conclusion temporelle sans plusieurs instantanés comparables.
+
+Les données sont excellentes pour enseigner l'importation JSON, les jointures et la communication responsable d'indicateurs opérationnels.
 
 ## Concepts enseignables
 
-- importation JSON;
+- importation de flux JSON;
+- découverte GBFS;
 - jointure par identifiant;
-- transformation de date-heure;
-- taux et proportions;
+- ratios et dénominateurs;
+- coordonnées invalides;
 - visualisation de distributions;
-- carte simple avec longitude et latitude;
-- limites d'un instantané;
-- communication d'un résultat opérationnel.
+- cartes de points;
+- limites d'un instantané temps réel.
 
 ## Score zéro déchet
 
 | Dimension | Score | Justification |
 |---|---:|---|
-| Contexte québécois | 3 | Le service est ancré dans la mobilité montréalaise. |
-| Accessibilité pédagogique | 3 | Les variables principales sont faciles à comprendre. |
-| Qualité documentaire | 2 | Les flux sont standards, mais certains champs exigent de connaître GBFS. |
-| Potentiel de nettoyage | 2 | La jointure et les types suffisent pour une activité réaliste. |
-| Potentiel de visualisation | 3 | Les coordonnées et les indicateurs de disponibilité sont très visuels. |
-| Potentiel de statistique descriptive | 3 | Les résumés par capacité, disponibilité et proportions sont directs. |
-| Potentiel d'inférence | 2 | Des comparaisons sont possibles, mais l'instantané limite la portée. |
-| Potentiel de modélisation | 2 | Une modélisation exploratoire est possible avec prudence. |
-| Potentiel de discussion éthique | 2 | Le jeu ouvre une discussion sur l'accès territorial aux services. |
-| Réutilisabilité dans plusieurs cours | 3 | Le jeu peut servir en importation, visualisation, cartographie et communication. |
+| Contexte québécois | 3 | Service de mobilité montréalais |
+| Accessibilité pédagogique | 3 | Les variables sont concrètes et rapidement interprétables |
+| Qualité documentaire | 3 | Page Données Québec, API CKAN et flux GBFS |
+| Potentiel de nettoyage | 2 | Jointure, ratios et contrôle des coordonnées |
+| Potentiel de visualisation | 3 | Histogrammes, nuages de points et cartes |
+| Potentiel de statistique descriptive | 3 | Résumés naturels de capacité et disponibilité |
+| Potentiel d'inférence | 1 | Un instantané seul limite fortement l'inférence |
+| Potentiel de modélisation | 2 | Modélisation exploratoire possible avec plusieurs instantanés |
+| Potentiel éthique | 2 | Discussion sur l'accès territorial au service |
+| Réutilisabilité | 3 | Utile en importation, EDA, cartographie et communication |
 
 Total : 25 sur 30.
 
 ## Activité courte
 
-En 30 à 45 minutes, demander aux personnes étudiantes de calculer le taux d'occupation des stations et de produire un histogramme ou un nuage de points entre capacité et vélos disponibles.
+En 30 à 45 minutes, calculer le taux d'occupation des stations, produire un histogramme et expliquer pourquoi un instantané ne mesure pas la demande.
 
 ## Activité longue
 
-En 2 à 3 heures, demander de construire un mini-rapport Quarto qui importe les deux flux GBFS, les joint, crée des indicateurs et discute les limites d'une analyse instantanée.
-
-## Projet possible
-
-Construire un tableau de bord statique hebdomadaire à partir de plusieurs instantanés collectés à heures fixes. Le projet pourrait comparer des quartiers, mais il faudrait ajouter une source géographique fiable avant toute conclusion territoriale.
-
-## Questions pédagogiques possibles
-
-1. Quelle est l'unité statistique après jointure?
-2. Quelle variable peut servir de dénominateur pour comparer les stations?
-3. Une station de grande capacité a-t-elle nécessairement plus de vélos disponibles?
-4. Comment détecter les stations installées mais non disponibles à la location?
-5. Pourquoi un instantané ne permet-il pas d'estimer la demande quotidienne?
-6. Quels graphiques conviennent à la distribution du taux d'occupation?
-7. Quelles précautions faut-il prendre avec les coordonnées géographiques?
-8. Quelle information supplémentaire serait nécessaire pour comparer des quartiers?
+En 2 à 3 heures, produire un mini-rapport sur la disponibilité BIXI avec jointure GBFS, contrôle des coordonnées, carte filtrée et section de limites.
 
 ## Code R minimal
 
+À exécuter depuis la racine du projet.
+
 ```{r}
 #| eval: false
+# Load libraries
 library(dplyr)
 library(ggplot2)
-library(jsonlite)
+library(readr)
 
-station_information_url <- "https://gbfs.velobixi.com/gbfs/fr/station_information.json"
-station_status_url <- "https://gbfs.velobixi.com/gbfs/fr/station_status.json"
+# Download, validate and prepare the official GBFS feeds
+source("datasets/bixi/preparation.R")
 
-station_information <- fromJSON(station_information_url, flatten = TRUE)$data$stations
-station_status <- fromJSON(station_status_url, flatten = TRUE)$data$stations
+# Import prepared data
+stations <- read_csv(
+  "data/processed/bixi/stations_bixi_snapshot.csv",
+  show_col_types = FALSE
+)
 
-stations <- station_information |>
-  left_join(station_status, by = "station_id") |>
-  mutate(taux_occupation = num_bikes_available / capacity)
-
-glimpse(stations)
-
-ggplot(stations, aes(x = taux_occupation)) +
-  geom_histogram(binwidth = 0.1, boundary = 0, fill = "#325EA8", color = "white") +
+# Visualise station occupancy
+stations |>
+  filter(!is.na(taux_occupation), capacity > 0) |>
+  ggplot(aes(x = taux_occupation)) +
+  geom_histogram(binwidth = 0.05, boundary = 0, fill = "#325EA8", color = "white") +
   labs(
     x = "Taux d'occupation instantané",
     y = "Nombre de stations",
-    title = "Occupation instantanée des stations BIXI"
+    title = "Occupation instantanée des stations BIXI",
+    subtitle = "Un instantané ne mesure pas la demande quotidienne"
   )
 ```
 
 ## Limites et précautions
 
-- Les données décrivent un instantané, pas une journée complète.
-- Les valeurs peuvent changer rapidement.
-- La disponibilité observée ne mesure pas directement la demande.
-- Les coordonnées ne suffisent pas à analyser l'équité territoriale sans données de contexte.
-- Les stations temporairement indisponibles doivent être traitées explicitement.
+- Les données changent rapidement; les résultats décrivent un instantané.
+- Un faible nombre de vélos disponibles peut refléter une forte demande, un rééquilibrage incomplet ou un moment particulier de la journée.
+- Les coordonnées `0,0` doivent être exclues avant toute carte.
+- La disponibilité observée ne mesure ni les trajets, ni les arrivées, ni les départs.
+- Les comparaisons territoriales exigent une source géographique et plusieurs observations temporelles.
 
 ## Extensions
 
-- Extension intro : comparer les distributions de capacité et de vélos disponibles.
-- Extension intermédiaire : créer un indicateur d'occupation et l'analyser par groupes de capacité.
-- Extension avancée : collecter plusieurs instantanés et étudier la variabilité temporelle.
-- Extension communication scientifique : produire une note méthodologique sur ce qu'un flux temps réel permet et ne permet pas de conclure.
+- Comparer les petites, moyennes et grandes stations.
+- Cartographier seulement les stations avec `coordonnees_valides == TRUE`.
+- Collecter plusieurs instantanés et comparer matin, midi et soir.
+- Étudier séparément les vélos électriques et classiques.
+- Construire un tableau de bord statique avec horodatage visible.
+
+## Références utilisées
+
+- Données Québec. 2026. État des stations. <https://www.donneesquebec.ca/recherche/dataset/vmtl-bixi-etat-des-stations>
+- Données Québec. 2026. API CKAN, paquet `vmtl-bixi-etat-des-stations`. <https://www.donneesquebec.ca/recherche/api/3/action/package_show?id=vmtl-bixi-etat-des-stations>
+- BIXI Montréal. 2026. Flux GBFS de découverte. <https://gbfs.velobixi.com/gbfs/gbfs.json>
+- BIXI Montréal. 2026. Flux GBFS `station_information`. <https://gbfs.velobixi.com/gbfs/fr/station_information.json>
+- BIXI Montréal. 2026. Flux GBFS `station_status`. <https://gbfs.velobixi.com/gbfs/fr/station_status.json>
 
 ```{r}
 #| label: dataset-detail-footer
@@ -162,4 +257,3 @@ ggplot(stations, aes(x = taux_occupation)) +
 #| results: asis
 render_dataset_detail_footer()
 ```
-

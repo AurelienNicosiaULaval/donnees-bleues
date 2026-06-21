@@ -1,5 +1,5 @@
 id: bixi-disponibilite-stations-court
-title: "Disponibilité instantanée des stations BIXI"
+title: "Laboratoire - Disponibilité instantanée des stations BIXI"
 question: "Comment décrire la disponibilité des vélos BIXI dans un instantané?"
 dataset_id: bixi
 dataset_title: "État des stations BIXI"
@@ -14,12 +14,12 @@ concepts:
   - "Statistique descriptive"
   - "Visualisation"
 context: "Mobilité urbaine"
-hook: "Données en temps réel"
+hook: "Un flux temps réel ne mesure pas directement la demande"
 materials:
-  - "énoncé"
-  - "code"
-  - "données"
+  - "fiche vérifiée"
+  - "script de préparation"
+  - "table préparée"
+  - "résumés R"
 advanced_math_stats: false
-teacher_notes: "Prévoir une discussion sur la différence entre disponibilité instantanée et demande réelle."
-status: "prêt"
-
+teacher_notes: "Faire distinguer disponibilité instantanée, demande des usagers et rééquilibrage opérationnel. Filtrer les coordonnées invalides avant toute carte."
+status: "source officielle vérifiée"

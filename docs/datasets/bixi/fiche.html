@@ -5545,10 +5545,13 @@ grid-template-columns: 1fr;
 État des stations BIXI
 </h1>
 <p class="dataset-hero-source">
-BIXI Montréal
+BIXI Montréal / Données Québec
 </p>
+<div class="dataset-contributor-badge">
+<span>Personne à contacter</span><strong>Aurélien Nicosia</strong><small>Révision pédagogique et statistique</small>
+</div>
 <p class="dataset-hero-summary">
-Station BIXI à un instant donné
+Station BIXI dans un instantané du flux GBFS
 </p>
 <div class="dataset-hero-actions">
 <a class="dataset-button no-external" href="#r-en-action">Voir les résultats R</a><a class="dataset-button secondary" href="https://www.donneesquebec.ca/recherche/dataset/vmtl-bixi-etat-des-stations">Source officielle</a>
@@ -5566,17 +5569,17 @@ Station BIXI à un instant donné
 <span>Niveau</span><strong>Introduction à intermédiaire</strong>
 </div>
 <div class="dataset-fact">
-<span>Structure</span><strong>Tabulaire, géographique, flux temps réel</strong>
+<span>Structure</span><strong>Tabulaire, géographique et opérationnel, issu de flux JSON temps réel</strong>
 </div>
 <div class="dataset-fact">
-<span>Format</span><strong>GBFS JSON</strong>
+<span>Format</span><strong>GBFS JSON préparé localement en CSV</strong>
 </div>
 </div>
 <div class="dataset-pedagogy-band">
 <div class="dataset-pedagogy-main">
 <span>Question de départ</span>
 <p>
-Explorer mobilité urbaine avec une question descriptive.
+Décrire la disponibilité instantanée des vélos selon la capacité des stations.
 </p>
 </div>
 <div class="dataset-score-box">
@@ -5587,7 +5590,7 @@ Explorer mobilité urbaine avec une question descriptive.
 </div>
 </div>
 <div class="dataset-chip-strip">
-<span>importation JSON</span><span>jointure</span><span>visualisation</span><span>carte</span><span>statistique descriptive</span><span>indicateur opérationnel</span><span>communication</span>
+<span>importation JSON</span><span>flux GBFS</span><span>jointure</span><span>indicateurs opérationnels</span><span>ratios</span><span>coordonnées invalides</span><span>visualisation</span>
 </div>
 <section class="dataset-r-lab" id="r-en-action">
 <div class="dataset-section-heading">
@@ -5596,7 +5599,7 @@ Explorer mobilité urbaine avec une question descriptive.
 Aperçu reproductible
 </h2>
 <p>
-Aperçu léger calculé par R à partir des métadonnées vérifiées afin de garder la fiche rapide et stable au rendu.
+Aperçu calculé par R à partir de data/processed/bixi/stations_bixi_snapshot.csv.
 </p>
 </div>
 <div class="dataset-r-grid">
@@ -5604,13 +5607,12 @@ Aperçu léger calculé par R à partir des métadonnées vérifiées afin de ga
 <div class="dataset-card-label">
 Code minimal
 </div>
-<pre><code class="language-r">library(yaml)
+<pre><code class="language-r">library(dplyr)
 
-metadata &lt;- yaml::read_yaml(&quot;datasets/bixi/metadata.yml&quot;)
-data.frame(
-  champ = c(&quot;theme&quot;, &quot;territoire&quot;, &quot;unite&quot;, &quot;niveau&quot;),
-  valeur = c(metadata$theme, metadata$geography, metadata$unit, metadata$level)
-)</code></pre>
+donnees &lt;- read.csv(&quot;data/processed/bixi/stations_bixi_snapshot.csv&quot;, check.names = FALSE)
+
+glimpse(donnees)
+donnees |&gt; summarise(lignes = n(), colonnes = ncol(donnees))</code></pre>
 </div>
 <div class="dataset-result-card">
 <div class="dataset-card-label">
@@ -5618,16 +5620,19 @@ Résultats R
 </div>
 <div class="dataset-r-stats">
 <div class="dataset-r-stat">
-<span>Lignes déclarées</span><strong>1065 stations observées le 2026-06-01</strong>
+<span>Lignes lues</span><strong>1 084</strong>
 </div>
 <div class="dataset-r-stat">
-<span>Colonnes déclarées</span><strong>25 variables avant sélection dans le script de préparation</strong>
+<span>Colonnes</span><strong>28</strong>
 </div>
 <div class="dataset-r-stat">
-<span>Format</span><strong>GBFS JSON</strong>
+<span>Variables num.</span><strong>17</strong>
 </div>
 <div class="dataset-r-stat">
-<span>Aperçu</span><strong>Métadonnées</strong>
+<span>Valeurs manquantes</span><strong>0.2 %</strong>
+</div>
+<div class="dataset-r-stat">
+<span>Aperçu</span><strong>stations_bixi_snapshot.csv</strong>
 </div>
 </div>
 <div class="dataset-result-table-wrap">
@@ -5635,52 +5640,144 @@ Résultats R
 <thead>
 <tr>
 <th>
-champ
+station_id
 </th>
 <th>
-valeur
+name
+</th>
+<th>
+short_name
+</th>
+<th>
+lat
+</th>
+<th>
+lon
+</th>
+<th>
+capacity
 </th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>
-theme
+319
 </td>
 <td>
-Mobilité urbaine
-</td>
-</tr>
-<tr>
-<td>
-territoire
+10e avenue / Masson
 </td>
 <td>
-Montréal
-</td>
-</tr>
-<tr>
-<td>
-unite
+6383
 </td>
 <td>
-Station BIXI à un instant donné
+45.55039
+</td>
+<td>
+-73.57376
+</td>
+<td>
+27
 </td>
 </tr>
 <tr>
 <td>
-niveau
+1095
 </td>
 <td>
-Introduction à intermédiaire
+10e avenue Nord / King Est
+</td>
+<td>
+3022
+</td>
+<td>
+45.40847
+</td>
+<td>
+-71.87262
+</td>
+<td>
+15
 </td>
 </tr>
 <tr>
 <td>
-format
+973
 </td>
 <td>
-GBFS JSON
+12e avenue / St-Zotique
+</td>
+<td>
+8255
+</td>
+<td>
+45.55689
+</td>
+<td>
+-73.58937
+</td>
+<td>
+23
+</td>
+</tr>
+<tr>
+<td>
+453
+</td>
+<td>
+14e avenue / Jean-Talon
+</td>
+<td>
+6930
+</td>
+<td>
+45.56132
+</td>
+<td>
+-73.59629
+</td>
+<td>
+15
+</td>
+</tr>
+<tr>
+<td>
+686
+</td>
+<td>
+15e Rue / Robin
+</td>
+<td>
+8080
+</td>
+<td>
+45.55938
+</td>
+<td>
+-73.69851
+</td>
+<td>
+27
+</td>
+</tr>
+<tr>
+<td>
+365
+</td>
+<td>
+15e avenue / Dandurand
+</td>
+<td>
+6361
+</td>
+<td>
+45.55479
+</td>
+<td>
+-73.57426
+</td>
+<td>
+23
 </td>
 </tr>
 </tbody>
@@ -5691,8 +5788,8 @@ GBFS JSON
 <div class="dataset-card-label">
 Lecture statistique
 </div>
-<svg class="dataset-r-chart" viewbox="0 0 320 210" role="img" aria-label="Concepts pédagogiques">
-<text x="0" y="30" class="dataset-svg-label">importation JSON</text><rect x="150" y="18" width="90" height="14" rx="3" class="dataset-svg-bar" /><text x="0" y="54" class="dataset-svg-label">jointure</text><rect x="150" y="42" width="90" height="14" rx="3" class="dataset-svg-bar" /><text x="0" y="78" class="dataset-svg-label">visualisation</text><rect x="150" y="66" width="90" height="14" rx="3" class="dataset-svg-bar" /><text x="0" y="102" class="dataset-svg-label">carte</text><rect x="150" y="90" width="90" height="14" rx="3" class="dataset-svg-bar" /><text x="0" y="126" class="dataset-svg-label">statistique descriptive</text><rect x="150" y="114" width="90" height="14" rx="3" class="dataset-svg-bar" /><text x="0" y="150" class="dataset-svg-label">indicateur opérationnel</text><rect x="150" y="138" width="90" height="14" rx="3" class="dataset-svg-bar" /><text x="0" y="174" class="dataset-svg-label">communication</text><rect x="150" y="162" width="90" height="14" rx="3" class="dataset-svg-bar" />
+<svg class="dataset-r-chart" viewbox="0 0 320 210" role="img" aria-label="Aperçu numérique généré par R">
+<line x1="34" y1="158" x2="292" y2="158" class="dataset-svg-axis"></line><line x1="34" y1="36" x2="34" y2="158" class="dataset-svg-axis"></line><polyline points="34,98.3 40.4,83.3 46.7,78.9 53.1,133.7 59.4,70 65.8,83.3 72.2,81.4 78.5,57.8 84.9,69.6 91.2,60.5 97.6,127.5 103.9,75.5 110.3,134.4 116.7,119 123,153.1 129.4,98.3 135.7,60.9 142.1,55.7 148.5,113.2 154.8,80.1 161.2,83.3 167.5,74.9 173.9,68.4 180.3,65.5 186.6,152.3 193,75.9 199.3,120.7 205.7,123.9 212.1,79.2 218.4,87.6 224.8,78 231.1,100.1 237.5,158 243.8,150 250.2,87.3 256.6,56.8 262.9,94 269.3,46 275.6,46 282,147.3" class="dataset-svg-line"></polyline><circle cx="34" cy="98.3" r="3.2" class="dataset-svg-point"></circle><circle cx="40.4" cy="83.3" r="3.2" class="dataset-svg-point"></circle><circle cx="46.7" cy="78.9" r="3.2" class="dataset-svg-point"></circle><circle cx="53.1" cy="133.7" r="3.2" class="dataset-svg-point"></circle><circle cx="59.4" cy="70" r="3.2" class="dataset-svg-point"></circle><circle cx="65.8" cy="83.3" r="3.2" class="dataset-svg-point"></circle><circle cx="72.2" cy="81.4" r="3.2" class="dataset-svg-point"></circle><circle cx="78.5" cy="57.8" r="3.2" class="dataset-svg-point"></circle><circle cx="84.9" cy="69.6" r="3.2" class="dataset-svg-point"></circle><circle cx="91.2" cy="60.5" r="3.2" class="dataset-svg-point"></circle><circle cx="97.6" cy="127.5" r="3.2" class="dataset-svg-point"></circle><circle cx="103.9" cy="75.5" r="3.2" class="dataset-svg-point"></circle><circle cx="110.3" cy="134.4" r="3.2" class="dataset-svg-point"></circle><circle cx="116.7" cy="119" r="3.2" class="dataset-svg-point"></circle><circle cx="123" cy="153.1" r="3.2" class="dataset-svg-point"></circle><circle cx="129.4" cy="98.3" r="3.2" class="dataset-svg-point"></circle><circle cx="135.7" cy="60.9" r="3.2" class="dataset-svg-point"></circle><circle cx="142.1" cy="55.7" r="3.2" class="dataset-svg-point"></circle><circle cx="148.5" cy="113.2" r="3.2" class="dataset-svg-point"></circle><circle cx="154.8" cy="80.1" r="3.2" class="dataset-svg-point"></circle><circle cx="161.2" cy="83.3" r="3.2" class="dataset-svg-point"></circle><circle cx="167.5" cy="74.9" r="3.2" class="dataset-svg-point"></circle><circle cx="173.9" cy="68.4" r="3.2" class="dataset-svg-point"></circle><circle cx="180.3" cy="65.5" r="3.2" class="dataset-svg-point"></circle><circle cx="186.6" cy="152.3" r="3.2" class="dataset-svg-point"></circle><circle cx="193" cy="75.9" r="3.2" class="dataset-svg-point"></circle><circle cx="199.3" cy="120.7" r="3.2" class="dataset-svg-point"></circle><circle cx="205.7" cy="123.9" r="3.2" class="dataset-svg-point"></circle><circle cx="212.1" cy="79.2" r="3.2" class="dataset-svg-point"></circle><circle cx="218.4" cy="87.6" r="3.2" class="dataset-svg-point"></circle><circle cx="224.8" cy="78" r="3.2" class="dataset-svg-point"></circle><circle cx="231.1" cy="100.1" r="3.2" class="dataset-svg-point"></circle><circle cx="237.5" cy="158" r="3.2" class="dataset-svg-point"></circle><circle cx="243.8" cy="150" r="3.2" class="dataset-svg-point"></circle><circle cx="250.2" cy="87.3" r="3.2" class="dataset-svg-point"></circle><circle cx="256.6" cy="56.8" r="3.2" class="dataset-svg-point"></circle><circle cx="262.9" cy="94" r="3.2" class="dataset-svg-point"></circle><circle cx="269.3" cy="46" r="3.2" class="dataset-svg-point"></circle><circle cx="275.6" cy="46" r="3.2" class="dataset-svg-point"></circle><circle cx="282" cy="147.3" r="3.2" class="dataset-svg-point"></circle><text x="34" y="24" class="dataset-svg-title">taux_occupation</text><text x="34" y="186" class="dataset-svg-label">0</text><text x="230" y="186" class="dataset-svg-label">1</text>
 </svg>
 </div>
 </div>
@@ -5702,7 +5799,13 @@ Lecture statistique
 <span>Mini-projets</span>
 <ul>
 <li>
-Explorer mobilité urbaine avec une question descriptive.
+Décrire la disponibilité instantanée des vélos selon la capacité des stations.
+</li>
+<li>
+Construire une carte de disponibilité en filtrant les coordonnées invalides.
+</li>
+<li>
+Comparer plusieurs instantanés collectés à heures fixes pour étudier la variabilité temporelle.
 </li>
 </ul>
 </div>
@@ -5710,13 +5813,13 @@ Explorer mobilité urbaine avec une question descriptive.
 <span>Activités liées</span>
 <div class="dataset-activity-grid">
 <div class="dataset-activity-card">
-<span>30-45 minutes</span><strong>Disponibilité instantanée des stations BIXI</strong>
+<span>30-45 minutes</span><strong>Laboratoire - Disponibilité instantanée des stations BIXI</strong>
 <p>
 Comment décrire la disponibilité des vélos BIXI dans un instantané?
 </p>
 </div>
 <div class="dataset-activity-card">
-<span>2-3 heures</span><strong>Mini-rapport sur un service de vélopartage</strong>
+<span>2-3 heures</span><strong>Mini-projet - Rapport BIXI sur un instantané GBFS</strong>
 <p>
 Que peut-on conclure, et ne pas conclure, à partir d&#39;un instantané BIXI?
 </p>
@@ -5727,11 +5830,73 @@ Que peut-on conclure, et ne pas conclure, à partir d&#39;un instantané BIXI?
 <div class="dataset-detail-content">
 <section id="pourquoi-ce-jeu-est-intéressant" class="level2">
 <h2 class="anchored" data-anchor-id="pourquoi-ce-jeu-est-intéressant">Pourquoi ce jeu est intéressant</h2>
-<p>Ce jeu de données décrit l’état instantané des stations BIXI à Montréal. Il est utile pour enseigner l’importation de données JSON, les jointures, la construction d’indicateurs simples et la visualisation spatiale de services urbains.</p>
-<p>Le contexte est concret : une station a une capacité, une localisation et un nombre de vélos ou de bornes disponibles. Les limites sont également pédagogiques, car un instantané ne permet pas de conclure sur la demande quotidienne ou saisonnière.</p>
+<p>Ce jeu de données décrit l’état instantané des stations BIXI à Montréal. Il relie trois dimensions très pédagogiques : localisation, capacité et disponibilité opérationnelle.</p>
+<p>Il est utile en science des données parce qu’il oblige à joindre deux flux JSON, à construire des ratios, à distinguer variables fixes et variables instantanées, et à contrôler les coordonnées avant de cartographier.</p>
+<p>Question d’analyse : que peut-on dire de la disponibilité des vélos dans un instantané BIXI, et quelles conclusions faut-il éviter sans série temporelle?</p>
 </section>
-<section id="source" class="level2">
-<h2 class="anchored" data-anchor-id="source">Source</h2>
+<section id="ce-qui-a-été-vérifié" class="level2">
+<h2 class="anchored" data-anchor-id="ce-qui-a-été-vérifié">Ce qui a été vérifié</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Élément</th>
+<th>Résultat vérifié</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Paquet CKAN</td>
+<td><code>89fdc53c-cf70-485f-ab1a-9b10044d9f15</code></td>
+</tr>
+<tr class="even">
+<td>Ressource CKAN</td>
+<td><code>b50b99c2-fd80-4dad-ae1b-47d5e0654500</code></td>
+</tr>
+<tr class="odd">
+<td>Source officielle</td>
+<td>Données Québec / BIXI Montréal</td>
+</tr>
+<tr class="even">
+<td>Ressources dans le paquet</td>
+<td>1 ressource</td>
+</tr>
+<tr class="odd">
+<td>Ressource officielle</td>
+<td>Flux GBFS <code>https://gbfs.velobixi.com/gbfs/gbfs.json</code></td>
+</tr>
+<tr class="even">
+<td>Flux préparés ici</td>
+<td><code>station_information.json</code> et <code>station_status.json</code>, version française</td>
+</tr>
+<tr class="odd">
+<td>Licence</td>
+<td>Attribution (CC-BY 4.0), selon les métadonnées CKAN consultées le 2026-06-21</td>
+</tr>
+<tr class="even">
+<td>Dernière modification du paquet CKAN</td>
+<td>2026-06-21</td>
+</tr>
+<tr class="odd">
+<td>Dernière modification de la ressource CKAN</td>
+<td>2026-06-21</td>
+</tr>
+<tr class="even">
+<td>Table préparée</td>
+<td><code>data/processed/bixi/stations_bixi_snapshot.csv</code></td>
+</tr>
+<tr class="odd">
+<td>Résumés préparés</td>
+<td>ressources CKAN, flux GBFS, groupes de capacité, état opérationnel, valeurs manquantes</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="source-et-conditions" class="level2">
+<h2 class="anchored" data-anchor-id="source-et-conditions">Source et conditions</h2>
 <table class="caption-top table">
 <thead>
 <tr class="header">
@@ -5741,173 +5906,405 @@ Que peut-on conclure, et ne pas conclure, à partir d&#39;un instantané BIXI?
 </thead>
 <tbody>
 <tr class="odd">
-<td>Organisme producteur</td>
-<td>BIXI Montréal</td>
-</tr>
-<tr class="even">
-<td>URL Données Québec</td>
+<td>Page Données Québec</td>
 <td><a href="https://www.donneesquebec.ca/recherche/dataset/vmtl-bixi-etat-des-stations" class="uri">https://www.donneesquebec.ca/recherche/dataset/vmtl-bixi-etat-des-stations</a></td>
 </tr>
+<tr class="even">
+<td>API CKAN</td>
+<td><a href="https://www.donneesquebec.ca/recherche/api/3/action/package_show?id=vmtl-bixi-etat-des-stations" class="uri">https://www.donneesquebec.ca/recherche/api/3/action/package_show?id=vmtl-bixi-etat-des-stations</a></td>
+</tr>
 <tr class="odd">
-<td>URL du flux GBFS</td>
+<td>Découverte GBFS</td>
 <td><a href="https://gbfs.velobixi.com/gbfs/gbfs.json" class="uri">https://gbfs.velobixi.com/gbfs/gbfs.json</a></td>
 </tr>
 <tr class="even">
-<td>Licence</td>
-<td>Attribution (CC-BY 4.0) selon Données Québec</td>
+<td>Flux stations</td>
+<td><a href="https://gbfs.velobixi.com/gbfs/fr/station_information.json" class="uri">https://gbfs.velobixi.com/gbfs/fr/station_information.json</a></td>
+</tr>
+<tr class="odd">
+<td>Flux état</td>
+<td><a href="https://gbfs.velobixi.com/gbfs/fr/station_status.json" class="uri">https://gbfs.velobixi.com/gbfs/fr/station_status.json</a></td>
+</tr>
+<tr class="even">
+<td>Territoire</td>
+<td>Montréal</td>
 </tr>
 <tr class="odd">
 <td>Date d’accès</td>
-<td>2026-06-01</td>
+<td>2026-06-21</td>
 </tr>
 <tr class="even">
-<td>Fréquence de mise à jour</td>
-<td>Flux GBFS temps réel; ttl de 10 secondes observé dans <code>station_status</code> le 2026-06-19</td>
+<td>Instantané préparé</td>
+<td>2026-06-21 à 08:20 EDT</td>
+</tr>
+<tr class="odd">
+<td>TTL observé</td>
+<td>10 secondes</td>
 </tr>
 </tbody>
 </table>
+<p>La description officielle indique que le jeu présente les stations du réseau de vélos en libre-service BIXI Montréal, notamment leur position géographique, le nombre de vélos disponibles et le nombre de bornes disponibles. Les droits de propriété intellectuelle sont attribués à BIXI Montréal dans la fiche Données Québec.</p>
 </section>
 <section id="ce-que-représente-une-ligne" class="level2">
 <h2 class="anchored" data-anchor-id="ce-que-représente-une-ligne">Ce que représente une ligne</h2>
-<p>Une ligne représente une station BIXI à un instant donné, après jointure entre les informations fixes de la station et son état courant.</p>
+<p>Une ligne représente une station BIXI dans un instantané du flux GBFS, après jointure entre les informations fixes de la station et son état opérationnel courant.</p>
+<p>Une ligne n’est pas un trajet, une personne, une journée complète, ni une mesure directe de la demande. Les valeurs peuvent changer quelques secondes plus tard.</p>
 </section>
 <section id="variables-principales" class="level2">
 <h2 class="anchored" data-anchor-id="variables-principales">Variables principales</h2>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 20%">
-<col style="width: 20%">
-<col style="width: 20%">
-<col style="width: 20%">
-<col style="width: 20%">
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
 </colgroup>
 <thead>
 <tr class="header">
-<th>Variable</th>
-<th>Type</th>
-<th>Description</th>
-<th>Exemple</th>
-<th>Remarques pédagogiques</th>
+<th>Variable préparée</th>
+<th>Rôle</th>
+<th>Point de vigilance</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>station_id</td>
-<td>caractère</td>
-<td>Identifiant de station</td>
-<td>1</td>
-<td>Clé de jointure entre les flux</td>
+<td><code>station_id</code></td>
+<td>Clé de jointure</td>
+<td>Identifiant commun aux deux flux</td>
 </tr>
 <tr class="even">
-<td>name</td>
-<td>caractère</td>
+<td><code>name</code></td>
 <td>Nom de la station</td>
-<td>Drummond / de Maisonneuve</td>
-<td>Variable utile pour vérifier les données</td>
+<td>Utile pour inspecter les cas particuliers</td>
 </tr>
 <tr class="odd">
-<td>lat</td>
-<td>numérique</td>
-<td>Latitude</td>
-<td>45.49965</td>
-<td>Base pour une carte simple</td>
+<td><code>lat</code>, <code>lon</code></td>
+<td>Coordonnées publiées</td>
+<td>8 stations ont <code>0,0</code> dans l’instantané et doivent être exclues des cartes</td>
 </tr>
 <tr class="even">
-<td>lon</td>
-<td>numérique</td>
-<td>Longitude</td>
-<td>-73.57634</td>
-<td>Base pour une carte simple</td>
+<td><code>capacity</code></td>
+<td>Nombre de bornes</td>
+<td>Dénominateur principal</td>
 </tr>
 <tr class="odd">
-<td>capacity</td>
-<td>entier</td>
-<td>Capacité de la station</td>
-<td>27</td>
-<td>Dénominateur pour un taux d’occupation</td>
+<td><code>groupe_capacite</code></td>
+<td>Classe préparée de capacité</td>
+<td>Aide à comparer les petites et grandes stations</td>
 </tr>
 <tr class="even">
-<td>num_bikes_available</td>
-<td>entier</td>
-<td>Nombre de vélos disponibles</td>
-<td>15</td>
+<td><code>num_bikes_available</code></td>
+<td>Vélos disponibles</td>
 <td>Mesure instantanée</td>
 </tr>
 <tr class="odd">
-<td>num_ebikes_available</td>
-<td>entier</td>
-<td>Nombre de vélos électriques disponibles</td>
-<td>4</td>
-<td>Permet des proportions</td>
+<td><code>num_bikes_classic_available</code></td>
+<td>Vélos classiques disponibles</td>
+<td>Calculé à partir du total et des vélos électriques</td>
 </tr>
 <tr class="even">
-<td>num_docks_available</td>
-<td>entier</td>
-<td>Nombre de points d’ancrage disponibles</td>
-<td>10</td>
-<td>Complément des vélos disponibles</td>
+<td><code>num_ebikes_available</code></td>
+<td>Vélos électriques disponibles</td>
+<td>Sert à calculer la part électrique</td>
 </tr>
 <tr class="odd">
-<td>is_renting</td>
-<td>entier</td>
-<td>Station disponible pour la location</td>
-<td>1</td>
-<td>Variable binaire</td>
+<td><code>num_docks_available</code></td>
+<td>Bornes disponibles</td>
+<td>Complément opérationnel des vélos disponibles</td>
 </tr>
 <tr class="even">
-<td>last_reported_datetime</td>
-<td>date-heure</td>
-<td>Moment du dernier rapport</td>
-<td>2026-06-01</td>
-<td>Variable temporelle</td>
+<td><code>taux_occupation</code></td>
+<td>Vélos disponibles divisés par capacité</td>
+<td>Calculé seulement si la capacité est positive</td>
+</tr>
+<tr class="odd">
+<td><code>taux_bornes_libres</code></td>
+<td>Bornes disponibles divisées par capacité</td>
+<td>Mesure l’espace disponible pour retourner un vélo</td>
+</tr>
+<tr class="even">
+<td><code>part_velos_electriques</code></td>
+<td>Vélos électriques disponibles divisés par vélos disponibles</td>
+<td>Manquante quand aucun vélo n’est disponible</td>
+</tr>
+<tr class="odd">
+<td><code>etat_operationnel</code></td>
+<td>État préparé de la station</td>
+<td>Distingue les stations disponibles et non installées</td>
+</tr>
+<tr class="even">
+<td><code>coordonnees_valides</code></td>
+<td>Contrôle préparé des coordonnées</td>
+<td>Nécessaire avant toute carte</td>
 </tr>
 </tbody>
 </table>
 </section>
-<section id="taille-et-structure" class="level2">
-<h2 class="anchored" data-anchor-id="taille-et-structure">Taille et structure</h2>
+<section id="résultats-r" class="level2">
+<h2 class="anchored" data-anchor-id="résultats-r">RÉSULTATS R</h2>
+<p>Les résultats ci-dessous proviennent de <code>preparation.R</code>, exécuté sur les flux GBFS téléchargés le 2026-06-21 à 08:20 EDT.</p>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 50%">
-<col style="width: 50%">
+<col style="width: 42%">
+<col style="width: 57%">
 </colgroup>
 <thead>
 <tr class="header">
-<th>Élément</th>
-<th>Information</th>
+<th>Indicateur</th>
+<th style="text-align: right;">Valeur</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>Nombre de lignes</td>
-<td>1065 stations observées le 2026-06-01</td>
+<td>Ressources CKAN documentées</td>
+<td style="text-align: right;">1</td>
 </tr>
 <tr class="even">
-<td>Nombre de colonnes</td>
-<td>25 variables avant sélection dans le script de préparation</td>
+<td>Flux français dans le fichier de découverte GBFS</td>
+<td style="text-align: right;">4</td>
 </tr>
 <tr class="odd">
-<td>Structure</td>
-<td>Tabulaire après transformation de deux flux JSON</td>
+<td>Lignes dans <code>station_information</code></td>
+<td style="text-align: right;">1 084</td>
 </tr>
 <tr class="even">
-<td>Format</td>
-<td>GBFS JSON</td>
+<td>Colonnes dans <code>station_information</code></td>
+<td style="text-align: right;">13</td>
+</tr>
+<tr class="odd">
+<td>Lignes dans <code>station_status</code></td>
+<td style="text-align: right;">1 084</td>
+</tr>
+<tr class="even">
+<td>Colonnes dans <code>station_status</code></td>
+<td style="text-align: right;">13</td>
+</tr>
+<tr class="odd">
+<td>Lignes préparées</td>
+<td style="text-align: right;">1 084</td>
+</tr>
+<tr class="even">
+<td>Colonnes préparées</td>
+<td style="text-align: right;">28</td>
+</tr>
+<tr class="odd">
+<td>Stations installées</td>
+<td style="text-align: right;">1 072</td>
+</tr>
+<tr class="even">
+<td>Stations disponibles pour location et retour</td>
+<td style="text-align: right;">1 072</td>
+</tr>
+<tr class="odd">
+<td>Stations avec coordonnées valides</td>
+<td style="text-align: right;">1 076</td>
+</tr>
+<tr class="even">
+<td>Stations avec coordonnées <code>0,0</code></td>
+<td style="text-align: right;">8</td>
+</tr>
+<tr class="odd">
+<td>Capacité totale</td>
+<td style="text-align: right;">24 183 bornes</td>
+</tr>
+<tr class="even">
+<td>Capacité médiane</td>
+<td style="text-align: right;">21 bornes</td>
+</tr>
+<tr class="odd">
+<td>Vélos disponibles</td>
+<td style="text-align: right;">10 800</td>
+</tr>
+<tr class="even">
+<td>Vélos classiques disponibles</td>
+<td style="text-align: right;">8 522</td>
+</tr>
+<tr class="odd">
+<td>Vélos électriques disponibles</td>
+<td style="text-align: right;">2 278</td>
+</tr>
+<tr class="even">
+<td>Bornes disponibles</td>
+<td style="text-align: right;">12 501</td>
+</tr>
+<tr class="odd">
+<td>Vélos désactivés</td>
+<td style="text-align: right;">792</td>
+</tr>
+<tr class="even">
+<td>Bornes désactivées</td>
+<td style="text-align: right;">90</td>
+</tr>
+<tr class="odd">
+<td>Taux d’occupation médian</td>
+<td style="text-align: right;">0,444</td>
+</tr>
+<tr class="even">
+<td>Part médiane de vélos électriques parmi les vélos disponibles</td>
+<td style="text-align: right;">0,143</td>
+</tr>
+<tr class="odd">
+<td>Stations sous 25 % d’occupation</td>
+<td style="text-align: right;">28,0 %</td>
+</tr>
+<tr class="even">
+<td>Stations au-dessus de 75 % d’occupation</td>
+<td style="text-align: right;">19,1 %</td>
+</tr>
+<tr class="odd">
+<td>Stations sans vélo disponible</td>
+<td style="text-align: right;">63</td>
+</tr>
+<tr class="even">
+<td>Stations sans borne disponible</td>
+<td style="text-align: right;">36</td>
 </tr>
 </tbody>
 </table>
+</section>
+<section id="groupes-de-capacité" class="level2">
+<h2 class="anchored" data-anchor-id="groupes-de-capacité">Groupes de capacité</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 11%">
+<col style="width: 14%">
+<col style="width: 14%">
+<col style="width: 14%">
+<col style="width: 14%">
+<col style="width: 14%">
+<col style="width: 14%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Groupe de capacité</th>
+<th style="text-align: right;">Stations</th>
+<th style="text-align: right;">Capacité totale</th>
+<th style="text-align: right;">Vélos disponibles</th>
+<th style="text-align: right;">Vélos électriques disponibles</th>
+<th style="text-align: right;">Bornes disponibles</th>
+<th style="text-align: right;">Occupation médiane</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Station moyenne, 16 à 25 bornes</td>
+<td style="text-align: right;">625</td>
+<td style="text-align: right;">12 972</td>
+<td style="text-align: right;">6 160</td>
+<td style="text-align: right;">1 387</td>
+<td style="text-align: right;">6 321</td>
+<td style="text-align: right;">0,474</td>
+</tr>
+<tr class="even">
+<td>Grande station, 26 à 35 bornes</td>
+<td style="text-align: right;">213</td>
+<td style="text-align: right;">6 221</td>
+<td style="text-align: right;">2 674</td>
+<td style="text-align: right;">387</td>
+<td style="text-align: right;">3 364</td>
+<td style="text-align: right;">0,371</td>
+</tr>
+<tr class="odd">
+<td>Petite station, 15 bornes ou moins</td>
+<td style="text-align: right;">196</td>
+<td style="text-align: right;">2 769</td>
+<td style="text-align: right;">1 280</td>
+<td style="text-align: right;">424</td>
+<td style="text-align: right;">1 333</td>
+<td style="text-align: right;">0,467</td>
+</tr>
+<tr class="even">
+<td>Très grande station, 36 bornes ou plus</td>
+<td style="text-align: right;">50</td>
+<td style="text-align: right;">2 221</td>
+<td style="text-align: right;">686</td>
+<td style="text-align: right;">80</td>
+<td style="text-align: right;">1 483</td>
+<td style="text-align: right;">0,154</td>
+</tr>
+</tbody>
+</table>
+<p>Cette table décrit un instantané. Elle ne mesure pas la demande, la rotation des vélos ou la performance du rééquilibrage.</p>
+</section>
+<section id="état-opérationnel" class="level2">
+<h2 class="anchored" data-anchor-id="état-opérationnel">État opérationnel</h2>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>État opérationnel</th>
+<th style="text-align: right;">Stations</th>
+<th style="text-align: right;">Pourcentage</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Disponible pour location et retour</td>
+<td style="text-align: right;">1 072</td>
+<td style="text-align: right;">98,9 %</td>
+</tr>
+<tr class="even">
+<td>Non installée</td>
+<td style="text-align: right;">12</td>
+<td style="text-align: right;">1,1 %</td>
+</tr>
+</tbody>
+</table>
+<p>Les stations non installées ne doivent pas être traitées comme des stations vides ordinaires. Plusieurs ont aussi des coordonnées non cartographiables.</p>
+</section>
+<section id="valeurs-manquantes-principales" class="level2">
+<h2 class="anchored" data-anchor-id="valeurs-manquantes-principales">Valeurs manquantes principales</h2>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Variable</th>
+<th style="text-align: right;">Valeurs manquantes</th>
+<th style="text-align: right;">Pourcentage</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>part_velos_electriques</code></td>
+<td style="text-align: right;">63</td>
+<td style="text-align: right;">5,81 %</td>
+</tr>
+<tr class="even">
+<td><code>taux_bornes_libres</code></td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0,18 %</td>
+</tr>
+<tr class="odd">
+<td><code>taux_occupation</code></td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0,18 %</td>
+</tr>
+</tbody>
+</table>
+<p>La variable <code>part_velos_electriques</code> est manquante lorsque le dénominateur est nul, c’est-à-dire lorsqu’aucun vélo n’est disponible dans la station.</p>
+</section>
+<section id="lecture-statistique" class="level2">
+<h2 class="anchored" data-anchor-id="lecture-statistique">Lecture statistique</h2>
+<p>Une analyse prudente suit cet ordre :</p>
+<ol type="1">
+<li>identifier l’instant exact du téléchargement;</li>
+<li>joindre <code>station_information</code> et <code>station_status</code> par <code>station_id</code>;</li>
+<li>distinguer variables fixes et variables instantanées;</li>
+<li>filtrer les coordonnées invalides avant les cartes;</li>
+<li>calculer les ratios seulement avec une capacité positive;</li>
+<li>séparer disponibilité opérationnelle et demande des usagers;</li>
+<li>éviter toute conclusion temporelle sans plusieurs instantanés comparables.</li>
+</ol>
+<p>Les données sont excellentes pour enseigner l’importation JSON, les jointures et la communication responsable d’indicateurs opérationnels.</p>
 </section>
 <section id="concepts-enseignables" class="level2">
 <h2 class="anchored" data-anchor-id="concepts-enseignables">Concepts enseignables</h2>
 <ul>
-<li>importation JSON;</li>
+<li>importation de flux JSON;</li>
+<li>découverte GBFS;</li>
 <li>jointure par identifiant;</li>
-<li>transformation de date-heure;</li>
-<li>taux et proportions;</li>
+<li>ratios et dénominateurs;</li>
+<li>coordonnées invalides;</li>
 <li>visualisation de distributions;</li>
-<li>carte simple avec longitude et latitude;</li>
-<li>limites d’un instantané;</li>
-<li>communication d’un résultat opérationnel.</li>
+<li>cartes de points;</li>
+<li>limites d’un instantané temps réel.</li>
 </ul>
 </section>
 <section id="score-zéro-déchet" class="level2">
@@ -5929,52 +6326,52 @@ Que peut-on conclure, et ne pas conclure, à partir d&#39;un instantané BIXI?
 <tr class="odd">
 <td>Contexte québécois</td>
 <td style="text-align: right;">3</td>
-<td>Le service est ancré dans la mobilité montréalaise.</td>
+<td>Service de mobilité montréalais</td>
 </tr>
 <tr class="even">
 <td>Accessibilité pédagogique</td>
 <td style="text-align: right;">3</td>
-<td>Les variables principales sont faciles à comprendre.</td>
+<td>Les variables sont concrètes et rapidement interprétables</td>
 </tr>
 <tr class="odd">
 <td>Qualité documentaire</td>
-<td style="text-align: right;">2</td>
-<td>Les flux sont standards, mais certains champs exigent de connaître GBFS.</td>
+<td style="text-align: right;">3</td>
+<td>Page Données Québec, API CKAN et flux GBFS</td>
 </tr>
 <tr class="even">
 <td>Potentiel de nettoyage</td>
 <td style="text-align: right;">2</td>
-<td>La jointure et les types suffisent pour une activité réaliste.</td>
+<td>Jointure, ratios et contrôle des coordonnées</td>
 </tr>
 <tr class="odd">
 <td>Potentiel de visualisation</td>
 <td style="text-align: right;">3</td>
-<td>Les coordonnées et les indicateurs de disponibilité sont très visuels.</td>
+<td>Histogrammes, nuages de points et cartes</td>
 </tr>
 <tr class="even">
 <td>Potentiel de statistique descriptive</td>
 <td style="text-align: right;">3</td>
-<td>Les résumés par capacité, disponibilité et proportions sont directs.</td>
+<td>Résumés naturels de capacité et disponibilité</td>
 </tr>
 <tr class="odd">
 <td>Potentiel d’inférence</td>
-<td style="text-align: right;">2</td>
-<td>Des comparaisons sont possibles, mais l’instantané limite la portée.</td>
+<td style="text-align: right;">1</td>
+<td>Un instantané seul limite fortement l’inférence</td>
 </tr>
 <tr class="even">
 <td>Potentiel de modélisation</td>
 <td style="text-align: right;">2</td>
-<td>Une modélisation exploratoire est possible avec prudence.</td>
+<td>Modélisation exploratoire possible avec plusieurs instantanés</td>
 </tr>
 <tr class="odd">
-<td>Potentiel de discussion éthique</td>
+<td>Potentiel éthique</td>
 <td style="text-align: right;">2</td>
-<td>Le jeu ouvre une discussion sur l’accès territorial aux services.</td>
+<td>Discussion sur l’accès territorial au service</td>
 </tr>
 <tr class="even">
-<td>Réutilisabilité dans plusieurs cours</td>
+<td>Réutilisabilité</td>
 <td style="text-align: right;">3</td>
-<td>Le jeu peut servir en importation, visualisation, cartographie et communication.</td>
+<td>Utile en importation, EDA, cartographie et communication</td>
 </tr>
 </tbody>
 </table>
@@ -5982,74 +6379,71 @@ Que peut-on conclure, et ne pas conclure, à partir d&#39;un instantané BIXI?
 </section>
 <section id="activité-courte" class="level2">
 <h2 class="anchored" data-anchor-id="activité-courte">Activité courte</h2>
-<p>En 30 à 45 minutes, demander aux personnes étudiantes de calculer le taux d’occupation des stations et de produire un histogramme ou un nuage de points entre capacité et vélos disponibles.</p>
+<p>En 30 à 45 minutes, calculer le taux d’occupation des stations, produire un histogramme et expliquer pourquoi un instantané ne mesure pas la demande.</p>
 </section>
 <section id="activité-longue" class="level2">
 <h2 class="anchored" data-anchor-id="activité-longue">Activité longue</h2>
-<p>En 2 à 3 heures, demander de construire un mini-rapport Quarto qui importe les deux flux GBFS, les joint, crée des indicateurs et discute les limites d’une analyse instantanée.</p>
-</section>
-<section id="projet-possible" class="level2">
-<h2 class="anchored" data-anchor-id="projet-possible">Projet possible</h2>
-<p>Construire un tableau de bord statique hebdomadaire à partir de plusieurs instantanés collectés à heures fixes. Le projet pourrait comparer des quartiers, mais il faudrait ajouter une source géographique fiable avant toute conclusion territoriale.</p>
-</section>
-<section id="questions-pédagogiques-possibles" class="level2">
-<h2 class="anchored" data-anchor-id="questions-pédagogiques-possibles">Questions pédagogiques possibles</h2>
-<ol type="1">
-<li>Quelle est l’unité statistique après jointure?</li>
-<li>Quelle variable peut servir de dénominateur pour comparer les stations?</li>
-<li>Une station de grande capacité a-t-elle nécessairement plus de vélos disponibles?</li>
-<li>Comment détecter les stations installées mais non disponibles à la location?</li>
-<li>Pourquoi un instantané ne permet-il pas d’estimer la demande quotidienne?</li>
-<li>Quels graphiques conviennent à la distribution du taux d’occupation?</li>
-<li>Quelles précautions faut-il prendre avec les coordonnées géographiques?</li>
-<li>Quelle information supplémentaire serait nécessaire pour comparer des quartiers?</li>
-</ol>
+<p>En 2 à 3 heures, produire un mini-rapport sur la disponibilité BIXI avec jointure GBFS, contrôle des coordonnées, carte filtrée et section de limites.</p>
 </section>
 <section id="code-r-minimal" class="level2">
 <h2 class="anchored" data-anchor-id="code-r-minimal">Code R minimal</h2>
+<p>À exécuter depuis la racine du projet.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(jsonlite)</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>station_information_url <span class="ot">&lt;-</span> <span class="st">&quot;https://gbfs.velobixi.com/gbfs/fr/station_information.json&quot;</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>station_status_url <span class="ot">&lt;-</span> <span class="st">&quot;https://gbfs.velobixi.com/gbfs/fr/station_status.json&quot;</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>station_information <span class="ot">&lt;-</span> <span class="fu">fromJSON</span>(station_information_url, <span class="at">flatten =</span> <span class="cn">TRUE</span>)<span class="sc">$</span>data<span class="sc">$</span>stations</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>station_status <span class="ot">&lt;-</span> <span class="fu">fromJSON</span>(station_status_url, <span class="at">flatten =</span> <span class="cn">TRUE</span>)<span class="sc">$</span>data<span class="sc">$</span>stations</span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>stations <span class="ot">&lt;-</span> station_information <span class="sc">|&gt;</span></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(station_status, <span class="at">by =</span> <span class="st">&quot;station_id&quot;</span>) <span class="sc">|&gt;</span></span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">taux_occupation =</span> num_bikes_available <span class="sc">/</span> capacity)</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load libraries</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Download, validate and prepare the official GBFS feeds</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">&quot;datasets/bixi/preparation.R&quot;</span>)</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Import prepared data</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>stations <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;data/processed/bixi/stations_bixi_snapshot.csv&quot;</span>,</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">show_col_types =</span> <span class="cn">FALSE</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>)</span>
 <span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(stations)</span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(stations, <span class="fu">aes</span>(<span class="at">x =</span> taux_occupation)) <span class="sc">+</span></span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="fl">0.1</span>, <span class="at">boundary =</span> <span class="dv">0</span>, <span class="at">fill =</span> <span class="st">&quot;#325EA8&quot;</span>, <span class="at">color =</span> <span class="st">&quot;white&quot;</span>) <span class="sc">+</span></span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">&quot;Taux d&#39;occupation instantané&quot;</span>,</span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">&quot;Nombre de stations&quot;</span>,</span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">&quot;Occupation instantanée des stations BIXI&quot;</span></span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Visualise station occupancy</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>stations <span class="sc">|&gt;</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(taux_occupation), capacity <span class="sc">&gt;</span> <span class="dv">0</span>) <span class="sc">|&gt;</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> taux_occupation)) <span class="sc">+</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="fl">0.05</span>, <span class="at">boundary =</span> <span class="dv">0</span>, <span class="at">fill =</span> <span class="st">&quot;#325EA8&quot;</span>, <span class="at">color =</span> <span class="st">&quot;white&quot;</span>) <span class="sc">+</span></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">&quot;Taux d&#39;occupation instantané&quot;</span>,</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">&quot;Nombre de stations&quot;</span>,</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">&quot;Occupation instantanée des stations BIXI&quot;</span>,</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="st">&quot;Un instantané ne mesure pas la demande quotidienne&quot;</span></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="limites-et-précautions" class="level2">
 <h2 class="anchored" data-anchor-id="limites-et-précautions">Limites et précautions</h2>
 <ul>
-<li>Les données décrivent un instantané, pas une journée complète.</li>
-<li>Les valeurs peuvent changer rapidement.</li>
-<li>La disponibilité observée ne mesure pas directement la demande.</li>
-<li>Les coordonnées ne suffisent pas à analyser l’équité territoriale sans données de contexte.</li>
-<li>Les stations temporairement indisponibles doivent être traitées explicitement.</li>
+<li>Les données changent rapidement; les résultats décrivent un instantané.</li>
+<li>Un faible nombre de vélos disponibles peut refléter une forte demande, un rééquilibrage incomplet ou un moment particulier de la journée.</li>
+<li>Les coordonnées <code>0,0</code> doivent être exclues avant toute carte.</li>
+<li>La disponibilité observée ne mesure ni les trajets, ni les arrivées, ni les départs.</li>
+<li>Les comparaisons territoriales exigent une source géographique et plusieurs observations temporelles.</li>
 </ul>
 </section>
 <section id="extensions" class="level2">
 <h2 class="anchored" data-anchor-id="extensions">Extensions</h2>
 <ul>
-<li>Extension intro : comparer les distributions de capacité et de vélos disponibles.</li>
-<li>Extension intermédiaire : créer un indicateur d’occupation et l’analyser par groupes de capacité.</li>
-<li>Extension avancée : collecter plusieurs instantanés et étudier la variabilité temporelle.</li>
-<li>Extension communication scientifique : produire une note méthodologique sur ce qu’un flux temps réel permet et ne permet pas de conclure.</li>
+<li>Comparer les petites, moyennes et grandes stations.</li>
+<li>Cartographier seulement les stations avec <code>coordonnees_valides == TRUE</code>.</li>
+<li>Collecter plusieurs instantanés et comparer matin, midi et soir.</li>
+<li>Étudier séparément les vélos électriques et classiques.</li>
+<li>Construire un tableau de bord statique avec horodatage visible.</li>
+</ul>
+</section>
+<section id="références-utilisées" class="level2">
+<h2 class="anchored" data-anchor-id="références-utilisées">Références utilisées</h2>
+<ul>
+<li>Données Québec. 2026. État des stations. <a href="https://www.donneesquebec.ca/recherche/dataset/vmtl-bixi-etat-des-stations" class="uri">https://www.donneesquebec.ca/recherche/dataset/vmtl-bixi-etat-des-stations</a></li>
+<li>Données Québec. 2026. API CKAN, paquet <code>vmtl-bixi-etat-des-stations</code>. <a href="https://www.donneesquebec.ca/recherche/api/3/action/package_show?id=vmtl-bixi-etat-des-stations" class="uri">https://www.donneesquebec.ca/recherche/api/3/action/package_show?id=vmtl-bixi-etat-des-stations</a></li>
+<li>BIXI Montréal. 2026. Flux GBFS de découverte. <a href="https://gbfs.velobixi.com/gbfs/gbfs.json" class="uri">https://gbfs.velobixi.com/gbfs/gbfs.json</a></li>
+<li>BIXI Montréal. 2026. Flux GBFS <code>station_information</code>. <a href="https://gbfs.velobixi.com/gbfs/fr/station_information.json" class="uri">https://gbfs.velobixi.com/gbfs/fr/station_information.json</a></li>
+<li>BIXI Montréal. 2026. Flux GBFS <code>station_status</code>. <a href="https://gbfs.velobixi.com/gbfs/fr/station_status.json" class="uri">https://gbfs.velobixi.com/gbfs/fr/station_status.json</a></li>
 </ul>
 </section>
 </div>

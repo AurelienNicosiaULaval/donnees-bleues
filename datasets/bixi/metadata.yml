@@ -2,36 +2,80 @@ id: bixi
 title: "État des stations BIXI"
 short_title: "BIXI"
 theme: "Mobilité urbaine"
-source_name: "BIXI Montréal"
+source_name: "BIXI Montréal / Données Québec"
 source_url: "https://www.donneesquebec.ca/recherche/dataset/vmtl-bixi-etat-des-stations"
-license: "Attribution (CC-BY 4.0)"
-access_date: "2026-06-01"
+source_api_url: "https://www.donneesquebec.ca/recherche/api/3/action/package_show?id=vmtl-bixi-etat-des-stations"
+gbfs_discovery_url: "https://gbfs.velobixi.com/gbfs/gbfs.json"
+station_information_url: "https://gbfs.velobixi.com/gbfs/fr/station_information.json"
+station_status_url: "https://gbfs.velobixi.com/gbfs/fr/station_status.json"
+license: "Attribution (CC-BY 4.0) selon les métadonnées CKAN vérifiées le 2026-06-21"
+access_date: "2026-06-21"
 geography: "Montréal"
-unit: "Station BIXI à un instant donné"
-data_type: "Tabulaire, géographique, flux temps réel"
-format: "GBFS JSON"
-n_rows: "1065 stations observées le 2026-06-01"
-n_cols: "25 variables avant sélection dans le script de préparation"
-update_frequency: "Flux GBFS temps réel; ttl de 10 secondes observé dans station_status le 2026-06-19"
+unit: "Station BIXI dans un instantané du flux GBFS"
+data_type: "Tabulaire, géographique et opérationnel, issu de flux JSON temps réel"
+format: "GBFS JSON préparé localement en CSV"
+n_rows: "1 084 stations dans l'instantané préparé le 2026-06-21 à 08:20 EDT"
+n_cols: "13 champs dans station_information; 13 champs dans station_status; 28 colonnes préparées"
+processed_file: "data/processed/bixi/stations_bixi_snapshot.csv"
+capacity_summary_file: "data/processed/bixi/resume_groupes_capacite_bixi.csv"
+operation_summary_file: "data/processed/bixi/resume_operation_bixi.csv"
+missing_summary_file: "data/processed/bixi/valeurs_manquantes_bixi.csv"
+update_frequency: "Flux GBFS temps réel; ttl de 10 secondes observé dans les flux le 2026-06-21"
 level: "Introduction à intermédiaire"
+organisme: "BIXI Montréal"
+territoire: "Montréal"
+taille_approximative: "1 084 stations; capacité totale 24 183 bornes; 10 800 vélos disponibles dans l'instantané"
+niveau_pedagogique_recommande: "Introduction à intermédiaire"
+variables_principales:
+  - station_id
+  - name
+  - lat
+  - lon
+  - capacity
+  - groupe_capacite
+  - num_bikes_available
+  - num_bikes_classic_available
+  - num_ebikes_available
+  - num_docks_available
+  - taux_occupation
+  - taux_bornes_libres
+  - part_velos_electriques
+  - etat_operationnel
+  - coordonnees_valides
+idees_mini_projets:
+  - "Décrire la disponibilité instantanée des vélos selon la capacité des stations."
+  - "Construire une carte de disponibilité en filtrant les coordonnées invalides."
+  - "Comparer plusieurs instantanés collectés à heures fixes pour étudier la variabilité temporelle."
+tags:
+  - BIXI
+  - Montréal
+  - mobilité
+  - vélopartage
+  - GBFS
+  - JSON
+  - temps réel
+  - cartographie
 concepts:
   - importation JSON
+  - flux GBFS
   - jointure
+  - indicateurs opérationnels
+  - ratios
+  - coordonnées invalides
   - visualisation
-  - carte
-  - statistique descriptive
-  - indicateur opérationnel
-  - communication
+  - limites d'un instantané
 zero_waste:
   contexte_quebecois: 3
   accessibilite_pedagogique: 3
-  qualite_documentaire: 2
+  qualite_documentaire: 3
   potentiel_nettoyage: 2
   potentiel_visualisation: 3
   potentiel_statistique_descriptive: 3
-  potentiel_inference: 2
+  potentiel_inference: 1
   potentiel_modelisation: 2
   potentiel_ethique: 2
   reutilisabilite: 3
-status: "source vérifiée"
-notes: "Les données utilisées dans le MVP proviennent des flux GBFS station_information et station_status."
+status: "source officielle vérifiée; flux GBFS préparés localement"
+notes: "Le flux est dynamique. Les résultats documentent un instantané et ne doivent pas être interprétés comme une mesure de demande quotidienne ou saisonnière."
+contributor_name: "Aurélien Nicosia"
+contributor_role: "Révision pédagogique et statistique"

@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>BIXI - activité longue – Données bleues</title>
+<title>Mini-projet - Rapport BIXI sur un instantané GBFS – Données bleues</title>
 <style>
 
 code{white-space: pre-wrap;}
@@ -5482,13 +5482,13 @@ grid-template-columns: 1fr;
     <h2 id="toc-title">On this page</h2>
 
   <ul>
-  <li><a href="#bixi---activité-longue" id="toc-bixi---activité-longue" class="nav-link active" data-scroll-target="#bixi---activité-longue">BIXI - activité longue</a>
+  <li><a href="#mini-projet---rapport-bixi-sur-un-instantané-gbfs" id="toc-mini-projet---rapport-bixi-sur-un-instantané-gbfs" class="nav-link active" data-scroll-target="#mini-projet---rapport-bixi-sur-un-instantané-gbfs">Mini-projet - Rapport BIXI sur un instantané GBFS</a>
   <ul class="collapse">
-  <li><a href="#mise-en-situation-professionnelle" id="toc-mise-en-situation-professionnelle" class="nav-link" data-scroll-target="#mise-en-situation-professionnelle">Mise en situation professionnelle</a></li>
-  <li><a href="#livrable-attendu" id="toc-livrable-attendu" class="nav-link" data-scroll-target="#livrable-attendu">Livrable attendu</a></li>
-  <li><a href="#étapes" id="toc-étapes" class="nav-link" data-scroll-target="#étapes">Étapes</a></li>
-  <li><a href="#critères-dévaluation" id="toc-critères-dévaluation" class="nav-link" data-scroll-target="#critères-dévaluation">Critères d’évaluation</a></li>
-  <li><a href="#questions-danalyse" id="toc-questions-danalyse" class="nav-link" data-scroll-target="#questions-danalyse">Questions d’analyse</a></li>
+  <li><a href="#contexte" id="toc-contexte" class="nav-link" data-scroll-target="#contexte">Contexte</a></li>
+  <li><a href="#question-directrice" id="toc-question-directrice" class="nav-link" data-scroll-target="#question-directrice">Question directrice</a></li>
+  <li><a href="#livrables" id="toc-livrables" class="nav-link" data-scroll-target="#livrables">Livrables</a></li>
+  <li><a href="#étapes-suggérées" id="toc-étapes-suggérées" class="nav-link" data-scroll-target="#étapes-suggérées">Étapes suggérées</a></li>
+  <li><a href="#critères-dévaluation-suggérés" id="toc-critères-dévaluation-suggérés" class="nav-link" data-scroll-target="#critères-dévaluation-suggérés">Critères d’évaluation suggérés</a></li>
   <li><a href="#pistes-de-solution" id="toc-pistes-de-solution" class="nav-link" data-scroll-target="#pistes-de-solution">Pistes de solution</a></li>
   <li><a href="#variantes-possibles" id="toc-variantes-possibles" class="nav-link" data-scroll-target="#variantes-possibles">Variantes possibles</a></li>
   </ul></li>
@@ -5500,7 +5500,7 @@ grid-template-columns: 1fr;
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">BIXI - activité longue</h1>
+<h1 class="title">Mini-projet - Rapport BIXI sur un instantané GBFS</h1>
 </div>
 
 
@@ -5517,30 +5517,41 @@ grid-template-columns: 1fr;
 </header>
 
 
-<section id="bixi---activité-longue" class="level1">
-<h1>BIXI - activité longue</h1>
-<section id="mise-en-situation-professionnelle" class="level2">
-<h2 class="anchored" data-anchor-id="mise-en-situation-professionnelle">Mise en situation professionnelle</h2>
-<p>Une équipe pédagogique souhaite préparer une courte note sur l’état instantané d’un service de vélopartage. Votre rôle est de produire un mini-rapport reproductible qui décrit les stations, calcule des indicateurs simples et signale les limites d’interprétation.</p>
+<section id="mini-projet---rapport-bixi-sur-un-instantané-gbfs" class="level1">
+<h1>Mini-projet - Rapport BIXI sur un instantané GBFS</h1>
+<section id="contexte" class="level2">
+<h2 class="anchored" data-anchor-id="contexte">Contexte</h2>
+<p>Cette activité combine importation JSON, jointure, statistique descriptive, visualisation et cartographie responsable. Le rapport attendu doit montrer ce qu’un instantané BIXI permet de dire, mais aussi ce qu’il ne permet pas de conclure.</p>
 </section>
-<section id="livrable-attendu" class="level2">
-<h2 class="anchored" data-anchor-id="livrable-attendu">Livrable attendu</h2>
-<p>Un document Quarto de 3 à 5 pages contenant le code, les tableaux, au moins deux graphiques et une section de limites.</p>
+<section id="question-directrice" class="level2">
+<h2 class="anchored" data-anchor-id="question-directrice">Question directrice</h2>
+<p>Que peut-on conclure, et ne pas conclure, à partir d’un instantané des stations BIXI?</p>
 </section>
-<section id="étapes" class="level2">
-<h2 class="anchored" data-anchor-id="étapes">Étapes</h2>
+<section id="livrables" class="level2">
+<h2 class="anchored" data-anchor-id="livrables">Livrables</h2>
 <ol type="1">
-<li>Importer les flux GBFS.</li>
-<li>Joindre les informations de stations et l’état courant.</li>
-<li>Créer les variables <code>taux_occupation</code> et <code>part_velos_electriques</code>.</li>
-<li>Produire un tableau de résumé.</li>
-<li>Produire un histogramme du taux d’occupation.</li>
-<li>Produire une carte simple avec longitude et latitude.</li>
-<li>Rédiger une interprétation prudente.</li>
+<li>Un script reproductible qui exécute <code>datasets/bixi/preparation.R</code>.</li>
+<li>Un tableau des variables fixes et des variables instantanées.</li>
+<li>Un résumé des stations par groupe de capacité.</li>
+<li>Un histogramme du taux d’occupation.</li>
+<li>Une carte des stations avec coordonnées valides.</li>
+<li>Une section limites sur le temps réel, la demande et les coordonnées.</li>
 </ol>
 </section>
-<section id="critères-dévaluation" class="level2">
-<h2 class="anchored" data-anchor-id="critères-dévaluation">Critères d’évaluation</h2>
+<section id="étapes-suggérées" class="level2">
+<h2 class="anchored" data-anchor-id="étapes-suggérées">Étapes suggérées</h2>
+<ol type="1">
+<li>Importer la table préparée.</li>
+<li>Vérifier le nombre de lignes, le TTL et l’heure de l’instantané.</li>
+<li>Calculer les proportions de stations presque vides et presque pleines.</li>
+<li>Comparer les groupes de capacité.</li>
+<li>Filtrer <code>coordonnees_valides == TRUE</code> avant la carte.</li>
+<li>Décrire séparément les vélos classiques et électriques.</li>
+<li>Rédiger une conclusion qui distingue disponibilité, demande et service.</li>
+</ol>
+</section>
+<section id="critères-dévaluation-suggérés" class="level2">
+<h2 class="anchored" data-anchor-id="critères-dévaluation-suggérés">Critères d’évaluation suggérés</h2>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 50%">
@@ -5555,46 +5566,42 @@ grid-template-columns: 1fr;
 <tbody>
 <tr class="odd">
 <td>Reproductibilité</td>
-<td>Le rapport se rend sans modification.</td>
+<td>Le rapport exécute le script de préparation et importe la table préparée.</td>
 </tr>
 <tr class="even">
-<td>Nettoyage</td>
-<td>Les jointures et variables dérivées sont explicites.</td>
+<td>Jointure</td>
+<td>Le rôle de <code>station_id</code> est expliqué.</td>
 </tr>
 <tr class="odd">
-<td>Visualisation</td>
-<td>Les graphiques sont lisibles et adaptés.</td>
+<td>Indicateurs</td>
+<td>Les ratios utilisent des dénominateurs valides.</td>
 </tr>
 <tr class="even">
-<td>Interprétation</td>
-<td>Les limites d’un instantané sont claires.</td>
+<td>Visualisations</td>
+<td>Les graphiques sont lisibles et répondent à une question précise.</td>
 </tr>
 <tr class="odd">
-<td>Communication</td>
-<td>Les résultats principaux sont compréhensibles pour un lectorat non technique.</td>
+<td>Carte</td>
+<td>Les coordonnées invalides sont exclues avant la visualisation.</td>
+</tr>
+<tr class="even">
+<td>Limites</td>
+<td>L’instantané n’est pas interprété comme une mesure de demande.</td>
 </tr>
 </tbody>
 </table>
 </section>
-<section id="questions-danalyse" class="level2">
-<h2 class="anchored" data-anchor-id="questions-danalyse">Questions d’analyse</h2>
-<ol type="1">
-<li>Les stations de grande capacité ont-elles plus de vélos disponibles en valeur absolue?</li>
-<li>Les stations presque vides et presque pleines demandent-elles la même interprétation?</li>
-<li>Comment distinguer disponibilité opérationnelle et demande des usagers?</li>
-<li>Quelles données complémentaires seraient nécessaires pour une analyse temporelle?</li>
-</ol>
-</section>
 <section id="pistes-de-solution" class="level2">
 <h2 class="anchored" data-anchor-id="pistes-de-solution">Pistes de solution</h2>
-<p>Un bon rapport distingue les variables fixes de la station et les variables instantanées. Les cartes doivent être interprétées comme une visualisation de points, pas comme une analyse de quartiers.</p>
+<p>Un rapport solide commence par l’horodatage du flux. Il présente ensuite les indicateurs de disponibilité et leur dénominateur. La carte doit être utilisée comme visualisation descriptive de points, pas comme preuve d’équité territoriale. Pour parler de demande, il faudrait collecter plusieurs instantanés ou obtenir des données de trajets.</p>
 </section>
 <section id="variantes-possibles" class="level2">
 <h2 class="anchored" data-anchor-id="variantes-possibles">Variantes possibles</h2>
 <ul>
-<li>Comparer les vélos classiques et électriques.</li>
-<li>Filtrer les stations non disponibles à la location.</li>
-<li>Collecter deux instantanés à des moments différents et comparer les changements.</li>
+<li>Collecter trois instantanés dans la journée et comparer les changements.</li>
+<li>Comparer les stations avec et sans vélos électriques disponibles.</li>
+<li>Ajouter une couche géographique de quartiers documentée séparément.</li>
+<li>Construire une note méthodologique pour un tableau de bord opérationnel.</li>
 </ul>
 
 

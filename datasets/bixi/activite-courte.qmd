@@ -1,46 +1,48 @@
 ---
-title: "BIXI - activité courte"
+title: "Laboratoire - Disponibilité instantanée des stations BIXI"
 embed-resources: true
 ---
 
-# BIXI - activité courte
+# Laboratoire - Disponibilité instantanée des stations BIXI
 
 ## Contexte
 
-Vous disposez d'un instantané des stations BIXI. L'objectif est de résumer la disponibilité des vélos sans confondre un état instantané avec une mesure de fréquentation.
+Cette activité utilise la fiche [État des stations BIXI](fiche.qmd). L'objectif est de résumer un instantané de disponibilité sans le confondre avec une mesure de demande.
 
 ## Objectifs d'apprentissage
 
-- Importer deux flux JSON.
-- Réaliser une jointure par identifiant.
-- Calculer un indicateur de proportion.
-- Produire un graphique descriptif.
+- Exécuter un script qui importe deux flux JSON GBFS.
+- Joindre des tables par `station_id`.
+- Calculer un ratio avec un dénominateur pertinent.
+- Produire un histogramme descriptif.
+- Nommer une limite liée aux données temps réel.
 
-## Données utilisées
+## Question directrice
 
-Source : BIXI Montréal, État des stations, publié sur Données Québec sous licence Attribution (CC-BY 4.0). Fiche : [État des stations BIXI](fiche.qmd).
+Comment décrire la disponibilité des vélos BIXI dans un instantané?
 
 ## Consignes
 
-1. Importer `station_information.json` et `station_status.json`.
-2. Joindre les deux tables avec `station_id`.
-3. Calculer `taux_occupation = num_bikes_available / capacity`.
-4. Produire un histogramme du taux d'occupation.
-5. Identifier une limite importante de l'analyse.
+1. Exécuter `datasets/bixi/preparation.R`.
+2. Importer `data/processed/bixi/stations_bixi_snapshot.csv`.
+3. Garder les stations avec `capacity > 0`.
+4. Visualiser la distribution de `taux_occupation`.
+5. Calculer la proportion de stations sous 25 % d'occupation.
+6. Identifier les stations sans vélo disponible.
+7. Rédiger une interprétation de 6 à 8 lignes.
+
+## Résultats attendus
+
+Le script de préparation vérifie le paquet CKAN, le fichier de découverte GBFS, les flux `station_information` et `station_status`, puis produit une table avec une ligne par station. Dans l'instantané préparé le 2026-06-21 à 08:20 EDT, la table contient 1 084 stations et 28 colonnes préparées.
 
 ## Questions
 
-1. Combien de stations sont présentes dans l'instantané?
-2. Quelle est la capacité médiane des stations?
-3. Quelle proportion de stations a un taux d'occupation inférieur à 25 %?
-4. Le graphique suggère-t-il une distribution symétrique?
-5. Quelle conclusion serait injustifiée avec ces données?
+1. Quelle est l'unité statistique après la jointure?
+2. Pourquoi `capacity` est-elle un bon dénominateur pour comparer les stations?
+3. Que signifie une station avec `taux_occupation == 0`?
+4. Pourquoi faut-il filtrer les coordonnées `0,0` avant une carte?
+5. Quelle conclusion serait trop forte avec un seul instantané?
 
 ## Pistes de solution
 
-Le résultat attendu est un tableau joint contenant une ligne par station. Le taux d'occupation devrait être interprété comme une mesure instantanée. Une conclusion sur la demande quotidienne serait injustifiée sans données temporelles répétées.
-
-## Prolongement
-
-Créer un nuage de points entre `capacity` et `num_bikes_available`, puis commenter les stations qui semblent atypiques.
-
+Une bonne réponse distingue disponibilité instantanée et demande. Une réponse plus solide signale aussi que les stations non installées et les coordonnées invalides doivent être traitées avant toute visualisation spatiale.

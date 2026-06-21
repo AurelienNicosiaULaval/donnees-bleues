@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>BIXI - activité courte – Données bleues</title>
+<title>Laboratoire - Disponibilité instantanée des stations BIXI – Données bleues</title>
 <style>
 
 code{white-space: pre-wrap;}
@@ -5482,15 +5482,15 @@ grid-template-columns: 1fr;
     <h2 id="toc-title">On this page</h2>
 
   <ul>
-  <li><a href="#bixi---activité-courte" id="toc-bixi---activité-courte" class="nav-link active" data-scroll-target="#bixi---activité-courte">BIXI - activité courte</a>
+  <li><a href="#laboratoire---disponibilité-instantanée-des-stations-bixi" id="toc-laboratoire---disponibilité-instantanée-des-stations-bixi" class="nav-link active" data-scroll-target="#laboratoire---disponibilité-instantanée-des-stations-bixi">Laboratoire - Disponibilité instantanée des stations BIXI</a>
   <ul class="collapse">
   <li><a href="#contexte" id="toc-contexte" class="nav-link" data-scroll-target="#contexte">Contexte</a></li>
   <li><a href="#objectifs-dapprentissage" id="toc-objectifs-dapprentissage" class="nav-link" data-scroll-target="#objectifs-dapprentissage">Objectifs d’apprentissage</a></li>
-  <li><a href="#données-utilisées" id="toc-données-utilisées" class="nav-link" data-scroll-target="#données-utilisées">Données utilisées</a></li>
+  <li><a href="#question-directrice" id="toc-question-directrice" class="nav-link" data-scroll-target="#question-directrice">Question directrice</a></li>
   <li><a href="#consignes" id="toc-consignes" class="nav-link" data-scroll-target="#consignes">Consignes</a></li>
+  <li><a href="#résultats-attendus" id="toc-résultats-attendus" class="nav-link" data-scroll-target="#résultats-attendus">Résultats attendus</a></li>
   <li><a href="#questions" id="toc-questions" class="nav-link" data-scroll-target="#questions">Questions</a></li>
   <li><a href="#pistes-de-solution" id="toc-pistes-de-solution" class="nav-link" data-scroll-target="#pistes-de-solution">Pistes de solution</a></li>
-  <li><a href="#prolongement" id="toc-prolongement" class="nav-link" data-scroll-target="#prolongement">Prolongement</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -5500,7 +5500,7 @@ grid-template-columns: 1fr;
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">BIXI - activité courte</h1>
+<h1 class="title">Laboratoire - Disponibilité instantanée des stations BIXI</h1>
 </div>
 
 
@@ -5517,52 +5517,55 @@ grid-template-columns: 1fr;
 </header>
 
 
-<section id="bixi---activité-courte" class="level1">
-<h1>BIXI - activité courte</h1>
+<section id="laboratoire---disponibilité-instantanée-des-stations-bixi" class="level1">
+<h1>Laboratoire - Disponibilité instantanée des stations BIXI</h1>
 <section id="contexte" class="level2">
 <h2 class="anchored" data-anchor-id="contexte">Contexte</h2>
-<p>Vous disposez d’un instantané des stations BIXI. L’objectif est de résumer la disponibilité des vélos sans confondre un état instantané avec une mesure de fréquentation.</p>
+<p>Cette activité utilise la fiche <a href="../../datasets/bixi/fiche.html">État des stations BIXI</a>. L’objectif est de résumer un instantané de disponibilité sans le confondre avec une mesure de demande.</p>
 </section>
 <section id="objectifs-dapprentissage" class="level2">
 <h2 class="anchored" data-anchor-id="objectifs-dapprentissage">Objectifs d’apprentissage</h2>
 <ul>
-<li>Importer deux flux JSON.</li>
-<li>Réaliser une jointure par identifiant.</li>
-<li>Calculer un indicateur de proportion.</li>
-<li>Produire un graphique descriptif.</li>
+<li>Exécuter un script qui importe deux flux JSON GBFS.</li>
+<li>Joindre des tables par <code>station_id</code>.</li>
+<li>Calculer un ratio avec un dénominateur pertinent.</li>
+<li>Produire un histogramme descriptif.</li>
+<li>Nommer une limite liée aux données temps réel.</li>
 </ul>
 </section>
-<section id="données-utilisées" class="level2">
-<h2 class="anchored" data-anchor-id="données-utilisées">Données utilisées</h2>
-<p>Source : BIXI Montréal, État des stations, publié sur Données Québec sous licence Attribution (CC-BY 4.0). Fiche : <a href="../../datasets/bixi/fiche.html">État des stations BIXI</a>.</p>
+<section id="question-directrice" class="level2">
+<h2 class="anchored" data-anchor-id="question-directrice">Question directrice</h2>
+<p>Comment décrire la disponibilité des vélos BIXI dans un instantané?</p>
 </section>
 <section id="consignes" class="level2">
 <h2 class="anchored" data-anchor-id="consignes">Consignes</h2>
 <ol type="1">
-<li>Importer <code>station_information.json</code> et <code>station_status.json</code>.</li>
-<li>Joindre les deux tables avec <code>station_id</code>.</li>
-<li>Calculer <code>taux_occupation = num_bikes_available / capacity</code>.</li>
-<li>Produire un histogramme du taux d’occupation.</li>
-<li>Identifier une limite importante de l’analyse.</li>
+<li>Exécuter <code>datasets/bixi/preparation.R</code>.</li>
+<li>Importer <code>data/processed/bixi/stations_bixi_snapshot.csv</code>.</li>
+<li>Garder les stations avec <code>capacity &gt; 0</code>.</li>
+<li>Visualiser la distribution de <code>taux_occupation</code>.</li>
+<li>Calculer la proportion de stations sous 25 % d’occupation.</li>
+<li>Identifier les stations sans vélo disponible.</li>
+<li>Rédiger une interprétation de 6 à 8 lignes.</li>
 </ol>
+</section>
+<section id="résultats-attendus" class="level2">
+<h2 class="anchored" data-anchor-id="résultats-attendus">Résultats attendus</h2>
+<p>Le script de préparation vérifie le paquet CKAN, le fichier de découverte GBFS, les flux <code>station_information</code> et <code>station_status</code>, puis produit une table avec une ligne par station. Dans l’instantané préparé le 2026-06-21 à 08:20 EDT, la table contient 1 084 stations et 28 colonnes préparées.</p>
 </section>
 <section id="questions" class="level2">
 <h2 class="anchored" data-anchor-id="questions">Questions</h2>
 <ol type="1">
-<li>Combien de stations sont présentes dans l’instantané?</li>
-<li>Quelle est la capacité médiane des stations?</li>
-<li>Quelle proportion de stations a un taux d’occupation inférieur à 25 %?</li>
-<li>Le graphique suggère-t-il une distribution symétrique?</li>
-<li>Quelle conclusion serait injustifiée avec ces données?</li>
+<li>Quelle est l’unité statistique après la jointure?</li>
+<li>Pourquoi <code>capacity</code> est-elle un bon dénominateur pour comparer les stations?</li>
+<li>Que signifie une station avec <code>taux_occupation == 0</code>?</li>
+<li>Pourquoi faut-il filtrer les coordonnées <code>0,0</code> avant une carte?</li>
+<li>Quelle conclusion serait trop forte avec un seul instantané?</li>
 </ol>
 </section>
 <section id="pistes-de-solution" class="level2">
 <h2 class="anchored" data-anchor-id="pistes-de-solution">Pistes de solution</h2>
-<p>Le résultat attendu est un tableau joint contenant une ligne par station. Le taux d’occupation devrait être interprété comme une mesure instantanée. Une conclusion sur la demande quotidienne serait injustifiée sans données temporelles répétées.</p>
-</section>
-<section id="prolongement" class="level2">
-<h2 class="anchored" data-anchor-id="prolongement">Prolongement</h2>
-<p>Créer un nuage de points entre <code>capacity</code> et <code>num_bikes_available</code>, puis commenter les stations qui semblent atypiques.</p>
+<p>Une bonne réponse distingue disponibilité instantanée et demande. Une réponse plus solide signale aussi que les stations non installées et les coordonnées invalides doivent être traitées avant toute visualisation spatiale.</p>
 
 
 </section>
