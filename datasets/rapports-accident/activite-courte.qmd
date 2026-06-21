@@ -1,60 +1,48 @@
 ---
-title: "Décrire la gravité des accidents"
+title: "Laboratoire - Gravité des accidents par mois"
 embed-resources: true
 ---
 
-# Décrire la gravité des accidents
+# Laboratoire - Gravité des accidents par mois
 
 ## Contexte
 
-Cette activité introduit l'analyse de variables catégorielles dans un contexte de sécurité routière.
+Cette activité utilise la fiche [Rapports d'accident](fiche.qmd). L'objectif est de construire un tableau descriptif de gravité sans transformer des fréquences d'accidents en mesures de risque.
 
 ## Objectifs d'apprentissage
 
-- Importer un CSV annuel
-- Créer un tableau croisé
-- Visualiser une distribution catégorielle
+- Exécuter un script de préparation à partir d'une source officielle.
+- Importer une table préparée.
+- Créer un tableau croisé de variables catégorielles.
+- Visualiser une proportion mensuelle.
+- Formuler une limite liée à l'absence de dénominateur d'exposition.
 
-## Données utilisées
+## Question directrice
 
-Fiche : [Rapports d'accident](fiche.qmd)
-
-Source : Données Québec / Société de l'assurance automobile du Québec.
-
-Licence : Attribution (CC-BY 4.0).
-
-## Métadonnées pédagogiques
-
-| Champ | Information |
-|---|---|
-| Question directrice | Comment la gravité varie-t-elle selon le mois ou la météo? |
-| Concepts | Tableaux croisés; Visualisation; Variables catégorielles |
-| Niveau | Intermédiaire |
-| Type | Exercice; Exploration de données |
-| Contexte | Transport et sécurité routière |
-| Accroche | Sécurité routière |
-| Durée | 30-45 minutes |
-| Matériel | énoncé; code; données |
-| Math/stats avancées | non |
+Comment la gravité observée varie-t-elle selon le mois dans les rapports d'accident 2022?
 
 ## Consignes
 
-1. Choisir une année
-2. Importer le CSV
-3. Consulter la documentation des codes
-4. Compter les accidents par gravité et mois
-5. Interpréter prudemment
+1. Exécuter `datasets/rapports-accident/preparation.R`.
+2. Importer `data/processed/rapports-accident/rapports_accident_2022_prepares.csv`.
+3. Vérifier le nombre de lignes et les quatre niveaux de `gravite`.
+4. Calculer le nombre d'accidents par mois et par gravité.
+5. Calculer la proportion mensuelle d'accidents avec victime.
+6. Produire un graphique à barres.
+7. Rédiger une interprétation de 6 à 8 lignes.
+
+## Résultats attendus
+
+Le script de préparation vérifie 108 186 rapports pour l'année 2022, 25 champs sources et 42 colonnes préparées. Il produit aussi des résumés par gravité, mois, région et météo.
 
 ## Questions
 
 1. Quelle est l'unité statistique?
-2. Quels codes doivent être recodés?
-3. Qu'est-ce qui manque pour parler de risque?
+2. Pourquoi `NB_VICTIMES_TOTAL == 9` ne doit-il pas être additionné comme neuf victimes?
+3. Quels mois ont les proportions les plus élevées d'accidents avec victime?
+4. Pourquoi ces proportions ne sont-elles pas des risques mensuels?
+5. Quel dénominateur faudrait-il pour parler de risque routier?
 
 ## Pistes de solution
 
-Une solution acceptable présente les fréquences par gravité et mentionne l'absence de dénominateur d'exposition.
-
-## Prolongement
-
-Ajouter la condition météo comme variable de facettage.
+Une bonne réponse présente les fréquences et les proportions. Une réponse plus solide explique que les mois diffèrent aussi par la circulation, les trajets, les activités et les conditions d'exposition, qui ne sont pas dans ce fichier.

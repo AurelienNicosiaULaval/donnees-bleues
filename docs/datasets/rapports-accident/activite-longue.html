@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Explorer les facteurs associés à la gravité – Données bleues</title>
+<title>Mini-projet - Modéliser prudemment la gravité des accidents – Données bleues</title>
 <style>
 
 code{white-space: pre-wrap;}
@@ -5482,16 +5482,15 @@ grid-template-columns: 1fr;
     <h2 id="toc-title">On this page</h2>
 
   <ul>
-  <li><a href="#explorer-les-facteurs-associés-à-la-gravité" id="toc-explorer-les-facteurs-associés-à-la-gravité" class="nav-link active" data-scroll-target="#explorer-les-facteurs-associés-à-la-gravité">Explorer les facteurs associés à la gravité</a>
+  <li><a href="#mini-projet---modéliser-prudemment-la-gravité-des-accidents" id="toc-mini-projet---modéliser-prudemment-la-gravité-des-accidents" class="nav-link active" data-scroll-target="#mini-projet---modéliser-prudemment-la-gravité-des-accidents">Mini-projet - Modéliser prudemment la gravité des accidents</a>
   <ul class="collapse">
   <li><a href="#contexte" id="toc-contexte" class="nav-link" data-scroll-target="#contexte">Contexte</a></li>
-  <li><a href="#objectifs-dapprentissage" id="toc-objectifs-dapprentissage" class="nav-link" data-scroll-target="#objectifs-dapprentissage">Objectifs d’apprentissage</a></li>
-  <li><a href="#données-utilisées" id="toc-données-utilisées" class="nav-link" data-scroll-target="#données-utilisées">Données utilisées</a></li>
-  <li><a href="#métadonnées-pédagogiques" id="toc-métadonnées-pédagogiques" class="nav-link" data-scroll-target="#métadonnées-pédagogiques">Métadonnées pédagogiques</a></li>
-  <li><a href="#consignes" id="toc-consignes" class="nav-link" data-scroll-target="#consignes">Consignes</a></li>
-  <li><a href="#questions" id="toc-questions" class="nav-link" data-scroll-target="#questions">Questions</a></li>
+  <li><a href="#question-directrice" id="toc-question-directrice" class="nav-link" data-scroll-target="#question-directrice">Question directrice</a></li>
+  <li><a href="#livrables" id="toc-livrables" class="nav-link" data-scroll-target="#livrables">Livrables</a></li>
+  <li><a href="#étapes-suggérées" id="toc-étapes-suggérées" class="nav-link" data-scroll-target="#étapes-suggérées">Étapes suggérées</a></li>
+  <li><a href="#critères-dévaluation-suggérés" id="toc-critères-dévaluation-suggérés" class="nav-link" data-scroll-target="#critères-dévaluation-suggérés">Critères d’évaluation suggérés</a></li>
   <li><a href="#pistes-de-solution" id="toc-pistes-de-solution" class="nav-link" data-scroll-target="#pistes-de-solution">Pistes de solution</a></li>
-  <li><a href="#prolongement" id="toc-prolongement" class="nav-link" data-scroll-target="#prolongement">Prolongement</a></li>
+  <li><a href="#variantes-possibles" id="toc-variantes-possibles" class="nav-link" data-scroll-target="#variantes-possibles">Variantes possibles</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -5501,7 +5500,7 @@ grid-template-columns: 1fr;
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Explorer les facteurs associés à la gravité</h1>
+<h1 class="title">Mini-projet - Modéliser prudemment la gravité des accidents</h1>
 </div>
 
 
@@ -5518,28 +5517,41 @@ grid-template-columns: 1fr;
 </header>
 
 
-<section id="explorer-les-facteurs-associés-à-la-gravité" class="level1">
-<h1>Explorer les facteurs associés à la gravité</h1>
+<section id="mini-projet---modéliser-prudemment-la-gravité-des-accidents" class="level1">
+<h1>Mini-projet - Modéliser prudemment la gravité des accidents</h1>
 <section id="contexte" class="level2">
 <h2 class="anchored" data-anchor-id="contexte">Contexte</h2>
-<p>Cette activité utilise des données administratives volumineuses pour discuter d’association, de modèle et de limites.</p>
+<p>Cette activité combine recodage, statistique descriptive, visualisation et modélisation exploratoire. Le rapport attendu doit distinguer clairement association statistique, fréquence de rapports et risque routier.</p>
 </section>
-<section id="objectifs-dapprentissage" class="level2">
-<h2 class="anchored" data-anchor-id="objectifs-dapprentissage">Objectifs d’apprentissage</h2>
-<ul>
-<li>Préparer des variables catégorielles</li>
-<li>Construire un modèle simple</li>
-<li>Évaluer les limites d’interprétation</li>
-</ul>
+<section id="question-directrice" class="level2">
+<h2 class="anchored" data-anchor-id="question-directrice">Question directrice</h2>
+<p>Quels facteurs sont associés à la gravité des accidents dans le fichier 2022, sans conclure trop vite à la causalité?</p>
 </section>
-<section id="données-utilisées" class="level2">
-<h2 class="anchored" data-anchor-id="données-utilisées">Données utilisées</h2>
-<p>Fiche : <a href="../../datasets/rapports-accident/fiche.html">Rapports d’accident</a></p>
-<p>Source : Données Québec / Société de l’assurance automobile du Québec.</p>
-<p>Licence : Attribution (CC-BY 4.0).</p>
+<section id="livrables" class="level2">
+<h2 class="anchored" data-anchor-id="livrables">Livrables</h2>
+<ol type="1">
+<li>Un script reproductible qui exécute <code>datasets/rapports-accident/preparation.R</code>.</li>
+<li>Un tableau de variables indiquant leur rôle statistique.</li>
+<li>Un résumé descriptif par gravité, mois, météo et région.</li>
+<li>Deux visualisations, dont au moins une proportion.</li>
+<li>Un modèle exploratoire pour <code>accident_avec_victime</code> ou <code>accident_mortel_ou_grave</code>.</li>
+<li>Une section limites sur les codes, les valeurs manquantes, l’exposition et la causalité.</li>
+</ol>
 </section>
-<section id="métadonnées-pédagogiques" class="level2">
-<h2 class="anchored" data-anchor-id="métadonnées-pédagogiques">Métadonnées pédagogiques</h2>
+<section id="étapes-suggérées" class="level2">
+<h2 class="anchored" data-anchor-id="étapes-suggérées">Étapes suggérées</h2>
+<ol type="1">
+<li>Importer la table préparée.</li>
+<li>Vérifier les valeurs manquantes des variables explicatives retenues.</li>
+<li>Exclure ou regrouper les catégories rares avec justification.</li>
+<li>Construire un tableau descriptif avant le modèle.</li>
+<li>Ajuster un modèle simple, par exemple une régression logistique.</li>
+<li>Présenter les résultats comme des associations.</li>
+<li>Rédiger une conclusion qui nomme les données manquantes pour parler de risque.</li>
+</ol>
+</section>
+<section id="critères-dévaluation-suggérés" class="level2">
+<h2 class="anchored" data-anchor-id="critères-dévaluation-suggérés">Critères d’évaluation suggérés</h2>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 50%">
@@ -5547,75 +5559,50 @@ grid-template-columns: 1fr;
 </colgroup>
 <thead>
 <tr class="header">
-<th>Champ</th>
-<th>Information</th>
+<th>Critère</th>
+<th>Attendu</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>Question directrice</td>
-<td>Quels facteurs sont associés à la gravité des accidents, sans conclure trop vite à la causalité?</td>
+<td>Reproductibilité</td>
+<td>Le rapport exécute le script de préparation et importe la table préparée.</td>
 </tr>
 <tr class="even">
-<td>Concepts</td>
-<td>Nettoyage; Modélisation; Validation</td>
+<td>Recodage</td>
+<td>Les codes de victimes, véhicules, météo et surface sont interprétés avec la documentation.</td>
 </tr>
 <tr class="odd">
-<td>Niveau</td>
-<td>Intermédiaire</td>
+<td>Description</td>
+<td>Les distributions sont présentées avant la modélisation.</td>
 </tr>
 <tr class="even">
-<td>Type</td>
-<td>Projet ou tâche longue; Étude de cas</td>
+<td>Modèle</td>
+<td>La variable réponse est définie explicitement.</td>
 </tr>
 <tr class="odd">
-<td>Contexte</td>
-<td>Transport et sécurité routière</td>
+<td>Interprétation</td>
+<td>Les coefficients ne sont pas présentés comme des effets causaux.</td>
 </tr>
 <tr class="even">
-<td>Accroche</td>
-<td>Décision publique et sécurité</td>
-</tr>
-<tr class="odd">
-<td>Durée</td>
-<td>2-3 heures</td>
-</tr>
-<tr class="even">
-<td>Matériel</td>
-<td>énoncé; code; données; notes enseignantes</td>
-</tr>
-<tr class="odd">
-<td>Math/stats avancées</td>
-<td>oui</td>
+<td>Limites</td>
+<td>L’absence de dénominateur d’exposition est clairement expliquée.</td>
 </tr>
 </tbody>
 </table>
 </section>
-<section id="consignes" class="level2">
-<h2 class="anchored" data-anchor-id="consignes">Consignes</h2>
-<ol type="1">
-<li>Sélectionner une ou deux années</li>
-<li>Recoder les variables documentées</li>
-<li>Définir une variable de gravité</li>
-<li>Ajuster un modèle simple</li>
-<li>Rédiger une interprétation prudente</li>
-</ol>
-</section>
-<section id="questions" class="level2">
-<h2 class="anchored" data-anchor-id="questions">Questions</h2>
-<ol type="1">
-<li>Quels biais de sélection sont possibles?</li>
-<li>Quelle variable représente le temps?</li>
-<li>Quels résultats seraient utiles pour la prévention?</li>
-</ol>
-</section>
 <section id="pistes-de-solution" class="level2">
 <h2 class="anchored" data-anchor-id="pistes-de-solution">Pistes de solution</h2>
-<p>Un bon rapport présente une analyse descriptive avant le modèle et distingue association et causalité.</p>
+<p>Un rapport solide peut modéliser <code>accident_avec_victime</code> avec <code>mois</code>, <code>meteo</code>, <code>surface</code>, <code>eclairement</code> et <code>type_jour</code>, mais il doit filtrer ou documenter les valeurs manquantes. Les résultats doivent être lus comme des associations dans les rapports d’accident 2022, pas comme une mesure du danger réel des conditions météo ou des régions.</p>
 </section>
-<section id="prolongement" class="level2">
-<h2 class="anchored" data-anchor-id="prolongement">Prolongement</h2>
-<p>Comparer deux années ou deux régions administratives.</p>
+<section id="variantes-possibles" class="level2">
+<h2 class="anchored" data-anchor-id="variantes-possibles">Variantes possibles</h2>
+<ul>
+<li>Limiter l’analyse aux accidents avec victime.</li>
+<li>Étudier séparément les accidents impliquant un vélo.</li>
+<li>Comparer deux régions en gardant une section sur les dénominateurs manquants.</li>
+<li>Ajouter des données de population ou de circulation pour transformer la question.</li>
+</ul>
 
 
 </section>

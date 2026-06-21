@@ -1,60 +1,55 @@
 ---
-title: "Explorer les facteurs associés à la gravité"
+title: "Mini-projet - Modéliser prudemment la gravité des accidents"
 embed-resources: true
 ---
 
-# Explorer les facteurs associés à la gravité
+# Mini-projet - Modéliser prudemment la gravité des accidents
 
 ## Contexte
 
-Cette activité utilise des données administratives volumineuses pour discuter d'association, de modèle et de limites.
+Cette activité combine recodage, statistique descriptive, visualisation et modélisation exploratoire. Le rapport attendu doit distinguer clairement association statistique, fréquence de rapports et risque routier.
 
-## Objectifs d'apprentissage
+## Question directrice
 
-- Préparer des variables catégorielles
-- Construire un modèle simple
-- Évaluer les limites d'interprétation
+Quels facteurs sont associés à la gravité des accidents dans le fichier 2022, sans conclure trop vite à la causalité?
 
-## Données utilisées
+## Livrables
 
-Fiche : [Rapports d'accident](fiche.qmd)
+1. Un script reproductible qui exécute `datasets/rapports-accident/preparation.R`.
+2. Un tableau de variables indiquant leur rôle statistique.
+3. Un résumé descriptif par gravité, mois, météo et région.
+4. Deux visualisations, dont au moins une proportion.
+5. Un modèle exploratoire pour `accident_avec_victime` ou `accident_mortel_ou_grave`.
+6. Une section limites sur les codes, les valeurs manquantes, l'exposition et la causalité.
 
-Source : Données Québec / Société de l'assurance automobile du Québec.
+## Étapes suggérées
 
-Licence : Attribution (CC-BY 4.0).
+1. Importer la table préparée.
+2. Vérifier les valeurs manquantes des variables explicatives retenues.
+3. Exclure ou regrouper les catégories rares avec justification.
+4. Construire un tableau descriptif avant le modèle.
+5. Ajuster un modèle simple, par exemple une régression logistique.
+6. Présenter les résultats comme des associations.
+7. Rédiger une conclusion qui nomme les données manquantes pour parler de risque.
 
-## Métadonnées pédagogiques
+## Critères d'évaluation suggérés
 
-| Champ | Information |
+| Critère | Attendu |
 |---|---|
-| Question directrice | Quels facteurs sont associés à la gravité des accidents, sans conclure trop vite à la causalité? |
-| Concepts | Nettoyage; Modélisation; Validation |
-| Niveau | Intermédiaire |
-| Type | Projet ou tâche longue; Étude de cas |
-| Contexte | Transport et sécurité routière |
-| Accroche | Décision publique et sécurité |
-| Durée | 2-3 heures |
-| Matériel | énoncé; code; données; notes enseignantes |
-| Math/stats avancées | oui |
-
-## Consignes
-
-1. Sélectionner une ou deux années
-2. Recoder les variables documentées
-3. Définir une variable de gravité
-4. Ajuster un modèle simple
-5. Rédiger une interprétation prudente
-
-## Questions
-
-1. Quels biais de sélection sont possibles?
-2. Quelle variable représente le temps?
-3. Quels résultats seraient utiles pour la prévention?
+| Reproductibilité | Le rapport exécute le script de préparation et importe la table préparée. |
+| Recodage | Les codes de victimes, véhicules, météo et surface sont interprétés avec la documentation. |
+| Description | Les distributions sont présentées avant la modélisation. |
+| Modèle | La variable réponse est définie explicitement. |
+| Interprétation | Les coefficients ne sont pas présentés comme des effets causaux. |
+| Limites | L'absence de dénominateur d'exposition est clairement expliquée. |
 
 ## Pistes de solution
 
-Un bon rapport présente une analyse descriptive avant le modèle et distingue association et causalité.
+Un rapport solide peut modéliser `accident_avec_victime` avec `mois`, `meteo`, `surface`, `eclairement` et `type_jour`, mais il doit filtrer ou documenter les valeurs manquantes. Les résultats doivent être lus comme des associations dans les rapports d'accident 2022, pas comme une mesure du danger réel des conditions météo ou des régions.
 
-## Prolongement
+## Variantes possibles
 
-Comparer deux années ou deux régions administratives.
+- Limiter l'analyse aux accidents avec victime.
+- Étudier séparément les accidents impliquant un vélo.
+- Comparer deux régions en gardant une section sur les dénominateurs manquants.
+- Ajouter des données de population ou de circulation pour transformer la question.

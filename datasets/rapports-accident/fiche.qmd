@@ -18,117 +18,296 @@ render_dataset_detail_header()
 
 ## Pourquoi ce jeu est intéressant
 
-Ce jeu permet d'étudier des accidents routiers à partir de variables temporelles, de gravité, de météo et de contexte routier. Il est utile pour les tableaux croisés, les séries temporelles, la visualisation et l'introduction prudente à la modélisation de variables catégorielles.
+Ce jeu de données décrit des accidents routiers rapportés par les policiers au Québec. Il contient des variables de temps, de gravité, de région, de météo, de surface, d'éclairage et de types d'usagers ou de véhicules impliqués.
 
-## Source
+Il est utile en science des données parce qu'il combine un vrai fichier administratif volumineux, un dictionnaire PDF, des codes catégoriels à recoder et des limites d'interprétation importantes. Le jeu permet d'enseigner les tableaux croisés, les séries temporelles descriptives, les proportions et la modélisation prudente d'une variable binaire.
+
+Question d'analyse : comment la gravité observée varie-t-elle selon le mois, la région ou les conditions météo, sans confondre fréquence d'accidents et risque routier?
+
+## Ce qui a été vérifié
+
+| Élément | Résultat vérifié |
+|---|---|
+| Paquet CKAN | `8dd0ab9b-d45d-4526-9256-c598fbc4ff3a` |
+| Source officielle | Données Québec / Société de l'assurance automobile du Québec |
+| Ressources dans le paquet | 13 ressources |
+| Ressources CSV | 12 fichiers annuels, 2011 à 2022 |
+| Ressource préparée ici | `Rapport_Accident_2022.csv` |
+| Documentation | PDF officiel des variables |
+| Licence | Attribution (CC-BY 4.0), selon les métadonnées CKAN consultées le 2026-06-21 |
+| Dernière modification du paquet CKAN | 2023-12-19 |
+| Table préparée | `data/processed/rapports-accident/rapports_accident_2022_prepares.csv` |
+| Résumés préparés | gravité, mois, régions, météo, surface et éclairage, indicateurs, valeurs manquantes |
+
+## Source et conditions
 
 | Champ | Information |
 |---|---|
-| Source | Données Québec / Société de l'assurance automobile du Québec |
-| Organisme producteur | Société de l'assurance automobile du Québec |
+| Page Données Québec | <https://www.donneesquebec.ca/recherche/dataset/rapports-d-accident> |
+| API CKAN | <https://www.donneesquebec.ca/recherche/api/3/action/package_show?id=rapports-d-accident> |
+| CSV 2022 | <https://dq-prd-bucket1.s3.ca-central-1.amazonaws.com/saaq/Rapport_Accident_2022.csv> |
+| Documentation PDF | <https://www.donneesquebec.ca/recherche/dataset/8dd0ab9b-d45d-4526-9256-c598fbc4ff3a/resource/86cd3bcb-fe10-4ca5-992e-5bb80e5c534a/download/rapports-accident-documentation.pdf> |
+| Couverture temporelle disponible | Fichiers annuels 2011 à 2022 |
 | Territoire | Québec |
-| URL officielle | <https://www.donneesquebec.ca/recherche/dataset/rapports-d-accident> |
-| Licence | Attribution (CC-BY 4.0) |
-| Date d'accès | 2026-06-19 |
-| Fréquence de mise à jour | Annuelle ou selon les publications de la SAAQ; métadonnées modifiées en 2023 |
-| Statut | source vérifiée |
+| Date d'accès | 2026-06-21 |
+
+La description officielle indique que les données proviennent des rapports d'accident remplis par les policiers. Elle indique aussi que les données ont été révisées pour tenir compte des dispositions de la loi 25 sur la protection de la vie privée.
 
 ## Ce que représente une ligne
 
-Une ligne représente un accident déclaré dans un rapport rempli par les policiers, avec moment, gravité et caractéristiques routières ou météorologiques selon les champs disponibles.
+Une ligne représente un accident rapporté dans le fichier annuel 2022. La ligne contient des informations sur le moment, la gravité, le nombre codé de victimes, le nombre codé de véhicules impliqués, la région administrative et le contexte routier.
+
+Une ligne n'est pas un trajet, une personne, un véhicule-kilomètre, ni une mesure du risque d'accident. Pour parler de risque, il faudrait un dénominateur d'exposition, par exemple la circulation, la population, les trajets ou la distance parcourue.
 
 ## Variables principales
 
-Les noms ci-dessous sont des noms propres proposés pour l'enseignement. Les noms exacts des champs sources doivent être conservés dans le script de préparation.
-
-| Variable proposée | Rôle pédagogique | Remarque |
+| Variable préparée | Rôle | Point de vigilance |
 |---|---|---|
-| `annee` | Année du rapport | Champ source `AN` |
-| `mois_accident` | Mois de l'accident | Champ source `MS_ACCDN` |
-| `heure_accident` | Heure de l'accident | Champ source `HR_ACCDN` |
-| `gravite` | Gravité | Variable de réponse possible |
-| `nb_victimes_total` | Nombre total de victimes | Variable quantitative discrète |
-| `nb_vehicules` | Nombre de véhicules impliqués | Variable de contexte |
-| `region_administrative` | Région | Champ source `REG_ADM` |
-| `condition_meteo` | Condition météorologique | Variable catégorielle |
+| `annee` | Année de l'accident | La fiche prépare 2022 |
+| `mois` | Mois recodé | Utile pour les séries descriptives |
+| `plage_horaire` | Intervalle de 4 heures | Pas une heure exacte |
+| `type_jour` | Semaine ou fin de semaine | Recodé à partir de `SEM` et `FDS` |
+| `gravite` | Gravité publiée | Quatre niveaux dans le fichier 2022 |
+| `accident_avec_victime` | Indicateur préparé | Vrai pour `Léger` et `Mortel ou grave` |
+| `accident_mortel_ou_grave` | Indicateur préparé | Variable de réponse possible |
+| `victimes_categorie` | Catégorie du nombre de victimes | Le code `9` signifie trois victimes ou plus |
+| `vehicules_categorie` | Catégorie du nombre de véhicules | Le code `9` signifie trois véhicules ou plus |
+| `region_administrative` | Région publiée | 17 régions dans le fichier 2022 |
+| `meteo` | Conditions météo recodées | Codes interprétés avec le PDF |
+| `surface` | État de la surface recodé | Codes interprétés avec le PDF |
+| `eclairement` | Éclairage recodé | Variable utile pour tableaux croisés |
+| `velo`, `pieton` | Indicateurs préparés | Ne mesurent pas l'exposition des cyclistes ou piétons |
 
-## Taille et structure
+## RÉSULTATS R
 
-| Élément | Information |
-|---|---|
-| Nombre de lignes | Fichiers annuels 2011 à 2022; fichiers CSV de l'ordre de dizaines de Mo par année |
-| Nombre de colonnes | 25 champs observés dans l'en-tête du fichier 2022 consulté le 2026-06-19 |
-| Structure | Tabulaire, temporel, catégoriel |
-| Format | CSV annuel et documentation PDF |
-| Niveau pédagogique recommandé | Intermédiaire |
+Les résultats ci-dessous proviennent de `preparation.R`, exécuté sur le CSV 2022 téléchargé le 2026-06-21.
+
+| Indicateur | Valeur |
+|---|---:|
+| Ressources CKAN documentées | 13 |
+| Ressources CSV annuelles | 12 |
+| Lignes dans le CSV source 2022 | 108 186 |
+| Colonnes dans le CSV source | 25 |
+| Lignes préparées | 108 186 |
+| Colonnes préparées | 42 |
+| Régions administratives | 17 |
+| Niveaux de gravité | 4 |
+| Accidents avec victime | 22 498 |
+| Pourcentage d'accidents avec victime | 20,8 % |
+| Accidents mortels ou graves | 1 397 |
+| Pourcentage d'accidents mortels ou graves | 1,29 % |
+| Accidents avec code trois victimes ou plus | 1 141 |
+| Accidents avec code trois véhicules ou plus | 6 637 |
+| Accidents impliquant au moins un vélo | 1 601 |
+| Accidents impliquant au moins une victime piéton | 2 150 |
+| Accidents en zone de travaux | 2 787 |
+
+## Gravité observée
+
+| Gravité | Accidents | Pourcentage |
+|---|---:|---:|
+| Dommages matériels seulement | 61 588 | 56,9 % |
+| Dommages matériels inférieurs au seuil de rapportage | 24 100 | 22,3 % |
+| Léger | 21 101 | 19,5 % |
+| Mortel ou grave | 1 397 | 1,3 % |
+
+Cette distribution décrit les rapports publiés. Elle ne donne pas le risque par kilomètre parcouru, par véhicule ou par personne.
+
+## Mois et gravité
+
+| Mois | Accidents | Avec victime | Mortels ou graves | Avec victime | Mortels ou graves |
+|---|---:|---:|---:|---:|---:|
+| Janvier | 10 467 | 1 700 | 64 | 16,2 % | 0,61 % |
+| Février | 10 019 | 1 594 | 82 | 15,9 % | 0,82 % |
+| Mars | 8 888 | 1 519 | 67 | 17,1 % | 0,75 % |
+| Avril | 7 130 | 1 356 | 65 | 19,0 % | 0,91 % |
+| Mai | 8 346 | 1 924 | 130 | 23,1 % | 1,56 % |
+| Juin | 8 691 | 2 107 | 137 | 24,2 % | 1,58 % |
+| Juillet | 8 286 | 2 101 | 168 | 25,4 % | 2,03 % |
+| Août | 8 109 | 2 143 | 172 | 26,4 % | 2,12 % |
+| Septembre | 8 666 | 2 118 | 144 | 24,4 % | 1,66 % |
+| Octobre | 9 309 | 2 152 | 149 | 23,1 % | 1,60 % |
+| Novembre | 10 628 | 2 012 | 123 | 18,9 % | 1,16 % |
+| Décembre | 9 647 | 1 772 | 96 | 18,4 % | 1,00 % |
+
+Les mois d'été ont une proportion plus élevée d'accidents avec victime dans ce fichier, mais cette observation ne peut pas être interprétée comme un risque saisonnier sans données d'exposition.
+
+## Régions avec le plus de rapports
+
+| Région | Accidents | Avec victime | Mortels ou graves | Avec victime | Mortels ou graves |
+|---|---:|---:|---:|---:|---:|
+| Montréal | 20 662 | 5 060 | 189 | 24,5 % | 0,91 % |
+| Montérégie | 16 928 | 3 645 | 201 | 21,5 % | 1,19 % |
+| Capitale-Nationale | 8 672 | 1 566 | 105 | 18,1 % | 1,21 % |
+| Laurentides | 8 595 | 1 769 | 128 | 20,6 % | 1,49 % |
+| Chaudière-Appalaches | 7 012 | 1 332 | 102 | 19,0 % | 1,45 % |
+| Estrie | 6 941 | 1 462 | 106 | 21,1 % | 1,53 % |
+| Lanaudière | 6 552 | 1 458 | 93 | 22,3 % | 1,42 % |
+| Outaouais | 5 596 | 837 | 57 | 15,0 % | 1,02 % |
+| Laval | 5 336 | 1 125 | 59 | 21,1 % | 1,11 % |
+| Centre-du-Québec | 4 284 | 788 | 56 | 18,4 % | 1,31 % |
+
+Le nombre de rapports par région dépend du territoire, de la circulation, de la population, de l'environnement routier et des pratiques de rapportage.
+
+## Conditions météo
+
+| Météo | Accidents | Pourcentage | Avec victime | Mortels ou graves |
+|---|---:|---:|---:|---:|
+| Clair | 68 040 | 62,9 % | 15 241 | 983 |
+| Couvert | 17 661 | 16,3 % | 3 235 | 203 |
+| Neige ou grêle | 8 559 | 7,9 % | 1 324 | 67 |
+| Pluie ou bruine | 6 856 | 6,3 % | 1 480 | 81 |
+| Poudrerie ou tempête de neige | 3 229 | 3,0 % | 567 | 18 |
+| Météo manquante | 1 378 | 1,3 % | 128 | 7 |
+| Averse | 1 018 | 0,9 % | 259 | 20 |
+| Brouillard ou brume | 508 | 0,5 % | 96 | 8 |
+| Vent fort | 362 | 0,3 % | 85 | 7 |
+| Verglas | 325 | 0,3 % | 65 | 3 |
+| Autre | 250 | 0,2 % | 18 | 0 |
+
+Le fait que la catégorie `Clair` soit fréquente ne signifie pas qu'elle est plus dangereuse. Elle peut simplement correspondre à des conditions plus fréquentes ou à davantage de déplacements.
+
+## Indicateurs d'usagers et véhicules
+
+| Indicateur | Accidents | Pourcentage |
+|---|---:|---:|
+| Automobile ou camion léger | 99 084 | 91,6 % |
+| Véhicule lourd | 15 519 | 14,3 % |
+| Motocyclette ou cyclomoteur | 2 903 | 2,7 % |
+| Zone de travaux | 2 787 | 2,6 % |
+| Victime piéton | 2 150 | 2,0 % |
+| Vélo | 1 601 | 1,5 % |
+
+Ces indicateurs signalent la présence d'au moins un type d'usager ou de véhicule dans le rapport. Ils ne donnent pas le nombre total d'usagers exposés.
+
+## Valeurs manquantes principales
+
+| Variable | Valeurs manquantes | Pourcentage |
+|---|---:|---:|
+| `vitesse_autorisee` | 10 959 | 10,10 % |
+| `localisation` | 6 271 | 5,80 % |
+| `configuration_route` | 4 555 | 4,21 % |
+| `categorie_route` | 1 767 | 1,63 % |
+| `eclairement` | 1 537 | 1,42 % |
+| `aspect_route` | 1 467 | 1,36 % |
+| `meteo` | 1 378 | 1,27 % |
+
+Les valeurs manquantes touchent surtout des variables de contexte routier. Elles doivent être inspectées avant toute modélisation.
+
+## Lecture statistique
+
+Une analyse prudente suit cet ordre :
+
+1. confirmer l'unité statistique, soit un rapport d'accident;
+2. consulter le PDF avant de recoder les codes;
+3. traiter `9` comme une catégorie, pas comme une quantité exacte;
+4. distinguer fréquence de rapports et risque d'accident;
+5. inspecter les valeurs manquantes dans les variables de contexte;
+6. présenter les modèles comme des associations descriptives;
+7. documenter les exclusions avant toute comparaison régionale ou saisonnière.
+
+Les données sont excellentes pour enseigner la statistique descriptive et la communication responsable. Elles ne suffisent pas, seules, à conclure qu'une région, un mois ou une condition météo est plus dangereux.
 
 ## Concepts enseignables
 
-- transport
-- sécurité routière
-- séries temporelles
-- statistiques descriptives
-- variables catégorielles
-- Québec
-- données ouvertes
-- modélisation
+- données administratives;
+- dictionnaire de variables;
+- codes catégoriels;
+- tableaux croisés;
+- proportions;
+- séries temporelles descriptives;
+- régression logistique exploratoire;
+- limites d'exposition et de causalité.
 
 ## Score zéro déchet
 
-| Dimension | Score |
-|---|---:|
-| Contexte québécois | 3 |
-| Accessibilité pédagogique | 2 |
-| Qualité documentaire | 3 |
-| Potentiel de nettoyage | 3 |
-| Potentiel de visualisation | 3 |
-| Potentiel de statistique descriptive | 3 |
-| Potentiel d'inférence | 2 |
-| Potentiel de modélisation | 3 |
-| Potentiel de discussion éthique | 3 |
-| Réutilisabilité dans plusieurs cours | 3 |
+| Dimension | Score | Justification |
+|---|---:|---|
+| Contexte québécois | 3 | Source officielle québécoise sur la sécurité routière |
+| Accessibilité pédagogique | 2 | Sujet concret, mais codes nombreux et données sensibles |
+| Qualité documentaire | 3 | Page Données Québec, API CKAN et PDF officiel |
+| Potentiel de nettoyage | 3 | Recodage, valeurs manquantes et variables codées |
+| Potentiel de visualisation | 3 | Mois, régions, météo, gravité et tableaux croisés |
+| Potentiel de statistique descriptive | 3 | Fréquences et proportions directement enseignables |
+| Potentiel d'inférence | 2 | Possible avec prudence et dénominateurs complémentaires |
+| Potentiel de modélisation | 3 | Régression catégorielle exploratoire pertinente |
+| Potentiel éthique | 3 | Vie privée, sécurité publique et communication responsable |
+| Réutilisabilité | 3 | Utile en nettoyage, EDA, visualisation, modélisation et éthique |
 
 Total : 28 sur 30.
 
 ## Activité courte
 
-En 30 à 45 minutes, faire résumer un fichier annuel par mois et gravité, puis produire un graphique en barres.
+En 30 à 45 minutes, produire un tableau de gravité par mois et expliquer pourquoi les résultats ne mesurent pas le risque routier.
 
 ## Activité longue
 
-En 2 à 3 heures, demander un mini-rapport combinant nettoyage, graphiques et modèle simple de gravité.
-
-## Projets possibles
-
-- Comparer la gravité des accidents selon la saison.
-- Étudier les associations entre météo, éclairage et gravité.
-- Produire une série temporelle annuelle des accidents par région.
+En 2 à 3 heures, produire un mini-rapport descriptif et un modèle exploratoire de gravité, avec une section explicite sur les limites d'exposition.
 
 ## Code R minimal
 
+À exécuter depuis la racine du projet.
+
 ```{r}
 #| eval: false
+# Load libraries
 library(dplyr)
+library(ggplot2)
 library(readr)
 
-source_url <- "https://www.donneesquebec.ca/recherche/dataset/rapports-d-accident"
+# Download, validate and prepare the official 2022 CSV resource
+source("datasets/rapports-accident/preparation.R")
 
-# Télécharger la ressource appropriée depuis la page officielle,
-# puis documenter le fichier brut dans data/raw/ avant toute transformation.
-source_url
+# Import prepared data
+accidents <- read_csv(
+  "data/processed/rapports-accident/rapports_accident_2022_prepares.csv",
+  show_col_types = FALSE
+)
+
+# Summarise accidents with victims by month
+resume_mois <- accidents |>
+  group_by(mois) |>
+  summarise(
+    n_accidents = n(),
+    n_accidents_avec_victime = sum(accident_avec_victime, na.rm = TRUE),
+    pct_accidents_avec_victime = 100 * n_accidents_avec_victime / n_accidents,
+    .groups = "drop"
+  )
+
+ggplot(resume_mois, aes(x = mois, y = pct_accidents_avec_victime)) +
+  geom_col(fill = "#325EA8") +
+  labs(
+    x = "Mois",
+    y = "Accidents avec victime (%)",
+    title = "Accidents avec victime par mois",
+    subtitle = "Rapports d'accident 2022; proportions descriptives seulement"
+  ) +
+  coord_flip()
 ```
 
 ## Limites et précautions
 
-- Les données décrivent des accidents rapportés et ne mesurent pas directement le risque d'exposition.
-- Les codes catégoriels doivent être interprétés avec la documentation PDF.
-- Toute modélisation de gravité doit éviter les conclusions causales rapides.
+- Les données portent sur des accidents rapportés, pas sur tous les déplacements.
+- Aucun dénominateur d'exposition n'est inclus.
+- Les variables `NB_VICTIMES_TOTAL` et `NB_VEH_IMPLIQUES_ACCDN` utilisent `9` pour trois ou plus.
+- Les comparaisons régionales ou mensuelles ne mesurent pas le risque sans population, circulation ou distance parcourue.
+- Toute modélisation de gravité doit être présentée comme exploratoire.
+- La source officielle indique une révision liée à la protection de la vie privée.
 
 ## Extensions
 
-- Construire un tableau croisé gravité par météo.
-- Agréger par année et région administrative.
-- Modéliser une variable binaire de gravité avec validation simple.
+- Comparer les mois en séparant semaine et fin de semaine.
+- Étudier les accidents impliquant un vélo ou une victime piétonne.
+- Construire un tableau croisé météo par gravité.
+- Ajouter des données de population ou de circulation pour discuter des dénominateurs.
+- Ajuster une régression logistique exploratoire et présenter ses limites.
+
+## Références utilisées
+
+- Données Québec. 2023. Rapports d'accident. <https://www.donneesquebec.ca/recherche/dataset/rapports-d-accident>
+- Données Québec. 2023. API CKAN, paquet `rapports-d-accident`. <https://www.donneesquebec.ca/recherche/api/3/action/package_show?id=rapports-d-accident>
+- Société de l'assurance automobile du Québec. 2023. Rapports d'accident, CSV 2022. <https://dq-prd-bucket1.s3.ca-central-1.amazonaws.com/saaq/Rapport_Accident_2022.csv>
+- Société de l'assurance automobile du Québec. 2023. Documentation sur les variables. <https://www.donneesquebec.ca/recherche/dataset/8dd0ab9b-d45d-4526-9256-c598fbc4ff3a/resource/86cd3bcb-fe10-4ca5-992e-5bb80e5c534a/download/rapports-accident-documentation.pdf>
 
 ```{r}
 #| label: dataset-detail-footer
@@ -136,4 +315,3 @@ source_url
 #| results: asis
 render_dataset_detail_footer()
 ```
-

@@ -5547,8 +5547,11 @@ Rapports d&#39;accident
 <p class="dataset-hero-source">
 Données Québec / Société de l&#39;assurance automobile du Québec
 </p>
+<div class="dataset-contributor-badge">
+<span>Personne à contacter</span><strong>Aurélien Nicosia</strong><small>Révision pédagogique et statistique</small>
+</div>
 <p class="dataset-hero-summary">
-Rapport d&#39;accident routier
+Rapport d&#39;accident routier rempli par les policiers, ressource annuelle 2022
 </p>
 <div class="dataset-hero-actions">
 <a class="dataset-button no-external" href="#r-en-action">Voir les résultats R</a><a class="dataset-button secondary" href="https://www.donneesquebec.ca/recherche/dataset/rapports-d-accident">Source officielle</a>
@@ -5566,17 +5569,17 @@ Rapport d&#39;accident routier
 <span>Niveau</span><strong>Intermédiaire</strong>
 </div>
 <div class="dataset-fact">
-<span>Structure</span><strong>Tabulaire, temporel, catégoriel</strong>
+<span>Structure</span><strong>Tabulaire, temporel, catégoriel et administratif</strong>
 </div>
 <div class="dataset-fact">
-<span>Format</span><strong>CSV annuel et documentation PDF</strong>
+<span>Format</span><strong>CSV annuel officiel préparé localement; documentation PDF officielle</strong>
 </div>
 </div>
 <div class="dataset-pedagogy-band">
 <div class="dataset-pedagogy-main">
 <span>Question de départ</span>
 <p>
-Comparer la gravité des accidents selon la saison.
+Comparer la gravité des accidents selon le mois et la météo.
 </p>
 </div>
 <div class="dataset-score-box">
@@ -5587,7 +5590,7 @@ Comparer la gravité des accidents selon la saison.
 </div>
 </div>
 <div class="dataset-chip-strip">
-<span>transport</span><span>sécurité routière</span><span>séries temporelles</span><span>statistiques descriptives</span><span>variables catégorielles</span><span>Québec</span><span>données ouvertes</span>
+<span>données administratives</span><span>unité statistique</span><span>codes catégoriels</span><span>tableaux croisés</span><span>séries temporelles</span><span>statistique descriptive</span><span>modélisation catégorielle</span>
 </div>
 <section class="dataset-r-lab" id="r-en-action">
 <div class="dataset-section-heading">
@@ -5596,7 +5599,7 @@ Comparer la gravité des accidents selon la saison.
 Aperçu reproductible
 </h2>
 <p>
-Aperçu léger calculé par R à partir des métadonnées vérifiées afin de garder la fiche rapide et stable au rendu.
+Aperçu calculé par R à partir de data/processed/rapports-accident/rapports_accident_2022_prepares.csv.
 </p>
 </div>
 <div class="dataset-r-grid">
@@ -5604,13 +5607,12 @@ Aperçu léger calculé par R à partir des métadonnées vérifiées afin de ga
 <div class="dataset-card-label">
 Code minimal
 </div>
-<pre><code class="language-r">library(yaml)
+<pre><code class="language-r">library(dplyr)
 
-metadata &lt;- yaml::read_yaml(&quot;datasets/rapports-accident/metadata.yml&quot;)
-data.frame(
-  champ = c(&quot;theme&quot;, &quot;territoire&quot;, &quot;unite&quot;, &quot;niveau&quot;),
-  valeur = c(metadata$theme, metadata$geography, metadata$unit, metadata$level)
-)</code></pre>
+donnees &lt;- read.csv(&quot;data/processed/rapports-accident/rapports_accident_2022_prepares.csv&quot;, check.names = FALSE)
+
+glimpse(donnees)
+donnees |&gt; summarise(lignes = n(), colonnes = ncol(donnees))</code></pre>
 </div>
 <div class="dataset-result-card">
 <div class="dataset-card-label">
@@ -5618,16 +5620,19 @@ Résultats R
 </div>
 <div class="dataset-r-stats">
 <div class="dataset-r-stat">
-<span>Lignes déclarées</span><strong>Fichiers annuels 2011 à 2022; fichiers CSV de l&#39;ordre de dizaines de Mo par année</strong>
+<span>Lignes lues</span><strong>2 500</strong>
 </div>
 <div class="dataset-r-stat">
-<span>Colonnes déclarées</span><strong>25 champs observés dans l&#39;en-tête du fichier 2022 consulté le 2026-06-19</strong>
+<span>Colonnes</span><strong>42</strong>
 </div>
 <div class="dataset-r-stat">
-<span>Format</span><strong>CSV annuel et documentation PDF</strong>
+<span>Variables num.</span><strong>12</strong>
 </div>
 <div class="dataset-r-stat">
-<span>Aperçu</span><strong>Métadonnées</strong>
+<span>Valeurs manquantes</span><strong>0.5 %</strong>
+</div>
+<div class="dataset-r-stat">
+<span>Aperçu</span><strong>rapports_accident_2022_prepares.csv</strong>
 </div>
 </div>
 <div class="dataset-result-table-wrap">
@@ -5635,52 +5640,144 @@ Résultats R
 <thead>
 <tr>
 <th>
-champ
+annee
 </th>
 <th>
-valeur
+identifiant_accident
+</th>
+<th>
+mois_code
+</th>
+<th>
+mois
+</th>
+<th>
+plage_horaire
+</th>
+<th>
+jour_semaine_code
 </th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>
-theme
+2022
 </td>
 <td>
-Transport et sécurité routière
-</td>
-</tr>
-<tr>
-<td>
-territoire
+2022 _ 1
 </td>
 <td>
-Québec
-</td>
-</tr>
-<tr>
-<td>
-unite
+3
 </td>
 <td>
-Rapport d&#39;accident routier
+Mars
+</td>
+<td>
+16:00:00-19:59:00
+</td>
+<td>
+SEM
 </td>
 </tr>
 <tr>
 <td>
-niveau
+2022
 </td>
 <td>
-Intermédiaire
+2022 _ 10
+</td>
+<td>
+4
+</td>
+<td>
+Avril
+</td>
+<td>
+04:00:00-07:59:00
+</td>
+<td>
+SEM
 </td>
 </tr>
 <tr>
 <td>
-format
+2022
 </td>
 <td>
-CSV annuel et documentation PDF
+2022 _ 100
+</td>
+<td>
+3
+</td>
+<td>
+Mars
+</td>
+<td>
+16:00:00-19:59:00
+</td>
+<td>
+FDS
+</td>
+</tr>
+<tr>
+<td>
+2022
+</td>
+<td>
+2022 _ 1000
+</td>
+<td>
+11
+</td>
+<td>
+Novembre
+</td>
+<td>
+16:00:00-19:59:00
+</td>
+<td>
+SEM
+</td>
+</tr>
+<tr>
+<td>
+2022
+</td>
+<td>
+2022 _ 10000
+</td>
+<td>
+1
+</td>
+<td>
+Janvier
+</td>
+<td>
+12:00:00-15:59:00
+</td>
+<td>
+SEM
+</td>
+</tr>
+<tr>
+<td>
+2022
+</td>
+<td>
+2022 _ 100000
+</td>
+<td>
+1
+</td>
+<td>
+Janvier
+</td>
+<td>
+04:00:00-07:59:00
+</td>
+<td>
+SEM
 </td>
 </tr>
 </tbody>
@@ -5691,8 +5788,8 @@ CSV annuel et documentation PDF
 <div class="dataset-card-label">
 Lecture statistique
 </div>
-<svg class="dataset-r-chart" viewbox="0 0 320 210" role="img" aria-label="Concepts pédagogiques">
-<text x="0" y="30" class="dataset-svg-label">transport</text><rect x="150" y="18" width="90" height="14" rx="3" class="dataset-svg-bar" /><text x="0" y="54" class="dataset-svg-label">sécurité routière</text><rect x="150" y="42" width="90" height="14" rx="3" class="dataset-svg-bar" /><text x="0" y="78" class="dataset-svg-label">séries temporelles</text><rect x="150" y="66" width="90" height="14" rx="3" class="dataset-svg-bar" /><text x="0" y="102" class="dataset-svg-label">statistiques descriptives</text><rect x="150" y="90" width="90" height="14" rx="3" class="dataset-svg-bar" /><text x="0" y="126" class="dataset-svg-label">variables catégorielles</text><rect x="150" y="114" width="90" height="14" rx="3" class="dataset-svg-bar" /><text x="0" y="150" class="dataset-svg-label">Québec</text><rect x="150" y="138" width="90" height="14" rx="3" class="dataset-svg-bar" /><text x="0" y="174" class="dataset-svg-label">données ouvertes</text><rect x="150" y="162" width="90" height="14" rx="3" class="dataset-svg-bar" />
+<svg class="dataset-r-chart" viewbox="0 0 320 210" role="img" aria-label="Aperçu numérique généré par R">
+<line x1="34" y1="158" x2="292" y2="158" class="dataset-svg-axis"></line><line x1="34" y1="36" x2="34" y2="158" class="dataset-svg-axis"></line><polyline points="34,102 40.4,102 46.7,102 53.1,102 59.4,102 65.8,102 72.2,102 78.5,102 84.9,102 91.2,102 97.6,102 103.9,102 110.3,102 116.7,102 123,102 129.4,102 135.7,102 142.1,102 148.5,102 154.8,102 161.2,102 167.5,102 173.9,102 180.3,102 186.6,102 193,102 199.3,102 205.7,102 212.1,102 218.4,102 224.8,102 231.1,102 237.5,102 243.8,102 250.2,102 256.6,102 262.9,102 269.3,102 275.6,102 282,102" class="dataset-svg-line"></polyline><circle cx="34" cy="102" r="3.2" class="dataset-svg-point"></circle><circle cx="40.4" cy="102" r="3.2" class="dataset-svg-point"></circle><circle cx="46.7" cy="102" r="3.2" class="dataset-svg-point"></circle><circle cx="53.1" cy="102" r="3.2" class="dataset-svg-point"></circle><circle cx="59.4" cy="102" r="3.2" class="dataset-svg-point"></circle><circle cx="65.8" cy="102" r="3.2" class="dataset-svg-point"></circle><circle cx="72.2" cy="102" r="3.2" class="dataset-svg-point"></circle><circle cx="78.5" cy="102" r="3.2" class="dataset-svg-point"></circle><circle cx="84.9" cy="102" r="3.2" class="dataset-svg-point"></circle><circle cx="91.2" cy="102" r="3.2" class="dataset-svg-point"></circle><circle cx="97.6" cy="102" r="3.2" class="dataset-svg-point"></circle><circle cx="103.9" cy="102" r="3.2" class="dataset-svg-point"></circle><circle cx="110.3" cy="102" r="3.2" class="dataset-svg-point"></circle><circle cx="116.7" cy="102" r="3.2" class="dataset-svg-point"></circle><circle cx="123" cy="102" r="3.2" class="dataset-svg-point"></circle><circle cx="129.4" cy="102" r="3.2" class="dataset-svg-point"></circle><circle cx="135.7" cy="102" r="3.2" class="dataset-svg-point"></circle><circle cx="142.1" cy="102" r="3.2" class="dataset-svg-point"></circle><circle cx="148.5" cy="102" r="3.2" class="dataset-svg-point"></circle><circle cx="154.8" cy="102" r="3.2" class="dataset-svg-point"></circle><circle cx="161.2" cy="102" r="3.2" class="dataset-svg-point"></circle><circle cx="167.5" cy="102" r="3.2" class="dataset-svg-point"></circle><circle cx="173.9" cy="102" r="3.2" class="dataset-svg-point"></circle><circle cx="180.3" cy="102" r="3.2" class="dataset-svg-point"></circle><circle cx="186.6" cy="102" r="3.2" class="dataset-svg-point"></circle><circle cx="193" cy="102" r="3.2" class="dataset-svg-point"></circle><circle cx="199.3" cy="102" r="3.2" class="dataset-svg-point"></circle><circle cx="205.7" cy="102" r="3.2" class="dataset-svg-point"></circle><circle cx="212.1" cy="102" r="3.2" class="dataset-svg-point"></circle><circle cx="218.4" cy="102" r="3.2" class="dataset-svg-point"></circle><circle cx="224.8" cy="102" r="3.2" class="dataset-svg-point"></circle><circle cx="231.1" cy="102" r="3.2" class="dataset-svg-point"></circle><circle cx="237.5" cy="102" r="3.2" class="dataset-svg-point"></circle><circle cx="243.8" cy="102" r="3.2" class="dataset-svg-point"></circle><circle cx="250.2" cy="102" r="3.2" class="dataset-svg-point"></circle><circle cx="256.6" cy="102" r="3.2" class="dataset-svg-point"></circle><circle cx="262.9" cy="102" r="3.2" class="dataset-svg-point"></circle><circle cx="269.3" cy="102" r="3.2" class="dataset-svg-point"></circle><circle cx="275.6" cy="102" r="3.2" class="dataset-svg-point"></circle><circle cx="282" cy="102" r="3.2" class="dataset-svg-point"></circle><text x="34" y="24" class="dataset-svg-title">annee</text><text x="34" y="186" class="dataset-svg-label">2021.5</text><text x="230" y="186" class="dataset-svg-label">2022.5</text>
 </svg>
 </div>
 </div>
@@ -5702,13 +5799,13 @@ Lecture statistique
 <span>Mini-projets</span>
 <ul>
 <li>
-Comparer la gravité des accidents selon la saison.
+Comparer la gravité des accidents selon le mois et la météo.
 </li>
 <li>
-Étudier les associations entre météo, éclairage et gravité.
+Construire un portrait régional descriptif sans parler de risque routier.
 </li>
 <li>
-Produire une série temporelle annuelle des accidents par région.
+Modéliser une variable binaire de gravité en expliquant les limites d&#39;exposition.
 </li>
 </ul>
 </div>
@@ -5716,13 +5813,13 @@ Produire une série temporelle annuelle des accidents par région.
 <span>Activités liées</span>
 <div class="dataset-activity-grid">
 <div class="dataset-activity-card">
-<span>30-45 minutes</span><strong>Décrire la gravité des accidents</strong>
+<span>30-45 minutes</span><strong>Laboratoire - Gravité des accidents par mois</strong>
 <p>
-Comment la gravité varie-t-elle selon le mois ou la météo?
+Comment la gravité observée varie-t-elle selon le mois dans les rapports d&#39;accident 2022?
 </p>
 </div>
 <div class="dataset-activity-card">
-<span>2-3 heures</span><strong>Explorer les facteurs associés à la gravité</strong>
+<span>2-3 heures</span><strong>Mini-projet - Modéliser prudemment la gravité des accidents</strong>
 <p>
 Quels facteurs sont associés à la gravité des accidents, sans conclure trop vite à la causalité?
 </p>
@@ -5733,10 +5830,69 @@ Quels facteurs sont associés à la gravité des accidents, sans conclure trop v
 <div class="dataset-detail-content">
 <section id="pourquoi-ce-jeu-est-intéressant" class="level2">
 <h2 class="anchored" data-anchor-id="pourquoi-ce-jeu-est-intéressant">Pourquoi ce jeu est intéressant</h2>
-<p>Ce jeu permet d’étudier des accidents routiers à partir de variables temporelles, de gravité, de météo et de contexte routier. Il est utile pour les tableaux croisés, les séries temporelles, la visualisation et l’introduction prudente à la modélisation de variables catégorielles.</p>
+<p>Ce jeu de données décrit des accidents routiers rapportés par les policiers au Québec. Il contient des variables de temps, de gravité, de région, de météo, de surface, d’éclairage et de types d’usagers ou de véhicules impliqués.</p>
+<p>Il est utile en science des données parce qu’il combine un vrai fichier administratif volumineux, un dictionnaire PDF, des codes catégoriels à recoder et des limites d’interprétation importantes. Le jeu permet d’enseigner les tableaux croisés, les séries temporelles descriptives, les proportions et la modélisation prudente d’une variable binaire.</p>
+<p>Question d’analyse : comment la gravité observée varie-t-elle selon le mois, la région ou les conditions météo, sans confondre fréquence d’accidents et risque routier?</p>
 </section>
-<section id="source" class="level2">
-<h2 class="anchored" data-anchor-id="source">Source</h2>
+<section id="ce-qui-a-été-vérifié" class="level2">
+<h2 class="anchored" data-anchor-id="ce-qui-a-été-vérifié">Ce qui a été vérifié</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Élément</th>
+<th>Résultat vérifié</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Paquet CKAN</td>
+<td><code>8dd0ab9b-d45d-4526-9256-c598fbc4ff3a</code></td>
+</tr>
+<tr class="even">
+<td>Source officielle</td>
+<td>Données Québec / Société de l’assurance automobile du Québec</td>
+</tr>
+<tr class="odd">
+<td>Ressources dans le paquet</td>
+<td>13 ressources</td>
+</tr>
+<tr class="even">
+<td>Ressources CSV</td>
+<td>12 fichiers annuels, 2011 à 2022</td>
+</tr>
+<tr class="odd">
+<td>Ressource préparée ici</td>
+<td><code>Rapport_Accident_2022.csv</code></td>
+</tr>
+<tr class="even">
+<td>Documentation</td>
+<td>PDF officiel des variables</td>
+</tr>
+<tr class="odd">
+<td>Licence</td>
+<td>Attribution (CC-BY 4.0), selon les métadonnées CKAN consultées le 2026-06-21</td>
+</tr>
+<tr class="even">
+<td>Dernière modification du paquet CKAN</td>
+<td>2023-12-19</td>
+</tr>
+<tr class="odd">
+<td>Table préparée</td>
+<td><code>data/processed/rapports-accident/rapports_accident_2022_prepares.csv</code></td>
+</tr>
+<tr class="even">
+<td>Résumés préparés</td>
+<td>gravité, mois, régions, météo, surface et éclairage, indicateurs, valeurs manquantes</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="source-et-conditions" class="level2">
+<h2 class="anchored" data-anchor-id="source-et-conditions">Source et conditions</h2>
 <table class="caption-top table">
 <thead>
 <tr class="header">
@@ -5746,47 +5902,44 @@ Quels facteurs sont associés à la gravité des accidents, sans conclure trop v
 </thead>
 <tbody>
 <tr class="odd">
-<td>Source</td>
-<td>Données Québec / Société de l’assurance automobile du Québec</td>
+<td>Page Données Québec</td>
+<td><a href="https://www.donneesquebec.ca/recherche/dataset/rapports-d-accident" class="uri">https://www.donneesquebec.ca/recherche/dataset/rapports-d-accident</a></td>
 </tr>
 <tr class="even">
-<td>Organisme producteur</td>
-<td>Société de l’assurance automobile du Québec</td>
+<td>API CKAN</td>
+<td><a href="https://www.donneesquebec.ca/recherche/api/3/action/package_show?id=rapports-d-accident" class="uri">https://www.donneesquebec.ca/recherche/api/3/action/package_show?id=rapports-d-accident</a></td>
 </tr>
 <tr class="odd">
+<td>CSV 2022</td>
+<td><a href="https://dq-prd-bucket1.s3.ca-central-1.amazonaws.com/saaq/Rapport_Accident_2022.csv" class="uri">https://dq-prd-bucket1.s3.ca-central-1.amazonaws.com/saaq/Rapport_Accident_2022.csv</a></td>
+</tr>
+<tr class="even">
+<td>Documentation PDF</td>
+<td><a href="https://www.donneesquebec.ca/recherche/dataset/8dd0ab9b-d45d-4526-9256-c598fbc4ff3a/resource/86cd3bcb-fe10-4ca5-992e-5bb80e5c534a/download/rapports-accident-documentation.pdf" class="uri">https://www.donneesquebec.ca/recherche/dataset/8dd0ab9b-d45d-4526-9256-c598fbc4ff3a/resource/86cd3bcb-fe10-4ca5-992e-5bb80e5c534a/download/rapports-accident-documentation.pdf</a></td>
+</tr>
+<tr class="odd">
+<td>Couverture temporelle disponible</td>
+<td>Fichiers annuels 2011 à 2022</td>
+</tr>
+<tr class="even">
 <td>Territoire</td>
 <td>Québec</td>
 </tr>
-<tr class="even">
-<td>URL officielle</td>
-<td><a href="https://www.donneesquebec.ca/recherche/dataset/rapports-d-accident" class="uri">https://www.donneesquebec.ca/recherche/dataset/rapports-d-accident</a></td>
-</tr>
 <tr class="odd">
-<td>Licence</td>
-<td>Attribution (CC-BY 4.0)</td>
-</tr>
-<tr class="even">
 <td>Date d’accès</td>
-<td>2026-06-19</td>
-</tr>
-<tr class="odd">
-<td>Fréquence de mise à jour</td>
-<td>Annuelle ou selon les publications de la SAAQ; métadonnées modifiées en 2023</td>
-</tr>
-<tr class="even">
-<td>Statut</td>
-<td>source vérifiée</td>
+<td>2026-06-21</td>
 </tr>
 </tbody>
 </table>
+<p>La description officielle indique que les données proviennent des rapports d’accident remplis par les policiers. Elle indique aussi que les données ont été révisées pour tenir compte des dispositions de la loi 25 sur la protection de la vie privée.</p>
 </section>
 <section id="ce-que-représente-une-ligne" class="level2">
 <h2 class="anchored" data-anchor-id="ce-que-représente-une-ligne">Ce que représente une ligne</h2>
-<p>Une ligne représente un accident déclaré dans un rapport rempli par les policiers, avec moment, gravité et caractéristiques routières ou météorologiques selon les champs disponibles.</p>
+<p>Une ligne représente un accident rapporté dans le fichier annuel 2022. La ligne contient des informations sur le moment, la gravité, le nombre codé de victimes, le nombre codé de véhicules impliqués, la région administrative et le contexte routier.</p>
+<p>Une ligne n’est pas un trajet, une personne, un véhicule-kilomètre, ni une mesure du risque d’accident. Pour parler de risque, il faudrait un dénominateur d’exposition, par exemple la circulation, la population, les trajets ou la distance parcourue.</p>
 </section>
 <section id="variables-principales" class="level2">
 <h2 class="anchored" data-anchor-id="variables-principales">Variables principales</h2>
-<p>Les noms ci-dessous sont des noms propres proposés pour l’enseignement. Les noms exacts des champs sources doivent être conservés dans le script de préparation.</p>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 33%">
@@ -5795,154 +5948,716 @@ Quels facteurs sont associés à la gravité des accidents, sans conclure trop v
 </colgroup>
 <thead>
 <tr class="header">
-<th>Variable proposée</th>
-<th>Rôle pédagogique</th>
-<th>Remarque</th>
+<th>Variable préparée</th>
+<th>Rôle</th>
+<th>Point de vigilance</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td><code>annee</code></td>
-<td>Année du rapport</td>
-<td>Champ source <code>AN</code></td>
+<td>Année de l’accident</td>
+<td>La fiche prépare 2022</td>
 </tr>
 <tr class="even">
-<td><code>mois_accident</code></td>
-<td>Mois de l’accident</td>
-<td>Champ source <code>MS_ACCDN</code></td>
+<td><code>mois</code></td>
+<td>Mois recodé</td>
+<td>Utile pour les séries descriptives</td>
 </tr>
 <tr class="odd">
-<td><code>heure_accident</code></td>
-<td>Heure de l’accident</td>
-<td>Champ source <code>HR_ACCDN</code></td>
+<td><code>plage_horaire</code></td>
+<td>Intervalle de 4 heures</td>
+<td>Pas une heure exacte</td>
 </tr>
 <tr class="even">
+<td><code>type_jour</code></td>
+<td>Semaine ou fin de semaine</td>
+<td>Recodé à partir de <code>SEM</code> et <code>FDS</code></td>
+</tr>
+<tr class="odd">
 <td><code>gravite</code></td>
-<td>Gravité</td>
+<td>Gravité publiée</td>
+<td>Quatre niveaux dans le fichier 2022</td>
+</tr>
+<tr class="even">
+<td><code>accident_avec_victime</code></td>
+<td>Indicateur préparé</td>
+<td>Vrai pour <code>Léger</code> et <code>Mortel ou grave</code></td>
+</tr>
+<tr class="odd">
+<td><code>accident_mortel_ou_grave</code></td>
+<td>Indicateur préparé</td>
 <td>Variable de réponse possible</td>
 </tr>
+<tr class="even">
+<td><code>victimes_categorie</code></td>
+<td>Catégorie du nombre de victimes</td>
+<td>Le code <code>9</code> signifie trois victimes ou plus</td>
+</tr>
 <tr class="odd">
-<td><code>nb_victimes_total</code></td>
-<td>Nombre total de victimes</td>
-<td>Variable quantitative discrète</td>
+<td><code>vehicules_categorie</code></td>
+<td>Catégorie du nombre de véhicules</td>
+<td>Le code <code>9</code> signifie trois véhicules ou plus</td>
 </tr>
 <tr class="even">
-<td><code>nb_vehicules</code></td>
-<td>Nombre de véhicules impliqués</td>
-<td>Variable de contexte</td>
-</tr>
-<tr class="odd">
 <td><code>region_administrative</code></td>
-<td>Région</td>
-<td>Champ source <code>REG_ADM</code></td>
+<td>Région publiée</td>
+<td>17 régions dans le fichier 2022</td>
+</tr>
+<tr class="odd">
+<td><code>meteo</code></td>
+<td>Conditions météo recodées</td>
+<td>Codes interprétés avec le PDF</td>
 </tr>
 <tr class="even">
-<td><code>condition_meteo</code></td>
-<td>Condition météorologique</td>
-<td>Variable catégorielle</td>
+<td><code>surface</code></td>
+<td>État de la surface recodé</td>
+<td>Codes interprétés avec le PDF</td>
+</tr>
+<tr class="odd">
+<td><code>eclairement</code></td>
+<td>Éclairage recodé</td>
+<td>Variable utile pour tableaux croisés</td>
+</tr>
+<tr class="even">
+<td><code>velo</code>, <code>pieton</code></td>
+<td>Indicateurs préparés</td>
+<td>Ne mesurent pas l’exposition des cyclistes ou piétons</td>
 </tr>
 </tbody>
 </table>
 </section>
-<section id="taille-et-structure" class="level2">
-<h2 class="anchored" data-anchor-id="taille-et-structure">Taille et structure</h2>
+<section id="résultats-r" class="level2">
+<h2 class="anchored" data-anchor-id="résultats-r">RÉSULTATS R</h2>
+<p>Les résultats ci-dessous proviennent de <code>preparation.R</code>, exécuté sur le CSV 2022 téléchargé le 2026-06-21.</p>
 <table class="caption-top table">
-<colgroup>
-<col style="width: 50%">
-<col style="width: 50%">
-</colgroup>
 <thead>
 <tr class="header">
-<th>Élément</th>
-<th>Information</th>
+<th>Indicateur</th>
+<th style="text-align: right;">Valeur</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>Nombre de lignes</td>
-<td>Fichiers annuels 2011 à 2022; fichiers CSV de l’ordre de dizaines de Mo par année</td>
+<td>Ressources CKAN documentées</td>
+<td style="text-align: right;">13</td>
 </tr>
 <tr class="even">
-<td>Nombre de colonnes</td>
-<td>25 champs observés dans l’en-tête du fichier 2022 consulté le 2026-06-19</td>
+<td>Ressources CSV annuelles</td>
+<td style="text-align: right;">12</td>
 </tr>
 <tr class="odd">
-<td>Structure</td>
-<td>Tabulaire, temporel, catégoriel</td>
+<td>Lignes dans le CSV source 2022</td>
+<td style="text-align: right;">108 186</td>
 </tr>
 <tr class="even">
-<td>Format</td>
-<td>CSV annuel et documentation PDF</td>
+<td>Colonnes dans le CSV source</td>
+<td style="text-align: right;">25</td>
 </tr>
 <tr class="odd">
-<td>Niveau pédagogique recommandé</td>
-<td>Intermédiaire</td>
+<td>Lignes préparées</td>
+<td style="text-align: right;">108 186</td>
+</tr>
+<tr class="even">
+<td>Colonnes préparées</td>
+<td style="text-align: right;">42</td>
+</tr>
+<tr class="odd">
+<td>Régions administratives</td>
+<td style="text-align: right;">17</td>
+</tr>
+<tr class="even">
+<td>Niveaux de gravité</td>
+<td style="text-align: right;">4</td>
+</tr>
+<tr class="odd">
+<td>Accidents avec victime</td>
+<td style="text-align: right;">22 498</td>
+</tr>
+<tr class="even">
+<td>Pourcentage d’accidents avec victime</td>
+<td style="text-align: right;">20,8 %</td>
+</tr>
+<tr class="odd">
+<td>Accidents mortels ou graves</td>
+<td style="text-align: right;">1 397</td>
+</tr>
+<tr class="even">
+<td>Pourcentage d’accidents mortels ou graves</td>
+<td style="text-align: right;">1,29 %</td>
+</tr>
+<tr class="odd">
+<td>Accidents avec code trois victimes ou plus</td>
+<td style="text-align: right;">1 141</td>
+</tr>
+<tr class="even">
+<td>Accidents avec code trois véhicules ou plus</td>
+<td style="text-align: right;">6 637</td>
+</tr>
+<tr class="odd">
+<td>Accidents impliquant au moins un vélo</td>
+<td style="text-align: right;">1 601</td>
+</tr>
+<tr class="even">
+<td>Accidents impliquant au moins une victime piéton</td>
+<td style="text-align: right;">2 150</td>
+</tr>
+<tr class="odd">
+<td>Accidents en zone de travaux</td>
+<td style="text-align: right;">2 787</td>
 </tr>
 </tbody>
 </table>
 </section>
+<section id="gravité-observée" class="level2">
+<h2 class="anchored" data-anchor-id="gravité-observée">Gravité observée</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 27%">
+<col style="width: 36%">
+<col style="width: 36%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Gravité</th>
+<th style="text-align: right;">Accidents</th>
+<th style="text-align: right;">Pourcentage</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Dommages matériels seulement</td>
+<td style="text-align: right;">61 588</td>
+<td style="text-align: right;">56,9 %</td>
+</tr>
+<tr class="even">
+<td>Dommages matériels inférieurs au seuil de rapportage</td>
+<td style="text-align: right;">24 100</td>
+<td style="text-align: right;">22,3 %</td>
+</tr>
+<tr class="odd">
+<td>Léger</td>
+<td style="text-align: right;">21 101</td>
+<td style="text-align: right;">19,5 %</td>
+</tr>
+<tr class="even">
+<td>Mortel ou grave</td>
+<td style="text-align: right;">1 397</td>
+<td style="text-align: right;">1,3 %</td>
+</tr>
+</tbody>
+</table>
+<p>Cette distribution décrit les rapports publiés. Elle ne donne pas le risque par kilomètre parcouru, par véhicule ou par personne.</p>
+</section>
+<section id="mois-et-gravité" class="level2">
+<h2 class="anchored" data-anchor-id="mois-et-gravité">Mois et gravité</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 13%">
+<col style="width: 17%">
+<col style="width: 17%">
+<col style="width: 17%">
+<col style="width: 17%">
+<col style="width: 17%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Mois</th>
+<th style="text-align: right;">Accidents</th>
+<th style="text-align: right;">Avec victime</th>
+<th style="text-align: right;">Mortels ou graves</th>
+<th style="text-align: right;">Avec victime</th>
+<th style="text-align: right;">Mortels ou graves</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Janvier</td>
+<td style="text-align: right;">10 467</td>
+<td style="text-align: right;">1 700</td>
+<td style="text-align: right;">64</td>
+<td style="text-align: right;">16,2 %</td>
+<td style="text-align: right;">0,61 %</td>
+</tr>
+<tr class="even">
+<td>Février</td>
+<td style="text-align: right;">10 019</td>
+<td style="text-align: right;">1 594</td>
+<td style="text-align: right;">82</td>
+<td style="text-align: right;">15,9 %</td>
+<td style="text-align: right;">0,82 %</td>
+</tr>
+<tr class="odd">
+<td>Mars</td>
+<td style="text-align: right;">8 888</td>
+<td style="text-align: right;">1 519</td>
+<td style="text-align: right;">67</td>
+<td style="text-align: right;">17,1 %</td>
+<td style="text-align: right;">0,75 %</td>
+</tr>
+<tr class="even">
+<td>Avril</td>
+<td style="text-align: right;">7 130</td>
+<td style="text-align: right;">1 356</td>
+<td style="text-align: right;">65</td>
+<td style="text-align: right;">19,0 %</td>
+<td style="text-align: right;">0,91 %</td>
+</tr>
+<tr class="odd">
+<td>Mai</td>
+<td style="text-align: right;">8 346</td>
+<td style="text-align: right;">1 924</td>
+<td style="text-align: right;">130</td>
+<td style="text-align: right;">23,1 %</td>
+<td style="text-align: right;">1,56 %</td>
+</tr>
+<tr class="even">
+<td>Juin</td>
+<td style="text-align: right;">8 691</td>
+<td style="text-align: right;">2 107</td>
+<td style="text-align: right;">137</td>
+<td style="text-align: right;">24,2 %</td>
+<td style="text-align: right;">1,58 %</td>
+</tr>
+<tr class="odd">
+<td>Juillet</td>
+<td style="text-align: right;">8 286</td>
+<td style="text-align: right;">2 101</td>
+<td style="text-align: right;">168</td>
+<td style="text-align: right;">25,4 %</td>
+<td style="text-align: right;">2,03 %</td>
+</tr>
+<tr class="even">
+<td>Août</td>
+<td style="text-align: right;">8 109</td>
+<td style="text-align: right;">2 143</td>
+<td style="text-align: right;">172</td>
+<td style="text-align: right;">26,4 %</td>
+<td style="text-align: right;">2,12 %</td>
+</tr>
+<tr class="odd">
+<td>Septembre</td>
+<td style="text-align: right;">8 666</td>
+<td style="text-align: right;">2 118</td>
+<td style="text-align: right;">144</td>
+<td style="text-align: right;">24,4 %</td>
+<td style="text-align: right;">1,66 %</td>
+</tr>
+<tr class="even">
+<td>Octobre</td>
+<td style="text-align: right;">9 309</td>
+<td style="text-align: right;">2 152</td>
+<td style="text-align: right;">149</td>
+<td style="text-align: right;">23,1 %</td>
+<td style="text-align: right;">1,60 %</td>
+</tr>
+<tr class="odd">
+<td>Novembre</td>
+<td style="text-align: right;">10 628</td>
+<td style="text-align: right;">2 012</td>
+<td style="text-align: right;">123</td>
+<td style="text-align: right;">18,9 %</td>
+<td style="text-align: right;">1,16 %</td>
+</tr>
+<tr class="even">
+<td>Décembre</td>
+<td style="text-align: right;">9 647</td>
+<td style="text-align: right;">1 772</td>
+<td style="text-align: right;">96</td>
+<td style="text-align: right;">18,4 %</td>
+<td style="text-align: right;">1,00 %</td>
+</tr>
+</tbody>
+</table>
+<p>Les mois d’été ont une proportion plus élevée d’accidents avec victime dans ce fichier, mais cette observation ne peut pas être interprétée comme un risque saisonnier sans données d’exposition.</p>
+</section>
+<section id="régions-avec-le-plus-de-rapports" class="level2">
+<h2 class="anchored" data-anchor-id="régions-avec-le-plus-de-rapports">Régions avec le plus de rapports</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 13%">
+<col style="width: 17%">
+<col style="width: 17%">
+<col style="width: 17%">
+<col style="width: 17%">
+<col style="width: 17%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Région</th>
+<th style="text-align: right;">Accidents</th>
+<th style="text-align: right;">Avec victime</th>
+<th style="text-align: right;">Mortels ou graves</th>
+<th style="text-align: right;">Avec victime</th>
+<th style="text-align: right;">Mortels ou graves</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Montréal</td>
+<td style="text-align: right;">20 662</td>
+<td style="text-align: right;">5 060</td>
+<td style="text-align: right;">189</td>
+<td style="text-align: right;">24,5 %</td>
+<td style="text-align: right;">0,91 %</td>
+</tr>
+<tr class="even">
+<td>Montérégie</td>
+<td style="text-align: right;">16 928</td>
+<td style="text-align: right;">3 645</td>
+<td style="text-align: right;">201</td>
+<td style="text-align: right;">21,5 %</td>
+<td style="text-align: right;">1,19 %</td>
+</tr>
+<tr class="odd">
+<td>Capitale-Nationale</td>
+<td style="text-align: right;">8 672</td>
+<td style="text-align: right;">1 566</td>
+<td style="text-align: right;">105</td>
+<td style="text-align: right;">18,1 %</td>
+<td style="text-align: right;">1,21 %</td>
+</tr>
+<tr class="even">
+<td>Laurentides</td>
+<td style="text-align: right;">8 595</td>
+<td style="text-align: right;">1 769</td>
+<td style="text-align: right;">128</td>
+<td style="text-align: right;">20,6 %</td>
+<td style="text-align: right;">1,49 %</td>
+</tr>
+<tr class="odd">
+<td>Chaudière-Appalaches</td>
+<td style="text-align: right;">7 012</td>
+<td style="text-align: right;">1 332</td>
+<td style="text-align: right;">102</td>
+<td style="text-align: right;">19,0 %</td>
+<td style="text-align: right;">1,45 %</td>
+</tr>
+<tr class="even">
+<td>Estrie</td>
+<td style="text-align: right;">6 941</td>
+<td style="text-align: right;">1 462</td>
+<td style="text-align: right;">106</td>
+<td style="text-align: right;">21,1 %</td>
+<td style="text-align: right;">1,53 %</td>
+</tr>
+<tr class="odd">
+<td>Lanaudière</td>
+<td style="text-align: right;">6 552</td>
+<td style="text-align: right;">1 458</td>
+<td style="text-align: right;">93</td>
+<td style="text-align: right;">22,3 %</td>
+<td style="text-align: right;">1,42 %</td>
+</tr>
+<tr class="even">
+<td>Outaouais</td>
+<td style="text-align: right;">5 596</td>
+<td style="text-align: right;">837</td>
+<td style="text-align: right;">57</td>
+<td style="text-align: right;">15,0 %</td>
+<td style="text-align: right;">1,02 %</td>
+</tr>
+<tr class="odd">
+<td>Laval</td>
+<td style="text-align: right;">5 336</td>
+<td style="text-align: right;">1 125</td>
+<td style="text-align: right;">59</td>
+<td style="text-align: right;">21,1 %</td>
+<td style="text-align: right;">1,11 %</td>
+</tr>
+<tr class="even">
+<td>Centre-du-Québec</td>
+<td style="text-align: right;">4 284</td>
+<td style="text-align: right;">788</td>
+<td style="text-align: right;">56</td>
+<td style="text-align: right;">18,4 %</td>
+<td style="text-align: right;">1,31 %</td>
+</tr>
+</tbody>
+</table>
+<p>Le nombre de rapports par région dépend du territoire, de la circulation, de la population, de l’environnement routier et des pratiques de rapportage.</p>
+</section>
+<section id="conditions-météo" class="level2">
+<h2 class="anchored" data-anchor-id="conditions-météo">Conditions météo</h2>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Météo</th>
+<th style="text-align: right;">Accidents</th>
+<th style="text-align: right;">Pourcentage</th>
+<th style="text-align: right;">Avec victime</th>
+<th style="text-align: right;">Mortels ou graves</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Clair</td>
+<td style="text-align: right;">68 040</td>
+<td style="text-align: right;">62,9 %</td>
+<td style="text-align: right;">15 241</td>
+<td style="text-align: right;">983</td>
+</tr>
+<tr class="even">
+<td>Couvert</td>
+<td style="text-align: right;">17 661</td>
+<td style="text-align: right;">16,3 %</td>
+<td style="text-align: right;">3 235</td>
+<td style="text-align: right;">203</td>
+</tr>
+<tr class="odd">
+<td>Neige ou grêle</td>
+<td style="text-align: right;">8 559</td>
+<td style="text-align: right;">7,9 %</td>
+<td style="text-align: right;">1 324</td>
+<td style="text-align: right;">67</td>
+</tr>
+<tr class="even">
+<td>Pluie ou bruine</td>
+<td style="text-align: right;">6 856</td>
+<td style="text-align: right;">6,3 %</td>
+<td style="text-align: right;">1 480</td>
+<td style="text-align: right;">81</td>
+</tr>
+<tr class="odd">
+<td>Poudrerie ou tempête de neige</td>
+<td style="text-align: right;">3 229</td>
+<td style="text-align: right;">3,0 %</td>
+<td style="text-align: right;">567</td>
+<td style="text-align: right;">18</td>
+</tr>
+<tr class="even">
+<td>Météo manquante</td>
+<td style="text-align: right;">1 378</td>
+<td style="text-align: right;">1,3 %</td>
+<td style="text-align: right;">128</td>
+<td style="text-align: right;">7</td>
+</tr>
+<tr class="odd">
+<td>Averse</td>
+<td style="text-align: right;">1 018</td>
+<td style="text-align: right;">0,9 %</td>
+<td style="text-align: right;">259</td>
+<td style="text-align: right;">20</td>
+</tr>
+<tr class="even">
+<td>Brouillard ou brume</td>
+<td style="text-align: right;">508</td>
+<td style="text-align: right;">0,5 %</td>
+<td style="text-align: right;">96</td>
+<td style="text-align: right;">8</td>
+</tr>
+<tr class="odd">
+<td>Vent fort</td>
+<td style="text-align: right;">362</td>
+<td style="text-align: right;">0,3 %</td>
+<td style="text-align: right;">85</td>
+<td style="text-align: right;">7</td>
+</tr>
+<tr class="even">
+<td>Verglas</td>
+<td style="text-align: right;">325</td>
+<td style="text-align: right;">0,3 %</td>
+<td style="text-align: right;">65</td>
+<td style="text-align: right;">3</td>
+</tr>
+<tr class="odd">
+<td>Autre</td>
+<td style="text-align: right;">250</td>
+<td style="text-align: right;">0,2 %</td>
+<td style="text-align: right;">18</td>
+<td style="text-align: right;">0</td>
+</tr>
+</tbody>
+</table>
+<p>Le fait que la catégorie <code>Clair</code> soit fréquente ne signifie pas qu’elle est plus dangereuse. Elle peut simplement correspondre à des conditions plus fréquentes ou à davantage de déplacements.</p>
+</section>
+<section id="indicateurs-dusagers-et-véhicules" class="level2">
+<h2 class="anchored" data-anchor-id="indicateurs-dusagers-et-véhicules">Indicateurs d’usagers et véhicules</h2>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Indicateur</th>
+<th style="text-align: right;">Accidents</th>
+<th style="text-align: right;">Pourcentage</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Automobile ou camion léger</td>
+<td style="text-align: right;">99 084</td>
+<td style="text-align: right;">91,6 %</td>
+</tr>
+<tr class="even">
+<td>Véhicule lourd</td>
+<td style="text-align: right;">15 519</td>
+<td style="text-align: right;">14,3 %</td>
+</tr>
+<tr class="odd">
+<td>Motocyclette ou cyclomoteur</td>
+<td style="text-align: right;">2 903</td>
+<td style="text-align: right;">2,7 %</td>
+</tr>
+<tr class="even">
+<td>Zone de travaux</td>
+<td style="text-align: right;">2 787</td>
+<td style="text-align: right;">2,6 %</td>
+</tr>
+<tr class="odd">
+<td>Victime piéton</td>
+<td style="text-align: right;">2 150</td>
+<td style="text-align: right;">2,0 %</td>
+</tr>
+<tr class="even">
+<td>Vélo</td>
+<td style="text-align: right;">1 601</td>
+<td style="text-align: right;">1,5 %</td>
+</tr>
+</tbody>
+</table>
+<p>Ces indicateurs signalent la présence d’au moins un type d’usager ou de véhicule dans le rapport. Ils ne donnent pas le nombre total d’usagers exposés.</p>
+</section>
+<section id="valeurs-manquantes-principales" class="level2">
+<h2 class="anchored" data-anchor-id="valeurs-manquantes-principales">Valeurs manquantes principales</h2>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Variable</th>
+<th style="text-align: right;">Valeurs manquantes</th>
+<th style="text-align: right;">Pourcentage</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>vitesse_autorisee</code></td>
+<td style="text-align: right;">10 959</td>
+<td style="text-align: right;">10,10 %</td>
+</tr>
+<tr class="even">
+<td><code>localisation</code></td>
+<td style="text-align: right;">6 271</td>
+<td style="text-align: right;">5,80 %</td>
+</tr>
+<tr class="odd">
+<td><code>configuration_route</code></td>
+<td style="text-align: right;">4 555</td>
+<td style="text-align: right;">4,21 %</td>
+</tr>
+<tr class="even">
+<td><code>categorie_route</code></td>
+<td style="text-align: right;">1 767</td>
+<td style="text-align: right;">1,63 %</td>
+</tr>
+<tr class="odd">
+<td><code>eclairement</code></td>
+<td style="text-align: right;">1 537</td>
+<td style="text-align: right;">1,42 %</td>
+</tr>
+<tr class="even">
+<td><code>aspect_route</code></td>
+<td style="text-align: right;">1 467</td>
+<td style="text-align: right;">1,36 %</td>
+</tr>
+<tr class="odd">
+<td><code>meteo</code></td>
+<td style="text-align: right;">1 378</td>
+<td style="text-align: right;">1,27 %</td>
+</tr>
+</tbody>
+</table>
+<p>Les valeurs manquantes touchent surtout des variables de contexte routier. Elles doivent être inspectées avant toute modélisation.</p>
+</section>
+<section id="lecture-statistique" class="level2">
+<h2 class="anchored" data-anchor-id="lecture-statistique">Lecture statistique</h2>
+<p>Une analyse prudente suit cet ordre :</p>
+<ol type="1">
+<li>confirmer l’unité statistique, soit un rapport d’accident;</li>
+<li>consulter le PDF avant de recoder les codes;</li>
+<li>traiter <code>9</code> comme une catégorie, pas comme une quantité exacte;</li>
+<li>distinguer fréquence de rapports et risque d’accident;</li>
+<li>inspecter les valeurs manquantes dans les variables de contexte;</li>
+<li>présenter les modèles comme des associations descriptives;</li>
+<li>documenter les exclusions avant toute comparaison régionale ou saisonnière.</li>
+</ol>
+<p>Les données sont excellentes pour enseigner la statistique descriptive et la communication responsable. Elles ne suffisent pas, seules, à conclure qu’une région, un mois ou une condition météo est plus dangereux.</p>
+</section>
 <section id="concepts-enseignables" class="level2">
 <h2 class="anchored" data-anchor-id="concepts-enseignables">Concepts enseignables</h2>
 <ul>
-<li>transport</li>
-<li>sécurité routière</li>
-<li>séries temporelles</li>
-<li>statistiques descriptives</li>
-<li>variables catégorielles</li>
-<li>Québec</li>
-<li>données ouvertes</li>
-<li>modélisation</li>
+<li>données administratives;</li>
+<li>dictionnaire de variables;</li>
+<li>codes catégoriels;</li>
+<li>tableaux croisés;</li>
+<li>proportions;</li>
+<li>séries temporelles descriptives;</li>
+<li>régression logistique exploratoire;</li>
+<li>limites d’exposition et de causalité.</li>
 </ul>
 </section>
 <section id="score-zéro-déchet" class="level2">
 <h2 class="anchored" data-anchor-id="score-zéro-déchet">Score zéro déchet</h2>
 <table class="caption-top table">
+<colgroup>
+<col style="width: 30%">
+<col style="width: 40%">
+<col style="width: 30%">
+</colgroup>
 <thead>
 <tr class="header">
 <th>Dimension</th>
 <th style="text-align: right;">Score</th>
+<th>Justification</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td>Contexte québécois</td>
 <td style="text-align: right;">3</td>
+<td>Source officielle québécoise sur la sécurité routière</td>
 </tr>
 <tr class="even">
 <td>Accessibilité pédagogique</td>
 <td style="text-align: right;">2</td>
+<td>Sujet concret, mais codes nombreux et données sensibles</td>
 </tr>
 <tr class="odd">
 <td>Qualité documentaire</td>
 <td style="text-align: right;">3</td>
+<td>Page Données Québec, API CKAN et PDF officiel</td>
 </tr>
 <tr class="even">
 <td>Potentiel de nettoyage</td>
 <td style="text-align: right;">3</td>
+<td>Recodage, valeurs manquantes et variables codées</td>
 </tr>
 <tr class="odd">
 <td>Potentiel de visualisation</td>
 <td style="text-align: right;">3</td>
+<td>Mois, régions, météo, gravité et tableaux croisés</td>
 </tr>
 <tr class="even">
 <td>Potentiel de statistique descriptive</td>
 <td style="text-align: right;">3</td>
+<td>Fréquences et proportions directement enseignables</td>
 </tr>
 <tr class="odd">
 <td>Potentiel d’inférence</td>
 <td style="text-align: right;">2</td>
+<td>Possible avec prudence et dénominateurs complémentaires</td>
 </tr>
 <tr class="even">
 <td>Potentiel de modélisation</td>
 <td style="text-align: right;">3</td>
+<td>Régression catégorielle exploratoire pertinente</td>
 </tr>
 <tr class="odd">
-<td>Potentiel de discussion éthique</td>
+<td>Potentiel éthique</td>
 <td style="text-align: right;">3</td>
+<td>Vie privée, sécurité publique et communication responsable</td>
 </tr>
 <tr class="even">
-<td>Réutilisabilité dans plusieurs cours</td>
+<td>Réutilisabilité</td>
 <td style="text-align: right;">3</td>
+<td>Utile en nettoyage, EDA, visualisation, modélisation et éthique</td>
 </tr>
 </tbody>
 </table>
@@ -5950,47 +6665,79 @@ Quels facteurs sont associés à la gravité des accidents, sans conclure trop v
 </section>
 <section id="activité-courte" class="level2">
 <h2 class="anchored" data-anchor-id="activité-courte">Activité courte</h2>
-<p>En 30 à 45 minutes, faire résumer un fichier annuel par mois et gravité, puis produire un graphique en barres.</p>
+<p>En 30 à 45 minutes, produire un tableau de gravité par mois et expliquer pourquoi les résultats ne mesurent pas le risque routier.</p>
 </section>
 <section id="activité-longue" class="level2">
 <h2 class="anchored" data-anchor-id="activité-longue">Activité longue</h2>
-<p>En 2 à 3 heures, demander un mini-rapport combinant nettoyage, graphiques et modèle simple de gravité.</p>
-</section>
-<section id="projets-possibles" class="level2">
-<h2 class="anchored" data-anchor-id="projets-possibles">Projets possibles</h2>
-<ul>
-<li>Comparer la gravité des accidents selon la saison.</li>
-<li>Étudier les associations entre météo, éclairage et gravité.</li>
-<li>Produire une série temporelle annuelle des accidents par région.</li>
-</ul>
+<p>En 2 à 3 heures, produire un mini-rapport descriptif et un modèle exploratoire de gravité, avec une section explicite sur les limites d’exposition.</p>
 </section>
 <section id="code-r-minimal" class="level2">
 <h2 class="anchored" data-anchor-id="code-r-minimal">Code R minimal</h2>
+<p>À exécuter depuis la racine du projet.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>source_url <span class="ot">&lt;-</span> <span class="st">&quot;https://www.donneesquebec.ca/recherche/dataset/rapports-d-accident&quot;</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load libraries</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Télécharger la ressource appropriée depuis la page officielle,</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co"># puis documenter le fichier brut dans data/raw/ avant toute transformation.</span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>source_url</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Download, validate and prepare the official 2022 CSV resource</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">&quot;datasets/rapports-accident/preparation.R&quot;</span>)</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Import prepared data</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>accidents <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;data/processed/rapports-accident/rapports_accident_2022_prepares.csv&quot;</span>,</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">show_col_types =</span> <span class="cn">FALSE</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Summarise accidents with victims by month</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>resume_mois <span class="ot">&lt;-</span> accidents <span class="sc">|&gt;</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(mois) <span class="sc">|&gt;</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">n_accidents =</span> <span class="fu">n</span>(),</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>    <span class="at">n_accidents_avec_victime =</span> <span class="fu">sum</span>(accident_avec_victime, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>    <span class="at">pct_accidents_avec_victime =</span> <span class="dv">100</span> <span class="sc">*</span> n_accidents_avec_victime <span class="sc">/</span> n_accidents,</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>    <span class="at">.groups =</span> <span class="st">&quot;drop&quot;</span></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(resume_mois, <span class="fu">aes</span>(<span class="at">x =</span> mois, <span class="at">y =</span> pct_accidents_avec_victime)) <span class="sc">+</span></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="at">fill =</span> <span class="st">&quot;#325EA8&quot;</span>) <span class="sc">+</span></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">&quot;Mois&quot;</span>,</span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">&quot;Accidents avec victime (%)&quot;</span>,</span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">&quot;Accidents avec victime par mois&quot;</span>,</span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="st">&quot;Rapports d&#39;accident 2022; proportions descriptives seulement&quot;</span></span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="limites-et-précautions" class="level2">
 <h2 class="anchored" data-anchor-id="limites-et-précautions">Limites et précautions</h2>
 <ul>
-<li>Les données décrivent des accidents rapportés et ne mesurent pas directement le risque d’exposition.</li>
-<li>Les codes catégoriels doivent être interprétés avec la documentation PDF.</li>
-<li>Toute modélisation de gravité doit éviter les conclusions causales rapides.</li>
+<li>Les données portent sur des accidents rapportés, pas sur tous les déplacements.</li>
+<li>Aucun dénominateur d’exposition n’est inclus.</li>
+<li>Les variables <code>NB_VICTIMES_TOTAL</code> et <code>NB_VEH_IMPLIQUES_ACCDN</code> utilisent <code>9</code> pour trois ou plus.</li>
+<li>Les comparaisons régionales ou mensuelles ne mesurent pas le risque sans population, circulation ou distance parcourue.</li>
+<li>Toute modélisation de gravité doit être présentée comme exploratoire.</li>
+<li>La source officielle indique une révision liée à la protection de la vie privée.</li>
 </ul>
 </section>
 <section id="extensions" class="level2">
 <h2 class="anchored" data-anchor-id="extensions">Extensions</h2>
 <ul>
-<li>Construire un tableau croisé gravité par météo.</li>
-<li>Agréger par année et région administrative.</li>
-<li>Modéliser une variable binaire de gravité avec validation simple.</li>
+<li>Comparer les mois en séparant semaine et fin de semaine.</li>
+<li>Étudier les accidents impliquant un vélo ou une victime piétonne.</li>
+<li>Construire un tableau croisé météo par gravité.</li>
+<li>Ajouter des données de population ou de circulation pour discuter des dénominateurs.</li>
+<li>Ajuster une régression logistique exploratoire et présenter ses limites.</li>
+</ul>
+</section>
+<section id="références-utilisées" class="level2">
+<h2 class="anchored" data-anchor-id="références-utilisées">Références utilisées</h2>
+<ul>
+<li>Données Québec. 2023. Rapports d’accident. <a href="https://www.donneesquebec.ca/recherche/dataset/rapports-d-accident" class="uri">https://www.donneesquebec.ca/recherche/dataset/rapports-d-accident</a></li>
+<li>Données Québec. 2023. API CKAN, paquet <code>rapports-d-accident</code>. <a href="https://www.donneesquebec.ca/recherche/api/3/action/package_show?id=rapports-d-accident" class="uri">https://www.donneesquebec.ca/recherche/api/3/action/package_show?id=rapports-d-accident</a></li>
+<li>Société de l’assurance automobile du Québec. 2023. Rapports d’accident, CSV 2022. <a href="https://dq-prd-bucket1.s3.ca-central-1.amazonaws.com/saaq/Rapport_Accident_2022.csv" class="uri">https://dq-prd-bucket1.s3.ca-central-1.amazonaws.com/saaq/Rapport_Accident_2022.csv</a></li>
+<li>Société de l’assurance automobile du Québec. 2023. Documentation sur les variables. <a href="https://www.donneesquebec.ca/recherche/dataset/8dd0ab9b-d45d-4526-9256-c598fbc4ff3a/resource/86cd3bcb-fe10-4ca5-992e-5bb80e5c534a/download/rapports-accident-documentation.pdf" class="uri">https://www.donneesquebec.ca/recherche/dataset/8dd0ab9b-d45d-4526-9256-c598fbc4ff3a/resource/86cd3bcb-fe10-4ca5-992e-5bb80e5c534a/download/rapports-accident-documentation.pdf</a></li>
 </ul>
 </section>
 </div>

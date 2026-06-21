@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Décrire la gravité des accidents – Données bleues</title>
+<title>Laboratoire - Gravité des accidents par mois – Données bleues</title>
 <style>
 
 code{white-space: pre-wrap;}
@@ -5482,16 +5482,15 @@ grid-template-columns: 1fr;
     <h2 id="toc-title">On this page</h2>
 
   <ul>
-  <li><a href="#décrire-la-gravité-des-accidents" id="toc-décrire-la-gravité-des-accidents" class="nav-link active" data-scroll-target="#décrire-la-gravité-des-accidents">Décrire la gravité des accidents</a>
+  <li><a href="#laboratoire---gravité-des-accidents-par-mois" id="toc-laboratoire---gravité-des-accidents-par-mois" class="nav-link active" data-scroll-target="#laboratoire---gravité-des-accidents-par-mois">Laboratoire - Gravité des accidents par mois</a>
   <ul class="collapse">
   <li><a href="#contexte" id="toc-contexte" class="nav-link" data-scroll-target="#contexte">Contexte</a></li>
   <li><a href="#objectifs-dapprentissage" id="toc-objectifs-dapprentissage" class="nav-link" data-scroll-target="#objectifs-dapprentissage">Objectifs d’apprentissage</a></li>
-  <li><a href="#données-utilisées" id="toc-données-utilisées" class="nav-link" data-scroll-target="#données-utilisées">Données utilisées</a></li>
-  <li><a href="#métadonnées-pédagogiques" id="toc-métadonnées-pédagogiques" class="nav-link" data-scroll-target="#métadonnées-pédagogiques">Métadonnées pédagogiques</a></li>
+  <li><a href="#question-directrice" id="toc-question-directrice" class="nav-link" data-scroll-target="#question-directrice">Question directrice</a></li>
   <li><a href="#consignes" id="toc-consignes" class="nav-link" data-scroll-target="#consignes">Consignes</a></li>
+  <li><a href="#résultats-attendus" id="toc-résultats-attendus" class="nav-link" data-scroll-target="#résultats-attendus">Résultats attendus</a></li>
   <li><a href="#questions" id="toc-questions" class="nav-link" data-scroll-target="#questions">Questions</a></li>
   <li><a href="#pistes-de-solution" id="toc-pistes-de-solution" class="nav-link" data-scroll-target="#pistes-de-solution">Pistes de solution</a></li>
-  <li><a href="#prolongement" id="toc-prolongement" class="nav-link" data-scroll-target="#prolongement">Prolongement</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -5501,7 +5500,7 @@ grid-template-columns: 1fr;
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Décrire la gravité des accidents</h1>
+<h1 class="title">Laboratoire - Gravité des accidents par mois</h1>
 </div>
 
 
@@ -5518,104 +5517,55 @@ grid-template-columns: 1fr;
 </header>
 
 
-<section id="décrire-la-gravité-des-accidents" class="level1">
-<h1>Décrire la gravité des accidents</h1>
+<section id="laboratoire---gravité-des-accidents-par-mois" class="level1">
+<h1>Laboratoire - Gravité des accidents par mois</h1>
 <section id="contexte" class="level2">
 <h2 class="anchored" data-anchor-id="contexte">Contexte</h2>
-<p>Cette activité introduit l’analyse de variables catégorielles dans un contexte de sécurité routière.</p>
+<p>Cette activité utilise la fiche <a href="../../datasets/rapports-accident/fiche.html">Rapports d’accident</a>. L’objectif est de construire un tableau descriptif de gravité sans transformer des fréquences d’accidents en mesures de risque.</p>
 </section>
 <section id="objectifs-dapprentissage" class="level2">
 <h2 class="anchored" data-anchor-id="objectifs-dapprentissage">Objectifs d’apprentissage</h2>
 <ul>
-<li>Importer un CSV annuel</li>
-<li>Créer un tableau croisé</li>
-<li>Visualiser une distribution catégorielle</li>
+<li>Exécuter un script de préparation à partir d’une source officielle.</li>
+<li>Importer une table préparée.</li>
+<li>Créer un tableau croisé de variables catégorielles.</li>
+<li>Visualiser une proportion mensuelle.</li>
+<li>Formuler une limite liée à l’absence de dénominateur d’exposition.</li>
 </ul>
 </section>
-<section id="données-utilisées" class="level2">
-<h2 class="anchored" data-anchor-id="données-utilisées">Données utilisées</h2>
-<p>Fiche : <a href="../../datasets/rapports-accident/fiche.html">Rapports d’accident</a></p>
-<p>Source : Données Québec / Société de l’assurance automobile du Québec.</p>
-<p>Licence : Attribution (CC-BY 4.0).</p>
-</section>
-<section id="métadonnées-pédagogiques" class="level2">
-<h2 class="anchored" data-anchor-id="métadonnées-pédagogiques">Métadonnées pédagogiques</h2>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 50%">
-<col style="width: 50%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Champ</th>
-<th>Information</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Question directrice</td>
-<td>Comment la gravité varie-t-elle selon le mois ou la météo?</td>
-</tr>
-<tr class="even">
-<td>Concepts</td>
-<td>Tableaux croisés; Visualisation; Variables catégorielles</td>
-</tr>
-<tr class="odd">
-<td>Niveau</td>
-<td>Intermédiaire</td>
-</tr>
-<tr class="even">
-<td>Type</td>
-<td>Exercice; Exploration de données</td>
-</tr>
-<tr class="odd">
-<td>Contexte</td>
-<td>Transport et sécurité routière</td>
-</tr>
-<tr class="even">
-<td>Accroche</td>
-<td>Sécurité routière</td>
-</tr>
-<tr class="odd">
-<td>Durée</td>
-<td>30-45 minutes</td>
-</tr>
-<tr class="even">
-<td>Matériel</td>
-<td>énoncé; code; données</td>
-</tr>
-<tr class="odd">
-<td>Math/stats avancées</td>
-<td>non</td>
-</tr>
-</tbody>
-</table>
+<section id="question-directrice" class="level2">
+<h2 class="anchored" data-anchor-id="question-directrice">Question directrice</h2>
+<p>Comment la gravité observée varie-t-elle selon le mois dans les rapports d’accident 2022?</p>
 </section>
 <section id="consignes" class="level2">
 <h2 class="anchored" data-anchor-id="consignes">Consignes</h2>
 <ol type="1">
-<li>Choisir une année</li>
-<li>Importer le CSV</li>
-<li>Consulter la documentation des codes</li>
-<li>Compter les accidents par gravité et mois</li>
-<li>Interpréter prudemment</li>
+<li>Exécuter <code>datasets/rapports-accident/preparation.R</code>.</li>
+<li>Importer <code>data/processed/rapports-accident/rapports_accident_2022_prepares.csv</code>.</li>
+<li>Vérifier le nombre de lignes et les quatre niveaux de <code>gravite</code>.</li>
+<li>Calculer le nombre d’accidents par mois et par gravité.</li>
+<li>Calculer la proportion mensuelle d’accidents avec victime.</li>
+<li>Produire un graphique à barres.</li>
+<li>Rédiger une interprétation de 6 à 8 lignes.</li>
 </ol>
+</section>
+<section id="résultats-attendus" class="level2">
+<h2 class="anchored" data-anchor-id="résultats-attendus">Résultats attendus</h2>
+<p>Le script de préparation vérifie 108 186 rapports pour l’année 2022, 25 champs sources et 42 colonnes préparées. Il produit aussi des résumés par gravité, mois, région et météo.</p>
 </section>
 <section id="questions" class="level2">
 <h2 class="anchored" data-anchor-id="questions">Questions</h2>
 <ol type="1">
 <li>Quelle est l’unité statistique?</li>
-<li>Quels codes doivent être recodés?</li>
-<li>Qu’est-ce qui manque pour parler de risque?</li>
+<li>Pourquoi <code>NB_VICTIMES_TOTAL == 9</code> ne doit-il pas être additionné comme neuf victimes?</li>
+<li>Quels mois ont les proportions les plus élevées d’accidents avec victime?</li>
+<li>Pourquoi ces proportions ne sont-elles pas des risques mensuels?</li>
+<li>Quel dénominateur faudrait-il pour parler de risque routier?</li>
 </ol>
 </section>
 <section id="pistes-de-solution" class="level2">
 <h2 class="anchored" data-anchor-id="pistes-de-solution">Pistes de solution</h2>
-<p>Une solution acceptable présente les fréquences par gravité et mentionne l’absence de dénominateur d’exposition.</p>
-</section>
-<section id="prolongement" class="level2">
-<h2 class="anchored" data-anchor-id="prolongement">Prolongement</h2>
-<p>Ajouter la condition météo comme variable de facettage.</p>
+<p>Une bonne réponse présente les fréquences et les proportions. Une réponse plus solide explique que les mois diffèrent aussi par la circulation, les trajets, les activités et les conditions d’exposition, qui ne sont pas dans ce fichier.</p>
 
 
 </section>
