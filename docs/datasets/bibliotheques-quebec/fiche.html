@@ -5545,10 +5545,13 @@ grid-template-columns: 1fr;
 Statistiques des bibliothèques publiques du Québec
 </h1>
 <p class="dataset-hero-source">
-Bibliothèque et Archives nationales du Québec
+Bibliothèque et Archives nationales du Québec / Données Québec
 </p>
+<div class="dataset-contributor-badge">
+<span>Personne à contacter</span><strong>Aurélien Nicosia</strong><small>Révision pédagogique et statistique</small>
+</div>
 <p class="dataset-hero-summary">
-Bibliothèque publique ou centre régional
+Bibliothèque publique ou centre régional dans la ressource annuelle 2024
 </p>
 <div class="dataset-hero-actions">
 <a class="dataset-button no-external" href="#r-en-action">Voir les résultats R</a><a class="dataset-button secondary" href="https://www.donneesquebec.ca/recherche/dataset/statistiques_des_bibliotheques_publiques_du_quebec">Source officielle</a>
@@ -5566,17 +5569,17 @@ Bibliothèque publique ou centre régional
 <span>Niveau</span><strong>Introduction à avancé</strong>
 </div>
 <div class="dataset-fact">
-<span>Structure</span><strong>Tabulaire</strong>
+<span>Structure</span><strong>Tabulaire large, administratif et financier</strong>
 </div>
 <div class="dataset-fact">
-<span>Format</span><strong>CSV séparé par point-virgule</strong>
+<span>Format</span><strong>CSV séparé par point-virgule préparé localement</strong>
 </div>
 </div>
 <div class="dataset-pedagogy-band">
 <div class="dataset-pedagogy-main">
 <span>Question de départ</span>
 <p>
-Explorer culture et services publics avec une question descriptive.
+Construire un portrait régional des visites, prêts et dépenses par habitant.
 </p>
 </div>
 <div class="dataset-score-box">
@@ -5587,7 +5590,7 @@ Explorer culture et services publics avec une question descriptive.
 </div>
 </div>
 <div class="dataset-chip-strip">
-<span>importation CSV</span><span>nettoyage de noms de variables</span><span>statistique descriptive</span><span>visualisation</span><span>ratios</span><span>comparaison régionale</span><span>régression</span>
+<span>importation CSV</span><span>nettoyage de noms de variables</span><span>conversion numérique</span><span>ratios</span><span>comparaison régionale</span><span>valeurs manquantes</span><span>indicateurs administratifs</span>
 </div>
 <section class="dataset-r-lab" id="r-en-action">
 <div class="dataset-section-heading">
@@ -5596,7 +5599,7 @@ Explorer culture et services publics avec une question descriptive.
 Aperçu reproductible
 </h2>
 <p>
-Aperçu léger calculé par R à partir des métadonnées vérifiées afin de garder la fiche rapide et stable au rendu.
+Aperçu calculé par R à partir de data/processed/bibliotheques-quebec/statistiques_bibliotheques_quebec_2024_selection.csv.
 </p>
 </div>
 <div class="dataset-r-grid">
@@ -5604,13 +5607,12 @@ Aperçu léger calculé par R à partir des métadonnées vérifiées afin de ga
 <div class="dataset-card-label">
 Code minimal
 </div>
-<pre><code class="language-r">library(yaml)
+<pre><code class="language-r">library(dplyr)
 
-metadata &lt;- yaml::read_yaml(&quot;datasets/bibliotheques-quebec/metadata.yml&quot;)
-data.frame(
-  champ = c(&quot;theme&quot;, &quot;territoire&quot;, &quot;unite&quot;, &quot;niveau&quot;),
-  valeur = c(metadata$theme, metadata$geography, metadata$unit, metadata$level)
-)</code></pre>
+donnees &lt;- read.csv(&quot;data/processed/bibliotheques-quebec/statistiques_bibliotheques_quebec_2024_selection.csv&quot;, check.names = FALSE)
+
+glimpse(donnees)
+donnees |&gt; summarise(lignes = n(), colonnes = ncol(donnees))</code></pre>
 </div>
 <div class="dataset-result-card">
 <div class="dataset-card-label">
@@ -5618,16 +5620,19 @@ Résultats R
 </div>
 <div class="dataset-r-stats">
 <div class="dataset-r-stat">
-<span>Lignes déclarées</span><strong>188 lignes pour la ressource 2024</strong>
+<span>Lignes lues</span><strong>188</strong>
 </div>
 <div class="dataset-r-stat">
-<span>Colonnes déclarées</span><strong>262 colonnes pour la ressource 2024</strong>
+<span>Colonnes</span><strong>16</strong>
 </div>
 <div class="dataset-r-stat">
-<span>Format</span><strong>CSV séparé par point-virgule</strong>
+<span>Variables num.</span><strong>10</strong>
 </div>
 <div class="dataset-r-stat">
-<span>Aperçu</span><strong>Métadonnées</strong>
+<span>Valeurs manquantes</span><strong>2.2 %</strong>
+</div>
+<div class="dataset-r-stat">
+<span>Aperçu</span><strong>statistiques_bibliotheques_quebec_2024_selection.csv</strong>
 </div>
 </div>
 <div class="dataset-result-table-wrap">
@@ -5635,52 +5640,141 @@ Résultats R
 <thead>
 <tr>
 <th>
-champ
+bibliotheque
 </th>
 <th>
-valeur
+region_administrative
+</th>
+<th>
+population_desservie
+</th>
+<th>
+categorie_bibliotheque
+</th>
+<th>
+modalites_abonnement
+</th>
+<th>
+visites_total
 </th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>
-theme
+Amqui
 </td>
 <td>
-Culture et services publics
-</td>
-</tr>
-<tr>
-<td>
-territoire
+01: Bas-Saint-Laurent
 </td>
 <td>
-Québec
-</td>
-</tr>
-<tr>
-<td>
-unite
+6129
 </td>
 <td>
-Bibliothèque publique ou centre…
+Publique relevant directement d…
+</td>
+<td>
+Gratuite
+</td>
+<td>
 </td>
 </tr>
 <tr>
 <td>
-niveau
+CRSBP du Bas-Saint-Laurent
 </td>
 <td>
-Introduction à avancé
+01: Bas-Saint-Laurent
+</td>
+<td>
+95410
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+5533
 </td>
 </tr>
 <tr>
 <td>
-format
+Matane
 </td>
 <td>
-CSV séparé par point-virgule
+01: Bas-Saint-Laurent
+</td>
+<td>
+16954
+</td>
+<td>
+Publique relevant directement d…
+</td>
+<td>
+Gratuite
+</td>
+<td>
+52306
+</td>
+</tr>
+<tr>
+<td>
+Mont-Joli
+</td>
+<td>
+01: Bas-Saint-Laurent
+</td>
+<td>
+7402
+</td>
+<td>
+Publique relevant directement d…
+</td>
+<td>
+Gratuite
+</td>
+<td>
+19217
+</td>
+</tr>
+<tr>
+<td>
+Rimouski
+</td>
+<td>
+01: Bas-Saint-Laurent
+</td>
+<td>
+53038
+</td>
+<td>
+Publique relevant directement d…
+</td>
+<td>
+Gratuite
+</td>
+<td>
+358940
+</td>
+</tr>
+<tr>
+<td>
+Rivière-du-Loup
+</td>
+<td>
+01: Bas-Saint-Laurent
+</td>
+<td>
+20472
+</td>
+<td>
+Publique relevant directement d…
+</td>
+<td>
+Gratuite
+</td>
+<td>
+112570
 </td>
 </tr>
 </tbody>
@@ -5691,8 +5785,8 @@ CSV séparé par point-virgule
 <div class="dataset-card-label">
 Lecture statistique
 </div>
-<svg class="dataset-r-chart" viewbox="0 0 320 210" role="img" aria-label="Concepts pédagogiques">
-<text x="0" y="30" class="dataset-svg-label">importation CSV</text><rect x="150" y="18" width="90" height="14" rx="3" class="dataset-svg-bar" /><text x="0" y="54" class="dataset-svg-label">nettoyage de noms de variables</text><rect x="150" y="42" width="90" height="14" rx="3" class="dataset-svg-bar" /><text x="0" y="78" class="dataset-svg-label">statistique descriptive</text><rect x="150" y="66" width="90" height="14" rx="3" class="dataset-svg-bar" /><text x="0" y="102" class="dataset-svg-label">visualisation</text><rect x="150" y="90" width="90" height="14" rx="3" class="dataset-svg-bar" /><text x="0" y="126" class="dataset-svg-label">ratios</text><rect x="150" y="114" width="90" height="14" rx="3" class="dataset-svg-bar" /><text x="0" y="150" class="dataset-svg-label">comparaison régionale</text><rect x="150" y="138" width="90" height="14" rx="3" class="dataset-svg-bar" /><text x="0" y="174" class="dataset-svg-label">régression</text><rect x="150" y="162" width="90" height="14" rx="3" class="dataset-svg-bar" />
+<svg class="dataset-r-chart" viewbox="0 0 320 210" role="img" aria-label="Aperçu numérique généré par R">
+<line x1="34" y1="158" x2="292" y2="158" class="dataset-svg-axis"></line><line x1="34" y1="36" x2="34" y2="158" class="dataset-svg-axis"></line><polyline points="34,157.1 40.4,157.5 46.7,157 53.1,46 59.4,155.1 65.8,157.5 72.2,153.6 78.5,148.2 84.9,154.3 91.2,153.7 97.6,157.6 103.9,156.7 110.3,154.3 116.7,152.8 123,148.9 129.4,147 135.7,157.5 142.1,130.4 148.5,118.6 154.8,150.3 161.2,148.2 167.5,156.6 173.9,157.5 180.3,156 186.6,155.7 193,152.7 199.3,147.3 205.7,157.6 212.1,140.6 218.4,142.3 224.8,151.1 231.1,141.1 237.5,157.6 243.8,154 250.2,125.5 256.6,156.4 262.9,156.5 269.3,157.4 275.6,137.6 282,158" class="dataset-svg-line"></polyline><circle cx="34" cy="157.1" r="3.2" class="dataset-svg-point"></circle><circle cx="40.4" cy="157.5" r="3.2" class="dataset-svg-point"></circle><circle cx="46.7" cy="157" r="3.2" class="dataset-svg-point"></circle><circle cx="53.1" cy="46" r="3.2" class="dataset-svg-point"></circle><circle cx="59.4" cy="155.1" r="3.2" class="dataset-svg-point"></circle><circle cx="65.8" cy="157.5" r="3.2" class="dataset-svg-point"></circle><circle cx="72.2" cy="153.6" r="3.2" class="dataset-svg-point"></circle><circle cx="78.5" cy="148.2" r="3.2" class="dataset-svg-point"></circle><circle cx="84.9" cy="154.3" r="3.2" class="dataset-svg-point"></circle><circle cx="91.2" cy="153.7" r="3.2" class="dataset-svg-point"></circle><circle cx="97.6" cy="157.6" r="3.2" class="dataset-svg-point"></circle><circle cx="103.9" cy="156.7" r="3.2" class="dataset-svg-point"></circle><circle cx="110.3" cy="154.3" r="3.2" class="dataset-svg-point"></circle><circle cx="116.7" cy="152.8" r="3.2" class="dataset-svg-point"></circle><circle cx="123" cy="148.9" r="3.2" class="dataset-svg-point"></circle><circle cx="129.4" cy="147" r="3.2" class="dataset-svg-point"></circle><circle cx="135.7" cy="157.5" r="3.2" class="dataset-svg-point"></circle><circle cx="142.1" cy="130.4" r="3.2" class="dataset-svg-point"></circle><circle cx="148.5" cy="118.6" r="3.2" class="dataset-svg-point"></circle><circle cx="154.8" cy="150.3" r="3.2" class="dataset-svg-point"></circle><circle cx="161.2" cy="148.2" r="3.2" class="dataset-svg-point"></circle><circle cx="167.5" cy="156.6" r="3.2" class="dataset-svg-point"></circle><circle cx="173.9" cy="157.5" r="3.2" class="dataset-svg-point"></circle><circle cx="180.3" cy="156" r="3.2" class="dataset-svg-point"></circle><circle cx="186.6" cy="155.7" r="3.2" class="dataset-svg-point"></circle><circle cx="193" cy="152.7" r="3.2" class="dataset-svg-point"></circle><circle cx="199.3" cy="147.3" r="3.2" class="dataset-svg-point"></circle><circle cx="205.7" cy="157.6" r="3.2" class="dataset-svg-point"></circle><circle cx="212.1" cy="140.6" r="3.2" class="dataset-svg-point"></circle><circle cx="218.4" cy="142.3" r="3.2" class="dataset-svg-point"></circle><circle cx="224.8" cy="151.1" r="3.2" class="dataset-svg-point"></circle><circle cx="231.1" cy="141.1" r="3.2" class="dataset-svg-point"></circle><circle cx="237.5" cy="157.6" r="3.2" class="dataset-svg-point"></circle><circle cx="243.8" cy="154" r="3.2" class="dataset-svg-point"></circle><circle cx="250.2" cy="125.5" r="3.2" class="dataset-svg-point"></circle><circle cx="256.6" cy="156.4" r="3.2" class="dataset-svg-point"></circle><circle cx="262.9" cy="156.5" r="3.2" class="dataset-svg-point"></circle><circle cx="269.3" cy="157.4" r="3.2" class="dataset-svg-point"></circle><circle cx="275.6" cy="137.6" r="3.2" class="dataset-svg-point"></circle><circle cx="282" cy="158" r="3.2" class="dataset-svg-point"></circle><text x="34" y="24" class="dataset-svg-title">population_desservie</text><text x="34" y="186" class="dataset-svg-label">4825</text><text x="230" y="186" class="dataset-svg-label">273776</text>
 </svg>
 </div>
 </div>
@@ -5702,7 +5796,13 @@ Lecture statistique
 <span>Mini-projets</span>
 <ul>
 <li>
-Explorer culture et services publics avec une question descriptive.
+Construire un portrait régional des visites, prêts et dépenses par habitant.
+</li>
+<li>
+Comparer les bibliothèques en distinguant volumes et ratios.
+</li>
+<li>
+Discuter les limites d&#39;indicateurs administratifs pour évaluer l&#39;accès aux services.
 </li>
 </ul>
 </div>
@@ -5710,13 +5810,13 @@ Explorer culture et services publics avec une question descriptive.
 <span>Activités liées</span>
 <div class="dataset-activity-grid">
 <div class="dataset-activity-card">
-<span>30-45 minutes</span><strong>Visites par habitant dans les bibliothèques publiques</strong>
+<span>30-45 minutes</span><strong>Laboratoire - Visites par habitant dans les bibliothèques</strong>
 <p>
 Pourquoi les visites totales ne suffisent-elles pas pour comparer des bibliothèques?
 </p>
 </div>
 <div class="dataset-activity-card">
-<span>2-3 heures</span><strong>Portrait régional des bibliothèques publiques</strong>
+<span>2-3 heures</span><strong>Mini-projet - Portrait régional des bibliothèques publiques</strong>
 <p>
 Comment construire des indicateurs comparables à partir de données administratives?
 </p>
@@ -5727,11 +5827,69 @@ Comment construire des indicateurs comparables à partir de données administrat
 <div class="dataset-detail-content">
 <section id="pourquoi-ce-jeu-est-intéressant" class="level2">
 <h2 class="anchored" data-anchor-id="pourquoi-ce-jeu-est-intéressant">Pourquoi ce jeu est intéressant</h2>
-<p>Ce jeu de données décrit les bibliothèques publiques du Québec à partir de nombreuses variables administratives, financières et de fréquentation. Il permet d’enseigner le nettoyage de fichiers larges, les ratios, les comparaisons régionales et les limites des indicateurs de services publics.</p>
-<p>Il est particulièrement riche pour un cours de science des données, car les variables sont nombreuses, les noms sont longs, les nombres utilisent une convention française et plusieurs indicateurs doivent être interprétés relativement à la population desservie.</p>
+<p>Ce jeu de données permet d’étudier les bibliothèques publiques québécoises comme un vrai cas de données administratives : fréquentation, prêts, usagers inscrits, population desservie, activités et dépenses de fonctionnement.</p>
+<p>Il est utile en science des données parce que le fichier source est large, que les noms de variables sont longs, que les nombres suivent une convention française et que plusieurs conclusions naïves changent dès qu’on rapporte les volumes à la population desservie.</p>
+<p>Question d’analyse : quelles différences observe-t-on entre bibliothèques ou régions quand on compare les visites, les prêts et les dépenses par habitant plutôt que les volumes bruts?</p>
 </section>
-<section id="source" class="level2">
-<h2 class="anchored" data-anchor-id="source">Source</h2>
+<section id="ce-qui-a-été-vérifié" class="level2">
+<h2 class="anchored" data-anchor-id="ce-qui-a-été-vérifié">Ce qui a été vérifié</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Élément</th>
+<th>Résultat vérifié</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Paquet CKAN</td>
+<td><code>231a38a8-f28e-4bef-82ea-dc98a14c1b6f</code></td>
+</tr>
+<tr class="even">
+<td>Source officielle</td>
+<td>Données Québec / Bibliothèque et Archives nationales du Québec</td>
+</tr>
+<tr class="odd">
+<td>Ressources dans le paquet</td>
+<td>19 ressources</td>
+</tr>
+<tr class="even">
+<td>Ressource préparée ici</td>
+<td><code>statistiques_bibliotheques_quebec_2024.csv</code></td>
+</tr>
+<tr class="odd">
+<td>Dictionnaire disponible</td>
+<td><code>dictionnaire-des-donnees.csv</code></td>
+</tr>
+<tr class="even">
+<td>Licence</td>
+<td>Attribution (CC-BY 4.0), selon les métadonnées CKAN consultées le 2026-06-21</td>
+</tr>
+<tr class="odd">
+<td>Dernière modification du paquet CKAN</td>
+<td>2025-10-10</td>
+</tr>
+<tr class="even">
+<td>Dernière modification du CSV 2024</td>
+<td>2025-10-06</td>
+</tr>
+<tr class="odd">
+<td>Table préparée</td>
+<td><code>data/processed/bibliotheques-quebec/statistiques_bibliotheques_quebec_2024_selection.csv</code></td>
+</tr>
+<tr class="even">
+<td>Résumés préparés</td>
+<td>ressources, régions, catégories, valeurs manquantes, bibliothèques avec le plus de visites par habitant</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="source-et-conditions" class="level2">
+<h2 class="anchored" data-anchor-id="source-et-conditions">Source et conditions</h2>
 <table class="caption-top table">
 <thead>
 <tr class="header">
@@ -5741,156 +5899,508 @@ Comment construire des indicateurs comparables à partir de données administrat
 </thead>
 <tbody>
 <tr class="odd">
-<td>Organisme producteur</td>
-<td>Bibliothèque et Archives nationales du Québec</td>
-</tr>
-<tr class="even">
-<td>URL</td>
+<td>Page Données Québec</td>
 <td><a href="https://www.donneesquebec.ca/recherche/dataset/statistiques_des_bibliotheques_publiques_du_quebec" class="uri">https://www.donneesquebec.ca/recherche/dataset/statistiques_des_bibliotheques_publiques_du_quebec</a></td>
 </tr>
+<tr class="even">
+<td>API CKAN</td>
+<td><a href="https://www.donneesquebec.ca/recherche/api/3/action/package_show?id=statistiques_des_bibliotheques_publiques_du_quebec" class="uri">https://www.donneesquebec.ca/recherche/api/3/action/package_show?id=statistiques_des_bibliotheques_publiques_du_quebec</a></td>
+</tr>
 <tr class="odd">
-<td>Ressource utilisée</td>
-<td>Statistiques annuelles des bibliothèques publiques 2024</td>
+<td>CSV 2024</td>
+<td><a href="https://www.donneesquebec.ca/recherche/dataset/231a38a8-f28e-4bef-82ea-dc98a14c1b6f/resource/01183d3e-c79c-4d09-915c-f35ffe4dfda8/download/statistiques_bibliotheques_quebec_2024.csv" class="uri">https://www.donneesquebec.ca/recherche/dataset/231a38a8-f28e-4bef-82ea-dc98a14c1b6f/resource/01183d3e-c79c-4d09-915c-f35ffe4dfda8/download/statistiques_bibliotheques_quebec_2024.csv</a></td>
 </tr>
 <tr class="even">
-<td>Licence</td>
-<td>Attribution (CC-BY 4.0) selon Données Québec</td>
+<td>Dictionnaire CSV</td>
+<td><a href="https://www.donneesquebec.ca/recherche/dataset/231a38a8-f28e-4bef-82ea-dc98a14c1b6f/resource/25bddc87-e71a-4668-bb37-55b30003dd55/download/dictionnaire-des-donnees.csv" class="uri">https://www.donneesquebec.ca/recherche/dataset/231a38a8-f28e-4bef-82ea-dc98a14c1b6f/resource/25bddc87-e71a-4668-bb37-55b30003dd55/download/dictionnaire-des-donnees.csv</a></td>
+</tr>
+<tr class="odd">
+<td>Couverture temporelle</td>
+<td>Ressources annuelles de 2007 à 2024</td>
+</tr>
+<tr class="even">
+<td>Territoire</td>
+<td>Québec</td>
 </tr>
 <tr class="odd">
 <td>Date d’accès</td>
-<td>2026-06-01</td>
-</tr>
-<tr class="even">
-<td>Fréquence de mise à jour</td>
-<td>Série annuelle; ressources disponibles par année de 2007 à 2024 dans Données Québec</td>
+<td>2026-06-21</td>
 </tr>
 </tbody>
 </table>
+<p>La fiche officielle indique que les données proviennent de l’Enquête annuelle sur les bibliothèques publiques du Québec et qu’elles sont déclarées par les responsables des bibliothèques. Le fichier contient aussi des indicateurs de performance ajoutés à partir des variables déclarées.</p>
 </section>
 <section id="ce-que-représente-une-ligne" class="level2">
 <h2 class="anchored" data-anchor-id="ce-que-représente-une-ligne">Ce que représente une ligne</h2>
-<p>Une ligne représente une bibliothèque publique ou un centre régional dans la ressource annuelle utilisée.</p>
+<p>Une ligne représente une bibliothèque publique ou un centre régional dans la ressource annuelle 2024.</p>
+<p>Une ligne n’est pas une personne, une succursale nécessairement comparable à toutes les autres, ni une mesure directe de la qualité du service. Les comparaisons doivent tenir compte de la population desservie et des pratiques de déclaration.</p>
 </section>
 <section id="variables-principales" class="level2">
 <h2 class="anchored" data-anchor-id="variables-principales">Variables principales</h2>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 20%">
-<col style="width: 20%">
-<col style="width: 20%">
-<col style="width: 20%">
-<col style="width: 20%">
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
 </colgroup>
 <thead>
 <tr class="header">
-<th>Variable</th>
-<th>Type</th>
-<th>Description</th>
-<th>Exemple</th>
-<th>Remarques pédagogiques</th>
+<th>Variable préparée</th>
+<th>Rôle</th>
+<th>Point de vigilance</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>Bibliothèque ou Centre régional</td>
-<td>caractère</td>
-<td>Nom de l’établissement ou du réseau</td>
-<td>Alma</td>
-<td>Identifiant lisible</td>
+<td><code>bibliotheque</code></td>
+<td>Nom de la bibliothèque ou du centre régional</td>
+<td>Identifiant lisible, pas une clé statistique parfaite</td>
 </tr>
 <tr class="even">
-<td>Région administrative</td>
-<td>caractère</td>
-<td>Région administrative du Québec</td>
-<td>02: Saguenay-Lac-Saint-Jean</td>
-<td>Variable de groupe</td>
+<td><code>region_administrative</code></td>
+<td>Région administrative publiée</td>
+<td>Une ligne sans région, soit Bibliothèque et Archives nationales du Québec</td>
 </tr>
 <tr class="odd">
-<td>Population desservie</td>
-<td>numérique</td>
+<td><code>population_desservie</code></td>
 <td>Population associée au service</td>
-<td>30649</td>
-<td>Dénominateur pour les ratios</td>
+<td>Dénominateur des ratios; une ligne sans population</td>
 </tr>
 <tr class="even">
-<td>Visites (Total)</td>
-<td>numérique</td>
+<td><code>categorie_bibliotheque</code></td>
+<td>Type institutionnel publié</td>
+<td>11 valeurs manquantes</td>
+</tr>
+<tr class="odd">
+<td><code>modalites_abonnement</code></td>
+<td>Modalités d’abonnement publiées</td>
+<td>11 valeurs manquantes</td>
+</tr>
+<tr class="even">
+<td><code>visites_total</code></td>
 <td>Nombre total de visites</td>
-<td>55024</td>
-<td>Peut être rapporté à la population</td>
+<td>Volume à rapporter à la population pour comparer</td>
 </tr>
 <tr class="odd">
-<td>Prêts / Tous les doc. (Total)</td>
-<td>numérique</td>
+<td><code>prets_total</code></td>
 <td>Nombre total de prêts</td>
-<td>153411</td>
-<td>Variable de fréquentation</td>
+<td>Volume de service, sensible à la taille de la population</td>
 </tr>
 <tr class="even">
-<td>Usagers inscrits (Total)</td>
-<td>numérique</td>
+<td><code>usagers_inscrits_total</code></td>
 <td>Nombre d’usagers inscrits</td>
-<td>9732</td>
-<td>Base pour des taux</td>
+<td>Peut être transformé en proportion par habitant</td>
 </tr>
 <tr class="odd">
-<td>Progr. / Toutes les activités (Total)</td>
-<td>numérique</td>
-<td>Nombre d’activités</td>
-<td>450</td>
-<td>Indicateur de programmation</td>
+<td><code>activites_total</code></td>
+<td>Nombre total d’activités</td>
+<td>4 valeurs manquantes</td>
 </tr>
 <tr class="even">
-<td>Dép. fonct. / Toutes les dépenses ($)</td>
-<td>numérique</td>
-<td>Dépenses de fonctionnement</td>
-<td>1166488,45</td>
-<td>Variable financière</td>
+<td><code>depenses_fonctionnement_total</code></td>
+<td>Dépenses de fonctionnement déclarées</td>
+<td>Comparaison prudente requise</td>
+</tr>
+<tr class="odd">
+<td><code>visites_par_habitant</code></td>
+<td>Ratio préparé</td>
+<td>Calculé seulement si la population est disponible et positive</td>
+</tr>
+<tr class="even">
+<td><code>prets_par_habitant</code></td>
+<td>Ratio préparé</td>
+<td>Même règle de dénominateur</td>
+</tr>
+<tr class="odd">
+<td><code>depenses_par_habitant</code></td>
+<td>Ratio préparé</td>
+<td>Dépend des dépenses déclarées et de la population desservie</td>
 </tr>
 </tbody>
 </table>
 </section>
-<section id="taille-et-structure" class="level2">
-<h2 class="anchored" data-anchor-id="taille-et-structure">Taille et structure</h2>
+<section id="résultats-r" class="level2">
+<h2 class="anchored" data-anchor-id="résultats-r">RÉSULTATS R</h2>
+<p>Les résultats ci-dessous proviennent de <code>preparation.R</code>, exécuté sur la ressource CSV 2024 téléchargée le 2026-06-21.</p>
 <table class="caption-top table">
 <thead>
 <tr class="header">
-<th>Élément</th>
-<th>Information</th>
+<th>Indicateur</th>
+<th style="text-align: right;">Valeur</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>Nombre de lignes</td>
-<td>188 lignes pour la ressource 2024</td>
+<td>Ressources CKAN documentées</td>
+<td style="text-align: right;">19</td>
 </tr>
 <tr class="even">
-<td>Nombre de colonnes</td>
-<td>262 colonnes pour la ressource 2024</td>
+<td>Lignes dans le CSV source</td>
+<td style="text-align: right;">188</td>
 </tr>
 <tr class="odd">
-<td>Structure</td>
-<td>Tabulaire large</td>
+<td>Colonnes dans le CSV source</td>
+<td style="text-align: right;">262</td>
 </tr>
 <tr class="even">
-<td>Format</td>
-<td>CSV séparé par point-virgule</td>
+<td>Lignes préparées</td>
+<td style="text-align: right;">188</td>
+</tr>
+<tr class="odd">
+<td>Colonnes préparées</td>
+<td style="text-align: right;">16</td>
+</tr>
+<tr class="even">
+<td>Régions administratives non manquantes</td>
+<td style="text-align: right;">19</td>
+</tr>
+<tr class="odd">
+<td>Catégories de bibliothèques non manquantes</td>
+<td style="text-align: right;">5</td>
+</tr>
+<tr class="even">
+<td>Population desservie totale</td>
+<td style="text-align: right;">8 608 933</td>
+</tr>
+<tr class="odd">
+<td>Visites déclarées</td>
+<td style="text-align: right;">59 981 972</td>
+</tr>
+<tr class="even">
+<td>Prêts déclarés</td>
+<td style="text-align: right;">52 513 445</td>
+</tr>
+<tr class="odd">
+<td>Usagers inscrits déclarés</td>
+<td style="text-align: right;">2 792 172</td>
+</tr>
+<tr class="even">
+<td>Activités déclarées</td>
+<td style="text-align: right;">88 196</td>
+</tr>
+<tr class="odd">
+<td>Dépenses de fonctionnement déclarées</td>
+<td style="text-align: right;">469 770 944,24 $</td>
+</tr>
+<tr class="even">
+<td>Médiane des visites par habitant</td>
+<td style="text-align: right;">2,81</td>
+</tr>
+<tr class="odd">
+<td>Médiane des prêts par habitant</td>
+<td style="text-align: right;">5,11</td>
+</tr>
+<tr class="even">
+<td>Médiane des usagers inscrits par habitant</td>
+<td style="text-align: right;">0,25</td>
+</tr>
+<tr class="odd">
+<td>Médiane des dépenses par habitant</td>
+<td style="text-align: right;">42,39 $</td>
 </tr>
 </tbody>
 </table>
+</section>
+<section id="régions-avec-le-plus-de-visites-par-habitant" class="level2">
+<h2 class="anchored" data-anchor-id="régions-avec-le-plus-de-visites-par-habitant">Régions avec le plus de visites par habitant</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 9%">
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 12%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Région administrative</th>
+<th style="text-align: right;">Bibliothèques</th>
+<th style="text-align: right;">Population</th>
+<th style="text-align: right;">Visites</th>
+<th style="text-align: right;">Prêts</th>
+<th style="text-align: right;">Visites par habitant</th>
+<th style="text-align: right;">Prêts par habitant</th>
+<th style="text-align: right;">Dépenses par habitant</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>06: Montréal</td>
+<td style="text-align: right;">13</td>
+<td style="text-align: right;">2 159 202</td>
+<td style="text-align: right;">18 158 853</td>
+<td style="text-align: right;">12 993 573</td>
+<td style="text-align: right;">8,41</td>
+<td style="text-align: right;">6,02</td>
+<td style="text-align: right;">73,81 $</td>
+</tr>
+<tr class="even">
+<td>13: Laval</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">450 629</td>
+<td style="text-align: right;">3 239 199</td>
+<td style="text-align: right;">2 557 329</td>
+<td style="text-align: right;">7,19</td>
+<td style="text-align: right;">5,68</td>
+<td style="text-align: right;">45,22 $</td>
+</tr>
+<tr class="odd">
+<td>17: Centre-du-Québec</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">179 363</td>
+<td style="text-align: right;">1 230 168</td>
+<td style="text-align: right;">1 275 232</td>
+<td style="text-align: right;">6,86</td>
+<td style="text-align: right;">7,11</td>
+<td style="text-align: right;">43,81 $</td>
+</tr>
+<tr class="even">
+<td>07: Outaouais</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">403 979</td>
+<td style="text-align: right;">2 611 747</td>
+<td style="text-align: right;">2 022 751</td>
+<td style="text-align: right;">6,47</td>
+<td style="text-align: right;">5,01</td>
+<td style="text-align: right;">39,75 $</td>
+</tr>
+<tr class="odd">
+<td>03: Capitale-Nationale</td>
+<td style="text-align: right;">13</td>
+<td style="text-align: right;">713 454</td>
+<td style="text-align: right;">4 277 230</td>
+<td style="text-align: right;">4 109 361</td>
+<td style="text-align: right;">6,00</td>
+<td style="text-align: right;">5,76</td>
+<td style="text-align: right;">40,18 $</td>
+</tr>
+<tr class="even">
+<td>14: Lanaudière</td>
+<td style="text-align: right;">17</td>
+<td style="text-align: right;">450 910</td>
+<td style="text-align: right;">2 587 030</td>
+<td style="text-align: right;">2 429 512</td>
+<td style="text-align: right;">5,74</td>
+<td style="text-align: right;">5,39</td>
+<td style="text-align: right;">44,52 $</td>
+</tr>
+<tr class="odd">
+<td>08: Abitibi-Témiscamingue</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">141 932</td>
+<td style="text-align: right;">621 872</td>
+<td style="text-align: right;">530 174</td>
+<td style="text-align: right;">4,38</td>
+<td style="text-align: right;">3,74</td>
+<td style="text-align: right;">33,52 $</td>
+</tr>
+<tr class="even">
+<td>04: Mauricie</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">423 938</td>
+<td style="text-align: right;">1 719 234</td>
+<td style="text-align: right;">1 938 726</td>
+<td style="text-align: right;">4,06</td>
+<td style="text-align: right;">4,57</td>
+<td style="text-align: right;">29,66 $</td>
+</tr>
+</tbody>
+</table>
+<p>Cette comparaison est descriptive. Elle agrège des lignes administratives et ne suffit pas à expliquer les différences régionales.</p>
+</section>
+<section id="bibliothèques-avec-le-plus-de-visites-par-habitant" class="level2">
+<h2 class="anchored" data-anchor-id="bibliothèques-avec-le-plus-de-visites-par-habitant">Bibliothèques avec le plus de visites par habitant</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 11%">
+<col style="width: 11%">
+<col style="width: 15%">
+<col style="width: 15%">
+<col style="width: 15%">
+<col style="width: 15%">
+<col style="width: 15%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Bibliothèque</th>
+<th>Région</th>
+<th style="text-align: right;">Population</th>
+<th style="text-align: right;">Visites</th>
+<th style="text-align: right;">Visites par habitant</th>
+<th style="text-align: right;">Prêts par habitant</th>
+<th style="text-align: right;">Dépenses par habitant</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Westmount</td>
+<td>06: Montréal</td>
+<td style="text-align: right;">20 093</td>
+<td style="text-align: right;">860 679</td>
+<td style="text-align: right;">42,83</td>
+<td style="text-align: right;">13,47</td>
+<td style="text-align: right;">182,46 $</td>
+</tr>
+<tr class="even">
+<td>Joliette</td>
+<td>14: Lanaudière</td>
+<td style="text-align: right;">38 097</td>
+<td style="text-align: right;">1 095 862</td>
+<td style="text-align: right;">28,77</td>
+<td style="text-align: right;">6,62</td>
+<td style="text-align: right;">48,77 $</td>
+</tr>
+<tr class="odd">
+<td>Beaconsfield</td>
+<td>06: Montréal</td>
+<td style="text-align: right;">19 290</td>
+<td style="text-align: right;">491 490</td>
+<td style="text-align: right;">25,48</td>
+<td style="text-align: right;">9,95</td>
+<td style="text-align: right;">79,08 $</td>
+</tr>
+<tr class="even">
+<td>Dorval</td>
+<td>06: Montréal</td>
+<td style="text-align: right;">20 382</td>
+<td style="text-align: right;">482 188</td>
+<td style="text-align: right;">23,66</td>
+<td style="text-align: right;">7,80</td>
+<td style="text-align: right;">119,04 $</td>
+</tr>
+<tr class="odd">
+<td>La Sarre</td>
+<td>08: Abitibi-Témiscamingue</td>
+<td style="text-align: right;">7 188</td>
+<td style="text-align: right;">116 289</td>
+<td style="text-align: right;">16,18</td>
+<td style="text-align: right;">7,46</td>
+<td style="text-align: right;">35,23 $</td>
+</tr>
+<tr class="even">
+<td>Magog</td>
+<td>05: Estrie</td>
+<td style="text-align: right;">28 790</td>
+<td style="text-align: right;">387 148</td>
+<td style="text-align: right;">13,45</td>
+<td style="text-align: right;">8,02</td>
+<td style="text-align: right;">56,21 $</td>
+</tr>
+<tr class="odd">
+<td>Saint-Hyacinthe</td>
+<td>16: Montérégie</td>
+<td style="text-align: right;">71 005</td>
+<td style="text-align: right;">924 826</td>
+<td style="text-align: right;">13,02</td>
+<td style="text-align: right;">5,94</td>
+<td style="text-align: right;">52,98 $</td>
+</tr>
+<tr class="even">
+<td>Drummondville</td>
+<td>17: Centre-du-Québec</td>
+<td style="text-align: right;">82 790</td>
+<td style="text-align: right;">990 276</td>
+<td style="text-align: right;">11,96</td>
+<td style="text-align: right;">7,62</td>
+<td style="text-align: right;">40,77 $</td>
+</tr>
+</tbody>
+</table>
+<p>Ces valeurs élevées doivent être interprétées avec prudence : elles peuvent refléter un service utilisé au-delà de la population résidente, des pratiques locales, une bibliothèque centrale, ou une définition administrative particulière du territoire desservi.</p>
+</section>
+<section id="valeurs-manquantes-principales" class="level2">
+<h2 class="anchored" data-anchor-id="valeurs-manquantes-principales">Valeurs manquantes principales</h2>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Variable</th>
+<th style="text-align: right;">Valeurs manquantes</th>
+<th style="text-align: right;">Pourcentage</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>visites_par_habitant</code></td>
+<td style="text-align: right;">18</td>
+<td style="text-align: right;">9,57 %</td>
+</tr>
+<tr class="even">
+<td><code>visites_total</code></td>
+<td style="text-align: right;">17</td>
+<td style="text-align: right;">9,04 %</td>
+</tr>
+<tr class="odd">
+<td><code>categorie_bibliotheque</code></td>
+<td style="text-align: right;">11</td>
+<td style="text-align: right;">5,85 %</td>
+</tr>
+<tr class="even">
+<td><code>modalites_abonnement</code></td>
+<td style="text-align: right;">11</td>
+<td style="text-align: right;">5,85 %</td>
+</tr>
+<tr class="odd">
+<td><code>activites_total</code></td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">2,13 %</td>
+</tr>
+<tr class="even">
+<td><code>depenses_par_habitant</code></td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0,53 %</td>
+</tr>
+<tr class="odd">
+<td><code>region_administrative</code></td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0,53 %</td>
+</tr>
+<tr class="even">
+<td><code>population_desservie</code></td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0,53 %</td>
+</tr>
+<tr class="odd">
+<td><code>prets_par_habitant</code></td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0,53 %</td>
+</tr>
+<tr class="even">
+<td><code>usagers_inscrits_par_habitant</code></td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0,53 %</td>
+</tr>
+</tbody>
+</table>
+<p>La ligne sans population est conservée dans la table préparée, mais exclue automatiquement des ratios par habitant.</p>
+</section>
+<section id="lecture-statistique" class="level2">
+<h2 class="anchored" data-anchor-id="lecture-statistique">Lecture statistique</h2>
+<p>Une analyse prudente suit cet ordre :</p>
+<ol type="1">
+<li>vérifier l’unité statistique et les champs déclarés;</li>
+<li>distinguer les volumes bruts des ratios;</li>
+<li>calculer les ratios seulement avec un dénominateur valide;</li>
+<li>inspecter les valeurs manquantes avant les graphiques;</li>
+<li>comparer les régions avec des agrégations explicites;</li>
+<li>commenter les valeurs extrêmes comme des observations à documenter, pas comme des erreurs automatiques;</li>
+<li>éviter les conclusions causales sur la qualité des services.</li>
+</ol>
+<p>Les données sont excellentes pour enseigner la statistique descriptive, la préparation de données et la communication prudente d’indicateurs publics.</p>
 </section>
 <section id="concepts-enseignables" class="level2">
 <h2 class="anchored" data-anchor-id="concepts-enseignables">Concepts enseignables</h2>
 <ul>
 <li>importation CSV avec séparateur point-virgule;</li>
-<li>nettoyage de noms de variables;</li>
 <li>conversion de nombres avec virgule décimale;</li>
-<li>sélection de variables;</li>
-<li>ratios par population;</li>
-<li>group_by et summarise;</li>
-<li>visualisation de comparaisons régionales;</li>
-<li>régression exploratoire;</li>
-<li>discussion sur les indicateurs de services publics.</li>
+<li>sélection de variables dans un fichier large;</li>
+<li>ratios par habitant;</li>
+<li>valeurs manquantes;</li>
+<li>comparaison régionale;</li>
+<li>visualisation de distributions asymétriques;</li>
+<li>limites des données administratives.</li>
 </ul>
 </section>
 <section id="score-zéro-déchet" class="level2">
@@ -5912,52 +6422,52 @@ Comment construire des indicateurs comparables à partir de données administrat
 <tr class="odd">
 <td>Contexte québécois</td>
 <td style="text-align: right;">3</td>
-<td>Le jeu décrit des bibliothèques publiques québécoises.</td>
+<td>Source officielle sur les bibliothèques publiques du Québec</td>
 </tr>
 <tr class="even">
 <td>Accessibilité pédagogique</td>
-<td style="text-align: right;">2</td>
-<td>Le thème est accessible, mais le fichier est large.</td>
+<td style="text-align: right;">3</td>
+<td>Sujet concret et interprétable par les étudiantes et étudiants</td>
 </tr>
 <tr class="odd">
 <td>Qualité documentaire</td>
 <td style="text-align: right;">3</td>
-<td>Un dictionnaire de données est disponible sur la fiche Données Québec.</td>
+<td>Page Données Québec, API CKAN et dictionnaire CSV</td>
 </tr>
 <tr class="even">
 <td>Potentiel de nettoyage</td>
 <td style="text-align: right;">3</td>
-<td>Le fichier contient plusieurs défis réalistes de préparation.</td>
+<td>Fichier large, noms longs, nombres français et valeurs manquantes</td>
 </tr>
 <tr class="odd">
 <td>Potentiel de visualisation</td>
 <td style="text-align: right;">3</td>
-<td>Les comparaisons régionales et les ratios sont adaptés aux graphiques.</td>
+<td>Histogrammes, barres régionales, nuages de points</td>
 </tr>
 <tr class="even">
 <td>Potentiel de statistique descriptive</td>
 <td style="text-align: right;">3</td>
-<td>Plusieurs variables quantitatives sont directement résumables.</td>
+<td>Volumes, ratios, médianes et comparaisons</td>
 </tr>
 <tr class="odd">
 <td>Potentiel d’inférence</td>
 <td style="text-align: right;">2</td>
-<td>Des comparaisons sont possibles, avec prudence sur l’échantillonnage.</td>
+<td>Possible avec prudence, sans plan d’échantillonnage</td>
 </tr>
 <tr class="even">
 <td>Potentiel de modélisation</td>
-<td style="text-align: right;">3</td>
-<td>Les variables permettent des modèles exploratoires simples.</td>
+<td style="text-align: right;">2</td>
+<td>Modèles exploratoires utiles, mais causalité non justifiée</td>
 </tr>
 <tr class="odd">
-<td>Potentiel de discussion éthique</td>
+<td>Potentiel éthique</td>
 <td style="text-align: right;">3</td>
-<td>Les indicateurs peuvent être discutés sous l’angle de l’accès aux services.</td>
+<td>Discussion sur l’accès aux services publics et les indicateurs</td>
 </tr>
 <tr class="even">
-<td>Réutilisabilité dans plusieurs cours</td>
+<td>Réutilisabilité</td>
 <td style="text-align: right;">3</td>
-<td>Le même jeu peut soutenir nettoyage, EDA, modélisation et communication.</td>
+<td>Utile en importation, EDA, communication et introduction à la modélisation</td>
 </tr>
 </tbody>
 </table>
@@ -5965,82 +6475,69 @@ Comment construire des indicateurs comparables à partir de données administrat
 </section>
 <section id="activité-courte" class="level2">
 <h2 class="anchored" data-anchor-id="activité-courte">Activité courte</h2>
-<p>En 30 à 45 minutes, faire importer la ressource 2024, sélectionner cinq variables, calculer les visites par habitant et produire un graphique de comparaison.</p>
+<p>En 30 à 45 minutes, calculer les visites par habitant, visualiser leur distribution et commenter deux limites de comparaison.</p>
 </section>
 <section id="activité-longue" class="level2">
 <h2 class="anchored" data-anchor-id="activité-longue">Activité longue</h2>
-<p>En 2 à 3 heures, faire produire un rapport sur les relations entre population desservie, visites, prêts et dépenses de fonctionnement.</p>
-</section>
-<section id="projet-possible" class="level2">
-<h2 class="anchored" data-anchor-id="projet-possible">Projet possible</h2>
-<p>Construire un portrait régional des bibliothèques publiques du Québec, avec un tableau de bord statique et une discussion sur les limites des indicateurs administratifs.</p>
-</section>
-<section id="questions-pédagogiques-possibles" class="level2">
-<h2 class="anchored" data-anchor-id="questions-pédagogiques-possibles">Questions pédagogiques possibles</h2>
-<ol type="1">
-<li>Quelle est l’unité statistique du fichier?</li>
-<li>Pourquoi faut-il rapporter certaines variables à la population desservie?</li>
-<li>Quels problèmes causent les noms de colonnes très longs?</li>
-<li>Comment vérifier que les nombres avec virgule décimale ont été bien importés?</li>
-<li>La région administrative suffit-elle à expliquer les différences de visites?</li>
-<li>Quelle différence y a-t-il entre visites, prêts et usagers inscrits?</li>
-<li>Quelles variables devraient être transformées avant une régression?</li>
-<li>Quelles conclusions seraient trop fortes avec ces données administratives?</li>
-</ol>
+<p>En 2 à 3 heures, produire un portrait régional des bibliothèques publiques à partir des ratios de visites, prêts et dépenses par habitant.</p>
 </section>
 <section id="code-r-minimal" class="level2">
 <h2 class="anchored" data-anchor-id="code-r-minimal">Code R minimal</h2>
+<p>À exécuter depuis la racine du projet.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(stringr)</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load libraries</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>data_url <span class="ot">&lt;-</span> <span class="st">&quot;https://www.donneesquebec.ca/recherche/dataset/231a38a8-f28e-4bef-82ea-dc98a14c1b6f/resource/01183d3e-c79c-4d09-915c-f35ffe4dfda8/download/statistiques_bibliotheques_quebec_2024.csv&quot;</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>bibliotheques <span class="ot">&lt;-</span> <span class="fu">read_delim</span>(</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>  data_url,</span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">delim =</span> <span class="st">&quot;;&quot;</span>,</span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">locale =</span> <span class="fu">locale</span>(<span class="at">encoding =</span> <span class="st">&quot;UTF-8&quot;</span>, <span class="at">decimal_mark =</span> <span class="st">&quot;,&quot;</span>),</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Download, validate and prepare the official 2024 resource</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">&quot;datasets/bibliotheques-quebec/preparation.R&quot;</span>)</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Import prepared data</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>bibliotheques <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;data/processed/bibliotheques-quebec/statistiques_bibliotheques_quebec_2024_selection.csv&quot;</span>,</span>
 <span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">show_col_types =</span> <span class="cn">FALSE</span></span>
 <span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>)</span>
 <span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(bibliotheques)</span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>bibliotheques <span class="sc">|&gt;</span></span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">transmute</span>(</span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">bibliotheque =</span> <span class="st">`</span><span class="at">Bibliothèque ou Centre régional</span><span class="st">`</span>,</span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>    <span class="at">population =</span> <span class="fu">parse_number</span>(<span class="fu">as.character</span>(<span class="st">`</span><span class="at">Population desservie</span><span class="st">`</span>), <span class="at">locale =</span> <span class="fu">locale</span>(<span class="at">decimal_mark =</span> <span class="st">&quot;,&quot;</span>)),</span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>    <span class="at">visites =</span> <span class="fu">parse_number</span>(<span class="fu">as.character</span>(<span class="st">`</span><span class="at">Visites (Total)</span><span class="st">`</span>), <span class="at">locale =</span> <span class="fu">locale</span>(<span class="at">decimal_mark =</span> <span class="st">&quot;,&quot;</span>)),</span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>    <span class="at">visites_par_habitant =</span> visites <span class="sc">/</span> population</span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(visites_par_habitant), population <span class="sc">&gt;</span> <span class="dv">0</span>) <span class="sc">|&gt;</span></span>
-<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> visites_par_habitant)) <span class="sc">+</span></span>
-<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="fl">0.5</span>, <span class="at">fill =</span> <span class="st">&quot;#325EA8&quot;</span>, <span class="at">color =</span> <span class="st">&quot;white&quot;</span>) <span class="sc">+</span></span>
-<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
-<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">&quot;Visites par habitant&quot;</span>,</span>
-<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">&quot;Nombre de bibliothèques&quot;</span>,</span>
-<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">&quot;Distribution des visites par habitant&quot;</span></span>
-<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Visualise visits per inhabitant</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>bibliotheques <span class="sc">|&gt;</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(visites_par_habitant), population_desservie <span class="sc">&gt;</span> <span class="dv">0</span>) <span class="sc">|&gt;</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> visites_par_habitant)) <span class="sc">+</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="dv">1</span>, <span class="at">fill =</span> <span class="st">&quot;#325EA8&quot;</span>, <span class="at">color =</span> <span class="st">&quot;white&quot;</span>) <span class="sc">+</span></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">&quot;Visites par habitant&quot;</span>,</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">&quot;Nombre de bibliothèques&quot;</span>,</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">&quot;Distribution des visites par habitant&quot;</span>,</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="st">&quot;Statistiques des bibliothèques publiques du Québec, ressource 2024&quot;</span></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="limites-et-précautions" class="level2">
 <h2 class="anchored" data-anchor-id="limites-et-précautions">Limites et précautions</h2>
 <ul>
-<li>Les variables sont administratives et ne mesurent pas directement la qualité du service.</li>
-<li>Les comparaisons doivent tenir compte de la population desservie.</li>
-<li>Les pratiques de déclaration peuvent varier entre organisations.</li>
-<li>Le fichier est large; une activité d’introduction devrait réduire le nombre de variables.</li>
-<li>Les relations observées ne doivent pas être interprétées causalement sans plan d’analyse adapté.</li>
+<li>Les données sont déclarées dans une enquête administrative; elles ne mesurent pas directement la satisfaction, la qualité du service ou l’accessibilité.</li>
+<li>Une bibliothèque peut servir des personnes qui ne résident pas dans sa population desservie.</li>
+<li>Les visites, les prêts et les dépenses ne doivent pas être comparés sans dénominateur.</li>
+<li>Une ligne, Bibliothèque et Archives nationales du Québec, n’a pas de population desservie ni de région administrative dans la table préparée.</li>
+<li>Les modèles statistiques doivent être présentés comme exploratoires, sauf si un plan d’analyse plus complet est défini.</li>
 </ul>
 </section>
 <section id="extensions" class="level2">
 <h2 class="anchored" data-anchor-id="extensions">Extensions</h2>
 <ul>
-<li>Extension intro : nettoyer les noms de variables et calculer trois ratios.</li>
-<li>Extension intermédiaire : comparer les régions administratives.</li>
-<li>Extension avancée : modéliser les visites en fonction de la population et de variables de service.</li>
-<li>Extension communication scientifique : rédiger un portrait régional en une page avec limites méthodologiques.</li>
+<li>Comparer les distributions de visites par habitant entre régions.</li>
+<li>Étudier les liens entre prêts par habitant et dépenses par habitant.</li>
+<li>Produire une carte régionale si une géographie officielle est jointe séparément.</li>
+<li>Construire un tableau de bord statique pour une note de service fictive.</li>
+<li>Discuter les effets possibles d’une bibliothèque centrale sur les ratios.</li>
+</ul>
+</section>
+<section id="références-utilisées" class="level2">
+<h2 class="anchored" data-anchor-id="références-utilisées">Références utilisées</h2>
+<ul>
+<li>Données Québec. 2025. Statistiques des bibliothèques publiques du Québec. <a href="https://www.donneesquebec.ca/recherche/dataset/statistiques_des_bibliotheques_publiques_du_quebec" class="uri">https://www.donneesquebec.ca/recherche/dataset/statistiques_des_bibliotheques_publiques_du_quebec</a></li>
+<li>Données Québec. 2025. API CKAN, paquet <code>statistiques_des_bibliotheques_publiques_du_quebec</code>. <a href="https://www.donneesquebec.ca/recherche/api/3/action/package_show?id=statistiques_des_bibliotheques_publiques_du_quebec" class="uri">https://www.donneesquebec.ca/recherche/api/3/action/package_show?id=statistiques_des_bibliotheques_publiques_du_quebec</a></li>
+<li>Bibliothèque et Archives nationales du Québec. 2025. Ressource CSV 2024, Statistiques des bibliothèques publiques du Québec. <a href="https://www.donneesquebec.ca/recherche/dataset/231a38a8-f28e-4bef-82ea-dc98a14c1b6f/resource/01183d3e-c79c-4d09-915c-f35ffe4dfda8/download/statistiques_bibliotheques_quebec_2024.csv" class="uri">https://www.donneesquebec.ca/recherche/dataset/231a38a8-f28e-4bef-82ea-dc98a14c1b6f/resource/01183d3e-c79c-4d09-915c-f35ffe4dfda8/download/statistiques_bibliotheques_quebec_2024.csv</a></li>
 </ul>
 </section>
 </div>

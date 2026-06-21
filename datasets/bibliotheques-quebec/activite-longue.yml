@@ -1,5 +1,5 @@
 id: bibliotheques-portrait-regional-long
-title: "Portrait régional des bibliothèques publiques"
+title: "Mini-projet - Portrait régional des bibliothèques publiques"
 question: "Comment construire des indicateurs comparables à partir de données administratives?"
 dataset_id: bibliotheques-quebec
 dataset_title: "Statistiques des bibliothèques publiques du Québec"
@@ -16,13 +16,13 @@ concepts:
   - "Modélisation et relations"
   - "Communication"
 context: "Culture et services publics"
-hook: "Pertinence politique"
+hook: "Comparer des régions sans confondre description et causalité"
 materials:
-  - "énoncé"
-  - "code"
-  - "données"
+  - "fiche vérifiée"
+  - "script de préparation"
+  - "table préparée"
+  - "résumés régionaux"
   - "notes enseignantes"
 advanced_math_stats: false
-teacher_notes: "Présenter la modélisation comme exploratoire et éviter les conclusions causales."
-status: "prêt"
-
+teacher_notes: "Demander un calcul régional à partir des volumes agrégés et de la population totale. Présenter la modélisation comme exploratoire."
+status: "source officielle vérifiée"

@@ -18,150 +18,240 @@ render_dataset_detail_header()
 
 ## Pourquoi ce jeu est intéressant
 
-Ce jeu de données décrit les bibliothèques publiques du Québec à partir de nombreuses variables administratives, financières et de fréquentation. Il permet d'enseigner le nettoyage de fichiers larges, les ratios, les comparaisons régionales et les limites des indicateurs de services publics.
+Ce jeu de données permet d'étudier les bibliothèques publiques québécoises comme un vrai cas de données administratives : fréquentation, prêts, usagers inscrits, population desservie, activités et dépenses de fonctionnement.
 
-Il est particulièrement riche pour un cours de science des données, car les variables sont nombreuses, les noms sont longs, les nombres utilisent une convention française et plusieurs indicateurs doivent être interprétés relativement à la population desservie.
+Il est utile en science des données parce que le fichier source est large, que les noms de variables sont longs, que les nombres suivent une convention française et que plusieurs conclusions naïves changent dès qu'on rapporte les volumes à la population desservie.
 
-## Source
+Question d'analyse : quelles différences observe-t-on entre bibliothèques ou régions quand on compare les visites, les prêts et les dépenses par habitant plutôt que les volumes bruts?
+
+## Ce qui a été vérifié
+
+| Élément | Résultat vérifié |
+|---|---|
+| Paquet CKAN | `231a38a8-f28e-4bef-82ea-dc98a14c1b6f` |
+| Source officielle | Données Québec / Bibliothèque et Archives nationales du Québec |
+| Ressources dans le paquet | 19 ressources |
+| Ressource préparée ici | `statistiques_bibliotheques_quebec_2024.csv` |
+| Dictionnaire disponible | `dictionnaire-des-donnees.csv` |
+| Licence | Attribution (CC-BY 4.0), selon les métadonnées CKAN consultées le 2026-06-21 |
+| Dernière modification du paquet CKAN | 2025-10-10 |
+| Dernière modification du CSV 2024 | 2025-10-06 |
+| Table préparée | `data/processed/bibliotheques-quebec/statistiques_bibliotheques_quebec_2024_selection.csv` |
+| Résumés préparés | ressources, régions, catégories, valeurs manquantes, bibliothèques avec le plus de visites par habitant |
+
+## Source et conditions
 
 | Champ | Information |
 |---|---|
-| Organisme producteur | Bibliothèque et Archives nationales du Québec |
-| URL | <https://www.donneesquebec.ca/recherche/dataset/statistiques_des_bibliotheques_publiques_du_quebec> |
-| Ressource utilisée | Statistiques annuelles des bibliothèques publiques 2024 |
-| Licence | Attribution (CC-BY 4.0) selon Données Québec |
-| Date d'accès | 2026-06-01 |
-| Fréquence de mise à jour | Série annuelle; ressources disponibles par année de 2007 à 2024 dans Données Québec |
+| Page Données Québec | <https://www.donneesquebec.ca/recherche/dataset/statistiques_des_bibliotheques_publiques_du_quebec> |
+| API CKAN | <https://www.donneesquebec.ca/recherche/api/3/action/package_show?id=statistiques_des_bibliotheques_publiques_du_quebec> |
+| CSV 2024 | <https://www.donneesquebec.ca/recherche/dataset/231a38a8-f28e-4bef-82ea-dc98a14c1b6f/resource/01183d3e-c79c-4d09-915c-f35ffe4dfda8/download/statistiques_bibliotheques_quebec_2024.csv> |
+| Dictionnaire CSV | <https://www.donneesquebec.ca/recherche/dataset/231a38a8-f28e-4bef-82ea-dc98a14c1b6f/resource/25bddc87-e71a-4668-bb37-55b30003dd55/download/dictionnaire-des-donnees.csv> |
+| Couverture temporelle | Ressources annuelles de 2007 à 2024 |
+| Territoire | Québec |
+| Date d'accès | 2026-06-21 |
+
+La fiche officielle indique que les données proviennent de l'Enquête annuelle sur les bibliothèques publiques du Québec et qu'elles sont déclarées par les responsables des bibliothèques. Le fichier contient aussi des indicateurs de performance ajoutés à partir des variables déclarées.
 
 ## Ce que représente une ligne
 
-Une ligne représente une bibliothèque publique ou un centre régional dans la ressource annuelle utilisée.
+Une ligne représente une bibliothèque publique ou un centre régional dans la ressource annuelle 2024.
+
+Une ligne n'est pas une personne, une succursale nécessairement comparable à toutes les autres, ni une mesure directe de la qualité du service. Les comparaisons doivent tenir compte de la population desservie et des pratiques de déclaration.
 
 ## Variables principales
 
-| Variable | Type | Description | Exemple | Remarques pédagogiques |
-|---|---|---|---|---|
-| Bibliothèque ou Centre régional | caractère | Nom de l'établissement ou du réseau | Alma | Identifiant lisible |
-| Région administrative | caractère | Région administrative du Québec | 02: Saguenay-Lac-Saint-Jean | Variable de groupe |
-| Population desservie | numérique | Population associée au service | 30649 | Dénominateur pour les ratios |
-| Visites (Total) | numérique | Nombre total de visites | 55024 | Peut être rapporté à la population |
-| Prêts / Tous les doc. (Total) | numérique | Nombre total de prêts | 153411 | Variable de fréquentation |
-| Usagers inscrits (Total) | numérique | Nombre d'usagers inscrits | 9732 | Base pour des taux |
-| Progr. / Toutes les activités (Total) | numérique | Nombre d'activités | 450 | Indicateur de programmation |
-| Dép. fonct. / Toutes les dépenses ($) | numérique | Dépenses de fonctionnement | 1166488,45 | Variable financière |
+| Variable préparée | Rôle | Point de vigilance |
+|---|---|---|
+| `bibliotheque` | Nom de la bibliothèque ou du centre régional | Identifiant lisible, pas une clé statistique parfaite |
+| `region_administrative` | Région administrative publiée | Une ligne sans région, soit Bibliothèque et Archives nationales du Québec |
+| `population_desservie` | Population associée au service | Dénominateur des ratios; une ligne sans population |
+| `categorie_bibliotheque` | Type institutionnel publié | 11 valeurs manquantes |
+| `modalites_abonnement` | Modalités d'abonnement publiées | 11 valeurs manquantes |
+| `visites_total` | Nombre total de visites | Volume à rapporter à la population pour comparer |
+| `prets_total` | Nombre total de prêts | Volume de service, sensible à la taille de la population |
+| `usagers_inscrits_total` | Nombre d'usagers inscrits | Peut être transformé en proportion par habitant |
+| `activites_total` | Nombre total d'activités | 4 valeurs manquantes |
+| `depenses_fonctionnement_total` | Dépenses de fonctionnement déclarées | Comparaison prudente requise |
+| `visites_par_habitant` | Ratio préparé | Calculé seulement si la population est disponible et positive |
+| `prets_par_habitant` | Ratio préparé | Même règle de dénominateur |
+| `depenses_par_habitant` | Ratio préparé | Dépend des dépenses déclarées et de la population desservie |
 
-## Taille et structure
+## RÉSULTATS R
 
-| Élément | Information |
-|---|---|
-| Nombre de lignes | 188 lignes pour la ressource 2024 |
-| Nombre de colonnes | 262 colonnes pour la ressource 2024 |
-| Structure | Tabulaire large |
-| Format | CSV séparé par point-virgule |
+Les résultats ci-dessous proviennent de `preparation.R`, exécuté sur la ressource CSV 2024 téléchargée le 2026-06-21.
+
+| Indicateur | Valeur |
+|---|---:|
+| Ressources CKAN documentées | 19 |
+| Lignes dans le CSV source | 188 |
+| Colonnes dans le CSV source | 262 |
+| Lignes préparées | 188 |
+| Colonnes préparées | 16 |
+| Régions administratives non manquantes | 19 |
+| Catégories de bibliothèques non manquantes | 5 |
+| Population desservie totale | 8 608 933 |
+| Visites déclarées | 59 981 972 |
+| Prêts déclarés | 52 513 445 |
+| Usagers inscrits déclarés | 2 792 172 |
+| Activités déclarées | 88 196 |
+| Dépenses de fonctionnement déclarées | 469 770 944,24 $ |
+| Médiane des visites par habitant | 2,81 |
+| Médiane des prêts par habitant | 5,11 |
+| Médiane des usagers inscrits par habitant | 0,25 |
+| Médiane des dépenses par habitant | 42,39 $ |
+
+## Régions avec le plus de visites par habitant
+
+| Région administrative | Bibliothèques | Population | Visites | Prêts | Visites par habitant | Prêts par habitant | Dépenses par habitant |
+|---|---:|---:|---:|---:|---:|---:|---:|
+| 06: Montréal | 13 | 2 159 202 | 18 158 853 | 12 993 573 | 8,41 | 6,02 | 73,81 $ |
+| 13: Laval | 1 | 450 629 | 3 239 199 | 2 557 329 | 7,19 | 5,68 | 45,22 $ |
+| 17: Centre-du-Québec | 7 | 179 363 | 1 230 168 | 1 275 232 | 6,86 | 7,11 | 43,81 $ |
+| 07: Outaouais | 6 | 403 979 | 2 611 747 | 2 022 751 | 6,47 | 5,01 | 39,75 $ |
+| 03: Capitale-Nationale | 13 | 713 454 | 4 277 230 | 4 109 361 | 6,00 | 5,76 | 40,18 $ |
+| 14: Lanaudière | 17 | 450 910 | 2 587 030 | 2 429 512 | 5,74 | 5,39 | 44,52 $ |
+| 08: Abitibi-Témiscamingue | 5 | 141 932 | 621 872 | 530 174 | 4,38 | 3,74 | 33,52 $ |
+| 04: Mauricie | 6 | 423 938 | 1 719 234 | 1 938 726 | 4,06 | 4,57 | 29,66 $ |
+
+Cette comparaison est descriptive. Elle agrège des lignes administratives et ne suffit pas à expliquer les différences régionales.
+
+## Bibliothèques avec le plus de visites par habitant
+
+| Bibliothèque | Région | Population | Visites | Visites par habitant | Prêts par habitant | Dépenses par habitant |
+|---|---|---:|---:|---:|---:|---:|
+| Westmount | 06: Montréal | 20 093 | 860 679 | 42,83 | 13,47 | 182,46 $ |
+| Joliette | 14: Lanaudière | 38 097 | 1 095 862 | 28,77 | 6,62 | 48,77 $ |
+| Beaconsfield | 06: Montréal | 19 290 | 491 490 | 25,48 | 9,95 | 79,08 $ |
+| Dorval | 06: Montréal | 20 382 | 482 188 | 23,66 | 7,80 | 119,04 $ |
+| La Sarre | 08: Abitibi-Témiscamingue | 7 188 | 116 289 | 16,18 | 7,46 | 35,23 $ |
+| Magog | 05: Estrie | 28 790 | 387 148 | 13,45 | 8,02 | 56,21 $ |
+| Saint-Hyacinthe | 16: Montérégie | 71 005 | 924 826 | 13,02 | 5,94 | 52,98 $ |
+| Drummondville | 17: Centre-du-Québec | 82 790 | 990 276 | 11,96 | 7,62 | 40,77 $ |
+
+Ces valeurs élevées doivent être interprétées avec prudence : elles peuvent refléter un service utilisé au-delà de la population résidente, des pratiques locales, une bibliothèque centrale, ou une définition administrative particulière du territoire desservi.
+
+## Valeurs manquantes principales
+
+| Variable | Valeurs manquantes | Pourcentage |
+|---|---:|---:|
+| `visites_par_habitant` | 18 | 9,57 % |
+| `visites_total` | 17 | 9,04 % |
+| `categorie_bibliotheque` | 11 | 5,85 % |
+| `modalites_abonnement` | 11 | 5,85 % |
+| `activites_total` | 4 | 2,13 % |
+| `depenses_par_habitant` | 1 | 0,53 % |
+| `region_administrative` | 1 | 0,53 % |
+| `population_desservie` | 1 | 0,53 % |
+| `prets_par_habitant` | 1 | 0,53 % |
+| `usagers_inscrits_par_habitant` | 1 | 0,53 % |
+
+La ligne sans population est conservée dans la table préparée, mais exclue automatiquement des ratios par habitant.
+
+## Lecture statistique
+
+Une analyse prudente suit cet ordre :
+
+1. vérifier l'unité statistique et les champs déclarés;
+2. distinguer les volumes bruts des ratios;
+3. calculer les ratios seulement avec un dénominateur valide;
+4. inspecter les valeurs manquantes avant les graphiques;
+5. comparer les régions avec des agrégations explicites;
+6. commenter les valeurs extrêmes comme des observations à documenter, pas comme des erreurs automatiques;
+7. éviter les conclusions causales sur la qualité des services.
+
+Les données sont excellentes pour enseigner la statistique descriptive, la préparation de données et la communication prudente d'indicateurs publics.
 
 ## Concepts enseignables
 
 - importation CSV avec séparateur point-virgule;
-- nettoyage de noms de variables;
 - conversion de nombres avec virgule décimale;
-- sélection de variables;
-- ratios par population;
-- group_by et summarise;
-- visualisation de comparaisons régionales;
-- régression exploratoire;
-- discussion sur les indicateurs de services publics.
+- sélection de variables dans un fichier large;
+- ratios par habitant;
+- valeurs manquantes;
+- comparaison régionale;
+- visualisation de distributions asymétriques;
+- limites des données administratives.
 
 ## Score zéro déchet
 
 | Dimension | Score | Justification |
 |---|---:|---|
-| Contexte québécois | 3 | Le jeu décrit des bibliothèques publiques québécoises. |
-| Accessibilité pédagogique | 2 | Le thème est accessible, mais le fichier est large. |
-| Qualité documentaire | 3 | Un dictionnaire de données est disponible sur la fiche Données Québec. |
-| Potentiel de nettoyage | 3 | Le fichier contient plusieurs défis réalistes de préparation. |
-| Potentiel de visualisation | 3 | Les comparaisons régionales et les ratios sont adaptés aux graphiques. |
-| Potentiel de statistique descriptive | 3 | Plusieurs variables quantitatives sont directement résumables. |
-| Potentiel d'inférence | 2 | Des comparaisons sont possibles, avec prudence sur l'échantillonnage. |
-| Potentiel de modélisation | 3 | Les variables permettent des modèles exploratoires simples. |
-| Potentiel de discussion éthique | 3 | Les indicateurs peuvent être discutés sous l'angle de l'accès aux services. |
-| Réutilisabilité dans plusieurs cours | 3 | Le même jeu peut soutenir nettoyage, EDA, modélisation et communication. |
+| Contexte québécois | 3 | Source officielle sur les bibliothèques publiques du Québec |
+| Accessibilité pédagogique | 3 | Sujet concret et interprétable par les étudiantes et étudiants |
+| Qualité documentaire | 3 | Page Données Québec, API CKAN et dictionnaire CSV |
+| Potentiel de nettoyage | 3 | Fichier large, noms longs, nombres français et valeurs manquantes |
+| Potentiel de visualisation | 3 | Histogrammes, barres régionales, nuages de points |
+| Potentiel de statistique descriptive | 3 | Volumes, ratios, médianes et comparaisons |
+| Potentiel d'inférence | 2 | Possible avec prudence, sans plan d'échantillonnage |
+| Potentiel de modélisation | 2 | Modèles exploratoires utiles, mais causalité non justifiée |
+| Potentiel éthique | 3 | Discussion sur l'accès aux services publics et les indicateurs |
+| Réutilisabilité | 3 | Utile en importation, EDA, communication et introduction à la modélisation |
 
 Total : 28 sur 30.
 
 ## Activité courte
 
-En 30 à 45 minutes, faire importer la ressource 2024, sélectionner cinq variables, calculer les visites par habitant et produire un graphique de comparaison.
+En 30 à 45 minutes, calculer les visites par habitant, visualiser leur distribution et commenter deux limites de comparaison.
 
 ## Activité longue
 
-En 2 à 3 heures, faire produire un rapport sur les relations entre population desservie, visites, prêts et dépenses de fonctionnement.
-
-## Projet possible
-
-Construire un portrait régional des bibliothèques publiques du Québec, avec un tableau de bord statique et une discussion sur les limites des indicateurs administratifs.
-
-## Questions pédagogiques possibles
-
-1. Quelle est l'unité statistique du fichier?
-2. Pourquoi faut-il rapporter certaines variables à la population desservie?
-3. Quels problèmes causent les noms de colonnes très longs?
-4. Comment vérifier que les nombres avec virgule décimale ont été bien importés?
-5. La région administrative suffit-elle à expliquer les différences de visites?
-6. Quelle différence y a-t-il entre visites, prêts et usagers inscrits?
-7. Quelles variables devraient être transformées avant une régression?
-8. Quelles conclusions seraient trop fortes avec ces données administratives?
+En 2 à 3 heures, produire un portrait régional des bibliothèques publiques à partir des ratios de visites, prêts et dépenses par habitant.
 
 ## Code R minimal
 
+À exécuter depuis la racine du projet.
+
 ```{r}
 #| eval: false
+# Load libraries
 library(dplyr)
 library(ggplot2)
 library(readr)
-library(stringr)
 
-data_url <- "https://www.donneesquebec.ca/recherche/dataset/231a38a8-f28e-4bef-82ea-dc98a14c1b6f/resource/01183d3e-c79c-4d09-915c-f35ffe4dfda8/download/statistiques_bibliotheques_quebec_2024.csv"
+# Download, validate and prepare the official 2024 resource
+source("datasets/bibliotheques-quebec/preparation.R")
 
-bibliotheques <- read_delim(
-  data_url,
-  delim = ";",
-  locale = locale(encoding = "UTF-8", decimal_mark = ","),
+# Import prepared data
+bibliotheques <- read_csv(
+  "data/processed/bibliotheques-quebec/statistiques_bibliotheques_quebec_2024_selection.csv",
   show_col_types = FALSE
 )
 
-glimpse(bibliotheques)
-
+# Visualise visits per inhabitant
 bibliotheques |>
-  transmute(
-    bibliotheque = `Bibliothèque ou Centre régional`,
-    population = parse_number(as.character(`Population desservie`), locale = locale(decimal_mark = ",")),
-    visites = parse_number(as.character(`Visites (Total)`), locale = locale(decimal_mark = ",")),
-    visites_par_habitant = visites / population
-  ) |>
-  filter(!is.na(visites_par_habitant), population > 0) |>
+  filter(!is.na(visites_par_habitant), population_desservie > 0) |>
   ggplot(aes(x = visites_par_habitant)) +
-  geom_histogram(binwidth = 0.5, fill = "#325EA8", color = "white") +
+  geom_histogram(binwidth = 1, fill = "#325EA8", color = "white") +
   labs(
     x = "Visites par habitant",
     y = "Nombre de bibliothèques",
-    title = "Distribution des visites par habitant"
+    title = "Distribution des visites par habitant",
+    subtitle = "Statistiques des bibliothèques publiques du Québec, ressource 2024"
   )
 ```
 
 ## Limites et précautions
 
-- Les variables sont administratives et ne mesurent pas directement la qualité du service.
-- Les comparaisons doivent tenir compte de la population desservie.
-- Les pratiques de déclaration peuvent varier entre organisations.
-- Le fichier est large; une activité d'introduction devrait réduire le nombre de variables.
-- Les relations observées ne doivent pas être interprétées causalement sans plan d'analyse adapté.
+- Les données sont déclarées dans une enquête administrative; elles ne mesurent pas directement la satisfaction, la qualité du service ou l'accessibilité.
+- Une bibliothèque peut servir des personnes qui ne résident pas dans sa population desservie.
+- Les visites, les prêts et les dépenses ne doivent pas être comparés sans dénominateur.
+- Une ligne, Bibliothèque et Archives nationales du Québec, n'a pas de population desservie ni de région administrative dans la table préparée.
+- Les modèles statistiques doivent être présentés comme exploratoires, sauf si un plan d'analyse plus complet est défini.
 
 ## Extensions
 
-- Extension intro : nettoyer les noms de variables et calculer trois ratios.
-- Extension intermédiaire : comparer les régions administratives.
-- Extension avancée : modéliser les visites en fonction de la population et de variables de service.
-- Extension communication scientifique : rédiger un portrait régional en une page avec limites méthodologiques.
+- Comparer les distributions de visites par habitant entre régions.
+- Étudier les liens entre prêts par habitant et dépenses par habitant.
+- Produire une carte régionale si une géographie officielle est jointe séparément.
+- Construire un tableau de bord statique pour une note de service fictive.
+- Discuter les effets possibles d'une bibliothèque centrale sur les ratios.
+
+## Références utilisées
+
+- Données Québec. 2025. Statistiques des bibliothèques publiques du Québec. <https://www.donneesquebec.ca/recherche/dataset/statistiques_des_bibliotheques_publiques_du_quebec>
+- Données Québec. 2025. API CKAN, paquet `statistiques_des_bibliotheques_publiques_du_quebec`. <https://www.donneesquebec.ca/recherche/api/3/action/package_show?id=statistiques_des_bibliotheques_publiques_du_quebec>
+- Bibliothèque et Archives nationales du Québec. 2025. Ressource CSV 2024, Statistiques des bibliothèques publiques du Québec. <https://www.donneesquebec.ca/recherche/dataset/231a38a8-f28e-4bef-82ea-dc98a14c1b6f/resource/01183d3e-c79c-4d09-915c-f35ffe4dfda8/download/statistiques_bibliotheques_quebec_2024.csv>
 
 ```{r}
 #| label: dataset-detail-footer
@@ -169,4 +259,3 @@ bibliotheques |>
 #| results: asis
 render_dataset_detail_footer()
 ```
-

@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Bibliothèques publiques - activité longue – Données bleues</title>
+<title>Mini-projet - Portrait régional des bibliothèques publiques – Données bleues</title>
 <style>
 
 code{white-space: pre-wrap;}
@@ -5482,13 +5482,13 @@ grid-template-columns: 1fr;
     <h2 id="toc-title">On this page</h2>
 
   <ul>
-  <li><a href="#bibliothèques-publiques---activité-longue" id="toc-bibliothèques-publiques---activité-longue" class="nav-link active" data-scroll-target="#bibliothèques-publiques---activité-longue">Bibliothèques publiques - activité longue</a>
+  <li><a href="#mini-projet---portrait-régional-des-bibliothèques-publiques" id="toc-mini-projet---portrait-régional-des-bibliothèques-publiques" class="nav-link active" data-scroll-target="#mini-projet---portrait-régional-des-bibliothèques-publiques">Mini-projet - Portrait régional des bibliothèques publiques</a>
   <ul class="collapse">
-  <li><a href="#mise-en-situation-professionnelle" id="toc-mise-en-situation-professionnelle" class="nav-link" data-scroll-target="#mise-en-situation-professionnelle">Mise en situation professionnelle</a></li>
-  <li><a href="#livrable-attendu" id="toc-livrable-attendu" class="nav-link" data-scroll-target="#livrable-attendu">Livrable attendu</a></li>
-  <li><a href="#étapes" id="toc-étapes" class="nav-link" data-scroll-target="#étapes">Étapes</a></li>
-  <li><a href="#critères-dévaluation" id="toc-critères-dévaluation" class="nav-link" data-scroll-target="#critères-dévaluation">Critères d’évaluation</a></li>
-  <li><a href="#questions-danalyse" id="toc-questions-danalyse" class="nav-link" data-scroll-target="#questions-danalyse">Questions d’analyse</a></li>
+  <li><a href="#contexte" id="toc-contexte" class="nav-link" data-scroll-target="#contexte">Contexte</a></li>
+  <li><a href="#question-directrice" id="toc-question-directrice" class="nav-link" data-scroll-target="#question-directrice">Question directrice</a></li>
+  <li><a href="#livrables" id="toc-livrables" class="nav-link" data-scroll-target="#livrables">Livrables</a></li>
+  <li><a href="#étapes-suggérées" id="toc-étapes-suggérées" class="nav-link" data-scroll-target="#étapes-suggérées">Étapes suggérées</a></li>
+  <li><a href="#critères-dévaluation-suggérés" id="toc-critères-dévaluation-suggérés" class="nav-link" data-scroll-target="#critères-dévaluation-suggérés">Critères d’évaluation suggérés</a></li>
   <li><a href="#pistes-de-solution" id="toc-pistes-de-solution" class="nav-link" data-scroll-target="#pistes-de-solution">Pistes de solution</a></li>
   <li><a href="#variantes-possibles" id="toc-variantes-possibles" class="nav-link" data-scroll-target="#variantes-possibles">Variantes possibles</a></li>
   </ul></li>
@@ -5500,7 +5500,7 @@ grid-template-columns: 1fr;
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Bibliothèques publiques - activité longue</h1>
+<h1 class="title">Mini-projet - Portrait régional des bibliothèques publiques</h1>
 </div>
 
 
@@ -5517,31 +5517,41 @@ grid-template-columns: 1fr;
 </header>
 
 
-<section id="bibliothèques-publiques---activité-longue" class="level1">
-<h1>Bibliothèques publiques - activité longue</h1>
-<section id="mise-en-situation-professionnelle" class="level2">
-<h2 class="anchored" data-anchor-id="mise-en-situation-professionnelle">Mise en situation professionnelle</h2>
-<p>Un comité de programme veut un exemple complet d’analyse de données administratives québécoises. Vous devez produire un rapport qui décrit les services de bibliothèques publiques en 2024 et montre comment construire des indicateurs interprétables.</p>
+<section id="mini-projet---portrait-régional-des-bibliothèques-publiques" class="level1">
+<h1>Mini-projet - Portrait régional des bibliothèques publiques</h1>
+<section id="contexte" class="level2">
+<h2 class="anchored" data-anchor-id="contexte">Contexte</h2>
+<p>Cette activité combine préparation de données, statistique descriptive, visualisation et communication. Le rapport attendu doit comparer les régions administratives à partir d’indicateurs par habitant, sans transformer une comparaison descriptive en conclusion causale.</p>
 </section>
-<section id="livrable-attendu" class="level2">
-<h2 class="anchored" data-anchor-id="livrable-attendu">Livrable attendu</h2>
-<p>Un rapport Quarto de 4 à 6 pages comprenant un script reproductible, un tableau de variables, deux visualisations et une discussion des limites.</p>
+<section id="question-directrice" class="level2">
+<h2 class="anchored" data-anchor-id="question-directrice">Question directrice</h2>
+<p>Comment construire un portrait régional des bibliothèques publiques du Québec à partir de données administratives vérifiées?</p>
 </section>
-<section id="étapes" class="level2">
-<h2 class="anchored" data-anchor-id="étapes">Étapes</h2>
+<section id="livrables" class="level2">
+<h2 class="anchored" data-anchor-id="livrables">Livrables</h2>
 <ol type="1">
-<li>Importer les données 2024.</li>
-<li>Nettoyer les noms de variables.</li>
-<li>Sélectionner les variables liées à la population, aux visites, aux prêts, aux usagers et aux dépenses.</li>
-<li>Convertir les variables numériques si nécessaire.</li>
-<li>Créer des ratios par habitant.</li>
-<li>Comparer les régions administratives.</li>
-<li>Ajuster un modèle linéaire exploratoire.</li>
-<li>Rédiger une section de limites.</li>
+<li>Un script reproductible qui exécute <code>datasets/bibliotheques-quebec/preparation.R</code>.</li>
+<li>Un tableau des variables retenues et de leur rôle statistique.</li>
+<li>Un tableau régional avec visites, prêts et dépenses par habitant.</li>
+<li>Deux visualisations, dont au moins une comparaison régionale.</li>
+<li>Un court modèle exploratoire ou une analyse de relation entre deux ratios.</li>
+<li>Une section limites qui distingue données administratives, accès aux services et qualité du service.</li>
 </ol>
 </section>
-<section id="critères-dévaluation" class="level2">
-<h2 class="anchored" data-anchor-id="critères-dévaluation">Critères d’évaluation</h2>
+<section id="étapes-suggérées" class="level2">
+<h2 class="anchored" data-anchor-id="étapes-suggérées">Étapes suggérées</h2>
+<ol type="1">
+<li>Importer la table préparée.</li>
+<li>Vérifier le nombre de lignes, les colonnes et les valeurs manquantes.</li>
+<li>Exclure uniquement les lignes sans population valide pour les ratios.</li>
+<li>Résumer les indicateurs par région administrative.</li>
+<li>Comparer <code>visites_par_habitant</code>, <code>prets_par_habitant</code> et <code>depenses_par_habitant</code>.</li>
+<li>Identifier les régions ou bibliothèques atypiques.</li>
+<li>Rédiger une interprétation qui mentionne au moins trois limites.</li>
+</ol>
+</section>
+<section id="critères-dévaluation-suggérés" class="level2">
+<h2 class="anchored" data-anchor-id="critères-dévaluation-suggérés">Critères d’évaluation suggérés</h2>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 50%">
@@ -5555,52 +5565,43 @@ grid-template-columns: 1fr;
 </thead>
 <tbody>
 <tr class="odd">
-<td>Importation</td>
-<td>Le séparateur et les nombres sont traités correctement.</td>
+<td>Reproductibilité</td>
+<td>Le rapport exécute le script de préparation et importe la table préparée.</td>
 </tr>
 <tr class="even">
-<td>Nettoyage</td>
-<td>Les transformations sont documentées.</td>
+<td>Définition des indicateurs</td>
+<td>Les volumes et les ratios sont distingués explicitement.</td>
 </tr>
 <tr class="odd">
-<td>Indicateurs</td>
-<td>Les ratios sont définis clairement.</td>
+<td>Traitement des valeurs manquantes</td>
+<td>Les exclusions liées aux dénominateurs sont justifiées.</td>
 </tr>
 <tr class="even">
-<td>Graphiques</td>
-<td>Les visualisations répondent à une question précise.</td>
+<td>Visualisations</td>
+<td>Les graphiques répondent à une question statistique précise.</td>
 </tr>
 <tr class="odd">
-<td>Modélisation</td>
-<td>Le modèle est présenté comme exploratoire.</td>
+<td>Analyse</td>
+<td>Les comparaisons régionales sont descriptives et contextualisées.</td>
 </tr>
 <tr class="even">
 <td>Limites</td>
-<td>Les limites administratives et causales sont explicites.</td>
+<td>Les limites administratives et causales sont clairement énoncées.</td>
 </tr>
 </tbody>
 </table>
 </section>
-<section id="questions-danalyse" class="level2">
-<h2 class="anchored" data-anchor-id="questions-danalyse">Questions d’analyse</h2>
-<ol type="1">
-<li>Quelles variables sont des volumes et lesquelles sont des ratios?</li>
-<li>Les bibliothèques desservant de grandes populations ont-elles plus de visites par habitant?</li>
-<li>Les dépenses de fonctionnement sont-elles associées aux visites?</li>
-<li>Quelle information manquerait pour évaluer l’accessibilité?</li>
-<li>Pourquoi une corrélation ne suffit-elle pas à recommander une politique publique?</li>
-</ol>
-</section>
 <section id="pistes-de-solution" class="level2">
 <h2 class="anchored" data-anchor-id="pistes-de-solution">Pistes de solution</h2>
-<p>Un rapport solide construit les ratios avant les comparaisons et évite d’attribuer les différences observées à une cause unique. La documentation de la source doit être citée dans la section des données.</p>
+<p>Un rapport solide commence par vérifier la structure des données. Il agrège ensuite les bibliothèques par région en additionnant les volumes et la population, puis calcule les ratios régionaux. Une modélisation simple peut être utilisée pour explorer une relation, mais elle ne doit pas être présentée comme une preuve d’effet.</p>
 </section>
 <section id="variantes-possibles" class="level2">
 <h2 class="anchored" data-anchor-id="variantes-possibles">Variantes possibles</h2>
 <ul>
-<li>Limiter l’analyse à une région.</li>
-<li>Comparer les prêts physiques et numériques si les variables sont retenues.</li>
-<li>Produire une fiche synthèse destinée à un conseil municipal fictif.</li>
+<li>Limiter le portrait à une seule région et comparer les bibliothèques.</li>
+<li>Comparer les prêts par habitant et les dépenses par habitant.</li>
+<li>Produire une note synthèse destinée à une direction municipale fictive.</li>
+<li>Ajouter une carte régionale avec une source géographique externe documentée.</li>
 </ul>
 
 

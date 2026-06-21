@@ -2,37 +2,76 @@ id: bibliotheques-quebec
 title: "Statistiques des bibliothèques publiques du Québec"
 short_title: "Bibliothèques publiques"
 theme: "Culture et services publics"
-source_name: "Bibliothèque et Archives nationales du Québec"
+source_name: "Bibliothèque et Archives nationales du Québec / Données Québec"
 source_url: "https://www.donneesquebec.ca/recherche/dataset/statistiques_des_bibliotheques_publiques_du_quebec"
-license: "Attribution (CC-BY 4.0)"
-access_date: "2026-06-01"
+source_api_url: "https://www.donneesquebec.ca/recherche/api/3/action/package_show?id=statistiques_des_bibliotheques_publiques_du_quebec"
+source_csv_url: "https://www.donneesquebec.ca/recherche/dataset/231a38a8-f28e-4bef-82ea-dc98a14c1b6f/resource/01183d3e-c79c-4d09-915c-f35ffe4dfda8/download/statistiques_bibliotheques_quebec_2024.csv"
+source_dictionary_url: "https://www.donneesquebec.ca/recherche/dataset/231a38a8-f28e-4bef-82ea-dc98a14c1b6f/resource/25bddc87-e71a-4668-bb37-55b30003dd55/download/dictionnaire-des-donnees.csv"
+license: "Attribution (CC-BY 4.0) selon les métadonnées CKAN vérifiées le 2026-06-21"
+access_date: "2026-06-21"
 geography: "Québec"
-unit: "Bibliothèque publique ou centre régional"
-data_type: "Tabulaire"
-format: "CSV séparé par point-virgule"
+unit: "Bibliothèque publique ou centre régional dans la ressource annuelle 2024"
+data_type: "Tabulaire large, administratif et financier"
+format: "CSV séparé par point-virgule préparé localement"
 n_rows: "188 lignes pour la ressource 2024"
-n_cols: "262 colonnes pour la ressource 2024"
-update_frequency: "Série annuelle; ressources disponibles par année de 2007 à 2024 dans Données Québec"
+n_cols: "262 colonnes dans le CSV source; 16 colonnes préparées"
+processed_file: "data/processed/bibliotheques-quebec/statistiques_bibliotheques_quebec_2024_selection.csv"
+region_summary_file: "data/processed/bibliotheques-quebec/resume_regions_bibliotheques_2024.csv"
+category_summary_file: "data/processed/bibliotheques-quebec/resume_categories_bibliotheques_2024.csv"
+missing_summary_file: "data/processed/bibliotheques-quebec/valeurs_manquantes_bibliotheques_2024.csv"
+update_frequency: "Série annuelle; ressources disponibles de 2007 à 2024; ressource 2024 modifiée le 2025-10-06"
 level: "Introduction à avancé"
+organisme: "Bibliothèque et Archives nationales du Québec"
+territoire: "Québec"
+taille_approximative: "188 lignes; 262 colonnes source; 19 régions non manquantes; 59 981 972 visites déclarées"
+niveau_pedagogique_recommande: "Introduction à avancé"
+variables_principales:
+  - bibliotheque
+  - region_administrative
+  - population_desservie
+  - categorie_bibliotheque
+  - visites_total
+  - prets_total
+  - usagers_inscrits_total
+  - activites_total
+  - depenses_fonctionnement_total
+  - visites_par_habitant
+  - prets_par_habitant
+  - depenses_par_habitant
+idees_mini_projets:
+  - "Construire un portrait régional des visites, prêts et dépenses par habitant."
+  - "Comparer les bibliothèques en distinguant volumes et ratios."
+  - "Discuter les limites d'indicateurs administratifs pour évaluer l'accès aux services."
+tags:
+  - bibliothèques
+  - Québec
+  - données administratives
+  - services publics
+  - ratios
+  - visualisation
+  - statistique descriptive
+  - modélisation exploratoire
 concepts:
   - importation CSV
   - nettoyage de noms de variables
-  - statistique descriptive
-  - visualisation
+  - conversion numérique
   - ratios
   - comparaison régionale
-  - régression
-  - discussion éthique
+  - valeurs manquantes
+  - indicateurs administratifs
+  - communication prudente
 zero_waste:
   contexte_quebecois: 3
-  accessibilite_pedagogique: 2
+  accessibilite_pedagogique: 3
   qualite_documentaire: 3
   potentiel_nettoyage: 3
   potentiel_visualisation: 3
   potentiel_statistique_descriptive: 3
   potentiel_inference: 2
-  potentiel_modelisation: 3
+  potentiel_modelisation: 2
   potentiel_ethique: 3
   reutilisabilite: 3
-status: "source vérifiée"
-notes: "La ressource 2024 et le dictionnaire de données sont disponibles sur Données Québec."
+status: "source officielle vérifiée; ressource 2024 préparée localement"
+notes: "Les données sont rapportées par les responsables des bibliothèques et complétées par des indicateurs de performance. Les comparaisons doivent distinguer volumes, ratios et contexte de service."
+contributor_name: "Aurélien Nicosia"
+contributor_role: "Révision pédagogique et statistique"

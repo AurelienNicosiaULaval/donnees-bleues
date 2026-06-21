@@ -1,46 +1,47 @@
 ---
-title: "Bibliothèques publiques - activité courte"
+title: "Laboratoire - Visites par habitant dans les bibliothèques"
 embed-resources: true
 ---
 
-# Bibliothèques publiques - activité courte
+# Laboratoire - Visites par habitant dans les bibliothèques
 
 ## Contexte
 
-Les bibliothèques publiques produisent des statistiques annuelles sur leurs services. Vous devez construire un indicateur simple de fréquentation et l'interpréter avec prudence.
+Cette activité utilise la fiche [Statistiques des bibliothèques publiques du Québec](fiche.qmd). L'objectif est de passer d'un volume brut, les visites totales, à un indicateur comparable, les visites par habitant.
 
 ## Objectifs d'apprentissage
 
-- Importer un CSV avec séparateur point-virgule.
-- Sélectionner des variables pertinentes dans un fichier large.
-- Calculer un ratio.
-- Produire un graphique descriptif.
+- Importer une table préparée à partir d'une source officielle.
+- Distinguer un volume brut d'un ratio.
+- Repérer les valeurs manquantes qui empêchent un calcul.
+- Produire un histogramme et un tableau des valeurs élevées.
+- Formuler une interprétation prudente d'un indicateur administratif.
 
-## Données utilisées
+## Question directrice
 
-Source : Bibliothèque et Archives nationales du Québec, Statistiques des bibliothèques publiques du Québec, publié sur Données Québec sous licence Attribution (CC-BY 4.0). Fiche : [Statistiques des bibliothèques publiques du Québec](fiche.qmd).
+Pourquoi les visites totales ne suffisent-elles pas pour comparer les bibliothèques publiques?
 
 ## Consignes
 
-1. Importer la ressource 2024.
-2. Sélectionner le nom de la bibliothèque, la région, la population desservie et les visites totales.
-3. Calculer les visites par habitant.
-4. Produire un histogramme des visites par habitant.
-5. Écrire trois phrases d'interprétation.
+1. Exécuter `datasets/bibliotheques-quebec/preparation.R`.
+2. Importer `data/processed/bibliotheques-quebec/statistiques_bibliotheques_quebec_2024_selection.csv`.
+3. Garder les lignes où `population_desservie` est disponible et positive.
+4. Visualiser la distribution de `visites_par_habitant`.
+5. Afficher les 8 bibliothèques avec le plus de visites par habitant.
+6. Rédiger une interprétation de 6 à 8 lignes.
+
+## Résultats attendus
+
+Le script de préparation vérifie 188 lignes, 262 colonnes sources et 19 ressources CKAN. La table préparée contient 16 colonnes. Une ligne n'a pas de population desservie et doit être exclue des ratios.
 
 ## Questions
 
-1. Pourquoi les visites totales ne suffisent-elles pas pour comparer les bibliothèques?
-2. Quelle est la distribution des visites par habitant?
-3. Certaines valeurs semblent-elles atypiques?
-4. Quelles vérifications faut-il faire avant de commenter les valeurs extrêmes?
-5. Quelles limites le jeu de données impose-t-il?
+1. Quelle différence y a-t-il entre `visites_total` et `visites_par_habitant`?
+2. Pourquoi une bibliothèque avec beaucoup de visites totales n'est-elle pas nécessairement la plus fréquentée relativement à sa population?
+3. Quelles bibliothèques ont les ratios les plus élevés?
+4. Quelles explications non causales peuvent produire un ratio très élevé?
+5. Quelle limite doit être mentionnée avant de comparer deux régions?
 
 ## Pistes de solution
 
-Une comparaison pertinente doit tenir compte de la population desservie. Les valeurs extrêmes doivent être vérifiées dans les données et dans la documentation avant d'être interprétées comme des situations réelles.
-
-## Prolongement
-
-Comparer les visites par habitant entre régions administratives au moyen d'un graphique en boîtes.
-
+Une réponse minimale calcule le ratio et produit l'histogramme. Une meilleure réponse signale que certaines bibliothèques peuvent desservir des personnes au-delà de la population résidente, et que les ratios élevés doivent être documentés plutôt qu'interprétés automatiquement comme une performance supérieure.

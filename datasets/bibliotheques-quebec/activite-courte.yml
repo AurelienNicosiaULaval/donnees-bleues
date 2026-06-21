@@ -1,5 +1,5 @@
 id: bibliotheques-visites-ratios-court
-title: "Visites par habitant dans les bibliothèques publiques"
+title: "Laboratoire - Visites par habitant dans les bibliothèques"
 question: "Pourquoi les visites totales ne suffisent-elles pas pour comparer des bibliothèques?"
 dataset_id: bibliotheques-quebec
 dataset_title: "Statistiques des bibliothèques publiques du Québec"
@@ -14,12 +14,12 @@ concepts:
   - "Statistique descriptive"
   - "Visualisation"
 context: "Culture et services publics"
-hook: "Défi de mesure"
+hook: "Passer d'un volume brut à un ratio comparable"
 materials:
-  - "énoncé"
-  - "code"
-  - "données"
+  - "fiche vérifiée"
+  - "script de préparation"
+  - "table préparée"
+  - "résumés R"
 advanced_math_stats: false
-teacher_notes: "Faire distinguer volumes, ratios et interprétations de services publics."
-status: "prêt"
-
+teacher_notes: "Faire distinguer visites totales, population desservie et visites par habitant. Insister sur la ligne sans population et sur les interprétations non causales."
+status: "source officielle vérifiée"

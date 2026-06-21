@@ -1,55 +1,55 @@
 ---
-title: "Bibliothèques publiques - activité longue"
+title: "Mini-projet - Portrait régional des bibliothèques publiques"
 embed-resources: true
 ---
 
-# Bibliothèques publiques - activité longue
+# Mini-projet - Portrait régional des bibliothèques publiques
 
-## Mise en situation professionnelle
+## Contexte
 
-Un comité de programme veut un exemple complet d'analyse de données administratives québécoises. Vous devez produire un rapport qui décrit les services de bibliothèques publiques en 2024 et montre comment construire des indicateurs interprétables.
+Cette activité combine préparation de données, statistique descriptive, visualisation et communication. Le rapport attendu doit comparer les régions administratives à partir d'indicateurs par habitant, sans transformer une comparaison descriptive en conclusion causale.
 
-## Livrable attendu
+## Question directrice
 
-Un rapport Quarto de 4 à 6 pages comprenant un script reproductible, un tableau de variables, deux visualisations et une discussion des limites.
+Comment construire un portrait régional des bibliothèques publiques du Québec à partir de données administratives vérifiées?
 
-## Étapes
+## Livrables
 
-1. Importer les données 2024.
-2. Nettoyer les noms de variables.
-3. Sélectionner les variables liées à la population, aux visites, aux prêts, aux usagers et aux dépenses.
-4. Convertir les variables numériques si nécessaire.
-5. Créer des ratios par habitant.
-6. Comparer les régions administratives.
-7. Ajuster un modèle linéaire exploratoire.
-8. Rédiger une section de limites.
+1. Un script reproductible qui exécute `datasets/bibliotheques-quebec/preparation.R`.
+2. Un tableau des variables retenues et de leur rôle statistique.
+3. Un tableau régional avec visites, prêts et dépenses par habitant.
+4. Deux visualisations, dont au moins une comparaison régionale.
+5. Un court modèle exploratoire ou une analyse de relation entre deux ratios.
+6. Une section limites qui distingue données administratives, accès aux services et qualité du service.
 
-## Critères d'évaluation
+## Étapes suggérées
+
+1. Importer la table préparée.
+2. Vérifier le nombre de lignes, les colonnes et les valeurs manquantes.
+3. Exclure uniquement les lignes sans population valide pour les ratios.
+4. Résumer les indicateurs par région administrative.
+5. Comparer `visites_par_habitant`, `prets_par_habitant` et `depenses_par_habitant`.
+6. Identifier les régions ou bibliothèques atypiques.
+7. Rédiger une interprétation qui mentionne au moins trois limites.
+
+## Critères d'évaluation suggérés
 
 | Critère | Attendu |
 |---|---|
-| Importation | Le séparateur et les nombres sont traités correctement. |
-| Nettoyage | Les transformations sont documentées. |
-| Indicateurs | Les ratios sont définis clairement. |
-| Graphiques | Les visualisations répondent à une question précise. |
-| Modélisation | Le modèle est présenté comme exploratoire. |
-| Limites | Les limites administratives et causales sont explicites. |
-
-## Questions d'analyse
-
-1. Quelles variables sont des volumes et lesquelles sont des ratios?
-2. Les bibliothèques desservant de grandes populations ont-elles plus de visites par habitant?
-3. Les dépenses de fonctionnement sont-elles associées aux visites?
-4. Quelle information manquerait pour évaluer l'accessibilité?
-5. Pourquoi une corrélation ne suffit-elle pas à recommander une politique publique?
+| Reproductibilité | Le rapport exécute le script de préparation et importe la table préparée. |
+| Définition des indicateurs | Les volumes et les ratios sont distingués explicitement. |
+| Traitement des valeurs manquantes | Les exclusions liées aux dénominateurs sont justifiées. |
+| Visualisations | Les graphiques répondent à une question statistique précise. |
+| Analyse | Les comparaisons régionales sont descriptives et contextualisées. |
+| Limites | Les limites administratives et causales sont clairement énoncées. |
 
 ## Pistes de solution
 
-Un rapport solide construit les ratios avant les comparaisons et évite d'attribuer les différences observées à une cause unique. La documentation de la source doit être citée dans la section des données.
+Un rapport solide commence par vérifier la structure des données. Il agrège ensuite les bibliothèques par région en additionnant les volumes et la population, puis calcule les ratios régionaux. Une modélisation simple peut être utilisée pour explorer une relation, mais elle ne doit pas être présentée comme une preuve d'effet.
 
 ## Variantes possibles
 
-- Limiter l'analyse à une région.
-- Comparer les prêts physiques et numériques si les variables sont retenues.
-- Produire une fiche synthèse destinée à un conseil municipal fictif.
-
+- Limiter le portrait à une seule région et comparer les bibliothèques.
+- Comparer les prêts par habitant et les dépenses par habitant.
+- Produire une note synthèse destinée à une direction municipale fictive.
+- Ajouter une carte régionale avec une source géographique externe documentée.
