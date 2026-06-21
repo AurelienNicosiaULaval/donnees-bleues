@@ -5486,6 +5486,7 @@ grid-template-columns: 1fr;
   <ul class="collapse">
   <li><a href="#contexte" id="toc-contexte" class="nav-link" data-scroll-target="#contexte">Contexte</a></li>
   <li><a href="#question-directrice" id="toc-question-directrice" class="nav-link" data-scroll-target="#question-directrice">Question directrice</a></li>
+  <li><a href="#tâche" id="toc-tâche" class="nav-link" data-scroll-target="#tâche">Tâche</a></li>
   <li><a href="#livrables" id="toc-livrables" class="nav-link" data-scroll-target="#livrables">Livrables</a></li>
   <li><a href="#critères-dévaluation-suggérés" id="toc-critères-dévaluation-suggérés" class="nav-link" data-scroll-target="#critères-dévaluation-suggérés">Critères d’évaluation suggérés</a></li>
   </ul></li>
@@ -5518,19 +5519,24 @@ grid-template-columns: 1fr;
 <h1>Mini-projet - Emploi régional</h1>
 <section id="contexte" class="level2">
 <h2 class="anchored" data-anchor-id="contexte">Contexte</h2>
-<p>Ce mini-projet prolonge le laboratoire court en demandant une préparation reproductible et une interprétation plus structurée.</p>
+<p>Ce mini-projet prolonge le laboratoire court en demandant une préparation reproductible, plusieurs indicateurs et une interprétation plus structurée. Le but n’est pas de trouver une cause unique aux différences régionales, mais de produire une comparaison descriptive honnête à partir d’une source officielle.</p>
 </section>
 <section id="question-directrice" class="level2">
 <h2 class="anchored" data-anchor-id="question-directrice">Question directrice</h2>
-<p>Comparer la dynamique du marché du travail entre régions avant et après une période économique donnée.</p>
+<p>Comment la dynamique du marché du travail diffère-t-elle entre deux régions administratives et l’ensemble du Québec de 2011 à 2026?</p>
+</section>
+<section id="tâche" class="level2">
+<h2 class="anchored" data-anchor-id="tâche">Tâche</h2>
+<p>Choisir deux régions administratives, puis les comparer avec l’ensemble du Québec. Utiliser au moins trois indicateurs parmi <code>Emploi</code>, <code>Chômage</code>, <code>Taux d&#39;emploi</code>, <code>Taux de chômage</code>, <code>Population active</code>, <code>Emploi à temps plein</code> et <code>Emploi à temps partiel</code>.</p>
 </section>
 <section id="livrables" class="level2">
 <h2 class="anchored" data-anchor-id="livrables">Livrables</h2>
 <ol type="1">
-<li>Un fichier préparé dans <code>data_processed/</code>, ou une description précise du traitement si les données ne sont pas redistribuées.</li>
+<li>Le fichier préparé dans <code>data/processed/emploi-regional-quebec/emploi_regional_quebec.csv</code>.</li>
 <li>Un court dictionnaire des variables utilisées.</li>
-<li>Deux visualisations complémentaires.</li>
-<li>Un paragraphe sur la provenance, la licence et les limites.</li>
+<li>Un tableau de synthèse pour la dernière période disponible.</li>
+<li>Deux visualisations complémentaires, par exemple une série temporelle et une heatmap territoire x mois.</li>
+<li>Un paragraphe sur la provenance, les conditions de reproduction et les limites de l’Enquête sur la population active.</li>
 <li>Une conclusion pédagogique adaptée à un public de première année.</li>
 </ol>
 </section>
@@ -5539,8 +5545,9 @@ grid-template-columns: 1fr;
 <ul>
 <li>Reproductibilité du traitement.</li>
 <li>Qualité des noms de variables.</li>
-<li>Pertinence des regroupements.</li>
+<li>Pertinence des territoires et indicateurs retenus.</li>
 <li>Lisibilité des graphiques.</li>
+<li>Conservation et interprétation des codes de qualité.</li>
 <li>Prudence de l’interprétation.</li>
 </ul>
 

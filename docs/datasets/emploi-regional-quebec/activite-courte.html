@@ -5519,34 +5519,38 @@ grid-template-columns: 1fr;
 <h1>Laboratoire - Emploi régional</h1>
 <section id="contexte" class="level2">
 <h2 class="anchored" data-anchor-id="contexte">Contexte</h2>
-<p>Ce laboratoire utilise la fiche <a href="../../datasets/emploi-regional-quebec/fiche.html">Emploi régional au Québec</a> pour travailler une question québécoise concrète dans un format adapté à une activité d’introduction en science des données.</p>
+<p>Ce laboratoire utilise la fiche <a href="../../datasets/emploi-regional-quebec/fiche.html">Emploi régional au Québec</a> pour travailler une question québécoise concrète : comparer des séries mensuelles régionales du marché du travail sans oublier l’unité de mesure et la qualité des estimations.</p>
 </section>
 <section id="objectifs-dapprentissage" class="level2">
 <h2 class="anchored" data-anchor-id="objectifs-dapprentissage">Objectifs d’apprentissage</h2>
 <ul>
 <li>Identifier l’unité statistique d’un jeu de données réel.</li>
 <li>Importer ou préparer une ressource officielle sans perdre la provenance.</li>
+<li>Distinguer un niveau en milliers de personnes et un taux en pourcentage.</li>
+<li>Repérer les codes de qualité <code>F</code> et <code>*</code>.</li>
 <li>Produire une visualisation simple et interprétable.</li>
 <li>Formuler une conclusion prudente en séparant description et explication.</li>
 </ul>
 </section>
 <section id="question-directrice" class="level2">
 <h2 class="anchored" data-anchor-id="question-directrice">Question directrice</h2>
-<p>Comment l’emploi varie-t-il selon les régions administratives?</p>
+<p>Comment comparer le taux de chômage de quelques régions du Québec sans surinterpréter des estimations d’enquête?</p>
 </section>
 <section id="consignes" class="level2">
 <h2 class="anchored" data-anchor-id="consignes">Consignes</h2>
 <ol type="1">
 <li>Lire la fiche et repérer la source officielle.</li>
-<li>Identifier les variables nécessaires : <code>region</code>, <code>annee</code>, <code>mois</code>, <code>taux_chomage</code>, <code>taux_emploi</code>, <code>population_active</code>.</li>
-<li>Décrire les valeurs manquantes, les types de variables et les unités.</li>
-<li>Produire au moins une visualisation parmi : lignes temporelles, cartes choroplèthes, small multiples.</li>
-<li>Rédiger une conclusion de 5 à 8 lignes avec une limite méthodologique.</li>
+<li>Exécuter <code>datasets/emploi-regional-quebec/preparation.R</code> pour produire le CSV préparé.</li>
+<li>Importer <code>data/processed/emploi-regional-quebec/emploi_regional_quebec.csv</code>.</li>
+<li>Filtrer l’indicateur <code>Taux de chômage</code> pour <code>Québec</code>, <code>Montréal</code> et <code>Capitale-Nationale</code>.</li>
+<li>Produire un graphique de lignes avec <code>date</code> en abscisse et <code>valeur</code> en ordonnée.</li>
+<li>Compter les valeurs dont <code>indicateur_qualite</code> vaut <code>F</code> ou <code>*</code>.</li>
+<li>Rédiger une conclusion de 5 à 8 lignes qui mentionne l’unité, la période couverte et une limite méthodologique.</li>
 </ol>
 </section>
 <section id="pistes-de-solution" class="level2">
 <h2 class="anchored" data-anchor-id="pistes-de-solution">Pistes de solution</h2>
-<p>Une bonne réponse décrit la tendance principale, nomme le regroupement utilisé et explicite au moins une limite de la source. Une réponse excellente justifie aussi le choix du graphique et signale les décisions de nettoyage.</p>
+<p>Une bonne réponse décrit une tendance principale et nomme explicitement l’unité statistique : indicateur, territoire et mois. Une réponse excellente explique aussi pourquoi les estimations régionales mensuelles sont publiées comme moyennes mobiles sur trois mois et signale les codes <code>F</code> ou <code>*</code> observés.</p>
 
 
 </section>

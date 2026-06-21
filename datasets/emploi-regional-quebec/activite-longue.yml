@@ -1,6 +1,6 @@
 id: emploi-regional-quebec-long
 title: "Mini-projet - Emploi régional"
-question: "Comparer la dynamique du marché du travail entre régions avant et après une période économique donnée."
+question: "Comment la dynamique du marché du travail diffère-t-elle entre deux régions administratives et l'ensemble du Québec de 2011 à 2026?"
 dataset_id: emploi-regional-quebec
 dataset_title: "Emploi régional au Québec"
 activity_url: "datasets/emploi-regional-quebec/activite-longue.qmd"
@@ -12,16 +12,19 @@ activity_type:
 concepts:
   - "séries temporelles"
   - "comparaison de groupes"
+  - "données d'enquête"
+  - "qualité des estimations"
   - "analyse exploratoire"
   - "statistiques descriptives"
   - "indicateurs socioéconomiques"
 context: "Marché du travail"
-hook: "Analyse territoriale québécoise"
+hook: "Analyse territoriale québécoise à partir d'un tableau officiel complet"
 materials:
   - "fiche"
-  - "code"
+  - "script de préparation"
+  - "CSV préparé localement"
   - "source officielle"
   - "notes enseignantes"
 advanced_math_stats: false
-teacher_notes: "Demander un court paragraphe sur les limites de la source et les décisions de nettoyage."
-status: "prêt à adapter"
+teacher_notes: "Demander un court paragraphe sur les limites de l'EPA, les moyennes mobiles sur trois mois et les codes `F` et `*`."
+status: "source officielle vérifiée"

@@ -7,27 +7,31 @@ embed-resources: true
 
 ## Contexte
 
-Ce laboratoire utilise la fiche [Emploi régional au Québec](fiche.qmd) pour travailler une question québécoise concrète dans un format adapté à une activité d'introduction en science des données.
+Ce laboratoire utilise la fiche [Emploi régional au Québec](fiche.qmd) pour travailler une question québécoise concrète : comparer des séries mensuelles régionales du marché du travail sans oublier l'unité de mesure et la qualité des estimations.
 
 ## Objectifs d'apprentissage
 
 - Identifier l'unité statistique d'un jeu de données réel.
 - Importer ou préparer une ressource officielle sans perdre la provenance.
+- Distinguer un niveau en milliers de personnes et un taux en pourcentage.
+- Repérer les codes de qualité `F` et `*`.
 - Produire une visualisation simple et interprétable.
 - Formuler une conclusion prudente en séparant description et explication.
 
 ## Question directrice
 
-Comment l'emploi varie-t-il selon les régions administratives?
+Comment comparer le taux de chômage de quelques régions du Québec sans surinterpréter des estimations d'enquête?
 
 ## Consignes
 
 1. Lire la fiche et repérer la source officielle.
-2. Identifier les variables nécessaires : `region`, `annee`, `mois`, `taux_chomage`, `taux_emploi`, `population_active`.
-3. Décrire les valeurs manquantes, les types de variables et les unités.
-4. Produire au moins une visualisation parmi : lignes temporelles, cartes choroplèthes, small multiples.
-5. Rédiger une conclusion de 5 à 8 lignes avec une limite méthodologique.
+2. Exécuter `datasets/emploi-regional-quebec/preparation.R` pour produire le CSV préparé.
+3. Importer `data/processed/emploi-regional-quebec/emploi_regional_quebec.csv`.
+4. Filtrer l'indicateur `Taux de chômage` pour `Québec`, `Montréal` et `Capitale-Nationale`.
+5. Produire un graphique de lignes avec `date` en abscisse et `valeur` en ordonnée.
+6. Compter les valeurs dont `indicateur_qualite` vaut `F` ou `*`.
+7. Rédiger une conclusion de 5 à 8 lignes qui mentionne l'unité, la période couverte et une limite méthodologique.
 
 ## Pistes de solution
 
-Une bonne réponse décrit la tendance principale, nomme le regroupement utilisé et explicite au moins une limite de la source. Une réponse excellente justifie aussi le choix du graphique et signale les décisions de nettoyage.
+Une bonne réponse décrit une tendance principale et nomme explicitement l'unité statistique : indicateur, territoire et mois. Une réponse excellente explique aussi pourquoi les estimations régionales mensuelles sont publiées comme moyennes mobiles sur trois mois et signale les codes `F` ou `*` observés.

@@ -5547,8 +5547,11 @@ Emploi régional au Québec
 <p class="dataset-hero-source">
 Institut de la statistique du Québec / Statistique Canada, Enquête sur la population active
 </p>
+<div class="dataset-contributor-badge">
+<span>Personne à contacter</span><strong>Aurélien Nicosia</strong><small>Révision pédagogique et statistique</small>
+</div>
 <p class="dataset-hero-summary">
-Combinaison région et période
+Combinaison indicateur, territoire et mois
 </p>
 <div class="dataset-hero-actions">
 <a class="dataset-button no-external" href="#r-en-action">Voir les résultats R</a><a class="dataset-button secondary" href="https://statistique.quebec.ca/fr/document/population-active-emploi-et-chomage-regions-administratives-rmr-et-quebec">Source officielle</a>
@@ -5560,16 +5563,16 @@ Combinaison région et période
 </div>
 <div class="dataset-overview-grid">
 <div class="dataset-fact">
-<span>Territoire</span><strong>Régions administratives, RMR et ensemble du Québec</strong>
+<span>Territoire</span><strong>Régions administratives et ensemble du Québec</strong>
 </div>
 <div class="dataset-fact">
 <span>Niveau</span><strong>Introduction à intermédiaire</strong>
 </div>
 <div class="dataset-fact">
-<span>Structure</span><strong>Tableau agrégé, séries temporelles régionales</strong>
+<span>Structure</span><strong>Tableau agrégé, séries temporelles mensuelles désaisonnalisées</strong>
 </div>
 <div class="dataset-fact">
-<span>Format</span><strong>Tableau web et exports à confirmer</strong>
+<span>Format</span><strong>XLSX officiel, préparé localement en CSV long</strong>
 </div>
 </div>
 <div class="dataset-pedagogy-band">
@@ -5580,14 +5583,14 @@ Explorer marché du travail avec une question descriptive.
 </p>
 </div>
 <div class="dataset-score-box">
-<span>Potentiel pédagogique</span><strong>26 / 30</strong>
+<span>Potentiel pédagogique</span><strong>27 / 30</strong>
 <div class="dataset-score-track">
 <span class="dataset-score-segment is-filled"></span><span class="dataset-score-segment is-filled"></span><span class="dataset-score-segment is-filled"></span><span class="dataset-score-segment is-filled"></span><span class="dataset-score-segment is-filled"></span>
 </div>
 </div>
 </div>
 <div class="dataset-chip-strip">
-<span>séries temporelles</span><span>comparaison de groupes</span><span>analyse exploratoire</span><span>statistiques descriptives</span><span>indicateurs socioéconomiques</span>
+<span>séries temporelles</span><span>comparaison de groupes</span><span>données d&#39;enquête</span><span>nettoyage de données Excel</span><span>statistiques descriptives</span><span>indicateurs socioéconomiques</span>
 </div>
 <section class="dataset-r-lab" id="r-en-action">
 <div class="dataset-section-heading">
@@ -5596,7 +5599,7 @@ Explorer marché du travail avec une question descriptive.
 Aperçu reproductible
 </h2>
 <p>
-Aperçu léger calculé par R à partir des métadonnées vérifiées afin de garder la fiche rapide et stable au rendu.
+Aperçu calculé par R à partir de data/processed/emploi-regional-quebec/emploi_regional_quebec.csv.
 </p>
 </div>
 <div class="dataset-r-grid">
@@ -5604,13 +5607,12 @@ Aperçu léger calculé par R à partir des métadonnées vérifiées afin de ga
 <div class="dataset-card-label">
 Code minimal
 </div>
-<pre><code class="language-r">library(yaml)
+<pre><code class="language-r">library(dplyr)
 
-metadata &lt;- yaml::read_yaml(&quot;datasets/emploi-regional-quebec/metadata.yml&quot;)
-data.frame(
-  champ = c(&quot;theme&quot;, &quot;territoire&quot;, &quot;unite&quot;, &quot;niveau&quot;),
-  valeur = c(metadata$theme, metadata$geography, metadata$unit, metadata$level)
-)</code></pre>
+donnees &lt;- read.csv(&quot;data/processed/emploi-regional-quebec/emploi_regional_quebec.csv&quot;, check.names = FALSE)
+
+glimpse(donnees)
+donnees |&gt; summarise(lignes = n(), colonnes = ncol(donnees))</code></pre>
 </div>
 <div class="dataset-result-card">
 <div class="dataset-card-label">
@@ -5618,16 +5620,19 @@ Résultats R
 </div>
 <div class="dataset-r-stats">
 <div class="dataset-r-stat">
-<span>Lignes déclarées</span><strong>Quelques centaines à quelques milliers de lignes selon la période et le niveau territorial retenus</strong>
+<span>Lignes lues</span><strong>2 500</strong>
 </div>
 <div class="dataset-r-stat">
-<span>Colonnes déclarées</span><strong>Indicateurs de population active, emploi, chômage et taux associés</strong>
+<span>Colonnes</span><strong>12</strong>
 </div>
 <div class="dataset-r-stat">
-<span>Format</span><strong>Tableau web et exports à confirmer</strong>
+<span>Variables num.</span><strong>3</strong>
 </div>
 <div class="dataset-r-stat">
-<span>Aperçu</span><strong>Métadonnées</strong>
+<span>Valeurs manquantes</span><strong>13.2 %</strong>
+</div>
+<div class="dataset-r-stat">
+<span>Aperçu</span><strong>emploi_regional_quebec.csv</strong>
 </div>
 </div>
 <div class="dataset-result-table-wrap">
@@ -5635,52 +5640,144 @@ Résultats R
 <thead>
 <tr>
 <th>
-champ
+indicateur
 </th>
 <th>
-valeur
+periode_source
+</th>
+<th>
+mois_nom
+</th>
+<th>
+annee
+</th>
+<th>
+mois
+</th>
+<th>
+date
 </th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>
-theme
+Chômage
 </td>
 <td>
-Marché du travail
-</td>
-</tr>
-<tr>
-<td>
-territoire
+Janvier 2011
 </td>
 <td>
-Régions administratives, RMR et…
-</td>
-</tr>
-<tr>
-<td>
-unite
+Janvier
 </td>
 <td>
-Combinaison région et période
+2011
+</td>
+<td>
+1
+</td>
+<td>
+2011-01-01
 </td>
 </tr>
 <tr>
 <td>
-niveau
+Chômage
 </td>
 <td>
-Introduction à intermédiaire
+Février 2011
+</td>
+<td>
+Février
+</td>
+<td>
+2011
+</td>
+<td>
+2
+</td>
+<td>
+2011-02-01
 </td>
 </tr>
 <tr>
 <td>
-format
+Chômage
 </td>
 <td>
-Tableau web et exports à confirmer
+Mars 2011
+</td>
+<td>
+Mars
+</td>
+<td>
+2011
+</td>
+<td>
+3
+</td>
+<td>
+2011-03-01
+</td>
+</tr>
+<tr>
+<td>
+Chômage
+</td>
+<td>
+Avril 2011
+</td>
+<td>
+Avril
+</td>
+<td>
+2011
+</td>
+<td>
+4
+</td>
+<td>
+2011-04-01
+</td>
+</tr>
+<tr>
+<td>
+Chômage
+</td>
+<td>
+Mai 2011
+</td>
+<td>
+Mai
+</td>
+<td>
+2011
+</td>
+<td>
+5
+</td>
+<td>
+2011-05-01
+</td>
+</tr>
+<tr>
+<td>
+Chômage
+</td>
+<td>
+Juin 2011
+</td>
+<td>
+Juin
+</td>
+<td>
+2011
+</td>
+<td>
+6
+</td>
+<td>
+2011-06-01
 </td>
 </tr>
 </tbody>
@@ -5691,8 +5788,8 @@ Tableau web et exports à confirmer
 <div class="dataset-card-label">
 Lecture statistique
 </div>
-<svg class="dataset-r-chart" viewbox="0 0 320 210" role="img" aria-label="Concepts pédagogiques">
-<text x="0" y="30" class="dataset-svg-label">séries temporelles</text><rect x="150" y="18" width="90" height="14" rx="3" class="dataset-svg-bar" /><text x="0" y="54" class="dataset-svg-label">comparaison de groupes</text><rect x="150" y="42" width="90" height="14" rx="3" class="dataset-svg-bar" /><text x="0" y="78" class="dataset-svg-label">analyse exploratoire</text><rect x="150" y="66" width="90" height="14" rx="3" class="dataset-svg-bar" /><text x="0" y="102" class="dataset-svg-label">statistiques descriptives</text><rect x="150" y="90" width="90" height="14" rx="3" class="dataset-svg-bar" /><text x="0" y="126" class="dataset-svg-label">indicateurs socioéconomiques</text><rect x="150" y="114" width="90" height="14" rx="3" class="dataset-svg-bar" />
+<svg class="dataset-r-chart" viewbox="0 0 320 210" role="img" aria-label="Aperçu numérique généré par R">
+<line x1="34" y1="158" x2="292" y2="158" class="dataset-svg-axis"></line><line x1="34" y1="36" x2="34" y2="158" class="dataset-svg-axis"></line><polyline points="34,86.6 40.4,79.6 46.7,72.5 53.1,76.2 59.4,89.5 65.8,93.3 72.2,77.7 78.5,60.6 84.9,46.9 91.2,46 97.6,55 103.9,60.2 110.3,72.5 116.7,86.2 123,100.3 129.4,122.1 135.7,119.7 142.1,124.4 148.5,116.4 154.8,127.3 161.2,130.6 167.5,138.2 173.9,121.1 180.3,129.2 186.6,126.3 193,139.1 199.3,136.7 205.7,139.6 212.1,150 218.4,150.4 224.8,146.2 231.1,145.2 237.5,150.9 243.8,157.5 250.2,158 256.6,143.4 262.9,121.6 269.3,123.5 275.6,134.4 282,153.7" class="dataset-svg-line"></polyline><circle cx="34" cy="86.6" r="3.2" class="dataset-svg-point"></circle><circle cx="40.4" cy="79.6" r="3.2" class="dataset-svg-point"></circle><circle cx="46.7" cy="72.5" r="3.2" class="dataset-svg-point"></circle><circle cx="53.1" cy="76.2" r="3.2" class="dataset-svg-point"></circle><circle cx="59.4" cy="89.5" r="3.2" class="dataset-svg-point"></circle><circle cx="65.8" cy="93.3" r="3.2" class="dataset-svg-point"></circle><circle cx="72.2" cy="77.7" r="3.2" class="dataset-svg-point"></circle><circle cx="78.5" cy="60.6" r="3.2" class="dataset-svg-point"></circle><circle cx="84.9" cy="46.9" r="3.2" class="dataset-svg-point"></circle><circle cx="91.2" cy="46" r="3.2" class="dataset-svg-point"></circle><circle cx="97.6" cy="55" r="3.2" class="dataset-svg-point"></circle><circle cx="103.9" cy="60.2" r="3.2" class="dataset-svg-point"></circle><circle cx="110.3" cy="72.5" r="3.2" class="dataset-svg-point"></circle><circle cx="116.7" cy="86.2" r="3.2" class="dataset-svg-point"></circle><circle cx="123" cy="100.3" r="3.2" class="dataset-svg-point"></circle><circle cx="129.4" cy="122.1" r="3.2" class="dataset-svg-point"></circle><circle cx="135.7" cy="119.7" r="3.2" class="dataset-svg-point"></circle><circle cx="142.1" cy="124.4" r="3.2" class="dataset-svg-point"></circle><circle cx="148.5" cy="116.4" r="3.2" class="dataset-svg-point"></circle><circle cx="154.8" cy="127.3" r="3.2" class="dataset-svg-point"></circle><circle cx="161.2" cy="130.6" r="3.2" class="dataset-svg-point"></circle><circle cx="167.5" cy="138.2" r="3.2" class="dataset-svg-point"></circle><circle cx="173.9" cy="121.1" r="3.2" class="dataset-svg-point"></circle><circle cx="180.3" cy="129.2" r="3.2" class="dataset-svg-point"></circle><circle cx="186.6" cy="126.3" r="3.2" class="dataset-svg-point"></circle><circle cx="193" cy="139.1" r="3.2" class="dataset-svg-point"></circle><circle cx="199.3" cy="136.7" r="3.2" class="dataset-svg-point"></circle><circle cx="205.7" cy="139.6" r="3.2" class="dataset-svg-point"></circle><circle cx="212.1" cy="150" r="3.2" class="dataset-svg-point"></circle><circle cx="218.4" cy="150.4" r="3.2" class="dataset-svg-point"></circle><circle cx="224.8" cy="146.2" r="3.2" class="dataset-svg-point"></circle><circle cx="231.1" cy="145.2" r="3.2" class="dataset-svg-point"></circle><circle cx="237.5" cy="150.9" r="3.2" class="dataset-svg-point"></circle><circle cx="243.8" cy="157.5" r="3.2" class="dataset-svg-point"></circle><circle cx="250.2" cy="158" r="3.2" class="dataset-svg-point"></circle><circle cx="256.6" cy="143.4" r="3.2" class="dataset-svg-point"></circle><circle cx="262.9" cy="121.6" r="3.2" class="dataset-svg-point"></circle><circle cx="269.3" cy="123.5" r="3.2" class="dataset-svg-point"></circle><circle cx="275.6" cy="134.4" r="3.2" class="dataset-svg-point"></circle><circle cx="282" cy="153.7" r="3.2" class="dataset-svg-point"></circle><text x="34" y="24" class="dataset-svg-title">valeur</text><text x="34" y="186" class="dataset-svg-label">33.9</text><text x="230" y="186" class="dataset-svg-label">57.6</text>
 </svg>
 </div>
 </div>
@@ -5712,13 +5809,13 @@ Explorer marché du travail avec une question descriptive.
 <div class="dataset-activity-card">
 <span>60-90 minutes</span><strong>Laboratoire - Emploi régional</strong>
 <p>
-Comment l&#39;emploi varie-t-il selon les régions administratives?
+Comment comparer le taux de chômage de quelques régions du Québec sans surinterpréter des estimations d&#39;enquête?
 </p>
 </div>
 <div class="dataset-activity-card">
 <span>2-3 heures</span><strong>Mini-projet - Emploi régional</strong>
 <p>
-Comparer la dynamique du marché du travail entre régions avant et après une période économique donnée.
+Comment la dynamique du marché du travail diffère-t-elle entre deux régions administratives et l&#39;ensemble du Québec de 2011 à 2026?
 </p>
 </div>
 </div>
@@ -5727,11 +5824,69 @@ Comparer la dynamique du marché du travail entre régions avant et après une p
 <div class="dataset-detail-content">
 <section id="pourquoi-ce-jeu-est-intéressant" class="level2">
 <h2 class="anchored" data-anchor-id="pourquoi-ce-jeu-est-intéressant">Pourquoi ce jeu est intéressant</h2>
-<p>Ce jeu de données place les étudiants et étudiantes devant une source québécoise réaliste, avec des variables interprétables et des décisions de nettoyage authentiques.</p>
-<p>Question d’analyse : Comment l’emploi varie-t-il selon les régions administratives?</p>
+<p>Ce jeu de données permet de travailler une vraie série temporelle régionale : population active, emploi, chômage et taux associés, par mois, pour le Québec et les régions administratives. Il est utile pour apprendre à distinguer un nombre, un taux, une unité territoriale et une période d’observation.</p>
+<p>La fiche porte sur le fichier complet du tableau 916 de l’Institut de la statistique du Québec : <code>Caractéristiques du marché du travail, données mensuelles désaisonnalisées, régions administratives et ensemble du Québec</code>. Ce choix donne une activité reproductible, parce que le fichier XLSX officiel peut être téléchargé directement et transformé en table longue.</p>
+<p>Question d’analyse : comment comparer l’évolution du marché du travail entre régions sans surinterpréter des estimations issues d’une enquête?</p>
 </section>
-<section id="source" class="level2">
-<h2 class="anchored" data-anchor-id="source">Source</h2>
+<section id="ce-qui-a-été-vérifié" class="level2">
+<h2 class="anchored" data-anchor-id="ce-qui-a-été-vérifié">Ce qui a été vérifié</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Élément vérifié</th>
+<th>Résultat</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Page officielle</td>
+<td>Population active, emploi et chômage, régions administratives, RMR et Québec</td>
+</tr>
+<tr class="even">
+<td>Tableau retenu</td>
+<td>Tableau 916, données mensuelles désaisonnalisées, régions administratives et ensemble du Québec</td>
+</tr>
+<tr class="odd">
+<td>Fichier officiel</td>
+<td><code>Fichier_complet_916.xlsx</code></td>
+</tr>
+<tr class="even">
+<td>Producteur statistique</td>
+<td>Statistique Canada, Enquête sur la population active; adaptation par l’Institut de la statistique du Québec</td>
+</tr>
+<tr class="odd">
+<td>Mise à jour du tableau</td>
+<td>5 juin 2026</td>
+</tr>
+<tr class="even">
+<td>Dernière modification du XLSX observée</td>
+<td>8 juin 2026</td>
+</tr>
+<tr class="odd">
+<td>Taille officielle observée</td>
+<td>213 855 octets</td>
+</tr>
+<tr class="even">
+<td>Feuilles d’indicateurs</td>
+<td>8</td>
+</tr>
+<tr class="odd">
+<td>Feuille de notes</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td>Préparation locale</td>
+<td>25 160 observations, 12 colonnes, format long</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="source-et-conditions" class="level2">
+<h2 class="anchored" data-anchor-id="source-et-conditions">Source et conditions</h2>
 <table class="caption-top table">
 <thead>
 <tr class="header">
@@ -5745,44 +5900,56 @@ Comparer la dynamique du marché du travail entre régions avant et après une p
 <td>Institut de la statistique du Québec / Statistique Canada, Enquête sur la population active</td>
 </tr>
 <tr class="even">
-<td>Source</td>
-<td>Population active, emploi et chômage, régions administratives, RMR et Québec</td>
-</tr>
-<tr class="odd">
-<td>URL</td>
+<td>Page officielle</td>
 <td><a href="https://statistique.quebec.ca/fr/document/population-active-emploi-et-chomage-regions-administratives-rmr-et-quebec" class="uri">https://statistique.quebec.ca/fr/document/population-active-emploi-et-chomage-regions-administratives-rmr-et-quebec</a></td>
 </tr>
+<tr class="odd">
+<td>Tableau retenu</td>
+<td><a href="https://statistique.quebec.ca/fr/produit/tableau/caracteristiques-du-marche-du-travail-donnees-mensuelles-desaisonnalisees-regions-administratives-et-ensemble-du-quebec" class="uri">https://statistique.quebec.ca/fr/produit/tableau/caracteristiques-du-marche-du-travail-donnees-mensuelles-desaisonnalisees-regions-administratives-et-ensemble-du-quebec</a></td>
+</tr>
 <tr class="even">
-<td>Licence</td>
-<td>Conditions de réutilisation de Statistique Québec à confirmer pour l’export retenu</td>
+<td>XLSX officiel</td>
+<td><a href="https://statistique.quebec.ca/docs-ken/multimedia/Fichier_complet_916.xlsx" class="uri">https://statistique.quebec.ca/docs-ken/multimedia/Fichier_complet_916.xlsx</a></td>
+</tr>
+<tr class="odd">
+<td>Conditions de reproduction</td>
+<td>Reproduction de l’information du site de l’ISQ interdite sauf permission écrite. Voir la page droits d’auteur de l’ISQ.</td>
+</tr>
+<tr class="even">
+<td>Redistribution locale</td>
+<td>Le XLSX brut et le CSV préparé sont utilisés localement; ils ne sont pas suivis par Git.</td>
 </tr>
 <tr class="odd">
 <td>Date d’accès</td>
-<td>2026-06-19</td>
+<td>2026-06-20</td>
 </tr>
 <tr class="even">
-<td>Fréquence de mise à jour</td>
-<td>Mensuelle, trimestrielle et annuelle selon la page de Statistique Québec</td>
-</tr>
-<tr class="odd">
 <td>Statut</td>
-<td>source documentée; licence et export exact à confirmer</td>
+<td>source officielle vérifiée; fichier XLSX complet du tableau 916 préparé localement</td>
 </tr>
 </tbody>
 </table>
 </section>
 <section id="ce-que-représente-une-ligne" class="level2">
 <h2 class="anchored" data-anchor-id="ce-que-représente-une-ligne">Ce que représente une ligne</h2>
-<p>Combinaison région et période.</p>
+<p>Dans la table préparée, une ligne représente une combinaison de trois éléments :</p>
+<ul>
+<li>un indicateur du marché du travail;</li>
+<li>un territoire;</li>
+<li>un mois.</li>
+</ul>
+<p>La table n’est donc pas une table de personnes. Elle contient des estimations agrégées issues de l’Enquête sur la population active. L’interprétation doit rester descriptive, surtout pour les régions où les estimations du chômage sont moins stables.</p>
+<p>Le fichier officiel contient 185 mois, de janvier 2011 à mai 2026. Pour chaque mois, il donne les valeurs du Québec et de 16 territoires régionaux, dont un territoire combiné <code>Côte-Nord et Nord-du-Québec</code>.</p>
 </section>
 <section id="variables-principales" class="level2">
 <h2 class="anchored" data-anchor-id="variables-principales">Variables principales</h2>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 25%">
-<col style="width: 25%">
-<col style="width: 25%">
-<col style="width: 25%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -5790,44 +5957,93 @@ Comparer la dynamique du marché du travail entre régions avant et après une p
 <th>Type</th>
 <th>Description</th>
 <th>Exemple</th>
+<th>Point de vigilance</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td><code>region</code></td>
+<td><code>indicateur</code></td>
 <td>caractère</td>
-<td>Région administrative, RMR ou Québec.</td>
-<td>Chaudière-Appalaches</td>
+<td>Feuille d’origine du XLSX</td>
+<td><code>Taux de chômage</code></td>
+<td>Huit indicateurs distincts</td>
+</tr>
+<tr class="even">
+<td><code>date</code></td>
+<td>date</td>
+<td>Premier jour du mois de référence</td>
+<td><code>2026-05-01</code></td>
+<td>Sert à ordonner les séries</td>
+</tr>
+<tr class="odd">
+<td><code>periode_source</code></td>
+<td>caractère</td>
+<td>Libellé source de la période</td>
+<td><code>Mai 20263</code></td>
+<td>Peut inclure un appel de note</td>
 </tr>
 <tr class="even">
 <td><code>annee</code></td>
 <td>entier</td>
-<td>Année de référence.</td>
-<td>2025</td>
+<td>Année extraite du libellé source</td>
+<td><code>2026</code></td>
+<td>Variable dérivée</td>
 </tr>
 <tr class="odd">
 <td><code>mois</code></td>
 <td>entier</td>
-<td>Mois de référence lorsque les données sont mensuelles.</td>
-<td>5</td>
+<td>Mois extrait du libellé source</td>
+<td><code>5</code></td>
+<td>Variable dérivée</td>
 </tr>
 <tr class="even">
-<td><code>taux_chomage</code></td>
-<td>numérique</td>
-<td>Taux de chômage.</td>
-<td>5.6</td>
+<td><code>mois_nom</code></td>
+<td>caractère</td>
+<td>Mois en français</td>
+<td><code>Mai</code></td>
+<td>Utile pour l’affichage</td>
 </tr>
 <tr class="odd">
-<td><code>taux_emploi</code></td>
-<td>numérique</td>
-<td>Taux d’emploi.</td>
-<td>62.4</td>
+<td><code>appel_note_periode</code></td>
+<td>caractère</td>
+<td>Appel de note accolé à la période, si présent</td>
+<td><code>3</code></td>
+<td>Signale une note méthodologique</td>
 </tr>
 <tr class="even">
-<td><code>population_active</code></td>
+<td><code>territoire</code></td>
+<td>caractère</td>
+<td>Québec ou région administrative</td>
+<td><code>Montréal</code></td>
+<td><code>Côte-Nord et Nord-du-Québec</code> est combiné</td>
+</tr>
+<tr class="odd">
+<td><code>unite</code></td>
+<td>caractère</td>
+<td>Unité de mesure</td>
+<td><code>k</code>, <code>%</code></td>
+<td><code>k</code> signifie milliers de personnes</td>
+</tr>
+<tr class="even">
+<td><code>valeur_brute</code></td>
+<td>caractère</td>
+<td>Valeur telle que lue dans le XLSX</td>
+<td><code>3,2*</code></td>
+<td>Conserve les marques de qualité</td>
+</tr>
+<tr class="odd">
+<td><code>indicateur_qualite</code></td>
+<td>caractère</td>
+<td>Code de qualité extrait de la valeur</td>
+<td><code>*</code>, <code>F</code></td>
+<td><code>F</code> devient une valeur numérique manquante</td>
+</tr>
+<tr class="even">
+<td><code>valeur</code></td>
 <td>numérique</td>
-<td>Population active, souvent en milliers de personnes.</td>
-<td>410.2</td>
+<td>Valeur analysable en R</td>
+<td><code>3.2</code></td>
+<td>À interpréter avec <code>unite</code></td>
 </tr>
 </tbody>
 </table>
@@ -5847,146 +6063,371 @@ Comparer la dynamique du marché du travail entre régions avant et après une p
 </thead>
 <tbody>
 <tr class="odd">
-<td>Nombre de lignes</td>
-<td>Quelques centaines à quelques milliers de lignes selon la période et le niveau territorial retenus</td>
+<td>Nombre de lignes préparées</td>
+<td>25 160 observations</td>
 </tr>
 <tr class="even">
-<td>Nombre de colonnes</td>
-<td>Indicateurs de population active, emploi, chômage et taux associés</td>
+<td>Nombre de colonnes préparées</td>
+<td>12</td>
 </tr>
 <tr class="odd">
+<td>Indicateurs</td>
+<td>8</td>
+</tr>
+<tr class="even">
+<td>Territoires</td>
+<td>17</td>
+</tr>
+<tr class="odd">
+<td>Périodes mensuelles</td>
+<td>185</td>
+</tr>
+<tr class="even">
+<td>Première période</td>
+<td>Janvier 2011</td>
+</tr>
+<tr class="odd">
+<td>Dernière période</td>
+<td>Mai 2026</td>
+</tr>
+<tr class="even">
 <td>Structure</td>
-<td>Tableau agrégé, séries temporelles régionales</td>
-</tr>
-<tr class="even">
-<td>Format</td>
-<td>Tableau web et exports à confirmer</td>
+<td>Table longue : indicateur, territoire, période, valeur</td>
 </tr>
 <tr class="odd">
-<td>Couverture géographique</td>
-<td>Régions administratives, RMR et ensemble du Québec</td>
+<td>Format officiel</td>
+<td>XLSX</td>
 </tr>
 <tr class="even">
-<td>Couverture temporelle</td>
-<td>Séries mensuelles, trimestrielles et annuelles selon le tableau retenu</td>
+<td>Format préparé local</td>
+<td>CSV ignoré par Git dans <code>data/processed/emploi-regional-quebec/</code></td>
+</tr>
+<tr class="odd">
+<td>Niveau pédagogique recommandé</td>
+<td>Introduction à intermédiaire</td>
 </tr>
 </tbody>
 </table>
+</section>
+<section id="lecture-statistique" class="level2">
+<h2 class="anchored" data-anchor-id="lecture-statistique">Lecture statistique</h2>
+<p>Le fichier est excellent pour enseigner la différence entre un niveau et un taux. Par exemple, <code>Emploi</code> est exprimé en milliers de personnes, alors que <code>Taux d&#39;emploi</code> est un pourcentage. Les deux décrivent le marché du travail, mais ils ne répondent pas à la même question.</p>
+<p>Les comparaisons régionales doivent être prudentes. Les données viennent d’une enquête, pas d’un recensement administratif complet. La note officielle du tableau indique que les estimations régionales désaisonnalisées sont publiées sous forme de moyennes mobiles sur trois mois pour réduire les fluctuations irrégulières liées aux petits échantillons.</p>
+<p>Les codes de qualité sont essentiels : <code>F</code> indique une estimation trop peu fiable pour être publiée, et <code>*</code> indique que la cible du coefficient de variation n’a pas été atteinte. Dans une activité pédagogique, ces codes doivent être montrés et discutés, pas simplement supprimés.</p>
+</section>
+<section id="résultats-r-vérifiés" class="level2">
+<h2 class="anchored" data-anchor-id="résultats-r-vérifiés">Résultats R vérifiés</h2>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Contrôle</th>
+<th style="text-align: right;">Résultat calculé sur le XLSX officiel</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Lignes préparées</td>
+<td style="text-align: right;">25 160</td>
+</tr>
+<tr class="even">
+<td>Colonnes préparées</td>
+<td style="text-align: right;">12</td>
+</tr>
+<tr class="odd">
+<td>Indicateurs</td>
+<td style="text-align: right;">8</td>
+</tr>
+<tr class="even">
+<td>Territoires</td>
+<td style="text-align: right;">17</td>
+</tr>
+<tr class="odd">
+<td>Mois</td>
+<td style="text-align: right;">185</td>
+</tr>
+<tr class="even">
+<td>Première date</td>
+<td style="text-align: right;">2011-01-01</td>
+</tr>
+<tr class="odd">
+<td>Dernière date</td>
+<td style="text-align: right;">2026-05-01</td>
+</tr>
+<tr class="even">
+<td>Valeurs avec code <code>*</code></td>
+<td style="text-align: right;">130</td>
+</tr>
+<tr class="odd">
+<td>Valeurs avec code <code>F</code></td>
+<td style="text-align: right;">12</td>
+</tr>
+<tr class="even">
+<td>Valeurs numériques manquantes après préparation</td>
+<td style="text-align: right;">12</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="valeurs-du-québec-en-mai-2026" class="level2">
+<h2 class="anchored" data-anchor-id="valeurs-du-québec-en-mai-2026">Valeurs du Québec en mai 2026</h2>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Indicateur</th>
+<th style="text-align: right;">Valeur</th>
+<th>Unité</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Population active</td>
+<td style="text-align: right;">4 878,0</td>
+<td>k</td>
+</tr>
+<tr class="even">
+<td>Emploi</td>
+<td style="text-align: right;">4 597,8</td>
+<td>k</td>
+</tr>
+<tr class="odd">
+<td>Emploi à temps plein</td>
+<td style="text-align: right;">3 692,3</td>
+<td>k</td>
+</tr>
+<tr class="even">
+<td>Emploi à temps partiel</td>
+<td style="text-align: right;">905,5</td>
+<td>k</td>
+</tr>
+<tr class="odd">
+<td>Chômage</td>
+<td style="text-align: right;">280,2</td>
+<td>k</td>
+</tr>
+<tr class="even">
+<td>Taux d’activité</td>
+<td style="text-align: right;">64,3</td>
+<td>%</td>
+</tr>
+<tr class="odd">
+<td>Taux d’emploi</td>
+<td style="text-align: right;">60,6</td>
+<td>%</td>
+</tr>
+<tr class="even">
+<td>Taux de chômage</td>
+<td style="text-align: right;">5,7</td>
+<td>%</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="taux-de-chômage-les-plus-élevés-en-mai-2026" class="level2">
+<h2 class="anchored" data-anchor-id="taux-de-chômage-les-plus-élevés-en-mai-2026">Taux de chômage les plus élevés en mai 2026</h2>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Territoire</th>
+<th style="text-align: right;">Taux de chômage</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Montréal</td>
+<td style="text-align: right;">8,2 %</td>
+</tr>
+<tr class="even">
+<td>Gaspésie-Îles-de-la-Madeleine</td>
+<td style="text-align: right;">8,1 %</td>
+</tr>
+<tr class="odd">
+<td>Outaouais</td>
+<td style="text-align: right;">6,7 %</td>
+</tr>
+<tr class="even">
+<td>Mauricie</td>
+<td style="text-align: right;">6,4 %</td>
+</tr>
+<tr class="odd">
+<td>Laurentides</td>
+<td style="text-align: right;">6,1 %</td>
+</tr>
+<tr class="even">
+<td>Québec</td>
+<td style="text-align: right;">5,7 %</td>
+</tr>
+</tbody>
+</table>
+<p>Ces valeurs décrivent le mois de mai 2026 dans le tableau préparé. Elles ne démontrent pas une cause économique et ne doivent pas être comparées sans tenir compte de la précision des estimations.</p>
 </section>
 <section id="concepts-enseignables" class="level2">
 <h2 class="anchored" data-anchor-id="concepts-enseignables">Concepts enseignables</h2>
 <ul>
 <li>séries temporelles;</li>
-<li>comparaison de groupes;</li>
-<li>analyse exploratoire;</li>
+<li>taux et niveaux;</li>
+<li>données d’enquête;</li>
+<li>qualité des estimations;</li>
+<li>transformation large vers long;</li>
 <li>statistiques descriptives;</li>
-<li>indicateurs socioéconomiques;</li>
+<li>visualisation comparative.</li>
 </ul>
 </section>
 <section id="visualisations-suggérées" class="level2">
 <h2 class="anchored" data-anchor-id="visualisations-suggérées">Visualisations suggérées</h2>
 <ul>
-<li>lignes temporelles;</li>
-<li>cartes choroplèthes;</li>
-<li>small multiples;</li>
+<li>lignes temporelles du taux de chômage par région;</li>
+<li>small multiples par territoire;</li>
+<li>heatmap territoire x mois pour un indicateur;</li>
+<li>graphique des variations mensuelles avec annotation des valeurs <code>F</code> et <code>*</code>;</li>
+<li>comparaison entre <code>Emploi</code> et <code>Taux d&#39;emploi</code> pour montrer la différence d’unité.</li>
 </ul>
 </section>
 <section id="score-zéro-déchet" class="level2">
 <h2 class="anchored" data-anchor-id="score-zéro-déchet">Score zéro déchet</h2>
 <table class="caption-top table">
+<colgroup>
+<col style="width: 30%">
+<col style="width: 40%">
+<col style="width: 30%">
+</colgroup>
 <thead>
 <tr class="header">
 <th>Dimension</th>
 <th style="text-align: right;">Score</th>
+<th>Justification</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td>Contexte québécois</td>
 <td style="text-align: right;">3</td>
+<td>La source couvre le Québec et les régions administratives.</td>
 </tr>
 <tr class="even">
 <td>Accessibilité pédagogique</td>
 <td style="text-align: right;">3</td>
+<td>Les indicateurs sont familiers et directement discutables en classe.</td>
 </tr>
 <tr class="odd">
 <td>Qualité documentaire</td>
-<td style="text-align: right;">2</td>
+<td style="text-align: right;">3</td>
+<td>Le tableau fournit source, notes, date de mise à jour et fichier complet.</td>
 </tr>
 <tr class="even">
 <td>Potentiel de nettoyage</td>
-<td style="text-align: right;">2</td>
+<td style="text-align: right;">3</td>
+<td>Le XLSX exige une transformation large vers long et une gestion des codes de qualité.</td>
 </tr>
 <tr class="odd">
 <td>Potentiel de visualisation</td>
 <td style="text-align: right;">3</td>
+<td>Les séries régionales se prêtent bien aux lignes, facettes et heatmaps.</td>
 </tr>
 <tr class="even">
 <td>Potentiel de statistique descriptive</td>
 <td style="text-align: right;">3</td>
+<td>Les comparaisons par mois, région et indicateur sont immédiates.</td>
 </tr>
 <tr class="odd">
 <td>Potentiel d’inférence</td>
-<td style="text-align: right;">2</td>
+<td style="text-align: right;">1</td>
+<td>Les estimations d’enquête exigent des précautions et ne suffisent pas pour une inférence avancée.</td>
 </tr>
 <tr class="even">
 <td>Potentiel de modélisation</td>
 <td style="text-align: right;">2</td>
+<td>Des modèles descriptifs de tendance sont possibles, mais la fiche ne fournit pas les plans d’échantillonnage.</td>
 </tr>
 <tr class="odd">
 <td>Potentiel de discussion éthique</td>
 <td style="text-align: right;">3</td>
+<td>Les indicateurs touchent à l’économie régionale et peuvent être surinterprétés publiquement.</td>
 </tr>
 <tr class="even">
 <td>Réutilisabilité dans plusieurs cours</td>
 <td style="text-align: right;">3</td>
+<td>Le jeu sert pour importation Excel, séries temporelles, visualisation et communication statistique.</td>
 </tr>
 </tbody>
 </table>
-<p>Total : 26 sur 30.</p>
+<p>Total : 27 sur 30.</p>
 </section>
 <section id="activité-courte" class="level2">
 <h2 class="anchored" data-anchor-id="activité-courte">Activité courte</h2>
-<p><a href="../../datasets/emploi-regional-quebec/activite-courte.html">Laboratoire</a> : Comment l’emploi varie-t-il selon les régions administratives?</p>
+<p>En 60 à 90 minutes, demander aux personnes étudiantes de choisir un indicateur, de filtrer trois territoires, puis de produire un graphique temporel. Elles doivent expliquer l’unité de mesure et signaler si des valeurs <code>F</code> ou <code>*</code> apparaissent.</p>
 </section>
 <section id="activité-longue" class="level2">
 <h2 class="anchored" data-anchor-id="activité-longue">Activité longue</h2>
-<p><a href="../../datasets/emploi-regional-quebec/activite-longue.html">Mini-projet</a> : Comparer la dynamique du marché du travail entre régions avant et après une période économique donnée.</p>
+<p>En 2 à 3 heures, demander un mini-rapport reproductible qui compare deux régions et l’ensemble du Québec sur plusieurs indicateurs. Le rapport doit inclure une visualisation, un tableau de synthèse et un paragraphe méthodologique sur les limites de l’EPA.</p>
+</section>
+<section id="questions-pédagogiques-possibles" class="level2">
+<h2 class="anchored" data-anchor-id="questions-pédagogiques-possibles">Questions pédagogiques possibles</h2>
+<ol type="1">
+<li>Quelle est l’unité statistique de la table préparée?</li>
+<li>Pourquoi <code>Emploi</code> et <code>Taux d&#39;emploi</code> ne doivent-ils pas être placés sur le même axe sans transformation?</li>
+<li>Que signifie l’unité <code>k</code>?</li>
+<li>Pourquoi une valeur <code>F</code> doit-elle rester visible dans l’analyse?</li>
+<li>Pourquoi une moyenne mobile sur trois mois change-t-elle l’interprétation des variations mensuelles?</li>
+<li>Quelle différence y a-t-il entre une comparaison descriptive et une conclusion causale?</li>
+<li>Pourquoi la région <code>Côte-Nord et Nord-du-Québec</code> doit-elle être traitée comme un territoire combiné?</li>
+<li>Quelle visualisation rend les trajectoires régionales comparables sans surcharger le graphique?</li>
+</ol>
 </section>
 <section id="code-r-minimal" class="level2">
 <h2 class="anchored" data-anchor-id="code-r-minimal">Code R minimal</h2>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(stringr)</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>source_page <span class="ot">&lt;-</span> <span class="st">&quot;https://statistique.quebec.ca/fr/document/population-active-emploi-et-chomage-regions-administratives-rmr-et-quebec&quot;</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Étape 1 : ouvrir la page officielle et choisir la ressource documentée.</span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Étape 2 : enregistrer le fichier brut dans data_raw/.</span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Étape 3 : harmoniser les noms vers : `region`, `annee`, `mois`, `taux_chomage`, `taux_emploi`, `population_active`.</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(stringr)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyr)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co"># La préparation complète est dans datasets/emploi-regional-quebec/preparation.R.</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">&quot;datasets/emploi-regional-quebec/preparation.R&quot;</span>)</span>
 <span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>donnees <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;data_raw/source_officielle_a_renommer.csv&quot;</span>, <span class="at">show_col_types =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>donnees <span class="sc">|&gt;</span></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">glimpse</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>emploi <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;data/processed/emploi-regional-quebec/emploi_regional_quebec.csv&quot;</span>,</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>  <span class="at">show_col_types =</span> <span class="cn">FALSE</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>emploi <span class="sc">|&gt;</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(indicateur, <span class="at">sort =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>emploi <span class="sc">|&gt;</span></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>    indicateur <span class="sc">==</span> <span class="st">&quot;Taux de chômage&quot;</span>,</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>    territoire <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">&quot;Québec&quot;</span>, <span class="st">&quot;Montréal&quot;</span>, <span class="st">&quot;Capitale-Nationale&quot;</span>)</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> date, <span class="at">y =</span> valeur, <span class="at">color =</span> territoire)) <span class="sc">+</span></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">linewidth =</span> <span class="fl">0.7</span>) <span class="sc">+</span></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">&quot;Mois&quot;</span>,</span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">&quot;Taux de chômage (%)&quot;</span>,</span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>    <span class="at">color =</span> <span class="st">&quot;Territoire&quot;</span>,</span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">&quot;Taux de chômage mensuel, territoires sélectionnés&quot;</span></span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="limites-et-précautions" class="level2">
 <h2 class="anchored" data-anchor-id="limites-et-précautions">Limites et précautions</h2>
 <ul>
-<li>La page de Statistique Québec diffuse les indicateurs de l’EPA par région administrative. Les données proviennent de Statistique Canada.</li>
-<li>Les noms de variables proposés sont des noms pédagogiques harmonisés; ils doivent être mappés aux noms officiels après inspection de la ressource.</li>
-<li>Aucune conclusion causale ne doit être tirée sans plan d’analyse plus avancé.</li>
+<li>Les données proviennent d’une enquête et non d’un dénombrement administratif complet.</li>
+<li>Les estimations régionales désaisonnalisées sont publiées sous forme de moyennes mobiles sur trois mois.</li>
+<li>Les codes <code>F</code> et <code>*</code> doivent être conservés dans les analyses et discutés explicitement.</li>
+<li>Les variations d’un mois à l’autre peuvent refléter de l’incertitude d’échantillonnage.</li>
+<li>Les données ne suffisent pas à expliquer les causes des différences régionales.</li>
+<li>Le fichier préparé est une aide pédagogique locale; la reproduction de l’information de l’ISQ demande une permission écrite.</li>
 </ul>
 </section>
 <section id="extensions" class="level2">
 <h2 class="anchored" data-anchor-id="extensions">Extensions</h2>
 <ul>
-<li>Extension intro : produire un tableau de fréquences ou de moyennes par groupe.</li>
-<li>Extension intermédiaire : ajouter une visualisation claire et une interprétation écrite.</li>
-<li>Extension avancée : construire une version préparée et documentée dans <code>data_processed/</code>.</li>
-<li>Extension communication scientifique : expliquer en une page ce que la source permet et ne permet pas de conclure.</li>
+<li>Extension intro : transformer une feuille du XLSX officiel en table longue.</li>
+<li>Extension visualisation : comparer trois régions par petites multiples.</li>
+<li>Extension qualité : repérer et commenter toutes les valeurs <code>F</code> et <code>*</code>.</li>
+<li>Extension statistique : lisser une série et comparer le résultat au tableau officiel.</li>
+<li>Extension communication : rédiger une note qui distingue taux, niveau et incertitude.</li>
 </ul>
 </section>
 </div>

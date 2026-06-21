@@ -4,32 +4,38 @@ short_title: "Emploi régional"
 theme: "Marché du travail"
 source_name: "Institut de la statistique du Québec / Statistique Canada, Enquête sur la population active"
 source_url: "https://statistique.quebec.ca/fr/document/population-active-emploi-et-chomage-regions-administratives-rmr-et-quebec"
-license: "Conditions de réutilisation de Statistique Québec à confirmer pour l'export retenu"
-access_date: "2026-06-19"
-geography: "Régions administratives, RMR et ensemble du Québec"
-unit: "Combinaison région et période"
-data_type: "Tableau agrégé, séries temporelles régionales"
-format: "Tableau web et exports à confirmer"
-n_rows: "Quelques centaines à quelques milliers de lignes selon la période et le niveau territorial retenus"
-n_cols: "Indicateurs de population active, emploi, chômage et taux associés"
-update_frequency: "Mensuelle, trimestrielle et annuelle selon la page de Statistique Québec"
+source_resource_url: "https://statistique.quebec.ca/fr/produit/tableau/caracteristiques-du-marche-du-travail-donnees-mensuelles-desaisonnalisees-regions-administratives-et-ensemble-du-quebec"
+source_file_url: "https://statistique.quebec.ca/docs-ken/multimedia/Fichier_complet_916.xlsx"
+license: "Reproduction de l'information du site de l'Institut de la statistique du Québec interdite sauf permission écrite."
+access_date: "2026-06-20"
+geography: "Régions administratives et ensemble du Québec"
+unit: "Combinaison indicateur, territoire et mois"
+data_type: "Tableau agrégé, séries temporelles mensuelles désaisonnalisées"
+format: "XLSX officiel, préparé localement en CSV long"
+n_rows: "25 160 observations préparées : 8 indicateurs x 185 mois x 17 territoires"
+n_cols: "12 colonnes dans la table préparée"
+processed_file: "data/processed/emploi-regional-quebec/emploi_regional_quebec.csv"
+update_frequency: "Mensuelle; tableau officiel mis à jour le 5 juin 2026"
 level: "Introduction à intermédiaire"
 concepts:
   - séries temporelles
   - comparaison de groupes
-  - analyse exploratoire
+  - données d'enquête
+  - nettoyage de données Excel
   - statistiques descriptives
   - indicateurs socioéconomiques
 zero_waste:
   contexte_quebecois: 3
   accessibilite_pedagogique: 3
-  qualite_documentaire: 2
-  potentiel_nettoyage: 2
+  qualite_documentaire: 3
+  potentiel_nettoyage: 3
   potentiel_visualisation: 3
   potentiel_statistique_descriptive: 3
-  potentiel_inference: 2
+  potentiel_inference: 1
   potentiel_modelisation: 2
   potentiel_ethique: 3
   reutilisabilite: 3
-status: "source documentée; licence et export exact à confirmer"
-notes: "La page de Statistique Québec diffuse les indicateurs de l'EPA par région administrative. Les données proviennent de Statistique Canada."
+status: "source officielle vérifiée; fichier XLSX complet du tableau 916 préparé localement"
+notes: "Les estimations régionales mensuelles de l'EPA sont diffusées sous forme de moyennes mobiles sur trois mois et doivent être interprétées avec prudence, en particulier lorsque le fichier signale `F` ou `*`."
+contributor_name: "Aurélien Nicosia"
+contributor_role: "Révision pédagogique et statistique"

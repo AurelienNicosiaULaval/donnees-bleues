@@ -18,119 +18,241 @@ render_dataset_detail_header()
 
 ## Pourquoi ce jeu est intéressant
 
-Ce jeu de données place les étudiants et étudiantes devant une source québécoise réaliste, avec des variables interprétables et des décisions de nettoyage authentiques.
+Ce jeu de données permet de travailler une vraie série temporelle régionale : population active, emploi, chômage et taux associés, par mois, pour le Québec et les régions administratives. Il est utile pour apprendre à distinguer un nombre, un taux, une unité territoriale et une période d'observation.
 
-Question d'analyse : Comment l'emploi varie-t-il selon les régions administratives?
+La fiche porte sur le fichier complet du tableau 916 de l'Institut de la statistique du Québec : `Caractéristiques du marché du travail, données mensuelles désaisonnalisées, régions administratives et ensemble du Québec`. Ce choix donne une activité reproductible, parce que le fichier XLSX officiel peut être téléchargé directement et transformé en table longue.
 
-## Source
+Question d'analyse : comment comparer l'évolution du marché du travail entre régions sans surinterpréter des estimations issues d'une enquête?
+
+## Ce qui a été vérifié
+
+| Élément vérifié | Résultat |
+|---|---|
+| Page officielle | Population active, emploi et chômage, régions administratives, RMR et Québec |
+| Tableau retenu | Tableau 916, données mensuelles désaisonnalisées, régions administratives et ensemble du Québec |
+| Fichier officiel | `Fichier_complet_916.xlsx` |
+| Producteur statistique | Statistique Canada, Enquête sur la population active; adaptation par l'Institut de la statistique du Québec |
+| Mise à jour du tableau | 5 juin 2026 |
+| Dernière modification du XLSX observée | 8 juin 2026 |
+| Taille officielle observée | 213 855 octets |
+| Feuilles d'indicateurs | 8 |
+| Feuille de notes | 1 |
+| Préparation locale | 25 160 observations, 12 colonnes, format long |
+
+## Source et conditions
 
 | Champ | Information |
 |---|---|
 | Organisme producteur | Institut de la statistique du Québec / Statistique Canada, Enquête sur la population active |
-| Source | Population active, emploi et chômage, régions administratives, RMR et Québec |
-| URL | <https://statistique.quebec.ca/fr/document/population-active-emploi-et-chomage-regions-administratives-rmr-et-quebec> |
-| Licence | Conditions de réutilisation de Statistique Québec à confirmer pour l'export retenu |
-| Date d'accès | 2026-06-19 |
-| Fréquence de mise à jour | Mensuelle, trimestrielle et annuelle selon la page de Statistique Québec |
-| Statut | source documentée; licence et export exact à confirmer |
+| Page officielle | <https://statistique.quebec.ca/fr/document/population-active-emploi-et-chomage-regions-administratives-rmr-et-quebec> |
+| Tableau retenu | <https://statistique.quebec.ca/fr/produit/tableau/caracteristiques-du-marche-du-travail-donnees-mensuelles-desaisonnalisees-regions-administratives-et-ensemble-du-quebec> |
+| XLSX officiel | <https://statistique.quebec.ca/docs-ken/multimedia/Fichier_complet_916.xlsx> |
+| Conditions de reproduction | Reproduction de l'information du site de l'ISQ interdite sauf permission écrite. Voir la page droits d'auteur de l'ISQ. |
+| Redistribution locale | Le XLSX brut et le CSV préparé sont utilisés localement; ils ne sont pas suivis par Git. |
+| Date d'accès | 2026-06-20 |
+| Statut | source officielle vérifiée; fichier XLSX complet du tableau 916 préparé localement |
 
 ## Ce que représente une ligne
 
-Combinaison région et période.
+Dans la table préparée, une ligne représente une combinaison de trois éléments :
+
+- un indicateur du marché du travail;
+- un territoire;
+- un mois.
+
+La table n'est donc pas une table de personnes. Elle contient des estimations agrégées issues de l'Enquête sur la population active. L'interprétation doit rester descriptive, surtout pour les régions où les estimations du chômage sont moins stables.
+
+Le fichier officiel contient 185 mois, de janvier 2011 à mai 2026. Pour chaque mois, il donne les valeurs du Québec et de 16 territoires régionaux, dont un territoire combiné `Côte-Nord et Nord-du-Québec`.
 
 ## Variables principales
 
-| Variable | Type | Description | Exemple |
-|---|---|---|---|
-| `region` | caractère | Région administrative, RMR ou Québec. | Chaudière-Appalaches |
-| `annee` | entier | Année de référence. | 2025 |
-| `mois` | entier | Mois de référence lorsque les données sont mensuelles. | 5 |
-| `taux_chomage` | numérique | Taux de chômage. | 5.6 |
-| `taux_emploi` | numérique | Taux d'emploi. | 62.4 |
-| `population_active` | numérique | Population active, souvent en milliers de personnes. | 410.2 |
+| Variable | Type | Description | Exemple | Point de vigilance |
+|---|---|---|---|---|
+| `indicateur` | caractère | Feuille d'origine du XLSX | `Taux de chômage` | Huit indicateurs distincts |
+| `date` | date | Premier jour du mois de référence | `2026-05-01` | Sert à ordonner les séries |
+| `periode_source` | caractère | Libellé source de la période | `Mai 20263` | Peut inclure un appel de note |
+| `annee` | entier | Année extraite du libellé source | `2026` | Variable dérivée |
+| `mois` | entier | Mois extrait du libellé source | `5` | Variable dérivée |
+| `mois_nom` | caractère | Mois en français | `Mai` | Utile pour l'affichage |
+| `appel_note_periode` | caractère | Appel de note accolé à la période, si présent | `3` | Signale une note méthodologique |
+| `territoire` | caractère | Québec ou région administrative | `Montréal` | `Côte-Nord et Nord-du-Québec` est combiné |
+| `unite` | caractère | Unité de mesure | `k`, `%` | `k` signifie milliers de personnes |
+| `valeur_brute` | caractère | Valeur telle que lue dans le XLSX | `3,2*` | Conserve les marques de qualité |
+| `indicateur_qualite` | caractère | Code de qualité extrait de la valeur | `*`, `F` | `F` devient une valeur numérique manquante |
+| `valeur` | numérique | Valeur analysable en R | `3.2` | À interpréter avec `unite` |
 
 ## Taille et structure
 
 | Élément | Information |
 |---|---|
-| Nombre de lignes | Quelques centaines à quelques milliers de lignes selon la période et le niveau territorial retenus |
-| Nombre de colonnes | Indicateurs de population active, emploi, chômage et taux associés |
-| Structure | Tableau agrégé, séries temporelles régionales |
-| Format | Tableau web et exports à confirmer |
-| Couverture géographique | Régions administratives, RMR et ensemble du Québec |
-| Couverture temporelle | Séries mensuelles, trimestrielles et annuelles selon le tableau retenu |
+| Nombre de lignes préparées | 25 160 observations |
+| Nombre de colonnes préparées | 12 |
+| Indicateurs | 8 |
+| Territoires | 17 |
+| Périodes mensuelles | 185 |
+| Première période | Janvier 2011 |
+| Dernière période | Mai 2026 |
+| Structure | Table longue : indicateur, territoire, période, valeur |
+| Format officiel | XLSX |
+| Format préparé local | CSV ignoré par Git dans `data/processed/emploi-regional-quebec/` |
+| Niveau pédagogique recommandé | Introduction à intermédiaire |
+
+## Lecture statistique
+
+Le fichier est excellent pour enseigner la différence entre un niveau et un taux. Par exemple, `Emploi` est exprimé en milliers de personnes, alors que `Taux d'emploi` est un pourcentage. Les deux décrivent le marché du travail, mais ils ne répondent pas à la même question.
+
+Les comparaisons régionales doivent être prudentes. Les données viennent d'une enquête, pas d'un recensement administratif complet. La note officielle du tableau indique que les estimations régionales désaisonnalisées sont publiées sous forme de moyennes mobiles sur trois mois pour réduire les fluctuations irrégulières liées aux petits échantillons.
+
+Les codes de qualité sont essentiels : `F` indique une estimation trop peu fiable pour être publiée, et `*` indique que la cible du coefficient de variation n'a pas été atteinte. Dans une activité pédagogique, ces codes doivent être montrés et discutés, pas simplement supprimés.
+
+## Résultats R vérifiés
+
+| Contrôle | Résultat calculé sur le XLSX officiel |
+|---|---:|
+| Lignes préparées | 25 160 |
+| Colonnes préparées | 12 |
+| Indicateurs | 8 |
+| Territoires | 17 |
+| Mois | 185 |
+| Première date | 2011-01-01 |
+| Dernière date | 2026-05-01 |
+| Valeurs avec code `*` | 130 |
+| Valeurs avec code `F` | 12 |
+| Valeurs numériques manquantes après préparation | 12 |
+
+## Valeurs du Québec en mai 2026
+
+| Indicateur | Valeur | Unité |
+|---|---:|---|
+| Population active | 4 878,0 | k |
+| Emploi | 4 597,8 | k |
+| Emploi à temps plein | 3 692,3 | k |
+| Emploi à temps partiel | 905,5 | k |
+| Chômage | 280,2 | k |
+| Taux d'activité | 64,3 | % |
+| Taux d'emploi | 60,6 | % |
+| Taux de chômage | 5,7 | % |
+
+## Taux de chômage les plus élevés en mai 2026
+
+| Territoire | Taux de chômage |
+|---|---:|
+| Montréal | 8,2 % |
+| Gaspésie-Îles-de-la-Madeleine | 8,1 % |
+| Outaouais | 6,7 % |
+| Mauricie | 6,4 % |
+| Laurentides | 6,1 % |
+| Québec | 5,7 % |
+
+Ces valeurs décrivent le mois de mai 2026 dans le tableau préparé. Elles ne démontrent pas une cause économique et ne doivent pas être comparées sans tenir compte de la précision des estimations.
 
 ## Concepts enseignables
 
 - séries temporelles;
-- comparaison de groupes;
-- analyse exploratoire;
+- taux et niveaux;
+- données d'enquête;
+- qualité des estimations;
+- transformation large vers long;
 - statistiques descriptives;
-- indicateurs socioéconomiques;
+- visualisation comparative.
 
 ## Visualisations suggérées
 
-- lignes temporelles;
-- cartes choroplèthes;
-- small multiples;
+- lignes temporelles du taux de chômage par région;
+- small multiples par territoire;
+- heatmap territoire x mois pour un indicateur;
+- graphique des variations mensuelles avec annotation des valeurs `F` et `*`;
+- comparaison entre `Emploi` et `Taux d'emploi` pour montrer la différence d'unité.
 
 ## Score zéro déchet
 
-| Dimension | Score |
-|---|---:|
-| Contexte québécois | 3 |
-| Accessibilité pédagogique | 3 |
-| Qualité documentaire | 2 |
-| Potentiel de nettoyage | 2 |
-| Potentiel de visualisation | 3 |
-| Potentiel de statistique descriptive | 3 |
-| Potentiel d'inférence | 2 |
-| Potentiel de modélisation | 2 |
-| Potentiel de discussion éthique | 3 |
-| Réutilisabilité dans plusieurs cours | 3 |
+| Dimension | Score | Justification |
+|---|---:|---|
+| Contexte québécois | 3 | La source couvre le Québec et les régions administratives. |
+| Accessibilité pédagogique | 3 | Les indicateurs sont familiers et directement discutables en classe. |
+| Qualité documentaire | 3 | Le tableau fournit source, notes, date de mise à jour et fichier complet. |
+| Potentiel de nettoyage | 3 | Le XLSX exige une transformation large vers long et une gestion des codes de qualité. |
+| Potentiel de visualisation | 3 | Les séries régionales se prêtent bien aux lignes, facettes et heatmaps. |
+| Potentiel de statistique descriptive | 3 | Les comparaisons par mois, région et indicateur sont immédiates. |
+| Potentiel d'inférence | 1 | Les estimations d'enquête exigent des précautions et ne suffisent pas pour une inférence avancée. |
+| Potentiel de modélisation | 2 | Des modèles descriptifs de tendance sont possibles, mais la fiche ne fournit pas les plans d'échantillonnage. |
+| Potentiel de discussion éthique | 3 | Les indicateurs touchent à l'économie régionale et peuvent être surinterprétés publiquement. |
+| Réutilisabilité dans plusieurs cours | 3 | Le jeu sert pour importation Excel, séries temporelles, visualisation et communication statistique. |
 
-Total : 26 sur 30.
+Total : 27 sur 30.
 
 ## Activité courte
 
-[Laboratoire](activite-courte.qmd) : Comment l'emploi varie-t-il selon les régions administratives?
+En 60 à 90 minutes, demander aux personnes étudiantes de choisir un indicateur, de filtrer trois territoires, puis de produire un graphique temporel. Elles doivent expliquer l'unité de mesure et signaler si des valeurs `F` ou `*` apparaissent.
 
 ## Activité longue
 
-[Mini-projet](activite-longue.qmd) : Comparer la dynamique du marché du travail entre régions avant et après une période économique donnée.
+En 2 à 3 heures, demander un mini-rapport reproductible qui compare deux régions et l'ensemble du Québec sur plusieurs indicateurs. Le rapport doit inclure une visualisation, un tableau de synthèse et un paragraphe méthodologique sur les limites de l'EPA.
+
+## Questions pédagogiques possibles
+
+1. Quelle est l'unité statistique de la table préparée?
+2. Pourquoi `Emploi` et `Taux d'emploi` ne doivent-ils pas être placés sur le même axe sans transformation?
+3. Que signifie l'unité `k`?
+4. Pourquoi une valeur `F` doit-elle rester visible dans l'analyse?
+5. Pourquoi une moyenne mobile sur trois mois change-t-elle l'interprétation des variations mensuelles?
+6. Quelle différence y a-t-il entre une comparaison descriptive et une conclusion causale?
+7. Pourquoi la région `Côte-Nord et Nord-du-Québec` doit-elle être traitée comme un territoire combiné?
+8. Quelle visualisation rend les trajectoires régionales comparables sans surcharger le graphique?
 
 ## Code R minimal
 
 ```{r}
 #| eval: false
 library(dplyr)
+library(ggplot2)
 library(readr)
+library(readxl)
 library(stringr)
+library(tidyr)
 
-source_page <- "https://statistique.quebec.ca/fr/document/population-active-emploi-et-chomage-regions-administratives-rmr-et-quebec"
+# La préparation complète est dans datasets/emploi-regional-quebec/preparation.R.
+source("datasets/emploi-regional-quebec/preparation.R")
 
-# Étape 1 : ouvrir la page officielle et choisir la ressource documentée.
-# Étape 2 : enregistrer le fichier brut dans data_raw/.
-# Étape 3 : harmoniser les noms vers : `region`, `annee`, `mois`, `taux_chomage`, `taux_emploi`, `population_active`.
+emploi <- read_csv(
+  "data/processed/emploi-regional-quebec/emploi_regional_quebec.csv",
+  show_col_types = FALSE
+)
 
-donnees <- read_csv("data_raw/source_officielle_a_renommer.csv", show_col_types = FALSE)
+emploi |>
+  count(indicateur, sort = TRUE)
 
-donnees |>
-  glimpse()
+emploi |>
+  filter(
+    indicateur == "Taux de chômage",
+    territoire %in% c("Québec", "Montréal", "Capitale-Nationale")
+  ) |>
+  ggplot(aes(x = date, y = valeur, color = territoire)) +
+  geom_line(linewidth = 0.7) +
+  labs(
+    x = "Mois",
+    y = "Taux de chômage (%)",
+    color = "Territoire",
+    title = "Taux de chômage mensuel, territoires sélectionnés"
+  )
 ```
 
 ## Limites et précautions
 
-- La page de Statistique Québec diffuse les indicateurs de l'EPA par région administrative. Les données proviennent de Statistique Canada.
-- Les noms de variables proposés sont des noms pédagogiques harmonisés; ils doivent être mappés aux noms officiels après inspection de la ressource.
-- Aucune conclusion causale ne doit être tirée sans plan d'analyse plus avancé.
+- Les données proviennent d'une enquête et non d'un dénombrement administratif complet.
+- Les estimations régionales désaisonnalisées sont publiées sous forme de moyennes mobiles sur trois mois.
+- Les codes `F` et `*` doivent être conservés dans les analyses et discutés explicitement.
+- Les variations d'un mois à l'autre peuvent refléter de l'incertitude d'échantillonnage.
+- Les données ne suffisent pas à expliquer les causes des différences régionales.
+- Le fichier préparé est une aide pédagogique locale; la reproduction de l'information de l'ISQ demande une permission écrite.
 
 ## Extensions
 
-- Extension intro : produire un tableau de fréquences ou de moyennes par groupe.
-- Extension intermédiaire : ajouter une visualisation claire et une interprétation écrite.
-- Extension avancée : construire une version préparée et documentée dans `data_processed/`.
-- Extension communication scientifique : expliquer en une page ce que la source permet et ne permet pas de conclure.
+- Extension intro : transformer une feuille du XLSX officiel en table longue.
+- Extension visualisation : comparer trois régions par petites multiples.
+- Extension qualité : repérer et commenter toutes les valeurs `F` et `*`.
+- Extension statistique : lisser une série et comparer le résultat au tableau officiel.
+- Extension communication : rédiger une note qui distingue taux, niveau et incertitude.
 
 ```{r}
 #| label: dataset-detail-footer
@@ -138,4 +260,3 @@ donnees |>
 #| results: asis
 render_dataset_detail_footer()
 ```
-
