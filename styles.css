@@ -3198,26 +3198,41 @@ body:has(.home-page) main.content {
 .home-hero {
   align-items: center;
   background:
-    linear-gradient(90deg, rgba(10, 28, 58, 0.98) 0%, rgba(10, 28, 58, 0.92) 52%, rgba(10, 28, 58, 0.62) 100%),
-    url("assets/cards/pyramides-ages.jpg");
+    linear-gradient(90deg, rgba(9, 27, 54, 0.98) 0%, rgba(9, 27, 54, 0.94) 52%, rgba(9, 27, 54, 0.54) 100%),
+    url("assets/cards/transport-collectif-gtfs.jpg");
   background-position: center, right center;
   background-size: cover;
   display: grid;
   gap: 2.2rem;
   grid-column: screen-start / screen-end;
-  grid-template-columns: minmax(0, 1fr) minmax(340px, 0.52fr);
-  min-height: 560px;
+  grid-template-columns: minmax(0, 1fr) minmax(300px, 0.44fr);
+  min-height: 610px;
   padding: 4.5rem max(1.5rem, calc((100vw - 1180px) / 2)) 3.5rem;
   width: 100%;
 }
 
 .home-hero-copy {
-  max-width: 790px;
+  max-width: 850px;
+}
+
+.home-kicker,
+.home-label,
+.home-signal-label {
+  color: #0b5a72;
+  font-size: 0.78rem;
+  font-weight: 850;
+  letter-spacing: 0.08em;
+  margin-bottom: 0.65rem;
+  text-transform: uppercase;
+}
+
+.home-kicker {
+  color: #8fe8ff;
 }
 
 .home-hero h1 {
   color: #ffffff;
-  font-size: 4rem;
+  font-size: 4.4rem;
   margin: 0 0 0.85rem;
 }
 
@@ -3237,10 +3252,10 @@ body:has(.home-page) main.content {
 
 .home-lede {
   color: #edf7ff;
-  font-size: 1.08rem;
+  font-size: 1.1rem;
   line-height: 1.62;
   margin-top: 1.1rem;
-  max-width: 780px;
+  max-width: 830px;
 }
 
 .home-hero-actions,
@@ -3256,19 +3271,25 @@ body:has(.home-page) main.content {
   background: rgba(255, 255, 255, 0.94);
 }
 
-.home-hero-media {
+.home-hero-signal {
   align-self: end;
-  background: rgba(255, 255, 255, 0.94);
-  border: 1px solid rgba(255, 255, 255, 0.7);
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid rgba(255, 255, 255, 0.82);
   border-radius: 6px;
-  overflow: hidden;
+  color: #172033;
+  font-size: 1.08rem;
+  font-weight: 750;
+  line-height: 1.48;
+  padding: 1.35rem;
 }
 
-.home-hero-media img {
-  aspect-ratio: 4 / 3;
-  display: block;
-  object-fit: cover;
-  width: 100%;
+.home-hero-signal p {
+  color: inherit;
+  margin: 0;
+}
+
+.home-signal-label {
+  color: #0045a5;
 }
 
 .home-stat-strip,
@@ -3333,44 +3354,59 @@ body:has(.home-page) main.content {
   margin: 0;
 }
 
-.home-problem-grid {
+.home-thesis-grid {
   display: grid;
   gap: 1.25rem;
   grid-template-columns: minmax(0, 1fr) minmax(280px, 0.42fr);
   margin-top: 1.35rem;
 }
 
-.home-problem-copy {
+.home-thesis-copy {
   max-width: 780px;
 }
 
-.home-problem-copy p:first-child {
+.home-thesis-copy p:first-child {
   margin-top: 0;
 }
 
-.home-problem-copy p:last-child {
+.home-thesis-copy p:last-child {
   margin-bottom: 0;
 }
 
-.home-problem-note {
+.home-thesis-panel {
   align-self: start;
-  background: #eef8f3;
-  border-left: 4px solid #1d704d;
+  background: #fff7ed;
+  border: 1px solid #ffd4a8;
   border-radius: 6px;
   color: #172033;
   font-size: 1.04rem;
   font-weight: 750;
   line-height: 1.5;
-  padding: 1.15rem;
+  padding: 1.2rem;
 }
 
-.home-problem-note p {
+.home-thesis-panel p {
   color: inherit;
   margin: 0;
 }
 
+.home-panel-title {
+  color: #8b3a12;
+  font-size: 0.78rem;
+  font-weight: 850;
+  letter-spacing: 0.06em;
+  margin-bottom: 0.35rem;
+  margin-top: 1rem;
+  text-transform: uppercase;
+}
+
+.home-panel-title:first-child {
+  margin-top: 0;
+}
+
+.home-promise-grid,
 .home-path-grid,
-.home-feature-grid {
+.home-dataset-grid {
   display: grid;
   gap: 1rem;
   margin-top: 1.35rem;
@@ -3380,12 +3416,17 @@ body:has(.home-page) main.content {
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
-.home-feature-grid {
+.home-promise-grid {
   grid-template-columns: repeat(4, minmax(0, 1fr));
 }
 
+.home-dataset-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
 .home-path-card,
-.home-feature {
+.home-promise-item,
+.home-dataset-card {
   background: #ffffff;
   border: 1px solid #d9e2ef;
   border-radius: 6px;
@@ -3406,17 +3447,19 @@ body:has(.home-page) main.content {
 }
 
 .home-path-card h3,
-.home-feature h3 {
+.home-promise-item h3,
+.home-dataset-card h3 {
   font-size: 1.12rem;
   margin: 1rem 1rem 0.55rem;
 }
 
-.home-feature h3 {
+.home-promise-item h3 {
   margin-top: 0;
 }
 
 .home-path-card p,
-.home-feature p {
+.home-promise-item p,
+.home-dataset-card p {
   margin-left: 1rem;
   margin-right: 1rem;
 }
@@ -3439,27 +3482,116 @@ body:has(.home-page) main.content {
   text-underline-offset: 0.16em;
 }
 
-.home-feature {
+.home-promise-item {
   padding: 1rem;
 }
 
-.home-feature:nth-child(2) {
+.home-promise-item:nth-child(2) {
   background: #f8fbff;
 }
 
-.home-feature:nth-child(3) {
+.home-promise-item:nth-child(3) {
   background: #eef8f3;
   border-color: #cde8d9;
 }
 
-.home-feature h3,
-.home-feature p {
+.home-promise-item:nth-child(4) {
+  background: #fff7ed;
+  border-color: #ffd4a8;
+}
+
+.home-promise-number {
+  color: #0045a5;
+  font-size: 0.84rem;
+  font-weight: 850;
+  margin-bottom: 0.65rem;
+}
+
+.home-promise-item h3,
+.home-promise-item p {
   margin-left: 0;
   margin-right: 0;
 }
 
-.home-feature p {
+.home-promise-item p {
   margin-bottom: 0;
+}
+
+.home-dataset-card {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.home-dataset-card img {
+  aspect-ratio: 16 / 9;
+  display: block;
+  object-fit: cover;
+  width: 100%;
+}
+
+.home-dataset-card-body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  padding: 1rem;
+}
+
+.home-dataset-card span {
+  color: #0b5a72;
+  font-size: 0.78rem;
+  font-weight: 850;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.home-dataset-card h3,
+.home-dataset-card p {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.home-dataset-card h3 {
+  margin-top: 0.55rem;
+}
+
+.home-dataset-card p {
+  margin-bottom: 1rem;
+}
+
+.home-dataset-card-meta {
+  align-items: center;
+  border-top: 1px solid #e4ebf4;
+  display: flex;
+  gap: 0.75rem;
+  justify-content: space-between;
+  margin-top: auto;
+  padding-top: 0.8rem;
+}
+
+.home-dataset-card-meta strong {
+  color: #1d704d;
+  font-size: 0.95rem;
+}
+
+.home-dataset-card-meta a {
+  color: #0045a5;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.home-dataset-card-meta a:hover,
+.home-dataset-card-meta a:focus {
+  color: #00357f;
+  text-decoration: underline;
+  text-underline-offset: 0.16em;
+}
+
+.home-empty {
+  background: #f8fbff;
+  border: 1px solid #d8e2ef;
+  border-radius: 6px;
+  padding: 1rem;
 }
 
 .home-current-panel {
@@ -3514,18 +3646,15 @@ body:has(.home-page) main.content {
 
 @media (max-width: 1180px) {
   .home-hero,
-  .home-problem-grid,
+  .home-thesis-grid,
   .home-current-panel,
   .home-final {
     grid-template-columns: 1fr;
   }
 
-  .home-hero-media {
-    max-width: 620px;
-  }
-
   .home-stat-strip,
-  .home-feature-grid {
+  .home-promise-grid,
+  .home-dataset-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
@@ -3539,7 +3668,7 @@ body:has(.home-page) main.content {
   .home-hero {
     background:
       linear-gradient(180deg, rgba(10, 28, 58, 0.98) 0%, rgba(10, 28, 58, 0.84) 100%),
-      url("assets/cards/pyramides-ages.jpg");
+      url("assets/cards/transport-collectif-gtfs.jpg");
     grid-template-columns: 1fr;
     min-height: 0;
     padding: 3.2rem 1rem 2.5rem;
@@ -3557,8 +3686,8 @@ body:has(.home-page) main.content {
     font-size: 1rem;
   }
 
-  .home-hero-media {
-    display: none;
+  .home-hero-signal {
+    padding: 1rem;
   }
 
   .home-stat-strip,
@@ -3569,7 +3698,8 @@ body:has(.home-page) main.content {
 
   .home-stat-strip,
   .home-path-grid,
-  .home-feature-grid {
+  .home-promise-grid,
+  .home-dataset-grid {
     grid-template-columns: 1fr;
   }
 
