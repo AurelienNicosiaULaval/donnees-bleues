@@ -130,24 +130,6 @@ format_chip <- function(label, attrs = "", active = FALSE) {
   paste0('<button class="', class, '" type="button" ', attrs, '>', html_escape(label), "</button>")
 }
 
-contributor_badge <- function(row) {
-  name <- clean_value(row$contributor_name, "")
-  if (name == "") {
-    return("")
-  }
-
-  role <- clean_value(row$contributor_role, "")
-  role_html <- if (role == "") "" else paste0("<small>", html_escape(role), "</small>")
-
-  paste0(
-    '<p class="db-card-contributor">',
-    '<span>Personne à contacter</span>',
-    "<strong>", html_escape(name), "</strong>",
-    role_html,
-    "</p>\n"
-  )
-}
-
 if (file.exists(catalogue_path)) {
   catalogue <- read_csv(catalogue_path, show_col_types = FALSE)
 
@@ -290,7 +272,6 @@ if (file.exists(catalogue_path)) {
 
     cat('<div class="dataset-card-body">\n')
     cat('<h3><a href="', html_escape(fiche_html), '">', html_escape(row$title), "</a></h3>\n", sep = "")
-    cat(contributor_badge(row))
     cat('<p class="dataset-source">', html_escape(source_line), "</p>\n", sep = "")
     cat('<div class="dataset-facts">\n')
     cat('<span><i class="bi bi-mortarboard" aria-hidden="true"></i>', html_escape(clean_value(row$level)), '</span>\n', sep = "")
