@@ -18,117 +18,250 @@ render_dataset_detail_header()
 
 ## Pourquoi ce jeu est intéressant
 
-Ce jeu est très riche pour l'enseignement : il relie espèces, mesures dendrométriques, arrondissement, localisation et qualité des données. Il permet de discuter biodiversité urbaine, valeurs manquantes, visualisation spatiale et nettoyage réaliste.
+Ce jeu est très riche pour l'enseignement : il relie essences, mesures dendrométriques, arrondissement, emplacement, localisation et qualité des données. Il permet de travailler des questions concrètes de foresterie urbaine avec une vraie source municipale.
 
-## Source
+Il est aussi utile parce qu'il contient des difficultés réalistes : gros fichier, plusieurs ressources, valeurs manquantes, dates aberrantes et mise en garde officielle sur la précision des localisations.
+
+Question d'analyse : quelles essences d'arbres publics dominent l'inventaire, et quelles limites faut-il vérifier avant de cartographier ou comparer les arrondissements?
+
+## Ce qui a été vérifié
+
+| Élément | Résultat vérifié |
+|---|---|
+| Paquet CKAN | `b89fd27d-4b49-461b-8e54-fa2b34a628c4` |
+| Source officielle | Données Québec / Ville de Montréal |
+| Ressources dans le paquet | 6 ressources |
+| Ressource préparée ici | `arbres-publics.csv` |
+| Licence | Attribution (CC-BY 4.0), selon les métadonnées CKAN consultées le 2026-06-21 |
+| Dernière modification du paquet CKAN | 2026-06-21 |
+| Dernière modification du CSV consolidé | 2026-06-21 |
+| Table préparée | `data/processed/arbres-publics-montreal/arbres_publics_montreal.csv` |
+| Résumés préparés | ressources, essences, arrondissements, emplacements, valeurs manquantes, qualité des dates |
+
+## Source et conditions
 
 | Champ | Information |
 |---|---|
-| Source | Données Québec / Ville de Montréal |
-| Organisme producteur | Ville de Montréal |
+| Page Données Québec | <https://www.donneesquebec.ca/recherche/dataset/vmtl-arbres> |
+| API CKAN | <https://www.donneesquebec.ca/recherche/api/3/action/package_show?id=vmtl-arbres> |
+| CSV consolidé | <https://donnees.montreal.ca/dataset/b89fd27d-4b49-461b-8e54-fa2b34a628c4/resource/64e28fe6-ef37-437a-972d-d1d3f1f7d891/download/arbres-publics.csv> |
+| Historique DHP | <https://donnees.montreal.ca/dataset/b89fd27d-4b49-461b-8e54-fa2b34a628c4/resource/6c217c92-63c8-49e8-a6ef-afda6121656d/download/arbres-dhp.csv> |
+| Dictionnaire PDF | <https://donnees.montreal.ca/dataset/b89fd27d-4b49-461b-8e54-fa2b34a628c4/resource/7fe8c742-ee64-4cca-b889-467b68e7db6a/download/dictionnaire-de-donnees-arbres-publics_rev2018.pdf> |
 | Territoire | Montréal |
-| URL officielle | <https://www.donneesquebec.ca/recherche/dataset/vmtl-arbres> |
-| Licence | Attribution (CC-BY 4.0) |
-| Date d'accès | 2026-06-19 |
-| Fréquence de mise à jour | Mise à jour fréquente; métadonnées modifiées en 2026 |
-| Statut | source vérifiée |
+| Date d'accès | 2026-06-21 |
+
+La description officielle indique que les données portent sur les arbres municipaux du domaine public, incluant des arbres de rue et hors rue. Elle signale aussi que les localisations spatiales peuvent être imprécises ou pas à jour et que certains arrondissements n'indiquent pas les arbres de parcs.
 
 ## Ce que représente une ligne
 
-Une ligne représente un arbre public inventorié ou une observation liée à l'inventaire, selon la ressource choisie. Le fichier consolidé contient notamment l'arrondissement, l'essence, le diamètre et les coordonnées.
+Une ligne représente un arbre public inventorié dans le fichier consolidé. La ligne contient des informations d'arrondissement, d'emplacement, d'essence, de diamètre, de dates et de coordonnées.
+
+Une ligne n'est pas une mesure écologique complète, un arbre privé, ni une preuve que le couvert arboré est mesuré de façon uniforme dans tous les arrondissements.
 
 ## Variables principales
 
-Les noms ci-dessous sont des noms propres proposés pour l'enseignement. Les noms exacts des champs sources doivent être conservés dans le script de préparation.
-
-| Variable proposée | Rôle pédagogique | Remarque |
+| Variable préparée | Rôle | Point de vigilance |
 |---|---|---|
-| `arrondissement` | Arrondissement | Champ source `ARROND_NOM` |
-| `essence_latin` | Nom latin | Variable catégorielle riche |
-| `essence_fr` | Nom français | Utile pour la communication |
-| `dhp` | Diamètre à hauteur de poitrine | Variable quantitative |
-| `date_releve` | Date de relevé | Qualité temporelle de l'inventaire |
-| `date_plantation` | Date de plantation | Souvent utile mais potentiellement manquante |
-| `longitude` | Longitude | Coordonnée spatiale |
-| `latitude` | Latitude | Coordonnée spatiale |
+| `arrondissement` | Arrondissement publié | 13 arrondissements dans le fichier consolidé |
+| `emplacement` | Type d'emplacement | Libellés hétérogènes à nettoyer selon la question |
+| `essence_fr` | Nom français de l'essence | 795 valeurs distinctes non manquantes |
+| `essence_latin` | Nom latin | Utile pour regrouper ou valider les noms |
+| `dhp` | Diamètre à hauteur de poitrine | Médiane observée : 19 |
+| `date_releve_plausible` | Date de relevé après contrôle minimal | 39 dates de relevé non plausibles selon la règle de préparation |
+| `date_plantation_plausible` | Date de plantation après contrôle minimal | 40,2 % des dates de plantation sont manquantes |
+| `longitude`, `latitude` | Coordonnées publiées | 2 lignes sans coordonnées |
+| `coordonnees_disponibles` | Indicateur préparé | Ne garantit pas que la localisation est exacte |
 
-## Taille et structure
+## RÉSULTATS R
 
-| Élément | Information |
-|---|---|
-| Nombre de lignes | Inventaire consolidé CSV d'environ 135 Mo; historique DHP d'environ 46 Mo |
-| Nombre de colonnes | 33 champs observés dans l'en-tête du fichier consolidé consulté le 2026-06-19 |
-| Structure | Tabulaire, spatial, environnement urbain |
-| Format | CSV et dictionnaire PDF |
-| Niveau pédagogique recommandé | Introduction à intermédiaire |
+Les résultats ci-dessous proviennent de `preparation.R`, exécuté sur le CSV téléchargé le 2026-06-21.
+
+| Indicateur | Valeur |
+|---|---:|
+| Ressources CKAN documentées | 6 |
+| Lignes dans le CSV source | 334 464 |
+| Colonnes dans le CSV source | 33 |
+| Lignes préparées | 334 464 |
+| Colonnes préparées | 32 |
+| Arrondissements | 13 |
+| Essences françaises non manquantes | 795 |
+| Essences latines non manquantes | 799 |
+| Emplacements distincts | 35 |
+| Coordonnées manquantes | 2 |
+| Dates de plantation manquantes | 134 514 |
+| DHP manquants | 141 |
+| DHP médian | 19 |
+| Arbres remarquables | 159 |
+
+## Essences les plus fréquentes
+
+| Essence française | Arbres | Pourcentage |
+|---|---:|---:|
+| Érable argenté | 29 613 | 8,9 % |
+| Érable de Norvège | 22 735 | 6,8 % |
+| Frêne de Pennsylvanie | 14 012 | 4,2 % |
+| Tilleul à petites feuilles | 13 303 | 4,0 % |
+| Micocoulier occidental | 10 143 | 3,0 % |
+| Chicot du Canada | 10 075 | 3,0 % |
+| Févier Skyline | 9 851 | 2,9 % |
+| Févier inerme d'Amérique | 8 259 | 2,5 % |
+| Épinette du Colorado | 6 752 | 2,0 % |
+| Orme Morton (Accolade TM) | 6 036 | 1,8 % |
+
+Cette table est une description de l'inventaire consolidé, pas une mesure complète de la biodiversité urbaine.
+
+## Arrondissements avec le plus d'arbres
+
+| Arrondissement | Arbres |
+|---|---:|
+| Mercier - Hochelaga-Maisonneuve | 38 076 |
+| Rosemont - La Petite-Patrie | 37 309 |
+| Ahuntsic - Cartierville | 36 672 |
+| Rivière-des-Prairies - Pointe-aux-Trembles | 34 619 |
+| Côte-des-Neiges - Notre-Dame-de-Grâce | 29 096 |
+| Villeray-Saint-Michel - Parc-Extension | 27 279 |
+| Saint-Léonard | 23 381 |
+| Le Sud-Ouest | 22 657 |
+
+Cette comparaison dépend de la couverture d'inventaire, des arbres de parcs inclus ou non, et de la taille des arrondissements.
+
+## Qualité des dates
+
+| Variable | Valeurs manquantes | Dates non plausibles | Première date plausible | Dernière date plausible |
+|---|---:|---:|---|---|
+| `date_releve` | 141 | 39 | 1900-01-01 | 2026-06-19 |
+| `date_plantation` | 134 514 | 16 | 1901-08-21 | 2026-06-19 |
+
+La règle de plausibilité utilisée dans `preparation.R` conserve les dates entre 1900-01-01 et la date d'accès. Elle ne remplace pas une validation municipale, mais elle permet de rendre les anomalies visibles.
+
+## Valeurs manquantes principales
+
+| Variable | Valeurs manquantes | Pourcentage |
+|---|---:|---:|
+| `code_parc` | 218 220 | 65,24 % |
+| `nom_parc` | 218 220 | 65,24 % |
+| `code_secteur` | 218 220 | 65,24 % |
+| `nom_secteur` | 218 220 | 65,24 % |
+| `stationnement_heure` | 201 615 | 60,28 % |
+| `distance_ligne_rue` | 193 641 | 57,90 % |
+| `stationnement_jour` | 193 322 | 57,80 % |
+| `no_civique` | 163 357 | 48,84 % |
+| `distance_pave` | 140 454 | 41,99 % |
+| `date_plantation` | 134 514 | 40,22 % |
+
+Les valeurs manquantes ne sont pas un défaut uniforme. Elles reflètent en partie la structure même du fichier, par exemple des variables pertinentes surtout pour certains types d'emplacement.
+
+## Lecture statistique
+
+Une analyse prudente suit cet ordre :
+
+1. vérifier si la question porte sur les arbres de rue, les arbres hors rue, les parcs ou l'ensemble consolidé;
+2. inspecter les valeurs manquantes avant de comparer les arrondissements;
+3. traiter les dates de plantation et de relevé comme des variables à valider;
+4. compter les essences avec regroupement explicite des libellés manquants;
+5. cartographier avec une note sur la précision des localisations;
+6. éviter de conclure sur le couvert arboré ou la biodiversité sans données complémentaires.
+
+Les données permettent de décrire un inventaire municipal riche. Elles ne suffisent pas, seules, à estimer la canopée, la santé des arbres ou l'équité environnementale.
 
 ## Concepts enseignables
 
-- environnement urbain
-- arbres
-- Montréal
-- spatial
-- visualisation
-- statistiques descriptives
-- données manquantes
-- données ouvertes
+- importation d'un gros CSV;
+- catégories et libellés;
+- valeurs manquantes;
+- dates aberrantes;
+- statistiques descriptives;
+- cartographie responsable;
+- qualité des données;
+- limites d'un inventaire administratif.
 
 ## Score zéro déchet
 
-| Dimension | Score |
-|---|---:|
-| Contexte québécois | 3 |
-| Accessibilité pédagogique | 3 |
-| Qualité documentaire | 3 |
-| Potentiel de nettoyage | 3 |
-| Potentiel de visualisation | 3 |
-| Potentiel de statistique descriptive | 3 |
-| Potentiel d'inférence | 2 |
-| Potentiel de modélisation | 2 |
-| Potentiel de discussion éthique | 2 |
-| Réutilisabilité dans plusieurs cours | 3 |
+| Dimension | Score | Justification |
+|---|---:|---|
+| Contexte québécois | 3 | Inventaire municipal montréalais |
+| Accessibilité pédagogique | 3 | Variables concrètes et interprétables |
+| Qualité documentaire | 3 | Page Données Québec, API CKAN et dictionnaire PDF |
+| Potentiel de nettoyage | 3 | Dates, libellés, valeurs manquantes et coordonnées |
+| Potentiel de visualisation | 3 | Cartes, barres, boîtes à moustaches |
+| Potentiel de statistique descriptive | 3 | Résumés naturels par arrondissement et essence |
+| Potentiel d'inférence | 2 | Possible avec prudence et données complémentaires |
+| Potentiel de modélisation | 2 | Modélisation exploratoire possible mais encadrée |
+| Potentiel éthique | 2 | Risques liés à la représentation territoriale |
+| Réutilisabilité | 3 | Utile en importation, EDA, spatial et qualité des données |
 
 Total : 27 sur 30.
 
 ## Activité courte
 
-En 30 à 45 minutes, faire compter les essences principales dans un arrondissement.
+En 30 à 45 minutes, compter les essences principales dans un arrondissement et nommer une limite de couverture.
 
 ## Activité longue
 
-En 2 à 3 heures, demander une carte, un tableau de valeurs manquantes et une analyse par arrondissement.
-
-## Projets possibles
-
-- Comparer les essences d'arbres par arrondissement.
-- Cartographier la distribution des arbres publics et les données manquantes.
-- Analyser la relation entre diamètre, essence et date de plantation.
+En 2 à 3 heures, produire une carte agrégée ou un échantillon cartographique, un tableau de valeurs manquantes et une analyse par arrondissement.
 
 ## Code R minimal
 
+À exécuter depuis la racine du projet.
+
 ```{r}
 #| eval: false
+# Load libraries
 library(dplyr)
+library(ggplot2)
 library(readr)
 
-source_url <- "https://www.donneesquebec.ca/recherche/dataset/vmtl-arbres"
+# Download and prepare official CSV resource
+source("datasets/arbres-publics-montreal/preparation.R")
 
-# Télécharger la ressource appropriée depuis la page officielle,
-# puis documenter le fichier brut dans data/raw/ avant toute transformation.
-source_url
+# Import prepared data
+arbres <- read_csv(
+  "data/processed/arbres-publics-montreal/arbres_publics_montreal.csv",
+  show_col_types = FALSE
+)
+
+# Summarise top species in one borough
+resume_essences <- arbres |>
+  filter(arrondissement == "Rosemont - La Petite-Patrie") |>
+  count(essence_fr, sort = TRUE) |>
+  slice_head(n = 10)
+
+resume_essences
+
+# Plot top species
+ggplot(resume_essences, aes(x = reorder(essence_fr, n), y = n)) +
+  geom_col() +
+  coord_flip() +
+  labs(
+    x = "Essence",
+    y = "Nombre d'arbres",
+    title = "Essences les plus fréquentes dans Rosemont - La Petite-Patrie",
+    subtitle = "Inventaire public municipal; vérifier la couverture avant comparaison"
+  )
 ```
 
 ## Limites et précautions
 
-- La description officielle signale que certaines localisations peuvent être imprécises ou pas à jour.
-- Tous les arrondissements ou arbres de parc ne sont pas nécessairement représentés de la même façon.
-- Les analyses écologiques exigent des variables complémentaires sur l'environnement urbain.
+- La source officielle signale que certaines localisations peuvent être imprécises ou pas à jour.
+- Dans certains arrondissements, les arbres de parcs ne sont pas indiqués selon la description officielle.
+- Les dates de plantation sont manquantes pour 134 514 lignes.
+- Les dates préparées plausibles reposent sur une règle de nettoyage, pas sur une validation administrative indépendante.
+- Comparer les arrondissements exige de tenir compte de la superficie, de la densité, de la couverture d'inventaire et des arbres privés.
 
 ## Extensions
 
-- Créer une carte interactive des essences dominantes.
-- Étudier les valeurs manquantes de date de plantation.
-- Comparer les diamètres par essence avec des boîtes à moustaches.
+- Comparer les essences dominantes entre deux arrondissements.
+- Étudier les valeurs manquantes par type d'emplacement.
+- Construire un graphique du DHP par essence fréquente.
+- Produire une carte en échantillonnant les points ou en les agrégeant par grille.
+- Joindre des données de superficie ou de population pour construire un indicateur contextualisé.
+
+## Références utilisées
+
+- Données Québec. 2026. Arbres publics sur le territoire de la Ville. <https://www.donneesquebec.ca/recherche/dataset/vmtl-arbres>
+- Données Québec. 2026. API CKAN du paquet Arbres publics sur le territoire de la Ville. <https://www.donneesquebec.ca/recherche/api/3/action/package_show?id=vmtl-arbres>
+- Ville de Montréal. 2026. Inventaire arbres publics, fichier consolidé. <https://donnees.montreal.ca/dataset/b89fd27d-4b49-461b-8e54-fa2b34a628c4/resource/64e28fe6-ef37-437a-972d-d1d3f1f7d891/download/arbres-publics.csv>
+- Ville de Montréal. 2026. Dictionnaire de données des arbres publics. <https://donnees.montreal.ca/dataset/b89fd27d-4b49-461b-8e54-fa2b34a628c4/resource/7fe8c742-ee64-4cca-b889-467b68e7db6a/download/dictionnaire-de-donnees-arbres-publics_rev2018.pdf>
 
 ```{r}
 #| label: dataset-detail-footer
@@ -136,4 +269,3 @@ source_url
 #| results: asis
 render_dataset_detail_footer()
 ```
-

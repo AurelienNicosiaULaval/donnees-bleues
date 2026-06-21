@@ -5547,6 +5547,9 @@ Arbres publics sur le territoire de Montréal
 <p class="dataset-hero-source">
 Données Québec / Ville de Montréal
 </p>
+<div class="dataset-contributor-badge">
+<span>Personne à contacter</span><strong>Aurélien Nicosia</strong><small>Révision pédagogique et statistique</small>
+</div>
 <p class="dataset-hero-summary">
 Arbre public inventorié
 </p>
@@ -5566,17 +5569,17 @@ Arbre public inventorié
 <span>Niveau</span><strong>Introduction à intermédiaire</strong>
 </div>
 <div class="dataset-fact">
-<span>Structure</span><strong>Tabulaire, spatial, environnement urbain</strong>
+<span>Structure</span><strong>Tabulaire, spatial et environnement urbain</strong>
 </div>
 <div class="dataset-fact">
-<span>Format</span><strong>CSV et dictionnaire PDF</strong>
+<span>Format</span><strong>CSV officiel préparé localement; historique DHP et dictionnaire PDF disponibles à la source</strong>
 </div>
 </div>
 <div class="dataset-pedagogy-band">
 <div class="dataset-pedagogy-main">
 <span>Question de départ</span>
 <p>
-Comparer les essences d&#39;arbres par arrondissement.
+Comparer les essences d&#39;arbres publics par arrondissement.
 </p>
 </div>
 <div class="dataset-score-box">
@@ -5587,7 +5590,7 @@ Comparer les essences d&#39;arbres par arrondissement.
 </div>
 </div>
 <div class="dataset-chip-strip">
-<span>environnement urbain</span><span>arbres</span><span>Montréal</span><span>spatial</span><span>visualisation</span><span>statistiques descriptives</span><span>données manquantes</span>
+<span>environnement urbain</span><span>arbres</span><span>catégories</span><span>valeurs manquantes</span><span>dates aberrantes</span><span>cartographie</span><span>statistique descriptive</span>
 </div>
 <section class="dataset-r-lab" id="r-en-action">
 <div class="dataset-section-heading">
@@ -5596,7 +5599,7 @@ Comparer les essences d&#39;arbres par arrondissement.
 Aperçu reproductible
 </h2>
 <p>
-Aperçu léger calculé par R à partir des métadonnées vérifiées afin de garder la fiche rapide et stable au rendu.
+Aperçu calculé par R à partir de data/processed/arbres-publics-montreal/arbres_publics_montreal.csv.
 </p>
 </div>
 <div class="dataset-r-grid">
@@ -5604,13 +5607,12 @@ Aperçu léger calculé par R à partir des métadonnées vérifiées afin de ga
 <div class="dataset-card-label">
 Code minimal
 </div>
-<pre><code class="language-r">library(yaml)
+<pre><code class="language-r">library(dplyr)
 
-metadata &lt;- yaml::read_yaml(&quot;datasets/arbres-publics-montreal/metadata.yml&quot;)
-data.frame(
-  champ = c(&quot;theme&quot;, &quot;territoire&quot;, &quot;unite&quot;, &quot;niveau&quot;),
-  valeur = c(metadata$theme, metadata$geography, metadata$unit, metadata$level)
-)</code></pre>
+donnees &lt;- read.csv(&quot;data/processed/arbres-publics-montreal/arbres_publics_montreal.csv&quot;, check.names = FALSE)
+
+glimpse(donnees)
+donnees |&gt; summarise(lignes = n(), colonnes = ncol(donnees))</code></pre>
 </div>
 <div class="dataset-result-card">
 <div class="dataset-card-label">
@@ -5618,16 +5620,19 @@ Résultats R
 </div>
 <div class="dataset-r-stats">
 <div class="dataset-r-stat">
-<span>Lignes déclarées</span><strong>Inventaire consolidé CSV d&#39;environ 135 Mo; historique DHP d&#39;environ 46 Mo</strong>
+<span>Lignes lues</span><strong>2 500</strong>
 </div>
 <div class="dataset-r-stat">
-<span>Colonnes déclarées</span><strong>33 champs observés dans l&#39;en-tête du fichier consolidé consulté le 2026-06-19</strong>
+<span>Colonnes</span><strong>32</strong>
 </div>
 <div class="dataset-r-stat">
-<span>Format</span><strong>CSV et dictionnaire PDF</strong>
+<span>Variables num.</span><strong>10</strong>
 </div>
 <div class="dataset-r-stat">
-<span>Aperçu</span><strong>Métadonnées</strong>
+<span>Valeurs manquantes</span><strong>16.3 %</strong>
+</div>
+<div class="dataset-r-stat">
+<span>Aperçu</span><strong>arbres_publics_montreal.csv</strong>
 </div>
 </div>
 <div class="dataset-result-table-wrap">
@@ -5635,52 +5640,132 @@ Résultats R
 <thead>
 <tr>
 <th>
-champ
+inventaire_type
 </th>
 <th>
-valeur
+arbre_id
+</th>
+<th>
+arrondissement_code
+</th>
+<th>
+arrondissement
+</th>
+<th>
+rue
+</th>
+<th>
+cote_rue
 </th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>
-theme
+H
 </td>
 <td>
-Foresterie urbaine
-</td>
-</tr>
-<tr>
-<td>
-territoire
+106127
 </td>
 <td>
-Montréal
-</td>
-</tr>
-<tr>
-<td>
-unite
+1
 </td>
 <td>
-Arbre public inventorié
+Ahuntsic - Cartierville
+</td>
+<td>
+</td>
+<td>
 </td>
 </tr>
 <tr>
 <td>
-niveau
+H
 </td>
 <td>
-Introduction à intermédiaire
+165343
+</td>
+<td>
+1
+</td>
+<td>
+Ahuntsic - Cartierville
+</td>
+<td>
+</td>
+<td>
 </td>
 </tr>
 <tr>
 <td>
-format
+H
 </td>
 <td>
-CSV et dictionnaire PDF
+53963
+</td>
+<td>
+1
+</td>
+<td>
+Ahuntsic - Cartierville
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+H
+</td>
+<td>
+88356
+</td>
+<td>
+1
+</td>
+<td>
+Ahuntsic - Cartierville
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+H
+</td>
+<td>
+88359
+</td>
+<td>
+1
+</td>
+<td>
+Ahuntsic - Cartierville
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+H
+</td>
+<td>
+111026
+</td>
+<td>
+1
+</td>
+<td>
+Ahuntsic - Cartierville
+</td>
+<td>
+</td>
+<td>
 </td>
 </tr>
 </tbody>
@@ -5691,8 +5776,8 @@ CSV et dictionnaire PDF
 <div class="dataset-card-label">
 Lecture statistique
 </div>
-<svg class="dataset-r-chart" viewbox="0 0 320 210" role="img" aria-label="Concepts pédagogiques">
-<text x="0" y="30" class="dataset-svg-label">environnement urbain</text><rect x="150" y="18" width="90" height="14" rx="3" class="dataset-svg-bar" /><text x="0" y="54" class="dataset-svg-label">arbres</text><rect x="150" y="42" width="90" height="14" rx="3" class="dataset-svg-bar" /><text x="0" y="78" class="dataset-svg-label">Montréal</text><rect x="150" y="66" width="90" height="14" rx="3" class="dataset-svg-bar" /><text x="0" y="102" class="dataset-svg-label">spatial</text><rect x="150" y="90" width="90" height="14" rx="3" class="dataset-svg-bar" /><text x="0" y="126" class="dataset-svg-label">visualisation</text><rect x="150" y="114" width="90" height="14" rx="3" class="dataset-svg-bar" /><text x="0" y="150" class="dataset-svg-label">statistiques descriptives</text><rect x="150" y="138" width="90" height="14" rx="3" class="dataset-svg-bar" /><text x="0" y="174" class="dataset-svg-label">données manquantes</text><rect x="150" y="162" width="90" height="14" rx="3" class="dataset-svg-bar" />
+<svg class="dataset-r-chart" viewbox="0 0 320 210" role="img" aria-label="Aperçu numérique généré par R">
+<line x1="34" y1="158" x2="292" y2="158" class="dataset-svg-axis"></line><line x1="34" y1="36" x2="34" y2="158" class="dataset-svg-axis"></line><polyline points="34,49.6 40.4,47.3 46.7,46 53.1,158 59.4,157.9 65.8,157.9 72.2,153.1 78.5,153.1 84.9,143.6 91.2,143.6 97.6,146.9 103.9,146.9 110.3,146.8 116.7,128.9 123,149 129.4,149 135.7,148.8 142.1,148.8 148.5,148.5 154.8,147.9 161.2,147.8 167.5,147.7 173.9,147.6 180.3,147.6 186.6,147.5 193,147.5 199.3,146.6 205.7,146.6 212.1,146.6 218.4,146.6 224.8,146.6 231.1,146.5 237.5,146 243.8,145.1 250.2,145.1 256.6,144.4 262.9,144.1 269.3,143.9 275.6,143.5 282,143.4" class="dataset-svg-line"></polyline><circle cx="34" cy="49.6" r="3.2" class="dataset-svg-point"></circle><circle cx="40.4" cy="47.3" r="3.2" class="dataset-svg-point"></circle><circle cx="46.7" cy="46" r="3.2" class="dataset-svg-point"></circle><circle cx="53.1" cy="158" r="3.2" class="dataset-svg-point"></circle><circle cx="59.4" cy="157.9" r="3.2" class="dataset-svg-point"></circle><circle cx="65.8" cy="157.9" r="3.2" class="dataset-svg-point"></circle><circle cx="72.2" cy="153.1" r="3.2" class="dataset-svg-point"></circle><circle cx="78.5" cy="153.1" r="3.2" class="dataset-svg-point"></circle><circle cx="84.9" cy="143.6" r="3.2" class="dataset-svg-point"></circle><circle cx="91.2" cy="143.6" r="3.2" class="dataset-svg-point"></circle><circle cx="97.6" cy="146.9" r="3.2" class="dataset-svg-point"></circle><circle cx="103.9" cy="146.9" r="3.2" class="dataset-svg-point"></circle><circle cx="110.3" cy="146.8" r="3.2" class="dataset-svg-point"></circle><circle cx="116.7" cy="128.9" r="3.2" class="dataset-svg-point"></circle><circle cx="123" cy="149" r="3.2" class="dataset-svg-point"></circle><circle cx="129.4" cy="149" r="3.2" class="dataset-svg-point"></circle><circle cx="135.7" cy="148.8" r="3.2" class="dataset-svg-point"></circle><circle cx="142.1" cy="148.8" r="3.2" class="dataset-svg-point"></circle><circle cx="148.5" cy="148.5" r="3.2" class="dataset-svg-point"></circle><circle cx="154.8" cy="147.9" r="3.2" class="dataset-svg-point"></circle><circle cx="161.2" cy="147.8" r="3.2" class="dataset-svg-point"></circle><circle cx="167.5" cy="147.7" r="3.2" class="dataset-svg-point"></circle><circle cx="173.9" cy="147.6" r="3.2" class="dataset-svg-point"></circle><circle cx="180.3" cy="147.6" r="3.2" class="dataset-svg-point"></circle><circle cx="186.6" cy="147.5" r="3.2" class="dataset-svg-point"></circle><circle cx="193" cy="147.5" r="3.2" class="dataset-svg-point"></circle><circle cx="199.3" cy="146.6" r="3.2" class="dataset-svg-point"></circle><circle cx="205.7" cy="146.6" r="3.2" class="dataset-svg-point"></circle><circle cx="212.1" cy="146.6" r="3.2" class="dataset-svg-point"></circle><circle cx="218.4" cy="146.6" r="3.2" class="dataset-svg-point"></circle><circle cx="224.8" cy="146.6" r="3.2" class="dataset-svg-point"></circle><circle cx="231.1" cy="146.5" r="3.2" class="dataset-svg-point"></circle><circle cx="237.5" cy="146" r="3.2" class="dataset-svg-point"></circle><circle cx="243.8" cy="145.1" r="3.2" class="dataset-svg-point"></circle><circle cx="250.2" cy="145.1" r="3.2" class="dataset-svg-point"></circle><circle cx="256.6" cy="144.4" r="3.2" class="dataset-svg-point"></circle><circle cx="262.9" cy="144.1" r="3.2" class="dataset-svg-point"></circle><circle cx="269.3" cy="143.9" r="3.2" class="dataset-svg-point"></circle><circle cx="275.6" cy="143.5" r="3.2" class="dataset-svg-point"></circle><circle cx="282" cy="143.4" r="3.2" class="dataset-svg-point"></circle><text x="34" y="24" class="dataset-svg-title">arbre_id</text><text x="34" y="186" class="dataset-svg-label">63166</text><text x="230" y="186" class="dataset-svg-label">563886</text>
 </svg>
 </div>
 </div>
@@ -5702,13 +5787,13 @@ Lecture statistique
 <span>Mini-projets</span>
 <ul>
 <li>
-Comparer les essences d&#39;arbres par arrondissement.
+Comparer les essences d&#39;arbres publics par arrondissement.
 </li>
 <li>
-Cartographier la distribution des arbres publics et les données manquantes.
+Cartographier un extrait ou une agrégation des arbres publics tout en discutant la qualité des coordonnées.
 </li>
 <li>
-Analyser la relation entre diamètre, essence et date de plantation.
+Analyser les valeurs manquantes et les dates non plausibles avant toute interprétation écologique.
 </li>
 </ul>
 </div>
@@ -5718,13 +5803,13 @@ Analyser la relation entre diamètre, essence et date de plantation.
 <div class="dataset-activity-card">
 <span>30-45 minutes</span><strong>Essences d&#39;arbres par arrondissement</strong>
 <p>
-Quelles essences d&#39;arbres publics sont les plus fréquentes?
+Quelles essences d&#39;arbres publics sont les plus fréquentes dans un arrondissement choisi?
 </p>
 </div>
 <div class="dataset-activity-card">
 <span>2-3 heures</span><strong>Carte et qualité des données des arbres publics</strong>
 <p>
-Comment cartographier un inventaire d&#39;arbres tout en montrant ses limites?
+Comment cartographier ou résumer un inventaire d&#39;arbres publics tout en montrant ses limites?
 </p>
 </div>
 </div>
@@ -5733,10 +5818,65 @@ Comment cartographier un inventaire d&#39;arbres tout en montrant ses limites?
 <div class="dataset-detail-content">
 <section id="pourquoi-ce-jeu-est-intéressant" class="level2">
 <h2 class="anchored" data-anchor-id="pourquoi-ce-jeu-est-intéressant">Pourquoi ce jeu est intéressant</h2>
-<p>Ce jeu est très riche pour l’enseignement : il relie espèces, mesures dendrométriques, arrondissement, localisation et qualité des données. Il permet de discuter biodiversité urbaine, valeurs manquantes, visualisation spatiale et nettoyage réaliste.</p>
+<p>Ce jeu est très riche pour l’enseignement : il relie essences, mesures dendrométriques, arrondissement, emplacement, localisation et qualité des données. Il permet de travailler des questions concrètes de foresterie urbaine avec une vraie source municipale.</p>
+<p>Il est aussi utile parce qu’il contient des difficultés réalistes : gros fichier, plusieurs ressources, valeurs manquantes, dates aberrantes et mise en garde officielle sur la précision des localisations.</p>
+<p>Question d’analyse : quelles essences d’arbres publics dominent l’inventaire, et quelles limites faut-il vérifier avant de cartographier ou comparer les arrondissements?</p>
 </section>
-<section id="source" class="level2">
-<h2 class="anchored" data-anchor-id="source">Source</h2>
+<section id="ce-qui-a-été-vérifié" class="level2">
+<h2 class="anchored" data-anchor-id="ce-qui-a-été-vérifié">Ce qui a été vérifié</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Élément</th>
+<th>Résultat vérifié</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Paquet CKAN</td>
+<td><code>b89fd27d-4b49-461b-8e54-fa2b34a628c4</code></td>
+</tr>
+<tr class="even">
+<td>Source officielle</td>
+<td>Données Québec / Ville de Montréal</td>
+</tr>
+<tr class="odd">
+<td>Ressources dans le paquet</td>
+<td>6 ressources</td>
+</tr>
+<tr class="even">
+<td>Ressource préparée ici</td>
+<td><code>arbres-publics.csv</code></td>
+</tr>
+<tr class="odd">
+<td>Licence</td>
+<td>Attribution (CC-BY 4.0), selon les métadonnées CKAN consultées le 2026-06-21</td>
+</tr>
+<tr class="even">
+<td>Dernière modification du paquet CKAN</td>
+<td>2026-06-21</td>
+</tr>
+<tr class="odd">
+<td>Dernière modification du CSV consolidé</td>
+<td>2026-06-21</td>
+</tr>
+<tr class="even">
+<td>Table préparée</td>
+<td><code>data/processed/arbres-publics-montreal/arbres_publics_montreal.csv</code></td>
+</tr>
+<tr class="odd">
+<td>Résumés préparés</td>
+<td>ressources, essences, arrondissements, emplacements, valeurs manquantes, qualité des dates</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="source-et-conditions" class="level2">
+<h2 class="anchored" data-anchor-id="source-et-conditions">Source et conditions</h2>
 <table class="caption-top table">
 <thead>
 <tr class="header">
@@ -5746,47 +5886,44 @@ Comment cartographier un inventaire d&#39;arbres tout en montrant ses limites?
 </thead>
 <tbody>
 <tr class="odd">
-<td>Source</td>
-<td>Données Québec / Ville de Montréal</td>
+<td>Page Données Québec</td>
+<td><a href="https://www.donneesquebec.ca/recherche/dataset/vmtl-arbres" class="uri">https://www.donneesquebec.ca/recherche/dataset/vmtl-arbres</a></td>
 </tr>
 <tr class="even">
-<td>Organisme producteur</td>
-<td>Ville de Montréal</td>
+<td>API CKAN</td>
+<td><a href="https://www.donneesquebec.ca/recherche/api/3/action/package_show?id=vmtl-arbres" class="uri">https://www.donneesquebec.ca/recherche/api/3/action/package_show?id=vmtl-arbres</a></td>
 </tr>
 <tr class="odd">
+<td>CSV consolidé</td>
+<td><a href="https://donnees.montreal.ca/dataset/b89fd27d-4b49-461b-8e54-fa2b34a628c4/resource/64e28fe6-ef37-437a-972d-d1d3f1f7d891/download/arbres-publics.csv" class="uri">https://donnees.montreal.ca/dataset/b89fd27d-4b49-461b-8e54-fa2b34a628c4/resource/64e28fe6-ef37-437a-972d-d1d3f1f7d891/download/arbres-publics.csv</a></td>
+</tr>
+<tr class="even">
+<td>Historique DHP</td>
+<td><a href="https://donnees.montreal.ca/dataset/b89fd27d-4b49-461b-8e54-fa2b34a628c4/resource/6c217c92-63c8-49e8-a6ef-afda6121656d/download/arbres-dhp.csv" class="uri">https://donnees.montreal.ca/dataset/b89fd27d-4b49-461b-8e54-fa2b34a628c4/resource/6c217c92-63c8-49e8-a6ef-afda6121656d/download/arbres-dhp.csv</a></td>
+</tr>
+<tr class="odd">
+<td>Dictionnaire PDF</td>
+<td><a href="https://donnees.montreal.ca/dataset/b89fd27d-4b49-461b-8e54-fa2b34a628c4/resource/7fe8c742-ee64-4cca-b889-467b68e7db6a/download/dictionnaire-de-donnees-arbres-publics_rev2018.pdf" class="uri">https://donnees.montreal.ca/dataset/b89fd27d-4b49-461b-8e54-fa2b34a628c4/resource/7fe8c742-ee64-4cca-b889-467b68e7db6a/download/dictionnaire-de-donnees-arbres-publics_rev2018.pdf</a></td>
+</tr>
+<tr class="even">
 <td>Territoire</td>
 <td>Montréal</td>
 </tr>
-<tr class="even">
-<td>URL officielle</td>
-<td><a href="https://www.donneesquebec.ca/recherche/dataset/vmtl-arbres" class="uri">https://www.donneesquebec.ca/recherche/dataset/vmtl-arbres</a></td>
-</tr>
 <tr class="odd">
-<td>Licence</td>
-<td>Attribution (CC-BY 4.0)</td>
-</tr>
-<tr class="even">
 <td>Date d’accès</td>
-<td>2026-06-19</td>
-</tr>
-<tr class="odd">
-<td>Fréquence de mise à jour</td>
-<td>Mise à jour fréquente; métadonnées modifiées en 2026</td>
-</tr>
-<tr class="even">
-<td>Statut</td>
-<td>source vérifiée</td>
+<td>2026-06-21</td>
 </tr>
 </tbody>
 </table>
+<p>La description officielle indique que les données portent sur les arbres municipaux du domaine public, incluant des arbres de rue et hors rue. Elle signale aussi que les localisations spatiales peuvent être imprécises ou pas à jour et que certains arrondissements n’indiquent pas les arbres de parcs.</p>
 </section>
 <section id="ce-que-représente-une-ligne" class="level2">
 <h2 class="anchored" data-anchor-id="ce-que-représente-une-ligne">Ce que représente une ligne</h2>
-<p>Une ligne représente un arbre public inventorié ou une observation liée à l’inventaire, selon la ressource choisie. Le fichier consolidé contient notamment l’arrondissement, l’essence, le diamètre et les coordonnées.</p>
+<p>Une ligne représente un arbre public inventorié dans le fichier consolidé. La ligne contient des informations d’arrondissement, d’emplacement, d’essence, de diamètre, de dates et de coordonnées.</p>
+<p>Une ligne n’est pas une mesure écologique complète, un arbre privé, ni une preuve que le couvert arboré est mesuré de façon uniforme dans tous les arrondissements.</p>
 </section>
 <section id="variables-principales" class="level2">
 <h2 class="anchored" data-anchor-id="variables-principales">Variables principales</h2>
-<p>Les noms ci-dessous sont des noms propres proposés pour l’enseignement. Les noms exacts des champs sources doivent être conservés dans le script de préparation.</p>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 33%">
@@ -5795,154 +5932,435 @@ Comment cartographier un inventaire d&#39;arbres tout en montrant ses limites?
 </colgroup>
 <thead>
 <tr class="header">
-<th>Variable proposée</th>
-<th>Rôle pédagogique</th>
-<th>Remarque</th>
+<th>Variable préparée</th>
+<th>Rôle</th>
+<th>Point de vigilance</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td><code>arrondissement</code></td>
-<td>Arrondissement</td>
-<td>Champ source <code>ARROND_NOM</code></td>
+<td>Arrondissement publié</td>
+<td>13 arrondissements dans le fichier consolidé</td>
+</tr>
+<tr class="even">
+<td><code>emplacement</code></td>
+<td>Type d’emplacement</td>
+<td>Libellés hétérogènes à nettoyer selon la question</td>
+</tr>
+<tr class="odd">
+<td><code>essence_fr</code></td>
+<td>Nom français de l’essence</td>
+<td>795 valeurs distinctes non manquantes</td>
 </tr>
 <tr class="even">
 <td><code>essence_latin</code></td>
 <td>Nom latin</td>
-<td>Variable catégorielle riche</td>
+<td>Utile pour regrouper ou valider les noms</td>
 </tr>
 <tr class="odd">
-<td><code>essence_fr</code></td>
-<td>Nom français</td>
-<td>Utile pour la communication</td>
-</tr>
-<tr class="even">
 <td><code>dhp</code></td>
 <td>Diamètre à hauteur de poitrine</td>
-<td>Variable quantitative</td>
-</tr>
-<tr class="odd">
-<td><code>date_releve</code></td>
-<td>Date de relevé</td>
-<td>Qualité temporelle de l’inventaire</td>
+<td>Médiane observée : 19</td>
 </tr>
 <tr class="even">
-<td><code>date_plantation</code></td>
-<td>Date de plantation</td>
-<td>Souvent utile mais potentiellement manquante</td>
+<td><code>date_releve_plausible</code></td>
+<td>Date de relevé après contrôle minimal</td>
+<td>39 dates de relevé non plausibles selon la règle de préparation</td>
 </tr>
 <tr class="odd">
-<td><code>longitude</code></td>
-<td>Longitude</td>
-<td>Coordonnée spatiale</td>
+<td><code>date_plantation_plausible</code></td>
+<td>Date de plantation après contrôle minimal</td>
+<td>40,2 % des dates de plantation sont manquantes</td>
 </tr>
 <tr class="even">
-<td><code>latitude</code></td>
-<td>Latitude</td>
-<td>Coordonnée spatiale</td>
+<td><code>longitude</code>, <code>latitude</code></td>
+<td>Coordonnées publiées</td>
+<td>2 lignes sans coordonnées</td>
+</tr>
+<tr class="odd">
+<td><code>coordonnees_disponibles</code></td>
+<td>Indicateur préparé</td>
+<td>Ne garantit pas que la localisation est exacte</td>
 </tr>
 </tbody>
 </table>
 </section>
-<section id="taille-et-structure" class="level2">
-<h2 class="anchored" data-anchor-id="taille-et-structure">Taille et structure</h2>
+<section id="résultats-r" class="level2">
+<h2 class="anchored" data-anchor-id="résultats-r">RÉSULTATS R</h2>
+<p>Les résultats ci-dessous proviennent de <code>preparation.R</code>, exécuté sur le CSV téléchargé le 2026-06-21.</p>
 <table class="caption-top table">
-<colgroup>
-<col style="width: 50%">
-<col style="width: 50%">
-</colgroup>
 <thead>
 <tr class="header">
-<th>Élément</th>
-<th>Information</th>
+<th>Indicateur</th>
+<th style="text-align: right;">Valeur</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>Nombre de lignes</td>
-<td>Inventaire consolidé CSV d’environ 135 Mo; historique DHP d’environ 46 Mo</td>
+<td>Ressources CKAN documentées</td>
+<td style="text-align: right;">6</td>
 </tr>
 <tr class="even">
-<td>Nombre de colonnes</td>
-<td>33 champs observés dans l’en-tête du fichier consolidé consulté le 2026-06-19</td>
+<td>Lignes dans le CSV source</td>
+<td style="text-align: right;">334 464</td>
 </tr>
 <tr class="odd">
-<td>Structure</td>
-<td>Tabulaire, spatial, environnement urbain</td>
+<td>Colonnes dans le CSV source</td>
+<td style="text-align: right;">33</td>
 </tr>
 <tr class="even">
-<td>Format</td>
-<td>CSV et dictionnaire PDF</td>
+<td>Lignes préparées</td>
+<td style="text-align: right;">334 464</td>
 </tr>
 <tr class="odd">
-<td>Niveau pédagogique recommandé</td>
-<td>Introduction à intermédiaire</td>
+<td>Colonnes préparées</td>
+<td style="text-align: right;">32</td>
+</tr>
+<tr class="even">
+<td>Arrondissements</td>
+<td style="text-align: right;">13</td>
+</tr>
+<tr class="odd">
+<td>Essences françaises non manquantes</td>
+<td style="text-align: right;">795</td>
+</tr>
+<tr class="even">
+<td>Essences latines non manquantes</td>
+<td style="text-align: right;">799</td>
+</tr>
+<tr class="odd">
+<td>Emplacements distincts</td>
+<td style="text-align: right;">35</td>
+</tr>
+<tr class="even">
+<td>Coordonnées manquantes</td>
+<td style="text-align: right;">2</td>
+</tr>
+<tr class="odd">
+<td>Dates de plantation manquantes</td>
+<td style="text-align: right;">134 514</td>
+</tr>
+<tr class="even">
+<td>DHP manquants</td>
+<td style="text-align: right;">141</td>
+</tr>
+<tr class="odd">
+<td>DHP médian</td>
+<td style="text-align: right;">19</td>
+</tr>
+<tr class="even">
+<td>Arbres remarquables</td>
+<td style="text-align: right;">159</td>
 </tr>
 </tbody>
 </table>
 </section>
+<section id="essences-les-plus-fréquentes" class="level2">
+<h2 class="anchored" data-anchor-id="essences-les-plus-fréquentes">Essences les plus fréquentes</h2>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Essence française</th>
+<th style="text-align: right;">Arbres</th>
+<th style="text-align: right;">Pourcentage</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Érable argenté</td>
+<td style="text-align: right;">29 613</td>
+<td style="text-align: right;">8,9 %</td>
+</tr>
+<tr class="even">
+<td>Érable de Norvège</td>
+<td style="text-align: right;">22 735</td>
+<td style="text-align: right;">6,8 %</td>
+</tr>
+<tr class="odd">
+<td>Frêne de Pennsylvanie</td>
+<td style="text-align: right;">14 012</td>
+<td style="text-align: right;">4,2 %</td>
+</tr>
+<tr class="even">
+<td>Tilleul à petites feuilles</td>
+<td style="text-align: right;">13 303</td>
+<td style="text-align: right;">4,0 %</td>
+</tr>
+<tr class="odd">
+<td>Micocoulier occidental</td>
+<td style="text-align: right;">10 143</td>
+<td style="text-align: right;">3,0 %</td>
+</tr>
+<tr class="even">
+<td>Chicot du Canada</td>
+<td style="text-align: right;">10 075</td>
+<td style="text-align: right;">3,0 %</td>
+</tr>
+<tr class="odd">
+<td>Févier Skyline</td>
+<td style="text-align: right;">9 851</td>
+<td style="text-align: right;">2,9 %</td>
+</tr>
+<tr class="even">
+<td>Févier inerme d’Amérique</td>
+<td style="text-align: right;">8 259</td>
+<td style="text-align: right;">2,5 %</td>
+</tr>
+<tr class="odd">
+<td>Épinette du Colorado</td>
+<td style="text-align: right;">6 752</td>
+<td style="text-align: right;">2,0 %</td>
+</tr>
+<tr class="even">
+<td>Orme Morton (Accolade TM)</td>
+<td style="text-align: right;">6 036</td>
+<td style="text-align: right;">1,8 %</td>
+</tr>
+</tbody>
+</table>
+<p>Cette table est une description de l’inventaire consolidé, pas une mesure complète de la biodiversité urbaine.</p>
+</section>
+<section id="arrondissements-avec-le-plus-darbres" class="level2">
+<h2 class="anchored" data-anchor-id="arrondissements-avec-le-plus-darbres">Arrondissements avec le plus d’arbres</h2>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Arrondissement</th>
+<th style="text-align: right;">Arbres</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Mercier - Hochelaga-Maisonneuve</td>
+<td style="text-align: right;">38 076</td>
+</tr>
+<tr class="even">
+<td>Rosemont - La Petite-Patrie</td>
+<td style="text-align: right;">37 309</td>
+</tr>
+<tr class="odd">
+<td>Ahuntsic - Cartierville</td>
+<td style="text-align: right;">36 672</td>
+</tr>
+<tr class="even">
+<td>Rivière-des-Prairies - Pointe-aux-Trembles</td>
+<td style="text-align: right;">34 619</td>
+</tr>
+<tr class="odd">
+<td>Côte-des-Neiges - Notre-Dame-de-Grâce</td>
+<td style="text-align: right;">29 096</td>
+</tr>
+<tr class="even">
+<td>Villeray-Saint-Michel - Parc-Extension</td>
+<td style="text-align: right;">27 279</td>
+</tr>
+<tr class="odd">
+<td>Saint-Léonard</td>
+<td style="text-align: right;">23 381</td>
+</tr>
+<tr class="even">
+<td>Le Sud-Ouest</td>
+<td style="text-align: right;">22 657</td>
+</tr>
+</tbody>
+</table>
+<p>Cette comparaison dépend de la couverture d’inventaire, des arbres de parcs inclus ou non, et de la taille des arrondissements.</p>
+</section>
+<section id="qualité-des-dates" class="level2">
+<h2 class="anchored" data-anchor-id="qualité-des-dates">Qualité des dates</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 17%">
+<col style="width: 23%">
+<col style="width: 23%">
+<col style="width: 17%">
+<col style="width: 17%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Variable</th>
+<th style="text-align: right;">Valeurs manquantes</th>
+<th style="text-align: right;">Dates non plausibles</th>
+<th>Première date plausible</th>
+<th>Dernière date plausible</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>date_releve</code></td>
+<td style="text-align: right;">141</td>
+<td style="text-align: right;">39</td>
+<td>1900-01-01</td>
+<td>2026-06-19</td>
+</tr>
+<tr class="even">
+<td><code>date_plantation</code></td>
+<td style="text-align: right;">134 514</td>
+<td style="text-align: right;">16</td>
+<td>1901-08-21</td>
+<td>2026-06-19</td>
+</tr>
+</tbody>
+</table>
+<p>La règle de plausibilité utilisée dans <code>preparation.R</code> conserve les dates entre 1900-01-01 et la date d’accès. Elle ne remplace pas une validation municipale, mais elle permet de rendre les anomalies visibles.</p>
+</section>
+<section id="valeurs-manquantes-principales" class="level2">
+<h2 class="anchored" data-anchor-id="valeurs-manquantes-principales">Valeurs manquantes principales</h2>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Variable</th>
+<th style="text-align: right;">Valeurs manquantes</th>
+<th style="text-align: right;">Pourcentage</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>code_parc</code></td>
+<td style="text-align: right;">218 220</td>
+<td style="text-align: right;">65,24 %</td>
+</tr>
+<tr class="even">
+<td><code>nom_parc</code></td>
+<td style="text-align: right;">218 220</td>
+<td style="text-align: right;">65,24 %</td>
+</tr>
+<tr class="odd">
+<td><code>code_secteur</code></td>
+<td style="text-align: right;">218 220</td>
+<td style="text-align: right;">65,24 %</td>
+</tr>
+<tr class="even">
+<td><code>nom_secteur</code></td>
+<td style="text-align: right;">218 220</td>
+<td style="text-align: right;">65,24 %</td>
+</tr>
+<tr class="odd">
+<td><code>stationnement_heure</code></td>
+<td style="text-align: right;">201 615</td>
+<td style="text-align: right;">60,28 %</td>
+</tr>
+<tr class="even">
+<td><code>distance_ligne_rue</code></td>
+<td style="text-align: right;">193 641</td>
+<td style="text-align: right;">57,90 %</td>
+</tr>
+<tr class="odd">
+<td><code>stationnement_jour</code></td>
+<td style="text-align: right;">193 322</td>
+<td style="text-align: right;">57,80 %</td>
+</tr>
+<tr class="even">
+<td><code>no_civique</code></td>
+<td style="text-align: right;">163 357</td>
+<td style="text-align: right;">48,84 %</td>
+</tr>
+<tr class="odd">
+<td><code>distance_pave</code></td>
+<td style="text-align: right;">140 454</td>
+<td style="text-align: right;">41,99 %</td>
+</tr>
+<tr class="even">
+<td><code>date_plantation</code></td>
+<td style="text-align: right;">134 514</td>
+<td style="text-align: right;">40,22 %</td>
+</tr>
+</tbody>
+</table>
+<p>Les valeurs manquantes ne sont pas un défaut uniforme. Elles reflètent en partie la structure même du fichier, par exemple des variables pertinentes surtout pour certains types d’emplacement.</p>
+</section>
+<section id="lecture-statistique" class="level2">
+<h2 class="anchored" data-anchor-id="lecture-statistique">Lecture statistique</h2>
+<p>Une analyse prudente suit cet ordre :</p>
+<ol type="1">
+<li>vérifier si la question porte sur les arbres de rue, les arbres hors rue, les parcs ou l’ensemble consolidé;</li>
+<li>inspecter les valeurs manquantes avant de comparer les arrondissements;</li>
+<li>traiter les dates de plantation et de relevé comme des variables à valider;</li>
+<li>compter les essences avec regroupement explicite des libellés manquants;</li>
+<li>cartographier avec une note sur la précision des localisations;</li>
+<li>éviter de conclure sur le couvert arboré ou la biodiversité sans données complémentaires.</li>
+</ol>
+<p>Les données permettent de décrire un inventaire municipal riche. Elles ne suffisent pas, seules, à estimer la canopée, la santé des arbres ou l’équité environnementale.</p>
+</section>
 <section id="concepts-enseignables" class="level2">
 <h2 class="anchored" data-anchor-id="concepts-enseignables">Concepts enseignables</h2>
 <ul>
-<li>environnement urbain</li>
-<li>arbres</li>
-<li>Montréal</li>
-<li>spatial</li>
-<li>visualisation</li>
-<li>statistiques descriptives</li>
-<li>données manquantes</li>
-<li>données ouvertes</li>
+<li>importation d’un gros CSV;</li>
+<li>catégories et libellés;</li>
+<li>valeurs manquantes;</li>
+<li>dates aberrantes;</li>
+<li>statistiques descriptives;</li>
+<li>cartographie responsable;</li>
+<li>qualité des données;</li>
+<li>limites d’un inventaire administratif.</li>
 </ul>
 </section>
 <section id="score-zéro-déchet" class="level2">
 <h2 class="anchored" data-anchor-id="score-zéro-déchet">Score zéro déchet</h2>
 <table class="caption-top table">
+<colgroup>
+<col style="width: 30%">
+<col style="width: 40%">
+<col style="width: 30%">
+</colgroup>
 <thead>
 <tr class="header">
 <th>Dimension</th>
 <th style="text-align: right;">Score</th>
+<th>Justification</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td>Contexte québécois</td>
 <td style="text-align: right;">3</td>
+<td>Inventaire municipal montréalais</td>
 </tr>
 <tr class="even">
 <td>Accessibilité pédagogique</td>
 <td style="text-align: right;">3</td>
+<td>Variables concrètes et interprétables</td>
 </tr>
 <tr class="odd">
 <td>Qualité documentaire</td>
 <td style="text-align: right;">3</td>
+<td>Page Données Québec, API CKAN et dictionnaire PDF</td>
 </tr>
 <tr class="even">
 <td>Potentiel de nettoyage</td>
 <td style="text-align: right;">3</td>
+<td>Dates, libellés, valeurs manquantes et coordonnées</td>
 </tr>
 <tr class="odd">
 <td>Potentiel de visualisation</td>
 <td style="text-align: right;">3</td>
+<td>Cartes, barres, boîtes à moustaches</td>
 </tr>
 <tr class="even">
 <td>Potentiel de statistique descriptive</td>
 <td style="text-align: right;">3</td>
+<td>Résumés naturels par arrondissement et essence</td>
 </tr>
 <tr class="odd">
 <td>Potentiel d’inférence</td>
 <td style="text-align: right;">2</td>
+<td>Possible avec prudence et données complémentaires</td>
 </tr>
 <tr class="even">
 <td>Potentiel de modélisation</td>
 <td style="text-align: right;">2</td>
+<td>Modélisation exploratoire possible mais encadrée</td>
 </tr>
 <tr class="odd">
-<td>Potentiel de discussion éthique</td>
+<td>Potentiel éthique</td>
 <td style="text-align: right;">2</td>
+<td>Risques liés à la représentation territoriale</td>
 </tr>
 <tr class="even">
-<td>Réutilisabilité dans plusieurs cours</td>
+<td>Réutilisabilité</td>
 <td style="text-align: right;">3</td>
+<td>Utile en importation, EDA, spatial et qualité des données</td>
 </tr>
 </tbody>
 </table>
@@ -5950,47 +6368,77 @@ Comment cartographier un inventaire d&#39;arbres tout en montrant ses limites?
 </section>
 <section id="activité-courte" class="level2">
 <h2 class="anchored" data-anchor-id="activité-courte">Activité courte</h2>
-<p>En 30 à 45 minutes, faire compter les essences principales dans un arrondissement.</p>
+<p>En 30 à 45 minutes, compter les essences principales dans un arrondissement et nommer une limite de couverture.</p>
 </section>
 <section id="activité-longue" class="level2">
 <h2 class="anchored" data-anchor-id="activité-longue">Activité longue</h2>
-<p>En 2 à 3 heures, demander une carte, un tableau de valeurs manquantes et une analyse par arrondissement.</p>
-</section>
-<section id="projets-possibles" class="level2">
-<h2 class="anchored" data-anchor-id="projets-possibles">Projets possibles</h2>
-<ul>
-<li>Comparer les essences d’arbres par arrondissement.</li>
-<li>Cartographier la distribution des arbres publics et les données manquantes.</li>
-<li>Analyser la relation entre diamètre, essence et date de plantation.</li>
-</ul>
+<p>En 2 à 3 heures, produire une carte agrégée ou un échantillon cartographique, un tableau de valeurs manquantes et une analyse par arrondissement.</p>
 </section>
 <section id="code-r-minimal" class="level2">
 <h2 class="anchored" data-anchor-id="code-r-minimal">Code R minimal</h2>
+<p>À exécuter depuis la racine du projet.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>source_url <span class="ot">&lt;-</span> <span class="st">&quot;https://www.donneesquebec.ca/recherche/dataset/vmtl-arbres&quot;</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load libraries</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Télécharger la ressource appropriée depuis la page officielle,</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co"># puis documenter le fichier brut dans data/raw/ avant toute transformation.</span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>source_url</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Download and prepare official CSV resource</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">&quot;datasets/arbres-publics-montreal/preparation.R&quot;</span>)</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Import prepared data</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>arbres <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;data/processed/arbres-publics-montreal/arbres_publics_montreal.csv&quot;</span>,</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">show_col_types =</span> <span class="cn">FALSE</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Summarise top species in one borough</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>resume_essences <span class="ot">&lt;-</span> arbres <span class="sc">|&gt;</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(arrondissement <span class="sc">==</span> <span class="st">&quot;Rosemont - La Petite-Patrie&quot;</span>) <span class="sc">|&gt;</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(essence_fr, <span class="at">sort =</span> <span class="cn">TRUE</span>) <span class="sc">|&gt;</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice_head</span>(<span class="at">n =</span> <span class="dv">10</span>)</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>resume_essences</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot top species</span></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(resume_essences, <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">reorder</span>(essence_fr, n), <span class="at">y =</span> n)) <span class="sc">+</span></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>() <span class="sc">+</span></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>() <span class="sc">+</span></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">&quot;Essence&quot;</span>,</span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">&quot;Nombre d&#39;arbres&quot;</span>,</span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">&quot;Essences les plus fréquentes dans Rosemont - La Petite-Patrie&quot;</span>,</span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="st">&quot;Inventaire public municipal; vérifier la couverture avant comparaison&quot;</span></span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="limites-et-précautions" class="level2">
 <h2 class="anchored" data-anchor-id="limites-et-précautions">Limites et précautions</h2>
 <ul>
-<li>La description officielle signale que certaines localisations peuvent être imprécises ou pas à jour.</li>
-<li>Tous les arrondissements ou arbres de parc ne sont pas nécessairement représentés de la même façon.</li>
-<li>Les analyses écologiques exigent des variables complémentaires sur l’environnement urbain.</li>
+<li>La source officielle signale que certaines localisations peuvent être imprécises ou pas à jour.</li>
+<li>Dans certains arrondissements, les arbres de parcs ne sont pas indiqués selon la description officielle.</li>
+<li>Les dates de plantation sont manquantes pour 134 514 lignes.</li>
+<li>Les dates préparées plausibles reposent sur une règle de nettoyage, pas sur une validation administrative indépendante.</li>
+<li>Comparer les arrondissements exige de tenir compte de la superficie, de la densité, de la couverture d’inventaire et des arbres privés.</li>
 </ul>
 </section>
 <section id="extensions" class="level2">
 <h2 class="anchored" data-anchor-id="extensions">Extensions</h2>
 <ul>
-<li>Créer une carte interactive des essences dominantes.</li>
-<li>Étudier les valeurs manquantes de date de plantation.</li>
-<li>Comparer les diamètres par essence avec des boîtes à moustaches.</li>
+<li>Comparer les essences dominantes entre deux arrondissements.</li>
+<li>Étudier les valeurs manquantes par type d’emplacement.</li>
+<li>Construire un graphique du DHP par essence fréquente.</li>
+<li>Produire une carte en échantillonnant les points ou en les agrégeant par grille.</li>
+<li>Joindre des données de superficie ou de population pour construire un indicateur contextualisé.</li>
+</ul>
+</section>
+<section id="références-utilisées" class="level2">
+<h2 class="anchored" data-anchor-id="références-utilisées">Références utilisées</h2>
+<ul>
+<li>Données Québec. 2026. Arbres publics sur le territoire de la Ville. <a href="https://www.donneesquebec.ca/recherche/dataset/vmtl-arbres" class="uri">https://www.donneesquebec.ca/recherche/dataset/vmtl-arbres</a></li>
+<li>Données Québec. 2026. API CKAN du paquet Arbres publics sur le territoire de la Ville. <a href="https://www.donneesquebec.ca/recherche/api/3/action/package_show?id=vmtl-arbres" class="uri">https://www.donneesquebec.ca/recherche/api/3/action/package_show?id=vmtl-arbres</a></li>
+<li>Ville de Montréal. 2026. Inventaire arbres publics, fichier consolidé. <a href="https://donnees.montreal.ca/dataset/b89fd27d-4b49-461b-8e54-fa2b34a628c4/resource/64e28fe6-ef37-437a-972d-d1d3f1f7d891/download/arbres-publics.csv" class="uri">https://donnees.montreal.ca/dataset/b89fd27d-4b49-461b-8e54-fa2b34a628c4/resource/64e28fe6-ef37-437a-972d-d1d3f1f7d891/download/arbres-publics.csv</a></li>
+<li>Ville de Montréal. 2026. Dictionnaire de données des arbres publics. <a href="https://donnees.montreal.ca/dataset/b89fd27d-4b49-461b-8e54-fa2b34a628c4/resource/7fe8c742-ee64-4cca-b889-467b68e7db6a/download/dictionnaire-de-donnees-arbres-publics_rev2018.pdf" class="uri">https://donnees.montreal.ca/dataset/b89fd27d-4b49-461b-8e54-fa2b34a628c4/resource/7fe8c742-ee64-4cca-b889-467b68e7db6a/download/dictionnaire-de-donnees-arbres-publics_rev2018.pdf</a></li>
 </ul>
 </section>
 </div>

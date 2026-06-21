@@ -1,60 +1,35 @@
 ---
-title: "Essences d'arbres par arrondissement"
+title: "Laboratoire - Essences d'arbres par arrondissement"
 embed-resources: true
 ---
 
-# Essences d'arbres par arrondissement
+# Laboratoire - Essences d'arbres par arrondissement
 
 ## Contexte
 
-Cette activité utilise un inventaire urbain concret pour pratiquer les résumés catégoriels.
+Cette activité utilise la fiche [Arbres publics sur le territoire de Montréal](fiche.qmd). L'objectif est de pratiquer les résumés catégoriels avec un inventaire urbain réel, tout en vérifiant les limites de couverture.
 
 ## Objectifs d'apprentissage
 
-- Filtrer un arrondissement
-- Compter des catégories
-- Créer un graphique
+- Importer une table préparée à partir d'un gros CSV municipal.
+- Filtrer un arrondissement.
+- Compter des essences d'arbres.
+- Produire un graphique à barres lisible.
+- Formuler une limite sur la portée de l'inventaire.
 
-## Données utilisées
+## Question directrice
 
-Fiche : [Arbres publics sur le territoire de Montréal](fiche.qmd)
-
-Source : Données Québec / Ville de Montréal.
-
-Licence : Attribution (CC-BY 4.0).
-
-## Métadonnées pédagogiques
-
-| Champ | Information |
-|---|---|
-| Question directrice | Quelles essences d'arbres publics sont les plus fréquentes? |
-| Concepts | Comptage; Catégories; Visualisation |
-| Niveau | Introductif |
-| Type | Exercice; Exploration de données |
-| Contexte | Foresterie urbaine |
-| Accroche | Arbres visibles dans la ville |
-| Durée | 30-45 minutes |
-| Matériel | énoncé; code; données |
-| Math/stats avancées | non |
+Quelles essences d'arbres publics sont les plus fréquentes dans un arrondissement choisi?
 
 ## Consignes
 
-1. Importer un extrait du fichier consolidé
-2. Filtrer un arrondissement
-3. Compter les essences françaises
-4. Tracer les dix essences principales
-5. Décrire une limite
-
-## Questions
-
-1. Quelle essence domine?
-2. Les noms manquants posent-ils problème?
-3. Le résultat décrit-il tous les arbres de Montréal?
+1. Exécuter `datasets/arbres-publics-montreal/preparation.R`.
+2. Importer `data/processed/arbres-publics-montreal/arbres_publics_montreal.csv`.
+3. Choisir un arrondissement avec au moins 10 000 arbres.
+4. Compter les 10 essences françaises les plus fréquentes.
+5. Produire un graphique à barres.
+6. Rédiger une conclusion de 5 à 8 lignes avec une limite de couverture.
 
 ## Pistes de solution
 
-Une solution acceptable présente un graphique des fréquences et mentionne la couverture de l'inventaire.
-
-## Prolongement
-
-Comparer deux arrondissements.
+Une bonne réponse nomme l'essence dominante et précise que le résultat décrit l'inventaire public. Une réponse excellente signale aussi les valeurs manquantes ou la difficulté de comparer les arrondissements sans superficie.

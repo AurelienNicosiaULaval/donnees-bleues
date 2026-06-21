@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Carte et qualité des données des arbres publics – Données bleues</title>
+<title>Mini-projet - Carte et qualité des données des arbres publics – Données bleues</title>
 <style>
 
 code{white-space: pre-wrap;}
@@ -5482,16 +5482,12 @@ grid-template-columns: 1fr;
     <h2 id="toc-title">On this page</h2>
 
   <ul>
-  <li><a href="#carte-et-qualité-des-données-des-arbres-publics" id="toc-carte-et-qualité-des-données-des-arbres-publics" class="nav-link active" data-scroll-target="#carte-et-qualité-des-données-des-arbres-publics">Carte et qualité des données des arbres publics</a>
+  <li><a href="#mini-projet---carte-et-qualité-des-données-des-arbres-publics" id="toc-mini-projet---carte-et-qualité-des-données-des-arbres-publics" class="nav-link active" data-scroll-target="#mini-projet---carte-et-qualité-des-données-des-arbres-publics">Mini-projet - Carte et qualité des données des arbres publics</a>
   <ul class="collapse">
   <li><a href="#contexte" id="toc-contexte" class="nav-link" data-scroll-target="#contexte">Contexte</a></li>
-  <li><a href="#objectifs-dapprentissage" id="toc-objectifs-dapprentissage" class="nav-link" data-scroll-target="#objectifs-dapprentissage">Objectifs d’apprentissage</a></li>
-  <li><a href="#données-utilisées" id="toc-données-utilisées" class="nav-link" data-scroll-target="#données-utilisées">Données utilisées</a></li>
-  <li><a href="#métadonnées-pédagogiques" id="toc-métadonnées-pédagogiques" class="nav-link" data-scroll-target="#métadonnées-pédagogiques">Métadonnées pédagogiques</a></li>
-  <li><a href="#consignes" id="toc-consignes" class="nav-link" data-scroll-target="#consignes">Consignes</a></li>
-  <li><a href="#questions" id="toc-questions" class="nav-link" data-scroll-target="#questions">Questions</a></li>
-  <li><a href="#pistes-de-solution" id="toc-pistes-de-solution" class="nav-link" data-scroll-target="#pistes-de-solution">Pistes de solution</a></li>
-  <li><a href="#prolongement" id="toc-prolongement" class="nav-link" data-scroll-target="#prolongement">Prolongement</a></li>
+  <li><a href="#question-directrice" id="toc-question-directrice" class="nav-link" data-scroll-target="#question-directrice">Question directrice</a></li>
+  <li><a href="#livrables" id="toc-livrables" class="nav-link" data-scroll-target="#livrables">Livrables</a></li>
+  <li><a href="#critères-dévaluation-suggérés" id="toc-critères-dévaluation-suggérés" class="nav-link" data-scroll-target="#critères-dévaluation-suggérés">Critères d’évaluation suggérés</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -5501,7 +5497,7 @@ grid-template-columns: 1fr;
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Carte et qualité des données des arbres publics</h1>
+<h1 class="title">Mini-projet - Carte et qualité des données des arbres publics</h1>
 </div>
 
 
@@ -5518,104 +5514,36 @@ grid-template-columns: 1fr;
 </header>
 
 
-<section id="carte-et-qualité-des-données-des-arbres-publics" class="level1">
-<h1>Carte et qualité des données des arbres publics</h1>
+<section id="mini-projet---carte-et-qualité-des-données-des-arbres-publics" class="level1">
+<h1>Mini-projet - Carte et qualité des données des arbres publics</h1>
 <section id="contexte" class="level2">
 <h2 class="anchored" data-anchor-id="contexte">Contexte</h2>
-<p>Cette activité combine visualisation spatiale et audit de qualité des données.</p>
+<p>Cette activité combine visualisation spatiale, statistique descriptive et audit de qualité des données. Le rapport attendu doit présenter la carte ou le résumé spatial avec les limites de localisation et de couverture.</p>
 </section>
-<section id="objectifs-dapprentissage" class="level2">
-<h2 class="anchored" data-anchor-id="objectifs-dapprentissage">Objectifs d’apprentissage</h2>
+<section id="question-directrice" class="level2">
+<h2 class="anchored" data-anchor-id="question-directrice">Question directrice</h2>
+<p>Comment cartographier ou résumer un inventaire d’arbres publics tout en montrant ses limites?</p>
+</section>
+<section id="livrables" class="level2">
+<h2 class="anchored" data-anchor-id="livrables">Livrables</h2>
+<ol type="1">
+<li>Un script reproductible qui exécute <code>preparation.R</code>.</li>
+<li>Un tableau de valeurs manquantes.</li>
+<li>Un résumé par arrondissement.</li>
+<li>Une visualisation spatiale agrégée, ou une carte d’un échantillon documenté.</li>
+<li>Un paragraphe sur la précision des localisations et les arbres de parcs.</li>
+<li>Une conclusion qui distingue inventaire public, couvert arboré et biodiversité.</li>
+</ol>
+</section>
+<section id="critères-dévaluation-suggérés" class="level2">
+<h2 class="anchored" data-anchor-id="critères-dévaluation-suggérés">Critères d’évaluation suggérés</h2>
 <ul>
-<li>Lire des coordonnées</li>
-<li>Évaluer les valeurs manquantes</li>
-<li>Communiquer une carte avec limites</li>
+<li>Reproductibilité du traitement.</li>
+<li>Qualité du tableau de valeurs manquantes.</li>
+<li>Choix responsable de la visualisation spatiale.</li>
+<li>Prudence des comparaisons entre arrondissements.</li>
+<li>Clarté de la section limites.</li>
 </ul>
-</section>
-<section id="données-utilisées" class="level2">
-<h2 class="anchored" data-anchor-id="données-utilisées">Données utilisées</h2>
-<p>Fiche : <a href="../../datasets/arbres-publics-montreal/fiche.html">Arbres publics sur le territoire de Montréal</a></p>
-<p>Source : Données Québec / Ville de Montréal.</p>
-<p>Licence : Attribution (CC-BY 4.0).</p>
-</section>
-<section id="métadonnées-pédagogiques" class="level2">
-<h2 class="anchored" data-anchor-id="métadonnées-pédagogiques">Métadonnées pédagogiques</h2>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 50%">
-<col style="width: 50%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Champ</th>
-<th>Information</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Question directrice</td>
-<td>Comment cartographier un inventaire d’arbres tout en montrant ses limites?</td>
-</tr>
-<tr class="even">
-<td>Concepts</td>
-<td>Carte; Données manquantes; Statistique descriptive</td>
-</tr>
-<tr class="odd">
-<td>Niveau</td>
-<td>Intermédiaire</td>
-</tr>
-<tr class="even">
-<td>Type</td>
-<td>Projet ou tâche longue; Étude de cas</td>
-</tr>
-<tr class="odd">
-<td>Contexte</td>
-<td>Foresterie urbaine</td>
-</tr>
-<tr class="even">
-<td>Accroche</td>
-<td>Foresterie urbaine</td>
-</tr>
-<tr class="odd">
-<td>Durée</td>
-<td>2-3 heures</td>
-</tr>
-<tr class="even">
-<td>Matériel</td>
-<td>énoncé; code; données; notes enseignantes</td>
-</tr>
-<tr class="odd">
-<td>Math/stats avancées</td>
-<td>non</td>
-</tr>
-</tbody>
-</table>
-</section>
-<section id="consignes" class="level2">
-<h2 class="anchored" data-anchor-id="consignes">Consignes</h2>
-<ol type="1">
-<li>Importer le fichier</li>
-<li>Sélectionner les variables utiles</li>
-<li>Calculer les valeurs manquantes</li>
-<li>Tracer une carte</li>
-<li>Rédiger une note de prudence</li>
-</ol>
-</section>
-<section id="questions" class="level2">
-<h2 class="anchored" data-anchor-id="questions">Questions</h2>
-<ol type="1">
-<li>Quelles variables sont le plus souvent manquantes?</li>
-<li>La carte semble-t-elle complète?</li>
-<li>Quels usages seraient risqués avec ces données?</li>
-</ol>
-</section>
-<section id="pistes-de-solution" class="level2">
-<h2 class="anchored" data-anchor-id="pistes-de-solution">Pistes de solution</h2>
-<p>Un bon rapport présente la carte et un court audit de qualité avant l’interprétation.</p>
-</section>
-<section id="prolongement" class="level2">
-<h2 class="anchored" data-anchor-id="prolongement">Prolongement</h2>
-<p>Ajouter une analyse du diamètre par essence.</p>
 
 
 </section>
