@@ -31,6 +31,16 @@ dataset_list <- function(value) {
   value[!is.na(value) & value != ""]
 }
 
+dataset_flag_true <- function(value) {
+  value <- value %||% FALSE
+  if (is.logical(value)) {
+    return(isTRUE(value[[1]]))
+  }
+
+  value <- tolower(trimws(as.character(value[[1]])))
+  value %in% c("true", "yes", "oui", "1")
+}
+
 dataset_find_root <- function(start) {
   start <- normalizePath(start, mustWork = FALSE)
   if (file.exists(start) && !dir.exists(start)) {
@@ -146,6 +156,10 @@ dataset_activity_cards <- function(metadata, ctx) {
 }
 
 dataset_contributor_badge <- function(metadata) {
+  if (!dataset_flag_true(metadata$stt1100_contact)) {
+    return("")
+  }
+
   name <- dataset_squish(metadata$contributor_name, "")
   if (name == "") {
     return("")

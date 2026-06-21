@@ -69,5 +69,6 @@ zero_waste:
   reutilisabilite: 3
 contributor_name: "Aurélien Nicosia"
 contributor_role: "Révision pédagogique et statistique"
+stt1100_contact: true
 status: "source pédagogique vérifiée dans UlavalSSD 0.2.0; préparation locale reproductible"
 notes: "Jeu utilisé dans STT-1100. Ne pas extrapoler à tout le Québec : il s'agit d'une station. Les variables total_rain, total_snow et snow_grnd contiennent beaucoup de valeurs manquantes."

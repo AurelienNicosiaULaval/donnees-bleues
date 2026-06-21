@@ -63,5 +63,6 @@ zero_waste:
   reutilisabilite: 3
 contributor_name: "Aurélien Nicosia"
 contributor_role: "Révision pédagogique et statistique"
+stt1100_contact: true
 status: "source officielle vérifiée; version pédagogique fixe dans UlavalSSD"
 notes: "Utilisé dans l'aventure 3 de STT-1100. La ressource officielle est dynamique et contient 20 colonnes; la version pédagogique UlavalSSD 0.2.0 conserve 10 colonnes pour travailler les variables catégorielles, les dates et les amendes. Les lignes nominatives ne sont pas intégrées au rendu public de la fiche."

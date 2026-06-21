@@ -66,5 +66,6 @@ zero_waste:
   reutilisabilite: 3
 contributor_name: "Aurélien Nicosia"
 contributor_role: "Révision pédagogique et statistique"
+stt1100_contact: true
 status: "source officielle vérifiée; CSV primaire public 2025-2026 préparé localement"
 notes: "La ressource vérifiée est le CSV des écoles primaires publiques 2025-2026. Le fichier contient 1 895 lignes diffusées et 68 lignes non diffusées. Les lignes non diffusées doivent être traitées comme une absence structurelle d'indice, pas comme une valeur numérique manquante ordinaire."
