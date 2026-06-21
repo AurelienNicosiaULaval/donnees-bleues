@@ -1,30 +1,128 @@
 ---
-title: "Mini-projet - Budgets municipaux"
+title: "Mini-projet - Portrait descriptif des profils financiers municipaux"
 embed-resources: true
 ---
 
-# Mini-projet - Budgets municipaux
+# Mini-projet - Portrait descriptif des profils financiers municipaux
 
 ## Contexte
 
-Ce mini-projet prolonge le laboratoire court en demandant une préparation reproductible et une interprétation plus structurée.
+Ce mini-projet demande de construire un portrait descriptif des profils financiers municipaux publiés par le MAMH. Le but n'est pas de juger les municipalités, mais de produire une analyse transparente, reproductible et prudente.
+
+Le projet doit utiliser les fichiers préparés par `preparation.R`, en particulier la table longue. Cette structure oblige à documenter le sens des indicateurs au lieu de traiter les codes `FIALX` comme des noms évidents.
 
 ## Question directrice
 
-Comparer les profils financiers de municipalités de tailles différentes en documentant les limites des ratios par habitant.
+Comment décrire les profils financiers et fonciers des municipalités du Québec selon la classe de population et la région administrative?
+
+## Données à utiliser
+
+- `data/processed/budgets-municipaux-quebec/profil_financier_municipalites_2025.csv`
+- `data/processed/budgets-municipaux-quebec/profil_financier_municipalites_long_2025.csv`
+- `data/processed/budgets-municipaux-quebec/dictionnaire_postes_profil_financier_2025.csv`
+- `data/processed/budgets-municipaux-quebec/valeurs_manquantes_profil_financier_2025.csv`
+
+Si les fichiers ne sont pas présents, exécuter depuis la racine du projet :
+
+```r
+source("datasets/budgets-municipaux-quebec/preparation.R")
+```
+
+## Code de départ
+
+```{r}
+#| eval: false
+# Load libraries
+library(dplyr)
+library(ggplot2)
+library(readr)
+library(stringr)
+
+# Import prepared files
+municipalites <- read_csv(
+  "data/processed/budgets-municipaux-quebec/profil_financier_municipalites_2025.csv",
+  show_col_types = FALSE
+)
+
+profil_long <- read_csv(
+  "data/processed/budgets-municipaux-quebec/profil_financier_municipalites_long_2025.csv",
+  show_col_types = FALSE
+)
+
+dictionnaire <- read_csv(
+  "data/processed/budgets-municipaux-quebec/dictionnaire_postes_profil_financier_2025.csv",
+  show_col_types = FALSE
+)
+
+valeurs_manquantes <- read_csv(
+  "data/processed/budgets-municipaux-quebec/valeurs_manquantes_profil_financier_2025.csv",
+  show_col_types = FALSE
+)
+
+# Choose a small set of interpretable indicators
+indicateurs_retenus <- c(
+  "FIALX02005",
+  "FIALX02006",
+  "FIALX02007",
+  "FIALX02010",
+  "FIALX02097"
+)
+
+profil_selection <- profil_long |>
+  filter(code_poste %in% indicateurs_retenus, !is.na(valeur)) |>
+  left_join(
+    dictionnaire |> select(code_poste, libelle_court, type_indicateur),
+    by = c("code_poste", "libelle_court", "type_indicateur")
+  )
+
+# Summary by region and indicator
+resume_regions <- profil_selection |>
+  filter(!is.na(region_administrative)) |>
+  group_by(region_administrative, code_poste, libelle_court) |>
+  summarise(
+    municipalites = n(),
+    mediane = median(valeur, na.rm = TRUE),
+    q1 = quantile(valeur, 0.25, na.rm = TRUE),
+    q3 = quantile(valeur, 0.75, na.rm = TRUE),
+    .groups = "drop"
+  )
+
+resume_regions
+
+# Visualise one selected indicator
+ggplot(
+  profil_selection |>
+    filter(code_poste == "FIALX02097", !is.na(classe_population)),
+  aes(x = classe_population, y = valeur)
+) +
+  geom_boxplot(fill = "#D8B365", color = "#4A3A1D", outlier.alpha = 0.35) +
+  coord_flip() +
+  labs(
+    x = "Classe de population",
+    y = "Indice RFU publié",
+    title = "Indice RFU par classe de population",
+    subtitle = "Profil financier 2024-2025, données de 2025"
+  )
+```
 
 ## Livrables
 
-1. Un fichier préparé dans `data_processed/`, ou une description précise du traitement si les données ne sont pas redistribuées.
-2. Un court dictionnaire des variables utilisées.
-3. Deux visualisations complémentaires.
-4. Un paragraphe sur la provenance, la licence et les limites.
-5. Une conclusion pédagogique adaptée à un public de première année.
+1. Une courte description de la source, de la licence et de l'unité statistique.
+2. Un tableau de valeurs manquantes commenté.
+3. Un tableau de résumé par classe de population.
+4. Un tableau ou graphique par région administrative.
+5. Deux visualisations complémentaires.
+6. Une section de limites expliquant ce que le fichier ne permet pas de conclure.
 
 ## Critères d'évaluation suggérés
 
 - Reproductibilité du traitement.
-- Qualité des noms de variables.
+- Utilisation explicite du dictionnaire des postes.
 - Pertinence des regroupements.
 - Lisibilité des graphiques.
 - Prudence de l'interprétation.
+- Distinction claire entre description, comparaison et explication causale.
+
+## Mise en garde à intégrer
+
+Le fichier préparé ne mesure pas directement les dépenses municipales. Il ne suffit donc pas pour répondre à une question du type : quelle municipalité dépense le plus efficacement? Une analyse de ce type demanderait d'autres sources, une définition opérationnelle de l'efficacité et une stratégie méthodologique plus avancée.

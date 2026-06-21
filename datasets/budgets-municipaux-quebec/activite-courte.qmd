@@ -1,33 +1,112 @@
 ---
-title: "Laboratoire - Budgets municipaux"
+title: "Laboratoire - Profils fonciers par classe de population"
 embed-resources: true
 ---
 
-# Laboratoire - Budgets municipaux
+# Laboratoire - Profils fonciers par classe de population
 
 ## Contexte
 
-Ce laboratoire utilise la fiche [Budgets municipaux du Québec](fiche.qmd) pour travailler une question québécoise concrète dans un format adapté à une activité d'introduction en science des données.
+Le profil financier des municipalités locales contient des indicateurs financiers, fiscaux et fonciers publiés par le MAMH. Dans ce laboratoire, on utilise la ressource 2024-2025, données de 2025, pour comparer les profils selon la taille des municipalités.
+
+La difficulté principale n'est pas le code. Elle consiste à comprendre que les colonnes `FIALX` doivent être lues avec le dictionnaire officiel des postes.
 
 ## Objectifs d'apprentissage
 
-- Identifier l'unité statistique d'un jeu de données réel.
-- Importer ou préparer une ressource officielle sans perdre la provenance.
-- Produire une visualisation simple et interprétable.
-- Formuler une conclusion prudente en séparant description et explication.
+- Importer une table préparée issue d'une source officielle.
+- Identifier l'unité statistique.
+- Utiliser un dictionnaire de variables.
+- Comparer des groupes avec des statistiques descriptives.
+- Produire une visualisation claire et interprétable.
+- Écrire une conclusion prudente.
 
 ## Question directrice
 
-Les municipalités dépensent-elles différemment selon leur taille?
+Comment la part résidentielle de l'évaluation imposable uniformisée varie-t-elle selon la classe de population?
+
+## Données à utiliser
+
+Fichier préparé : `data/processed/budgets-municipaux-quebec/profil_financier_municipalites_2025.csv`.
+
+Dictionnaire préparé : `data/processed/budgets-municipaux-quebec/dictionnaire_postes_profil_financier_2025.csv`.
+
+Si les fichiers ne sont pas présents, exécuter depuis la racine du projet :
+
+```r
+source("datasets/budgets-municipaux-quebec/preparation.R")
+```
+
+## Code de départ
+
+```{r}
+#| eval: false
+# Load libraries
+library(dplyr)
+library(ggplot2)
+library(readr)
+
+# Import prepared data
+municipalites <- read_csv(
+  "data/processed/budgets-municipaux-quebec/profil_financier_municipalites_2025.csv",
+  show_col_types = FALSE
+)
+
+dictionnaire <- read_csv(
+  "data/processed/budgets-municipaux-quebec/dictionnaire_postes_profil_financier_2025.csv",
+  show_col_types = FALSE
+)
+
+# Check the meaning of FIALX02005
+dictionnaire |>
+  filter(code_poste == "FIALX02005") |>
+  select(code_poste, libelle_court, type_indicateur)
+
+# Summarise by population class
+resume_classes <- municipalites |>
+  filter(!is.na(classe_population), !is.na(FIALX02005)) |>
+  group_by(classe_population) |>
+  summarise(
+    municipalites = n(),
+    population_totale = sum(population, na.rm = TRUE),
+    part_residentielle_mediane = median(FIALX02005, na.rm = TRUE),
+    part_residentielle_q1 = quantile(FIALX02005, 0.25, na.rm = TRUE),
+    part_residentielle_q3 = quantile(FIALX02005, 0.75, na.rm = TRUE),
+    .groups = "drop"
+  )
+
+resume_classes
+
+# Plot distribution by class
+ggplot(
+  municipalites |> filter(!is.na(classe_population), !is.na(FIALX02005)),
+  aes(x = classe_population, y = FIALX02005)
+) +
+  geom_boxplot(fill = "#8FC7D9", color = "#1F3B57", outlier.alpha = 0.35) +
+  coord_flip() +
+  labs(
+    x = "Classe de population",
+    y = "Part résidentielle publiée",
+    title = "Part résidentielle par classe de population",
+    subtitle = "Profil financier 2024-2025, données de 2025"
+  )
+```
 
 ## Consignes
 
-1. Lire la fiche et repérer la source officielle.
-2. Identifier les variables nécessaires : `municipalite`, `annee`, `population`, `revenus_totaux`, `depenses_totales`, `dette`, `categorie_depense`.
-3. Décrire les valeurs manquantes, les types de variables et les unités.
-4. Produire au moins une visualisation parmi : barplots, treemaps, graphiques de proportions.
-5. Rédiger une conclusion de 5 à 8 lignes avec une limite méthodologique.
+1. Lire la fiche du jeu de données.
+2. Expliquer en une phrase ce que représente une ligne.
+3. Identifier le sens de `FIALX02005` dans le dictionnaire.
+4. Produire un tableau de résumé par classe de population.
+5. Produire un graphique comparant les classes.
+6. Rédiger une conclusion de 5 à 8 lignes.
 
-## Pistes de solution
+## Points à discuter
 
-Une bonne réponse décrit la tendance principale, nomme le regroupement utilisé et explicite au moins une limite de la source. Une réponse excellente justifie aussi le choix du graphique et signale les décisions de nettoyage.
+- Pourquoi utilise-t-on la médiane plutôt que la moyenne?
+- Pourquoi faut-il garder les codes géographiques comme du texte?
+- Pourquoi ne peut-on pas conclure que la taille d'une municipalité cause un profil foncier donné?
+- Pourquoi ce fichier ne mesure-t-il pas directement les dépenses municipales?
+
+## Attendu
+
+Une bonne réponse nomme l'unité statistique, cite le dictionnaire des postes, décrit une différence entre classes de population et formule au moins une limite. Une excellente réponse explique aussi pourquoi la visualisation choisie est adaptée à une distribution de 1 105 municipalités.

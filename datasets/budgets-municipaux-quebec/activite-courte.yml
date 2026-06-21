@@ -1,25 +1,27 @@
-id: budgets-municipaux-quebec-court
-title: "Laboratoire - Budgets municipaux"
-question: "Les municipalités dépensent-elles différemment selon leur taille?"
+id: profil-financier-classes-court
+title: "Profils fonciers par classe de population"
+question: "Comment la part résidentielle de l'évaluation imposable uniformisée varie-t-elle selon la classe de population?"
 dataset_id: budgets-municipaux-quebec
-dataset_title: "Budgets municipaux du Québec"
+dataset_title: "Profil financier des municipalités locales du Québec"
 activity_url: "datasets/budgets-municipaux-quebec/activite-courte.qmd"
-duration: "60-90 minutes"
-level: "Introduction"
+duration: "45-60 minutes"
+level: "Introduction à intermédiaire"
 activity_type:
-  - "Laboratoire d'introduction"
+  - "Laboratoire"
   - "Exploration de données"
 concepts:
-  - "regroupements"
-  - "ratios"
-  - "comparaisons"
-  - "statistiques descriptives"
-context: "Finances publiques municipales"
-hook: "Question québécoise concrète"
+  - "Dictionnaire de variables"
+  - "Classes de population"
+  - "Médiane"
+  - "Visualisation"
+  - "Interprétation prudente"
+context: "Finances et fiscalité municipales"
+hook: "Les petites et grandes municipalités ne se comparent pas sans tenir compte des classes de population"
 materials:
   - "fiche"
   - "code"
-  - "source officielle"
+  - "table préparée"
+  - "dictionnaire des postes"
 advanced_math_stats: false
-teacher_notes: "Faire valider l'unité statistique et la provenance avant tout graphique."
-status: "prêt à adapter"
+teacher_notes: "Faire vérifier le sens de FIALX02005 dans le dictionnaire avant tout graphique."
+status: "source officielle vérifiée"

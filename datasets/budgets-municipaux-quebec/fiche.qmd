@@ -1,5 +1,5 @@
 ---
-title: "Budgets municipaux du Québec"
+title: "Profil financier des municipalités locales du Québec"
 embed-resources: true
 page-layout: full
 toc: false
@@ -18,120 +18,251 @@ render_dataset_detail_header()
 
 ## Pourquoi ce jeu est intéressant
 
-Ce jeu de données place les étudiants et étudiantes devant une source québécoise réaliste, avec des variables interprétables et des décisions de nettoyage authentiques.
+Ce jeu est utile pour enseigner un réflexe central en science des données : lire la documentation avant d'analyser. Le titre courant parle souvent de finances municipales, mais le CSV préparé ici ne contient pas un budget détaillé par postes de dépenses. Il décrit plutôt le profil financier 2024-2025 des municipalités locales, avec des indicateurs issus du sommaire du rôle d'évaluation foncière 2025.
 
-Question d'analyse : Les municipalités dépensent-elles différemment selon leur taille?
+La valeur pédagogique est forte parce que les étudiants doivent relier trois tables : les municipalités, les classes de population et le dictionnaire des postes `FIALX`. On peut donc travailler l'importation de données ouvertes, le passage au format long, les ratios, les valeurs manquantes et la communication prudente.
 
-## Source
+Question d'analyse : comment les indicateurs de richesse foncière varient-ils selon la taille et la région des municipalités?
+
+## Ce qui a été vérifié
+
+| Élément | Résultat vérifié |
+|---|---|
+| Paquet CKAN | `b34de345-5bfe-4db2-a714-ed239a0c0b81` |
+| Source officielle | Données Québec / Ministère des Affaires municipales et de l'Habitation |
+| Ressources dans le paquet | 215 ressources |
+| Ressource préparée ici | `PF-2024-2025.csv` |
+| Dictionnaire préparé | `PF-2024-2025-DescriptionPoste.csv` |
+| Profil | 2024-2025 |
+| Année de la donnée | 2025 |
+| Licence | Attribution (CC-BY 4.0), selon les métadonnées CKAN consultées le 2026-06-21 |
+| Dernière modification du paquet CKAN | 2026-06-19 |
+| Dernière modification du CSV municipal | 2026-06-19 |
+| Table préparée | `data/processed/budgets-municipaux-quebec/profil_financier_municipalites_2025.csv` |
+| Table longue préparée | `data/processed/budgets-municipaux-quebec/profil_financier_municipalites_long_2025.csv` |
+
+## Source et conditions
 
 | Champ | Information |
 |---|---|
-| Organisme producteur | Données Québec / Ministère des Affaires municipales et de l'Habitation |
-| Source | Profil financier des municipalités locales |
-| URL | <https://www.donneesquebec.ca/recherche/dataset/profil-financier-des-municipalites-locales> |
-| Licence | Attribution (CC-BY 4.0) selon les métadonnées CKAN vérifiées le 2026-06-19 |
-| Date d'accès | 2026-06-19 |
-| Fréquence de mise à jour | Annuelle; métadonnées CKAN modifiées le 2026-06-19 |
-| Statut | source vérifiée; ressource exacte à sélectionner pour le laboratoire |
+| Page Données Québec | <https://www.donneesquebec.ca/recherche/dataset/profil-financier-des-municipalites-locales> |
+| API CKAN | <https://www.donneesquebec.ca/recherche/api/3/action/package_show?id=profil-financier-des-municipalites-locales> |
+| CSV municipal officiel | <https://mamh.gouv.qc.ca/fichiersdonneesouvertes/PF-2024-2025.csv> |
+| Dictionnaire officiel des postes | <https://mamh.gouv.qc.ca/fichiersdonneesouvertes/PF-2024-2025-DescriptionPoste.csv> |
+| Page Québec.ca | <https://www.quebec.ca/gouvernement/gestion-municipale/finances-fiscalite-municipales/information-financiere/publications-financieres/profil-financier> |
+| Territoire | Québec |
+| Date d'accès | 2026-06-21 |
+| Fréquence | Annuelle |
+| Contact officiel indiqué par Québec.ca | `information.financiere@mamh.gouv.qc.ca` |
+
+La page Québec.ca indique que le profil financier permet d'obtenir des données financières et fiscales, des ratios et des comparaisons avec différents groupes de municipalités. Elle précise aussi que certaines catégories de territoires ne sont pas publiées dans les profils, notamment les villages nordiques et plusieurs territoires autochtones.
 
 ## Ce que représente une ligne
 
-Municipalité, agrégation territoriale ou poste financier selon le fichier choisi.
+Dans la table municipale préparée, une ligne représente une municipalité locale ou une agglomération publiée dans le fichier `PF-2024-2025.csv`.
+
+Dans la table longue préparée, une ligne représente une combinaison `municipalité x indicateur financier`. Cette version est plus adaptée aux graphiques et aux exercices de nettoyage, car le dictionnaire officiel des postes donne le sens de chaque code `FIALX`.
+
+Une ligne n'est pas un budget municipal complet, une dépense annuelle, une dette totale, ni une mesure de qualité de gestion municipale.
 
 ## Variables principales
 
-| Variable | Type | Description | Exemple |
-|---|---|---|---|
-| `municipalite` | caractère | Nom de la municipalité ou du territoire. | Lévis |
-| `annee` | entier | Année financière ou année de référence. | 2024 |
-| `population` | numérique | Population associée au territoire. | 151000 |
-| `revenus_totaux` | numérique | Revenus totaux déclarés ou calculés. | 450000000 |
-| `depenses_totales` | numérique | Dépenses totales déclarées ou calculées. | 430000000 |
-| `dette` | numérique | Dette ou endettement selon la définition du fichier. | 920000000 |
-| `categorie_depense` | caractère | Catégorie ou poste de dépense. | Transport |
+| Variable préparée | Rôle | Point de vigilance |
+|---|---|---|
+| `annee_edition` | Année du profil financier | Vaut 2024 dans la ressource préparée |
+| `annee_donnee` | Année de la donnée source | Vaut 2025 dans la ressource préparée |
+| `code_geographique` | Code géographique officiel | À conserver comme texte |
+| `municipalite` | Nom de l'organisme municipal | Peut changer dans le temps |
+| `region_administrative` | Région administrative | Utile pour les agrégations |
+| `mrc` | MRC ou territoire équivalent | Manquant pour certains organismes |
+| `population` | Population décrétée | Deux lignes n'ont pas de population publiée |
+| `classe_population` | Classe de population | Variable principale pour une activité d'introduction |
+| `FIALX01959` | RFU selon le dictionnaire officiel | Numérateur financier |
+| `FIALX02005` | Part résidentielle de l'évaluation imposable uniformisée | Ratio publié |
+| `FIALX02006` | Part industrielle et commerciale de l'évaluation imposable uniformisée | Ratio publié |
+| `FIALX02007` | Part agricole de l'évaluation imposable uniformisée | Ratio publié |
+| `FIALX02010` | Évaluation moyenne uniformisée par logement | Ratio publié |
+| `FIALX02097` | Indice de RFU par unité d'évaluation imposable et compensable | Indice, pas un classement causal |
 
-## Taille et structure
+## RÉSULTATS R
 
-| Élément | Information |
-|---|---|
-| Nombre de lignes | Plusieurs fichiers annuels; volume variable selon le niveau municipal ou agrégé |
-| Nombre de colonnes | Colonnes financières et territoriales variables selon la ressource |
-| Structure | Tabulaire, financier, territorial |
-| Format | CSV et XLSX |
-| Couverture géographique | Municipalités locales, MRC, régions administratives et ensemble du Québec selon la ressource retenue |
-| Couverture temporelle | Ressources annuelles et fichiers agrégés disponibles pour plusieurs exercices financiers |
+| Indicateur | Valeur |
+|---|---:|
+| Ressources CKAN documentées | 215 |
+| Ressources préparées localement | 2 |
+| Lignes dans le CSV municipal source | 1 105 |
+| Colonnes dans le CSV municipal source | 29 |
+| Municipalités ou agglomérations préparées | 1 105 |
+| Indicateurs financiers municipaux `FIALX` | 14 |
+| Lignes dans la version longue | 15 470 |
+| Régions administratives représentées | 17 |
+| MRC ou territoires équivalents représentés | 87 |
+| Classes de population publiées | 5 |
+| Lignes sans classe de population publiée | 2 |
+| Population totale dans la table | 8 979 690 |
+| Population minimale publiée | 9 |
+| Population maximale publiée | 1 948 747 |
+
+## Résumé par classe de population
+
+| Classe de population | Municipalités | Population totale | Population médiane | Part résidentielle médiane | Part industrielle et commerciale médiane | Évaluation moyenne par logement médiane | Indice RFU médian |
+|---|---:|---:|---:|---:|---:|---:|---:|
+| 0 à 1 999 | 698 | 600 239 | 772,5 | 65,29 | 7,14 | 218 836 | 100 |
+| 2 000 à 9 999 | 292 | 1 213 456 | 3 316,5 | 74,62 | 8,87 | 287 702 | 100 |
+| 10 000 à 24 999 | 66 | 1 046 362 | 14 834,0 | 83,53 | 10,47 | 385 930,5 | 100 |
+| 25 000 à 99 999 | 36 | 1 677 850 | 42 534,5 | 81,77 | 15,24 | 401 188 | 100 |
+| 100 000 et plus | 11 | 4 441 783 | 184 667,0 | 82,13 | 15,38 | 344 829 | 100 |
+| Classe non publiée | 2 | 0 | NA | NA | NA | NA | 0 |
+
+Lecture pédagogique : les classes plus populeuses ne sont pas simplement des versions agrandies des petites municipalités. Les parts résidentielles, industrielles et commerciales varient avec la taille, mais ces résultats sont descriptifs. Ils ne prouvent pas une cause.
+
+## Régions les plus populeuses dans la table
+
+| Région administrative | Municipalités | Population totale | Part résidentielle médiane | Indice RFU médian |
+|---|---:|---:|---:|---:|
+| Montréal | 16 | 2 204 633 | 83,97 | 300,5 |
+| Montérégie | 148 | 1 500 811 | 62,69 | 167,5 |
+| Capitale-Nationale | 57 | 812 240 | 76,58 | 103,0 |
+| Laurentides | 76 | 674 641 | 83,45 | 104,5 |
+| Lanaudière | 57 | 559 061 | 79,00 | 111,0 |
+| Estrie | 117 | 524 663 | 66,56 | 146,0 |
+
+Cette table est utile pour discuter du poids démographique. Une région peut contenir beaucoup de municipalités sans représenter la plus grande population totale.
+
+## Valeurs manquantes importantes
+
+| Variable | Valeurs manquantes | Pourcentage |
+|---|---:|---:|
+| `code_communaute_metropolitaine` | 996 | 90,14 % |
+| `communaute_metropolitaine` | 996 | 90,14 % |
+| `code_mrc` | 43 | 3,89 % |
+| `mrc` | 43 | 3,89 % |
+| `population` | 2 | 0,18 % |
+| `classe_population` | 2 | 0,18 % |
+| Plusieurs indicateurs `FIALX` | 4 | 0,36 % |
+
+Les valeurs manquantes ne doivent pas être traitées automatiquement comme des zéros. Par exemple, l'absence de communauté métropolitaine indique surtout que la municipalité n'appartient pas à une communauté métropolitaine publiée dans cette colonne.
+
+## Lecture statistique
+
+Une analyse prudente suit cet ordre :
+
+1. vérifier que l'unité est la municipalité ou l'agglomération publiée;
+2. lire le dictionnaire des postes avant de renommer les variables `FIALX`;
+3. distinguer population totale, nombre de municipalités et classes de population;
+4. calculer des résumés descriptifs par classe ou par région;
+5. repérer les valeurs manquantes;
+6. éviter de présenter les indices comme des mesures de performance municipale.
+
+Les données permettent de décrire des profils financiers publiés par le MAMH. Elles ne permettent pas, seules, d'expliquer pourquoi une municipalité a un profil foncier différent, ni d'évaluer la qualité de son administration.
 
 ## Concepts enseignables
 
-- regroupements;
-- ratios;
-- comparaisons;
-- statistiques descriptives;
-- visualisation de proportions;
-
-## Visualisations suggérées
-
-- barplots;
-- treemaps;
-- graphiques de proportions;
+- importation d'un CSV officiel;
+- documentation des variables avec un dictionnaire séparé;
+- passage du format large au format long;
+- regroupements par classe de population;
+- médianes et valeurs extrêmes;
+- comparaison descriptive;
+- valeurs manquantes;
+- interprétation prudente d'indices administratifs.
 
 ## Score zéro déchet
 
-| Dimension | Score |
-|---|---:|
-| Contexte québécois | 3 |
-| Accessibilité pédagogique | 3 |
-| Qualité documentaire | 3 |
-| Potentiel de nettoyage | 2 |
-| Potentiel de visualisation | 3 |
-| Potentiel de statistique descriptive | 3 |
-| Potentiel d'inférence | 2 |
-| Potentiel de modélisation | 2 |
-| Potentiel de discussion éthique | 3 |
-| Réutilisabilité dans plusieurs cours | 3 |
+| Dimension | Score | Justification |
+|---|---:|---|
+| Contexte québécois | 3 | Données officielles sur les municipalités du Québec |
+| Accessibilité pédagogique | 3 | Variables territoriales simples et classes de population |
+| Qualité documentaire | 3 | Page officielle, API CKAN, CSV et dictionnaire des postes |
+| Potentiel de nettoyage | 3 | Codes, dictionnaire, format long, valeurs manquantes |
+| Potentiel de visualisation | 3 | Barres, boîtes à moustaches, facettes par région |
+| Potentiel de statistique descriptive | 3 | Comparaisons naturelles par classe et région |
+| Potentiel d'inférence | 1 | Inférence limitée sans plan complémentaire |
+| Potentiel de modélisation | 2 | Modélisation descriptive possible, mais prudence nécessaire |
+| Potentiel éthique | 3 | Communication publique sur des indicateurs municipaux |
+| Réutilisabilité | 3 | Utile en introduction, visualisation et données ouvertes |
 
 Total : 27 sur 30.
 
 ## Activité courte
 
-[Laboratoire](activite-courte.qmd) : Les municipalités dépensent-elles différemment selon leur taille?
+En 45 à 60 minutes, comparer les profils fonciers par classe de population et expliquer pourquoi une médiane par groupe est plus lisible qu'une liste de 1 105 municipalités.
 
 ## Activité longue
 
-[Mini-projet](activite-longue.qmd) : Comparer les profils financiers de municipalités de tailles différentes en documentant les limites des ratios par habitant.
+En 2 à 3 heures, produire un portrait descriptif par classe de population et par région, avec table longue, dictionnaire des postes, valeurs manquantes et limites d'interprétation.
 
 ## Code R minimal
 
+À exécuter depuis la racine du projet.
+
 ```{r}
 #| eval: false
+# Load libraries
 library(dplyr)
+library(ggplot2)
 library(readr)
-library(stringr)
 
-source_page <- "https://www.donneesquebec.ca/recherche/dataset/profil-financier-des-municipalites-locales"
+# Prepare official CSV resources
+source("datasets/budgets-municipaux-quebec/preparation.R")
 
-# Étape 1 : ouvrir la page officielle et choisir la ressource documentée.
-# Étape 2 : enregistrer le fichier brut dans data_raw/.
-# Étape 3 : harmoniser les noms vers : `municipalite`, `annee`, `population`, `revenus_totaux`, `depenses_totales`, `dette`, `categorie_depense`.
+# Import prepared data
+municipalites <- read_csv(
+  "data/processed/budgets-municipaux-quebec/profil_financier_municipalites_2025.csv",
+  show_col_types = FALSE
+)
 
-donnees <- read_csv("data_raw/source_officielle_a_renommer.csv", show_col_types = FALSE)
+# Summarise by population class
+resume_classes <- municipalites |>
+  group_by(classe_population) |>
+  summarise(
+    municipalites = n(),
+    population_totale = sum(population, na.rm = TRUE),
+    part_residentielle_mediane = median(FIALX02005, na.rm = TRUE),
+    part_industrielle_commerciale_mediane = median(FIALX02006, na.rm = TRUE),
+    .groups = "drop"
+  )
 
-donnees |>
-  glimpse()
+resume_classes
+
+# Visualise one indicator
+ggplot(
+  municipalites |> filter(!is.na(classe_population), !is.na(FIALX02005)),
+  aes(x = classe_population, y = FIALX02005)
+) +
+  geom_boxplot(fill = "#8FC7D9", color = "#1F3B57", outlier.alpha = 0.35) +
+  coord_flip() +
+  labs(
+    x = "Classe de population",
+    y = "Part résidentielle publiée",
+    title = "Part résidentielle de l'évaluation imposable uniformisée",
+    subtitle = "Profil financier 2024-2025, données de 2025"
+  )
 ```
 
 ## Limites et précautions
 
-- Les noms de variables pédagogiques sont harmonisés; ils devront être mappés aux noms officiels du fichier annuel choisi.
-- Les noms de variables proposés sont des noms pédagogiques harmonisés; ils doivent être mappés aux noms officiels après inspection de la ressource.
-- Aucune conclusion causale ne doit être tirée sans plan d'analyse plus avancé.
+- Le CSV préparé ici provient du sommaire du rôle d'évaluation foncière 2025.
+- Le fichier ne contient pas un budget municipal détaillé par postes de dépenses.
+- Les noms de municipalités peuvent changer dans le temps.
+- Certaines catégories de territoires ne sont pas publiées dans les profils financiers.
+- Les classes de population simplifient fortement la structure municipale.
+- Les ratios et indices doivent être interprétés avec le dictionnaire officiel des postes.
+- Les comparaisons par région ou classe sont descriptives.
 
 ## Extensions
 
-- Extension intro : produire un tableau de fréquences ou de moyennes par groupe.
-- Extension intermédiaire : ajouter une visualisation claire et une interprétation écrite.
-- Extension avancée : construire une version préparée et documentée dans `data_processed/`.
-- Extension communication scientifique : expliquer en une page ce que la source permet et ne permet pas de conclure.
+- Comparer les résultats avec et sans les municipalités de 100 000 habitants et plus.
+- Faire une table longue et produire une facette par indicateur.
+- Joindre une géographie régionale pour produire une carte agrégée.
+- Comparer le profil 2025 à une année antérieure en réutilisant le même script.
+- Rédiger une note méthodologique expliquant pourquoi le fichier ne mesure pas directement les dépenses.
+
+## Références utilisées
+
+- Données Québec. 2026. Profil financier des municipalités locales. <https://www.donneesquebec.ca/recherche/dataset/profil-financier-des-municipalites-locales>
+- Données Québec. 2026. API CKAN du paquet Profil financier des municipalités locales. <https://www.donneesquebec.ca/recherche/api/3/action/package_show?id=profil-financier-des-municipalites-locales>
+- Ministère des Affaires municipales et de l'Habitation. 2026. Profil financier des municipalités. <https://www.quebec.ca/gouvernement/gestion-municipale/finances-fiscalite-municipales/information-financiere/publications-financieres/profil-financier>
 
 ```{r}
 #| label: dataset-detail-footer
@@ -139,4 +270,3 @@ donnees |>
 #| results: asis
 render_dataset_detail_footer()
 ```
-

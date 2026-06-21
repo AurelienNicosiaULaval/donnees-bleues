@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Mini-projet - Budgets municipaux – Données bleues</title>
+<title>Mini-projet - Portrait descriptif des profils financiers municipaux – Données bleues</title>
 <style>
 
 code{white-space: pre-wrap;}
@@ -19,6 +19,41 @@ ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
 width: 0.8em;
 margin: 0 0.8em 0.2em -1em;  vertical-align: middle;
+}
+
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+{ counter-reset: source-line 0; }
+pre.numberSource code > span
+{ position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+{ content: counter(source-line);
+position: relative; left: -1em; text-align: right; vertical-align: baseline;
+border: none; display: inline-block;
+-webkit-touch-callout: none; -webkit-user-select: none;
+-khtml-user-select: none; -moz-user-select: none;
+-ms-user-select: none; user-select: none;
+padding: 0 4px; width: 4em;
+}
+pre.numberSource { margin-left: 3em; padding-left: 4px; }
+div.sourceCode
+{ }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -5482,12 +5517,15 @@ grid-template-columns: 1fr;
     <h2 id="toc-title">On this page</h2>
 
   <ul>
-  <li><a href="#mini-projet---budgets-municipaux" id="toc-mini-projet---budgets-municipaux" class="nav-link active" data-scroll-target="#mini-projet---budgets-municipaux">Mini-projet - Budgets municipaux</a>
+  <li><a href="#mini-projet---portrait-descriptif-des-profils-financiers-municipaux" id="toc-mini-projet---portrait-descriptif-des-profils-financiers-municipaux" class="nav-link active" data-scroll-target="#mini-projet---portrait-descriptif-des-profils-financiers-municipaux">Mini-projet - Portrait descriptif des profils financiers municipaux</a>
   <ul class="collapse">
   <li><a href="#contexte" id="toc-contexte" class="nav-link" data-scroll-target="#contexte">Contexte</a></li>
   <li><a href="#question-directrice" id="toc-question-directrice" class="nav-link" data-scroll-target="#question-directrice">Question directrice</a></li>
+  <li><a href="#données-à-utiliser" id="toc-données-à-utiliser" class="nav-link" data-scroll-target="#données-à-utiliser">Données à utiliser</a></li>
+  <li><a href="#code-de-départ" id="toc-code-de-départ" class="nav-link" data-scroll-target="#code-de-départ">Code de départ</a></li>
   <li><a href="#livrables" id="toc-livrables" class="nav-link" data-scroll-target="#livrables">Livrables</a></li>
   <li><a href="#critères-dévaluation-suggérés" id="toc-critères-dévaluation-suggérés" class="nav-link" data-scroll-target="#critères-dévaluation-suggérés">Critères d’évaluation suggérés</a></li>
+  <li><a href="#mise-en-garde-à-intégrer" id="toc-mise-en-garde-à-intégrer" class="nav-link" data-scroll-target="#mise-en-garde-à-intégrer">Mise en garde à intégrer</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -5497,7 +5535,7 @@ grid-template-columns: 1fr;
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Mini-projet - Budgets municipaux</h1>
+<h1 class="title">Mini-projet - Portrait descriptif des profils financiers municipaux</h1>
 </div>
 
 
@@ -5514,35 +5552,129 @@ grid-template-columns: 1fr;
 </header>
 
 
-<section id="mini-projet---budgets-municipaux" class="level1">
-<h1>Mini-projet - Budgets municipaux</h1>
+<section id="mini-projet---portrait-descriptif-des-profils-financiers-municipaux" class="level1">
+<h1>Mini-projet - Portrait descriptif des profils financiers municipaux</h1>
 <section id="contexte" class="level2">
 <h2 class="anchored" data-anchor-id="contexte">Contexte</h2>
-<p>Ce mini-projet prolonge le laboratoire court en demandant une préparation reproductible et une interprétation plus structurée.</p>
+<p>Ce mini-projet demande de construire un portrait descriptif des profils financiers municipaux publiés par le MAMH. Le but n’est pas de juger les municipalités, mais de produire une analyse transparente, reproductible et prudente.</p>
+<p>Le projet doit utiliser les fichiers préparés par <code>preparation.R</code>, en particulier la table longue. Cette structure oblige à documenter le sens des indicateurs au lieu de traiter les codes <code>FIALX</code> comme des noms évidents.</p>
 </section>
 <section id="question-directrice" class="level2">
 <h2 class="anchored" data-anchor-id="question-directrice">Question directrice</h2>
-<p>Comparer les profils financiers de municipalités de tailles différentes en documentant les limites des ratios par habitant.</p>
+<p>Comment décrire les profils financiers et fonciers des municipalités du Québec selon la classe de population et la région administrative?</p>
+</section>
+<section id="données-à-utiliser" class="level2">
+<h2 class="anchored" data-anchor-id="données-à-utiliser">Données à utiliser</h2>
+<ul>
+<li><code>data/processed/budgets-municipaux-quebec/profil_financier_municipalites_2025.csv</code></li>
+<li><code>data/processed/budgets-municipaux-quebec/profil_financier_municipalites_long_2025.csv</code></li>
+<li><code>data/processed/budgets-municipaux-quebec/dictionnaire_postes_profil_financier_2025.csv</code></li>
+<li><code>data/processed/budgets-municipaux-quebec/valeurs_manquantes_profil_financier_2025.csv</code></li>
+</ul>
+<p>Si les fichiers ne sont pas présents, exécuter depuis la racine du projet :</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">&quot;datasets/budgets-municipaux-quebec/preparation.R&quot;</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="code-de-départ" class="level2">
+<h2 class="anchored" data-anchor-id="code-de-départ">Code de départ</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load libraries</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(stringr)</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Import prepared files</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>municipalites <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;data/processed/budgets-municipaux-quebec/profil_financier_municipalites_2025.csv&quot;</span>,</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">show_col_types =</span> <span class="cn">FALSE</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>profil_long <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;data/processed/budgets-municipaux-quebec/profil_financier_municipalites_long_2025.csv&quot;</span>,</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>  <span class="at">show_col_types =</span> <span class="cn">FALSE</span></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>dictionnaire <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(</span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;data/processed/budgets-municipaux-quebec/dictionnaire_postes_profil_financier_2025.csv&quot;</span>,</span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>  <span class="at">show_col_types =</span> <span class="cn">FALSE</span></span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>valeurs_manquantes <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(</span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;data/processed/budgets-municipaux-quebec/valeurs_manquantes_profil_financier_2025.csv&quot;</span>,</span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>  <span class="at">show_col_types =</span> <span class="cn">FALSE</span></span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a><span class="co"># Choose a small set of interpretable indicators</span></span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a>indicateurs_retenus <span class="ot">&lt;-</span> <span class="fu">c</span>(</span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;FIALX02005&quot;</span>,</span>
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;FIALX02006&quot;</span>,</span>
+<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;FIALX02007&quot;</span>,</span>
+<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;FIALX02010&quot;</span>,</span>
+<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;FIALX02097&quot;</span></span>
+<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a>profil_selection <span class="ot">&lt;-</span> profil_long <span class="sc">|&gt;</span></span>
+<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(code_poste <span class="sc">%in%</span> indicateurs_retenus, <span class="sc">!</span><span class="fu">is.na</span>(valeur)) <span class="sc">|&gt;</span></span>
+<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(</span>
+<span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a>    dictionnaire <span class="sc">|&gt;</span> <span class="fu">select</span>(code_poste, libelle_court, type_indicateur),</span>
+<span id="cb2-41"><a href="#cb2-41" aria-hidden="true" tabindex="-1"></a>    <span class="at">by =</span> <span class="fu">c</span>(<span class="st">&quot;code_poste&quot;</span>, <span class="st">&quot;libelle_court&quot;</span>, <span class="st">&quot;type_indicateur&quot;</span>)</span>
+<span id="cb2-42"><a href="#cb2-42" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb2-43"><a href="#cb2-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-44"><a href="#cb2-44" aria-hidden="true" tabindex="-1"></a><span class="co"># Summary by region and indicator</span></span>
+<span id="cb2-45"><a href="#cb2-45" aria-hidden="true" tabindex="-1"></a>resume_regions <span class="ot">&lt;-</span> profil_selection <span class="sc">|&gt;</span></span>
+<span id="cb2-46"><a href="#cb2-46" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(region_administrative)) <span class="sc">|&gt;</span></span>
+<span id="cb2-47"><a href="#cb2-47" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(region_administrative, code_poste, libelle_court) <span class="sc">|&gt;</span></span>
+<span id="cb2-48"><a href="#cb2-48" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb2-49"><a href="#cb2-49" aria-hidden="true" tabindex="-1"></a>    <span class="at">municipalites =</span> <span class="fu">n</span>(),</span>
+<span id="cb2-50"><a href="#cb2-50" aria-hidden="true" tabindex="-1"></a>    <span class="at">mediane =</span> <span class="fu">median</span>(valeur, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb2-51"><a href="#cb2-51" aria-hidden="true" tabindex="-1"></a>    <span class="at">q1 =</span> <span class="fu">quantile</span>(valeur, <span class="fl">0.25</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb2-52"><a href="#cb2-52" aria-hidden="true" tabindex="-1"></a>    <span class="at">q3 =</span> <span class="fu">quantile</span>(valeur, <span class="fl">0.75</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb2-53"><a href="#cb2-53" aria-hidden="true" tabindex="-1"></a>    <span class="at">.groups =</span> <span class="st">&quot;drop&quot;</span></span>
+<span id="cb2-54"><a href="#cb2-54" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb2-55"><a href="#cb2-55" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-56"><a href="#cb2-56" aria-hidden="true" tabindex="-1"></a>resume_regions</span>
+<span id="cb2-57"><a href="#cb2-57" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-58"><a href="#cb2-58" aria-hidden="true" tabindex="-1"></a><span class="co"># Visualise one selected indicator</span></span>
+<span id="cb2-59"><a href="#cb2-59" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(</span>
+<span id="cb2-60"><a href="#cb2-60" aria-hidden="true" tabindex="-1"></a>  profil_selection <span class="sc">|&gt;</span></span>
+<span id="cb2-61"><a href="#cb2-61" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(code_poste <span class="sc">==</span> <span class="st">&quot;FIALX02097&quot;</span>, <span class="sc">!</span><span class="fu">is.na</span>(classe_population)),</span>
+<span id="cb2-62"><a href="#cb2-62" aria-hidden="true" tabindex="-1"></a>  <span class="fu">aes</span>(<span class="at">x =</span> classe_population, <span class="at">y =</span> valeur)</span>
+<span id="cb2-63"><a href="#cb2-63" aria-hidden="true" tabindex="-1"></a>) <span class="sc">+</span></span>
+<span id="cb2-64"><a href="#cb2-64" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="at">fill =</span> <span class="st">&quot;#D8B365&quot;</span>, <span class="at">color =</span> <span class="st">&quot;#4A3A1D&quot;</span>, <span class="at">outlier.alpha =</span> <span class="fl">0.35</span>) <span class="sc">+</span></span>
+<span id="cb2-65"><a href="#cb2-65" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>() <span class="sc">+</span></span>
+<span id="cb2-66"><a href="#cb2-66" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb2-67"><a href="#cb2-67" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">&quot;Classe de population&quot;</span>,</span>
+<span id="cb2-68"><a href="#cb2-68" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">&quot;Indice RFU publié&quot;</span>,</span>
+<span id="cb2-69"><a href="#cb2-69" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">&quot;Indice RFU par classe de population&quot;</span>,</span>
+<span id="cb2-70"><a href="#cb2-70" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="st">&quot;Profil financier 2024-2025, données de 2025&quot;</span></span>
+<span id="cb2-71"><a href="#cb2-71" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
 </section>
 <section id="livrables" class="level2">
 <h2 class="anchored" data-anchor-id="livrables">Livrables</h2>
 <ol type="1">
-<li>Un fichier préparé dans <code>data_processed/</code>, ou une description précise du traitement si les données ne sont pas redistribuées.</li>
-<li>Un court dictionnaire des variables utilisées.</li>
+<li>Une courte description de la source, de la licence et de l’unité statistique.</li>
+<li>Un tableau de valeurs manquantes commenté.</li>
+<li>Un tableau de résumé par classe de population.</li>
+<li>Un tableau ou graphique par région administrative.</li>
 <li>Deux visualisations complémentaires.</li>
-<li>Un paragraphe sur la provenance, la licence et les limites.</li>
-<li>Une conclusion pédagogique adaptée à un public de première année.</li>
+<li>Une section de limites expliquant ce que le fichier ne permet pas de conclure.</li>
 </ol>
 </section>
 <section id="critères-dévaluation-suggérés" class="level2">
 <h2 class="anchored" data-anchor-id="critères-dévaluation-suggérés">Critères d’évaluation suggérés</h2>
 <ul>
 <li>Reproductibilité du traitement.</li>
-<li>Qualité des noms de variables.</li>
+<li>Utilisation explicite du dictionnaire des postes.</li>
 <li>Pertinence des regroupements.</li>
 <li>Lisibilité des graphiques.</li>
 <li>Prudence de l’interprétation.</li>
+<li>Distinction claire entre description, comparaison et explication causale.</li>
 </ul>
+</section>
+<section id="mise-en-garde-à-intégrer" class="level2">
+<h2 class="anchored" data-anchor-id="mise-en-garde-à-intégrer">Mise en garde à intégrer</h2>
+<p>Le fichier préparé ne mesure pas directement les dépenses municipales. Il ne suffit donc pas pour répondre à une question du type : quelle municipalité dépense le plus efficacement? Une analyse de ce type demanderait d’autres sources, une définition opérationnelle de l’efficacité et une stratégie méthodologique plus avancée.</p>
 
 
 </section>

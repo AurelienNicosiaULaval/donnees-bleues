@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Laboratoire - Budgets municipaux – Données bleues</title>
+<title>Laboratoire - Profils fonciers par classe de population – Données bleues</title>
 <style>
 
 code{white-space: pre-wrap;}
@@ -19,6 +19,41 @@ ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
 width: 0.8em;
 margin: 0 0.8em 0.2em -1em;  vertical-align: middle;
+}
+
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+{ counter-reset: source-line 0; }
+pre.numberSource code > span
+{ position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+{ content: counter(source-line);
+position: relative; left: -1em; text-align: right; vertical-align: baseline;
+border: none; display: inline-block;
+-webkit-touch-callout: none; -webkit-user-select: none;
+-khtml-user-select: none; -moz-user-select: none;
+-ms-user-select: none; user-select: none;
+padding: 0 4px; width: 4em;
+}
+pre.numberSource { margin-left: 3em; padding-left: 4px; }
+div.sourceCode
+{ }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -5482,13 +5517,16 @@ grid-template-columns: 1fr;
     <h2 id="toc-title">On this page</h2>
 
   <ul>
-  <li><a href="#laboratoire---budgets-municipaux" id="toc-laboratoire---budgets-municipaux" class="nav-link active" data-scroll-target="#laboratoire---budgets-municipaux">Laboratoire - Budgets municipaux</a>
+  <li><a href="#laboratoire---profils-fonciers-par-classe-de-population" id="toc-laboratoire---profils-fonciers-par-classe-de-population" class="nav-link active" data-scroll-target="#laboratoire---profils-fonciers-par-classe-de-population">Laboratoire - Profils fonciers par classe de population</a>
   <ul class="collapse">
   <li><a href="#contexte" id="toc-contexte" class="nav-link" data-scroll-target="#contexte">Contexte</a></li>
   <li><a href="#objectifs-dapprentissage" id="toc-objectifs-dapprentissage" class="nav-link" data-scroll-target="#objectifs-dapprentissage">Objectifs d’apprentissage</a></li>
   <li><a href="#question-directrice" id="toc-question-directrice" class="nav-link" data-scroll-target="#question-directrice">Question directrice</a></li>
+  <li><a href="#données-à-utiliser" id="toc-données-à-utiliser" class="nav-link" data-scroll-target="#données-à-utiliser">Données à utiliser</a></li>
+  <li><a href="#code-de-départ" id="toc-code-de-départ" class="nav-link" data-scroll-target="#code-de-départ">Code de départ</a></li>
   <li><a href="#consignes" id="toc-consignes" class="nav-link" data-scroll-target="#consignes">Consignes</a></li>
-  <li><a href="#pistes-de-solution" id="toc-pistes-de-solution" class="nav-link" data-scroll-target="#pistes-de-solution">Pistes de solution</a></li>
+  <li><a href="#points-à-discuter" id="toc-points-à-discuter" class="nav-link" data-scroll-target="#points-à-discuter">Points à discuter</a></li>
+  <li><a href="#attendu" id="toc-attendu" class="nav-link" data-scroll-target="#attendu">Attendu</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -5498,7 +5536,7 @@ grid-template-columns: 1fr;
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Laboratoire - Budgets municipaux</h1>
+<h1 class="title">Laboratoire - Profils fonciers par classe de population</h1>
 </div>
 
 
@@ -5515,38 +5553,112 @@ grid-template-columns: 1fr;
 </header>
 
 
-<section id="laboratoire---budgets-municipaux" class="level1">
-<h1>Laboratoire - Budgets municipaux</h1>
+<section id="laboratoire---profils-fonciers-par-classe-de-population" class="level1">
+<h1>Laboratoire - Profils fonciers par classe de population</h1>
 <section id="contexte" class="level2">
 <h2 class="anchored" data-anchor-id="contexte">Contexte</h2>
-<p>Ce laboratoire utilise la fiche <a href="../../datasets/budgets-municipaux-quebec/fiche.html">Budgets municipaux du Québec</a> pour travailler une question québécoise concrète dans un format adapté à une activité d’introduction en science des données.</p>
+<p>Le profil financier des municipalités locales contient des indicateurs financiers, fiscaux et fonciers publiés par le MAMH. Dans ce laboratoire, on utilise la ressource 2024-2025, données de 2025, pour comparer les profils selon la taille des municipalités.</p>
+<p>La difficulté principale n’est pas le code. Elle consiste à comprendre que les colonnes <code>FIALX</code> doivent être lues avec le dictionnaire officiel des postes.</p>
 </section>
 <section id="objectifs-dapprentissage" class="level2">
 <h2 class="anchored" data-anchor-id="objectifs-dapprentissage">Objectifs d’apprentissage</h2>
 <ul>
-<li>Identifier l’unité statistique d’un jeu de données réel.</li>
-<li>Importer ou préparer une ressource officielle sans perdre la provenance.</li>
-<li>Produire une visualisation simple et interprétable.</li>
-<li>Formuler une conclusion prudente en séparant description et explication.</li>
+<li>Importer une table préparée issue d’une source officielle.</li>
+<li>Identifier l’unité statistique.</li>
+<li>Utiliser un dictionnaire de variables.</li>
+<li>Comparer des groupes avec des statistiques descriptives.</li>
+<li>Produire une visualisation claire et interprétable.</li>
+<li>Écrire une conclusion prudente.</li>
 </ul>
 </section>
 <section id="question-directrice" class="level2">
 <h2 class="anchored" data-anchor-id="question-directrice">Question directrice</h2>
-<p>Les municipalités dépensent-elles différemment selon leur taille?</p>
+<p>Comment la part résidentielle de l’évaluation imposable uniformisée varie-t-elle selon la classe de population?</p>
+</section>
+<section id="données-à-utiliser" class="level2">
+<h2 class="anchored" data-anchor-id="données-à-utiliser">Données à utiliser</h2>
+<p>Fichier préparé : <code>data/processed/budgets-municipaux-quebec/profil_financier_municipalites_2025.csv</code>.</p>
+<p>Dictionnaire préparé : <code>data/processed/budgets-municipaux-quebec/dictionnaire_postes_profil_financier_2025.csv</code>.</p>
+<p>Si les fichiers ne sont pas présents, exécuter depuis la racine du projet :</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">&quot;datasets/budgets-municipaux-quebec/preparation.R&quot;</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="code-de-départ" class="level2">
+<h2 class="anchored" data-anchor-id="code-de-départ">Code de départ</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load libraries</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Import prepared data</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>municipalites <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;data/processed/budgets-municipaux-quebec/profil_financier_municipalites_2025.csv&quot;</span>,</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">show_col_types =</span> <span class="cn">FALSE</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>dictionnaire <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;data/processed/budgets-municipaux-quebec/dictionnaire_postes_profil_financier_2025.csv&quot;</span>,</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>  <span class="at">show_col_types =</span> <span class="cn">FALSE</span></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Check the meaning of FIALX02005</span></span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>dictionnaire <span class="sc">|&gt;</span></span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(code_poste <span class="sc">==</span> <span class="st">&quot;FIALX02005&quot;</span>) <span class="sc">|&gt;</span></span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(code_poste, libelle_court, type_indicateur)</span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a><span class="co"># Summarise by population class</span></span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>resume_classes <span class="ot">&lt;-</span> municipalites <span class="sc">|&gt;</span></span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(classe_population), <span class="sc">!</span><span class="fu">is.na</span>(FIALX02005)) <span class="sc">|&gt;</span></span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(classe_population) <span class="sc">|&gt;</span></span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>    <span class="at">municipalites =</span> <span class="fu">n</span>(),</span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>    <span class="at">population_totale =</span> <span class="fu">sum</span>(population, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a>    <span class="at">part_residentielle_mediane =</span> <span class="fu">median</span>(FIALX02005, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a>    <span class="at">part_residentielle_q1 =</span> <span class="fu">quantile</span>(FIALX02005, <span class="fl">0.25</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a>    <span class="at">part_residentielle_q3 =</span> <span class="fu">quantile</span>(FIALX02005, <span class="fl">0.75</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a>    <span class="at">.groups =</span> <span class="st">&quot;drop&quot;</span></span>
+<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a>resume_classes</span>
+<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot distribution by class</span></span>
+<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(</span>
+<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a>  municipalites <span class="sc">|&gt;</span> <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(classe_population), <span class="sc">!</span><span class="fu">is.na</span>(FIALX02005)),</span>
+<span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a>  <span class="fu">aes</span>(<span class="at">x =</span> classe_population, <span class="at">y =</span> FIALX02005)</span>
+<span id="cb2-41"><a href="#cb2-41" aria-hidden="true" tabindex="-1"></a>) <span class="sc">+</span></span>
+<span id="cb2-42"><a href="#cb2-42" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="at">fill =</span> <span class="st">&quot;#8FC7D9&quot;</span>, <span class="at">color =</span> <span class="st">&quot;#1F3B57&quot;</span>, <span class="at">outlier.alpha =</span> <span class="fl">0.35</span>) <span class="sc">+</span></span>
+<span id="cb2-43"><a href="#cb2-43" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>() <span class="sc">+</span></span>
+<span id="cb2-44"><a href="#cb2-44" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb2-45"><a href="#cb2-45" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">&quot;Classe de population&quot;</span>,</span>
+<span id="cb2-46"><a href="#cb2-46" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">&quot;Part résidentielle publiée&quot;</span>,</span>
+<span id="cb2-47"><a href="#cb2-47" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">&quot;Part résidentielle par classe de population&quot;</span>,</span>
+<span id="cb2-48"><a href="#cb2-48" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="st">&quot;Profil financier 2024-2025, données de 2025&quot;</span></span>
+<span id="cb2-49"><a href="#cb2-49" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
 </section>
 <section id="consignes" class="level2">
 <h2 class="anchored" data-anchor-id="consignes">Consignes</h2>
 <ol type="1">
-<li>Lire la fiche et repérer la source officielle.</li>
-<li>Identifier les variables nécessaires : <code>municipalite</code>, <code>annee</code>, <code>population</code>, <code>revenus_totaux</code>, <code>depenses_totales</code>, <code>dette</code>, <code>categorie_depense</code>.</li>
-<li>Décrire les valeurs manquantes, les types de variables et les unités.</li>
-<li>Produire au moins une visualisation parmi : barplots, treemaps, graphiques de proportions.</li>
-<li>Rédiger une conclusion de 5 à 8 lignes avec une limite méthodologique.</li>
+<li>Lire la fiche du jeu de données.</li>
+<li>Expliquer en une phrase ce que représente une ligne.</li>
+<li>Identifier le sens de <code>FIALX02005</code> dans le dictionnaire.</li>
+<li>Produire un tableau de résumé par classe de population.</li>
+<li>Produire un graphique comparant les classes.</li>
+<li>Rédiger une conclusion de 5 à 8 lignes.</li>
 </ol>
 </section>
-<section id="pistes-de-solution" class="level2">
-<h2 class="anchored" data-anchor-id="pistes-de-solution">Pistes de solution</h2>
-<p>Une bonne réponse décrit la tendance principale, nomme le regroupement utilisé et explicite au moins une limite de la source. Une réponse excellente justifie aussi le choix du graphique et signale les décisions de nettoyage.</p>
+<section id="points-à-discuter" class="level2">
+<h2 class="anchored" data-anchor-id="points-à-discuter">Points à discuter</h2>
+<ul>
+<li>Pourquoi utilise-t-on la médiane plutôt que la moyenne?</li>
+<li>Pourquoi faut-il garder les codes géographiques comme du texte?</li>
+<li>Pourquoi ne peut-on pas conclure que la taille d’une municipalité cause un profil foncier donné?</li>
+<li>Pourquoi ce fichier ne mesure-t-il pas directement les dépenses municipales?</li>
+</ul>
+</section>
+<section id="attendu" class="level2">
+<h2 class="anchored" data-anchor-id="attendu">Attendu</h2>
+<p>Une bonne réponse nomme l’unité statistique, cite le dictionnaire des postes, décrit une différence entre classes de population et formule au moins une limite. Une excellente réponse explique aussi pourquoi la visualisation choisie est adaptée à une distribution de 1 105 municipalités.</p>
 
 
 </section>

@@ -1,35 +1,82 @@
 id: budgets-municipaux-quebec
-title: "Budgets municipaux du Québec"
-short_title: "Budgets municipaux"
-theme: "Finances publiques municipales"
+title: "Profil financier des municipalités locales du Québec"
+short_title: "Profil financier"
+theme: "Finances et fiscalité municipales"
 source_name: "Données Québec / Ministère des Affaires municipales et de l'Habitation"
 source_url: "https://www.donneesquebec.ca/recherche/dataset/profil-financier-des-municipalites-locales"
-license: "Attribution (CC-BY 4.0) selon les métadonnées CKAN vérifiées le 2026-06-19"
-access_date: "2026-06-19"
-geography: "Municipalités locales, MRC, régions administratives et ensemble du Québec selon la ressource retenue"
-unit: "Municipalité, agrégation territoriale ou poste financier selon le fichier choisi"
-data_type: "Tabulaire, financier, territorial"
-format: "CSV et XLSX"
-n_rows: "Plusieurs fichiers annuels; volume variable selon le niveau municipal ou agrégé"
-n_cols: "Colonnes financières et territoriales variables selon la ressource"
-update_frequency: "Annuelle; métadonnées CKAN modifiées le 2026-06-19"
-level: "Introduction"
-concepts:
-  - regroupements
-  - ratios
-  - comparaisons
+source_api_url: "https://www.donneesquebec.ca/recherche/api/3/action/package_show?id=profil-financier-des-municipalites-locales"
+source_csv_url: "https://mamh.gouv.qc.ca/fichiersdonneesouvertes/PF-2024-2025.csv"
+source_dictionary_url: "https://mamh.gouv.qc.ca/fichiersdonneesouvertes/PF-2024-2025-DescriptionPoste.csv"
+source_secondary_url: "https://www.quebec.ca/gouvernement/gestion-municipale/finances-fiscalite-municipales/information-financiere/publications-financieres/profil-financier"
+license: "Attribution (CC-BY 4.0) selon les métadonnées CKAN vérifiées le 2026-06-21"
+access_date: "2026-06-21"
+geography: "Québec, municipalités locales et agglomérations publiées dans la ressource 2024-2025"
+unit: "Municipalité locale ou agglomération publiée dans le profil financier 2024-2025, données de 2025"
+data_type: "Table administrative financière, fiscale, foncière et territoriale"
+format: "CSV officiel préparé localement; dictionnaire officiel des postes"
+n_rows: "1 105 municipalités ou agglomérations préparées; 15 470 lignes dans la version longue"
+n_cols: "29 colonnes dans le CSV source; 31 colonnes dans la table municipale préparée"
+processed_file: "data/processed/budgets-municipaux-quebec/profil_financier_municipalites_2025.csv"
+processed_long_file: "data/processed/budgets-municipaux-quebec/profil_financier_municipalites_long_2025.csv"
+dictionary_file: "data/processed/budgets-municipaux-quebec/dictionnaire_postes_profil_financier_2025.csv"
+population_summary_file: "data/processed/budgets-municipaux-quebec/resume_classes_population_2025.csv"
+region_summary_file: "data/processed/budgets-municipaux-quebec/resume_regions_profil_financier_2025.csv"
+update_frequency: "Annuelle; paquet CKAN et ressources CSV 2024-2025 modifiés le 2026-06-19"
+level: "Introduction à intermédiaire"
+organisme: "MAMH"
+territoire: "Québec"
+taille_approximative: "1 105 lignes municipales; 14 indicateurs financiers municipaux; 215 ressources CKAN"
+niveau_pedagogique_recommande: "Introduction à intermédiaire"
+variables_principales:
+  - annee_edition
+  - annee_donnee
+  - code_geographique
+  - municipalite
+  - region_administrative
+  - mrc
+  - population
+  - classe_population
+  - FIALX01959
+  - FIALX02005
+  - FIALX02006
+  - FIALX02007
+  - FIALX02010
+  - FIALX02097
+idees_mini_projets:
+  - "Comparer les indicateurs de richesse foncière selon les classes de population."
+  - "Visualiser les différences régionales sans confondre nombre de municipalités et population totale."
+  - "Construire une version longue avec dictionnaire des postes et documenter les limites d'interprétation."
+tags:
+  - finances municipales
+  - fiscalité municipale
+  - Québec
+  - données ouvertes
+  - classes de population
+  - richesse foncière
   - statistiques descriptives
-  - visualisation de proportions
+  - visualisation
+concepts:
+  - importation CSV
+  - dictionnaire de variables
+  - pivot long
+  - classes de population
+  - ratios
+  - indices
+  - valeurs manquantes
+  - comparaison descriptive
+  - communication prudente
 zero_waste:
   contexte_quebecois: 3
   accessibilite_pedagogique: 3
   qualite_documentaire: 3
-  potentiel_nettoyage: 2
+  potentiel_nettoyage: 3
   potentiel_visualisation: 3
   potentiel_statistique_descriptive: 3
-  potentiel_inference: 2
+  potentiel_inference: 1
   potentiel_modelisation: 2
   potentiel_ethique: 3
   reutilisabilite: 3
-status: "source vérifiée; ressource exacte à sélectionner pour le laboratoire"
-notes: "Les noms de variables pédagogiques sont harmonisés; ils devront être mappés aux noms officiels du fichier annuel choisi."
+status: "source officielle vérifiée; CSV municipal 2024-2025 et dictionnaire des postes préparés localement"
+notes: "Le fichier préparé ici décrit le profil financier et des indicateurs de richesse foncière issus du sommaire du rôle d'évaluation foncière 2025. Il ne s'agit pas d'un budget municipal détaillé par postes de dépenses."
+contributor_name: "Aurélien Nicosia"
+contributor_role: "Révision pédagogique et statistique"
