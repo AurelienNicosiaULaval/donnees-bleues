@@ -265,7 +265,7 @@ Le site peut servir de catalogue de sources, de banque d'activités ou de cadre 
 
 ::: {.home-path-grid}
 ::: {.home-path-card}
-<img src="assets/cards/catalogue.png" alt="Illustration du catalogue de jeux de données">
+<img src="assets/cards/arbres-publics-montreal.jpg" alt="Arbres publics de Montréal comme exemple de source québécoise">
 
 ### Je cherche une source
 
@@ -275,7 +275,7 @@ Comparer les fiches par thème, niveau, concepts, format et potentiel pédagogiq
 :::
 
 ::: {.home-path-card}
-<img src="assets/cards/activites.png" alt="Illustration des activités pédagogiques">
+<img src="assets/cards/bixi.jpg" alt="Stations BIXI comme exemple d'activité pédagogique">
 
 ### Je prépare une séance
 
@@ -285,7 +285,7 @@ Choisir une activité courte, une tâche longue ou un mini-projet déjà relié 
 :::
 
 ::: {.home-path-card}
-<img src="assets/cards/zero-dechet.png" alt="Illustration du cadre zéro déchet">
+<img src="assets/cards/niveaux-eau-inondation.jpg" alt="Repères de niveaux d'eau comme exemple d'évaluation de données">
 
 ### J'évalue un jeu de données
 
