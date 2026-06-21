@@ -7,56 +7,158 @@ embed-resources: true
 
 ## Contexte
 
-Cette activité propose un mini-rapport sur les sites de prélèvements d'eau autorisés selon leur provenance, leur volume maximal autorisé et leur localisation.
+Cette activité demande un mini-rapport sur les sites de prélèvements d'eau autorisés selon leur provenance, leur volume maximal autorisé et leur localisation. Le rapport doit traiter le jeu comme une donnée administrative, pas comme une mesure directe de l'utilisation réelle de l'eau.
 
 ## Objectifs d'apprentissage
 
-- Construire des agrégations par catégorie.
-- Comparer des volumes autorisés.
-- Produire une carte de points.
-- Communiquer les limites d'une donnée administrative.
+- Préparer une ressource officielle
+- Construire des agrégations par catégorie
+- Décrire des valeurs extrêmes
+- Produire une carte de points
+- Documenter les valeurs manquantes
+- Communiquer les limites d'une donnée administrative
 
 ## Données utilisées
 
 Fiche : [Registre des prélèvements d'eau autorisés](fiche.qmd)
 
-Source : Données Québec / MELCCFP, "Prélèvements d'eau autorisés par le MELCCFP".
+Source : Données Québec / MELCCFP.
 
-Licence : Attribution (CC-BY 4.0).
+Licence : Attribution (CC-BY 4.0), selon les métadonnées CKAN consultées le 2026-06-21.
+
+Fichier préparé : `data/processed/prelevements-eau-autorises/prelevements_eau_autorises.csv`
 
 ## Métadonnées pédagogiques
 
 | Champ | Information |
 |---|---|
-| Question directrice | Comment décrire les volumes et la localisation des prélèvements d'eau autorisés? |
-| Concepts | Agrégation; données spatiales; visualisation; communication |
+| Question directrice | Comment décrire les volumes et la localisation des prélèvements d'eau autorisés sans les confondre avec des volumes réels? |
+| Concepts | Agrégation; Données spatiales; Valeurs extrêmes; Communication prudente |
 | Niveau | Intermédiaire |
-| Type | Étude de cas; projet ou tâche longue |
+| Type | Étude de cas; Projet ou tâche longue; Exploration de données |
 | Contexte | Prélèvements d'eau |
-| Accroche | Identifier les plus grands volumes autorisés et leur répartition spatiale |
+| Accroche | Les plus grands sites peuvent dominer toute la lecture du jeu |
 | Durée | 2-3 heures |
-| Matériel | énoncé; code; données; notes enseignantes |
+| Matériel | énoncé; code; table préparée; notes enseignantes |
 | Math/stats avancées | non |
 
-## Consignes
+## Mandat
 
-1. Importer le CSV officiel.
-2. Nettoyer les variables de provenance, de volume et de coordonnées.
-3. Calculer les volumes autorisés par provenance.
-4. Identifier les principaux sites ou intervenants selon le volume autorisé.
-5. Produire une carte de points si les coordonnées sont exploitables.
-6. Rédiger une conclusion qui distingue description, comparaison et portée administrative.
+Produire un court rapport de 2 à 4 pages sur les sites de prélèvements d'eau autorisés. Le rapport doit contenir :
 
-## Questions
+1. une définition de l'unité statistique;
+2. un tableau par provenance de l'eau;
+3. un tableau des principaux sites ou intervenants;
+4. une carte de points;
+5. une section sur les valeurs manquantes;
+6. une conclusion qui distingue volume autorisé et volume réel.
 
-1. Quels sites ou intervenants concentrent les plus grands volumes autorisés?
-2. La provenance de l'eau varie-t-elle selon les sites observés?
-3. Les données permettent-elles de conclure sur la pression réelle sur la ressource?
+## Étapes recommandées
+
+1. Exécuter `datasets/prelevements-eau-autorises/preparation.R`.
+2. Importer la table préparée.
+3. Importer les résumés préparés si utile.
+4. Décrire le nombre de sites, documents et intervenants.
+5. Comparer les provenances de l'eau.
+6. Identifier les plus grands sites.
+7. Produire une carte simple.
+8. Rédiger les limites avant la conclusion.
+
+## Code de départ
+
+À exécuter depuis la racine du projet.
+
+```{r}
+#| eval: false
+# Load libraries
+library(dplyr)
+library(ggplot2)
+library(readr)
+
+# Prepare official CSV
+source("datasets/prelevements-eau-autorises/preparation.R")
+
+# Import prepared files
+prelevements <- read_csv(
+  "data/processed/prelevements-eau-autorises/prelevements_eau_autorises.csv",
+  show_col_types = FALSE
+)
+
+resume_provenance <- read_csv(
+  "data/processed/prelevements-eau-autorises/resume_provenance_prelevements_eau_autorises.csv",
+  show_col_types = FALSE
+)
+
+principaux_sites <- read_csv(
+  "data/processed/prelevements-eau-autorises/principaux_sites_prelevements_eau_autorises.csv",
+  show_col_types = FALSE
+)
+
+valeurs_manquantes <- read_csv(
+  "data/processed/prelevements-eau-autorises/valeurs_manquantes_prelevements_eau_autorises.csv",
+  show_col_types = FALSE
+)
+
+# Key checks
+prelevements |>
+  summarise(
+    sites = n(),
+    documents = n_distinct(no_doc),
+    intervenants = n_distinct(nom_intervenant),
+    volume_total_m3_j = sum(volume_autorise_m3_j, na.rm = TRUE)
+  )
+
+resume_provenance
+principaux_sites |> select(nom_intervenant, provenance_eau, volume_autorise_m3_j) |> head(10)
+```
+
+## Visualisation suggérée
+
+```{r}
+#| eval: false
+ggplot(prelevements, aes(x = longitude, y = latitude, color = provenance_eau)) +
+  geom_point(alpha = 0.55, size = 1.1) +
+  coord_quickmap() +
+  labs(
+    x = "Longitude",
+    y = "Latitude",
+    color = "Provenance",
+    title = "Sites de prélèvements d'eau autorisés",
+    subtitle = "La carte montre des sites autorisés, pas les volumes réellement prélevés"
+  )
+```
+
+## Questions à traiter
+
+1. Quelle est l'unité statistique?
+2. Quelle provenance compte le plus de sites?
+3. Quelle provenance représente le plus grand volume total autorisé?
+4. Quels sites ou intervenants dominent les volumes?
+5. Quelles variables contiennent des valeurs manquantes?
+6. Pourquoi les résultats ne mesurent-ils pas la pression réelle sur la ressource?
+
+## Critères de réussite
+
+Un bon rapport :
+
+- définit clairement le site de prélèvement autorisé;
+- convertit les volumes en mètres cubes par jour;
+- distingue nombre de sites et volume total;
+- montre les principaux sites ou intervenants;
+- inclut une carte lisible;
+- cite la mise en garde officielle sur l'absence de valeur légale;
+- ne parle pas de volume réellement prélevé.
 
 ## Pistes de solution
 
-Le rapport devrait contenir un tableau des volumes agrégés, un graphique de comparaison, une carte simple et une section sur les limites des données administratives.
+Une conclusion prudente peut prendre cette forme :
 
-## Prolongement
+> Le registre décrit des sites de prélèvements autorisés et leurs volumes maximaux autorisés. Les prélèvements de surface dominent le volume total autorisé dans la version préparée, mais ces résultats ne mesurent pas les volumes réellement prélevés ni l'impact hydrologique.
 
-Ajouter un dénominateur territorial pertinent si une source fiable est disponible.
+## Prolongements
+
+- Comparer les résultats avec et sans les dix plus grands sites.
+- Produire une carte avec une taille de point proportionnelle au logarithme du volume.
+- Joindre les sites à des bassins versants.
+- Comparer les intervenants multi-sites.
+- Rédiger une note publique sur la portée administrative du registre.

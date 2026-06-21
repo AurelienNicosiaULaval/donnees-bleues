@@ -1,6 +1,6 @@
 id: prelevements-eau-territoires-long
 title: "Portrait spatial des prélèvements d'eau autorisés"
-question: "Comment décrire les volumes et la localisation des prélèvements d'eau autorisés?"
+question: "Comment décrire les volumes et la localisation des prélèvements d'eau autorisés sans les confondre avec des volumes réels?"
 dataset_id: prelevements-eau-autorises
 dataset_title: "Registre des prélèvements d'eau autorisés"
 activity_url: "datasets/prelevements-eau-autorises/activite-longue.qmd"
@@ -13,15 +13,15 @@ activity_type:
 concepts:
   - "Agrégation"
   - "Données spatiales"
-  - "Visualisation"
-  - "Communication"
+  - "Valeurs extrêmes"
+  - "Communication prudente"
 context: "Prélèvements d'eau"
-hook: "Identifier les plus grands volumes autorisés et leur répartition spatiale"
+hook: "Les plus grands sites peuvent dominer toute la lecture du jeu"
 materials:
   - "énoncé"
   - "code"
-  - "données"
+  - "table préparée"
   - "notes enseignantes"
 advanced_math_stats: false
-teacher_notes: "Demander une section explicite sur les limites des données administratives et sur l'absence de volumes réellement prélevés dans ce fichier."
-status: "source vérifiée"
+teacher_notes: "Demander une section explicite sur l'absence de volumes réellement prélevés et sur la mise en garde officielle : la donnée n'a aucune valeur légale."
+status: "source officielle vérifiée"

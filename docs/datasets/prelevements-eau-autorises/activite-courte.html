@@ -20,6 +20,41 @@ ul.task-list li input[type="checkbox"] {
 width: 0.8em;
 margin: 0 0.8em 0.2em -1em;  vertical-align: middle;
 }
+
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+{ counter-reset: source-line 0; }
+pre.numberSource code > span
+{ position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+{ content: counter(source-line);
+position: relative; left: -1em; text-align: right; vertical-align: baseline;
+border: none; display: inline-block;
+-webkit-touch-callout: none; -webkit-user-select: none;
+-khtml-user-select: none; -moz-user-select: none;
+-ms-user-select: none; user-select: none;
+padding: 0 4px; width: 4em;
+}
+pre.numberSource { margin-left: 3em; padding-left: 4px; }
+div.sourceCode
+{ }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -5489,6 +5524,7 @@ grid-template-columns: 1fr;
   <li><a href="#données-utilisées" id="toc-données-utilisées" class="nav-link" data-scroll-target="#données-utilisées">Données utilisées</a></li>
   <li><a href="#métadonnées-pédagogiques" id="toc-métadonnées-pédagogiques" class="nav-link" data-scroll-target="#métadonnées-pédagogiques">Métadonnées pédagogiques</a></li>
   <li><a href="#consignes" id="toc-consignes" class="nav-link" data-scroll-target="#consignes">Consignes</a></li>
+  <li><a href="#code-de-départ" id="toc-code-de-départ" class="nav-link" data-scroll-target="#code-de-départ">Code de départ</a></li>
   <li><a href="#questions" id="toc-questions" class="nav-link" data-scroll-target="#questions">Questions</a></li>
   <li><a href="#pistes-de-solution" id="toc-pistes-de-solution" class="nav-link" data-scroll-target="#pistes-de-solution">Pistes de solution</a></li>
   <li><a href="#prolongement" id="toc-prolongement" class="nav-link" data-scroll-target="#prolongement">Prolongement</a></li>
@@ -5522,21 +5558,24 @@ grid-template-columns: 1fr;
 <h1>Volumes autorisés par provenance de l’eau</h1>
 <section id="contexte" class="level2">
 <h2 class="anchored" data-anchor-id="contexte">Contexte</h2>
-<p>Cette activité utilise le registre des prélèvements d’eau autorisés pour comparer des volumes maximaux autorisés selon la provenance de l’eau.</p>
+<p>Cette activité utilise le registre des prélèvements d’eau autorisés pour comparer des volumes maximaux autorisés selon la provenance de l’eau. Le point central est d’éviter une interprétation trop forte : un volume autorisé n’est pas un volume réellement prélevé.</p>
 </section>
 <section id="objectifs-dapprentissage" class="level2">
 <h2 class="anchored" data-anchor-id="objectifs-dapprentissage">Objectifs d’apprentissage</h2>
 <ul>
-<li>Lire une donnée administrative.</li>
-<li>Agréger un volume par catégorie.</li>
-<li>Distinguer volume autorisé et volume réel.</li>
+<li>Préparer une ressource CSV officielle</li>
+<li>Convertir des litres par jour en mètres cubes par jour</li>
+<li>Agréger un volume par catégorie</li>
+<li>Comparer nombre de sites et volume total</li>
+<li>Communiquer une limite administrative</li>
 </ul>
 </section>
 <section id="données-utilisées" class="level2">
 <h2 class="anchored" data-anchor-id="données-utilisées">Données utilisées</h2>
 <p>Fiche : <a href="../../datasets/prelevements-eau-autorises/fiche.html">Registre des prélèvements d’eau autorisés</a></p>
-<p>Source : Données Québec / MELCCFP, “Prélèvements d’eau autorisés par le MELCCFP”.</p>
-<p>Licence : Attribution (CC-BY 4.0).</p>
+<p>Source : Données Québec / MELCCFP.</p>
+<p>Licence : Attribution (CC-BY 4.0), selon les métadonnées CKAN consultées le 2026-06-21.</p>
+<p>Fichier préparé : <code>data/processed/prelevements-eau-autorises/prelevements_eau_autorises.csv</code></p>
 </section>
 <section id="métadonnées-pédagogiques" class="level2">
 <h2 class="anchored" data-anchor-id="métadonnées-pédagogiques">Métadonnées pédagogiques</h2>
@@ -5558,7 +5597,7 @@ grid-template-columns: 1fr;
 </tr>
 <tr class="even">
 <td>Concepts</td>
-<td>Agrégation; statistique descriptive; visualisation</td>
+<td>Agrégation; Volume autorisé; Valeurs extrêmes; Visualisation</td>
 </tr>
 <tr class="odd">
 <td>Niveau</td>
@@ -5566,7 +5605,7 @@ grid-template-columns: 1fr;
 </tr>
 <tr class="even">
 <td>Type</td>
-<td>Exercice; exploration de données</td>
+<td>Exercice; Exploration de données</td>
 </tr>
 <tr class="odd">
 <td>Contexte</td>
@@ -5574,7 +5613,7 @@ grid-template-columns: 1fr;
 </tr>
 <tr class="even">
 <td>Accroche</td>
-<td>Comparer des volumes autorisés liés à l’eau souterraine, de surface ou de dénoyage</td>
+<td>Beaucoup de sites ne signifie pas nécessairement le plus grand volume autorisé</td>
 </tr>
 <tr class="odd">
 <td>Durée</td>
@@ -5582,7 +5621,7 @@ grid-template-columns: 1fr;
 </tr>
 <tr class="even">
 <td>Matériel</td>
-<td>énoncé; code; données</td>
+<td>énoncé; code; table préparée</td>
 </tr>
 <tr class="odd">
 <td>Math/stats avancées</td>
@@ -5594,28 +5633,74 @@ grid-template-columns: 1fr;
 <section id="consignes" class="level2">
 <h2 class="anchored" data-anchor-id="consignes">Consignes</h2>
 <ol type="1">
-<li>Importer le CSV officiel.</li>
-<li>Renommer les champs pour obtenir des noms lisibles.</li>
-<li>Convertir le volume autorisé de litres par jour en mètres cubes par jour.</li>
-<li>Calculer le volume total par provenance de l’eau.</li>
-<li>Produire un graphique et interpréter le résultat avec prudence.</li>
+<li>Exécuter <code>datasets/prelevements-eau-autorises/preparation.R</code>.</li>
+<li>Importer la table préparée.</li>
+<li>Compter les sites par <code>provenance_eau</code>.</li>
+<li>Calculer le volume total autorisé par <code>provenance_eau</code>.</li>
+<li>Produire un graphique en barres du volume total.</li>
+<li>Écrire une phrase qui distingue volume autorisé et volume réel.</li>
 </ol>
+</section>
+<section id="code-de-départ" class="level2">
+<h2 class="anchored" data-anchor-id="code-de-départ">Code de départ</h2>
+<p>À exécuter depuis la racine du projet.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load libraries</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Prepare official CSV</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">&quot;datasets/prelevements-eau-autorises/preparation.R&quot;</span>)</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Import prepared data</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>prelevements <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;data/processed/prelevements-eau-autorises/prelevements_eau_autorises.csv&quot;</span>,</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">show_col_types =</span> <span class="cn">FALSE</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Aggregate by provenance</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>resume_provenance <span class="ot">&lt;-</span> prelevements <span class="sc">|&gt;</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(provenance_eau) <span class="sc">|&gt;</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">sites =</span> <span class="fu">n</span>(),</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>    <span class="at">volume_total_m3_j =</span> <span class="fu">sum</span>(volume_autorise_m3_j, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>    <span class="at">volume_median_m3_j =</span> <span class="fu">median</span>(volume_autorise_m3_j, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>    <span class="at">.groups =</span> <span class="st">&quot;drop&quot;</span></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(volume_total_m3_j))</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>resume_provenance</span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot authorized volumes</span></span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(resume_provenance, <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">reorder</span>(provenance_eau, volume_total_m3_j), <span class="at">y =</span> volume_total_m3_j)) <span class="sc">+</span></span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="at">fill =</span> <span class="st">&quot;#325EA8&quot;</span>) <span class="sc">+</span></span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>() <span class="sc">+</span></span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">&quot;Provenance de l&#39;eau&quot;</span>,</span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">&quot;Volume maximal autorisé total (m3/j)&quot;</span>,</span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">&quot;Volumes autorisés par provenance de l&#39;eau&quot;</span>,</span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="st">&quot;Les volumes ne sont pas des volumes réellement prélevés&quot;</span></span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
 </section>
 <section id="questions" class="level2">
 <h2 class="anchored" data-anchor-id="questions">Questions</h2>
 <ol type="1">
-<li>Quelle provenance représente le plus grand volume autorisé?</li>
-<li>Les volumes sont-ils dominés par quelques catégories?</li>
-<li>Pourquoi ne peut-on pas interpréter ces volumes comme des volumes réellement prélevés?</li>
+<li>Quelle provenance compte le plus de sites?</li>
+<li>Quelle provenance représente le plus grand volume total autorisé?</li>
+<li>Pourquoi ces deux réponses peuvent-elles être différentes?</li>
+<li>Combien de sites ont un volume manquant?</li>
+<li>Pourquoi ne peut-on pas interpréter ces volumes comme une consommation réelle d’eau?</li>
 </ol>
 </section>
 <section id="pistes-de-solution" class="level2">
 <h2 class="anchored" data-anchor-id="pistes-de-solution">Pistes de solution</h2>
-<p>Une solution acceptable présente une agrégation par provenance et un graphique en barres ordonné avec une mention explicite des limites.</p>
+<p>Dans la version préparée, les sites souterrains sont les plus nombreux, mais le volume total autorisé est plus élevé pour les prélèvements de surface. Une bonne réponse mentionne explicitement que les volumes sont des maxima autorisés.</p>
 </section>
 <section id="prolongement" class="level2">
 <h2 class="anchored" data-anchor-id="prolongement">Prolongement</h2>
-<p>Répéter l’analyse en retirant les dix plus grands sites pour évaluer leur influence descriptive.</p>
+<p>Refaire le graphique après avoir retiré les dix sites ayant les plus grands volumes autorisés, puis comparer la conclusion descriptive.</p>
 
 
 </section>

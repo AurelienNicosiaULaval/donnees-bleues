@@ -18,156 +18,226 @@ render_dataset_detail_header()
 
 ## Pourquoi ce jeu est intéressant
 
-Ce jeu de données permet d'étudier les sites de prélèvements d'eau autorisés au Québec et les volumes maximaux autorisés associés. Il est utile pour enseigner les agrégations, les comparaisons de volumes, la cartographie de points et les limites d'une donnée administrative.
+Ce jeu relie directement statistique descriptive, ressources hydriques et décision administrative. Les variables sont simples à manipuler, mais l'interprétation demande de la rigueur : le volume fourni est un volume maximal autorisé, pas un volume réellement prélevé.
 
-Le sujet relie directement la statistique descriptive aux politiques publiques. Il exige aussi de distinguer un volume autorisé, exprimé en litres par jour dans la source, d'un volume réellement prélevé ou déclaré.
+La fiche est donc utile pour enseigner trois gestes essentiels : convertir des unités, agréger par catégorie et communiquer une limite administrative sans l'enterrer à la fin du rapport.
 
-## Source
+## Ce qui a été vérifié
+
+| Élément | Résultat vérifié |
+|---|---|
+| Paquet CKAN | `d9564fe0-6d50-4f89-b12e-47a461e1f68e` |
+| Source officielle | Données Québec / MELCCFP |
+| Ressources dans le paquet | 10 ressources |
+| Ressource préparée ici | CSV `prelevement_autorise_20250915.csv` |
+| Version source | 2025-09-15 |
+| Licence | Attribution (CC-BY 4.0), selon les métadonnées CKAN consultées le 2026-06-21 |
+| Dernière modification du paquet CKAN | 2026-05-05 |
+| Table préparée | `data/processed/prelevements-eau-autorises/prelevements_eau_autorises.csv` |
+| Résumés préparés | ressources, valeurs manquantes, provenances, principaux sites et intervenants |
+
+## Source et conditions
 
 | Champ | Information |
 |---|---|
-| Source | Données Québec / MELCCFP |
-| Organisme producteur | Ministère de l'Environnement, de la Lutte contre les changements climatiques, de la Faune et des Parcs |
+| Page Données Québec | <https://www.donneesquebec.ca/recherche/dataset/prelevements-eau-volumes-autorises-par-melccfp> |
+| API CKAN | <https://www.donneesquebec.ca/recherche/api/3/action/package_show?id=prelevements-eau-volumes-autorises-par-melccfp> |
+| CSV officiel | <https://www.donneesquebec.ca/recherche/dataset/d9564fe0-6d50-4f89-b12e-47a461e1f68e/resource/5c090292-a681-4413-9399-f17bcdf62753/download/prelevement_autorise_20250915.csv> |
+| PDF de métadonnées | <https://www.donneesquebec.ca/recherche/dataset/d9564fe0-6d50-4f89-b12e-47a461e1f68e/resource/24b357f1-fd58-44a7-8cd3-7098645ae907/download/md_prelevementseauautorises.pdf> |
+| Miroir ouvert.canada.ca | <https://open.canada.ca/data/fr/dataset/d9564fe0-6d50-4f89-b12e-47a461e1f68e> |
 | Territoire | Québec |
-| URL officielle | <https://www.donneesquebec.ca/recherche/dataset/prelevements-eau-volumes-autorises-par-melccfp> |
-| Licence | Attribution (CC-BY 4.0) |
-| Date d'accès | 2026-06-19 |
-| Fréquence de mise à jour | Annuelle; version de données 2025-09-15 selon le fichier source |
-| Statut | source vérifiée |
+| Date d'accès | 2026-06-21 |
+| Fréquence | Annuelle selon le miroir ouvert.canada.ca et le PDF de métadonnées |
+| Mise en garde officielle | Le PDF de métadonnées indique que cette donnée n'a aucune valeur légale |
 
 ## Ce que représente une ligne
 
-Une ligne représente un site de prélèvement d'eau autorisé actif. Les métadonnées officielles indiquent que ces sites sont les points d'entrée de l'eau dans une installation aménagée afin d'effectuer un prélèvement d'eau, tant souterrain que de surface.
+Une ligne représente un site de prélèvement d'eau autorisé actif depuis l'entrée en vigueur du Règlement sur le prélèvement des eaux et leur protection, le 14 août 2014. Le PDF de métadonnées définit ces sites comme les points d'entrée de l'eau dans une installation aménagée afin d'effectuer un prélèvement d'eau, tant souterrain que de surface.
+
+Une ligne n'est pas un volume consommé, un débit mesuré, une déclaration annuelle, ni un impact environnemental observé.
 
 ## Variables principales
 
-| Variable | Type | Description | Exemple | Remarques pédagogiques |
-|---|---|---|---|---|
-| no_doc | caractère | Numéro du document délivré | 401234567 | Un document peut être lié à plusieurs sites |
-| site_id | entier | Identifiant unique du site dans le fichier | 123 | Clé technique |
-| nombre_sites_document | entier | Nombre de sites liés au document délivré | 2 | Utile pour interpréter les documents multi-sites |
-| nom_intervenant | caractère | Nom de l'intervenant destinataire de l'autorisation | Municipalité X | Peut nécessiter une normalisation |
-| volume_autorise_l_j | numérique | Volume maximal autorisé en litres par jour | 100000 | Variable principale d'analyse |
-| precision_volume | caractère | Précisions relatives au prélèvement autorisé | Condition particulière | Texte à lire avant interprétation |
-| provenance_eau | caractère | Type de provenance de l'eau | Souterraine | Catégorie pour comparaison |
-| longitude | numérique | Longitude en degrés décimaux | -71.2 | Coordonnée pour cartographie |
-| latitude | numérique | Latitude en degrés décimaux | 46.8 | Coordonnée pour cartographie |
+| Variable préparée | Rôle | Point de vigilance |
+|---|---|---|
+| `no_doc` | Numéro du document délivré | Un document peut regrouper plusieurs sites |
+| `site_id` | Identifiant du site dans le fichier | Clé technique |
+| `nombre_sites_document` | Nombre de sites liés au document | Utile pour repérer les documents multi-sites |
+| `nom_intervenant` | Destinataire de l'autorisation | Les noms peuvent demander une normalisation |
+| `volume_autorise_l_j` | Volume maximal autorisé en litres par jour | Ce n'est pas un volume réellement prélevé |
+| `volume_autorise_m3_j` | Conversion en mètres cubes par jour | Plus lisible pour les graphiques |
+| `precision_volume` | Condition ou précision relative au volume | Très souvent manquante |
+| `provenance_eau` | Souterraine, surface ou activités de dénoyage | Variable principale d'agrégation |
+| `longitude`, `latitude` | Coordonnées des sites | Toutes les lignes préparées ont des coordonnées |
 
-## Taille et structure
+## Taille et résultats R vérifiés
 
-| Élément | Information |
-|---|---|
-| Nombre de lignes | 1 777 lignes dans le CSV consulté le 2026-06-19 |
-| Nombre de colonnes | 9 colonnes dans le CSV consulté |
-| Structure | Tabulaire et spatiale |
-| Format | CSV, GeoJSON, GPKG, FGDB, SHP, XLSX, REST, WMS et PDF de métadonnées |
-| Type de données | Données administratives sur les prélèvements d'eau autorisés |
-| Niveau pédagogique recommandé | Intermédiaire |
+| Indicateur | Valeur |
+|---|---:|
+| Sites préparés | 1 777 |
+| Colonnes préparées | 16 |
+| Colonnes dans le CSV source | 9 |
+| Documents distincts | 1 021 |
+| Intervenants distincts | 827 |
+| Sites avec coordonnées | 1 777 |
+| Sites avec volume manquant | 19 |
+| Sites avec précision textuelle sur le volume | 130 |
+| Volume autorisé total | 4 670 107 m3/j |
+| Volume autorisé médian | 109,22 m3/j |
+| Volume autorisé maximal | 499 000 m3/j |
+
+## Provenance de l'eau
+
+| Provenance | Sites | Documents | Intervenants | Volumes manquants | Volume total autorisé | Volume médian autorisé | Volume maximal autorisé |
+|---|---:|---:|---:|---:|---:|---:|---:|
+| Surface | 346 | 246 | 210 | 4 | 3 485 318 m3/j | 1 058,8 m3/j | 499 000 m3/j |
+| Souterraine | 1 424 | 816 | 673 | 11 | 1 166 715 m3/j | 72,0 m3/j | 102 600 m3/j |
+| Activités de dénoyage | 7 | 5 | 5 | 4 | 18 074 m3/j | 3 800,0 m3/j | 13 600 m3/j |
+
+La lecture pédagogique importante est que le nombre de sites et le volume total ne racontent pas la même histoire. Les sites souterrains sont les plus nombreux, alors que le volume total autorisé est dominé par les prélèvements de surface.
+
+## Valeurs manquantes
+
+| Variable | Valeurs manquantes | Pourcentage |
+|---|---:|---:|
+| `precision_volume` | 1 647 | 92,68 % |
+| `volume_autorise_l_j` | 19 | 1,07 % |
+| `volume_autorise_m3_j` | 19 | 1,07 % |
+
+L'absence de précision textuelle ne veut pas dire absence de condition administrative. Pour une analyse publique, il faut retourner aux documents et aux métadonnées.
+
+## Principaux sites
+
+| Intervenant | Provenance | Volume autorisé |
+|---|---|---:|
+| VILLE DE LONGUEUIL | Surface | 499 000 m3/j |
+| VILLE DE LONGUEUIL | Surface | 499 000 m3/j |
+| SOCIÉTÉ DU PARC INDUSTRIEL ET PORTUAIRE DE BÉCANCOUR | Surface | 153 620 m3/j |
+| VILLE DE LONGUEUIL | Surface | 152 400 m3/j |
+| VILLE DE LONGUEUIL | Surface | 152 400 m3/j |
+| La cannebergière Nathaniel S.E.N.C. | Surface | 120 000 m3/j |
+| La cannebergière Nathaniel S.E.N.C. | Surface | 106 000 m3/j |
+| Canadian Malartic GP | Souterraine | 102 600 m3/j |
+| Canadian Malartic GP | Souterraine | 91 200 m3/j |
+| COMMANDITÉ STADACONA WB LTÉE | Surface | 73 630 m3/j |
+
+Ces valeurs justifient une discussion sur les valeurs extrêmes. Un graphique brut peut être dominé par quelques sites.
+
+## Lecture statistique
+
+Une analyse prudente suit cet ordre :
+
+1. vérifier que l'unité est le site autorisé;
+2. convertir les litres par jour en mètres cubes par jour;
+3. séparer nombre de sites et volumes autorisés;
+4. repérer les volumes manquants et les précisions textuelles;
+5. distinguer volume autorisé et volume réel prélevé;
+6. citer la mise en garde officielle sur la valeur légale des données.
+
+Les données permettent de décrire les autorisations actives présentes dans la source. Elles ne permettent pas, seules, de mesurer la pression réelle sur l'eau, l'utilisation annuelle ou l'impact hydrologique.
 
 ## Concepts enseignables
 
-- agrégation par provenance de l'eau;
-- statistiques descriptives de volumes;
-- transformations d'unités;
-- cartographie de points;
+- volume maximal autorisé;
+- conversion d'unités;
+- données administratives;
+- agrégation par catégorie;
 - valeurs extrêmes;
-- distinction entre volume autorisé et volume réel;
-- limites d'une donnée administrative.
+- carte de points;
+- biais d'interprétation;
+- communication prudente.
 
 ## Score zéro déchet
 
 | Dimension | Score | Justification |
 |---|---:|---|
-| Contexte québécois | 3 | Le jeu porte sur l'utilisation de l'eau au Québec. |
-| Accessibilité pédagogique | 2 | Le sujet est concret, mais les définitions administratives doivent être explicitées. |
-| Qualité documentaire | 3 | La page, la licence, le CSV et le dictionnaire PDF sont disponibles. |
-| Potentiel de nettoyage | 2 | Les noms, les textes de précision et les volumes peuvent nécessiter une harmonisation. |
-| Potentiel de visualisation | 3 | Les volumes, provenances et coordonnées se prêtent à plusieurs graphiques et cartes. |
-| Potentiel de statistique descriptive | 3 | Les agrégations par provenance et intervenant sont directes. |
-| Potentiel d'inférence | 2 | Des comparaisons exploratoires sont possibles après lecture des définitions. |
-| Potentiel de modélisation | 2 | Une modélisation descriptive des volumes peut être envisagée avec prudence. |
-| Potentiel de discussion éthique | 3 | Le jeu soulève des enjeux de ressource, territoire et gouvernance. |
-| Réutilisabilité dans plusieurs cours | 3 | Le jeu peut servir en visualisation, statistiques descriptives et politiques publiques. |
+| Contexte québécois | 3 | Données officielles sur les prélèvements d'eau au Québec |
+| Accessibilité pédagogique | 3 | Variables concrètes et graphiques directs |
+| Qualité documentaire | 3 | Page, CSV, PDF de métadonnées et formats spatiaux |
+| Potentiel de nettoyage | 3 | Volumes, unités, précisions, grands sites et noms |
+| Potentiel de visualisation | 3 | Barres, distributions, cartes et effets d'échelle |
+| Potentiel de statistique descriptive | 3 | Agrégations et comparaisons très naturelles |
+| Potentiel d'inférence | 1 | Non adapté à l'inférence sans protocole complémentaire |
+| Potentiel de modélisation | 2 | Modélisation descriptive possible avec données territoriales |
+| Potentiel éthique | 3 | Ressource hydrique, gouvernance et communication publique |
+| Réutilisabilité | 3 | Utile en visualisation, données ouvertes et politiques publiques |
 
-Total : 26 sur 30.
+Total : 27 sur 30.
 
 ## Activité courte
 
-En 30 à 45 minutes, demander aux personnes étudiantes de calculer les volumes autorisés par provenance de l'eau et de produire un graphique en barres.
+En 30 à 45 minutes, comparer les volumes autorisés par provenance de l'eau, puis expliquer pourquoi ce ne sont pas des volumes réellement prélevés.
 
 ## Activité longue
 
-En 2 à 3 heures, demander de produire un portrait descriptif des sites de prélèvement autorisés, avec une carte et une discussion des limites administratives.
-
-## Projets possibles
-
-- Calculer les volumes autorisés par type de provenance de l'eau.
-- Cartographier les sites de prélèvement autorisés.
-- Comparer les plus grands volumes autorisés en distinguant volume autorisé et volume réel.
-
-## Questions pédagogiques possibles
-
-1. Quelle différence existe entre volume autorisé et volume réellement prélevé?
-2. Quelle unité faut-il utiliser pour comparer les volumes?
-3. Comment traiter les organisations présentes sous plusieurs noms?
-4. Les volumes sont-ils dominés par quelques sites?
-5. Quels regroupements sont pertinents avec les champs disponibles?
-6. Comment représenter les plus grands volumes sans masquer les autres?
-7. Quelles limites accompagnent une donnée administrative sans valeur légale?
-8. Quelles métadonnées sont nécessaires avant une conclusion publique?
+En 2 à 3 heures, produire un portrait descriptif avec agrégations, carte, valeurs extrêmes, valeurs manquantes et limites administratives.
 
 ## Code R minimal
 
+À exécuter depuis la racine du projet.
+
 ```{r}
 #| eval: false
+# Load libraries
 library(dplyr)
 library(ggplot2)
 library(readr)
 
-source_url <- "https://www.donneesquebec.ca/recherche/dataset/d9564fe0-6d50-4f89-b12e-47a461e1f68e/resource/5c090292-a681-4413-9399-f17bcdf62753/download/prelevement_autorise_20250915.csv"
+# Prepare official CSV resource
+source("datasets/prelevements-eau-autorises/preparation.R")
 
-prelevements <- read_csv(source_url, show_col_types = FALSE) |>
-  transmute(
-    no_doc = as.character(no_doc),
-    site_id = Id,
-    nombre_sites_document = count_doc,
-    nom_intervenant = int_nom,
-    volume_autorise_l_j = vol_aut,
-    volume_autorise_m3_j = vol_aut / 1000,
-    precision_volume = vol_prec,
-    provenance_eau = eau_prov,
-    longitude = long,
-    latitude = lat
-  )
+# Import prepared data
+prelevements <- read_csv(
+  "data/processed/prelevements-eau-autorises/prelevements_eau_autorises.csv",
+  show_col_types = FALSE
+)
 
-prelevements |>
+# Aggregate by water provenance
+resume_provenance <- prelevements |>
   group_by(provenance_eau) |>
-  summarise(volume_total_m3_j = sum(volume_autorise_m3_j, na.rm = TRUE), .groups = "drop") |>
-  arrange(desc(volume_total_m3_j)) |>
-  ggplot(aes(x = reorder(provenance_eau, volume_total_m3_j), y = volume_total_m3_j)) +
+  summarise(
+    sites = n(),
+    volume_total_m3_j = sum(volume_autorise_m3_j, na.rm = TRUE),
+    .groups = "drop"
+  ) |>
+  arrange(desc(volume_total_m3_j))
+
+resume_provenance
+
+# Plot authorized volumes
+ggplot(resume_provenance, aes(x = reorder(provenance_eau, volume_total_m3_j), y = volume_total_m3_j)) +
   geom_col(fill = "#325EA8") +
   coord_flip() +
   labs(
     x = "Provenance de l'eau",
-    y = "Volume autorisé total (m3/j)",
-    title = "Volumes autorisés par provenance de l'eau"
+    y = "Volume maximal autorisé total (m3/j)",
+    title = "Volumes autorisés par provenance de l'eau",
+    subtitle = "Il s'agit de volumes autorisés, pas de volumes réellement prélevés"
   )
 ```
 
 ## Limites et précautions
 
-- Le champ `vol_aut` représente un volume maximal autorisé en litres par jour, pas un volume réellement prélevé.
-- Les métadonnées officielles indiquent que cette donnée n'a aucune valeur légale.
-- Les grands volumes peuvent dominer les visualisations.
-- Les comparaisons territoriales nécessitent des dénominateurs pertinents qui ne sont pas fournis dans ce fichier.
-- Les coordonnées doivent être validées avant toute interprétation spatiale fine.
+- Le champ `volume_autorise_l_j` représente un volume maximal autorisé en litres par jour.
+- Les données ne donnent pas les volumes réellement prélevés.
+- Le PDF de métadonnées indique que cette donnée n'a aucune valeur légale.
+- Les autorisations antérieures au cadre décrit dans la source ne sont pas nécessairement incluses.
+- Les grands volumes dominent fortement plusieurs graphiques.
+- Les coordonnées peuvent provenir d'origines diverses selon le PDF de métadonnées.
 
 ## Extensions
 
-- Extension intro : classer les provenances selon le volume autorisé total.
-- Extension intermédiaire : cartographier les sites après conversion en objet `sf`.
-- Extension avancée : comparer les distributions de volumes avec et sans les plus grands sites.
-- Extension communication scientifique : produire une note sur la portée des données administratives.
+- Comparer les résultats avec et sans les dix plus grands sites.
+- Produire une carte des sites avec une échelle logarithmique du volume.
+- Grouper par intervenant et discuter des documents multi-sites.
+- Joindre les sites à une région administrative ou un bassin versant.
+- Rédiger une note publique qui distingue volume autorisé, volume réel et valeur légale.
+
+## Références utilisées
+
+- Données Québec. 2026. Prélèvements d'eau et volumes autorisés par le MELCCFP. <https://www.donneesquebec.ca/recherche/dataset/prelevements-eau-volumes-autorises-par-melccfp>
+- MELCCFP. 2025. Métadonnées, prélèvements d'eau et volumes autorisés depuis l'entrée en vigueur du RPEP. <https://www.donneesquebec.ca/recherche/dataset/d9564fe0-6d50-4f89-b12e-47a461e1f68e/resource/24b357f1-fd58-44a7-8cd3-7098645ae907/download/md_prelevementseauautorises.pdf>
+- Gouvernement du Canada. 2026. Prélèvements d'eau et volumes autorisés par le MELCCFP, miroir ouvert.canada.ca. <https://open.canada.ca/data/fr/dataset/d9564fe0-6d50-4f89-b12e-47a461e1f68e>
 
 ```{r}
 #| label: dataset-detail-footer
@@ -175,4 +245,3 @@ prelevements |>
 #| results: asis
 render_dataset_detail_footer()
 ```
-

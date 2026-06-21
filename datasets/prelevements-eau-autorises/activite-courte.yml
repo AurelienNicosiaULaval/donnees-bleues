@@ -11,14 +11,15 @@ activity_type:
   - "Exploration de données"
 concepts:
   - "Agrégation"
-  - "Statistique descriptive"
+  - "Volume autorisé"
+  - "Valeurs extrêmes"
   - "Visualisation"
 context: "Prélèvements d'eau"
-hook: "Comparer des volumes autorisés liés à l'eau souterraine, de surface ou de dénoyage"
+hook: "Beaucoup de sites ne signifie pas nécessairement le plus grand volume autorisé"
 materials:
   - "énoncé"
   - "code"
-  - "données"
+  - "table préparée"
 advanced_math_stats: false
-teacher_notes: "Insister sur la distinction entre volume maximal autorisé et volume réellement prélevé."
-status: "source vérifiée"
+teacher_notes: "Insister sur la distinction entre volume maximal autorisé et volume réellement prélevé. Faire comparer nombre de sites et volume total."
+status: "source officielle vérifiée"

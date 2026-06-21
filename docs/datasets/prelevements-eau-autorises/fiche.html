@@ -5547,8 +5547,11 @@ Registre des prélèvements d&#39;eau autorisés
 <p class="dataset-hero-source">
 Données Québec / Ministère de l&#39;Environnement, de la Lutte contre les changements climatiques, de la Faune et des Parcs
 </p>
+<div class="dataset-contributor-badge">
+<span>Personne à contacter</span><strong>Aurélien Nicosia</strong><small>Révision pédagogique et statistique</small>
+</div>
 <p class="dataset-hero-summary">
-Site de prélèvement d&#39;eau autorisé actif
+Site de prélèvement d&#39;eau autorisé actif depuis l&#39;entrée en vigueur du RPEP
 </p>
 <div class="dataset-hero-actions">
 <a class="dataset-button no-external" href="#r-en-action">Voir les résultats R</a><a class="dataset-button secondary" href="https://www.donneesquebec.ca/recherche/dataset/prelevements-eau-volumes-autorises-par-melccfp">Source officielle</a>
@@ -5566,28 +5569,28 @@ Site de prélèvement d&#39;eau autorisé actif
 <span>Niveau</span><strong>Intermédiaire</strong>
 </div>
 <div class="dataset-fact">
-<span>Structure</span><strong>Tabulaire et spatial</strong>
+<span>Structure</span><strong>Données administratives ponctuelles, tabulaires et spatiales</strong>
 </div>
 <div class="dataset-fact">
-<span>Format</span><strong>CSV, GeoJSON, GPKG, FGDB, SHP, XLSX, REST, WMS et PDF de métadonnées</strong>
+<span>Format</span><strong>CSV officiel préparé localement; GeoJSON, GPKG, FGDB, SHP, XLSX, REST, WMS et PDF disponibles</strong>
 </div>
 </div>
 <div class="dataset-pedagogy-band">
 <div class="dataset-pedagogy-main">
 <span>Question de départ</span>
 <p>
-Calculer les volumes autorisés par type de provenance de l&#39;eau.
+Comparer le nombre de sites et le volume autorisé total par provenance de l&#39;eau.
 </p>
 </div>
 <div class="dataset-score-box">
-<span>Potentiel pédagogique</span><strong>26 / 30</strong>
+<span>Potentiel pédagogique</span><strong>27 / 30</strong>
 <div class="dataset-score-track">
 <span class="dataset-score-segment is-filled"></span><span class="dataset-score-segment is-filled"></span><span class="dataset-score-segment is-filled"></span><span class="dataset-score-segment is-filled"></span><span class="dataset-score-segment is-filled"></span>
 </div>
 </div>
 </div>
 <div class="dataset-chip-strip">
-<span>eau</span><span>environnement</span><span>Québec</span><span>données ouvertes</span><span>visualisation</span><span>séries temporelles</span><span>statistiques descriptives</span>
+<span>eau</span><span>volume autorisé</span><span>données administratives</span><span>agrégation</span><span>valeurs extrêmes</span><span>cartographie</span><span>unités de mesure</span>
 </div>
 <section class="dataset-r-lab" id="r-en-action">
 <div class="dataset-section-heading">
@@ -5596,7 +5599,7 @@ Calculer les volumes autorisés par type de provenance de l&#39;eau.
 Aperçu reproductible
 </h2>
 <p>
-Aperçu léger calculé par R à partir des métadonnées vérifiées afin de garder la fiche rapide et stable au rendu.
+Aperçu calculé par R à partir de data/processed/prelevements-eau-autorises/prelevements_eau_autorises.csv.
 </p>
 </div>
 <div class="dataset-r-grid">
@@ -5604,13 +5607,12 @@ Aperçu léger calculé par R à partir des métadonnées vérifiées afin de ga
 <div class="dataset-card-label">
 Code minimal
 </div>
-<pre><code class="language-r">library(yaml)
+<pre><code class="language-r">library(dplyr)
 
-metadata &lt;- yaml::read_yaml(&quot;datasets/prelevements-eau-autorises/metadata.yml&quot;)
-data.frame(
-  champ = c(&quot;theme&quot;, &quot;territoire&quot;, &quot;unite&quot;, &quot;niveau&quot;),
-  valeur = c(metadata$theme, metadata$geography, metadata$unit, metadata$level)
-)</code></pre>
+donnees &lt;- read.csv(&quot;data/processed/prelevements-eau-autorises/prelevements_eau_autorises.csv&quot;, check.names = FALSE)
+
+glimpse(donnees)
+donnees |&gt; summarise(lignes = n(), colonnes = ncol(donnees))</code></pre>
 </div>
 <div class="dataset-result-card">
 <div class="dataset-card-label">
@@ -5618,16 +5620,19 @@ Résultats R
 </div>
 <div class="dataset-r-stats">
 <div class="dataset-r-stat">
-<span>Lignes déclarées</span><strong>1 777 lignes dans le CSV consulté le 2026-06-19</strong>
+<span>Lignes lues</span><strong>1 777</strong>
 </div>
 <div class="dataset-r-stat">
-<span>Colonnes déclarées</span><strong>9 colonnes dans le CSV consulté</strong>
+<span>Colonnes</span><strong>16</strong>
 </div>
 <div class="dataset-r-stat">
-<span>Format</span><strong>CSV, GeoJSON, GPKG, FGDB, SHP, XLSX, REST, WMS et PDF de métadonnées</strong>
+<span>Variables num.</span><strong>6</strong>
 </div>
 <div class="dataset-r-stat">
-<span>Aperçu</span><strong>Métadonnées</strong>
+<span>Valeurs manquantes</span><strong>5.9 %</strong>
+</div>
+<div class="dataset-r-stat">
+<span>Aperçu</span><strong>prelevements_eau_autorises.csv</strong>
 </div>
 </div>
 <div class="dataset-result-table-wrap">
@@ -5635,52 +5640,144 @@ Résultats R
 <thead>
 <tr>
 <th>
-champ
+no_doc
 </th>
 <th>
-valeur
+site_id
+</th>
+<th>
+nombre_sites_document
+</th>
+<th>
+nom_intervenant
+</th>
+<th>
+volume_autorise_l_j
+</th>
+<th>
+volume_autorise_m3_j
 </th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>
-theme
+402230367
 </td>
 <td>
-Prélèvements d&#39;eau
-</td>
-</tr>
-<tr>
-<td>
-territoire
+402230367_3
 </td>
 <td>
-Québec
-</td>
-</tr>
-<tr>
-<td>
-unite
+4
 </td>
 <td>
-Site de prélèvement d&#39;eau autor…
+VILLE DE LONGUEUIL
+</td>
+<td>
+499000000
+</td>
+<td>
+499000
 </td>
 </tr>
 <tr>
 <td>
-niveau
+402230367
 </td>
 <td>
-Intermédiaire
+402230367_4
+</td>
+<td>
+4
+</td>
+<td>
+VILLE DE LONGUEUIL
+</td>
+<td>
+499000000
+</td>
+<td>
+499000
 </td>
 </tr>
 <tr>
 <td>
-format
+402496843
 </td>
 <td>
-CSV, GeoJSON, GPKG, FGDB, SHP, …
+402496843_1
+</td>
+<td>
+1
+</td>
+<td>
+SOCIÉTÉ DU PARC INDUSTRIEL ET P…
+</td>
+<td>
+153620000
+</td>
+<td>
+153620
+</td>
+</tr>
+<tr>
+<td>
+402230367
+</td>
+<td>
+402230367_1
+</td>
+<td>
+4
+</td>
+<td>
+VILLE DE LONGUEUIL
+</td>
+<td>
+152400000
+</td>
+<td>
+152400
+</td>
+</tr>
+<tr>
+<td>
+402230367
+</td>
+<td>
+402230367_2
+</td>
+<td>
+4
+</td>
+<td>
+VILLE DE LONGUEUIL
+</td>
+<td>
+152400000
+</td>
+<td>
+152400
+</td>
+</tr>
+<tr>
+<td>
+401881509
+</td>
+<td>
+401881509_2
+</td>
+<td>
+2
+</td>
+<td>
+La cannebergière Nathaniel S.E….
+</td>
+<td>
+120000000
+</td>
+<td>
+120000
 </td>
 </tr>
 </tbody>
@@ -5691,8 +5788,8 @@ CSV, GeoJSON, GPKG, FGDB, SHP, …
 <div class="dataset-card-label">
 Lecture statistique
 </div>
-<svg class="dataset-r-chart" viewbox="0 0 320 210" role="img" aria-label="Concepts pédagogiques">
-<text x="0" y="30" class="dataset-svg-label">eau</text><rect x="150" y="18" width="90" height="14" rx="3" class="dataset-svg-bar" /><text x="0" y="54" class="dataset-svg-label">environnement</text><rect x="150" y="42" width="90" height="14" rx="3" class="dataset-svg-bar" /><text x="0" y="78" class="dataset-svg-label">Québec</text><rect x="150" y="66" width="90" height="14" rx="3" class="dataset-svg-bar" /><text x="0" y="102" class="dataset-svg-label">données ouvertes</text><rect x="150" y="90" width="90" height="14" rx="3" class="dataset-svg-bar" /><text x="0" y="126" class="dataset-svg-label">visualisation</text><rect x="150" y="114" width="90" height="14" rx="3" class="dataset-svg-bar" /><text x="0" y="150" class="dataset-svg-label">séries temporelles</text><rect x="150" y="138" width="90" height="14" rx="3" class="dataset-svg-bar" /><text x="0" y="174" class="dataset-svg-label">statistiques descriptives</text><rect x="150" y="162" width="90" height="14" rx="3" class="dataset-svg-bar" />
+<svg class="dataset-r-chart" viewbox="0 0 320 210" role="img" aria-label="Aperçu numérique généré par R">
+<line x1="34" y1="158" x2="292" y2="158" class="dataset-svg-axis"></line><line x1="34" y1="36" x2="34" y2="158" class="dataset-svg-axis"></line><polyline points="34,124.4 40.4,90.8 46.7,90.8 53.1,90.8 59.4,113.2 65.8,158 72.2,46 78.5,46 84.9,158 91.2,113.2 97.6,79.6 103.9,135.6 110.3,146.8 116.7,135.6 123,124.4 129.4,113.2 135.7,124.4 142.1,124.4 148.5,79.6 154.8,124.4 161.2,146.8 167.5,135.6 173.9,158 180.3,113.2 186.6,146.8 193,146.8 199.3,158 205.7,146.8 212.1,146.8 218.4,146.8 224.8,158 231.1,158 237.5,158 243.8,146.8 250.2,113.2 256.6,146.8 262.9,124.4 269.3,158 275.6,79.6 282,79.6" class="dataset-svg-line"></polyline><circle cx="34" cy="124.4" r="3.2" class="dataset-svg-point"></circle><circle cx="40.4" cy="90.8" r="3.2" class="dataset-svg-point"></circle><circle cx="46.7" cy="90.8" r="3.2" class="dataset-svg-point"></circle><circle cx="53.1" cy="90.8" r="3.2" class="dataset-svg-point"></circle><circle cx="59.4" cy="113.2" r="3.2" class="dataset-svg-point"></circle><circle cx="65.8" cy="158" r="3.2" class="dataset-svg-point"></circle><circle cx="72.2" cy="46" r="3.2" class="dataset-svg-point"></circle><circle cx="78.5" cy="46" r="3.2" class="dataset-svg-point"></circle><circle cx="84.9" cy="158" r="3.2" class="dataset-svg-point"></circle><circle cx="91.2" cy="113.2" r="3.2" class="dataset-svg-point"></circle><circle cx="97.6" cy="79.6" r="3.2" class="dataset-svg-point"></circle><circle cx="103.9" cy="135.6" r="3.2" class="dataset-svg-point"></circle><circle cx="110.3" cy="146.8" r="3.2" class="dataset-svg-point"></circle><circle cx="116.7" cy="135.6" r="3.2" class="dataset-svg-point"></circle><circle cx="123" cy="124.4" r="3.2" class="dataset-svg-point"></circle><circle cx="129.4" cy="113.2" r="3.2" class="dataset-svg-point"></circle><circle cx="135.7" cy="124.4" r="3.2" class="dataset-svg-point"></circle><circle cx="142.1" cy="124.4" r="3.2" class="dataset-svg-point"></circle><circle cx="148.5" cy="79.6" r="3.2" class="dataset-svg-point"></circle><circle cx="154.8" cy="124.4" r="3.2" class="dataset-svg-point"></circle><circle cx="161.2" cy="146.8" r="3.2" class="dataset-svg-point"></circle><circle cx="167.5" cy="135.6" r="3.2" class="dataset-svg-point"></circle><circle cx="173.9" cy="158" r="3.2" class="dataset-svg-point"></circle><circle cx="180.3" cy="113.2" r="3.2" class="dataset-svg-point"></circle><circle cx="186.6" cy="146.8" r="3.2" class="dataset-svg-point"></circle><circle cx="193" cy="146.8" r="3.2" class="dataset-svg-point"></circle><circle cx="199.3" cy="158" r="3.2" class="dataset-svg-point"></circle><circle cx="205.7" cy="146.8" r="3.2" class="dataset-svg-point"></circle><circle cx="212.1" cy="146.8" r="3.2" class="dataset-svg-point"></circle><circle cx="218.4" cy="146.8" r="3.2" class="dataset-svg-point"></circle><circle cx="224.8" cy="158" r="3.2" class="dataset-svg-point"></circle><circle cx="231.1" cy="158" r="3.2" class="dataset-svg-point"></circle><circle cx="237.5" cy="158" r="3.2" class="dataset-svg-point"></circle><circle cx="243.8" cy="146.8" r="3.2" class="dataset-svg-point"></circle><circle cx="250.2" cy="113.2" r="3.2" class="dataset-svg-point"></circle><circle cx="256.6" cy="146.8" r="3.2" class="dataset-svg-point"></circle><circle cx="262.9" cy="124.4" r="3.2" class="dataset-svg-point"></circle><circle cx="269.3" cy="158" r="3.2" class="dataset-svg-point"></circle><circle cx="275.6" cy="79.6" r="3.2" class="dataset-svg-point"></circle><circle cx="282" cy="79.6" r="3.2" class="dataset-svg-point"></circle><text x="34" y="24" class="dataset-svg-title">nombre_sites_document</text><text x="34" y="186" class="dataset-svg-label">1</text><text x="230" y="186" class="dataset-svg-label">11</text>
 </svg>
 </div>
 </div>
@@ -5702,13 +5799,13 @@ Lecture statistique
 <span>Mini-projets</span>
 <ul>
 <li>
-Calculer les volumes autorisés par type de provenance de l&#39;eau.
+Comparer le nombre de sites et le volume autorisé total par provenance de l&#39;eau.
 </li>
 <li>
-Cartographier les sites de prélèvement autorisés.
+Cartographier les sites de prélèvement autorisés sans les confondre avec des volumes réellement prélevés.
 </li>
 <li>
-Comparer les plus grands volumes autorisés en distinguant volume autorisé et volume réel.
+Évaluer l&#39;influence des plus grands sites sur les graphiques de volumes.
 </li>
 </ul>
 </div>
@@ -5724,7 +5821,7 @@ Quels types de provenance représentent les plus grands volumes autorisés?
 <div class="dataset-activity-card">
 <span>2-3 heures</span><strong>Portrait spatial des prélèvements d&#39;eau autorisés</strong>
 <p>
-Comment décrire les volumes et la localisation des prélèvements d&#39;eau autorisés?
+Comment décrire les volumes et la localisation des prélèvements d&#39;eau autorisés sans les confondre avec des volumes réels?
 </p>
 </div>
 </div>
@@ -5733,11 +5830,64 @@ Comment décrire les volumes et la localisation des prélèvements d&#39;eau aut
 <div class="dataset-detail-content">
 <section id="pourquoi-ce-jeu-est-intéressant" class="level2">
 <h2 class="anchored" data-anchor-id="pourquoi-ce-jeu-est-intéressant">Pourquoi ce jeu est intéressant</h2>
-<p>Ce jeu de données permet d’étudier les sites de prélèvements d’eau autorisés au Québec et les volumes maximaux autorisés associés. Il est utile pour enseigner les agrégations, les comparaisons de volumes, la cartographie de points et les limites d’une donnée administrative.</p>
-<p>Le sujet relie directement la statistique descriptive aux politiques publiques. Il exige aussi de distinguer un volume autorisé, exprimé en litres par jour dans la source, d’un volume réellement prélevé ou déclaré.</p>
+<p>Ce jeu relie directement statistique descriptive, ressources hydriques et décision administrative. Les variables sont simples à manipuler, mais l’interprétation demande de la rigueur : le volume fourni est un volume maximal autorisé, pas un volume réellement prélevé.</p>
+<p>La fiche est donc utile pour enseigner trois gestes essentiels : convertir des unités, agréger par catégorie et communiquer une limite administrative sans l’enterrer à la fin du rapport.</p>
 </section>
-<section id="source" class="level2">
-<h2 class="anchored" data-anchor-id="source">Source</h2>
+<section id="ce-qui-a-été-vérifié" class="level2">
+<h2 class="anchored" data-anchor-id="ce-qui-a-été-vérifié">Ce qui a été vérifié</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Élément</th>
+<th>Résultat vérifié</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Paquet CKAN</td>
+<td><code>d9564fe0-6d50-4f89-b12e-47a461e1f68e</code></td>
+</tr>
+<tr class="even">
+<td>Source officielle</td>
+<td>Données Québec / MELCCFP</td>
+</tr>
+<tr class="odd">
+<td>Ressources dans le paquet</td>
+<td>10 ressources</td>
+</tr>
+<tr class="even">
+<td>Ressource préparée ici</td>
+<td>CSV <code>prelevement_autorise_20250915.csv</code></td>
+</tr>
+<tr class="odd">
+<td>Version source</td>
+<td>2025-09-15</td>
+</tr>
+<tr class="even">
+<td>Licence</td>
+<td>Attribution (CC-BY 4.0), selon les métadonnées CKAN consultées le 2026-06-21</td>
+</tr>
+<tr class="odd">
+<td>Dernière modification du paquet CKAN</td>
+<td>2026-05-05</td>
+</tr>
+<tr class="even">
+<td>Table préparée</td>
+<td><code>data/processed/prelevements-eau-autorises/prelevements_eau_autorises.csv</code></td>
+</tr>
+<tr class="odd">
+<td>Résumés préparés</td>
+<td>ressources, valeurs manquantes, provenances, principaux sites et intervenants</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="source-et-conditions" class="level2">
+<h2 class="anchored" data-anchor-id="source-et-conditions">Source et conditions</h2>
 <table class="caption-top table">
 <thead>
 <tr class="header">
@@ -5747,181 +5897,354 @@ Comment décrire les volumes et la localisation des prélèvements d&#39;eau aut
 </thead>
 <tbody>
 <tr class="odd">
-<td>Source</td>
-<td>Données Québec / MELCCFP</td>
+<td>Page Données Québec</td>
+<td><a href="https://www.donneesquebec.ca/recherche/dataset/prelevements-eau-volumes-autorises-par-melccfp" class="uri">https://www.donneesquebec.ca/recherche/dataset/prelevements-eau-volumes-autorises-par-melccfp</a></td>
 </tr>
 <tr class="even">
-<td>Organisme producteur</td>
-<td>Ministère de l’Environnement, de la Lutte contre les changements climatiques, de la Faune et des Parcs</td>
+<td>API CKAN</td>
+<td><a href="https://www.donneesquebec.ca/recherche/api/3/action/package_show?id=prelevements-eau-volumes-autorises-par-melccfp" class="uri">https://www.donneesquebec.ca/recherche/api/3/action/package_show?id=prelevements-eau-volumes-autorises-par-melccfp</a></td>
 </tr>
 <tr class="odd">
+<td>CSV officiel</td>
+<td><a href="https://www.donneesquebec.ca/recherche/dataset/d9564fe0-6d50-4f89-b12e-47a461e1f68e/resource/5c090292-a681-4413-9399-f17bcdf62753/download/prelevement_autorise_20250915.csv" class="uri">https://www.donneesquebec.ca/recherche/dataset/d9564fe0-6d50-4f89-b12e-47a461e1f68e/resource/5c090292-a681-4413-9399-f17bcdf62753/download/prelevement_autorise_20250915.csv</a></td>
+</tr>
+<tr class="even">
+<td>PDF de métadonnées</td>
+<td><a href="https://www.donneesquebec.ca/recherche/dataset/d9564fe0-6d50-4f89-b12e-47a461e1f68e/resource/24b357f1-fd58-44a7-8cd3-7098645ae907/download/md_prelevementseauautorises.pdf" class="uri">https://www.donneesquebec.ca/recherche/dataset/d9564fe0-6d50-4f89-b12e-47a461e1f68e/resource/24b357f1-fd58-44a7-8cd3-7098645ae907/download/md_prelevementseauautorises.pdf</a></td>
+</tr>
+<tr class="odd">
+<td>Miroir ouvert.canada.ca</td>
+<td><a href="https://open.canada.ca/data/fr/dataset/d9564fe0-6d50-4f89-b12e-47a461e1f68e" class="uri">https://open.canada.ca/data/fr/dataset/d9564fe0-6d50-4f89-b12e-47a461e1f68e</a></td>
+</tr>
+<tr class="even">
 <td>Territoire</td>
 <td>Québec</td>
 </tr>
-<tr class="even">
-<td>URL officielle</td>
-<td><a href="https://www.donneesquebec.ca/recherche/dataset/prelevements-eau-volumes-autorises-par-melccfp" class="uri">https://www.donneesquebec.ca/recherche/dataset/prelevements-eau-volumes-autorises-par-melccfp</a></td>
-</tr>
 <tr class="odd">
-<td>Licence</td>
-<td>Attribution (CC-BY 4.0)</td>
-</tr>
-<tr class="even">
 <td>Date d’accès</td>
-<td>2026-06-19</td>
-</tr>
-<tr class="odd">
-<td>Fréquence de mise à jour</td>
-<td>Annuelle; version de données 2025-09-15 selon le fichier source</td>
+<td>2026-06-21</td>
 </tr>
 <tr class="even">
-<td>Statut</td>
-<td>source vérifiée</td>
+<td>Fréquence</td>
+<td>Annuelle selon le miroir ouvert.canada.ca et le PDF de métadonnées</td>
+</tr>
+<tr class="odd">
+<td>Mise en garde officielle</td>
+<td>Le PDF de métadonnées indique que cette donnée n’a aucune valeur légale</td>
 </tr>
 </tbody>
 </table>
 </section>
 <section id="ce-que-représente-une-ligne" class="level2">
 <h2 class="anchored" data-anchor-id="ce-que-représente-une-ligne">Ce que représente une ligne</h2>
-<p>Une ligne représente un site de prélèvement d’eau autorisé actif. Les métadonnées officielles indiquent que ces sites sont les points d’entrée de l’eau dans une installation aménagée afin d’effectuer un prélèvement d’eau, tant souterrain que de surface.</p>
+<p>Une ligne représente un site de prélèvement d’eau autorisé actif depuis l’entrée en vigueur du Règlement sur le prélèvement des eaux et leur protection, le 14 août 2014. Le PDF de métadonnées définit ces sites comme les points d’entrée de l’eau dans une installation aménagée afin d’effectuer un prélèvement d’eau, tant souterrain que de surface.</p>
+<p>Une ligne n’est pas un volume consommé, un débit mesuré, une déclaration annuelle, ni un impact environnemental observé.</p>
 </section>
 <section id="variables-principales" class="level2">
 <h2 class="anchored" data-anchor-id="variables-principales">Variables principales</h2>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 20%">
-<col style="width: 20%">
-<col style="width: 20%">
-<col style="width: 20%">
-<col style="width: 20%">
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
 </colgroup>
 <thead>
 <tr class="header">
-<th>Variable</th>
-<th>Type</th>
-<th>Description</th>
-<th>Exemple</th>
-<th>Remarques pédagogiques</th>
+<th>Variable préparée</th>
+<th>Rôle</th>
+<th>Point de vigilance</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>no_doc</td>
-<td>caractère</td>
+<td><code>no_doc</code></td>
 <td>Numéro du document délivré</td>
-<td>401234567</td>
-<td>Un document peut être lié à plusieurs sites</td>
+<td>Un document peut regrouper plusieurs sites</td>
 </tr>
 <tr class="even">
-<td>site_id</td>
-<td>entier</td>
-<td>Identifiant unique du site dans le fichier</td>
-<td>123</td>
+<td><code>site_id</code></td>
+<td>Identifiant du site dans le fichier</td>
 <td>Clé technique</td>
 </tr>
 <tr class="odd">
-<td>nombre_sites_document</td>
-<td>entier</td>
-<td>Nombre de sites liés au document délivré</td>
-<td>2</td>
-<td>Utile pour interpréter les documents multi-sites</td>
+<td><code>nombre_sites_document</code></td>
+<td>Nombre de sites liés au document</td>
+<td>Utile pour repérer les documents multi-sites</td>
 </tr>
 <tr class="even">
-<td>nom_intervenant</td>
-<td>caractère</td>
-<td>Nom de l’intervenant destinataire de l’autorisation</td>
-<td>Municipalité X</td>
-<td>Peut nécessiter une normalisation</td>
+<td><code>nom_intervenant</code></td>
+<td>Destinataire de l’autorisation</td>
+<td>Les noms peuvent demander une normalisation</td>
 </tr>
 <tr class="odd">
-<td>volume_autorise_l_j</td>
-<td>numérique</td>
+<td><code>volume_autorise_l_j</code></td>
 <td>Volume maximal autorisé en litres par jour</td>
-<td>100000</td>
-<td>Variable principale d’analyse</td>
+<td>Ce n’est pas un volume réellement prélevé</td>
 </tr>
 <tr class="even">
-<td>precision_volume</td>
-<td>caractère</td>
-<td>Précisions relatives au prélèvement autorisé</td>
-<td>Condition particulière</td>
-<td>Texte à lire avant interprétation</td>
+<td><code>volume_autorise_m3_j</code></td>
+<td>Conversion en mètres cubes par jour</td>
+<td>Plus lisible pour les graphiques</td>
 </tr>
 <tr class="odd">
-<td>provenance_eau</td>
-<td>caractère</td>
-<td>Type de provenance de l’eau</td>
-<td>Souterraine</td>
-<td>Catégorie pour comparaison</td>
+<td><code>precision_volume</code></td>
+<td>Condition ou précision relative au volume</td>
+<td>Très souvent manquante</td>
 </tr>
 <tr class="even">
-<td>longitude</td>
-<td>numérique</td>
-<td>Longitude en degrés décimaux</td>
-<td>-71.2</td>
-<td>Coordonnée pour cartographie</td>
+<td><code>provenance_eau</code></td>
+<td>Souterraine, surface ou activités de dénoyage</td>
+<td>Variable principale d’agrégation</td>
 </tr>
 <tr class="odd">
-<td>latitude</td>
-<td>numérique</td>
-<td>Latitude en degrés décimaux</td>
-<td>46.8</td>
-<td>Coordonnée pour cartographie</td>
+<td><code>longitude</code>, <code>latitude</code></td>
+<td>Coordonnées des sites</td>
+<td>Toutes les lignes préparées ont des coordonnées</td>
 </tr>
 </tbody>
 </table>
 </section>
-<section id="taille-et-structure" class="level2">
-<h2 class="anchored" data-anchor-id="taille-et-structure">Taille et structure</h2>
+<section id="taille-et-résultats-r-vérifiés" class="level2">
+<h2 class="anchored" data-anchor-id="taille-et-résultats-r-vérifiés">Taille et résultats R vérifiés</h2>
 <table class="caption-top table">
-<colgroup>
-<col style="width: 50%">
-<col style="width: 50%">
-</colgroup>
 <thead>
 <tr class="header">
-<th>Élément</th>
-<th>Information</th>
+<th>Indicateur</th>
+<th style="text-align: right;">Valeur</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>Nombre de lignes</td>
-<td>1 777 lignes dans le CSV consulté le 2026-06-19</td>
+<td>Sites préparés</td>
+<td style="text-align: right;">1 777</td>
 </tr>
 <tr class="even">
-<td>Nombre de colonnes</td>
-<td>9 colonnes dans le CSV consulté</td>
+<td>Colonnes préparées</td>
+<td style="text-align: right;">16</td>
 </tr>
 <tr class="odd">
-<td>Structure</td>
-<td>Tabulaire et spatiale</td>
+<td>Colonnes dans le CSV source</td>
+<td style="text-align: right;">9</td>
 </tr>
 <tr class="even">
-<td>Format</td>
-<td>CSV, GeoJSON, GPKG, FGDB, SHP, XLSX, REST, WMS et PDF de métadonnées</td>
+<td>Documents distincts</td>
+<td style="text-align: right;">1 021</td>
 </tr>
 <tr class="odd">
-<td>Type de données</td>
-<td>Données administratives sur les prélèvements d’eau autorisés</td>
+<td>Intervenants distincts</td>
+<td style="text-align: right;">827</td>
 </tr>
 <tr class="even">
-<td>Niveau pédagogique recommandé</td>
-<td>Intermédiaire</td>
+<td>Sites avec coordonnées</td>
+<td style="text-align: right;">1 777</td>
+</tr>
+<tr class="odd">
+<td>Sites avec volume manquant</td>
+<td style="text-align: right;">19</td>
+</tr>
+<tr class="even">
+<td>Sites avec précision textuelle sur le volume</td>
+<td style="text-align: right;">130</td>
+</tr>
+<tr class="odd">
+<td>Volume autorisé total</td>
+<td style="text-align: right;">4 670 107 m3/j</td>
+</tr>
+<tr class="even">
+<td>Volume autorisé médian</td>
+<td style="text-align: right;">109,22 m3/j</td>
+</tr>
+<tr class="odd">
+<td>Volume autorisé maximal</td>
+<td style="text-align: right;">499 000 m3/j</td>
 </tr>
 </tbody>
 </table>
+</section>
+<section id="provenance-de-leau" class="level2">
+<h2 class="anchored" data-anchor-id="provenance-de-leau">Provenance de l’eau</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 9%">
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 12%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Provenance</th>
+<th style="text-align: right;">Sites</th>
+<th style="text-align: right;">Documents</th>
+<th style="text-align: right;">Intervenants</th>
+<th style="text-align: right;">Volumes manquants</th>
+<th style="text-align: right;">Volume total autorisé</th>
+<th style="text-align: right;">Volume médian autorisé</th>
+<th style="text-align: right;">Volume maximal autorisé</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Surface</td>
+<td style="text-align: right;">346</td>
+<td style="text-align: right;">246</td>
+<td style="text-align: right;">210</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">3 485 318 m3/j</td>
+<td style="text-align: right;">1 058,8 m3/j</td>
+<td style="text-align: right;">499 000 m3/j</td>
+</tr>
+<tr class="even">
+<td>Souterraine</td>
+<td style="text-align: right;">1 424</td>
+<td style="text-align: right;">816</td>
+<td style="text-align: right;">673</td>
+<td style="text-align: right;">11</td>
+<td style="text-align: right;">1 166 715 m3/j</td>
+<td style="text-align: right;">72,0 m3/j</td>
+<td style="text-align: right;">102 600 m3/j</td>
+</tr>
+<tr class="odd">
+<td>Activités de dénoyage</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">18 074 m3/j</td>
+<td style="text-align: right;">3 800,0 m3/j</td>
+<td style="text-align: right;">13 600 m3/j</td>
+</tr>
+</tbody>
+</table>
+<p>La lecture pédagogique importante est que le nombre de sites et le volume total ne racontent pas la même histoire. Les sites souterrains sont les plus nombreux, alors que le volume total autorisé est dominé par les prélèvements de surface.</p>
+</section>
+<section id="valeurs-manquantes" class="level2">
+<h2 class="anchored" data-anchor-id="valeurs-manquantes">Valeurs manquantes</h2>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Variable</th>
+<th style="text-align: right;">Valeurs manquantes</th>
+<th style="text-align: right;">Pourcentage</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>precision_volume</code></td>
+<td style="text-align: right;">1 647</td>
+<td style="text-align: right;">92,68 %</td>
+</tr>
+<tr class="even">
+<td><code>volume_autorise_l_j</code></td>
+<td style="text-align: right;">19</td>
+<td style="text-align: right;">1,07 %</td>
+</tr>
+<tr class="odd">
+<td><code>volume_autorise_m3_j</code></td>
+<td style="text-align: right;">19</td>
+<td style="text-align: right;">1,07 %</td>
+</tr>
+</tbody>
+</table>
+<p>L’absence de précision textuelle ne veut pas dire absence de condition administrative. Pour une analyse publique, il faut retourner aux documents et aux métadonnées.</p>
+</section>
+<section id="principaux-sites" class="level2">
+<h2 class="anchored" data-anchor-id="principaux-sites">Principaux sites</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 30%">
+<col style="width: 30%">
+<col style="width: 40%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Intervenant</th>
+<th>Provenance</th>
+<th style="text-align: right;">Volume autorisé</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>VILLE DE LONGUEUIL</td>
+<td>Surface</td>
+<td style="text-align: right;">499 000 m3/j</td>
+</tr>
+<tr class="even">
+<td>VILLE DE LONGUEUIL</td>
+<td>Surface</td>
+<td style="text-align: right;">499 000 m3/j</td>
+</tr>
+<tr class="odd">
+<td>SOCIÉTÉ DU PARC INDUSTRIEL ET PORTUAIRE DE BÉCANCOUR</td>
+<td>Surface</td>
+<td style="text-align: right;">153 620 m3/j</td>
+</tr>
+<tr class="even">
+<td>VILLE DE LONGUEUIL</td>
+<td>Surface</td>
+<td style="text-align: right;">152 400 m3/j</td>
+</tr>
+<tr class="odd">
+<td>VILLE DE LONGUEUIL</td>
+<td>Surface</td>
+<td style="text-align: right;">152 400 m3/j</td>
+</tr>
+<tr class="even">
+<td>La cannebergière Nathaniel S.E.N.C.</td>
+<td>Surface</td>
+<td style="text-align: right;">120 000 m3/j</td>
+</tr>
+<tr class="odd">
+<td>La cannebergière Nathaniel S.E.N.C.</td>
+<td>Surface</td>
+<td style="text-align: right;">106 000 m3/j</td>
+</tr>
+<tr class="even">
+<td>Canadian Malartic GP</td>
+<td>Souterraine</td>
+<td style="text-align: right;">102 600 m3/j</td>
+</tr>
+<tr class="odd">
+<td>Canadian Malartic GP</td>
+<td>Souterraine</td>
+<td style="text-align: right;">91 200 m3/j</td>
+</tr>
+<tr class="even">
+<td>COMMANDITÉ STADACONA WB LTÉE</td>
+<td>Surface</td>
+<td style="text-align: right;">73 630 m3/j</td>
+</tr>
+</tbody>
+</table>
+<p>Ces valeurs justifient une discussion sur les valeurs extrêmes. Un graphique brut peut être dominé par quelques sites.</p>
+</section>
+<section id="lecture-statistique" class="level2">
+<h2 class="anchored" data-anchor-id="lecture-statistique">Lecture statistique</h2>
+<p>Une analyse prudente suit cet ordre :</p>
+<ol type="1">
+<li>vérifier que l’unité est le site autorisé;</li>
+<li>convertir les litres par jour en mètres cubes par jour;</li>
+<li>séparer nombre de sites et volumes autorisés;</li>
+<li>repérer les volumes manquants et les précisions textuelles;</li>
+<li>distinguer volume autorisé et volume réel prélevé;</li>
+<li>citer la mise en garde officielle sur la valeur légale des données.</li>
+</ol>
+<p>Les données permettent de décrire les autorisations actives présentes dans la source. Elles ne permettent pas, seules, de mesurer la pression réelle sur l’eau, l’utilisation annuelle ou l’impact hydrologique.</p>
 </section>
 <section id="concepts-enseignables" class="level2">
 <h2 class="anchored" data-anchor-id="concepts-enseignables">Concepts enseignables</h2>
 <ul>
-<li>agrégation par provenance de l’eau;</li>
-<li>statistiques descriptives de volumes;</li>
-<li>transformations d’unités;</li>
-<li>cartographie de points;</li>
+<li>volume maximal autorisé;</li>
+<li>conversion d’unités;</li>
+<li>données administratives;</li>
+<li>agrégation par catégorie;</li>
 <li>valeurs extrêmes;</li>
-<li>distinction entre volume autorisé et volume réel;</li>
-<li>limites d’une donnée administrative.</li>
+<li>carte de points;</li>
+<li>biais d’interprétation;</li>
+<li>communication prudente.</li>
 </ul>
 </section>
 <section id="score-zéro-déchet" class="level2">
@@ -5943,140 +6266,134 @@ Comment décrire les volumes et la localisation des prélèvements d&#39;eau aut
 <tr class="odd">
 <td>Contexte québécois</td>
 <td style="text-align: right;">3</td>
-<td>Le jeu porte sur l’utilisation de l’eau au Québec.</td>
+<td>Données officielles sur les prélèvements d’eau au Québec</td>
 </tr>
 <tr class="even">
 <td>Accessibilité pédagogique</td>
-<td style="text-align: right;">2</td>
-<td>Le sujet est concret, mais les définitions administratives doivent être explicitées.</td>
+<td style="text-align: right;">3</td>
+<td>Variables concrètes et graphiques directs</td>
 </tr>
 <tr class="odd">
 <td>Qualité documentaire</td>
 <td style="text-align: right;">3</td>
-<td>La page, la licence, le CSV et le dictionnaire PDF sont disponibles.</td>
+<td>Page, CSV, PDF de métadonnées et formats spatiaux</td>
 </tr>
 <tr class="even">
 <td>Potentiel de nettoyage</td>
-<td style="text-align: right;">2</td>
-<td>Les noms, les textes de précision et les volumes peuvent nécessiter une harmonisation.</td>
+<td style="text-align: right;">3</td>
+<td>Volumes, unités, précisions, grands sites et noms</td>
 </tr>
 <tr class="odd">
 <td>Potentiel de visualisation</td>
 <td style="text-align: right;">3</td>
-<td>Les volumes, provenances et coordonnées se prêtent à plusieurs graphiques et cartes.</td>
+<td>Barres, distributions, cartes et effets d’échelle</td>
 </tr>
 <tr class="even">
 <td>Potentiel de statistique descriptive</td>
 <td style="text-align: right;">3</td>
-<td>Les agrégations par provenance et intervenant sont directes.</td>
+<td>Agrégations et comparaisons très naturelles</td>
 </tr>
 <tr class="odd">
 <td>Potentiel d’inférence</td>
-<td style="text-align: right;">2</td>
-<td>Des comparaisons exploratoires sont possibles après lecture des définitions.</td>
+<td style="text-align: right;">1</td>
+<td>Non adapté à l’inférence sans protocole complémentaire</td>
 </tr>
 <tr class="even">
 <td>Potentiel de modélisation</td>
 <td style="text-align: right;">2</td>
-<td>Une modélisation descriptive des volumes peut être envisagée avec prudence.</td>
+<td>Modélisation descriptive possible avec données territoriales</td>
 </tr>
 <tr class="odd">
-<td>Potentiel de discussion éthique</td>
+<td>Potentiel éthique</td>
 <td style="text-align: right;">3</td>
-<td>Le jeu soulève des enjeux de ressource, territoire et gouvernance.</td>
+<td>Ressource hydrique, gouvernance et communication publique</td>
 </tr>
 <tr class="even">
-<td>Réutilisabilité dans plusieurs cours</td>
+<td>Réutilisabilité</td>
 <td style="text-align: right;">3</td>
-<td>Le jeu peut servir en visualisation, statistiques descriptives et politiques publiques.</td>
+<td>Utile en visualisation, données ouvertes et politiques publiques</td>
 </tr>
 </tbody>
 </table>
-<p>Total : 26 sur 30.</p>
+<p>Total : 27 sur 30.</p>
 </section>
 <section id="activité-courte" class="level2">
 <h2 class="anchored" data-anchor-id="activité-courte">Activité courte</h2>
-<p>En 30 à 45 minutes, demander aux personnes étudiantes de calculer les volumes autorisés par provenance de l’eau et de produire un graphique en barres.</p>
+<p>En 30 à 45 minutes, comparer les volumes autorisés par provenance de l’eau, puis expliquer pourquoi ce ne sont pas des volumes réellement prélevés.</p>
 </section>
 <section id="activité-longue" class="level2">
 <h2 class="anchored" data-anchor-id="activité-longue">Activité longue</h2>
-<p>En 2 à 3 heures, demander de produire un portrait descriptif des sites de prélèvement autorisés, avec une carte et une discussion des limites administratives.</p>
-</section>
-<section id="projets-possibles" class="level2">
-<h2 class="anchored" data-anchor-id="projets-possibles">Projets possibles</h2>
-<ul>
-<li>Calculer les volumes autorisés par type de provenance de l’eau.</li>
-<li>Cartographier les sites de prélèvement autorisés.</li>
-<li>Comparer les plus grands volumes autorisés en distinguant volume autorisé et volume réel.</li>
-</ul>
-</section>
-<section id="questions-pédagogiques-possibles" class="level2">
-<h2 class="anchored" data-anchor-id="questions-pédagogiques-possibles">Questions pédagogiques possibles</h2>
-<ol type="1">
-<li>Quelle différence existe entre volume autorisé et volume réellement prélevé?</li>
-<li>Quelle unité faut-il utiliser pour comparer les volumes?</li>
-<li>Comment traiter les organisations présentes sous plusieurs noms?</li>
-<li>Les volumes sont-ils dominés par quelques sites?</li>
-<li>Quels regroupements sont pertinents avec les champs disponibles?</li>
-<li>Comment représenter les plus grands volumes sans masquer les autres?</li>
-<li>Quelles limites accompagnent une donnée administrative sans valeur légale?</li>
-<li>Quelles métadonnées sont nécessaires avant une conclusion publique?</li>
-</ol>
+<p>En 2 à 3 heures, produire un portrait descriptif avec agrégations, carte, valeurs extrêmes, valeurs manquantes et limites administratives.</p>
 </section>
 <section id="code-r-minimal" class="level2">
 <h2 class="anchored" data-anchor-id="code-r-minimal">Code R minimal</h2>
+<p>À exécuter depuis la racine du projet.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>source_url <span class="ot">&lt;-</span> <span class="st">&quot;https://www.donneesquebec.ca/recherche/dataset/d9564fe0-6d50-4f89-b12e-47a461e1f68e/resource/5c090292-a681-4413-9399-f17bcdf62753/download/prelevement_autorise_20250915.csv&quot;</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>prelevements <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(source_url, <span class="at">show_col_types =</span> <span class="cn">FALSE</span>) <span class="sc">|&gt;</span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">transmute</span>(</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">no_doc =</span> <span class="fu">as.character</span>(no_doc),</span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">site_id =</span> Id,</span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">nombre_sites_document =</span> count_doc,</span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">nom_intervenant =</span> int_nom,</span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">volume_autorise_l_j =</span> vol_aut,</span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">volume_autorise_m3_j =</span> vol_aut <span class="sc">/</span> <span class="dv">1000</span>,</span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">precision_volume =</span> vol_prec,</span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">provenance_eau =</span> eau_prov,</span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">longitude =</span> long,</span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">latitude =</span> lat</span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>prelevements <span class="sc">|&gt;</span></span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(provenance_eau) <span class="sc">|&gt;</span></span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">volume_total_m3_j =</span> <span class="fu">sum</span>(volume_autorise_m3_j, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), <span class="at">.groups =</span> <span class="st">&quot;drop&quot;</span>) <span class="sc">|&gt;</span></span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(volume_total_m3_j)) <span class="sc">|&gt;</span></span>
-<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">reorder</span>(provenance_eau, volume_total_m3_j), <span class="at">y =</span> volume_total_m3_j)) <span class="sc">+</span></span>
-<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="at">fill =</span> <span class="st">&quot;#325EA8&quot;</span>) <span class="sc">+</span></span>
-<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>() <span class="sc">+</span></span>
-<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
-<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">&quot;Provenance de l&#39;eau&quot;</span>,</span>
-<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">&quot;Volume autorisé total (m3/j)&quot;</span>,</span>
-<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">&quot;Volumes autorisés par provenance de l&#39;eau&quot;</span></span>
-<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load libraries</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Prepare official CSV resource</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">&quot;datasets/prelevements-eau-autorises/preparation.R&quot;</span>)</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Import prepared data</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>prelevements <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;data/processed/prelevements-eau-autorises/prelevements_eau_autorises.csv&quot;</span>,</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">show_col_types =</span> <span class="cn">FALSE</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Aggregate by water provenance</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>resume_provenance <span class="ot">&lt;-</span> prelevements <span class="sc">|&gt;</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(provenance_eau) <span class="sc">|&gt;</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">sites =</span> <span class="fu">n</span>(),</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>    <span class="at">volume_total_m3_j =</span> <span class="fu">sum</span>(volume_autorise_m3_j, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>    <span class="at">.groups =</span> <span class="st">&quot;drop&quot;</span></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(volume_total_m3_j))</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>resume_provenance</span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot authorized volumes</span></span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(resume_provenance, <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">reorder</span>(provenance_eau, volume_total_m3_j), <span class="at">y =</span> volume_total_m3_j)) <span class="sc">+</span></span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="at">fill =</span> <span class="st">&quot;#325EA8&quot;</span>) <span class="sc">+</span></span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>() <span class="sc">+</span></span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">&quot;Provenance de l&#39;eau&quot;</span>,</span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">&quot;Volume maximal autorisé total (m3/j)&quot;</span>,</span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">&quot;Volumes autorisés par provenance de l&#39;eau&quot;</span>,</span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="st">&quot;Il s&#39;agit de volumes autorisés, pas de volumes réellement prélevés&quot;</span></span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="limites-et-précautions" class="level2">
 <h2 class="anchored" data-anchor-id="limites-et-précautions">Limites et précautions</h2>
 <ul>
-<li>Le champ <code>vol_aut</code> représente un volume maximal autorisé en litres par jour, pas un volume réellement prélevé.</li>
-<li>Les métadonnées officielles indiquent que cette donnée n’a aucune valeur légale.</li>
-<li>Les grands volumes peuvent dominer les visualisations.</li>
-<li>Les comparaisons territoriales nécessitent des dénominateurs pertinents qui ne sont pas fournis dans ce fichier.</li>
-<li>Les coordonnées doivent être validées avant toute interprétation spatiale fine.</li>
+<li>Le champ <code>volume_autorise_l_j</code> représente un volume maximal autorisé en litres par jour.</li>
+<li>Les données ne donnent pas les volumes réellement prélevés.</li>
+<li>Le PDF de métadonnées indique que cette donnée n’a aucune valeur légale.</li>
+<li>Les autorisations antérieures au cadre décrit dans la source ne sont pas nécessairement incluses.</li>
+<li>Les grands volumes dominent fortement plusieurs graphiques.</li>
+<li>Les coordonnées peuvent provenir d’origines diverses selon le PDF de métadonnées.</li>
 </ul>
 </section>
 <section id="extensions" class="level2">
 <h2 class="anchored" data-anchor-id="extensions">Extensions</h2>
 <ul>
-<li>Extension intro : classer les provenances selon le volume autorisé total.</li>
-<li>Extension intermédiaire : cartographier les sites après conversion en objet <code>sf</code>.</li>
-<li>Extension avancée : comparer les distributions de volumes avec et sans les plus grands sites.</li>
-<li>Extension communication scientifique : produire une note sur la portée des données administratives.</li>
+<li>Comparer les résultats avec et sans les dix plus grands sites.</li>
+<li>Produire une carte des sites avec une échelle logarithmique du volume.</li>
+<li>Grouper par intervenant et discuter des documents multi-sites.</li>
+<li>Joindre les sites à une région administrative ou un bassin versant.</li>
+<li>Rédiger une note publique qui distingue volume autorisé, volume réel et valeur légale.</li>
+</ul>
+</section>
+<section id="références-utilisées" class="level2">
+<h2 class="anchored" data-anchor-id="références-utilisées">Références utilisées</h2>
+<ul>
+<li>Données Québec. 2026. Prélèvements d’eau et volumes autorisés par le MELCCFP. <a href="https://www.donneesquebec.ca/recherche/dataset/prelevements-eau-volumes-autorises-par-melccfp" class="uri">https://www.donneesquebec.ca/recherche/dataset/prelevements-eau-volumes-autorises-par-melccfp</a></li>
+<li>MELCCFP. 2025. Métadonnées, prélèvements d’eau et volumes autorisés depuis l’entrée en vigueur du RPEP. <a href="https://www.donneesquebec.ca/recherche/dataset/d9564fe0-6d50-4f89-b12e-47a461e1f68e/resource/24b357f1-fd58-44a7-8cd3-7098645ae907/download/md_prelevementseauautorises.pdf" class="uri">https://www.donneesquebec.ca/recherche/dataset/d9564fe0-6d50-4f89-b12e-47a461e1f68e/resource/24b357f1-fd58-44a7-8cd3-7098645ae907/download/md_prelevementseauautorises.pdf</a></li>
+<li>Gouvernement du Canada. 2026. Prélèvements d’eau et volumes autorisés par le MELCCFP, miroir ouvert.canada.ca. <a href="https://open.canada.ca/data/fr/dataset/d9564fe0-6d50-4f89-b12e-47a461e1f68e" class="uri">https://open.canada.ca/data/fr/dataset/d9564fe0-6d50-4f89-b12e-47a461e1f68e</a></li>
 </ul>
 </section>
 </div>

@@ -7,54 +7,106 @@ embed-resources: true
 
 ## Contexte
 
-Cette activité utilise le registre des prélèvements d'eau autorisés pour comparer des volumes maximaux autorisés selon la provenance de l'eau.
+Cette activité utilise le registre des prélèvements d'eau autorisés pour comparer des volumes maximaux autorisés selon la provenance de l'eau. Le point central est d'éviter une interprétation trop forte : un volume autorisé n'est pas un volume réellement prélevé.
 
 ## Objectifs d'apprentissage
 
-- Lire une donnée administrative.
-- Agréger un volume par catégorie.
-- Distinguer volume autorisé et volume réel.
+- Préparer une ressource CSV officielle
+- Convertir des litres par jour en mètres cubes par jour
+- Agréger un volume par catégorie
+- Comparer nombre de sites et volume total
+- Communiquer une limite administrative
 
 ## Données utilisées
 
 Fiche : [Registre des prélèvements d'eau autorisés](fiche.qmd)
 
-Source : Données Québec / MELCCFP, "Prélèvements d'eau autorisés par le MELCCFP".
+Source : Données Québec / MELCCFP.
 
-Licence : Attribution (CC-BY 4.0).
+Licence : Attribution (CC-BY 4.0), selon les métadonnées CKAN consultées le 2026-06-21.
+
+Fichier préparé : `data/processed/prelevements-eau-autorises/prelevements_eau_autorises.csv`
 
 ## Métadonnées pédagogiques
 
 | Champ | Information |
 |---|---|
 | Question directrice | Quels types de provenance représentent les plus grands volumes autorisés? |
-| Concepts | Agrégation; statistique descriptive; visualisation |
+| Concepts | Agrégation; Volume autorisé; Valeurs extrêmes; Visualisation |
 | Niveau | Intermédiaire |
-| Type | Exercice; exploration de données |
+| Type | Exercice; Exploration de données |
 | Contexte | Prélèvements d'eau |
-| Accroche | Comparer des volumes autorisés liés à l'eau souterraine, de surface ou de dénoyage |
+| Accroche | Beaucoup de sites ne signifie pas nécessairement le plus grand volume autorisé |
 | Durée | 30-45 minutes |
-| Matériel | énoncé; code; données |
+| Matériel | énoncé; code; table préparée |
 | Math/stats avancées | non |
 
 ## Consignes
 
-1. Importer le CSV officiel.
-2. Renommer les champs pour obtenir des noms lisibles.
-3. Convertir le volume autorisé de litres par jour en mètres cubes par jour.
-4. Calculer le volume total par provenance de l'eau.
-5. Produire un graphique et interpréter le résultat avec prudence.
+1. Exécuter `datasets/prelevements-eau-autorises/preparation.R`.
+2. Importer la table préparée.
+3. Compter les sites par `provenance_eau`.
+4. Calculer le volume total autorisé par `provenance_eau`.
+5. Produire un graphique en barres du volume total.
+6. Écrire une phrase qui distingue volume autorisé et volume réel.
+
+## Code de départ
+
+À exécuter depuis la racine du projet.
+
+```{r}
+#| eval: false
+# Load libraries
+library(dplyr)
+library(ggplot2)
+library(readr)
+
+# Prepare official CSV
+source("datasets/prelevements-eau-autorises/preparation.R")
+
+# Import prepared data
+prelevements <- read_csv(
+  "data/processed/prelevements-eau-autorises/prelevements_eau_autorises.csv",
+  show_col_types = FALSE
+)
+
+# Aggregate by provenance
+resume_provenance <- prelevements |>
+  group_by(provenance_eau) |>
+  summarise(
+    sites = n(),
+    volume_total_m3_j = sum(volume_autorise_m3_j, na.rm = TRUE),
+    volume_median_m3_j = median(volume_autorise_m3_j, na.rm = TRUE),
+    .groups = "drop"
+  ) |>
+  arrange(desc(volume_total_m3_j))
+
+resume_provenance
+
+# Plot authorized volumes
+ggplot(resume_provenance, aes(x = reorder(provenance_eau, volume_total_m3_j), y = volume_total_m3_j)) +
+  geom_col(fill = "#325EA8") +
+  coord_flip() +
+  labs(
+    x = "Provenance de l'eau",
+    y = "Volume maximal autorisé total (m3/j)",
+    title = "Volumes autorisés par provenance de l'eau",
+    subtitle = "Les volumes ne sont pas des volumes réellement prélevés"
+  )
+```
 
 ## Questions
 
-1. Quelle provenance représente le plus grand volume autorisé?
-2. Les volumes sont-ils dominés par quelques catégories?
-3. Pourquoi ne peut-on pas interpréter ces volumes comme des volumes réellement prélevés?
+1. Quelle provenance compte le plus de sites?
+2. Quelle provenance représente le plus grand volume total autorisé?
+3. Pourquoi ces deux réponses peuvent-elles être différentes?
+4. Combien de sites ont un volume manquant?
+5. Pourquoi ne peut-on pas interpréter ces volumes comme une consommation réelle d'eau?
 
 ## Pistes de solution
 
-Une solution acceptable présente une agrégation par provenance et un graphique en barres ordonné avec une mention explicite des limites.
+Dans la version préparée, les sites souterrains sont les plus nombreux, mais le volume total autorisé est plus élevé pour les prélèvements de surface. Une bonne réponse mentionne explicitement que les volumes sont des maxima autorisés.
 
 ## Prolongement
 
-Répéter l'analyse en retirant les dix plus grands sites pour évaluer leur influence descriptive.
+Refaire le graphique après avoir retiré les dix sites ayant les plus grands volumes autorisés, puis comparer la conclusion descriptive.
