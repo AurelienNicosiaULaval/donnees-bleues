@@ -233,8 +233,6 @@ if (file.exists(catalogue_path)) {
       row$license,
       row$concepts,
       row$idees_mini_projets,
-      row$contributor_name,
-      row$contributor_role,
       row$activity_question,
       row$status,
       sep = " "
