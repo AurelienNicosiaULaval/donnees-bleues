@@ -1,6 +1,6 @@
 id: ulaval-rapport-methodologique-long
-title: "Rapport méthodologique sur des données institutionnelles"
-question: "Comment produire une analyse locale sans créer une diffusion publique non autorisée?"
+title: "Mini-projet - Rapport méthodologique sans diffusion des lignes"
+question: "Comment produire un rapport utile sur une source institutionnelle privée sans créer une diffusion publique non autorisée?"
 dataset_id: ulaval-programmes-cours
 dataset_title: "Programmes et cours institutionnels ULaval"
 activity_url: "datasets/ulaval-programmes-cours/activite-longue.qmd"
@@ -12,16 +12,17 @@ activity_type:
   - "Communication"
 concepts:
   - "Provenance"
-  - "Statistique descriptive"
+  - "Validation"
   - "Rapport reproductible"
   - "Droits de réutilisation"
+  - "Communication prudente"
 context: "Éducation supérieure"
-hook: "Rapport local avec contraintes de publication"
+hook: "Un bon rapport peut être utile sans publier les lignes privées."
 materials:
-  - "énoncé"
-  - "code"
-  - "dépôt privé local"
+  - "fiche vérifiée"
+  - "script de préparation"
+  - "résumés publics"
   - "notes méthodologiques"
 advanced_math_stats: false
-teacher_notes: "Demander un rendu local seulement. Vérifier que le rapport n'inclut pas les CSV complets ni les PDF sources."
-status: "prêt"
+teacher_notes: "Demander un rendu local ou un rapport public sans lignes privées. Vérifier que le texte ne suggère pas une approbation officielle."
+status: "source privée locale validée"

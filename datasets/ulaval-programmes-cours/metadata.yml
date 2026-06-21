@@ -1,50 +1,61 @@
-id: ulaval-programmes-cours
+id: "ulaval-programmes-cours"
 title: "Programmes et cours institutionnels ULaval"
 short_title: "ULaval programmes et cours"
 theme: "Éducation supérieure"
 source_name: "Université Laval, Bureau de la qualité des programmes"
 source_url: "https://www.bqp.ulaval.ca/fichiers/ressources/gestion/codes-programmes-actifs.pdf"
-license: "Aucune licence ouverte explicite identifiée pour les données sources; réutilisation à valider auprès de l'Université Laval ou par avis juridique."
-access_date: "2026-06-19"
+source_private_repository: "git@github.com:AurelienNicosiaULaval/donnees-ulaval-institutionnelles.git"
+license: "Aucune licence ouverte explicite identifiée pour les données sources; réutilisation publique à valider auprès de l'Université Laval ou par avis juridique."
+access_date: "2026-06-21"
 geography: "Université Laval"
-unit: "Programme actif, nouvelle activité de formation ou cours accessible selon le fichier source"
+unit: "Programme actif, nouvelle activité de formation, cours accessible ou indicateur institutionnel selon le fichier source"
 data_type: "Tableaux institutionnels dérivés de documents publics, compilation indépendante et non officielle"
-format: "CSV UTF-8 dans le dépôt privé donnees-ulaval-institutionnelles; données non redistribuées dans Données bleues"
-n_rows: "753 programmes actifs; 278 nouveaux cours; 344 cours accessibles"
-n_cols: "11 colonnes pour programmes actifs; 10 colonnes pour nouveaux cours; 11 colonnes pour cours accessibles"
+format: "CSV UTF-8 dans le dépôt privé source; seuls des résumés de validation sont publiés dans Données bleues"
+n_rows: "1 375 lignes core validées; 119 lignes GES validées; 165 lignes d'indicateurs repères validées localement"
+n_cols: "11 colonnes programmes actifs; 11 cours accessibles; 10 cours nouveaux; 8 à 15 colonnes pour les fichiers complémentaires validés"
+processed_file: "data/processed/ulaval-programmes-cours/resume_ulaval_programmes_cours.csv"
+file_summary_file: "data/processed/ulaval-programmes-cours/resume_fichiers_ulaval.csv"
+validation_summary_file: "data/processed/ulaval-programmes-cours/resume_controles_ulaval.csv"
+rights_summary_file: "data/processed/ulaval-programmes-cours/resume_droits_ulaval.csv"
 update_frequency: "Je ne sais pas."
 level: "Intermédiaire"
 organisme: "Université Laval"
 territoire: "Université Laval"
-taille_approximative: "1375 lignes réparties dans trois fichiers prioritaires"
+taille_approximative: "1 659 lignes validées localement dans le manifeste privé, dont 1 375 lignes core"
 niveau_pedagogique_recommande: "Intermédiaire"
 variables_principales:
-  - code_programme
-  - programme
-  - code_cours
-  - titre
-  - faculte
-  - credits
-  - source_id
-  - page_source
+  - "code_programme"
+  - "programme"
+  - "code_cours"
+  - "titre"
+  - "faculte"
+  - "credits"
+  - "source_id"
+  - "page_source"
+  - "note"
+  - "statut_quantification"
+  - "statut_valeur"
 idees_mini_projets:
-  - "Valider un import de données institutionnelles sans modifier les valeurs numériques."
-  - "Comparer les champs de provenance entre les programmes et les cours."
-  - "Produire une fiche méthodologique sur les limites de réutilisation."
+  - "Valider un import de données institutionnelles sans modifier les valeurs ni publier les lignes."
+  - "Comparer les contrôles de clés, de provenance et de droits entre plusieurs fichiers."
+  - "Produire une note méthodologique sur ce qui peut être montré publiquement et ce qui doit rester privé."
 tags:
-  - éducation supérieure
-  - Université Laval
-  - provenance
-  - droits de réutilisation
-  - données privées
-  - importation
+  - "éducation supérieure"
+  - "Université Laval"
+  - "provenance"
+  - "droits de réutilisation"
+  - "données privées"
+  - "validation"
+  - "importation"
 concepts:
-  - importation CSV
-  - provenance
-  - validation
-  - droits de réutilisation
-  - documentation des limites
-  - statistique descriptive
+  - "importation contrôlée"
+  - "provenance"
+  - "validation"
+  - "droits de réutilisation"
+  - "documentation des limites"
+  - "clés uniques"
+  - "données privées"
+  - "communication prudente"
 zero_waste:
   contexte_quebecois: 3
   accessibilite_pedagogique: 2
@@ -56,5 +67,7 @@ zero_waste:
   potentiel_modelisation: 1
   potentiel_ethique: 3
   reutilisabilite: 1
-status: "métadonnées intégrées; données privées non redistribuées"
-notes: "Compilation indépendante et non officielle. Ce jeu n’est pas un produit officiel ou approuvé par l’Université Laval. Les CSV doivent être lus depuis le dépôt privé canonique ou copiés localement dans data/processed/ulaval/, ignoré par Git."
+status: "source privée locale validée; données non redistribuées publiquement"
+notes: "Compilation indépendante et non officielle. Les CSV privés et les PDF sources ne sont pas redistribués dans Données bleues. Les sorties publiques doivent rester méthodologiques ou agrégées tant que les droits de republication ne sont pas clarifiés."
+contributor_name: "Aurélien Nicosia"
+contributor_role: "Révision pédagogique et statistique"

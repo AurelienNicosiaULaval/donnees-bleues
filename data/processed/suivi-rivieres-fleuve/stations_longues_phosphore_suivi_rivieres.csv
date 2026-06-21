@@ -1,0 +1,928 @@
+no_bqma,hydronyme,bv_n1m,n_years,min_year,max_year,median_ptot_mgl,median_iqbp
+02340050,Rivière Chaudière,"Chaudière, Rivière",25,2000,2024,0.025,68
+00000096,Fleuve Saint-Laurent,,25,2000,2024,0.011,23
+03040075,Ruisseau au Castor,"Richelieu, Rivière",24,2001,2024,0.115,16.5
+03040073,Ruisseau Ewing,"Richelieu, Rivière",24,2001,2024,0.0655,30
+05040143,Rivière Niagarette,"Sainte-Anne, Rivière",24,2001,2024,0.0615,42
+05040006,Rivière Blanche,"Sainte-Anne, Rivière",24,2001,2024,0.0505,52.5
+02260002,Rivière Kamouraska,"Kamouraska, Rivière",24,2001,2024,0.025,64.5
+03090046,Ruisseau Norton,"Châteauguay, Rivière",23,2002,2024,0.705,0
+03090002,Rivière des Anglais,"Châteauguay, Rivière",23,2002,2024,0.275,7
+03040007,Rivière des Hurons,"Richelieu, Rivière",23,2002,2024,0.15,2
+03040116,Rivière l'Acadie,"Richelieu, Rivière",23,2002,2024,0.14,18
+05220239,Ruisseau Vacher,"L'Assomption, Rivière",23,2002,2024,0.12,20
+06120001,Rivière Bédard,"Saguenay, Rivière",23,2002,2024,0.12,27
+03030096,Rivière à la Barbue,"Yamaska, Rivière",23,2002,2024,0.106,19
+03040112,Rivière de la Roche,"Richelieu, Rivière",23,2002,2024,0.1,16
+03090001,Rivière Châteauguay,"Châteauguay, Rivière",23,2002,2024,0.099,14
+05240001,Rivière Bayonne,"Bayonne, Rivière",23,2002,2024,0.099,30
+05230001,Rivière La Chaloupe,"Chaloupe, Rivière la",23,2002,2024,0.095,15
+04640003,Rivière Mascouche,"Mascouche, Rivière",23,2002,2024,0.093,26
+03040071,Ruisseau Morpions,"Richelieu, Rivière",23,2002,2024,0.089,29
+03030038,Rivière Chibouet,"Yamaska, Rivière",23,2002,2024,0.088,20
+03030023,Rivière Yamaska,"Yamaska, Rivière",23,2002,2024,0.085,0
+03040113,Rivière de la Roche,"Richelieu, Rivière",23,2002,2024,0.083,40
+03110003,Rivière Saint-Louis,"Saint-Louis, Rivière",23,2002,2024,0.082,28
+03030123,Rivière Yamaska,"Yamaska, Rivière",23,2002,2024,0.072,4
+03030108,Rivière Yamaska Nord,"Yamaska, Rivière",23,2002,2024,0.07,26
+05010035,Rivière Shawinigan,"Saint-Maurice, Rivière",23,2002,2024,0.065,31
+03030026,Rivière Yamaska,"Yamaska, Rivière",23,2002,2024,0.063,16
+05220006,Rivière Saint-Esprit,"L'Assomption, Rivière",23,2002,2024,0.061,38
+02300001,Rivière Boyer,"Boyer, Rivière",23,2002,2024,0.06,29
+06290013,Petite Décharge,"Saguenay, Rivière",23,2002,2024,0.059,49
+05220005,Rivière de l'Achigan,"L'Assomption, Rivière",23,2002,2024,0.054,35
+03030003,Rivière Noire,"Yamaska, Rivière",23,2002,2024,0.053,36
+03090005,Rivière Châteauguay,"Châteauguay, Rivière",23,2002,2024,0.053,50
+05030114,Rivière des Envies,"Batiscan, Rivière",23,2002,2024,0.05,52
+05220004,Rivière l'Assomption,"L'Assomption, Rivière",23,2002,2024,0.05,48
+06200001,Rivière Ticouapé,"Saguenay, Rivière",23,2002,2024,0.05,28
+02340051,Bras d'Henri,"Chaudière, Rivière",23,2002,2024,0.049,36
+02400005,Rivière Bécancour,"Bécancour, Rivière",23,2002,2024,0.046,12
+03090003,Rivière Châteauguay,"Châteauguay, Rivière",23,2002,2024,0.042,67
+05220003,Rivière l'Assomption,"L'Assomption, Rivière",23,2002,2024,0.04,54
+02250005,Rivière du Loup,"Loup, Rivière du",23,2002,2024,0.038,63
+00000079,Fleuve Saint-Laurent,,23,2002,2024,0.037,63
+02E90001,Rivière Fouquette,"Fouquette, Rivière",23,2002,2024,0.037,36
+04010008,Rivière du Nord,"Outaouais, Rivière des",23,2002,2024,0.036,59
+02300002,Rivière Boyer Sud,"Boyer, Rivière",23,2002,2024,0.033,19
+02300003,Rivière Boyer Nord,"Boyer, Rivière",23,2002,2024,0.033,22
+02340034,Rivière Beaurivage,"Chaudière, Rivière",23,2002,2024,0.033,58
+04320008,Rivière des Mille Îles,,23,2002,2024,0.033,69
+03010009,Rivière Nicolet Sud-Ouest,"Nicolet, Rivière",23,2002,2024,0.032,46
+03040066,Ruisseau Walbridge,"Richelieu, Rivière",23,2002,2024,0.032,31
+03010038,Rivière des Pins,"Nicolet, Rivière",23,2002,2024,0.031,41
+03030199,Rivière Yamaska,"Yamaska, Rivière",23,2002,2024,0.031,59
+03040111,Rivière aux Brochets,"Richelieu, Rivière",23,2002,2024,0.031,70
+05280001,Rivière du Loup,"Loup, Rivière du",23,2002,2024,0.031,56
+04010002,Rivière du Nord,"Outaouais, Rivière des",23,2002,2024,0.03,58
+04300002,Rivière Kinojévis,"Outaouais, Rivière des",23,2002,2024,0.03,46
+04320006,Rivière des Mille Îles,,23,2002,2024,0.03,73
+05260003,Rivière Maskinongé,"Maskinongé, Rivière",23,2002,2024,0.03,70
+03040009,Rivière Richelieu,"Richelieu, Rivière",23,2002,2024,0.029,56
+05220012,Rivière Ouareau,"L'Assomption, Rivière",23,2002,2024,0.028,72
+03010036,Rivière Nicolet Sud-Ouest,"Nicolet, Rivière",23,2002,2024,0.026,72
+03040015,Rivière aux Brochets,"Richelieu, Rivière",23,2002,2024,0.026,60
+02330001,Rivière Etchemin,"Etchemin, Rivière",23,2002,2024,0.025,58
+03020031,Rivière Saint-François,"Saint-François, Rivière",23,2002,2024,0.025,66
+03020081,Rivière Saint-François,"Saint-François, Rivière",23,2002,2024,0.025,57
+03020243,Rivière Saint-François,"Saint-François, Rivière",23,2002,2024,0.025,38
+05090017,Rivière Saint-Charles,"Saint-Charles, Rivière",23,2002,2024,0.025,52
+00000088,Fleuve Saint-Laurent,,23,2002,2024,0.024,38
+03010007,Rivière Nicolet,"Nicolet, Rivière",23,2002,2024,0.023,48
+04320021,Rivière des Mille Îles,,23,2002,2024,0.023,72
+05040138,Rivière Noire,"Sainte-Anne, Rivière",23,2002,2024,0.023,78
+02340033,Rivière Chaudière,"Chaudière, Rivière",23,2002,2024,0.022,77
+03040017,Rivière Richelieu,"Richelieu, Rivière",23,2002,2024,0.022,67
+00000075,Fleuve Saint-Laurent,,23,2002,2024,0.021,86
+00000082,Fleuve Saint-Laurent,,23,2002,2024,0.021,83
+00000094,Fleuve Saint-Laurent,,23,2002,2024,0.021,61
+00000105,Fleuve Saint-Laurent,,23,2002,2024,0.021,76
+00000107,Fleuve Saint-Laurent,,23,2002,2024,0.021,76
+03040010,Rivière Richelieu,"Richelieu, Rivière",23,2002,2024,0.021,72
+04330011,Rivière des Prairies,,23,2002,2024,0.021,82
+00000106,Fleuve Saint-Laurent,,23,2002,2024,0.02,76
+04330006,Rivière des Prairies,,23,2002,2024,0.02,80
+04330019,Rivière des Prairies,,23,2002,2024,0.02,74
+05040007,Rivière Sainte-Anne,"Sainte-Anne, Rivière",23,2002,2024,0.02,80
+08010004,Rivière Harricana,"Harricana, Rivière",23,2002,2024,0.02,71
+00000091,Fleuve Saint-Laurent,,23,2002,2024,0.019,59
+00000141,Fleuve Saint-Laurent,,23,2002,2024,0.019,77
+00000142,Fleuve Saint-Laurent,,23,2002,2024,0.019,75
+00000143,Fleuve Saint-Laurent,,23,2002,2024,0.019,74
+02310004,Rivière du Sud,"Sud, Rivière du",23,2002,2024,0.019,80
+03020035,Rivière Saint-François,"Saint-François, Rivière",23,2002,2024,0.019,64
+03030031,Rivière Yamaska Sud-Est,"Yamaska, Rivière",23,2002,2024,0.019,68
+02340014,Rivière Chaudière,"Chaudière, Rivière",23,2002,2024,0.018,74
+02400004,Rivière Bécancour,"Bécancour, Rivière",23,2002,2024,0.018,66
+03010008,Rivière Nicolet,"Nicolet, Rivière",23,2002,2024,0.018,60
+03020333,Rivière Coaticook,"Saint-François, Rivière",23,2002,2024,0.018,56
+08010062,Rivière Bourlamaque,"Harricana, Rivière",23,2002,2024,0.018,74
+00000090,Fleuve Saint-Laurent,,23,2002,2024,0.017,59
+00000092,Fleuve Saint-Laurent,,23,2002,2024,0.017,72
+00000093,Fleuve Saint-Laurent,,23,2002,2024,0.017,66
+00000097,Fleuve Saint-Laurent,,23,2002,2024,0.017,84
+02400006,Rivière Bécancour,"Bécancour, Rivière",23,2002,2024,0.017,71
+04040001,Rivière de la Petite Nation,"Outaouais, Rivière des",23,2002,2024,0.017,84
+04310002,Rivière des Outaouais,"Outaouais, Rivière des",23,2002,2024,0.017,84
+00000089,Fleuve Saint-Laurent,,23,2002,2024,0.016,73
+03020082,Rivière Massawippi,"Saint-François, Rivière",23,2002,2024,0.016,70
+03020176,Rivière Magog,"Saint-François, Rivière",23,2002,2024,0.016,66
+03040108,Rivière Missisquoi,"Richelieu, Rivière",23,2002,2024,0.016,80
+05030001,Rivière Batiscan,"Batiscan, Rivière",23,2002,2024,0.016,87
+02340004,Rivière Chaudière,"Chaudière, Rivière",23,2002,2024,0.015,76
+03040109,Rivière Missisquoi,"Richelieu, Rivière",23,2002,2024,0.015,81
+04010010,Rivière du Nord,"Outaouais, Rivière des",23,2002,2024,0.015,74
+04310010,Rivière des Outaouais,"Outaouais, Rivière des",23,2002,2024,0.015,89
+04310011,Rivière des Outaouais,,23,2002,2024,0.015,81
+05220001,Rivière l'Assomption,"L'Assomption, Rivière",23,2002,2024,0.015,81
+08010061,Rivière Bourlamaque,"Harricana, Rivière",23,2002,2024,0.015,87
+00000087,Fleuve Saint-Laurent,,23,2002,2024,0.014,0
+03040110,Rivière Sutton,"Richelieu, Rivière",23,2002,2024,0.014,79
+05010007,Rivière Saint-Maurice,"Saint-Maurice, Rivière",23,2002,2024,0.014,87
+05080105,Rivière Jacques-Cartier,"Jacques-Cartier, Rivière",23,2002,2024,0.014,87
+08010060,Rivière Bourlamaque,"Harricana, Rivière",23,2002,2024,0.014,87
+03020040,Rivière Saint-François,"Saint-François, Rivière",23,2002,2024,0.013,83
+03020187,Rivière aux Cerises,"Saint-François, Rivière",23,2002,2024,0.013,76
+03030094,Rivière Yamaska,"Yamaska, Rivière",23,2002,2024,0.013,52
+03040012,Rivière Richelieu,"Richelieu, Rivière",23,2002,2024,0.013,88
+00000086,Fleuve Saint-Laurent,,23,2002,2024,0.012,81
+03090047,Rivière des Anglais,"Châteauguay, Rivière",23,2002,2024,0.012,86
+04060004,Rivière du Lièvre,"Outaouais, Rivière des",23,2002,2024,0.012,90
+00000110,Fleuve Saint-Laurent,,23,2002,2024,0.011,89
+00000123,Fleuve Saint-Laurent,,23,2002,2024,0.011,86
+02340006,Rivière Chaudière,"Chaudière, Rivière",23,2002,2024,0.011,86
+04020103,Rivière du Diable,"Outaouais, Rivière des",23,2002,2024,0.011,84
+04310008,Rivière des Outaouais,"Outaouais, Rivière des",23,2002,2024,0.011,92
+05010014,Rivière Saint-Maurice,"Saint-Maurice, Rivière",23,2002,2024,0.011,88
+05040116,Rivière Sainte-Anne,"Sainte-Anne, Rivière",23,2002,2024,0.011,92
+05090003,Rivière Saint-Charles,"Saint-Charles, Rivière",23,2002,2024,0.011,78
+05280019,Rivière du Loup,"Loup, Rivière du",23,2002,2024,0.011,91
+02250002,Rivière du Loup,"Loup, Rivière du",23,2002,2024,0.01,92
+03020042,Rivière au Saumon,"Saint-François, Rivière",23,2002,2024,0.01,88
+04060001,Rivière du Lièvre,"Outaouais, Rivière des",23,2002,2024,0.01,87
+05040139,Rivière Noire,"Sainte-Anne, Rivière",23,2002,2024,0.01,94
+05080004,Rivière Jacques-Cartier,"Jacques-Cartier, Rivière",23,2002,2024,0.01,94
+05260015,Rivière Maskinongé,"Maskinongé, Rivière",23,2002,2024,0.01,86
+06290002,Rivière Saguenay,"Saguenay, Rivière",23,2002,2024,0.01,92
+00000078,Fleuve Saint-Laurent,,23,2002,2024,0.009,91
+00000095,Fleuve Saint-Laurent,,23,2002,2024,0.009,86
+00000109,Fleuve Saint-Laurent,,23,2002,2024,0.009,74
+03090009,Rivière Trout,"Châteauguay, Rivière",23,2002,2024,0.009,84
+04080003,Rivière Gatineau,"Outaouais, Rivière des",23,2002,2024,0.009,92
+05040113,Rivière Sainte-Anne,"Sainte-Anne, Rivière",23,2002,2024,0.009,93
+02200019,Rivière Rimouski,"Rimouski, Rivière",23,2002,2024,0.008,93
+03030041,Rivière Yamaska Sud-Est,"Yamaska, Rivière",23,2002,2024,0.008,88
+05030113,Rivière des Envies,"Batiscan, Rivière",23,2002,2024,0.008,76
+05090016,Rivière Saint-Charles,"Saint-Charles, Rivière",23,2002,2024,0.008,56
+06290012,Grande Décharge,"Saguenay, Rivière",23,2002,2024,0.008,94
+00000072,Fleuve Saint-Laurent,,23,2002,2024,0.007,88
+01170001,Rivière Madawaska,"Saint-Jean, Rivière",23,2002,2024,0.007,86
+01170022,Rivière Cabano,"Saint-Jean, Rivière",23,2002,2024,0.007,90
+03020073,Rivière Magog,"Saint-François, Rivière",23,2002,2024,0.007,86
+02330010,Rivière Etchemin,"Etchemin, Rivière",23,2002,2024,0.006,92
+04080254,Rivière Gatineau,"Outaouais, Rivière des",23,2002,2024,0.006,93
+05220017,Rivière l'Assomption,"L'Assomption, Rivière",23,2002,2024,0.006,94
+05280020,Rivière du Loup,"Loup, Rivière du",23,2002,2024,0.006,95
+04040039,Rivière de la Petite Nation,"Outaouais, Rivière des",23,2002,2024,0.004,94
+03030008,Ruisseau Runnels,"Yamaska, Rivière",22,2002,2024,0.0865,40
+03120001,Rivière La Guerre,"La Guerre, Rivière",22,2003,2024,0.0755,0
+08010063,Rivière Harricana,"Harricana, Rivière",22,2002,2024,0.035500000000000004,62.5
+04320069,Rivière des Mille Îles,,22,2003,2024,0.033,63
+08010064,Rivière Harricana,"Harricana, Rivière",22,2002,2024,0.032,61
+03090019,Rivière Trout,"Châteauguay, Rivière",22,2003,2024,0.0155,76
+04020001,Rivière Rouge,"Outaouais, Rivière des",22,2002,2024,0.011,88
+05050100,Rivière La Chevrotière,"La Chevrotière, Rivière",21,2004,2024,0.083,35
+06090002,Rivière du Moulin,"Saguenay, Rivière",21,2004,2024,0.022,56
+06070006,Rivière à Mars,"Saguenay, Rivière",21,2004,2024,0.012,85
+05100014,Rivière Montmorency,"Montmorency, Rivière",21,2004,2024,0.011,92
+07120007,Rivière aux Anglais,"Anglais, Rivière aux",21,2004,2024,0.007,88
+07020002,Rivière des Escoumins,"Escoumins, Rivière des",21,2004,2024,0.005,96
+01080001,Rivière Bonaventure,"Bonaventure, Rivière",21,2004,2024,0.001,96
+05300004,Rivière Yamachiche,"Yamachiche, Rivière",20,2005,2024,0.081,20
+05220063,Ruisseau du Point du Jour,"L'Assomption, Rivière",20,2002,2024,0.077,34
+02390001,Rivière Gentilly,"Gentilly, Rivière",20,2005,2024,0.0675,45
+02330049,Rivière le Bras,"Etchemin, Rivière",20,2003,2024,0.0525,22
+02360014,Rivière du Chêne,"Chêne, Rivière du",20,2005,2024,0.035,62.5
+02240005,Rivière Verte,"Verte, Rivière",20,2005,2024,0.0175,78
+05130016,Rivière du Gouffre,"Gouffre, Rivière du",20,2005,2024,0.016,76
+02270002,Rivière Ouelle,"Ouelle, Rivière",20,2005,2024,0.015,88
+03010046,Rivière Saint-Zéphirin,"Nicolet, Rivière",19,2006,2024,0.11,17
+04010127,Rivière Rouge,"Outaouais, Rivière des",19,2006,2024,0.099,28
+02370002,Petite rivière du Chêne,"Chêne, Petite rivière du",19,2006,2024,0.036,66
+04330001,Rivière des Prairies,,19,2002,2020,0.021,74
+05240007,Rivière Bayonne,"Bayonne, Rivière",18,2007,2024,0.074,42.5
+05080053,Rivière aux Pommes,"Jacques-Cartier, Rivière",18,2002,2024,0.013,48
+02400048,Rivière Bourbon,"Bécancour, Rivière",18,2006,2024,0.010499999999999999,55
+05290001,Petite rivière Yamachiche,"Yamachiche, Petite rivière",17,2008,2024,0.115,2
+05020006,Rivière Champlain,"Champlain, Rivière",17,2008,2024,0.11,27
+05280064,Petite rivière du Loup,"Loup, Rivière du",17,2008,2024,0.11,10
+05250002,Rivière Chicot,"Chicot, Rivière",17,2008,2024,0.102,34
+03060001,Rivière Saint-Jacques,"Saint-Jacques, Rivière",17,2008,2024,0.083,0
+03070015,Rivière de la Tortue,"Tortue, Rivière de la",16,2008,2023,0.126,3.5
+04440002,Rivière Beaudette,"Beaudette, Rivière",16,2003,2024,0.0555,28.5
+05070012,Rivière Portneuf,"Portneuf, Rivière",16,2009,2024,0.0535,50.5
+03010012,Rivière Bulstrode,"Nicolet, Rivière",16,2006,2024,0.0165,70.5
+03010041,Rivière Nicolet Sud-Ouest,"Nicolet, Rivière",16,2004,2024,0.013,81
+02330006,Rivière Etchemin,"Etchemin, Rivière",15,2010,2024,0.013,80
+05030115,Rivière Batiscan,"Batiscan, Rivière",15,2003,2024,0.011,90
+05010013,Rivière Saint-Maurice,"Saint-Maurice, Rivière",15,2002,2021,0.009,93
+02230001,Rivière des Trois Pistoles,"Trois Pistoles, Rivière des",15,2010,2024,0.008,89
+05030206,Rivière des Chutes,"Batiscan, Rivière",14,2004,2024,0.1125,24
+03080001,Rivière Saint-Régis,"Saint-Régis, Rivière",14,2011,2024,0.10750000000000001,3.5
+04670004,Rivière du Chêne,"Chêne, Rivière du",14,2011,2024,0.097,30
+04610001,Rivière Delisle,"Delisle, Rivière",14,2011,2024,0.0915,1.5
+02340099,Bras d'Henri,"Chaudière, Rivière",14,2002,2015,0.087,20.5
+04650001,Rivière aux Chiens,"Chiens, Rivière aux",14,2011,2024,0.045,50
+02E90002,Rivière Fouquette,"Fouquette, Rivière",14,2002,2015,0.032,63.5
+06230002,Rivière Mistouk,"Saguenay, Rivière",14,2004,2024,0.0305,48.5
+05080100,Rivière Noire,"Jacques-Cartier, Rivière",14,2011,2024,0.0295,75
+02360011,Rivière du Chêne,"Chêne, Rivière du",14,2011,2024,0.029,63.5
+05150001,Rivière Malbaie,"Malbaie, Rivière",14,2011,2024,0.021,84
+02310041,Rivière des Perdrix,"Sud, Rivière du",14,2011,2024,0.015,93
+05260034,Rivière Blanche,"Maskinongé, Rivière",14,2011,2024,0.014499999999999999,86
+05120021,Rivière Sainte-Anne,"Sainte-Anne, Rivière",14,2011,2024,0.011,92
+02190014,Rivière Mitis,"Mitis, Rivière",14,2011,2024,0.010499999999999999,89
+05300013,Rivière Yamachiche,"Yamachiche, Rivière",14,2011,2024,0.009,85
+07040001,Rivière Portneuf,"Portneuf, Rivière",14,2011,2024,0.009,92.5
+07050001,Rivière du Sault aux Cochons,"Sault aux Cochons, Rivière du",14,2011,2024,0.0075,92
+01150018,Rivière Matapédia,"Ristigouche, Rivière",14,2011,2024,0.007,86
+07140001,Rivière Godbout,"Godbout, Rivière",14,2011,2024,0.0055,96.5
+05100033,Rivière à l'Île,"Montmorency, Rivière",14,2011,2024,0.005,96
+07100047,Rivière aux Outardes,"Outardes, Rivière aux",14,2011,2024,0.004,95
+02160018,Rivière Matane,"Matane, Rivière",14,2011,2024,0.003,90
+07110001,Rivière Manicouagan,"Manicouagan, Rivière",14,2011,2024,0.003,96
+05020005,Rivière Champlain,"Champlain, Rivière",13,2012,2024,0.083,41
+02400029,Rivière Blanche,"Bécancour, Rivière",13,2012,2024,0.059,30
+06180017,Rivière Moreau,"Saguenay, Rivière",13,2012,2024,0.052,27
+03020033,Rivière Saint-Germain,"Saint-François, Rivière",13,2012,2024,0.05,40
+05300035,Rivière Yamachiche,"Yamachiche, Rivière",13,2012,2024,0.041,57
+07710001,Rivière du Moulin à Baude,"Moulin à Baude, Rivière du",13,2012,2024,0.036,62
+02350003,Ruisseau Beaudet,"Beaudet, Ruisseau",13,2012,2024,0.035,50
+06130005,Belle Rivière,"Saguenay, Rivière",13,2012,2024,0.035,51
+04070001,Rivière Blanche,"Outaouais, Rivière des",13,2012,2024,0.033,62
+04050001,Rivière Blanche,"Outaouais, Rivière des",13,2012,2024,0.03,61
+06240001,Rivière des Aulnaies,"Saguenay, Rivière",13,2012,2024,0.029,70
+02500002,Rivière Aulneuse,"Aulneuse, Rivière",13,2012,2024,0.028,72
+00000077,Fleuve Saint-Laurent,,13,2002,2014,0.023,79
+01170029,Rivière Cabano,"Saint-Jean, Rivière",13,2012,2024,0.023,76
+02220004,Rivière du Sud-Ouest,"Sud-Ouest, Rivière du",13,2005,2018,0.021,67
+05260017,Rivière Matambin,"Maskinongé, Rivière",13,2012,2024,0.021,78
+02310056,Bras Saint-Nicolas,"Sud, Rivière du",13,2012,2024,0.017,84
+06190105,Rivière à l'Ours,"Saguenay, Rivière",13,2012,2024,0.017,79
+05010337,Rivière Shawinigan,"Saint-Maurice, Rivière",13,2012,2024,0.016,85
+04010001,Rivière du Nord,"Outaouais, Rivière des",13,2012,2024,0.015,72
+05390001,Rivière du Cap Rouge,"Cap Rouge, Rivière du",13,2012,2024,0.015,67
+02340038,Bras Saint-Victor,"Chaudière, Rivière",13,2012,2024,0.013,77
+05080073,Rivière aux Pins,"Jacques-Cartier, Rivière",13,2012,2024,0.013,90
+05400006,Rivière Beauport,"Beauport, Rivière",13,2012,2024,0.013,52
+01300001,Rivière Daaquam,"Saint-Jean, Rivière",13,2012,2024,0.012,92
+02400074,Rivière Bécancour,"Bécancour, Rivière",13,2012,2024,0.012,77
+04060172,Rivière Kiamika,"Outaouais, Rivière des",13,2012,2024,0.012,88
+05010461,Rivière Saint-Maurice,"Saint-Maurice, Rivière",13,2012,2024,0.011,88
+06180001,Petite rivière Péribonka,"Saguenay, Rivière",13,2012,2024,0.011,88
+01150046,Rivière Sayabec,"Ristigouche, Rivière",13,2012,2024,0.01,76
+02290007,Rivière Trois Saumons,,13,2012,2024,0.01,82
+05260018,Rivière Mastigouche,"Maskinongé, Rivière",13,2012,2024,0.01,90
+07380003,Rivière Romaine,"Romaine, Rivière",13,2012,2024,0.01,92
+07230003,Rivière Moisie,"Moisie, Rivière",13,2012,2024,0.009,92
+06190001,Rivière Ashuapmushuan,"Saguenay, Rivière",13,2012,2024,0.008,92
+06210001,Rivière Mistassini,"Saguenay, Rivière",13,2012,2024,0.008,93
+04130002,Rivière Coulonge,"Outaouais, Rivière des",13,2012,2024,0.007,94
+06210002,Rivière Mistassibi,"Saguenay, Rivière",13,2012,2024,0.007,95
+07190016,Rivière aux Rochers,"Rochers, Rivière aux",13,2012,2024,0.007,94
+02400073,Rivière Palmer,"Bécancour, Rivière",13,2012,2024,0.006,80
+01150047,Rivière Humqui,"Ristigouche, Rivière",13,2012,2024,0.004,86
+06250001,Rivière Shipshaw,"Saguenay, Rivière",13,2012,2024,0.004,94
+02040001,Rivière York,"York, Rivière",13,2012,2024,0.003,93
+02140002,Rivière Sainte-Anne,"Sainte-Anne, Rivière",13,2012,2024,0.002,96
+02150002,Rivière Cap-Chat,"Cap-Chat, Rivière",13,2012,2024,0.002,93
+01130001,Rivière Escuminac,"Ristigouche, Rivière",13,2012,2024,0.001,95
+02030001,Rivière Saint-Jean,"Saint-Jean, Rivière",13,2012,2024,0.001,96
+02080005,Rivière Madeleine,"Madeleine, Rivière",13,2012,2024,0.001,96
+08A10010,Rivière Dagenais,"Moose, River",12,2013,2024,0.087,5
+02280003,Rivière Ferrée,"Ferrée, Rivière",12,2013,2024,0.0625,47
+08A10011,Rivière La Sarre,"Moose, River",12,2013,2024,0.0595,30
+04290002,Rivière à la Loutre,"Outaouais, Rivière des",12,2013,2024,0.052,22
+04030001,Rivière Saumon,"Outaouais, Rivière des",12,2013,2024,0.017,81
+07130004,Rivière Franquelin,"Franquelin, Rivière",12,2013,2024,0.014,81
+04310009,Rivière des Outaouais,"Outaouais, Rivière des",12,2013,2024,0.0115,92
+06160024,Rivière Ouiatchouan,"Saguenay, Rivière",12,2013,2024,0.011,93
+04020003,Rivière Rouge,"Outaouais, Rivière des",12,2013,2024,0.0095,85
+01070001,Rivière Paspébiac,"Paspébiac, Rivière",12,2013,2024,0.004,93.5
+01090001,Petite rivière Cascapédia,"Cascapédia, Petite rivière",12,2013,2024,0.0015,95.5
+01120005,Rivière Nouvelle,"Nouvelle, Rivière",12,2013,2024,0.0015,94
+01020001,Rivière du Petit Pabos,"Petit Pabos, Rivière du",12,2013,2024,0.001,96
+02550002,Rivière aux Glaises,"Glaises, Rivière aux",11,2014,2024,0.255,9
+03030323,Ruisseau des Aulnages,"Yamaska, Rivière",11,2014,2024,0.11,21
+05220378,Ruisseau Saint-Georges,"L'Assomption, Rivière",11,2014,2024,0.05,50
+03020434,Rivière Saint-Germain,"Saint-François, Rivière",11,2014,2024,0.036,57
+02540002,Rivière Saint-Jean,"Saint-Jean, Rivière",11,2006,2024,0.035,59
+05250004,Ruisseau Saint-André,"Chicot, Rivière",11,2014,2024,0.019,86
+00000009,Fleuve Saint-Laurent,,11,2000,2010,0.018,16
+01010002,Grande Rivière,"Grande Rivière, La",11,2014,2024,0.001,96
+02340131,Rivière Noire,"Chaudière, Rivière",10,2014,2024,0.042499999999999996,10.5
+05090002,Rivière Saint-Charles,"Saint-Charles, Rivière",10,2002,2011,0.0195,46
+00000121,Fleuve Saint-Laurent,,10,2015,2024,0.014,84.5
+02340086,Rivière des Îles Brûlées,"Chaudière, Rivière",9,2002,2023,0.175,17
+01150004,Rivière Matapédia,"Ristigouche, Rivière",9,2004,2014,0.011,87
+05220240,Ruisseau Saint-Pierre,"L'Assomption, Rivière",8,2002,2012,0.12,7.5
+02300004,Ruisseau du Portage,"Boyer, Rivière",8,2002,2009,0.05,40.5
+02I80001,Ruisseau de l'Église,"Église, Ruisseau de l'",8,2007,2024,0.011,62
+03030237,Rivière du Sud-Ouest,"Yamaska, Rivière",7,2002,2008,0.17,6
+05050099,Ruisseau du Moulin,"La Chevrotière, Rivière",7,2004,2021,0.12,22
+05220241,Ruisseau Saint-Esprit,"L'Assomption, Rivière",7,2002,2008,0.085,33
+00000100,Fleuve Saint-Laurent,,7,2002,2008,0.023,76
+00000098,Fleuve Saint-Laurent,,7,2002,2008,0.021,78
+00000099,Fleuve Saint-Laurent,,7,2002,2008,0.019,77
+05080097,Rivière Ontaritzi,"Jacques-Cartier, Rivière",7,2006,2018,0.013,79
+05150119,Rivière Malbaie,"Malbaie, Rivière",7,2010,2017,0.011,96
+04020264,Rivière du Diable,"Outaouais, Rivière des",7,2010,2017,0.007,90
+05050098,Le Petit Bras,"La Chevrotière, Rivière",6,2004,2012,0.195,1
+05040168,Petite rivière Niagarette,"Sainte-Anne, Rivière",6,2005,2010,0.059,50
+03030010,Rivière Noire,"Yamaska, Rivière",6,2010,2018,0.027999999999999997,66
+03020037,Rivière Magog,"Saint-François, Rivière",6,2002,2007,0.013,79
+03090018,Rivière de l'Esturgeon,"Châteauguay, Rivière",5,2007,2017,0.18,0
+05220477,Ruisseau Vacher,"L'Assomption, Rivière",5,2006,2010,0.15,8
+05280053,Rivière Chacoura,"Loup, Rivière du",5,2007,2018,0.15,1
+03010086,Rivière Saint-Zéphirin,"Nicolet, Rivière",5,2006,2011,0.115,4
+06200004,Ruisseau Rouge,"Saguenay, Rivière",5,2007,2024,0.11,19
+05040142,Ruisseau Gendron,"Sainte-Anne, Rivière",5,2001,2023,0.105,21
+05360001,Rivière Saint-Jean,"Saint-Jean, Rivière",5,2007,2024,0.063,31
+05050097,Rivière La Chevrotière,"La Chevrotière, Rivière",5,2004,2008,0.054,46
+02260003,Rivière Goudron,"Kamouraska, Rivière",5,2004,2023,0.052,3
+04280001,Petite rivière Blanche,"Outaouais, Rivière des",5,2015,2019,0.047,43
+04290007,Rivière à la Loutre,"Outaouais, Rivière des",5,2015,2019,0.045,44
+04290006,Rivière à la Loutre,"Outaouais, Rivière des",5,2015,2019,0.043,47
+02400012,Rivière Bécancour,"Bécancour, Rivière",5,2016,2021,0.04,22
+02400026,Rivière Bourbon,"Bécancour, Rivière",5,2016,2024,0.027,30
+05050096,Rivière La Chevrotière,"La Chevrotière, Rivière",5,2004,2008,0.02,67
+00000189,Fleuve Saint-Laurent,,5,2017,2021,0.014,74
+03020388,Ruisseau Veillette,"Saint-François, Rivière",5,2006,2010,0.011,44
+05080051,Rivière Ontaritzi,"Jacques-Cartier, Rivière",5,2019,2024,0.011,84
+01170050,Rivière Touladi,"Saint-Jean, Rivière",5,2013,2017,0.007,89
+03040195,Ruisseau à l'Ours,"Richelieu, Rivière",4,2006,2009,0.175,1
+05240014,Ruisseau Bibeau,"Bayonne, Rivière",4,2007,2010,0.163,1
+05220249,Cours d'eau Desrochers,"L'Assomption, Rivière",4,2002,2005,0.115,14
+03030110,Rivière à la Barbue,"Yamaska, Rivière",4,2007,2010,0.0975,14
+03110004,Rivière Saint-Louis,"Saint-Louis, Rivière",4,2008,2024,0.0975,25.5
+02300005,Cours d'eau sans toponyme,"Boyer, Rivière",4,2002,2005,0.065,19.5
+02330029,Ruisseau Saint-Patrice,"Etchemin, Rivière",4,2002,2005,0.042499999999999996,41
+06130018,Cours d'eau du Rang Trois,"Saguenay, Rivière",4,2007,2010,0.041499999999999995,63
+05040119,Rivière Charest,"Sainte-Anne, Rivière",4,2001,2023,0.036000000000000004,57.5
+05240030,Affluent du lac Berthier,"Bayonne, Rivière",4,2021,2024,0.0285,68
+04280002,Petite rivière Blanche,"Outaouais, Rivière des",4,2015,2018,0.028,63
+04330060,Rivière des Prairies,,4,2021,2024,0.022,82
+02340098,Rivière Morency,"Chaudière, Rivière",4,2002,2005,0.0175,63
+02210009,Rivière du Bic,"Bic, Rivière du",4,2005,2008,0.010499999999999999,86.5
+04020160,Rivière du Diable,"Outaouais, Rivière des",4,2006,2011,0.009,92
+05220490,Rivière l'Assomption,"L'Assomption, Rivière",4,2013,2016,0.006,95
+04620004,Rivière Rigaud,,3,2019,2022,0.26,0
+04670029,Ruisseau au Prince,"Chêne, Rivière du",3,2020,2022,0.2,0
+03080013,Rivière Saint-Pierre,"Saint-Régis, Rivière",3,2016,2024,0.16,0
+05220478,Ruisseau Vacher,"L'Assomption, Rivière",3,2006,2008,0.16,8
+04780001,Ruisseau Hébert,"Outaouais, Rivière des",3,2016,2018,0.125,16
+05040170,Rivière Niagarette,"Sainte-Anne, Rivière",3,2006,2008,0.122,29
+05360002,Rivière Saint-Jean,"Saint-Jean, Rivière",3,2007,2024,0.115,34
+04790001,Ruisseau Lavoie,"Outaouais, Rivière des",3,2016,2018,0.095,37
+03030214,Rivière Yamaska,"Yamaska, Rivière",3,2010,2012,0.081,28
+05030209,Rivière à Veillet,"Batiscan, Rivière",3,2004,2016,0.072,20
+04780002,Ruisseau Hébert,"Outaouais, Rivière des",3,2016,2018,0.07,48
+03010102,Ruisseau Gosselin,"Nicolet, Rivière",3,2019,2021,0.069,0
+02330037,Le Bras,"Etchemin, Rivière",3,2003,2020,0.068,44
+03030085,Rivière Yamaska,"Yamaska, Rivière",3,2010,2012,0.068,5
+05040169,Rivière Niagarette,"Sainte-Anne, Rivière",3,2006,2008,0.067,41
+05220121,Ruisseau du Point du Jour,"L'Assomption, Rivière",3,2009,2011,0.066,39
+03030202,Rivière Noire,"Yamaska, Rivière",3,2010,2012,0.064,30
+04950002,Ruisseau Rousse,"Outaouais, Rivière des",3,2008,2010,0.059,32
+02700001,Rivière Centrale,"Centrale, Rivière",3,2013,2020,0.054,33
+02330050,Le Bras,"Etchemin, Rivière",3,2007,2010,0.053,37
+02400097,Rivière Blanche,"Bécancour, Rivière",3,2022,2024,0.05,52
+05030211,Rivière à la Lime,"Batiscan, Rivière",3,2005,2019,0.05,44
+03040324,Ruisseau Brandy,"Richelieu, Rivière",3,2017,2024,0.049,32
+05350002,Rivière Saint-Joseph,"Saint-Joseph, Rivière",3,2021,2023,0.045,35
+01150050,Cours d'eau sans toponyme,"Ristigouche, Rivière",3,2013,2024,0.044,24
+03020389,Ruisseau Bradley,"Saint-François, Rivière",3,2006,2008,0.043,53
+05350003,Rivière Saint-Joseph,"Saint-Joseph, Rivière",3,2021,2023,0.041,46
+02260014,Rivière Goudron,"Kamouraska, Rivière",3,2006,2008,0.036,29
+04290008,Cours d'eau sans toponyme,"Outaouais, Rivière des",3,2016,2019,0.036,26
+01720001,Ruisseau Monier,"Ristigouche, Rivière",3,2017,2024,0.032,52
+03010039,Rivière des Rosiers,"Nicolet, Rivière",3,2022,2024,0.03,24
+02260015,Rivière Goudron,"Kamouraska, Rivière",3,2006,2008,0.026,46
+03020063,Rivière Saint-François,"Saint-François, Rivière",3,2008,2010,0.026,51
+02200022,Ruisseau Levasseur,"Rimouski, Rivière",3,2009,2023,0.025,26
+02260004,Rivière Dufour,"Kamouraska, Rivière",3,2004,2009,0.024,66
+02E90009,Cours d'eau Soucy-Lapointe,"Fouquette, Rivière",3,2005,2008,0.024,50
+12020001,Rivière Dauphine,"Dauphine, Rivière",3,2006,2008,0.024,38
+07110071,Rivière Amédée,"Manicouagan, Rivière",3,2011,2015,0.023,58
+05010659,Rivière Saint-Maurice,"Saint-Maurice, Rivière",3,2022,2024,0.019,89
+02400064,Rivière Bécancour,"Bécancour, Rivière",3,2019,2021,0.018,59
+04020159,Rivière du Diable,"Outaouais, Rivière des",3,2006,2008,0.017,90
+03090073,Rivière aux Outardes Est,"Châteauguay, Rivière",3,2006,2020,0.016,80
+03010037,Rivière Nicolet,"Nicolet, Rivière",3,2022,2024,0.015,77
+05080093,Rivière aux Pommes,"Jacques-Cartier, Rivière",3,2010,2012,0.014,66
+04010204,Rivière Le Grand Ruisseau,"Outaouais, Rivière des",3,2009,2011,0.013,78
+06090017,Rivière du Moulin,"Saguenay, Rivière",3,2006,2008,0.013,85
+05080096,Rivière aux Pins,"Jacques-Cartier, Rivière",3,2006,2008,0.012,85
+05220653,Rivière Blanche,"L'Assomption, Rivière",3,2021,2023,0.012,90
+05220150,Rivière Noire,"L'Assomption, Rivière",3,2004,2006,0.011,88
+05220614,Ruisseau de la Fourche,"L'Assomption, Rivière",3,2016,2018,0.011,78
+04010358,Le Grand Ruisseau,"Outaouais, Rivière des",3,2020,2022,0.01,76
+04020163,Ruisseau Clair,"Outaouais, Rivière des",3,2006,2010,0.009,81
+05010386,Rivière Saint-Maurice,"Saint-Maurice, Rivière",3,2002,2004,0.009,95
+05220448,Rivière Noire,"L'Assomption, Rivière",3,2004,2006,0.009,95
+05220652,Rivière Noire,"L'Assomption, Rivière",3,2021,2023,0.009,82
+04010359,Le Grand Ruisseau,"Outaouais, Rivière des",3,2020,2022,0.007,79
+04010361,Cours d'eau sans toponyme,"Outaouais, Rivière des",3,2020,2022,0.007,74
+04020291,Rivière Rouge,"Outaouais, Rivière des",3,2014,2016,0.007,94
+03020196,Ruisseau de la Montagne,"Saint-François, Rivière",3,2012,2015,0.006,92
+04010207,Rivière aux Mulets,"Outaouais, Rivière des",3,2009,2011,0.005,86
+04010360,Cours d'eau sans toponyme,"Outaouais, Rivière des",3,2020,2022,0.002,80
+04010362,Cours d'eau sans toponyme,"Outaouais, Rivière des",3,2020,2022,0.002,91
+04010363,Cours d'eau sans toponyme,"Outaouais, Rivière des",3,2020,2022,0.001,92
+02160017,Rivière Matane,"Matane, Rivière",2,2009,2010,1.355,37
+05630005,Rivière du Bois Blanc,"Bois Blanc, Rivière du",2,2013,2021,0.235,0.5
+06630001,Rivière à Benjamin,"Saguenay, Rivière",2,2019,2020,0.22499999999999998,0.5
+03850003,Cours d'eau sans toponyme,"Frères, Rivière des",2,2019,2020,0.1825,9.5
+03070010,,"Tortue, Rivière de la",2,2023,2024,0.16,2
+05220603,Rivière Le Grand Ruisseau,"L'Assomption, Rivière",2,2015,2016,0.1575,2
+03040289,Ruisseau Beloeil,"Richelieu, Rivière",2,2023,2024,0.15,12
+02F10001,Ruisseau des Bras,"Bras, Ruisseau des",2,2020,2024,0.14750000000000002,14
+05220126,Ruisseau Vacher,"L'Assomption, Rivière",2,2019,2020,0.14250000000000002,24
+05220247,Ruisseau Saint-Georges,"L'Assomption, Rivière",2,2012,2013,0.14,24
+03090062,Rivière des Fèves,"Châteauguay, Rivière",2,2003,2017,0.135,5
+05010595,Rivière Blanche,"Saint-Maurice, Rivière",2,2017,2018,0.1325,14.5
+05640005,Cours d'eau de la baie Bélair,Bassin résiduel sans hydronyme,2,2008,2010,0.1265,0
+04950003,Ruisseau Rousse,"Outaouais, Rivière des",2,2018,2019,0.125,17.5
+04620005,Rivière RIgaud,"Outaouais, Rivière des",2,2021,2022,0.123,0
+02E60001,Rivière des Vases,"Vases, Rivière des",2,2017,2018,0.12,0
+05280079,Petite rivière du Loup,"Loup, Rivière du",2,2015,2016,0.115,0.5
+05020003,Rivière à la Fourche,"Champlain, Rivière",2,2017,2019,0.11449999999999999,33
+06630002,Rivière à Benjamin,"Saguenay, Rivière",2,2019,2020,0.113,21
+03150003,Rivière Marguerite,"Marguerite, Rivière",2,2022,2023,0.111,1
+02F90001,Rivière Vincelotte,"Vincelotte, Rivière",2,2011,2022,0.10500000000000001,17.5
+02270005,Cours d'eau Lambert,"Ouelle, Rivière",2,2016,2018,0.1,34.5
+05640006,Ruisseau Tranchemontagne,Bassin résiduel sans hydronyme,2,2008,2010,0.0995,2
+05280081,Ruisseau des Bélanger,"Loup, Rivière du",2,2015,2016,0.096,10
+04010132,Ruisseau des Vases,"Outaouais, Rivière des",2,2010,2011,0.095,4
+03320001,Ruisseau David-Houle,"David-Houle, Ruisseau",2,2012,2013,0.0945,3
+05230002,Rivière La Chaloupe,"Chaloupe, Rivière la",2,2015,2016,0.0935,15
+03040322,Ruisseau Swennen,"Richelieu, Rivière",2,2017,2018,0.092,33
+03310001,Rivière Brielle,"Brielle, Rivière",2,2012,2013,0.092,2.5
+05220007,Rivière de l'Achigan,"L'Assomption, Rivière",2,2021,2022,0.091,26
+02I70001,Rivière Corriveau,"Corriveau, Ruisseau",2,2017,2023,0.0905,38.5
+03860001,Rivière Lemire,"Lemire, Rivière",2,2016,2018,0.0905,15.5
+02390003,Rivière Gentilly Sud-Ouest,"Gentilly, Rivière",2,2013,2015,0.09,23
+05280078,Petite rivière du Loup,"Loup, Rivière du",2,2015,2016,0.09,30
+05020002,Rivière Brûlée,"Champlain, Rivière",2,2017,2019,0.088,42
+02590002,Rivière des Mères,"Mères, Rivière des",2,2010,2023,0.0845,42
+05240024,Rivière Bayonne,"Bayonne, Rivière",2,2017,2018,0.083,42.5
+03030034,Rivière le Renne,"Yamaska, Rivière",2,2009,2010,0.0825,17
+05640004,Cours d'eau de la baie Bélair,Bassin résiduel sans hydronyme,2,2008,2010,0.0825,12
+02380002,Rivière aux Orignaux,"Orignaux, Rivière aux",2,2013,2015,0.0805,24
+05030207,Rivière des Chutes,"Batiscan, Rivière",2,2004,2005,0.076,29
+05L90001,Ruisseau Nobert,"Nobert, Ruisseau",2,2014,2018,0.069,21
+04570002,Ruisseau Abbica,"Outaouais, Rivière des",2,2017,2018,0.0675,21.5
+05080117,Ruisseau des Prairies,"Jacques-Cartier, Rivière",2,2011,2023,0.067,35
+04810002,Ruisseau Pagé,"Outaouais, Rivière des",2,2014,2015,0.065,40
+04290009,Cours d'eau Paquin,"Outaouais, Rivière des",2,2018,2019,0.064,26
+05010065,Rivière Blanche,"Saint-Maurice, Rivière",2,2017,2018,0.064,41.5
+05030212,Rivière Pierre-Paul,"Batiscan, Rivière",2,2005,2014,0.062,48.5
+05220491,Rivière Saint-Esprit,"L'Assomption, Rivière",2,2017,2018,0.0615,48
+02G60001,Rivière Sainte-Anne,Bassin résiduel sans hydronyme,2,2012,2017,0.06,31
+05240023,Rivière Bayonne,"Bayonne, Rivière",2,2017,2018,0.06,47
+03090066,Rivière Noire,"Châteauguay, Rivière",2,2021,2024,0.0585,55
+05220245,Ruisseau Saint-Georges,"L'Assomption, Rivière",2,2012,2013,0.058499999999999996,19.5
+04650008,Cours d'eau sans toponyme,"Chiens, Rivière aux",2,2014,2015,0.0525,43.5
+05040259,Rivière Charest,"Sainte-Anne, Rivière",2,2022,2023,0.0525,43
+04290010,Cours d'eau Paquin,"Outaouais, Rivière des",2,2018,2019,0.051000000000000004,15
+02240010,Rivière de la Barrure,"Verte, Rivière",2,2014,2019,0.05,29
+06130027,Cours d'eau du Rang Trois,"Saguenay, Rivière",2,2009,2010,0.05,62
+03090074,Rivière aux Outardes Est,"Châteauguay, Rivière",2,2006,2010,0.042,57.5
+04280003,Cours d'eau Gaudet,"Outaouais, Rivière des",2,2018,2019,0.0395,24
+02E90013,Rivière Fouquette,"Fouquette, Rivière",2,2006,2007,0.0385,59
+04650009,Ruisseau Locke Head,"Chiens, Rivière aux",2,2016,2017,0.0385,48.5
+03090161,Rivière Châteauguay,"Châteauguay, Rivière",2,2019,2020,0.038,66.5
+06130028,Cours d'eau du Rang Trois,"Saguenay, Rivière",2,2009,2010,0.0375,70
+04660002,Rivière du Chicot,"Chicot, Rivière du",2,2012,2013,0.0365,29
+08A10024,Rivière Macamic,"Moose, River",2,2021,2022,0.036000000000000004,55.5
+04300505,Cours d'eau sans toponyme,"Outaouais, Rivière des",2,2017,2018,0.035,56
+03040323,Ruisseau Groat,"Richelieu, Rivière",2,2017,2018,0.034,46.5
+05040167,Petite rivière Niagarette,"Sainte-Anne, Rivière",2,2005,2006,0.034,68.5
+05310003,Rivière Millette,"Millette, Rivière",2,2021,2022,0.034,68
+04610002,Rivière Delisle,"Delisle, Rivière",2,2003,2004,0.033,39.5
+02260011,Ruisseau Poivrier,"Kamouraska, Rivière",2,2005,2016,0.03,53
+03010103,Rivière Nicolet Sud-Ouest,"Nicolet, Rivière",2,2011,2012,0.03,63
+02160002,Rivière Matane,"Matane, Rivière",2,2009,2010,0.026999999999999996,66
+05040144,Rivière Sainte-Anne,"Sainte-Anne, Rivière",2,2001,2002,0.026500000000000003,70
+05310001,Rivière Millette,"Millette, Rivière",2,2021,2022,0.025500000000000002,20.5
+05070022,Rivière Portneuf,"Portneuf, Rivière",2,2012,2013,0.0245,59.5
+06670007,Ruisseau des Chasseurs,"Saguenay, Rivière",2,2021,2023,0.0245,54
+05220010,Rivière Saint-Esprit,"L'Assomption, Rivière",2,2017,2018,0.0235,74.5
+02310011,Bras Saint-Michel,"Sud, Rivière du",2,2007,2021,0.0225,35.5
+02240009,Rivière Cacouna,"Verte, Rivière",2,2013,2017,0.0215,75
+04010229,Ruisseau Williams,"Outaouais, Rivière des",2,2010,2011,0.0215,86
+05220153,Rivière Ouareau,"L'Assomption, Rivière",2,2008,2009,0.021,66.5
+03040059,Rivière aux Brochets Nord,"Richelieu, Rivière",2,2019,2020,0.020999999999999998,54.5
+05040147,Rivière Sainte-Anne,"Sainte-Anne, Rivière",2,2001,2002,0.020999999999999998,75
+05220598,Affluent du lac Noir,"L'Assomption, Rivière",2,2021,2022,0.02,74.5
+07820001,Rivière à la Chasse,"Chasse, Rivière à la",2,2012,2014,0.02,68.5
+02340144,Rivière Filkars,"Chaudière, Rivière",2,2015,2024,0.0195,64.5
+05080101,Ruisseau Bonhomme,"Jacques-Cartier, Rivière",2,2008,2022,0.0195,81
+02240008,Rivière à la Fourche,"Verte, Rivière",2,2011,2017,0.019,78.5
+05040153,Rivière Jacquot,"Sainte-Anne, Rivière",2,2013,2014,0.019,86
+03090076,Ruisseau Noir,"Châteauguay, Rivière",2,2006,2010,0.018500000000000003,71
+05310002,Rivière Millette,"Millette, Rivière",2,2021,2022,0.018500000000000003,59
+02330047,Rivière Desbarats,"Etchemin, Rivière",2,2016,2017,0.018000000000000002,43
+04010005,Rivière de l'Ouest,"Outaouais, Rivière des",2,2008,2010,0.018000000000000002,66
+05080118,Rivière aux Pommes,"Jacques-Cartier, Rivière",2,2010,2019,0.018,76
+05030138,Rivière Batiscan,"Batiscan, Rivière",2,2003,2004,0.0175,86.5
+03090075,Ruisseau Mitchel,"Châteauguay, Rivière",2,2006,2010,0.017,66.5
+02040040,Ruisseau Porphyre,"York, Rivière",2,2021,2022,0.016,62
+04060105,Rivière du Lièvre,"Outaouais, Rivière des",2,2020,2023,0.016,69
+05080056,Rivière aux Pommes,"Jacques-Cartier, Rivière",2,2010,2017,0.016,55
+02E90010,Ruisseau Turgeon,"Fouquette, Rivière",2,2007,2008,0.0155,68
+05220649,Affluent du lac Noir,"L'Assomption, Rivière",2,2021,2022,0.015,74.5
+08010137,Rivière Thompson,"Harricana, Rivière",2,2014,2015,0.015,74
+04020304,Rivière Maskinongé,"Outaouais, Rivière des",2,2015,2016,0.0135,81
+02190010,Petite rivière Neigette,"Mitis, Rivière",2,2006,2007,0.013,85
+03020065,Ruisseau Brook,"Saint-François, Rivière",2,2009,2010,0.013,57
+01150059,Ruisseau St. Lawrence,"Ristigouche, Rivière",2,2018,2024,0.0125,52.5
+05220450,Rivière Noire,"L'Assomption, Rivière",2,2004,2005,0.0125,75.5
+02200056,Cours d'eau sans toponyme,"Rimouski, Rivière",2,2007,2008,0.012,87.5
+05220639,Rivière Ouareau,"L'Assomption, Rivière",2,2019,2020,0.012,82
+03090059,Rivière Trout,"Châteauguay, Rivière",2,2003,2004,0.011,82.5
+05040145,Rivière Sainte-Anne,"Sainte-Anne, Rivière",2,2001,2002,0.011,84.5
+05040184,Rivière Niagarette,"Sainte-Anne, Rivière",2,2007,2008,0.011,86
+06670018,Ruisseau des Chasseurs,"Saguenay, Rivière",2,2021,2023,0.011,92
+05220449,Rivière Noire,"L'Assomption, Rivière",2,2004,2005,0.010499999999999999,89
+03090077,Rivière aux Outardes Est,"Châteauguay, Rivière",2,2006,2010,0.009999999999999998,82.5
+02160016,Rivière Matane,"Matane, Rivière",2,2009,2010,0.0095,89
+02200027,Rivière Ferrée,"Rimouski, Rivière",2,2007,2008,0.0095,87
+04020290,Rivière Rouge,"Outaouais, Rivière des",2,2014,2015,0.0085,90.5
+02340158,Rivière Arnold,"Chaudière, Rivière",2,2021,2022,0.008,88
+04020154,Ruisseau Noir,"Outaouais, Rivière des",2,2007,2012,0.008,86
+04060222,Rivière Kiamika,"Outaouais, Rivière des",2,2019,2024,0.0075,89.5
+04020162,Rivière Cachée,"Outaouais, Rivière des",2,2006,2008,0.007,92
+04020303,Rivière Maskinongé,"Outaouais, Rivière des",2,2015,2016,0.007,90
+01150002,Rivière Matapédia,"Ristigouche, Rivière",2,2014,2015,0.006,87
+02160004,Rivière Matane,"Matane, Rivière",2,2009,2010,0.004,90
+04020300,Rivière Maskinongé,"Outaouais, Rivière des",2,2015,2016,0.004,93
+05220629,Rivière Ouareau,"L'Assomption, Rivière",2,2019,2020,0.004,94.5
+02160005,Rivière Matane,"Matane, Rivière",2,2009,2010,0.003,92
+02160012,Rivière Matane,"Matane, Rivière",2,2009,2010,0.0025,92
+02160015,Rivière Matane,"Matane, Rivière",2,2009,2010,0.002,92
+02160006,Rivière Matane,"Matane, Rivière",2,2009,2010,0.001,92
+02160007,Rivière Matane,"Matane, Rivière",2,2009,2010,0.001,92
+02160008,Rivière Matane,"Matane, Rivière",2,2009,2010,0.001,92
+02160009,Rivière Matane,"Matane, Rivière",2,2009,2010,0.001,92
+02160010,Rivière Matane,"Matane, Rivière",2,2009,2010,0.001,92
+02160011,Rivière Matane,"Matane, Rivière",2,2009,2010,0.001,92
+02160013,Rivière Matane,"Matane, Rivière",2,2009,2010,0.001,85.5
+02160014,Rivière Matane,"Matane, Rivière",2,2009,2010,0.001,91
+03090020,Ruisseau Norton,"Châteauguay, Rivière",1,2011,2011,1.1,0
+05050019,Ruisseau Perreault,"La Chevrotière, Rivière",1,2021,2021,0.957,50
+05050010,Ruisseau Perreault,"La Chevrotière, Rivière",1,2021,2021,0.939,24
+03090064,Rivière de l'Esturgeon,"Châteauguay, Rivière",1,2003,2003,0.81,0
+05050007,Ruisseau Perreault,"La Chevrotière, Rivière",1,2021,2021,0.605,10
+05220382,Ruisseau Zoël-Payette,"L'Assomption, Rivière",1,2012,2012,0.58,0
+03070005,Rivière de la Tortue,"Tortue, Rivière de la",1,2021,2021,0.435,0
+03070003,Rivière de la Tortue,"Tortue, Rivière de la",1,2018,2018,0.42,0
+02W90001,Ruisseau Andréville,Bassin résiduel sans hydronyme,1,2021,2021,0.4,5
+05250005,Rivière Chicot,"Chicot, Rivière",1,2021,2021,0.32,0
+03300001,Rivière Landroche,"Landroche, Rivière",1,2017,2017,0.26,2
+03080012,Rivière Saint-Régis,"Saint-Régis, Rivière",1,2016,2016,0.255,6
+05640007,Ruisseau Sarrazin,"Sarrazin, Ruisseau",1,2012,2012,0.25,1
+04340001,Rivière Quinchien,"Outaouais, Rivière des",1,2012,2012,0.24,6
+03030511,Déversant du Lac,"Yamaska, Rivière",1,2019,2019,0.23,2
+05630006,Ruisseau Pichette,"Bois Blanc, Rivière du",1,2020,2020,0.185,4
+05220539,Ruisseau Noir,"L'Assomption, Rivière",1,2009,2009,0.18,1
+05220541,Ruisseau Vacher,"L'Assomption, Rivière",1,2009,2009,0.18,1
+03030515,Rivière du Sud-Ouest,"Yamaska, Rivière",1,2020,2020,0.17,6
+03290003,Rivière Colbert,"Colbert, Rivière",1,2016,2016,0.17,10
+05260037,Rivière l'Ormière,"Maskinongé, Rivière",1,2020,2020,0.16,1
+05640003,Ruisseau Tranchemontagne,"Tranchemontagne, Ruisseau",1,2008,2008,0.16,1
+03880001,Rivière Camille-Roy,Bassin résiduel sans hydronyme,1,2017,2017,0.15,1
+05J70001,Rivière Cachée,"Cachée, Rivière",1,2011,2011,0.15,1
+03110008,Décharge Saint-Louis,"Saint-Louis, Rivière",1,2013,2013,0.14,27
+05230019,Rivière La Chaloupe,"Chaloupe, Rivière la",1,2016,2016,0.14,0
+03090063,Grand cours d'eau Saint-Rémi,"Châteauguay, Rivière",1,2003,2003,0.13,0
+03860002,Rivière Lemire,"Lemire, Rivière",1,2018,2018,0.13,7
+05070025,Rivière Saint-Jacques,"Portneuf, Rivière",1,2013,2013,0.13,27
+05240005,Rivière Bonaventure,"Bayonne, Rivière",1,2008,2008,0.129,11
+05640001,Ruisseau Tranchemontagne,"Tranchemontagne, Ruisseau",1,2008,2008,0.128,12
+03060004,Rivière Saint-Jacques,"Saint-Jacques, Rivière",1,2019,2019,0.12,14
+03110011,Rivière La Guerre,"La Guerre, Rivière",1,2016,2016,0.12,26
+04760004,Rivière Viviry,"Outaouais, Rivière des",1,2015,2015,0.12,14
+05220542,Ruisseau Vacher,"L'Assomption, Rivière",1,2009,2009,0.12,33
+05M10002,Ruisseau Grimard,"Grimard, Ruisseau",1,2020,2020,0.12,1
+03850001,Rivière des Frères,"Frères, Rivière des",1,2014,2014,0.115,14
+05M10001,Ruisseau Grimard,"Grimard, Ruisseau",1,2018,2018,0.114,3
+05020008,Rivière au Lard,"Champlain, Rivière",1,2017,2017,0.11,18
+05220548,Ruisseau Vacher,"L'Assomption, Rivière",1,2009,2009,0.11,6
+05220469,Cours d'eau sans toponyme,"L'Assomption, Rivière",1,2012,2012,0.105,38
+05230018,Rivière La Chaloupe,"Chaloupe, Rivière la",1,2015,2015,0.105,1
+05640002,Ruisseau Tranchemontagne,"Tranchemontagne, Ruisseau",1,2008,2008,0.102,0
+06130015,Ruisseau Vouzier,"Saguenay, Rivière",1,2005,2005,0.102,13
+03110010,Rivière Saint-Louis,"Saint-Louis, Rivière",1,2013,2013,0.1,23
+05220602,Rivière Blanche,"L'Assomption, Rivière",1,2015,2015,0.1,15
+05080121,Ruisseau des Prairies,"Jacques-Cartier, Rivière",1,2023,2023,0.098,28
+03040217,Ruisseau East Swamp,"Richelieu, Rivière",1,2020,2020,0.097,3
+02250013,Petite rivière du Loup,"Loup, Rivière du",1,2014,2014,0.096,24
+03060003,Rivière Saint-Jacques,"Saint-Jacques, Rivière",1,2017,2017,0.094,15
+05040140,Rivière Blanche,"Sainte-Anne, Rivière",1,2001,2001,0.094,32
+03040117,Rivière Lacolle,"Richelieu, Rivière",1,2021,2021,0.09,3
+03190001,Ruisseau Fraser,"Fraser, Ruisseau",1,2009,2009,0.09,4
+06200007,Rivière du Dix,"Saguenay, Rivière",1,2016,2016,0.09,24
+06340001,Cours d'eau sans toponyme,"Saguenay, Rivière",1,2010,2010,0.09,42
+05030183,Rivière à Veillet,"Batiscan, Rivière",1,2016,2016,0.087,32
+05220540,Ruisseau Vacher,"L'Assomption, Rivière",1,2009,2009,0.087,14
+06130017,Ruisseau Dumais,"Saguenay, Rivière",1,2006,2006,0.086,14
+03110007,Rivière Saint-Louis,"Saint-Louis, Rivière",1,2013,2013,0.084,14
+03120003,Branche Ouest,"La Guerre, Rivière",1,2018,2018,0.084,31
+05020007,Ruisseau Clément,"Champlain, Rivière",1,2017,2017,0.084,36
+05040141,Rivière Blanche,"Sainte-Anne, Rivière",1,2001,2001,0.083,33
+03040359,,"Richelieu, Rivière",1,2024,2024,0.082,10
+02540003,Rivière Saint-Jean,"Saint-Jean, Rivière",1,2006,2006,0.081,39
+05070018,Rivière Le Grand Ruisseau,"Portneuf, Rivière",1,2011,2011,0.081,42
+05M20001,Ruisseau Lacoursière,"Lacoursière, Ruisseau",1,2018,2018,0.081,12
+05030179,Rivière Pierre-Paul,"Batiscan, Rivière",1,2015,2015,0.08,1
+05050009,Ruisseau Perreault,"La Chevrotière, Rivière",1,2021,2021,0.078,42
+02320002,Rivière des Couture,"Scie, Rivière à la",1,2016,2016,0.077,47
+05070017,Rivière des Sept Îles,"Portneuf, Rivière",1,2010,2010,0.077,46
+04760003,Rivière Viviry,"Outaouais, Rivière des",1,2015,2015,0.075,26
+05030180,Cours d'eau Piche,"Batiscan, Rivière",1,2015,2015,0.075,1
+05220590,Ruisseau des Anges,"L'Assomption, Rivière",1,2014,2014,0.075,14
+04740001,Rivière à la Graisse,"Graisse, Rivière à la",1,2013,2013,0.074,20
+05030182,Ruisseau Gauthier,"Batiscan, Rivière",1,2016,2016,0.074,28
+05050011,Ruisseau Perreault,"La Chevrotière, Rivière",1,2021,2021,0.072,49
+03040328,Ruisseau aux Ménés,"Richelieu, Rivière",1,2019,2019,0.071,52
+06130014,Ruisseau Puant,"Saguenay, Rivière",1,2005,2005,0.071,18
+02250008,Petite rivière du Loup,"Loup, Rivière du",1,2013,2013,0.07,39
+04280004,Petite rivière Blanche,"Outaouais, Rivière des",1,2021,2021,0.07,0
+07040029,Cours d'eau sans toponyme,"Blanche, Rivière",1,2020,2020,0.07,25
+05070026,Rivière Saint-Jacques,"Portneuf, Rivière",1,2013,2013,0.069,40
+03040209,Ruisseau Massé,"Richelieu, Rivière",1,2017,2017,0.068,43
+05030141,Ruisseau Bradley,"Batiscan, Rivière",1,2005,2005,0.066,23
+05M20004,Ruisseau Lacoursière,"Lacoursière, Ruisseau",1,2020,2020,0.066,22
+07A30001,Rivière à la Truite,"Truite, Rivière à la",1,2020,2020,0.066,52
+05080125,Cours d'eau sans toponyme,"Jacques-Cartier, Rivière",1,2013,2013,0.064,44
+04760002,Rivière Viviry,"Outaouais, Rivière des",1,2015,2015,0.063,47
+03040218,Ruisseau Black,"Richelieu, Rivière",1,2020,2020,0.061,54
+03040334,Ruisseau des Frères,"Richelieu, Rivière",1,2020,2020,0.061,7
+04760005,Rivière Viviry,"Outaouais, Rivière des",1,2015,2015,0.061,35
+02330034,Rivière le Bras,"Etchemin, Rivière",1,2003,2003,0.06,32
+02330038,Le Bras,"Etchemin, Rivière",1,2003,2003,0.06,32
+02340091,Ruisseau Turmel,"Chaudière, Rivière",1,2002,2002,0.06,50
+02340092,Cours d'eau sans toponyme,"Chaudière, Rivière",1,2002,2002,0.06,54
+02330070,Cours d'eau sans toponyme,"Etchemin, Rivière",1,2015,2015,0.059,53
+03040330,Ruisseau au Castor,"Richelieu, Rivière",1,2021,2021,0.059,55
+05050005,Ruisseau du Moulin,"La Chevrotière, Rivière",1,2021,2021,0.059,29
+05220578,Rivière Rouge,"L'Assomption, Rivière",1,2013,2013,0.058,50
+05M20003,Ruisseau Hamelin,"Sainte-Anne, Rivière",1,2020,2020,0.058,10
+03030200,Rivière Mawcook,"Yamaska, Rivière",1,2006,2006,0.057,38
+03250001,Rivière Sabrevois,"Sabrevois, Rivière",1,2019,2019,0.057,18
+03010145,Rivière l'Abbé,"Nicolet, Rivière",1,2014,2014,0.056,50
+05070015,Rivière Chaude,"Portneuf, Rivière",1,2010,2010,0.056,51
+05220601,Petite Rivière,"L'Assomption, Rivière",1,2015,2015,0.055,29
+05800001,Ruisseau de l'Arbre à la Croix,"Arbre à la Croix, Ruisseau de l'",1,2013,2013,0.052,50
+07810001,Rivière Colombier,"Colombier, Rivière",1,2013,2013,0.052,56
+02200055,Rivière Rimouski,"Rimouski, Rivière",1,2011,2011,0.051,0
+03110012,Rivière Saint-Louis,"Saint-Louis, Rivière",1,2021,2021,0.051,37
+02280001,Rivière Ferrée,"Ferrée, Rivière",1,2009,2009,0.05,57
+02330036,Rivière le Bras,"Etchemin, Rivière",1,2003,2003,0.05,28
+03200001,Cours d'eau sans toponyme,"McMillan, Ruisseau",1,2020,2020,0.05,5
+05240017,Rivière Bonaventure,"Bayonne, Rivière",1,2008,2008,0.05,1
+05050016,Ruisseau du Moulin,"La Chevrotière, Rivière",1,2021,2021,0.049,22
+04060231,Ruisseau Bertrand,"Outaouais, Rivière des",1,2021,2021,0.046,50
+04290011,Rivière à la Loutre,"Outaouais, Rivière des",1,2022,2022,0.046,58
+05050006,Ruisseau du Moulin,"La Chevrotière, Rivière",1,2021,2021,0.046,38
+05540002,Ruisseau du Moulin,Bassin résiduel sans hydronyme,1,2013,2013,0.046,30
+05E70001,Rivière Charland,"Charland, Rivière",1,2020,2020,0.046,46
+01370004,Cours d'eau sans toponyme,"Saint-Jean, Rivière",1,2014,2014,0.043,50
+02F30001,Grand ruisseau du Haut de Sainte-Anne,Bassin résiduel sans hydronyme,1,2021,2021,0.043,36
+05050008,Ruisseau du Moulin,"La Chevrotière, Rivière",1,2021,2021,0.043,17
+05810001,Ruisseau Hertel,"Hertel, Ruisseau",1,2013,2013,0.043,30
+02320001,Rivière à la Scie,"Scie, Rivière à la",1,2012,2012,0.042,54
+05090097,,"Saint-Charles, Rivière",1,2022,2022,0.042,37
+06200011,Rivière Ticouapé,"Saguenay, Rivière",1,2015,2015,0.042,66
+02340049,Rivière Savoie,"Chaudière, Rivière",1,2023,2023,0.041,26
+02540001,Rivière Saint-Jean,"Saint-Jean, Rivière",1,2006,2006,0.041,40
+03090156,Rivière aux Outardes,"Châteauguay, Rivière",1,2015,2015,0.041,49
+04760001,Rivière Viviry,"Outaouais, Rivière des",1,2015,2015,0.041,61
+03040320,Rivière Amyot,"Richelieu, Rivière",1,2016,2016,0.04,32
+03090158,Rivière Hinchinbrooke,"Châteauguay, Rivière",1,2018,2018,0.04,64
+04610003,Rivière Delisle,,1,2018,2018,0.04,60
+05030189,Cours d'eau sans toponyme,"Batiscan, Rivière",1,2019,2019,0.04,41
+02340155,Rivière aux Pins,"Chaudière, Rivière",1,2019,2019,0.039,14
+05540001,Ruisseau du Moulin,Bassin résiduel sans hydronyme,1,2013,2013,0.039,28
+03040331,Ruisseau au Castor,"Richelieu, Rivière",1,2021,2021,0.038,39
+05030208,Ruisseau Sanschagrin,"Batiscan, Rivière",1,2004,2004,0.038,48
+01150049,Ruisseau Hazel,"Ristigouche, Rivière",1,2013,2013,0.037,12
+02360008,Rivière aux Ormes,"Chêne, Rivière du",1,2023,2023,0.037,49
+03110009,Rivière Saint-Louis,"Saint-Louis, Rivière",1,2013,2013,0.036,56
+05260084,Ruisseau Lafrenière,"Maskinongé, Rivière",1,2016,2016,0.036,50
+05E90001,Ruisseau des Îlets,"Îlets, Ruisseau des",1,2012,2012,0.036,68
+02330039,Le Bras,"Etchemin, Rivière",1,2003,2003,0.035,34
+05050012,Ruisseau du Moulin,"La Chevrotière, Rivière",1,2021,2021,0.035,40
+05050017,Ruisseau Perreault,"La Chevrotière, Rivière",1,2021,2021,0.035,76
+05080126,Cours d'eau sans toponyme,"Jacques-Cartier, Rivière",1,2013,2013,0.035,70
+06200010,Rivière Ticouapé,"Saguenay, Rivière",1,2014,2014,0.035,66
+06G06001,Ruisseau Morin,"Saguenay, Rivière",1,2010,2010,0.035,49
+02330068,Ruisseau aux Aulnes,"Etchemin, Rivière",1,2013,2013,0.034,31
+05040200,Rivière Charest,"Sainte-Anne, Rivière",1,2014,2014,0.034,50
+07720001,Rivière Beaulieu,"Grandes Bergeronnes, Rivière des",1,2014,2014,0.034,63
+05030142,Ruisseau Bradley,"Batiscan, Rivière",1,2005,2005,0.033,48
+05400008,Ruisseau Rouge,"Beauport, Rivière",1,2020,2020,0.033,34
+05550003,Tributaire du lac Saint-Augustin,"Lac Saint-Augustin, Décharge du",1,2021,2021,0.033,52
+02300012,Rivière Boyer,"Boyer, Rivière",1,2007,2007,0.032,28
+04290012,Cours d'eau sans toponyme,"Outaouais, Rivière des",1,2015,2015,0.032,60
+05820001,Ruisseau des Pères,"Pères, Ruisseau des",1,2018,2018,0.032,26
+04090001,Rivière Quyon,"Outaouais, Rivière des",1,2014,2014,0.031,54
+05260035,Cours d'eau sans toponyme,"Maskinongé, Rivière",1,2009,2009,0.031,50
+02330035,Ruisseau Boutin,"Etchemin, Rivière",1,2003,2003,0.03,28
+02340093,Rivière Belair,"Chaudière, Rivière",1,2002,2002,0.03,69
+02360017,Bras d'Edmond,"Chêne, Rivière du",1,2010,2010,0.03,26
+03130001,Rivière aux Saumons,"Saumons, Rivière aux",1,2021,2021,0.03,64
+05050014,Ruisseau du Moulin,"La Chevrotière, Rivière",1,2021,2021,0.029,48
+08010135,Rivière Milky,"Harricana, Rivière",1,2014,2014,0.029,41
+02260012,Rivière Goudron,"Kamouraska, Rivière",1,2016,2016,0.028,56
+02310053,Rivière Minguy,"Sud, Rivière du",1,2011,2011,0.028,59
+02340169,,"Chaudière, Rivière",1,2024,2024,0.028,80
+03030234,Rivière le Renne,"Yamaska, Rivière",1,2008,2008,0.028,46
+05080120,Ruisseau Versailles,"Jacques-Cartier, Rivière",1,2014,2014,0.028,53
+05100006,Cours d'eau sans toponyme,Bassin résiduel sans hydronyme,1,2017,2017,0.028,0
+05220549,Cours d'eau Brien,"L'Assomption, Rivière",1,2009,2009,0.028,54
+02310048,Rivière du Sud,"Sud, Rivière du",1,2010,2010,0.027,70
+03010160,,"Nicolet, Rivière",1,2023,2023,0.027,55
+05090046,Rivière Lorette,"Saint-Charles, Rivière",1,2016,2016,0.027,62
+05400009,Ruisseau Rouge,"Beauport, Rivière",1,2020,2020,0.027,44
+06190104,Petite rivière Eusèbe,"Saguenay, Rivière",1,2021,2021,0.027,52
+05030190,Ruisseau Bradley,"Batiscan, Rivière",1,2019,2019,0.026,64
+05070027,Décharge du Lac Sergent,"Portneuf, Rivière",1,2015,2015,0.026,74
+05090070,Rivière Nelson,"Saint-Charles, Rivière",1,2008,2008,0.026,74
+05260082,Cours d'eau Georges-Lafrenière,"Maskinongé, Rivière",1,2015,2015,0.026,80
+02340147,Rivière Pouliot,"Chaudière, Rivière",1,2017,2017,0.024,47
+02360016,Cours d'eau sans toponyme,"Chêne, Rivière du",1,2010,2010,0.024,81
+02X30001,Cours d'eau Chaloult,Bassin résiduel sans hydronyme,1,2019,2019,0.024,25
+03040114,Ruisseau Bérard,"Richelieu, Rivière",1,2022,2022,0.024,59
+04060178,Ruisseau Villemaire,"Outaouais, Rivière des",1,2015,2015,0.024,74
+05080144,,"Jacques-Cartier, Rivière",1,2024,2024,0.024,74
+05090100,,"Saint-Charles, Rivière",1,2024,2024,0.024,86
+05630004,Rivière du Bois Blanc,"Bois Blanc, Rivière du",1,2013,2013,0.024,56
+06190099,Rivière Dorée,"Saguenay, Rivière",1,2010,2010,0.024,46
+02370001,Petite rivière du Chêne,"Chêne, Petite rivière du",1,2005,2005,0.023,66
+03010083,Rivière Nicolet Sud-Ouest,"Nicolet, Rivière",1,2005,2005,0.023,43
+03090125,Ruisseau Norton,"Châteauguay, Rivière",1,2011,2011,0.023,73
+04060184,Crique de la Vieille,"Outaouais, Rivière des",1,2016,2016,0.023,71
+05040002,Rivière Sainte-Anne,"Sainte-Anne, Rivière",1,2001,2001,0.023,69
+05040258,Deuxième ruisseau Noir,"Sainte-Anne, Rivière",1,2021,2021,0.023,31
+05050013,Ruisseau du Moulin,"La Chevrotière, Rivière",1,2021,2021,0.023,80
+02310044,Petite rivière Sainte-Marguerite,"Sud, Rivière du",1,2007,2007,0.022,20
+02340009,Rivière Famine,"Chaudière, Rivière",1,2019,2019,0.022,78
+05260036,Cours d'eau sans toponyme,"Maskinongé, Rivière",1,2009,2009,0.022,70
+05610001,Ruisseau Pépin,"Pépin, Ruisseau",1,2013,2013,0.022,66
+06230012,Rivière Mistouk,"Saguenay, Rivière",1,2004,2004,0.022,8
+07720002,Rivière du Bas de Soie,"Grandes Bergeronnes, Rivière des",1,2014,2014,0.022,74
+02310047,Rivière du Sud,"Sud, Rivière du",1,2010,2010,0.021,74
+05090033,Rivière Nelson,"Saint-Charles, Rivière",1,2008,2008,0.021,72
+05260074,Cours d'eau sans toponyme,"Maskinongé, Rivière",1,2017,2017,0.021,58
+05390010,Rivière du Cap Rouge,"Cap Rouge, Rivière du",1,2016,2016,0.021,66
+05550004,Tributaire du lac Saint-Augustin,"Lac Saint-Augustin, Décharge du",1,2021,2021,0.021,41
+07730004,Rivière Moreau,"Moreau, Rivière",1,2015,2015,0.021,78
+0000091A,Fleuve Saint-Laurent,,1,2000,2000,0.02,18
+02540004,Rivière Saint-Jean,"Saint-Jean, Rivière",1,2010,2010,0.02,69
+03090124,Rivière des Anglais,"Châteauguay, Rivière",1,2011,2011,0.02,75
+05090068,Rivière Nelson,"Saint-Charles, Rivière",1,2008,2008,0.02,72
+05090069,Rivière Nelson,"Saint-Charles, Rivière",1,2008,2008,0.02,70
+05260016,Rivière Maskinongé,"Maskinongé, Rivière",1,2014,2014,0.02,82
+00000127,Fleuve Saint-Laurent,,1,2002,2002,0.019,75
+02330052,Ruisseau Bleu,"Etchemin, Rivière",1,2011,2011,0.019,66
+02600003,Rivière Tortue,"Tortue, Rivière",1,2011,2011,0.019,67
+04050015,Rivière Blanche,"Outaouais, Rivière des",1,2017,2017,0.019,77
+05280003,Rivière du Loup,"Loup, Rivière du",1,2018,2018,0.019,78
+05400004,Rivière Beauport,"Beauport, Rivière",1,2011,2011,0.019,32
+02340224,Ruisseau d'Ardoise,"Chaudière, Rivière",1,2024,2024,0.018,78
+02790001,Ruisseau Lebrun,"Lebrun, Ruisseau",1,2016,2016,0.018,74
+03040069,Ruisseau Morpions,"Richelieu, Rivière",1,2021,2021,0.018,51
+03040336,Ruisseau Meigs,"Richelieu, Rivière",1,2021,2021,0.018,56
+05010426,Rivière Shawinigan,"Saint-Maurice, Rivière",1,2010,2010,0.018,77
+05090015,Rivière du Berger,"Saint-Charles, Rivière",1,2024,2024,0.018,58
+05090067,Rivière Nelson,"Saint-Charles, Rivière",1,2008,2008,0.018,68
+05090096,,"Saint-Charles, Rivière",1,2022,2022,0.018,80
+05260079,Rivière Maskinongé,"Maskinongé, Rivière",1,2014,2014,0.018,85
+06230013,Rivière Mistouk,"Saguenay, Rivière",1,2004,2004,0.018,40
+06230014,Rivière Mistouk,"Saguenay, Rivière",1,2004,2004,0.018,54
+0000094A,Fleuve Saint-Laurent,,1,2012,2012,0.017,38
+02260005,Rivière Saint-Denis,"Kamouraska, Rivière",1,2009,2009,0.017,76
+02310019,Bras Saint-Nicolas,"Sud, Rivière du",1,2009,2009,0.017,89
+02310051,Rivière du Sud,"Sud, Rivière du",1,2011,2011,0.017,88
+02330077,Rivière Etchemin,"Etchemin, Rivière",1,2017,2017,0.017,81
+05060001,Rivière Belle-Isle,"Belle-Isle, Rivière",1,2011,2011,0.017,75
+05090066,Rivière Nelson,"Saint-Charles, Rivière",1,2008,2008,0.017,78
+05200002,Rivière à Matte,"Matte, Rivière à",1,2015,2015,0.017,81
+05380003,Rivière du Moulin,"Moulin, Rivière du",1,2012,2012,0.017,71
+02250001,Rivière du Loup,"Loup, Rivière du",1,2014,2014,0.016,76
+03090123,Rivière des Anglais,"Châteauguay, Rivière",1,2011,2011,0.016,87
+05220579,Rivière l'Assomption,"L'Assomption, Rivière",1,2013,2013,0.016,92
+05220591,Rivière Beauport,"L'Assomption, Rivière",1,2014,2014,0.016,72
+05240013,Ruisseau Bibeau,"Bayonne, Rivière",1,2007,2007,0.016,71
+07780002,Petite Romaine,"Petite Romaine, La",1,2018,2018,0.016,83
+07A40001,Ruisseau Jean-Raymond,"Jean-Raymond, Ruisseau",1,2018,2018,0.016,89
+02250012,Rivière Fourchue,"Loup, Rivière du",1,2010,2010,0.015,66
+02270003,Rivière Ouelle,"Ouelle, Rivière",1,2009,2009,0.015,91
+02330014,Rivière Etchemin,"Etchemin, Rivière",1,2007,2007,0.015,77
+02E90006,Rivière Fouquette,"Fouquette, Rivière",1,2008,2008,0.015,74
+03040044,Rivière Missisquoi Nord,"Richelieu, Rivière",1,2019,2019,0.015,74
+03040171,Ruisseau Morpions,"Richelieu, Rivière",1,2021,2021,0.015,42
+04020110,Ruisseau Noir,"Outaouais, Rivière des",1,2017,2017,0.015,89
+05010549,Rivière Shawinigan,"Saint-Maurice, Rivière",1,2010,2010,0.015,74
+05090032,Cours d'eau sans toponyme,"Saint-Charles, Rivière",1,2008,2008,0.015,72
+05090059,Ruisseau du Mont Châtel,"Saint-Charles, Rivière",1,2012,2012,0.015,54
+05200001,Rivière à Matte,"Matte, Rivière à",1,2015,2015,0.015,68
+05220389,Rivière l'Assomption,"L'Assomption, Rivière",1,2012,2012,0.015,90
+05220550,Cours d'eau sans toponyme,"L'Assomption, Rivière",1,2009,2009,0.015,29
+06090016,Rivière du Moulin,"Saguenay, Rivière",1,2004,2004,0.015,88
+07060010,,"Laval, Rivière",1,2024,2024,0.015,89
+02190020,Rivière Neigette,"Mitis, Rivière",1,2018,2018,0.014,66
+02220010,Rivière du Sud-Ouest,"Sud-Ouest, Rivière du",1,2021,2021,0.014,49
+02340048,Rivière du Cinq,"Chaudière, Rivière",1,2016,2016,0.014,75
+02E90007,Rivière Fouquette,"Fouquette, Rivière",1,2008,2008,0.014,74
+03090155,Cours d'eau sans toponyme,"Châteauguay, Rivière",1,2015,2015,0.014,77
+05080106,Cours d'eau sans toponyme,"Jacques-Cartier, Rivière",1,2009,2009,0.014,21
+05400003,Rivière Beauport,"Beauport, Rivière",1,2011,2011,0.014,55
+05620001,Ruisseau Cormier,"Cormier, Ruisseau",1,2012,2012,0.014,61
+06090015,Rivière du Moulin,"Saguenay, Rivière",1,2004,2004,0.014,91
+01300008,Rivière Noire Nord-Ouest,"Saint-Jean, Rivière",1,2012,2012,0.013,79
+02260019,Cours d'eau Levesque,"Kamouraska, Rivière",1,2020,2020,0.013,45
+02290003,Rivière Trois Saumons,"Trois Saumons, Rivière",1,2010,2010,0.013,77
+02330013,Rivière Etchemin,"Etchemin, Rivière",1,2007,2007,0.013,58
+04010206,Ruisseau Saint-Louis,"Outaouais, Rivière des",1,2009,2009,0.013,86
+05050018,Ruisseau du Moulin,"La Chevrotière, Rivière",1,2021,2021,0.013,64
+05050101,Cours d'eau sans toponyme,"La Chevrotière, Rivière",1,2005,2005,0.013,64
+05080136,Ruisseau Bourgoin,"Jacques-Cartier, Rivière",1,2021,2021,0.013,30
+05090031,Rivière Nelson,"Saint-Charles, Rivière",1,2008,2008,0.013,69
+05620002,Ruisseau Cormier,"Cormier, Ruisseau",1,2012,2012,0.013,62
+06190097,Rivière aux Saumons,"Saguenay, Rivière",1,2010,2010,0.013,76
+06190098,Rivière aux Saumons,"Saguenay, Rivière",1,2010,2010,0.013,78
+01150016,Rivière Matapédia,"Ristigouche, Rivière",1,2004,2004,0.012,89
+01150021,Cours d'eau sans toponyme,"Ristigouche, Rivière",1,2005,2005,0.012,82
+02340153,Ruisseau des Meules,"Chaudière, Rivière",1,2018,2018,0.012,74
+05090081,Rivière des Commissaires,"Saint-Charles, Rivière",1,2015,2015,0.012,57
+06130026,Ruisseau Vouzier,"Saguenay, Rivière",1,2009,2009,0.012,92
+01150029,Rivière Sayabec,"Ristigouche, Rivière",1,2007,2007,0.011,83
+02240007,Rivière Verte,"Verte, Rivière",1,2010,2010,0.011,92
+02340167,Rivière Samson,"Chaudière, Rivière",1,2022,2022,0.011,92
+02I10003,Gros ruisseau,"Gros Ruisseau, Le",1,2022,2022,0.011,88
+03040054,Ruisseau Selby,"Richelieu, Rivière",1,2023,2023,0.011,74
+05080063,Rivière Noire,"Jacques-Cartier, Rivière",1,2010,2010,0.011,61
+05080143,,"Jacques-Cartier, Rivière",1,2024,2024,0.011,96
+05220019,,"L'Assomption, Rivière",1,2024,2024,0.011,84
+05280018,Rivière du Loup,"Loup, Rivière du",1,2017,2017,0.011,91
+05400007,Cours d'eau sans toponyme,"Beauport, Rivière",1,2019,2019,0.011,55
+06190101,Rivière aux Saumons,"Saguenay, Rivière",1,2010,2010,0.011,92
+06190102,Rivière Pémonca,"Saguenay, Rivière",1,2010,2010,0.011,89
+06190103,Rivière Pémonca,"Saguenay, Rivière",1,2010,2010,0.011,92
+06230011,Rivière Mistouk,"Saguenay, Rivière",1,2004,2004,0.011,90
+01150020,Rivière Humqui,"Ristigouche, Rivière",1,2005,2005,0.01,88
+02310001,Rivière du Sud,"Sud, Rivière du",1,2009,2009,0.01,90
+02340041,,"Chaudière, Rivière",1,2018,2018,0.01,94
+02E90008,Rivière Fouquette,"Fouquette, Rivière",1,2007,2007,0.01,65
+04020164,Rivière du Diable,"Outaouais, Rivière des",1,2006,2006,0.01,92
+04020337,Ruisseau Noir,"Outaouais, Rivière des",1,2017,2017,0.01,88
+05010399,Rivière Mékinac,"Saint-Maurice, Rivière",1,2012,2012,0.01,90
+05010547,Rivière Shawinigan,"Saint-Maurice, Rivière",1,2010,2010,0.01,89
+05030090,Rivière Propre,"Batiscan, Rivière",1,2007,2007,0.01,86
+05080142,,"Jacques-Cartier, Rivière",1,2024,2024,0.01,96
+05090049,Ruisseau du Mont Châtel,"Saint-Charles, Rivière",1,2012,2012,0.01,58
+05090082,Rivière des Commissaires,"Saint-Charles, Rivière",1,2015,2015,0.01,88
+05220592,Crique à David,"L'Assomption, Rivière",1,2014,2014,0.01,94
+05280083,Rivière aux Écorces,"Loup, Rivière du",1,2017,2017,0.01,90
+06090018,Rivière du Moulin,"Saguenay, Rivière",1,2009,2009,0.01,92
+06190100,Rivière aux Saumons,"Saguenay, Rivière",1,2010,2010,0.01,90
+01310010,Rivière Saint-François,"Saint-Jean, Rivière",1,2015,2015,0.009,78
+01370003,Grande rivière Noire,"Saint-Jean, Rivière",1,2017,2017,0.009,95
+02190017,Rivière Rouge,"Mitis, Rivière",1,2014,2014,0.009,78
+02340040,Rivière Arnold,"Chaudière, Rivière",1,2013,2013,0.009,78
+02340045,Rivière des Fermes,"Chaudière, Rivière",1,2017,2017,0.009,77
+02I10002,Cours d'eau sans toponyme,"Gros Ruisseau, Le",1,2015,2015,0.009,90
+04010205,Rivière à Simon,"Outaouais, Rivière des",1,2009,2009,0.009,90
+04020285,Rivière Le Boulé,"Outaouais, Rivière des",1,2013,2013,0.009,94
+05080098,Rivière aux Pommes,"Jacques-Cartier, Rivière",1,2010,2010,0.009,42
+05280084,Rivière du Loup,"Loup, Rivière du",1,2018,2018,0.009,92
+07060008,Rivière Laval,"Laval, Rivière",1,2016,2016,0.009,89
+07070086,Rivière Betsiamites,"Betsiamites, Rivière",1,2021,2021,0.009,92
+07120014,Rivière aux Anglais,"Anglais, Rivière aux",1,2008,2008,0.009,89
+03010159,Rivière Nicolet,"Nicolet, Rivière",1,2021,2021,0.008,91
+05050015,Ruisseau du Moulin,"La Chevrotière, Rivière",1,2021,2021,0.008,56
+07010009,Rivière des Petites Bergeronnes,"Petites Bergeronnes, Rivière des",1,2019,2019,0.008,88
+07230025,,"Moisie, Rivière",1,2024,2024,0.008,96
+07740003,Rivière des Petits Escoumins,"Petits Escoumins, Rivière des",1,2016,2016,0.008,89
+01170049,Rivière Touladi,"Saint-Jean, Rivière",1,2013,2013,0.007,94
+02310005,Rivière de la Fourche,"Sud, Rivière du",1,2009,2009,0.007,80
+02340157,Rivière du Portage,"Chaudière, Rivière",1,2021,2021,0.007,90
+04020277,Rivière du Diable,"Outaouais, Rivière des",1,2010,2010,0.007,90
+05070016,Rivière Portneuf,"Portneuf, Rivière",1,2010,2010,0.007,76
+05090094,Rivière Waterloo,"Saint-Charles, Rivière",1,2018,2018,0.007,78
+05220135,Rivière Ouareau,"L'Assomption, Rivière",1,2009,2009,0.007,92
+05280082,Rivière Sacacomie,"Loup, Rivière du",1,2017,2017,0.007,89
+07030006,Rivière du Sault au Mouton,"Sault au Mouton, Rivière du",1,2017,2017,0.007,95
+03020195,Ruisseau Deloge,"Saint-François, Rivière",1,2014,2014,0.006,91
+04020161,Rivière Le Boulé,"Outaouais, Rivière des",1,2006,2006,0.006,92
+04860003,Ruisseau Gordon,"Outaouais, Rivière des",1,2021,2021,0.006,59
+05040199,Rivière Bédard,"Sainte-Anne, Rivière",1,2009,2009,0.006,92
+05620003,Ruisseau Cormier,"Cormier, Ruisseau",1,2012,2012,0.006,81
+07060009,,"Laval, Rivière",1,2024,2024,0.006,96
+00000182,Fleuve Saint-Laurent,Bassin résiduel sans hydronyme,1,2017,2017,0.005,54
+01150045,Rivière Sayabec,"Ristigouche, Rivière",1,2012,2012,0.005,85
+05090060,Cours d'eau sans toponyme,"Saint-Charles, Rivière",1,2014,2014,0.005,66
+05090093,Rivière Waterloo,"Saint-Charles, Rivière",1,2018,2018,0.005,76
+06130051,Cours d'eau Champigny,"Saguenay, Rivière",1,2011,2011,0.005,91
+02340114,Rivière Beaurivage,"Chaudière, Rivière",1,2022,2022,0.004,90
+05080114,Rivière Chaude,"Jacques-Cartier, Rivière",1,2010,2010,0.004,19
+05220613,Ruisseau de la Fourche,"L'Assomption, Rivière",1,2016,2016,0.004,89
+02160001,Rivière Matane,"Matane, Rivière",1,2010,2010,0.003,92
+05080137,Ruisseau Bonhomme,"Jacques-Cartier, Rivière",1,2022,2022,0.003,91
+02050002,Rivière au Renard,"Renard, Rivière au",1,2021,2021,0.002,93
+01160013,Rivière Kempt,"Ristigouche, Rivière",1,2015,2015,0.001,94
+02460001,Rivière des Grands Méchins,,1,2012,2012,0.001,95
+02460002,Rivière des Grands Méchins,"Grands Méchins, Rivière des",1,2012,2012,0.001,97

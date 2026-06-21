@@ -1,62 +1,73 @@
-id: suivi-rivieres-fleuve
-title: "Suivi physicochimique et bactériologique des rivières et du fleuve"
+id: "suivi-rivieres-fleuve"
+title: "Suivi de la qualité de l'eau du fleuve et des rivières"
 short_title: "Qualité de l'eau"
 theme: "Qualité de l'eau"
-source_name: "Données Québec / Ministère de l'Environnement, de la Lutte contre les changements climatiques, de la Faune et des Parcs"
+source_name: "Données Québec / MELCCFP"
 source_url: "https://www.donneesquebec.ca/recherche/dataset/suivi-physicochimique-des-rivieres-et-du-fleuve"
-license: "Attribution (CC-BY 4.0)"
-access_date: "2026-06-19"
+source_api_url: "https://www.donneesquebec.ca/recherche/api/3/action/package_show?id=suivi-physicochimique-des-rivieres-et-du-fleuve"
+source_csv_url: "https://stqc380donopppdtce01.blob.core.windows.net/donnees-ouvertes/IQBP/DQ/IQBP_csv.zip"
+license: "Attribution (CC-BY 4.0) selon les métadonnées CKAN vérifiées le 2026-06-21"
+access_date: "2026-06-21"
 geography: "Québec"
-unit: "Station de suivi et période de trois ans résumée par année de fin de suivi"
-data_type: "Tabulaire, spatial, séries temporelles agrégées"
-format: "CSV ZIP, GeoJSON ZIP, GPKG ZIP, FGDB ZIP, REST, WMS et PDF de métadonnées"
-n_rows: "stations_p.csv : 6 990 lignes; ad_s.csv : 866 lignes dans le ZIP CSV consulté"
-n_cols: "stations_p.csv : 88 colonnes; ad_s.csv : 13 colonnes"
-update_frequency: "Annuelle"
+unit: "Station de suivi et année de fin d'une période de suivi agrégée"
+data_type: "Tabulaire, spatial, environnemental et temporel agrégé"
+format: "ZIP CSV officiel préparé localement; ressources spatiales FGDB, GeoJSON, GPKG, REST et WMS aussi publiées"
+n_rows: "6 990 observations station-années; 866 aires de drainage"
+n_cols: "88 champs dans stations_p.csv; 19 colonnes préparées pour les stations; 13 colonnes dans ad_s.csv"
+processed_file: "data/processed/suivi-rivieres-fleuve/stations_qualite_eau_aires.csv"
+summary_file: "data/processed/suivi-rivieres-fleuve/resume_suivi_rivieres.csv"
+resources_file: "data/processed/suivi-rivieres-fleuve/ressources_ckan_suivi_rivieres.csv"
+indicator_summary_file: "data/processed/suivi-rivieres-fleuve/resume_indicateurs_suivi_rivieres.csv"
+missing_summary_file: "data/processed/suivi-rivieres-fleuve/valeurs_manquantes_suivi_rivieres.csv"
+update_frequency: "Annuelle selon la ressource CSV; paquet CKAN modifié le 2026-06-18"
 level: "Introduction à intermédiaire"
-organisme: "MELCCFP"
+organisme: "Ministère de l'Environnement, de la Lutte contre les changements climatiques, de la Faune et des Parcs"
 territoire: "Québec"
-taille_approximative: "6 990 lignes dans la table des stations et 866 lignes dans la table des aires de drainage"
+taille_approximative: "6 990 observations station-années, 935 stations et 866 aires de drainage dans le ZIP CSV préparé"
 niveau_pedagogique_recommande: "Introduction à intermédiaire"
 variables_principales:
-  - no_bqma
-  - annee
-  - ptot_med_mgl
-  - ntot_med_mgl
-  - nox_med_mgl
-  - chla_med_ugl
-  - cf_med_ufc
-  - latitude
-  - longitude
-  - superf_tot_km2
-  - pc_agricole
+  - "no_bqma"
+  - "hydronyme"
+  - "type_station"
+  - "type_suivi"
+  - "annee"
+  - "iqbp_med"
+  - "ptot_med_mgl"
+  - "ntot_med_mgl"
+  - "nox_med_mgl"
+  - "chla_med_ugl"
+  - "cf_med_ufc"
+  - "latitude"
+  - "longitude"
+  - "bv_n1m"
+  - "superf_tot_km2"
+  - "pc_agricole"
 idees_mini_projets:
-  - "Analyser la tendance du phosphore total par station ou par bassin versant."
-  - "Comparer la qualité de l'eau selon les saisons."
-  - "Produire une carte des stations et un graphique temporel interactif."
+  - "Décrire l'évolution du phosphore total médian pour une station suivie longtemps."
+  - "Comparer des indicateurs de qualité de l'eau entre bassins en tenant compte des périodes disponibles."
+  - "Joindre les aires de drainage pour discuter le contexte territorial sans conclure causalement."
 tags:
-  - eau
-  - environnement
-  - Québec
-  - données ouvertes
-  - visualisation
-  - séries temporelles
-  - statistiques descriptives
-  - spatial
+  - "eau"
+  - "environnement"
+  - "Québec"
+  - "données ouvertes"
+  - "visualisation"
+  - "séries temporelles"
+  - "statistiques descriptives"
+  - "spatial"
+  - "qualité de l'eau"
 concepts:
-  - eau
-  - environnement
-  - Québec
-  - données ouvertes
-  - visualisation
-  - séries temporelles
-  - statistiques descriptives
-  - spatial
-  - qualité de l'eau
-  - carte
+  - "données environnementales"
+  - "séries temporelles agrégées"
+  - "statistiques descriptives"
+  - "cartographie"
+  - "jointure"
+  - "valeurs manquantes"
+  - "unités de mesure"
+  - "communication prudente"
 zero_waste:
   contexte_quebecois: 3
-  accessibilite_pedagogique: 2
+  accessibilite_pedagogique: 3
   qualite_documentaire: 3
   potentiel_nettoyage: 2
   potentiel_visualisation: 3
@@ -65,5 +76,7 @@ zero_waste:
   potentiel_modelisation: 2
   potentiel_ethique: 3
   reutilisabilite: 3
-status: "source vérifiée"
-notes: "Source Données Québec, licence, ZIP CSV et dictionnaires PDF consultés le 2026-06-19. Les champs pH, conductivité et température sont mentionnés dans la description générale du réseau, mais ne figurent pas dans l'en-tête du CSV consulté."
+status: "source officielle vérifiée; ZIP CSV préparé localement avec résumés R"
+notes: "Les observations préparées sont des statistiques agrégées par station et année de fin de période, pas les mesures brutes individuelles. Les comparaisons entre stations doivent tenir compte de la période disponible et du contexte hydrologique."
+contributor_name: "Aurélien Nicosia"
+contributor_role: "Révision pédagogique et statistique"

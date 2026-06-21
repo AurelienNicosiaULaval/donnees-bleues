@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>ULaval - rapport méthodologique local – Données bleues</title>
+<title>Mini-projet - Rapport méthodologique sans diffusion des lignes – Données bleues</title>
 <style>
 
 code{white-space: pre-wrap;}
@@ -5517,16 +5517,19 @@ grid-template-columns: 1fr;
     <h2 id="toc-title">On this page</h2>
 
   <ul>
-  <li><a href="#ulaval---rapport-méthodologique-local" id="toc-ulaval---rapport-méthodologique-local" class="nav-link active" data-scroll-target="#ulaval---rapport-méthodologique-local">ULaval - rapport méthodologique local</a>
+  <li><a href="#mini-projet---rapport-méthodologique-sans-diffusion-des-lignes" id="toc-mini-projet---rapport-méthodologique-sans-diffusion-des-lignes" class="nav-link active" data-scroll-target="#mini-projet---rapport-méthodologique-sans-diffusion-des-lignes">Mini-projet - Rapport méthodologique sans diffusion des lignes</a>
   <ul class="collapse">
   <li><a href="#contexte" id="toc-contexte" class="nav-link" data-scroll-target="#contexte">Contexte</a></li>
-  <li><a href="#objectifs-dapprentissage" id="toc-objectifs-dapprentissage" class="nav-link" data-scroll-target="#objectifs-dapprentissage">Objectifs d’apprentissage</a></li>
-  <li><a href="#données-utilisées" id="toc-données-utilisées" class="nav-link" data-scroll-target="#données-utilisées">Données utilisées</a></li>
-  <li><a href="#consignes" id="toc-consignes" class="nav-link" data-scroll-target="#consignes">Consignes</a></li>
-  <li><a href="#code-r-minimal" id="toc-code-r-minimal" class="nav-link" data-scroll-target="#code-r-minimal">Code R minimal</a></li>
-  <li><a href="#questions" id="toc-questions" class="nav-link" data-scroll-target="#questions">Questions</a></li>
-  <li><a href="#pistes-de-solution" id="toc-pistes-de-solution" class="nav-link" data-scroll-target="#pistes-de-solution">Pistes de solution</a></li>
-  <li><a href="#prolongement" id="toc-prolongement" class="nav-link" data-scroll-target="#prolongement">Prolongement</a></li>
+  <li><a href="#question-directrice" id="toc-question-directrice" class="nav-link" data-scroll-target="#question-directrice">Question directrice</a></li>
+  <li><a href="#livrables" id="toc-livrables" class="nav-link" data-scroll-target="#livrables">Livrables</a></li>
+  <li><a href="#structure-suggérée" id="toc-structure-suggérée" class="nav-link" data-scroll-target="#structure-suggérée">Structure suggérée</a>
+  <ul class="collapse">
+  <li><a href="#statut-et-droits" id="toc-statut-et-droits" class="nav-link" data-scroll-target="#statut-et-droits">1. Statut et droits</a></li>
+  <li><a href="#validation" id="toc-validation" class="nav-link" data-scroll-target="#validation">2. Validation</a></li>
+  <li><a href="#synthèse-publique" id="toc-synthèse-publique" class="nav-link" data-scroll-target="#synthèse-publique">3. Synthèse publique</a></li>
+  </ul></li>
+  <li><a href="#appui-r-minimal" id="toc-appui-r-minimal" class="nav-link" data-scroll-target="#appui-r-minimal">Appui R minimal</a></li>
+  <li><a href="#critères-dévaluation-suggérés" id="toc-critères-dévaluation-suggérés" class="nav-link" data-scroll-target="#critères-dévaluation-suggérés">Critères d’évaluation suggérés</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -5536,7 +5539,7 @@ grid-template-columns: 1fr;
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">ULaval - rapport méthodologique local</h1>
+<h1 class="title">Mini-projet - Rapport méthodologique sans diffusion des lignes</h1>
 </div>
 
 
@@ -5553,89 +5556,95 @@ grid-template-columns: 1fr;
 </header>
 
 
-<section id="ulaval---rapport-méthodologique-local" class="level1">
-<h1>ULaval - rapport méthodologique local</h1>
+<section id="mini-projet---rapport-méthodologique-sans-diffusion-des-lignes" class="level1">
+<h1>Mini-projet - Rapport méthodologique sans diffusion des lignes</h1>
 <section id="contexte" class="level2">
 <h2 class="anchored" data-anchor-id="contexte">Contexte</h2>
-<p>Vous devez préparer un mini-rapport Quarto local à partir des fichiers institutionnels privés. Le rapport doit être reproductible, mais il ne doit pas redistribuer les données ni les PDF sources.</p>
+<p>Cette activité demande de produire un mini-rapport Quarto local sur une intégration institutionnelle privée. Le rapport doit documenter la méthode, les contrôles et les limites, sans redistribuer les CSV privés ni les PDF sources.</p>
 </section>
-<section id="objectifs-dapprentissage" class="level2">
-<h2 class="anchored" data-anchor-id="objectifs-dapprentissage">Objectifs d’apprentissage</h2>
+<section id="question-directrice" class="level2">
+<h2 class="anchored" data-anchor-id="question-directrice">Question directrice</h2>
+<p>Comment produire un rapport utile sur une source institutionnelle privée sans créer une diffusion publique non autorisée?</p>
+</section>
+<section id="livrables" class="level2">
+<h2 class="anchored" data-anchor-id="livrables">Livrables</h2>
+<ol type="1">
+<li>Une section décrivant le statut indépendant et non officiel de la compilation.</li>
+<li>Une section sur les fichiers validés, avec lignes attendues et observées.</li>
+<li>Une section sur les clés uniques et les champs de provenance.</li>
+<li>Une section sur les droits et les éléments non vérifiés.</li>
+<li>Un court tableau public de synthèse, sans lignes individuelles.</li>
+<li>Une conclusion qui indique ce qui peut être montré publiquement et ce qui doit rester local.</li>
+</ol>
+</section>
+<section id="structure-suggérée" class="level2">
+<h2 class="anchored" data-anchor-id="structure-suggérée">Structure suggérée</h2>
+<section id="statut-et-droits" class="level3">
+<h3 class="anchored" data-anchor-id="statut-et-droits">1. Statut et droits</h3>
+<p>Utiliser explicitement les formulations suivantes :</p>
 <ul>
-<li>Importer des CSV privés dans un dossier ignoré par Git.</li>
-<li>Produire des statistiques descriptives locales.</li>
-<li>Afficher les sources officielles et les limites de droits.</li>
-<li>Distinguer source officielle, compilation indépendante et analyse pédagogique.</li>
-<li>Documenter ce qui reste inconnu ou non vérifié.</li>
+<li>compilation indépendante et non officielle;</li>
+<li>aucune licence ouverte explicite identifiée;</li>
+<li>Je ne sais pas pour l’autorisation de republication publique à grande échelle.</li>
 </ul>
 </section>
-<section id="données-utilisées" class="level2">
-<h2 class="anchored" data-anchor-id="données-utilisées">Données utilisées</h2>
-<p>Source canonique : dépôt privé <code>git@github.com:AurelienNicosiaULaval/donnees-ulaval-institutionnelles.git</code>.</p>
-<p>Fiche : <a href="../../datasets/ulaval-programmes-cours/fiche.html">Programmes et cours institutionnels ULaval</a>.</p>
-<p>Le rapport produit pour l’activité doit rester local tant que les droits de republication ne sont pas clarifiés.</p>
-</section>
-<section id="consignes" class="level2">
-<h2 class="anchored" data-anchor-id="consignes">Consignes</h2>
-<ol type="1">
-<li>Importer les fichiers prioritaires avec <code>Rscript scripts/import_ulaval_institutional_data.R --phase=core</code>.</li>
-<li>Vérifier l’import avec <code>Rscript scripts/validate_ulaval_integration.R --phase=core,ges</code>.</li>
-<li>Créer un rapport Quarto local qui contient :
+<section id="validation" class="level3">
+<h3 class="anchored" data-anchor-id="validation">2. Validation</h3>
+<p>Lire les fichiers de résumé produits par <code>preparation.R</code> :</p>
 <ul>
-<li>une section sur le statut non officiel;</li>
-<li>une section sur les sources officielles;</li>
-<li>un tableau des nombres de lignes par fichier;</li>
-<li>un résumé descriptif local, sans publier les lignes complètes;</li>
-<li>une section sur les limites de réutilisation.</li>
-</ul></li>
-<li>Indiquer explicitement les informations non vérifiées avec la formule : Je ne sais pas.</li>
-</ol>
+<li><code>resume_ulaval_programmes_cours.csv</code>;</li>
+<li><code>resume_fichiers_ulaval.csv</code>;</li>
+<li><code>resume_controles_ulaval.csv</code>;</li>
+<li><code>resume_droits_ulaval.csv</code>.</li>
+</ul>
 </section>
-<section id="code-r-minimal" class="level2">
-<h2 class="anchored" data-anchor-id="code-r-minimal">Code R minimal</h2>
+<section id="synthèse-publique" class="level3">
+<h3 class="anchored" data-anchor-id="synthèse-publique">3. Synthèse publique</h3>
+<p>Présenter seulement des comptes et des contrôles : nombre de fichiers, nombre de lignes, présence des champs de provenance, unicité des clés. Ne pas publier de listes de programmes, de cours ou de lignes GES.</p>
+</section>
+</section>
+<section id="appui-r-minimal" class="level2">
+<h2 class="anchored" data-anchor-id="appui-r-minimal">Appui R minimal</h2>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">&quot;R/utils_ulaval.R&quot;</span>)</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">import_ulaval_datasets</span>(</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">root =</span> <span class="st">&quot;.&quot;</span>,</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">phases =</span> <span class="st">&quot;core&quot;</span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>programmes <span class="ot">&lt;-</span> <span class="fu">read_ulaval_csv</span>(</span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;data/processed/ulaval/data/ulaval_programmes_actifs_2026_06.csv&quot;</span></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>cours_accessibles <span class="ot">&lt;-</span> <span class="fu">read_ulaval_csv</span>(</span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;data/processed/ulaval/data/ulaval_cours_accessibles_2026_01_29.csv&quot;</span></span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>programmes <span class="sc">|&gt;</span></span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(type_programme, <span class="at">sort =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">&quot;datasets/ulaval-programmes-cours/preparation.R&quot;</span>)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>resume <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;data/processed/ulaval-programmes-cours/resume_ulaval_programmes_cours.csv&quot;</span>,</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">show_col_types =</span> <span class="cn">FALSE</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>fichiers <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;data/processed/ulaval-programmes-cours/resume_fichiers_ulaval.csv&quot;</span>,</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>  <span class="at">show_col_types =</span> <span class="cn">FALSE</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>droits <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;data/processed/ulaval-programmes-cours/resume_droits_ulaval.csv&quot;</span>,</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>  <span class="at">show_col_types =</span> <span class="cn">FALSE</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>)</span>
 <span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>cours_accessibles <span class="sc">|&gt;</span></span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(credits, <span class="at">sort =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>resume <span class="sc">|&gt;</span></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(source_found, validation_status, n_core_expected_rows, n_ges_expected_rows)</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>fichiers <span class="sc">|&gt;</span></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(phase, <span class="at">wt =</span> observed_rows, <span class="at">name =</span> <span class="st">&quot;lignes_observees&quot;</span>)</span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>droits</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
-<section id="questions" class="level2">
-<h2 class="anchored" data-anchor-id="questions">Questions</h2>
-<ol type="1">
-<li>Quelle partie du rapport peut être rendue publique sans redistribuer les lignes?</li>
-<li>Quelle partie doit rester locale?</li>
-<li>Pourquoi le script d’import copie-t-il les CSV au lieu de les réécrire?</li>
-<li>Quelles colonnes relient les lignes aux documents sources?</li>
-<li>Quelle information manque avant une republication publique à grande échelle?</li>
-<li>Comment formuler clairement le statut non officiel de la compilation?</li>
-</ol>
-</section>
-<section id="pistes-de-solution" class="level2">
-<h2 class="anchored" data-anchor-id="pistes-de-solution">Pistes de solution</h2>
-<p>Le rapport local peut décrire la méthode, les contrôles et les sources officielles. Avant publication publique, il faut éviter les lignes complètes et toute reproduction substantielle des données tant que les droits ne sont pas clarifiés.</p>
-</section>
-<section id="prolongement" class="level2">
-<h2 class="anchored" data-anchor-id="prolongement">Prolongement</h2>
-<p>Préparer une annexe méthodologique pour les fichiers GES. L’annexe doit conserver <code>note</code> et <code>statut_quantification</code>, et elle doit préciser que les cellules vides de portée 3 restent manquantes.</p>
+<section id="critères-dévaluation-suggérés" class="level2">
+<h2 class="anchored" data-anchor-id="critères-dévaluation-suggérés">Critères d’évaluation suggérés</h2>
+<ul>
+<li>Exactitude du statut institutionnel et juridique.</li>
+<li>Absence de lignes privées et de PDF sources dans le rapport public.</li>
+<li>Qualité des contrôles de validation.</li>
+<li>Clarté sur ce qui est vérifié et ce qui ne l’est pas.</li>
+<li>Reproductibilité du code.</li>
+<li>Prudence du langage.</li>
+</ul>
 
 
 </section>

@@ -1,0 +1,8 @@
+item,statement
+statut_institutionnel,Compilation indépendante et non officielle.
+licence_ouverte,Aucune licence ouverte explicite identifiée dans le paquet source.
+redistribution_publique,Je ne sais pas. Une validation institutionnelle ou juridique est nécessaire avant republication publique à grande échelle.
+donnees_lignes,Les lignes des CSV privés ne sont pas redistribuées dans Données bleues.
+pdf_sources,Les PDF sources ne sont pas redistribués dans Données bleues.
+valeurs_numeriques,Les valeurs numériques doivent être conservées telles quelles.
+provenance,Les champs source_id et page_source doivent être conservés lorsque présents.

@@ -1,60 +1,70 @@
 ---
-title: "Tendance du phosphore total par station"
+title: "Laboratoire - Phosphore total par station"
 embed-resources: true
 ---
 
-# Tendance du phosphore total par station
+# Laboratoire - Phosphore total par station
 
 ## Contexte
 
-Cette activité utilise le suivi de la qualité de l'eau pour produire une première lecture temporelle de la médiane du phosphore total. La source officielle Données Québec fournit un ZIP CSV contenant la table des stations et une table d'aires de drainage.
+Cette activité utilise la fiche [Suivi de la qualité de l'eau du fleuve et des rivières](fiche.qmd). Le but est de produire une première lecture temporelle du phosphore total médian pour une station de suivi, en gardant les unités et les limites de la source visibles.
 
 ## Objectifs d'apprentissage
 
-- Identifier l'unité statistique d'un suivi environnemental.
-- Résumer une variable numérique par station et par année.
-- Produire un graphique temporel interprétable.
+- Importer une table préparée à partir d'un ZIP officiel.
+- Identifier l'unité statistique d'une observation environnementale agrégée.
+- Choisir une station avec suffisamment d'années d'observation.
+- Produire un graphique temporel lisible.
+- Formuler une conclusion prudente.
 
-## Données utilisées
+## Question directrice
 
-Fiche : [Suivi physicochimique et bactériologique des rivières et du fleuve](fiche.qmd)
-
-Source : Données Québec / MELCCFP, "Suivi de la qualité de l'eau du fleuve et des rivières".
-
-Licence : Attribution (CC-BY 4.0).
-
-## Métadonnées pédagogiques
-
-| Champ | Information |
-|---|---|
-| Question directrice | Comment décrire l'évolution du phosphore total dans une station de suivi? |
-| Concepts | Séries temporelles; statistique descriptive; visualisation |
-| Niveau | Introductif |
-| Type | Exercice; exploration de données |
-| Contexte | Qualité de l'eau |
-| Accroche | Suivi environnemental local |
-| Durée | 30-45 minutes |
-| Matériel | énoncé; code; données |
-| Math/stats avancées | non |
+Comment décrire l'évolution du phosphore total médian dans une station de suivi?
 
 ## Consignes
 
-1. Importer le ZIP CSV officiel.
-2. Lire `stations_p.csv`.
-3. Choisir une station avec plusieurs années d'observation.
-4. Résumer ou tracer `ptot_med_mgl` par année.
-5. Rédiger deux phrases sur la tendance observée et les limites de l'analyse.
+1. Exécuter `datasets/suivi-rivieres-fleuve/preparation.R`.
+2. Importer `data/processed/suivi-rivieres-fleuve/stations_qualite_eau_aires.csv`.
+3. Choisir une station avec au moins 20 années non manquantes pour `ptot_med_mgl`.
+4. Produire un graphique de `ptot_med_mgl` selon `annee`.
+5. Ajouter un titre qui nomme la station ou le cours d'eau.
+6. Rédiger une conclusion de 5 à 8 lignes qui mentionne l'unité, l'unité de mesure et une limite.
 
-## Questions
+## Appui R minimal
 
-1. Combien d'années sont disponibles pour la station choisie?
-2. La tendance est-elle stable, croissante ou décroissante?
-3. Pourquoi faut-il préciser que les valeurs sont des statistiques agrégées?
+```{r}
+#| eval: false
+library(dplyr)
+library(ggplot2)
+library(readr)
+
+source("datasets/suivi-rivieres-fleuve/preparation.R")
+
+stations <- read_csv(
+  "data/processed/suivi-rivieres-fleuve/stations_qualite_eau_aires.csv",
+  show_col_types = FALSE
+)
+
+stations_longues <- stations |>
+  filter(!is.na(ptot_med_mgl)) |>
+  count(no_bqma, hydronyme, name = "n_annees") |>
+  filter(n_annees >= 20) |>
+  arrange(desc(n_annees))
+
+station_choisie <- stations_longues$no_bqma[1]
+
+stations |>
+  filter(no_bqma == station_choisie) |>
+  ggplot(aes(x = annee, y = ptot_med_mgl)) +
+  geom_line() +
+  geom_point() +
+  labs(
+    x = "Année de fin de suivi",
+    y = "Phosphore total médian (mg/l)",
+    title = paste("Station", station_choisie)
+  )
+```
 
 ## Pistes de solution
 
-Une solution acceptable présente un tableau de résumés annuels, un graphique clair et une interprétation prudente qui mentionne les unités et la période d'observation.
-
-## Prolongement
-
-Comparer deux stations ou ajouter une variable comme l'azote total ou les coliformes fécaux.
+Une bonne réponse précise que chaque point est une statistique agrégée pour une station et une année de fin de suivi. Elle évite d'affirmer qu'une variation annuelle est causée par un facteur particulier sans analyse supplémentaire.

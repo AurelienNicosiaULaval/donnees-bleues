@@ -18,173 +18,214 @@ render_dataset_detail_header()
 
 ## Pourquoi ce jeu est intéressant
 
-Cette fiche prépare l'utilisation pédagogique de trois jeux de données institutionnelles structurés à partir de documents publics de l'Université Laval :
+Cette fiche documente une intégration pédagogique de données institutionnelles de l'Université Laval structurées dans un dépôt privé. Elle ne sert pas à redistribuer les lignes de données. Elle sert à enseigner comment valider un import sensible : vérifier les comptes, les clés, la provenance, les droits et les limites de publication.
 
-- `ulaval_programmes_actifs_2026_06.csv`;
-- `ulaval_cours_nouveaux_2024_2025.csv`;
-- `ulaval_cours_accessibles_2026_01_29.csv`.
+Le jeu est utile parce qu'il place les étudiants et étudiantes devant une situation fréquente en science des données appliquée : les données sont utiles, structurées et vérifiables localement, mais leur republication publique n'est pas automatiquement autorisée. C'est une bonne fiche pour enseigner la différence entre source officielle, compilation indépendante, validation reproductible et diffusion publique.
 
-Les fichiers ne sont pas redistribués dans Données bleues. La source canonique demeure le dépôt GitHub privé `git@github.com:AurelienNicosiaULaval/donnees-ulaval-institutionnelles.git`.
-
-L'intérêt pédagogique principal est méthodologique : importer des fichiers CSV sans altérer les valeurs, conserver les champs de provenance, documenter les limites juridiques et produire des analyses descriptives prudentes.
+Question d'analyse : comment produire une validation statistique et méthodologique utile sans publier des lignes privées ni laisser croire à une approbation officielle?
 
 ## Avertissement juridique et institutionnel
 
-Cette intégration est une compilation indépendante et non officielle. Elle n’est pas un produit officiel ou approuvé par l’Université Laval.
+Cette intégration est une compilation indépendante et non officielle. Elle n'est pas un produit officiel ou approuvé par l'Université Laval.
 
-Aucune licence ouverte explicite n'a été identifiée pour les données sources dans le paquet consulté le 2026-06-19. Les PDF sources ne doivent pas être redistribués dans ce dépôt. Une vérification auprès de l'Université Laval ou un avis juridique est recommandé avant toute republication publique à grande échelle.
+Aucune licence ouverte explicite n'a été identifiée pour les données sources dans le paquet privé validé localement. Les CSV privés et les PDF sources ne sont pas redistribués dans Données bleues. Une validation institutionnelle ou juridique est nécessaire avant toute republication publique à grande échelle.
 
 Ce document ne constitue pas un avis juridique.
 
-## Source
+## Ce qui a été vérifié
 
-| Champ | Information |
+| Élément | Résultat vérifié |
 |---|---|
 | Source canonique | Dépôt GitHub privé `git@github.com:AurelienNicosiaULaval/donnees-ulaval-institutionnelles.git` |
-| Statut | Compilation indépendante et non officielle |
-| Organisme source | Université Laval, Bureau de la qualité des programmes |
-| Date de consultation | 2026-06-19 |
-| Licence ouverte explicite | Aucune licence ouverte explicite identifiée dans le paquet source |
-| Autorisation de republication publique à grande échelle | Je ne sais pas. |
-| Fichiers PDF sources | Non redistribués dans Données bleues |
+| Source privée locale | Validée le 2026-06-21 |
+| Fichiers de référence attendus | 8 |
+| Fichiers de référence disponibles | 8 |
+| Fichiers core validés | 3 |
+| Fichiers GES validés | 3 |
+| Fichier indicateurs repères inspecté | 1 |
+| Lignes core validées | 1 375 |
+| Lignes GES validées | 119 |
+| Lignes indicateurs repères validées | 165 |
+| Statut de validation core et GES | OK |
+| Politique PDF | Aucun PDF source ne doit être copié dans le dépôt public |
+| Statut public | Données non redistribuées; résumés de validation seulement |
 
-## Sources officielles documentées dans le paquet privé
+## Sources officielles documentées
 
-| Jeu | Fichier privé | Source officielle | Date du document | Lignes |
-|---|---|---|---|---:|
-| Programmes actifs | `data/ulaval_programmes_actifs_2026_06.csv` | <https://www.bqp.ulaval.ca/fichiers/ressources/gestion/codes-programmes-actifs.pdf> | 2026-06 | 753 |
-| Nouveaux cours | `data/ulaval_cours_nouveaux_2024_2025.csv` | <https://www.bqp.ulaval.ca/fichiers/ressources/gestion/nouvelles-activit%C3%A9s-de-formation-cr%C3%A9%C3%A9es-2024-2025.pdf> | 2024-2025 | 278 |
-| Cours accessibles | `data/ulaval_cours_accessibles_2026_01_29.csv` | <https://www.bqp.ulaval.ca/fichiers/ressources/gestion/cours-accessibles-personnes-etudiantes.pdf> | 2026-01-29 | 344 |
+| Jeu | Fichier privé | Source officielle | Lignes validées |
+|---|---|---|---:|
+| Programmes actifs | `ulaval_programmes_actifs_2026_06.csv` | Liste des codes de programmes actifs du BQP | 753 |
+| Cours accessibles | `ulaval_cours_accessibles_2026_01_29.csv` | Liste des cours accessibles aux personnes étudiantes | 344 |
+| Nouveaux cours | `ulaval_cours_nouveaux_2024_2025.csv` | Nouvelles activités de formation créées en 2024-2025 | 278 |
+| GES portées 1 et 2 | `ulaval_ges_portees_1_2_historique.csv` | Documents institutionnels de bilan GES | 15 |
+| GES bilan 2023-2024 | `ulaval_ges_bilan_2023_2024.csv` | Documents institutionnels de bilan GES | 7 |
+| GES portée 3 | `ulaval_ges_portee_3_historique.csv` | Documents institutionnels de bilan GES | 97 |
+| Indicateurs repères | `ulaval_indicateurs_reperes_2025.csv` | Documents institutionnels de repères et indicateurs | 165 |
+
+Les URL et empreintes des documents sources sont conservées dans le dépôt privé, notamment dans le registre `data/sources.csv`. Elles ne sont pas reproduites ici afin d'éviter de transformer la fiche publique en mécanisme de redistribution.
 
 ## Ce que représente une ligne
 
 | Fichier | Unité statistique |
 |---|---|
-| `ulaval_programmes_actifs_2026_06.csv` | Un programme actif publié dans la liste de juin 2026 |
-| `ulaval_cours_nouveaux_2024_2025.csv` | Une activité de formation créée en 2024-2025 |
-| `ulaval_cours_accessibles_2026_01_29.csv` | Un cours accessible à toutes les personnes étudiantes, selon le document mis à jour le 29 janvier 2026 |
+| Programmes actifs | Un programme actif publié dans la liste institutionnelle |
+| Cours accessibles | Un cours accessible aux personnes étudiantes selon le document source |
+| Nouveaux cours | Une activité de formation créée pendant l'année universitaire documentée |
+| GES portées 1 et 2 | Une période de bilan GES pour les portées 1 et 2 |
+| GES bilan 2023-2024 | Un élément du bilan GES 2023-2024 |
+| GES portée 3 | Une catégorie, période et métrique de portée 3 |
+| Indicateurs repères | Un indicateur, une période et un sous-groupe |
+
+L'unité change selon le fichier. Les analyses doivent donc rester fichier par fichier, sauf si une relation explicite est documentée.
 
 ## Variables principales
 
-| Variable | Fichier | Type | Description | Remarques pédagogiques |
-|---|---|---|---|---|
-| `code_programme` | Programmes actifs | caractère | Code institutionnel du programme tel que publié | Clé unique du fichier |
-| `programme` | Programmes actifs | caractère | Nom du programme | Libellé source à conserver |
-| `code_cours` | Nouveaux cours, cours accessibles | caractère | Code du cours | Clé unique dans chaque fichier de cours |
-| `titre` | Nouveaux cours, cours accessibles | caractère | Titre du cours | Libellé source ou normalisé selon le paquet privé |
-| `faculte` | Nouveaux cours | caractère | Faculté normalisée | Variable utile pour résumer les créations de cours |
-| `credits` | Cours accessibles | entier | Nombre de crédits | Valeur numérique à ne pas transformer |
-| `source_id` | Tous les fichiers prioritaires | caractère | Clé vers le registre `data/sources.csv` du paquet privé | Champ de provenance à conserver |
-| `page_source` | Tous les fichiers prioritaires | entier | Page du PDF source | Champ de provenance à conserver |
+| Variable | Rôle | Point de vigilance |
+|---|---|---|
+| `code_programme` | Clé des programmes actifs | À conserver comme chaîne de caractères |
+| `programme` | Libellé du programme | Libellé source à ne pas corriger silencieusement |
+| `code_cours` | Clé des fichiers de cours | À conserver comme chaîne de caractères |
+| `titre` | Titre du cours | Peut servir aux contrôles de libellés, pas à une inférence |
+| `faculte` | Faculté normalisée dans les nouveaux cours | Résumé descriptif local seulement |
+| `credits` | Crédits des cours accessibles | Valeur numérique à ne pas modifier |
+| `source_id` | Lien vers le registre des sources | Champ de provenance obligatoire |
+| `page_source` | Page du PDF source | Champ essentiel pour audit reproductible |
+| `note` | Note méthodologique ou source | Obligatoire dans certains fichiers complémentaires |
+| `statut_quantification` | Statut des valeurs GES | Les valeurs non quantifiées ne doivent pas devenir zéro |
+| `statut_valeur` | Statut des indicateurs repères | À conserver pour interpréter les valeurs |
 
-## Champs de provenance et de qualité
+## RÉSULTATS R
 
-Les champs suivants doivent être conservés lorsqu'ils sont présents dans les fichiers du paquet privé :
+Les résultats ci-dessous proviennent de `preparation.R`, exécuté le 2026-06-21 avec `DONNEES_ULAVAL_SOURCE` pointant vers la source privée locale. Le chemin local privé n'est pas publié.
 
-- `source_id`;
-- `page_source`;
-- `note`;
-- `statut_valeur`;
-- `statut_quantification`.
+| Indicateur | Valeur |
+|---|---:|
+| Source privée trouvée | Oui |
+| Fichiers de référence attendus | 8 |
+| Fichiers de référence disponibles | 8 |
+| Jeux dans le manifeste | 7 |
+| Jeux core | 3 |
+| Lignes core attendues et observées | 1 375 |
+| Jeux GES | 3 |
+| Lignes GES attendues et observées | 119 |
+| Jeux indicateurs repères | 1 |
+| Lignes indicateurs repères attendues et observées | 165 |
+| Validation core et GES | OK |
+| Sources documentées dans `sources.csv` | 6 |
 
-Pour les trois fichiers prioritaires, `source_id` et `page_source` sont présents. Les champs `note`, `statut_valeur` et `statut_quantification` ne sont pas présents dans ces trois fichiers selon le dictionnaire consulté le 2026-06-19.
+## Contrôles de validation
 
-La préparation de l'intégration GES exige en plus de préserver `note` et `statut_quantification`. Les valeurs manquantes du fichier de portée 3 doivent rester manquantes. Elles ne doivent jamais être converties en zéros.
-
-## Taille et structure
-
-| Élément | Information |
+| Contrôle | Statut |
 |---|---|
-| Nombre de lignes | 753 programmes actifs; 278 nouveaux cours; 344 cours accessibles |
-| Nombre de colonnes | 11 colonnes pour programmes actifs; 10 colonnes pour nouveaux cours; 11 colonnes pour cours accessibles |
-| Structure | Trois tables CSV UTF-8, plus registre de sources et dictionnaire de champs |
-| Format | CSV UTF-8 dans le dépôt privé source |
+| Source privée | OK |
+| Fichiers de référence | OK |
+| Programmes actifs | OK |
+| Cours accessibles | OK |
+| Nouveaux cours | OK |
+| GES portées 1 et 2 | OK |
+| GES bilan 2023-2024 | OK |
+| GES portée 3 | OK |
+| Absence de PDF dans la plateforme | OK |
+| Mentions de droits | OK |
 
-## Concepts enseignables
+Ces contrôles ne donnent pas une autorisation de republication publique. Ils indiquent que l'import local respecte les attentes connues : présence des fichiers, lignes attendues, clés uniques, champs de provenance et mentions de droits.
 
-- importation contrôlée depuis une source privée;
-- clés primaires et unicité;
-- conservation de la provenance;
-- séparation entre données sources, données préparées localement et site public;
-- documentation des droits et limites de réutilisation;
-- statistique descriptive prudente.
+## Résumé des fichiers validés
+
+| Fichier | Phase | Lignes | Colonnes | Clés uniques | Provenance présente |
+|---|---|---:|---:|---|---|
+| Programmes actifs | core | 753 | 11 | Oui | Oui |
+| Cours accessibles | core | 344 | 11 | Oui | Oui |
+| Nouveaux cours | core | 278 | 10 | Oui | Oui |
+| GES portées 1 et 2 | ges | 15 | 8 | Oui | Oui |
+| GES bilan 2023-2024 | ges | 7 | 8 | Oui | Oui |
+| GES portée 3 | ges | 97 | 13 | Oui | Oui |
+| Indicateurs repères | indicateurs | 165 | 15 | Oui | Oui |
+
+## Ce qui peut être enseigné
+
+Cette fiche est moins un jeu de données à explorer publiquement qu'un cas d'étude sur la responsabilité. Les apprentissages les plus importants sont :
+
+1. conserver les codes comme chaînes de caractères;
+2. valider l'unicité des clés;
+3. conserver `source_id` et `page_source`;
+4. distinguer validation locale et republication publique;
+5. documenter les informations non vérifiées avec `Je ne sais pas.`;
+6. garder les PDF sources hors du dépôt public;
+7. éviter de transformer une valeur manquante ou non quantifiée en zéro.
 
 ## Score zéro déchet
 
 | Dimension | Score | Justification |
 |---|---:|---|
-| Contexte québécois | 3 | Le contexte est directement universitaire et québécois. |
-| Accessibilité pédagogique | 2 | Les codes et libellés sont lisibles, mais le statut juridique impose un cadre strict. |
-| Qualité documentaire | 3 | Le paquet privé fournit dictionnaire, sources, guide d'importation et validation. |
-| Potentiel de nettoyage | 2 | Les fichiers permettent de discuter types, clés et provenance sans altérer les valeurs. |
-| Potentiel de visualisation | 2 | Des résumés par type de programme, faculté ou crédits sont possibles localement. |
-| Potentiel de statistique descriptive | 2 | Les dénombrements sont pertinents, mais la portée analytique doit rester descriptive. |
-| Potentiel d'inférence | 1 | Les fichiers sont des listes institutionnelles, pas un échantillon aléatoire. |
-| Potentiel de modélisation | 1 | La modélisation n'est pas l'objectif principal de cette intégration. |
-| Potentiel de discussion éthique | 3 | Les droits, la provenance et le statut non officiel sont centraux. |
-| Réutilisabilité dans plusieurs cours | 1 | La réutilisation publique est limitée par l'absence de licence ouverte explicite. |
+| Contexte québécois | 3 | Université Laval |
+| Accessibilité pédagogique | 2 | Concepts lisibles, mais droits restrictifs |
+| Qualité documentaire | 3 | Manifeste, sources, dictionnaire et validations |
+| Potentiel de nettoyage | 2 | Clés, types, provenance et valeurs manquantes |
+| Potentiel de visualisation | 2 | Résumés locaux possibles, non publiés comme lignes |
+| Potentiel de statistique descriptive | 2 | Dénombrements utiles mais portée limitée |
+| Potentiel d'inférence | 1 | Listes institutionnelles, pas un échantillon aléatoire |
+| Potentiel de modélisation | 1 | Modélisation non prioritaire |
+| Potentiel éthique | 3 | Droits, provenance et statut institutionnel |
+| Réutilisabilité | 1 | Réutilisation publique limitée par les droits |
 
 Total : 20 sur 30.
 
 ## Activité courte
 
-Valider l'intégration locale des fichiers prioritaires : présence des fichiers, nombre de lignes attendu, unicité des clés, champs de provenance et absence de PDF dans le dépôt de plateforme.
+En 30 à 45 minutes, lire les résumés de validation, identifier les clés de chaque fichier core et expliquer pourquoi les champs `source_id` et `page_source` doivent rester présents.
 
 ## Activité longue
 
-Construire un court rapport Quarto local, non publié, qui résume les programmes et les cours accessibles tout en affichant les limites de droits et de provenance.
-
-## Projet possible
-
-Préparer un protocole de publication responsable : déterminer ce qui peut être affiché publiquement, ce qui doit rester local, et quelles validations doivent être exécutées avant toute mise en ligne.
-
-## Questions pédagogiques possibles
-
-1. Pourquoi faut-il garder `code_programme` et `code_cours` comme chaînes de caractères?
-2. Quelle différence y a-t-il entre une source officielle et une compilation indépendante?
-3. Pourquoi le champ `page_source` est-il important pour un audit reproductible?
-4. Pourquoi une valeur manquante en portée 3 ne doit-elle pas être remplacée par zéro?
-5. Quelles informations peut-on afficher publiquement sans redistribuer les CSV?
-6. À quoi sert un registre `sources.csv`?
-7. Quelle validation détecterait une modification accidentelle des fichiers?
-8. Quelle information juridique manque avant une republication publique à grande échelle?
+En 2 à 3 heures, produire un rapport méthodologique local qui résume les contrôles, les droits et les limites sans publier les lignes des CSV privés.
 
 ## Code R minimal
 
+À exécuter depuis la racine du projet. Si la source privée est absente, le script produit un résumé public indiquant que la validation locale n'a pas pu être faite.
+
 ```{r}
 #| eval: false
-source("R/utils_ulaval.R")
+# Load libraries
+library(dplyr)
+library(readr)
 
-# Copier les fichiers prioritaires sans les réécrire.
-copied <- import_ulaval_datasets(
-  root = ".",
-  phases = "core"
+# Optional: point to the private source before running
+# Sys.setenv(DONNEES_ULAVAL_SOURCE = "/chemin/local/source-ulaval-privee")
+
+source("datasets/ulaval-programmes-cours/preparation.R")
+
+resume <- read_csv(
+  "data/processed/ulaval-programmes-cours/resume_ulaval_programmes_cours.csv",
+  show_col_types = FALSE
 )
 
-# Lire une copie locale ignorée par Git.
-programmes <- read_ulaval_csv(
-  "data/processed/ulaval/data/ulaval_programmes_actifs_2026_06.csv"
+fichiers <- read_csv(
+  "data/processed/ulaval-programmes-cours/resume_fichiers_ulaval.csv",
+  show_col_types = FALSE
 )
 
-str(programmes)
+resume |>
+  select(source_found, validation_status, n_core_expected_rows, n_ges_expected_rows)
+
+fichiers |>
+  select(dataset_id, phase, observed_rows, keys_unique, protected_fields_present)
 ```
 
 ## Limites et précautions
 
-- Les CSV ne sont pas inclus dans le dépôt Données bleues.
+- Les CSV privés ne sont pas inclus dans le dépôt Données bleues.
 - Les PDF sources ne sont pas redistribués.
-- La source canonique demeure le dépôt privé.
+- Les résumés publics ne remplacent pas le registre privé des sources.
+- La source privée validée localement n'est pas un produit officiel approuvé par l'Université Laval.
 - Les valeurs numériques ne doivent pas être modifiées.
-- Les champs de provenance doivent rester disponibles.
-- Les sorties publiques ne doivent pas laisser croire à une approbation officielle par l'Université Laval.
-- La réutilisation publique à grande échelle exige une validation juridique ou institutionnelle. Pour cette autorisation, je ne sais pas.
+- Les cellules non quantifiées, notamment en portée 3 GES, ne doivent pas être converties en zéros.
+- La réutilisation publique à grande échelle exige une validation institutionnelle ou juridique. Pour cette autorisation, je ne sais pas.
 
-## Extensions
+## Références
 
-- Extension intro : comparer les dimensions et les clés des trois fichiers prioritaires.
-- Extension intermédiaire : produire des tableaux de fréquence localement, sans publier les lignes.
-- Extension avancée : intégrer les fichiers GES en conservant `note` et `statut_quantification`.
-- Extension communication scientifique : rédiger une note méthodologique sur les limites de droits, de provenance et de publication.
+- Université Laval, Bureau de la qualité des programmes. Codes de programmes actifs. Document source privé référencé dans le paquet local validé le 2026-06-21.
+- Université Laval, Bureau de la qualité des programmes. Nouvelles activités de formation créées en 2024-2025. Document source privé référencé dans le paquet local validé le 2026-06-21.
+- Université Laval, Bureau de la qualité des programmes. Cours accessibles aux personnes étudiantes. Document source privé référencé dans le paquet local validé le 2026-06-21.
 
 ```{r}
 #| label: dataset-detail-footer
@@ -192,4 +233,3 @@ str(programmes)
 #| results: asis
 render_dataset_detail_footer()
 ```
-

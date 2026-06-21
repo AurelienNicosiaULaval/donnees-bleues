@@ -1,62 +1,92 @@
 ---
-title: "Carte et séries temporelles de qualité de l'eau"
+title: "Mini-projet - Bassins versants et qualité de l'eau"
 embed-resources: true
 ---
 
-# Carte et séries temporelles de qualité de l'eau
+# Mini-projet - Bassins versants et qualité de l'eau
 
 ## Contexte
 
-Cette activité demande de construire un mini-rapport sur plusieurs stations de suivi. Elle combine comparaison temporelle, indicateurs descriptifs, carte simple et discussion des limites environnementales.
+Cette activité demande de construire un mini-rapport sur plusieurs stations ou bassins versants. Elle combine comparaison temporelle, indicateurs descriptifs, carte simple, jointure avec les aires de drainage et discussion des limites d'interprétation.
 
-## Objectifs d'apprentissage
+## Question directrice
 
-- Préparer des données environnementales longitudinales.
-- Comparer plusieurs stations ou bassins versants.
-- Produire une visualisation temporelle et une carte.
-- Discuter les limites d'une comparaison environnementale.
+Comment comparer des stations ou des bassins versants sans confondre couverture du suivi, indicateurs agrégés et causalité environnementale?
 
-## Données utilisées
+## Livrables
 
-Fiche : [Suivi physicochimique et bactériologique des rivières et du fleuve](fiche.qmd)
+1. Une courte description de la source officielle, de la licence et de l'unité statistique.
+2. Un tableau des stations ou bassins retenus avec la période disponible.
+3. Un graphique temporel pour au moins un indicateur.
+4. Une carte des stations avec latitude et longitude.
+5. Une table descriptive des valeurs manquantes pour les variables utilisées.
+6. Une discussion sur les variables d'aire de drainage, par exemple `superf_tot_km2` ou `pc_agricole`.
+7. Une conclusion qui distingue description, hypothèse et causalité.
 
-Source : Données Québec / MELCCFP, "Suivi de la qualité de l'eau du fleuve et des rivières".
+## Structure suggérée
 
-Licence : Attribution (CC-BY 4.0).
+### 1. Choix des stations
 
-## Métadonnées pédagogiques
+Sélectionner des stations ayant assez d'années disponibles. Éviter de comparer directement une station avec 25 années et une station avec très peu d'observations sans le signaler.
 
-| Champ | Information |
-|---|---|
-| Question directrice | Comment comparer la qualité de l'eau entre stations et dans le temps? |
-| Concepts | Séries temporelles; visualisation; données spatiales; communication |
-| Niveau | Intermédiaire |
-| Type | Étude de cas; projet ou tâche longue |
-| Contexte | Qualité de l'eau |
-| Accroche | Comparer des stations de suivi environnemental |
-| Durée | 2-3 heures |
-| Matériel | énoncé; code; données; notes enseignantes |
-| Math/stats avancées | non |
+### 2. Indicateurs
 
-## Consignes
+Choisir deux indicateurs parmi :
 
-1. Importer le ZIP CSV officiel.
-2. Sélectionner au moins trois stations ou un bassin versant.
-3. Comparer phosphore total, azote total, nitrites et nitrates ou coliformes fécaux.
-4. Produire une carte des stations avec latitude et longitude.
-5. Produire un graphique temporel.
-6. Conclure en distinguant observation descriptive et explication causale.
+- `ptot_med_mgl`;
+- `ntot_med_mgl`;
+- `nox_med_mgl`;
+- `chla_med_ugl`;
+- `cf_med_ufc`;
+- `iqbp_med`.
 
-## Questions
+Conserver les unités dans les axes et les tableaux.
 
-1. Les stations ont-elles les mêmes périodes d'observation?
-2. Quels indicateurs montrent les plus fortes différences entre stations?
-3. Quel indicateur est le plus facile à expliquer à un public non spécialiste?
+### 3. Contexte territorial
 
-## Pistes de solution
+Utiliser `superf_tot_km2`, `pc_foret`, `pc_agricole` ou `pc_anthropique` comme variables de contexte. Ces variables peuvent suggérer des hypothèses, mais elles ne prouvent pas une cause dans ce mini-projet.
 
-Le rapport devrait inclure un court nettoyage documenté, deux visualisations, une table descriptive et une section de limites.
+## Appui R minimal
 
-## Prolongement
+```{r}
+#| eval: false
+library(dplyr)
+library(ggplot2)
+library(readr)
 
-Ajouter une analyse de sensibilité en comparant les résultats avec et sans valeurs extrêmes.
+source("datasets/suivi-rivieres-fleuve/preparation.R")
+
+stations <- read_csv(
+  "data/processed/suivi-rivieres-fleuve/stations_qualite_eau_aires.csv",
+  show_col_types = FALSE
+)
+
+stations_selection <- stations |>
+  filter(!is.na(bv_n1m), bv_n1m == "Richelieu, Rivière")
+
+stations_selection |>
+  count(no_bqma, hydronyme, sort = TRUE)
+
+stations_selection |>
+  filter(!is.na(ptot_med_mgl)) |>
+  ggplot(aes(x = annee, y = ptot_med_mgl, group = no_bqma)) +
+  geom_line(alpha = 0.35) +
+  labs(
+    x = "Année de fin de suivi",
+    y = "Phosphore total médian (mg/l)",
+    title = "Stations du bassin Richelieu"
+  )
+
+stations_selection |>
+  distinct(no_bqma, hydronyme, latitude, longitude, pc_agricole) |>
+  filter(!is.na(latitude), !is.na(longitude))
+```
+
+## Critères d'évaluation suggérés
+
+- Exactitude de la description de la source et de l'unité statistique.
+- Qualité du choix des stations ou bassins.
+- Respect des unités et des valeurs manquantes.
+- Lisibilité des graphiques.
+- Prudence de la conclusion environnementale.
+- Reproductibilité du code.

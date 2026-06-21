@@ -1,5 +1,5 @@
 ---
-title: "Suivi physicochimique et bactériologique des rivières et du fleuve"
+title: "Suivi de la qualité de l'eau du fleuve et des rivières"
 embed-resources: true
 page-layout: full
 toc: false
@@ -18,175 +18,275 @@ render_dataset_detail_header()
 
 ## Pourquoi ce jeu est intéressant
 
-Ce jeu de données permet d'aborder la qualité de l'eau à partir d'observations québécoises liées aux rivières et au fleuve. Il convient à des activités d'analyse exploratoire, de visualisation temporelle et de cartographie simple.
+Ce jeu de données décrit le suivi de la qualité de l'eau dans des stations du Québec associées aux rivières et au fleuve Saint-Laurent. Il permet d'enseigner une idée très importante : les données environnementales publiées ne sont pas toujours des mesures brutes. Ici, les tables utilisées en classe contiennent surtout des statistiques agrégées par station et par année de fin de suivi.
 
-Le contexte est directement exploitable en enseignement : une station est suivie dans le temps, plusieurs indicateurs physicochimiques ou bactériologiques peuvent être comparés, et les limites d'interprétation sont importantes. Le CSV vérifié contient des indicateurs agrégés par station et par année de fin de suivi, ainsi qu'une table séparée d'aires de drainage.
+Le jeu est riche pédagogiquement parce qu'il combine des identifiants de stations, des années, des indicateurs physicochimiques et bactériologiques, des coordonnées et une table séparée d'aires de drainage. On peut donc travailler l'importation d'un ZIP, la sélection de variables, la visualisation temporelle, la cartographie et les limites d'une comparaison entre bassins versants.
 
-## Source
+Question d'analyse : comment décrire l'évolution d'indicateurs de qualité de l'eau par station, sans confondre observation agrégée, mesure brute et explication causale?
+
+## Ce qui a été vérifié
+
+| Élément | Résultat vérifié |
+|---|---|
+| Paquet CKAN | `bf2ca474-b331-4d35-ad09-351ca8f89b27` |
+| Source officielle | Données Québec / MELCCFP |
+| Titre CKAN | `Suivi de la qualité de l'eau du fleuve et des rivières` |
+| Ressources dans le paquet | 9 ressources |
+| Ressource CSV préparée | `IQBP_csv.zip` |
+| Ressources PDF | 2 dictionnaires ou métadonnées PDF |
+| Ressources spatiales | FGDB, GeoJSON, GPKG, REST et WMS |
+| Licence | Attribution (CC-BY 4.0), selon les métadonnées CKAN consultées le 2026-06-21 |
+| Dernière modification du paquet CKAN | 2026-06-18 |
+| Dernière modification du ZIP CSV | 2025-06-13 |
+| Table préparée | `data/processed/suivi-rivieres-fleuve/stations_qualite_eau_aires.csv` |
+| Résumés préparés | ressources CKAN, indicateurs, années, bassins, types de suivi, valeurs manquantes |
+
+## Source et conditions
 
 | Champ | Information |
 |---|---|
-| Source | Données Québec / MELCCFP |
-| Organisme producteur | Ministère de l'Environnement, de la Lutte contre les changements climatiques, de la Faune et des Parcs |
+| Page Données Québec | <https://www.donneesquebec.ca/recherche/dataset/suivi-physicochimique-des-rivieres-et-du-fleuve> |
+| API CKAN | <https://www.donneesquebec.ca/recherche/api/3/action/package_show?id=suivi-physicochimique-des-rivieres-et-du-fleuve> |
+| ZIP CSV | <https://stqc380donopppdtce01.blob.core.windows.net/donnees-ouvertes/IQBP/DQ/IQBP_csv.zip> |
+| Organisme | Ministère de l'Environnement, de la Lutte contre les changements climatiques, de la Faune et des Parcs |
 | Territoire | Québec |
-| URL officielle | <https://www.donneesquebec.ca/recherche/dataset/suivi-physicochimique-des-rivieres-et-du-fleuve> |
-| Licence | Attribution (CC-BY 4.0) |
-| Date d'accès | 2026-06-19 |
-| Fréquence de mise à jour | Données annuelles |
-| Statut | source vérifiée |
+| Date d'accès | 2026-06-21 |
+
+La description officielle indique que les réseaux de suivi visent à caractériser la qualité de l'eau sur le plan spatial et à suivre son évolution dans le temps. Elle mentionne notamment le phosphore total, l'azote total, les nitrites et nitrates, la chlorophylle a, les coliformes fécaux et l'indice de qualité bactériologique et physicochimique de l'eau.
 
 ## Ce que représente une ligne
 
-Dans `stations_p.csv`, une ligne représente une station de suivi et une année de fin de période de suivi. Le dictionnaire officiel précise que plusieurs statistiques sont calculées à partir de mesures recueillies sur trois étés consécutifs afin d'améliorer leur représentativité.
+Dans la table préparée `stations_qualite_eau_aires.csv`, une ligne représente une station de suivi pour une année de fin de période, enrichie par les variables disponibles de l'aire de drainage.
 
-Dans `ad_s.csv`, une ligne représente une aire de drainage associée à une station de suivi.
+Une ligne n'est pas une mesure brute prise une journée donnée. Les variables comme `ptot_med_mgl`, `ntot_med_mgl`, `nox_med_mgl`, `chla_med_ugl`, `cf_med_ufc` et `iqbp_med` sont des indicateurs agrégés. Les interprétations doivent donc rester descriptives, surtout lorsque les stations n'ont pas les mêmes périodes d'observation.
 
 ## Variables principales
 
-| Variable | Type | Description | Exemple | Remarques pédagogiques |
-|---|---|---|---|---|
-| no_bqma | caractère | Numéro d'identification de la station BQMA | 03040001 | Clé pour regrouper les observations |
-| annee | entier | Dernière année de suivi durant la période de trois ans | 2021 | Axe temporel |
-| ptot_med_mgl | numérique | Médiane du phosphore total en mg/l | 0.03 | Indicateur de qualité de l'eau |
-| ntot_med_mgl | numérique | Médiane de l'azote total en mg/l | 0.8 | Comparaison entre stations |
-| nox_med_mgl | numérique | Médiane des nitrites et nitrates en mg/l | 0.25 | Variable utile pour les tendances |
-| chla_med_ugl | numérique | Médiane de chlorophylle a en microgrammes par litre | 4.1 | Lien avec la productivité biologique |
-| cf_med_ufc | numérique | Médiane des coliformes fécaux en UFC/100 ml | 120 | Peut nécessiter une échelle logarithmique |
-| latitude | numérique | Latitude de la station | 46.8 | Coordonnée pour cartographie |
-| longitude | numérique | Longitude de la station | -71.2 | Coordonnée pour cartographie |
-| superf_tot_km2 | numérique | Superficie drainée à la station en km2 | 1250 | Variable de contexte territorial dans `ad_s.csv` |
-| pc_agricole | numérique | Part agricole de l'aire de drainage | 22.5 | Contexte d'utilisation du territoire |
+| Variable préparée | Rôle | Point de vigilance |
+|---|---|---|
+| `no_bqma` | Identifiant de station | Clé principale pour regrouper les observations |
+| `hydronyme` | Nom du cours d'eau | 16 valeurs manquantes dans la table préparée |
+| `type_station` | Type de station | Trois codes observés : RR, AU et RF |
+| `type_suivi` | Durée ou forme du suivi | 12 mois, 8 mois, 6 mois ou autre |
+| `annee` | Année de fin de suivi | Période couverte de 2000 à 2024 |
+| `iqbp_med` | Indice médian IQBP | Score de 0 à 98 dans la table préparée |
+| `ptot_med_mgl` | Phosphore total médian en mg/l | 12 valeurs manquantes, distribution très asymétrique |
+| `ntot_med_mgl` | Azote total médian en mg/l | 237 valeurs manquantes |
+| `nox_med_mgl` | Nitrites et nitrates médians en mg/l | Aucune valeur manquante dans la table préparée |
+| `chla_med_ugl` | Chlorophylle a médiane en microgrammes/l | 86 valeurs manquantes |
+| `cf_med_ufc` | Coliformes fécaux médians en UFC/100 ml | Variable très asymétrique |
+| `latitude`, `longitude` | Coordonnées de station | Coordonnées complètes dans les 6 990 lignes préparées |
+| `bv_n1m` | Bassin versant de niveau 1 | 887 valeurs non renseignées |
+| `superf_tot_km2` | Superficie totale drainée | Disponible après jointure avec `ad_s.csv` |
+| `pc_agricole` | Pourcentage agricole de l'aire de drainage | Variable de contexte, pas une preuve causale |
 
-## Taille et structure
+## RÉSULTATS R
 
-| Élément | Information |
-|---|---|
-| Nombre de lignes | `stations_p.csv` : 6 990 lignes; `ad_s.csv` : 866 lignes dans le ZIP CSV consulté |
-| Nombre de colonnes | `stations_p.csv` : 88 colonnes; `ad_s.csv` : 13 colonnes |
-| Structure | Tabulaire, spatiale et temporelle agrégée |
-| Format | CSV ZIP, GeoJSON ZIP, GPKG ZIP, FGDB ZIP, REST, WMS et PDF de métadonnées |
-| Type de données | Indicateurs environnementaux par station |
-| Niveau pédagogique recommandé | Introduction à intermédiaire |
+Les résultats ci-dessous proviennent de `preparation.R`, exécuté sur le ZIP CSV officiel et les métadonnées CKAN le 2026-06-21.
+
+| Indicateur | Valeur |
+|---|---:|
+| Ressources CKAN documentées | 9 |
+| Ressources CSV | 1 |
+| Ressources PDF | 2 |
+| Ressources spatiales | 5 |
+| Lignes dans `stations_p.csv` préparées | 6 990 |
+| Colonnes dans `stations_p.csv` source | 88 |
+| Colonnes station conservées | 19 |
+| Lignes dans `ad_s.csv` préparées | 866 |
+| Colonnes dans la table jointe | 31 |
+| Période couverte | 2000 à 2024 |
+| Stations distinctes | 935 |
+| Hydronymes distincts | 437 |
+| Types de station | 3 |
+| Types de suivi | 4 |
+| Lignes avec coordonnées | 6 990 |
+| Pourcentage avec coordonnées | 100 % |
+| Stations avec aire de drainage | 866 |
+
+## Indicateurs numériques
+
+| Variable | Valeurs manquantes | Médiane | Moyenne | Minimum | Maximum |
+|---|---:|---:|---:|---:|---:|
+| `iqbp_med` | 0 | 69,000 | 60,787 | 0,000 | 98,000 |
+| `ptot_med_mgl` | 12 | 0,021 | 0,041 | 0,001 | 2,700 |
+| `ntot_med_mgl` | 237 | 0,460 | 0,864 | 0,090 | 16,000 |
+| `nox_med_mgl` | 0 | 0,230 | 0,551 | 0,010 | 10,000 |
+| `chla_med_ugl` | 86 | 2,065 | 2,771 | 0,110 | 120,000 |
+| `cf_med_ufc` | 0 | 92,750 | 278,780 | 1,000 | 6 000,000 |
+
+Plusieurs indicateurs sont très asymétriques. Pour une première activité, il est souvent préférable d'utiliser des graphiques robustes : points par année, médianes, axes transformés lorsque justifié et tableaux de valeurs manquantes.
+
+## Types de station et de suivi
+
+| Type de station | Observations | Pourcentage |
+|---|---:|---:|
+| RR | 5 007 | 71,6 % |
+| AU | 1 319 | 18,9 % |
+| RF | 664 | 9,5 % |
+
+| Type de suivi | Observations | Pourcentage |
+|---|---:|---:|
+| 12 mois | 2 311 | 33,1 % |
+| 8 mois | 1 976 | 28,3 % |
+| Autre | 1 410 | 20,2 % |
+| 6 mois | 1 293 | 18,5 % |
+
+Ces variables sont utiles pour discuter la comparabilité des observations. Un graphique temporel doit toujours être lu avec la période et le type de suivi.
+
+## Bassins les plus représentés
+
+| Bassin de niveau 1 | Observations | Pourcentage |
+|---|---:|---:|
+| Non renseigné | 887 | 12,7 % |
+| Outaouais, Rivière des | 623 | 8,9 % |
+| Richelieu, Rivière | 424 | 6,1 % |
+| Saguenay, Rivière | 349 | 5,0 % |
+| Yamaska, Rivière | 318 | 4,5 % |
+| L'Assomption, Rivière | 312 | 4,5 % |
+| Saint-François, Rivière | 301 | 4,3 % |
+| Chaudière, Rivière | 234 | 3,3 % |
+| Sainte-Anne, Rivière | 232 | 3,3 % |
+| Châteauguay, Rivière | 216 | 3,1 % |
+
+Les bassins n'ont pas le même nombre d'observations. Une comparaison brute de volumes entre bassins décrit surtout la couverture du suivi publié, pas nécessairement l'état environnemental du territoire.
+
+## Stations longues pour le phosphore total
+
+| Station | Cours d'eau | Bassin | Années | Période | Médiane `ptot_med_mgl` | Médiane IQBP |
+|---|---|---|---:|---|---:|---:|
+| 02340050 | Rivière Chaudière | Chaudière, Rivière | 25 | 2000-2024 | 0,025 | 68,0 |
+| 00000096 | Fleuve Saint-Laurent | Je ne sais pas. | 25 | 2000-2024 | 0,011 | 23,0 |
+| 03040075 | Ruisseau au Castor | Richelieu, Rivière | 24 | 2001-2024 | 0,115 | 16,5 |
+| 03040073 | Ruisseau Ewing | Richelieu, Rivière | 24 | 2001-2024 | 0,066 | 30,0 |
+| 05040143 | Rivière Niagarette | Sainte-Anne, Rivière | 24 | 2001-2024 | 0,062 | 42,0 |
+| 05040006 | Rivière Blanche | Sainte-Anne, Rivière | 24 | 2001-2024 | 0,051 | 52,5 |
+| 02260002 | Rivière Kamouraska | Kamouraska, Rivière | 24 | 2001-2024 | 0,025 | 64,5 |
+
+Ces stations sont de bons choix pour une activité temporelle, car elles ont beaucoup d'années disponibles. Il faut tout de même regarder les années manquantes et le type de suivi avant de conclure à une tendance.
+
+## Aires de drainage
+
+| Indicateur | Valeur |
+|---|---:|
+| Stations avec aire de drainage | 866 |
+| Superficie totale médiane | 86,4 km2 |
+| Superficie totale maximale | 143 159,33 km2 |
+| Pourcentage forestier médian | 49,7 % |
+| Pourcentage agricole médian | 20,7 % |
+| Pourcentage agricole maximal | 97,1 % |
+| Pourcentage anthropique médian | 3,0 % |
+
+Ces variables donnent du contexte territorial. Elles ne suffisent pas à attribuer causalement une valeur de phosphore ou d'IQBP à une utilisation du territoire sans plan d'analyse plus complet.
+
+## Valeurs manquantes principales
+
+| Variable | Valeurs manquantes | Pourcentage |
+|---|---:|---:|
+| `bv_n2m` | 3 828 | 54,76 % |
+| `bv_n1m` | 887 | 12,69 % |
+| `ntot_med_mgl` | 237 | 3,39 % |
+| `chla_med_ugl` | 86 | 1,23 % |
+| `hydronyme` | 16 | 0,23 % |
+| `ptot_med_mgl` | 12 | 0,17 % |
+
+Les coordonnées sont complètes dans la table préparée, mais les champs de bassin et certains indicateurs chimiques ne le sont pas.
+
+## Lecture statistique
+
+Une analyse prudente suit cet ordre :
+
+1. préciser que l'unité est une station pour une année de fin de période;
+2. distinguer les indicateurs agrégés des mesures brutes;
+3. choisir une station ou un bassin avec suffisamment d'années;
+4. vérifier le type de suivi et les valeurs manquantes;
+5. conserver les unités dans les axes et les libellés;
+6. utiliser des graphiques robustes pour les distributions asymétriques;
+7. éviter toute conclusion causale sans plan d'analyse et variables de contexte suffisantes.
+
+Le jeu est excellent pour enseigner que les données environnementales demandent autant de rigueur de définition que de code R.
 
 ## Concepts enseignables
 
-- importation de données ouvertes;
+- importation d'un ZIP officiel;
 - séries temporelles agrégées;
-- visualisation de tendances;
-- statistiques descriptives;
-- comparaison par station ou bassin versant;
-- cartographie simple;
-- jointure entre stations et aires de drainage;
-- discussion sur les limites des indicateurs environnementaux.
+- statistiques descriptives robustes;
+- variables environnementales et unités;
+- cartographie de stations;
+- jointure avec une table d'aires de drainage;
+- valeurs manquantes;
+- communication prudente sur la qualité de l'eau.
 
 ## Score zéro déchet
 
 | Dimension | Score | Justification |
 |---|---:|---|
-| Contexte québécois | 3 | Le jeu porte sur les eaux de surface au Québec. |
-| Accessibilité pédagogique | 2 | Les variables sont compréhensibles, mais les unités et statistiques doivent être expliquées. |
-| Qualité documentaire | 3 | La page, la licence, les CSV et les dictionnaires PDF sont disponibles. |
-| Potentiel de nettoyage | 2 | Les dates, unités et valeurs extrêmes offrent un nettoyage réaliste. |
-| Potentiel de visualisation | 3 | Les séries temporelles et les stations se prêtent aux graphiques et cartes. |
-| Potentiel de statistique descriptive | 3 | Les résumés par station ou bassin sont directs. |
-| Potentiel d'inférence | 2 | Des comparaisons exploratoires sont possibles avec prudence. |
-| Potentiel de modélisation | 2 | Une modélisation de tendance peut être envisagée après validation. |
-| Potentiel de discussion éthique | 3 | Le jeu ouvre des discussions sur l'eau, le territoire et les politiques publiques. |
-| Réutilisabilité dans plusieurs cours | 3 | Le jeu peut servir en visualisation, statistique descriptive et modélisation. |
+| Contexte québécois | 3 | Suivi environnemental officiel au Québec |
+| Accessibilité pédagogique | 3 | Indicateurs concrets et table CSV légère |
+| Qualité documentaire | 3 | CKAN, ressources PDF et ressources spatiales |
+| Potentiel de nettoyage | 2 | Sélection, unités, jointures et valeurs manquantes |
+| Potentiel de visualisation | 3 | Séries temporelles, cartes et distributions |
+| Potentiel de statistique descriptive | 3 | Médianes, proportions, groupes et tendances |
+| Potentiel d'inférence | 2 | Possible avec prudence et plan d'analyse |
+| Potentiel de modélisation | 2 | Modèles exploratoires possibles après validation |
+| Potentiel éthique | 3 | Eau, territoire, politiques publiques et communication |
+| Réutilisabilité | 3 | Utile en importation, EDA, spatial et communication |
 
-Total : 26 sur 30.
+Total : 27 sur 30.
 
 ## Activité courte
 
-En 30 à 45 minutes, demander aux personnes étudiantes de choisir une station, de résumer la médiane du phosphore total par année et de produire un graphique temporel.
+En 30 à 45 minutes, choisir une station suivie longtemps, tracer le phosphore total médian par année et écrire une limite sur la nature agrégée des données.
 
 ## Activité longue
 
-En 2 à 3 heures, demander de comparer plusieurs stations ou bassins versants, puis de produire une carte des stations et un graphique temporel.
-
-## Projets possibles
-
-- Analyser la tendance de la médiane du phosphore total par station ou par bassin versant.
-- Comparer plusieurs indicateurs de qualité de l'eau entre stations.
-- Produire une carte des stations et un graphique temporel interactif.
-
-## Questions pédagogiques possibles
-
-1. Quelle est l'unité statistique de ce jeu de données?
-2. Comment traiter les stations observées sur des périodes différentes?
-3. Quelle variable pourrait servir à comparer les stations malgré des bassins de tailles différentes?
-4. Quels graphiques permettent de voir une tendance temporelle?
-5. Pourquoi les statistiques sont-elles calculées sur plusieurs étés?
-6. Comment détecter des valeurs extrêmes sans les supprimer automatiquement?
-7. Quelles limites faut-il mentionner avant de comparer des bassins versants?
-8. Quelles informations géographiques seraient nécessaires pour une carte fiable?
+En 2 à 3 heures, comparer plusieurs stations ou bassins, produire une carte, joindre les aires de drainage et rédiger une conclusion qui distingue description, hypothèse et causalité.
 
 ## Code R minimal
 
+À exécuter depuis la racine du projet.
+
 ```{r}
 #| eval: false
+# Load libraries
 library(dplyr)
 library(ggplot2)
 library(readr)
 
-source_url <- "https://stqc380donopppdtce01.blob.core.windows.net/donnees-ouvertes/IQBP/DQ/IQBP_csv.zip"
-zip_path <- tempfile(fileext = ".zip")
-extract_dir <- tempfile()
-dir.create(extract_dir)
+# Download, validate and prepare the official CKAN CSV resource
+source("datasets/suivi-rivieres-fleuve/preparation.R")
 
-download.file(source_url, zip_path, mode = "wb", quiet = TRUE)
-unzip(zip_path, exdir = extract_dir)
-
-stations <- read_delim(
-  file.path(extract_dir, "stations_p.csv"),
-  delim = ";",
+stations <- read_csv(
+  "data/processed/suivi-rivieres-fleuve/stations_qualite_eau_aires.csv",
   show_col_types = FALSE
-) |>
-  rename_with(tolower) |>
-  transmute(
-    no_bqma,
-    hydronyme,
-    description,
-    annee,
-    ptot_med_mgl,
-    ntot_med_mgl,
-    nox_med_mgl,
-    chla_med_ugl,
-    cf_med_ufc,
-    latitude,
-    longitude
-  )
+)
 
 stations |>
-  count(no_bqma, sort = TRUE)
-
-stations |>
-  filter(!is.na(ptot_med_mgl)) |>
-  group_by(no_bqma, annee) |>
-  summarise(phosphore_median_mgl = median(ptot_med_mgl, na.rm = TRUE), .groups = "drop") |>
-  ggplot(aes(x = annee, y = phosphore_median_mgl, group = no_bqma)) +
-  geom_line(alpha = 0.35) +
+  filter(no_bqma == "02340050") |>
+  ggplot(aes(x = annee, y = ptot_med_mgl)) +
+  geom_line() +
+  geom_point() +
   labs(
-    x = "Année",
+    x = "Année de fin de suivi",
     y = "Phosphore total médian (mg/l)",
-    title = "Tendance du phosphore total par station"
+    title = "Rivière Chaudière, station 02340050"
   )
 ```
 
 ## Limites et précautions
 
-- Les valeurs principales du CSV sont des statistiques agrégées, pas les mesures brutes individuelles.
-- Les unités de mesure doivent être conservées dans les noms de variables ou dans les libellés.
-- Les comparaisons entre stations doivent tenir compte de la période d'observation et du contexte hydrologique.
-- Une tendance apparente ne suffit pas à établir une cause.
-- Les champs pH, conductivité et température sont mentionnés dans la description générale du réseau, mais ne figurent pas dans l'en-tête du CSV consulté.
+- Les valeurs principales sont des statistiques agrégées, pas des mesures brutes individuelles.
+- Les unités doivent être conservées dans les noms de variables, les axes et les tableaux.
+- Les stations n'ont pas toutes la même période d'observation.
+- Les bassins n'ont pas le même nombre d'observations.
+- Les variables d'aire de drainage décrivent un contexte territorial, mais ne prouvent pas une cause.
+- Les comparaisons avec peu d'années ou beaucoup de valeurs manquantes doivent être évitées.
 
-## Extensions
+## Références
 
-- Extension intro : comparer les distributions de phosphore total et d'azote total.
-- Extension intermédiaire : produire des tendances par station.
-- Extension avancée : joindre les aires de drainage et analyser le contexte territorial.
-- Extension communication scientifique : rédiger une note sur les limites d'une comparaison entre bassins versants.
+- Données Québec. Suivi de la qualité de l'eau du fleuve et des rivières. Consulté le 2026-06-21. <https://www.donneesquebec.ca/recherche/dataset/suivi-physicochimique-des-rivieres-et-du-fleuve>
+- Données Québec. API CKAN `package_show` pour le paquet `suivi-physicochimique-des-rivieres-et-du-fleuve`. Consulté le 2026-06-21. <https://www.donneesquebec.ca/recherche/api/3/action/package_show?id=suivi-physicochimique-des-rivieres-et-du-fleuve>
+- MELCCFP. ZIP CSV IQBP publié dans Données Québec. Consulté le 2026-06-21. <https://stqc380donopppdtce01.blob.core.windows.net/donnees-ouvertes/IQBP/DQ/IQBP_csv.zip>
 
 ```{r}
 #| label: dataset-detail-footer
@@ -194,4 +294,3 @@ stations |>
 #| results: asis
 render_dataset_detail_footer()
 ```
-

@@ -1,8 +1,8 @@
-id: qualite-eau-tendance-phosphore-court
-title: "Tendance du phosphore total par station"
-question: "Comment décrire l'évolution du phosphore total dans une station de suivi?"
+id: qualite-eau-phosphore-court
+title: "Laboratoire - Phosphore total par station"
+question: "Comment décrire l'évolution du phosphore total médian dans une station de suivi?"
 dataset_id: suivi-rivieres-fleuve
-dataset_title: "Suivi physicochimique et bactériologique des rivières et du fleuve"
+dataset_title: "Suivi de la qualité de l'eau du fleuve et des rivières"
 activity_url: "datasets/suivi-rivieres-fleuve/activite-courte.qmd"
 duration: "30-45 minutes"
 level: "Introductif"
@@ -10,15 +10,17 @@ activity_type:
   - "Exercice"
   - "Exploration de données"
 concepts:
-  - "Séries temporelles"
+  - "Séries temporelles agrégées"
   - "Statistique descriptive"
   - "Visualisation"
+  - "Unités de mesure"
 context: "Qualité de l'eau"
-hook: "Suivi environnemental local"
+hook: "Un point sur le graphique n'est pas une mesure brute, mais un indicateur agrégé."
 materials:
-  - "énoncé"
-  - "code"
-  - "données"
+  - "fiche vérifiée"
+  - "script de préparation"
+  - "table préparée"
+  - "résumés R"
 advanced_math_stats: false
-teacher_notes: "Insister sur les unités des variables et sur le fait que les valeurs sont des statistiques agrégées."
-status: "source vérifiée"
+teacher_notes: "Faire expliciter l'unité statistique et l'unité mg/l dans la conclusion."
+status: "source officielle vérifiée"

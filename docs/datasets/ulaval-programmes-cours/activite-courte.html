@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>ULaval - validation d’import – Données bleues</title>
+<title>Laboratoire - Valider un import institutionnel privé – Données bleues</title>
 <style>
 
 code{white-space: pre-wrap;}
@@ -5517,16 +5517,14 @@ grid-template-columns: 1fr;
     <h2 id="toc-title">On this page</h2>
 
   <ul>
-  <li><a href="#ulaval---validation-dimport" id="toc-ulaval---validation-dimport" class="nav-link active" data-scroll-target="#ulaval---validation-dimport">ULaval - validation d’import</a>
+  <li><a href="#laboratoire---valider-un-import-institutionnel-privé" id="toc-laboratoire---valider-un-import-institutionnel-privé" class="nav-link active" data-scroll-target="#laboratoire---valider-un-import-institutionnel-privé">Laboratoire - Valider un import institutionnel privé</a>
   <ul class="collapse">
   <li><a href="#contexte" id="toc-contexte" class="nav-link" data-scroll-target="#contexte">Contexte</a></li>
   <li><a href="#objectifs-dapprentissage" id="toc-objectifs-dapprentissage" class="nav-link" data-scroll-target="#objectifs-dapprentissage">Objectifs d’apprentissage</a></li>
-  <li><a href="#données-utilisées" id="toc-données-utilisées" class="nav-link" data-scroll-target="#données-utilisées">Données utilisées</a></li>
+  <li><a href="#question-directrice" id="toc-question-directrice" class="nav-link" data-scroll-target="#question-directrice">Question directrice</a></li>
   <li><a href="#consignes" id="toc-consignes" class="nav-link" data-scroll-target="#consignes">Consignes</a></li>
-  <li><a href="#code-r-minimal" id="toc-code-r-minimal" class="nav-link" data-scroll-target="#code-r-minimal">Code R minimal</a></li>
-  <li><a href="#questions" id="toc-questions" class="nav-link" data-scroll-target="#questions">Questions</a></li>
+  <li><a href="#appui-r-minimal" id="toc-appui-r-minimal" class="nav-link" data-scroll-target="#appui-r-minimal">Appui R minimal</a></li>
   <li><a href="#pistes-de-solution" id="toc-pistes-de-solution" class="nav-link" data-scroll-target="#pistes-de-solution">Pistes de solution</a></li>
-  <li><a href="#prolongement" id="toc-prolongement" class="nav-link" data-scroll-target="#prolongement">Prolongement</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -5536,7 +5534,7 @@ grid-template-columns: 1fr;
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">ULaval - validation d’import</h1>
+<h1 class="title">Laboratoire - Valider un import institutionnel privé</h1>
 </div>
 
 
@@ -5553,69 +5551,65 @@ grid-template-columns: 1fr;
 </header>
 
 
-<section id="ulaval---validation-dimport" class="level1">
-<h1>ULaval - validation d’import</h1>
+<section id="laboratoire---valider-un-import-institutionnel-privé" class="level1">
+<h1>Laboratoire - Valider un import institutionnel privé</h1>
 <section id="contexte" class="level2">
 <h2 class="anchored" data-anchor-id="contexte">Contexte</h2>
-<p>Vous travaillez avec des données institutionnelles structurées dans un dépôt privé. L’objectif n’est pas de publier les lignes de données, mais de vérifier qu’un import local respecte les contraintes de provenance, de droits et de reproductibilité.</p>
+<p>Cette activité utilise la fiche <a href="../../datasets/ulaval-programmes-cours/fiche.html">Programmes et cours institutionnels ULaval</a>. L’objectif n’est pas de publier les lignes de données. L’objectif est de vérifier qu’un import local conserve les valeurs, les clés et la provenance tout en respectant les contraintes de droits.</p>
 </section>
 <section id="objectifs-dapprentissage" class="level2">
 <h2 class="anchored" data-anchor-id="objectifs-dapprentissage">Objectifs d’apprentissage</h2>
 <ul>
-<li>Identifier les fichiers attendus.</li>
-<li>Vérifier le nombre de lignes attendu.</li>
-<li>Contrôler l’unicité des clés importantes.</li>
-<li>Confirmer la conservation des champs de provenance.</li>
-<li>Documenter les limites de réutilisation.</li>
+<li>Lire un résumé de validation sans accéder aux lignes privées.</li>
+<li>Identifier les fichiers attendus et les lignes observées.</li>
+<li>Vérifier la présence des clés et des champs de provenance.</li>
+<li>Expliquer pourquoi les PDF et CSV sources ne sont pas redistribués.</li>
+<li>Distinguer validation locale et autorisation de publication.</li>
 </ul>
 </section>
-<section id="données-utilisées" class="level2">
-<h2 class="anchored" data-anchor-id="données-utilisées">Données utilisées</h2>
-<p>Source canonique : dépôt privé <code>git@github.com:AurelienNicosiaULaval/donnees-ulaval-institutionnelles.git</code>.</p>
-<p>Fiche : <a href="../../datasets/ulaval-programmes-cours/fiche.html">Programmes et cours institutionnels ULaval</a>.</p>
-<p>Cette activité utilise seulement une copie locale ignorée par Git. Les PDF sources et les CSV privés ne doivent pas être ajoutés au dépôt Données bleues.</p>
+<section id="question-directrice" class="level2">
+<h2 class="anchored" data-anchor-id="question-directrice">Question directrice</h2>
+<p>Comment vérifier qu’un import institutionnel privé conserve les valeurs, les clés et la provenance sans publier les lignes?</p>
 </section>
 <section id="consignes" class="level2">
 <h2 class="anchored" data-anchor-id="consignes">Consignes</h2>
 <ol type="1">
-<li>Vérifier que le dépôt privé est disponible localement.</li>
-<li>Exécuter <code>Rscript scripts/validate_ulaval_integration.R --phase=core,ges</code>.</li>
-<li>Lire le rapport imprimé par le script.</li>
-<li>Identifier quelle validation protège contre une modification accidentelle des clés.</li>
-<li>Identifier quelle validation protège contre une perte de provenance.</li>
-<li>Expliquer pourquoi l’absence de licence ouverte explicite limite la publication publique.</li>
+<li>Exécuter <code>datasets/ulaval-programmes-cours/preparation.R</code>.</li>
+<li>Importer <code>resume_ulaval_programmes_cours.csv</code>, <code>resume_fichiers_ulaval.csv</code> et <code>resume_controles_ulaval.csv</code>.</li>
+<li>Vérifier que les trois fichiers core ont le nombre de lignes attendu.</li>
+<li>Vérifier que les clés sont uniques.</li>
+<li>Vérifier que les champs de provenance sont présents.</li>
+<li>Rédiger une conclusion de 6 à 8 lignes sur ce qui est validé et ce qui ne donne pas une autorisation de publication.</li>
 </ol>
 </section>
-<section id="code-r-minimal" class="level2">
-<h2 class="anchored" data-anchor-id="code-r-minimal">Code R minimal</h2>
+<section id="appui-r-minimal" class="level2">
+<h2 class="anchored" data-anchor-id="appui-r-minimal">Appui R minimal</h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">&quot;R/utils_ulaval.R&quot;</span>)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">validate_ulaval_private_source</span>(</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">root =</span> <span class="st">&quot;.&quot;</span>,</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">phases =</span> <span class="fu">c</span>(<span class="st">&quot;core&quot;</span>, <span class="st">&quot;ges&quot;</span>),</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">require_source =</span> <span class="cn">TRUE</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">&quot;datasets/ulaval-programmes-cours/preparation.R&quot;</span>)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>fichiers <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;data/processed/ulaval-programmes-cours/resume_fichiers_ulaval.csv&quot;</span>,</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">show_col_types =</span> <span class="cn">FALSE</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>fichiers <span class="sc">|&gt;</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(phase <span class="sc">==</span> <span class="st">&quot;core&quot;</span>) <span class="sc">|&gt;</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>    dataset_id,</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>    expected_rows,</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>    observed_rows,</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>    row_count_matches,</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>    keys_unique,</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>    protected_fields_present</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-</section>
-<section id="questions" class="level2">
-<h2 class="anchored" data-anchor-id="questions">Questions</h2>
-<ol type="1">
-<li>Quels fichiers prioritaires sont contrôlés?</li>
-<li>Quelle clé est utilisée pour les programmes actifs?</li>
-<li>Quelle clé est utilisée pour les cours accessibles?</li>
-<li>Quels champs de provenance doivent être conservés?</li>
-<li>Pourquoi les PDF sources ne sont-ils pas copiés dans la plateforme?</li>
-<li>Que signifie la mention compilation indépendante et non officielle?</li>
-</ol>
 </section>
 <section id="pistes-de-solution" class="level2">
 <h2 class="anchored" data-anchor-id="pistes-de-solution">Pistes de solution</h2>
-<p>Une validation réussie doit confirmer la présence des fichiers, les nombres de lignes attendus, l’unicité des clés, la présence des champs de provenance attendus et l’absence de PDF dans la plateforme. Elle ne donne pas une autorisation de republication publique.</p>
-</section>
-<section id="prolongement" class="level2">
-<h2 class="anchored" data-anchor-id="prolongement">Prolongement</h2>
-<p>Modifier volontairement une copie locale ignorée par Git, puis relancer la validation pour observer quelle erreur est détectée. Ne jamais modifier le dépôt source canonique.</p>
+<p>Une bonne réponse indique que la validation porte sur les comptes, les clés et la provenance. Elle précise aussi que les lignes privées et les PDF sources ne doivent pas être publiés dans Données bleues.</p>
 
 
 </section>

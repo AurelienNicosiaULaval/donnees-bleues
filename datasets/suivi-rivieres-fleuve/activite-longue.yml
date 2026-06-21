@@ -1,8 +1,8 @@
-id: qualite-eau-carte-series-long
-title: "Carte et séries temporelles de qualité de l'eau"
-question: "Comment comparer la qualité de l'eau entre stations et dans le temps?"
+id: qualite-eau-bassins-long
+title: "Mini-projet - Bassins versants et qualité de l'eau"
+question: "Comment comparer des stations ou des bassins versants sans confondre couverture du suivi, indicateurs agrégés et causalité environnementale?"
 dataset_id: suivi-rivieres-fleuve
-dataset_title: "Suivi physicochimique et bactériologique des rivières et du fleuve"
+dataset_title: "Suivi de la qualité de l'eau du fleuve et des rivières"
 activity_url: "datasets/suivi-rivieres-fleuve/activite-longue.qmd"
 duration: "2-3 heures"
 level: "Intermédiaire"
@@ -11,17 +11,19 @@ activity_type:
   - "Projet ou tâche longue"
   - "Exploration de données"
 concepts:
-  - "Séries temporelles"
+  - "Séries temporelles agrégées"
   - "Visualisation"
   - "Données spatiales"
-  - "Communication"
+  - "Jointure"
+  - "Communication prudente"
 context: "Qualité de l'eau"
-hook: "Comparer des stations de suivi environnemental"
+hook: "Comparer des bassins exige de distinguer couverture de suivi et état environnemental."
 materials:
-  - "énoncé"
-  - "code"
-  - "données"
+  - "fiche vérifiée"
+  - "script de préparation"
+  - "table préparée"
+  - "résumés R"
   - "notes enseignantes"
 advanced_math_stats: false
-teacher_notes: "Prévoir une discussion sur la saisonnalité, les valeurs extrêmes et les limites d'une comparaison entre bassins."
-status: "source vérifiée"
+teacher_notes: "Exiger une section séparée sur les limites: période, unité statistique, valeurs manquantes et causalité."
+status: "source officielle vérifiée"

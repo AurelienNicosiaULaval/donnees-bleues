@@ -5547,8 +5547,11 @@ Programmes et cours institutionnels ULaval
 <p class="dataset-hero-source">
 Université Laval, Bureau de la qualité des programmes
 </p>
+<div class="dataset-contributor-badge">
+<span>Personne à contacter</span><strong>Aurélien Nicosia</strong><small>Révision pédagogique et statistique</small>
+</div>
 <p class="dataset-hero-summary">
-Programme actif, nouvelle activité de formation ou cours accessible selon le fichier source
+Programme actif, nouvelle activité de formation, cours accessible ou indicateur institutionnel selon le fichier source
 </p>
 <div class="dataset-hero-actions">
 <a class="dataset-button no-external" href="#r-en-action">Voir les résultats R</a><a class="dataset-button secondary" href="https://www.bqp.ulaval.ca/fichiers/ressources/gestion/codes-programmes-actifs.pdf">Source officielle</a>
@@ -5569,14 +5572,14 @@ Programme actif, nouvelle activité de formation ou cours accessible selon le fi
 <span>Structure</span><strong>Tableaux institutionnels dérivés de documents publics, compilation indépendante et non officielle</strong>
 </div>
 <div class="dataset-fact">
-<span>Format</span><strong>CSV UTF-8 dans le dépôt privé donnees-ulaval-institutionnelles; données non redistribuées dans Données bleues</strong>
+<span>Format</span><strong>CSV UTF-8 dans le dépôt privé source; seuls des résumés de validation sont publiés dans Données bleues</strong>
 </div>
 </div>
 <div class="dataset-pedagogy-band">
 <div class="dataset-pedagogy-main">
 <span>Question de départ</span>
 <p>
-Valider un import de données institutionnelles sans modifier les valeurs numériques.
+Valider un import de données institutionnelles sans modifier les valeurs ni publier les lignes.
 </p>
 </div>
 <div class="dataset-score-box">
@@ -5587,7 +5590,7 @@ Valider un import de données institutionnelles sans modifier les valeurs numér
 </div>
 </div>
 <div class="dataset-chip-strip">
-<span>importation CSV</span><span>provenance</span><span>validation</span><span>droits de réutilisation</span><span>documentation des limites</span><span>statistique descriptive</span>
+<span>importation contrôlée</span><span>provenance</span><span>validation</span><span>droits de réutilisation</span><span>documentation des limites</span><span>clés uniques</span><span>données privées</span>
 </div>
 <section class="dataset-r-lab" id="r-en-action">
 <div class="dataset-section-heading">
@@ -5596,7 +5599,7 @@ Valider un import de données institutionnelles sans modifier les valeurs numér
 Aperçu reproductible
 </h2>
 <p>
-Aperçu léger calculé par R à partir des métadonnées vérifiées afin de garder la fiche rapide et stable au rendu.
+Aperçu calculé par R à partir de data/processed/ulaval-programmes-cours/resume_ulaval_programmes_cours.csv.
 </p>
 </div>
 <div class="dataset-r-grid">
@@ -5604,13 +5607,12 @@ Aperçu léger calculé par R à partir des métadonnées vérifiées afin de ga
 <div class="dataset-card-label">
 Code minimal
 </div>
-<pre><code class="language-r">library(yaml)
+<pre><code class="language-r">library(dplyr)
 
-metadata &lt;- yaml::read_yaml(&quot;datasets/ulaval-programmes-cours/metadata.yml&quot;)
-data.frame(
-  champ = c(&quot;theme&quot;, &quot;territoire&quot;, &quot;unite&quot;, &quot;niveau&quot;),
-  valeur = c(metadata$theme, metadata$geography, metadata$unit, metadata$level)
-)</code></pre>
+donnees &lt;- read.csv(&quot;data/processed/ulaval-programmes-cours/resume_ulaval_programmes_cours.csv&quot;, check.names = FALSE)
+
+glimpse(donnees)
+donnees |&gt; summarise(lignes = n(), colonnes = ncol(donnees))</code></pre>
 </div>
 <div class="dataset-result-card">
 <div class="dataset-card-label">
@@ -5618,16 +5620,19 @@ Résultats R
 </div>
 <div class="dataset-r-stats">
 <div class="dataset-r-stat">
-<span>Lignes déclarées</span><strong>753 programmes actifs; 278 nouveaux cours; 344 cours accessibles</strong>
+<span>Lignes lues</span><strong>1</strong>
 </div>
 <div class="dataset-r-stat">
-<span>Colonnes déclarées</span><strong>11 colonnes pour programmes actifs; 10 colonnes pour nouveaux cours; 11 colonnes pour cours accessibles</strong>
+<span>Colonnes</span><strong>18</strong>
 </div>
 <div class="dataset-r-stat">
-<span>Format</span><strong>CSV UTF-8 dans le dépôt privé donnees-ulaval-institutionnelles; données non redistribuées dans Données bleues</strong>
+<span>Variables num.</span><strong>9</strong>
 </div>
 <div class="dataset-r-stat">
-<span>Aperçu</span><strong>Métadonnées</strong>
+<span>Valeurs manquantes</span><strong>0 %</strong>
+</div>
+<div class="dataset-r-stat">
+<span>Aperçu</span><strong>resume_ulaval_programmes_cours.csv</strong>
 </div>
 </div>
 <div class="dataset-result-table-wrap">
@@ -5635,52 +5640,44 @@ Résultats R
 <thead>
 <tr>
 <th>
-champ
+access_date
 </th>
 <th>
-valeur
+source_found
+</th>
+<th>
+source_status
+</th>
+<th>
+source_path_recorded
+</th>
+<th>
+n_reference_files_expected
+</th>
+<th>
+n_reference_files_available
 </th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>
-theme
+2026-06-21
 </td>
 <td>
-Éducation supérieure
-</td>
-</tr>
-<tr>
-<td>
-territoire
+TRUE
 </td>
 <td>
-Université Laval
-</td>
-</tr>
-<tr>
-<td>
-unite
+source privée locale validée
 </td>
 <td>
-Programme actif, nouvelle activ…
-</td>
-</tr>
-<tr>
-<td>
-niveau
+chemin local privé non publié
 </td>
 <td>
-Intermédiaire
-</td>
-</tr>
-<tr>
-<td>
-format
+8
 </td>
 <td>
-CSV UTF-8 dans le dépôt privé d…
+8
 </td>
 </tr>
 </tbody>
@@ -5691,9 +5688,9 @@ CSV UTF-8 dans le dépôt privé d…
 <div class="dataset-card-label">
 Lecture statistique
 </div>
-<svg class="dataset-r-chart" viewbox="0 0 320 210" role="img" aria-label="Concepts pédagogiques">
-<text x="0" y="30" class="dataset-svg-label">importation CSV</text><rect x="150" y="18" width="90" height="14" rx="3" class="dataset-svg-bar" /><text x="0" y="54" class="dataset-svg-label">provenance</text><rect x="150" y="42" width="90" height="14" rx="3" class="dataset-svg-bar" /><text x="0" y="78" class="dataset-svg-label">validation</text><rect x="150" y="66" width="90" height="14" rx="3" class="dataset-svg-bar" /><text x="0" y="102" class="dataset-svg-label">droits de réutilisation</text><rect x="150" y="90" width="90" height="14" rx="3" class="dataset-svg-bar" /><text x="0" y="126" class="dataset-svg-label">documentation des limites</text><rect x="150" y="114" width="90" height="14" rx="3" class="dataset-svg-bar" /><text x="0" y="150" class="dataset-svg-label">statistique descriptive</text><rect x="150" y="138" width="90" height="14" rx="3" class="dataset-svg-bar" />
-</svg>
+<p class="dataset-empty-result">
+Pas assez de valeurs numériques pour tracer un aperçu.
+</p>
 </div>
 </div>
 </section>
@@ -5702,13 +5699,13 @@ Lecture statistique
 <span>Mini-projets</span>
 <ul>
 <li>
-Valider un import de données institutionnelles sans modifier les valeurs numériques.
+Valider un import de données institutionnelles sans modifier les valeurs ni publier les lignes.
 </li>
 <li>
-Comparer les champs de provenance entre les programmes et les cours.
+Comparer les contrôles de clés, de provenance et de droits entre plusieurs fichiers.
 </li>
 <li>
-Produire une fiche méthodologique sur les limites de réutilisation.
+Produire une note méthodologique sur ce qui peut être montré publiquement et ce qui doit rester privé.
 </li>
 </ul>
 </div>
@@ -5716,15 +5713,15 @@ Produire une fiche méthodologique sur les limites de réutilisation.
 <span>Activités liées</span>
 <div class="dataset-activity-grid">
 <div class="dataset-activity-card">
-<span>30-45 minutes</span><strong>Valider un import institutionnel privé</strong>
+<span>30-45 minutes</span><strong>Laboratoire - Valider un import institutionnel privé</strong>
 <p>
-Comment vérifier qu&#39;un import conserve les valeurs, les clés et la provenance?
+Comment vérifier qu&#39;un import institutionnel privé conserve les valeurs, les clés et la provenance sans publier les lignes?
 </p>
 </div>
 <div class="dataset-activity-card">
-<span>2-3 heures</span><strong>Rapport méthodologique sur des données institutionnelles</strong>
+<span>2-3 heures</span><strong>Mini-projet - Rapport méthodologique sans diffusion des lignes</strong>
 <p>
-Comment produire une analyse locale sans créer une diffusion publique non autorisée?
+Comment produire un rapport utile sur une source institutionnelle privée sans créer une diffusion publique non autorisée?
 </p>
 </div>
 </div>
@@ -5733,23 +5730,18 @@ Comment produire une analyse locale sans créer une diffusion publique non autor
 <div class="dataset-detail-content">
 <section id="pourquoi-ce-jeu-est-intéressant" class="level2">
 <h2 class="anchored" data-anchor-id="pourquoi-ce-jeu-est-intéressant">Pourquoi ce jeu est intéressant</h2>
-<p>Cette fiche prépare l’utilisation pédagogique de trois jeux de données institutionnelles structurés à partir de documents publics de l’Université Laval :</p>
-<ul>
-<li><code>ulaval_programmes_actifs_2026_06.csv</code>;</li>
-<li><code>ulaval_cours_nouveaux_2024_2025.csv</code>;</li>
-<li><code>ulaval_cours_accessibles_2026_01_29.csv</code>.</li>
-</ul>
-<p>Les fichiers ne sont pas redistribués dans Données bleues. La source canonique demeure le dépôt GitHub privé <code>git@github.com:AurelienNicosiaULaval/donnees-ulaval-institutionnelles.git</code>.</p>
-<p>L’intérêt pédagogique principal est méthodologique : importer des fichiers CSV sans altérer les valeurs, conserver les champs de provenance, documenter les limites juridiques et produire des analyses descriptives prudentes.</p>
+<p>Cette fiche documente une intégration pédagogique de données institutionnelles de l’Université Laval structurées dans un dépôt privé. Elle ne sert pas à redistribuer les lignes de données. Elle sert à enseigner comment valider un import sensible : vérifier les comptes, les clés, la provenance, les droits et les limites de publication.</p>
+<p>Le jeu est utile parce qu’il place les étudiants et étudiantes devant une situation fréquente en science des données appliquée : les données sont utiles, structurées et vérifiables localement, mais leur republication publique n’est pas automatiquement autorisée. C’est une bonne fiche pour enseigner la différence entre source officielle, compilation indépendante, validation reproductible et diffusion publique.</p>
+<p>Question d’analyse : comment produire une validation statistique et méthodologique utile sans publier des lignes privées ni laisser croire à une approbation officielle?</p>
 </section>
 <section id="avertissement-juridique-et-institutionnel" class="level2">
 <h2 class="anchored" data-anchor-id="avertissement-juridique-et-institutionnel">Avertissement juridique et institutionnel</h2>
 <p>Cette intégration est une compilation indépendante et non officielle. Elle n’est pas un produit officiel ou approuvé par l’Université Laval.</p>
-<p>Aucune licence ouverte explicite n’a été identifiée pour les données sources dans le paquet consulté le 2026-06-19. Les PDF sources ne doivent pas être redistribués dans ce dépôt. Une vérification auprès de l’Université Laval ou un avis juridique est recommandé avant toute republication publique à grande échelle.</p>
+<p>Aucune licence ouverte explicite n’a été identifiée pour les données sources dans le paquet privé validé localement. Les CSV privés et les PDF sources ne sont pas redistribués dans Données bleues. Une validation institutionnelle ou juridique est nécessaire avant toute republication publique à grande échelle.</p>
 <p>Ce document ne constitue pas un avis juridique.</p>
 </section>
-<section id="source" class="level2">
-<h2 class="anchored" data-anchor-id="source">Source</h2>
+<section id="ce-qui-a-été-vérifié" class="level2">
+<h2 class="anchored" data-anchor-id="ce-qui-a-été-vérifié">Ce qui a été vérifié</h2>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 50%">
@@ -5757,8 +5749,8 @@ Comment produire une analyse locale sans créer une diffusion publique non autor
 </colgroup>
 <thead>
 <tr class="header">
-<th>Champ</th>
-<th>Information</th>
+<th>Élément</th>
+<th>Résultat vérifié</th>
 </tr>
 </thead>
 <tbody>
@@ -5767,68 +5759,119 @@ Comment produire une analyse locale sans créer une diffusion publique non autor
 <td>Dépôt GitHub privé <code>git@github.com:AurelienNicosiaULaval/donnees-ulaval-institutionnelles.git</code></td>
 </tr>
 <tr class="even">
-<td>Statut</td>
-<td>Compilation indépendante et non officielle</td>
+<td>Source privée locale</td>
+<td>Validée le 2026-06-21</td>
 </tr>
 <tr class="odd">
-<td>Organisme source</td>
-<td>Université Laval, Bureau de la qualité des programmes</td>
+<td>Fichiers de référence attendus</td>
+<td>8</td>
 </tr>
 <tr class="even">
-<td>Date de consultation</td>
-<td>2026-06-19</td>
+<td>Fichiers de référence disponibles</td>
+<td>8</td>
 </tr>
 <tr class="odd">
-<td>Licence ouverte explicite</td>
-<td>Aucune licence ouverte explicite identifiée dans le paquet source</td>
+<td>Fichiers core validés</td>
+<td>3</td>
 </tr>
 <tr class="even">
-<td>Autorisation de republication publique à grande échelle</td>
-<td>Je ne sais pas.</td>
+<td>Fichiers GES validés</td>
+<td>3</td>
 </tr>
 <tr class="odd">
-<td>Fichiers PDF sources</td>
-<td>Non redistribués dans Données bleues</td>
+<td>Fichier indicateurs repères inspecté</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td>Lignes core validées</td>
+<td>1 375</td>
+</tr>
+<tr class="odd">
+<td>Lignes GES validées</td>
+<td>119</td>
+</tr>
+<tr class="even">
+<td>Lignes indicateurs repères validées</td>
+<td>165</td>
+</tr>
+<tr class="odd">
+<td>Statut de validation core et GES</td>
+<td>OK</td>
+</tr>
+<tr class="even">
+<td>Politique PDF</td>
+<td>Aucun PDF source ne doit être copié dans le dépôt public</td>
+</tr>
+<tr class="odd">
+<td>Statut public</td>
+<td>Données non redistribuées; résumés de validation seulement</td>
 </tr>
 </tbody>
 </table>
 </section>
-<section id="sources-officielles-documentées-dans-le-paquet-privé" class="level2">
-<h2 class="anchored" data-anchor-id="sources-officielles-documentées-dans-le-paquet-privé">Sources officielles documentées dans le paquet privé</h2>
+<section id="sources-officielles-documentées" class="level2">
+<h2 class="anchored" data-anchor-id="sources-officielles-documentées">Sources officielles documentées</h2>
 <table class="caption-top table">
+<colgroup>
+<col style="width: 23%">
+<col style="width: 23%">
+<col style="width: 23%">
+<col style="width: 30%">
+</colgroup>
 <thead>
 <tr class="header">
 <th>Jeu</th>
 <th>Fichier privé</th>
 <th>Source officielle</th>
-<th>Date du document</th>
-<th style="text-align: right;">Lignes</th>
+<th style="text-align: right;">Lignes validées</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td>Programmes actifs</td>
-<td><code>data/ulaval_programmes_actifs_2026_06.csv</code></td>
-<td><a href="https://www.bqp.ulaval.ca/fichiers/ressources/gestion/codes-programmes-actifs.pdf" class="uri">https://www.bqp.ulaval.ca/fichiers/ressources/gestion/codes-programmes-actifs.pdf</a></td>
-<td>2026-06</td>
+<td><code>ulaval_programmes_actifs_2026_06.csv</code></td>
+<td>Liste des codes de programmes actifs du BQP</td>
 <td style="text-align: right;">753</td>
 </tr>
 <tr class="even">
-<td>Nouveaux cours</td>
-<td><code>data/ulaval_cours_nouveaux_2024_2025.csv</code></td>
-<td><a href="https://www.bqp.ulaval.ca/fichiers/ressources/gestion/nouvelles-activit%C3%A9s-de-formation-cr%C3%A9%C3%A9es-2024-2025.pdf" class="uri">https://www.bqp.ulaval.ca/fichiers/ressources/gestion/nouvelles-activit%C3%A9s-de-formation-cr%C3%A9%C3%A9es-2024-2025.pdf</a></td>
-<td>2024-2025</td>
-<td style="text-align: right;">278</td>
+<td>Cours accessibles</td>
+<td><code>ulaval_cours_accessibles_2026_01_29.csv</code></td>
+<td>Liste des cours accessibles aux personnes étudiantes</td>
+<td style="text-align: right;">344</td>
 </tr>
 <tr class="odd">
-<td>Cours accessibles</td>
-<td><code>data/ulaval_cours_accessibles_2026_01_29.csv</code></td>
-<td><a href="https://www.bqp.ulaval.ca/fichiers/ressources/gestion/cours-accessibles-personnes-etudiantes.pdf" class="uri">https://www.bqp.ulaval.ca/fichiers/ressources/gestion/cours-accessibles-personnes-etudiantes.pdf</a></td>
-<td>2026-01-29</td>
-<td style="text-align: right;">344</td>
+<td>Nouveaux cours</td>
+<td><code>ulaval_cours_nouveaux_2024_2025.csv</code></td>
+<td>Nouvelles activités de formation créées en 2024-2025</td>
+<td style="text-align: right;">278</td>
+</tr>
+<tr class="even">
+<td>GES portées 1 et 2</td>
+<td><code>ulaval_ges_portees_1_2_historique.csv</code></td>
+<td>Documents institutionnels de bilan GES</td>
+<td style="text-align: right;">15</td>
+</tr>
+<tr class="odd">
+<td>GES bilan 2023-2024</td>
+<td><code>ulaval_ges_bilan_2023_2024.csv</code></td>
+<td>Documents institutionnels de bilan GES</td>
+<td style="text-align: right;">7</td>
+</tr>
+<tr class="even">
+<td>GES portée 3</td>
+<td><code>ulaval_ges_portee_3_historique.csv</code></td>
+<td>Documents institutionnels de bilan GES</td>
+<td style="text-align: right;">97</td>
+</tr>
+<tr class="odd">
+<td>Indicateurs repères</td>
+<td><code>ulaval_indicateurs_reperes_2025.csv</code></td>
+<td>Documents institutionnels de repères et indicateurs</td>
+<td style="text-align: right;">165</td>
 </tr>
 </tbody>
 </table>
+<p>Les URL et empreintes des documents sources sont conservées dans le dépôt privé, notamment dans le registre <code>data/sources.csv</code>. Elles ne sont pas reproduites ici afin d’éviter de transformer la fiche publique en mécanisme de redistribution.</p>
 </section>
 <section id="ce-que-représente-une-ligne" class="level2">
 <h2 class="anchored" data-anchor-id="ce-que-représente-une-ligne">Ce que représente une ligne</h2>
@@ -5845,155 +5888,320 @@ Comment produire une analyse locale sans créer une diffusion publique non autor
 </thead>
 <tbody>
 <tr class="odd">
-<td><code>ulaval_programmes_actifs_2026_06.csv</code></td>
-<td>Un programme actif publié dans la liste de juin 2026</td>
+<td>Programmes actifs</td>
+<td>Un programme actif publié dans la liste institutionnelle</td>
 </tr>
 <tr class="even">
-<td><code>ulaval_cours_nouveaux_2024_2025.csv</code></td>
-<td>Une activité de formation créée en 2024-2025</td>
+<td>Cours accessibles</td>
+<td>Un cours accessible aux personnes étudiantes selon le document source</td>
 </tr>
 <tr class="odd">
-<td><code>ulaval_cours_accessibles_2026_01_29.csv</code></td>
-<td>Un cours accessible à toutes les personnes étudiantes, selon le document mis à jour le 29 janvier 2026</td>
+<td>Nouveaux cours</td>
+<td>Une activité de formation créée pendant l’année universitaire documentée</td>
+</tr>
+<tr class="even">
+<td>GES portées 1 et 2</td>
+<td>Une période de bilan GES pour les portées 1 et 2</td>
+</tr>
+<tr class="odd">
+<td>GES bilan 2023-2024</td>
+<td>Un élément du bilan GES 2023-2024</td>
+</tr>
+<tr class="even">
+<td>GES portée 3</td>
+<td>Une catégorie, période et métrique de portée 3</td>
+</tr>
+<tr class="odd">
+<td>Indicateurs repères</td>
+<td>Un indicateur, une période et un sous-groupe</td>
 </tr>
 </tbody>
 </table>
+<p>L’unité change selon le fichier. Les analyses doivent donc rester fichier par fichier, sauf si une relation explicite est documentée.</p>
 </section>
 <section id="variables-principales" class="level2">
 <h2 class="anchored" data-anchor-id="variables-principales">Variables principales</h2>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 20%">
-<col style="width: 20%">
-<col style="width: 20%">
-<col style="width: 20%">
-<col style="width: 20%">
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
 </colgroup>
 <thead>
 <tr class="header">
 <th>Variable</th>
-<th>Fichier</th>
-<th>Type</th>
-<th>Description</th>
-<th>Remarques pédagogiques</th>
+<th>Rôle</th>
+<th>Point de vigilance</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td><code>code_programme</code></td>
-<td>Programmes actifs</td>
-<td>caractère</td>
-<td>Code institutionnel du programme tel que publié</td>
-<td>Clé unique du fichier</td>
+<td>Clé des programmes actifs</td>
+<td>À conserver comme chaîne de caractères</td>
 </tr>
 <tr class="even">
 <td><code>programme</code></td>
-<td>Programmes actifs</td>
-<td>caractère</td>
-<td>Nom du programme</td>
-<td>Libellé source à conserver</td>
+<td>Libellé du programme</td>
+<td>Libellé source à ne pas corriger silencieusement</td>
 </tr>
 <tr class="odd">
 <td><code>code_cours</code></td>
-<td>Nouveaux cours, cours accessibles</td>
-<td>caractère</td>
-<td>Code du cours</td>
-<td>Clé unique dans chaque fichier de cours</td>
+<td>Clé des fichiers de cours</td>
+<td>À conserver comme chaîne de caractères</td>
 </tr>
 <tr class="even">
 <td><code>titre</code></td>
-<td>Nouveaux cours, cours accessibles</td>
-<td>caractère</td>
 <td>Titre du cours</td>
-<td>Libellé source ou normalisé selon le paquet privé</td>
+<td>Peut servir aux contrôles de libellés, pas à une inférence</td>
 </tr>
 <tr class="odd">
 <td><code>faculte</code></td>
-<td>Nouveaux cours</td>
-<td>caractère</td>
-<td>Faculté normalisée</td>
-<td>Variable utile pour résumer les créations de cours</td>
+<td>Faculté normalisée dans les nouveaux cours</td>
+<td>Résumé descriptif local seulement</td>
 </tr>
 <tr class="even">
 <td><code>credits</code></td>
-<td>Cours accessibles</td>
-<td>entier</td>
-<td>Nombre de crédits</td>
-<td>Valeur numérique à ne pas transformer</td>
+<td>Crédits des cours accessibles</td>
+<td>Valeur numérique à ne pas modifier</td>
 </tr>
 <tr class="odd">
 <td><code>source_id</code></td>
-<td>Tous les fichiers prioritaires</td>
-<td>caractère</td>
-<td>Clé vers le registre <code>data/sources.csv</code> du paquet privé</td>
-<td>Champ de provenance à conserver</td>
+<td>Lien vers le registre des sources</td>
+<td>Champ de provenance obligatoire</td>
 </tr>
 <tr class="even">
 <td><code>page_source</code></td>
-<td>Tous les fichiers prioritaires</td>
-<td>entier</td>
 <td>Page du PDF source</td>
-<td>Champ de provenance à conserver</td>
+<td>Champ essentiel pour audit reproductible</td>
+</tr>
+<tr class="odd">
+<td><code>note</code></td>
+<td>Note méthodologique ou source</td>
+<td>Obligatoire dans certains fichiers complémentaires</td>
+</tr>
+<tr class="even">
+<td><code>statut_quantification</code></td>
+<td>Statut des valeurs GES</td>
+<td>Les valeurs non quantifiées ne doivent pas devenir zéro</td>
+</tr>
+<tr class="odd">
+<td><code>statut_valeur</code></td>
+<td>Statut des indicateurs repères</td>
+<td>À conserver pour interpréter les valeurs</td>
 </tr>
 </tbody>
 </table>
 </section>
-<section id="champs-de-provenance-et-de-qualité" class="level2">
-<h2 class="anchored" data-anchor-id="champs-de-provenance-et-de-qualité">Champs de provenance et de qualité</h2>
-<p>Les champs suivants doivent être conservés lorsqu’ils sont présents dans les fichiers du paquet privé :</p>
-<ul>
-<li><code>source_id</code>;</li>
-<li><code>page_source</code>;</li>
-<li><code>note</code>;</li>
-<li><code>statut_valeur</code>;</li>
-<li><code>statut_quantification</code>.</li>
-</ul>
-<p>Pour les trois fichiers prioritaires, <code>source_id</code> et <code>page_source</code> sont présents. Les champs <code>note</code>, <code>statut_valeur</code> et <code>statut_quantification</code> ne sont pas présents dans ces trois fichiers selon le dictionnaire consulté le 2026-06-19.</p>
-<p>La préparation de l’intégration GES exige en plus de préserver <code>note</code> et <code>statut_quantification</code>. Les valeurs manquantes du fichier de portée 3 doivent rester manquantes. Elles ne doivent jamais être converties en zéros.</p>
-</section>
-<section id="taille-et-structure" class="level2">
-<h2 class="anchored" data-anchor-id="taille-et-structure">Taille et structure</h2>
+<section id="résultats-r" class="level2">
+<h2 class="anchored" data-anchor-id="résultats-r">RÉSULTATS R</h2>
+<p>Les résultats ci-dessous proviennent de <code>preparation.R</code>, exécuté le 2026-06-21 avec <code>DONNEES_ULAVAL_SOURCE</code> pointant vers la source privée locale. Le chemin local privé n’est pas publié.</p>
 <table class="caption-top table">
-<colgroup>
-<col style="width: 50%">
-<col style="width: 50%">
-</colgroup>
 <thead>
 <tr class="header">
-<th>Élément</th>
-<th>Information</th>
+<th>Indicateur</th>
+<th style="text-align: right;">Valeur</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>Nombre de lignes</td>
-<td>753 programmes actifs; 278 nouveaux cours; 344 cours accessibles</td>
+<td>Source privée trouvée</td>
+<td style="text-align: right;">Oui</td>
 </tr>
 <tr class="even">
-<td>Nombre de colonnes</td>
-<td>11 colonnes pour programmes actifs; 10 colonnes pour nouveaux cours; 11 colonnes pour cours accessibles</td>
+<td>Fichiers de référence attendus</td>
+<td style="text-align: right;">8</td>
 </tr>
 <tr class="odd">
-<td>Structure</td>
-<td>Trois tables CSV UTF-8, plus registre de sources et dictionnaire de champs</td>
+<td>Fichiers de référence disponibles</td>
+<td style="text-align: right;">8</td>
 </tr>
 <tr class="even">
-<td>Format</td>
-<td>CSV UTF-8 dans le dépôt privé source</td>
+<td>Jeux dans le manifeste</td>
+<td style="text-align: right;">7</td>
+</tr>
+<tr class="odd">
+<td>Jeux core</td>
+<td style="text-align: right;">3</td>
+</tr>
+<tr class="even">
+<td>Lignes core attendues et observées</td>
+<td style="text-align: right;">1 375</td>
+</tr>
+<tr class="odd">
+<td>Jeux GES</td>
+<td style="text-align: right;">3</td>
+</tr>
+<tr class="even">
+<td>Lignes GES attendues et observées</td>
+<td style="text-align: right;">119</td>
+</tr>
+<tr class="odd">
+<td>Jeux indicateurs repères</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td>Lignes indicateurs repères attendues et observées</td>
+<td style="text-align: right;">165</td>
+</tr>
+<tr class="odd">
+<td>Validation core et GES</td>
+<td style="text-align: right;">OK</td>
+</tr>
+<tr class="even">
+<td>Sources documentées dans <code>sources.csv</code></td>
+<td style="text-align: right;">6</td>
 </tr>
 </tbody>
 </table>
 </section>
-<section id="concepts-enseignables" class="level2">
-<h2 class="anchored" data-anchor-id="concepts-enseignables">Concepts enseignables</h2>
-<ul>
-<li>importation contrôlée depuis une source privée;</li>
-<li>clés primaires et unicité;</li>
-<li>conservation de la provenance;</li>
-<li>séparation entre données sources, données préparées localement et site public;</li>
-<li>documentation des droits et limites de réutilisation;</li>
-<li>statistique descriptive prudente.</li>
-</ul>
+<section id="contrôles-de-validation" class="level2">
+<h2 class="anchored" data-anchor-id="contrôles-de-validation">Contrôles de validation</h2>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Contrôle</th>
+<th>Statut</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Source privée</td>
+<td>OK</td>
+</tr>
+<tr class="even">
+<td>Fichiers de référence</td>
+<td>OK</td>
+</tr>
+<tr class="odd">
+<td>Programmes actifs</td>
+<td>OK</td>
+</tr>
+<tr class="even">
+<td>Cours accessibles</td>
+<td>OK</td>
+</tr>
+<tr class="odd">
+<td>Nouveaux cours</td>
+<td>OK</td>
+</tr>
+<tr class="even">
+<td>GES portées 1 et 2</td>
+<td>OK</td>
+</tr>
+<tr class="odd">
+<td>GES bilan 2023-2024</td>
+<td>OK</td>
+</tr>
+<tr class="even">
+<td>GES portée 3</td>
+<td>OK</td>
+</tr>
+<tr class="odd">
+<td>Absence de PDF dans la plateforme</td>
+<td>OK</td>
+</tr>
+<tr class="even">
+<td>Mentions de droits</td>
+<td>OK</td>
+</tr>
+</tbody>
+</table>
+<p>Ces contrôles ne donnent pas une autorisation de republication publique. Ils indiquent que l’import local respecte les attentes connues : présence des fichiers, lignes attendues, clés uniques, champs de provenance et mentions de droits.</p>
+</section>
+<section id="résumé-des-fichiers-validés" class="level2">
+<h2 class="anchored" data-anchor-id="résumé-des-fichiers-validés">Résumé des fichiers validés</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 15%">
+<col style="width: 15%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 15%">
+<col style="width: 15%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Fichier</th>
+<th>Phase</th>
+<th style="text-align: right;">Lignes</th>
+<th style="text-align: right;">Colonnes</th>
+<th>Clés uniques</th>
+<th>Provenance présente</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Programmes actifs</td>
+<td>core</td>
+<td style="text-align: right;">753</td>
+<td style="text-align: right;">11</td>
+<td>Oui</td>
+<td>Oui</td>
+</tr>
+<tr class="even">
+<td>Cours accessibles</td>
+<td>core</td>
+<td style="text-align: right;">344</td>
+<td style="text-align: right;">11</td>
+<td>Oui</td>
+<td>Oui</td>
+</tr>
+<tr class="odd">
+<td>Nouveaux cours</td>
+<td>core</td>
+<td style="text-align: right;">278</td>
+<td style="text-align: right;">10</td>
+<td>Oui</td>
+<td>Oui</td>
+</tr>
+<tr class="even">
+<td>GES portées 1 et 2</td>
+<td>ges</td>
+<td style="text-align: right;">15</td>
+<td style="text-align: right;">8</td>
+<td>Oui</td>
+<td>Oui</td>
+</tr>
+<tr class="odd">
+<td>GES bilan 2023-2024</td>
+<td>ges</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">8</td>
+<td>Oui</td>
+<td>Oui</td>
+</tr>
+<tr class="even">
+<td>GES portée 3</td>
+<td>ges</td>
+<td style="text-align: right;">97</td>
+<td style="text-align: right;">13</td>
+<td>Oui</td>
+<td>Oui</td>
+</tr>
+<tr class="odd">
+<td>Indicateurs repères</td>
+<td>indicateurs</td>
+<td style="text-align: right;">165</td>
+<td style="text-align: right;">15</td>
+<td>Oui</td>
+<td>Oui</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="ce-qui-peut-être-enseigné" class="level2">
+<h2 class="anchored" data-anchor-id="ce-qui-peut-être-enseigné">Ce qui peut être enseigné</h2>
+<p>Cette fiche est moins un jeu de données à explorer publiquement qu’un cas d’étude sur la responsabilité. Les apprentissages les plus importants sont :</p>
+<ol type="1">
+<li>conserver les codes comme chaînes de caractères;</li>
+<li>valider l’unicité des clés;</li>
+<li>conserver <code>source_id</code> et <code>page_source</code>;</li>
+<li>distinguer validation locale et republication publique;</li>
+<li>documenter les informations non vérifiées avec <code>Je ne sais pas.</code>;</li>
+<li>garder les PDF sources hors du dépôt public;</li>
+<li>éviter de transformer une valeur manquante ou non quantifiée en zéro.</li>
+</ol>
 </section>
 <section id="score-zéro-déchet" class="level2">
 <h2 class="anchored" data-anchor-id="score-zéro-déchet">Score zéro déchet</h2>
@@ -6014,52 +6222,52 @@ Comment produire une analyse locale sans créer une diffusion publique non autor
 <tr class="odd">
 <td>Contexte québécois</td>
 <td style="text-align: right;">3</td>
-<td>Le contexte est directement universitaire et québécois.</td>
+<td>Université Laval</td>
 </tr>
 <tr class="even">
 <td>Accessibilité pédagogique</td>
 <td style="text-align: right;">2</td>
-<td>Les codes et libellés sont lisibles, mais le statut juridique impose un cadre strict.</td>
+<td>Concepts lisibles, mais droits restrictifs</td>
 </tr>
 <tr class="odd">
 <td>Qualité documentaire</td>
 <td style="text-align: right;">3</td>
-<td>Le paquet privé fournit dictionnaire, sources, guide d’importation et validation.</td>
+<td>Manifeste, sources, dictionnaire et validations</td>
 </tr>
 <tr class="even">
 <td>Potentiel de nettoyage</td>
 <td style="text-align: right;">2</td>
-<td>Les fichiers permettent de discuter types, clés et provenance sans altérer les valeurs.</td>
+<td>Clés, types, provenance et valeurs manquantes</td>
 </tr>
 <tr class="odd">
 <td>Potentiel de visualisation</td>
 <td style="text-align: right;">2</td>
-<td>Des résumés par type de programme, faculté ou crédits sont possibles localement.</td>
+<td>Résumés locaux possibles, non publiés comme lignes</td>
 </tr>
 <tr class="even">
 <td>Potentiel de statistique descriptive</td>
 <td style="text-align: right;">2</td>
-<td>Les dénombrements sont pertinents, mais la portée analytique doit rester descriptive.</td>
+<td>Dénombrements utiles mais portée limitée</td>
 </tr>
 <tr class="odd">
 <td>Potentiel d’inférence</td>
 <td style="text-align: right;">1</td>
-<td>Les fichiers sont des listes institutionnelles, pas un échantillon aléatoire.</td>
+<td>Listes institutionnelles, pas un échantillon aléatoire</td>
 </tr>
 <tr class="even">
 <td>Potentiel de modélisation</td>
 <td style="text-align: right;">1</td>
-<td>La modélisation n’est pas l’objectif principal de cette intégration.</td>
+<td>Modélisation non prioritaire</td>
 </tr>
 <tr class="odd">
-<td>Potentiel de discussion éthique</td>
+<td>Potentiel éthique</td>
 <td style="text-align: right;">3</td>
-<td>Les droits, la provenance et le statut non officiel sont centraux.</td>
+<td>Droits, provenance et statut institutionnel</td>
 </tr>
 <tr class="even">
-<td>Réutilisabilité dans plusieurs cours</td>
+<td>Réutilisabilité</td>
 <td style="text-align: right;">1</td>
-<td>La réutilisation publique est limitée par l’absence de licence ouverte explicite.</td>
+<td>Réutilisation publique limitée par les droits</td>
 </tr>
 </tbody>
 </table>
@@ -6067,67 +6275,60 @@ Comment produire une analyse locale sans créer une diffusion publique non autor
 </section>
 <section id="activité-courte" class="level2">
 <h2 class="anchored" data-anchor-id="activité-courte">Activité courte</h2>
-<p>Valider l’intégration locale des fichiers prioritaires : présence des fichiers, nombre de lignes attendu, unicité des clés, champs de provenance et absence de PDF dans le dépôt de plateforme.</p>
+<p>En 30 à 45 minutes, lire les résumés de validation, identifier les clés de chaque fichier core et expliquer pourquoi les champs <code>source_id</code> et <code>page_source</code> doivent rester présents.</p>
 </section>
 <section id="activité-longue" class="level2">
 <h2 class="anchored" data-anchor-id="activité-longue">Activité longue</h2>
-<p>Construire un court rapport Quarto local, non publié, qui résume les programmes et les cours accessibles tout en affichant les limites de droits et de provenance.</p>
-</section>
-<section id="projet-possible" class="level2">
-<h2 class="anchored" data-anchor-id="projet-possible">Projet possible</h2>
-<p>Préparer un protocole de publication responsable : déterminer ce qui peut être affiché publiquement, ce qui doit rester local, et quelles validations doivent être exécutées avant toute mise en ligne.</p>
-</section>
-<section id="questions-pédagogiques-possibles" class="level2">
-<h2 class="anchored" data-anchor-id="questions-pédagogiques-possibles">Questions pédagogiques possibles</h2>
-<ol type="1">
-<li>Pourquoi faut-il garder <code>code_programme</code> et <code>code_cours</code> comme chaînes de caractères?</li>
-<li>Quelle différence y a-t-il entre une source officielle et une compilation indépendante?</li>
-<li>Pourquoi le champ <code>page_source</code> est-il important pour un audit reproductible?</li>
-<li>Pourquoi une valeur manquante en portée 3 ne doit-elle pas être remplacée par zéro?</li>
-<li>Quelles informations peut-on afficher publiquement sans redistribuer les CSV?</li>
-<li>À quoi sert un registre <code>sources.csv</code>?</li>
-<li>Quelle validation détecterait une modification accidentelle des fichiers?</li>
-<li>Quelle information juridique manque avant une republication publique à grande échelle?</li>
-</ol>
+<p>En 2 à 3 heures, produire un rapport méthodologique local qui résume les contrôles, les droits et les limites sans publier les lignes des CSV privés.</p>
 </section>
 <section id="code-r-minimal" class="level2">
 <h2 class="anchored" data-anchor-id="code-r-minimal">Code R minimal</h2>
+<p>À exécuter depuis la racine du projet. Si la source privée est absente, le script produit un résumé public indiquant que la validation locale n’a pas pu être faite.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">&quot;R/utils_ulaval.R&quot;</span>)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Copier les fichiers prioritaires sans les réécrire.</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>copied <span class="ot">&lt;-</span> <span class="fu">import_ulaval_datasets</span>(</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">root =</span> <span class="st">&quot;.&quot;</span>,</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">phases =</span> <span class="st">&quot;core&quot;</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Lire une copie locale ignorée par Git.</span></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>programmes <span class="ot">&lt;-</span> <span class="fu">read_ulaval_csv</span>(</span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;data/processed/ulaval/data/ulaval_programmes_actifs_2026_06.csv&quot;</span></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(programmes)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load libraries</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Optional: point to the private source before running</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Sys.setenv(DONNEES_ULAVAL_SOURCE = &quot;/chemin/local/source-ulaval-privee&quot;)</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">&quot;datasets/ulaval-programmes-cours/preparation.R&quot;</span>)</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>resume <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;data/processed/ulaval-programmes-cours/resume_ulaval_programmes_cours.csv&quot;</span>,</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">show_col_types =</span> <span class="cn">FALSE</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>fichiers <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;data/processed/ulaval-programmes-cours/resume_fichiers_ulaval.csv&quot;</span>,</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>  <span class="at">show_col_types =</span> <span class="cn">FALSE</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>resume <span class="sc">|&gt;</span></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(source_found, validation_status, n_core_expected_rows, n_ges_expected_rows)</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>fichiers <span class="sc">|&gt;</span></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(dataset_id, phase, observed_rows, keys_unique, protected_fields_present)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="limites-et-précautions" class="level2">
 <h2 class="anchored" data-anchor-id="limites-et-précautions">Limites et précautions</h2>
 <ul>
-<li>Les CSV ne sont pas inclus dans le dépôt Données bleues.</li>
+<li>Les CSV privés ne sont pas inclus dans le dépôt Données bleues.</li>
 <li>Les PDF sources ne sont pas redistribués.</li>
-<li>La source canonique demeure le dépôt privé.</li>
+<li>Les résumés publics ne remplacent pas le registre privé des sources.</li>
+<li>La source privée validée localement n’est pas un produit officiel approuvé par l’Université Laval.</li>
 <li>Les valeurs numériques ne doivent pas être modifiées.</li>
-<li>Les champs de provenance doivent rester disponibles.</li>
-<li>Les sorties publiques ne doivent pas laisser croire à une approbation officielle par l’Université Laval.</li>
-<li>La réutilisation publique à grande échelle exige une validation juridique ou institutionnelle. Pour cette autorisation, je ne sais pas.</li>
+<li>Les cellules non quantifiées, notamment en portée 3 GES, ne doivent pas être converties en zéros.</li>
+<li>La réutilisation publique à grande échelle exige une validation institutionnelle ou juridique. Pour cette autorisation, je ne sais pas.</li>
 </ul>
 </section>
-<section id="extensions" class="level2">
-<h2 class="anchored" data-anchor-id="extensions">Extensions</h2>
+<section id="références" class="level2">
+<h2 class="anchored" data-anchor-id="références">Références</h2>
 <ul>
-<li>Extension intro : comparer les dimensions et les clés des trois fichiers prioritaires.</li>
-<li>Extension intermédiaire : produire des tableaux de fréquence localement, sans publier les lignes.</li>
-<li>Extension avancée : intégrer les fichiers GES en conservant <code>note</code> et <code>statut_quantification</code>.</li>
-<li>Extension communication scientifique : rédiger une note méthodologique sur les limites de droits, de provenance et de publication.</li>
+<li>Université Laval, Bureau de la qualité des programmes. Codes de programmes actifs. Document source privé référencé dans le paquet local validé le 2026-06-21.</li>
+<li>Université Laval, Bureau de la qualité des programmes. Nouvelles activités de formation créées en 2024-2025. Document source privé référencé dans le paquet local validé le 2026-06-21.</li>
+<li>Université Laval, Bureau de la qualité des programmes. Cours accessibles aux personnes étudiantes. Document source privé référencé dans le paquet local validé le 2026-06-21.</li>
 </ul>
 </section>
 </div>
