@@ -20,6 +20,41 @@ ul.task-list li input[type="checkbox"] {
 width: 0.8em;
 margin: 0 0.8em 0.2em -1em;  vertical-align: middle;
 }
+
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+{ counter-reset: source-line 0; }
+pre.numberSource code > span
+{ position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+{ content: counter(source-line);
+position: relative; left: -1em; text-align: right; vertical-align: baseline;
+border: none; display: inline-block;
+-webkit-touch-callout: none; -webkit-user-select: none;
+-khtml-user-select: none; -moz-user-select: none;
+-ms-user-select: none; user-select: none;
+padding: 0 4px; width: 4em;
+}
+pre.numberSource { margin-left: 3em; padding-left: 4px; }
+div.sourceCode
+{ }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -5488,10 +5523,14 @@ grid-template-columns: 1fr;
   <li><a href="#objectifs-dapprentissage" id="toc-objectifs-dapprentissage" class="nav-link" data-scroll-target="#objectifs-dapprentissage">Objectifs d’apprentissage</a></li>
   <li><a href="#données-utilisées" id="toc-données-utilisées" class="nav-link" data-scroll-target="#données-utilisées">Données utilisées</a></li>
   <li><a href="#métadonnées-pédagogiques" id="toc-métadonnées-pédagogiques" class="nav-link" data-scroll-target="#métadonnées-pédagogiques">Métadonnées pédagogiques</a></li>
-  <li><a href="#consignes" id="toc-consignes" class="nav-link" data-scroll-target="#consignes">Consignes</a></li>
-  <li><a href="#questions" id="toc-questions" class="nav-link" data-scroll-target="#questions">Questions</a></li>
+  <li><a href="#mandat" id="toc-mandat" class="nav-link" data-scroll-target="#mandat">Mandat</a></li>
+  <li><a href="#étapes-recommandées" id="toc-étapes-recommandées" class="nav-link" data-scroll-target="#étapes-recommandées">Étapes recommandées</a></li>
+  <li><a href="#code-de-départ" id="toc-code-de-départ" class="nav-link" data-scroll-target="#code-de-départ">Code de départ</a></li>
+  <li><a href="#visualisation-suggérée" id="toc-visualisation-suggérée" class="nav-link" data-scroll-target="#visualisation-suggérée">Visualisation suggérée</a></li>
+  <li><a href="#questions-à-traiter" id="toc-questions-à-traiter" class="nav-link" data-scroll-target="#questions-à-traiter">Questions à traiter</a></li>
+  <li><a href="#critères-de-réussite" id="toc-critères-de-réussite" class="nav-link" data-scroll-target="#critères-de-réussite">Critères de réussite</a></li>
   <li><a href="#pistes-de-solution" id="toc-pistes-de-solution" class="nav-link" data-scroll-target="#pistes-de-solution">Pistes de solution</a></li>
-  <li><a href="#prolongement" id="toc-prolongement" class="nav-link" data-scroll-target="#prolongement">Prolongement</a></li>
+  <li><a href="#prolongements" id="toc-prolongements" class="nav-link" data-scroll-target="#prolongements">Prolongements</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -5522,21 +5561,25 @@ grid-template-columns: 1fr;
 <h1>Mini-rapport sur les niveaux d’eau d’inondation</h1>
 <section id="contexte" class="level2">
 <h2 class="anchored" data-anchor-id="contexte">Contexte</h2>
-<p>Cette activité transforme un jeu spatial de sécurité civile en rapport descriptif reproductible.</p>
+<p>Cette activité transforme des observations ponctuelles de sécurité civile en rapport descriptif reproductible. Elle met l’accent sur la prudence : une carte de marqueurs de niveau d’eau n’est pas une carte d’étendue inondée.</p>
 </section>
 <section id="objectifs-dapprentissage" class="level2">
 <h2 class="anchored" data-anchor-id="objectifs-dapprentissage">Objectifs d’apprentissage</h2>
 <ul>
-<li>Nettoyer les dates et coordonnées</li>
-<li>Résumer les observations</li>
-<li>Communiquer les limites</li>
+<li>Préparer une ressource CSV officielle</li>
+<li>Produire un résumé par année et type d’observation</li>
+<li>Décrire les valeurs manquantes</li>
+<li>Cartographier des observations ponctuelles</li>
+<li>Interpréter la précision horizontale et verticale</li>
+<li>Rédiger une note de communication du risque</li>
 </ul>
 </section>
 <section id="données-utilisées" class="level2">
 <h2 class="anchored" data-anchor-id="données-utilisées">Données utilisées</h2>
 <p>Fiche : <a href="../../datasets/niveaux-eau-inondation/fiche.html">Niveaux d’eau lors d’une inondation</a></p>
 <p>Source : Données Québec / Ministère de la Sécurité intérieure.</p>
-<p>Licence : Attribution (CC-BY 4.0).</p>
+<p>Licence : Attribution (CC-BY 4.0), selon les métadonnées CKAN consultées le 2026-06-21.</p>
+<p>Fichier préparé : <code>data/processed/niveaux-eau-inondation/niveaux_eau_inondation.csv</code></p>
 </section>
 <section id="métadonnées-pédagogiques" class="level2">
 <h2 class="anchored" data-anchor-id="métadonnées-pédagogiques">Métadonnées pédagogiques</h2>
@@ -5554,11 +5597,11 @@ grid-template-columns: 1fr;
 <tbody>
 <tr class="odd">
 <td>Question directrice</td>
-<td>Comment résumer des observations spatiales d’inondation sans surinterpréter?</td>
+<td>Comment résumer des observations ponctuelles d’inondation sans surinterpréter la carte?</td>
 </tr>
 <tr class="even">
 <td>Concepts</td>
-<td>Données spatiales; Visualisation; Communication</td>
+<td>Données spatiales; Valeurs manquantes; Précision de mesure; Communication du risque</td>
 </tr>
 <tr class="odd">
 <td>Niveau</td>
@@ -5574,7 +5617,7 @@ grid-template-columns: 1fr;
 </tr>
 <tr class="even">
 <td>Accroche</td>
-<td>Risque hydrologique local</td>
+<td>Les points sont précis, mais leur interprétation demande du contexte</td>
 </tr>
 <tr class="odd">
 <td>Durée</td>
@@ -5582,7 +5625,7 @@ grid-template-columns: 1fr;
 </tr>
 <tr class="even">
 <td>Matériel</td>
-<td>énoncé; code; données; notes enseignantes</td>
+<td>énoncé; code; table préparée; notes enseignantes</td>
 </tr>
 <tr class="odd">
 <td>Math/stats avancées</td>
@@ -5591,31 +5634,140 @@ grid-template-columns: 1fr;
 </tbody>
 </table>
 </section>
-<section id="consignes" class="level2">
-<h2 class="anchored" data-anchor-id="consignes">Consignes</h2>
+<section id="mandat" class="level2">
+<h2 class="anchored" data-anchor-id="mandat">Mandat</h2>
+<p>Produire un court rapport de 2 à 4 pages qui décrit les observations de niveaux d’eau lors d’inondations. Le rapport doit contenir :</p>
 <ol type="1">
-<li>Importer la ressource</li>
-<li>Nettoyer dates et coordonnées</li>
-<li>Résumer les observations par région ou producteur</li>
-<li>Créer une carte</li>
-<li>Rédiger une note de synthèse</li>
+<li>une définition de l’unité statistique;</li>
+<li>un tableau par année;</li>
+<li>un tableau par type <code>MAX</code> et <code>ACT</code>;</li>
+<li>une carte;</li>
+<li>une section sur les valeurs manquantes;</li>
+<li>une section sur la précision de mesure;</li>
+<li>une conclusion de communication du risque.</li>
 </ol>
 </section>
-<section id="questions" class="level2">
-<h2 class="anchored" data-anchor-id="questions">Questions</h2>
+<section id="étapes-recommandées" class="level2">
+<h2 class="anchored" data-anchor-id="étapes-recommandées">Étapes recommandées</h2>
+<ol type="1">
+<li>Exécuter <code>datasets/niveaux-eau-inondation/preparation.R</code>.</li>
+<li>Importer la table préparée.</li>
+<li>Importer les résumés préparés si utile.</li>
+<li>Décrire la période couverte.</li>
+<li>Comparer <code>MAX</code> et <code>ACT</code>.</li>
+<li>Produire une carte des points.</li>
+<li>Rédiger les limites avant la conclusion.</li>
+</ol>
+</section>
+<section id="code-de-départ" class="level2">
+<h2 class="anchored" data-anchor-id="code-de-départ">Code de départ</h2>
+<p>À exécuter depuis la racine du projet.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load libraries</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Prepare official CSV</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">&quot;datasets/niveaux-eau-inondation/preparation.R&quot;</span>)</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Import prepared files</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>niveaux <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;data/processed/niveaux-eau-inondation/niveaux_eau_inondation.csv&quot;</span>,</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">show_col_types =</span> <span class="cn">FALSE</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>valeurs_manquantes <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;data/processed/niveaux-eau-inondation/valeurs_manquantes_niveaux_eau_inondation.csv&quot;</span>,</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>  <span class="at">show_col_types =</span> <span class="cn">FALSE</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>resume_annee <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;data/processed/niveaux-eau-inondation/resume_annee_niveaux_eau_inondation.csv&quot;</span>,</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>  <span class="at">show_col_types =</span> <span class="cn">FALSE</span></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>resume_type <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(</span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;data/processed/niveaux-eau-inondation/resume_type_niveaux_eau_inondation.csv&quot;</span>,</span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>  <span class="at">show_col_types =</span> <span class="cn">FALSE</span></span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a><span class="co"># Basic checks</span></span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>niveaux <span class="sc">|&gt;</span></span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>    <span class="at">lignes =</span> <span class="fu">n</span>(),</span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>    <span class="at">premiere_date =</span> <span class="fu">min</span>(date_obs),</span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>    <span class="at">derniere_date =</span> <span class="fu">max</span>(date_obs),</span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>    <span class="at">altitude_min =</span> <span class="fu">min</span>(alt_m_cgvd),</span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>    <span class="at">altitude_max =</span> <span class="fu">max</span>(alt_m_cgvd)</span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a><span class="co"># Observation types</span></span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a>resume_type</span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a><span class="co"># Missing values</span></span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a>valeurs_manquantes <span class="sc">|&gt;</span></span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(n_missing <span class="sc">&gt;</span> <span class="dv">0</span>) <span class="sc">|&gt;</span></span>
+<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(n_missing))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="visualisation-suggérée" class="level2">
+<h2 class="anchored" data-anchor-id="visualisation-suggérée">Visualisation suggérée</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(niveaux, <span class="fu">aes</span>(<span class="at">x =</span> long_wgs84, <span class="at">y =</span> lat_wgs84, <span class="at">color =</span> type_obs)) <span class="sc">+</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.65</span>, <span class="at">size =</span> <span class="fl">1.2</span>) <span class="sc">+</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_quickmap</span>() <span class="sc">+</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> annee_obs) <span class="sc">+</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">&quot;Longitude&quot;</span>,</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">&quot;Latitude&quot;</span>,</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">color =</span> <span class="st">&quot;Type&quot;</span>,</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">&quot;Marqueurs de niveaux d&#39;eau par année d&#39;observation&quot;</span>,</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="st">&quot;Les facettes ne doivent pas être interprétées comme une fréquence annuelle des inondations&quot;</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="questions-à-traiter" class="level2">
+<h2 class="anchored" data-anchor-id="questions-à-traiter">Questions à traiter</h2>
 <ol type="1">
 <li>Quelle est l’unité statistique?</li>
-<li>Quelles observations semblent atypiques?</li>
-<li>Quelles conclusions seraient trop fortes?</li>
+<li>Quelle période est couverte?</li>
+<li>Quelle proportion des observations est de type <code>MAX</code>?</li>
+<li>Quelles variables contiennent le plus de valeurs manquantes?</li>
+<li>Quelles informations décrivent la précision de mesure?</li>
+<li>Quelles conclusions seraient trop fortes avec ces données?</li>
 </ol>
+</section>
+<section id="critères-de-réussite" class="level2">
+<h2 class="anchored" data-anchor-id="critères-de-réussite">Critères de réussite</h2>
+<p>Un bon rapport :</p>
+<ul>
+<li>définit clairement un marqueur ponctuel;</li>
+<li>ne confond pas un point avec une zone inondée;</li>
+<li>distingue <code>MAX</code> et <code>ACT</code>;</li>
+<li>présente une carte lisible;</li>
+<li>documente les valeurs manquantes;</li>
+<li>mentionne la précision horizontale et verticale;</li>
+<li>cite la source et la licence;</li>
+<li>formule une conclusion prudente.</li>
+</ul>
 </section>
 <section id="pistes-de-solution" class="level2">
 <h2 class="anchored" data-anchor-id="pistes-de-solution">Pistes de solution</h2>
-<p>Un bon rapport sépare les résultats descriptifs, la carte et les limites de collecte.</p>
+<p>Une conclusion prudente peut prendre cette forme :</p>
+<blockquote class="blockquote">
+<p>Les données localisent des marqueurs de niveaux d’eau documentés lors d’inondations depuis 2017. Elles permettent de cartographier les observations et de comparer les types <code>MAX</code> et <code>ACT</code>, mais elles ne mesurent pas l’étendue complète des inondations ni la fréquence annuelle des événements.</p>
+</blockquote>
 </section>
-<section id="prolongement" class="level2">
-<h2 class="anchored" data-anchor-id="prolongement">Prolongement</h2>
-<p>Joindre les points à une couche de régions administratives.</p>
+<section id="prolongements" class="level2">
+<h2 class="anchored" data-anchor-id="prolongements">Prolongements</h2>
+<ul>
+<li>Lire le GeoJSON officiel avec <code>sf</code>.</li>
+<li>Joindre les points à des bassins versants.</li>
+<li>Comparer les altitudes par type d’observation.</li>
+<li>Produire une carte interactive avec les liens de rapport.</li>
+<li>Rédiger une note destinée au public sur les limites d’une carte de points.</li>
+</ul>
 
 
 </section>

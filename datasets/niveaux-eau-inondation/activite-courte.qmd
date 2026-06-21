@@ -1,19 +1,21 @@
 ---
-title: "Cartographier des repères de crue"
+title: "Cartographier des marqueurs de niveaux d'eau"
 embed-resources: true
 ---
 
-# Cartographier des repères de crue
+# Cartographier des marqueurs de niveaux d'eau
 
 ## Contexte
 
-Cette activité utilise les repères de crue pour introduire la lecture d'un jeu spatial public.
+Cette activité utilise des observations ponctuelles de niveaux d'eau documentées lors d'inondations au Québec. Le but est de produire une carte simple, mais surtout d'apprendre à ne pas surinterpréter une carte de points.
 
 ## Objectifs d'apprentissage
 
-- Importer un fichier spatial ou tabulaire
-- Identifier les variables de localisation
-- Produire une carte simple
+- Préparer une ressource CSV officielle
+- Identifier une unité statistique
+- Distinguer les types `MAX` et `ACT`
+- Cartographier des coordonnées WGS84
+- Écrire des limites d'interprétation
 
 ## Données utilisées
 
@@ -21,40 +23,91 @@ Fiche : [Niveaux d'eau lors d'une inondation](fiche.qmd)
 
 Source : Données Québec / Ministère de la Sécurité intérieure.
 
-Licence : Attribution (CC-BY 4.0).
+Licence : Attribution (CC-BY 4.0), selon les métadonnées CKAN consultées le 2026-06-21.
+
+Fichier préparé : `data/processed/niveaux-eau-inondation/niveaux_eau_inondation.csv`
 
 ## Métadonnées pédagogiques
 
 | Champ | Information |
 |---|---|
-| Question directrice | Où se situent les observations de niveaux d'eau disponibles? |
-| Concepts | Données spatiales; Carte; Statistique descriptive |
+| Question directrice | Où se situent les marqueurs ponctuels de niveaux d'eau documentés lors d'inondations? |
+| Concepts | Données spatiales; Carte; Précision de mesure; Communication du risque |
 | Niveau | Introductif |
 | Type | Exercice; Exploration de données |
 | Contexte | Inondations et sécurité civile |
-| Accroche | Événement d'inondation |
+| Accroche | Une carte de points ne montre pas une zone inondée |
 | Durée | 30-45 minutes |
-| Matériel | énoncé; code; données |
+| Matériel | énoncé; code; table préparée |
 | Math/stats avancées | non |
 
 ## Consignes
 
-1. Ouvrir la page source officielle
-2. Choisir le format CSV ou GeoJSON
-3. Identifier les colonnes de latitude et longitude
-4. Tracer les points sur une carte
-5. Écrire deux limites d'interprétation
+1. Exécuter `datasets/niveaux-eau-inondation/preparation.R`.
+2. Importer la table préparée.
+3. Compter les observations `MAX` et `ACT`.
+4. Vérifier que les coordonnées sont complètes.
+5. Produire une carte des points colorés par `type_obs`.
+6. Écrire une phrase qui définit ce qu'un point représente.
+7. Écrire deux limites d'interprétation.
+
+## Code de départ
+
+À exécuter depuis la racine du projet.
+
+```{r}
+#| eval: false
+# Load libraries
+library(dplyr)
+library(ggplot2)
+library(readr)
+
+# Prepare official CSV
+source("datasets/niveaux-eau-inondation/preparation.R")
+
+# Import prepared data
+niveaux <- read_csv(
+  "data/processed/niveaux-eau-inondation/niveaux_eau_inondation.csv",
+  show_col_types = FALSE
+)
+
+# Understand observation types
+niveaux |>
+  count(type_obs, type_observation, sort = TRUE)
+
+# Check coordinates
+niveaux |>
+  summarise(
+    lignes = n(),
+    coordonnees_completes = sum(has_coordinates)
+  )
+
+# Map observations
+ggplot(niveaux, aes(x = long_wgs84, y = lat_wgs84, color = type_obs)) +
+  geom_point(alpha = 0.65, size = 1.2) +
+  coord_quickmap() +
+  labs(
+    x = "Longitude",
+    y = "Latitude",
+    color = "Type",
+    title = "Marqueurs de niveaux d'eau lors d'inondations",
+    subtitle = "Un point représente un marqueur, pas une zone inondée"
+  )
+```
 
 ## Questions
 
-1. Les points couvrent-ils tout le Québec?
-2. Quelles colonnes décrivent l'incertitude de mesure?
-3. Pourquoi une carte peut-elle être trompeuse sans contexte?
+1. Combien d'observations contient la table préparée?
+2. Combien sont de type `MAX`?
+3. Combien sont de type `ACT`?
+4. Que représente une ligne?
+5. Pourquoi la carte ne montre-t-elle pas l'étendue d'une inondation?
+6. Quelle information de précision accompagne les coordonnées?
 
 ## Pistes de solution
 
-Une solution acceptable montre une carte lisible, identifie les variables de localisation et mentionne les limites de précision.
+Une solution acceptable présente une carte et indique explicitement qu'un point représente un marqueur ponctuel de niveau d'eau. Une bonne solution ajoute que les points ne constituent pas un échantillon de toutes les inondations et ne délimitent pas les zones inondées.
 
 ## Prolongement
 
-Ajouter une couleur selon le type d'observation.
+Filtrer une seule année, refaire la carte et comparer visuellement la concentration des observations.

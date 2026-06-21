@@ -18,117 +18,219 @@ render_dataset_detail_header()
 
 ## Pourquoi ce jeu est intéressant
 
-Ce jeu permet d'aborder les inondations à partir de repères de niveau d'eau géolocalisés. Il est utile pour introduire les données spatiales, la visualisation d'événements extrêmes, les limites de mesure et la communication des risques.
+Ce jeu est très fort pour enseigner la cartographie responsable. Les points sont concrets, liés à des inondations réelles, mais ils ne représentent pas une zone inondée complète. Une bonne analyse doit donc distinguer un marqueur ponctuel, un événement, un niveau maximal atteint et une observation faite lors d'une visite.
 
-## Source
+Il permet aussi d'introduire des notions rarement visibles dans les jeux d'introduction : précision horizontale, précision verticale, altitude mesurée, provenance, valeurs manquantes et communication du risque.
+
+## Ce qui a été vérifié
+
+| Élément | Résultat vérifié |
+|---|---|
+| Paquet CKAN | `1935bceb-4045-436e-9c1b-3997b55752a8` |
+| Source officielle | Données Québec / Ministère de la Sécurité intérieure |
+| Ressources dans le paquet | 7 ressources |
+| Formats documentés | HTML, CSV, SHP, GeoJSON, WMS et WFS |
+| Ressource préparée ici | CSV produit par le service WFS |
+| Version dans le CSV | 2026-05-12 |
+| Licence | Attribution (CC-BY 4.0), selon les métadonnées CKAN consultées le 2026-06-21 |
+| Dernière modification du paquet CKAN | 2026-06-03 |
+| Table préparée | `data/processed/niveaux-eau-inondation/niveaux_eau_inondation.csv` |
+| Résumés préparés | valeurs manquantes, années, types d'observation |
+
+## Source et conditions
 
 | Champ | Information |
 |---|---|
-| Source | Données Québec / Ministère de la Sécurité intérieure |
-| Organisme producteur | Ministère de la Sécurité intérieure |
-| Territoire | Québec |
-| URL officielle | <https://www.donneesquebec.ca/recherche/dataset/niveaux-deau-inondation-msp> |
-| Licence | Attribution (CC-BY 4.0) |
-| Date d'accès | 2026-06-19 |
-| Fréquence de mise à jour | Selon les mises à jour du ministère; métadonnées modifiées en 2026 |
-| Statut | source vérifiée |
+| Page Données Québec | <https://www.donneesquebec.ca/recherche/dataset/niveaux-deau-inondation-msp> |
+| API CKAN | <https://www.donneesquebec.ca/recherche/api/3/action/package_show?id=niveaux-deau-inondation-msp> |
+| CSV WFS | <https://geoegl.msp.gouv.qc.ca/apis/wss/historiquesc.fcgi?service=wfs&version=1.1.0&request=getfeature&typename=MSP_DELAISS_CRUE_PUBLIC_P&outputformat=csv> |
+| Miroir ouvert.canada.ca | <https://open.canada.ca/data/fr/dataset/1935bceb-4045-436e-9c1b-3997b55752a8> |
+| Territoire | Québec méridional |
+| Date d'accès | 2026-06-21 |
+| Fréquence | Annuelle selon le miroir ouvert.canada.ca |
+| Redistribution pédagogique | Possible sous réserve du respect de la licence Attribution (CC-BY 4.0) |
 
 ## Ce que représente une ligne
 
-Une ligne représente un repère ou une observation de niveau d'eau associée à un événement d'inondation, avec date, position et altitude lorsque ces champs sont disponibles.
+Une ligne représente un marqueur ponctuel de niveau d'eau observé lors d'un événement d'inondation. Une ligne n'est pas une maison touchée, une municipalité touchée, une zone inondée ni une mesure continue du niveau d'eau.
+
+Le jeu distingue deux types d'observation.
+
+| Code | Interprétation pédagogique | Lignes |
+|---|---|---:|
+| `MAX` | Niveau maximal atteint lors de l'inondation | 1 195 |
+| `ACT` | Niveau observé lors de la visite sur le terrain | 305 |
+
+La source explique que les niveaux maximaux peuvent être indiqués par des délaissés de crue, c'est-à-dire des traces ou matières déposées au début de la décrue. Les marqueurs sont ensuite localisés et altimétrés sur le terrain.
 
 ## Variables principales
 
-Les noms ci-dessous sont des noms propres proposés pour l'enseignement. Les noms exacts des champs sources doivent être conservés dans le script de préparation.
-
-| Variable proposée | Rôle pédagogique | Remarque |
+| Variable préparée | Rôle | Point de vigilance |
 |---|---|---|
-| `rapport` | Identifiant ou référence de rapport | Champ source observé dans le CSV |
-| `date_obs` | Date d'observation | Base pour filtrer les événements |
-| `heure_obs` | Heure d'observation | Utile pour documenter la mesure |
-| `type_obs` | Type d'observation | Variable catégorielle à recoder au besoin |
-| `long_wgs84` | Longitude | Coordonnée WGS84 |
-| `lat_wgs84` | Latitude | Coordonnée WGS84 |
-| `alt_m_cgvd` | Altitude du repère | Variable quantitative principale |
-| `producteur` | Producteur de l'information | Métadonnée de provenance |
+| `id_msp` | Identifiant de l'observation | Identifiant de marqueur, pas identifiant d'événement |
+| `rapport_code` | Code de rapport extrait du lien source | 36 valeurs manquantes |
+| `rapport_url` | URL du rapport lorsque disponible | 36 valeurs manquantes |
+| `date_obs`, `heure_obs` | Date et heure d'observation | `heure_obs` manque pour 59 lignes |
+| `annee_obs` | Année extraite de `date_obs` | Utile pour les résumés |
+| `type_obs` | Code `MAX` ou `ACT` | Variable clé pour l'interprétation |
+| `long_wgs84`, `lat_wgs84` | Coordonnées WGS84 | Toutes les lignes préparées ont des coordonnées |
+| `err_xy_cm` | Erreur horizontale en centimètres | Médiane de 2,2 cm |
+| `alt_m_cgvd` | Altitude mesurée en mètres | Variable quantitative principale |
+| `err_z_cm` | Erreur verticale en centimètres | Médiane de 2,5 cm |
+| `producteur` | Provenance de l'information | Une seule valeur dans la version préparée |
 
-## Taille et structure
+## Taille et résultats R vérifiés
 
-| Élément | Information |
-|---|---|
-| Nombre de lignes | Nombre de lignes à confirmer dans la ressource WFS; jeu public depuis 2017 |
-| Nombre de colonnes | 17 champs observés dans l'export CSV consulté le 2026-06-19 |
-| Structure | Tabulaire, spatial, événementiel |
-| Format | CSV, GeoJSON, SHP, WMS et WFS |
-| Niveau pédagogique recommandé | Introduction à intermédiaire |
+| Indicateur | Valeur |
+|---|---:|
+| Observations préparées | 1 500 |
+| Colonnes préparées | 27 |
+| Colonnes dans le CSV source | 17 |
+| Première date d'observation | 2017-04-30 |
+| Dernière date d'observation | 2025-07-14 |
+| Rapports distincts non manquants | 70 |
+| Observations avec coordonnées | 1 500 |
+| Observations avec altitude | 1 500 |
+| Altitude minimale | 2,73 m |
+| Altitude maximale | 430,29 m |
+| Erreur horizontale médiane | 2,2 cm |
+| Erreur verticale médiane | 2,5 cm |
+
+## Observations par année
+
+| Année | Observations |
+|---|---:|
+| 2017 | 360 |
+| 2018 | 110 |
+| 2019 | 485 |
+| 2020 | 79 |
+| 2021 | 24 |
+| 2023 | 279 |
+| 2024 | 101 |
+| 2025 | 62 |
+
+L'absence d'observations pour une année ne doit pas être interprétée comme absence d'inondation. Elle peut refléter le périmètre de collecte, les événements documentés et les mises à jour de la source.
+
+## Valeurs manquantes
+
+| Variable | Valeurs manquantes | Pourcentage |
+|---|---:|---:|
+| `marq_sol` | 607 | 40,47 % |
+| `prec_marq` | 601 | 40,07 % |
+| `glace_chen` | 482 | 32,13 % |
+| `heure_obs` | 59 | 3,93 % |
+| `nom_mandataire` | 36 | 2,40 % |
+| `rapport_code` | 36 | 2,40 % |
+| `rapport_url` | 36 | 2,40 % |
+
+Les variables essentielles à une première carte, soit longitude, latitude, altitude, type d'observation et date, sont complètes dans la version préparée.
+
+## Lecture statistique
+
+Le jeu est descriptif et spatial. Une analyse correcte commence par une question limitée :
+
+1. choisir une période ou un événement;
+2. distinguer `MAX` et `ACT`;
+3. cartographier les points comme des marqueurs;
+4. tenir compte des erreurs horizontales et verticales;
+5. éviter de présenter les points comme une délimitation de zone inondée.
+
+Les résultats sont utiles pour explorer où des niveaux d'eau ont été documentés. Ils ne suffisent pas à estimer la fréquence des inondations, la population exposée ou les dommages.
 
 ## Concepts enseignables
 
-- eau
-- inondation
-- sécurité civile
-- spatial
-- visualisation
-- données ouvertes
-- Québec
-- statistiques descriptives
+- données spatiales ponctuelles;
+- événement extrême;
+- précision de mesure;
+- valeurs manquantes;
+- variable catégorielle;
+- altitude et unités;
+- cartographie exploratoire;
+- communication responsable du risque.
 
 ## Score zéro déchet
 
-| Dimension | Score |
-|---|---:|
-| Contexte québécois | 3 |
-| Accessibilité pédagogique | 2 |
-| Qualité documentaire | 3 |
-| Potentiel de nettoyage | 2 |
-| Potentiel de visualisation | 3 |
-| Potentiel de statistique descriptive | 2 |
-| Potentiel d'inférence | 1 |
-| Potentiel de modélisation | 2 |
-| Potentiel de discussion éthique | 3 |
-| Réutilisabilité dans plusieurs cours | 3 |
+| Dimension | Score | Justification |
+|---|---:|---|
+| Contexte québécois | 3 | Données officielles sur des inondations au Québec |
+| Accessibilité pédagogique | 3 | Points, dates, coordonnées et types faciles à comprendre |
+| Qualité documentaire | 3 | Métadonnées CKAN, WFS, CSV, GeoJSON et page interactive |
+| Potentiel de nettoyage | 3 | Extraction de rapports, dates, valeurs manquantes et précision |
+| Potentiel de visualisation | 3 | Cartographie naturelle des observations |
+| Potentiel de statistique descriptive | 2 | Comptages et résumés utiles, mais pas une enquête probabiliste |
+| Potentiel d'inférence | 1 | Non adapté à l'inférence sans protocole complémentaire |
+| Potentiel de modélisation | 2 | Possible après ajout de couches hydrologiques ou territoriales |
+| Potentiel éthique | 3 | Risque élevé de surinterprétation en sécurité civile |
+| Réutilisabilité | 3 | Pertinent avec hydrographie, inondations, cartographie et communication |
 
-Total : 24 sur 30.
+Total : 26 sur 30.
 
 ## Activité courte
 
-En 30 à 45 minutes, demander aux personnes étudiantes de télécharger l'export CSV ou GeoJSON, de filtrer quelques observations et de produire une carte simple.
+En 30 à 45 minutes, cartographier les marqueurs, colorer par type d'observation et écrire deux limites d'interprétation.
 
 ## Activité longue
 
-En 2 à 3 heures, demander de produire une carte, un résumé tabulaire et une courte note sur les limites des observations.
-
-## Projets possibles
-
-- Cartographier les observations par événement ou par région.
-- Comparer la distribution des altitudes observées selon le type d'observation.
-- Construire une carte interactive des repères de crue et discuter des limites de mesure.
+En 2 à 3 heures, produire un mini-rapport avec carte, tableau par année, comparaison `MAX`/`ACT`, valeurs manquantes et note de communication du risque.
 
 ## Code R minimal
 
+À exécuter depuis la racine du projet.
+
 ```{r}
 #| eval: false
+# Load libraries
 library(dplyr)
+library(ggplot2)
 library(readr)
 
-source_url <- "https://www.donneesquebec.ca/recherche/dataset/niveaux-deau-inondation-msp"
+# Prepare official CSV resource
+source("datasets/niveaux-eau-inondation/preparation.R")
 
-# Télécharger la ressource appropriée depuis la page officielle,
-# puis documenter le fichier brut dans data/raw/ avant toute transformation.
-source_url
+# Import prepared data
+niveaux <- read_csv(
+  "data/processed/niveaux-eau-inondation/niveaux_eau_inondation.csv",
+  show_col_types = FALSE
+)
+
+# Count observation types
+niveaux |>
+  count(type_obs, type_observation, sort = TRUE)
+
+# Map points
+ggplot(niveaux, aes(x = long_wgs84, y = lat_wgs84, color = type_obs)) +
+  geom_point(alpha = 0.65, size = 1.2) +
+  coord_quickmap() +
+  labs(
+    x = "Longitude",
+    y = "Latitude",
+    color = "Type",
+    title = "Marqueurs ponctuels de niveaux d'eau lors d'inondations",
+    subtitle = "Les points ne représentent pas l'étendue des zones inondées"
+  )
 ```
 
 ## Limites et précautions
 
-- Les observations ne décrivent pas toute l'étendue d'une inondation.
-- La précision horizontale et verticale doit être prise en compte avant toute carte détaillée.
-- Les comparaisons entre événements exigent de vérifier les méthodes de collecte.
+- Les points ne délimitent pas les zones inondées.
+- Les observations documentées ne forment pas un échantillon probabiliste de toutes les inondations.
+- Les années avec peu ou pas de points ne doivent pas être interprétées seules.
+- Les comparaisons entre événements exigent de vérifier les rapports et les méthodes de collecte.
+- Toute communication publique doit distinguer observation ponctuelle, niveau maximal, niveau observé et risque territorial.
 
 ## Extensions
 
-- Associer les repères à des bassins versants ou à des municipalités.
-- Comparer les formats CSV et GeoJSON dans un même exercice.
-- Produire une note de communication des risques avec carte et incertitudes.
+- Lire le GeoJSON officiel avec `sf`.
+- Joindre les points à des régions administratives ou à des bassins versants.
+- Comparer les observations `MAX` et `ACT` par année.
+- Construire une carte interactive avec une fenêtre de contexte par rapport.
+- Rédiger une note de vulgarisation sur les limites d'une carte de points en sécurité civile.
+
+## Références utilisées
+
+- Données Québec. 2026. Niveaux d'eau lors d'une inondation depuis 2017. <https://www.donneesquebec.ca/recherche/dataset/niveaux-deau-inondation-msp>
+- Ministère de la Sécurité intérieure. 2026. Service WFS des niveaux d'eau lors d'une inondation. <https://geoegl.msp.gouv.qc.ca/apis/wss/historiquesc.fcgi?service=wfs&version=1.1.0&request=getfeature&typename=MSP_DELAISS_CRUE_PUBLIC_P&outputformat=csv>
+- Gouvernement du Canada. 2026. Niveaux d'eau lors d'une inondation, miroir ouvert.canada.ca. <https://open.canada.ca/data/fr/dataset/1935bceb-4045-436e-9c1b-3997b55752a8>
 
 ```{r}
 #| label: dataset-detail-footer
@@ -136,4 +238,3 @@ source_url
 #| results: asis
 render_dataset_detail_footer()
 ```
-

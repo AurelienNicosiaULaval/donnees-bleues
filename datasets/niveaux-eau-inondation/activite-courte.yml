@@ -1,6 +1,6 @@
 id: "niveaux-eau-carte-court"
-title: "Cartographier des repères de crue"
-question: "Où se situent les observations de niveaux d'eau disponibles?"
+title: "Cartographier des marqueurs de niveaux d'eau"
+question: "Où se situent les marqueurs ponctuels de niveaux d'eau documentés lors d'inondations?"
 dataset_id: "niveaux-eau-inondation"
 dataset_title: "Niveaux d'eau lors d'une inondation"
 activity_url: "datasets/niveaux-eau-inondation/activite-courte.qmd"
@@ -12,13 +12,14 @@ activity_type:
 concepts:
   - "Données spatiales"
   - "Carte"
-  - "Statistique descriptive"
+  - "Précision de mesure"
+  - "Communication du risque"
 context: "Inondations et sécurité civile"
-hook: "Événement d'inondation"
+hook: "Une carte de points ne montre pas une zone inondée"
 materials:
   - "énoncé"
   - "code"
-  - "données"
+  - "table préparée"
 advanced_math_stats: false
-teacher_notes: "Insister sur les limites de précision des coordonnées."
-status: "prêt"
+teacher_notes: "Faire écrire explicitement qu'un point représente un marqueur de niveau d'eau, pas une zone inondée."
+status: "source officielle vérifiée"

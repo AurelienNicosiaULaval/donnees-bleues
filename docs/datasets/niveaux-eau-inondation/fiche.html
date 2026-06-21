@@ -5547,8 +5547,11 @@ Niveaux d&#39;eau lors d&#39;une inondation
 <p class="dataset-hero-source">
 Données Québec / Ministère de la Sécurité intérieure
 </p>
+<div class="dataset-contributor-badge">
+<span>Personne à contacter</span><strong>Aurélien Nicosia</strong><small>Révision pédagogique et statistique</small>
+</div>
 <p class="dataset-hero-summary">
-Observation de niveau d&#39;eau lors d&#39;un événement d&#39;inondation
+Marqueur ponctuel de niveau d&#39;eau observé lors d&#39;un événement d&#39;inondation
 </p>
 <div class="dataset-hero-actions">
 <a class="dataset-button no-external" href="#r-en-action">Voir les résultats R</a><a class="dataset-button secondary" href="https://www.donneesquebec.ca/recherche/dataset/niveaux-deau-inondation-msp">Source officielle</a>
@@ -5560,34 +5563,34 @@ Observation de niveau d&#39;eau lors d&#39;un événement d&#39;inondation
 </div>
 <div class="dataset-overview-grid">
 <div class="dataset-fact">
-<span>Territoire</span><strong>Québec</strong>
+<span>Territoire</span><strong>Québec méridional</strong>
 </div>
 <div class="dataset-fact">
 <span>Niveau</span><strong>Introduction à intermédiaire</strong>
 </div>
 <div class="dataset-fact">
-<span>Structure</span><strong>Tabulaire, spatial, événementiel</strong>
+<span>Structure</span><strong>Données ponctuelles, spatiales, événementielles et de sécurité civile</strong>
 </div>
 <div class="dataset-fact">
-<span>Format</span><strong>CSV, GeoJSON, SHP, WMS et WFS</strong>
+<span>Format</span><strong>CSV officiel préparé localement; GeoJSON, SHP, WMS et WFS disponibles</strong>
 </div>
 </div>
 <div class="dataset-pedagogy-band">
 <div class="dataset-pedagogy-main">
 <span>Question de départ</span>
 <p>
-Cartographier les observations par événement ou par région.
+Cartographier les marqueurs de niveau d&#39;eau sans les confondre avec l&#39;étendue inondée.
 </p>
 </div>
 <div class="dataset-score-box">
-<span>Potentiel pédagogique</span><strong>24 / 30</strong>
+<span>Potentiel pédagogique</span><strong>26 / 30</strong>
 <div class="dataset-score-track">
-<span class="dataset-score-segment is-filled"></span><span class="dataset-score-segment is-filled"></span><span class="dataset-score-segment is-filled"></span><span class="dataset-score-segment is-filled"></span><span class="dataset-score-segment"></span>
+<span class="dataset-score-segment is-filled"></span><span class="dataset-score-segment is-filled"></span><span class="dataset-score-segment is-filled"></span><span class="dataset-score-segment is-filled"></span><span class="dataset-score-segment is-filled"></span>
 </div>
 </div>
 </div>
 <div class="dataset-chip-strip">
-<span>eau</span><span>inondation</span><span>sécurité civile</span><span>spatial</span><span>visualisation</span><span>données ouvertes</span><span>Québec</span>
+<span>données spatiales</span><span>événement extrême</span><span>valeurs manquantes</span><span>précision de mesure</span><span>statistiques descriptives</span><span>cartographie</span><span>communication du risque</span>
 </div>
 <section class="dataset-r-lab" id="r-en-action">
 <div class="dataset-section-heading">
@@ -5596,7 +5599,7 @@ Cartographier les observations par événement ou par région.
 Aperçu reproductible
 </h2>
 <p>
-Aperçu léger calculé par R à partir des métadonnées vérifiées afin de garder la fiche rapide et stable au rendu.
+Aperçu calculé par R à partir de data/processed/niveaux-eau-inondation/niveaux_eau_inondation.csv.
 </p>
 </div>
 <div class="dataset-r-grid">
@@ -5604,13 +5607,12 @@ Aperçu léger calculé par R à partir des métadonnées vérifiées afin de ga
 <div class="dataset-card-label">
 Code minimal
 </div>
-<pre><code class="language-r">library(yaml)
+<pre><code class="language-r">library(dplyr)
 
-metadata &lt;- yaml::read_yaml(&quot;datasets/niveaux-eau-inondation/metadata.yml&quot;)
-data.frame(
-  champ = c(&quot;theme&quot;, &quot;territoire&quot;, &quot;unite&quot;, &quot;niveau&quot;),
-  valeur = c(metadata$theme, metadata$geography, metadata$unit, metadata$level)
-)</code></pre>
+donnees &lt;- read.csv(&quot;data/processed/niveaux-eau-inondation/niveaux_eau_inondation.csv&quot;, check.names = FALSE)
+
+glimpse(donnees)
+donnees |&gt; summarise(lignes = n(), colonnes = ncol(donnees))</code></pre>
 </div>
 <div class="dataset-result-card">
 <div class="dataset-card-label">
@@ -5618,16 +5620,19 @@ Résultats R
 </div>
 <div class="dataset-r-stats">
 <div class="dataset-r-stat">
-<span>Lignes déclarées</span><strong>Nombre de lignes à confirmer dans la ressource WFS; jeu public depuis 2017</strong>
+<span>Lignes lues</span><strong>1 500</strong>
 </div>
 <div class="dataset-r-stat">
-<span>Colonnes déclarées</span><strong>17 champs observés dans l&#39;export CSV consulté le 2026-06-19</strong>
+<span>Colonnes</span><strong>27</strong>
 </div>
 <div class="dataset-r-stat">
-<span>Format</span><strong>CSV, GeoJSON, SHP, WMS et WFS</strong>
+<span>Variables num.</span><strong>8</strong>
 </div>
 <div class="dataset-r-stat">
-<span>Aperçu</span><strong>Métadonnées</strong>
+<span>Valeurs manquantes</span><strong>4.6 %</strong>
+</div>
+<div class="dataset-r-stat">
+<span>Aperçu</span><strong>niveaux_eau_inondation.csv</strong>
 </div>
 </div>
 <div class="dataset-result-table-wrap">
@@ -5635,52 +5640,144 @@ Résultats R
 <thead>
 <tr>
 <th>
-champ
+id_msp
 </th>
 <th>
-valeur
+rapport_code
+</th>
+<th>
+rapport_url
+</th>
+<th>
+nom_mandataire
+</th>
+<th>
+date_obs
+</th>
+<th>
+heure_obs
 </th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>
-theme
+1
 </td>
 <td>
-Inondations et sécurité civile
-</td>
-</tr>
-<tr>
-<td>
-territoire
+BVSM-17
 </td>
 <td>
-Québec
-</td>
-</tr>
-<tr>
-<td>
-unite
+https://geoegl.msp.gouv.qc.ca/a…
 </td>
 <td>
-Observation de niveau d&#39;eau lor…
+BVSM-17
+</td>
+<td>
+2017-04-30
+</td>
+<td>
+17:00:00
 </td>
 </tr>
 <tr>
 <td>
-niveau
+2
 </td>
 <td>
-Introduction à intermédiaire
+BVSM-17
+</td>
+<td>
+https://geoegl.msp.gouv.qc.ca/a…
+</td>
+<td>
+BVSM-17
+</td>
+<td>
+2017-04-30
+</td>
+<td>
+17:00:00
 </td>
 </tr>
 <tr>
 <td>
-format
+3
 </td>
 <td>
-CSV, GeoJSON, SHP, WMS et WFS
+BVSM-17
+</td>
+<td>
+https://geoegl.msp.gouv.qc.ca/a…
+</td>
+<td>
+BVSM-17
+</td>
+<td>
+2017-05-03
+</td>
+<td>
+15:30:00
+</td>
+</tr>
+<tr>
+<td>
+4
+</td>
+<td>
+OBVRLY-17
+</td>
+<td>
+https://geoegl.msp.gouv.qc.ca/a…
+</td>
+<td>
+OBVRLY-17
+</td>
+<td>
+2017-05-07
+</td>
+<td>
+11:30:00
+</td>
+</tr>
+<tr>
+<td>
+5
+</td>
+<td>
+OBVRLY-17
+</td>
+<td>
+https://geoegl.msp.gouv.qc.ca/a…
+</td>
+<td>
+OBVRLY-17
+</td>
+<td>
+2017-05-07
+</td>
+<td>
+11:50:00
+</td>
+</tr>
+<tr>
+<td>
+6
+</td>
+<td>
+OBVRLY-17
+</td>
+<td>
+https://geoegl.msp.gouv.qc.ca/a…
+</td>
+<td>
+OBVRLY-17
+</td>
+<td>
+2017-05-07
+</td>
+<td>
+12:05:00
 </td>
 </tr>
 </tbody>
@@ -5691,8 +5788,8 @@ CSV, GeoJSON, SHP, WMS et WFS
 <div class="dataset-card-label">
 Lecture statistique
 </div>
-<svg class="dataset-r-chart" viewbox="0 0 320 210" role="img" aria-label="Concepts pédagogiques">
-<text x="0" y="30" class="dataset-svg-label">eau</text><rect x="150" y="18" width="90" height="14" rx="3" class="dataset-svg-bar" /><text x="0" y="54" class="dataset-svg-label">inondation</text><rect x="150" y="42" width="90" height="14" rx="3" class="dataset-svg-bar" /><text x="0" y="78" class="dataset-svg-label">sécurité civile</text><rect x="150" y="66" width="90" height="14" rx="3" class="dataset-svg-bar" /><text x="0" y="102" class="dataset-svg-label">spatial</text><rect x="150" y="90" width="90" height="14" rx="3" class="dataset-svg-bar" /><text x="0" y="126" class="dataset-svg-label">visualisation</text><rect x="150" y="114" width="90" height="14" rx="3" class="dataset-svg-bar" /><text x="0" y="150" class="dataset-svg-label">données ouvertes</text><rect x="150" y="138" width="90" height="14" rx="3" class="dataset-svg-bar" /><text x="0" y="174" class="dataset-svg-label">Québec</text><rect x="150" y="162" width="90" height="14" rx="3" class="dataset-svg-bar" />
+<svg class="dataset-r-chart" viewbox="0 0 320 210" role="img" aria-label="Aperçu numérique généré par R">
+<line x1="34" y1="158" x2="292" y2="158" class="dataset-svg-axis"></line><line x1="34" y1="36" x2="34" y2="158" class="dataset-svg-axis"></line><polyline points="34,158 40.4,155.1 46.7,152.3 53.1,149.4 59.4,146.5 65.8,106.3 72.2,103.4 78.5,100.6 84.9,97.7 91.2,94.8 97.6,91.9 103.9,89.1 110.3,143.6 116.7,140.8 123,137.9 129.4,135 135.7,132.2 142.1,129.3 148.5,126.4 154.8,123.5 161.2,120.7 167.5,117.8 173.9,114.9 180.3,112.1 186.6,109.2 193,86.2 199.3,83.3 205.7,80.5 212.1,77.6 218.4,74.7 224.8,71.8 231.1,69 237.5,66.1 243.8,63.2 250.2,60.4 256.6,57.5 262.9,54.6 269.3,51.7 275.6,48.9 282,46" class="dataset-svg-line"></polyline><circle cx="34" cy="158" r="3.2" class="dataset-svg-point"></circle><circle cx="40.4" cy="155.1" r="3.2" class="dataset-svg-point"></circle><circle cx="46.7" cy="152.3" r="3.2" class="dataset-svg-point"></circle><circle cx="53.1" cy="149.4" r="3.2" class="dataset-svg-point"></circle><circle cx="59.4" cy="146.5" r="3.2" class="dataset-svg-point"></circle><circle cx="65.8" cy="106.3" r="3.2" class="dataset-svg-point"></circle><circle cx="72.2" cy="103.4" r="3.2" class="dataset-svg-point"></circle><circle cx="78.5" cy="100.6" r="3.2" class="dataset-svg-point"></circle><circle cx="84.9" cy="97.7" r="3.2" class="dataset-svg-point"></circle><circle cx="91.2" cy="94.8" r="3.2" class="dataset-svg-point"></circle><circle cx="97.6" cy="91.9" r="3.2" class="dataset-svg-point"></circle><circle cx="103.9" cy="89.1" r="3.2" class="dataset-svg-point"></circle><circle cx="110.3" cy="143.6" r="3.2" class="dataset-svg-point"></circle><circle cx="116.7" cy="140.8" r="3.2" class="dataset-svg-point"></circle><circle cx="123" cy="137.9" r="3.2" class="dataset-svg-point"></circle><circle cx="129.4" cy="135" r="3.2" class="dataset-svg-point"></circle><circle cx="135.7" cy="132.2" r="3.2" class="dataset-svg-point"></circle><circle cx="142.1" cy="129.3" r="3.2" class="dataset-svg-point"></circle><circle cx="148.5" cy="126.4" r="3.2" class="dataset-svg-point"></circle><circle cx="154.8" cy="123.5" r="3.2" class="dataset-svg-point"></circle><circle cx="161.2" cy="120.7" r="3.2" class="dataset-svg-point"></circle><circle cx="167.5" cy="117.8" r="3.2" class="dataset-svg-point"></circle><circle cx="173.9" cy="114.9" r="3.2" class="dataset-svg-point"></circle><circle cx="180.3" cy="112.1" r="3.2" class="dataset-svg-point"></circle><circle cx="186.6" cy="109.2" r="3.2" class="dataset-svg-point"></circle><circle cx="193" cy="86.2" r="3.2" class="dataset-svg-point"></circle><circle cx="199.3" cy="83.3" r="3.2" class="dataset-svg-point"></circle><circle cx="205.7" cy="80.5" r="3.2" class="dataset-svg-point"></circle><circle cx="212.1" cy="77.6" r="3.2" class="dataset-svg-point"></circle><circle cx="218.4" cy="74.7" r="3.2" class="dataset-svg-point"></circle><circle cx="224.8" cy="71.8" r="3.2" class="dataset-svg-point"></circle><circle cx="231.1" cy="69" r="3.2" class="dataset-svg-point"></circle><circle cx="237.5" cy="66.1" r="3.2" class="dataset-svg-point"></circle><circle cx="243.8" cy="63.2" r="3.2" class="dataset-svg-point"></circle><circle cx="250.2" cy="60.4" r="3.2" class="dataset-svg-point"></circle><circle cx="256.6" cy="57.5" r="3.2" class="dataset-svg-point"></circle><circle cx="262.9" cy="54.6" r="3.2" class="dataset-svg-point"></circle><circle cx="269.3" cy="51.7" r="3.2" class="dataset-svg-point"></circle><circle cx="275.6" cy="48.9" r="3.2" class="dataset-svg-point"></circle><circle cx="282" cy="46" r="3.2" class="dataset-svg-point"></circle><text x="34" y="24" class="dataset-svg-title">id_msp</text><text x="34" y="186" class="dataset-svg-label">1500</text><text x="230" y="186" class="dataset-svg-label">1539</text>
 </svg>
 </div>
 </div>
@@ -5702,13 +5799,13 @@ Lecture statistique
 <span>Mini-projets</span>
 <ul>
 <li>
-Cartographier les observations par événement ou par région.
+Cartographier les marqueurs de niveau d&#39;eau sans les confondre avec l&#39;étendue inondée.
 </li>
 <li>
-Comparer la distribution des altitudes observées selon le type d&#39;observation.
+Comparer les observations MAX et ACT selon l&#39;année d&#39;observation.
 </li>
 <li>
-Construire une carte interactive des repères de crue et discuter des limites de mesure.
+Rédiger une note de communication du risque qui distingue observation ponctuelle et zone inondée.
 </li>
 </ul>
 </div>
@@ -5716,15 +5813,15 @@ Construire une carte interactive des repères de crue et discuter des limites de
 <span>Activités liées</span>
 <div class="dataset-activity-grid">
 <div class="dataset-activity-card">
-<span>30-45 minutes</span><strong>Cartographier des repères de crue</strong>
+<span>30-45 minutes</span><strong>Cartographier des marqueurs de niveaux d&#39;eau</strong>
 <p>
-Où se situent les observations de niveaux d&#39;eau disponibles?
+Où se situent les marqueurs ponctuels de niveaux d&#39;eau documentés lors d&#39;inondations?
 </p>
 </div>
 <div class="dataset-activity-card">
 <span>2-3 heures</span><strong>Mini-rapport sur les niveaux d&#39;eau d&#39;inondation</strong>
 <p>
-Comment résumer des observations spatiales d&#39;inondation sans surinterpréter?
+Comment résumer des observations ponctuelles d&#39;inondation sans surinterpréter la carte?
 </p>
 </div>
 </div>
@@ -5733,10 +5830,68 @@ Comment résumer des observations spatiales d&#39;inondation sans surinterpréte
 <div class="dataset-detail-content">
 <section id="pourquoi-ce-jeu-est-intéressant" class="level2">
 <h2 class="anchored" data-anchor-id="pourquoi-ce-jeu-est-intéressant">Pourquoi ce jeu est intéressant</h2>
-<p>Ce jeu permet d’aborder les inondations à partir de repères de niveau d’eau géolocalisés. Il est utile pour introduire les données spatiales, la visualisation d’événements extrêmes, les limites de mesure et la communication des risques.</p>
+<p>Ce jeu est très fort pour enseigner la cartographie responsable. Les points sont concrets, liés à des inondations réelles, mais ils ne représentent pas une zone inondée complète. Une bonne analyse doit donc distinguer un marqueur ponctuel, un événement, un niveau maximal atteint et une observation faite lors d’une visite.</p>
+<p>Il permet aussi d’introduire des notions rarement visibles dans les jeux d’introduction : précision horizontale, précision verticale, altitude mesurée, provenance, valeurs manquantes et communication du risque.</p>
 </section>
-<section id="source" class="level2">
-<h2 class="anchored" data-anchor-id="source">Source</h2>
+<section id="ce-qui-a-été-vérifié" class="level2">
+<h2 class="anchored" data-anchor-id="ce-qui-a-été-vérifié">Ce qui a été vérifié</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Élément</th>
+<th>Résultat vérifié</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Paquet CKAN</td>
+<td><code>1935bceb-4045-436e-9c1b-3997b55752a8</code></td>
+</tr>
+<tr class="even">
+<td>Source officielle</td>
+<td>Données Québec / Ministère de la Sécurité intérieure</td>
+</tr>
+<tr class="odd">
+<td>Ressources dans le paquet</td>
+<td>7 ressources</td>
+</tr>
+<tr class="even">
+<td>Formats documentés</td>
+<td>HTML, CSV, SHP, GeoJSON, WMS et WFS</td>
+</tr>
+<tr class="odd">
+<td>Ressource préparée ici</td>
+<td>CSV produit par le service WFS</td>
+</tr>
+<tr class="even">
+<td>Version dans le CSV</td>
+<td>2026-05-12</td>
+</tr>
+<tr class="odd">
+<td>Licence</td>
+<td>Attribution (CC-BY 4.0), selon les métadonnées CKAN consultées le 2026-06-21</td>
+</tr>
+<tr class="even">
+<td>Dernière modification du paquet CKAN</td>
+<td>2026-06-03</td>
+</tr>
+<tr class="odd">
+<td>Table préparée</td>
+<td><code>data/processed/niveaux-eau-inondation/niveaux_eau_inondation.csv</code></td>
+</tr>
+<tr class="even">
+<td>Résumés préparés</td>
+<td>valeurs manquantes, années, types d’observation</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="source-et-conditions" class="level2">
+<h2 class="anchored" data-anchor-id="source-et-conditions">Source et conditions</h2>
 <table class="caption-top table">
 <thead>
 <tr class="header">
@@ -5746,47 +5901,69 @@ Comment résumer des observations spatiales d&#39;inondation sans surinterpréte
 </thead>
 <tbody>
 <tr class="odd">
-<td>Source</td>
-<td>Données Québec / Ministère de la Sécurité intérieure</td>
+<td>Page Données Québec</td>
+<td><a href="https://www.donneesquebec.ca/recherche/dataset/niveaux-deau-inondation-msp" class="uri">https://www.donneesquebec.ca/recherche/dataset/niveaux-deau-inondation-msp</a></td>
 </tr>
 <tr class="even">
-<td>Organisme producteur</td>
-<td>Ministère de la Sécurité intérieure</td>
+<td>API CKAN</td>
+<td><a href="https://www.donneesquebec.ca/recherche/api/3/action/package_show?id=niveaux-deau-inondation-msp" class="uri">https://www.donneesquebec.ca/recherche/api/3/action/package_show?id=niveaux-deau-inondation-msp</a></td>
+</tr>
+<tr class="odd">
+<td>CSV WFS</td>
+<td><a href="https://geoegl.msp.gouv.qc.ca/apis/wss/historiquesc.fcgi?service=wfs&amp;version=1.1.0&amp;request=getfeature&amp;typename=MSP_DELAISS_CRUE_PUBLIC_P&amp;outputformat=csv" class="uri">https://geoegl.msp.gouv.qc.ca/apis/wss/historiquesc.fcgi?service=wfs&amp;version=1.1.0&amp;request=getfeature&amp;typename=MSP_DELAISS_CRUE_PUBLIC_P&amp;outputformat=csv</a></td>
+</tr>
+<tr class="even">
+<td>Miroir ouvert.canada.ca</td>
+<td><a href="https://open.canada.ca/data/fr/dataset/1935bceb-4045-436e-9c1b-3997b55752a8" class="uri">https://open.canada.ca/data/fr/dataset/1935bceb-4045-436e-9c1b-3997b55752a8</a></td>
 </tr>
 <tr class="odd">
 <td>Territoire</td>
-<td>Québec</td>
-</tr>
-<tr class="even">
-<td>URL officielle</td>
-<td><a href="https://www.donneesquebec.ca/recherche/dataset/niveaux-deau-inondation-msp" class="uri">https://www.donneesquebec.ca/recherche/dataset/niveaux-deau-inondation-msp</a></td>
-</tr>
-<tr class="odd">
-<td>Licence</td>
-<td>Attribution (CC-BY 4.0)</td>
+<td>Québec méridional</td>
 </tr>
 <tr class="even">
 <td>Date d’accès</td>
-<td>2026-06-19</td>
+<td>2026-06-21</td>
 </tr>
 <tr class="odd">
-<td>Fréquence de mise à jour</td>
-<td>Selon les mises à jour du ministère; métadonnées modifiées en 2026</td>
+<td>Fréquence</td>
+<td>Annuelle selon le miroir ouvert.canada.ca</td>
 </tr>
 <tr class="even">
-<td>Statut</td>
-<td>source vérifiée</td>
+<td>Redistribution pédagogique</td>
+<td>Possible sous réserve du respect de la licence Attribution (CC-BY 4.0)</td>
 </tr>
 </tbody>
 </table>
 </section>
 <section id="ce-que-représente-une-ligne" class="level2">
 <h2 class="anchored" data-anchor-id="ce-que-représente-une-ligne">Ce que représente une ligne</h2>
-<p>Une ligne représente un repère ou une observation de niveau d’eau associée à un événement d’inondation, avec date, position et altitude lorsque ces champs sont disponibles.</p>
+<p>Une ligne représente un marqueur ponctuel de niveau d’eau observé lors d’un événement d’inondation. Une ligne n’est pas une maison touchée, une municipalité touchée, une zone inondée ni une mesure continue du niveau d’eau.</p>
+<p>Le jeu distingue deux types d’observation.</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Code</th>
+<th>Interprétation pédagogique</th>
+<th style="text-align: right;">Lignes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>MAX</code></td>
+<td>Niveau maximal atteint lors de l’inondation</td>
+<td style="text-align: right;">1 195</td>
+</tr>
+<tr class="even">
+<td><code>ACT</code></td>
+<td>Niveau observé lors de la visite sur le terrain</td>
+<td style="text-align: right;">305</td>
+</tr>
+</tbody>
+</table>
+<p>La source explique que les niveaux maximaux peuvent être indiqués par des délaissés de crue, c’est-à-dire des traces ou matières déposées au début de la décrue. Les marqueurs sont ensuite localisés et altimétrés sur le terrain.</p>
 </section>
 <section id="variables-principales" class="level2">
 <h2 class="anchored" data-anchor-id="variables-principales">Variables principales</h2>
-<p>Les noms ci-dessous sont des noms propres proposés pour l’enseignement. Les noms exacts des champs sources doivent être conservés dans le script de préparation.</p>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 33%">
@@ -5795,202 +5972,391 @@ Comment résumer des observations spatiales d&#39;inondation sans surinterpréte
 </colgroup>
 <thead>
 <tr class="header">
-<th>Variable proposée</th>
-<th>Rôle pédagogique</th>
-<th>Remarque</th>
+<th>Variable préparée</th>
+<th>Rôle</th>
+<th>Point de vigilance</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td><code>rapport</code></td>
-<td>Identifiant ou référence de rapport</td>
-<td>Champ source observé dans le CSV</td>
+<td><code>id_msp</code></td>
+<td>Identifiant de l’observation</td>
+<td>Identifiant de marqueur, pas identifiant d’événement</td>
 </tr>
 <tr class="even">
-<td><code>date_obs</code></td>
-<td>Date d’observation</td>
-<td>Base pour filtrer les événements</td>
+<td><code>rapport_code</code></td>
+<td>Code de rapport extrait du lien source</td>
+<td>36 valeurs manquantes</td>
 </tr>
 <tr class="odd">
-<td><code>heure_obs</code></td>
-<td>Heure d’observation</td>
-<td>Utile pour documenter la mesure</td>
+<td><code>rapport_url</code></td>
+<td>URL du rapport lorsque disponible</td>
+<td>36 valeurs manquantes</td>
+</tr>
+<tr class="even">
+<td><code>date_obs</code>, <code>heure_obs</code></td>
+<td>Date et heure d’observation</td>
+<td><code>heure_obs</code> manque pour 59 lignes</td>
+</tr>
+<tr class="odd">
+<td><code>annee_obs</code></td>
+<td>Année extraite de <code>date_obs</code></td>
+<td>Utile pour les résumés</td>
 </tr>
 <tr class="even">
 <td><code>type_obs</code></td>
-<td>Type d’observation</td>
-<td>Variable catégorielle à recoder au besoin</td>
+<td>Code <code>MAX</code> ou <code>ACT</code></td>
+<td>Variable clé pour l’interprétation</td>
 </tr>
 <tr class="odd">
-<td><code>long_wgs84</code></td>
-<td>Longitude</td>
-<td>Coordonnée WGS84</td>
+<td><code>long_wgs84</code>, <code>lat_wgs84</code></td>
+<td>Coordonnées WGS84</td>
+<td>Toutes les lignes préparées ont des coordonnées</td>
 </tr>
 <tr class="even">
-<td><code>lat_wgs84</code></td>
-<td>Latitude</td>
-<td>Coordonnée WGS84</td>
+<td><code>err_xy_cm</code></td>
+<td>Erreur horizontale en centimètres</td>
+<td>Médiane de 2,2 cm</td>
 </tr>
 <tr class="odd">
 <td><code>alt_m_cgvd</code></td>
-<td>Altitude du repère</td>
+<td>Altitude mesurée en mètres</td>
 <td>Variable quantitative principale</td>
 </tr>
 <tr class="even">
+<td><code>err_z_cm</code></td>
+<td>Erreur verticale en centimètres</td>
+<td>Médiane de 2,5 cm</td>
+</tr>
+<tr class="odd">
 <td><code>producteur</code></td>
-<td>Producteur de l’information</td>
-<td>Métadonnée de provenance</td>
+<td>Provenance de l’information</td>
+<td>Une seule valeur dans la version préparée</td>
 </tr>
 </tbody>
 </table>
 </section>
-<section id="taille-et-structure" class="level2">
-<h2 class="anchored" data-anchor-id="taille-et-structure">Taille et structure</h2>
+<section id="taille-et-résultats-r-vérifiés" class="level2">
+<h2 class="anchored" data-anchor-id="taille-et-résultats-r-vérifiés">Taille et résultats R vérifiés</h2>
 <table class="caption-top table">
-<colgroup>
-<col style="width: 50%">
-<col style="width: 50%">
-</colgroup>
 <thead>
 <tr class="header">
-<th>Élément</th>
-<th>Information</th>
+<th>Indicateur</th>
+<th style="text-align: right;">Valeur</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>Nombre de lignes</td>
-<td>Nombre de lignes à confirmer dans la ressource WFS; jeu public depuis 2017</td>
+<td>Observations préparées</td>
+<td style="text-align: right;">1 500</td>
 </tr>
 <tr class="even">
-<td>Nombre de colonnes</td>
-<td>17 champs observés dans l’export CSV consulté le 2026-06-19</td>
+<td>Colonnes préparées</td>
+<td style="text-align: right;">27</td>
 </tr>
 <tr class="odd">
-<td>Structure</td>
-<td>Tabulaire, spatial, événementiel</td>
+<td>Colonnes dans le CSV source</td>
+<td style="text-align: right;">17</td>
 </tr>
 <tr class="even">
-<td>Format</td>
-<td>CSV, GeoJSON, SHP, WMS et WFS</td>
+<td>Première date d’observation</td>
+<td style="text-align: right;">2017-04-30</td>
 </tr>
 <tr class="odd">
-<td>Niveau pédagogique recommandé</td>
-<td>Introduction à intermédiaire</td>
+<td>Dernière date d’observation</td>
+<td style="text-align: right;">2025-07-14</td>
+</tr>
+<tr class="even">
+<td>Rapports distincts non manquants</td>
+<td style="text-align: right;">70</td>
+</tr>
+<tr class="odd">
+<td>Observations avec coordonnées</td>
+<td style="text-align: right;">1 500</td>
+</tr>
+<tr class="even">
+<td>Observations avec altitude</td>
+<td style="text-align: right;">1 500</td>
+</tr>
+<tr class="odd">
+<td>Altitude minimale</td>
+<td style="text-align: right;">2,73 m</td>
+</tr>
+<tr class="even">
+<td>Altitude maximale</td>
+<td style="text-align: right;">430,29 m</td>
+</tr>
+<tr class="odd">
+<td>Erreur horizontale médiane</td>
+<td style="text-align: right;">2,2 cm</td>
+</tr>
+<tr class="even">
+<td>Erreur verticale médiane</td>
+<td style="text-align: right;">2,5 cm</td>
 </tr>
 </tbody>
 </table>
+</section>
+<section id="observations-par-année" class="level2">
+<h2 class="anchored" data-anchor-id="observations-par-année">Observations par année</h2>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Année</th>
+<th style="text-align: right;">Observations</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>2017</td>
+<td style="text-align: right;">360</td>
+</tr>
+<tr class="even">
+<td>2018</td>
+<td style="text-align: right;">110</td>
+</tr>
+<tr class="odd">
+<td>2019</td>
+<td style="text-align: right;">485</td>
+</tr>
+<tr class="even">
+<td>2020</td>
+<td style="text-align: right;">79</td>
+</tr>
+<tr class="odd">
+<td>2021</td>
+<td style="text-align: right;">24</td>
+</tr>
+<tr class="even">
+<td>2023</td>
+<td style="text-align: right;">279</td>
+</tr>
+<tr class="odd">
+<td>2024</td>
+<td style="text-align: right;">101</td>
+</tr>
+<tr class="even">
+<td>2025</td>
+<td style="text-align: right;">62</td>
+</tr>
+</tbody>
+</table>
+<p>L’absence d’observations pour une année ne doit pas être interprétée comme absence d’inondation. Elle peut refléter le périmètre de collecte, les événements documentés et les mises à jour de la source.</p>
+</section>
+<section id="valeurs-manquantes" class="level2">
+<h2 class="anchored" data-anchor-id="valeurs-manquantes">Valeurs manquantes</h2>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Variable</th>
+<th style="text-align: right;">Valeurs manquantes</th>
+<th style="text-align: right;">Pourcentage</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>marq_sol</code></td>
+<td style="text-align: right;">607</td>
+<td style="text-align: right;">40,47 %</td>
+</tr>
+<tr class="even">
+<td><code>prec_marq</code></td>
+<td style="text-align: right;">601</td>
+<td style="text-align: right;">40,07 %</td>
+</tr>
+<tr class="odd">
+<td><code>glace_chen</code></td>
+<td style="text-align: right;">482</td>
+<td style="text-align: right;">32,13 %</td>
+</tr>
+<tr class="even">
+<td><code>heure_obs</code></td>
+<td style="text-align: right;">59</td>
+<td style="text-align: right;">3,93 %</td>
+</tr>
+<tr class="odd">
+<td><code>nom_mandataire</code></td>
+<td style="text-align: right;">36</td>
+<td style="text-align: right;">2,40 %</td>
+</tr>
+<tr class="even">
+<td><code>rapport_code</code></td>
+<td style="text-align: right;">36</td>
+<td style="text-align: right;">2,40 %</td>
+</tr>
+<tr class="odd">
+<td><code>rapport_url</code></td>
+<td style="text-align: right;">36</td>
+<td style="text-align: right;">2,40 %</td>
+</tr>
+</tbody>
+</table>
+<p>Les variables essentielles à une première carte, soit longitude, latitude, altitude, type d’observation et date, sont complètes dans la version préparée.</p>
+</section>
+<section id="lecture-statistique" class="level2">
+<h2 class="anchored" data-anchor-id="lecture-statistique">Lecture statistique</h2>
+<p>Le jeu est descriptif et spatial. Une analyse correcte commence par une question limitée :</p>
+<ol type="1">
+<li>choisir une période ou un événement;</li>
+<li>distinguer <code>MAX</code> et <code>ACT</code>;</li>
+<li>cartographier les points comme des marqueurs;</li>
+<li>tenir compte des erreurs horizontales et verticales;</li>
+<li>éviter de présenter les points comme une délimitation de zone inondée.</li>
+</ol>
+<p>Les résultats sont utiles pour explorer où des niveaux d’eau ont été documentés. Ils ne suffisent pas à estimer la fréquence des inondations, la population exposée ou les dommages.</p>
 </section>
 <section id="concepts-enseignables" class="level2">
 <h2 class="anchored" data-anchor-id="concepts-enseignables">Concepts enseignables</h2>
 <ul>
-<li>eau</li>
-<li>inondation</li>
-<li>sécurité civile</li>
-<li>spatial</li>
-<li>visualisation</li>
-<li>données ouvertes</li>
-<li>Québec</li>
-<li>statistiques descriptives</li>
+<li>données spatiales ponctuelles;</li>
+<li>événement extrême;</li>
+<li>précision de mesure;</li>
+<li>valeurs manquantes;</li>
+<li>variable catégorielle;</li>
+<li>altitude et unités;</li>
+<li>cartographie exploratoire;</li>
+<li>communication responsable du risque.</li>
 </ul>
 </section>
 <section id="score-zéro-déchet" class="level2">
 <h2 class="anchored" data-anchor-id="score-zéro-déchet">Score zéro déchet</h2>
 <table class="caption-top table">
+<colgroup>
+<col style="width: 30%">
+<col style="width: 40%">
+<col style="width: 30%">
+</colgroup>
 <thead>
 <tr class="header">
 <th>Dimension</th>
 <th style="text-align: right;">Score</th>
+<th>Justification</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td>Contexte québécois</td>
 <td style="text-align: right;">3</td>
+<td>Données officielles sur des inondations au Québec</td>
 </tr>
 <tr class="even">
 <td>Accessibilité pédagogique</td>
-<td style="text-align: right;">2</td>
+<td style="text-align: right;">3</td>
+<td>Points, dates, coordonnées et types faciles à comprendre</td>
 </tr>
 <tr class="odd">
 <td>Qualité documentaire</td>
 <td style="text-align: right;">3</td>
+<td>Métadonnées CKAN, WFS, CSV, GeoJSON et page interactive</td>
 </tr>
 <tr class="even">
 <td>Potentiel de nettoyage</td>
-<td style="text-align: right;">2</td>
+<td style="text-align: right;">3</td>
+<td>Extraction de rapports, dates, valeurs manquantes et précision</td>
 </tr>
 <tr class="odd">
 <td>Potentiel de visualisation</td>
 <td style="text-align: right;">3</td>
+<td>Cartographie naturelle des observations</td>
 </tr>
 <tr class="even">
 <td>Potentiel de statistique descriptive</td>
 <td style="text-align: right;">2</td>
+<td>Comptages et résumés utiles, mais pas une enquête probabiliste</td>
 </tr>
 <tr class="odd">
 <td>Potentiel d’inférence</td>
 <td style="text-align: right;">1</td>
+<td>Non adapté à l’inférence sans protocole complémentaire</td>
 </tr>
 <tr class="even">
 <td>Potentiel de modélisation</td>
 <td style="text-align: right;">2</td>
+<td>Possible après ajout de couches hydrologiques ou territoriales</td>
 </tr>
 <tr class="odd">
-<td>Potentiel de discussion éthique</td>
+<td>Potentiel éthique</td>
 <td style="text-align: right;">3</td>
+<td>Risque élevé de surinterprétation en sécurité civile</td>
 </tr>
 <tr class="even">
-<td>Réutilisabilité dans plusieurs cours</td>
+<td>Réutilisabilité</td>
 <td style="text-align: right;">3</td>
+<td>Pertinent avec hydrographie, inondations, cartographie et communication</td>
 </tr>
 </tbody>
 </table>
-<p>Total : 24 sur 30.</p>
+<p>Total : 26 sur 30.</p>
 </section>
 <section id="activité-courte" class="level2">
 <h2 class="anchored" data-anchor-id="activité-courte">Activité courte</h2>
-<p>En 30 à 45 minutes, demander aux personnes étudiantes de télécharger l’export CSV ou GeoJSON, de filtrer quelques observations et de produire une carte simple.</p>
+<p>En 30 à 45 minutes, cartographier les marqueurs, colorer par type d’observation et écrire deux limites d’interprétation.</p>
 </section>
 <section id="activité-longue" class="level2">
 <h2 class="anchored" data-anchor-id="activité-longue">Activité longue</h2>
-<p>En 2 à 3 heures, demander de produire une carte, un résumé tabulaire et une courte note sur les limites des observations.</p>
-</section>
-<section id="projets-possibles" class="level2">
-<h2 class="anchored" data-anchor-id="projets-possibles">Projets possibles</h2>
-<ul>
-<li>Cartographier les observations par événement ou par région.</li>
-<li>Comparer la distribution des altitudes observées selon le type d’observation.</li>
-<li>Construire une carte interactive des repères de crue et discuter des limites de mesure.</li>
-</ul>
+<p>En 2 à 3 heures, produire un mini-rapport avec carte, tableau par année, comparaison <code>MAX</code>/<code>ACT</code>, valeurs manquantes et note de communication du risque.</p>
 </section>
 <section id="code-r-minimal" class="level2">
 <h2 class="anchored" data-anchor-id="code-r-minimal">Code R minimal</h2>
+<p>À exécuter depuis la racine du projet.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>source_url <span class="ot">&lt;-</span> <span class="st">&quot;https://www.donneesquebec.ca/recherche/dataset/niveaux-deau-inondation-msp&quot;</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load libraries</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Télécharger la ressource appropriée depuis la page officielle,</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co"># puis documenter le fichier brut dans data/raw/ avant toute transformation.</span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>source_url</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Prepare official CSV resource</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">&quot;datasets/niveaux-eau-inondation/preparation.R&quot;</span>)</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Import prepared data</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>niveaux <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;data/processed/niveaux-eau-inondation/niveaux_eau_inondation.csv&quot;</span>,</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">show_col_types =</span> <span class="cn">FALSE</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Count observation types</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>niveaux <span class="sc">|&gt;</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(type_obs, type_observation, <span class="at">sort =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Map points</span></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(niveaux, <span class="fu">aes</span>(<span class="at">x =</span> long_wgs84, <span class="at">y =</span> lat_wgs84, <span class="at">color =</span> type_obs)) <span class="sc">+</span></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.65</span>, <span class="at">size =</span> <span class="fl">1.2</span>) <span class="sc">+</span></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_quickmap</span>() <span class="sc">+</span></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">&quot;Longitude&quot;</span>,</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">&quot;Latitude&quot;</span>,</span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>    <span class="at">color =</span> <span class="st">&quot;Type&quot;</span>,</span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">&quot;Marqueurs ponctuels de niveaux d&#39;eau lors d&#39;inondations&quot;</span>,</span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="st">&quot;Les points ne représentent pas l&#39;étendue des zones inondées&quot;</span></span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="limites-et-précautions" class="level2">
 <h2 class="anchored" data-anchor-id="limites-et-précautions">Limites et précautions</h2>
 <ul>
-<li>Les observations ne décrivent pas toute l’étendue d’une inondation.</li>
-<li>La précision horizontale et verticale doit être prise en compte avant toute carte détaillée.</li>
-<li>Les comparaisons entre événements exigent de vérifier les méthodes de collecte.</li>
+<li>Les points ne délimitent pas les zones inondées.</li>
+<li>Les observations documentées ne forment pas un échantillon probabiliste de toutes les inondations.</li>
+<li>Les années avec peu ou pas de points ne doivent pas être interprétées seules.</li>
+<li>Les comparaisons entre événements exigent de vérifier les rapports et les méthodes de collecte.</li>
+<li>Toute communication publique doit distinguer observation ponctuelle, niveau maximal, niveau observé et risque territorial.</li>
 </ul>
 </section>
 <section id="extensions" class="level2">
 <h2 class="anchored" data-anchor-id="extensions">Extensions</h2>
 <ul>
-<li>Associer les repères à des bassins versants ou à des municipalités.</li>
-<li>Comparer les formats CSV et GeoJSON dans un même exercice.</li>
-<li>Produire une note de communication des risques avec carte et incertitudes.</li>
+<li>Lire le GeoJSON officiel avec <code>sf</code>.</li>
+<li>Joindre les points à des régions administratives ou à des bassins versants.</li>
+<li>Comparer les observations <code>MAX</code> et <code>ACT</code> par année.</li>
+<li>Construire une carte interactive avec une fenêtre de contexte par rapport.</li>
+<li>Rédiger une note de vulgarisation sur les limites d’une carte de points en sécurité civile.</li>
+</ul>
+</section>
+<section id="références-utilisées" class="level2">
+<h2 class="anchored" data-anchor-id="références-utilisées">Références utilisées</h2>
+<ul>
+<li>Données Québec. 2026. Niveaux d’eau lors d’une inondation depuis 2017. <a href="https://www.donneesquebec.ca/recherche/dataset/niveaux-deau-inondation-msp" class="uri">https://www.donneesquebec.ca/recherche/dataset/niveaux-deau-inondation-msp</a></li>
+<li>Ministère de la Sécurité intérieure. 2026. Service WFS des niveaux d’eau lors d’une inondation. <a href="https://geoegl.msp.gouv.qc.ca/apis/wss/historiquesc.fcgi?service=wfs&amp;version=1.1.0&amp;request=getfeature&amp;typename=MSP_DELAISS_CRUE_PUBLIC_P&amp;outputformat=csv" class="uri">https://geoegl.msp.gouv.qc.ca/apis/wss/historiquesc.fcgi?service=wfs&amp;version=1.1.0&amp;request=getfeature&amp;typename=MSP_DELAISS_CRUE_PUBLIC_P&amp;outputformat=csv</a></li>
+<li>Gouvernement du Canada. 2026. Niveaux d’eau lors d’une inondation, miroir ouvert.canada.ca. <a href="https://open.canada.ca/data/fr/dataset/1935bceb-4045-436e-9c1b-3997b55752a8" class="uri">https://open.canada.ca/data/fr/dataset/1935bceb-4045-436e-9c1b-3997b55752a8</a></li>
 </ul>
 </section>
 </div>
