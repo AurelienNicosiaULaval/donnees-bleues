@@ -18,117 +18,292 @@ render_dataset_detail_header()
 
 ## Pourquoi ce jeu est intéressant
 
-Ce jeu permet d'aborder les services municipaux à partir de demandes citoyennes. Il est très utile pour la saisonnalité, la classification de catégories, la visualisation par arrondissement et la discussion sur ce que mesure ou ne mesure pas un canal administratif.
+Ce jeu de données décrit des demandes citoyennes soumises à la Ville de Montréal par le système 311, par courriel ou dans les Bureaux Accès Montréal. Il permet d'étudier des catégories de services municipaux très concrètes : déchets, voirie, éclairage, déneigement, espaces publics et suivi des demandes.
 
-## Source
+Il est utile en science des données parce qu'il combine un fichier très volumineux, des dates, des catégories textuelles, des canaux de provenance, des statuts, des arrondissements et des coordonnées. Il oblige aussi à discuter ce que mesure un canal administratif : des demandes reçues, pas directement les besoins réels de la population.
+
+Question d'analyse : quelles catégories de demandes non-Information dominent dans un échantillon pédagogique du 311, et quelles limites faut-il mentionner avant de comparer les arrondissements?
+
+## Ce qui a été vérifié
+
+| Élément | Résultat vérifié |
+|---|---|
+| Paquet CKAN | `5866f832-676d-4b07-be6a-e99c21eb17e4` |
+| Source officielle | Données Québec / Ville de Montréal |
+| Ressources dans le paquet | 6 ressources |
+| Ressources CSV | 5 ressources CSV |
+| Ressource récente préparée | `Requêtes 3-1-1 (2022 à ce jour)` |
+| Licence | Attribution (CC-BY 4.0), selon les métadonnées CKAN consultées le 2026-06-21 |
+| Dernière modification du paquet CKAN | 2026-06-20 |
+| Taille de la ressource récente | 775 950 225 octets selon CKAN |
+| Table préparée | `data/processed/requetes-311/requetes_311_non_information_echantillon.csv` |
+| Résumés préparés | flux, nature, activités, arrondissements, statuts, provenances, années, mois, valeurs manquantes |
+
+## Source et conditions
 
 | Champ | Information |
 |---|---|
-| Source | Données Québec / Ville de Montréal |
-| Organisme producteur | Ville de Montréal |
+| Page Données Québec | <https://www.donneesquebec.ca/recherche/dataset/vmtl-requete-311> |
+| API CKAN | <https://www.donneesquebec.ca/recherche/api/3/action/package_show?id=vmtl-requete-311> |
+| CSV 2022 à ce jour | <https://donnees.montreal.ca/dataset/5866f832-676d-4b07-be6a-e99c21eb17e4/resource/2cfa0e06-9be4-49a6-b7f1-ee9f2363a872/download/requetes311.csv> |
+| Visualisation officielle | Power BI publié dans les ressources CKAN |
 | Territoire | Montréal |
-| URL officielle | <https://www.donneesquebec.ca/recherche/dataset/vmtl-requete-311> |
-| Licence | Attribution (CC-BY 4.0) |
-| Date d'accès | 2026-06-19 |
-| Fréquence de mise à jour | Mise à jour fréquente; métadonnées modifiées en 2026 |
-| Statut | source vérifiée |
+| Date d'accès | 2026-06-21 |
+
+La description officielle indique que le jeu contient les demandes d'information et les demandes de services soumises via le 311, par courriel et dans les Bureaux Accès Montréal. Elle précise que les demandes de services incluent les requêtes, les plaintes et les commentaires, et que les données représentent les demandes soumises qu'elles aient entraîné une intervention ou non.
 
 ## Ce que représente une ligne
 
-Une ligne représente une demande soumise à la Ville de Montréal par le système 311, par courriel ou par un Bureau Accès Montréal, selon la description officielle du jeu.
+Une ligne représente une demande soumise à la Ville de Montréal. Dans la table préparée ici, les lignes `Information` sont exclues pour garder un extrait pédagogique centré sur les requêtes, plaintes et commentaires.
+
+Une ligne n'est pas un problème municipal objectif, une intervention confirmée, ni une mesure directe du besoin dans un arrondissement. Les volumes dépendent aussi de l'accès au service, de la propension à signaler, des canaux disponibles et des pratiques administratives.
+
+## Échantillon préparé
+
+La ressource récente est trop volumineuse pour être intégrée telle quelle dans une activité d'introduction. Le script `preparation.R` lit donc le CSV complet en flux, compte les lignes et prépare un échantillon réservoir déterministe de 100 000 lignes non-Information avec la graine 311.
+
+Cette méthode rend l'activité légère tout en évitant de prendre seulement les premières lignes du fichier, qui sont uniquement des demandes d'information et ne conviennent pas aux analyses par arrondissement.
 
 ## Variables principales
 
-Les noms ci-dessous sont des noms propres proposés pour l'enseignement. Les noms exacts des champs sources doivent être conservés dans le script de préparation.
-
-| Variable proposée | Rôle pédagogique | Remarque |
+| Variable préparée | Rôle | Point de vigilance |
 |---|---|---|
-| `id_unique` | Identifiant de demande | Champ source `ID_UNIQUE` |
-| `nature` | Nature de la demande | Information, requête, plainte ou commentaire selon les données |
-| `activite` | Type ou activité de demande | Champ source `ACTI_NOM` |
-| `arrondissement` | Arrondissement déclaré | Variable territoriale |
-| `date_creation` | Date de création | Champ source `DDS_DATE_CREATION` |
-| `provenance_originale` | Canal de provenance | Téléphone, courriel, site web ou autres indicateurs |
-| `dernier_statut` | Statut final ou courant | Variable de suivi |
-| `longitude` | Longitude | Champ source `LOC_LONG`, parfois manquant |
+| `id_unique` | Identifiant de demande | Non manquant dans l'échantillon préparé |
+| `nature` | Requête, plainte ou commentaire | Les lignes `Information` sont exclues |
+| `activite` | Type de demande | 618 activités distinctes dans l'échantillon |
+| `arrondissement` | Arrondissement administratif | 33 valeurs distinctes, incluant des regroupements administratifs |
+| `arrondissement_geo` | Arrondissement géographique | 32 valeurs distinctes non manquantes |
+| `date_creation` | Date et heure de création | Sert aux agrégations temporelles |
+| `annee_creation`, `mois_creation` | Variables temporelles préparées | Utiles pour les graphiques mensuels |
+| `provenance_originale` | Canal de provenance | Téléphone, mobile, personne, internet, courriel et autres |
+| `longitude`, `latitude` | Coordonnées publiées | 99,91 % des lignes préparées ont des coordonnées |
+| `coordonnees_disponibles` | Indicateur préparé | À filtrer avant cartographie |
+| `dernier_statut` | Statut le plus récent | Décrit le suivi administratif |
+| `delai_statut_jours` | Délai entre création et dernier statut | Variable exploratoire, sensible aux processus internes |
 
-## Taille et structure
+## RÉSULTATS R
 
-| Élément | Information |
-|---|---|
-| Nombre de lignes | Fichiers CSV par période; plusieurs centaines de Mo pour les ressources récentes et archivées |
-| Nombre de colonnes | 29 champs observés dans l'en-tête du fichier 2022 à ce jour consulté le 2026-06-19 |
-| Structure | Tabulaire, temporel, spatial, services publics |
-| Format | CSV et visualisation web |
-| Niveau pédagogique recommandé | Introduction à intermédiaire |
+Les résultats ci-dessous proviennent de `preparation.R`, exécuté sur la ressource CSV récente le 2026-06-21.
+
+| Indicateur | Valeur |
+|---|---:|
+| Ressources CKAN documentées | 6 |
+| Ressources CSV | 5 |
+| Lignes lues dans la ressource récente | 2 999 332 |
+| Lignes `Information` dans la ressource récente | 1 377 485 |
+| Lignes non-Information dans la ressource récente | 1 621 847 |
+| Lignes dans l'échantillon préparé | 100 000 |
+| Colonnes dans le CSV source | 29 |
+| Colonnes préparées | 28 |
+| Période couverte par l'échantillon | 2022-01-01 à 2026-06-20 |
+| Natures distinctes dans l'échantillon | 3 |
+| Activités distinctes dans l'échantillon | 618 |
+| Arrondissements administratifs distincts | 33 |
+| Statuts distincts | 9 |
+| Provenances distinctes | 8 |
+| Lignes avec coordonnées | 99 912 |
+| Pourcentage avec coordonnées | 99,91 % |
+
+## Nature des demandes
+
+| Nature | Demandes | Pourcentage |
+|---|---:|---:|
+| Requete | 96 610 | 96,6 % |
+| Commentaire | 1 750 | 1,8 % |
+| Plainte | 1 640 | 1,6 % |
+
+Les libellés sont ceux de la source. La catégorie `Requete` est dominante dans l'échantillon non-Information.
+
+## Activités les plus fréquentes
+
+| Activité | Demandes | Pourcentage |
+|---|---:|---:|
+| Dépôt illégal - Déchets | 6 119 | 6,1 % |
+| Collecte de déchets | 4 099 | 4,1 % |
+| Opération déneigement | 3 613 | 3,6 % |
+| Nid-de-poule | 3 344 | 3,3 % |
+| Nettoyage du domaine public | 3 321 | 3,3 % |
+| Collecte des matières recyclables | 3 298 | 3,3 % |
+| Éclairage existant - Entretien | 2 545 | 2,5 % |
+| Bac roulant | 2 357 | 2,4 % |
+| Bac roulant - Matières recyclables | 2 120 | 2,1 % |
+| Feux de circulation - Entretien | 2 058 | 2,1 % |
+| Pavage - Réparation | 2 016 | 2,0 % |
+| Signalisation - Circulation - Études | 1 922 | 1,9 % |
+
+Ces fréquences décrivent des demandes reçues, pas le nombre réel de problèmes sur le territoire.
+
+## Arrondissements les plus fréquents
+
+| Arrondissement | Demandes | Pourcentage |
+|---|---:|---:|
+| Mercier - Hochelaga-Maisonneuve | 9 745 | 9,7 % |
+| Rosemont - La Petite-Patrie | 8 615 | 8,6 % |
+| Ahuntsic - Cartierville | 8 341 | 8,3 % |
+| Ville-Marie | 8 242 | 8,2 % |
+| Le Plateau-Mont-Royal | 8 085 | 8,1 % |
+| Saint-Laurent | 8 008 | 8,0 % |
+| Villeray-Saint-Michel - Parc-Extension | 7 158 | 7,2 % |
+| Côte-des-Neiges - Notre-Dame-de-Grâce | 6 429 | 6,4 % |
+| Le Sud-Ouest | 5 539 | 5,5 % |
+| Rivière-des-Prairies - Pointe-aux-Trembles | 5 468 | 5,5 % |
+
+Comparer ces volumes entre arrondissements exige de tenir compte de la population, de la superficie, des services locaux et de la propension à utiliser le 311.
+
+## Statuts et provenances
+
+| Statut | Demandes | Pourcentage |
+|---|---:|---:|
+| Terminée | 93 961 | 94,0 % |
+| Refusée | 2 686 | 2,7 % |
+| Prise en charge | 1 731 | 1,7 % |
+| Transmise pour traitement | 677 | 0,7 % |
+| Annulée | 599 | 0,6 % |
+| Acceptée | 274 | 0,3 % |
+
+| Provenance | Demandes | Pourcentage |
+|---|---:|---:|
+| Téléphone | 70 962 | 71,0 % |
+| Mobile | 9 883 | 9,9 % |
+| Personne | 8 361 | 8,4 % |
+| Internet | 5 528 | 5,5 % |
+| Courriel | 4 914 | 4,9 % |
+
+La provenance est une information essentielle pour discuter les biais de déclaration. Un canal plus utilisé peut produire plus de demandes sans que le besoin réel soit plus grand.
+
+## Distribution annuelle dans l'échantillon
+
+| Année | Demandes | Pourcentage |
+|---|---:|---:|
+| 2022 | 21 658 | 21,7 % |
+| 2023 | 21 152 | 21,2 % |
+| 2024 | 20 959 | 21,0 % |
+| 2025 | 23 121 | 23,1 % |
+| 2026 | 13 110 | 13,1 % |
+
+L'année 2026 est partielle au moment de l'accès. Les comparaisons annuelles doivent donc être faites avec prudence.
+
+## Valeurs manquantes principales
+
+| Variable | Valeurs manquantes | Pourcentage |
+|---|---:|---:|
+| `rue` | 13 832 | 13,83 % |
+| `provenance_originale` | 102 | 0,10 % |
+| `arrondissement_geo` | 91 | 0,09 % |
+| `latitude` | 88 | 0,09 % |
+| `longitude` | 88 | 0,09 % |
+
+La couverture des coordonnées est élevée dans l'échantillon, mais les coordonnées ne suffisent pas à interpréter l'équité territoriale.
+
+## Lecture statistique
+
+Une analyse prudente suit cet ordre :
+
+1. préciser que l'unité est une demande soumise;
+2. distinguer les lignes `Information` des requêtes, plaintes et commentaires;
+3. documenter l'échantillonnage utilisé;
+4. compter les activités et vérifier les libellés rares;
+5. filtrer `coordonnees_disponibles` avant les cartes;
+6. éviter de comparer les arrondissements sans population ou dénominateur de service;
+7. interpréter les volumes comme des demandes observées, pas comme des besoins réels.
+
+Les données sont excellentes pour enseigner les catégories, les séries temporelles et la visualisation responsable d'un service public.
 
 ## Concepts enseignables
 
-- services publics
-- Montréal
-- séries temporelles
-- catégories
-- visualisation
-- statistiques descriptives
-- données ouvertes
-- spatial
+- données administratives;
+- échantillonnage reproductible;
+- variables catégorielles;
+- séries temporelles;
+- coordonnées et cartes de points;
+- valeurs manquantes;
+- biais de déclaration;
+- communication publique prudente.
 
 ## Score zéro déchet
 
-| Dimension | Score |
-|---|---:|
-| Contexte québécois | 3 |
-| Accessibilité pédagogique | 3 |
-| Qualité documentaire | 2 |
-| Potentiel de nettoyage | 3 |
-| Potentiel de visualisation | 3 |
-| Potentiel de statistique descriptive | 3 |
-| Potentiel d'inférence | 2 |
-| Potentiel de modélisation | 2 |
-| Potentiel de discussion éthique | 3 |
-| Réutilisabilité dans plusieurs cours | 3 |
+| Dimension | Score | Justification |
+|---|---:|---|
+| Contexte québécois | 3 | Service municipal montréalais |
+| Accessibilité pédagogique | 3 | Sujet concret et très lisible |
+| Qualité documentaire | 2 | Source officielle et visualisation, mais méthodologie à consulter avec prudence |
+| Potentiel de nettoyage | 3 | Dates, catégories, coordonnées, canaux et statuts |
+| Potentiel de visualisation | 3 | Barres, séries mensuelles, cartes et tableaux |
+| Potentiel de statistique descriptive | 3 | Comptages et proportions directement exploitables |
+| Potentiel d'inférence | 2 | Possible seulement avec dénominateurs et plan d'analyse |
+| Potentiel de modélisation | 2 | Modèles descriptifs possibles sur catégories ou délais |
+| Potentiel éthique | 3 | Biais d'accès au service et interprétation publique |
+| Réutilisabilité | 3 | Utile en nettoyage, EDA, spatial, communication et séries temporelles |
 
 Total : 27 sur 30.
 
 ## Activité courte
 
-En 30 à 45 minutes, faire compter les principales catégories de demandes dans un arrondissement.
+En 30 à 45 minutes, choisir un arrondissement, compter les principales activités et rédiger une limite sur l'interprétation des volumes.
 
 ## Activité longue
 
-En 2 à 3 heures, demander une analyse temporelle de quelques catégories de demandes.
-
-## Projets possibles
-
-- Analyser la saisonnalité des demandes par catégorie.
-- Comparer les demandes par arrondissement.
-- Visualiser les catégories les plus fréquentes et leur évolution temporelle.
+En 2 à 3 heures, produire une analyse saisonnière de quelques activités, avec un graphique mensuel et une discussion sur l'échantillonnage et les biais de déclaration.
 
 ## Code R minimal
 
+À exécuter depuis la racine du projet.
+
 ```{r}
 #| eval: false
+# Load libraries
 library(dplyr)
+library(ggplot2)
 library(readr)
 
-source_url <- "https://www.donneesquebec.ca/recherche/dataset/vmtl-requete-311"
+# Stream, sample and prepare the official recent CSV resource
+source("datasets/requetes-311/preparation.R")
 
-# Télécharger la ressource appropriée depuis la page officielle,
-# puis documenter le fichier brut dans data/raw/ avant toute transformation.
-source_url
+# Import prepared data
+requetes <- read_csv(
+  "data/processed/requetes-311/requetes_311_non_information_echantillon.csv",
+  show_col_types = FALSE
+)
+
+# Top activities in one borough
+resume_activites <- requetes |>
+  filter(arrondissement == "Rosemont - La Petite-Patrie") |>
+  count(activite, sort = TRUE) |>
+  slice_head(n = 10)
+
+ggplot(resume_activites, aes(x = reorder(activite, n), y = n)) +
+  geom_col(fill = "#325EA8") +
+  coord_flip() +
+  labs(
+    x = "Activité",
+    y = "Demandes",
+    title = "Principales activités 311 dans Rosemont - La Petite-Patrie",
+    subtitle = "Échantillon pédagogique de demandes non-Information"
+  )
 ```
 
 ## Limites et précautions
 
-- Le jeu mesure les demandes soumises, pas directement les besoins réels de la population.
-- Les volumes peuvent dépendre de l'accès au service et des pratiques de déclaration.
-- Les fichiers sont volumineux et doivent être échantillonnés pour certains cours.
+- La table préparée est un échantillon pédagogique, pas la ressource complète.
+- Les lignes `Information` sont exclues de l'échantillon préparé.
+- Les volumes mesurent les demandes soumises, pas directement les besoins.
+- Les arrondissements ne sont pas comparables sans population, superficie ou exposition au service.
+- Les canaux de provenance influencent fortement les volumes observés.
+- Les coordonnées ne garantissent pas une localisation parfaite de l'enjeu signalé.
 
 ## Extensions
 
-- Créer un tableau de bord de catégories par arrondissement.
-- Étudier les canaux de provenance des demandes.
-- Comparer les années avant et après un changement de service.
+- Comparer deux arrondissements avec une note sur les dénominateurs manquants.
+- Étudier les demandes liées aux déchets, à la voirie ou au déneigement.
+- Construire une série mensuelle pour une activité précise.
+- Produire une carte filtrée aux lignes avec coordonnées disponibles.
+- Ajouter des données de population pour construire un taux exploratoire.
+
+## Références utilisées
+
+- Données Québec. 2026. Demandes de services citoyennes, Requêtes 311. <https://www.donneesquebec.ca/recherche/dataset/vmtl-requete-311>
+- Données Québec. 2026. API CKAN, paquet `vmtl-requete-311`. <https://www.donneesquebec.ca/recherche/api/3/action/package_show?id=vmtl-requete-311>
+- Ville de Montréal. 2026. Requêtes 3-1-1, 2022 à ce jour. <https://donnees.montreal.ca/dataset/5866f832-676d-4b07-be6a-e99c21eb17e4/resource/2cfa0e06-9be4-49a6-b7f1-ee9f2363a872/download/requetes311.csv>
 
 ```{r}
 #| label: dataset-detail-footer
@@ -136,4 +311,3 @@ source_url
 #| results: asis
 render_dataset_detail_footer()
 ```
-

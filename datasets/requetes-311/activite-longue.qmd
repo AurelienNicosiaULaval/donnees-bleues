@@ -1,60 +1,55 @@
 ---
-title: "Saisonnalité des requêtes 311"
+title: "Mini-projet - Saisonnalité des demandes 311"
 embed-resources: true
 ---
 
-# Saisonnalité des requêtes 311
+# Mini-projet - Saisonnalité des demandes 311
 
 ## Contexte
 
-Cette activité relie séries temporelles et données administratives municipales.
+Cette activité relie séries temporelles, services municipaux et communication prudente. Le rapport attendu doit montrer comment certaines catégories de demandes varient dans le temps, tout en documentant que les données sont un échantillon pédagogique de demandes soumises.
 
-## Objectifs d'apprentissage
+## Question directrice
 
-- Nettoyer une date
-- Agréger par mois
-- Comparer des catégories
+Les demandes de services municipaux observées varient-elles selon la saison?
 
-## Données utilisées
+## Livrables
 
-Fiche : [Demandes de services citoyennes 311 à Montréal](fiche.qmd)
+1. Un script reproductible qui exécute `datasets/requetes-311/preparation.R`.
+2. Un tableau des variables utilisées et de leur rôle.
+3. Un résumé mensuel pour deux ou trois activités.
+4. Deux visualisations, dont au moins une série mensuelle.
+5. Une comparaison par arrondissement ou par provenance.
+6. Une section limites sur l'échantillonnage, les canaux et les besoins non observés.
 
-Source : Données Québec / Ville de Montréal.
+## Étapes suggérées
 
-Licence : Attribution (CC-BY 4.0).
+1. Importer la table préparée.
+2. Choisir deux ou trois activités suffisamment fréquentes.
+3. Agréger les demandes par `mois_creation`.
+4. Visualiser les séries mensuelles.
+5. Vérifier si 2026 est une année partielle.
+6. Comparer les provenances pour les activités choisies.
+7. Rédiger une interprétation prudente.
 
-## Métadonnées pédagogiques
+## Critères d'évaluation suggérés
 
-| Champ | Information |
+| Critère | Attendu |
 |---|---|
-| Question directrice | Les demandes de services municipaux varient-elles selon la saison? |
-| Concepts | Séries temporelles; Nettoyage; Communication |
-| Niveau | Intermédiaire |
-| Type | Projet ou tâche longue; Étude de cas |
-| Contexte | Services municipaux |
-| Accroche | Vie quotidienne et services publics |
-| Durée | 2-3 heures |
-| Matériel | énoncé; code; données; notes enseignantes |
-| Math/stats avancées | non |
-
-## Consignes
-
-1. Choisir deux ou trois catégories
-2. Nettoyer la date de création
-3. Agréger par mois
-4. Tracer les séries
-5. Rédiger une interprétation
-
-## Questions
-
-1. Quelles catégories sont saisonnières?
-2. Quels événements pourraient expliquer les pics?
-3. Quelles données externes seraient utiles?
+| Reproductibilité | Le rapport exécute le script de préparation et importe la table préparée. |
+| Échantillonnage | La méthode d'échantillon est décrite correctement. |
+| Agrégation temporelle | Les dates sont agrégées au mois de façon explicite. |
+| Visualisation | Les séries sont lisibles et les catégories sont limitées. |
+| Interprétation | Les volumes ne sont pas présentés comme des besoins réels. |
+| Limites | Les biais de déclaration et de canal sont discutés. |
 
 ## Pistes de solution
 
-Un bon rapport montre une agrégation mensuelle et évite de confondre demandes et besoins réels.
+Un rapport solide choisit peu de catégories, documente la période couverte, signale que 2026 est partielle et évite de conclure qu'une hausse de demandes prouve une hausse de problèmes. Une interprétation responsable distingue demandes soumises, traitement administratif et besoin municipal réel.
 
-## Prolongement
+## Variantes possibles
 
-Ajouter un découpage par arrondissement.
+- Comparer téléphone et mobile pour une même activité.
+- Limiter l'analyse à un arrondissement.
+- Cartographier une activité avec `coordonnees_disponibles == TRUE`.
+- Ajouter une population d'arrondissement pour construire un taux exploratoire.

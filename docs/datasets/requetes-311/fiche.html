@@ -5547,8 +5547,11 @@ Demandes de services citoyennes 311 à Montréal
 <p class="dataset-hero-source">
 Données Québec / Ville de Montréal
 </p>
+<div class="dataset-contributor-badge">
+<span>Personne à contacter</span><strong>Aurélien Nicosia</strong><small>Révision pédagogique et statistique</small>
+</div>
 <p class="dataset-hero-summary">
-Demande d&#39;information ou de service au 311
+Demande citoyenne soumise au 311 ou par un canal municipal documenté
 </p>
 <div class="dataset-hero-actions">
 <a class="dataset-button no-external" href="#r-en-action">Voir les résultats R</a><a class="dataset-button secondary" href="https://www.donneesquebec.ca/recherche/dataset/vmtl-requete-311">Source officielle</a>
@@ -5566,17 +5569,17 @@ Demande d&#39;information ou de service au 311
 <span>Niveau</span><strong>Introduction à intermédiaire</strong>
 </div>
 <div class="dataset-fact">
-<span>Structure</span><strong>Tabulaire, temporel, spatial, services publics</strong>
+<span>Structure</span><strong>Tabulaire, temporel, spatial et administratif</strong>
 </div>
 <div class="dataset-fact">
-<span>Format</span><strong>CSV et visualisation web</strong>
+<span>Format</span><strong>CSV officiel volumineux; échantillon pédagogique préparé localement</strong>
 </div>
 </div>
 <div class="dataset-pedagogy-band">
 <div class="dataset-pedagogy-main">
 <span>Question de départ</span>
 <p>
-Analyser la saisonnalité des demandes par catégorie.
+Comparer les principales activités de demandes non-Information par arrondissement.
 </p>
 </div>
 <div class="dataset-score-box">
@@ -5587,7 +5590,7 @@ Analyser la saisonnalité des demandes par catégorie.
 </div>
 </div>
 <div class="dataset-chip-strip">
-<span>services publics</span><span>Montréal</span><span>séries temporelles</span><span>catégories</span><span>visualisation</span><span>statistiques descriptives</span><span>données ouvertes</span>
+<span>données administratives</span><span>échantillonnage</span><span>catégories</span><span>séries temporelles</span><span>coordonnées</span><span>valeurs manquantes</span><span>biais de déclaration</span>
 </div>
 <section class="dataset-r-lab" id="r-en-action">
 <div class="dataset-section-heading">
@@ -5596,7 +5599,7 @@ Analyser la saisonnalité des demandes par catégorie.
 Aperçu reproductible
 </h2>
 <p>
-Aperçu léger calculé par R à partir des métadonnées vérifiées afin de garder la fiche rapide et stable au rendu.
+Aperçu calculé par R à partir de data/processed/requetes-311/requetes_311_non_information_echantillon.csv.
 </p>
 </div>
 <div class="dataset-r-grid">
@@ -5604,13 +5607,12 @@ Aperçu léger calculé par R à partir des métadonnées vérifiées afin de ga
 <div class="dataset-card-label">
 Code minimal
 </div>
-<pre><code class="language-r">library(yaml)
+<pre><code class="language-r">library(dplyr)
 
-metadata &lt;- yaml::read_yaml(&quot;datasets/requetes-311/metadata.yml&quot;)
-data.frame(
-  champ = c(&quot;theme&quot;, &quot;territoire&quot;, &quot;unite&quot;, &quot;niveau&quot;),
-  valeur = c(metadata$theme, metadata$geography, metadata$unit, metadata$level)
-)</code></pre>
+donnees &lt;- read.csv(&quot;data/processed/requetes-311/requetes_311_non_information_echantillon.csv&quot;, check.names = FALSE)
+
+glimpse(donnees)
+donnees |&gt; summarise(lignes = n(), colonnes = ncol(donnees))</code></pre>
 </div>
 <div class="dataset-result-card">
 <div class="dataset-card-label">
@@ -5618,16 +5620,19 @@ Résultats R
 </div>
 <div class="dataset-r-stats">
 <div class="dataset-r-stat">
-<span>Lignes déclarées</span><strong>Fichiers CSV par période; plusieurs centaines de Mo pour les ressources récentes et archivées</strong>
+<span>Lignes lues</span><strong>2 500</strong>
 </div>
 <div class="dataset-r-stat">
-<span>Colonnes déclarées</span><strong>29 champs observés dans l&#39;en-tête du fichier 2022 à ce jour consulté le 2026-06-19</strong>
+<span>Colonnes</span><strong>28</strong>
 </div>
 <div class="dataset-r-stat">
-<span>Format</span><strong>CSV et visualisation web</strong>
+<span>Variables num.</span><strong>11</strong>
 </div>
 <div class="dataset-r-stat">
-<span>Aperçu</span><strong>Métadonnées</strong>
+<span>Valeurs manquantes</span><strong>0.6 %</strong>
+</div>
+<div class="dataset-r-stat">
+<span>Aperçu</span><strong>requetes_311_non_information_echantillon.csv</strong>
 </div>
 </div>
 <div class="dataset-result-table-wrap">
@@ -5635,52 +5640,144 @@ Résultats R
 <thead>
 <tr>
 <th>
-champ
+id_unique
 </th>
 <th>
-valeur
+nature
+</th>
+<th>
+activite
+</th>
+<th>
+type_lieu_intervention
+</th>
+<th>
+rue
+</th>
+<th>
+arrondissement
 </th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>
-theme
+22-24
 </td>
 <td>
-Services municipaux
-</td>
-</tr>
-<tr>
-<td>
-territoire
+Requete
 </td>
 <td>
-Montréal
-</td>
-</tr>
-<tr>
-<td>
-unite
+Feux de circulation - Entretien
 </td>
 <td>
-Demande d&#39;information ou de ser…
+Adresse
+</td>
+<td>
+rue De Normanville
+</td>
+<td>
+Villeray-Saint-Michel - Parc-Ex…
 </td>
 </tr>
 <tr>
 <td>
-niveau
+22-70
 </td>
 <td>
-Introduction à intermédiaire
+Requete
+</td>
+<td>
+Éclairage existant - Entretien
+</td>
+<td>
+Adresse
+</td>
+<td>
+boulevard LaSalle
+</td>
+<td>
+Verdun
 </td>
 </tr>
 <tr>
 <td>
-format
+22-80
 </td>
 <td>
-CSV et visualisation web
+Requete
+</td>
+<td>
+Voirie - Divers
+</td>
+<td>
+Adresse
+</td>
+<td>
+rue Waverly
+</td>
+<td>
+Ahuntsic - Cartierville
+</td>
+</tr>
+<tr>
+<td>
+22-146
+</td>
+<td>
+Requete
+</td>
+<td>
+Fuite d&#39;eau
+</td>
+<td>
+Adresse
+</td>
+<td>
+rue Grenet
+</td>
+<td>
+Ahuntsic - Cartierville
+</td>
+</tr>
+<tr>
+<td>
+22-156
+</td>
+<td>
+Requete
+</td>
+<td>
+Sports et loisirs - Activités
+</td>
+<td>
+Adresse
+</td>
+<td>
+rue Fabre
+</td>
+<td>
+Rosemont - La Petite-Patrie
+</td>
+</tr>
+<tr>
+<td>
+22-170
+</td>
+<td>
+Requete
+</td>
+<td>
+Opération déneigement
+</td>
+<td>
+Adresse
+</td>
+<td>
+rue J.-J.-Gagnier
+</td>
+<td>
+Ahuntsic - Cartierville
 </td>
 </tr>
 </tbody>
@@ -5691,8 +5788,8 @@ CSV et visualisation web
 <div class="dataset-card-label">
 Lecture statistique
 </div>
-<svg class="dataset-r-chart" viewbox="0 0 320 210" role="img" aria-label="Concepts pédagogiques">
-<text x="0" y="30" class="dataset-svg-label">services publics</text><rect x="150" y="18" width="90" height="14" rx="3" class="dataset-svg-bar" /><text x="0" y="54" class="dataset-svg-label">Montréal</text><rect x="150" y="42" width="90" height="14" rx="3" class="dataset-svg-bar" /><text x="0" y="78" class="dataset-svg-label">séries temporelles</text><rect x="150" y="66" width="90" height="14" rx="3" class="dataset-svg-bar" /><text x="0" y="102" class="dataset-svg-label">catégories</text><rect x="150" y="90" width="90" height="14" rx="3" class="dataset-svg-bar" /><text x="0" y="126" class="dataset-svg-label">visualisation</text><rect x="150" y="114" width="90" height="14" rx="3" class="dataset-svg-bar" /><text x="0" y="150" class="dataset-svg-label">statistiques descriptives</text><rect x="150" y="138" width="90" height="14" rx="3" class="dataset-svg-bar" /><text x="0" y="174" class="dataset-svg-label">données ouvertes</text><rect x="150" y="162" width="90" height="14" rx="3" class="dataset-svg-bar" />
+<svg class="dataset-r-chart" viewbox="0 0 320 210" role="img" aria-label="Aperçu numérique généré par R">
+<line x1="34" y1="158" x2="292" y2="158" class="dataset-svg-axis"></line><line x1="34" y1="36" x2="34" y2="158" class="dataset-svg-axis"></line><polyline points="34,102 40.4,102 46.7,102 53.1,102 59.4,102 65.8,102 72.2,102 78.5,102 84.9,102 91.2,102 97.6,102 103.9,102 110.3,102 116.7,102 123,102 129.4,102 135.7,102 142.1,102 148.5,102 154.8,102 161.2,102 167.5,102 173.9,102 180.3,102 186.6,102 193,102 199.3,102 205.7,102 212.1,102 218.4,102 224.8,102 231.1,102 237.5,102 243.8,102 250.2,102 256.6,102 262.9,102 269.3,102 275.6,102 282,102" class="dataset-svg-line"></polyline><circle cx="34" cy="102" r="3.2" class="dataset-svg-point"></circle><circle cx="40.4" cy="102" r="3.2" class="dataset-svg-point"></circle><circle cx="46.7" cy="102" r="3.2" class="dataset-svg-point"></circle><circle cx="53.1" cy="102" r="3.2" class="dataset-svg-point"></circle><circle cx="59.4" cy="102" r="3.2" class="dataset-svg-point"></circle><circle cx="65.8" cy="102" r="3.2" class="dataset-svg-point"></circle><circle cx="72.2" cy="102" r="3.2" class="dataset-svg-point"></circle><circle cx="78.5" cy="102" r="3.2" class="dataset-svg-point"></circle><circle cx="84.9" cy="102" r="3.2" class="dataset-svg-point"></circle><circle cx="91.2" cy="102" r="3.2" class="dataset-svg-point"></circle><circle cx="97.6" cy="102" r="3.2" class="dataset-svg-point"></circle><circle cx="103.9" cy="102" r="3.2" class="dataset-svg-point"></circle><circle cx="110.3" cy="102" r="3.2" class="dataset-svg-point"></circle><circle cx="116.7" cy="102" r="3.2" class="dataset-svg-point"></circle><circle cx="123" cy="102" r="3.2" class="dataset-svg-point"></circle><circle cx="129.4" cy="102" r="3.2" class="dataset-svg-point"></circle><circle cx="135.7" cy="102" r="3.2" class="dataset-svg-point"></circle><circle cx="142.1" cy="102" r="3.2" class="dataset-svg-point"></circle><circle cx="148.5" cy="102" r="3.2" class="dataset-svg-point"></circle><circle cx="154.8" cy="102" r="3.2" class="dataset-svg-point"></circle><circle cx="161.2" cy="102" r="3.2" class="dataset-svg-point"></circle><circle cx="167.5" cy="102" r="3.2" class="dataset-svg-point"></circle><circle cx="173.9" cy="102" r="3.2" class="dataset-svg-point"></circle><circle cx="180.3" cy="102" r="3.2" class="dataset-svg-point"></circle><circle cx="186.6" cy="102" r="3.2" class="dataset-svg-point"></circle><circle cx="193" cy="102" r="3.2" class="dataset-svg-point"></circle><circle cx="199.3" cy="102" r="3.2" class="dataset-svg-point"></circle><circle cx="205.7" cy="102" r="3.2" class="dataset-svg-point"></circle><circle cx="212.1" cy="102" r="3.2" class="dataset-svg-point"></circle><circle cx="218.4" cy="102" r="3.2" class="dataset-svg-point"></circle><circle cx="224.8" cy="102" r="3.2" class="dataset-svg-point"></circle><circle cx="231.1" cy="102" r="3.2" class="dataset-svg-point"></circle><circle cx="237.5" cy="102" r="3.2" class="dataset-svg-point"></circle><circle cx="243.8" cy="102" r="3.2" class="dataset-svg-point"></circle><circle cx="250.2" cy="102" r="3.2" class="dataset-svg-point"></circle><circle cx="256.6" cy="102" r="3.2" class="dataset-svg-point"></circle><circle cx="262.9" cy="102" r="3.2" class="dataset-svg-point"></circle><circle cx="269.3" cy="102" r="3.2" class="dataset-svg-point"></circle><circle cx="275.6" cy="102" r="3.2" class="dataset-svg-point"></circle><circle cx="282" cy="102" r="3.2" class="dataset-svg-point"></circle><text x="34" y="24" class="dataset-svg-title">annee_creation</text><text x="34" y="186" class="dataset-svg-label">2021.5</text><text x="230" y="186" class="dataset-svg-label">2022.5</text>
 </svg>
 </div>
 </div>
@@ -5702,13 +5799,13 @@ Lecture statistique
 <span>Mini-projets</span>
 <ul>
 <li>
-Analyser la saisonnalité des demandes par catégorie.
+Comparer les principales activités de demandes non-Information par arrondissement.
 </li>
 <li>
-Comparer les demandes par arrondissement.
+Décrire la saisonnalité observée de quelques catégories sans parler directement de besoins.
 </li>
 <li>
-Visualiser les catégories les plus fréquentes et leur évolution temporelle.
+Cartographier les demandes avec coordonnées disponibles en discutant les biais de déclaration.
 </li>
 </ul>
 </div>
@@ -5716,15 +5813,15 @@ Visualiser les catégories les plus fréquentes et leur évolution temporelle.
 <span>Activités liées</span>
 <div class="dataset-activity-grid">
 <div class="dataset-activity-card">
-<span>30-45 minutes</span><strong>Catégories de requêtes 311</strong>
+<span>30-45 minutes</span><strong>Laboratoire - Catégories de requêtes 311 par arrondissement</strong>
 <p>
 Quelles catégories de demandes dominent dans un arrondissement?
 </p>
 </div>
 <div class="dataset-activity-card">
-<span>2-3 heures</span><strong>Saisonnalité des requêtes 311</strong>
+<span>2-3 heures</span><strong>Mini-projet - Saisonnalité des demandes 311</strong>
 <p>
-Les demandes de services municipaux varient-elles selon la saison?
+Les demandes de services municipaux observées varient-elles selon la saison?
 </p>
 </div>
 </div>
@@ -5733,10 +5830,69 @@ Les demandes de services municipaux varient-elles selon la saison?
 <div class="dataset-detail-content">
 <section id="pourquoi-ce-jeu-est-intéressant" class="level2">
 <h2 class="anchored" data-anchor-id="pourquoi-ce-jeu-est-intéressant">Pourquoi ce jeu est intéressant</h2>
-<p>Ce jeu permet d’aborder les services municipaux à partir de demandes citoyennes. Il est très utile pour la saisonnalité, la classification de catégories, la visualisation par arrondissement et la discussion sur ce que mesure ou ne mesure pas un canal administratif.</p>
+<p>Ce jeu de données décrit des demandes citoyennes soumises à la Ville de Montréal par le système 311, par courriel ou dans les Bureaux Accès Montréal. Il permet d’étudier des catégories de services municipaux très concrètes : déchets, voirie, éclairage, déneigement, espaces publics et suivi des demandes.</p>
+<p>Il est utile en science des données parce qu’il combine un fichier très volumineux, des dates, des catégories textuelles, des canaux de provenance, des statuts, des arrondissements et des coordonnées. Il oblige aussi à discuter ce que mesure un canal administratif : des demandes reçues, pas directement les besoins réels de la population.</p>
+<p>Question d’analyse : quelles catégories de demandes non-Information dominent dans un échantillon pédagogique du 311, et quelles limites faut-il mentionner avant de comparer les arrondissements?</p>
 </section>
-<section id="source" class="level2">
-<h2 class="anchored" data-anchor-id="source">Source</h2>
+<section id="ce-qui-a-été-vérifié" class="level2">
+<h2 class="anchored" data-anchor-id="ce-qui-a-été-vérifié">Ce qui a été vérifié</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Élément</th>
+<th>Résultat vérifié</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Paquet CKAN</td>
+<td><code>5866f832-676d-4b07-be6a-e99c21eb17e4</code></td>
+</tr>
+<tr class="even">
+<td>Source officielle</td>
+<td>Données Québec / Ville de Montréal</td>
+</tr>
+<tr class="odd">
+<td>Ressources dans le paquet</td>
+<td>6 ressources</td>
+</tr>
+<tr class="even">
+<td>Ressources CSV</td>
+<td>5 ressources CSV</td>
+</tr>
+<tr class="odd">
+<td>Ressource récente préparée</td>
+<td><code>Requêtes 3-1-1 (2022 à ce jour)</code></td>
+</tr>
+<tr class="even">
+<td>Licence</td>
+<td>Attribution (CC-BY 4.0), selon les métadonnées CKAN consultées le 2026-06-21</td>
+</tr>
+<tr class="odd">
+<td>Dernière modification du paquet CKAN</td>
+<td>2026-06-20</td>
+</tr>
+<tr class="even">
+<td>Taille de la ressource récente</td>
+<td>775 950 225 octets selon CKAN</td>
+</tr>
+<tr class="odd">
+<td>Table préparée</td>
+<td><code>data/processed/requetes-311/requetes_311_non_information_echantillon.csv</code></td>
+</tr>
+<tr class="even">
+<td>Résumés préparés</td>
+<td>flux, nature, activités, arrondissements, statuts, provenances, années, mois, valeurs manquantes</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="source-et-conditions" class="level2">
+<h2 class="anchored" data-anchor-id="source-et-conditions">Source et conditions</h2>
 <table class="caption-top table">
 <thead>
 <tr class="header">
@@ -5746,47 +5902,45 @@ Les demandes de services municipaux varient-elles selon la saison?
 </thead>
 <tbody>
 <tr class="odd">
-<td>Source</td>
-<td>Données Québec / Ville de Montréal</td>
+<td>Page Données Québec</td>
+<td><a href="https://www.donneesquebec.ca/recherche/dataset/vmtl-requete-311" class="uri">https://www.donneesquebec.ca/recherche/dataset/vmtl-requete-311</a></td>
 </tr>
 <tr class="even">
-<td>Organisme producteur</td>
-<td>Ville de Montréal</td>
+<td>API CKAN</td>
+<td><a href="https://www.donneesquebec.ca/recherche/api/3/action/package_show?id=vmtl-requete-311" class="uri">https://www.donneesquebec.ca/recherche/api/3/action/package_show?id=vmtl-requete-311</a></td>
+</tr>
+<tr class="odd">
+<td>CSV 2022 à ce jour</td>
+<td><a href="https://donnees.montreal.ca/dataset/5866f832-676d-4b07-be6a-e99c21eb17e4/resource/2cfa0e06-9be4-49a6-b7f1-ee9f2363a872/download/requetes311.csv" class="uri">https://donnees.montreal.ca/dataset/5866f832-676d-4b07-be6a-e99c21eb17e4/resource/2cfa0e06-9be4-49a6-b7f1-ee9f2363a872/download/requetes311.csv</a></td>
+</tr>
+<tr class="even">
+<td>Visualisation officielle</td>
+<td>Power BI publié dans les ressources CKAN</td>
 </tr>
 <tr class="odd">
 <td>Territoire</td>
 <td>Montréal</td>
 </tr>
 <tr class="even">
-<td>URL officielle</td>
-<td><a href="https://www.donneesquebec.ca/recherche/dataset/vmtl-requete-311" class="uri">https://www.donneesquebec.ca/recherche/dataset/vmtl-requete-311</a></td>
-</tr>
-<tr class="odd">
-<td>Licence</td>
-<td>Attribution (CC-BY 4.0)</td>
-</tr>
-<tr class="even">
 <td>Date d’accès</td>
-<td>2026-06-19</td>
-</tr>
-<tr class="odd">
-<td>Fréquence de mise à jour</td>
-<td>Mise à jour fréquente; métadonnées modifiées en 2026</td>
-</tr>
-<tr class="even">
-<td>Statut</td>
-<td>source vérifiée</td>
+<td>2026-06-21</td>
 </tr>
 </tbody>
 </table>
+<p>La description officielle indique que le jeu contient les demandes d’information et les demandes de services soumises via le 311, par courriel et dans les Bureaux Accès Montréal. Elle précise que les demandes de services incluent les requêtes, les plaintes et les commentaires, et que les données représentent les demandes soumises qu’elles aient entraîné une intervention ou non.</p>
 </section>
 <section id="ce-que-représente-une-ligne" class="level2">
 <h2 class="anchored" data-anchor-id="ce-que-représente-une-ligne">Ce que représente une ligne</h2>
-<p>Une ligne représente une demande soumise à la Ville de Montréal par le système 311, par courriel ou par un Bureau Accès Montréal, selon la description officielle du jeu.</p>
+<p>Une ligne représente une demande soumise à la Ville de Montréal. Dans la table préparée ici, les lignes <code>Information</code> sont exclues pour garder un extrait pédagogique centré sur les requêtes, plaintes et commentaires.</p>
+<p>Une ligne n’est pas un problème municipal objectif, une intervention confirmée, ni une mesure directe du besoin dans un arrondissement. Les volumes dépendent aussi de l’accès au service, de la propension à signaler, des canaux disponibles et des pratiques administratives.</p>
+</section>
+<section id="échantillon-préparé" class="level2">
+<h2 class="anchored" data-anchor-id="échantillon-préparé">Échantillon préparé</h2>
+<p>La ressource récente est trop volumineuse pour être intégrée telle quelle dans une activité d’introduction. Le script <code>preparation.R</code> lit donc le CSV complet en flux, compte les lignes et prépare un échantillon réservoir déterministe de 100 000 lignes non-Information avec la graine 311.</p>
+<p>Cette méthode rend l’activité légère tout en évitant de prendre seulement les premières lignes du fichier, qui sont uniquement des demandes d’information et ne conviennent pas aux analyses par arrondissement.</p>
 </section>
 <section id="variables-principales" class="level2">
 <h2 class="anchored" data-anchor-id="variables-principales">Variables principales</h2>
-<p>Les noms ci-dessous sont des noms propres proposés pour l’enseignement. Les noms exacts des champs sources doivent être conservés dans le script de préparation.</p>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 33%">
@@ -5795,154 +5949,576 @@ Les demandes de services municipaux varient-elles selon la saison?
 </colgroup>
 <thead>
 <tr class="header">
-<th>Variable proposée</th>
-<th>Rôle pédagogique</th>
-<th>Remarque</th>
+<th>Variable préparée</th>
+<th>Rôle</th>
+<th>Point de vigilance</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td><code>id_unique</code></td>
 <td>Identifiant de demande</td>
-<td>Champ source <code>ID_UNIQUE</code></td>
+<td>Non manquant dans l’échantillon préparé</td>
 </tr>
 <tr class="even">
 <td><code>nature</code></td>
-<td>Nature de la demande</td>
-<td>Information, requête, plainte ou commentaire selon les données</td>
+<td>Requête, plainte ou commentaire</td>
+<td>Les lignes <code>Information</code> sont exclues</td>
 </tr>
 <tr class="odd">
 <td><code>activite</code></td>
-<td>Type ou activité de demande</td>
-<td>Champ source <code>ACTI_NOM</code></td>
+<td>Type de demande</td>
+<td>618 activités distinctes dans l’échantillon</td>
 </tr>
 <tr class="even">
 <td><code>arrondissement</code></td>
-<td>Arrondissement déclaré</td>
-<td>Variable territoriale</td>
+<td>Arrondissement administratif</td>
+<td>33 valeurs distinctes, incluant des regroupements administratifs</td>
 </tr>
 <tr class="odd">
+<td><code>arrondissement_geo</code></td>
+<td>Arrondissement géographique</td>
+<td>32 valeurs distinctes non manquantes</td>
+</tr>
+<tr class="even">
 <td><code>date_creation</code></td>
-<td>Date de création</td>
-<td>Champ source <code>DDS_DATE_CREATION</code></td>
+<td>Date et heure de création</td>
+<td>Sert aux agrégations temporelles</td>
+</tr>
+<tr class="odd">
+<td><code>annee_creation</code>, <code>mois_creation</code></td>
+<td>Variables temporelles préparées</td>
+<td>Utiles pour les graphiques mensuels</td>
 </tr>
 <tr class="even">
 <td><code>provenance_originale</code></td>
 <td>Canal de provenance</td>
-<td>Téléphone, courriel, site web ou autres indicateurs</td>
+<td>Téléphone, mobile, personne, internet, courriel et autres</td>
+</tr>
+<tr class="odd">
+<td><code>longitude</code>, <code>latitude</code></td>
+<td>Coordonnées publiées</td>
+<td>99,91 % des lignes préparées ont des coordonnées</td>
+</tr>
+<tr class="even">
+<td><code>coordonnees_disponibles</code></td>
+<td>Indicateur préparé</td>
+<td>À filtrer avant cartographie</td>
 </tr>
 <tr class="odd">
 <td><code>dernier_statut</code></td>
-<td>Statut final ou courant</td>
-<td>Variable de suivi</td>
+<td>Statut le plus récent</td>
+<td>Décrit le suivi administratif</td>
 </tr>
 <tr class="even">
-<td><code>longitude</code></td>
-<td>Longitude</td>
-<td>Champ source <code>LOC_LONG</code>, parfois manquant</td>
+<td><code>delai_statut_jours</code></td>
+<td>Délai entre création et dernier statut</td>
+<td>Variable exploratoire, sensible aux processus internes</td>
 </tr>
 </tbody>
 </table>
 </section>
-<section id="taille-et-structure" class="level2">
-<h2 class="anchored" data-anchor-id="taille-et-structure">Taille et structure</h2>
+<section id="résultats-r" class="level2">
+<h2 class="anchored" data-anchor-id="résultats-r">RÉSULTATS R</h2>
+<p>Les résultats ci-dessous proviennent de <code>preparation.R</code>, exécuté sur la ressource CSV récente le 2026-06-21.</p>
 <table class="caption-top table">
-<colgroup>
-<col style="width: 50%">
-<col style="width: 50%">
-</colgroup>
 <thead>
 <tr class="header">
-<th>Élément</th>
-<th>Information</th>
+<th>Indicateur</th>
+<th style="text-align: right;">Valeur</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>Nombre de lignes</td>
-<td>Fichiers CSV par période; plusieurs centaines de Mo pour les ressources récentes et archivées</td>
+<td>Ressources CKAN documentées</td>
+<td style="text-align: right;">6</td>
 </tr>
 <tr class="even">
-<td>Nombre de colonnes</td>
-<td>29 champs observés dans l’en-tête du fichier 2022 à ce jour consulté le 2026-06-19</td>
+<td>Ressources CSV</td>
+<td style="text-align: right;">5</td>
 </tr>
 <tr class="odd">
-<td>Structure</td>
-<td>Tabulaire, temporel, spatial, services publics</td>
+<td>Lignes lues dans la ressource récente</td>
+<td style="text-align: right;">2 999 332</td>
 </tr>
 <tr class="even">
-<td>Format</td>
-<td>CSV et visualisation web</td>
+<td>Lignes <code>Information</code> dans la ressource récente</td>
+<td style="text-align: right;">1 377 485</td>
 </tr>
 <tr class="odd">
-<td>Niveau pédagogique recommandé</td>
-<td>Introduction à intermédiaire</td>
+<td>Lignes non-Information dans la ressource récente</td>
+<td style="text-align: right;">1 621 847</td>
+</tr>
+<tr class="even">
+<td>Lignes dans l’échantillon préparé</td>
+<td style="text-align: right;">100 000</td>
+</tr>
+<tr class="odd">
+<td>Colonnes dans le CSV source</td>
+<td style="text-align: right;">29</td>
+</tr>
+<tr class="even">
+<td>Colonnes préparées</td>
+<td style="text-align: right;">28</td>
+</tr>
+<tr class="odd">
+<td>Période couverte par l’échantillon</td>
+<td style="text-align: right;">2022-01-01 à 2026-06-20</td>
+</tr>
+<tr class="even">
+<td>Natures distinctes dans l’échantillon</td>
+<td style="text-align: right;">3</td>
+</tr>
+<tr class="odd">
+<td>Activités distinctes dans l’échantillon</td>
+<td style="text-align: right;">618</td>
+</tr>
+<tr class="even">
+<td>Arrondissements administratifs distincts</td>
+<td style="text-align: right;">33</td>
+</tr>
+<tr class="odd">
+<td>Statuts distincts</td>
+<td style="text-align: right;">9</td>
+</tr>
+<tr class="even">
+<td>Provenances distinctes</td>
+<td style="text-align: right;">8</td>
+</tr>
+<tr class="odd">
+<td>Lignes avec coordonnées</td>
+<td style="text-align: right;">99 912</td>
+</tr>
+<tr class="even">
+<td>Pourcentage avec coordonnées</td>
+<td style="text-align: right;">99,91 %</td>
 </tr>
 </tbody>
 </table>
 </section>
+<section id="nature-des-demandes" class="level2">
+<h2 class="anchored" data-anchor-id="nature-des-demandes">Nature des demandes</h2>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Nature</th>
+<th style="text-align: right;">Demandes</th>
+<th style="text-align: right;">Pourcentage</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Requete</td>
+<td style="text-align: right;">96 610</td>
+<td style="text-align: right;">96,6 %</td>
+</tr>
+<tr class="even">
+<td>Commentaire</td>
+<td style="text-align: right;">1 750</td>
+<td style="text-align: right;">1,8 %</td>
+</tr>
+<tr class="odd">
+<td>Plainte</td>
+<td style="text-align: right;">1 640</td>
+<td style="text-align: right;">1,6 %</td>
+</tr>
+</tbody>
+</table>
+<p>Les libellés sont ceux de la source. La catégorie <code>Requete</code> est dominante dans l’échantillon non-Information.</p>
+</section>
+<section id="activités-les-plus-fréquentes" class="level2">
+<h2 class="anchored" data-anchor-id="activités-les-plus-fréquentes">Activités les plus fréquentes</h2>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Activité</th>
+<th style="text-align: right;">Demandes</th>
+<th style="text-align: right;">Pourcentage</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Dépôt illégal - Déchets</td>
+<td style="text-align: right;">6 119</td>
+<td style="text-align: right;">6,1 %</td>
+</tr>
+<tr class="even">
+<td>Collecte de déchets</td>
+<td style="text-align: right;">4 099</td>
+<td style="text-align: right;">4,1 %</td>
+</tr>
+<tr class="odd">
+<td>Opération déneigement</td>
+<td style="text-align: right;">3 613</td>
+<td style="text-align: right;">3,6 %</td>
+</tr>
+<tr class="even">
+<td>Nid-de-poule</td>
+<td style="text-align: right;">3 344</td>
+<td style="text-align: right;">3,3 %</td>
+</tr>
+<tr class="odd">
+<td>Nettoyage du domaine public</td>
+<td style="text-align: right;">3 321</td>
+<td style="text-align: right;">3,3 %</td>
+</tr>
+<tr class="even">
+<td>Collecte des matières recyclables</td>
+<td style="text-align: right;">3 298</td>
+<td style="text-align: right;">3,3 %</td>
+</tr>
+<tr class="odd">
+<td>Éclairage existant - Entretien</td>
+<td style="text-align: right;">2 545</td>
+<td style="text-align: right;">2,5 %</td>
+</tr>
+<tr class="even">
+<td>Bac roulant</td>
+<td style="text-align: right;">2 357</td>
+<td style="text-align: right;">2,4 %</td>
+</tr>
+<tr class="odd">
+<td>Bac roulant - Matières recyclables</td>
+<td style="text-align: right;">2 120</td>
+<td style="text-align: right;">2,1 %</td>
+</tr>
+<tr class="even">
+<td>Feux de circulation - Entretien</td>
+<td style="text-align: right;">2 058</td>
+<td style="text-align: right;">2,1 %</td>
+</tr>
+<tr class="odd">
+<td>Pavage - Réparation</td>
+<td style="text-align: right;">2 016</td>
+<td style="text-align: right;">2,0 %</td>
+</tr>
+<tr class="even">
+<td>Signalisation - Circulation - Études</td>
+<td style="text-align: right;">1 922</td>
+<td style="text-align: right;">1,9 %</td>
+</tr>
+</tbody>
+</table>
+<p>Ces fréquences décrivent des demandes reçues, pas le nombre réel de problèmes sur le territoire.</p>
+</section>
+<section id="arrondissements-les-plus-fréquents" class="level2">
+<h2 class="anchored" data-anchor-id="arrondissements-les-plus-fréquents">Arrondissements les plus fréquents</h2>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Arrondissement</th>
+<th style="text-align: right;">Demandes</th>
+<th style="text-align: right;">Pourcentage</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Mercier - Hochelaga-Maisonneuve</td>
+<td style="text-align: right;">9 745</td>
+<td style="text-align: right;">9,7 %</td>
+</tr>
+<tr class="even">
+<td>Rosemont - La Petite-Patrie</td>
+<td style="text-align: right;">8 615</td>
+<td style="text-align: right;">8,6 %</td>
+</tr>
+<tr class="odd">
+<td>Ahuntsic - Cartierville</td>
+<td style="text-align: right;">8 341</td>
+<td style="text-align: right;">8,3 %</td>
+</tr>
+<tr class="even">
+<td>Ville-Marie</td>
+<td style="text-align: right;">8 242</td>
+<td style="text-align: right;">8,2 %</td>
+</tr>
+<tr class="odd">
+<td>Le Plateau-Mont-Royal</td>
+<td style="text-align: right;">8 085</td>
+<td style="text-align: right;">8,1 %</td>
+</tr>
+<tr class="even">
+<td>Saint-Laurent</td>
+<td style="text-align: right;">8 008</td>
+<td style="text-align: right;">8,0 %</td>
+</tr>
+<tr class="odd">
+<td>Villeray-Saint-Michel - Parc-Extension</td>
+<td style="text-align: right;">7 158</td>
+<td style="text-align: right;">7,2 %</td>
+</tr>
+<tr class="even">
+<td>Côte-des-Neiges - Notre-Dame-de-Grâce</td>
+<td style="text-align: right;">6 429</td>
+<td style="text-align: right;">6,4 %</td>
+</tr>
+<tr class="odd">
+<td>Le Sud-Ouest</td>
+<td style="text-align: right;">5 539</td>
+<td style="text-align: right;">5,5 %</td>
+</tr>
+<tr class="even">
+<td>Rivière-des-Prairies - Pointe-aux-Trembles</td>
+<td style="text-align: right;">5 468</td>
+<td style="text-align: right;">5,5 %</td>
+</tr>
+</tbody>
+</table>
+<p>Comparer ces volumes entre arrondissements exige de tenir compte de la population, de la superficie, des services locaux et de la propension à utiliser le 311.</p>
+</section>
+<section id="statuts-et-provenances" class="level2">
+<h2 class="anchored" data-anchor-id="statuts-et-provenances">Statuts et provenances</h2>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Statut</th>
+<th style="text-align: right;">Demandes</th>
+<th style="text-align: right;">Pourcentage</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Terminée</td>
+<td style="text-align: right;">93 961</td>
+<td style="text-align: right;">94,0 %</td>
+</tr>
+<tr class="even">
+<td>Refusée</td>
+<td style="text-align: right;">2 686</td>
+<td style="text-align: right;">2,7 %</td>
+</tr>
+<tr class="odd">
+<td>Prise en charge</td>
+<td style="text-align: right;">1 731</td>
+<td style="text-align: right;">1,7 %</td>
+</tr>
+<tr class="even">
+<td>Transmise pour traitement</td>
+<td style="text-align: right;">677</td>
+<td style="text-align: right;">0,7 %</td>
+</tr>
+<tr class="odd">
+<td>Annulée</td>
+<td style="text-align: right;">599</td>
+<td style="text-align: right;">0,6 %</td>
+</tr>
+<tr class="even">
+<td>Acceptée</td>
+<td style="text-align: right;">274</td>
+<td style="text-align: right;">0,3 %</td>
+</tr>
+</tbody>
+</table>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Provenance</th>
+<th style="text-align: right;">Demandes</th>
+<th style="text-align: right;">Pourcentage</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Téléphone</td>
+<td style="text-align: right;">70 962</td>
+<td style="text-align: right;">71,0 %</td>
+</tr>
+<tr class="even">
+<td>Mobile</td>
+<td style="text-align: right;">9 883</td>
+<td style="text-align: right;">9,9 %</td>
+</tr>
+<tr class="odd">
+<td>Personne</td>
+<td style="text-align: right;">8 361</td>
+<td style="text-align: right;">8,4 %</td>
+</tr>
+<tr class="even">
+<td>Internet</td>
+<td style="text-align: right;">5 528</td>
+<td style="text-align: right;">5,5 %</td>
+</tr>
+<tr class="odd">
+<td>Courriel</td>
+<td style="text-align: right;">4 914</td>
+<td style="text-align: right;">4,9 %</td>
+</tr>
+</tbody>
+</table>
+<p>La provenance est une information essentielle pour discuter les biais de déclaration. Un canal plus utilisé peut produire plus de demandes sans que le besoin réel soit plus grand.</p>
+</section>
+<section id="distribution-annuelle-dans-léchantillon" class="level2">
+<h2 class="anchored" data-anchor-id="distribution-annuelle-dans-léchantillon">Distribution annuelle dans l’échantillon</h2>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Année</th>
+<th style="text-align: right;">Demandes</th>
+<th style="text-align: right;">Pourcentage</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>2022</td>
+<td style="text-align: right;">21 658</td>
+<td style="text-align: right;">21,7 %</td>
+</tr>
+<tr class="even">
+<td>2023</td>
+<td style="text-align: right;">21 152</td>
+<td style="text-align: right;">21,2 %</td>
+</tr>
+<tr class="odd">
+<td>2024</td>
+<td style="text-align: right;">20 959</td>
+<td style="text-align: right;">21,0 %</td>
+</tr>
+<tr class="even">
+<td>2025</td>
+<td style="text-align: right;">23 121</td>
+<td style="text-align: right;">23,1 %</td>
+</tr>
+<tr class="odd">
+<td>2026</td>
+<td style="text-align: right;">13 110</td>
+<td style="text-align: right;">13,1 %</td>
+</tr>
+</tbody>
+</table>
+<p>L’année 2026 est partielle au moment de l’accès. Les comparaisons annuelles doivent donc être faites avec prudence.</p>
+</section>
+<section id="valeurs-manquantes-principales" class="level2">
+<h2 class="anchored" data-anchor-id="valeurs-manquantes-principales">Valeurs manquantes principales</h2>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Variable</th>
+<th style="text-align: right;">Valeurs manquantes</th>
+<th style="text-align: right;">Pourcentage</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>rue</code></td>
+<td style="text-align: right;">13 832</td>
+<td style="text-align: right;">13,83 %</td>
+</tr>
+<tr class="even">
+<td><code>provenance_originale</code></td>
+<td style="text-align: right;">102</td>
+<td style="text-align: right;">0,10 %</td>
+</tr>
+<tr class="odd">
+<td><code>arrondissement_geo</code></td>
+<td style="text-align: right;">91</td>
+<td style="text-align: right;">0,09 %</td>
+</tr>
+<tr class="even">
+<td><code>latitude</code></td>
+<td style="text-align: right;">88</td>
+<td style="text-align: right;">0,09 %</td>
+</tr>
+<tr class="odd">
+<td><code>longitude</code></td>
+<td style="text-align: right;">88</td>
+<td style="text-align: right;">0,09 %</td>
+</tr>
+</tbody>
+</table>
+<p>La couverture des coordonnées est élevée dans l’échantillon, mais les coordonnées ne suffisent pas à interpréter l’équité territoriale.</p>
+</section>
+<section id="lecture-statistique" class="level2">
+<h2 class="anchored" data-anchor-id="lecture-statistique">Lecture statistique</h2>
+<p>Une analyse prudente suit cet ordre :</p>
+<ol type="1">
+<li>préciser que l’unité est une demande soumise;</li>
+<li>distinguer les lignes <code>Information</code> des requêtes, plaintes et commentaires;</li>
+<li>documenter l’échantillonnage utilisé;</li>
+<li>compter les activités et vérifier les libellés rares;</li>
+<li>filtrer <code>coordonnees_disponibles</code> avant les cartes;</li>
+<li>éviter de comparer les arrondissements sans population ou dénominateur de service;</li>
+<li>interpréter les volumes comme des demandes observées, pas comme des besoins réels.</li>
+</ol>
+<p>Les données sont excellentes pour enseigner les catégories, les séries temporelles et la visualisation responsable d’un service public.</p>
+</section>
 <section id="concepts-enseignables" class="level2">
 <h2 class="anchored" data-anchor-id="concepts-enseignables">Concepts enseignables</h2>
 <ul>
-<li>services publics</li>
-<li>Montréal</li>
-<li>séries temporelles</li>
-<li>catégories</li>
-<li>visualisation</li>
-<li>statistiques descriptives</li>
-<li>données ouvertes</li>
-<li>spatial</li>
+<li>données administratives;</li>
+<li>échantillonnage reproductible;</li>
+<li>variables catégorielles;</li>
+<li>séries temporelles;</li>
+<li>coordonnées et cartes de points;</li>
+<li>valeurs manquantes;</li>
+<li>biais de déclaration;</li>
+<li>communication publique prudente.</li>
 </ul>
 </section>
 <section id="score-zéro-déchet" class="level2">
 <h2 class="anchored" data-anchor-id="score-zéro-déchet">Score zéro déchet</h2>
 <table class="caption-top table">
+<colgroup>
+<col style="width: 30%">
+<col style="width: 40%">
+<col style="width: 30%">
+</colgroup>
 <thead>
 <tr class="header">
 <th>Dimension</th>
 <th style="text-align: right;">Score</th>
+<th>Justification</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td>Contexte québécois</td>
 <td style="text-align: right;">3</td>
+<td>Service municipal montréalais</td>
 </tr>
 <tr class="even">
 <td>Accessibilité pédagogique</td>
 <td style="text-align: right;">3</td>
+<td>Sujet concret et très lisible</td>
 </tr>
 <tr class="odd">
 <td>Qualité documentaire</td>
 <td style="text-align: right;">2</td>
+<td>Source officielle et visualisation, mais méthodologie à consulter avec prudence</td>
 </tr>
 <tr class="even">
 <td>Potentiel de nettoyage</td>
 <td style="text-align: right;">3</td>
+<td>Dates, catégories, coordonnées, canaux et statuts</td>
 </tr>
 <tr class="odd">
 <td>Potentiel de visualisation</td>
 <td style="text-align: right;">3</td>
+<td>Barres, séries mensuelles, cartes et tableaux</td>
 </tr>
 <tr class="even">
 <td>Potentiel de statistique descriptive</td>
 <td style="text-align: right;">3</td>
+<td>Comptages et proportions directement exploitables</td>
 </tr>
 <tr class="odd">
 <td>Potentiel d’inférence</td>
 <td style="text-align: right;">2</td>
+<td>Possible seulement avec dénominateurs et plan d’analyse</td>
 </tr>
 <tr class="even">
 <td>Potentiel de modélisation</td>
 <td style="text-align: right;">2</td>
+<td>Modèles descriptifs possibles sur catégories ou délais</td>
 </tr>
 <tr class="odd">
-<td>Potentiel de discussion éthique</td>
+<td>Potentiel éthique</td>
 <td style="text-align: right;">3</td>
+<td>Biais d’accès au service et interprétation publique</td>
 </tr>
 <tr class="even">
-<td>Réutilisabilité dans plusieurs cours</td>
+<td>Réutilisabilité</td>
 <td style="text-align: right;">3</td>
+<td>Utile en nettoyage, EDA, spatial, communication et séries temporelles</td>
 </tr>
 </tbody>
 </table>
@@ -5950,47 +6526,74 @@ Les demandes de services municipaux varient-elles selon la saison?
 </section>
 <section id="activité-courte" class="level2">
 <h2 class="anchored" data-anchor-id="activité-courte">Activité courte</h2>
-<p>En 30 à 45 minutes, faire compter les principales catégories de demandes dans un arrondissement.</p>
+<p>En 30 à 45 minutes, choisir un arrondissement, compter les principales activités et rédiger une limite sur l’interprétation des volumes.</p>
 </section>
 <section id="activité-longue" class="level2">
 <h2 class="anchored" data-anchor-id="activité-longue">Activité longue</h2>
-<p>En 2 à 3 heures, demander une analyse temporelle de quelques catégories de demandes.</p>
-</section>
-<section id="projets-possibles" class="level2">
-<h2 class="anchored" data-anchor-id="projets-possibles">Projets possibles</h2>
-<ul>
-<li>Analyser la saisonnalité des demandes par catégorie.</li>
-<li>Comparer les demandes par arrondissement.</li>
-<li>Visualiser les catégories les plus fréquentes et leur évolution temporelle.</li>
-</ul>
+<p>En 2 à 3 heures, produire une analyse saisonnière de quelques activités, avec un graphique mensuel et une discussion sur l’échantillonnage et les biais de déclaration.</p>
 </section>
 <section id="code-r-minimal" class="level2">
 <h2 class="anchored" data-anchor-id="code-r-minimal">Code R minimal</h2>
+<p>À exécuter depuis la racine du projet.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>source_url <span class="ot">&lt;-</span> <span class="st">&quot;https://www.donneesquebec.ca/recherche/dataset/vmtl-requete-311&quot;</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load libraries</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Télécharger la ressource appropriée depuis la page officielle,</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co"># puis documenter le fichier brut dans data/raw/ avant toute transformation.</span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>source_url</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Stream, sample and prepare the official recent CSV resource</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">&quot;datasets/requetes-311/preparation.R&quot;</span>)</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Import prepared data</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>requetes <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;data/processed/requetes-311/requetes_311_non_information_echantillon.csv&quot;</span>,</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">show_col_types =</span> <span class="cn">FALSE</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Top activities in one borough</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>resume_activites <span class="ot">&lt;-</span> requetes <span class="sc">|&gt;</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(arrondissement <span class="sc">==</span> <span class="st">&quot;Rosemont - La Petite-Patrie&quot;</span>) <span class="sc">|&gt;</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(activite, <span class="at">sort =</span> <span class="cn">TRUE</span>) <span class="sc">|&gt;</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice_head</span>(<span class="at">n =</span> <span class="dv">10</span>)</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(resume_activites, <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">reorder</span>(activite, n), <span class="at">y =</span> n)) <span class="sc">+</span></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="at">fill =</span> <span class="st">&quot;#325EA8&quot;</span>) <span class="sc">+</span></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>() <span class="sc">+</span></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">&quot;Activité&quot;</span>,</span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">&quot;Demandes&quot;</span>,</span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">&quot;Principales activités 311 dans Rosemont - La Petite-Patrie&quot;</span>,</span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="st">&quot;Échantillon pédagogique de demandes non-Information&quot;</span></span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="limites-et-précautions" class="level2">
 <h2 class="anchored" data-anchor-id="limites-et-précautions">Limites et précautions</h2>
 <ul>
-<li>Le jeu mesure les demandes soumises, pas directement les besoins réels de la population.</li>
-<li>Les volumes peuvent dépendre de l’accès au service et des pratiques de déclaration.</li>
-<li>Les fichiers sont volumineux et doivent être échantillonnés pour certains cours.</li>
+<li>La table préparée est un échantillon pédagogique, pas la ressource complète.</li>
+<li>Les lignes <code>Information</code> sont exclues de l’échantillon préparé.</li>
+<li>Les volumes mesurent les demandes soumises, pas directement les besoins.</li>
+<li>Les arrondissements ne sont pas comparables sans population, superficie ou exposition au service.</li>
+<li>Les canaux de provenance influencent fortement les volumes observés.</li>
+<li>Les coordonnées ne garantissent pas une localisation parfaite de l’enjeu signalé.</li>
 </ul>
 </section>
 <section id="extensions" class="level2">
 <h2 class="anchored" data-anchor-id="extensions">Extensions</h2>
 <ul>
-<li>Créer un tableau de bord de catégories par arrondissement.</li>
-<li>Étudier les canaux de provenance des demandes.</li>
-<li>Comparer les années avant et après un changement de service.</li>
+<li>Comparer deux arrondissements avec une note sur les dénominateurs manquants.</li>
+<li>Étudier les demandes liées aux déchets, à la voirie ou au déneigement.</li>
+<li>Construire une série mensuelle pour une activité précise.</li>
+<li>Produire une carte filtrée aux lignes avec coordonnées disponibles.</li>
+<li>Ajouter des données de population pour construire un taux exploratoire.</li>
+</ul>
+</section>
+<section id="références-utilisées" class="level2">
+<h2 class="anchored" data-anchor-id="références-utilisées">Références utilisées</h2>
+<ul>
+<li>Données Québec. 2026. Demandes de services citoyennes, Requêtes 311. <a href="https://www.donneesquebec.ca/recherche/dataset/vmtl-requete-311" class="uri">https://www.donneesquebec.ca/recherche/dataset/vmtl-requete-311</a></li>
+<li>Données Québec. 2026. API CKAN, paquet <code>vmtl-requete-311</code>. <a href="https://www.donneesquebec.ca/recherche/api/3/action/package_show?id=vmtl-requete-311" class="uri">https://www.donneesquebec.ca/recherche/api/3/action/package_show?id=vmtl-requete-311</a></li>
+<li>Ville de Montréal. 2026. Requêtes 3-1-1, 2022 à ce jour. <a href="https://donnees.montreal.ca/dataset/5866f832-676d-4b07-be6a-e99c21eb17e4/resource/2cfa0e06-9be4-49a6-b7f1-ee9f2363a872/download/requetes311.csv" class="uri">https://donnees.montreal.ca/dataset/5866f832-676d-4b07-be6a-e99c21eb17e4/resource/2cfa0e06-9be4-49a6-b7f1-ee9f2363a872/download/requetes311.csv</a></li>
 </ul>
 </section>
 </div>

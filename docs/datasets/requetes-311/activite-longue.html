@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Saisonnalité des requêtes 311 – Données bleues</title>
+<title>Mini-projet - Saisonnalité des demandes 311 – Données bleues</title>
 <style>
 
 code{white-space: pre-wrap;}
@@ -5482,16 +5482,15 @@ grid-template-columns: 1fr;
     <h2 id="toc-title">On this page</h2>
 
   <ul>
-  <li><a href="#saisonnalité-des-requêtes-311" id="toc-saisonnalité-des-requêtes-311" class="nav-link active" data-scroll-target="#saisonnalité-des-requêtes-311">Saisonnalité des requêtes 311</a>
+  <li><a href="#mini-projet---saisonnalité-des-demandes-311" id="toc-mini-projet---saisonnalité-des-demandes-311" class="nav-link active" data-scroll-target="#mini-projet---saisonnalité-des-demandes-311">Mini-projet - Saisonnalité des demandes 311</a>
   <ul class="collapse">
   <li><a href="#contexte" id="toc-contexte" class="nav-link" data-scroll-target="#contexte">Contexte</a></li>
-  <li><a href="#objectifs-dapprentissage" id="toc-objectifs-dapprentissage" class="nav-link" data-scroll-target="#objectifs-dapprentissage">Objectifs d’apprentissage</a></li>
-  <li><a href="#données-utilisées" id="toc-données-utilisées" class="nav-link" data-scroll-target="#données-utilisées">Données utilisées</a></li>
-  <li><a href="#métadonnées-pédagogiques" id="toc-métadonnées-pédagogiques" class="nav-link" data-scroll-target="#métadonnées-pédagogiques">Métadonnées pédagogiques</a></li>
-  <li><a href="#consignes" id="toc-consignes" class="nav-link" data-scroll-target="#consignes">Consignes</a></li>
-  <li><a href="#questions" id="toc-questions" class="nav-link" data-scroll-target="#questions">Questions</a></li>
+  <li><a href="#question-directrice" id="toc-question-directrice" class="nav-link" data-scroll-target="#question-directrice">Question directrice</a></li>
+  <li><a href="#livrables" id="toc-livrables" class="nav-link" data-scroll-target="#livrables">Livrables</a></li>
+  <li><a href="#étapes-suggérées" id="toc-étapes-suggérées" class="nav-link" data-scroll-target="#étapes-suggérées">Étapes suggérées</a></li>
+  <li><a href="#critères-dévaluation-suggérés" id="toc-critères-dévaluation-suggérés" class="nav-link" data-scroll-target="#critères-dévaluation-suggérés">Critères d’évaluation suggérés</a></li>
   <li><a href="#pistes-de-solution" id="toc-pistes-de-solution" class="nav-link" data-scroll-target="#pistes-de-solution">Pistes de solution</a></li>
-  <li><a href="#prolongement" id="toc-prolongement" class="nav-link" data-scroll-target="#prolongement">Prolongement</a></li>
+  <li><a href="#variantes-possibles" id="toc-variantes-possibles" class="nav-link" data-scroll-target="#variantes-possibles">Variantes possibles</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -5501,7 +5500,7 @@ grid-template-columns: 1fr;
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Saisonnalité des requêtes 311</h1>
+<h1 class="title">Mini-projet - Saisonnalité des demandes 311</h1>
 </div>
 
 
@@ -5518,28 +5517,41 @@ grid-template-columns: 1fr;
 </header>
 
 
-<section id="saisonnalité-des-requêtes-311" class="level1">
-<h1>Saisonnalité des requêtes 311</h1>
+<section id="mini-projet---saisonnalité-des-demandes-311" class="level1">
+<h1>Mini-projet - Saisonnalité des demandes 311</h1>
 <section id="contexte" class="level2">
 <h2 class="anchored" data-anchor-id="contexte">Contexte</h2>
-<p>Cette activité relie séries temporelles et données administratives municipales.</p>
+<p>Cette activité relie séries temporelles, services municipaux et communication prudente. Le rapport attendu doit montrer comment certaines catégories de demandes varient dans le temps, tout en documentant que les données sont un échantillon pédagogique de demandes soumises.</p>
 </section>
-<section id="objectifs-dapprentissage" class="level2">
-<h2 class="anchored" data-anchor-id="objectifs-dapprentissage">Objectifs d’apprentissage</h2>
-<ul>
-<li>Nettoyer une date</li>
-<li>Agréger par mois</li>
-<li>Comparer des catégories</li>
-</ul>
+<section id="question-directrice" class="level2">
+<h2 class="anchored" data-anchor-id="question-directrice">Question directrice</h2>
+<p>Les demandes de services municipaux observées varient-elles selon la saison?</p>
 </section>
-<section id="données-utilisées" class="level2">
-<h2 class="anchored" data-anchor-id="données-utilisées">Données utilisées</h2>
-<p>Fiche : <a href="../../datasets/requetes-311/fiche.html">Demandes de services citoyennes 311 à Montréal</a></p>
-<p>Source : Données Québec / Ville de Montréal.</p>
-<p>Licence : Attribution (CC-BY 4.0).</p>
+<section id="livrables" class="level2">
+<h2 class="anchored" data-anchor-id="livrables">Livrables</h2>
+<ol type="1">
+<li>Un script reproductible qui exécute <code>datasets/requetes-311/preparation.R</code>.</li>
+<li>Un tableau des variables utilisées et de leur rôle.</li>
+<li>Un résumé mensuel pour deux ou trois activités.</li>
+<li>Deux visualisations, dont au moins une série mensuelle.</li>
+<li>Une comparaison par arrondissement ou par provenance.</li>
+<li>Une section limites sur l’échantillonnage, les canaux et les besoins non observés.</li>
+</ol>
 </section>
-<section id="métadonnées-pédagogiques" class="level2">
-<h2 class="anchored" data-anchor-id="métadonnées-pédagogiques">Métadonnées pédagogiques</h2>
+<section id="étapes-suggérées" class="level2">
+<h2 class="anchored" data-anchor-id="étapes-suggérées">Étapes suggérées</h2>
+<ol type="1">
+<li>Importer la table préparée.</li>
+<li>Choisir deux ou trois activités suffisamment fréquentes.</li>
+<li>Agréger les demandes par <code>mois_creation</code>.</li>
+<li>Visualiser les séries mensuelles.</li>
+<li>Vérifier si 2026 est une année partielle.</li>
+<li>Comparer les provenances pour les activités choisies.</li>
+<li>Rédiger une interprétation prudente.</li>
+</ol>
+</section>
+<section id="critères-dévaluation-suggérés" class="level2">
+<h2 class="anchored" data-anchor-id="critères-dévaluation-suggérés">Critères d’évaluation suggérés</h2>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 50%">
@@ -5547,75 +5559,50 @@ grid-template-columns: 1fr;
 </colgroup>
 <thead>
 <tr class="header">
-<th>Champ</th>
-<th>Information</th>
+<th>Critère</th>
+<th>Attendu</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>Question directrice</td>
-<td>Les demandes de services municipaux varient-elles selon la saison?</td>
+<td>Reproductibilité</td>
+<td>Le rapport exécute le script de préparation et importe la table préparée.</td>
 </tr>
 <tr class="even">
-<td>Concepts</td>
-<td>Séries temporelles; Nettoyage; Communication</td>
+<td>Échantillonnage</td>
+<td>La méthode d’échantillon est décrite correctement.</td>
 </tr>
 <tr class="odd">
-<td>Niveau</td>
-<td>Intermédiaire</td>
+<td>Agrégation temporelle</td>
+<td>Les dates sont agrégées au mois de façon explicite.</td>
 </tr>
 <tr class="even">
-<td>Type</td>
-<td>Projet ou tâche longue; Étude de cas</td>
+<td>Visualisation</td>
+<td>Les séries sont lisibles et les catégories sont limitées.</td>
 </tr>
 <tr class="odd">
-<td>Contexte</td>
-<td>Services municipaux</td>
+<td>Interprétation</td>
+<td>Les volumes ne sont pas présentés comme des besoins réels.</td>
 </tr>
 <tr class="even">
-<td>Accroche</td>
-<td>Vie quotidienne et services publics</td>
-</tr>
-<tr class="odd">
-<td>Durée</td>
-<td>2-3 heures</td>
-</tr>
-<tr class="even">
-<td>Matériel</td>
-<td>énoncé; code; données; notes enseignantes</td>
-</tr>
-<tr class="odd">
-<td>Math/stats avancées</td>
-<td>non</td>
+<td>Limites</td>
+<td>Les biais de déclaration et de canal sont discutés.</td>
 </tr>
 </tbody>
 </table>
 </section>
-<section id="consignes" class="level2">
-<h2 class="anchored" data-anchor-id="consignes">Consignes</h2>
-<ol type="1">
-<li>Choisir deux ou trois catégories</li>
-<li>Nettoyer la date de création</li>
-<li>Agréger par mois</li>
-<li>Tracer les séries</li>
-<li>Rédiger une interprétation</li>
-</ol>
-</section>
-<section id="questions" class="level2">
-<h2 class="anchored" data-anchor-id="questions">Questions</h2>
-<ol type="1">
-<li>Quelles catégories sont saisonnières?</li>
-<li>Quels événements pourraient expliquer les pics?</li>
-<li>Quelles données externes seraient utiles?</li>
-</ol>
-</section>
 <section id="pistes-de-solution" class="level2">
 <h2 class="anchored" data-anchor-id="pistes-de-solution">Pistes de solution</h2>
-<p>Un bon rapport montre une agrégation mensuelle et évite de confondre demandes et besoins réels.</p>
+<p>Un rapport solide choisit peu de catégories, documente la période couverte, signale que 2026 est partielle et évite de conclure qu’une hausse de demandes prouve une hausse de problèmes. Une interprétation responsable distingue demandes soumises, traitement administratif et besoin municipal réel.</p>
 </section>
-<section id="prolongement" class="level2">
-<h2 class="anchored" data-anchor-id="prolongement">Prolongement</h2>
-<p>Ajouter un découpage par arrondissement.</p>
+<section id="variantes-possibles" class="level2">
+<h2 class="anchored" data-anchor-id="variantes-possibles">Variantes possibles</h2>
+<ul>
+<li>Comparer téléphone et mobile pour une même activité.</li>
+<li>Limiter l’analyse à un arrondissement.</li>
+<li>Cartographier une activité avec <code>coordonnees_disponibles == TRUE</code>.</li>
+<li>Ajouter une population d’arrondissement pour construire un taux exploratoire.</li>
+</ul>
 
 
 </section>

@@ -1,60 +1,47 @@
 ---
-title: "Catégories de requêtes 311"
+title: "Laboratoire - Catégories de requêtes 311 par arrondissement"
 embed-resources: true
 ---
 
-# Catégories de requêtes 311
+# Laboratoire - Catégories de requêtes 311 par arrondissement
 
 ## Contexte
 
-Cette activité utilise des demandes citoyennes pour pratiquer les résumés de variables catégorielles.
+Cette activité utilise la fiche [Demandes de services citoyennes 311 à Montréal](fiche.qmd). L'objectif est de résumer les catégories de demandes dans un arrondissement, sans confondre volume de demandes et intensité réelle des problèmes.
 
 ## Objectifs d'apprentissage
 
-- Filtrer un arrondissement
-- Compter des catégories
-- Créer un graphique en barres
+- Importer une table préparée à partir d'une source officielle.
+- Filtrer un arrondissement.
+- Compter les catégories d'une variable textuelle.
+- Produire un graphique à barres lisible.
+- Formuler une limite liée aux biais de déclaration.
 
-## Données utilisées
+## Question directrice
 
-Fiche : [Demandes de services citoyennes 311 à Montréal](fiche.qmd)
-
-Source : Données Québec / Ville de Montréal.
-
-Licence : Attribution (CC-BY 4.0).
-
-## Métadonnées pédagogiques
-
-| Champ | Information |
-|---|---|
-| Question directrice | Quelles catégories de demandes dominent dans un arrondissement? |
-| Concepts | Comptage; Catégories; Visualisation |
-| Niveau | Introductif |
-| Type | Exercice; Exploration de données |
-| Contexte | Services municipaux |
-| Accroche | Services municipaux concrets |
-| Durée | 30-45 minutes |
-| Matériel | énoncé; code; données |
-| Math/stats avancées | non |
+Quelles catégories de demandes dominent dans un arrondissement?
 
 ## Consignes
 
-1. Importer un extrait ou une ressource CSV
-2. Filtrer un arrondissement
-3. Compter les valeurs de `ACTI_NOM`
-4. Tracer les dix catégories principales
-5. Interpréter avec prudence
+1. Exécuter `datasets/requetes-311/preparation.R`.
+2. Importer `data/processed/requetes-311/requetes_311_non_information_echantillon.csv`.
+3. Choisir un arrondissement avec au moins 3 000 demandes dans l'échantillon.
+4. Compter les 10 activités les plus fréquentes.
+5. Produire un graphique à barres horizontal.
+6. Rédiger une conclusion de 6 à 8 lignes.
+
+## Résultats attendus
+
+Le script prépare un échantillon réservoir déterministe de 100 000 lignes non-Information. Il vérifie aussi que la ressource récente contient 2 999 332 lignes au moment de l'accès, dont 1 621 847 lignes non-Information.
 
 ## Questions
 
-1. Quelle catégorie domine?
-2. Une forte fréquence signifie-t-elle plus de problèmes?
-3. Quels biais de déclaration sont possibles?
+1. Quelle est l'unité statistique?
+2. Pourquoi les lignes `Information` sont-elles exclues de l'échantillon préparé?
+3. Quelle activité domine dans l'arrondissement choisi?
+4. Une fréquence élevée signifie-t-elle nécessairement plus de problèmes?
+5. Quels biais de déclaration peuvent affecter les comparaisons?
 
 ## Pistes de solution
 
-Une solution acceptable présente un graphique clair et une phrase sur les biais de déclaration.
-
-## Prolongement
-
-Comparer deux arrondissements.
+Une bonne réponse présente un graphique clair et nomme l'activité dominante. Une meilleure réponse ajoute que le volume observé dépend aussi de l'accès au 311, du canal de provenance, de la propension à signaler et de la taille de l'arrondissement.
