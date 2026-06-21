@@ -1,0 +1,2 @@
+resource_order,resource_id,resource_name,resource_description,resource_format,resource_url,resource_last_modified,resource_metadata_modified,resource_size,access_mode
+1,9ca1277f-a686-4699-96ae-39837a7254ec,Horaires et positionnement des bus en temps réel,"Pour accéder aux GTFS-realtime et à l’API i3, inscrivez-vous sur le portail Développeurs de la STM.",GTFS,https://www.stm.info/fr/a-propos/developpeurs,2026-06-21T00:02:28,2026-06-21T07:00:09.966307,NA,portail développeur STM

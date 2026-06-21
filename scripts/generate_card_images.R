@@ -218,7 +218,7 @@ cards <- list(
   ),
   list(
     id = "retards-transport-collectif",
-    label = "Retards et ponctualité du transport collectif",
+    label = "Flux temps réel STM et ponctualité des bus",
     commons_file = "STM Bus back on line 114.jpg",
     source_title = "STM Bus back on line 114.jpg",
     source_page = "https://commons.wikimedia.org/wiki/File:STM_Bus_back_on_line_114.jpg",

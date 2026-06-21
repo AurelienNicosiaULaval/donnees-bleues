@@ -1,30 +1,93 @@
 ---
-title: "Mini-projet - Retards transport"
+title: "Mini-projet - Concevoir un protocole d'archivage GTFS-realtime"
 embed-resources: true
 ---
 
-# Mini-projet - Retards transport
+# Mini-projet - Concevoir un protocole d'archivage GTFS-realtime
 
 ## Contexte
 
-Ce mini-projet prolonge le laboratoire court en demandant une préparation reproductible et une interprétation plus structurée.
+Cette activité prolonge le laboratoire court. Les étudiants et étudiantes doivent concevoir le plan qui transformerait un flux temps réel STM en jeu de données exploitable pour étudier la ponctualité. Le livrable principal est un protocole reproductible, pas une conclusion prématurée sur les retards.
 
 ## Question directrice
 
-Construire un protocole reproductible pour archiver un flux temps réel et résumer la ponctualité par ligne.
+Comment archiver un flux GTFS-realtime pour produire une table de ponctualité utilisable en statistique descriptive?
 
 ## Livrables
 
-1. Un fichier préparé dans `data_processed/`, ou une description précise du traitement si les données ne sont pas redistribuées.
-2. Un court dictionnaire des variables utilisées.
-3. Deux visualisations complémentaires.
-4. Un paragraphe sur la provenance, la licence et les limites.
-5. Une conclusion pédagogique adaptée à un public de première année.
+1. Une courte description de la source officielle et du mode d'accès.
+2. Une unité statistique choisie et justifiée.
+3. Un dictionnaire de 8 à 12 variables, en séparant variables brutes, variables ajoutées à la collecte et variables dérivées.
+4. Un protocole de collecte : fréquence, durée, fuseau horaire, stockage et contrôle des erreurs.
+5. Une stratégie de validation : doublons, trous temporels, messages sans délai, positions manquantes.
+6. Deux graphiques prévus, avec les variables nécessaires pour les produire.
+7. Un paragraphe sur les limites et les risques d'interprétation.
+
+## Structure suggérée
+
+### 1. Accès et provenance
+
+Nommer la page Données Québec, le portail développeur STM, la licence et la date d'accès.
+
+### 2. Unité statistique
+
+Choisir une unité parmi :
+
+- une position de véhicule à un instant donné;
+- une mise à jour de trajet;
+- une mise à jour de passage à un arrêt;
+- une alerte de service.
+
+Expliquer pourquoi ce choix convient à la question de ponctualité.
+
+### 3. Variables
+
+Inclure au minimum :
+
+- `collection_time`;
+- `message_type`;
+- `route_id`;
+- `trip_id` ou `vehicle_id`;
+- `stop_id`, si l'unité est liée aux arrêts;
+- `delay_seconds`, si le champ est présent;
+- `retard_minutes`, comme variable dérivée;
+- un indicateur de données manquantes ou de message incomplet.
+
+### 4. Validation statistique
+
+Le protocole doit montrer comment vérifier que les comparaisons par ligne sont défendables. Par exemple, il faut rapporter le nombre d'observations par ligne, la période couverte, les trous de collecte et la proportion de messages avec délai disponible.
+
+## Appui R minimal
+
+```{r}
+#| eval: false
+library(dplyr)
+library(readr)
+
+source("datasets/retards-transport-collectif/preparation.R")
+
+variables <- read_csv(
+  "data/processed/retards-transport-collectif/variables_gtfs_realtime_retards_transport.csv",
+  show_col_types = FALSE
+)
+
+protocole <- read_csv(
+  "data/processed/retards-transport-collectif/protocole_archivage_retards_transport.csv",
+  show_col_types = FALSE
+)
+
+variables |>
+  count(message_type, sort = TRUE)
+
+protocole |>
+  select(step, action, point_de_controle)
+```
 
 ## Critères d'évaluation suggérés
 
-- Reproductibilité du traitement.
-- Qualité des noms de variables.
-- Pertinence des regroupements.
-- Lisibilité des graphiques.
-- Prudence de l'interprétation.
+- Exactitude de la description de la source.
+- Cohérence entre la question, l'unité statistique et les variables.
+- Reproductibilité du protocole.
+- Gestion explicite des données manquantes et des erreurs de collecte.
+- Prudence de l'interprétation statistique.
+- Qualité de la communication écrite.

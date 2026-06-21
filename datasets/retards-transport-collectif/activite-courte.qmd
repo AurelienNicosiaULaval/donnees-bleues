@@ -1,33 +1,59 @@
 ---
-title: "Laboratoire - Retards transport"
+title: "Laboratoire - Peut-on mesurer les retards STM avec cette source?"
 embed-resources: true
 ---
 
-# Laboratoire - Retards transport
+# Laboratoire - Peut-on mesurer les retards STM avec cette source?
 
 ## Contexte
 
-Ce laboratoire utilise la fiche [Retards et ponctualité du transport collectif](fiche.qmd) pour travailler une question québécoise concrète dans un format adapté à une activité d'introduction en science des données.
+Cette activité utilise la fiche [Flux temps réel STM et ponctualité des bus](fiche.qmd). Le but n'est pas de produire immédiatement une moyenne de retard. Le but est d'apprendre à vérifier si une source temps réel peut devenir un jeu de données statistique fiable.
 
 ## Objectifs d'apprentissage
 
-- Identifier l'unité statistique d'un jeu de données réel.
-- Importer ou préparer une ressource officielle sans perdre la provenance.
-- Produire une visualisation simple et interprétable.
-- Formuler une conclusion prudente en séparant description et explication.
+- Identifier ce qui est vérifiable dans une page CKAN.
+- Distinguer une source opérationnelle d'une table analytique.
+- Définir une unité statistique avant de proposer une analyse.
+- Repérer les variables qui doivent être dérivées plutôt que supposées.
+- Rédiger une limite méthodologique claire.
 
 ## Question directrice
 
-Quelles lignes présentent les retards les plus importants?
+Peut-on mesurer les retards des bus STM directement avec cette source, ou faut-il d'abord construire un protocole d'archivage?
 
 ## Consignes
 
-1. Lire la fiche et repérer la source officielle.
-2. Identifier les variables nécessaires : `date`, `ligne`, `retard_minutes`, `direction`, `secteur`.
-3. Décrire les valeurs manquantes, les types de variables et les unités.
-4. Produire au moins une visualisation parmi : boxplots, histogrammes, séries temporelles.
-5. Rédiger une conclusion de 5 à 8 lignes avec une limite méthodologique.
+1. Lire la fiche et ouvrir la page Données Québec.
+2. Identifier l'organisme, la licence, le format et le mode d'accès.
+3. Répondre explicitement à la question : existe-t-il une table historique de retards directement téléchargeable?
+4. Choisir une unité statistique possible pour une future table : position de véhicule, mise à jour de trajet ou mise à jour à un arrêt.
+5. Proposer cinq variables nécessaires, en distinguant variables brutes et variables dérivées.
+6. Rédiger une conclusion de 6 à 8 lignes qui commence par une phrase de prudence.
+
+## Appui R minimal
+
+```{r}
+#| eval: false
+library(dplyr)
+library(readr)
+
+source("datasets/retards-transport-collectif/preparation.R")
+
+resume <- read_csv(
+  "data/processed/retards-transport-collectif/resume_retards_transport.csv",
+  show_col_types = FALSE
+)
+
+resume |>
+  select(
+    n_resources_ckan,
+    n_gtfs_resources,
+    n_developer_portal_resources,
+    n_direct_download_resources,
+    source_requires_developer_account
+  )
+```
 
 ## Pistes de solution
 
-Une bonne réponse décrit la tendance principale, nomme le regroupement utilisé et explicite au moins une limite de la source. Une réponse excellente justifie aussi le choix du graphique et signale les décisions de nettoyage.
+Une bonne réponse affirme qu'aucune table historique de retards n'a été vérifiée dans CKAN et que l'accès au flux passe par le portail développeur STM. Elle propose ensuite une unité statistique cohérente et explique pourquoi `retard_minutes` doit être dérivé après inspection du flux.

@@ -1,5 +1,5 @@
 ---
-title: "Retards et ponctualité du transport collectif"
+title: "Flux temps réel STM et ponctualité des bus"
 embed-resources: true
 page-layout: full
 toc: false
@@ -16,120 +16,186 @@ source(source_path)
 render_dataset_detail_header()
 ```
 
-## Pourquoi ce jeu est intéressant
+## Pourquoi cette source est intéressante
 
-Ce jeu de données place les étudiants et étudiantes devant une source québécoise réaliste, avec des variables interprétables et des décisions de nettoyage authentiques.
+Cette fiche ne décrit pas un CSV historique de retards déjà prêt. Elle décrit une source temps réel de la Société de transport de Montréal : le flux GTFS-realtime publié dans Données Québec pour les horaires et le positionnement des bus.
 
-Question d'analyse : Quelles lignes présentent les retards les plus importants?
+Elle est très utile pédagogiquement parce qu'elle force une distinction importante en science des données : une source opérationnelle temps réel n'est pas automatiquement un jeu de données statistique. Pour analyser la ponctualité, il faut d'abord archiver des instantanés, parser le flux, ajouter un horodatage de collecte, vérifier les champs disponibles, puis documenter les règles de calcul des retards.
 
-## Source
+Question d'analyse : comment construire un protocole reproductible pour mesurer la ponctualité à partir d'un flux temps réel, sans confondre données disponibles et conclusions sur la qualité du service?
+
+## Ce qui a été vérifié
+
+| Élément | Résultat vérifié |
+|---|---|
+| Paquet CKAN | `1bcf0d8e-d67b-4291-8393-70621b0f5400` |
+| Source officielle | Données Québec / Société de transport de Montréal |
+| Titre CKAN | `Horaires et positionnement des bus en temps réel (GTFS-realtime)` |
+| Ressources dans le paquet | 1 ressource |
+| Ressource documentée | `Horaires et positionnement des bus en temps réel` |
+| Format déclaré | GTFS |
+| URL de ressource | Portail développeur STM |
+| Licence | Attribution (CC-BY 4.0), selon les métadonnées CKAN consultées le 2026-06-21 |
+| Dernière modification du paquet CKAN | 2026-06-21 |
+| Table historique directement téléchargeable dans CKAN | Non vérifiée |
+| Table préparée dans ce dépôt | Aucune table de retards; seulement des résumés de métadonnées et un protocole |
+
+## Source et conditions
 
 | Champ | Information |
 |---|---|
-| Organisme producteur | STM / Données Québec / GTFS-realtime |
-| Source | Horaires et positionnement des bus en temps réel (GTFS-realtime), lorsque les champs de délai sont disponibles |
-| URL | <https://www.donneesquebec.ca/recherche/dataset/vmtl-stm-bus-temps-reel-gtfs-realtime> |
-| Licence | Attribution (CC-BY 4.0) selon les métadonnées CKAN STM vérifiées le 2026-06-19 |
-| Date d'accès | 2026-06-19 |
-| Fréquence de mise à jour | Temps réel ou quasi temps réel selon le service; l'archivage doit être construit par l'enseignant ou l'équipe pédagogique |
-| Statut | source temps réel vérifiée; jeu historique prêt à enseigner à construire |
+| Page Données Québec | <https://www.donneesquebec.ca/recherche/dataset/vmtl-stm-bus-temps-reel-gtfs-realtime> |
+| API CKAN | <https://www.donneesquebec.ca/recherche/api/3/action/package_show?id=vmtl-stm-bus-temps-reel-gtfs-realtime> |
+| Portail développeur STM | <https://www.stm.info/fr/a-propos/developpeurs> |
+| Organisme | Société de transport de Montréal |
+| Territoire | Réseau d'autobus de la STM |
+| Date d'accès | 2026-06-21 |
+
+La description officielle indique que l'ensemble fournit les horaires, le positionnement des bus en temps réel et, depuis sa version 2, la donnée du taux d'occupation à bord des bus. Elle indique aussi que l'accès aux GTFS-realtime et à l'API i3 se fait par inscription au portail développeur STM.
 
 ## Ce que représente une ligne
 
-Observation de passage, véhicule ou ligne selon le flux et le traitement.
+Je ne sais pas. Le paquet CKAN vérifié ne publie pas une table historique dans laquelle une ligne aurait une unité statistique fixe.
 
-## Variables principales
+Dans une table construite par l'équipe pédagogique, une ligne pourrait représenter :
 
-| Variable | Type | Description | Exemple |
-|---|---|---|---|
-| `date` | date | Date de collecte ou de passage. | 2026-02-03 |
-| `ligne` | caractère | Ligne, route ou parcours. | 80 |
-| `retard_minutes` | numérique | Retard en minutes, dérivé du flux ou d'une comparaison horaire. | 4.5 |
-| `direction` | caractère | Direction du trajet. | Nord |
-| `secteur` | caractère | Secteur, arrondissement ou zone analytique. | Plateau-Mont-Royal |
+1. une mise à jour de trajet;
+2. une position de véhicule à un instant de collecte;
+3. une mise à jour de passage à un arrêt;
+4. une alerte de service.
 
-## Taille et structure
+Cette unité doit être choisie avant de calculer des moyennes, des proportions ou des graphiques par ligne.
 
-| Élément | Information |
-|---|---|
-| Nombre de lignes | Variable selon la fréquence de collecte et la période archivée |
-| Nombre de colonnes | Variables brutes du flux et variables dérivées de retard |
-| Structure | Flux temps réel, séries temporelles, données opérationnelles |
-| Format | GTFS-realtime; table pédagogique dérivée en CSV recommandée |
-| Couverture géographique | Réseau STM et autres réseaux québécois si des flux comparables sont validés |
-| Couverture temporelle | Observations temps réel; historique seulement si un archivage est mis en place |
+## Variables à construire avec prudence
+
+| Variable pédagogique | Rôle | Statut |
+|---|---|---|
+| `collection_time` | Horodatage ajouté au moment de la collecte | Variable dérivée par le protocole |
+| `message_type` | Type de message GTFS-realtime | À extraire du flux |
+| `route_id` | Ligne ou parcours | À vérifier dans le flux ou par jointure GTFS |
+| `trip_id` | Trajet | À vérifier dans le flux |
+| `stop_id` | Arrêt | À vérifier dans les mises à jour de passage |
+| `vehicle_id` | Véhicule | À vérifier dans les positions |
+| `delay_seconds` | Délai brut en secondes | Champ possible, pas garanti sans inspection |
+| `retard_minutes` | Retard en minutes | Variable dérivée de `delay_seconds` |
+| `latitude`, `longitude` | Position du véhicule | À vérifier dans les positions |
+| `occupancy_status` | Occupation à bord | Mentionnée par la documentation STM, à vérifier dans le flux |
+
+La variable `retard_minutes` ne doit pas être présentée comme une colonne brute garantie. Elle doit être calculée seulement après avoir constaté qu'un champ de délai existe dans les messages collectés.
+
+## RÉSULTATS R
+
+Les résultats ci-dessous proviennent de `preparation.R`, exécuté sur l'API CKAN officielle le 2026-06-21.
+
+| Indicateur | Valeur |
+|---|---:|
+| Ressources CKAN documentées | 1 |
+| Ressources GTFS déclarées | 1 |
+| Ressources pointant vers le portail développeur | 1 |
+| Ressources de données directement téléchargeables | 0 |
+| Compte développeur requis selon la ressource | Oui |
+| Table historique disponible dans CKAN | Non |
+| Lignes historiques vérifiées | Je ne sais pas. |
+| Colonnes historiques vérifiées | Je ne sais pas. |
+
+Ce résultat est une limite, pas un échec. Pour un cours de science des données, la source devient un bon cas d'étude sur la différence entre accès, collecte, données brutes et jeu analytique.
+
+## Protocole pédagogique recommandé
+
+| Étape | Action | Point de contrôle |
+|---:|---|---|
+| 1 | Créer un compte sur le portail développeur STM et obtenir une clé API. | Ne jamais publier la clé API. |
+| 2 | Collecter des instantanés à intervalle fixe pendant une période définie. | Ajouter `collection_time` à chaque collecte. |
+| 3 | Parser les messages Protocol Buffers du flux GTFS-realtime. | Conserver le type de message. |
+| 4 | Joindre les identifiants au GTFS statique de la STM si nécessaire. | Vérifier que les périodes correspondent. |
+| 5 | Calculer `retard_minutes` seulement si un délai est présent. | Documenter la formule et les exclusions. |
+| 6 | Résumer les retards par ligne, période et sens de déplacement. | Rapporter le nombre d'observations. |
+| 7 | Présenter les limites avant toute conclusion. | Distinguer flux observé, fréquence de collecte et performance réelle. |
+
+## Lecture statistique
+
+Une analyse solide doit commencer par la qualité du protocole de collecte. Par exemple, un intervalle de collecte aux 30 secondes et un intervalle aux 5 minutes ne produisent pas le même jeu de données. Les lignes très fréquentes peuvent produire davantage d'observations, et les pannes de collecte peuvent créer des trous temporels qui ressemblent à des changements de service.
+
+Les comparaisons entre lignes doivent donc inclure un dénominateur clair : nombre d'observations, nombre de trajets, nombre d'arrêts, période de la journée ou distance parcourue. Sans cela, une moyenne de retard peut être difficile à interpréter.
 
 ## Concepts enseignables
 
-- statistiques descriptives;
-- distributions;
-- valeurs extrêmes;
-- séries temporelles;
-- qualité de service;
-
-## Visualisations suggérées
-
-- boxplots;
-- histogrammes;
-- séries temporelles;
+- flux temps réel;
+- métadonnées et conditions d'accès;
+- protocole d'archivage;
+- séries temporelles irrégulières;
+- jointures entre temps réel et GTFS statique;
+- données manquantes;
+- variables dérivées;
+- qualité de service et communication prudente.
 
 ## Score zéro déchet
 
-| Dimension | Score |
-|---|---:|
-| Contexte québécois | 3 |
-| Accessibilité pédagogique | 2 |
-| Qualité documentaire | 2 |
-| Potentiel de nettoyage | 3 |
-| Potentiel de visualisation | 3 |
-| Potentiel de statistique descriptive | 3 |
-| Potentiel d'inférence | 1 |
-| Potentiel de modélisation | 3 |
-| Potentiel de discussion éthique | 3 |
-| Réutilisabilité dans plusieurs cours | 2 |
+| Dimension | Score | Justification |
+|---|---:|---|
+| Contexte québécois | 3 | Source STM officielle |
+| Accessibilité pédagogique | 1 | Accès développeur requis et absence de CSV historique |
+| Qualité documentaire | 2 | Métadonnées CKAN claires, mais flux à inspecter séparément |
+| Potentiel de nettoyage | 3 | Parsing, horodatage, jointures et validation |
+| Potentiel de visualisation | 2 | Fort potentiel après archivage, mais pas immédiat |
+| Potentiel de statistique descriptive | 2 | Résumés possibles après collecte |
+| Potentiel d'inférence | 1 | Forte dépendance au protocole d'échantillonnage temporel |
+| Potentiel de modélisation | 2 | Modélisation possible si historique stable |
+| Potentiel éthique | 3 | Discussion sur service public, surveillance et interprétation |
+| Réutilisabilité | 2 | Très utile en projet avancé, moins en introduction rapide |
 
-Total : 25 sur 30.
+Total : 21 sur 30.
 
 ## Activité courte
 
-[Laboratoire](activite-courte.qmd) : Quelles lignes présentent les retards les plus importants?
+En 45 à 60 minutes, demander aux étudiants et étudiantes de lire les métadonnées CKAN, d'identifier ce qui est vérifiable et ce qui ne l'est pas, puis de proposer l'unité statistique d'une future table de ponctualité.
 
 ## Activité longue
 
-[Mini-projet](activite-longue.qmd) : Construire un protocole reproductible pour archiver un flux temps réel et résumer la ponctualité par ligne.
+En 2 à 3 heures, concevoir un protocole d'archivage reproductible : fréquence de collecte, durée, variables extraites, critères d'exclusion, dictionnaire de variables, limites et graphiques prévus.
 
 ## Code R minimal
 
+À exécuter depuis la racine du projet.
+
 ```{r}
 #| eval: false
+# Load libraries
 library(dplyr)
 library(readr)
-library(stringr)
 
-source_page <- "https://www.donneesquebec.ca/recherche/dataset/vmtl-stm-bus-temps-reel-gtfs-realtime"
+# Validate official CKAN metadata and write pedagogical summaries
+source("datasets/retards-transport-collectif/preparation.R")
 
-# Étape 1 : ouvrir la page officielle et choisir la ressource documentée.
-# Étape 2 : enregistrer le fichier brut dans data_raw/.
-# Étape 3 : harmoniser les noms vers : `date`, `ligne`, `retard_minutes`, `direction`, `secteur`.
+resume <- read_csv(
+  "data/processed/retards-transport-collectif/resume_retards_transport.csv",
+  show_col_types = FALSE
+)
 
-donnees <- read_csv("data_raw/source_officielle_a_renommer.csv", show_col_types = FALSE)
-
-donnees |>
-  glimpse()
+resume |>
+  select(
+    access_date,
+    n_resources_ckan,
+    n_gtfs_resources,
+    n_developer_portal_resources,
+    n_direct_download_resources,
+    source_requires_developer_account
+  )
 ```
 
 ## Limites et précautions
 
-- Ne pas présenter retard_minutes comme une colonne brute garantie. C'est une variable dérivée possible selon le flux et le protocole de collecte.
-- Les noms de variables proposés sont des noms pédagogiques harmonisés; ils doivent être mappés aux noms officiels après inspection de la ressource.
-- Aucune conclusion causale ne doit être tirée sans plan d'analyse plus avancé.
+- Ne pas distribuer une table de retards sans expliquer comment elle a été collectée.
+- Ne pas publier de clé API STM.
+- Ne pas interpréter le nombre d'observations comme le nombre réel de bus ou de trajets sans vérifier l'unité statistique.
+- Ne pas comparer les lignes sans rapporter la période, la fréquence de collecte et les données manquantes.
+- Ne pas utiliser `retard_minutes` si la variable n'a pas été dérivée à partir d'un champ de délai vérifié.
 
-## Extensions
+## Références
 
-- Extension intro : produire un tableau de fréquences ou de moyennes par groupe.
-- Extension intermédiaire : ajouter une visualisation claire et une interprétation écrite.
-- Extension avancée : construire une version préparée et documentée dans `data_processed/`.
-- Extension communication scientifique : expliquer en une page ce que la source permet et ne permet pas de conclure.
+- Données Québec. Horaires et positionnement des bus en temps réel (GTFS-realtime). Consulté le 2026-06-21. <https://www.donneesquebec.ca/recherche/dataset/vmtl-stm-bus-temps-reel-gtfs-realtime>
+- Données Québec. API CKAN `package_show` pour le paquet STM GTFS-realtime. Consulté le 2026-06-21. <https://www.donneesquebec.ca/recherche/api/3/action/package_show?id=vmtl-stm-bus-temps-reel-gtfs-realtime>
+- Société de transport de Montréal. Portail développeur. Consulté le 2026-06-21. <https://www.stm.info/fr/a-propos/developpeurs>
 
 ```{r}
 #| label: dataset-detail-footer
@@ -137,4 +203,3 @@ donnees |>
 #| results: asis
 render_dataset_detail_footer()
 ```
-

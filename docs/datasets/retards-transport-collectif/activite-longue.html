@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Mini-projet - Retards transport – Données bleues</title>
+<title>Mini-projet - Concevoir un protocole d’archivage GTFS-realtime – Données bleues</title>
 <style>
 
 code{white-space: pre-wrap;}
@@ -19,6 +19,41 @@ ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
 width: 0.8em;
 margin: 0 0.8em 0.2em -1em;  vertical-align: middle;
+}
+
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+{ counter-reset: source-line 0; }
+pre.numberSource code > span
+{ position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+{ content: counter(source-line);
+position: relative; left: -1em; text-align: right; vertical-align: baseline;
+border: none; display: inline-block;
+-webkit-touch-callout: none; -webkit-user-select: none;
+-khtml-user-select: none; -moz-user-select: none;
+-ms-user-select: none; user-select: none;
+padding: 0 4px; width: 4em;
+}
+pre.numberSource { margin-left: 3em; padding-left: 4px; }
+div.sourceCode
+{ }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -5482,11 +5517,19 @@ grid-template-columns: 1fr;
     <h2 id="toc-title">On this page</h2>
 
   <ul>
-  <li><a href="#mini-projet---retards-transport" id="toc-mini-projet---retards-transport" class="nav-link active" data-scroll-target="#mini-projet---retards-transport">Mini-projet - Retards transport</a>
+  <li><a href="#mini-projet---concevoir-un-protocole-darchivage-gtfs-realtime" id="toc-mini-projet---concevoir-un-protocole-darchivage-gtfs-realtime" class="nav-link active" data-scroll-target="#mini-projet---concevoir-un-protocole-darchivage-gtfs-realtime">Mini-projet - Concevoir un protocole d’archivage GTFS-realtime</a>
   <ul class="collapse">
   <li><a href="#contexte" id="toc-contexte" class="nav-link" data-scroll-target="#contexte">Contexte</a></li>
   <li><a href="#question-directrice" id="toc-question-directrice" class="nav-link" data-scroll-target="#question-directrice">Question directrice</a></li>
   <li><a href="#livrables" id="toc-livrables" class="nav-link" data-scroll-target="#livrables">Livrables</a></li>
+  <li><a href="#structure-suggérée" id="toc-structure-suggérée" class="nav-link" data-scroll-target="#structure-suggérée">Structure suggérée</a>
+  <ul class="collapse">
+  <li><a href="#accès-et-provenance" id="toc-accès-et-provenance" class="nav-link" data-scroll-target="#accès-et-provenance">1. Accès et provenance</a></li>
+  <li><a href="#unité-statistique" id="toc-unité-statistique" class="nav-link" data-scroll-target="#unité-statistique">2. Unité statistique</a></li>
+  <li><a href="#variables" id="toc-variables" class="nav-link" data-scroll-target="#variables">3. Variables</a></li>
+  <li><a href="#validation-statistique" id="toc-validation-statistique" class="nav-link" data-scroll-target="#validation-statistique">4. Validation statistique</a></li>
+  </ul></li>
+  <li><a href="#appui-r-minimal" id="toc-appui-r-minimal" class="nav-link" data-scroll-target="#appui-r-minimal">Appui R minimal</a></li>
   <li><a href="#critères-dévaluation-suggérés" id="toc-critères-dévaluation-suggérés" class="nav-link" data-scroll-target="#critères-dévaluation-suggérés">Critères d’évaluation suggérés</a></li>
   </ul></li>
   </ul>
@@ -5497,7 +5540,7 @@ grid-template-columns: 1fr;
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Mini-projet - Retards transport</h1>
+<h1 class="title">Mini-projet - Concevoir un protocole d’archivage GTFS-realtime</h1>
 </div>
 
 
@@ -5514,34 +5557,98 @@ grid-template-columns: 1fr;
 </header>
 
 
-<section id="mini-projet---retards-transport" class="level1">
-<h1>Mini-projet - Retards transport</h1>
+<section id="mini-projet---concevoir-un-protocole-darchivage-gtfs-realtime" class="level1">
+<h1>Mini-projet - Concevoir un protocole d’archivage GTFS-realtime</h1>
 <section id="contexte" class="level2">
 <h2 class="anchored" data-anchor-id="contexte">Contexte</h2>
-<p>Ce mini-projet prolonge le laboratoire court en demandant une préparation reproductible et une interprétation plus structurée.</p>
+<p>Cette activité prolonge le laboratoire court. Les étudiants et étudiantes doivent concevoir le plan qui transformerait un flux temps réel STM en jeu de données exploitable pour étudier la ponctualité. Le livrable principal est un protocole reproductible, pas une conclusion prématurée sur les retards.</p>
 </section>
 <section id="question-directrice" class="level2">
 <h2 class="anchored" data-anchor-id="question-directrice">Question directrice</h2>
-<p>Construire un protocole reproductible pour archiver un flux temps réel et résumer la ponctualité par ligne.</p>
+<p>Comment archiver un flux GTFS-realtime pour produire une table de ponctualité utilisable en statistique descriptive?</p>
 </section>
 <section id="livrables" class="level2">
 <h2 class="anchored" data-anchor-id="livrables">Livrables</h2>
 <ol type="1">
-<li>Un fichier préparé dans <code>data_processed/</code>, ou une description précise du traitement si les données ne sont pas redistribuées.</li>
-<li>Un court dictionnaire des variables utilisées.</li>
-<li>Deux visualisations complémentaires.</li>
-<li>Un paragraphe sur la provenance, la licence et les limites.</li>
-<li>Une conclusion pédagogique adaptée à un public de première année.</li>
+<li>Une courte description de la source officielle et du mode d’accès.</li>
+<li>Une unité statistique choisie et justifiée.</li>
+<li>Un dictionnaire de 8 à 12 variables, en séparant variables brutes, variables ajoutées à la collecte et variables dérivées.</li>
+<li>Un protocole de collecte : fréquence, durée, fuseau horaire, stockage et contrôle des erreurs.</li>
+<li>Une stratégie de validation : doublons, trous temporels, messages sans délai, positions manquantes.</li>
+<li>Deux graphiques prévus, avec les variables nécessaires pour les produire.</li>
+<li>Un paragraphe sur les limites et les risques d’interprétation.</li>
 </ol>
+</section>
+<section id="structure-suggérée" class="level2">
+<h2 class="anchored" data-anchor-id="structure-suggérée">Structure suggérée</h2>
+<section id="accès-et-provenance" class="level3">
+<h3 class="anchored" data-anchor-id="accès-et-provenance">1. Accès et provenance</h3>
+<p>Nommer la page Données Québec, le portail développeur STM, la licence et la date d’accès.</p>
+</section>
+<section id="unité-statistique" class="level3">
+<h3 class="anchored" data-anchor-id="unité-statistique">2. Unité statistique</h3>
+<p>Choisir une unité parmi :</p>
+<ul>
+<li>une position de véhicule à un instant donné;</li>
+<li>une mise à jour de trajet;</li>
+<li>une mise à jour de passage à un arrêt;</li>
+<li>une alerte de service.</li>
+</ul>
+<p>Expliquer pourquoi ce choix convient à la question de ponctualité.</p>
+</section>
+<section id="variables" class="level3">
+<h3 class="anchored" data-anchor-id="variables">3. Variables</h3>
+<p>Inclure au minimum :</p>
+<ul>
+<li><code>collection_time</code>;</li>
+<li><code>message_type</code>;</li>
+<li><code>route_id</code>;</li>
+<li><code>trip_id</code> ou <code>vehicle_id</code>;</li>
+<li><code>stop_id</code>, si l’unité est liée aux arrêts;</li>
+<li><code>delay_seconds</code>, si le champ est présent;</li>
+<li><code>retard_minutes</code>, comme variable dérivée;</li>
+<li>un indicateur de données manquantes ou de message incomplet.</li>
+</ul>
+</section>
+<section id="validation-statistique" class="level3">
+<h3 class="anchored" data-anchor-id="validation-statistique">4. Validation statistique</h3>
+<p>Le protocole doit montrer comment vérifier que les comparaisons par ligne sont défendables. Par exemple, il faut rapporter le nombre d’observations par ligne, la période couverte, les trous de collecte et la proportion de messages avec délai disponible.</p>
+</section>
+</section>
+<section id="appui-r-minimal" class="level2">
+<h2 class="anchored" data-anchor-id="appui-r-minimal">Appui R minimal</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">&quot;datasets/retards-transport-collectif/preparation.R&quot;</span>)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>variables <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;data/processed/retards-transport-collectif/variables_gtfs_realtime_retards_transport.csv&quot;</span>,</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">show_col_types =</span> <span class="cn">FALSE</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>protocole <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;data/processed/retards-transport-collectif/protocole_archivage_retards_transport.csv&quot;</span>,</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>  <span class="at">show_col_types =</span> <span class="cn">FALSE</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>variables <span class="sc">|&gt;</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(message_type, <span class="at">sort =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>protocole <span class="sc">|&gt;</span></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(step, action, point_de_controle)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
 </section>
 <section id="critères-dévaluation-suggérés" class="level2">
 <h2 class="anchored" data-anchor-id="critères-dévaluation-suggérés">Critères d’évaluation suggérés</h2>
 <ul>
-<li>Reproductibilité du traitement.</li>
-<li>Qualité des noms de variables.</li>
-<li>Pertinence des regroupements.</li>
-<li>Lisibilité des graphiques.</li>
-<li>Prudence de l’interprétation.</li>
+<li>Exactitude de la description de la source.</li>
+<li>Cohérence entre la question, l’unité statistique et les variables.</li>
+<li>Reproductibilité du protocole.</li>
+<li>Gestion explicite des données manquantes et des erreurs de collecte.</li>
+<li>Prudence de l’interprétation statistique.</li>
+<li>Qualité de la communication écrite.</li>
 </ul>
 
 

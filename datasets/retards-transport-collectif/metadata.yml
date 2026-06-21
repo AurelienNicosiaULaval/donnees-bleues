@@ -1,35 +1,75 @@
-id: retards-transport-collectif
-title: "Retards et ponctualité du transport collectif"
-short_title: "Retards transport"
+id: "retards-transport-collectif"
+title: "Flux temps réel STM et ponctualité des bus"
+short_title: "Ponctualité STM"
 theme: "Mobilité et performance de service"
-source_name: "STM / Données Québec / GTFS-realtime"
+source_name: "Société de transport de Montréal / Données Québec"
 source_url: "https://www.donneesquebec.ca/recherche/dataset/vmtl-stm-bus-temps-reel-gtfs-realtime"
-license: "Attribution (CC-BY 4.0) selon les métadonnées CKAN STM vérifiées le 2026-06-19"
-access_date: "2026-06-19"
-geography: "Réseau STM et autres réseaux québécois si des flux comparables sont validés"
-unit: "Observation de passage, véhicule ou ligne selon le flux et le traitement"
-data_type: "Flux temps réel, séries temporelles, données opérationnelles"
-format: "GTFS-realtime; table pédagogique dérivée en CSV recommandée"
-n_rows: "Variable selon la fréquence de collecte et la période archivée"
-n_cols: "Variables brutes du flux et variables dérivées de retard"
-update_frequency: "Temps réel ou quasi temps réel selon le service; l'archivage doit être construit par l'enseignant ou l'équipe pédagogique"
+source_api_url: "https://www.donneesquebec.ca/recherche/api/3/action/package_show?id=vmtl-stm-bus-temps-reel-gtfs-realtime"
+source_developer_url: "https://www.stm.info/fr/a-propos/developpeurs"
+license: "Attribution (CC-BY 4.0) selon les métadonnées CKAN vérifiées le 2026-06-21"
+access_date: "2026-06-21"
+geography: "Réseau d'autobus de la STM"
+unit: "Observation temps réel à archiver localement: mise à jour de trajet, position de véhicule ou alerte GTFS-realtime"
+data_type: "Flux GTFS-realtime, métadonnées CKAN et protocole d'archivage pédagogique"
+format: "GTFS-realtime via portail développeur STM; aucune table historique officielle directement téléchargeable dans CKAN"
+n_rows: "Je ne sais pas. Le paquet CKAN expose un flux temps réel à accès développeur, pas une table historique."
+n_cols: "Je ne sais pas. La structure dépend du message GTFS-realtime extrait et du protocole d'archivage."
+processed_file: "data/processed/retards-transport-collectif/resume_retards_transport.csv"
+resources_file: "data/processed/retards-transport-collectif/ressources_ckan_retards_transport.csv"
+gtfs_fields_file: "data/processed/retards-transport-collectif/variables_gtfs_realtime_retards_transport.csv"
+archive_protocol_file: "data/processed/retards-transport-collectif/protocole_archivage_retards_transport.csv"
+update_frequency: "Temps réel ou quasi temps réel; une analyse historique exige un archivage local planifié"
 level: "Intermédiaire"
+organisme: "Société de transport de Montréal"
+territoire: "Montréal"
+taille_approximative: "Je ne sais pas. Aucune table historique n'est publiée dans le paquet CKAN vérifié."
+niveau_pedagogique_recommande: "Intermédiaire"
+variables_principales:
+  - "collection_time"
+  - "message_type"
+  - "route_id"
+  - "trip_id"
+  - "vehicle_id"
+  - "stop_id"
+  - "delay_seconds"
+  - "retard_minutes"
+  - "latitude"
+  - "longitude"
+  - "occupancy_status"
+idees_mini_projets:
+  - "Concevoir un protocole d'archivage reproductible pour un flux GTFS-realtime."
+  - "Comparer la distribution des retards par ligne après avoir vérifié que delay_seconds est présent."
+  - "Évaluer les biais produits par la fréquence de collecte et les données manquantes."
+tags:
+  - "Montréal"
+  - "STM"
+  - "transport collectif"
+  - "GTFS-realtime"
+  - "flux temps réel"
+  - "séries temporelles"
+  - "protocole d'archivage"
+  - "qualité de service"
 concepts:
-  - statistiques descriptives
-  - distributions
-  - valeurs extrêmes
-  - séries temporelles
-  - qualité de service
+  - "flux temps réel"
+  - "métadonnées"
+  - "séries temporelles"
+  - "données manquantes"
+  - "échantillonnage temporel"
+  - "jointure GTFS"
+  - "qualité de service"
+  - "communication prudente"
 zero_waste:
   contexte_quebecois: 3
-  accessibilite_pedagogique: 2
+  accessibilite_pedagogique: 1
   qualite_documentaire: 2
   potentiel_nettoyage: 3
-  potentiel_visualisation: 3
-  potentiel_statistique_descriptive: 3
+  potentiel_visualisation: 2
+  potentiel_statistique_descriptive: 2
   potentiel_inference: 1
-  potentiel_modelisation: 3
+  potentiel_modelisation: 2
   potentiel_ethique: 3
   reutilisabilite: 2
-status: "source temps réel vérifiée; jeu historique prêt à enseigner à construire"
-notes: "Ne pas présenter retard_minutes comme une colonne brute garantie. C'est une variable dérivée possible selon le flux et le protocole de collecte."
+status: "source officielle vérifiée; fiche de protocole, pas de table historique prête à distribuer"
+notes: "Le paquet CKAN vérifié le 2026-06-21 contient une ressource GTFS pointant vers le portail développeur STM. Les retards doivent être construits à partir d'instantanés archivés et d'une extraction documentée du flux GTFS-realtime."
+contributor_name: "Aurélien Nicosia"
+contributor_role: "Révision pédagogique et statistique"

@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Laboratoire - Retards transport – Données bleues</title>
+<title>Laboratoire - Peut-on mesurer les retards STM avec cette source? – Données bleues</title>
 <style>
 
 code{white-space: pre-wrap;}
@@ -19,6 +19,41 @@ ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
 width: 0.8em;
 margin: 0 0.8em 0.2em -1em;  vertical-align: middle;
+}
+
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+{ counter-reset: source-line 0; }
+pre.numberSource code > span
+{ position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+{ content: counter(source-line);
+position: relative; left: -1em; text-align: right; vertical-align: baseline;
+border: none; display: inline-block;
+-webkit-touch-callout: none; -webkit-user-select: none;
+-khtml-user-select: none; -moz-user-select: none;
+-ms-user-select: none; user-select: none;
+padding: 0 4px; width: 4em;
+}
+pre.numberSource { margin-left: 3em; padding-left: 4px; }
+div.sourceCode
+{ }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -5482,12 +5517,13 @@ grid-template-columns: 1fr;
     <h2 id="toc-title">On this page</h2>
 
   <ul>
-  <li><a href="#laboratoire---retards-transport" id="toc-laboratoire---retards-transport" class="nav-link active" data-scroll-target="#laboratoire---retards-transport">Laboratoire - Retards transport</a>
+  <li><a href="#laboratoire---peut-on-mesurer-les-retards-stm-avec-cette-source" id="toc-laboratoire---peut-on-mesurer-les-retards-stm-avec-cette-source" class="nav-link active" data-scroll-target="#laboratoire---peut-on-mesurer-les-retards-stm-avec-cette-source">Laboratoire - Peut-on mesurer les retards STM avec cette source?</a>
   <ul class="collapse">
   <li><a href="#contexte" id="toc-contexte" class="nav-link" data-scroll-target="#contexte">Contexte</a></li>
   <li><a href="#objectifs-dapprentissage" id="toc-objectifs-dapprentissage" class="nav-link" data-scroll-target="#objectifs-dapprentissage">Objectifs d’apprentissage</a></li>
   <li><a href="#question-directrice" id="toc-question-directrice" class="nav-link" data-scroll-target="#question-directrice">Question directrice</a></li>
   <li><a href="#consignes" id="toc-consignes" class="nav-link" data-scroll-target="#consignes">Consignes</a></li>
+  <li><a href="#appui-r-minimal" id="toc-appui-r-minimal" class="nav-link" data-scroll-target="#appui-r-minimal">Appui R minimal</a></li>
   <li><a href="#pistes-de-solution" id="toc-pistes-de-solution" class="nav-link" data-scroll-target="#pistes-de-solution">Pistes de solution</a></li>
   </ul></li>
   </ul>
@@ -5498,7 +5534,7 @@ grid-template-columns: 1fr;
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Laboratoire - Retards transport</h1>
+<h1 class="title">Laboratoire - Peut-on mesurer les retards STM avec cette source?</h1>
 </div>
 
 
@@ -5515,38 +5551,63 @@ grid-template-columns: 1fr;
 </header>
 
 
-<section id="laboratoire---retards-transport" class="level1">
-<h1>Laboratoire - Retards transport</h1>
+<section id="laboratoire---peut-on-mesurer-les-retards-stm-avec-cette-source" class="level1">
+<h1>Laboratoire - Peut-on mesurer les retards STM avec cette source?</h1>
 <section id="contexte" class="level2">
 <h2 class="anchored" data-anchor-id="contexte">Contexte</h2>
-<p>Ce laboratoire utilise la fiche <a href="../../datasets/retards-transport-collectif/fiche.html">Retards et ponctualité du transport collectif</a> pour travailler une question québécoise concrète dans un format adapté à une activité d’introduction en science des données.</p>
+<p>Cette activité utilise la fiche <a href="../../datasets/retards-transport-collectif/fiche.html">Flux temps réel STM et ponctualité des bus</a>. Le but n’est pas de produire immédiatement une moyenne de retard. Le but est d’apprendre à vérifier si une source temps réel peut devenir un jeu de données statistique fiable.</p>
 </section>
 <section id="objectifs-dapprentissage" class="level2">
 <h2 class="anchored" data-anchor-id="objectifs-dapprentissage">Objectifs d’apprentissage</h2>
 <ul>
-<li>Identifier l’unité statistique d’un jeu de données réel.</li>
-<li>Importer ou préparer une ressource officielle sans perdre la provenance.</li>
-<li>Produire une visualisation simple et interprétable.</li>
-<li>Formuler une conclusion prudente en séparant description et explication.</li>
+<li>Identifier ce qui est vérifiable dans une page CKAN.</li>
+<li>Distinguer une source opérationnelle d’une table analytique.</li>
+<li>Définir une unité statistique avant de proposer une analyse.</li>
+<li>Repérer les variables qui doivent être dérivées plutôt que supposées.</li>
+<li>Rédiger une limite méthodologique claire.</li>
 </ul>
 </section>
 <section id="question-directrice" class="level2">
 <h2 class="anchored" data-anchor-id="question-directrice">Question directrice</h2>
-<p>Quelles lignes présentent les retards les plus importants?</p>
+<p>Peut-on mesurer les retards des bus STM directement avec cette source, ou faut-il d’abord construire un protocole d’archivage?</p>
 </section>
 <section id="consignes" class="level2">
 <h2 class="anchored" data-anchor-id="consignes">Consignes</h2>
 <ol type="1">
-<li>Lire la fiche et repérer la source officielle.</li>
-<li>Identifier les variables nécessaires : <code>date</code>, <code>ligne</code>, <code>retard_minutes</code>, <code>direction</code>, <code>secteur</code>.</li>
-<li>Décrire les valeurs manquantes, les types de variables et les unités.</li>
-<li>Produire au moins une visualisation parmi : boxplots, histogrammes, séries temporelles.</li>
-<li>Rédiger une conclusion de 5 à 8 lignes avec une limite méthodologique.</li>
+<li>Lire la fiche et ouvrir la page Données Québec.</li>
+<li>Identifier l’organisme, la licence, le format et le mode d’accès.</li>
+<li>Répondre explicitement à la question : existe-t-il une table historique de retards directement téléchargeable?</li>
+<li>Choisir une unité statistique possible pour une future table : position de véhicule, mise à jour de trajet ou mise à jour à un arrêt.</li>
+<li>Proposer cinq variables nécessaires, en distinguant variables brutes et variables dérivées.</li>
+<li>Rédiger une conclusion de 6 à 8 lignes qui commence par une phrase de prudence.</li>
 </ol>
+</section>
+<section id="appui-r-minimal" class="level2">
+<h2 class="anchored" data-anchor-id="appui-r-minimal">Appui R minimal</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">&quot;datasets/retards-transport-collectif/preparation.R&quot;</span>)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>resume <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;data/processed/retards-transport-collectif/resume_retards_transport.csv&quot;</span>,</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">show_col_types =</span> <span class="cn">FALSE</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>resume <span class="sc">|&gt;</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>    n_resources_ckan,</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>    n_gtfs_resources,</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>    n_developer_portal_resources,</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>    n_direct_download_resources,</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>    source_requires_developer_account</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
 </section>
 <section id="pistes-de-solution" class="level2">
 <h2 class="anchored" data-anchor-id="pistes-de-solution">Pistes de solution</h2>
-<p>Une bonne réponse décrit la tendance principale, nomme le regroupement utilisé et explicite au moins une limite de la source. Une réponse excellente justifie aussi le choix du graphique et signale les décisions de nettoyage.</p>
+<p>Une bonne réponse affirme qu’aucune table historique de retards n’a été vérifiée dans CKAN et que l’accès au flux passe par le portail développeur STM. Elle propose ensuite une unité statistique cohérente et explique pourquoi <code>retard_minutes</code> doit être dérivé après inspection du flux.</p>
 
 
 </section>
