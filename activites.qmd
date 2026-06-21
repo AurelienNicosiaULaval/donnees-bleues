@@ -1,105 +1,557 @@
 ---
 title: "Activités"
 embed-resources: true
-execute:
-  freeze: false
+toc: false
+page-layout: full
 ---
 
-# Activités
-
-Les activités sont conçues pour des cours d'introduction à la statistique, à la programmation R ou à la science des données. Elles peuvent être utilisées telles quelles ou adaptées à un contexte de cours.
-
-Le catalogue d'activités part d'une question pédagogique. Chaque activité est aussi décrite par des facettes : concept, niveau, type, contexte, accroche, durée et matériel disponible.
-
-## Facettes pédagogiques
-
-::: {.facet-grid}
-::: {.facet-block}
-### Concepts
-
-- Données et mesure
-- Statistique descriptive
-- Plan d'étude et échantillonnage
-- Inférence statistique
-- Modélisation et relations
-- Visualisation
-:::
-
-::: {.facet-block}
-### Types
-
-- Discussion courte
-- Exercice
-- Exploration de données
-- Illustration de concept
-- Étude de cas
-- Projet ou tâche longue
-:::
-
-::: {.facet-block}
-### Accroches
-
-- Résultat surprenant
-- Résultat contre-intuitif
-- Cas historique réel
-- Données massives
-- Pertinence politique
-- Récit humain
-- Défi de mesure
-- Données en temps réel
-:::
-:::
-
-## Catalogue des activités
-
 ```{r}
-#| label: catalogue-activites
-#| echo: false
-#| results: asis
+#| label: activity-page-data
+#| include: false
+library(dplyr)
 library(readr)
 library(stringr)
 
 activity_catalogue_path <- "data/metadata/catalogue_activites.csv"
 
-format_tags <- function(value) {
-  values <- str_split(value, ";\\s*")[[1]]
-  values <- values[values != ""]
-  paste0('<span class="tag">', values, '</span>', collapse = " ")
+if (file.exists(activity_catalogue_path)) {
+  activities_data <- read_csv(activity_catalogue_path, show_col_types = FALSE)
+} else {
+  activities_data <- tibble::tibble()
+}
+
+split_tokens <- function(value) {
+  value <- str_squish(as.character(value))
+  value[is.na(value)] <- ""
+  tokens <- unlist(str_split(value, ";\\s*"), use.names = FALSE)
+  tokens <- str_squish(tokens)
+  tokens[tokens != ""]
+}
+
+count_tokens <- function(values) {
+  tokens <- unlist(lapply(values, split_tokens), use.names = FALSE)
+  tokens <- tokens[tokens != ""]
+  sort(table(tokens), decreasing = TRUE)
+}
+
+n_activities <- nrow(activities_data)
+n_short <- if (n_activities > 0) sum(activities_data$duration == "30-45 minutes") else 0
+n_long <- if (n_activities > 0) sum(activities_data$duration == "2-3 heures") else 0
+n_datasets <- if (n_activities > 0) length(unique(activities_data$dataset_id)) else 0
+n_contexts <- if (n_activities > 0) length(unique(activities_data$context)) else 0
+
+top_concepts <- if (n_activities > 0) {
+  names(head(count_tokens(activities_data$concepts), 5))
+} else {
+  character()
+}
+```
+
+::: {.activities-page}
+
+::: {.act-hero}
+
+::: {.act-hero-copy}
+
+::: {.act-kicker}
+Catalogue pédagogique
+:::
+
+# Des activités prêtes à enseigner, organisées par question.
+
+::: {.act-hero-lede}
+La page Activités transforme le catalogue de jeux de données en choix concrets pour la classe : une discussion de 30 minutes, un exercice guidé, une exploration en laboratoire ou un projet de deux à trois heures.
+:::
+
+::: {.act-hero-actions}
+[Choisir une activité](#catalogue-activites){.dataset-button}
+[Voir les parcours](#parcours){.dataset-button .secondary}
+:::
+
+:::
+
+::: {.act-hero-panel}
+::: {.act-panel-label}
+Activités indexées
+:::
+
+::: {.act-panel-number}
+`r n_activities`
+:::
+
+`r n_short` courtes, `r n_long` longues, sur `r n_datasets` jeux de données.
+:::
+
+:::
+
+::: {.act-summary-strip}
+
+::: {.act-summary-item}
+::: {.act-label}
+Temps
+:::
+
+Choisir rapidement entre une activité de 30-45 minutes et une tâche longue de 2-3 heures.
+:::
+
+::: {.act-summary-item}
+::: {.act-label}
+Niveau
+:::
+
+Repérer les activités introductives, intermédiaires ou avancées sans parcourir toutes les fiches.
+:::
+
+::: {.act-summary-item}
+::: {.act-label}
+Concepts
+:::
+
+Filtrer par visualisation, statistique descriptive, mesure, communication, séries temporelles ou données spatiales.
+:::
+
+::: {.act-summary-item}
+::: {.act-label}
+Contexte
+:::
+
+Ancrer les apprentissages dans `r n_contexts` contextes québécois ou canadiens.
+:::
+
+:::
+
+::: {#parcours .act-section .act-pathways}
+
+::: {.act-section-heading}
+::: {.act-label}
+Parcours prêts à l'emploi
+:::
+
+## Commencer par le temps disponible
+
+Une même source peut servir à plusieurs formats. Le choix le plus efficace consiste souvent à partir de la durée, puis à choisir le concept statistique visé.
+:::
+
+::: {.act-pathway-grid}
+
+::: {.act-pathway-card}
+::: {.act-pathway-time}
+30-45 minutes
+:::
+
+### Déclencher une discussion
+
+Utiliser une activité courte pour introduire une question de mesure, comparer deux représentations ou faire expliciter les limites d'une source.
+:::
+
+::: {.act-pathway-card}
+::: {.act-pathway-time}
+1 séance de laboratoire
+:::
+
+### Faire manipuler des données réelles
+
+Partir d'un extrait préparé, produire un tableau ou un graphique, puis rédiger une interprétation courte et prudente.
+:::
+
+::: {.act-pathway-card}
+::: {.act-pathway-time}
+2-3 heures
+:::
+
+### Produire un livrable
+
+Construire un mini-rapport reproductible avec contexte, préparation, visualisation, résultats, limites et code R.
+:::
+
+:::
+
+:::
+
+::: {.act-section .act-focus}
+
+::: {.act-section-heading}
+::: {.act-label}
+Entrées pédagogiques
+:::
+
+## Choisir selon l'intention d'enseignement
+
+Les facettes du catalogue décrivent ce que l'activité permet de faire, pas seulement le jeu de données qu'elle utilise.
+:::
+
+::: {.act-focus-grid}
+
+::: {.act-focus-card}
+### Concepts fréquents
+
+`r paste(top_concepts, collapse = " · ")`
+:::
+
+::: {.act-focus-card}
+### Types d'activités
+
+Exercice, exploration de données, étude de cas, projet long, discussion guidée, validation de données.
+:::
+
+::: {.act-focus-card}
+### Matériel attendu
+
+Énoncé, code, données et, lorsque disponible, notes enseignantes.
+:::
+
+:::
+
+:::
+
+```{r}
+#| label: catalogue-activites
+#| echo: false
+#| results: asis
+library(dplyr)
+library(readr)
+library(stringr)
+
+html_escape <- function(value) {
+  value <- as.character(value)
+  value[is.na(value)] <- ""
+  value <- str_replace_all(value, "&", "&amp;")
+  value <- str_replace_all(value, "<", "&lt;")
+  value <- str_replace_all(value, ">", "&gt;")
+  value <- str_replace_all(value, '"', "&quot;")
+  value <- str_replace_all(value, "'", "&#39;")
+  value
+}
+
+clean_value <- function(value, fallback = "Je ne sais pas.") {
+  value <- str_squish(as.character(value))
+  if (length(value) == 0L || is.na(value) || value == "") {
+    fallback
+  } else {
+    value
+  }
+}
+
+split_values <- function(value) {
+  values <- str_split(clean_value(value, ""), ";\\s*")[[1]]
+  values <- str_squish(values)
+  values[values != ""]
+}
+
+format_tokens <- function(value, class_name = "act-token") {
+  values <- split_values(value)
+  paste0(
+    '<span class="',
+    html_escape(class_name),
+    '">',
+    html_escape(values),
+    '</span>',
+    collapse = ""
+  )
+}
+
+format_filter_group <- function(values, name, max_options = Inf, more_label = "Voir plus") {
+  values <- str_squish(as.character(values))
+  values <- values[!is.na(values) & values != ""]
+  counts <- sort(table(values), decreasing = TRUE)
+  has_more <- is.finite(max_options) && length(counts) > max_options
+
+  options <- paste(vapply(seq_along(counts), function(i) {
+    value <- names(counts)[i]
+    input_id <- paste0("activity-", name, "-", i)
+    hidden <- if (has_more && i > max_options) " is-extra" else ""
+    paste0(
+      '<label class="act-filter-option', hidden, '" for="', html_escape(input_id), '">',
+      '<input id="', html_escape(input_id), '" type="checkbox" name="', html_escape(name), '" value="', html_escape(value), '">',
+      '<span>', html_escape(value), '</span>',
+      '<strong>', as.integer(counts[[i]]), '</strong>',
+      '</label>'
+    )
+  }, character(1)), collapse = "\n")
+
+  if (has_more) {
+    options <- paste0(
+      options,
+      '\n<button class="act-filter-more" type="button" data-toggle-activity-filter>',
+      html_escape(more_label),
+      '</button>'
+    )
+  }
+
+  options
+}
+
+format_quick_button <- function(label, attr = "", active = FALSE) {
+  class <- if (active) "act-chip is-active" else "act-chip"
+  paste0('<button class="', class, '" type="button" ', attr, '>', html_escape(label), '</button>')
 }
 
 if (file.exists(activity_catalogue_path)) {
-  activities <- read_csv(activity_catalogue_path, show_col_types = FALSE)
+  activities <- read_csv(activity_catalogue_path, show_col_types = FALSE) |>
+    arrange(duration, level, title)
 
-  cat("::: {.card-grid}\n")
+  concept_values <- unlist(lapply(activities$concepts, split_values), use.names = FALSE)
+  type_values <- unlist(lapply(activities$activity_type, split_values), use.names = FALSE)
+  material_values <- unlist(lapply(activities$materials, split_values), use.names = FALSE)
+
+  cat('<section id="catalogue-activites" class="act-catalogue" data-activity-catalogue>\n')
+  cat('<div class="act-catalogue-head">\n')
+  cat('<div>\n')
+  cat('<span class="act-label">Catalogue des activités</span>\n')
+  cat('<h2>Filtrer par durée, niveau, concept ou contexte</h2>\n')
+  cat('<p>Chaque carte part d’une question pédagogique et mène vers une activité prête à adapter.</p>\n')
+  cat('</div>\n')
+  cat('<div class="act-catalogue-count" data-activity-count>', nrow(activities), ' activités</div>\n', sep = "")
+  cat('</div>\n')
+
+  cat('<div class="act-control-panel">\n')
+  cat('<label class="act-search-box" for="activity-search"><i class="bi bi-search" aria-hidden="true"></i><span class="visually-hidden">Recherche</span><input id="activity-search" type="search" placeholder="Rechercher une activité, un concept ou un contexte" autocomplete="off"></label>\n')
+  cat('<div class="act-quick-filters" aria-label="Filtres rapides">\n')
+  cat(format_quick_button("Toutes", "data-clear-activity-filters", active = TRUE), "\n", sep = "")
+  cat(format_quick_button("30-45 minutes", 'data-quick-duration="30-45 minutes"'), "\n", sep = "")
+  cat(format_quick_button("2-3 heures", 'data-quick-duration="2-3 heures"'), "\n", sep = "")
+  cat(format_quick_button("Introductif", 'data-quick-level="Introductif"'), "\n", sep = "")
+  cat(format_quick_button("Intermédiaire", 'data-quick-level="Intermédiaire"'), "\n", sep = "")
+  cat(format_quick_button("Visualisation", 'data-quick-concept="Visualisation"'), "\n", sep = "")
+  cat('</div>\n')
+  cat('</div>\n')
+
+  cat('<div class="act-layout">\n')
+  cat('<aside class="act-sidebar" aria-label="Filtres des activités">\n')
+  cat('<div class="act-sidebar-head"><h3>Affiner</h3><button class="act-reset" type="button" data-reset-activities>Réinitialiser</button></div>\n')
+  cat('<div class="act-filter-group"><h4>Durée</h4>', format_filter_group(activities$duration, "duration"), '</div>\n', sep = "")
+  cat('<div class="act-filter-group"><h4>Niveau</h4>', format_filter_group(activities$level, "level"), '</div>\n', sep = "")
+  cat('<div class="act-filter-group"><h4>Concept</h4>', format_filter_group(concept_values, "concept", max_options = 7), '</div>\n', sep = "")
+  cat('<div class="act-filter-group"><h4>Contexte</h4>', format_filter_group(activities$context, "context", max_options = 8), '</div>\n', sep = "")
+  cat('<div class="act-filter-group"><h4>Matériel</h4>', format_filter_group(material_values, "material"), '</div>\n', sep = "")
+  cat('</aside>\n')
+
+  cat('<main class="act-results">\n')
+  cat('<div class="act-results-bar">\n')
+  cat('<p data-activity-result-label>', nrow(activities), ' activités affichées</p>\n', sep = "")
+  cat('<label>Trier par <select id="activity-sort"><option value="default">Recommandé</option><option value="title">Titre</option><option value="duration">Durée</option><option value="level">Niveau</option></select></label>\n')
+  cat('</div>\n')
+  cat('<div class="act-grid">\n')
 
   for (i in seq_len(nrow(activities))) {
     row <- activities[i, ]
     activity_html <- str_replace(row$activity_url, "\\.qmd$", ".html")
-    advanced_label <- ifelse(row$advanced_math_stats, "oui", "non")
+    advanced_label <- ifelse(row$advanced_math_stats, "Math/stats avancées", "Sans math/stats avancées")
+    activity_type <- str_replace_all(clean_value(row$activity_type, ""), ";\\s*", ", ")
+    materials <- str_replace_all(clean_value(row$materials, ""), ";\\s*", ", ")
+    concept_tokens <- split_values(row$concepts)
+    type_tokens <- split_values(row$activity_type)
+    material_tokens <- split_values(row$materials)
+    search_text <- paste(
+      row$title,
+      row$question,
+      row$dataset_title,
+      row$duration,
+      row$level,
+      row$activity_type,
+      row$concepts,
+      row$context,
+      row$hook,
+      row$materials,
+      row$teacher_notes,
+      sep = " "
+    )
 
-    cat("::: {.db-card .activity-card}\n")
-    cat("### [", row$title, "](", activity_html, ")\n\n", sep = "")
-    cat('<p class="activity-question">', row$question, "</p>\n\n", sep = "")
-    cat('<div class="tag-list">', format_tags(row$concepts), "</div>\n\n", sep = "")
-    cat("- Jeu de données : ", row$dataset_title, "\n", sep = "")
-    cat("- Niveau : ", row$level, "\n", sep = "")
-    cat("- Type : ", str_replace_all(row$activity_type, "; ", ", "), "\n", sep = "")
-    cat("- Contexte : ", row$context, "\n", sep = "")
-    cat("- Accroche : ", row$hook, "\n", sep = "")
-    cat("- Durée : ", row$duration, "\n", sep = "")
-    cat("- Matériel : ", str_replace_all(row$materials, "; ", ", "), "\n", sep = "")
-    cat("- Math/stats avancées : ", advanced_label, "\n", sep = "")
-    cat(":::\n\n")
+    cat(
+      '<article class="act-card" data-index="',
+      i,
+      '" data-title="',
+      html_escape(clean_value(row$title, "")),
+      '" data-duration="',
+      html_escape(clean_value(row$duration, "")),
+      '" data-level="',
+      html_escape(clean_value(row$level, "")),
+      '" data-context="',
+      html_escape(clean_value(row$context, "")),
+      '" data-concepts="',
+      html_escape(paste(concept_tokens, collapse = "||")),
+      '" data-types="',
+      html_escape(paste(type_tokens, collapse = "||")),
+      '" data-materials="',
+      html_escape(paste(material_tokens, collapse = "||")),
+      '" data-search="',
+      html_escape(search_text),
+      '">\n',
+      sep = ""
+    )
+
+    cat('<div class="act-card-meta">\n')
+    cat('<span>', html_escape(clean_value(row$duration)), '</span>\n', sep = "")
+    cat('<span>', html_escape(clean_value(row$level)), '</span>\n', sep = "")
+    cat('</div>\n')
+    cat('<h3><a href="', html_escape(activity_html), '">', html_escape(row$title), '</a></h3>\n', sep = "")
+    cat('<p class="act-card-question">', html_escape(row$question), '</p>\n', sep = "")
+    cat('<div class="act-card-dataset"><span>Jeu de données</span><p>', html_escape(row$dataset_title), '</p></div>\n', sep = "")
+    cat('<div class="act-card-tags">', format_tokens(row$concepts), '</div>\n', sep = "")
+    cat('<dl class="act-card-details">\n')
+    cat('<div><dt>Type</dt><dd>', html_escape(activity_type), '</dd></div>\n', sep = "")
+    cat('<div><dt>Contexte</dt><dd>', html_escape(row$context), '</dd></div>\n', sep = "")
+    cat('<div><dt>Accroche</dt><dd>', html_escape(row$hook), '</dd></div>\n', sep = "")
+    cat('<div><dt>Matériel</dt><dd>', html_escape(materials), '</dd></div>\n', sep = "")
+    cat('<div><dt>Portée</dt><dd>', html_escape(advanced_label), '</dd></div>\n', sep = "")
+    cat('</dl>\n')
+    cat('<a class="act-card-action" href="', html_escape(activity_html), '">Ouvrir l’activité <i class="bi bi-arrow-right" aria-hidden="true"></i></a>\n', sep = "")
+    cat('</article>\n')
   }
 
-  cat(":::\n")
+  cat('</div>\n')
+  cat('<p class="act-empty" data-empty-activities hidden>Aucune activité ne correspond aux filtres actuels.</p>\n')
+  cat('</main>\n')
+  cat('</div>\n')
+  cat('</section>\n')
+
+  cat('<script>\n')
+  cat('(function () {\n')
+  cat('  const root = document.querySelector("[data-activity-catalogue]");\n')
+  cat('  if (!root) return;\n')
+  cat('  const searchInput = root.querySelector("#activity-search");\n')
+  cat('  const sortSelect = root.querySelector("#activity-sort");\n')
+  cat('  const cards = Array.from(root.querySelectorAll(".act-card"));\n')
+  cat('  const grid = root.querySelector(".act-grid");\n')
+  cat('  const resultLabel = root.querySelector("[data-activity-result-label]");\n')
+  cat('  const countLabel = root.querySelector("[data-activity-count]");\n')
+  cat('  const emptyLabel = root.querySelector("[data-empty-activities]");\n')
+  cat('  const quickButtons = Array.from(root.querySelectorAll(".act-chip"));\n')
+  cat('  const normalize = function (value) {\n')
+  cat('    return (value || "").toString().toLowerCase().normalize("NFD").replace(/[\\u0300-\\u036f]/g, "");\n')
+  cat('  };\n')
+  cat('  const plural = function (count) { return count + " activité" + (count > 1 ? "s" : ""); };\n')
+  cat('  const checked = function (name) {\n')
+  cat('    return Array.from(root.querySelectorAll("input[name=\\"" + name + "\\"]:checked")).map(function (input) { return input.value; });\n')
+  cat('  };\n')
+  cat('  const setOnly = function (name, value) {\n')
+  cat('    root.querySelectorAll("input[name=\\"" + name + "\\"]").forEach(function (input) { input.checked = input.value === value; });\n')
+  cat('  };\n')
+  cat('  const clearAll = function () {\n')
+  cat('    searchInput.value = "";\n')
+  cat('    root.querySelectorAll(".act-sidebar input").forEach(function (input) { input.checked = false; });\n')
+  cat('    if (sortSelect) sortSelect.value = "default";\n')
+  cat('  };\n')
+  cat('  const matchesList = function (selected, value) {\n')
+  cat('    return selected.length === 0 || selected.includes(value || "");\n')
+  cat('  };\n')
+  cat('  const matchesTokens = function (selected, value) {\n')
+  cat('    if (selected.length === 0) return true;\n')
+  cat('    const tokens = (value || "").split("||");\n')
+  cat('    return selected.some(function (item) { return tokens.includes(item); });\n')
+  cat('  };\n')
+  cat('  const updateQuickState = function () {\n')
+  cat('    const durations = checked("duration");\n')
+  cat('    const levels = checked("level");\n')
+  cat('    const concepts = checked("concept");\n')
+  cat('    quickButtons.forEach(function (button) {\n')
+  cat('      const active =\n')
+  cat('        (button.hasAttribute("data-clear-activity-filters") && !searchInput.value && durations.length === 0 && levels.length === 0 && concepts.length === 0 && checked("context").length === 0 && checked("material").length === 0) ||\n')
+  cat('        (button.dataset.quickDuration && durations.length === 1 && durations[0] === button.dataset.quickDuration) ||\n')
+  cat('        (button.dataset.quickLevel && levels.length === 1 && levels[0] === button.dataset.quickLevel) ||\n')
+  cat('        (button.dataset.quickConcept && concepts.length === 1 && concepts[0] === button.dataset.quickConcept);\n')
+  cat('      button.classList.toggle("is-active", active);\n')
+  cat('    });\n')
+  cat('  };\n')
+  cat('  const sortCards = function () {\n')
+  cat('    const mode = sortSelect ? sortSelect.value : "default";\n')
+  cat('    const sorted = cards.slice().sort(function (a, b) {\n')
+  cat('      if (mode === "title") return (a.dataset.title || "").localeCompare(b.dataset.title || "", "fr");\n')
+  cat('      if (mode === "duration") return (a.dataset.duration || "").localeCompare(b.dataset.duration || "", "fr");\n')
+  cat('      if (mode === "level") return (a.dataset.level || "").localeCompare(b.dataset.level || "", "fr");\n')
+  cat('      return Number(a.dataset.index) - Number(b.dataset.index);\n')
+  cat('    });\n')
+  cat('    sorted.forEach(function (card) { grid.appendChild(card); });\n')
+  cat('  };\n')
+  cat('  const update = function () {\n')
+  cat('    const query = normalize(searchInput.value);\n')
+  cat('    const durations = checked("duration");\n')
+  cat('    const levels = checked("level");\n')
+  cat('    const concepts = checked("concept");\n')
+  cat('    const contexts = checked("context");\n')
+  cat('    const materials = checked("material");\n')
+  cat('    let visible = 0;\n')
+  cat('    cards.forEach(function (card) {\n')
+  cat('      const show =\n')
+  cat('        (!query || normalize(card.dataset.search).includes(query)) &&\n')
+  cat('        matchesList(durations, card.dataset.duration) &&\n')
+  cat('        matchesList(levels, card.dataset.level) &&\n')
+  cat('        matchesList(contexts, card.dataset.context) &&\n')
+  cat('        matchesTokens(concepts, card.dataset.concepts) &&\n')
+  cat('        matchesTokens(materials, card.dataset.materials);\n')
+  cat('      card.hidden = !show;\n')
+  cat('      if (show) visible += 1;\n')
+  cat('    });\n')
+  cat('    resultLabel.textContent = plural(visible) + " affichée" + (visible > 1 ? "s" : "");\n')
+  cat('    countLabel.textContent = plural(visible);\n')
+  cat('    emptyLabel.hidden = visible !== 0;\n')
+  cat('    updateQuickState();\n')
+  cat('  };\n')
+  cat('  searchInput.addEventListener("input", update);\n')
+  cat('  if (sortSelect) sortSelect.addEventListener("change", function () { sortCards(); update(); });\n')
+  cat('  root.querySelectorAll(".act-sidebar input").forEach(function (input) { input.addEventListener("change", update); });\n')
+  cat('  root.querySelectorAll("[data-reset-activities], [data-clear-activity-filters]").forEach(function (button) {\n')
+  cat('    button.addEventListener("click", function () { clearAll(); sortCards(); update(); searchInput.focus(); });\n')
+  cat('  });\n')
+  cat('  root.querySelectorAll("[data-quick-duration]").forEach(function (button) {\n')
+  cat('    button.addEventListener("click", function () { clearAll(); setOnly("duration", button.dataset.quickDuration); update(); });\n')
+  cat('  });\n')
+  cat('  root.querySelectorAll("[data-quick-level]").forEach(function (button) {\n')
+  cat('    button.addEventListener("click", function () { clearAll(); setOnly("level", button.dataset.quickLevel); update(); });\n')
+  cat('  });\n')
+  cat('  root.querySelectorAll("[data-quick-concept]").forEach(function (button) {\n')
+  cat('    button.addEventListener("click", function () { clearAll(); setOnly("concept", button.dataset.quickConcept); update(); });\n')
+  cat('  });\n')
+  cat('  root.querySelectorAll("[data-toggle-activity-filter]").forEach(function (button) {\n')
+  cat('    button.addEventListener("click", function () {\n')
+  cat('      const group = button.closest(".act-filter-group");\n')
+  cat('      group.classList.toggle("is-expanded");\n')
+  cat('      button.textContent = group.classList.contains("is-expanded") ? "Voir moins" : "Voir plus";\n')
+  cat('    });\n')
+  cat('  });\n')
+  cat('  sortCards();\n')
+  cat('  update();\n')
+  cat('})();\n')
+  cat('</script>\n')
 } else {
-  cat("Le catalogue d'activités n'a pas encore été généré. Exécuter `Rscript scripts/build_activity_catalogue.R`.")
+  cat('<section class="act-catalogue"><p class="act-empty">Le catalogue d’activités n’a pas encore été généré. Exécuter <code>Rscript scripts/build_activity_catalogue.R</code>.</p></section>')
 }
 ```
 
-## Modules transversaux
+::: {.act-section .act-modules}
 
-- [Module visualisation](activities/module-visualisation.qmd)
-- [Module nettoyage](activities/module-nettoyage.qmd)
-- [Module modélisation](activities/module-modelisation.qmd)
+::: {.act-section-heading}
+::: {.act-label}
+Modules transversaux
+:::
+
+## Structurer une séquence complète
+
+Les modules transversaux regroupent plusieurs gestes d'analyse autour d'une même compétence.
+:::
+
+::: {.act-module-grid}
+
+::: {.act-module-card}
+### [Visualisation](activities/module-visualisation.qmd)
+
+Choisir un graphique adapté, travailler les titres, axes et légendes, puis rédiger une interprétation prudente.
+:::
+
+::: {.act-module-card}
+### [Nettoyage](activities/module-nettoyage.qmd)
+
+Documenter les transformations, justifier les décisions de préparation et conserver un script reproductible.
+:::
+
+::: {.act-module-card}
+### [Modélisation](activities/module-modelisation.qmd)
+
+Formuler une question modélisable, ajuster un modèle simple et discuter les limites des données observationnelles.
+:::
+
+:::
+
+:::
+
+:::

@@ -1,59 +1,201 @@
 ---
 title: "Contribuer"
 embed-resources: true
+toc: false
+page-layout: full
 ---
+
+::: {.contrib-page}
+
+::: {.contrib-hero}
+::: {.contrib-hero-copy}
 
 # Contribuer
 
-Les contributions doivent améliorer la qualité pédagogique, la vérifiabilité ou la reproductibilité du projet.
+::: {.contrib-lede}
+Contribuer à Données bleues, c'est améliorer une ressource pédagogique ouverte : ajouter une source vérifiée, documenter une limite, proposer une activité, corriger un script ou rendre une fiche plus utile en classe.
+:::
 
-## Proposer un jeu de données
+::: {.contrib-hero-actions}
+[Voir le parcours](#parcours){.dataset-button}
+[Consulter les templates](#fichiers){.dataset-button .secondary}
+:::
 
-Une proposition devrait inclure :
+:::
 
-- le nom du jeu de données;
-- l'organisme producteur;
-- l'URL officielle;
-- la licence;
-- la date d'accès;
-- le format;
-- une justification pédagogique;
-- les limites connues.
+::: {.contrib-hero-panel}
+## Principe central
 
-## Créer une fiche
+Une contribution doit améliorer au moins une de ces dimensions : qualité pédagogique, vérifiabilité, reproductibilité, clarté des limites ou réutilisation en enseignement.
+:::
+:::
 
-1. Copier `templates/fiche-dataset-template.qmd`.
-2. Créer un dossier dans `datasets/`.
-3. Ajouter `fiche.qmd`, `activite-courte.qmd`, `activite-longue.qmd`, `preparation.R` et `metadata.yml`.
-4. Ajouter `activite-courte.yml` et `activite-longue.yml` pour alimenter le catalogue des activités.
-5. Vérifier que le script télécharge ou prépare réellement les données.
-6. Exécuter `Rscript scripts/check_datasets.R`.
+::: {.contrib-section .contrib-types}
+::: {.contrib-section-heading}
+## Quatre contributions utiles
 
-## Décrire une activité
+Le projet n'a pas seulement besoin de nouvelles données. Les meilleures contributions rendent les données plus enseignables.
+:::
 
-Une activité doit être indexée comme un objet pédagogique autonome. Les champs les plus utiles sont :
+::: {.contrib-type-grid}
+::: {.contrib-type-card}
+### Proposer une source
 
-- une question directrice;
-- les concepts visés;
-- le niveau;
-- le type d'activité;
-- le contexte;
-- l'accroche;
-- la durée;
-- le matériel disponible;
-- la présence ou non de math/stats avancées.
+Identifier un jeu de données québécois ou canadien, vérifier sa provenance, sa licence et son intérêt pédagogique.
+:::
 
-## Documenter la source
+::: {.contrib-type-card}
+### Améliorer une fiche
 
-Une fiche ne doit pas prétendre qu'une donnée existe si le script ne peut pas la télécharger ou si l'URL n'a pas été vérifiée. Si une information manque, écrire clairement : Je ne sais pas encore.
+Clarifier l'unité statistique, les variables, les limites, les usages possibles ou le score zéro déchet.
+:::
 
-## Ajouter un score zéro déchet
+::: {.contrib-type-card}
+### Ajouter une activité
 
-Le score doit être argumenté. Il peut être révisé après une utilisation en classe.
+Transformer une source en discussion de 30-45 minutes, laboratoire, étude de cas ou projet long.
+:::
 
-## Ouvrir une pull request
+::: {.contrib-type-card}
+### Corriger une faiblesse
 
-Pour un dépôt GitHub, utiliser de préférence une URL SSH :
+Réparer un script, actualiser une URL, préciser une licence, signaler une limite ou améliorer une vérification.
+:::
+:::
+:::
+
+::: {#parcours .contrib-section .contrib-path}
+::: {.contrib-section-heading}
+## Parcours recommandé
+
+Une contribution solide commence par la source, pas par la mise en page.
+:::
+
+::: {.contrib-step-list}
+::: {.contrib-step}
+### 1. Vérifier la source
+
+Repérer l'organisme producteur, l'URL officielle, la licence, la date d'accès, le format, l'unité statistique et les limites connues.
+:::
+
+::: {.contrib-step}
+### 2. Évaluer l'intérêt pédagogique
+
+Nommer ce que la source permet d'enseigner : importation, nettoyage, visualisation, statistique descriptive, inférence, modélisation, éthique ou communication.
+:::
+
+::: {.contrib-step}
+### 3. Créer la fiche et les métadonnées
+
+Copier les templates, créer un dossier dans `datasets/`, puis remplir les champs avec des informations vérifiées. Si une information manque, écrire : Je ne sais pas.
+:::
+
+::: {.contrib-step}
+### 4. Ajouter les activités
+
+Décrire une activité courte et une activité longue comme des objets pédagogiques autonomes : question, durée, niveau, concepts, contexte, matériel et notes enseignantes.
+:::
+
+::: {.contrib-step}
+### 5. Valider localement
+
+Exécuter les scripts de vérification avant de proposer la contribution. Une fiche ne doit pas prétendre qu'une donnée existe si le script ne peut pas la télécharger ou la préparer.
+:::
+:::
+:::
+
+::: {#fichiers .contrib-section .contrib-files}
+::: {.contrib-section-heading}
+## Fichiers attendus
+
+Une contribution complète suit la structure du dépôt afin que les catalogues et les pages puissent être régénérés.
+:::
+
+::: {.contrib-file-grid}
+::: {.contrib-file-card}
+### Dossier minimal
+
+```text
+datasets/nom-du-jeu/
+  fiche.qmd
+  metadata.yml
+  activite-courte.qmd
+  activite-courte.yml
+  activite-longue.qmd
+  activite-longue.yml
+  preparation.R
+```
+:::
+
+::: {.contrib-file-card}
+### Templates utiles
+
+- `templates/fiche-dataset-template.qmd`
+- `templates/metadata-template.yml`
+- `templates/activite-template.qmd`
+- `templates/activite-metadata-template.yml`
+- `templates/zero-waste-score-template.yml`
+:::
+:::
+:::
+
+::: {.contrib-section .contrib-quality}
+::: {.contrib-section-heading}
+## Critères de qualité
+
+La contribution doit pouvoir être relue, exécutée et adaptée par une autre personne.
+:::
+
+::: {.contrib-quality-grid}
+::: {.contrib-quality-item}
+### Source
+
+URL officielle, organisme producteur, licence ou conditions de réutilisation, date d'accès et statut de la source.
+:::
+
+::: {.contrib-quality-item}
+### Pédagogie
+
+Question directrice, concepts visés, niveau, durée, contexte, accroche et limites d'interprétation.
+:::
+
+::: {.contrib-quality-item}
+### Reproductibilité
+
+Scripts R exécutables depuis la racine du projet, chemins relatifs, dépendances explicites et résultats vérifiables.
+:::
+
+::: {.contrib-quality-item}
+### Prudence
+
+Les conclusions doivent rester compatibles avec l'unité statistique, la couverture de la source et les droits de réutilisation.
+:::
+:::
+:::
+
+::: {.contrib-section .contrib-commands}
+::: {.contrib-section-heading}
+## Commandes de vérification
+
+Avant d'ouvrir une pull request, exécuter les vérifications locales.
+:::
+
+```bash
+Rscript scripts/check_datasets.R
+Rscript scripts/build_catalogue.R
+Rscript scripts/build_activity_catalogue.R
+quarto render
+```
+
+Si une commande échoue, corriger la source du problème avant de proposer la contribution.
+:::
+
+::: {.contrib-section .contrib-pr}
+::: {.contrib-section-heading}
+## Proposer la contribution
+
+Pour GitHub, utiliser de préférence une URL SSH.
+:::
 
 ```bash
 git remote add origin git@github.com:utilisateur/donnees-bleues.git
@@ -63,11 +205,22 @@ git commit -m "Ajouter une fiche de jeu de données"
 git push -u origin ajout-nouveau-dataset
 ```
 
-## Principes de qualité
+::: {.contrib-pr-note}
+La pull request devrait expliquer la source ajoutée, l'intérêt pédagogique, les fichiers touchés, les scripts exécutés et les limites encore présentes.
+:::
+:::
 
-- Les sources sont vérifiées.
-- Les licences sont visibles.
-- Les scripts sont reproductibles.
-- Les chemins sont relatifs au projet.
-- Les activités sont réalistes pour le niveau visé.
-- Les limites d'interprétation sont explicites.
+::: {.contrib-final}
+::: {.contrib-final-copy}
+## Une bonne contribution rend le projet plus fiable
+
+Même une petite correction est utile si elle améliore la provenance, la clarté, la reproductibilité ou l'usage en classe.
+:::
+
+::: {.contrib-final-actions}
+[Lire le cadre zéro déchet](zero-waste.qmd){.dataset-button .secondary}
+[Explorer les activités](activites.qmd){.dataset-button}
+:::
+:::
+
+:::

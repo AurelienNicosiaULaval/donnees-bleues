@@ -28,7 +28,7 @@ validate_card_images <- function(catalogue, cards_dir = "assets/cards") {
     stop(
       "Image de carte manquante pour : ",
       paste(catalogue$id[missing], collapse = ", "),
-      ". Ajouter une vraie image dans assets/cards/ ou compléter scripts/generate_card_images.R.",
+      ". Ajouter une image dans assets/cards/ avant de rendre le site.",
       call. = FALSE
     )
   }

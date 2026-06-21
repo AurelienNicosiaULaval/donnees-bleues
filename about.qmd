@@ -1,36 +1,231 @@
 ---
 title: "À propos"
 embed-resources: true
+toc: false
+page-layout: full
 ---
 
-# À propos
+```{r}
+#| label: about-page-data
+#| include: false
+library(dplyr)
+library(readr)
+library(stringr)
 
-Données bleues est un projet d'infrastructure pédagogique ouverte pour l'enseignement de la statistique, de la programmation R et de la science des données à partir de données québécoises.
+catalogue_path <- "data/metadata/catalogue.csv"
+activity_catalogue_path <- "data/metadata/catalogue_activites.csv"
 
-## Vision
+catalogue <- if (file.exists(catalogue_path)) {
+  read_csv(catalogue_path, show_col_types = FALSE)
+} else {
+  tibble::tibble()
+}
 
-Le projet repose sur une idée simple : les jeux de données utilisés en classe gagnent à être contextualisés, documentés et réutilisables. Une même source peut servir à apprendre l'importation, le nettoyage, la visualisation, l'inférence, la modélisation, la communication et la reproductibilité.
+activities <- if (file.exists(activity_catalogue_path)) {
+  read_csv(activity_catalogue_path, show_col_types = FALSE)
+} else {
+  tibble::tibble()
+}
 
-## Objectifs
+n_datasets <- nrow(catalogue)
+n_themes <- if (n_datasets > 0) length(unique(catalogue$theme)) else 0
+n_activities <- nrow(activities)
+n_contexts <- if (n_activities > 0) length(unique(activities$context)) else 0
+```
 
-- Promouvoir les données ouvertes québécoises dans l'enseignement universitaire.
-- Contextualiser l'apprentissage à partir de situations proches des personnes étudiantes.
-- Développer une culture de la donnée publique et de ses limites.
-- Favoriser la reproductibilité avec Quarto, R et des scripts explicites.
-- Soutenir la création de ressources éducatives libres.
-- Éviter les jeux de données utilisés une seule fois puis oubliés.
+::: {.about-page}
 
-## Positionnement pédagogique
+::: {.about-hero}
+::: {.about-hero-copy}
 
-Données bleues ne vise pas à remplacer les jeux de données classiques. Le projet propose plutôt une base de ressources où la provenance, la documentation, les limites et les usages pédagogiques sont traités comme des éléments centraux.
+# À propos de Données bleues
 
-Le choix d'un jeu de données ne devrait pas seulement dépendre de son nombre de lignes ou de colonnes. Il devrait aussi tenir compte de son coût cognitif d'entrée, de sa documentation, de sa pertinence territoriale, de ses ambiguïtés et des discussions qu'il rend possibles.
+::: {.about-lede}
+Données bleues est une infrastructure pédagogique ouverte pour enseigner la statistique, la programmation R et la science des données à partir de données québécoises, documentées et réutilisables.
+:::
 
-## Reproductibilité
+::: {.about-hero-actions}
+[Explorer le catalogue](catalogue.qmd){.dataset-button}
+[Voir les activités](activites.qmd){.dataset-button .secondary}
+:::
 
-Chaque fiche est accompagnée d'un script de préparation. Les scripts n'utilisent pas de chemins absolus et peuvent être exécutés depuis la racine du projet.
+:::
 
-## Sources
+::: {.about-problem-panel}
+## Le point de départ
 
-Les sources générales et les fiches de données utilisées dans le MVP sont listées dans la page [Références](references.qmd).
+Dans beaucoup d'exemples utilisés en statistique, en programmation R et en science des données, les jeux de données viennent de contextes non québécois, souvent américains. Ces exemples peuvent être utiles pour apprendre une méthode, mais ils rendent parfois le contexte abstrait : les institutions, les territoires, les catégories administratives, les licences et les enjeux publics ne sont pas ceux que les personnes étudiantes rencontrent au Québec.
+:::
+:::
 
+::: {.about-stat-strip}
+::: {.about-stat}
+`r n_datasets`
+
+fiches de jeux de données
+:::
+
+::: {.about-stat}
+`r n_themes`
+
+thèmes pédagogiques
+:::
+
+::: {.about-stat}
+`r n_activities`
+
+activités indexées
+:::
+
+::: {.about-stat}
+`r n_contexts`
+
+contextes d'enseignement
+:::
+:::
+
+::: {.about-section .about-problem}
+::: {.about-section-heading}
+## Le problème n'est pas seulement le choix d'un fichier
+
+Un jeu de données transporte toujours un contexte. Il porte des unités d'observation, des définitions administratives, des décisions de collecte, des angles morts, des droits de réutilisation et des limites d'interprétation.
+:::
+
+::: {.about-split}
+::: {.about-copy}
+Lorsque les exemples de cours reposent surtout sur des données éloignées du Québec, une partie du travail pédagogique disparaît. Les personnes étudiantes apprennent une technique, mais elles voient moins clairement comment cette technique s'applique à des institutions, des territoires et des débats publics proches d'elles.
+
+Données bleues ne cherche pas à rejeter les jeux de données classiques. Le projet cherche plutôt à compléter ces exemples avec des sources locales, vérifiées, contextualisées et prêtes à être réutilisées dans plusieurs cours.
+:::
+
+::: {.about-emphasis}
+Un bon jeu de données pour enseigner n'est pas seulement intéressant. Il doit aussi être compréhensible, vérifiable, documenté, transformable et suffisamment riche pour soutenir plusieurs apprentissages.
+:::
+:::
+:::
+
+::: {.about-section .about-answer}
+::: {.about-section-heading}
+## Ce que Données bleues veut changer
+
+Le projet transforme une source ouverte en ressource pédagogique complète. Une fiche ne s'arrête pas à un lien vers un fichier : elle explique la provenance, la structure, les limites, les usages possibles et les activités associées.
+:::
+
+::: {.about-principles}
+::: {.about-principle}
+### Contextualiser
+
+Relier les apprentissages à des réalités québécoises : environnement, mobilité, éducation, démographie, services publics, territoire et données institutionnelles.
+:::
+
+::: {.about-principle}
+### Documenter
+
+Rendre visibles la source, la licence, l'organisme producteur, les variables clés, les restrictions et les limites d'interprétation.
+:::
+
+::: {.about-principle}
+### Réutiliser
+
+Éviter les jeux de données utilisés une seule fois puis oubliés. Une même source peut soutenir l'importation, le nettoyage, la visualisation, la modélisation et la communication.
+:::
+
+::: {.about-principle}
+### Enseigner
+
+Fournir des activités courtes et longues pour passer rapidement d'une source à une discussion, un laboratoire, un mini-rapport ou un projet.
+:::
+:::
+:::
+
+::: {.about-section .about-method}
+::: {.about-section-heading}
+## Une fiche doit rendre le contexte enseignable
+
+Chaque fiche est pensée comme un point d'entrée vers un cours, pas comme une simple archive.
+:::
+
+::: {.about-method-grid}
+::: {.about-method-item}
+### Source
+
+Lien officiel, organisme producteur, date d'accès, statut de la source et conditions de réutilisation.
+:::
+
+::: {.about-method-item}
+### Données
+
+Unité statistique, variables principales, formats, préparation reproductible et exemples de code R.
+:::
+
+::: {.about-method-item}
+### Pédagogie
+
+Concepts visés, niveau recommandé, activité courte, activité longue, idées de projets et score zéro déchet.
+:::
+
+::: {.about-method-item}
+### Limites
+
+Ce que les données permettent de dire, ce qu'elles ne permettent pas de dire et les précautions à prendre en classe.
+:::
+:::
+:::
+
+::: {.about-section .about-audience}
+::: {.about-section-heading}
+## Pour qui?
+
+Données bleues s'adresse aux personnes qui veulent enseigner avec des données réelles sans perdre la rigueur documentaire et reproductible.
+:::
+
+::: {.about-audience-grid}
+::: {.about-audience-item}
+### Enseignantes et enseignants
+
+Pour trouver rapidement des exemples contextualisés, des scripts R et des activités adaptables.
+:::
+
+::: {.about-audience-item}
+### Étudiantes et étudiants
+
+Pour travailler avec des données dont le contexte social, territorial ou institutionnel peut être discuté.
+:::
+
+::: {.about-audience-item}
+### Responsables de cours
+
+Pour bâtir des séquences où les mêmes sources reviennent dans plusieurs apprentissages.
+:::
+:::
+:::
+
+::: {.about-section .about-limits}
+::: {.about-section-heading}
+## Ce que le projet ne prétend pas faire
+
+La rigueur commence aussi par des limites claires.
+:::
+
+::: {.about-limit-list}
+- Données bleues ne prétend pas que les données québécoises sont toujours préférables aux autres jeux de données.
+- Le projet ne remplace pas les exemples classiques lorsqu'ils sont bien adaptés à une notion précise.
+- Une fiche ne garantit pas qu'une source est parfaite, complète ou sans ambiguïté.
+- Si une information n'est pas vérifiée, elle doit rester absente ou être signalée clairement.
+:::
+:::
+
+::: {.about-final}
+::: {.about-final-copy}
+## Une infrastructure ouverte, mais exigeante
+
+L'objectif est de construire un répertoire durable : des sources vérifiées, des scripts reproductibles, des activités réalistes et des limites visibles. Le projet avance par ajouts prudents, révisions et usages en classe.
+:::
+
+::: {.about-final-actions}
+[Consulter les références](references.qmd){.dataset-button .secondary}
+[Contribuer](contribuer.qmd){.dataset-button}
+:::
+:::
+
+:::

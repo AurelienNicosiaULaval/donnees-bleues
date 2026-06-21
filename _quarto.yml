@@ -7,7 +7,15 @@ project:
     - assets/cards/*.png
     - assets/cards/*.jpg
   render:
-    - "*.qmd"
+    - "index.qmd"
+    - "catalogue.qmd"
+    - "zero-waste.qmd"
+    - "activites.qmd"
+    - "about.qmd"
+    - "contribuer.qmd"
+    - "references.qmd"
+    - "credits-images.qmd"
+    - "donnees-ulaval.qmd"
     - "datasets/**/*.qmd"
     - "activities/**/*.qmd"
     - "!templates/**/*.qmd"

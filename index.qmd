@@ -3,93 +3,221 @@ title: "Données bleues"
 subtitle: "Des données québécoises pour enseigner la statistique et la science des données"
 embed-resources: true
 toc: false
+page-layout: full
 ---
 
-::: {.hero}
-<img class="hero-logo" src="assets/logo-donnees-bleues.svg" alt="Logo Données bleues">
+```{r}
+#| label: home-page-data
+#| include: false
+library(dplyr)
+library(readr)
+library(stringr)
+
+catalogue_path <- "data/metadata/catalogue.csv"
+activity_catalogue_path <- "data/metadata/catalogue_activites.csv"
+
+catalogue <- if (file.exists(catalogue_path)) {
+  read_csv(catalogue_path, show_col_types = FALSE)
+} else {
+  tibble::tibble()
+}
+
+activities <- if (file.exists(activity_catalogue_path)) {
+  read_csv(activity_catalogue_path, show_col_types = FALSE)
+} else {
+  tibble::tibble()
+}
+
+n_datasets <- nrow(catalogue)
+n_themes <- if (n_datasets > 0) length(unique(catalogue$theme)) else 0
+n_activities <- nrow(activities)
+n_contexts <- if (n_activities > 0) length(unique(activities$context)) else 0
+
+theme_list <- if (n_datasets > 0) {
+  catalogue |>
+    count(theme, sort = TRUE) |>
+    slice_head(n = 6) |>
+    pull(theme) |>
+    paste(collapse = ", ")
+} else {
+  "Je ne sais pas."
+}
+```
+
+::: {.home-page}
+
+::: {.home-hero}
+::: {.home-hero-copy}
 
 # Données bleues
 
-::: {.subtitle}
-Des données québécoises pour enseigner la statistique et la science des données.
+::: {.home-subtitle}
+Des données québécoises pour enseigner la statistique et la science des données avec plus de contexte, de rigueur et de réutilisation.
 :::
 
-::: {.lede}
-Un jeu de données n'est pas seulement une table. C'est un territoire d'apprentissage. Données bleues transforme des données ouvertes québécoises en ressources pédagogiques prêtes à utiliser : fiches, activités, scripts R, grilles d'analyse et pistes de projet.
+::: {.home-lede}
+Beaucoup d'exemples pédagogiques en statistique, en programmation R et en science des données reposent sur des jeux de données non québécois, souvent américains. Données bleues propose une autre porte d'entrée : des sources québécoises et canadiennes documentées, transformées en fiches, activités, scripts R et pistes de projet.
+:::
+
+::: {.home-hero-actions}
+[Explorer le catalogue](catalogue.qmd){.dataset-button}
+[Choisir une activité](activites.qmd){.dataset-button .secondary}
+:::
+
+:::
+
+::: {.home-hero-media}
+<img src="assets/cards/catalogue.png" alt="Illustration du catalogue Données bleues">
 :::
 :::
 
-## Jeux de données québécois
+::: {.home-stat-strip}
+::: {.home-stat}
+`r n_datasets`
 
-Ces jeux de données québécois permettent d'aborder des questions concrètes liées à l'eau, à l'environnement et aux politiques publiques, tout en développant des compétences en visualisation, analyse exploratoire, statistiques descriptives et modélisation.
+fiches de jeux de données
+:::
 
-::: {.card-grid}
-::: {.db-card}
-<img class="db-card-image" src="assets/cards/catalogue.png" alt="Illustration du catalogue de jeux de données">
+::: {.home-stat}
+`r n_themes`
 
-### Explorer les jeux de données
+thèmes pédagogiques
+:::
 
-Consulter le catalogue, comparer les thèmes et repérer les concepts enseignables.
+::: {.home-stat}
+`r n_activities`
+
+activités prêtes à adapter
+:::
+
+::: {.home-stat}
+`r n_contexts`
+
+contextes d'enseignement
+:::
+:::
+
+::: {.home-section .home-problem}
+::: {.home-section-heading}
+## Le contexte change l'apprentissage
+
+Un jeu de données n'est pas seulement une table. C'est un territoire d'apprentissage : une source, une institution, des définitions, une licence, des limites et des choix de mesure.
+:::
+
+::: {.home-problem-grid}
+::: {.home-problem-copy}
+Les jeux de données classiques restent utiles lorsqu'ils servent clairement un objectif méthodologique. Mais lorsqu'ils sont presque toujours éloignés du Québec, ils rendent plus difficile une discussion sur les réalités locales, les institutions publiques, les territoires, la documentation officielle et les droits de réutilisation.
+
+Données bleues ajoute une couche manquante : des exemples situés, vérifiables et suffisamment riches pour être réutilisés dans plusieurs apprentissages, du premier graphique au mini-rapport reproductible.
+:::
+
+::: {.home-problem-note}
+L'objectif n'est pas de remplacer tous les exemples existants. L'objectif est de donner aux cours de statistique et de science des données une base locale, documentée et durable.
+:::
+:::
+:::
+
+::: {.home-section .home-paths}
+::: {.home-section-heading}
+## Trois façons d'entrer dans le site
+
+Selon le besoin du moment, le site peut servir de catalogue, de banque d'activités ou de cadre d'analyse pédagogique.
+:::
+
+::: {.home-path-grid}
+::: {.home-path-card}
+<img src="assets/cards/catalogue.png" alt="Illustration du catalogue de jeux de données">
+
+### Explorer
+
+Repérer une source par thème, niveau, notions pédagogiques ou score zéro déchet.
 
 [Ouvrir le catalogue](catalogue.qmd)
 :::
 
-::: {.db-card}
-<img class="db-card-image" src="assets/cards/zero-dechet.png" alt="Illustration du cadre zéro déchet">
+::: {.home-path-card}
+<img src="assets/cards/activites.png" alt="Illustration des activités pédagogiques">
 
-### Comprendre le jeu de données zéro déchet
+### Enseigner
 
-Évaluer le rendement pédagogique d'un jeu de données sans le réduire à sa taille.
-
-[Lire le cadre](zero-waste.qmd)
-:::
-
-::: {.db-card}
-<img class="db-card-image" src="assets/cards/activites.png" alt="Illustration des activités pédagogiques">
-
-### Utiliser les activités en classe
-
-Adapter des activités courtes et longues pour des cours d'introduction à la statistique ou à la science des données.
+Choisir une activité courte, un laboratoire ou une tâche longue à adapter à un cours.
 
 [Voir les activités](activites.qmd)
 :::
+
+::: {.home-path-card}
+<img src="assets/cards/zero-dechet.png" alt="Illustration du cadre zéro déchet">
+
+### Comprendre
+
+Évaluer le potentiel pédagogique d'un jeu de données sans le réduire à sa taille.
+
+[Lire le cadre zéro déchet](zero-waste.qmd)
+:::
+:::
 :::
 
-## Pourquoi des données québécoises?
+::: {.home-section .home-contents}
+::: {.home-section-heading}
+## Ce qu'une fiche rend visible
 
-Les données locales aident à situer les apprentissages dans des réalités proches des personnes étudiantes : mobilité urbaine, services publics, culture, environnement, territoire et politiques publiques. Elles permettent aussi d'aborder la donnée comme objet social, administratif et scientifique.
+Chaque fiche vise à réduire la préparation répétitive tout en augmentant la qualité documentaire.
+:::
 
-Le MVP initial utilise des sources ouvertes vérifiées le 2026-06-01, notamment Données Québec, les flux GBFS de BIXI Montréal, Bibliothèque et Archives nationales du Québec et le ministère de l'Environnement, de la Lutte contre les changements climatiques, de la Faune et des Parcs. Les fiches récentes documentent leurs sources, formats, licences ou conditions de réutilisation directement dans les métadonnées.
+::: {.home-feature-grid}
+::: {.home-feature}
+### Source vérifiée
 
-## Pour qui?
+Organisme producteur, URL officielle, date d'accès, licence ou conditions de réutilisation.
+:::
 
-- Enseignants et enseignantes en statistique, science des données et programmation R.
-- Étudiants et étudiantes qui apprennent à analyser des données réelles.
-- Responsables de programmes qui cherchent des exemples contextualisés.
-- Personnes qui développent des ressources éducatives libres.
+::: {.home-feature}
+### Structure des données
 
-## Ce que contient une fiche
+Unité statistique, variables principales, formats, préparation et limites d'interprétation.
+:::
 
-Chaque fiche vise à être utilisable sans longue préparation :
+::: {.home-feature}
+### Usage pédagogique
 
-- une source vérifiée;
-- une description de l'unité statistique;
-- un tableau des variables principales;
-- une grille zéro déchet;
-- une activité courte;
-- une activité longue;
-- un projet possible;
-- un bloc de code R minimal;
-- des limites d'interprétation.
+Niveau recommandé, concepts visés, activité courte, activité longue et idées de projets.
+:::
 
+::: {.home-feature}
+### Reproductibilité
+
+Scripts R, chemins relatifs, génération du catalogue et vérifications de cohérence.
+:::
+:::
+:::
+
+::: {.home-section .home-current}
+::: {.home-current-panel}
+::: {.home-current-copy}
 ## Catalogue actuel
 
-Le catalogue rassemble des fiches de jeux de données québécois sur l'environnement, l'eau, la mobilité, l'éducation, la démographie, la sécurité publique, les services municipaux et les politiques publiques. Il inclut maintenant six fiches adaptées aux laboratoires de science des données.
+Cette version contient `r n_datasets` fiches réparties dans `r n_themes` thèmes pédagogiques. Les thèmes les plus visibles dans le catalogue actuel sont : `r theme_list`.
 
-Le projet inclut aussi des fonctions R pour interroger CKAN, calculer les scores zéro déchet, bâtir le catalogue et vérifier la cohérence des fiches.
+Le projet couvre notamment l'eau, l'environnement, la mobilité, l'éducation, la démographie, les services publics et le territoire. Les sources et leurs dates d'accès sont listées dans les références.
+:::
 
-## Invitation à contribuer
+::: {.home-current-actions}
+[Consulter les sources](references.qmd){.dataset-button .secondary}
+[À propos du projet](about.qmd){.dataset-button}
+:::
+:::
+:::
 
-Données bleues est conçu comme une infrastructure pédagogique ouverte. Les contributions les plus utiles pour la suite sont des sources vérifiées, des activités testées en classe, des corrigés enseignants et des améliorations reproductibles aux scripts R.
+::: {.home-final}
+::: {.home-final-copy}
+## Construire une ressource durable
 
-[Voir comment contribuer](contribuer.qmd)
+Données bleues avance par sources vérifiées, activités testables, scripts reproductibles et limites explicites. Les contributions les plus utiles ajoutent de la provenance, du contexte ou de vrais usages en classe.
+:::
+
+::: {.home-final-actions}
+[Contribuer](contribuer.qmd){.dataset-button}
+:::
+:::
+
+:::
