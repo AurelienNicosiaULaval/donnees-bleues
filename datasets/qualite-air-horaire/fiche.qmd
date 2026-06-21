@@ -18,122 +18,211 @@ render_dataset_detail_header()
 
 ## Pourquoi ce jeu est intéressant
 
-Ce jeu de données place les étudiants et étudiantes devant une source québécoise réaliste, avec des variables interprétables et des décisions de nettoyage authentiques.
+Ce jeu met les étudiants devant une source environnementale québécoise réelle, volumineuse et imparfaite. Il est idéal pour enseigner les séries temporelles, les valeurs manquantes, les résumés journaliers et la visualisation prudente d'un phénomène environnemental.
 
-Question d'analyse : Les concentrations de PM2.5 ont-elles augmenté durant certains épisodes particuliers?
+La fiche utilise la ressource officielle 2025 du RSQAQ. Le fichier brut contient des mesures horaires par station et par contaminant. La préparation locale produit un résumé journalier station-contaminant afin de garder les analyses rapides, reproductibles et adaptées à un laboratoire pédagogique.
 
-## Source
+## Ce qui a été vérifié
+
+| Élément | Résultat vérifié |
+|---|---|
+| Paquet CKAN | `a80757bd-d442-4d3d-9269-11628330b727` |
+| Source officielle | Données Québec / MELCCFP / RSQAQ |
+| Titre officiel | RSQAQ - Données horaires continues |
+| Ressources dans le paquet | 51 ressources CSV |
+| Ressource préparée ici | `RSQAQ - Données continues horaires 2025` |
+| Identifiant de la ressource 2025 | `370a6be4-1530-4c2b-92f3-0a308224f284` |
+| Dernière modification de la ressource 2025 | 2026-06-19 |
+| Licence | Attribution (CC-BY 4.0), selon les métadonnées CKAN consultées le 2026-06-21 |
+| Table préparée | `data/processed/qualite-air-horaire/resume_journalier_contaminants_2025.csv` |
+| Résumés préparés | contaminants, stations, valeurs manquantes, épisodes PM2.5 |
+
+## Source et conditions
 
 | Champ | Information |
 |---|---|
-| Organisme producteur | Données Québec / MELCCFP / RSQAQ |
-| Source | Réseau de surveillance de la qualité de l'air du Québec (RSQAQ) |
-| URL | <https://www.donneesquebec.ca/recherche/dataset/rsqaq-donnees-horaires-continues> |
-| Licence | Attribution (CC-BY 4.0) selon les métadonnées CKAN vérifiées le 2026-06-19 |
-| Date d'accès | 2026-06-19 |
-| Fréquence de mise à jour | Annuelle par ressource publiée; métadonnées CKAN modifiées le 2026-06-17 |
-| Statut | source vérifiée; préparation pédagogique à finaliser |
+| Page Données Québec | <https://www.donneesquebec.ca/recherche/dataset/rsqaq-donnees-horaires-continues> |
+| API CKAN | <https://www.donneesquebec.ca/recherche/api/3/action/package_show?id=rsqaq-donnees-horaires-continues> |
+| CSV 2025 | <https://www.donneesquebec.ca/recherche/dataset/a80757bd-d442-4d3d-9269-11628330b727/resource/370a6be4-1530-4c2b-92f3-0a308224f284/download/rsqaq_continues_horaires_2025.csv> |
+| Producteur | Direction de la qualité de l'air et du climat, MELCCFP |
+| Description officielle | Concentrations horaires des contaminants mesurés de façon continue par le RSQAQ |
+| Date d'accès | 2026-06-21 |
+| Fréquence | Une ressource CSV par année |
 
 ## Ce que représente une ligne
 
-Mesure horaire de contaminant à une station RSQAQ.
+Dans le CSV officiel, une ligne représente une station et une heure publiée. Les contaminants sont en colonnes. Une même ligne peut donc contenir plusieurs valeurs de contaminants ou plusieurs valeurs manquantes.
+
+Dans la table préparée pour la fiche, une ligne représente plutôt un résumé journalier pour une station et un contaminant : nombre d'heures valides, moyenne, médiane, 95e percentile et maximum.
+
+Une ligne n'est pas un épisode de pollution, une exposition individuelle, un diagnostic sanitaire ou une mesure causale. C'est un résumé descriptif des valeurs publiées pour une station, un jour et un contaminant.
 
 ## Variables principales
 
-| Variable | Type | Description | Exemple |
-|---|---|---|---|
-| `date_heure` | datetime | Date et heure de la mesure ou de la période horaire. | 2025-01-15 14:00 |
-| `station` | caractère | Identifiant ou nom de la station de mesure. | Québec - Vieux-Limoilou |
-| `latitude` | numérique | Latitude de la station lorsque jointe aux métadonnées de stations. | 46.83 |
-| `longitude` | numérique | Longitude de la station lorsque jointe aux métadonnées de stations. | -71.22 |
-| `pm25` | numérique | Concentration horaire de particules fines PM2.5, si disponible. | 8.4 |
-| `ozone` | numérique | Concentration horaire d'ozone, si disponible. | 22.1 |
-| `no2` | numérique | Concentration horaire de dioxyde d'azote, si disponible. | 12.0 |
-| `so2` | numérique | Concentration horaire de dioxyde de soufre, si disponible. | 1.2 |
-| `co` | numérique | Concentration horaire de monoxyde de carbone, si disponible. | 0.3 |
+| Variable préparée | Rôle | Point de vigilance |
+|---|---|---|
+| `source_year` | Année de la ressource utilisée | Ici 2025 |
+| `date` | Date du résumé journalier | Dérivée de `Date_Heure` sans conversion de fuseau |
+| `station_id` | Code de station extrait du libellé source | Utile pour regrouper sans dépendre du nom |
+| `station_name` | Nom de station | Peut contenir des libellés longs |
+| `contaminant_source` | Nom exact de la colonne source | Conserve la provenance technique |
+| `contaminant` | Libellé lisible du contaminant | N'est pas une conversion d'unité |
+| `n_heures_valides` | Nombre d'heures non manquantes dans la journée | Sert à filtrer les journées peu couvertes |
+| `moyenne`, `mediane`, `p95`, `maximum` | Résumés des valeurs publiées | À interpréter par contaminant |
 
-## Taille et structure
+## Taille et résultats R vérifiés
 
-| Élément | Information |
-|---|---|
-| Nombre de lignes | Volume horaire potentiellement élevé; une ressource CSV par année |
-| Nombre de colonnes | Variables de station, date-heure et contaminants; structure exacte à confirmer à partir de la ressource retenue |
-| Structure | Tabulaire, temporel, spatial |
-| Format | CSV par année |
-| Couverture géographique | Québec |
-| Couverture temporelle | Données horaires continues disponibles par année, de 1986 à 2025 selon les ressources CKAN consultées |
+| Indicateur | Valeur |
+|---|---:|
+| Ressources CSV annuelles dans le paquet CKAN | 51 |
+| Lignes horaires dans le CSV 2025 | 457 686 |
+| Colonnes dans le CSV 2025 | 13 |
+| Stations distinctes | 54 |
+| Contaminants publiés en colonnes | 11 |
+| Mesures non manquantes tous contaminants | 1 549 609 |
+| Résumés journaliers préparés | 65 306 |
+| Première heure publiée | 2025-01-01 00:00 |
+| Dernière heure publiée | 2025-12-31 23:00 |
+| Mesures PM2.5 non manquantes | 436 243 |
+| Stations avec PM2.5 | 52 |
+| Maximum horaire PM2.5 dans le CSV 2025 | 387,896 |
+
+## Contaminants les plus couverts en 2025
+
+| Contaminant source | Mesures non manquantes | Stations | Moyenne | 95e percentile | Maximum |
+|---|---:|---:|---:|---:|---:|
+| PM2.5-T640 | 436 243 | 52 | 6,71 | 20,1 | 387,896 |
+| O3 | 413 010 | 50 | 27,1 | 44,4 | 87,0 |
+| NO | 188 051 | 25 | 1,81 | 8,38 | 232,0 |
+| NO2 | 181 701 | 25 | 5,64 | 18,0 | 95,8 |
+| SO2 | 146 261 | 18 | 1,22 | 3,17 | 297,0 |
+
+Ces nombres ne doivent pas être comparés naïvement entre contaminants. La fiche conserve les valeurs publiées par colonne et ne normalise pas les unités. Pour un cours d'introduction, il est préférable de choisir un contaminant à la fois.
+
+## Journées PM2.5 élevées dans le résumé 2025
+
+| Date | Station | Heures valides | Moyenne journalière | Maximum horaire | 95e percentile |
+|---|---|---:|---:|---:|---:|
+| 2025-06-04 | Radisson | 24 | 100,3 | 203,8 | 202,1 |
+| 2025-07-26 | Montréal - York/Rosemont | 24 | 91,1 | 128,2 | 127,3 |
+| 2025-06-06 | Gatineau - Hull | 24 | 88,8 | 101,7 | 100,3 |
+| 2025-07-26 | Saint-Joseph-de-Sorel | 24 | 88,4 | 126,6 | 123,0 |
+| 2025-06-05 | Radisson | 24 | 87,6 | 186,7 | 186,2 |
+
+Ces journées sont des points de départ pour l'exploration. Elles ne suffisent pas à identifier une cause. Pour interpréter un épisode, il faut ajouter du contexte : météo, feux de forêt, transport régional des polluants, sources locales et validation instrumentale.
+
+## Lecture statistique
+
+Une analyse prudente suit cet ordre :
+
+1. choisir une année et un contaminant;
+2. vérifier le nombre d'heures valides par jour;
+3. résumer par station et par date;
+4. visualiser la série temporelle avant de classer les épisodes;
+5. éviter de mélanger les contaminants sans unité commune;
+6. distinguer valeur élevée, épisode environnemental et cause possible.
+
+Le résumé journalier est pratique pour l'enseignement, mais il masque les variations intra-journalières. Pour une question plus fine, il faut retourner aux mesures horaires.
 
 ## Concepts enseignables
 
-- séries temporelles;
-- nettoyage de données;
-- visualisation;
-- détection d'anomalies;
-- données environnementales;
-
-## Visualisations suggérées
-
-- séries temporelles;
-- cartes interactives;
-- heatmaps temporelles;
+- séries temporelles horaires;
+- valeurs manquantes;
+- données en format large;
+- pivot long;
+- résumé journalier;
+- 95e percentile;
+- comparaison entre stations;
+- détection d'épisodes;
+- communication prudente;
+- limites des données environnementales.
 
 ## Score zéro déchet
 
-| Dimension | Score |
-|---|---:|
-| Contexte québécois | 3 |
-| Accessibilité pédagogique | 3 |
-| Qualité documentaire | 3 |
-| Potentiel de nettoyage | 3 |
-| Potentiel de visualisation | 3 |
-| Potentiel de statistique descriptive | 3 |
-| Potentiel d'inférence | 1 |
-| Potentiel de modélisation | 2 |
-| Potentiel de discussion éthique | 3 |
-| Réutilisabilité dans plusieurs cours | 3 |
+| Dimension | Score | Justification |
+|---|---:|---|
+| Contexte québécois | 3 | Données officielles de surveillance de la qualité de l'air au Québec |
+| Accessibilité pédagogique | 3 | Stations, dates et contaminants sont interprétables rapidement |
+| Qualité documentaire | 3 | Paquet CKAN, ressources annuelles, licence et producteur sont disponibles |
+| Potentiel de nettoyage | 3 | Format large, valeurs manquantes, stations et contaminants à harmoniser |
+| Potentiel de visualisation | 3 | Séries temporelles, calendriers, cartes et comparaisons par station |
+| Potentiel de statistique descriptive | 3 | Moyennes, médianes, percentiles et classements par jour |
+| Potentiel d'inférence | 1 | Non adapté à l'inférence sans protocole complémentaire |
+| Potentiel de modélisation | 2 | Modèles exploratoires possibles, mais dépendants du contexte externe |
+| Potentiel éthique | 3 | Santé publique, environnement et communication du risque |
+| Réutilisabilité | 3 | Utile en nettoyage, visualisation, séries temporelles et communication |
 
 Total : 27 sur 30.
 
 ## Activité courte
 
-[Laboratoire](activite-courte.qmd) : Les concentrations de PM2.5 ont-elles augmenté durant certains épisodes particuliers?
+En 60 à 90 minutes, choisir le PM2.5 et repérer les journées les plus élevées en imposant un minimum d'heures valides. Les étudiants doivent expliquer pourquoi un classement descriptif ne suffit pas à conclure sur la cause.
 
 ## Activité longue
 
-[Mini-projet](activite-longue.qmd) : Construire un tableau de bord exploratoire des contaminants atmosphériques par station et par période.
+En 2 à 3 heures, construire un tableau de bord exploratoire par station, contaminant et période. Le livrable doit inclure les décisions de nettoyage, les valeurs manquantes, les graphiques et une section de limites.
 
 ## Code R minimal
 
+À exécuter depuis la racine du projet.
+
 ```{r}
 #| eval: false
+# Load libraries
 library(dplyr)
+library(ggplot2)
 library(readr)
-library(stringr)
 
-source_page <- "https://www.donneesquebec.ca/recherche/dataset/rsqaq-donnees-horaires-continues"
+# Prepare official 2025 CSV resource
+source("datasets/qualite-air-horaire/preparation.R")
 
-# Étape 1 : ouvrir la page officielle et choisir la ressource documentée.
-# Étape 2 : enregistrer le fichier brut dans data_raw/.
-# Étape 3 : harmoniser les noms vers : `date_heure`, `station`, `latitude`, `longitude`, `pm25`, `ozone`, `no2`, `so2`, `co`.
+# Import prepared daily summaries
+air_jour <- read_csv(
+  "data/processed/qualite-air-horaire/resume_journalier_contaminants_2025.csv",
+  show_col_types = FALSE
+)
 
-donnees <- read_csv("data_raw/source_officielle_a_renommer.csv", show_col_types = FALSE)
+# Focus on PM2.5 days with at least 18 valid hourly values
+pm25 <- air_jour |>
+  filter(contaminant_source == "PM2.5-T640", n_heures_valides >= 18)
 
-donnees |>
-  glimpse()
+pm25 |>
+  arrange(desc(moyenne)) |>
+  select(date, station_name, n_heures_valides, moyenne, maximum) |>
+  slice_head(n = 10)
+
+ggplot(pm25, aes(x = date, y = moyenne, group = station_id)) +
+  geom_line(alpha = 0.25, linewidth = 0.3) +
+  labs(
+    title = "Moyennes journalières de PM2.5 par station, 2025",
+    x = "Date",
+    y = "Moyenne journalière des valeurs publiées"
+  ) +
+  theme_minimal()
 ```
 
 ## Limites et précautions
 
-- Les variables de contaminants doivent être harmonisées après inspection de la ressource annuelle retenue. Les coordonnées peuvent provenir du jeu RSQAQ des stations.
-- Les noms de variables proposés sont des noms pédagogiques harmonisés; ils doivent être mappés aux noms officiels après inspection de la ressource.
-- Aucune conclusion causale ne doit être tirée sans plan d'analyse plus avancé.
+- La fiche conserve les valeurs publiées par contaminant sans harmoniser les unités.
+- Les valeurs manquantes varient fortement selon les contaminants et les stations.
+- Un résumé journalier peut masquer des pics horaires.
+- Une valeur élevée n'identifie pas automatiquement une cause.
+- Les comparaisons entre stations doivent tenir compte de la couverture horaire.
+- Les données sont descriptives; une analyse sanitaire ou réglementaire demanderait un cadre méthodologique plus spécialisé.
 
 ## Extensions
 
-- Extension intro : produire un tableau de fréquences ou de moyennes par groupe.
-- Extension intermédiaire : ajouter une visualisation claire et une interprétation écrite.
-- Extension avancée : construire une version préparée et documentée dans `data_processed/`.
-- Extension communication scientifique : expliquer en une page ce que la source permet et ne permet pas de conclure.
+- Comparer les résultats avec un seuil minimal de 18, 20 ou 24 heures valides.
+- Produire un calendrier de chaleur pour une station.
+- Comparer PM2.5 et O3 sans les placer sur la même échelle.
+- Ajouter des données météo pour explorer les épisodes.
+- Préparer une note publique qui sépare observation, hypothèse et conclusion.
+
+## Références utilisées
+
+Données Québec. 2026. RSQAQ - Données horaires continues. <https://www.donneesquebec.ca/recherche/dataset/rsqaq-donnees-horaires-continues>
+
+MELCCFP. 2026. Réseau de surveillance de la qualité de l'air du Québec. <https://www.environnement.gouv.qc.ca/air/reseau-surveillance/Carte.asp>
 
 ```{r}
 #| label: dataset-detail-footer
@@ -141,4 +230,3 @@ donnees |>
 #| results: asis
 render_dataset_detail_footer()
 ```
-

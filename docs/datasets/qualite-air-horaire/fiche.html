@@ -5547,6 +5547,9 @@ Qualité de l&#39;air au Québec
 <p class="dataset-hero-source">
 Données Québec / MELCCFP / RSQAQ
 </p>
+<div class="dataset-contributor-badge">
+<span>Personne à contacter</span><strong>Aurélien Nicosia</strong><small>Révision pédagogique et statistique</small>
+</div>
 <p class="dataset-hero-summary">
 Mesure horaire de contaminant à une station RSQAQ
 </p>
@@ -5566,17 +5569,17 @@ Mesure horaire de contaminant à une station RSQAQ
 <span>Niveau</span><strong>Introduction à intermédiaire</strong>
 </div>
 <div class="dataset-fact">
-<span>Structure</span><strong>Tabulaire, temporel, spatial</strong>
+<span>Structure</span><strong>Table horaire, environnementale, temporelle et multi-contaminants</strong>
 </div>
 <div class="dataset-fact">
-<span>Format</span><strong>CSV par année</strong>
+<span>Format</span><strong>CSV officiel 2025 préparé localement; une ressource CSV par année de 1975 à 2025</strong>
 </div>
 </div>
 <div class="dataset-pedagogy-band">
 <div class="dataset-pedagogy-main">
 <span>Question de départ</span>
 <p>
-Explorer environnement avec une question descriptive.
+Comparer les profils journaliers de PM2.5 entre stations en 2025.
 </p>
 </div>
 <div class="dataset-score-box">
@@ -5587,7 +5590,7 @@ Explorer environnement avec une question descriptive.
 </div>
 </div>
 <div class="dataset-chip-strip">
-<span>séries temporelles</span><span>nettoyage de données</span><span>visualisation</span><span>détection d&#39;anomalies</span><span>données environnementales</span>
+<span>séries temporelles</span><span>données horaires</span><span>valeurs manquantes</span><span>résumé journalier</span><span>visualisation</span><span>détection d&#39;anomalies</span><span>données environnementales</span>
 </div>
 <section class="dataset-r-lab" id="r-en-action">
 <div class="dataset-section-heading">
@@ -5596,7 +5599,7 @@ Explorer environnement avec une question descriptive.
 Aperçu reproductible
 </h2>
 <p>
-Aperçu léger calculé par R à partir des métadonnées vérifiées afin de garder la fiche rapide et stable au rendu.
+Aperçu calculé par R à partir de data/processed/qualite-air-horaire/resume_journalier_contaminants_2025.csv.
 </p>
 </div>
 <div class="dataset-r-grid">
@@ -5604,13 +5607,12 @@ Aperçu léger calculé par R à partir des métadonnées vérifiées afin de ga
 <div class="dataset-card-label">
 Code minimal
 </div>
-<pre><code class="language-r">library(yaml)
+<pre><code class="language-r">library(dplyr)
 
-metadata &lt;- yaml::read_yaml(&quot;datasets/qualite-air-horaire/metadata.yml&quot;)
-data.frame(
-  champ = c(&quot;theme&quot;, &quot;territoire&quot;, &quot;unite&quot;, &quot;niveau&quot;),
-  valeur = c(metadata$theme, metadata$geography, metadata$unit, metadata$level)
-)</code></pre>
+donnees &lt;- read.csv(&quot;data/processed/qualite-air-horaire/resume_journalier_contaminants_2025.csv&quot;, check.names = FALSE)
+
+glimpse(donnees)
+donnees |&gt; summarise(lignes = n(), colonnes = ncol(donnees))</code></pre>
 </div>
 <div class="dataset-result-card">
 <div class="dataset-card-label">
@@ -5618,16 +5620,19 @@ Résultats R
 </div>
 <div class="dataset-r-stats">
 <div class="dataset-r-stat">
-<span>Lignes déclarées</span><strong>Volume horaire potentiellement élevé; une ressource CSV par année</strong>
+<span>Lignes lues</span><strong>2 500</strong>
 </div>
 <div class="dataset-r-stat">
-<span>Colonnes déclarées</span><strong>Variables de station, date-heure et contaminants; structure exacte à confirmer à partir de la ressource retenue</strong>
+<span>Colonnes</span><strong>12</strong>
 </div>
 <div class="dataset-r-stat">
-<span>Format</span><strong>CSV par année</strong>
+<span>Variables num.</span><strong>7</strong>
 </div>
 <div class="dataset-r-stat">
-<span>Aperçu</span><strong>Métadonnées</strong>
+<span>Valeurs manquantes</span><strong>0 %</strong>
+</div>
+<div class="dataset-r-stat">
+<span>Aperçu</span><strong>resume_journalier_contaminants_2025.csv</strong>
 </div>
 </div>
 <div class="dataset-result-table-wrap">
@@ -5635,52 +5640,144 @@ Résultats R
 <thead>
 <tr>
 <th>
-champ
+source_year
 </th>
 <th>
-valeur
+access_date
+</th>
+<th>
+date
+</th>
+<th>
+station_id
+</th>
+<th>
+station_name
+</th>
+<th>
+contaminant_source
 </th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>
-theme
+2025
 </td>
 <td>
-Environnement
-</td>
-</tr>
-<tr>
-<td>
-territoire
+2026-06-21
 </td>
 <td>
-Québec
-</td>
-</tr>
-<tr>
-<td>
-unite
+2025-01-01
 </td>
 <td>
-Mesure horaire de contaminant à…
+1810
+</td>
+<td>
+Auclair
+</td>
+<td>
+O3
 </td>
 </tr>
 <tr>
 <td>
-niveau
+2025
 </td>
 <td>
-Introduction à intermédiaire
+2026-06-21
+</td>
+<td>
+2025-01-01
+</td>
+<td>
+1810
+</td>
+<td>
+Auclair
+</td>
+<td>
+PM2.5-T640
 </td>
 </tr>
 <tr>
 <td>
-format
+2025
 </td>
 <td>
-CSV par année
+2026-06-21
+</td>
+<td>
+2025-01-01
+</td>
+<td>
+2016
+</td>
+<td>
+Saguenay - Parc Powell
+</td>
+<td>
+O3
+</td>
+</tr>
+<tr>
+<td>
+2025
+</td>
+<td>
+2026-06-21
+</td>
+<td>
+2025-01-01
+</td>
+<td>
+2016
+</td>
+<td>
+Saguenay - Parc Powell
+</td>
+<td>
+PM2.5-T640
+</td>
+</tr>
+<tr>
+<td>
+2025
+</td>
+<td>
+2026-06-21
+</td>
+<td>
+2025-01-01
+</td>
+<td>
+2016
+</td>
+<td>
+Saguenay - Parc Powell
+</td>
+<td>
+SO2
+</td>
+</tr>
+<tr>
+<td>
+2025
+</td>
+<td>
+2026-06-21
+</td>
+<td>
+2025-01-01
+</td>
+<td>
+2022
+</td>
+<td>
+Saguenay - UQAC
+</td>
+<td>
+NO
 </td>
 </tr>
 </tbody>
@@ -5691,8 +5788,8 @@ CSV par année
 <div class="dataset-card-label">
 Lecture statistique
 </div>
-<svg class="dataset-r-chart" viewbox="0 0 320 210" role="img" aria-label="Concepts pédagogiques">
-<text x="0" y="30" class="dataset-svg-label">séries temporelles</text><rect x="150" y="18" width="90" height="14" rx="3" class="dataset-svg-bar" /><text x="0" y="54" class="dataset-svg-label">nettoyage de données</text><rect x="150" y="42" width="90" height="14" rx="3" class="dataset-svg-bar" /><text x="0" y="78" class="dataset-svg-label">visualisation</text><rect x="150" y="66" width="90" height="14" rx="3" class="dataset-svg-bar" /><text x="0" y="102" class="dataset-svg-label">détection d&#39;anomalies</text><rect x="150" y="90" width="90" height="14" rx="3" class="dataset-svg-bar" /><text x="0" y="126" class="dataset-svg-label">données environnementales</text><rect x="150" y="114" width="90" height="14" rx="3" class="dataset-svg-bar" />
+<svg class="dataset-r-chart" viewbox="0 0 320 210" role="img" aria-label="Aperçu numérique généré par R">
+<line x1="34" y1="158" x2="292" y2="158" class="dataset-svg-axis"></line><line x1="34" y1="36" x2="34" y2="158" class="dataset-svg-axis"></line><polyline points="34,102 40.4,102 46.7,102 53.1,102 59.4,102 65.8,102 72.2,102 78.5,102 84.9,102 91.2,102 97.6,102 103.9,102 110.3,102 116.7,102 123,102 129.4,102 135.7,102 142.1,102 148.5,102 154.8,102 161.2,102 167.5,102 173.9,102 180.3,102 186.6,102 193,102 199.3,102 205.7,102 212.1,102 218.4,102 224.8,102 231.1,102 237.5,102 243.8,102 250.2,102 256.6,102 262.9,102 269.3,102 275.6,102 282,102" class="dataset-svg-line"></polyline><circle cx="34" cy="102" r="3.2" class="dataset-svg-point"></circle><circle cx="40.4" cy="102" r="3.2" class="dataset-svg-point"></circle><circle cx="46.7" cy="102" r="3.2" class="dataset-svg-point"></circle><circle cx="53.1" cy="102" r="3.2" class="dataset-svg-point"></circle><circle cx="59.4" cy="102" r="3.2" class="dataset-svg-point"></circle><circle cx="65.8" cy="102" r="3.2" class="dataset-svg-point"></circle><circle cx="72.2" cy="102" r="3.2" class="dataset-svg-point"></circle><circle cx="78.5" cy="102" r="3.2" class="dataset-svg-point"></circle><circle cx="84.9" cy="102" r="3.2" class="dataset-svg-point"></circle><circle cx="91.2" cy="102" r="3.2" class="dataset-svg-point"></circle><circle cx="97.6" cy="102" r="3.2" class="dataset-svg-point"></circle><circle cx="103.9" cy="102" r="3.2" class="dataset-svg-point"></circle><circle cx="110.3" cy="102" r="3.2" class="dataset-svg-point"></circle><circle cx="116.7" cy="102" r="3.2" class="dataset-svg-point"></circle><circle cx="123" cy="102" r="3.2" class="dataset-svg-point"></circle><circle cx="129.4" cy="102" r="3.2" class="dataset-svg-point"></circle><circle cx="135.7" cy="102" r="3.2" class="dataset-svg-point"></circle><circle cx="142.1" cy="102" r="3.2" class="dataset-svg-point"></circle><circle cx="148.5" cy="102" r="3.2" class="dataset-svg-point"></circle><circle cx="154.8" cy="102" r="3.2" class="dataset-svg-point"></circle><circle cx="161.2" cy="102" r="3.2" class="dataset-svg-point"></circle><circle cx="167.5" cy="102" r="3.2" class="dataset-svg-point"></circle><circle cx="173.9" cy="102" r="3.2" class="dataset-svg-point"></circle><circle cx="180.3" cy="102" r="3.2" class="dataset-svg-point"></circle><circle cx="186.6" cy="102" r="3.2" class="dataset-svg-point"></circle><circle cx="193" cy="102" r="3.2" class="dataset-svg-point"></circle><circle cx="199.3" cy="102" r="3.2" class="dataset-svg-point"></circle><circle cx="205.7" cy="102" r="3.2" class="dataset-svg-point"></circle><circle cx="212.1" cy="102" r="3.2" class="dataset-svg-point"></circle><circle cx="218.4" cy="102" r="3.2" class="dataset-svg-point"></circle><circle cx="224.8" cy="102" r="3.2" class="dataset-svg-point"></circle><circle cx="231.1" cy="102" r="3.2" class="dataset-svg-point"></circle><circle cx="237.5" cy="102" r="3.2" class="dataset-svg-point"></circle><circle cx="243.8" cy="102" r="3.2" class="dataset-svg-point"></circle><circle cx="250.2" cy="102" r="3.2" class="dataset-svg-point"></circle><circle cx="256.6" cy="102" r="3.2" class="dataset-svg-point"></circle><circle cx="262.9" cy="102" r="3.2" class="dataset-svg-point"></circle><circle cx="269.3" cy="102" r="3.2" class="dataset-svg-point"></circle><circle cx="275.6" cy="102" r="3.2" class="dataset-svg-point"></circle><circle cx="282" cy="102" r="3.2" class="dataset-svg-point"></circle><text x="34" y="24" class="dataset-svg-title">source_year</text><text x="34" y="186" class="dataset-svg-label">2024.5</text><text x="230" y="186" class="dataset-svg-label">2025.5</text>
 </svg>
 </div>
 </div>
@@ -5702,7 +5799,13 @@ Lecture statistique
 <span>Mini-projets</span>
 <ul>
 <li>
-Explorer environnement avec une question descriptive.
+Comparer les profils journaliers de PM2.5 entre stations en 2025.
+</li>
+<li>
+Repérer les journées où les moyennes de PM2.5 sont les plus élevées et discuter les limites d&#39;une analyse descriptive.
+</li>
+<li>
+Construire un tableau de bord exploratoire par station, contaminant et période.
 </li>
 </ul>
 </div>
@@ -5710,15 +5813,15 @@ Explorer environnement avec une question descriptive.
 <span>Activités liées</span>
 <div class="dataset-activity-grid">
 <div class="dataset-activity-card">
-<span>60-90 minutes</span><strong>Laboratoire - Air Québec</strong>
+<span>60-90 minutes</span><strong>PM2.5 et journées élevées en 2025</strong>
 <p>
-Les concentrations de PM2.5 ont-elles augmenté durant certains épisodes particuliers?
+Quelles journées présentent les moyennes journalières de PM2.5 les plus élevées, et que peut-on conclure prudemment?
 </p>
 </div>
 <div class="dataset-activity-card">
-<span>2-3 heures</span><strong>Mini-projet - Air Québec</strong>
+<span>2-3 heures</span><strong>Tableau de bord exploratoire de la qualité de l&#39;air</strong>
 <p>
-Construire un tableau de bord exploratoire des contaminants atmosphériques par station et par période.
+Comment construire un portrait exploratoire des contaminants atmosphériques sans surinterpréter les épisodes?
 </p>
 </div>
 </div>
@@ -5727,11 +5830,68 @@ Construire un tableau de bord exploratoire des contaminants atmosphériques par 
 <div class="dataset-detail-content">
 <section id="pourquoi-ce-jeu-est-intéressant" class="level2">
 <h2 class="anchored" data-anchor-id="pourquoi-ce-jeu-est-intéressant">Pourquoi ce jeu est intéressant</h2>
-<p>Ce jeu de données place les étudiants et étudiantes devant une source québécoise réaliste, avec des variables interprétables et des décisions de nettoyage authentiques.</p>
-<p>Question d’analyse : Les concentrations de PM2.5 ont-elles augmenté durant certains épisodes particuliers?</p>
+<p>Ce jeu met les étudiants devant une source environnementale québécoise réelle, volumineuse et imparfaite. Il est idéal pour enseigner les séries temporelles, les valeurs manquantes, les résumés journaliers et la visualisation prudente d’un phénomène environnemental.</p>
+<p>La fiche utilise la ressource officielle 2025 du RSQAQ. Le fichier brut contient des mesures horaires par station et par contaminant. La préparation locale produit un résumé journalier station-contaminant afin de garder les analyses rapides, reproductibles et adaptées à un laboratoire pédagogique.</p>
 </section>
-<section id="source" class="level2">
-<h2 class="anchored" data-anchor-id="source">Source</h2>
+<section id="ce-qui-a-été-vérifié" class="level2">
+<h2 class="anchored" data-anchor-id="ce-qui-a-été-vérifié">Ce qui a été vérifié</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Élément</th>
+<th>Résultat vérifié</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Paquet CKAN</td>
+<td><code>a80757bd-d442-4d3d-9269-11628330b727</code></td>
+</tr>
+<tr class="even">
+<td>Source officielle</td>
+<td>Données Québec / MELCCFP / RSQAQ</td>
+</tr>
+<tr class="odd">
+<td>Titre officiel</td>
+<td>RSQAQ - Données horaires continues</td>
+</tr>
+<tr class="even">
+<td>Ressources dans le paquet</td>
+<td>51 ressources CSV</td>
+</tr>
+<tr class="odd">
+<td>Ressource préparée ici</td>
+<td><code>RSQAQ - Données continues horaires 2025</code></td>
+</tr>
+<tr class="even">
+<td>Identifiant de la ressource 2025</td>
+<td><code>370a6be4-1530-4c2b-92f3-0a308224f284</code></td>
+</tr>
+<tr class="odd">
+<td>Dernière modification de la ressource 2025</td>
+<td>2026-06-19</td>
+</tr>
+<tr class="even">
+<td>Licence</td>
+<td>Attribution (CC-BY 4.0), selon les métadonnées CKAN consultées le 2026-06-21</td>
+</tr>
+<tr class="odd">
+<td>Table préparée</td>
+<td><code>data/processed/qualite-air-horaire/resume_journalier_contaminants_2025.csv</code></td>
+</tr>
+<tr class="even">
+<td>Résumés préparés</td>
+<td>contaminants, stations, valeurs manquantes, épisodes PM2.5</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="source-et-conditions" class="level2">
+<h2 class="anchored" data-anchor-id="source-et-conditions">Source et conditions</h2>
 <table class="caption-top table">
 <thead>
 <tr class="header">
@@ -5741,223 +5901,387 @@ Construire un tableau de bord exploratoire des contaminants atmosphériques par 
 </thead>
 <tbody>
 <tr class="odd">
-<td>Organisme producteur</td>
-<td>Données Québec / MELCCFP / RSQAQ</td>
-</tr>
-<tr class="even">
-<td>Source</td>
-<td>Réseau de surveillance de la qualité de l’air du Québec (RSQAQ)</td>
-</tr>
-<tr class="odd">
-<td>URL</td>
+<td>Page Données Québec</td>
 <td><a href="https://www.donneesquebec.ca/recherche/dataset/rsqaq-donnees-horaires-continues" class="uri">https://www.donneesquebec.ca/recherche/dataset/rsqaq-donnees-horaires-continues</a></td>
 </tr>
 <tr class="even">
-<td>Licence</td>
-<td>Attribution (CC-BY 4.0) selon les métadonnées CKAN vérifiées le 2026-06-19</td>
+<td>API CKAN</td>
+<td><a href="https://www.donneesquebec.ca/recherche/api/3/action/package_show?id=rsqaq-donnees-horaires-continues" class="uri">https://www.donneesquebec.ca/recherche/api/3/action/package_show?id=rsqaq-donnees-horaires-continues</a></td>
 </tr>
 <tr class="odd">
-<td>Date d’accès</td>
-<td>2026-06-19</td>
+<td>CSV 2025</td>
+<td><a href="https://www.donneesquebec.ca/recherche/dataset/a80757bd-d442-4d3d-9269-11628330b727/resource/370a6be4-1530-4c2b-92f3-0a308224f284/download/rsqaq_continues_horaires_2025.csv" class="uri">https://www.donneesquebec.ca/recherche/dataset/a80757bd-d442-4d3d-9269-11628330b727/resource/370a6be4-1530-4c2b-92f3-0a308224f284/download/rsqaq_continues_horaires_2025.csv</a></td>
 </tr>
 <tr class="even">
-<td>Fréquence de mise à jour</td>
-<td>Annuelle par ressource publiée; métadonnées CKAN modifiées le 2026-06-17</td>
+<td>Producteur</td>
+<td>Direction de la qualité de l’air et du climat, MELCCFP</td>
 </tr>
 <tr class="odd">
-<td>Statut</td>
-<td>source vérifiée; préparation pédagogique à finaliser</td>
+<td>Description officielle</td>
+<td>Concentrations horaires des contaminants mesurés de façon continue par le RSQAQ</td>
+</tr>
+<tr class="even">
+<td>Date d’accès</td>
+<td>2026-06-21</td>
+</tr>
+<tr class="odd">
+<td>Fréquence</td>
+<td>Une ressource CSV par année</td>
 </tr>
 </tbody>
 </table>
 </section>
 <section id="ce-que-représente-une-ligne" class="level2">
 <h2 class="anchored" data-anchor-id="ce-que-représente-une-ligne">Ce que représente une ligne</h2>
-<p>Mesure horaire de contaminant à une station RSQAQ.</p>
+<p>Dans le CSV officiel, une ligne représente une station et une heure publiée. Les contaminants sont en colonnes. Une même ligne peut donc contenir plusieurs valeurs de contaminants ou plusieurs valeurs manquantes.</p>
+<p>Dans la table préparée pour la fiche, une ligne représente plutôt un résumé journalier pour une station et un contaminant : nombre d’heures valides, moyenne, médiane, 95e percentile et maximum.</p>
+<p>Une ligne n’est pas un épisode de pollution, une exposition individuelle, un diagnostic sanitaire ou une mesure causale. C’est un résumé descriptif des valeurs publiées pour une station, un jour et un contaminant.</p>
 </section>
 <section id="variables-principales" class="level2">
 <h2 class="anchored" data-anchor-id="variables-principales">Variables principales</h2>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 25%">
-<col style="width: 25%">
-<col style="width: 25%">
-<col style="width: 25%">
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
 </colgroup>
 <thead>
 <tr class="header">
-<th>Variable</th>
-<th>Type</th>
-<th>Description</th>
-<th>Exemple</th>
+<th>Variable préparée</th>
+<th>Rôle</th>
+<th>Point de vigilance</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td><code>date_heure</code></td>
-<td>datetime</td>
-<td>Date et heure de la mesure ou de la période horaire.</td>
-<td>2025-01-15 14:00</td>
+<td><code>source_year</code></td>
+<td>Année de la ressource utilisée</td>
+<td>Ici 2025</td>
 </tr>
 <tr class="even">
-<td><code>station</code></td>
-<td>caractère</td>
-<td>Identifiant ou nom de la station de mesure.</td>
-<td>Québec - Vieux-Limoilou</td>
+<td><code>date</code></td>
+<td>Date du résumé journalier</td>
+<td>Dérivée de <code>Date_Heure</code> sans conversion de fuseau</td>
 </tr>
 <tr class="odd">
-<td><code>latitude</code></td>
-<td>numérique</td>
-<td>Latitude de la station lorsque jointe aux métadonnées de stations.</td>
-<td>46.83</td>
+<td><code>station_id</code></td>
+<td>Code de station extrait du libellé source</td>
+<td>Utile pour regrouper sans dépendre du nom</td>
 </tr>
 <tr class="even">
-<td><code>longitude</code></td>
-<td>numérique</td>
-<td>Longitude de la station lorsque jointe aux métadonnées de stations.</td>
-<td>-71.22</td>
+<td><code>station_name</code></td>
+<td>Nom de station</td>
+<td>Peut contenir des libellés longs</td>
 </tr>
 <tr class="odd">
-<td><code>pm25</code></td>
-<td>numérique</td>
-<td>Concentration horaire de particules fines PM2.5, si disponible.</td>
-<td>8.4</td>
+<td><code>contaminant_source</code></td>
+<td>Nom exact de la colonne source</td>
+<td>Conserve la provenance technique</td>
 </tr>
 <tr class="even">
-<td><code>ozone</code></td>
-<td>numérique</td>
-<td>Concentration horaire d’ozone, si disponible.</td>
-<td>22.1</td>
+<td><code>contaminant</code></td>
+<td>Libellé lisible du contaminant</td>
+<td>N’est pas une conversion d’unité</td>
 </tr>
 <tr class="odd">
-<td><code>no2</code></td>
-<td>numérique</td>
-<td>Concentration horaire de dioxyde d’azote, si disponible.</td>
-<td>12.0</td>
+<td><code>n_heures_valides</code></td>
+<td>Nombre d’heures non manquantes dans la journée</td>
+<td>Sert à filtrer les journées peu couvertes</td>
 </tr>
 <tr class="even">
-<td><code>so2</code></td>
-<td>numérique</td>
-<td>Concentration horaire de dioxyde de soufre, si disponible.</td>
-<td>1.2</td>
-</tr>
-<tr class="odd">
-<td><code>co</code></td>
-<td>numérique</td>
-<td>Concentration horaire de monoxyde de carbone, si disponible.</td>
-<td>0.3</td>
+<td><code>moyenne</code>, <code>mediane</code>, <code>p95</code>, <code>maximum</code></td>
+<td>Résumés des valeurs publiées</td>
+<td>À interpréter par contaminant</td>
 </tr>
 </tbody>
 </table>
 </section>
-<section id="taille-et-structure" class="level2">
-<h2 class="anchored" data-anchor-id="taille-et-structure">Taille et structure</h2>
+<section id="taille-et-résultats-r-vérifiés" class="level2">
+<h2 class="anchored" data-anchor-id="taille-et-résultats-r-vérifiés">Taille et résultats R vérifiés</h2>
 <table class="caption-top table">
-<colgroup>
-<col style="width: 50%">
-<col style="width: 50%">
-</colgroup>
 <thead>
 <tr class="header">
-<th>Élément</th>
-<th>Information</th>
+<th>Indicateur</th>
+<th style="text-align: right;">Valeur</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>Nombre de lignes</td>
-<td>Volume horaire potentiellement élevé; une ressource CSV par année</td>
+<td>Ressources CSV annuelles dans le paquet CKAN</td>
+<td style="text-align: right;">51</td>
 </tr>
 <tr class="even">
-<td>Nombre de colonnes</td>
-<td>Variables de station, date-heure et contaminants; structure exacte à confirmer à partir de la ressource retenue</td>
+<td>Lignes horaires dans le CSV 2025</td>
+<td style="text-align: right;">457 686</td>
 </tr>
 <tr class="odd">
-<td>Structure</td>
-<td>Tabulaire, temporel, spatial</td>
+<td>Colonnes dans le CSV 2025</td>
+<td style="text-align: right;">13</td>
 </tr>
 <tr class="even">
-<td>Format</td>
-<td>CSV par année</td>
+<td>Stations distinctes</td>
+<td style="text-align: right;">54</td>
 </tr>
 <tr class="odd">
-<td>Couverture géographique</td>
-<td>Québec</td>
+<td>Contaminants publiés en colonnes</td>
+<td style="text-align: right;">11</td>
 </tr>
 <tr class="even">
-<td>Couverture temporelle</td>
-<td>Données horaires continues disponibles par année, de 1986 à 2025 selon les ressources CKAN consultées</td>
+<td>Mesures non manquantes tous contaminants</td>
+<td style="text-align: right;">1 549 609</td>
+</tr>
+<tr class="odd">
+<td>Résumés journaliers préparés</td>
+<td style="text-align: right;">65 306</td>
+</tr>
+<tr class="even">
+<td>Première heure publiée</td>
+<td style="text-align: right;">2025-01-01 00:00</td>
+</tr>
+<tr class="odd">
+<td>Dernière heure publiée</td>
+<td style="text-align: right;">2025-12-31 23:00</td>
+</tr>
+<tr class="even">
+<td>Mesures PM2.5 non manquantes</td>
+<td style="text-align: right;">436 243</td>
+</tr>
+<tr class="odd">
+<td>Stations avec PM2.5</td>
+<td style="text-align: right;">52</td>
+</tr>
+<tr class="even">
+<td>Maximum horaire PM2.5 dans le CSV 2025</td>
+<td style="text-align: right;">387,896</td>
 </tr>
 </tbody>
 </table>
+</section>
+<section id="contaminants-les-plus-couverts-en-2025" class="level2">
+<h2 class="anchored" data-anchor-id="contaminants-les-plus-couverts-en-2025">Contaminants les plus couverts en 2025</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 13%">
+<col style="width: 17%">
+<col style="width: 17%">
+<col style="width: 17%">
+<col style="width: 17%">
+<col style="width: 17%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Contaminant source</th>
+<th style="text-align: right;">Mesures non manquantes</th>
+<th style="text-align: right;">Stations</th>
+<th style="text-align: right;">Moyenne</th>
+<th style="text-align: right;">95e percentile</th>
+<th style="text-align: right;">Maximum</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>PM2.5-T640</td>
+<td style="text-align: right;">436 243</td>
+<td style="text-align: right;">52</td>
+<td style="text-align: right;">6,71</td>
+<td style="text-align: right;">20,1</td>
+<td style="text-align: right;">387,896</td>
+</tr>
+<tr class="even">
+<td>O3</td>
+<td style="text-align: right;">413 010</td>
+<td style="text-align: right;">50</td>
+<td style="text-align: right;">27,1</td>
+<td style="text-align: right;">44,4</td>
+<td style="text-align: right;">87,0</td>
+</tr>
+<tr class="odd">
+<td>NO</td>
+<td style="text-align: right;">188 051</td>
+<td style="text-align: right;">25</td>
+<td style="text-align: right;">1,81</td>
+<td style="text-align: right;">8,38</td>
+<td style="text-align: right;">232,0</td>
+</tr>
+<tr class="even">
+<td>NO2</td>
+<td style="text-align: right;">181 701</td>
+<td style="text-align: right;">25</td>
+<td style="text-align: right;">5,64</td>
+<td style="text-align: right;">18,0</td>
+<td style="text-align: right;">95,8</td>
+</tr>
+<tr class="odd">
+<td>SO2</td>
+<td style="text-align: right;">146 261</td>
+<td style="text-align: right;">18</td>
+<td style="text-align: right;">1,22</td>
+<td style="text-align: right;">3,17</td>
+<td style="text-align: right;">297,0</td>
+</tr>
+</tbody>
+</table>
+<p>Ces nombres ne doivent pas être comparés naïvement entre contaminants. La fiche conserve les valeurs publiées par colonne et ne normalise pas les unités. Pour un cours d’introduction, il est préférable de choisir un contaminant à la fois.</p>
+</section>
+<section id="journées-pm2.5-élevées-dans-le-résumé-2025" class="level2">
+<h2 class="anchored" data-anchor-id="journées-pm2.5-élevées-dans-le-résumé-2025">Journées PM2.5 élevées dans le résumé 2025</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 13%">
+<col style="width: 13%">
+<col style="width: 18%">
+<col style="width: 18%">
+<col style="width: 18%">
+<col style="width: 18%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Date</th>
+<th>Station</th>
+<th style="text-align: right;">Heures valides</th>
+<th style="text-align: right;">Moyenne journalière</th>
+<th style="text-align: right;">Maximum horaire</th>
+<th style="text-align: right;">95e percentile</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>2025-06-04</td>
+<td>Radisson</td>
+<td style="text-align: right;">24</td>
+<td style="text-align: right;">100,3</td>
+<td style="text-align: right;">203,8</td>
+<td style="text-align: right;">202,1</td>
+</tr>
+<tr class="even">
+<td>2025-07-26</td>
+<td>Montréal - York/Rosemont</td>
+<td style="text-align: right;">24</td>
+<td style="text-align: right;">91,1</td>
+<td style="text-align: right;">128,2</td>
+<td style="text-align: right;">127,3</td>
+</tr>
+<tr class="odd">
+<td>2025-06-06</td>
+<td>Gatineau - Hull</td>
+<td style="text-align: right;">24</td>
+<td style="text-align: right;">88,8</td>
+<td style="text-align: right;">101,7</td>
+<td style="text-align: right;">100,3</td>
+</tr>
+<tr class="even">
+<td>2025-07-26</td>
+<td>Saint-Joseph-de-Sorel</td>
+<td style="text-align: right;">24</td>
+<td style="text-align: right;">88,4</td>
+<td style="text-align: right;">126,6</td>
+<td style="text-align: right;">123,0</td>
+</tr>
+<tr class="odd">
+<td>2025-06-05</td>
+<td>Radisson</td>
+<td style="text-align: right;">24</td>
+<td style="text-align: right;">87,6</td>
+<td style="text-align: right;">186,7</td>
+<td style="text-align: right;">186,2</td>
+</tr>
+</tbody>
+</table>
+<p>Ces journées sont des points de départ pour l’exploration. Elles ne suffisent pas à identifier une cause. Pour interpréter un épisode, il faut ajouter du contexte : météo, feux de forêt, transport régional des polluants, sources locales et validation instrumentale.</p>
+</section>
+<section id="lecture-statistique" class="level2">
+<h2 class="anchored" data-anchor-id="lecture-statistique">Lecture statistique</h2>
+<p>Une analyse prudente suit cet ordre :</p>
+<ol type="1">
+<li>choisir une année et un contaminant;</li>
+<li>vérifier le nombre d’heures valides par jour;</li>
+<li>résumer par station et par date;</li>
+<li>visualiser la série temporelle avant de classer les épisodes;</li>
+<li>éviter de mélanger les contaminants sans unité commune;</li>
+<li>distinguer valeur élevée, épisode environnemental et cause possible.</li>
+</ol>
+<p>Le résumé journalier est pratique pour l’enseignement, mais il masque les variations intra-journalières. Pour une question plus fine, il faut retourner aux mesures horaires.</p>
 </section>
 <section id="concepts-enseignables" class="level2">
 <h2 class="anchored" data-anchor-id="concepts-enseignables">Concepts enseignables</h2>
 <ul>
-<li>séries temporelles;</li>
-<li>nettoyage de données;</li>
-<li>visualisation;</li>
-<li>détection d’anomalies;</li>
-<li>données environnementales;</li>
-</ul>
-</section>
-<section id="visualisations-suggérées" class="level2">
-<h2 class="anchored" data-anchor-id="visualisations-suggérées">Visualisations suggérées</h2>
-<ul>
-<li>séries temporelles;</li>
-<li>cartes interactives;</li>
-<li>heatmaps temporelles;</li>
+<li>séries temporelles horaires;</li>
+<li>valeurs manquantes;</li>
+<li>données en format large;</li>
+<li>pivot long;</li>
+<li>résumé journalier;</li>
+<li>95e percentile;</li>
+<li>comparaison entre stations;</li>
+<li>détection d’épisodes;</li>
+<li>communication prudente;</li>
+<li>limites des données environnementales.</li>
 </ul>
 </section>
 <section id="score-zéro-déchet" class="level2">
 <h2 class="anchored" data-anchor-id="score-zéro-déchet">Score zéro déchet</h2>
 <table class="caption-top table">
+<colgroup>
+<col style="width: 30%">
+<col style="width: 40%">
+<col style="width: 30%">
+</colgroup>
 <thead>
 <tr class="header">
 <th>Dimension</th>
 <th style="text-align: right;">Score</th>
+<th>Justification</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td>Contexte québécois</td>
 <td style="text-align: right;">3</td>
+<td>Données officielles de surveillance de la qualité de l’air au Québec</td>
 </tr>
 <tr class="even">
 <td>Accessibilité pédagogique</td>
 <td style="text-align: right;">3</td>
+<td>Stations, dates et contaminants sont interprétables rapidement</td>
 </tr>
 <tr class="odd">
 <td>Qualité documentaire</td>
 <td style="text-align: right;">3</td>
+<td>Paquet CKAN, ressources annuelles, licence et producteur sont disponibles</td>
 </tr>
 <tr class="even">
 <td>Potentiel de nettoyage</td>
 <td style="text-align: right;">3</td>
+<td>Format large, valeurs manquantes, stations et contaminants à harmoniser</td>
 </tr>
 <tr class="odd">
 <td>Potentiel de visualisation</td>
 <td style="text-align: right;">3</td>
+<td>Séries temporelles, calendriers, cartes et comparaisons par station</td>
 </tr>
 <tr class="even">
 <td>Potentiel de statistique descriptive</td>
 <td style="text-align: right;">3</td>
+<td>Moyennes, médianes, percentiles et classements par jour</td>
 </tr>
 <tr class="odd">
 <td>Potentiel d’inférence</td>
 <td style="text-align: right;">1</td>
+<td>Non adapté à l’inférence sans protocole complémentaire</td>
 </tr>
 <tr class="even">
 <td>Potentiel de modélisation</td>
 <td style="text-align: right;">2</td>
+<td>Modèles exploratoires possibles, mais dépendants du contexte externe</td>
 </tr>
 <tr class="odd">
-<td>Potentiel de discussion éthique</td>
+<td>Potentiel éthique</td>
 <td style="text-align: right;">3</td>
+<td>Santé publique, environnement et communication du risque</td>
 </tr>
 <tr class="even">
-<td>Réutilisabilité dans plusieurs cours</td>
+<td>Réutilisabilité</td>
 <td style="text-align: right;">3</td>
+<td>Utile en nettoyage, visualisation, séries temporelles et communication</td>
 </tr>
 </tbody>
 </table>
@@ -5965,47 +6289,74 @@ Construire un tableau de bord exploratoire des contaminants atmosphériques par 
 </section>
 <section id="activité-courte" class="level2">
 <h2 class="anchored" data-anchor-id="activité-courte">Activité courte</h2>
-<p><a href="../../datasets/qualite-air-horaire/activite-courte.html">Laboratoire</a> : Les concentrations de PM2.5 ont-elles augmenté durant certains épisodes particuliers?</p>
+<p>En 60 à 90 minutes, choisir le PM2.5 et repérer les journées les plus élevées en imposant un minimum d’heures valides. Les étudiants doivent expliquer pourquoi un classement descriptif ne suffit pas à conclure sur la cause.</p>
 </section>
 <section id="activité-longue" class="level2">
 <h2 class="anchored" data-anchor-id="activité-longue">Activité longue</h2>
-<p><a href="../../datasets/qualite-air-horaire/activite-longue.html">Mini-projet</a> : Construire un tableau de bord exploratoire des contaminants atmosphériques par station et par période.</p>
+<p>En 2 à 3 heures, construire un tableau de bord exploratoire par station, contaminant et période. Le livrable doit inclure les décisions de nettoyage, les valeurs manquantes, les graphiques et une section de limites.</p>
 </section>
 <section id="code-r-minimal" class="level2">
 <h2 class="anchored" data-anchor-id="code-r-minimal">Code R minimal</h2>
+<p>À exécuter depuis la racine du projet.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(stringr)</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>source_page <span class="ot">&lt;-</span> <span class="st">&quot;https://www.donneesquebec.ca/recherche/dataset/rsqaq-donnees-horaires-continues&quot;</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Étape 1 : ouvrir la page officielle et choisir la ressource documentée.</span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Étape 2 : enregistrer le fichier brut dans data_raw/.</span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Étape 3 : harmoniser les noms vers : `date_heure`, `station`, `latitude`, `longitude`, `pm25`, `ozone`, `no2`, `so2`, `co`.</span></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>donnees <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;data_raw/source_officielle_a_renommer.csv&quot;</span>, <span class="at">show_col_types =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>donnees <span class="sc">|&gt;</span></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">glimpse</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load libraries</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Prepare official 2025 CSV resource</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">&quot;datasets/qualite-air-horaire/preparation.R&quot;</span>)</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Import prepared daily summaries</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>air_jour <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;data/processed/qualite-air-horaire/resume_journalier_contaminants_2025.csv&quot;</span>,</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">show_col_types =</span> <span class="cn">FALSE</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Focus on PM2.5 days with at least 18 valid hourly values</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>pm25 <span class="ot">&lt;-</span> air_jour <span class="sc">|&gt;</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(contaminant_source <span class="sc">==</span> <span class="st">&quot;PM2.5-T640&quot;</span>, n_heures_valides <span class="sc">&gt;=</span> <span class="dv">18</span>)</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>pm25 <span class="sc">|&gt;</span></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(moyenne)) <span class="sc">|&gt;</span></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(date, station_name, n_heures_valides, moyenne, maximum) <span class="sc">|&gt;</span></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice_head</span>(<span class="at">n =</span> <span class="dv">10</span>)</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(pm25, <span class="fu">aes</span>(<span class="at">x =</span> date, <span class="at">y =</span> moyenne, <span class="at">group =</span> station_id)) <span class="sc">+</span></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">alpha =</span> <span class="fl">0.25</span>, <span class="at">linewidth =</span> <span class="fl">0.3</span>) <span class="sc">+</span></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">&quot;Moyennes journalières de PM2.5 par station, 2025&quot;</span>,</span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">&quot;Date&quot;</span>,</span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">&quot;Moyenne journalière des valeurs publiées&quot;</span></span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="limites-et-précautions" class="level2">
 <h2 class="anchored" data-anchor-id="limites-et-précautions">Limites et précautions</h2>
 <ul>
-<li>Les variables de contaminants doivent être harmonisées après inspection de la ressource annuelle retenue. Les coordonnées peuvent provenir du jeu RSQAQ des stations.</li>
-<li>Les noms de variables proposés sont des noms pédagogiques harmonisés; ils doivent être mappés aux noms officiels après inspection de la ressource.</li>
-<li>Aucune conclusion causale ne doit être tirée sans plan d’analyse plus avancé.</li>
+<li>La fiche conserve les valeurs publiées par contaminant sans harmoniser les unités.</li>
+<li>Les valeurs manquantes varient fortement selon les contaminants et les stations.</li>
+<li>Un résumé journalier peut masquer des pics horaires.</li>
+<li>Une valeur élevée n’identifie pas automatiquement une cause.</li>
+<li>Les comparaisons entre stations doivent tenir compte de la couverture horaire.</li>
+<li>Les données sont descriptives; une analyse sanitaire ou réglementaire demanderait un cadre méthodologique plus spécialisé.</li>
 </ul>
 </section>
 <section id="extensions" class="level2">
 <h2 class="anchored" data-anchor-id="extensions">Extensions</h2>
 <ul>
-<li>Extension intro : produire un tableau de fréquences ou de moyennes par groupe.</li>
-<li>Extension intermédiaire : ajouter une visualisation claire et une interprétation écrite.</li>
-<li>Extension avancée : construire une version préparée et documentée dans <code>data_processed/</code>.</li>
-<li>Extension communication scientifique : expliquer en une page ce que la source permet et ne permet pas de conclure.</li>
+<li>Comparer les résultats avec un seuil minimal de 18, 20 ou 24 heures valides.</li>
+<li>Produire un calendrier de chaleur pour une station.</li>
+<li>Comparer PM2.5 et O3 sans les placer sur la même échelle.</li>
+<li>Ajouter des données météo pour explorer les épisodes.</li>
+<li>Préparer une note publique qui sépare observation, hypothèse et conclusion.</li>
 </ul>
+</section>
+<section id="références-utilisées" class="level2">
+<h2 class="anchored" data-anchor-id="références-utilisées">Références utilisées</h2>
+<p>Données Québec. 2026. RSQAQ - Données horaires continues. <a href="https://www.donneesquebec.ca/recherche/dataset/rsqaq-donnees-horaires-continues" class="uri">https://www.donneesquebec.ca/recherche/dataset/rsqaq-donnees-horaires-continues</a></p>
+<p>MELCCFP. 2026. Réseau de surveillance de la qualité de l’air du Québec. <a href="https://www.environnement.gouv.qc.ca/air/reseau-surveillance/Carte.asp" class="uri">https://www.environnement.gouv.qc.ca/air/reseau-surveillance/Carte.asp</a></p>
 </section>
 </div>
 </section>

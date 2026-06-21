@@ -1,33 +1,91 @@
 ---
-title: "Laboratoire - Air Québec"
+title: "PM2.5 et journées élevées en 2025"
 embed-resources: true
 ---
 
-# Laboratoire - Air Québec
+# PM2.5 et journées élevées en 2025
 
 ## Contexte
 
-Ce laboratoire utilise la fiche [Qualité de l'air au Québec](fiche.qmd) pour travailler une question québécoise concrète dans un format adapté à une activité d'introduction en science des données.
+Le RSQAQ publie des mesures horaires de contaminants atmosphériques. Dans cette activité, vous travaillez avec un résumé journalier préparé à partir du CSV officiel 2025.
+
+La question n'est pas seulement de trouver les plus grandes valeurs. Il faut aussi vérifier la couverture horaire et expliquer ce qu'un classement descriptif permet ou ne permet pas de conclure.
 
 ## Objectifs d'apprentissage
 
-- Identifier l'unité statistique d'un jeu de données réel.
-- Importer ou préparer une ressource officielle sans perdre la provenance.
-- Produire une visualisation simple et interprétable.
-- Formuler une conclusion prudente en séparant description et explication.
+- Importer un fichier préparé avec `readr`.
+- Filtrer un contaminant précis.
+- Utiliser un seuil minimal d'heures valides.
+- Produire une visualisation temporelle.
+- Rédiger une conclusion descriptive prudente.
 
-## Question directrice
+## Données utilisées
 
-Les concentrations de PM2.5 ont-elles augmenté durant certains épisodes particuliers?
+Source : Données Québec / MELCCFP / RSQAQ, `RSQAQ - Données horaires continues`, ressource CSV 2025.
+
+Fichier préparé : `data/processed/qualite-air-horaire/resume_journalier_contaminants_2025.csv`.
+
+Fiche : [Qualité de l'air au Québec](fiche.qmd).
 
 ## Consignes
 
-1. Lire la fiche et repérer la source officielle.
-2. Identifier les variables nécessaires : `date_heure`, `station`, `latitude`, `longitude`, `pm25`, `ozone`, `no2`, `so2`, `co`.
-3. Décrire les valeurs manquantes, les types de variables et les unités.
-4. Produire au moins une visualisation parmi : séries temporelles, cartes interactives, heatmaps temporelles.
-5. Rédiger une conclusion de 5 à 8 lignes avec une limite méthodologique.
+1. Exécuter `source("datasets/qualite-air-horaire/preparation.R")`.
+2. Importer le résumé journalier.
+3. Garder seulement `contaminant_source == "PM2.5-T640"`.
+4. Garder les jours avec au moins 18 heures valides.
+5. Identifier les dix moyennes journalières les plus élevées.
+6. Produire une série temporelle des moyennes journalières par station.
+7. Rédiger une conclusion de 6 à 8 lignes.
 
-## Pistes de solution
+## Code de départ
 
-Une bonne réponse décrit la tendance principale, nomme le regroupement utilisé et explicite au moins une limite de la source. Une réponse excellente justifie aussi le choix du graphique et signale les décisions de nettoyage.
+```{r}
+#| eval: false
+# Load libraries
+library(dplyr)
+library(ggplot2)
+library(readr)
+
+# Prepare and import data
+source("datasets/qualite-air-horaire/preparation.R")
+
+air_jour <- read_csv(
+  "data/processed/qualite-air-horaire/resume_journalier_contaminants_2025.csv",
+  show_col_types = FALSE
+)
+
+pm25 <- air_jour |>
+  filter(contaminant_source == "PM2.5-T640", n_heures_valides >= 18)
+
+pm25 |>
+  arrange(desc(moyenne)) |>
+  select(date, station_name, n_heures_valides, moyenne, maximum) |>
+  slice_head(n = 10)
+
+ggplot(pm25, aes(x = date, y = moyenne, group = station_id)) +
+  geom_line(alpha = 0.25, linewidth = 0.3) +
+  labs(
+    title = "Moyennes journalières de PM2.5 par station, 2025",
+    x = "Date",
+    y = "Moyenne journalière des valeurs publiées"
+  ) +
+  theme_minimal()
+```
+
+## Questions
+
+1. Pourquoi impose-t-on un seuil minimal d'heures valides?
+2. Quelle journée et quelle station arrivent en tête du classement?
+3. Le classement change-t-il si on exige 24 heures valides?
+4. Pourquoi une moyenne journalière élevée ne suffit-elle pas à identifier une cause?
+5. Que faudrait-il ajouter comme données pour interpréter un épisode?
+
+## Résultats attendus
+
+Une réponse correcte doit nommer le contaminant, le seuil d'heures valides, les stations les plus élevées et au moins une limite méthodologique.
+
+Une réponse plus solide compare les résultats obtenus avec `n_heures_valides >= 18` et `n_heures_valides == 24`.
+
+## Prolongement
+
+Refaire l'analyse pour `O3`, puis expliquer pourquoi les valeurs de PM2.5 et O3 ne doivent pas être placées sur la même échelle sans justification.

@@ -4,22 +4,60 @@ short_title: "Air Québec"
 theme: "Environnement"
 source_name: "Données Québec / MELCCFP / RSQAQ"
 source_url: "https://www.donneesquebec.ca/recherche/dataset/rsqaq-donnees-horaires-continues"
-license: "Attribution (CC-BY 4.0) selon les métadonnées CKAN vérifiées le 2026-06-19"
-access_date: "2026-06-19"
+source_api_url: "https://www.donneesquebec.ca/recherche/api/3/action/package_show?id=rsqaq-donnees-horaires-continues"
+source_csv_url: "https://www.donneesquebec.ca/recherche/dataset/a80757bd-d442-4d3d-9269-11628330b727/resource/370a6be4-1530-4c2b-92f3-0a308224f284/download/rsqaq_continues_horaires_2025.csv"
+license: "Attribution (CC-BY 4.0) selon les métadonnées CKAN vérifiées le 2026-06-21"
+access_date: "2026-06-21"
 geography: "Québec"
 unit: "Mesure horaire de contaminant à une station RSQAQ"
-data_type: "Tabulaire, temporel, spatial"
-format: "CSV par année"
-n_rows: "Volume horaire potentiellement élevé; une ressource CSV par année"
-n_cols: "Variables de station, date-heure et contaminants; structure exacte à confirmer à partir de la ressource retenue"
-update_frequency: "Annuelle par ressource publiée; métadonnées CKAN modifiées le 2026-06-17"
+data_type: "Table horaire, environnementale, temporelle et multi-contaminants"
+format: "CSV officiel 2025 préparé localement; une ressource CSV par année de 1975 à 2025"
+n_rows: "457 686 lignes horaires dans le CSV 2025; 65 306 résumés journaliers préparés"
+n_cols: "13 colonnes dans le CSV 2025; 10 colonnes dans le résumé journalier préparé"
+processed_file: "data/processed/qualite-air-horaire/resume_journalier_contaminants_2025.csv"
+contaminant_summary_file: "data/processed/qualite-air-horaire/resume_contaminants_2025.csv"
+station_summary_file: "data/processed/qualite-air-horaire/resume_stations_2025.csv"
+update_frequency: "Annuelle par ressource publiée; paquet CKAN modifié le 2026-06-19"
 level: "Introduction à intermédiaire"
+organisme: "MELCCFP / RSQAQ"
+territoire: "Québec"
+taille_approximative: "54 stations, 11 contaminants, 1 549 609 mesures non manquantes en 2025"
+niveau_pedagogique_recommande: "Introduction à intermédiaire"
+variables_principales:
+  - source_year
+  - date
+  - station_id
+  - station_name
+  - contaminant_source
+  - contaminant
+  - n_heures_valides
+  - moyenne
+  - mediane
+  - p95
+  - maximum
+idees_mini_projets:
+  - "Comparer les profils journaliers de PM2.5 entre stations en 2025."
+  - "Repérer les journées où les moyennes de PM2.5 sont les plus élevées et discuter les limites d'une analyse descriptive."
+  - "Construire un tableau de bord exploratoire par station, contaminant et période."
 concepts:
   - séries temporelles
-  - nettoyage de données
+  - données horaires
+  - valeurs manquantes
+  - résumé journalier
   - visualisation
   - détection d'anomalies
   - données environnementales
+  - communication prudente
+tags:
+  - qualité de l'air
+  - RSQAQ
+  - Québec
+  - environnement
+  - séries temporelles
+  - PM2.5
+  - ozone
+  - données ouvertes
+  - visualisation
 zero_waste:
   contexte_quebecois: 3
   accessibilite_pedagogique: 3
@@ -31,5 +69,7 @@ zero_waste:
   potentiel_modelisation: 2
   potentiel_ethique: 3
   reutilisabilite: 3
-status: "source vérifiée; préparation pédagogique à finaliser"
-notes: "Les variables de contaminants doivent être harmonisées après inspection de la ressource annuelle retenue. Les coordonnées peuvent provenir du jeu RSQAQ des stations."
+status: "source officielle vérifiée; CSV 2025 préparé localement"
+notes: "La fiche prépare un résumé journalier station-contaminant à partir des mesures horaires non manquantes. Les valeurs doivent être interprétées comme des mesures environnementales descriptives; elles ne suffisent pas à expliquer les causes des épisodes observés."
+contributor_name: "Aurélien Nicosia"
+contributor_role: "Révision pédagogique et statistique"

@@ -1,6 +1,6 @@
-id: qualite-air-horaire-court
-title: "Laboratoire - Air Québec"
-question: "Les concentrations de PM2.5 ont-elles augmenté durant certains épisodes particuliers?"
+id: qualite-air-pm25-court
+title: "PM2.5 et journées élevées en 2025"
+question: "Quelles journées présentent les moyennes journalières de PM2.5 les plus élevées, et que peut-on conclure prudemment?"
 dataset_id: qualite-air-horaire
 dataset_title: "Qualité de l'air au Québec"
 activity_url: "datasets/qualite-air-horaire/activite-courte.qmd"
@@ -11,15 +11,17 @@ activity_type:
   - "Exploration de données"
 concepts:
   - "séries temporelles"
-  - "nettoyage de données"
+  - "résumé journalier"
+  - "valeurs manquantes"
   - "visualisation"
-  - "détection d'anomalies"
+  - "communication prudente"
 context: "Environnement"
 hook: "Question québécoise concrète"
 materials:
   - "fiche"
   - "code"
+  - "données préparées"
   - "source officielle"
 advanced_math_stats: false
-teacher_notes: "Faire valider l'unité statistique et la provenance avant tout graphique."
-status: "prêt à adapter"
+teacher_notes: "Faire comparer les résultats avec un seuil de 18 heures valides et avec 24 heures valides."
+status: "source officielle vérifiée"

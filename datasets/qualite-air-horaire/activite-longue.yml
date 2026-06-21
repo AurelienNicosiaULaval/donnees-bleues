@@ -1,6 +1,6 @@
-id: qualite-air-horaire-long
-title: "Mini-projet - Air Québec"
-question: "Construire un tableau de bord exploratoire des contaminants atmosphériques par station et par période."
+id: qualite-air-dashboard-long
+title: "Tableau de bord exploratoire de la qualité de l'air"
+question: "Comment construire un portrait exploratoire des contaminants atmosphériques sans surinterpréter les épisodes?"
 dataset_id: qualite-air-horaire
 dataset_title: "Qualité de l'air au Québec"
 activity_url: "datasets/qualite-air-horaire/activite-longue.qmd"
@@ -9,19 +9,21 @@ level: "Introduction à intermédiaire"
 activity_type:
   - "Projet ou tâche longue"
   - "Étude de cas"
+  - "Exploration de données"
 concepts:
   - "séries temporelles"
-  - "nettoyage de données"
+  - "valeurs manquantes"
+  - "résumé journalier"
   - "visualisation"
-  - "détection d'anomalies"
   - "données environnementales"
 context: "Environnement"
 hook: "Analyse territoriale québécoise"
 materials:
   - "fiche"
   - "code"
+  - "données préparées"
   - "source officielle"
   - "notes enseignantes"
 advanced_math_stats: false
-teacher_notes: "Demander un court paragraphe sur les limites de la source et les décisions de nettoyage."
-status: "prêt à adapter"
+teacher_notes: "Demander une section qui distingue observation élevée, hypothèse explicative et preuve causale."
+status: "source officielle vérifiée"

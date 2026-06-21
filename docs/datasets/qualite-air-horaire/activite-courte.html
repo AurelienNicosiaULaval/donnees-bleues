@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Laboratoire - Air Québec – Données bleues</title>
+<title>PM2.5 et journées élevées en 2025 – Données bleues</title>
 <style>
 
 code{white-space: pre-wrap;}
@@ -19,6 +19,41 @@ ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
 width: 0.8em;
 margin: 0 0.8em 0.2em -1em;  vertical-align: middle;
+}
+
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+{ counter-reset: source-line 0; }
+pre.numberSource code > span
+{ position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+{ content: counter(source-line);
+position: relative; left: -1em; text-align: right; vertical-align: baseline;
+border: none; display: inline-block;
+-webkit-touch-callout: none; -webkit-user-select: none;
+-khtml-user-select: none; -moz-user-select: none;
+-ms-user-select: none; user-select: none;
+padding: 0 4px; width: 4em;
+}
+pre.numberSource { margin-left: 3em; padding-left: 4px; }
+div.sourceCode
+{ }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -5482,13 +5517,16 @@ grid-template-columns: 1fr;
     <h2 id="toc-title">On this page</h2>
 
   <ul>
-  <li><a href="#laboratoire---air-québec" id="toc-laboratoire---air-québec" class="nav-link active" data-scroll-target="#laboratoire---air-québec">Laboratoire - Air Québec</a>
+  <li><a href="#pm2.5-et-journées-élevées-en-2025" id="toc-pm2.5-et-journées-élevées-en-2025" class="nav-link active" data-scroll-target="#pm2.5-et-journées-élevées-en-2025">PM2.5 et journées élevées en 2025</a>
   <ul class="collapse">
   <li><a href="#contexte" id="toc-contexte" class="nav-link" data-scroll-target="#contexte">Contexte</a></li>
   <li><a href="#objectifs-dapprentissage" id="toc-objectifs-dapprentissage" class="nav-link" data-scroll-target="#objectifs-dapprentissage">Objectifs d’apprentissage</a></li>
-  <li><a href="#question-directrice" id="toc-question-directrice" class="nav-link" data-scroll-target="#question-directrice">Question directrice</a></li>
+  <li><a href="#données-utilisées" id="toc-données-utilisées" class="nav-link" data-scroll-target="#données-utilisées">Données utilisées</a></li>
   <li><a href="#consignes" id="toc-consignes" class="nav-link" data-scroll-target="#consignes">Consignes</a></li>
-  <li><a href="#pistes-de-solution" id="toc-pistes-de-solution" class="nav-link" data-scroll-target="#pistes-de-solution">Pistes de solution</a></li>
+  <li><a href="#code-de-départ" id="toc-code-de-départ" class="nav-link" data-scroll-target="#code-de-départ">Code de départ</a></li>
+  <li><a href="#questions" id="toc-questions" class="nav-link" data-scroll-target="#questions">Questions</a></li>
+  <li><a href="#résultats-attendus" id="toc-résultats-attendus" class="nav-link" data-scroll-target="#résultats-attendus">Résultats attendus</a></li>
+  <li><a href="#prolongement" id="toc-prolongement" class="nav-link" data-scroll-target="#prolongement">Prolongement</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -5498,7 +5536,7 @@ grid-template-columns: 1fr;
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Laboratoire - Air Québec</h1>
+<h1 class="title">PM2.5 et journées élevées en 2025</h1>
 </div>
 
 
@@ -5515,38 +5553,93 @@ grid-template-columns: 1fr;
 </header>
 
 
-<section id="laboratoire---air-québec" class="level1">
-<h1>Laboratoire - Air Québec</h1>
+<section id="pm2.5-et-journées-élevées-en-2025" class="level1">
+<h1>PM2.5 et journées élevées en 2025</h1>
 <section id="contexte" class="level2">
 <h2 class="anchored" data-anchor-id="contexte">Contexte</h2>
-<p>Ce laboratoire utilise la fiche <a href="../../datasets/qualite-air-horaire/fiche.html">Qualité de l’air au Québec</a> pour travailler une question québécoise concrète dans un format adapté à une activité d’introduction en science des données.</p>
+<p>Le RSQAQ publie des mesures horaires de contaminants atmosphériques. Dans cette activité, vous travaillez avec un résumé journalier préparé à partir du CSV officiel 2025.</p>
+<p>La question n’est pas seulement de trouver les plus grandes valeurs. Il faut aussi vérifier la couverture horaire et expliquer ce qu’un classement descriptif permet ou ne permet pas de conclure.</p>
 </section>
 <section id="objectifs-dapprentissage" class="level2">
 <h2 class="anchored" data-anchor-id="objectifs-dapprentissage">Objectifs d’apprentissage</h2>
 <ul>
-<li>Identifier l’unité statistique d’un jeu de données réel.</li>
-<li>Importer ou préparer une ressource officielle sans perdre la provenance.</li>
-<li>Produire une visualisation simple et interprétable.</li>
-<li>Formuler une conclusion prudente en séparant description et explication.</li>
+<li>Importer un fichier préparé avec <code>readr</code>.</li>
+<li>Filtrer un contaminant précis.</li>
+<li>Utiliser un seuil minimal d’heures valides.</li>
+<li>Produire une visualisation temporelle.</li>
+<li>Rédiger une conclusion descriptive prudente.</li>
 </ul>
 </section>
-<section id="question-directrice" class="level2">
-<h2 class="anchored" data-anchor-id="question-directrice">Question directrice</h2>
-<p>Les concentrations de PM2.5 ont-elles augmenté durant certains épisodes particuliers?</p>
+<section id="données-utilisées" class="level2">
+<h2 class="anchored" data-anchor-id="données-utilisées">Données utilisées</h2>
+<p>Source : Données Québec / MELCCFP / RSQAQ, <code>RSQAQ - Données horaires continues</code>, ressource CSV 2025.</p>
+<p>Fichier préparé : <code>data/processed/qualite-air-horaire/resume_journalier_contaminants_2025.csv</code>.</p>
+<p>Fiche : <a href="../../datasets/qualite-air-horaire/fiche.html">Qualité de l’air au Québec</a>.</p>
 </section>
 <section id="consignes" class="level2">
 <h2 class="anchored" data-anchor-id="consignes">Consignes</h2>
 <ol type="1">
-<li>Lire la fiche et repérer la source officielle.</li>
-<li>Identifier les variables nécessaires : <code>date_heure</code>, <code>station</code>, <code>latitude</code>, <code>longitude</code>, <code>pm25</code>, <code>ozone</code>, <code>no2</code>, <code>so2</code>, <code>co</code>.</li>
-<li>Décrire les valeurs manquantes, les types de variables et les unités.</li>
-<li>Produire au moins une visualisation parmi : séries temporelles, cartes interactives, heatmaps temporelles.</li>
-<li>Rédiger une conclusion de 5 à 8 lignes avec une limite méthodologique.</li>
+<li>Exécuter <code>source(&quot;datasets/qualite-air-horaire/preparation.R&quot;)</code>.</li>
+<li>Importer le résumé journalier.</li>
+<li>Garder seulement <code>contaminant_source == &quot;PM2.5-T640&quot;</code>.</li>
+<li>Garder les jours avec au moins 18 heures valides.</li>
+<li>Identifier les dix moyennes journalières les plus élevées.</li>
+<li>Produire une série temporelle des moyennes journalières par station.</li>
+<li>Rédiger une conclusion de 6 à 8 lignes.</li>
 </ol>
 </section>
-<section id="pistes-de-solution" class="level2">
-<h2 class="anchored" data-anchor-id="pistes-de-solution">Pistes de solution</h2>
-<p>Une bonne réponse décrit la tendance principale, nomme le regroupement utilisé et explicite au moins une limite de la source. Une réponse excellente justifie aussi le choix du graphique et signale les décisions de nettoyage.</p>
+<section id="code-de-départ" class="level2">
+<h2 class="anchored" data-anchor-id="code-de-départ">Code de départ</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load libraries</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Prepare and import data</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">&quot;datasets/qualite-air-horaire/preparation.R&quot;</span>)</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>air_jour <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;data/processed/qualite-air-horaire/resume_journalier_contaminants_2025.csv&quot;</span>,</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">show_col_types =</span> <span class="cn">FALSE</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>pm25 <span class="ot">&lt;-</span> air_jour <span class="sc">|&gt;</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(contaminant_source <span class="sc">==</span> <span class="st">&quot;PM2.5-T640&quot;</span>, n_heures_valides <span class="sc">&gt;=</span> <span class="dv">18</span>)</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>pm25 <span class="sc">|&gt;</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(moyenne)) <span class="sc">|&gt;</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(date, station_name, n_heures_valides, moyenne, maximum) <span class="sc">|&gt;</span></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice_head</span>(<span class="at">n =</span> <span class="dv">10</span>)</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(pm25, <span class="fu">aes</span>(<span class="at">x =</span> date, <span class="at">y =</span> moyenne, <span class="at">group =</span> station_id)) <span class="sc">+</span></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">alpha =</span> <span class="fl">0.25</span>, <span class="at">linewidth =</span> <span class="fl">0.3</span>) <span class="sc">+</span></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">&quot;Moyennes journalières de PM2.5 par station, 2025&quot;</span>,</span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">&quot;Date&quot;</span>,</span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">&quot;Moyenne journalière des valeurs publiées&quot;</span></span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="questions" class="level2">
+<h2 class="anchored" data-anchor-id="questions">Questions</h2>
+<ol type="1">
+<li>Pourquoi impose-t-on un seuil minimal d’heures valides?</li>
+<li>Quelle journée et quelle station arrivent en tête du classement?</li>
+<li>Le classement change-t-il si on exige 24 heures valides?</li>
+<li>Pourquoi une moyenne journalière élevée ne suffit-elle pas à identifier une cause?</li>
+<li>Que faudrait-il ajouter comme données pour interpréter un épisode?</li>
+</ol>
+</section>
+<section id="résultats-attendus" class="level2">
+<h2 class="anchored" data-anchor-id="résultats-attendus">Résultats attendus</h2>
+<p>Une réponse correcte doit nommer le contaminant, le seuil d’heures valides, les stations les plus élevées et au moins une limite méthodologique.</p>
+<p>Une réponse plus solide compare les résultats obtenus avec <code>n_heures_valides &gt;= 18</code> et <code>n_heures_valides == 24</code>.</p>
+</section>
+<section id="prolongement" class="level2">
+<h2 class="anchored" data-anchor-id="prolongement">Prolongement</h2>
+<p>Refaire l’analyse pour <code>O3</code>, puis expliquer pourquoi les valeurs de PM2.5 et O3 ne doivent pas être placées sur la même échelle sans justification.</p>
 
 
 </section>

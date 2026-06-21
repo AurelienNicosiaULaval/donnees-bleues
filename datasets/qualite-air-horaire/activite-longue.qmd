@@ -1,30 +1,130 @@
 ---
-title: "Mini-projet - Air Québec"
+title: "Tableau de bord exploratoire de la qualité de l'air"
 embed-resources: true
 ---
 
-# Mini-projet - Air Québec
+# Tableau de bord exploratoire de la qualité de l'air
 
-## Contexte
+## Mise en situation
 
-Ce mini-projet prolonge le laboratoire court en demandant une préparation reproductible et une interprétation plus structurée.
+Une équipe de communication scientifique veut produire un portrait exploratoire de la qualité de l'air au Québec à partir des mesures horaires continues du RSQAQ. Votre mandat est de construire un petit tableau de bord ou rapport reproductible pour l'année 2025.
 
-## Question directrice
+Le livrable doit rester descriptif. Il peut repérer des journées et des stations intéressantes, mais il ne doit pas attribuer automatiquement une cause aux valeurs élevées.
 
-Construire un tableau de bord exploratoire des contaminants atmosphériques par station et par période.
+## Livrable attendu
 
-## Livrables
+Un rapport Quarto ou un prototype de tableau de bord comprenant :
 
-1. Un fichier préparé dans `data_processed/`, ou une description précise du traitement si les données ne sont pas redistribuées.
-2. Un court dictionnaire des variables utilisées.
-3. Deux visualisations complémentaires.
-4. Un paragraphe sur la provenance, la licence et les limites.
-5. Une conclusion pédagogique adaptée à un public de première année.
+- une courte description de la source;
+- une section sur les valeurs manquantes;
+- un graphique temporel pour PM2.5;
+- un graphique ou tableau comparant plusieurs contaminants;
+- une sélection d'une station ou d'une période;
+- une section de limites;
+- le code reproductible.
 
-## Critères d'évaluation suggérés
+## Données utilisées
 
-- Reproductibilité du traitement.
-- Qualité des noms de variables.
-- Pertinence des regroupements.
-- Lisibilité des graphiques.
-- Prudence de l'interprétation.
+Source : Données Québec / MELCCFP / RSQAQ, `RSQAQ - Données horaires continues`, ressource CSV 2025.
+
+Fichiers préparés :
+
+- `data/processed/qualite-air-horaire/resume_journalier_contaminants_2025.csv`;
+- `data/processed/qualite-air-horaire/resume_contaminants_2025.csv`;
+- `data/processed/qualite-air-horaire/resume_stations_2025.csv`;
+- `data/processed/qualite-air-horaire/episodes_pm25_2025.csv`;
+- `data/processed/qualite-air-horaire/valeurs_manquantes_contaminants_2025.csv`.
+
+## Étapes
+
+1. Exécuter `source("datasets/qualite-air-horaire/preparation.R")`.
+2. Importer les fichiers préparés.
+3. Présenter les dimensions : stations, contaminants, mesures non manquantes.
+4. Choisir un contaminant principal, par exemple PM2.5.
+5. Définir un seuil minimal d'heures valides.
+6. Visualiser les moyennes journalières par station.
+7. Identifier quelques journées élevées.
+8. Comparer la couverture des contaminants.
+9. Rédiger une section de limites et de prudence.
+
+## Code de départ
+
+```{r}
+#| eval: false
+# Load libraries
+library(dplyr)
+library(ggplot2)
+library(readr)
+
+# Prepare official data
+source("datasets/qualite-air-horaire/preparation.R")
+
+# Import prepared files
+air_jour <- read_csv(
+  "data/processed/qualite-air-horaire/resume_journalier_contaminants_2025.csv",
+  show_col_types = FALSE
+)
+
+resume_contaminants <- read_csv(
+  "data/processed/qualite-air-horaire/resume_contaminants_2025.csv",
+  show_col_types = FALSE
+)
+
+episodes_pm25 <- read_csv(
+  "data/processed/qualite-air-horaire/episodes_pm25_2025.csv",
+  show_col_types = FALSE
+)
+
+# Coverage by contaminant
+resume_contaminants |>
+  arrange(desc(n_mesures)) |>
+  select(contaminant_source, n_mesures, n_stations, moyenne, p95, maximum)
+
+# PM2.5 exploratory time series
+pm25 <- air_jour |>
+  filter(contaminant_source == "PM2.5-T640", n_heures_valides >= 18)
+
+ggplot(pm25, aes(x = date, y = moyenne, group = station_id)) +
+  geom_line(alpha = 0.25, linewidth = 0.3) +
+  labs(
+    title = "Moyennes journalières de PM2.5 par station, 2025",
+    x = "Date",
+    y = "Moyenne journalière des valeurs publiées"
+  ) +
+  theme_minimal()
+
+# Highest daily PM2.5 summaries
+episodes_pm25 |>
+  select(date, station_name, n_heures_valides, moyenne, maximum, p95) |>
+  slice_head(n = 10)
+```
+
+## Questions d'analyse
+
+1. Quels contaminants ont la meilleure couverture en 2025?
+2. Quelles stations apparaissent dans les journées PM2.5 les plus élevées?
+3. Les journées élevées sont-elles concentrées dans quelques périodes?
+4. Comment les résultats changent-ils si le seuil d'heures valides change?
+5. Quelles données externes seraient nécessaires pour expliquer les épisodes?
+
+## Critères d'évaluation
+
+| Critère | Attendu |
+|---|---|
+| Source | Le paquet CKAN et la ressource 2025 sont cités. |
+| Reproductibilité | Le script de préparation est exécuté ou appelé. |
+| Couverture | Les valeurs manquantes et heures valides sont discutées. |
+| Graphiques | Les graphiques sont lisibles et ne mélangent pas les unités sans justification. |
+| Interprétation | Les conclusions restent descriptives. |
+| Limites | Les causes possibles ne sont pas affirmées sans données externes. |
+
+## Résultats attendus
+
+Un bon rapport montre que PM2.5 et O3 sont les contaminants les plus couverts dans la ressource 2025, puis utilise PM2.5 comme exemple principal. Le rapport doit expliquer pourquoi les valeurs élevées sont des signaux à explorer plutôt que des preuves causales.
+
+## Variantes possibles
+
+- Construire un tableau de bord Shiny avec choix de station et contaminant.
+- Ajouter une carte si des coordonnées de stations sont jointes à partir d'une autre source.
+- Comparer PM2.5 et O3 dans deux graphiques séparés.
+- Créer une note de communication publique sur une journée élevée.

@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Mini-projet - Air Québec – Données bleues</title>
+<title>Tableau de bord exploratoire de la qualité de l’air – Données bleues</title>
 <style>
 
 code{white-space: pre-wrap;}
@@ -19,6 +19,41 @@ ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
 width: 0.8em;
 margin: 0 0.8em 0.2em -1em;  vertical-align: middle;
+}
+
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+{ counter-reset: source-line 0; }
+pre.numberSource code > span
+{ position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+{ content: counter(source-line);
+position: relative; left: -1em; text-align: right; vertical-align: baseline;
+border: none; display: inline-block;
+-webkit-touch-callout: none; -webkit-user-select: none;
+-khtml-user-select: none; -moz-user-select: none;
+-ms-user-select: none; user-select: none;
+padding: 0 4px; width: 4em;
+}
+pre.numberSource { margin-left: 3em; padding-left: 4px; }
+div.sourceCode
+{ }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -5482,12 +5517,17 @@ grid-template-columns: 1fr;
     <h2 id="toc-title">On this page</h2>
 
   <ul>
-  <li><a href="#mini-projet---air-québec" id="toc-mini-projet---air-québec" class="nav-link active" data-scroll-target="#mini-projet---air-québec">Mini-projet - Air Québec</a>
+  <li><a href="#tableau-de-bord-exploratoire-de-la-qualité-de-lair" id="toc-tableau-de-bord-exploratoire-de-la-qualité-de-lair" class="nav-link active" data-scroll-target="#tableau-de-bord-exploratoire-de-la-qualité-de-lair">Tableau de bord exploratoire de la qualité de l’air</a>
   <ul class="collapse">
-  <li><a href="#contexte" id="toc-contexte" class="nav-link" data-scroll-target="#contexte">Contexte</a></li>
-  <li><a href="#question-directrice" id="toc-question-directrice" class="nav-link" data-scroll-target="#question-directrice">Question directrice</a></li>
-  <li><a href="#livrables" id="toc-livrables" class="nav-link" data-scroll-target="#livrables">Livrables</a></li>
-  <li><a href="#critères-dévaluation-suggérés" id="toc-critères-dévaluation-suggérés" class="nav-link" data-scroll-target="#critères-dévaluation-suggérés">Critères d’évaluation suggérés</a></li>
+  <li><a href="#mise-en-situation" id="toc-mise-en-situation" class="nav-link" data-scroll-target="#mise-en-situation">Mise en situation</a></li>
+  <li><a href="#livrable-attendu" id="toc-livrable-attendu" class="nav-link" data-scroll-target="#livrable-attendu">Livrable attendu</a></li>
+  <li><a href="#données-utilisées" id="toc-données-utilisées" class="nav-link" data-scroll-target="#données-utilisées">Données utilisées</a></li>
+  <li><a href="#étapes" id="toc-étapes" class="nav-link" data-scroll-target="#étapes">Étapes</a></li>
+  <li><a href="#code-de-départ" id="toc-code-de-départ" class="nav-link" data-scroll-target="#code-de-départ">Code de départ</a></li>
+  <li><a href="#questions-danalyse" id="toc-questions-danalyse" class="nav-link" data-scroll-target="#questions-danalyse">Questions d’analyse</a></li>
+  <li><a href="#critères-dévaluation" id="toc-critères-dévaluation" class="nav-link" data-scroll-target="#critères-dévaluation">Critères d’évaluation</a></li>
+  <li><a href="#résultats-attendus" id="toc-résultats-attendus" class="nav-link" data-scroll-target="#résultats-attendus">Résultats attendus</a></li>
+  <li><a href="#variantes-possibles" id="toc-variantes-possibles" class="nav-link" data-scroll-target="#variantes-possibles">Variantes possibles</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -5497,7 +5537,7 @@ grid-template-columns: 1fr;
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Mini-projet - Air Québec</h1>
+<h1 class="title">Tableau de bord exploratoire de la qualité de l’air</h1>
 </div>
 
 
@@ -5514,34 +5554,165 @@ grid-template-columns: 1fr;
 </header>
 
 
-<section id="mini-projet---air-québec" class="level1">
-<h1>Mini-projet - Air Québec</h1>
-<section id="contexte" class="level2">
-<h2 class="anchored" data-anchor-id="contexte">Contexte</h2>
-<p>Ce mini-projet prolonge le laboratoire court en demandant une préparation reproductible et une interprétation plus structurée.</p>
+<section id="tableau-de-bord-exploratoire-de-la-qualité-de-lair" class="level1">
+<h1>Tableau de bord exploratoire de la qualité de l’air</h1>
+<section id="mise-en-situation" class="level2">
+<h2 class="anchored" data-anchor-id="mise-en-situation">Mise en situation</h2>
+<p>Une équipe de communication scientifique veut produire un portrait exploratoire de la qualité de l’air au Québec à partir des mesures horaires continues du RSQAQ. Votre mandat est de construire un petit tableau de bord ou rapport reproductible pour l’année 2025.</p>
+<p>Le livrable doit rester descriptif. Il peut repérer des journées et des stations intéressantes, mais il ne doit pas attribuer automatiquement une cause aux valeurs élevées.</p>
 </section>
-<section id="question-directrice" class="level2">
-<h2 class="anchored" data-anchor-id="question-directrice">Question directrice</h2>
-<p>Construire un tableau de bord exploratoire des contaminants atmosphériques par station et par période.</p>
+<section id="livrable-attendu" class="level2">
+<h2 class="anchored" data-anchor-id="livrable-attendu">Livrable attendu</h2>
+<p>Un rapport Quarto ou un prototype de tableau de bord comprenant :</p>
+<ul>
+<li>une courte description de la source;</li>
+<li>une section sur les valeurs manquantes;</li>
+<li>un graphique temporel pour PM2.5;</li>
+<li>un graphique ou tableau comparant plusieurs contaminants;</li>
+<li>une sélection d’une station ou d’une période;</li>
+<li>une section de limites;</li>
+<li>le code reproductible.</li>
+</ul>
 </section>
-<section id="livrables" class="level2">
-<h2 class="anchored" data-anchor-id="livrables">Livrables</h2>
+<section id="données-utilisées" class="level2">
+<h2 class="anchored" data-anchor-id="données-utilisées">Données utilisées</h2>
+<p>Source : Données Québec / MELCCFP / RSQAQ, <code>RSQAQ - Données horaires continues</code>, ressource CSV 2025.</p>
+<p>Fichiers préparés :</p>
+<ul>
+<li><code>data/processed/qualite-air-horaire/resume_journalier_contaminants_2025.csv</code>;</li>
+<li><code>data/processed/qualite-air-horaire/resume_contaminants_2025.csv</code>;</li>
+<li><code>data/processed/qualite-air-horaire/resume_stations_2025.csv</code>;</li>
+<li><code>data/processed/qualite-air-horaire/episodes_pm25_2025.csv</code>;</li>
+<li><code>data/processed/qualite-air-horaire/valeurs_manquantes_contaminants_2025.csv</code>.</li>
+</ul>
+</section>
+<section id="étapes" class="level2">
+<h2 class="anchored" data-anchor-id="étapes">Étapes</h2>
 <ol type="1">
-<li>Un fichier préparé dans <code>data_processed/</code>, ou une description précise du traitement si les données ne sont pas redistribuées.</li>
-<li>Un court dictionnaire des variables utilisées.</li>
-<li>Deux visualisations complémentaires.</li>
-<li>Un paragraphe sur la provenance, la licence et les limites.</li>
-<li>Une conclusion pédagogique adaptée à un public de première année.</li>
+<li>Exécuter <code>source(&quot;datasets/qualite-air-horaire/preparation.R&quot;)</code>.</li>
+<li>Importer les fichiers préparés.</li>
+<li>Présenter les dimensions : stations, contaminants, mesures non manquantes.</li>
+<li>Choisir un contaminant principal, par exemple PM2.5.</li>
+<li>Définir un seuil minimal d’heures valides.</li>
+<li>Visualiser les moyennes journalières par station.</li>
+<li>Identifier quelques journées élevées.</li>
+<li>Comparer la couverture des contaminants.</li>
+<li>Rédiger une section de limites et de prudence.</li>
 </ol>
 </section>
-<section id="critères-dévaluation-suggérés" class="level2">
-<h2 class="anchored" data-anchor-id="critères-dévaluation-suggérés">Critères d’évaluation suggérés</h2>
+<section id="code-de-départ" class="level2">
+<h2 class="anchored" data-anchor-id="code-de-départ">Code de départ</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load libraries</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Prepare official data</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">&quot;datasets/qualite-air-horaire/preparation.R&quot;</span>)</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Import prepared files</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>air_jour <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;data/processed/qualite-air-horaire/resume_journalier_contaminants_2025.csv&quot;</span>,</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">show_col_types =</span> <span class="cn">FALSE</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>resume_contaminants <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;data/processed/qualite-air-horaire/resume_contaminants_2025.csv&quot;</span>,</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>  <span class="at">show_col_types =</span> <span class="cn">FALSE</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>episodes_pm25 <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;data/processed/qualite-air-horaire/episodes_pm25_2025.csv&quot;</span>,</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>  <span class="at">show_col_types =</span> <span class="cn">FALSE</span></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a><span class="co"># Coverage by contaminant</span></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>resume_contaminants <span class="sc">|&gt;</span></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(n_mesures)) <span class="sc">|&gt;</span></span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(contaminant_source, n_mesures, n_stations, moyenne, p95, maximum)</span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a><span class="co"># PM2.5 exploratory time series</span></span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>pm25 <span class="ot">&lt;-</span> air_jour <span class="sc">|&gt;</span></span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(contaminant_source <span class="sc">==</span> <span class="st">&quot;PM2.5-T640&quot;</span>, n_heures_valides <span class="sc">&gt;=</span> <span class="dv">18</span>)</span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(pm25, <span class="fu">aes</span>(<span class="at">x =</span> date, <span class="at">y =</span> moyenne, <span class="at">group =</span> station_id)) <span class="sc">+</span></span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">alpha =</span> <span class="fl">0.25</span>, <span class="at">linewidth =</span> <span class="fl">0.3</span>) <span class="sc">+</span></span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">&quot;Moyennes journalières de PM2.5 par station, 2025&quot;</span>,</span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">&quot;Date&quot;</span>,</span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">&quot;Moyenne journalière des valeurs publiées&quot;</span></span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a><span class="co"># Highest daily PM2.5 summaries</span></span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a>episodes_pm25 <span class="sc">|&gt;</span></span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(date, station_name, n_heures_valides, moyenne, maximum, p95) <span class="sc">|&gt;</span></span>
+<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice_head</span>(<span class="at">n =</span> <span class="dv">10</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="questions-danalyse" class="level2">
+<h2 class="anchored" data-anchor-id="questions-danalyse">Questions d’analyse</h2>
+<ol type="1">
+<li>Quels contaminants ont la meilleure couverture en 2025?</li>
+<li>Quelles stations apparaissent dans les journées PM2.5 les plus élevées?</li>
+<li>Les journées élevées sont-elles concentrées dans quelques périodes?</li>
+<li>Comment les résultats changent-ils si le seuil d’heures valides change?</li>
+<li>Quelles données externes seraient nécessaires pour expliquer les épisodes?</li>
+</ol>
+</section>
+<section id="critères-dévaluation" class="level2">
+<h2 class="anchored" data-anchor-id="critères-dévaluation">Critères d’évaluation</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Critère</th>
+<th>Attendu</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Source</td>
+<td>Le paquet CKAN et la ressource 2025 sont cités.</td>
+</tr>
+<tr class="even">
+<td>Reproductibilité</td>
+<td>Le script de préparation est exécuté ou appelé.</td>
+</tr>
+<tr class="odd">
+<td>Couverture</td>
+<td>Les valeurs manquantes et heures valides sont discutées.</td>
+</tr>
+<tr class="even">
+<td>Graphiques</td>
+<td>Les graphiques sont lisibles et ne mélangent pas les unités sans justification.</td>
+</tr>
+<tr class="odd">
+<td>Interprétation</td>
+<td>Les conclusions restent descriptives.</td>
+</tr>
+<tr class="even">
+<td>Limites</td>
+<td>Les causes possibles ne sont pas affirmées sans données externes.</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="résultats-attendus" class="level2">
+<h2 class="anchored" data-anchor-id="résultats-attendus">Résultats attendus</h2>
+<p>Un bon rapport montre que PM2.5 et O3 sont les contaminants les plus couverts dans la ressource 2025, puis utilise PM2.5 comme exemple principal. Le rapport doit expliquer pourquoi les valeurs élevées sont des signaux à explorer plutôt que des preuves causales.</p>
+</section>
+<section id="variantes-possibles" class="level2">
+<h2 class="anchored" data-anchor-id="variantes-possibles">Variantes possibles</h2>
 <ul>
-<li>Reproductibilité du traitement.</li>
-<li>Qualité des noms de variables.</li>
-<li>Pertinence des regroupements.</li>
-<li>Lisibilité des graphiques.</li>
-<li>Prudence de l’interprétation.</li>
+<li>Construire un tableau de bord Shiny avec choix de station et contaminant.</li>
+<li>Ajouter une carte si des coordonnées de stations sont jointes à partir d’une autre source.</li>
+<li>Comparer PM2.5 et O3 dans deux graphiques séparés.</li>
+<li>Créer une note de communication publique sur une journée élevée.</li>
 </ul>
 
 
