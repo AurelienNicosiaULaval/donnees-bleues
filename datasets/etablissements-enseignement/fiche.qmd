@@ -18,116 +18,224 @@ render_dataset_detail_header()
 
 ## Pourquoi ce jeu est intéressant
 
-Ce jeu permet de cartographier les établissements d'enseignement du Québec et de travailler sur l'accès territorial, les ordres d'enseignement et la structure du réseau scolaire. Il complète bien les cohortes de diplomation.
+Ce jeu est utile parce qu'il force une décision statistique simple, mais essentielle : avant de compter, il faut savoir ce qu'une ligne représente. La source regroupe des établissements, des installations, des liens école-immeuble, des immeubles et des sièges sociaux. Une analyse correcte commence donc par le choix explicite de la ressource et de l'unité statistique.
 
-## Source
+Il se prête bien à un cours d'introduction en science des données : importation de données ouvertes, harmonisation de fichiers, variables catégorielles, coordonnées géographiques, tableaux de fréquences, cartes et limites d'interprétation.
+
+## Ce qui a été vérifié
+
+| Élément | Résultat vérifié |
+|---|---|
+| Paquet CKAN | `2d3b5cf8-b347-49c7-ad3b-bd6a9c15e443` |
+| Source officielle | Données Québec, Ministère de l'Éducation et Ministère de l'Enseignement supérieur |
+| Ressources dans le paquet | 28 ressources |
+| Ressources CSV préparées ici | 9 ressources |
+| Licence | Attribution (CC-BY 4.0), selon les métadonnées CKAN consultées le 2026-06-21 |
+| Dernière modification du paquet CKAN | 2026-06-16 |
+| Table préparée | `data/processed/etablissements-enseignement/etablissements_enseignement_quebec.csv` |
+| Résumé des ressources | `data/processed/etablissements-enseignement/ressources_etablissements_enseignement.csv` |
+
+## Source et conditions
 
 | Champ | Information |
 |---|---|
-| Source | Données Québec / Ministère de l'Éducation et Ministère de l'Enseignement supérieur |
-| Organisme producteur | Ministère de l'Éducation et Ministère de l'Enseignement supérieur |
+| Page Données Québec | <https://www.donneesquebec.ca/recherche/dataset/localisation-des-etablissements-d-enseignement-du-reseau-scolaire-au-quebec> |
+| API CKAN | <https://www.donneesquebec.ca/recherche/api/3/action/package_show?id=localisation-des-etablissements-d-enseignement-du-reseau-scolaire-au-quebec> |
+| Page Québec.ca | <https://www.quebec.ca/education/cartes-donnees-geographiques> |
+| Miroir ouvert.canada.ca | <https://open.canada.ca/data/fr/dataset/2d3b5cf8-b347-49c7-ad3b-bd6a9c15e443> |
 | Territoire | Québec |
-| URL officielle | <https://www.donneesquebec.ca/recherche/dataset/localisation-des-etablissements-d-enseignement-du-reseau-scolaire-au-quebec> |
-| Licence | Attribution (CC-BY 4.0) |
-| Date d'accès | 2026-06-19 |
-| Fréquence de mise à jour | Mises à jour fréquentes; métadonnées modifiées en 2026 |
-| Statut | source vérifiée |
+| Date d'accès | 2026-06-21 |
+| Redistribution pédagogique | Possible sous réserve du respect de la licence Attribution (CC-BY 4.0) |
 
 ## Ce que représente une ligne
 
-Une ligne représente un établissement, une installation, un immeuble ou un siège social selon le fichier CSV ou GeoJSON choisi. Le fichier `Écoles publiques` contient notamment les coordonnées et l'ordre d'enseignement.
+La table préparée contient une ligne pour chaque ligne source conservée dans l'une des 9 ressources CSV. Ce n'est pas une table de personnes, ni une table d'élèves, ni une table unique d'établissements scolaires.
+
+| Variable | Rôle |
+|---|---|
+| `source_resource` | Identifiant court de la ressource d'origine |
+| `resource_label` | Nom lisible de la ressource d'origine |
+| `network_category` | Catégorie de réseau : public, privé, collégial, universitaire ou gouvernemental |
+| `unit_kind` | Unité statistique de la ligne |
+| `source_row` | Numéro de ligne dans le fichier source |
+
+Cette distinction est le coeur pédagogique de la fiche. Par exemple, une ligne de `public_ecole` correspond à un lien école-immeuble, tandis qu'une ligne de `public_immeuble` correspond à un immeuble. Les deux fichiers peuvent être utiles, mais ils ne répondent pas à la même question statistique.
 
 ## Variables principales
 
-Les noms ci-dessous sont des noms propres proposés pour l'enseignement. Les noms exacts des champs sources doivent être conservés dans le script de préparation.
-
-| Variable proposée | Rôle pédagogique | Remarque |
+| Variable préparée | Utilisation | Point de vigilance |
 |---|---|---|
-| `nom_officiel` | Nom de l'organisme | Champ source apparent `NOM_OFFCL_ORGNS` |
-| `nom_municipalite` | Municipalité | Variable de regroupement territorial |
-| `nom_mrc` | MRC | Disponible dans certains fichiers |
-| `nom_region_administrative` | Région administrative | Variable de carte et de comparaison |
-| `ordre_enseignement` | Ordre d'enseignement | Préscolaire, primaire, secondaire ou autres selon la ressource |
-| `longitude` | Longitude | Champ source `COORD_X_LL84_IMM` dans le fichier consulté |
-| `latitude` | Latitude | Champ source `COORD_Y_LL84_IMM` dans le fichier consulté |
+| `nom` | Nom principal harmonisé | Peut provenir du nom de l'organisme ou de l'immeuble |
+| `nom_organisme` | Nom de l'organisme | Disponible selon la ressource |
+| `nom_immeuble` | Nom de l'immeuble | Disponible surtout pour les ressources liées aux immeubles |
+| `municipalite` | Regroupement municipal | Les noms doivent être traités comme des libellés sources |
+| `mrc` | Regroupement territorial | Variable incomplète selon les ressources |
+| `region_administrative` | Comparaison régionale | 7 847 lignes préparées n'ont pas de région administrative |
+| `ordre_enseignement` | Ordre ou combinaison d'ordres | Variable absente pour certaines unités |
+| `longitude`, `latitude` | Cartographie ponctuelle | Toutes les lignes préparées ont des coordonnées |
+| `has_coordinates` | Indicateur de coordonnées complètes | Vaut vrai pour les 14 067 lignes préparées |
+| `has_region` | Indicateur de région non manquante | À utiliser avant une analyse régionale |
 
 ## Taille et structure
 
-| Élément | Information |
-|---|---|
-| Nombre de lignes | Plusieurs ressources; fichiers CSV de quelques Ko à quelques Mo |
-| Nombre de colonnes | 34 champs observés dans l'en-tête du fichier `Écoles publiques` consulté le 2026-06-19 |
-| Structure | Tabulaire, spatial, institutionnel |
-| Format | CSV, GeoJSON, SHP, KML, WFS, WMS, FGDB et documentation PDF |
-| Niveau pédagogique recommandé | Introduction à intermédiaire |
+| Indicateur | Valeur |
+|---|---:|
+| Lignes préparées | 14 067 |
+| Colonnes préparées | 31 |
+| Ressources CSV retenues | 9 |
+| Lignes avec coordonnées | 14 067 |
+| Lignes avec région administrative | 6 220 |
+| Lignes sans région administrative | 7 847 |
+| Catégories de réseau | 5 |
+
+## Ressources retenues
+
+| Ressource | Unité statistique | Lignes |
+|---|---|---:|
+| Écoles publiques | Lien école-immeuble | 5 466 |
+| Immeubles publics | Immeuble | 4 740 |
+| Sièges sociaux organismes | Siège social organisme | 2 779 |
+| Installations privées | Installation | 361 |
+| Établissements collégiaux | Établissement | 330 |
+| Établissements privés | Établissement | 256 |
+| Sièges sociaux CSS et CS | Siège social CSS ou CS | 72 |
+| Établissements gouvernementaux | Établissement | 39 |
+| Établissements universitaires | Établissement | 24 |
+
+## Catégories de réseau
+
+| Catégorie | Lignes préparées |
+|---|---:|
+| Public | 13 057 |
+| Privé | 617 |
+| Collégial | 330 |
+| Gouvernemental | 39 |
+| Universitaire | 24 |
+
+Le poids du réseau public dans cette table ne signifie pas que le réseau public compte simplement 13 057 établissements. Il reflète surtout le fait que plusieurs ressources publiques distinctes sont incluses.
+
+## Régions les plus représentées
+
+Ce tableau utilise seulement les 6 220 lignes où `region_administrative` est renseignée.
+
+| Région administrative | Lignes |
+|---|---:|
+| Montréal | 1 024 |
+| Montérégie | 991 |
+| Chaudière-Appalaches | 460 |
+| Estrie | 392 |
+| Laurentides | 372 |
+| Capitale-Nationale | 369 |
+| Mauricie | 366 |
+
+Ce n'est pas une mesure directe d'accessibilité scolaire. Pour parler d'accès, il faudrait ajouter au minimum des données de population, de distance, de transport ou de bassin de desserte.
+
+## Lecture statistique
+
+L'analyse recommandée commence par trois filtres.
+
+1. Choisir une ressource avec `source_resource`.
+2. Vérifier l'unité statistique avec `unit_kind`.
+3. Utiliser `has_region` ou `has_coordinates` selon la question.
+
+Un exemple valide : cartographier les `Écoles publiques` et expliquer que chaque point représente un lien école-immeuble. Un exemple fragile : additionner directement les 9 ressources pour dire combien il existe d'établissements au Québec. Ce deuxième calcul mélange plusieurs unités statistiques et peut compter des objets institutionnels liés entre eux.
 
 ## Concepts enseignables
 
-- éducation
-- spatial
-- Québec
-- données ouvertes
-- visualisation
-- statistiques descriptives
-- jointure
-- territoire
+- unité statistique
+- source multi-ressources
+- données spatiales ponctuelles
+- variables catégorielles
+- données manquantes
+- tableau de fréquences
+- carte exploratoire
+- limites d'interprétation
 
 ## Score zéro déchet
 
-| Dimension | Score |
-|---|---:|
-| Contexte québécois | 3 |
-| Accessibilité pédagogique | 3 |
-| Qualité documentaire | 3 |
-| Potentiel de nettoyage | 2 |
-| Potentiel de visualisation | 3 |
-| Potentiel de statistique descriptive | 3 |
-| Potentiel d'inférence | 1 |
-| Potentiel de modélisation | 2 |
-| Potentiel de discussion éthique | 2 |
-| Réutilisabilité dans plusieurs cours | 3 |
+| Dimension | Score | Justification |
+|---|---:|---|
+| Contexte québécois | 3 | Données officielles sur le réseau d'enseignement du Québec |
+| Accessibilité pédagogique | 3 | Variables concrètes : noms, régions, ordres, coordonnées |
+| Qualité documentaire | 3 | Source officielle, API CKAN et documentation cartographique |
+| Potentiel de nettoyage | 3 | Harmonisation nécessaire de 9 ressources |
+| Potentiel de visualisation | 3 | Cartes et comparaisons régionales naturelles |
+| Potentiel de statistique descriptive | 3 | Fréquences, regroupements, proportions et données manquantes |
+| Potentiel d'inférence | 1 | Peu adapté à l'inférence sans données complémentaires |
+| Potentiel de modélisation | 2 | Modélisation possible après ajout de population ou de distances |
+| Potentiel éthique | 3 | Discussion sur accès territorial, interprétation publique et limites |
+| Réutilisabilité | 3 | Pertinent en importation, visualisation, nettoyage et communication |
 
-Total : 25 sur 30.
+Total : 27 sur 30.
 
 ## Activité courte
 
-En 30 à 45 minutes, faire filtrer une région et produire une carte des établissements.
+En 30 à 45 minutes, choisir une seule ressource, tracer les points et rédiger une phrase qui décrit précisément l'unité statistique utilisée.
 
 ## Activité longue
 
-En 2 à 3 heures, produire un portrait régional avec carte, tableau et limites d'interprétation.
-
-## Projets possibles
-
-- Cartographier les écoles publiques d'une région administrative.
-- Comparer la répartition des ordres d'enseignement selon les régions.
-- Joindre les établissements à des indicateurs démographiques ou de diplomation.
+En 2 à 3 heures, produire un portrait territorial prudent : carte, tableau par réseau, analyse des régions manquantes et limites sur l'accessibilité.
 
 ## Code R minimal
 
+À exécuter depuis la racine du projet.
+
 ```{r}
 #| eval: false
+# Load libraries
 library(dplyr)
+library(ggplot2)
 library(readr)
 
-source_url <- "https://www.donneesquebec.ca/recherche/dataset/localisation-des-etablissements-d-enseignement-du-reseau-scolaire-au-quebec"
+# Prepare official CSV resources
+source("datasets/etablissements-enseignement/preparation.R")
 
-# Télécharger la ressource appropriée depuis la page officielle,
-# puis documenter le fichier brut dans data/raw/ avant toute transformation.
-source_url
+# Import prepared table
+etablissements <- read_csv(
+  "data/processed/etablissements-enseignement/etablissements_enseignement_quebec.csv",
+  show_col_types = FALSE
+)
+
+# Check units before counting
+etablissements |>
+  count(source_resource, resource_label, unit_kind, sort = TRUE)
+
+# Map one coherent resource
+ecoles_publiques <- etablissements |>
+  filter(source_resource == "public_ecole")
+
+ggplot(ecoles_publiques, aes(x = longitude, y = latitude)) +
+  geom_point(alpha = 0.35, size = 0.8) +
+  coord_quickmap() +
+  labs(
+    x = "Longitude",
+    y = "Latitude",
+    title = "Écoles publiques du Québec",
+    subtitle = "Chaque point représente un lien école-immeuble dans la ressource source"
+  )
 ```
 
 ## Limites et précautions
 
-- L'unité statistique varie selon le fichier choisi.
-- Certains immeubles peuvent être liés à plusieurs organismes scolaires.
-- Les cartes d'accès exigent des données de population ou de transport complémentaires.
+- Les 9 ressources ne doivent pas être additionnées sans réflexion sur l'unité statistique.
+- Une coordonnée ne mesure pas l'accessibilité réelle d'un service.
+- Les 7 847 lignes sans région administrative peuvent biaiser une comparaison régionale si elles sont exclues sans justification.
+- Les noms, municipalités et régions sont traités comme des libellés sources, pas comme des identifiants administratifs normalisés.
+- Pour étudier l'accès scolaire, il faut joindre d'autres données : population, distance, transport, capacité ou effectifs.
 
 ## Extensions
 
-- Construire une carte avec `sf` ou `leaflet`.
-- Comparer établissements publics, privés, collégiaux et universitaires.
-- Joindre aux pyramides d'âge ou aux cohortes de diplomation.
+- Transformer les coordonnées en objets `sf`.
+- Comparer les cartes obtenues avec `public_ecole` et `public_immeuble`.
+- Calculer la proportion de lignes sans région par ressource.
+- Joindre des données démographiques régionales.
+- Construire un court rapport sur les risques d'interprétation d'un comptage naïf.
+
+## Références utilisées
+
+- Données Québec. 2026. Localisation des établissements d'enseignement du réseau scolaire au Québec. <https://www.donneesquebec.ca/recherche/dataset/localisation-des-etablissements-d-enseignement-du-reseau-scolaire-au-quebec>
+- Gouvernement du Québec. 2025. Consulter les cartes et les données géographiques en lien avec l'éducation. <https://www.quebec.ca/education/cartes-donnees-geographiques>
+- Gouvernement du Canada. 2026. Localisation des établissements d'enseignement du réseau scolaire au Québec, miroir ouvert.canada.ca. <https://open.canada.ca/data/fr/dataset/2d3b5cf8-b347-49c7-ad3b-bd6a9c15e443>
 
 ```{r}
 #| label: dataset-detail-footer
@@ -135,4 +243,3 @@ source_url
 #| results: asis
 render_dataset_detail_footer()
 ```
-

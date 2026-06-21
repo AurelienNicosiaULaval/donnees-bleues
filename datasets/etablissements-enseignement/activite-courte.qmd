@@ -1,19 +1,21 @@
 ---
-title: "Cartographier des établissements scolaires"
+title: "Cartographier une ressource scolaire sans mélanger les unités"
 embed-resources: true
 ---
 
-# Cartographier des établissements scolaires
+# Cartographier une ressource scolaire sans mélanger les unités
 
 ## Contexte
 
-Cette activité utilise des coordonnées institutionnelles pour introduire la cartographie.
+Cette activité introduit la cartographie de points à partir d'une source ouverte réelle. La difficulté statistique n'est pas le graphique : c'est le choix de la bonne unité avant de compter ou de cartographier.
 
 ## Objectifs d'apprentissage
 
-- Lire un CSV
-- Filtrer un territoire
-- Tracer des points sur une carte
+- Importer une table préparée issue de plusieurs fichiers CSV officiels
+- Identifier l'unité statistique d'une ressource
+- Filtrer une ressource cohérente
+- Produire une carte exploratoire
+- Rédiger une limite d'interprétation
 
 ## Données utilisées
 
@@ -21,40 +23,92 @@ Fiche : [Localisation des établissements d'enseignement au Québec](fiche.qmd)
 
 Source : Données Québec / Ministère de l'Éducation et Ministère de l'Enseignement supérieur.
 
-Licence : Attribution (CC-BY 4.0).
+Licence : Attribution (CC-BY 4.0), selon les métadonnées CKAN consultées le 2026-06-21.
+
+Fichier préparé : `data/processed/etablissements-enseignement/etablissements_enseignement_quebec.csv`
 
 ## Métadonnées pédagogiques
 
 | Champ | Information |
 |---|---|
-| Question directrice | Comment les établissements scolaires sont-ils répartis sur un territoire? |
-| Concepts | Carte; Données spatiales; Regroupement |
+| Question directrice | Comment cartographier une ressource scolaire sans confondre les unités statistiques? |
+| Concepts | Unité statistique; Carte de points; Données ouvertes; Filtrage |
 | Niveau | Introductif |
 | Type | Exercice; Exploration de données |
 | Contexte | Éducation et territoire |
-| Accroche | Écoles près de chez soi |
+| Accroche | Une carte peut être techniquement correcte, mais statistiquement trompeuse |
 | Durée | 30-45 minutes |
-| Matériel | énoncé; code; données |
+| Matériel | énoncé; code; table préparée; page source |
 | Math/stats avancées | non |
 
 ## Consignes
 
-1. Choisir une ressource CSV
-2. Filtrer une région administrative
-3. Identifier latitude et longitude
-4. Tracer les établissements
-5. Décrire la couverture territoriale
+1. Exécuter le script `datasets/etablissements-enseignement/preparation.R`.
+2. Importer la table préparée.
+3. Compter les lignes par `source_resource`, `resource_label` et `unit_kind`.
+4. Choisir une seule ressource à cartographier.
+5. Produire une carte des points avec `longitude` et `latitude`.
+6. Écrire une phrase qui précise ce que représente un point.
+7. Écrire une phrase qui dit ce que la carte ne permet pas de conclure.
+
+## Code de départ
+
+À exécuter depuis la racine du projet.
+
+```{r}
+#| eval: false
+# Load libraries
+library(dplyr)
+library(ggplot2)
+library(readr)
+
+# Prepare official files
+source("datasets/etablissements-enseignement/preparation.R")
+
+# Import prepared data
+etablissements <- read_csv(
+  "data/processed/etablissements-enseignement/etablissements_enseignement_quebec.csv",
+  show_col_types = FALSE
+)
+
+# Understand available units
+etablissements |>
+  count(source_resource, resource_label, unit_kind, sort = TRUE)
+
+# Choose one resource
+donnees_carte <- etablissements |>
+  filter(source_resource == "public_ecole")
+
+# Map points
+ggplot(donnees_carte, aes(x = longitude, y = latitude)) +
+  geom_point(alpha = 0.35, size = 0.8) +
+  coord_quickmap() +
+  labs(
+    x = "Longitude",
+    y = "Latitude",
+    title = "Écoles publiques du Québec",
+    subtitle = "Chaque point représente un lien école-immeuble"
+  )
+```
 
 ## Questions
 
-1. Quelle est l'unité statistique du fichier?
-2. Combien d'établissements apparaissent dans la région?
-3. Quelles limites a une carte de points?
+1. Quelle ressource avez-vous cartographiée?
+2. Quelle est l'unité statistique exacte de cette ressource?
+3. Combien de lignes contient la ressource choisie?
+4. Toutes les lignes choisies ont-elles des coordonnées?
+5. Pourquoi cette carte ne mesure-t-elle pas directement l'accès à l'école?
 
 ## Pistes de solution
 
-Une solution acceptable montre une carte et précise le fichier utilisé.
+Une solution acceptable présente une carte, le nombre de lignes cartographiées et une phrase d'interprétation du type :
+
+> Dans cette carte, un point représente un lien école-immeuble provenant de la ressource `public_ecole`; ce n'est pas un élève, ni nécessairement un établissement unique.
+
+Une bonne solution ajoute une limite :
+
+> La carte montre des localisations, mais elle ne mesure pas les distances, le temps de transport, la capacité des établissements ou la population desservie.
 
 ## Prolongement
 
-Colorer les points selon l'ordre d'enseignement.
+Comparer la carte produite avec `source_resource == "public_ecole"` à celle produite avec `source_resource == "public_immeuble"`, puis expliquer pourquoi les deux cartes ne répondent pas exactement à la même question.
