@@ -18,213 +18,223 @@ render_dataset_detail_header()
 
 ## Pourquoi ce jeu est intéressant
 
-Ce jeu de données permet d'explorer la structure démographique du Canada, du Québec et des provinces canadiennes à partir des estimations annuelles de population par âge et genre. Il est particulièrement adapté pour enseigner la manipulation de données, les regroupements, les proportions, la visualisation comparative et la construction de pyramides des âges.
+Ce jeu permet de relier une visualisation très connue, la pyramide des âges, à des gestes de science des données très concrets : importer une table officielle, filtrer les bonnes unités, choisir des groupes d'âge cohérents, calculer des proportions et distinguer une structure démographique d'un simple volume de population.
 
-La table est aussi utile pour discuter de la différence entre données individuelles et données agrégées. Les lignes décrivent des effectifs estimés pour des combinaisons d'année, de territoire, de genre et de groupe d'âge; elles ne décrivent pas des personnes individuelles.
+La fiche est aussi utile pour enseigner une idée importante : une pyramide des âges n'est pas seulement un graphique. Elle force des décisions statistiques. Il faut choisir l'année, le territoire, les catégories de genre, les groupes d'âge et l'échelle, puis expliquer clairement ce que la visualisation ne permet pas de conclure.
 
-## Source
+## Ce qui a été vérifié
+
+| Élément | Résultat vérifié |
+|---|---|
+| Source officielle | Statistique Canada |
+| Tableau | `17-10-0005-01`, anciennement CANSIM `051-0001` |
+| Titre officiel | Estimations de la population au 1er juillet, par âge et genre |
+| Fréquence | Annuelle |
+| Date de diffusion affichée par StatCan | 2025-09-24 |
+| Date de modification affichée par StatCan | 2026-06-21 |
+| Périodes disponibles dans la table récupérée | 1971 à 2025 |
+| Géographies disponibles dans la table récupérée | 15 géographies |
+| Catégories de genre dans la table | `Total - gender`, `Men+`, `Women+` |
+| Table préparée ici | `data/processed/pyramides-ages/population_pyramides_quebec_canada_latest.csv` |
+| Résumés préparés | indicateurs 2025, comparaison 2001-2025, groupes d'âge par genre |
+
+## Source et conditions
 
 | Champ | Information |
 |---|---|
-| Organisme producteur | Statistique Canada |
-| Table | 17-10-0005-01 |
-| Titre officiel | Estimations de la population au 1er juillet, par âge et genre |
-| URL StatCan | <https://www150.statcan.gc.ca/t1/tbl1/en/tv.action?pid=1710000501> |
+| Page StatCan | <https://www150.statcan.gc.ca/t1/tbl1/fr/tv.action?pid=1710000501> |
+| Catalogue StatCan | <https://www150.statcan.gc.ca/n1/fr/catalogue/1710000501> |
 | DOI | <https://doi.org/10.25318/1710000501-fra> |
 | Programme lié | Estimations démographiques annuelles : Canada, provinces et territoires |
 | Licence | Licence ouverte de Statistique Canada |
-| Date d'accès | 2026-06-18 |
-| Fréquence de mise à jour | Annuelle |
-| Périodes visibles | 1971 à 2025 |
-
-## Niveau pédagogique recommandé
-
-- Introduction à la science des données;
-- statistique descriptive;
-- visualisation de données;
-- cours R ou tidyverse;
-- projet court ou laboratoire interactif.
+| Date d'accès | 2026-06-21 |
+| Outil de récupération | `cansim::get_cansim("17-10-0005-01")` |
 
 ## Ce que représente une ligne
 
-Une ligne représente une estimation de population pour une combinaison de période de référence, géographie, genre et groupe d'âge. Dans la version récupérée par `cansim` le 2026-06-18, la table contient aussi des mesures comme l'âge médian et l'âge moyen; il faut donc filtrer `UOM == "Persons"` pour construire une pyramide des âges.
+Dans la table brute, une ligne représente une estimation pour une combinaison d'année, de géographie, de genre, de groupe d'âge ou de mesure d'âge, et d'unité. La table contient à la fois des effectifs en personnes et des mesures en années, comme l'âge médian et l'âge moyen.
+
+Dans le fichier préparé pour la pyramide, une ligne représente plutôt une combinaison année, géographie, genre et groupe d'âge quinquennal. La préparation conserve seulement `Canada` et `Quebec`, l'année 2025, les catégories `Men+` et `Women+`, les groupes quinquennaux de `0 to 4 years` à `100 years and older`, et `UOM == "Persons"`.
+
+Une ligne n'est pas une personne, une cohorte individuelle, une naissance, un décès ou une migration. C'est une estimation agrégée de population.
 
 ## Variables principales
 
-| Variable | Type | Description | Exemple | Remarques pédagogiques |
-|---|---|---|---|---|
-| `REF_DATE` | caractère | Année de référence | 2025 | Sert aux comparaisons temporelles |
-| `GEO` | facteur | Géographie | Quebec | Permet de comparer Canada, Québec, provinces et territoires |
-| `Gender` | facteur | Genre | Men+ | Modalités utiles : `Men+` et `Women+` |
-| `Age group` | facteur | Groupe d'âge ou mesure d'âge | 65 to 69 years | La colonne contient des groupes quinquennaux, des âges simples et des regroupements larges |
-| `VALUE` | numérique | Valeur publiée | 330418 | Effectif lorsque `UOM == "Persons"` |
-| `UOM` | facteur | Unité de mesure | Persons | À filtrer pour exclure les mesures en années |
-| `val_norm` | numérique | Valeur normalisée par `cansim` | 330418 | Utile lorsque les tables StatCan utilisent des facteurs d'échelle |
+| Variable préparée | Rôle | Point de vigilance |
+|---|---|---|
+| `year` | Année de référence | La table porte sur la population estimée au 1er juillet |
+| `geography` | Territoire | La fiche prépare Canada et Québec pour comparaison directe |
+| `gender` | Catégorie publiée par StatCan | Les modalités utilisées ici sont `Men+` et `Women+` |
+| `age_group` | Groupe d'âge quinquennal | Les âges simples, `All ages`, l'âge moyen et l'âge médian sont exclus |
+| `population` | Population estimée | Effectif positif réel dans la table préparée |
+| `population_plot` | Population signée pour le graphique | Valeur négative seulement pour placer `Men+` à gauche |
+| `proportion` | Part du groupe dans la population du territoire | Plus adaptée que les effectifs pour comparer Canada et Québec |
+| `proportion_plot` | Proportion signée pour le graphique | Convention d'affichage, pas une proportion négative |
 
-## Taille et structure
+## Taille et résultats R vérifiés
 
-| Élément | Information |
-|---|---|
-| Nombre de lignes | 302610 lignes dans la version récupérée par `cansim` le 2026-06-18 |
-| Nombre de colonnes | 24 colonnes dans la version récupérée par `cansim` le 2026-06-18 |
-| Structure | Table longue avec dimensions temporelle, géographique, de genre et d'âge |
-| Format | Table StatCan accessible par `cansim`; CSV et SDMX disponibles sur la page StatCan |
+| Indicateur | Valeur |
+|---|---:|
+| Lignes brutes récupérées par `cansim` | 302 610 |
+| Colonnes brutes | 24 |
+| Lignes préparées pour la pyramide 2025 | 84 |
+| Colonnes préparées pour la pyramide 2025 | 8 |
+| Lignes préparées pour la comparaison 2001-2025 | 168 |
+| Première année disponible | 1971 |
+| Dernière année disponible | 2025 |
+| Population Canada 2025 | 41 651 653 |
+| Population Québec 2025 | 9 058 297 |
 
-## Compétences mobilisées
+## Indicateurs démographiques 2025
 
-- importation de données ouvertes;
-- nettoyage de données;
-- filtrage avec `dplyr`;
-- transformation de variables;
-- sélection de groupes d'âge;
-- agrégation par groupe d'âge;
-- calcul de proportions;
-- visualisation avec `ggplot2`;
-- comparaison temporelle;
-- comparaison Canada, Québec, provinces et territoires;
-- interprétation démographique.
+| Territoire | Population | 0 à 14 ans | 15 à 64 ans | 65 ans et plus | Âge médian | Âge moyen |
+|---|---:|---:|---:|---:|---:|---:|
+| Canada | 41 651 653 | 6 261 162 (15,0 %) | 27 282 024 (65,5 %) | 8 108 467 (19,5 %) | 40,6 | 41,8 |
+| Québec | 9 058 297 | 1 376 317 (15,2 %) | 5 717 528 (63,1 %) | 1 964 452 (21,7 %) | 42,8 | 43,1 |
 
-## Visualisations suggérées
+Le Québec a une part plus élevée de 65 ans et plus que le Canada dans cette préparation 2025. La comparaison doit être faite en proportions, parce que les effectifs du Canada et du Québec ne sont pas sur la même échelle.
 
-- pyramide des âges;
-- barplot groupé par âge et genre;
-- courbes d'évolution de groupes d'âge;
-- carte simple par province;
-- graphique comparatif Québec vs Canada;
-- animation temporelle de la pyramide des âges.
+## Comparaison 2001 et 2025
 
-## Tags
+| Année | Territoire | Population | 65 ans et plus | Part des 65 ans et plus |
+|---|---|---:|---:|---:|
+| 2001 | Canada | 31 020 855 | 3 921 822 | 12,6 % |
+| 2001 | Québec | 7 396 014 | 964 234 | 13,0 % |
+| 2025 | Canada | 41 651 653 | 8 108 467 | 19,5 % |
+| 2025 | Québec | 9 058 297 | 1 964 452 | 21,7 % |
+
+Cette table soutient une bonne discussion pédagogique : la population totale augmente, mais la structure d'âge change aussi. Un rapport solide doit donc séparer les effectifs, les proportions et les interprétations.
+
+## Groupes d'âge les plus nombreux en 2025
+
+| Territoire | Groupe d'âge | Population |
+|---|---|---:|
+| Canada | 30 to 34 years | 3 175 724 |
+| Canada | 35 to 39 years | 3 032 523 |
+| Canada | 25 to 29 years | 2 995 647 |
+| Québec | 30 to 34 years | 635 108 |
+| Québec | 60 to 64 years | 623 545 |
+| Québec | 40 to 44 years | 616 069 |
+
+Ce résultat est utile pour montrer qu'une pyramide des âges n'est pas toujours dominée par les jeunes groupes. Selon le territoire et l'année, la forme peut mettre en évidence des générations plus nombreuses à des âges intermédiaires ou avancés.
+
+## Lecture statistique
+
+Une analyse prudente suit cet ordre :
+
+1. vérifier l'année, le territoire, le genre et l'unité;
+2. exclure `All ages`, les âges simples, l'âge moyen et l'âge médian avant de tracer une pyramide;
+3. construire une variable signée seulement pour l'affichage;
+4. utiliser les proportions pour comparer des territoires de tailles différentes;
+5. distinguer description démographique et explication causale;
+6. citer la table StatCan et la date d'accès.
+
+Les données permettent de décrire la structure d'âge estimée. Elles ne permettent pas, seules, d'expliquer les causes du vieillissement démographique. Pour cela, il faudrait ajouter des données sur les naissances, les décès, les migrations et les méthodes d'estimation.
+
+## Concepts enseignables
 
 - données ouvertes;
-- Statistique Canada;
-- démographie;
-- population;
-- pyramide des âges;
-- Québec;
-- Canada;
-- visualisation;
-- ggplot2;
-- tidyverse;
-- science des données;
-- enseignement;
-- learnr.
+- table longue;
+- filtrage;
+- groupes d'âge;
+- proportions;
+- visualisation bilatérale;
+- comparaison territoriale;
+- comparaison temporelle;
+- interprétation descriptive;
+- limites des données agrégées.
 
-## Score zero waste dataset
+## Score zéro déchet
 
 | Dimension | Score | Justification |
 |---|---:|---|
-| Contexte québécois | 3 | Le Québec est directement disponible et peut être comparé au Canada et aux autres provinces. |
-| Accessibilité pédagogique | 3 | L'âge, le genre et la population sont des notions immédiatement compréhensibles. |
-| Qualité documentaire | 3 | La table StatCan, le DOI, les métadonnées et la documentation démographique officielle sont disponibles. |
-| Potentiel de nettoyage | 2 | Les données sont déjà structurées, mais il faut filtrer les unités, choisir les bons groupes d'âge et préparer les valeurs négatives pour la pyramide. |
-| Potentiel de visualisation | 3 | Le jeu se prête naturellement aux pyramides, comparaisons territoriales et trajectoires temporelles. |
-| Potentiel de statistique descriptive | 3 | Les proportions par âge, rapports de dépendance et parts de 65 ans et plus sont directement calculables. |
-| Potentiel d'inférence | 1 | La table contient des estimations agrégées officielles sans incertitude statistique directement fournie dans les colonnes principales. |
-| Potentiel de modélisation | 2 | Des tendances temporelles et projections exploratoires peuvent être étudiées, avec prudence. |
-| Potentiel de discussion éthique | 3 | Le jeu permet de discuter catégories de genre, vieillissement, politiques publiques et interprétation de données agrégées. |
-| Réutilisabilité dans plusieurs cours | 3 | Le même jeu soutient importation, transformation, visualisation, indicateurs démographiques et communication. |
+| Contexte québécois | 3 | Le Québec est directement disponible et comparable au Canada. |
+| Accessibilité pédagogique | 3 | L'âge, le genre et la population sont intuitifs. |
+| Qualité documentaire | 3 | StatCan fournit la table, le DOI, la fréquence et les options de téléchargement. |
+| Potentiel de nettoyage | 3 | Il faut filtrer les unités, les groupes d'âge et les catégories pertinentes. |
+| Potentiel de visualisation | 3 | La pyramide des âges est un cas de visualisation très naturel. |
+| Potentiel de statistique descriptive | 3 | Les proportions, parts d'âge et comparaisons sont directement calculables. |
+| Potentiel d'inférence | 1 | La table ne fournit pas directement un plan d'échantillonnage ou des incertitudes. |
+| Potentiel de modélisation | 2 | Des tendances descriptives peuvent être modélisées avec prudence. |
+| Potentiel éthique | 3 | La fiche permet de discuter genre, vieillissement et politiques publiques. |
+| Réutilisabilité | 3 | Utile en introduction R, visualisation, démographie et communication statistique. |
 
-Total : 26 sur 30.
-
-## Valeur pédagogique
-
-Ce jeu de données a une forte valeur pédagogique parce qu'il relie des opérations techniques simples à une question sociale interprétable : comment la structure d'âge d'une population varie-t-elle selon le territoire, le genre et l'année? Il permet de montrer que la visualisation n'est pas seulement esthétique; elle impose des choix de filtrage, de regroupement, d'échelle et d'interprétation.
+Total : 27 sur 30.
 
 ## Activité courte
 
-En 30 à 45 minutes, faire construire une pyramide des âges du Québec pour l'année la plus récente disponible. Les personnes étudiantes doivent filtrer les groupes d'âge quinquennaux, créer une variable signée pour le genre et produire un graphique avec `coord_flip()`.
+En 30 à 45 minutes, construire la pyramide des âges du Québec en 2025. L'objectif principal est de faire comprendre que le graphique dépend d'un filtrage rigoureux et que les valeurs négatives sont une convention d'affichage.
 
 ## Activité longue
 
-En 2 à 3 heures, faire comparer la structure d'âge du Québec et du Canada entre deux années. Le rapport attendu peut inclure deux pyramides, une mesure de la proportion de la population âgée de 65 ans et plus, et une discussion des limites d'une comparaison descriptive.
-
-## Projet possible
-
-Créer un mini-tableau de bord Quarto, Shiny ou learnr permettant de choisir une géographie et une année, puis d'afficher une pyramide des âges et quelques indicateurs démographiques descriptifs.
-
-## Activités pédagogiques possibles
-
-1. Construire une pyramide des âges pour le Québec pour une année donnée.
-2. Comparer la pyramide des âges du Québec avec celle du Canada.
-3. Observer l'évolution de la structure d'âge entre deux années.
-4. Calculer la proportion de la population âgée de 65 ans et plus.
-5. Comparer les distributions d'âge selon le genre.
-6. Discuter du vieillissement démographique à partir de données réelles.
-7. Créer une visualisation interactive avec `plotly`, `shiny` ou `learnr`.
-8. Comparer plusieurs provinces à partir d'un même code reproductible.
-
-## Questions pédagogiques possibles
-
-1. Pourquoi faut-il filtrer les groupes d'âge avant de construire une pyramide?
-2. Pourquoi place-t-on souvent un genre du côté négatif de l'axe horizontal?
-3. Comment interpréter une pyramide des âges sans confondre effectifs et proportions?
-4. Quelle différence observe-t-on entre le Québec et le Canada?
-5. Comment varie la proportion des 65 ans et plus dans le temps?
-6. Quelles limites pose l'utilisation de données agrégées?
-7. Les catégories de genre disponibles suffisent-elles à toutes les questions d'analyse?
-8. Quelles conclusions seraient trop fortes avec une comparaison descriptive?
+En 2 à 3 heures, comparer la structure d'âge du Québec et du Canada entre 2001 et 2025. Le livrable doit inclure des pyramides en proportions, la part des 65 ans et plus, et une section de limites.
 
 ## Code R minimal
 
+À exécuter depuis la racine du projet.
+
 ```{r}
 #| eval: false
-library(cansim)
+# Load libraries
 library(dplyr)
 library(ggplot2)
-library(stringr)
+library(readr)
+library(scales)
 
-age_groups <- c(
-  paste(seq(0, 95, by = 5), "to", seq(4, 99, by = 5), "years"),
-  "100 years and older"
+# Prepare official StatCan table
+source("datasets/pyramides-ages/preparation.R")
+
+# Import prepared data
+population <- read_csv(
+  "data/processed/pyramides-ages/population_pyramides_quebec_canada_latest.csv",
+  show_col_types = FALSE
 )
 
-pop <- get_cansim("17-10-0005-01")
+# Keep Quebec and plot proportions
+population_quebec <- population |>
+  filter(geography == "Quebec")
 
-latest_year <- max(as.integer(pop$REF_DATE), na.rm = TRUE)
-
-pop_qc <- pop |>
-  filter(
-    GEO == "Quebec",
-    as.integer(REF_DATE) == latest_year,
-    Gender %in% c("Men+", "Women+"),
-    `Age group` %in% age_groups,
-    UOM == "Persons"
-  ) |>
-  mutate(
-    age_group = factor(as.character(`Age group`), levels = age_groups),
-    genre = recode(as.character(Gender), "Men+" = "Hommes+", "Women+" = "Femmes+"),
-    value_plot = if_else(Gender == "Men+", -VALUE, VALUE)
-  )
-
-ggplot(pop_qc, aes(x = age_group, y = value_plot, fill = genre)) +
+ggplot(
+  population_quebec,
+  aes(x = age_group, y = proportion_plot, fill = gender)
+) +
   geom_col(width = 0.85) +
   coord_flip() +
-  scale_y_continuous(
-    labels = function(x) format(abs(x), big.mark = " ", scientific = FALSE)
-  ) +
+  scale_y_continuous(labels = function(x) percent(abs(x), accuracy = 1)) +
   labs(
-    title = paste("Pyramide des âges du Québec,", latest_year),
+    title = "Pyramide des âges du Québec, 2025",
+    subtitle = "Proportions de la population estimée au 1er juillet",
     x = "Groupe d'âge",
-    y = "Population",
-    fill = "Genre"
+    y = "Part de la population",
+    fill = "Genre publié"
   ) +
   theme_minimal()
 ```
 
 ## Limites et précautions
 
-- La table contient des effectifs estimés et agrégés; elle ne contient pas de microdonnées individuelles.
-- Les colonnes principales ne fournissent pas directement d'incertitude statistique autour des estimations.
-- Les groupes d'âge disponibles incluent des âges simples, des groupes quinquennaux, des groupes larges, l'âge moyen et l'âge médian; il faut filtrer avant de visualiser.
-- Les comparaisons entre territoires doivent distinguer les effectifs absolus des proportions.
-- Les catégories `Men+` et `Women+` doivent être présentées comme les catégories publiées dans cette table, pas comme une mesure exhaustive de toutes les identités de genre.
+- La table contient des estimations agrégées, pas des microdonnées individuelles.
+- La table ne fournit pas directement une incertitude statistique dans les colonnes principales.
+- Les catégories `Men+` et `Women+` sont les catégories publiées dans cette table.
+- Les valeurs négatives dans une pyramide sont une convention graphique, pas des populations négatives.
+- Les comparaisons Canada-Québec doivent privilégier les proportions plutôt que les effectifs.
+- La table ne contient pas, à elle seule, les causes démographiques des changements observés.
 
 ## Extensions
 
-- Extension intro : construire une pyramide des âges pour le Québec.
-- Extension intermédiaire : comparer Canada, Québec et une autre province en proportions.
-- Extension avancée : produire une animation temporelle de 1971 à 2025.
-- Extension communication scientifique : rédiger une note courte sur le vieillissement démographique en séparant résultats descriptifs, limites et interprétation.
+- Construire la pyramide pour une autre province.
+- Comparer 2001, 2011 et 2025.
+- Ajouter un indicateur de dépendance démographique.
+- Produire une animation temporelle.
+- Transformer l'activité en mini-tableau de bord Quarto, Shiny ou learnr.
+
+## Références utilisées
+
+Statistique Canada. 2026. Tableau 17-10-0005-01, Estimations de la population au 1er juillet, par âge et genre. <https://www150.statcan.gc.ca/t1/tbl1/fr/tv.action?pid=1710000501>
+
+Statistique Canada. 2026. Catalogue 1710000501, Estimations de la population au 1er juillet, par âge et genre. <https://www150.statcan.gc.ca/n1/fr/catalogue/1710000501>
+
+Statistique Canada. 2026. DOI du tableau 17-10-0005-01. <https://doi.org/10.25318/1710000501-fra>
 
 ```{r}
 #| label: dataset-detail-footer
@@ -232,4 +242,3 @@ ggplot(pop_qc, aes(x = age_group, y = value_plot, fill = genre)) +
 #| results: asis
 render_dataset_detail_footer()
 ```
-

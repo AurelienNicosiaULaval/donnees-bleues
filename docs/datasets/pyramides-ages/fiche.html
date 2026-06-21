@@ -5547,11 +5547,14 @@ Pyramides des âges au Canada et au Québec
 <p class="dataset-hero-source">
 Statistique Canada
 </p>
+<div class="dataset-contributor-badge">
+<span>Personne à contacter</span><strong>Aurélien Nicosia</strong><small>Révision pédagogique et statistique</small>
+</div>
 <p class="dataset-hero-summary">
 Combinaison année, géographie, genre et groupe d&#39;âge
 </p>
 <div class="dataset-hero-actions">
-<a class="dataset-button no-external" href="#r-en-action">Voir les résultats R</a><a class="dataset-button secondary" href="https://www150.statcan.gc.ca/t1/tbl1/en/tv.action?pid=1710000501">Source officielle</a>
+<a class="dataset-button no-external" href="#r-en-action">Voir les résultats R</a><a class="dataset-button secondary" href="https://www150.statcan.gc.ca/t1/tbl1/fr/tv.action?pid=1710000501">Source officielle</a>
 </div>
 </div>
 <div class="dataset-hero-media">
@@ -5566,7 +5569,7 @@ Combinaison année, géographie, genre et groupe d&#39;âge
 <span>Niveau</span><strong>Introduction à intermédiaire</strong>
 </div>
 <div class="dataset-fact">
-<span>Structure</span><strong>Tabulaire, temporel, démographique</strong>
+<span>Structure</span><strong>Table longue démographique, temporelle et territoriale</strong>
 </div>
 <div class="dataset-fact">
 <span>Format</span><strong>Table StatCan accessible par cansim; CSV et SDMX disponibles</strong>
@@ -5576,18 +5579,18 @@ Combinaison année, géographie, genre et groupe d&#39;âge
 <div class="dataset-pedagogy-main">
 <span>Question de départ</span>
 <p>
-Explorer démographie avec une question descriptive.
+Construire une pyramide des âges du Québec pour 2025 et expliquer les choix de filtrage.
 </p>
 </div>
 <div class="dataset-score-box">
-<span>Potentiel pédagogique</span><strong>26 / 30</strong>
+<span>Potentiel pédagogique</span><strong>27 / 30</strong>
 <div class="dataset-score-track">
 <span class="dataset-score-segment is-filled"></span><span class="dataset-score-segment is-filled"></span><span class="dataset-score-segment is-filled"></span><span class="dataset-score-segment is-filled"></span><span class="dataset-score-segment is-filled"></span>
 </div>
 </div>
 </div>
 <div class="dataset-chip-strip">
-<span>importation de données ouvertes</span><span>nettoyage de données</span><span>filtrage</span><span>transformation de variables</span><span>agrégation par groupe d&#39;âge</span><span>calcul de proportions</span><span>statistique descriptive</span>
+<span>importation de données ouvertes</span><span>nettoyage de données</span><span>filtrage</span><span>groupes d&#39;âge</span><span>proportions</span><span>pyramide des âges</span><span>comparaison temporelle</span>
 </div>
 <section class="dataset-r-lab" id="r-en-action">
 <div class="dataset-section-heading">
@@ -5596,7 +5599,7 @@ Explorer démographie avec une question descriptive.
 Aperçu reproductible
 </h2>
 <p>
-Aperçu léger calculé par R à partir des métadonnées vérifiées afin de garder la fiche rapide et stable au rendu.
+Aperçu calculé par R à partir de data/processed/pyramides-ages/population_pyramides_quebec_canada_latest.csv.
 </p>
 </div>
 <div class="dataset-r-grid">
@@ -5604,13 +5607,12 @@ Aperçu léger calculé par R à partir des métadonnées vérifiées afin de ga
 <div class="dataset-card-label">
 Code minimal
 </div>
-<pre><code class="language-r">library(yaml)
+<pre><code class="language-r">library(dplyr)
 
-metadata &lt;- yaml::read_yaml(&quot;datasets/pyramides-ages/metadata.yml&quot;)
-data.frame(
-  champ = c(&quot;theme&quot;, &quot;territoire&quot;, &quot;unite&quot;, &quot;niveau&quot;),
-  valeur = c(metadata$theme, metadata$geography, metadata$unit, metadata$level)
-)</code></pre>
+donnees &lt;- read.csv(&quot;data/processed/pyramides-ages/population_pyramides_quebec_canada_latest.csv&quot;, check.names = FALSE)
+
+glimpse(donnees)
+donnees |&gt; summarise(lignes = n(), colonnes = ncol(donnees))</code></pre>
 </div>
 <div class="dataset-result-card">
 <div class="dataset-card-label">
@@ -5618,16 +5620,19 @@ Résultats R
 </div>
 <div class="dataset-r-stats">
 <div class="dataset-r-stat">
-<span>Lignes déclarées</span><strong>302610 lignes dans la version récupérée par cansim le 2026-06-18</strong>
+<span>Lignes lues</span><strong>84</strong>
 </div>
 <div class="dataset-r-stat">
-<span>Colonnes déclarées</span><strong>24 colonnes dans la version récupérée par cansim le 2026-06-18</strong>
+<span>Colonnes</span><strong>8</strong>
 </div>
 <div class="dataset-r-stat">
-<span>Format</span><strong>Table StatCan accessible par cansim; CSV et SDMX disponibles</strong>
+<span>Variables num.</span><strong>5</strong>
 </div>
 <div class="dataset-r-stat">
-<span>Aperçu</span><strong>Métadonnées</strong>
+<span>Valeurs manquantes</span><strong>0 %</strong>
+</div>
+<div class="dataset-r-stat">
+<span>Aperçu</span><strong>population_pyramides_quebec_canada_latest.csv</strong>
 </div>
 </div>
 <div class="dataset-result-table-wrap">
@@ -5635,52 +5640,144 @@ Résultats R
 <thead>
 <tr>
 <th>
-champ
+year
 </th>
 <th>
-valeur
+geography
+</th>
+<th>
+gender
+</th>
+<th>
+age_group
+</th>
+<th>
+population
+</th>
+<th>
+population_plot
 </th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>
-theme
+2025
 </td>
 <td>
-Démographie
-</td>
-</tr>
-<tr>
-<td>
-territoire
+Canada
 </td>
 <td>
-Canada, Québec, provinces et te…
-</td>
-</tr>
-<tr>
-<td>
-unite
+Men+
 </td>
 <td>
-Combinaison année, géographie, …
+0 to 4 years
+</td>
+<td>
+959179
+</td>
+<td>
+-959179
 </td>
 </tr>
 <tr>
 <td>
-niveau
+2025
 </td>
 <td>
-Introduction à intermédiaire
+Canada
+</td>
+<td>
+Men+
+</td>
+<td>
+5 to 9 years
+</td>
+<td>
+1095748
+</td>
+<td>
+-1095748
 </td>
 </tr>
 <tr>
 <td>
-format
+2025
 </td>
 <td>
-Table StatCan accessible par ca…
+Canada
+</td>
+<td>
+Men+
+</td>
+<td>
+10 to 14 years
+</td>
+<td>
+1156401
+</td>
+<td>
+-1156401
+</td>
+</tr>
+<tr>
+<td>
+2025
+</td>
+<td>
+Canada
+</td>
+<td>
+Men+
+</td>
+<td>
+15 to 19 years
+</td>
+<td>
+1195736
+</td>
+<td>
+-1195736
+</td>
+</tr>
+<tr>
+<td>
+2025
+</td>
+<td>
+Canada
+</td>
+<td>
+Men+
+</td>
+<td>
+20 to 24 years
+</td>
+<td>
+1419266
+</td>
+<td>
+-1419266
+</td>
+</tr>
+<tr>
+<td>
+2025
+</td>
+<td>
+Canada
+</td>
+<td>
+Men+
+</td>
+<td>
+25 to 29 years
+</td>
+<td>
+1556583
+</td>
+<td>
+-1556583
 </td>
 </tr>
 </tbody>
@@ -5691,8 +5788,8 @@ Table StatCan accessible par ca…
 <div class="dataset-card-label">
 Lecture statistique
 </div>
-<svg class="dataset-r-chart" viewbox="0 0 320 210" role="img" aria-label="Concepts pédagogiques">
-<text x="0" y="30" class="dataset-svg-label">importation de données ouvertes</text><rect x="150" y="18" width="90" height="14" rx="3" class="dataset-svg-bar" /><text x="0" y="54" class="dataset-svg-label">nettoyage de données</text><rect x="150" y="42" width="90" height="14" rx="3" class="dataset-svg-bar" /><text x="0" y="78" class="dataset-svg-label">filtrage</text><rect x="150" y="66" width="90" height="14" rx="3" class="dataset-svg-bar" /><text x="0" y="102" class="dataset-svg-label">transformation de variables</text><rect x="150" y="90" width="90" height="14" rx="3" class="dataset-svg-bar" /><text x="0" y="126" class="dataset-svg-label">agrégation par groupe d&#39;âge</text><rect x="150" y="114" width="90" height="14" rx="3" class="dataset-svg-bar" /><text x="0" y="150" class="dataset-svg-label">calcul de proportions</text><rect x="150" y="138" width="90" height="14" rx="3" class="dataset-svg-bar" /><text x="0" y="174" class="dataset-svg-label">statistique descriptive</text><rect x="150" y="162" width="90" height="14" rx="3" class="dataset-svg-bar" />
+<svg class="dataset-r-chart" viewbox="0 0 320 210" role="img" aria-label="Aperçu numérique généré par R">
+<line x1="34" y1="158" x2="292" y2="158" class="dataset-svg-axis"></line><line x1="34" y1="36" x2="34" y2="158" class="dataset-svg-axis"></line><polyline points="34,71.8 40.4,72.8 46.7,68.5 53.1,58.3 59.4,46 65.8,51.7 72.2,50.9 78.5,54.3 84.9,66.6 91.2,65.8 97.6,52 103.9,58.5 110.3,77.3 116.7,95.3 123,118.8 129.4,139 135.7,150.7 142.1,156.4 148.5,158 154.8,90 161.2,81.1 167.5,75.8 173.9,76.5 180.3,74.7 186.6,66.7 193,54.7 199.3,58 205.7,56.3 212.1,58.6 218.4,69.7 224.8,67.8 231.1,52.7 237.5,55 243.8,72 250.2,88.6 256.6,110.5 262.9,130.1 269.3,143.1 275.6,153 282,157.4" class="dataset-svg-line"></polyline><circle cx="34" cy="71.8" r="3.2" class="dataset-svg-point"></circle><circle cx="40.4" cy="72.8" r="3.2" class="dataset-svg-point"></circle><circle cx="46.7" cy="68.5" r="3.2" class="dataset-svg-point"></circle><circle cx="53.1" cy="58.3" r="3.2" class="dataset-svg-point"></circle><circle cx="59.4" cy="46" r="3.2" class="dataset-svg-point"></circle><circle cx="65.8" cy="51.7" r="3.2" class="dataset-svg-point"></circle><circle cx="72.2" cy="50.9" r="3.2" class="dataset-svg-point"></circle><circle cx="78.5" cy="54.3" r="3.2" class="dataset-svg-point"></circle><circle cx="84.9" cy="66.6" r="3.2" class="dataset-svg-point"></circle><circle cx="91.2" cy="65.8" r="3.2" class="dataset-svg-point"></circle><circle cx="97.6" cy="52" r="3.2" class="dataset-svg-point"></circle><circle cx="103.9" cy="58.5" r="3.2" class="dataset-svg-point"></circle><circle cx="110.3" cy="77.3" r="3.2" class="dataset-svg-point"></circle><circle cx="116.7" cy="95.3" r="3.2" class="dataset-svg-point"></circle><circle cx="123" cy="118.8" r="3.2" class="dataset-svg-point"></circle><circle cx="129.4" cy="139" r="3.2" class="dataset-svg-point"></circle><circle cx="135.7" cy="150.7" r="3.2" class="dataset-svg-point"></circle><circle cx="142.1" cy="156.4" r="3.2" class="dataset-svg-point"></circle><circle cx="148.5" cy="158" r="3.2" class="dataset-svg-point"></circle><circle cx="154.8" cy="90" r="3.2" class="dataset-svg-point"></circle><circle cx="161.2" cy="81.1" r="3.2" class="dataset-svg-point"></circle><circle cx="167.5" cy="75.8" r="3.2" class="dataset-svg-point"></circle><circle cx="173.9" cy="76.5" r="3.2" class="dataset-svg-point"></circle><circle cx="180.3" cy="74.7" r="3.2" class="dataset-svg-point"></circle><circle cx="186.6" cy="66.7" r="3.2" class="dataset-svg-point"></circle><circle cx="193" cy="54.7" r="3.2" class="dataset-svg-point"></circle><circle cx="199.3" cy="58" r="3.2" class="dataset-svg-point"></circle><circle cx="205.7" cy="56.3" r="3.2" class="dataset-svg-point"></circle><circle cx="212.1" cy="58.6" r="3.2" class="dataset-svg-point"></circle><circle cx="218.4" cy="69.7" r="3.2" class="dataset-svg-point"></circle><circle cx="224.8" cy="67.8" r="3.2" class="dataset-svg-point"></circle><circle cx="231.1" cy="52.7" r="3.2" class="dataset-svg-point"></circle><circle cx="237.5" cy="55" r="3.2" class="dataset-svg-point"></circle><circle cx="243.8" cy="72" r="3.2" class="dataset-svg-point"></circle><circle cx="250.2" cy="88.6" r="3.2" class="dataset-svg-point"></circle><circle cx="256.6" cy="110.5" r="3.2" class="dataset-svg-point"></circle><circle cx="262.9" cy="130.1" r="3.2" class="dataset-svg-point"></circle><circle cx="269.3" cy="143.1" r="3.2" class="dataset-svg-point"></circle><circle cx="275.6" cy="153" r="3.2" class="dataset-svg-point"></circle><circle cx="282" cy="157.4" r="3.2" class="dataset-svg-point"></circle><text x="34" y="24" class="dataset-svg-title">population</text><text x="34" y="186" class="dataset-svg-label">438</text><text x="230" y="186" class="dataset-svg-label">330418</text>
 </svg>
 </div>
 </div>
@@ -5702,7 +5799,13 @@ Lecture statistique
 <span>Mini-projets</span>
 <ul>
 <li>
-Explorer démographie avec une question descriptive.
+Construire une pyramide des âges du Québec pour 2025 et expliquer les choix de filtrage.
+</li>
+<li>
+Comparer le poids des 65 ans et plus au Québec et au Canada entre 2001 et 2025.
+</li>
+<li>
+Présenter une comparaison en proportions pour éviter de confondre taille de population et structure d&#39;âge.
 </li>
 </ul>
 </div>
@@ -5710,7 +5813,7 @@ Explorer démographie avec une question descriptive.
 <span>Activités liées</span>
 <div class="dataset-activity-grid">
 <div class="dataset-activity-card">
-<span>30-45 minutes</span><strong>Construire une pyramide des âges du Québec</strong>
+<span>30-45 minutes</span><strong>Pyramide des âges du Québec en 2025</strong>
 <p>
 Comment transformer une table démographique en pyramide des âges lisible?
 </p>
@@ -5727,11 +5830,72 @@ Comment décrire l&#39;évolution d&#39;une structure démographique avec des do
 <div class="dataset-detail-content">
 <section id="pourquoi-ce-jeu-est-intéressant" class="level2">
 <h2 class="anchored" data-anchor-id="pourquoi-ce-jeu-est-intéressant">Pourquoi ce jeu est intéressant</h2>
-<p>Ce jeu de données permet d’explorer la structure démographique du Canada, du Québec et des provinces canadiennes à partir des estimations annuelles de population par âge et genre. Il est particulièrement adapté pour enseigner la manipulation de données, les regroupements, les proportions, la visualisation comparative et la construction de pyramides des âges.</p>
-<p>La table est aussi utile pour discuter de la différence entre données individuelles et données agrégées. Les lignes décrivent des effectifs estimés pour des combinaisons d’année, de territoire, de genre et de groupe d’âge; elles ne décrivent pas des personnes individuelles.</p>
+<p>Ce jeu permet de relier une visualisation très connue, la pyramide des âges, à des gestes de science des données très concrets : importer une table officielle, filtrer les bonnes unités, choisir des groupes d’âge cohérents, calculer des proportions et distinguer une structure démographique d’un simple volume de population.</p>
+<p>La fiche est aussi utile pour enseigner une idée importante : une pyramide des âges n’est pas seulement un graphique. Elle force des décisions statistiques. Il faut choisir l’année, le territoire, les catégories de genre, les groupes d’âge et l’échelle, puis expliquer clairement ce que la visualisation ne permet pas de conclure.</p>
 </section>
-<section id="source" class="level2">
-<h2 class="anchored" data-anchor-id="source">Source</h2>
+<section id="ce-qui-a-été-vérifié" class="level2">
+<h2 class="anchored" data-anchor-id="ce-qui-a-été-vérifié">Ce qui a été vérifié</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Élément</th>
+<th>Résultat vérifié</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Source officielle</td>
+<td>Statistique Canada</td>
+</tr>
+<tr class="even">
+<td>Tableau</td>
+<td><code>17-10-0005-01</code>, anciennement CANSIM <code>051-0001</code></td>
+</tr>
+<tr class="odd">
+<td>Titre officiel</td>
+<td>Estimations de la population au 1er juillet, par âge et genre</td>
+</tr>
+<tr class="even">
+<td>Fréquence</td>
+<td>Annuelle</td>
+</tr>
+<tr class="odd">
+<td>Date de diffusion affichée par StatCan</td>
+<td>2025-09-24</td>
+</tr>
+<tr class="even">
+<td>Date de modification affichée par StatCan</td>
+<td>2026-06-21</td>
+</tr>
+<tr class="odd">
+<td>Périodes disponibles dans la table récupérée</td>
+<td>1971 à 2025</td>
+</tr>
+<tr class="even">
+<td>Géographies disponibles dans la table récupérée</td>
+<td>15 géographies</td>
+</tr>
+<tr class="odd">
+<td>Catégories de genre dans la table</td>
+<td><code>Total - gender</code>, <code>Men+</code>, <code>Women+</code></td>
+</tr>
+<tr class="even">
+<td>Table préparée ici</td>
+<td><code>data/processed/pyramides-ages/population_pyramides_quebec_canada_latest.csv</code></td>
+</tr>
+<tr class="odd">
+<td>Résumés préparés</td>
+<td>indicateurs 2025, comparaison 2001-2025, groupes d’âge par genre</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="source-et-conditions" class="level2">
+<h2 class="anchored" data-anchor-id="source-et-conditions">Source et conditions</h2>
 <table class="caption-top table">
 <thead>
 <tr class="header">
@@ -5741,20 +5905,12 @@ Comment décrire l&#39;évolution d&#39;une structure démographique avec des do
 </thead>
 <tbody>
 <tr class="odd">
-<td>Organisme producteur</td>
-<td>Statistique Canada</td>
+<td>Page StatCan</td>
+<td><a href="https://www150.statcan.gc.ca/t1/tbl1/fr/tv.action?pid=1710000501" class="uri">https://www150.statcan.gc.ca/t1/tbl1/fr/tv.action?pid=1710000501</a></td>
 </tr>
 <tr class="even">
-<td>Table</td>
-<td>17-10-0005-01</td>
-</tr>
-<tr class="odd">
-<td>Titre officiel</td>
-<td>Estimations de la population au 1er juillet, par âge et genre</td>
-</tr>
-<tr class="even">
-<td>URL StatCan</td>
-<td><a href="https://www150.statcan.gc.ca/t1/tbl1/en/tv.action?pid=1710000501" class="uri">https://www150.statcan.gc.ca/t1/tbl1/en/tv.action?pid=1710000501</a></td>
+<td>Catalogue StatCan</td>
+<td><a href="https://www150.statcan.gc.ca/n1/fr/catalogue/1710000501" class="uri">https://www150.statcan.gc.ca/n1/fr/catalogue/1710000501</a></td>
 </tr>
 <tr class="odd">
 <td>DOI</td>
@@ -5770,185 +5926,302 @@ Comment décrire l&#39;évolution d&#39;une structure démographique avec des do
 </tr>
 <tr class="even">
 <td>Date d’accès</td>
-<td>2026-06-18</td>
+<td>2026-06-21</td>
 </tr>
 <tr class="odd">
-<td>Fréquence de mise à jour</td>
-<td>Annuelle</td>
-</tr>
-<tr class="even">
-<td>Périodes visibles</td>
-<td>1971 à 2025</td>
+<td>Outil de récupération</td>
+<td><code>cansim::get_cansim(&quot;17-10-0005-01&quot;)</code></td>
 </tr>
 </tbody>
 </table>
 </section>
-<section id="niveau-pédagogique-recommandé" class="level2">
-<h2 class="anchored" data-anchor-id="niveau-pédagogique-recommandé">Niveau pédagogique recommandé</h2>
-<ul>
-<li>Introduction à la science des données;</li>
-<li>statistique descriptive;</li>
-<li>visualisation de données;</li>
-<li>cours R ou tidyverse;</li>
-<li>projet court ou laboratoire interactif.</li>
-</ul>
-</section>
 <section id="ce-que-représente-une-ligne" class="level2">
 <h2 class="anchored" data-anchor-id="ce-que-représente-une-ligne">Ce que représente une ligne</h2>
-<p>Une ligne représente une estimation de population pour une combinaison de période de référence, géographie, genre et groupe d’âge. Dans la version récupérée par <code>cansim</code> le 2026-06-18, la table contient aussi des mesures comme l’âge médian et l’âge moyen; il faut donc filtrer <code>UOM == &quot;Persons&quot;</code> pour construire une pyramide des âges.</p>
+<p>Dans la table brute, une ligne représente une estimation pour une combinaison d’année, de géographie, de genre, de groupe d’âge ou de mesure d’âge, et d’unité. La table contient à la fois des effectifs en personnes et des mesures en années, comme l’âge médian et l’âge moyen.</p>
+<p>Dans le fichier préparé pour la pyramide, une ligne représente plutôt une combinaison année, géographie, genre et groupe d’âge quinquennal. La préparation conserve seulement <code>Canada</code> et <code>Quebec</code>, l’année 2025, les catégories <code>Men+</code> et <code>Women+</code>, les groupes quinquennaux de <code>0 to 4 years</code> à <code>100 years and older</code>, et <code>UOM == &quot;Persons&quot;</code>.</p>
+<p>Une ligne n’est pas une personne, une cohorte individuelle, une naissance, un décès ou une migration. C’est une estimation agrégée de population.</p>
 </section>
 <section id="variables-principales" class="level2">
 <h2 class="anchored" data-anchor-id="variables-principales">Variables principales</h2>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 20%">
-<col style="width: 20%">
-<col style="width: 20%">
-<col style="width: 20%">
-<col style="width: 20%">
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
 </colgroup>
 <thead>
 <tr class="header">
-<th>Variable</th>
-<th>Type</th>
-<th>Description</th>
-<th>Exemple</th>
-<th>Remarques pédagogiques</th>
+<th>Variable préparée</th>
+<th>Rôle</th>
+<th>Point de vigilance</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td><code>REF_DATE</code></td>
-<td>caractère</td>
+<td><code>year</code></td>
 <td>Année de référence</td>
-<td>2025</td>
-<td>Sert aux comparaisons temporelles</td>
+<td>La table porte sur la population estimée au 1er juillet</td>
 </tr>
 <tr class="even">
-<td><code>GEO</code></td>
-<td>facteur</td>
-<td>Géographie</td>
-<td>Quebec</td>
-<td>Permet de comparer Canada, Québec, provinces et territoires</td>
+<td><code>geography</code></td>
+<td>Territoire</td>
+<td>La fiche prépare Canada et Québec pour comparaison directe</td>
 </tr>
 <tr class="odd">
-<td><code>Gender</code></td>
-<td>facteur</td>
-<td>Genre</td>
-<td>Men+</td>
-<td>Modalités utiles : <code>Men+</code> et <code>Women+</code></td>
+<td><code>gender</code></td>
+<td>Catégorie publiée par StatCan</td>
+<td>Les modalités utilisées ici sont <code>Men+</code> et <code>Women+</code></td>
 </tr>
 <tr class="even">
-<td><code>Age group</code></td>
-<td>facteur</td>
-<td>Groupe d’âge ou mesure d’âge</td>
-<td>65 to 69 years</td>
-<td>La colonne contient des groupes quinquennaux, des âges simples et des regroupements larges</td>
+<td><code>age_group</code></td>
+<td>Groupe d’âge quinquennal</td>
+<td>Les âges simples, <code>All ages</code>, l’âge moyen et l’âge médian sont exclus</td>
 </tr>
 <tr class="odd">
-<td><code>VALUE</code></td>
-<td>numérique</td>
-<td>Valeur publiée</td>
-<td>330418</td>
-<td>Effectif lorsque <code>UOM == &quot;Persons&quot;</code></td>
+<td><code>population</code></td>
+<td>Population estimée</td>
+<td>Effectif positif réel dans la table préparée</td>
 </tr>
 <tr class="even">
-<td><code>UOM</code></td>
-<td>facteur</td>
-<td>Unité de mesure</td>
-<td>Persons</td>
-<td>À filtrer pour exclure les mesures en années</td>
+<td><code>population_plot</code></td>
+<td>Population signée pour le graphique</td>
+<td>Valeur négative seulement pour placer <code>Men+</code> à gauche</td>
 </tr>
 <tr class="odd">
-<td><code>val_norm</code></td>
-<td>numérique</td>
-<td>Valeur normalisée par <code>cansim</code></td>
-<td>330418</td>
-<td>Utile lorsque les tables StatCan utilisent des facteurs d’échelle</td>
+<td><code>proportion</code></td>
+<td>Part du groupe dans la population du territoire</td>
+<td>Plus adaptée que les effectifs pour comparer Canada et Québec</td>
+</tr>
+<tr class="even">
+<td><code>proportion_plot</code></td>
+<td>Proportion signée pour le graphique</td>
+<td>Convention d’affichage, pas une proportion négative</td>
 </tr>
 </tbody>
 </table>
 </section>
-<section id="taille-et-structure" class="level2">
-<h2 class="anchored" data-anchor-id="taille-et-structure">Taille et structure</h2>
+<section id="taille-et-résultats-r-vérifiés" class="level2">
+<h2 class="anchored" data-anchor-id="taille-et-résultats-r-vérifiés">Taille et résultats R vérifiés</h2>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Indicateur</th>
+<th style="text-align: right;">Valeur</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Lignes brutes récupérées par <code>cansim</code></td>
+<td style="text-align: right;">302 610</td>
+</tr>
+<tr class="even">
+<td>Colonnes brutes</td>
+<td style="text-align: right;">24</td>
+</tr>
+<tr class="odd">
+<td>Lignes préparées pour la pyramide 2025</td>
+<td style="text-align: right;">84</td>
+</tr>
+<tr class="even">
+<td>Colonnes préparées pour la pyramide 2025</td>
+<td style="text-align: right;">8</td>
+</tr>
+<tr class="odd">
+<td>Lignes préparées pour la comparaison 2001-2025</td>
+<td style="text-align: right;">168</td>
+</tr>
+<tr class="even">
+<td>Première année disponible</td>
+<td style="text-align: right;">1971</td>
+</tr>
+<tr class="odd">
+<td>Dernière année disponible</td>
+<td style="text-align: right;">2025</td>
+</tr>
+<tr class="even">
+<td>Population Canada 2025</td>
+<td style="text-align: right;">41 651 653</td>
+</tr>
+<tr class="odd">
+<td>Population Québec 2025</td>
+<td style="text-align: right;">9 058 297</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="indicateurs-démographiques-2025" class="level2">
+<h2 class="anchored" data-anchor-id="indicateurs-démographiques-2025">Indicateurs démographiques 2025</h2>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 50%">
-<col style="width: 50%">
+<col style="width: 11%">
+<col style="width: 14%">
+<col style="width: 14%">
+<col style="width: 14%">
+<col style="width: 14%">
+<col style="width: 14%">
+<col style="width: 14%">
 </colgroup>
 <thead>
 <tr class="header">
-<th>Élément</th>
-<th>Information</th>
+<th>Territoire</th>
+<th style="text-align: right;">Population</th>
+<th style="text-align: right;">0 à 14 ans</th>
+<th style="text-align: right;">15 à 64 ans</th>
+<th style="text-align: right;">65 ans et plus</th>
+<th style="text-align: right;">Âge médian</th>
+<th style="text-align: right;">Âge moyen</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>Nombre de lignes</td>
-<td>302610 lignes dans la version récupérée par <code>cansim</code> le 2026-06-18</td>
+<td>Canada</td>
+<td style="text-align: right;">41 651 653</td>
+<td style="text-align: right;">6 261 162 (15,0 %)</td>
+<td style="text-align: right;">27 282 024 (65,5 %)</td>
+<td style="text-align: right;">8 108 467 (19,5 %)</td>
+<td style="text-align: right;">40,6</td>
+<td style="text-align: right;">41,8</td>
 </tr>
 <tr class="even">
-<td>Nombre de colonnes</td>
-<td>24 colonnes dans la version récupérée par <code>cansim</code> le 2026-06-18</td>
-</tr>
-<tr class="odd">
-<td>Structure</td>
-<td>Table longue avec dimensions temporelle, géographique, de genre et d’âge</td>
-</tr>
-<tr class="even">
-<td>Format</td>
-<td>Table StatCan accessible par <code>cansim</code>; CSV et SDMX disponibles sur la page StatCan</td>
+<td>Québec</td>
+<td style="text-align: right;">9 058 297</td>
+<td style="text-align: right;">1 376 317 (15,2 %)</td>
+<td style="text-align: right;">5 717 528 (63,1 %)</td>
+<td style="text-align: right;">1 964 452 (21,7 %)</td>
+<td style="text-align: right;">42,8</td>
+<td style="text-align: right;">43,1</td>
 </tr>
 </tbody>
 </table>
+<p>Le Québec a une part plus élevée de 65 ans et plus que le Canada dans cette préparation 2025. La comparaison doit être faite en proportions, parce que les effectifs du Canada et du Québec ne sont pas sur la même échelle.</p>
 </section>
-<section id="compétences-mobilisées" class="level2">
-<h2 class="anchored" data-anchor-id="compétences-mobilisées">Compétences mobilisées</h2>
-<ul>
-<li>importation de données ouvertes;</li>
-<li>nettoyage de données;</li>
-<li>filtrage avec <code>dplyr</code>;</li>
-<li>transformation de variables;</li>
-<li>sélection de groupes d’âge;</li>
-<li>agrégation par groupe d’âge;</li>
-<li>calcul de proportions;</li>
-<li>visualisation avec <code>ggplot2</code>;</li>
-<li>comparaison temporelle;</li>
-<li>comparaison Canada, Québec, provinces et territoires;</li>
-<li>interprétation démographique.</li>
-</ul>
+<section id="comparaison-2001-et-2025" class="level2">
+<h2 class="anchored" data-anchor-id="comparaison-2001-et-2025">Comparaison 2001 et 2025</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 22%">
+<col style="width: 22%">
+<col style="width: 22%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Année</th>
+<th>Territoire</th>
+<th style="text-align: right;">Population</th>
+<th style="text-align: right;">65 ans et plus</th>
+<th style="text-align: right;">Part des 65 ans et plus</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>2001</td>
+<td>Canada</td>
+<td style="text-align: right;">31 020 855</td>
+<td style="text-align: right;">3 921 822</td>
+<td style="text-align: right;">12,6 %</td>
+</tr>
+<tr class="even">
+<td>2001</td>
+<td>Québec</td>
+<td style="text-align: right;">7 396 014</td>
+<td style="text-align: right;">964 234</td>
+<td style="text-align: right;">13,0 %</td>
+</tr>
+<tr class="odd">
+<td>2025</td>
+<td>Canada</td>
+<td style="text-align: right;">41 651 653</td>
+<td style="text-align: right;">8 108 467</td>
+<td style="text-align: right;">19,5 %</td>
+</tr>
+<tr class="even">
+<td>2025</td>
+<td>Québec</td>
+<td style="text-align: right;">9 058 297</td>
+<td style="text-align: right;">1 964 452</td>
+<td style="text-align: right;">21,7 %</td>
+</tr>
+</tbody>
+</table>
+<p>Cette table soutient une bonne discussion pédagogique : la population totale augmente, mais la structure d’âge change aussi. Un rapport solide doit donc séparer les effectifs, les proportions et les interprétations.</p>
 </section>
-<section id="visualisations-suggérées" class="level2">
-<h2 class="anchored" data-anchor-id="visualisations-suggérées">Visualisations suggérées</h2>
-<ul>
-<li>pyramide des âges;</li>
-<li>barplot groupé par âge et genre;</li>
-<li>courbes d’évolution de groupes d’âge;</li>
-<li>carte simple par province;</li>
-<li>graphique comparatif Québec vs Canada;</li>
-<li>animation temporelle de la pyramide des âges.</li>
-</ul>
+<section id="groupes-dâge-les-plus-nombreux-en-2025" class="level2">
+<h2 class="anchored" data-anchor-id="groupes-dâge-les-plus-nombreux-en-2025">Groupes d’âge les plus nombreux en 2025</h2>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Territoire</th>
+<th>Groupe d’âge</th>
+<th style="text-align: right;">Population</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Canada</td>
+<td>30 to 34 years</td>
+<td style="text-align: right;">3 175 724</td>
+</tr>
+<tr class="even">
+<td>Canada</td>
+<td>35 to 39 years</td>
+<td style="text-align: right;">3 032 523</td>
+</tr>
+<tr class="odd">
+<td>Canada</td>
+<td>25 to 29 years</td>
+<td style="text-align: right;">2 995 647</td>
+</tr>
+<tr class="even">
+<td>Québec</td>
+<td>30 to 34 years</td>
+<td style="text-align: right;">635 108</td>
+</tr>
+<tr class="odd">
+<td>Québec</td>
+<td>60 to 64 years</td>
+<td style="text-align: right;">623 545</td>
+</tr>
+<tr class="even">
+<td>Québec</td>
+<td>40 to 44 years</td>
+<td style="text-align: right;">616 069</td>
+</tr>
+</tbody>
+</table>
+<p>Ce résultat est utile pour montrer qu’une pyramide des âges n’est pas toujours dominée par les jeunes groupes. Selon le territoire et l’année, la forme peut mettre en évidence des générations plus nombreuses à des âges intermédiaires ou avancés.</p>
 </section>
-<section id="tags" class="level2">
-<h2 class="anchored" data-anchor-id="tags">Tags</h2>
+<section id="lecture-statistique" class="level2">
+<h2 class="anchored" data-anchor-id="lecture-statistique">Lecture statistique</h2>
+<p>Une analyse prudente suit cet ordre :</p>
+<ol type="1">
+<li>vérifier l’année, le territoire, le genre et l’unité;</li>
+<li>exclure <code>All ages</code>, les âges simples, l’âge moyen et l’âge médian avant de tracer une pyramide;</li>
+<li>construire une variable signée seulement pour l’affichage;</li>
+<li>utiliser les proportions pour comparer des territoires de tailles différentes;</li>
+<li>distinguer description démographique et explication causale;</li>
+<li>citer la table StatCan et la date d’accès.</li>
+</ol>
+<p>Les données permettent de décrire la structure d’âge estimée. Elles ne permettent pas, seules, d’expliquer les causes du vieillissement démographique. Pour cela, il faudrait ajouter des données sur les naissances, les décès, les migrations et les méthodes d’estimation.</p>
+</section>
+<section id="concepts-enseignables" class="level2">
+<h2 class="anchored" data-anchor-id="concepts-enseignables">Concepts enseignables</h2>
 <ul>
 <li>données ouvertes;</li>
-<li>Statistique Canada;</li>
-<li>démographie;</li>
-<li>population;</li>
-<li>pyramide des âges;</li>
-<li>Québec;</li>
-<li>Canada;</li>
-<li>visualisation;</li>
-<li>ggplot2;</li>
-<li>tidyverse;</li>
-<li>science des données;</li>
-<li>enseignement;</li>
-<li>learnr.</li>
+<li>table longue;</li>
+<li>filtrage;</li>
+<li>groupes d’âge;</li>
+<li>proportions;</li>
+<li>visualisation bilatérale;</li>
+<li>comparaison territoriale;</li>
+<li>comparaison temporelle;</li>
+<li>interprétation descriptive;</li>
+<li>limites des données agrégées.</li>
 </ul>
 </section>
-<section id="score-zero-waste-dataset" class="level2">
-<h2 class="anchored" data-anchor-id="score-zero-waste-dataset">Score zero waste dataset</h2>
+<section id="score-zéro-déchet" class="level2">
+<h2 class="anchored" data-anchor-id="score-zéro-déchet">Score zéro déchet</h2>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 30%">
@@ -5966,163 +6239,131 @@ Comment décrire l&#39;évolution d&#39;une structure démographique avec des do
 <tr class="odd">
 <td>Contexte québécois</td>
 <td style="text-align: right;">3</td>
-<td>Le Québec est directement disponible et peut être comparé au Canada et aux autres provinces.</td>
+<td>Le Québec est directement disponible et comparable au Canada.</td>
 </tr>
 <tr class="even">
 <td>Accessibilité pédagogique</td>
 <td style="text-align: right;">3</td>
-<td>L’âge, le genre et la population sont des notions immédiatement compréhensibles.</td>
+<td>L’âge, le genre et la population sont intuitifs.</td>
 </tr>
 <tr class="odd">
 <td>Qualité documentaire</td>
 <td style="text-align: right;">3</td>
-<td>La table StatCan, le DOI, les métadonnées et la documentation démographique officielle sont disponibles.</td>
+<td>StatCan fournit la table, le DOI, la fréquence et les options de téléchargement.</td>
 </tr>
 <tr class="even">
 <td>Potentiel de nettoyage</td>
-<td style="text-align: right;">2</td>
-<td>Les données sont déjà structurées, mais il faut filtrer les unités, choisir les bons groupes d’âge et préparer les valeurs négatives pour la pyramide.</td>
+<td style="text-align: right;">3</td>
+<td>Il faut filtrer les unités, les groupes d’âge et les catégories pertinentes.</td>
 </tr>
 <tr class="odd">
 <td>Potentiel de visualisation</td>
 <td style="text-align: right;">3</td>
-<td>Le jeu se prête naturellement aux pyramides, comparaisons territoriales et trajectoires temporelles.</td>
+<td>La pyramide des âges est un cas de visualisation très naturel.</td>
 </tr>
 <tr class="even">
 <td>Potentiel de statistique descriptive</td>
 <td style="text-align: right;">3</td>
-<td>Les proportions par âge, rapports de dépendance et parts de 65 ans et plus sont directement calculables.</td>
+<td>Les proportions, parts d’âge et comparaisons sont directement calculables.</td>
 </tr>
 <tr class="odd">
 <td>Potentiel d’inférence</td>
 <td style="text-align: right;">1</td>
-<td>La table contient des estimations agrégées officielles sans incertitude statistique directement fournie dans les colonnes principales.</td>
+<td>La table ne fournit pas directement un plan d’échantillonnage ou des incertitudes.</td>
 </tr>
 <tr class="even">
 <td>Potentiel de modélisation</td>
 <td style="text-align: right;">2</td>
-<td>Des tendances temporelles et projections exploratoires peuvent être étudiées, avec prudence.</td>
+<td>Des tendances descriptives peuvent être modélisées avec prudence.</td>
 </tr>
 <tr class="odd">
-<td>Potentiel de discussion éthique</td>
+<td>Potentiel éthique</td>
 <td style="text-align: right;">3</td>
-<td>Le jeu permet de discuter catégories de genre, vieillissement, politiques publiques et interprétation de données agrégées.</td>
+<td>La fiche permet de discuter genre, vieillissement et politiques publiques.</td>
 </tr>
 <tr class="even">
-<td>Réutilisabilité dans plusieurs cours</td>
+<td>Réutilisabilité</td>
 <td style="text-align: right;">3</td>
-<td>Le même jeu soutient importation, transformation, visualisation, indicateurs démographiques et communication.</td>
+<td>Utile en introduction R, visualisation, démographie et communication statistique.</td>
 </tr>
 </tbody>
 </table>
-<p>Total : 26 sur 30.</p>
-</section>
-<section id="valeur-pédagogique" class="level2">
-<h2 class="anchored" data-anchor-id="valeur-pédagogique">Valeur pédagogique</h2>
-<p>Ce jeu de données a une forte valeur pédagogique parce qu’il relie des opérations techniques simples à une question sociale interprétable : comment la structure d’âge d’une population varie-t-elle selon le territoire, le genre et l’année? Il permet de montrer que la visualisation n’est pas seulement esthétique; elle impose des choix de filtrage, de regroupement, d’échelle et d’interprétation.</p>
+<p>Total : 27 sur 30.</p>
 </section>
 <section id="activité-courte" class="level2">
 <h2 class="anchored" data-anchor-id="activité-courte">Activité courte</h2>
-<p>En 30 à 45 minutes, faire construire une pyramide des âges du Québec pour l’année la plus récente disponible. Les personnes étudiantes doivent filtrer les groupes d’âge quinquennaux, créer une variable signée pour le genre et produire un graphique avec <code>coord_flip()</code>.</p>
+<p>En 30 à 45 minutes, construire la pyramide des âges du Québec en 2025. L’objectif principal est de faire comprendre que le graphique dépend d’un filtrage rigoureux et que les valeurs négatives sont une convention d’affichage.</p>
 </section>
 <section id="activité-longue" class="level2">
 <h2 class="anchored" data-anchor-id="activité-longue">Activité longue</h2>
-<p>En 2 à 3 heures, faire comparer la structure d’âge du Québec et du Canada entre deux années. Le rapport attendu peut inclure deux pyramides, une mesure de la proportion de la population âgée de 65 ans et plus, et une discussion des limites d’une comparaison descriptive.</p>
-</section>
-<section id="projet-possible" class="level2">
-<h2 class="anchored" data-anchor-id="projet-possible">Projet possible</h2>
-<p>Créer un mini-tableau de bord Quarto, Shiny ou learnr permettant de choisir une géographie et une année, puis d’afficher une pyramide des âges et quelques indicateurs démographiques descriptifs.</p>
-</section>
-<section id="activités-pédagogiques-possibles" class="level2">
-<h2 class="anchored" data-anchor-id="activités-pédagogiques-possibles">Activités pédagogiques possibles</h2>
-<ol type="1">
-<li>Construire une pyramide des âges pour le Québec pour une année donnée.</li>
-<li>Comparer la pyramide des âges du Québec avec celle du Canada.</li>
-<li>Observer l’évolution de la structure d’âge entre deux années.</li>
-<li>Calculer la proportion de la population âgée de 65 ans et plus.</li>
-<li>Comparer les distributions d’âge selon le genre.</li>
-<li>Discuter du vieillissement démographique à partir de données réelles.</li>
-<li>Créer une visualisation interactive avec <code>plotly</code>, <code>shiny</code> ou <code>learnr</code>.</li>
-<li>Comparer plusieurs provinces à partir d’un même code reproductible.</li>
-</ol>
-</section>
-<section id="questions-pédagogiques-possibles" class="level2">
-<h2 class="anchored" data-anchor-id="questions-pédagogiques-possibles">Questions pédagogiques possibles</h2>
-<ol type="1">
-<li>Pourquoi faut-il filtrer les groupes d’âge avant de construire une pyramide?</li>
-<li>Pourquoi place-t-on souvent un genre du côté négatif de l’axe horizontal?</li>
-<li>Comment interpréter une pyramide des âges sans confondre effectifs et proportions?</li>
-<li>Quelle différence observe-t-on entre le Québec et le Canada?</li>
-<li>Comment varie la proportion des 65 ans et plus dans le temps?</li>
-<li>Quelles limites pose l’utilisation de données agrégées?</li>
-<li>Les catégories de genre disponibles suffisent-elles à toutes les questions d’analyse?</li>
-<li>Quelles conclusions seraient trop fortes avec une comparaison descriptive?</li>
-</ol>
+<p>En 2 à 3 heures, comparer la structure d’âge du Québec et du Canada entre 2001 et 2025. Le livrable doit inclure des pyramides en proportions, la part des 65 ans et plus, et une section de limites.</p>
 </section>
 <section id="code-r-minimal" class="level2">
 <h2 class="anchored" data-anchor-id="code-r-minimal">Code R minimal</h2>
+<p>À exécuter depuis la racine du projet.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(cansim)</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load libraries</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(stringr)</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>age_groups <span class="ot">&lt;-</span> <span class="fu">c</span>(</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">paste</span>(<span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">95</span>, <span class="at">by =</span> <span class="dv">5</span>), <span class="st">&quot;to&quot;</span>, <span class="fu">seq</span>(<span class="dv">4</span>, <span class="dv">99</span>, <span class="at">by =</span> <span class="dv">5</span>), <span class="st">&quot;years&quot;</span>),</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;100 years and older&quot;</span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>pop <span class="ot">&lt;-</span> <span class="fu">get_cansim</span>(<span class="st">&quot;17-10-0005-01&quot;</span>)</span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>latest_year <span class="ot">&lt;-</span> <span class="fu">max</span>(<span class="fu">as.integer</span>(pop<span class="sc">$</span>REF_DATE), <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>pop_qc <span class="ot">&lt;-</span> pop <span class="sc">|&gt;</span></span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(</span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>    GEO <span class="sc">==</span> <span class="st">&quot;Quebec&quot;</span>,</span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>    <span class="fu">as.integer</span>(REF_DATE) <span class="sc">==</span> latest_year,</span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>    Gender <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">&quot;Men+&quot;</span>, <span class="st">&quot;Women+&quot;</span>),</span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>    <span class="st">`</span><span class="at">Age group</span><span class="st">`</span> <span class="sc">%in%</span> age_groups,</span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>    UOM <span class="sc">==</span> <span class="st">&quot;Persons&quot;</span></span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>    <span class="at">age_group =</span> <span class="fu">factor</span>(<span class="fu">as.character</span>(<span class="st">`</span><span class="at">Age group</span><span class="st">`</span>), <span class="at">levels =</span> age_groups),</span>
-<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>    <span class="at">genre =</span> <span class="fu">recode</span>(<span class="fu">as.character</span>(Gender), <span class="st">&quot;Men+&quot;</span> <span class="ot">=</span> <span class="st">&quot;Hommes+&quot;</span>, <span class="st">&quot;Women+&quot;</span> <span class="ot">=</span> <span class="st">&quot;Femmes+&quot;</span>),</span>
-<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>    <span class="at">value_plot =</span> <span class="fu">if_else</span>(Gender <span class="sc">==</span> <span class="st">&quot;Men+&quot;</span>, <span class="sc">-</span>VALUE, VALUE)</span>
-<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(pop_qc, <span class="fu">aes</span>(<span class="at">x =</span> age_group, <span class="at">y =</span> value_plot, <span class="at">fill =</span> genre)) <span class="sc">+</span></span>
-<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="at">width =</span> <span class="fl">0.85</span>) <span class="sc">+</span></span>
-<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>() <span class="sc">+</span></span>
-<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(</span>
-<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>    <span class="at">labels =</span> <span class="cf">function</span>(x) <span class="fu">format</span>(<span class="fu">abs</span>(x), <span class="at">big.mark =</span> <span class="st">&quot; &quot;</span>, <span class="at">scientific =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
-<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="fu">paste</span>(<span class="st">&quot;Pyramide des âges du Québec,&quot;</span>, latest_year),</span>
-<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">&quot;Groupe d&#39;âge&quot;</span>,</span>
-<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">&quot;Population&quot;</span>,</span>
-<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>    <span class="at">fill =</span> <span class="st">&quot;Genre&quot;</span></span>
-<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(scales)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Prepare official StatCan table</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">&quot;datasets/pyramides-ages/preparation.R&quot;</span>)</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Import prepared data</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>population <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;data/processed/pyramides-ages/population_pyramides_quebec_canada_latest.csv&quot;</span>,</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>  <span class="at">show_col_types =</span> <span class="cn">FALSE</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Keep Quebec and plot proportions</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>population_quebec <span class="ot">&lt;-</span> population <span class="sc">|&gt;</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(geography <span class="sc">==</span> <span class="st">&quot;Quebec&quot;</span>)</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>  population_quebec,</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">aes</span>(<span class="at">x =</span> age_group, <span class="at">y =</span> proportion_plot, <span class="at">fill =</span> gender)</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>) <span class="sc">+</span></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="at">width =</span> <span class="fl">0.85</span>) <span class="sc">+</span></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>() <span class="sc">+</span></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">labels =</span> <span class="cf">function</span>(x) <span class="fu">percent</span>(<span class="fu">abs</span>(x), <span class="at">accuracy =</span> <span class="dv">1</span>)) <span class="sc">+</span></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">&quot;Pyramide des âges du Québec, 2025&quot;</span>,</span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="st">&quot;Proportions de la population estimée au 1er juillet&quot;</span>,</span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">&quot;Groupe d&#39;âge&quot;</span>,</span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">&quot;Part de la population&quot;</span>,</span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>    <span class="at">fill =</span> <span class="st">&quot;Genre publié&quot;</span></span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="limites-et-précautions" class="level2">
 <h2 class="anchored" data-anchor-id="limites-et-précautions">Limites et précautions</h2>
 <ul>
-<li>La table contient des effectifs estimés et agrégés; elle ne contient pas de microdonnées individuelles.</li>
-<li>Les colonnes principales ne fournissent pas directement d’incertitude statistique autour des estimations.</li>
-<li>Les groupes d’âge disponibles incluent des âges simples, des groupes quinquennaux, des groupes larges, l’âge moyen et l’âge médian; il faut filtrer avant de visualiser.</li>
-<li>Les comparaisons entre territoires doivent distinguer les effectifs absolus des proportions.</li>
-<li>Les catégories <code>Men+</code> et <code>Women+</code> doivent être présentées comme les catégories publiées dans cette table, pas comme une mesure exhaustive de toutes les identités de genre.</li>
+<li>La table contient des estimations agrégées, pas des microdonnées individuelles.</li>
+<li>La table ne fournit pas directement une incertitude statistique dans les colonnes principales.</li>
+<li>Les catégories <code>Men+</code> et <code>Women+</code> sont les catégories publiées dans cette table.</li>
+<li>Les valeurs négatives dans une pyramide sont une convention graphique, pas des populations négatives.</li>
+<li>Les comparaisons Canada-Québec doivent privilégier les proportions plutôt que les effectifs.</li>
+<li>La table ne contient pas, à elle seule, les causes démographiques des changements observés.</li>
 </ul>
 </section>
 <section id="extensions" class="level2">
 <h2 class="anchored" data-anchor-id="extensions">Extensions</h2>
 <ul>
-<li>Extension intro : construire une pyramide des âges pour le Québec.</li>
-<li>Extension intermédiaire : comparer Canada, Québec et une autre province en proportions.</li>
-<li>Extension avancée : produire une animation temporelle de 1971 à 2025.</li>
-<li>Extension communication scientifique : rédiger une note courte sur le vieillissement démographique en séparant résultats descriptifs, limites et interprétation.</li>
+<li>Construire la pyramide pour une autre province.</li>
+<li>Comparer 2001, 2011 et 2025.</li>
+<li>Ajouter un indicateur de dépendance démographique.</li>
+<li>Produire une animation temporelle.</li>
+<li>Transformer l’activité en mini-tableau de bord Quarto, Shiny ou learnr.</li>
 </ul>
+</section>
+<section id="références-utilisées" class="level2">
+<h2 class="anchored" data-anchor-id="références-utilisées">Références utilisées</h2>
+<p>Statistique Canada. 2026. Tableau 17-10-0005-01, Estimations de la population au 1er juillet, par âge et genre. <a href="https://www150.statcan.gc.ca/t1/tbl1/fr/tv.action?pid=1710000501" class="uri">https://www150.statcan.gc.ca/t1/tbl1/fr/tv.action?pid=1710000501</a></p>
+<p>Statistique Canada. 2026. Catalogue 1710000501, Estimations de la population au 1er juillet, par âge et genre. <a href="https://www150.statcan.gc.ca/n1/fr/catalogue/1710000501" class="uri">https://www150.statcan.gc.ca/n1/fr/catalogue/1710000501</a></p>
+<p>Statistique Canada. 2026. DOI du tableau 17-10-0005-01. <a href="https://doi.org/10.25318/1710000501-fra" class="uri">https://doi.org/10.25318/1710000501-fra</a></p>
 </section>
 </div>
 </section>

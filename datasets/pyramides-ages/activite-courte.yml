@@ -1,5 +1,5 @@
 id: pyramides-ages-quebec-court
-title: "Construire une pyramide des âges du Québec"
+title: "Pyramide des âges du Québec en 2025"
 question: "Comment transformer une table démographique en pyramide des âges lisible?"
 dataset_id: pyramides-ages
 dataset_title: "Pyramides des âges au Canada et au Québec"
@@ -11,15 +11,18 @@ activity_type:
   - "Visualisation"
   - "Exploration de données"
 concepts:
-  - "Données et mesure"
+  - "Données ouvertes"
+  - "Filtrage"
   - "Statistique descriptive"
   - "Visualisation"
+  - "Proportions"
 context: "Démographie"
 hook: "Graphique emblématique"
 materials:
   - "énoncé"
   - "code"
-  - "données ouvertes"
+  - "données préparées"
+  - "source officielle"
 advanced_math_stats: false
-teacher_notes: "Insister sur le filtrage des groupes d'âge quinquennaux et sur la différence entre valeur négative d'affichage et population réelle."
-status: "prêt"
+teacher_notes: "Insister sur la différence entre population réelle, proportion et valeur négative d'affichage."
+status: "source officielle vérifiée"

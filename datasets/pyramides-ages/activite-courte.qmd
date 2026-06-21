@@ -1,47 +1,97 @@
 ---
-title: "Pyramides des âges - activité courte"
+title: "Pyramide des âges du Québec en 2025"
 embed-resources: true
 ---
 
-# Pyramides des âges - activité courte
+# Pyramide des âges du Québec en 2025
 
 ## Contexte
 
-Une pyramide des âges représente la population par groupe d'âge et par genre. Dans cette activité, vous construisez la pyramide des âges du Québec à partir d'une table ouverte de Statistique Canada.
+Une pyramide des âges sert à représenter une population par groupe d'âge et par genre. Elle semble simple, mais elle demande plusieurs choix de préparation : année, territoire, unité, groupes d'âge et convention d'affichage.
+
+Dans cette activité, vous utilisez la table préparée à partir du tableau StatCan `17-10-0005-01` pour construire une pyramide des âges du Québec en 2025.
 
 ## Objectifs d'apprentissage
 
-- Importer une table StatCan avec `cansim`.
-- Filtrer une géographie, une année, deux catégories de genre et des groupes d'âge quinquennaux.
-- Créer une variable signée pour l'affichage.
-- Produire une pyramide des âges avec `ggplot2`.
+- Importer un fichier préparé avec `readr`.
+- Vérifier l'unité statistique avant de tracer un graphique.
+- Utiliser une variable signée seulement pour l'affichage.
+- Produire une pyramide des âges en proportions.
+- Rédiger une interprétation descriptive prudente.
 
 ## Données utilisées
 
-Source : Statistique Canada, table 17-10-0005-01, Estimations de la population au 1er juillet, par âge et genre, sous Licence ouverte de Statistique Canada. Fiche : [Pyramides des âges au Canada et au Québec](fiche.qmd).
+Source : Statistique Canada, tableau `17-10-0005-01`, Estimations de la population au 1er juillet, par âge et genre, sous Licence ouverte de Statistique Canada.
+
+Fichier préparé : `data/processed/pyramides-ages/population_pyramides_quebec_canada_latest.csv`.
+
+Fiche : [Pyramides des âges au Canada et au Québec](fiche.qmd).
 
 ## Consignes
 
-1. Importer la table avec `get_cansim("17-10-0005-01")`.
-2. Déterminer l'année la plus récente disponible.
-3. Garder seulement `GEO == "Quebec"`, `Gender %in% c("Men+", "Women+")` et `UOM == "Persons"`.
-4. Garder les groupes d'âge quinquennaux de `0 to 4 years` à `100 years and older`.
-5. Créer une variable négative pour `Men+` et positive pour `Women+`.
-6. Produire une pyramide avec `geom_col()` et `coord_flip()`.
+1. Exécuter `source("datasets/pyramides-ages/preparation.R")`.
+2. Importer le fichier préparé avec `read_csv()`.
+3. Garder seulement `geography == "Quebec"`.
+4. Vérifier que l'année est 2025 et que les groupes d'âge sont quinquennaux.
+5. Construire une pyramide avec `age_group`, `proportion_plot` et `gender`.
+6. Formater l'axe horizontal en valeurs absolues.
 7. Écrire trois observations descriptives.
+
+## Code de départ
+
+```{r}
+#| eval: false
+# Load libraries
+library(dplyr)
+library(ggplot2)
+library(readr)
+library(scales)
+
+# Prepare and import data
+source("datasets/pyramides-ages/preparation.R")
+
+population <- read_csv(
+  "data/processed/pyramides-ages/population_pyramides_quebec_canada_latest.csv",
+  show_col_types = FALSE
+)
+
+population_quebec <- population |>
+  filter(geography == "Quebec")
+
+# Check the structure
+population_quebec |>
+  count(year, gender)
+
+# Build the pyramid
+ggplot(
+  population_quebec,
+  aes(x = age_group, y = proportion_plot, fill = gender)
+) +
+  geom_col(width = 0.85) +
+  coord_flip() +
+  scale_y_continuous(labels = function(x) percent(abs(x), accuracy = 1)) +
+  labs(
+    title = "Pyramide des âges du Québec, 2025",
+    subtitle = "Proportions de la population estimée au 1er juillet",
+    x = "Groupe d'âge",
+    y = "Part de la population",
+    fill = "Genre publié"
+  ) +
+  theme_minimal()
+```
 
 ## Questions
 
-1. Pourquoi la table doit-elle être filtrée avant le graphique?
-2. Pourquoi ne faut-il pas interpréter la valeur négative comme une population négative?
-3. Quels groupes d'âge sont les plus nombreux?
-4. La structure d'âge semble-t-elle symétrique entre les deux genres?
-5. Quelle information manque pour expliquer les causes des différences observées?
+1. Pourquoi la variable `population_plot` contient-elle des valeurs négatives?
+2. Pourquoi ne faut-il pas inclure `All ages`, les âges simples, l'âge moyen ou l'âge médian dans la pyramide?
+3. Quels groupes d'âge occupent les plus grandes parts de la population québécoise?
+4. Que gagne-t-on à utiliser des proportions plutôt que des effectifs?
+5. Quelle conclusion serait trop forte avec cette seule table?
 
-## Pistes de solution
+## Résultats attendus
 
-Une solution correcte choisit explicitement les groupes d'âge quinquennaux. Elle évite d'inclure `All ages`, les âges simples, l'âge moyen ou l'âge médian. L'axe négatif sert seulement à placer un genre à gauche du graphique.
+Une solution correcte doit produire un graphique lisible, avec `Men+` d'un côté, `Women+` de l'autre, et un axe horizontal présenté en valeurs absolues. Le commentaire doit préciser que les valeurs négatives sont une convention graphique.
 
 ## Prolongement
 
-Reproduire la même pyramide pour le Canada et comparer les deux graphiques en proportions plutôt qu'en effectifs absolus.
+Refaire la même pyramide pour le Canada, puis comparer les formes sans utiliser les effectifs absolus comme seul argument.

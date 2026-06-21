@@ -1,55 +1,126 @@
 ---
-title: "Pyramides des âges - activité longue"
+title: "Comparer la structure d'âge du Québec et du Canada"
 embed-resources: true
 ---
 
-# Pyramides des âges - activité longue
+# Comparer la structure d'âge du Québec et du Canada
 
-## Mise en situation professionnelle
+## Mise en situation
 
-Un organisme de vulgarisation souhaite expliquer l'évolution récente de la structure d'âge au Québec et au Canada. Vous devez produire un court rapport reproductible fondé sur les estimations de population de Statistique Canada.
+Un organisme de vulgarisation souhaite expliquer comment la structure d'âge du Québec se compare à celle du Canada. Votre mandat est de produire un court rapport reproductible à partir de la table StatCan `17-10-0005-01`.
+
+Le rapport doit séparer clairement trois choses : les effectifs, les proportions et les interprétations. Cette distinction est centrale, parce que le Canada et le Québec n'ont pas la même taille de population.
 
 ## Livrable attendu
 
-Un rapport Quarto de 4 à 6 pages comprenant un script reproductible, deux pyramides des âges, un indicateur de part des 65 ans et plus, une comparaison Québec vs Canada et une section de limites.
+Un rapport Quarto de 4 à 6 pages comprenant :
+
+- une brève description de la source;
+- deux pyramides des âges en proportions;
+- un tableau de la part des 65 ans et plus en 2001 et 2025;
+- une comparaison Canada-Québec;
+- une section de limites;
+- du code reproductible.
+
+## Données utilisées
+
+Source : Statistique Canada, tableau `17-10-0005-01`, Estimations de la population au 1er juillet, par âge et genre.
+
+Fichiers préparés :
+
+- `data/processed/pyramides-ages/population_pyramides_quebec_canada_latest.csv`;
+- `data/processed/pyramides-ages/population_pyramides_quebec_canada_2001_2025.csv`;
+- `data/processed/pyramides-ages/indicateurs_age_quebec_canada_2025.csv`;
+- `data/processed/pyramides-ages/evolution_65_plus_quebec_canada.csv`.
 
 ## Étapes
 
-1. Importer la table 17-10-0005-01 avec `cansim`.
-2. Sélectionner deux années, par exemple 2001 et l'année la plus récente disponible.
-3. Garder le Canada et le Québec.
-4. Garder `Men+`, `Women+`, `UOM == "Persons"` et les groupes d'âge pertinents.
-5. Construire des pyramides des âges en effectifs ou en proportions.
-6. Calculer la proportion de la population âgée de 65 ans et plus.
-7. Comparer les résultats entre géographies et années.
-8. Rédiger une interprétation descriptive en explicitant les limites.
+1. Exécuter `source("datasets/pyramides-ages/preparation.R")`.
+2. Importer les fichiers préparés.
+3. Vérifier les années, les géographies et les catégories de genre.
+4. Construire une pyramide pour le Québec et une pyramide pour le Canada en 2025.
+5. Calculer ou importer la part des 65 ans et plus en 2001 et 2025.
+6. Comparer les résultats en proportions.
+7. Rédiger une interprétation descriptive.
+8. Rédiger une section de limites.
+
+## Code de départ
+
+```{r}
+#| eval: false
+# Load libraries
+library(dplyr)
+library(ggplot2)
+library(readr)
+library(scales)
+
+# Prepare official table
+source("datasets/pyramides-ages/preparation.R")
+
+# Import prepared files
+population_2025 <- read_csv(
+  "data/processed/pyramides-ages/population_pyramides_quebec_canada_latest.csv",
+  show_col_types = FALSE
+)
+
+evolution_65_plus <- read_csv(
+  "data/processed/pyramides-ages/evolution_65_plus_quebec_canada.csv",
+  show_col_types = FALSE
+)
+
+# Plot pyramids by geography
+ggplot(
+  population_2025,
+  aes(x = age_group, y = proportion_plot, fill = gender)
+) +
+  geom_col(width = 0.85) +
+  coord_flip() +
+  facet_wrap(vars(geography)) +
+  scale_y_continuous(labels = function(x) percent(abs(x), accuracy = 1)) +
+  labs(
+    title = "Pyramides des âges, 2025",
+    subtitle = "Canada et Québec, proportions de la population estimée au 1er juillet",
+    x = "Groupe d'âge",
+    y = "Part de la population",
+    fill = "Genre publié"
+  ) +
+  theme_minimal()
+
+# Compare the share aged 65 and over
+evolution_65_plus |>
+  mutate(pct_65_plus = percent(pct_65_plus, accuracy = 0.1))
+```
+
+## Questions d'analyse
+
+1. La population québécoise est-elle plus âgée que la population canadienne en 2025?
+2. La conclusion est-elle la même avec les effectifs et avec les proportions?
+3. Comment évolue la part des 65 ans et plus entre 2001 et 2025?
+4. Quels groupes d'âge structurent le plus la pyramide québécoise?
+5. Quelles données faudrait-il ajouter pour expliquer les causes du vieillissement démographique?
 
 ## Critères d'évaluation
 
 | Critère | Attendu |
 |---|---|
-| Importation | La table officielle est importée avec un code reproductible. |
-| Filtrage | Les géographies, années, genres, unités et groupes d'âge sont sélectionnés explicitement. |
-| Indicateurs | La proportion de 65 ans et plus est définie clairement. |
-| Graphiques | Les pyramides sont lisibles et les axes ne créent pas de contresens. |
-| Comparaison | Les différences Québec vs Canada sont décrites en distinguant effectifs et proportions. |
-| Limites | Les limites des données agrégées et descriptives sont explicites. |
+| Source | La table StatCan est citée avec son numéro et sa date d'accès. |
+| Reproductibilité | Le script prépare ou importe les fichiers générés localement. |
+| Filtrage | Les années, géographies, genres, unités et groupes d'âge sont explicites. |
+| Graphiques | Les pyramides sont en proportions et l'axe signé est expliqué. |
+| Indicateurs | La part des 65 ans et plus est définie et interprétée correctement. |
+| Interprétation | Les résultats sont descriptifs, sans conclusion causale non appuyée. |
+| Limites | Les limites des données agrégées sont formulées clairement. |
 
-## Questions d'analyse
+## Résultats attendus
 
-1. La population québécoise présente-t-elle une structure d'âge différente de celle du Canada?
-2. Quels groupes d'âge ont le plus changé entre les deux années choisies?
-3. La part des 65 ans et plus augmente-t-elle dans les deux géographies?
-4. Les comparaisons en effectifs et en proportions racontent-elles la même histoire?
-5. Pourquoi ces données ne suffisent-elles pas à expliquer les causes du vieillissement démographique?
+Le rapport devrait montrer que la part des 65 ans et plus est plus élevée au Québec qu'au Canada en 2025 dans la table préparée. Il devrait aussi montrer que cette part a augmenté depuis 2001 dans les deux territoires.
 
-## Pistes de solution
-
-Un bon rapport compare d'abord des proportions, puis utilise les effectifs pour donner un ordre de grandeur. Les résultats doivent être présentés comme descriptifs, puisque la table ne contient pas directement les naissances, décès, migrations ni incertitudes associées aux estimations.
+Les résultats doivent être présentés comme descriptifs. La table ne contient pas directement les composantes démographiques nécessaires pour expliquer les causes : naissances, décès, migrations ou changements méthodologiques.
 
 ## Variantes possibles
 
 - Comparer le Québec avec une autre province.
+- Ajouter une troisième année.
 - Ajouter une animation temporelle.
-- Construire un tableau interactif avec `shiny`.
-- Transformer l'activité en tutoriel `learnr`.
+- Produire une version interactive avec Shiny.
+- Transformer le rapport en tutoriel learnr.

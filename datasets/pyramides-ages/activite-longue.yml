@@ -11,17 +11,19 @@ activity_type:
   - "Projet ou tâche longue"
   - "Exploration de données"
 concepts:
-  - "Données et mesure"
+  - "Données ouvertes"
   - "Statistique descriptive"
   - "Visualisation"
+  - "Comparaison temporelle"
   - "Communication"
 context: "Démographie"
 hook: "Vieillissement démographique"
 materials:
   - "énoncé"
   - "code"
-  - "données ouvertes"
+  - "données préparées"
+  - "source officielle"
   - "notes enseignantes"
 advanced_math_stats: false
-teacher_notes: "Demander de séparer les résultats descriptifs des interprétations causales; la table ne contient pas les composantes de la croissance démographique."
-status: "prêt"
+teacher_notes: "Demander de comparer en proportions et de séparer les résultats descriptifs des interprétations causales."
+status: "source officielle vérifiée"

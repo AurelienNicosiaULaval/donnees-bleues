@@ -3,29 +3,47 @@ title: "Pyramides des âges au Canada et au Québec"
 short_title: "Pyramides des âges"
 theme: "Démographie"
 source_name: "Statistique Canada"
-source_url: "https://www150.statcan.gc.ca/t1/tbl1/en/tv.action?pid=1710000501"
+source_url: "https://www150.statcan.gc.ca/t1/tbl1/fr/tv.action?pid=1710000501"
+source_catalogue_url: "https://www150.statcan.gc.ca/n1/fr/catalogue/1710000501"
+source_doi_url: "https://doi.org/10.25318/1710000501-fra"
 license: "Licence ouverte de Statistique Canada"
-access_date: "2026-06-18"
+access_date: "2026-06-21"
 geography: "Canada, Québec, provinces et territoires"
 unit: "Combinaison année, géographie, genre et groupe d'âge"
-data_type: "Tabulaire, temporel, démographique"
+data_type: "Table longue démographique, temporelle et territoriale"
 format: "Table StatCan accessible par cansim; CSV et SDMX disponibles"
-n_rows: "302610 lignes dans la version récupérée par cansim le 2026-06-18"
-n_cols: "24 colonnes dans la version récupérée par cansim le 2026-06-18"
+n_rows: "302 610 lignes dans la table brute récupérée par cansim; 84 lignes préparées pour 2025"
+n_cols: "24 colonnes dans la table brute; 8 colonnes dans la table préparée 2025"
+processed_file: "data/processed/pyramides-ages/population_pyramides_quebec_canada_latest.csv"
+comparison_file: "data/processed/pyramides-ages/population_pyramides_quebec_canada_2001_2025.csv"
+indicators_file: "data/processed/pyramides-ages/indicateurs_age_quebec_canada_2025.csv"
 update_frequency: "Annuelle"
 level: "Introduction à intermédiaire"
+organisme: "Statistique Canada"
+territoire: "Canada et Québec"
+taille_approximative: "84 lignes préparées pour 2025; 168 lignes pour la comparaison 2001-2025"
+niveau_pedagogique_recommande: "Introduction à intermédiaire"
+variables_principales:
+  - year
+  - geography
+  - gender
+  - age_group
+  - population
+  - population_plot
+  - proportion
+  - proportion_plot
+idees_mini_projets:
+  - "Construire une pyramide des âges du Québec pour 2025 et expliquer les choix de filtrage."
+  - "Comparer le poids des 65 ans et plus au Québec et au Canada entre 2001 et 2025."
+  - "Présenter une comparaison en proportions pour éviter de confondre taille de population et structure d'âge."
 concepts:
   - importation de données ouvertes
   - nettoyage de données
   - filtrage
-  - transformation de variables
-  - agrégation par groupe d'âge
-  - calcul de proportions
-  - statistique descriptive
-  - visualisation
+  - groupes d'âge
+  - proportions
   - pyramide des âges
   - comparaison temporelle
-  - comparaison territoriale
   - interprétation démographique
 tags:
   - données ouvertes
@@ -45,12 +63,14 @@ zero_waste:
   contexte_quebecois: 3
   accessibilite_pedagogique: 3
   qualite_documentaire: 3
-  potentiel_nettoyage: 2
+  potentiel_nettoyage: 3
   potentiel_visualisation: 3
   potentiel_statistique_descriptive: 3
   potentiel_inference: 1
   potentiel_modelisation: 2
   potentiel_ethique: 3
   reutilisabilite: 3
-status: "source vérifiée"
-notes: "Table Statistique Canada 17-10-0005-01, Estimations de la population au 1er juillet, par âge et genre. Périodes visibles vérifiées : 1971 à 2025. DOI : https://doi.org/10.25318/1710000501-fra."
+status: "source officielle vérifiée; table StatCan 17-10-0005-01 préparée localement"
+notes: "La table contient des estimations agrégées de population au 1er juillet. Les valeurs négatives dans population_plot servent seulement à afficher la pyramide; elles ne représentent pas une population négative."
+contributor_name: "Aurélien Nicosia"
+contributor_role: "Révision pédagogique et statistique"
