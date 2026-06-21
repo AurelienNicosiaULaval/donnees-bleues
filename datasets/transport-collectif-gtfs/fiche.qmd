@@ -1,5 +1,5 @@
 ---
-title: "Réseaux de transport collectif GTFS au Québec"
+title: "Horaires, arrêts et parcours GTFS du RTC"
 embed-resources: true
 page-layout: full
 toc: false
@@ -18,119 +18,250 @@ render_dataset_detail_header()
 
 ## Pourquoi ce jeu est intéressant
 
-Ce jeu de données place les étudiants et étudiantes devant une source québécoise réaliste, avec des variables interprétables et des décisions de nettoyage authentiques.
+Ce jeu place les étudiants devant un vrai flux GTFS statique : un ZIP officiel qui contient plusieurs fichiers texte reliés entre eux par des clés. Il force à réfléchir à l'unité statistique avant de compter, cartographier ou joindre les tables.
 
-Question d'analyse : Quelle est la densité des arrêts de transport collectif selon le secteur?
+Le RTC publie des informations sur les arrêts, les horaires et les parcours en formats GTFS et shapefile. Le GTFS est utile en science des données parce qu'il combine structure relationnelle, coordonnées spatiales, calendriers de service, valeurs codées et gros volumes de lignes.
 
-## Source
+Question d'analyse : comment décrire l'offre planifiée du RTC sans la confondre avec l'achalandage ou les retards?
+
+## Ce qui a été vérifié
+
+| Élément | Résultat vérifié |
+|---|---|
+| Paquet CKAN | `a6ad0f52-9699-43ed-9907-791472badc19` |
+| Source officielle | Données Québec / Réseau de transport de la Capitale |
+| Ressources dans le paquet | 2 ressources : GTFS et shapefile |
+| Ressource préparée ici | `googletransit.zip` |
+| Licence CKAN | Attribution (CC-BY 4.0), selon les métadonnées CKAN consultées le 2026-06-21 |
+| Conditions RTC | Indiquer la provenance et la date de mise à jour des informations publiques utilisées |
+| Dernière modification du paquet CKAN | 2023-06-26 |
+| Fichiers internes du ZIP | 10 fichiers GTFS |
+| Table préparée principale | `data/processed/transport-collectif-gtfs/arrets_gtfs_rtc.csv` |
+| Résumés préparés | inventaire des fichiers, parcours, accessibilité, services, valeurs manquantes |
+
+## Source et conditions
 
 | Champ | Information |
 |---|---|
-| Organisme producteur | Sociétés de transport du Québec / Données Québec |
-| Source | GTFS ouverts des sociétés de transport, notamment RTC et STM |
-| URL | <https://www.donneesquebec.ca/recherche/dataset/rtc-gtfs-arrets-et-les-parcours> |
-| Licence | Attribution (CC-BY 4.0) pour les fiches CKAN RTC et STM vérifiées; confirmer chaque feed utilisé |
-| Date d'accès | 2026-06-19 |
-| Fréquence de mise à jour | Variable selon la société de transport; les horaires planifiés sont mis à jour selon les périodes de service |
-| Statut | sources RTC et STM vérifiées; autres sociétés à confirmer au cas par cas |
+| Page Données Québec | <https://www.donneesquebec.ca/recherche/dataset/rtc-gtfs-arrets-et-les-parcours> |
+| API CKAN | <https://www.donneesquebec.ca/recherche/api/3/action/package_show?id=rtc-gtfs-arrets-et-les-parcours> |
+| ZIP GTFS officiel | <https://cdn.rtcquebec.ca/Site_Internet/DonneesOuvertes/googletransit.zip> |
+| Page RTC | <https://www.rtcquebec.ca/donnees-ouvertes> |
+| Référence GTFS | <https://gtfs.org/documentation/overview/> |
+| Date d'accès | 2026-06-21 |
+| Territoire | Territoire desservi par le Réseau de transport de la Capitale, région de Québec |
+| Couverture temporelle observée | Services planifiés du 2026-06-20 au 2026-08-21 dans `feed_info.txt` |
+
+Le GTFS Schedule est un format composé de fichiers texte dans un ZIP. La documentation officielle de MobilityData décrit les fichiers de base comme `agency.txt`, `routes.txt`, `trips.txt`, `stops.txt`, `stop_times.txt`, `calendar.txt` et `calendar_dates.txt`.
 
 ## Ce que représente une ligne
 
-Arrêt, parcours, trajet ou horaire selon la table GTFS utilisée.
+L'unité statistique dépend du fichier GTFS utilisé.
+
+| Fichier | Une ligne représente |
+|---|---|
+| `stops.txt` | Un arrêt ou lieu d'embarquement |
+| `routes.txt` | Un parcours public du réseau |
+| `trips.txt` | Un trajet planifié pour un parcours et un service |
+| `stop_times.txt` | Un passage prévu d'un trajet à un arrêt |
+| `calendar_dates.txt` | Une date de service ou une exception de calendrier |
+| `shapes.txt` | Un point ordonné dans la géométrie d'un tracé |
+
+Une ligne n'est pas un usager, une validation de titre, un retard, une plainte, ni une mesure de satisfaction.
 
 ## Variables principales
 
-| Variable | Type | Description | Exemple |
-|---|---|---|---|
-| `route_id` | caractère | Identifiant de ligne ou parcours dans routes.txt. | 800 |
-| `stop_id` | caractère | Identifiant d'arrêt dans stops.txt. | 12345 |
-| `stop_name` | caractère | Nom public de l'arrêt. | Université Laval |
-| `latitude` | numérique | Latitude de l'arrêt. | 46.78 |
-| `longitude` | numérique | Longitude de l'arrêt. | -71.28 |
-| `trip_id` | caractère | Identifiant de voyage dans trips.txt. | A2025_001 |
+| Variable préparée | Rôle | Point de vigilance |
+|---|---|---|
+| `stop_id` | Clé d'arrêt dans `stops.txt` | Clé de jointure avec `stop_times.txt` |
+| `stop_name` | Nom public de l'arrêt | Peut se répéter selon les directions |
+| `latitude`, `longitude` | Coordonnées de l'arrêt | Utiles pour une carte, pas pour mesurer la demande |
+| `wheelchair_boarding` | Code GTFS lié à l'embarquement en fauteuil roulant | Le code 0 signifie information non disponible |
+| `route_id` | Clé de parcours dans `routes.txt` | Clé de jointure avec `trips.txt` |
+| `route_short_name` | Numéro public du parcours | Plus lisible que `route_id` |
+| `route_type` | Type de transport codé par GTFS | Le code 3 correspond au bus |
+| `trip_id` | Clé de trajet planifié | Granularité fine, volumineuse |
+| `service_id` | Clé de calendrier de service | À relier à `calendar_dates.txt` |
+| `service_date` | Date de service préparée | Extraite du format `YYYYMMDD` |
 
-## Taille et structure
+## RÉSULTATS R
 
-| Élément | Information |
-|---|---|
-| Nombre de lignes | Variable selon le feed et les tables stops, routes, trips, stop_times |
-| Nombre de colonnes | Structure normalisée GTFS; nombre de colonnes variable selon les tables |
-| Structure | Données relationnelles et spatiales |
-| Format | GTFS ZIP |
-| Couverture géographique | Territoires desservis par les sociétés de transport québécoises |
-| Couverture temporelle | Horaires planifiés valides selon le calendrier GTFS de chaque feed |
+Les résultats ci-dessous proviennent de `preparation.R`, exécuté sur le ZIP téléchargé le 2026-06-21.
+
+| Indicateur | Valeur |
+|---|---:|
+| Ressources CKAN documentées | 2 |
+| Fichiers dans le ZIP GTFS | 10 |
+| Arrêts dans `stops.txt` | 4 370 |
+| Parcours dans `routes.txt` | 182 |
+| Trajets dans `trips.txt` | 70 876 |
+| Horaires d'arrêt dans `stop_times.txt` | 3 104 289 |
+| Points de tracé dans `shapes.txt` | 473 328 |
+| Transferts dans `transfers.txt` | 753 |
+| Dates de service | 63 |
+| Identifiants de service | 22 |
+| Première date de service | 2026-06-20 |
+| Dernière date de service | 2026-08-21 |
+
+## Inventaire du ZIP GTFS
+
+| Fichier | Lignes | Taille approximative |
+|---|---:|---:|
+| `stop_times.txt` | 3 104 289 | 174,8 Mo |
+| `shapes.txt` | 473 328 | 16,7 Mo |
+| `trips.txt` | 70 876 | 8,0 Mo |
+| `stops.txt` | 4 370 | 0,7 Mo |
+| `transfers.txt` | 753 | 0,01 Mo |
+| `routes.txt` | 182 | 0,03 Mo |
+| `calendar_dates.txt` | 63 | 0,002 Mo |
+| `agency.txt` | 1 | 0,0002 Mo |
+| `feed_info.txt` | 1 | 0,0002 Mo |
+| `calendar.txt` | 0 | 0,0001 Mo |
+
+Lecture pédagogique : `stop_times.txt` domine le volume. Pour un laboratoire court, il vaut mieux commencer par `stops.txt`, `routes.txt`, `trips.txt` et des résumés préparés.
+
+## Parcours avec le plus de trajets planifiés
+
+| Parcours | Description | Trajets |
+|---|---|---:|
+| 805 | Terminus Parc-Victoria - Pointe-de-Sainte-Foy | 5 422 |
+| 801 | Terminus de la Faune - Colline Parlementaire | 3 873 |
+| 800 | Terminus Chute-Montmorency - Colline Parlementaire | 3 761 |
+| 803 | Terminus Beauport - Terminus Les Saules | 3 618 |
+| 807 | Place D'Youville - Pointe-de-Sainte-Foy | 3 596 |
+| 802 | Terminus Beauport - Station Belvédère | 3 590 |
+| 804 | Sainte-Foy Centre - Val-Bélair | 3 048 |
+| 70 | Sainte-Foy Centre - Val-Bélair | 1 756 |
+
+Cette table décrit l'offre planifiée dans le flux téléchargé. Elle ne mesure pas la fréquentation des parcours.
+
+## Accessibilité selon les codes GTFS
+
+| Table | Code | Interprétation | Lignes | Pourcentage |
+|---|---:|---|---:|---:|
+| `stops` | 0 | Information non disponible | 2 591 | 59,3 % |
+| `stops` | 1 | Accessible selon le codage GTFS | 1 779 | 40,7 % |
+| `trips` | 0 | Information non disponible | 40 792 | 57,6 % |
+| `trips` | 1 | Accessible selon le codage GTFS | 30 084 | 42,4 % |
+
+Point important pour les étudiants : un code 0 n'est pas une preuve de non-accessibilité. Il indique que l'information n'est pas disponible dans ce champ GTFS.
+
+## Lecture statistique
+
+Une analyse prudente suit cet ordre :
+
+1. choisir le fichier GTFS qui correspond à la question;
+2. identifier l'unité statistique de ce fichier;
+3. vérifier les clés avant toute jointure;
+4. distinguer offre planifiée, réseau physique, passages prévus et données temps réel;
+5. cartographier les arrêts sans interpréter la carte comme une carte de demande;
+6. rapporter la date du ZIP utilisé, car le flux est vivant.
+
+Les données permettent de décrire une offre planifiée publiée. Elles ne permettent pas, seules, d'estimer l'achalandage, les retards, les temps d'attente réels ou l'équité d'accès au réseau.
 
 ## Concepts enseignables
 
-- données relationnelles;
-- jointures multiples;
-- visualisation spatiale;
-- réseaux;
-- normalisation de données;
-
-## Visualisations suggérées
-
-- cartes interactives;
-- graphes de réseau;
-- cartes de densité d'arrêts;
+- importation d'un ZIP officiel;
+- lecture de fichiers texte GTFS;
+- clés primaires et clés de jointure;
+- séparation entre tables de référence et tables volumineuses;
+- coordonnées spatiales simples;
+- valeurs codées et dictionnaire de variables;
+- résumés par parcours;
+- communication prudente des limites.
 
 ## Score zéro déchet
 
-| Dimension | Score |
-|---|---:|
-| Contexte québécois | 3 |
-| Accessibilité pédagogique | 2 |
-| Qualité documentaire | 2 |
-| Potentiel de nettoyage | 3 |
-| Potentiel de visualisation | 3 |
-| Potentiel de statistique descriptive | 3 |
-| Potentiel d'inférence | 1 |
-| Potentiel de modélisation | 3 |
-| Potentiel de discussion éthique | 2 |
-| Réutilisabilité dans plusieurs cours | 3 |
+| Dimension | Score | Justification |
+|---|---:|---|
+| Contexte québécois | 3 | Flux officiel du RTC pour la région de Québec |
+| Accessibilité pédagogique | 2 | Structure riche mais relationnelle |
+| Qualité documentaire | 3 | Données Québec, page RTC et documentation GTFS |
+| Potentiel de nettoyage | 3 | Dates, codes, gros fichiers et jointures |
+| Potentiel de visualisation | 3 | Cartes d'arrêts, barres, schémas relationnels |
+| Potentiel de statistique descriptive | 3 | Résumés naturels par parcours, service et code |
+| Potentiel d'inférence | 1 | Non adapté seul à l'inférence sur la demande |
+| Potentiel de modélisation | 2 | Base utile pour graphes ou accessibilité, avec données complémentaires |
+| Potentiel éthique | 3 | Risque de surinterpréter couverture, accessibilité et équité |
+| Réutilisabilité | 3 | Utile en importation, données ouvertes, transport et visualisation |
 
-Total : 25 sur 30.
+Total : 26 sur 30.
 
 ## Activité courte
 
-[Laboratoire](activite-courte.qmd) : Quelle est la densité des arrêts de transport collectif selon le secteur?
+En 45 à 60 minutes, cartographier les arrêts du RTC et expliquer ce que la carte permet et ne permet pas de conclure.
 
 ## Activité longue
 
-[Mini-projet](activite-longue.qmd) : Comparer la couverture spatiale de deux réseaux GTFS en harmonisant leurs tables stops et routes.
+En 2 à 3 heures, construire un mini-rapport sur l'offre planifiée par parcours, en reliant `routes.txt`, `trips.txt` et `calendar_dates.txt`, puis en discutant les limites.
 
 ## Code R minimal
 
+À exécuter depuis la racine du projet.
+
 ```{r}
 #| eval: false
+# Load libraries
 library(dplyr)
+library(ggplot2)
 library(readr)
-library(stringr)
 
-source_page <- "https://www.donneesquebec.ca/recherche/dataset/rtc-gtfs-arrets-et-les-parcours"
+# Download and prepare official GTFS resource
+source("datasets/transport-collectif-gtfs/preparation.R")
 
-# Étape 1 : ouvrir la page officielle et choisir la ressource documentée.
-# Étape 2 : enregistrer le fichier brut dans data_raw/.
-# Étape 3 : harmoniser les noms vers : `route_id`, `stop_id`, `stop_name`, `latitude`, `longitude`, `trip_id`.
+# Import prepared tables
+stops <- read_csv(
+  "data/processed/transport-collectif-gtfs/arrets_gtfs_rtc.csv",
+  show_col_types = FALSE
+)
 
-donnees <- read_csv("data_raw/source_officielle_a_renommer.csv", show_col_types = FALSE)
+routes_summary <- read_csv(
+  "data/processed/transport-collectif-gtfs/resume_parcours_gtfs_rtc.csv",
+  show_col_types = FALSE
+)
 
-donnees |>
-  glimpse()
+# Map stops with ggplot2
+ggplot(stops, aes(x = longitude, y = latitude)) +
+  geom_point(alpha = 0.35, size = 0.7) +
+  coord_equal() +
+  labs(
+    x = "Longitude",
+    y = "Latitude",
+    title = "Arrêts du RTC dans le flux GTFS",
+    subtitle = "Carte d'arrêts, pas carte d'achalandage"
+  )
+
+# Identify routes with the most planned trips
+routes_summary |>
+  arrange(desc(n_trips)) |>
+  select(route_short_name, route_description, n_trips, n_services) |>
+  slice_head(n = 10)
 ```
 
 ## Limites et précautions
 
-- La fiche source principale pointe vers le GTFS du RTC; ajouter d'autres feeds vérifiés dans les exemples selon le territoire du laboratoire.
-- Les noms de variables proposés sont des noms pédagogiques harmonisés; ils doivent être mappés aux noms officiels après inspection de la ressource.
-- Aucune conclusion causale ne doit être tirée sans plan d'analyse plus avancé.
+- Le GTFS statique décrit l'offre planifiée, pas les positions en temps réel.
+- Le nombre de trajets planifiés n'est pas un nombre d'usagers.
+- Le nombre d'arrêts dans un secteur ne mesure pas directement l'accessibilité vécue.
+- Les codes d'accessibilité doivent être lus selon la spécification GTFS; le code 0 signifie information non disponible.
+- Le flux peut changer. Une analyse reproductible doit archiver la date du ZIP utilisé.
+- Pour analyser les retards, il faut une source GTFS Realtime ou une archive de temps réel, pas seulement ce ZIP statique.
 
 ## Extensions
 
-- Extension intro : produire un tableau de fréquences ou de moyennes par groupe.
-- Extension intermédiaire : ajouter une visualisation claire et une interprétation écrite.
-- Extension avancée : construire une version préparée et documentée dans `data_processed/`.
-- Extension communication scientifique : expliquer en une page ce que la source permet et ne permet pas de conclure.
+- Construire une carte des arrêts avec un fond de carte municipal.
+- Comparer les parcours selon le nombre de trajets planifiés.
+- Produire un schéma relationnel des fichiers GTFS.
+- Joindre les trajets aux dates de service pour comparer jours de semaine et fins de semaine.
+- Discuter ce qu'il faudrait ajouter pour étudier l'équité territoriale ou l'achalandage.
+
+## Références utilisées
+
+- Données Québec. 2026. RTC : GTFS /arrêts et les parcours. <https://www.donneesquebec.ca/recherche/dataset/rtc-gtfs-arrets-et-les-parcours>
+- Données Québec. 2026. API CKAN du paquet RTC : GTFS /arrêts et les parcours. <https://www.donneesquebec.ca/recherche/api/3/action/package_show?id=rtc-gtfs-arrets-et-les-parcours>
+- Réseau de transport de la Capitale. 2026. Données ouvertes. <https://www.rtcquebec.ca/donnees-ouvertes>
+- MobilityData. 2026. General Transit Feed Specification overview. <https://gtfs.org/documentation/overview/>
+- MobilityData. 2026. GTFS Schedule reference. <https://gtfs.org/documentation/schedule/reference/>
 
 ```{r}
 #| label: dataset-detail-footer
@@ -138,4 +269,3 @@ donnees |>
 #| results: asis
 render_dataset_detail_footer()
 ```
-

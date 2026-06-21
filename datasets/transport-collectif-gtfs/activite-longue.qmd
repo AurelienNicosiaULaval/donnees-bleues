@@ -1,30 +1,31 @@
 ---
-title: "Mini-projet - GTFS Québec"
+title: "Mini-projet - Offre planifiée du RTC en GTFS"
 embed-resources: true
 ---
 
-# Mini-projet - GTFS Québec
+# Mini-projet - Offre planifiée du RTC en GTFS
 
 ## Contexte
 
-Ce mini-projet prolonge le laboratoire court en demandant une préparation reproductible et une interprétation plus structurée.
+Ce mini-projet demande de traiter le GTFS du RTC comme une petite base relationnelle. Les étudiants doivent documenter les clés, préparer des résumés et interpréter les résultats comme une description de l'offre planifiée.
 
 ## Question directrice
 
-Comparer la couverture spatiale de deux réseaux GTFS en harmonisant leurs tables stops et routes.
+Quels parcours du RTC ont le plus de trajets planifiés dans le flux GTFS téléchargé, et quelles limites faut-il mentionner avant d'interpréter ce résultat?
 
 ## Livrables
 
-1. Un fichier préparé dans `data_processed/`, ou une description précise du traitement si les données ne sont pas redistribuées.
-2. Un court dictionnaire des variables utilisées.
-3. Deux visualisations complémentaires.
-4. Un paragraphe sur la provenance, la licence et les limites.
-5. Une conclusion pédagogique adaptée à un public de première année.
+1. Un script reproductible qui exécute `preparation.R`.
+2. Un court dictionnaire des tables utilisées.
+3. Une table des 10 parcours avec le plus de trajets planifiés.
+4. Une visualisation claire du nombre de trajets par parcours.
+5. Un paragraphe sur la provenance, la licence et la date du ZIP utilisé.
+6. Une conclusion qui sépare offre planifiée, achalandage et données temps réel.
 
 ## Critères d'évaluation suggérés
 
+- Exactitude de l'unité statistique.
+- Qualité des jointures entre `routes.txt`, `trips.txt` et `calendar_dates.txt`.
+- Lisibilité du graphique.
 - Reproductibilité du traitement.
-- Qualité des noms de variables.
-- Pertinence des regroupements.
-- Lisibilité des graphiques.
 - Prudence de l'interprétation.

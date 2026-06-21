@@ -1,11 +1,17 @@
-# Réseaux de transport collectif GTFS au Québec
+# Horaires, arrêts et parcours GTFS du RTC
 
 Source officielle : https://www.donneesquebec.ca/recherche/dataset/rtc-gtfs-arrets-et-les-parcours
 
-Question d'analyse : Quelle est la densité des arrêts de transport collectif selon le secteur?
+ZIP GTFS : https://cdn.rtcquebec.ca/Site_Internet/DonneesOuvertes/googletransit.zip
 
-Variables pédagogiques proposées : `route_id`, `stop_id`, `stop_name`, `latitude`, `longitude`, `trip_id`.
+Question d'analyse : comment décrire l'offre planifiée du RTC sans la confondre avec l'achalandage ou les retards?
 
-Notes : La fiche source principale pointe vers le GTFS du RTC; ajouter d'autres feeds vérifiés dans les exemples selon le territoire du laboratoire.
+Tables préparées principales :
 
-Les fichiers bruts ne sont pas redistribués par défaut. Déposer la ressource officielle retenue dans `data_raw/`, puis utiliser `preparation.R` pour produire une version préparée dans `data_processed/`.
+- `data/processed/transport-collectif-gtfs/arrets_gtfs_rtc.csv`
+- `data/processed/transport-collectif-gtfs/parcours_gtfs_rtc.csv`
+- `data/processed/transport-collectif-gtfs/trajets_gtfs_rtc.csv`
+- `data/processed/transport-collectif-gtfs/resume_parcours_gtfs_rtc.csv`
+- `data/processed/transport-collectif-gtfs/resume_accessibilite_gtfs_rtc.csv`
+
+Les fichiers bruts ne sont pas redistribués. Exécuter `datasets/transport-collectif-gtfs/preparation.R` depuis la racine du projet pour télécharger le ZIP officiel et reconstruire les tables préparées.

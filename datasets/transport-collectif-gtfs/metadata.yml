@@ -1,35 +1,81 @@
 id: transport-collectif-gtfs
-title: "Réseaux de transport collectif GTFS au Québec"
-short_title: "GTFS Québec"
+title: "Horaires, arrêts et parcours GTFS du RTC"
+short_title: "GTFS RTC"
 theme: "Mobilité et transport collectif"
-source_name: "Sociétés de transport du Québec / Données Québec"
+source_name: "Données Québec / Réseau de transport de la Capitale"
 source_url: "https://www.donneesquebec.ca/recherche/dataset/rtc-gtfs-arrets-et-les-parcours"
-license: "Attribution (CC-BY 4.0) pour les fiches CKAN RTC et STM vérifiées; confirmer chaque feed utilisé"
-access_date: "2026-06-19"
-geography: "Territoires desservis par les sociétés de transport québécoises"
-unit: "Arrêt, parcours, trajet ou horaire selon la table GTFS utilisée"
-data_type: "Données relationnelles et spatiales"
-format: "GTFS ZIP"
-n_rows: "Variable selon le feed et les tables stops, routes, trips, stop_times"
-n_cols: "Structure normalisée GTFS; nombre de colonnes variable selon les tables"
-update_frequency: "Variable selon la société de transport; les horaires planifiés sont mis à jour selon les périodes de service"
+source_api_url: "https://www.donneesquebec.ca/recherche/api/3/action/package_show?id=rtc-gtfs-arrets-et-les-parcours"
+source_zip_url: "https://cdn.rtcquebec.ca/Site_Internet/DonneesOuvertes/googletransit.zip"
+source_secondary_url: "https://www.rtcquebec.ca/donnees-ouvertes"
+source_spec_url: "https://gtfs.org/documentation/overview/"
+license: "Attribution (CC-BY 4.0) selon les métadonnées CKAN; conditions RTC à respecter pour la provenance et la date de mise à jour"
+access_date: "2026-06-21"
+geography: "Territoire desservi par le Réseau de transport de la Capitale, région de Québec"
+unit: "Arrêt, parcours, trajet, horaire d'arrêt ou date de service selon le fichier GTFS"
+data_type: "Flux GTFS statique, relationnel, spatial et temporel"
+format: "ZIP GTFS contenant des fichiers texte CSV"
+n_rows: "4 370 arrêts; 182 parcours; 70 876 trajets; 3 104 289 horaires d'arrêt dans le ZIP téléchargé le 2026-06-21"
+n_cols: "8 colonnes dans stops.txt; 9 dans routes.txt; 9 dans trips.txt; 7 dans stop_times.txt"
+processed_file: "data/processed/transport-collectif-gtfs/arrets_gtfs_rtc.csv"
+route_summary_file: "data/processed/transport-collectif-gtfs/resume_parcours_gtfs_rtc.csv"
+accessibility_summary_file: "data/processed/transport-collectif-gtfs/resume_accessibilite_gtfs_rtc.csv"
+service_summary_file: "data/processed/transport-collectif-gtfs/resume_services_gtfs_rtc.csv"
+update_frequency: "Le RTC publie un ZIP GTFS vivant; le feed_info du ZIP téléchargé couvre les services du 2026-06-20 au 2026-08-21"
 level: "Intermédiaire"
-concepts:
+organisme: "RTC"
+territoire: "Région de Québec"
+taille_approximative: "10 fichiers GTFS; 4 370 arrêts; 182 parcours; 70 876 trajets; 63 dates de service"
+niveau_pedagogique_recommande: "Intermédiaire"
+variables_principales:
+  - stop_id
+  - stop_name
+  - latitude
+  - longitude
+  - wheelchair_boarding
+  - route_id
+  - route_short_name
+  - route_description
+  - route_type
+  - trip_id
+  - service_id
+  - trip_headsign
+  - wheelchair_accessible
+  - service_date
+idees_mini_projets:
+  - "Cartographier les arrêts du RTC et discuter la couverture spatiale sans inférer la demande."
+  - "Comparer les parcours selon le nombre de trajets planifiés et les limites de cette mesure."
+  - "Construire un dictionnaire relationnel reliant stops, routes, trips, stop_times et calendar_dates."
+tags:
+  - transport collectif
+  - GTFS
+  - RTC
+  - Québec
+  - données ouvertes
+  - horaires
+  - cartographie
   - données relationnelles
-  - jointures multiples
+  - accessibilité
+concepts:
+  - importation d'un ZIP
+  - données relationnelles
+  - clés de jointure
+  - formats normalisés
   - visualisation spatiale
-  - réseaux
-  - normalisation de données
+  - valeurs codées
+  - couverture de service
+  - communication prudente
 zero_waste:
   contexte_quebecois: 3
   accessibilite_pedagogique: 2
-  qualite_documentaire: 2
+  qualite_documentaire: 3
   potentiel_nettoyage: 3
   potentiel_visualisation: 3
   potentiel_statistique_descriptive: 3
   potentiel_inference: 1
-  potentiel_modelisation: 3
-  potentiel_ethique: 2
+  potentiel_modelisation: 2
+  potentiel_ethique: 3
   reutilisabilite: 3
-status: "sources RTC et STM vérifiées; autres sociétés à confirmer au cas par cas"
-notes: "La fiche source principale pointe vers le GTFS du RTC; ajouter d'autres feeds vérifiés dans les exemples selon le territoire du laboratoire."
+status: "source officielle vérifiée; ZIP GTFS du RTC préparé localement"
+notes: "Cette fiche décrit l'offre planifiée publiée dans un flux GTFS statique. Elle ne mesure ni l'achalandage, ni les retards, ni la satisfaction des usagers."
+contributor_name: "Aurélien Nicosia"
+contributor_role: "Révision pédagogique et statistique"

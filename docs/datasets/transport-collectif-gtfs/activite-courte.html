@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Laboratoire - GTFS Québec – Données bleues</title>
+<title>Laboratoire - Cartographier les arrêts du RTC – Données bleues</title>
 <style>
 
 code{white-space: pre-wrap;}
@@ -5482,7 +5482,7 @@ grid-template-columns: 1fr;
     <h2 id="toc-title">On this page</h2>
 
   <ul>
-  <li><a href="#laboratoire---gtfs-québec" id="toc-laboratoire---gtfs-québec" class="nav-link active" data-scroll-target="#laboratoire---gtfs-québec">Laboratoire - GTFS Québec</a>
+  <li><a href="#laboratoire---cartographier-les-arrêts-du-rtc" id="toc-laboratoire---cartographier-les-arrêts-du-rtc" class="nav-link active" data-scroll-target="#laboratoire---cartographier-les-arrêts-du-rtc">Laboratoire - Cartographier les arrêts du RTC</a>
   <ul class="collapse">
   <li><a href="#contexte" id="toc-contexte" class="nav-link" data-scroll-target="#contexte">Contexte</a></li>
   <li><a href="#objectifs-dapprentissage" id="toc-objectifs-dapprentissage" class="nav-link" data-scroll-target="#objectifs-dapprentissage">Objectifs d’apprentissage</a></li>
@@ -5498,7 +5498,7 @@ grid-template-columns: 1fr;
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Laboratoire - GTFS Québec</h1>
+<h1 class="title">Laboratoire - Cartographier les arrêts du RTC</h1>
 </div>
 
 
@@ -5515,38 +5515,40 @@ grid-template-columns: 1fr;
 </header>
 
 
-<section id="laboratoire---gtfs-québec" class="level1">
-<h1>Laboratoire - GTFS Québec</h1>
+<section id="laboratoire---cartographier-les-arrêts-du-rtc" class="level1">
+<h1>Laboratoire - Cartographier les arrêts du RTC</h1>
 <section id="contexte" class="level2">
 <h2 class="anchored" data-anchor-id="contexte">Contexte</h2>
-<p>Ce laboratoire utilise la fiche <a href="../../datasets/transport-collectif-gtfs/fiche.html">Réseaux de transport collectif GTFS au Québec</a> pour travailler une question québécoise concrète dans un format adapté à une activité d’introduction en science des données.</p>
+<p>Ce laboratoire utilise la fiche <a href="../../datasets/transport-collectif-gtfs/fiche.html">Horaires, arrêts et parcours GTFS du RTC</a>. L’objectif est de travailler avec un vrai flux GTFS sans confondre les unités : un arrêt n’est pas un trajet, un trajet n’est pas un usager, et une carte d’arrêts n’est pas une carte de demande.</p>
 </section>
 <section id="objectifs-dapprentissage" class="level2">
 <h2 class="anchored" data-anchor-id="objectifs-dapprentissage">Objectifs d’apprentissage</h2>
 <ul>
-<li>Identifier l’unité statistique d’un jeu de données réel.</li>
-<li>Importer ou préparer une ressource officielle sans perdre la provenance.</li>
-<li>Produire une visualisation simple et interprétable.</li>
-<li>Formuler une conclusion prudente en séparant description et explication.</li>
+<li>Importer une table préparée à partir d’un ZIP officiel.</li>
+<li>Identifier l’unité statistique d’une table GTFS.</li>
+<li>Produire une carte simple des arrêts.</li>
+<li>Lire correctement les codes d’accessibilité.</li>
+<li>Rédiger une conclusion descriptive prudente.</li>
 </ul>
 </section>
 <section id="question-directrice" class="level2">
 <h2 class="anchored" data-anchor-id="question-directrice">Question directrice</h2>
-<p>Quelle est la densité des arrêts de transport collectif selon le secteur?</p>
+<p>Que peut-on conclure, et que ne peut-on pas conclure, à partir d’une carte des arrêts du RTC?</p>
 </section>
 <section id="consignes" class="level2">
 <h2 class="anchored" data-anchor-id="consignes">Consignes</h2>
 <ol type="1">
-<li>Lire la fiche et repérer la source officielle.</li>
-<li>Identifier les variables nécessaires : <code>route_id</code>, <code>stop_id</code>, <code>stop_name</code>, <code>latitude</code>, <code>longitude</code>, <code>trip_id</code>.</li>
-<li>Décrire les valeurs manquantes, les types de variables et les unités.</li>
-<li>Produire au moins une visualisation parmi : cartes interactives, graphes de réseau, cartes de densité d’arrêts.</li>
-<li>Rédiger une conclusion de 5 à 8 lignes avec une limite méthodologique.</li>
+<li>Exécuter <code>datasets/transport-collectif-gtfs/preparation.R</code>.</li>
+<li>Importer <code>data/processed/transport-collectif-gtfs/arrets_gtfs_rtc.csv</code>.</li>
+<li>Vérifier les variables <code>stop_id</code>, <code>stop_name</code>, <code>latitude</code>, <code>longitude</code> et <code>wheelchair_boarding_label</code>.</li>
+<li>Produire une carte de points avec <code>ggplot2</code>.</li>
+<li>Compter les arrêts selon le code d’accessibilité préparé.</li>
+<li>Rédiger une conclusion de 5 à 8 lignes en nommant au moins deux limites.</li>
 </ol>
 </section>
 <section id="pistes-de-solution" class="level2">
 <h2 class="anchored" data-anchor-id="pistes-de-solution">Pistes de solution</h2>
-<p>Une bonne réponse décrit la tendance principale, nomme le regroupement utilisé et explicite au moins une limite de la source. Une réponse excellente justifie aussi le choix du graphique et signale les décisions de nettoyage.</p>
+<p>Une bonne réponse décrit la couverture spatiale observée et explique que les arrêts ne mesurent pas l’achalandage. Une réponse excellente distingue aussi information manquante et absence d’accessibilité dans le codage GTFS.</p>
 
 
 </section>

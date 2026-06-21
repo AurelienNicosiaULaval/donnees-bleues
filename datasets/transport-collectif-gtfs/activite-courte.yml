@@ -1,25 +1,25 @@
 id: transport-collectif-gtfs-court
-title: "Laboratoire - GTFS Québec"
-question: "Quelle est la densité des arrêts de transport collectif selon le secteur?"
+title: "Cartographier les arrêts du RTC"
+question: "Que peut-on conclure, et que ne peut-on pas conclure, à partir d'une carte des arrêts du RTC?"
 dataset_id: transport-collectif-gtfs
-dataset_title: "Réseaux de transport collectif GTFS au Québec"
+dataset_title: "Horaires, arrêts et parcours GTFS du RTC"
 activity_url: "datasets/transport-collectif-gtfs/activite-courte.qmd"
-duration: "60-90 minutes"
+duration: "45-60 minutes"
 level: "Intermédiaire"
 activity_type:
-  - "Laboratoire d'introduction"
+  - "Laboratoire"
   - "Exploration de données"
 concepts:
-  - "données relationnelles"
-  - "jointures multiples"
-  - "visualisation spatiale"
-  - "réseaux"
+  - "GTFS"
+  - "Données spatiales"
+  - "Unité statistique"
+  - "Valeurs codées"
 context: "Mobilité et transport collectif"
-hook: "Question québécoise concrète"
+hook: "Une carte d'arrêts ne mesure pas l'achalandage"
 materials:
   - "fiche"
   - "code"
-  - "source officielle"
+  - "table préparée"
 advanced_math_stats: false
-teacher_notes: "Faire valider l'unité statistique et la provenance avant tout graphique."
-status: "prêt à adapter"
+teacher_notes: "Faire expliciter que le code d'accessibilité 0 signifie information non disponible dans GTFS."
+status: "source officielle vérifiée"

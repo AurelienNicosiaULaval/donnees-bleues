@@ -1,33 +1,35 @@
 ---
-title: "Laboratoire - GTFS Québec"
+title: "Laboratoire - Cartographier les arrêts du RTC"
 embed-resources: true
 ---
 
-# Laboratoire - GTFS Québec
+# Laboratoire - Cartographier les arrêts du RTC
 
 ## Contexte
 
-Ce laboratoire utilise la fiche [Réseaux de transport collectif GTFS au Québec](fiche.qmd) pour travailler une question québécoise concrète dans un format adapté à une activité d'introduction en science des données.
+Ce laboratoire utilise la fiche [Horaires, arrêts et parcours GTFS du RTC](fiche.qmd). L'objectif est de travailler avec un vrai flux GTFS sans confondre les unités : un arrêt n'est pas un trajet, un trajet n'est pas un usager, et une carte d'arrêts n'est pas une carte de demande.
 
 ## Objectifs d'apprentissage
 
-- Identifier l'unité statistique d'un jeu de données réel.
-- Importer ou préparer une ressource officielle sans perdre la provenance.
-- Produire une visualisation simple et interprétable.
-- Formuler une conclusion prudente en séparant description et explication.
+- Importer une table préparée à partir d'un ZIP officiel.
+- Identifier l'unité statistique d'une table GTFS.
+- Produire une carte simple des arrêts.
+- Lire correctement les codes d'accessibilité.
+- Rédiger une conclusion descriptive prudente.
 
 ## Question directrice
 
-Quelle est la densité des arrêts de transport collectif selon le secteur?
+Que peut-on conclure, et que ne peut-on pas conclure, à partir d'une carte des arrêts du RTC?
 
 ## Consignes
 
-1. Lire la fiche et repérer la source officielle.
-2. Identifier les variables nécessaires : `route_id`, `stop_id`, `stop_name`, `latitude`, `longitude`, `trip_id`.
-3. Décrire les valeurs manquantes, les types de variables et les unités.
-4. Produire au moins une visualisation parmi : cartes interactives, graphes de réseau, cartes de densité d'arrêts.
-5. Rédiger une conclusion de 5 à 8 lignes avec une limite méthodologique.
+1. Exécuter `datasets/transport-collectif-gtfs/preparation.R`.
+2. Importer `data/processed/transport-collectif-gtfs/arrets_gtfs_rtc.csv`.
+3. Vérifier les variables `stop_id`, `stop_name`, `latitude`, `longitude` et `wheelchair_boarding_label`.
+4. Produire une carte de points avec `ggplot2`.
+5. Compter les arrêts selon le code d'accessibilité préparé.
+6. Rédiger une conclusion de 5 à 8 lignes en nommant au moins deux limites.
 
 ## Pistes de solution
 
-Une bonne réponse décrit la tendance principale, nomme le regroupement utilisé et explicite au moins une limite de la source. Une réponse excellente justifie aussi le choix du graphique et signale les décisions de nettoyage.
+Une bonne réponse décrit la couverture spatiale observée et explique que les arrêts ne mesurent pas l'achalandage. Une réponse excellente distingue aussi information manquante et absence d'accessibilité dans le codage GTFS.
