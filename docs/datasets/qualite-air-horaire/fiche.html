@@ -260,25 +260,13 @@ Comparer les profils journaliers de PM2.5 entre stations en 2025.
 <div class="dataset-section-heading">
 <span>R en action</span>
 <h2 class="anchored">
-Aperçu reproductible
+Aperçu des résultats
 </h2>
 <p>
 Aperçu léger calculé par R à partir des métadonnées vérifiées afin de garder la fiche rapide et stable au rendu.
 </p>
 </div>
-<div class="dataset-r-grid">
-<div class="dataset-code-card">
-<div class="dataset-card-label">
-Code minimal
-</div>
-<pre><code class="language-r">library(yaml)
-
-metadata &lt;- yaml::read_yaml("datasets/qualite-air-horaire/metadata.yml")
-data.frame(
-  champ = c("theme", "territoire", "unite", "niveau"),
-  valeur = c(metadata$theme, metadata$geography, metadata$unit, metadata$level)
-)</code></pre>
-</div>
+<div class="dataset-r-grid dataset-r-grid-compact">
 <div id="apercu-interactif" class="dataset-result-card">
 <div class="dataset-card-label">
 Résultats R

@@ -260,24 +260,13 @@ Comparer les stations sans date de fermeture selon les régions et les types de 
 <div class="dataset-section-heading">
 <span>R en action</span>
 <h2 class="anchored">
-Aperçu reproductible
+Aperçu des résultats
 </h2>
 <p>
 Aperçu calculé par R à partir de data/processed/qualite-air/rsqaq_stations.csv.
 </p>
 </div>
-<div class="dataset-r-grid">
-<div class="dataset-code-card">
-<div class="dataset-card-label">
-Code minimal
-</div>
-<pre><code class="language-r">library(dplyr)
-
-donnees &lt;- read.csv("data/processed/qualite-air/rsqaq_stations.csv", check.names = FALSE)
-
-glimpse(donnees)
-donnees |&gt; summarise(lignes = n(), colonnes = ncol(donnees))</code></pre>
-</div>
+<div class="dataset-r-grid dataset-r-grid-compact">
 <div id="apercu-interactif" class="dataset-result-card">
 <div class="dataset-card-label">
 Résultats R
