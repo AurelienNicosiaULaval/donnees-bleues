@@ -4469,6 +4469,9 @@ border-radius: 6px;
 min-width: 0;
 padding: 0.9rem;
 }
+#apercu-interactif {
+scroll-margin-top: 5rem;
+}
 .dataset-code-card pre {
 background: #101828;
 border-radius: 5px;
@@ -4513,7 +4516,10 @@ overflow-wrap: anywhere;
 .dataset-result-table-wrap {
 border: 1px solid #e0e8f4;
 border-radius: 5px;
+max-width: 100%;
+min-width: 0;
 overflow: auto;
+width: 100%;
 }
 .dataset-result-table {
 border-collapse: collapse;
@@ -4539,6 +4545,8 @@ border-bottom: 0;
 .dataset-datatable {
 display: grid;
 gap: 0.65rem;
+max-width: 100%;
+min-width: 0;
 }
 .dataset-datatable-toolbar {
 align-items: end;
@@ -4798,11 +4806,25 @@ display: grid;
 gap: 0.9rem;
 grid-template-columns: minmax(0, 1.15fr) minmax(220px, 0.75fr);
 }
+.dataset-minimal-result-grid > * {
+min-width: 0;
+}
 .dataset-minimal-chart {
 background: #ffffff;
 border: 1px solid #e0e8f4;
 border-radius: 5px;
 padding: 0.7rem;
+}
+#code-r-minimal .cell,
+#code-r-minimal .code-copy-outer-scaffold,
+#code-r-minimal div.sourceCode,
+#code-r-minimal pre.sourceCode {
+max-width: 100%;
+min-width: 0;
+}
+#code-r-minimal div.sourceCode {
+max-height: 390px;
+overflow: auto;
 }
 body:has(.catalogue-reference) .navbar {
 background: #ffffff !important;
@@ -7791,7 +7813,7 @@ Ville de Québec, Données Québec
 Permis, bâtiment, quartier ou agrégat par quartier selon le fichier
 </p>
 <div class="dataset-hero-actions">
-<a class="dataset-button no-external" href="#r-en-action">Voir les résultats R</a><a class="dataset-button secondary" href="https://www.donneesquebec.ca/recherche/dataset/permis-delivres-ville-de-quebec">Source officielle</a>
+<a class="dataset-button no-external" href="#apercu-interactif">Voir les résultats R</a><a class="dataset-button secondary" href="https://www.donneesquebec.ca/recherche/dataset/permis-delivres-ville-de-quebec">Source officielle</a>
 </div>
 </div>
 <div class="dataset-hero-media">
@@ -7851,7 +7873,7 @@ donnees &lt;- read.csv(&quot;data/processed/construction-quartiers-quebec/quebec
 glimpse(donnees)
 donnees |&gt; summarise(lignes = n(), colonnes = ncol(donnees))</code></pre>
 </div>
-<div class="dataset-result-card">
+<div id="apercu-interactif" class="dataset-result-card">
 <div class="dataset-card-label">
 Résultats R
 </div>

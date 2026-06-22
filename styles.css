@@ -225,6 +225,7 @@ body:has(.dataset-detail-page) main.content {
 .dataset-detail-page {
   background: #ffffff;
   margin: -0.5rem calc(50% - 50vw) 0;
+  overflow-x: hidden;
   padding-bottom: 4rem;
 }
 
@@ -238,6 +239,7 @@ body:has(.dataset-detail-page) main.content {
   margin-left: auto;
   margin-right: auto;
   max-width: 1180px;
+  min-width: 0;
   width: calc(100% - 3rem);
 }
 
@@ -462,6 +464,7 @@ body:has(.dataset-detail-page) main.content {
 .dataset-r-lab {
   border-top: 1px solid #e5e7eb;
   margin-top: 2rem;
+  overflow-x: hidden;
   padding-top: 1.8rem;
 }
 
@@ -503,9 +506,14 @@ body:has(.dataset-detail-page) main.content {
   padding: 0.9rem;
 }
 
+#apercu-interactif {
+  scroll-margin-top: 5rem;
+}
+
 .dataset-code-card pre {
   background: #101828;
   border-radius: 5px;
+  contain: inline-size;
   color: #f8fbff;
   font-size: 0.78rem;
   line-height: 1.5;
@@ -553,7 +561,11 @@ body:has(.dataset-detail-page) main.content {
 .dataset-result-table-wrap {
   border: 1px solid #e0e8f4;
   border-radius: 5px;
+  contain: inline-size;
+  max-width: 100%;
+  min-width: 0;
   overflow: auto;
+  width: 100%;
 }
 
 .dataset-result-table {
@@ -584,6 +596,8 @@ body:has(.dataset-detail-page) main.content {
 .dataset-datatable {
   display: grid;
   gap: 0.65rem;
+  max-width: 100%;
+  min-width: 0;
 }
 
 .dataset-datatable-toolbar {
@@ -806,6 +820,7 @@ body:has(.dataset-detail-page) main.content {
 .dataset-detail-content {
   color: #172033;
   margin-top: 2.2rem;
+  overflow-x: hidden;
 }
 
 .dataset-detail-content > h2 {
@@ -886,11 +901,45 @@ body:has(.dataset-detail-page) main.content {
   grid-template-columns: minmax(0, 1.15fr) minmax(220px, 0.75fr);
 }
 
+.dataset-minimal-result-grid > * {
+  min-width: 0;
+}
+
 .dataset-minimal-chart {
   background: #ffffff;
   border: 1px solid #e0e8f4;
   border-radius: 5px;
   padding: 0.7rem;
+}
+
+#code-r-minimal .cell,
+#code-r-minimal .code-copy-outer-scaffold,
+#code-r-minimal div.sourceCode,
+#code-r-minimal pre.sourceCode {
+  max-width: 100%;
+  min-width: 0;
+}
+
+#code-r-minimal div.sourceCode {
+  contain: inline-size;
+  max-height: 390px;
+  overflow: auto;
+}
+
+.dataset-detail-content div.sourceCode,
+.dataset-detail-content pre,
+.dataset-detail-content table {
+  max-width: 100%;
+}
+
+.dataset-detail-content div.sourceCode,
+.dataset-detail-content table {
+  contain: inline-size;
+  overflow-x: auto;
+}
+
+.dataset-detail-content table {
+  display: block;
 }
 
 body:has(.catalogue-reference) .navbar {
