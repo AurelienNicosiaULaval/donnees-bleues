@@ -284,10 +284,13 @@ Résultats R
 </div>
 <div class="dataset-r-stats">
 <div class="dataset-r-stat">
-<span>Lignes lues</span><strong>1</strong>
+<span>Lignes dans l'aperçu</span><strong>1</strong>
 </div>
 <div class="dataset-r-stat">
-<span>Colonnes</span><strong>18</strong>
+<span>Lignes déclarées</span><strong>1 375 lignes core validées; 119 lignes GES validées; 165 lignes d'indicateurs repères validées localement</strong>
+</div>
+<div class="dataset-r-stat">
+<span>Colonnes dans le CSV</span><strong>18</strong>
 </div>
 <div class="dataset-r-stat">
 <span>Variables num.</span><strong>9</strong>
@@ -299,27 +302,63 @@ Résultats R
 <span>Aperçu</span><strong>resume_ulaval_programmes_cours.csv</strong>
 </div>
 </div>
+<div id="dataset-header-result-table" class="dataset-datatable">
+<div class="dataset-datatable-toolbar">
+<label><span>Recherche</span><input type="search" data-dataset-search="" placeholder="Filtrer"></label><label><span>Lignes</span><select data-dataset-page-size=""><option value="10">10</option><option value="25">25</option><option value="50">50</option><option value="100">100</option></select></label><span class="dataset-datatable-count" data-dataset-count=""></span>
+</div>
 <div class="dataset-result-table-wrap">
 <table class="dataset-result-table">
 <thead>
 <tr>
 <th>
-access_date
+<button type="button" class="dataset-sort-button" data-dataset-sort="0">
+access_date<span aria-hidden="true"></span>
+</button>
 </th>
 <th>
-source_found
+<button type="button" class="dataset-sort-button" data-dataset-sort="1">
+source_found<span aria-hidden="true"></span>
+</button>
 </th>
 <th>
-source_status
+<button type="button" class="dataset-sort-button" data-dataset-sort="2">
+source_status<span aria-hidden="true"></span>
+</button>
 </th>
 <th>
-source_path_recorded
+<button type="button" class="dataset-sort-button" data-dataset-sort="3">
+source_path_recorded<span aria-hidden="true"></span>
+</button>
 </th>
 <th>
-n_reference_files_expected
+<button type="button" class="dataset-sort-button" data-dataset-sort="4">
+n_reference_files_expected<span aria-hidden="true"></span>
+</button>
 </th>
 <th>
-n_reference_files_available
+<button type="button" class="dataset-sort-button" data-dataset-sort="5">
+n_reference_files_available<span aria-hidden="true"></span>
+</button>
+</th>
+<th>
+<button type="button" class="dataset-sort-button" data-dataset-sort="6">
+n_manifest_datasets<span aria-hidden="true"></span>
+</button>
+</th>
+<th>
+<button type="button" class="dataset-sort-button" data-dataset-sort="7">
+n_core_datasets<span aria-hidden="true"></span>
+</button>
+</th>
+<th>
+<button type="button" class="dataset-sort-button" data-dataset-sort="8">
+n_core_expected_rows<span aria-hidden="true"></span>
+</button>
+</th>
+<th>
+<button type="button" class="dataset-sort-button" data-dataset-sort="9">
+n_ges_datasets<span aria-hidden="true"></span>
+</button>
 </th>
 </tr>
 </thead>
@@ -343,9 +382,31 @@ chemin local privé non publié
 <td>
 8
 </td>
+<td>
+7
+</td>
+<td>
+3
+</td>
+<td>
+1375
+</td>
+<td>
+3
+</td>
 </tr>
 </tbody>
 </table>
+</div>
+<p class="dataset-table-note">
+aperçu limité aux 10 premières colonnes.
+</p>
+<div class="dataset-datatable-pager">
+<button type="button" data-dataset-prev="">
+Précédent
+</button>
+<span data-dataset-page=""></span><button type="button" data-dataset-next="">Suivant</button>
+</div>
 </div>
 </div>
 <div class="dataset-chart-card">
@@ -974,6 +1035,149 @@ Comment produire un rapport utile sur une source institutionnelle privée sans c
 <span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>fichiers <span class="sc">|&gt;</span></span>
 <span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(dataset_id, phase, observed_rows, keys_unique, protected_fields_present)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
+<div class="dataset-minimal-result">
+<div class="dataset-card-label">
+Résultat visible
+</div>
+<p>
+Sortie calculée par R à partir de data/processed/ulaval-programmes-cours/resume_ulaval_programmes_cours.csv. Les exemples qui téléchargent une source externe restent non évalués pendant le rendu du site afin de garder les fiches stables.
+</p>
+<div class="dataset-minimal-result-grid">
+<div>
+<div class="dataset-r-stats">
+<div class="dataset-r-stat">
+<span>Lignes dans l'aperçu</span><strong>1</strong>
+</div>
+<div class="dataset-r-stat">
+<span>Lignes déclarées</span><strong>1 375 lignes core validées; 119 lignes GES validées; 165 lignes d'indicateurs repères validées localement</strong>
+</div>
+<div class="dataset-r-stat">
+<span>Colonnes dans le CSV</span><strong>18</strong>
+</div>
+<div class="dataset-r-stat">
+<span>Variables num.</span><strong>9</strong>
+</div>
+<div class="dataset-r-stat">
+<span>Valeurs manquantes</span><strong>0 %</strong>
+</div>
+<div class="dataset-r-stat">
+<span>Aperçu</span><strong>resume_ulaval_programmes_cours.csv</strong>
+</div>
+</div>
+<div id="dataset-code-result-table" class="dataset-datatable">
+<div class="dataset-datatable-toolbar">
+<label><span>Recherche</span><input type="search" data-dataset-search="" placeholder="Filtrer"></label><label><span>Lignes</span><select data-dataset-page-size=""><option value="10">10</option><option value="25">25</option><option value="50">50</option><option value="100">100</option></select></label><span class="dataset-datatable-count" data-dataset-count=""></span>
+</div>
+<div class="dataset-result-table-wrap">
+<table class="dataset-result-table">
+<thead>
+<tr>
+<th>
+<button type="button" class="dataset-sort-button" data-dataset-sort="0">
+access_date<span aria-hidden="true"></span>
+</button>
+</th>
+<th>
+<button type="button" class="dataset-sort-button" data-dataset-sort="1">
+source_found<span aria-hidden="true"></span>
+</button>
+</th>
+<th>
+<button type="button" class="dataset-sort-button" data-dataset-sort="2">
+source_status<span aria-hidden="true"></span>
+</button>
+</th>
+<th>
+<button type="button" class="dataset-sort-button" data-dataset-sort="3">
+source_path_recorded<span aria-hidden="true"></span>
+</button>
+</th>
+<th>
+<button type="button" class="dataset-sort-button" data-dataset-sort="4">
+n_reference_files_expected<span aria-hidden="true"></span>
+</button>
+</th>
+<th>
+<button type="button" class="dataset-sort-button" data-dataset-sort="5">
+n_reference_files_available<span aria-hidden="true"></span>
+</button>
+</th>
+<th>
+<button type="button" class="dataset-sort-button" data-dataset-sort="6">
+n_manifest_datasets<span aria-hidden="true"></span>
+</button>
+</th>
+<th>
+<button type="button" class="dataset-sort-button" data-dataset-sort="7">
+n_core_datasets<span aria-hidden="true"></span>
+</button>
+</th>
+<th>
+<button type="button" class="dataset-sort-button" data-dataset-sort="8">
+n_core_expected_rows<span aria-hidden="true"></span>
+</button>
+</th>
+<th>
+<button type="button" class="dataset-sort-button" data-dataset-sort="9">
+n_ges_datasets<span aria-hidden="true"></span>
+</button>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+2026-06-21
+</td>
+<td>
+TRUE
+</td>
+<td>
+source privée locale validée
+</td>
+<td>
+chemin local privé non publié
+</td>
+<td>
+8
+</td>
+<td>
+8
+</td>
+<td>
+7
+</td>
+<td>
+3
+</td>
+<td>
+1375
+</td>
+<td>
+3
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p class="dataset-table-note">
+aperçu limité aux 10 premières colonnes.
+</p>
+<div class="dataset-datatable-pager">
+<button type="button" data-dataset-prev="">
+Précédent
+</button>
+<span data-dataset-page=""></span><button type="button" data-dataset-next="">Suivant</button>
+</div>
+</div>
+</div>
+<div class="dataset-minimal-chart">
+<p class="dataset-empty-result">
+Pas assez de valeurs numériques pour tracer un aperçu.
+</p>
+</div>
+</div>
+</div>
 </section>
 <section id="limites-et-précautions" class="level2">
 <h2 class="anchored" data-anchor-id="limites-et-précautions">Limites et précautions</h2>
@@ -997,6 +1201,119 @@ Comment produire un rapport utile sur une source institutionnelle privée sans c
 </section>
 </div>
 </section>
+<script>
+(function() {
+  function normalize(value) {
+    return (value || '').toString().toLocaleLowerCase('fr-CA');
+  }
+  function numericValue(value) {
+    var cleaned = (value || '').toString().replace(/\s/g, '').replace(',', '.');
+    if (!/^[-+]?\d*(\.\d+)?$/.test(cleaned) || cleaned === '' || cleaned === '-' || cleaned === '+') {
+      return null;
+    }
+    var parsed = Number(cleaned);
+    return Number.isFinite(parsed) ? parsed : null;
+  }
+  function initDatatable(root) {
+    if (root.dataset.enhanced === 'true') return;
+    root.dataset.enhanced = 'true';
+    var table = root.querySelector('table');
+    var tbody = root.querySelector('tbody');
+    if (!table || !tbody) return;
+    var rows = Array.from(tbody.querySelectorAll('tr'));
+    var search = root.querySelector('[data-dataset-search]');
+    var pageSize = root.querySelector('[data-dataset-page-size]');
+    var count = root.querySelector('[data-dataset-count]');
+    var page = root.querySelector('[data-dataset-page]');
+    var prev = root.querySelector('[data-dataset-prev]');
+    var next = root.querySelector('[data-dataset-next]');
+    var sortButtons = Array.from(root.querySelectorAll('[data-dataset-sort]'));
+    var state = { query: '', size: 10, page: 1, sortCol: null, sortDir: 1 };
+    function filteredRows() {
+      var query = normalize(state.query);
+      var filtered = query === '' ? rows.slice() : rows.filter(function(row) {
+        return normalize(row.textContent).indexOf(query) !== -1;
+      });
+      if (state.sortCol !== null) {
+        filtered.sort(function(a, b) {
+          var av = a.children[state.sortCol] ? a.children[state.sortCol].textContent.trim() : '';
+          var bv = b.children[state.sortCol] ? b.children[state.sortCol].textContent.trim() : '';
+          var an = numericValue(av);
+          var bn = numericValue(bv);
+          var result;
+          if (an !== null && bn !== null) {
+            result = an - bn;
+          } else {
+            result = normalize(av).localeCompare(normalize(bv), 'fr-CA', { numeric: true });
+          }
+          return result * state.sortDir;
+        });
+      }
+      return filtered;
+    }
+    function render() {
+      var filtered = filteredRows();
+      var totalPages = Math.max(1, Math.ceil(filtered.length / state.size));
+      state.page = Math.min(Math.max(1, state.page), totalPages);
+      var start = (state.page - 1) * state.size;
+      var visible = filtered.slice(start, start + state.size);
+      filtered.forEach(function(row) { tbody.appendChild(row); });
+      rows.filter(function(row) { return filtered.indexOf(row) === -1; }).forEach(function(row) { tbody.appendChild(row); });
+      rows.forEach(function(row) { row.hidden = true; });
+      visible.forEach(function(row) { row.hidden = false; });
+      if (count) count.textContent = filtered.length + ' ligne' + (filtered.length > 1 ? 's' : '');
+      if (page) page.textContent = 'Page ' + state.page + ' / ' + totalPages;
+      if (prev) prev.disabled = state.page <= 1;
+      if (next) next.disabled = state.page >= totalPages;
+      sortButtons.forEach(function(button) {
+        var indicator = button.querySelector('span');
+        if (!indicator) return;
+        var col = Number(button.dataset.datasetSort);
+        indicator.textContent = col === state.sortCol ? (state.sortDir === 1 ? ' ↑' : ' ↓') : '';
+      });
+    }
+    if (search) {
+      search.addEventListener('input', function(event) {
+        state.query = event.target.value;
+        state.page = 1;
+        render();
+      });
+    }
+    if (pageSize) {
+      state.size = Number(pageSize.value) || 10;
+      pageSize.addEventListener('change', function(event) {
+        state.size = Number(event.target.value) || 10;
+        state.page = 1;
+        render();
+      });
+    }
+    if (prev) prev.addEventListener('click', function() { state.page -= 1; render(); });
+    if (next) next.addEventListener('click', function() { state.page += 1; render(); });
+    sortButtons.forEach(function(button) {
+      button.addEventListener('click', function() {
+        var col = Number(button.dataset.datasetSort);
+        if (state.sortCol === col) {
+          state.sortDir = state.sortDir * -1;
+        } else {
+          state.sortCol = col;
+          state.sortDir = 1;
+        }
+        state.page = 1;
+        render();
+      });
+    });
+    render();
+  }
+  function initAll() {
+    document.querySelectorAll('.dataset-datatable').forEach(initDatatable);
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initAll);
+  } else {
+    initAll();
+  }
+})();
+</script>
 
 
 

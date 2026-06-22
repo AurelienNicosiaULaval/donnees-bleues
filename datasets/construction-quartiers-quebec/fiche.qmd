@@ -143,6 +143,14 @@ construction_quartiers |>
   theme_minimal()
 ```
 
+
+```{r}
+#| label: dataset-minimal-result
+#| echo: false
+#| results: asis
+render_dataset_minimal_result()
+```
+
 ## Limites et précautions
 
 - Le fichier des permis ne contient pas la valeur monétaire des travaux.

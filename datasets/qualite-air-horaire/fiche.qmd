@@ -200,6 +200,14 @@ ggplot(pm25, aes(x = date, y = moyenne, group = station_id)) +
   theme_minimal()
 ```
 
+
+```{r}
+#| label: dataset-minimal-result
+#| echo: false
+#| results: asis
+render_dataset_minimal_result()
+```
+
 ## Limites et précautions
 
 - La fiche conserve les valeurs publiées par contaminant sans harmoniser les unités.

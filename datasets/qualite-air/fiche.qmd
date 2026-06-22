@@ -232,6 +232,14 @@ ggplot(
   )
 ```
 
+
+```{r}
+#| label: dataset-minimal-result
+#| echo: false
+#| results: asis
+render_dataset_minimal_result()
+```
+
 ## Limites et précautions
 
 - Le fichier décrit les stations, pas les concentrations de polluants.

@@ -201,6 +201,14 @@ unite_choisie |>
   select(bloc, zone, fgdb_url)
 ```
 
+
+```{r}
+#| label: dataset-minimal-result
+#| echo: false
+#| results: asis
+render_dataset_minimal_result()
+```
+
 ## Limites et précautions
 
 - L'index préparé ne contient pas les géométries hydrographiques détaillées.

@@ -239,6 +239,14 @@ ggplot(resume_essences, aes(x = reorder(essence_fr, n), y = n)) +
   )
 ```
 
+
+```{r}
+#| label: dataset-minimal-result
+#| echo: false
+#| results: asis
+render_dataset_minimal_result()
+```
+
 ## Limites et précautions
 
 - La source officielle signale que certaines localisations peuvent être imprécises ou pas à jour.

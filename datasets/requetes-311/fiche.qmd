@@ -281,6 +281,14 @@ ggplot(resume_activites, aes(x = reorder(activite, n), y = n)) +
   )
 ```
 
+
+```{r}
+#| label: dataset-minimal-result
+#| echo: false
+#| results: asis
+render_dataset_minimal_result()
+```
+
 ## Limites et précautions
 
 - La table préparée est un échantillon pédagogique, pas la ressource complète.

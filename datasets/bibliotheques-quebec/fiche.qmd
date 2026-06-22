@@ -230,6 +230,14 @@ bibliotheques |>
   )
 ```
 
+
+```{r}
+#| label: dataset-minimal-result
+#| echo: false
+#| results: asis
+render_dataset_minimal_result()
+```
+
 ## Limites et précautions
 
 - Les données sont déclarées dans une enquête administrative; elles ne mesurent pas directement la satisfaction, la qualité du service ou l'accessibilité.

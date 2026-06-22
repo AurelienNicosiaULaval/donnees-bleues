@@ -210,6 +210,14 @@ fichiers |>
   select(dataset_id, phase, observed_rows, keys_unique, protected_fields_present)
 ```
 
+
+```{r}
+#| label: dataset-minimal-result
+#| echo: false
+#| results: asis
+render_dataset_minimal_result()
+```
+
 ## Limites et précautions
 
 - Les CSV privés ne sont pas inclus dans le dépôt Données bleues.

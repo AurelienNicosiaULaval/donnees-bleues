@@ -182,6 +182,14 @@ resume |>
   )
 ```
 
+
+```{r}
+#| label: dataset-minimal-result
+#| echo: false
+#| results: asis
+render_dataset_minimal_result()
+```
+
 ## Limites et précautions
 
 - Ne pas distribuer une table de retards sans expliquer comment elle a été collectée.

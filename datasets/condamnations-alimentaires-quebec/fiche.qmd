@@ -195,6 +195,14 @@ condamnations |>
   )
 ```
 
+
+```{r}
+#| label: dataset-minimal-result
+#| echo: false
+#| results: asis
+render_dataset_minimal_result()
+```
+
 ## Limites et précautions
 
 - La version `UlavalSSD` est une version pédagogique fixe; elle ne remplace pas le CSV officiel courant.

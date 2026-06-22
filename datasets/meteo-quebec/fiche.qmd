@@ -197,6 +197,14 @@ meteo |>
   )
 ```
 
+
+```{r}
+#| label: dataset-minimal-result
+#| echo: false
+#| results: asis
+render_dataset_minimal_result()
+```
+
 ## Limites et précautions
 
 - Le jeu préparé est une version pédagogique fixe, pas une extraction ECCC en temps réel.

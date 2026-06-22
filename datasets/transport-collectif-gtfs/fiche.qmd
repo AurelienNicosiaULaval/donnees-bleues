@@ -237,6 +237,14 @@ routes_summary |>
   slice_head(n = 10)
 ```
 
+
+```{r}
+#| label: dataset-minimal-result
+#| echo: false
+#| results: asis
+render_dataset_minimal_result()
+```
+
 ## Limites et précautions
 
 - Le GTFS statique décrit l'offre planifiée, pas les positions en temps réel.

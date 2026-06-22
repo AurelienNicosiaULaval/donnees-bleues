@@ -272,6 +272,14 @@ stations |>
   )
 ```
 
+
+```{r}
+#| label: dataset-minimal-result
+#| echo: false
+#| results: asis
+render_dataset_minimal_result()
+```
+
 ## Limites et précautions
 
 - Les valeurs principales sont des statistiques agrégées, pas des mesures brutes individuelles.

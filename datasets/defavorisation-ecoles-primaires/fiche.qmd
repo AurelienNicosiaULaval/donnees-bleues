@@ -249,6 +249,14 @@ predictions |>
   )
 ```
 
+
+```{r}
+#| label: dataset-minimal-result
+#| echo: false
+#| results: asis
+render_dataset_minimal_result()
+```
+
 ## Limites et précautions
 
 - Les indices sont des indicateurs administratifs et ne décrivent pas directement chaque élève.

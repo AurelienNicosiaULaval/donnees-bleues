@@ -218,6 +218,14 @@ ggplot(
   )
 ```
 
+
+```{r}
+#| label: dataset-minimal-result
+#| echo: false
+#| results: asis
+render_dataset_minimal_result()
+```
+
 ## Limites et précautions
 
 - L'indicateur compare les déciles IMSE 1 et 10; il ne résume pas toute la distribution.

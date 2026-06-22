@@ -232,6 +232,14 @@ ggplot(resume_mois, aes(x = mois, y = n_actes, color = categorie, group = catego
   theme(axis.text.x = element_text(angle = 90, hjust = 1))
 ```
 
+
+```{r}
+#| label: dataset-minimal-result
+#| echo: false
+#| results: asis
+render_dataset_minimal_result()
+```
+
 ## Limites et précautions
 
 - Le jeu ne représente pas les statistiques officielles du SPVM selon la description Données Québec.

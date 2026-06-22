@@ -4536,6 +4536,102 @@ font-weight: 800;
 .dataset-result-table tr:last-child td {
 border-bottom: 0;
 }
+.dataset-datatable {
+display: grid;
+gap: 0.65rem;
+}
+.dataset-datatable-toolbar {
+align-items: end;
+display: grid;
+gap: 0.55rem;
+grid-template-columns: minmax(180px, 1fr) minmax(92px, auto) auto;
+}
+.dataset-datatable-toolbar label {
+color: #5b677d;
+display: grid;
+font-size: 0.72rem;
+font-weight: 750;
+gap: 0.24rem;
+margin: 0;
+}
+.dataset-datatable-toolbar input,
+.dataset-datatable-toolbar select {
+background: #ffffff;
+border: 1px solid #cfd9e8;
+border-radius: 5px;
+color: #172033;
+font-size: 0.82rem;
+min-height: 34px;
+padding: 0.36rem 0.5rem;
+}
+.dataset-datatable-count {
+align-self: center;
+color: #5b677d;
+font-size: 0.78rem;
+font-weight: 750;
+justify-self: end;
+}
+.dataset-sort-button {
+align-items: center;
+appearance: none;
+background: transparent;
+border: 0;
+color: inherit;
+cursor: pointer;
+display: inline-flex;
+font: inherit;
+gap: 0.2rem;
+padding: 0;
+text-align: left;
+width: 100%;
+}
+.dataset-sort-button:hover,
+.dataset-sort-button:focus {
+color: var(--db-blue);
+outline: none;
+text-decoration: underline;
+text-underline-offset: 0.14em;
+}
+.dataset-sort-button span {
+color: var(--db-blue);
+min-width: 1.1em;
+}
+.dataset-datatable-pager {
+align-items: center;
+display: flex;
+gap: 0.6rem;
+justify-content: flex-end;
+}
+.dataset-datatable-pager button {
+background: #ffffff;
+border: 1px solid #cfd9e8;
+border-radius: 5px;
+color: #172033;
+font-size: 0.78rem;
+font-weight: 750;
+min-height: 32px;
+padding: 0.32rem 0.58rem;
+}
+.dataset-datatable-pager button:not(:disabled):hover,
+.dataset-datatable-pager button:not(:disabled):focus {
+border-color: var(--db-blue);
+color: var(--db-blue);
+}
+.dataset-datatable-pager button:disabled {
+color: #9aa7b8;
+cursor: not-allowed;
+}
+.dataset-datatable-pager span {
+color: #5b677d;
+font-size: 0.78rem;
+font-weight: 750;
+}
+.dataset-table-note {
+color: #667085;
+font-size: 0.74rem;
+line-height: 1.4;
+margin: 0.45rem 0 0;
+}
 .dataset-r-chart {
 display: block;
 height: auto;
@@ -4681,6 +4777,32 @@ border-bottom: 0;
 .dataset-detail-content div.sourceCode {
 border-radius: 6px;
 margin: 0.9rem 0 1.5rem;
+}
+.dataset-minimal-result {
+background: #f8fbff;
+border: 1px solid #d9e2ef;
+border-radius: 6px;
+display: grid;
+gap: 0.8rem;
+margin: 0.95rem 0 1.6rem;
+padding: 0.9rem;
+}
+.dataset-minimal-result p {
+color: #475467;
+font-size: 0.9rem;
+line-height: 1.5;
+margin: 0;
+}
+.dataset-minimal-result-grid {
+display: grid;
+gap: 0.9rem;
+grid-template-columns: minmax(0, 1.15fr) minmax(220px, 0.75fr);
+}
+.dataset-minimal-chart {
+background: #ffffff;
+border: 1px solid #e0e8f4;
+border-radius: 5px;
+padding: 0.7rem;
 }
 body:has(.catalogue-reference) .navbar {
 background: #ffffff !important;
@@ -5293,6 +5415,7 @@ margin-bottom: 0.25rem;
 @media (max-width: 900px) {
 .dataset-detail-hero,
 .dataset-r-grid,
+.dataset-minimal-result-grid,
 .dataset-teaching-panel {
 grid-template-columns: 1fr;
 }
@@ -5361,8 +5484,15 @@ padding-top: 2.2rem;
 }
 .dataset-overview-grid,
 .dataset-pedagogy-band,
+.dataset-datatable-toolbar,
 .dataset-r-stats {
 grid-template-columns: 1fr;
+}
+.dataset-datatable-count {
+justify-self: start;
+}
+.dataset-datatable-pager {
+justify-content: space-between;
 }
 .dataset-hero-actions {
 align-items: stretch;
@@ -7740,15 +7870,23 @@ Résultats R
 <span>Aperçu</span><strong>Métadonnées</strong>
 </div>
 </div>
+<div id="dataset-header-result-table" class="dataset-datatable">
+<div class="dataset-datatable-toolbar">
+<label><span>Recherche</span><input type="search" data-dataset-search placeholder="Filtrer"></label><label><span>Lignes</span><select data-dataset-page-size><option value="10">10</option><option value="25">25</option><option value="50">50</option><option value="100">100</option></select></label><span class="dataset-datatable-count" data-dataset-count></span>
+</div>
 <div class="dataset-result-table-wrap">
 <table class="dataset-result-table">
 <thead>
 <tr>
 <th>
-champ
+<button type="button" class="dataset-sort-button" data-dataset-sort="0">
+champ<span aria-hidden="true"></span>
+</button>
 </th>
 <th>
-valeur
+<button type="button" class="dataset-sort-button" data-dataset-sort="1">
+valeur<span aria-hidden="true"></span>
+</button>
 </th>
 </tr>
 </thead>
@@ -7774,7 +7912,7 @@ Agglomération de Montréal
 unite
 </td>
 <td>
-Intervention réalisée par le Se…
+Intervention réalisée par le Service de sécurité incendie de Montréal
 </td>
 </tr>
 <tr>
@@ -7795,6 +7933,13 @@ CSV, GeoJSON et SHP
 </tr>
 </tbody>
 </table>
+</div>
+<div class="dataset-datatable-pager">
+<button type="button" data-dataset-prev>
+Précédent
+</button>
+<span data-dataset-page></span><button type="button" data-dataset-next>Suivant</button>
+</div>
 </div>
 </div>
 <div class="dataset-chart-card">
@@ -8163,6 +8308,108 @@ Les interventions du SIM varient-elles selon le mois et l&#39;arrondissement?
 <span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
 <span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
+<div class="dataset-minimal-result">
+<div class="dataset-card-label">
+Résultat visible
+</div>
+<p>
+Aucune table préparée locale n’est disponible pour exécuter un aperçu tabulaire fiable. Les exemples qui téléchargent une source externe restent non évalués pendant le rendu du site afin de garder les fiches stables.
+</p>
+<div class="dataset-minimal-result-grid">
+<div>
+<div class="dataset-r-stats">
+<div class="dataset-r-stat">
+<span>Lignes déclarées</span><strong>Fichiers par période; ressource courante d&#39;environ 18,6 Mo, ressource 2020 à 2024 d&#39;environ 73,1 Mo et ressource 2015 à 2022 d&#39;environ 114,5 Mo selon la page consultée le 2026-06-21</strong>
+</div>
+<div class="dataset-r-stat">
+<span>Colonnes déclarées</span><strong>13 champs observés dans l&#39;en-tête du CSV courant consulté le 2026-06-21</strong>
+</div>
+<div class="dataset-r-stat">
+<span>Format</span><strong>CSV, GeoJSON et SHP</strong>
+</div>
+<div class="dataset-r-stat">
+<span>Aperçu</span><strong>Métadonnées</strong>
+</div>
+</div>
+<div id="dataset-code-result-table" class="dataset-datatable">
+<div class="dataset-datatable-toolbar">
+<label><span>Recherche</span><input type="search" data-dataset-search placeholder="Filtrer"></label><label><span>Lignes</span><select data-dataset-page-size><option value="10">10</option><option value="25">25</option><option value="50">50</option><option value="100">100</option></select></label><span class="dataset-datatable-count" data-dataset-count></span>
+</div>
+<div class="dataset-result-table-wrap">
+<table class="dataset-result-table">
+<thead>
+<tr>
+<th>
+<button type="button" class="dataset-sort-button" data-dataset-sort="0">
+champ<span aria-hidden="true"></span>
+</button>
+</th>
+<th>
+<button type="button" class="dataset-sort-button" data-dataset-sort="1">
+valeur<span aria-hidden="true"></span>
+</button>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+theme
+</td>
+<td>
+Sécurité publique
+</td>
+</tr>
+<tr>
+<td>
+territoire
+</td>
+<td>
+Agglomération de Montréal
+</td>
+</tr>
+<tr>
+<td>
+unite
+</td>
+<td>
+Intervention réalisée par le Service de sécurité incendie de Montréal
+</td>
+</tr>
+<tr>
+<td>
+niveau
+</td>
+<td>
+Introduction à intermédiaire
+</td>
+</tr>
+<tr>
+<td>
+format
+</td>
+<td>
+CSV, GeoJSON et SHP
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="dataset-datatable-pager">
+<button type="button" data-dataset-prev>
+Précédent
+</button>
+<span data-dataset-page></span><button type="button" data-dataset-next>Suivant</button>
+</div>
+</div>
+</div>
+<div class="dataset-minimal-chart">
+<svg class="dataset-r-chart" viewbox="0 0 320 210" role="img" aria-label="Concepts pédagogiques">
+<text x="0" y="30" class="dataset-svg-label">nettoyage de données</text><rect x="150" y="18" width="90" height="14" rx="3" class="dataset-svg-bar" /><text x="0" y="54" class="dataset-svg-label">dates</text><rect x="150" y="42" width="90" height="14" rx="3" class="dataset-svg-bar" /><text x="0" y="78" class="dataset-svg-label">agrégation</text><rect x="150" y="66" width="90" height="14" rx="3" class="dataset-svg-bar" /><text x="0" y="102" class="dataset-svg-label">tableaux de fréquences</text><rect x="150" y="90" width="90" height="14" rx="3" class="dataset-svg-bar" /><text x="0" y="126" class="dataset-svg-label">visualisation</text><rect x="150" y="114" width="90" height="14" rx="3" class="dataset-svg-bar" /><text x="0" y="150" class="dataset-svg-label">cartes</text><rect x="150" y="138" width="90" height="14" rx="3" class="dataset-svg-bar" /><text x="0" y="174" class="dataset-svg-label">séries temporelles</text><rect x="150" y="162" width="90" height="14" rx="3" class="dataset-svg-bar" />
+</svg>
+</div>
+</div>
+</div>
 </section>
 <section id="limites-et-précautions" class="level2">
 <h2 class="anchored" data-anchor-id="limites-et-précautions">Limites et précautions</h2>
@@ -8187,6 +8434,119 @@ Les interventions du SIM varient-elles selon le mois et l&#39;arrondissement?
 </section>
 </div>
 </section>
+<script>
+(function() {
+  function normalize(value) {
+    return (value || '').toString().toLocaleLowerCase('fr-CA');
+  }
+  function numericValue(value) {
+    var cleaned = (value || '').toString().replace(/\s/g, '').replace(',', '.');
+    if (!/^[-+]?\d*(\.\d+)?$/.test(cleaned) || cleaned === '' || cleaned === '-' || cleaned === '+') {
+      return null;
+    }
+    var parsed = Number(cleaned);
+    return Number.isFinite(parsed) ? parsed : null;
+  }
+  function initDatatable(root) {
+    if (root.dataset.enhanced === 'true') return;
+    root.dataset.enhanced = 'true';
+    var table = root.querySelector('table');
+    var tbody = root.querySelector('tbody');
+    if (!table || !tbody) return;
+    var rows = Array.from(tbody.querySelectorAll('tr'));
+    var search = root.querySelector('[data-dataset-search]');
+    var pageSize = root.querySelector('[data-dataset-page-size]');
+    var count = root.querySelector('[data-dataset-count]');
+    var page = root.querySelector('[data-dataset-page]');
+    var prev = root.querySelector('[data-dataset-prev]');
+    var next = root.querySelector('[data-dataset-next]');
+    var sortButtons = Array.from(root.querySelectorAll('[data-dataset-sort]'));
+    var state = { query: '', size: 10, page: 1, sortCol: null, sortDir: 1 };
+    function filteredRows() {
+      var query = normalize(state.query);
+      var filtered = query === '' ? rows.slice() : rows.filter(function(row) {
+        return normalize(row.textContent).indexOf(query) !== -1;
+      });
+      if (state.sortCol !== null) {
+        filtered.sort(function(a, b) {
+          var av = a.children[state.sortCol] ? a.children[state.sortCol].textContent.trim() : '';
+          var bv = b.children[state.sortCol] ? b.children[state.sortCol].textContent.trim() : '';
+          var an = numericValue(av);
+          var bn = numericValue(bv);
+          var result;
+          if (an !== null && bn !== null) {
+            result = an - bn;
+          } else {
+            result = normalize(av).localeCompare(normalize(bv), 'fr-CA', { numeric: true });
+          }
+          return result * state.sortDir;
+        });
+      }
+      return filtered;
+    }
+    function render() {
+      var filtered = filteredRows();
+      var totalPages = Math.max(1, Math.ceil(filtered.length / state.size));
+      state.page = Math.min(Math.max(1, state.page), totalPages);
+      var start = (state.page - 1) * state.size;
+      var visible = filtered.slice(start, start + state.size);
+      filtered.forEach(function(row) { tbody.appendChild(row); });
+      rows.filter(function(row) { return filtered.indexOf(row) === -1; }).forEach(function(row) { tbody.appendChild(row); });
+      rows.forEach(function(row) { row.hidden = true; });
+      visible.forEach(function(row) { row.hidden = false; });
+      if (count) count.textContent = filtered.length + ' ligne' + (filtered.length > 1 ? 's' : '');
+      if (page) page.textContent = 'Page ' + state.page + ' / ' + totalPages;
+      if (prev) prev.disabled = state.page <= 1;
+      if (next) next.disabled = state.page >= totalPages;
+      sortButtons.forEach(function(button) {
+        var indicator = button.querySelector('span');
+        if (!indicator) return;
+        var col = Number(button.dataset.datasetSort);
+        indicator.textContent = col === state.sortCol ? (state.sortDir === 1 ? ' ↑' : ' ↓') : '';
+      });
+    }
+    if (search) {
+      search.addEventListener('input', function(event) {
+        state.query = event.target.value;
+        state.page = 1;
+        render();
+      });
+    }
+    if (pageSize) {
+      state.size = Number(pageSize.value) || 10;
+      pageSize.addEventListener('change', function(event) {
+        state.size = Number(event.target.value) || 10;
+        state.page = 1;
+        render();
+      });
+    }
+    if (prev) prev.addEventListener('click', function() { state.page -= 1; render(); });
+    if (next) next.addEventListener('click', function() { state.page += 1; render(); });
+    sortButtons.forEach(function(button) {
+      button.addEventListener('click', function() {
+        var col = Number(button.dataset.datasetSort);
+        if (state.sortCol === col) {
+          state.sortDir = state.sortDir * -1;
+        } else {
+          state.sortCol = col;
+          state.sortDir = 1;
+        }
+        state.page = 1;
+        render();
+      });
+    });
+    render();
+  }
+  function initAll() {
+    document.querySelectorAll('.dataset-datatable').forEach(initDatatable);
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initAll);
+  } else {
+    initAll();
+  }
+})();
+</script>
 
 
 

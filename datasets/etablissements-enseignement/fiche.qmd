@@ -214,6 +214,14 @@ ggplot(ecoles_publiques, aes(x = longitude, y = latitude)) +
   )
 ```
 
+
+```{r}
+#| label: dataset-minimal-result
+#| echo: false
+#| results: asis
+render_dataset_minimal_result()
+```
+
 ## Limites et précautions
 
 - Les 9 ressources ne doivent pas être additionnées sans réflexion sur l'unité statistique.

@@ -236,6 +236,14 @@ emploi |>
   )
 ```
 
+
+```{r}
+#| label: dataset-minimal-result
+#| echo: false
+#| results: asis
+render_dataset_minimal_result()
+```
+
 ## Limites et précautions
 
 - Les données proviennent d'une enquête et non d'un dénombrement administratif complet.

@@ -209,6 +209,14 @@ ggplot(niveaux, aes(x = long_wgs84, y = lat_wgs84, color = type_obs)) +
   )
 ```
 
+
+```{r}
+#| label: dataset-minimal-result
+#| echo: false
+#| results: asis
+render_dataset_minimal_result()
+```
+
 ## Limites et précautions
 
 - Les points ne délimitent pas les zones inondées.

@@ -257,6 +257,14 @@ ecoles |>
   )
 ```
 
+
+```{r}
+#| label: dataset-minimal-result
+#| echo: false
+#| results: asis
+render_dataset_minimal_result()
+```
+
 ## Limites et précautions
 
 - Une ligne représente un lien école-immeuble, pas automatiquement une école unique.

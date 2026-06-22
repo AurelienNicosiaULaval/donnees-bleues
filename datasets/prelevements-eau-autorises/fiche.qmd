@@ -215,6 +215,14 @@ ggplot(resume_provenance, aes(x = reorder(provenance_eau, volume_total_m3_j), y 
   )
 ```
 
+
+```{r}
+#| label: dataset-minimal-result
+#| echo: false
+#| results: asis
+render_dataset_minimal_result()
+```
+
 ## Limites et précautions
 
 - Le champ `volume_autorise_l_j` représente un volume maximal autorisé en litres par jour.

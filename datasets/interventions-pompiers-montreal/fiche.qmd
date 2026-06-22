@@ -163,6 +163,14 @@ ggplot(
   theme_minimal()
 ```
 
+
+```{r}
+#| label: dataset-minimal-result
+#| echo: false
+#| results: asis
+render_dataset_minimal_result()
+```
+
 ## Limites et précautions
 
 - La localisation est approximative afin de protéger la vie privée et les renseignements personnels.

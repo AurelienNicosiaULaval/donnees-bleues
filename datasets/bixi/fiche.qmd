@@ -226,6 +226,14 @@ stations |>
   )
 ```
 
+
+```{r}
+#| label: dataset-minimal-result
+#| echo: false
+#| results: asis
+render_dataset_minimal_result()
+```
+
 ## Limites et précautions
 
 - Les données changent rapidement; les résultats décrivent un instantané.

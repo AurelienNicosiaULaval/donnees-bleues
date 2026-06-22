@@ -210,6 +210,14 @@ ggplot(
   theme_minimal()
 ```
 
+
+```{r}
+#| label: dataset-minimal-result
+#| echo: false
+#| results: asis
+render_dataset_minimal_result()
+```
+
 ## Limites et précautions
 
 - La table contient des estimations agrégées, pas des microdonnées individuelles.

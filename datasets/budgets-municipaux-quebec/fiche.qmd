@@ -239,6 +239,14 @@ ggplot(
   )
 ```
 
+
+```{r}
+#| label: dataset-minimal-result
+#| echo: false
+#| results: asis
+render_dataset_minimal_result()
+```
+
 ## Limites et précautions
 
 - Le CSV préparé ici provient du sommaire du rôle d'évaluation foncière 2025.

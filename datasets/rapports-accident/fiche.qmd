@@ -284,6 +284,14 @@ ggplot(resume_mois, aes(x = mois, y = pct_accidents_avec_victime)) +
   coord_flip()
 ```
 
+
+```{r}
+#| label: dataset-minimal-result
+#| echo: false
+#| results: asis
+render_dataset_minimal_result()
+```
+
 ## Limites et précautions
 
 - Les données portent sur des accidents rapportés, pas sur tous les déplacements.

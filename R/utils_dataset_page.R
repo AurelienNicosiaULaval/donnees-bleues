@@ -223,19 +223,20 @@ dataset_relative_path <- function(path, root) {
   }
 }
 
-dataset_read_preview <- function(csv_path) {
+dataset_read_preview <- function(csv_path, n_max = 500L) {
   if (is.na(csv_path) || !file.exists(csv_path)) {
     return(NULL)
   }
-  tryCatch(
-    utils::read.csv(
+  tryCatch({
+    data <- utils::read.csv(
       csv_path,
-      nrows = 2500,
+      nrows = n_max,
       stringsAsFactors = FALSE,
       check.names = FALSE
-    ),
-    error = function(e) NULL
-  )
+    )
+    attr(data, "dataset_preview_n_max") <- n_max
+    data
+  }, error = function(e) NULL)
 }
 
 dataset_type_label <- function(x) {
@@ -250,27 +251,109 @@ dataset_type_label <- function(x) {
   }
 }
 
-dataset_preview_table <- function(data, max_rows = 6L, max_cols = 6L) {
+dataset_preview_table <- function(
+  data,
+  max_rows = 120L,
+  max_cols = 12L,
+  table_id = NULL,
+  interactive = FALSE
+) {
   if (is.null(data) || nrow(data) == 0L || ncol(data) == 0L) {
     return('<p class="dataset-empty-result">Aucun aperçu tabulaire local disponible.</p>')
   }
 
   data <- as.data.frame(data)
-  visible <- data[seq_len(min(nrow(data), max_rows)), seq_len(min(ncol(data), max_cols)), drop = FALSE]
-  header <- paste0("<th>", dataset_html_escape(names(visible)), "</th>", collapse = "")
-  rows <- apply(visible, 1, function(row) {
-    values <- vapply(row, function(value) {
+  n_visible_rows <- min(nrow(data), max_rows)
+  n_visible_cols <- min(ncol(data), max_cols)
+  visible <- data[
+    seq_len(n_visible_rows),
+    seq_len(n_visible_cols),
+    drop = FALSE
+  ]
+
+  header <- paste(vapply(seq_along(visible), function(j) {
+    label <- dataset_html_escape(names(visible)[[j]])
+    if (interactive) {
+      paste0(
+        '<th><button type="button" class="dataset-sort-button" data-dataset-sort="',
+        j - 1L,
+        '">',
+        label,
+        '<span aria-hidden="true"></span></button></th>'
+      )
+    } else {
+      paste0("<th>", label, "</th>")
+    }
+  }, character(1)), collapse = "")
+
+  rows <- vapply(seq_len(nrow(visible)), function(i) {
+    values <- vapply(visible[i, , drop = TRUE], function(value) {
       value <- dataset_squish(value, "")
-      if (nchar(value) > 34L) paste0(substr(value, 1, 31), "...") else value
+      if (nchar(value) > 80L) paste0(substr(value, 1, 77), "...") else value
     }, character(1))
     paste0("<tr><td>", paste(dataset_html_escape(values), collapse = "</td><td>"), "</td></tr>")
-  })
+  }, character(1))
 
-  paste0(
+  limit_notes <- character()
+  if (nrow(data) > nrow(visible)) {
+    limit_notes <- c(
+      limit_notes,
+      paste0(
+        "aperçu limité aux ",
+        format(nrow(visible), big.mark = " ", scientific = FALSE),
+        " premières lignes lues"
+      )
+    )
+  }
+  if (ncol(data) > ncol(visible)) {
+    limit_notes <- c(
+      limit_notes,
+      paste0(
+        "aperçu limité aux ",
+        format(ncol(visible), big.mark = " ", scientific = FALSE),
+        " premières colonnes"
+      )
+    )
+  }
+  limit_note <- if (length(limit_notes) == 0L) {
+    ""
+  } else {
+    paste0('<p class="dataset-table-note">', dataset_html_escape(paste(limit_notes, collapse = "; ")), '.</p>')
+  }
+
+  table_html <- paste0(
     '<div class="dataset-result-table-wrap"><table class="dataset-result-table">',
     '<thead><tr>', header, '</tr></thead>',
     '<tbody>', paste(rows, collapse = ""), '</tbody>',
-    '</table></div>'
+    '</table></div>',
+    limit_note
+  )
+
+  if (!interactive) {
+    return(table_html)
+  }
+
+  table_id <- dataset_squish(table_id, "dataset-interactive-table")
+
+  paste0(
+    '<div class="dataset-datatable" id="', dataset_html_escape(table_id), '">',
+    '<div class="dataset-datatable-toolbar">',
+    '<label><span>Recherche</span><input type="search" data-dataset-search placeholder="Filtrer"></label>',
+    '<label><span>Lignes</span><select data-dataset-page-size>',
+    '<option value="10">10</option>',
+    '<option value="25">25</option>',
+    '<option value="50">50</option>',
+    '<option value="100">100</option>',
+    '</select></label>',
+    '<span class="dataset-datatable-count" data-dataset-count></span>',
+    '</div>',
+    table_html,
+    '<div class="dataset-datatable-pager">',
+    '<button type="button" data-dataset-prev>Précédent</button>',
+    '<span data-dataset-page></span>',
+    '<button type="button" data-dataset-next>Suivant</button>',
+    '</div>',
+    '</div>'
   )
 }
 
@@ -282,8 +365,9 @@ dataset_result_stats <- function(data, metadata, csv_path, root) {
     missing_pct <- if (nrow(data) * ncol(data) == 0L) 0 else mean(is.na(data)) * 100
     source_label <- if (is.na(csv_path)) "Métadonnées" else basename(csv_path)
     stats <- list(
-      "Lignes lues" = format(nrow(data), big.mark = " ", scientific = FALSE),
-      "Colonnes" = format(ncol(data), big.mark = " ", scientific = FALSE),
+      "Lignes dans l'aperçu" = format(nrow(data), big.mark = " ", scientific = FALSE),
+      "Lignes déclarées" = dataset_squish(metadata$n_rows),
+      "Colonnes dans le CSV" = format(ncol(data), big.mark = " ", scientific = FALSE),
       "Variables num." = n_num,
       "Valeurs manquantes" = paste0(round(missing_pct, 1), " %"),
       "Aperçu" = source_label
@@ -407,7 +491,126 @@ dataset_r_code <- function(metadata, ctx, csv_path) {
   }
 }
 
-dataset_metadata_table <- function(metadata) {
+dataset_datatable_script <- function() {
+  paste(
+    "<script>",
+    "(function() {",
+    "  function normalize(value) {",
+    "    return (value || '').toString().toLocaleLowerCase('fr-CA');",
+    "  }",
+    "  function numericValue(value) {",
+    "    var cleaned = (value || '').toString().replace(/\\s/g, '').replace(',', '.');",
+    "    if (!/^[-+]?\\d*(\\.\\d+)?$/.test(cleaned) || cleaned === '' || cleaned === '-' || cleaned === '+') {",
+    "      return null;",
+    "    }",
+    "    var parsed = Number(cleaned);",
+    "    return Number.isFinite(parsed) ? parsed : null;",
+    "  }",
+    "  function initDatatable(root) {",
+    "    if (root.dataset.enhanced === 'true') return;",
+    "    root.dataset.enhanced = 'true';",
+    "    var table = root.querySelector('table');",
+    "    var tbody = root.querySelector('tbody');",
+    "    if (!table || !tbody) return;",
+    "    var rows = Array.from(tbody.querySelectorAll('tr'));",
+    "    var search = root.querySelector('[data-dataset-search]');",
+    "    var pageSize = root.querySelector('[data-dataset-page-size]');",
+    "    var count = root.querySelector('[data-dataset-count]');",
+    "    var page = root.querySelector('[data-dataset-page]');",
+    "    var prev = root.querySelector('[data-dataset-prev]');",
+    "    var next = root.querySelector('[data-dataset-next]');",
+    "    var sortButtons = Array.from(root.querySelectorAll('[data-dataset-sort]'));",
+    "    var state = { query: '', size: 10, page: 1, sortCol: null, sortDir: 1 };",
+    "    function filteredRows() {",
+    "      var query = normalize(state.query);",
+    "      var filtered = query === '' ? rows.slice() : rows.filter(function(row) {",
+    "        return normalize(row.textContent).indexOf(query) !== -1;",
+    "      });",
+    "      if (state.sortCol !== null) {",
+    "        filtered.sort(function(a, b) {",
+    "          var av = a.children[state.sortCol] ? a.children[state.sortCol].textContent.trim() : '';",
+    "          var bv = b.children[state.sortCol] ? b.children[state.sortCol].textContent.trim() : '';",
+    "          var an = numericValue(av);",
+    "          var bn = numericValue(bv);",
+    "          var result;",
+    "          if (an !== null && bn !== null) {",
+    "            result = an - bn;",
+    "          } else {",
+    "            result = normalize(av).localeCompare(normalize(bv), 'fr-CA', { numeric: true });",
+    "          }",
+    "          return result * state.sortDir;",
+    "        });",
+    "      }",
+    "      return filtered;",
+    "    }",
+    "    function render() {",
+    "      var filtered = filteredRows();",
+    "      var totalPages = Math.max(1, Math.ceil(filtered.length / state.size));",
+    "      state.page = Math.min(Math.max(1, state.page), totalPages);",
+    "      var start = (state.page - 1) * state.size;",
+    "      var visible = filtered.slice(start, start + state.size);",
+    "      filtered.forEach(function(row) { tbody.appendChild(row); });",
+    "      rows.filter(function(row) { return filtered.indexOf(row) === -1; }).forEach(function(row) { tbody.appendChild(row); });",
+    "      rows.forEach(function(row) { row.hidden = true; });",
+    "      visible.forEach(function(row) { row.hidden = false; });",
+    "      if (count) count.textContent = filtered.length + ' ligne' + (filtered.length > 1 ? 's' : '');",
+    "      if (page) page.textContent = 'Page ' + state.page + ' / ' + totalPages;",
+    "      if (prev) prev.disabled = state.page <= 1;",
+    "      if (next) next.disabled = state.page >= totalPages;",
+    "      sortButtons.forEach(function(button) {",
+    "        var indicator = button.querySelector('span');",
+    "        if (!indicator) return;",
+    "        var col = Number(button.dataset.datasetSort);",
+    "        indicator.textContent = col === state.sortCol ? (state.sortDir === 1 ? ' ↑' : ' ↓') : '';",
+    "      });",
+    "    }",
+    "    if (search) {",
+    "      search.addEventListener('input', function(event) {",
+    "        state.query = event.target.value;",
+    "        state.page = 1;",
+    "        render();",
+    "      });",
+    "    }",
+    "    if (pageSize) {",
+    "      state.size = Number(pageSize.value) || 10;",
+    "      pageSize.addEventListener('change', function(event) {",
+    "        state.size = Number(event.target.value) || 10;",
+    "        state.page = 1;",
+    "        render();",
+    "      });",
+    "    }",
+    "    if (prev) prev.addEventListener('click', function() { state.page -= 1; render(); });",
+    "    if (next) next.addEventListener('click', function() { state.page += 1; render(); });",
+    "    sortButtons.forEach(function(button) {",
+    "      button.addEventListener('click', function() {",
+    "        var col = Number(button.dataset.datasetSort);",
+    "        if (state.sortCol === col) {",
+    "          state.sortDir = state.sortDir * -1;",
+    "        } else {",
+    "          state.sortCol = col;",
+    "          state.sortDir = 1;",
+    "        }",
+    "        state.page = 1;",
+    "        render();",
+    "      });",
+    "    });",
+    "    render();",
+    "  }",
+    "  function initAll() {",
+    "    document.querySelectorAll('.dataset-datatable').forEach(initDatatable);",
+    "  }",
+    "  if (document.readyState === 'loading') {",
+    "    document.addEventListener('DOMContentLoaded', initAll);",
+    "  } else {",
+    "    initAll();",
+    "  }",
+    "})();",
+    "</script>",
+    sep = "\n"
+  )
+}
+
+dataset_metadata_table <- function(metadata, table_id = NULL, interactive = FALSE) {
   data <- data.frame(
     champ = c("theme", "territoire", "unite", "niveau", "format"),
     valeur = c(
@@ -418,7 +621,56 @@ dataset_metadata_table <- function(metadata) {
       dataset_squish(metadata$format)
     )
   )
-  dataset_preview_table(data, max_rows = 5L, max_cols = 2L)
+  dataset_preview_table(
+    data,
+    max_rows = 5L,
+    max_cols = 2L,
+    table_id = table_id,
+    interactive = interactive
+  )
+}
+
+render_dataset_minimal_result <- function() {
+  ctx <- dataset_current_context()
+  metadata <- dataset_read_metadata(ctx$dataset_dir)
+  csv_path <- dataset_processed_csv(metadata, ctx)
+  preview <- dataset_read_preview(csv_path)
+
+  if (!is.null(preview)) {
+    data_note <- paste0(
+      "Sortie calculée par R à partir de ",
+      dataset_html_escape(dataset_relative_path(csv_path, ctx$root)),
+      "."
+    )
+    result_table <- dataset_preview_table(
+      preview,
+      max_rows = 120L,
+      max_cols = 10L,
+      table_id = "dataset-code-result-table",
+      interactive = TRUE
+    )
+  } else {
+    data_note <- "Aucune table préparée locale n'est disponible pour exécuter un aperçu tabulaire fiable."
+    result_table <- dataset_metadata_table(
+      metadata,
+      table_id = "dataset-code-result-table",
+      interactive = TRUE
+    )
+  }
+
+  cat(
+    '<div class="dataset-minimal-result">',
+    '<div class="dataset-card-label">Résultat visible</div>',
+    '<p>', data_note, ' Les exemples qui téléchargent une source externe restent non évalués pendant le rendu du site afin de garder les fiches stables.</p>',
+    '<div class="dataset-minimal-result-grid">',
+    '<div><div class="dataset-r-stats">', dataset_result_stats(preview, metadata, csv_path, ctx$root), '</div>', result_table, '</div>',
+    '<div class="dataset-minimal-chart">', dataset_chart_svg(preview, metadata), '</div>',
+    '</div>',
+    '</div>',
+    sep = ""
+  )
+
+  invisible(NULL)
 }
 
 render_dataset_detail_header <- function() {
@@ -450,7 +702,21 @@ render_dataset_detail_header <- function() {
     paste0('<li>', dataset_html_escape(item), '</li>')
   }, character(1)), collapse = "")
 
-  result_table <- if (!is.null(preview)) dataset_preview_table(preview) else dataset_metadata_table(metadata)
+  result_table <- if (!is.null(preview)) {
+    dataset_preview_table(
+      preview,
+      max_rows = 120L,
+      max_cols = 10L,
+      table_id = "dataset-header-result-table",
+      interactive = TRUE
+    )
+  } else {
+    dataset_metadata_table(
+      metadata,
+      table_id = "dataset-header-result-table",
+      interactive = TRUE
+    )
+  }
   data_note <- if (!is.na(csv_path) && file.exists(csv_path)) {
     paste0("Aperçu calculé par R à partir de ", dataset_html_escape(dataset_relative_path(csv_path, ctx$root)), ".")
   } else {
@@ -505,6 +771,6 @@ render_dataset_detail_header <- function() {
 }
 
 render_dataset_detail_footer <- function() {
-  cat('</div>\n</section>\n')
+  cat('</div>\n</section>\n', dataset_datatable_script(), "\n", sep = "")
   invisible(NULL)
 }

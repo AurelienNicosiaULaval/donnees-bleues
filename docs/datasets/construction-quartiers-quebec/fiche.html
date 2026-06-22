@@ -4536,6 +4536,102 @@ font-weight: 800;
 .dataset-result-table tr:last-child td {
 border-bottom: 0;
 }
+.dataset-datatable {
+display: grid;
+gap: 0.65rem;
+}
+.dataset-datatable-toolbar {
+align-items: end;
+display: grid;
+gap: 0.55rem;
+grid-template-columns: minmax(180px, 1fr) minmax(92px, auto) auto;
+}
+.dataset-datatable-toolbar label {
+color: #5b677d;
+display: grid;
+font-size: 0.72rem;
+font-weight: 750;
+gap: 0.24rem;
+margin: 0;
+}
+.dataset-datatable-toolbar input,
+.dataset-datatable-toolbar select {
+background: #ffffff;
+border: 1px solid #cfd9e8;
+border-radius: 5px;
+color: #172033;
+font-size: 0.82rem;
+min-height: 34px;
+padding: 0.36rem 0.5rem;
+}
+.dataset-datatable-count {
+align-self: center;
+color: #5b677d;
+font-size: 0.78rem;
+font-weight: 750;
+justify-self: end;
+}
+.dataset-sort-button {
+align-items: center;
+appearance: none;
+background: transparent;
+border: 0;
+color: inherit;
+cursor: pointer;
+display: inline-flex;
+font: inherit;
+gap: 0.2rem;
+padding: 0;
+text-align: left;
+width: 100%;
+}
+.dataset-sort-button:hover,
+.dataset-sort-button:focus {
+color: var(--db-blue);
+outline: none;
+text-decoration: underline;
+text-underline-offset: 0.14em;
+}
+.dataset-sort-button span {
+color: var(--db-blue);
+min-width: 1.1em;
+}
+.dataset-datatable-pager {
+align-items: center;
+display: flex;
+gap: 0.6rem;
+justify-content: flex-end;
+}
+.dataset-datatable-pager button {
+background: #ffffff;
+border: 1px solid #cfd9e8;
+border-radius: 5px;
+color: #172033;
+font-size: 0.78rem;
+font-weight: 750;
+min-height: 32px;
+padding: 0.32rem 0.58rem;
+}
+.dataset-datatable-pager button:not(:disabled):hover,
+.dataset-datatable-pager button:not(:disabled):focus {
+border-color: var(--db-blue);
+color: var(--db-blue);
+}
+.dataset-datatable-pager button:disabled {
+color: #9aa7b8;
+cursor: not-allowed;
+}
+.dataset-datatable-pager span {
+color: #5b677d;
+font-size: 0.78rem;
+font-weight: 750;
+}
+.dataset-table-note {
+color: #667085;
+font-size: 0.74rem;
+line-height: 1.4;
+margin: 0.45rem 0 0;
+}
 .dataset-r-chart {
 display: block;
 height: auto;
@@ -4681,6 +4777,32 @@ border-bottom: 0;
 .dataset-detail-content div.sourceCode {
 border-radius: 6px;
 margin: 0.9rem 0 1.5rem;
+}
+.dataset-minimal-result {
+background: #f8fbff;
+border: 1px solid #d9e2ef;
+border-radius: 6px;
+display: grid;
+gap: 0.8rem;
+margin: 0.95rem 0 1.6rem;
+padding: 0.9rem;
+}
+.dataset-minimal-result p {
+color: #475467;
+font-size: 0.9rem;
+line-height: 1.5;
+margin: 0;
+}
+.dataset-minimal-result-grid {
+display: grid;
+gap: 0.9rem;
+grid-template-columns: minmax(0, 1.15fr) minmax(220px, 0.75fr);
+}
+.dataset-minimal-chart {
+background: #ffffff;
+border: 1px solid #e0e8f4;
+border-radius: 5px;
+padding: 0.7rem;
 }
 body:has(.catalogue-reference) .navbar {
 background: #ffffff !important;
@@ -5293,6 +5415,7 @@ margin-bottom: 0.25rem;
 @media (max-width: 900px) {
 .dataset-detail-hero,
 .dataset-r-grid,
+.dataset-minimal-result-grid,
 .dataset-teaching-panel {
 grid-template-columns: 1fr;
 }
@@ -5361,8 +5484,15 @@ padding-top: 2.2rem;
 }
 .dataset-overview-grid,
 .dataset-pedagogy-band,
+.dataset-datatable-toolbar,
 .dataset-r-stats {
 grid-template-columns: 1fr;
+}
+.dataset-datatable-count {
+justify-self: start;
+}
+.dataset-datatable-pager {
+justify-content: space-between;
 }
 .dataset-hero-actions {
 align-items: stretch;
@@ -7706,7 +7836,7 @@ Comparer le nombre de permis délivrés par quartier.
 Aperçu reproductible
 </h2>
 <p>
-Aperçu calculé par R à partir de data/processed/construction-quartiers-quebec/appariement_quartiers_resume.csv.
+Aperçu calculé par R à partir de data/processed/construction-quartiers-quebec/quebec_construction_quartiers.csv.
 </p>
 </div>
 <div class="dataset-r-grid">
@@ -7716,7 +7846,7 @@ Code minimal
 </div>
 <pre><code class="language-r">library(dplyr)
 
-donnees &lt;- read.csv(&quot;data/processed/construction-quartiers-quebec/appariement_quartiers_resume.csv&quot;, check.names = FALSE)
+donnees &lt;- read.csv(&quot;data/processed/construction-quartiers-quebec/quebec_construction_quartiers.csv&quot;, check.names = FALSE)
 
 glimpse(donnees)
 donnees |&gt; summarise(lignes = n(), colonnes = ncol(donnees))</code></pre>
@@ -7727,105 +7857,1217 @@ Résultats R
 </div>
 <div class="dataset-r-stats">
 <div class="dataset-r-stat">
-<span>Lignes lues</span><strong>9</strong>
+<span>Lignes dans l&#39;aperçu</span><strong>35</strong>
 </div>
 <div class="dataset-r-stat">
-<span>Colonnes</span><strong>3</strong>
+<span>Lignes déclarées</span><strong>66 470 permis; 284 964 empreintes de bâtiments; 35 quartiers; 35 lignes agrégées par quartier dans la version téléchargée le 2026-06-21</strong>
 </div>
 <div class="dataset-r-stat">
-<span>Variables num.</span><strong>1</strong>
+<span>Colonnes dans le CSV</span><strong>21</strong>
+</div>
+<div class="dataset-r-stat">
+<span>Variables num.</span><strong>20</strong>
 </div>
 <div class="dataset-r-stat">
 <span>Valeurs manquantes</span><strong>0 %</strong>
 </div>
 <div class="dataset-r-stat">
-<span>Aperçu</span><strong>appariement_quartiers_resume.csv</strong>
+<span>Aperçu</span><strong>quebec_construction_quartiers.csv</strong>
 </div>
+</div>
+<div id="dataset-header-result-table" class="dataset-datatable">
+<div class="dataset-datatable-toolbar">
+<label><span>Recherche</span><input type="search" data-dataset-search placeholder="Filtrer"></label><label><span>Lignes</span><select data-dataset-page-size><option value="10">10</option><option value="25">25</option><option value="50">50</option><option value="100">100</option></select></label><span class="dataset-datatable-count" data-dataset-count></span>
 </div>
 <div class="dataset-result-table-wrap">
 <table class="dataset-result-table">
 <thead>
 <tr>
 <th>
-indicateur
+<button type="button" class="dataset-sort-button" data-dataset-sort="0">
+id_quartier<span aria-hidden="true"></span>
+</button>
 </th>
 <th>
-valeur
+<button type="button" class="dataset-sort-button" data-dataset-sort="1">
+nom_quartier<span aria-hidden="true"></span>
+</button>
 </th>
 <th>
-note
+<button type="button" class="dataset-sort-button" data-dataset-sort="2">
+superficie_quartier_m2<span aria-hidden="true"></span>
+</button>
+</th>
+<th>
+<button type="button" class="dataset-sort-button" data-dataset-sort="3">
+perimetre_quartier_m<span aria-hidden="true"></span>
+</button>
+</th>
+<th>
+<button type="button" class="dataset-sort-button" data-dataset-sort="4">
+nombre_permis<span aria-hidden="true"></span>
+</button>
+</th>
+<th>
+<button type="button" class="dataset-sort-button" data-dataset-sort="5">
+nombre_permis_construction_batiment_principal<span aria-hidden="true"></span>
+</button>
+</th>
+<th>
+<button type="button" class="dataset-sort-button" data-dataset-sort="6">
+nombre_permis_renovation_agrandissement<span aria-hidden="true"></span>
+</button>
+</th>
+<th>
+<button type="button" class="dataset-sort-button" data-dataset-sort="7">
+nombre_permis_constructions_amenagements_accessoires<span aria-hidden="true"></span>
+</button>
+</th>
+<th>
+<button type="button" class="dataset-sort-button" data-dataset-sort="8">
+nombre_permis_lotissement<span aria-hidden="true"></span>
+</button>
+</th>
+<th>
+<button type="button" class="dataset-sort-button" data-dataset-sort="9">
+annee_min_permis<span aria-hidden="true"></span>
+</button>
 </th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>
-permis_lignes_source
+2
 </td>
 <td>
-66470
+Cap-Rouge
 </td>
 <td>
-Nombre de lignes dans le CSV of…
+12726112.15
+</td>
+<td>
+19159.71
+</td>
+<td>
+4183
+</td>
+<td>
+215
+</td>
+<td>
+673
+</td>
+<td>
+718
+</td>
+<td>
+61
+</td>
+<td>
+2020
 </td>
 </tr>
 <tr>
 <td>
-permis_sans_coordonnees
+26
 </td>
 <td>
-0
+Chutes-Montmorency
 </td>
 <td>
-Permis sans longitude ou latitu…
+9078835.08
+</td>
+<td>
+13907.24
+</td>
+<td>
+1469
+</td>
+<td>
+37
+</td>
+<td>
+409
+</td>
+<td>
+400
+</td>
+<td>
+56
+</td>
+<td>
+2020
 </td>
 </tr>
 <tr>
 <td>
-permis_avec_quartier
+3
 </td>
 <td>
-66443
+Cité-Universitaire
 </td>
 <td>
-Permis dont le point est situé …
+7953337.66
+</td>
+<td>
+12535.04
+</td>
+<td>
+1601
+</td>
+<td>
+32
+</td>
+<td>
+350
+</td>
+<td>
+106
+</td>
+<td>
+48
+</td>
+<td>
+2020
 </td>
 </tr>
 <tr>
 <td>
-permis_sans_quartier
+5
+</td>
+<td>
+Des Châtels
+</td>
+<td>
+9119719.39
+</td>
+<td>
+15875.99
+</td>
+<td>
+1618
+</td>
+<td>
+91
+</td>
+<td>
+406
+</td>
+<td>
+485
+</td>
+<td>
+43
+</td>
+<td>
+2020
+</td>
+</tr>
+<tr>
+<td>
+6
+</td>
+<td>
+Duberger—Les Saules
+</td>
+<td>
+19416818.28
+</td>
+<td>
+25640.23
+</td>
+<td>
+2654
+</td>
+<td>
+39
+</td>
+<td>
+651
+</td>
+<td>
+636
+</td>
+<td>
+101
+</td>
+<td>
+2020
+</td>
+</tr>
+<tr>
+<td>
+21
+</td>
+<td>
+Jésuites
+</td>
+<td>
+4822793.69
+</td>
+<td>
+9816.46
+</td>
+<td>
+1388
+</td>
+<td>
+25
+</td>
+<td>
+375
+</td>
+<td>
+422
+</td>
+<td>
+39
+</td>
+<td>
+2020
+</td>
+</tr>
+<tr>
+<td>
+7
+</td>
+<td>
+L&#39;Aéroport
+</td>
+<td>
+54637718.8
+</td>
+<td>
+41350.76
+</td>
+<td>
+1949
+</td>
+<td>
+71
+</td>
+<td>
+363
+</td>
+<td>
+513
+</td>
+<td>
+58
+</td>
+<td>
+2020
+</td>
+</tr>
+<tr>
+<td>
+8
+</td>
+<td>
+Lac-Saint-Charles
+</td>
+<td>
+38498015.84
+</td>
+<td>
+37213.26
+</td>
+<td>
+1846
+</td>
+<td>
+45
+</td>
+<td>
+450
+</td>
+<td>
+560
+</td>
+<td>
+70
+</td>
+<td>
+2020
+</td>
+</tr>
+<tr>
+<td>
+9
+</td>
+<td>
+Lairet
+</td>
+<td>
+3135722.72
+</td>
+<td>
+7584.09
+</td>
+<td>
+1054
+</td>
+<td>
+14
+</td>
+<td>
+532
+</td>
+<td>
+94
+</td>
+<td>
+47
+</td>
+<td>
+2020
+</td>
+</tr>
+<tr>
+<td>
+11
+</td>
+<td>
+Loretteville
+</td>
+<td>
+20248999.29
+</td>
+<td>
+40245.8
+</td>
+<td>
+1994
+</td>
+<td>
+67
+</td>
+<td>
+609
+</td>
+<td>
+437
+</td>
+<td>
+81
+</td>
+<td>
+2020
+</td>
+</tr>
+<tr>
+<td>
+12
+</td>
+<td>
+Maizerets
+</td>
+<td>
+4611181.5
+</td>
+<td>
+12066.82
+</td>
+<td>
+1062
+</td>
+<td>
+25
+</td>
+<td>
+458
+</td>
+<td>
+65
+</td>
+<td>
+26
+</td>
+<td>
+2020
+</td>
+</tr>
+<tr>
+<td>
+13
+</td>
+<td>
+Montcalm
+</td>
+<td>
+1749967.56
+</td>
+<td>
+6229.63
+</td>
+<td>
+1638
+</td>
+<td>
+5
+</td>
+<td>
+934
+</td>
+<td>
+89
+</td>
+<td>
+70
+</td>
+<td>
+2020
+</td>
+</tr>
+<tr>
+<td>
+14
+</td>
+<td>
+Neufchatel Est—Lebourgneuf
+</td>
+<td>
+22983547.71
+</td>
+<td>
+22344.72
+</td>
+<td>
+3749
+</td>
+<td>
+215
+</td>
+<td>
+795
+</td>
+<td>
+1007
+</td>
+<td>
+107
+</td>
+<td>
+2020
+</td>
+</tr>
+<tr>
+<td>
+15
+</td>
+<td>
+Notre-Dame-des-Laurentides
+</td>
+<td>
+36235748.52
+</td>
+<td>
+29340.62
+</td>
+<td>
+2396
+</td>
+<td>
+217
+</td>
+<td>
+633
+</td>
+<td>
+740
+</td>
+<td>
+97
+</td>
+<td>
+2020
+</td>
+</tr>
+<tr>
+<td>
+19
+</td>
+<td>
+Orsainville
+</td>
+<td>
+7632397.43
+</td>
+<td>
+11932.18
+</td>
+<td>
+1485
+</td>
+<td>
+24
+</td>
+<td>
+413
+</td>
+<td>
+551
+</td>
+<td>
+32
+</td>
+<td>
+2020
+</td>
+</tr>
+<tr>
+<td>
+16
+</td>
+<td>
+Plateau
+</td>
+<td>
+3558873.68
+</td>
+<td>
+8403.63
+</td>
+<td>
+1289
+</td>
+<td>
+35
+</td>
+<td>
+334
+</td>
+<td>
+182
+</td>
+<td>
+53
+</td>
+<td>
+2020
+</td>
+</tr>
+<tr>
+<td>
+18
+</td>
+<td>
+Pointe-de-Sainte-Foy
+</td>
+<td>
+4280196.15
+</td>
+<td>
+13145.74
+</td>
+<td>
+1030
+</td>
+<td>
+20
+</td>
+<td>
+161
+</td>
+<td>
+123
+</td>
+<td>
+33
+</td>
+<td>
+2020
+</td>
+</tr>
+<tr>
+<td>
+20
+</td>
+<td>
+Quartier 4-3
+</td>
+<td>
+11482891
+</td>
+<td>
+15675.23
+</td>
+<td>
+1265
+</td>
+<td>
+30
+</td>
+<td>
+248
+</td>
+<td>
+467
+</td>
+<td>
+51
+</td>
+<td>
+2020
+</td>
+</tr>
+<tr>
+<td>
+22
+</td>
+<td>
+Quartier 4-5
+</td>
+<td>
+3609395.97
+</td>
+<td>
+8856.02
+</td>
+<td>
+1150
+</td>
+<td>
+20
+</td>
+<td>
+372
+</td>
+<td>
+288
+</td>
+<td>
+35
+</td>
+<td>
+2020
+</td>
+</tr>
+<tr>
+<td>
+23
+</td>
+<td>
+Quartier 4-6
+</td>
+<td>
+2693688.05
+</td>
+<td>
+7337.18
+</td>
+<td>
+485
+</td>
+<td>
+13
+</td>
+<td>
+174
+</td>
+<td>
+69
+</td>
+<td>
+17
+</td>
+<td>
+2020
+</td>
+</tr>
+<tr>
+<td>
+25
+</td>
+<td>
+Quartier 5-2
+</td>
+<td>
+9177998.91
+</td>
+<td>
+14044.27
+</td>
+<td>
+2055
+</td>
+<td>
+36
+</td>
+<td>
+352
+</td>
+<td>
+698
+</td>
+<td>
+80
+</td>
+<td>
+2020
+</td>
+</tr>
+<tr>
+<td>
+1
+</td>
+<td>
+Saint-Jean-Baptiste
+</td>
+<td>
+679518.44
+</td>
+<td>
+3780.16
+</td>
+<td>
+1067
+</td>
+<td>
+6
+</td>
+<td>
+584
+</td>
+<td>
+21
+</td>
+<td>
+24
+</td>
+<td>
+2020
+</td>
+</tr>
+<tr>
+<td>
+17
+</td>
+<td>
+Saint-Louis
+</td>
+<td>
+6014085.07
+</td>
+<td>
+13678.98
+</td>
+<td>
+2164
+</td>
+<td>
+37
+</td>
+<td>
+460
+</td>
+<td>
+241
+</td>
+<td>
+103
+</td>
+<td>
+2020
+</td>
+</tr>
+<tr>
+<td>
+30
+</td>
+<td>
+Saint-Roch
+</td>
+<td>
+1533394.36
+</td>
+<td>
+6443.04
+</td>
+<td>
+1202
+</td>
+<td>
+11
+</td>
+<td>
+456
+</td>
+<td>
+51
+</td>
+<td>
+49
+</td>
+<td>
+2020
+</td>
+</tr>
+<tr>
+<td>
+29
+</td>
+<td>
+Saint-Sacrement
+</td>
+<td>
+1704353.31
+</td>
+<td>
+6571.86
+</td>
+<td>
+1123
+</td>
+<td>
+10
+</td>
+<td>
+575
+</td>
+<td>
+68
+</td>
+<td>
+57
+</td>
+<td>
+2020
+</td>
+</tr>
+<tr>
+<td>
+31
+</td>
+<td>
+Saint-Sauveur
+</td>
+<td>
+3964718.29
+</td>
+<td>
+14966.89
+</td>
+<td>
+2179
+</td>
+<td>
+30
+</td>
+<td>
+1186
+</td>
+<td>
+81
+</td>
+<td>
+48
+</td>
+<td>
+2020
+</td>
+</tr>
+<tr>
+<td>
+28
+</td>
+<td>
+Saint-Émile
+</td>
+<td>
+10511773.06
+</td>
+<td>
+21180.88
+</td>
+<td>
+1990
+</td>
+<td>
+200
+</td>
+<td>
+459
+</td>
+<td>
+725
+</td>
+<td>
+69
+</td>
+<td>
+2020
+</td>
+</tr>
+<tr>
+<td>
+24
+</td>
+<td>
+Sainte-Thérèse-de-Lisieux
+</td>
+<td>
+44696726.68
+</td>
+<td>
+27807.09
+</td>
+<td>
+3271
+</td>
+<td>
+467
+</td>
+<td>
+899
+</td>
+<td>
+944
+</td>
+<td>
+209
+</td>
+<td>
+2020
+</td>
+</tr>
+<tr>
+<td>
+32
+</td>
+<td>
+Sillery
+</td>
+<td>
+7578461.27
+</td>
+<td>
+18725.23
+</td>
+<td>
+3302
+</td>
+<td>
+81
+</td>
+<td>
+927
+</td>
+<td>
+389
+</td>
+<td>
+101
+</td>
+<td>
+2020
+</td>
+</tr>
+<tr>
+<td>
+33
+</td>
+<td>
+Val-Bélair
+</td>
+<td>
+74406815.73
+</td>
+<td>
+44313.76
+</td>
+<td>
+4826
+</td>
+<td>
+516
+</td>
+<td>
+1174
+</td>
+<td>
+1411
+</td>
+<td>
+244
+</td>
+<td>
+2020
+</td>
+</tr>
+<tr>
+<td>
+34
+</td>
+<td>
+Vanier
+</td>
+<td>
+6254988.91
+</td>
+<td>
+10550.55
+</td>
+<td>
+960
+</td>
+<td>
+10
+</td>
+<td>
+275
+</td>
+<td>
+78
 </td>
 <td>
 27
 </td>
 <td>
-Permis dont le point n&#39;est situ…
+2020
 </td>
 </tr>
 <tr>
 <td>
-batiments_lignes_source
+27
 </td>
 <td>
-284964
+Vieux-Bourg
 </td>
 <td>
-Nombre de lignes dans le CSV of…
+6696164.97
+</td>
+<td>
+11797.67
+</td>
+<td>
+2057
+</td>
+<td>
+81
+</td>
+<td>
+611
+</td>
+<td>
+411
+</td>
+<td>
+92
+</td>
+<td>
+2020
 </td>
 </tr>
 <tr>
 <td>
-batiments_avec_quartier
+10
 </td>
 <td>
-250544
+Vieux-Limoilou
 </td>
 <td>
-Bâtiments dont le point représe…
+2436574.72
+</td>
+<td>
+8744.68
+</td>
+<td>
+1767
+</td>
+<td>
+17
+</td>
+<td>
+1094
+</td>
+<td>
+68
+</td>
+<td>
+37
+</td>
+<td>
+2020
+</td>
+</tr>
+<tr>
+<td>
+35
+</td>
+<td>
+Vieux-Moulin
+</td>
+<td>
+9248150.87
+</td>
+<td>
+18256.74
+</td>
+<td>
+1084
+</td>
+<td>
+19
+</td>
+<td>
+335
+</td>
+<td>
+172
+</td>
+<td>
+33
+</td>
+<td>
+2020
+</td>
+</tr>
+<tr>
+<td>
+4
+</td>
+<td>
+Vieux-Québec—Cap-Blanc—Colline parlementaire
+</td>
+<td>
+4293772.7
+</td>
+<td>
+13796.74
+</td>
+<td>
+2091
+</td>
+<td>
+4
+</td>
+<td>
+885
+</td>
+<td>
+96
+</td>
+<td>
+38
+</td>
+<td>
+2020
 </td>
 </tr>
 </tbody>
 </table>
+</div>
+<p class="dataset-table-note">
+aperçu limité aux 10 premières colonnes.
+</p>
+<div class="dataset-datatable-pager">
+<button type="button" data-dataset-prev>
+Précédent
+</button>
+<span data-dataset-page></span><button type="button" data-dataset-next>Suivant</button>
+</div>
 </div>
 </div>
 <div class="dataset-chart-card">
@@ -7833,7 +9075,7 @@ Bâtiments dont le point représe…
 Lecture statistique
 </div>
 <svg class="dataset-r-chart" viewbox="0 0 320 210" role="img" aria-label="Aperçu numérique généré par R">
-<line x1="34" y1="158" x2="292" y2="158" class="dataset-svg-axis"></line><line x1="34" y1="36" x2="34" y2="158" class="dataset-svg-axis"></line><polyline points="34,131.9 65,158 96,131.9 127,158 158,46 189,59.5 220,144.5 251,158 282,158" class="dataset-svg-line"></polyline><circle cx="34" cy="131.9" r="3.2" class="dataset-svg-point"></circle><circle cx="65" cy="158" r="3.2" class="dataset-svg-point"></circle><circle cx="96" cy="131.9" r="3.2" class="dataset-svg-point"></circle><circle cx="127" cy="158" r="3.2" class="dataset-svg-point"></circle><circle cx="158" cy="46" r="3.2" class="dataset-svg-point"></circle><circle cx="189" cy="59.5" r="3.2" class="dataset-svg-point"></circle><circle cx="220" cy="144.5" r="3.2" class="dataset-svg-point"></circle><circle cx="251" cy="158" r="3.2" class="dataset-svg-point"></circle><circle cx="282" cy="158" r="3.2" class="dataset-svg-point"></circle><text x="34" y="24" class="dataset-svg-title">valeur</text><text x="34" y="186" class="dataset-svg-label">0</text><text x="230" y="186" class="dataset-svg-label">284964</text>
+<line x1="34" y1="158" x2="292" y2="158" class="dataset-svg-axis"></line><line x1="34" y1="36" x2="34" y2="158" class="dataset-svg-axis"></line><polyline points="34,62.6 41.3,132.6 48.6,129.2 55.9,128.8 63.2,102 70.5,134.7 77.8,120.2 85.1,122.9 92.4,143.3 99.6,119.1 106.9,143.1 114.2,128.3 121.5,73.8 128.8,108.7 136.1,132.2 143.4,137.3 150.7,143.9 158,137.9 165.3,140.8 172.6,158 179.9,117.5 187.2,143 194.5,114.7 201.8,139.5 209.1,141.5 216.4,114.3 223.6,119.2 230.9,86.1 238.2,85.3 245.5,46 252.8,145.7 260.1,117.4 267.4,124.9 274.7,142.5 282,116.6" class="dataset-svg-line"></polyline><circle cx="34" cy="62.6" r="3.2" class="dataset-svg-point"></circle><circle cx="41.3" cy="132.6" r="3.2" class="dataset-svg-point"></circle><circle cx="48.6" cy="129.2" r="3.2" class="dataset-svg-point"></circle><circle cx="55.9" cy="128.8" r="3.2" class="dataset-svg-point"></circle><circle cx="63.2" cy="102" r="3.2" class="dataset-svg-point"></circle><circle cx="70.5" cy="134.7" r="3.2" class="dataset-svg-point"></circle><circle cx="77.8" cy="120.2" r="3.2" class="dataset-svg-point"></circle><circle cx="85.1" cy="122.9" r="3.2" class="dataset-svg-point"></circle><circle cx="92.4" cy="143.3" r="3.2" class="dataset-svg-point"></circle><circle cx="99.6" cy="119.1" r="3.2" class="dataset-svg-point"></circle><circle cx="106.9" cy="143.1" r="3.2" class="dataset-svg-point"></circle><circle cx="114.2" cy="128.3" r="3.2" class="dataset-svg-point"></circle><circle cx="121.5" cy="73.8" r="3.2" class="dataset-svg-point"></circle><circle cx="128.8" cy="108.7" r="3.2" class="dataset-svg-point"></circle><circle cx="136.1" cy="132.2" r="3.2" class="dataset-svg-point"></circle><circle cx="143.4" cy="137.3" r="3.2" class="dataset-svg-point"></circle><circle cx="150.7" cy="143.9" r="3.2" class="dataset-svg-point"></circle><circle cx="158" cy="137.9" r="3.2" class="dataset-svg-point"></circle><circle cx="165.3" cy="140.8" r="3.2" class="dataset-svg-point"></circle><circle cx="172.6" cy="158" r="3.2" class="dataset-svg-point"></circle><circle cx="179.9" cy="117.5" r="3.2" class="dataset-svg-point"></circle><circle cx="187.2" cy="143" r="3.2" class="dataset-svg-point"></circle><circle cx="194.5" cy="114.7" r="3.2" class="dataset-svg-point"></circle><circle cx="201.8" cy="139.5" r="3.2" class="dataset-svg-point"></circle><circle cx="209.1" cy="141.5" r="3.2" class="dataset-svg-point"></circle><circle cx="216.4" cy="114.3" r="3.2" class="dataset-svg-point"></circle><circle cx="223.6" cy="119.2" r="3.2" class="dataset-svg-point"></circle><circle cx="230.9" cy="86.1" r="3.2" class="dataset-svg-point"></circle><circle cx="238.2" cy="85.3" r="3.2" class="dataset-svg-point"></circle><circle cx="245.5" cy="46" r="3.2" class="dataset-svg-point"></circle><circle cx="252.8" cy="145.7" r="3.2" class="dataset-svg-point"></circle><circle cx="260.1" cy="117.4" r="3.2" class="dataset-svg-point"></circle><circle cx="267.4" cy="124.9" r="3.2" class="dataset-svg-point"></circle><circle cx="274.7" cy="142.5" r="3.2" class="dataset-svg-point"></circle><circle cx="282" cy="116.6" r="3.2" class="dataset-svg-point"></circle><text x="34" y="24" class="dataset-svg-title">nombre_permis</text><text x="34" y="186" class="dataset-svg-label">485</text><text x="230" y="186" class="dataset-svg-label">4826</text>
 </svg>
 </div>
 </div>
@@ -8186,6 +9428,1237 @@ Comment relier activité administrative de construction et forme bâtie sans sur
 <span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
 <span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
+<div class="dataset-minimal-result">
+<div class="dataset-card-label">
+Résultat visible
+</div>
+<p>
+Sortie calculée par R à partir de data/processed/construction-quartiers-quebec/quebec_construction_quartiers.csv. Les exemples qui téléchargent une source externe restent non évalués pendant le rendu du site afin de garder les fiches stables.
+</p>
+<div class="dataset-minimal-result-grid">
+<div>
+<div class="dataset-r-stats">
+<div class="dataset-r-stat">
+<span>Lignes dans l&#39;aperçu</span><strong>35</strong>
+</div>
+<div class="dataset-r-stat">
+<span>Lignes déclarées</span><strong>66 470 permis; 284 964 empreintes de bâtiments; 35 quartiers; 35 lignes agrégées par quartier dans la version téléchargée le 2026-06-21</strong>
+</div>
+<div class="dataset-r-stat">
+<span>Colonnes dans le CSV</span><strong>21</strong>
+</div>
+<div class="dataset-r-stat">
+<span>Variables num.</span><strong>20</strong>
+</div>
+<div class="dataset-r-stat">
+<span>Valeurs manquantes</span><strong>0 %</strong>
+</div>
+<div class="dataset-r-stat">
+<span>Aperçu</span><strong>quebec_construction_quartiers.csv</strong>
+</div>
+</div>
+<div id="dataset-code-result-table" class="dataset-datatable">
+<div class="dataset-datatable-toolbar">
+<label><span>Recherche</span><input type="search" data-dataset-search placeholder="Filtrer"></label><label><span>Lignes</span><select data-dataset-page-size><option value="10">10</option><option value="25">25</option><option value="50">50</option><option value="100">100</option></select></label><span class="dataset-datatable-count" data-dataset-count></span>
+</div>
+<div class="dataset-result-table-wrap">
+<table class="dataset-result-table">
+<thead>
+<tr>
+<th>
+<button type="button" class="dataset-sort-button" data-dataset-sort="0">
+id_quartier<span aria-hidden="true"></span>
+</button>
+</th>
+<th>
+<button type="button" class="dataset-sort-button" data-dataset-sort="1">
+nom_quartier<span aria-hidden="true"></span>
+</button>
+</th>
+<th>
+<button type="button" class="dataset-sort-button" data-dataset-sort="2">
+superficie_quartier_m2<span aria-hidden="true"></span>
+</button>
+</th>
+<th>
+<button type="button" class="dataset-sort-button" data-dataset-sort="3">
+perimetre_quartier_m<span aria-hidden="true"></span>
+</button>
+</th>
+<th>
+<button type="button" class="dataset-sort-button" data-dataset-sort="4">
+nombre_permis<span aria-hidden="true"></span>
+</button>
+</th>
+<th>
+<button type="button" class="dataset-sort-button" data-dataset-sort="5">
+nombre_permis_construction_batiment_principal<span aria-hidden="true"></span>
+</button>
+</th>
+<th>
+<button type="button" class="dataset-sort-button" data-dataset-sort="6">
+nombre_permis_renovation_agrandissement<span aria-hidden="true"></span>
+</button>
+</th>
+<th>
+<button type="button" class="dataset-sort-button" data-dataset-sort="7">
+nombre_permis_constructions_amenagements_accessoires<span aria-hidden="true"></span>
+</button>
+</th>
+<th>
+<button type="button" class="dataset-sort-button" data-dataset-sort="8">
+nombre_permis_lotissement<span aria-hidden="true"></span>
+</button>
+</th>
+<th>
+<button type="button" class="dataset-sort-button" data-dataset-sort="9">
+annee_min_permis<span aria-hidden="true"></span>
+</button>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+2
+</td>
+<td>
+Cap-Rouge
+</td>
+<td>
+12726112.15
+</td>
+<td>
+19159.71
+</td>
+<td>
+4183
+</td>
+<td>
+215
+</td>
+<td>
+673
+</td>
+<td>
+718
+</td>
+<td>
+61
+</td>
+<td>
+2020
+</td>
+</tr>
+<tr>
+<td>
+26
+</td>
+<td>
+Chutes-Montmorency
+</td>
+<td>
+9078835.08
+</td>
+<td>
+13907.24
+</td>
+<td>
+1469
+</td>
+<td>
+37
+</td>
+<td>
+409
+</td>
+<td>
+400
+</td>
+<td>
+56
+</td>
+<td>
+2020
+</td>
+</tr>
+<tr>
+<td>
+3
+</td>
+<td>
+Cité-Universitaire
+</td>
+<td>
+7953337.66
+</td>
+<td>
+12535.04
+</td>
+<td>
+1601
+</td>
+<td>
+32
+</td>
+<td>
+350
+</td>
+<td>
+106
+</td>
+<td>
+48
+</td>
+<td>
+2020
+</td>
+</tr>
+<tr>
+<td>
+5
+</td>
+<td>
+Des Châtels
+</td>
+<td>
+9119719.39
+</td>
+<td>
+15875.99
+</td>
+<td>
+1618
+</td>
+<td>
+91
+</td>
+<td>
+406
+</td>
+<td>
+485
+</td>
+<td>
+43
+</td>
+<td>
+2020
+</td>
+</tr>
+<tr>
+<td>
+6
+</td>
+<td>
+Duberger—Les Saules
+</td>
+<td>
+19416818.28
+</td>
+<td>
+25640.23
+</td>
+<td>
+2654
+</td>
+<td>
+39
+</td>
+<td>
+651
+</td>
+<td>
+636
+</td>
+<td>
+101
+</td>
+<td>
+2020
+</td>
+</tr>
+<tr>
+<td>
+21
+</td>
+<td>
+Jésuites
+</td>
+<td>
+4822793.69
+</td>
+<td>
+9816.46
+</td>
+<td>
+1388
+</td>
+<td>
+25
+</td>
+<td>
+375
+</td>
+<td>
+422
+</td>
+<td>
+39
+</td>
+<td>
+2020
+</td>
+</tr>
+<tr>
+<td>
+7
+</td>
+<td>
+L&#39;Aéroport
+</td>
+<td>
+54637718.8
+</td>
+<td>
+41350.76
+</td>
+<td>
+1949
+</td>
+<td>
+71
+</td>
+<td>
+363
+</td>
+<td>
+513
+</td>
+<td>
+58
+</td>
+<td>
+2020
+</td>
+</tr>
+<tr>
+<td>
+8
+</td>
+<td>
+Lac-Saint-Charles
+</td>
+<td>
+38498015.84
+</td>
+<td>
+37213.26
+</td>
+<td>
+1846
+</td>
+<td>
+45
+</td>
+<td>
+450
+</td>
+<td>
+560
+</td>
+<td>
+70
+</td>
+<td>
+2020
+</td>
+</tr>
+<tr>
+<td>
+9
+</td>
+<td>
+Lairet
+</td>
+<td>
+3135722.72
+</td>
+<td>
+7584.09
+</td>
+<td>
+1054
+</td>
+<td>
+14
+</td>
+<td>
+532
+</td>
+<td>
+94
+</td>
+<td>
+47
+</td>
+<td>
+2020
+</td>
+</tr>
+<tr>
+<td>
+11
+</td>
+<td>
+Loretteville
+</td>
+<td>
+20248999.29
+</td>
+<td>
+40245.8
+</td>
+<td>
+1994
+</td>
+<td>
+67
+</td>
+<td>
+609
+</td>
+<td>
+437
+</td>
+<td>
+81
+</td>
+<td>
+2020
+</td>
+</tr>
+<tr>
+<td>
+12
+</td>
+<td>
+Maizerets
+</td>
+<td>
+4611181.5
+</td>
+<td>
+12066.82
+</td>
+<td>
+1062
+</td>
+<td>
+25
+</td>
+<td>
+458
+</td>
+<td>
+65
+</td>
+<td>
+26
+</td>
+<td>
+2020
+</td>
+</tr>
+<tr>
+<td>
+13
+</td>
+<td>
+Montcalm
+</td>
+<td>
+1749967.56
+</td>
+<td>
+6229.63
+</td>
+<td>
+1638
+</td>
+<td>
+5
+</td>
+<td>
+934
+</td>
+<td>
+89
+</td>
+<td>
+70
+</td>
+<td>
+2020
+</td>
+</tr>
+<tr>
+<td>
+14
+</td>
+<td>
+Neufchatel Est—Lebourgneuf
+</td>
+<td>
+22983547.71
+</td>
+<td>
+22344.72
+</td>
+<td>
+3749
+</td>
+<td>
+215
+</td>
+<td>
+795
+</td>
+<td>
+1007
+</td>
+<td>
+107
+</td>
+<td>
+2020
+</td>
+</tr>
+<tr>
+<td>
+15
+</td>
+<td>
+Notre-Dame-des-Laurentides
+</td>
+<td>
+36235748.52
+</td>
+<td>
+29340.62
+</td>
+<td>
+2396
+</td>
+<td>
+217
+</td>
+<td>
+633
+</td>
+<td>
+740
+</td>
+<td>
+97
+</td>
+<td>
+2020
+</td>
+</tr>
+<tr>
+<td>
+19
+</td>
+<td>
+Orsainville
+</td>
+<td>
+7632397.43
+</td>
+<td>
+11932.18
+</td>
+<td>
+1485
+</td>
+<td>
+24
+</td>
+<td>
+413
+</td>
+<td>
+551
+</td>
+<td>
+32
+</td>
+<td>
+2020
+</td>
+</tr>
+<tr>
+<td>
+16
+</td>
+<td>
+Plateau
+</td>
+<td>
+3558873.68
+</td>
+<td>
+8403.63
+</td>
+<td>
+1289
+</td>
+<td>
+35
+</td>
+<td>
+334
+</td>
+<td>
+182
+</td>
+<td>
+53
+</td>
+<td>
+2020
+</td>
+</tr>
+<tr>
+<td>
+18
+</td>
+<td>
+Pointe-de-Sainte-Foy
+</td>
+<td>
+4280196.15
+</td>
+<td>
+13145.74
+</td>
+<td>
+1030
+</td>
+<td>
+20
+</td>
+<td>
+161
+</td>
+<td>
+123
+</td>
+<td>
+33
+</td>
+<td>
+2020
+</td>
+</tr>
+<tr>
+<td>
+20
+</td>
+<td>
+Quartier 4-3
+</td>
+<td>
+11482891
+</td>
+<td>
+15675.23
+</td>
+<td>
+1265
+</td>
+<td>
+30
+</td>
+<td>
+248
+</td>
+<td>
+467
+</td>
+<td>
+51
+</td>
+<td>
+2020
+</td>
+</tr>
+<tr>
+<td>
+22
+</td>
+<td>
+Quartier 4-5
+</td>
+<td>
+3609395.97
+</td>
+<td>
+8856.02
+</td>
+<td>
+1150
+</td>
+<td>
+20
+</td>
+<td>
+372
+</td>
+<td>
+288
+</td>
+<td>
+35
+</td>
+<td>
+2020
+</td>
+</tr>
+<tr>
+<td>
+23
+</td>
+<td>
+Quartier 4-6
+</td>
+<td>
+2693688.05
+</td>
+<td>
+7337.18
+</td>
+<td>
+485
+</td>
+<td>
+13
+</td>
+<td>
+174
+</td>
+<td>
+69
+</td>
+<td>
+17
+</td>
+<td>
+2020
+</td>
+</tr>
+<tr>
+<td>
+25
+</td>
+<td>
+Quartier 5-2
+</td>
+<td>
+9177998.91
+</td>
+<td>
+14044.27
+</td>
+<td>
+2055
+</td>
+<td>
+36
+</td>
+<td>
+352
+</td>
+<td>
+698
+</td>
+<td>
+80
+</td>
+<td>
+2020
+</td>
+</tr>
+<tr>
+<td>
+1
+</td>
+<td>
+Saint-Jean-Baptiste
+</td>
+<td>
+679518.44
+</td>
+<td>
+3780.16
+</td>
+<td>
+1067
+</td>
+<td>
+6
+</td>
+<td>
+584
+</td>
+<td>
+21
+</td>
+<td>
+24
+</td>
+<td>
+2020
+</td>
+</tr>
+<tr>
+<td>
+17
+</td>
+<td>
+Saint-Louis
+</td>
+<td>
+6014085.07
+</td>
+<td>
+13678.98
+</td>
+<td>
+2164
+</td>
+<td>
+37
+</td>
+<td>
+460
+</td>
+<td>
+241
+</td>
+<td>
+103
+</td>
+<td>
+2020
+</td>
+</tr>
+<tr>
+<td>
+30
+</td>
+<td>
+Saint-Roch
+</td>
+<td>
+1533394.36
+</td>
+<td>
+6443.04
+</td>
+<td>
+1202
+</td>
+<td>
+11
+</td>
+<td>
+456
+</td>
+<td>
+51
+</td>
+<td>
+49
+</td>
+<td>
+2020
+</td>
+</tr>
+<tr>
+<td>
+29
+</td>
+<td>
+Saint-Sacrement
+</td>
+<td>
+1704353.31
+</td>
+<td>
+6571.86
+</td>
+<td>
+1123
+</td>
+<td>
+10
+</td>
+<td>
+575
+</td>
+<td>
+68
+</td>
+<td>
+57
+</td>
+<td>
+2020
+</td>
+</tr>
+<tr>
+<td>
+31
+</td>
+<td>
+Saint-Sauveur
+</td>
+<td>
+3964718.29
+</td>
+<td>
+14966.89
+</td>
+<td>
+2179
+</td>
+<td>
+30
+</td>
+<td>
+1186
+</td>
+<td>
+81
+</td>
+<td>
+48
+</td>
+<td>
+2020
+</td>
+</tr>
+<tr>
+<td>
+28
+</td>
+<td>
+Saint-Émile
+</td>
+<td>
+10511773.06
+</td>
+<td>
+21180.88
+</td>
+<td>
+1990
+</td>
+<td>
+200
+</td>
+<td>
+459
+</td>
+<td>
+725
+</td>
+<td>
+69
+</td>
+<td>
+2020
+</td>
+</tr>
+<tr>
+<td>
+24
+</td>
+<td>
+Sainte-Thérèse-de-Lisieux
+</td>
+<td>
+44696726.68
+</td>
+<td>
+27807.09
+</td>
+<td>
+3271
+</td>
+<td>
+467
+</td>
+<td>
+899
+</td>
+<td>
+944
+</td>
+<td>
+209
+</td>
+<td>
+2020
+</td>
+</tr>
+<tr>
+<td>
+32
+</td>
+<td>
+Sillery
+</td>
+<td>
+7578461.27
+</td>
+<td>
+18725.23
+</td>
+<td>
+3302
+</td>
+<td>
+81
+</td>
+<td>
+927
+</td>
+<td>
+389
+</td>
+<td>
+101
+</td>
+<td>
+2020
+</td>
+</tr>
+<tr>
+<td>
+33
+</td>
+<td>
+Val-Bélair
+</td>
+<td>
+74406815.73
+</td>
+<td>
+44313.76
+</td>
+<td>
+4826
+</td>
+<td>
+516
+</td>
+<td>
+1174
+</td>
+<td>
+1411
+</td>
+<td>
+244
+</td>
+<td>
+2020
+</td>
+</tr>
+<tr>
+<td>
+34
+</td>
+<td>
+Vanier
+</td>
+<td>
+6254988.91
+</td>
+<td>
+10550.55
+</td>
+<td>
+960
+</td>
+<td>
+10
+</td>
+<td>
+275
+</td>
+<td>
+78
+</td>
+<td>
+27
+</td>
+<td>
+2020
+</td>
+</tr>
+<tr>
+<td>
+27
+</td>
+<td>
+Vieux-Bourg
+</td>
+<td>
+6696164.97
+</td>
+<td>
+11797.67
+</td>
+<td>
+2057
+</td>
+<td>
+81
+</td>
+<td>
+611
+</td>
+<td>
+411
+</td>
+<td>
+92
+</td>
+<td>
+2020
+</td>
+</tr>
+<tr>
+<td>
+10
+</td>
+<td>
+Vieux-Limoilou
+</td>
+<td>
+2436574.72
+</td>
+<td>
+8744.68
+</td>
+<td>
+1767
+</td>
+<td>
+17
+</td>
+<td>
+1094
+</td>
+<td>
+68
+</td>
+<td>
+37
+</td>
+<td>
+2020
+</td>
+</tr>
+<tr>
+<td>
+35
+</td>
+<td>
+Vieux-Moulin
+</td>
+<td>
+9248150.87
+</td>
+<td>
+18256.74
+</td>
+<td>
+1084
+</td>
+<td>
+19
+</td>
+<td>
+335
+</td>
+<td>
+172
+</td>
+<td>
+33
+</td>
+<td>
+2020
+</td>
+</tr>
+<tr>
+<td>
+4
+</td>
+<td>
+Vieux-Québec—Cap-Blanc—Colline parlementaire
+</td>
+<td>
+4293772.7
+</td>
+<td>
+13796.74
+</td>
+<td>
+2091
+</td>
+<td>
+4
+</td>
+<td>
+885
+</td>
+<td>
+96
+</td>
+<td>
+38
+</td>
+<td>
+2020
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p class="dataset-table-note">
+aperçu limité aux 10 premières colonnes.
+</p>
+<div class="dataset-datatable-pager">
+<button type="button" data-dataset-prev>
+Précédent
+</button>
+<span data-dataset-page></span><button type="button" data-dataset-next>Suivant</button>
+</div>
+</div>
+</div>
+<div class="dataset-minimal-chart">
+<svg class="dataset-r-chart" viewbox="0 0 320 210" role="img" aria-label="Aperçu numérique généré par R">
+<line x1="34" y1="158" x2="292" y2="158" class="dataset-svg-axis"></line><line x1="34" y1="36" x2="34" y2="158" class="dataset-svg-axis"></line><polyline points="34,62.6 41.3,132.6 48.6,129.2 55.9,128.8 63.2,102 70.5,134.7 77.8,120.2 85.1,122.9 92.4,143.3 99.6,119.1 106.9,143.1 114.2,128.3 121.5,73.8 128.8,108.7 136.1,132.2 143.4,137.3 150.7,143.9 158,137.9 165.3,140.8 172.6,158 179.9,117.5 187.2,143 194.5,114.7 201.8,139.5 209.1,141.5 216.4,114.3 223.6,119.2 230.9,86.1 238.2,85.3 245.5,46 252.8,145.7 260.1,117.4 267.4,124.9 274.7,142.5 282,116.6" class="dataset-svg-line"></polyline><circle cx="34" cy="62.6" r="3.2" class="dataset-svg-point"></circle><circle cx="41.3" cy="132.6" r="3.2" class="dataset-svg-point"></circle><circle cx="48.6" cy="129.2" r="3.2" class="dataset-svg-point"></circle><circle cx="55.9" cy="128.8" r="3.2" class="dataset-svg-point"></circle><circle cx="63.2" cy="102" r="3.2" class="dataset-svg-point"></circle><circle cx="70.5" cy="134.7" r="3.2" class="dataset-svg-point"></circle><circle cx="77.8" cy="120.2" r="3.2" class="dataset-svg-point"></circle><circle cx="85.1" cy="122.9" r="3.2" class="dataset-svg-point"></circle><circle cx="92.4" cy="143.3" r="3.2" class="dataset-svg-point"></circle><circle cx="99.6" cy="119.1" r="3.2" class="dataset-svg-point"></circle><circle cx="106.9" cy="143.1" r="3.2" class="dataset-svg-point"></circle><circle cx="114.2" cy="128.3" r="3.2" class="dataset-svg-point"></circle><circle cx="121.5" cy="73.8" r="3.2" class="dataset-svg-point"></circle><circle cx="128.8" cy="108.7" r="3.2" class="dataset-svg-point"></circle><circle cx="136.1" cy="132.2" r="3.2" class="dataset-svg-point"></circle><circle cx="143.4" cy="137.3" r="3.2" class="dataset-svg-point"></circle><circle cx="150.7" cy="143.9" r="3.2" class="dataset-svg-point"></circle><circle cx="158" cy="137.9" r="3.2" class="dataset-svg-point"></circle><circle cx="165.3" cy="140.8" r="3.2" class="dataset-svg-point"></circle><circle cx="172.6" cy="158" r="3.2" class="dataset-svg-point"></circle><circle cx="179.9" cy="117.5" r="3.2" class="dataset-svg-point"></circle><circle cx="187.2" cy="143" r="3.2" class="dataset-svg-point"></circle><circle cx="194.5" cy="114.7" r="3.2" class="dataset-svg-point"></circle><circle cx="201.8" cy="139.5" r="3.2" class="dataset-svg-point"></circle><circle cx="209.1" cy="141.5" r="3.2" class="dataset-svg-point"></circle><circle cx="216.4" cy="114.3" r="3.2" class="dataset-svg-point"></circle><circle cx="223.6" cy="119.2" r="3.2" class="dataset-svg-point"></circle><circle cx="230.9" cy="86.1" r="3.2" class="dataset-svg-point"></circle><circle cx="238.2" cy="85.3" r="3.2" class="dataset-svg-point"></circle><circle cx="245.5" cy="46" r="3.2" class="dataset-svg-point"></circle><circle cx="252.8" cy="145.7" r="3.2" class="dataset-svg-point"></circle><circle cx="260.1" cy="117.4" r="3.2" class="dataset-svg-point"></circle><circle cx="267.4" cy="124.9" r="3.2" class="dataset-svg-point"></circle><circle cx="274.7" cy="142.5" r="3.2" class="dataset-svg-point"></circle><circle cx="282" cy="116.6" r="3.2" class="dataset-svg-point"></circle><text x="34" y="24" class="dataset-svg-title">nombre_permis</text><text x="34" y="186" class="dataset-svg-label">485</text><text x="230" y="186" class="dataset-svg-label">4826</text>
+</svg>
+</div>
+</div>
+</div>
 </section>
 <section id="limites-et-précautions" class="level2">
 <h2 class="anchored" data-anchor-id="limites-et-précautions">Limites et précautions</h2>
@@ -8210,6 +10683,119 @@ Comment relier activité administrative de construction et forme bâtie sans sur
 </section>
 </div>
 </section>
+<script>
+(function() {
+  function normalize(value) {
+    return (value || '').toString().toLocaleLowerCase('fr-CA');
+  }
+  function numericValue(value) {
+    var cleaned = (value || '').toString().replace(/\s/g, '').replace(',', '.');
+    if (!/^[-+]?\d*(\.\d+)?$/.test(cleaned) || cleaned === '' || cleaned === '-' || cleaned === '+') {
+      return null;
+    }
+    var parsed = Number(cleaned);
+    return Number.isFinite(parsed) ? parsed : null;
+  }
+  function initDatatable(root) {
+    if (root.dataset.enhanced === 'true') return;
+    root.dataset.enhanced = 'true';
+    var table = root.querySelector('table');
+    var tbody = root.querySelector('tbody');
+    if (!table || !tbody) return;
+    var rows = Array.from(tbody.querySelectorAll('tr'));
+    var search = root.querySelector('[data-dataset-search]');
+    var pageSize = root.querySelector('[data-dataset-page-size]');
+    var count = root.querySelector('[data-dataset-count]');
+    var page = root.querySelector('[data-dataset-page]');
+    var prev = root.querySelector('[data-dataset-prev]');
+    var next = root.querySelector('[data-dataset-next]');
+    var sortButtons = Array.from(root.querySelectorAll('[data-dataset-sort]'));
+    var state = { query: '', size: 10, page: 1, sortCol: null, sortDir: 1 };
+    function filteredRows() {
+      var query = normalize(state.query);
+      var filtered = query === '' ? rows.slice() : rows.filter(function(row) {
+        return normalize(row.textContent).indexOf(query) !== -1;
+      });
+      if (state.sortCol !== null) {
+        filtered.sort(function(a, b) {
+          var av = a.children[state.sortCol] ? a.children[state.sortCol].textContent.trim() : '';
+          var bv = b.children[state.sortCol] ? b.children[state.sortCol].textContent.trim() : '';
+          var an = numericValue(av);
+          var bn = numericValue(bv);
+          var result;
+          if (an !== null && bn !== null) {
+            result = an - bn;
+          } else {
+            result = normalize(av).localeCompare(normalize(bv), 'fr-CA', { numeric: true });
+          }
+          return result * state.sortDir;
+        });
+      }
+      return filtered;
+    }
+    function render() {
+      var filtered = filteredRows();
+      var totalPages = Math.max(1, Math.ceil(filtered.length / state.size));
+      state.page = Math.min(Math.max(1, state.page), totalPages);
+      var start = (state.page - 1) * state.size;
+      var visible = filtered.slice(start, start + state.size);
+      filtered.forEach(function(row) { tbody.appendChild(row); });
+      rows.filter(function(row) { return filtered.indexOf(row) === -1; }).forEach(function(row) { tbody.appendChild(row); });
+      rows.forEach(function(row) { row.hidden = true; });
+      visible.forEach(function(row) { row.hidden = false; });
+      if (count) count.textContent = filtered.length + ' ligne' + (filtered.length > 1 ? 's' : '');
+      if (page) page.textContent = 'Page ' + state.page + ' / ' + totalPages;
+      if (prev) prev.disabled = state.page <= 1;
+      if (next) next.disabled = state.page >= totalPages;
+      sortButtons.forEach(function(button) {
+        var indicator = button.querySelector('span');
+        if (!indicator) return;
+        var col = Number(button.dataset.datasetSort);
+        indicator.textContent = col === state.sortCol ? (state.sortDir === 1 ? ' ↑' : ' ↓') : '';
+      });
+    }
+    if (search) {
+      search.addEventListener('input', function(event) {
+        state.query = event.target.value;
+        state.page = 1;
+        render();
+      });
+    }
+    if (pageSize) {
+      state.size = Number(pageSize.value) || 10;
+      pageSize.addEventListener('change', function(event) {
+        state.size = Number(event.target.value) || 10;
+        state.page = 1;
+        render();
+      });
+    }
+    if (prev) prev.addEventListener('click', function() { state.page -= 1; render(); });
+    if (next) next.addEventListener('click', function() { state.page += 1; render(); });
+    sortButtons.forEach(function(button) {
+      button.addEventListener('click', function() {
+        var col = Number(button.dataset.datasetSort);
+        if (state.sortCol === col) {
+          state.sortDir = state.sortDir * -1;
+        } else {
+          state.sortCol = col;
+          state.sortDir = 1;
+        }
+        state.page = 1;
+        render();
+      });
+    });
+    render();
+  }
+  function initAll() {
+    document.querySelectorAll('.dataset-datatable').forEach(initDatatable);
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initAll);
+  } else {
+    initAll();
+  }
+})();
+</script>
 
 
 
