@@ -263,7 +263,7 @@ Construire une pyramide des âges du Québec pour 2025 et expliquer les choix de
 Aperçu reproductible
 </h2>
 <p>
-Aperçu léger calculé par R à partir des métadonnées vérifiées afin de garder la fiche rapide et stable au rendu.
+Aperçu calculé par R à partir de data/processed/pyramides-ages/population_pyramides_quebec_canada_latest.csv.
 </p>
 </div>
 <div class="dataset-r-grid">
@@ -271,13 +271,12 @@ Aperçu léger calculé par R à partir des métadonnées vérifiées afin de ga
 <div class="dataset-card-label">
 Code minimal
 </div>
-<pre><code class="language-r">library(yaml)
+<pre><code class="language-r">library(dplyr)
 
-metadata &lt;- yaml::read_yaml("datasets/pyramides-ages/metadata.yml")
-data.frame(
-  champ = c("theme", "territoire", "unite", "niveau"),
-  valeur = c(metadata$theme, metadata$geography, metadata$unit, metadata$level)
-)</code></pre>
+donnees &lt;- read.csv("data/processed/pyramides-ages/population_pyramides_quebec_canada_latest.csv", check.names = FALSE)
+
+glimpse(donnees)
+donnees |&gt; summarise(lignes = n(), colonnes = ncol(donnees))</code></pre>
 </div>
 <div class="dataset-result-card">
 <div class="dataset-card-label">
@@ -285,16 +284,19 @@ Résultats R
 </div>
 <div class="dataset-r-stats">
 <div class="dataset-r-stat">
-<span>Lignes déclarées</span><strong>302 610 lignes dans la table brute récupérée par cansim; 84 lignes préparées pour 2025</strong>
+<span>Lignes lues</span><strong>84</strong>
 </div>
 <div class="dataset-r-stat">
-<span>Colonnes déclarées</span><strong>24 colonnes dans la table brute; 8 colonnes dans la table préparée 2025</strong>
+<span>Colonnes</span><strong>8</strong>
 </div>
 <div class="dataset-r-stat">
-<span>Format</span><strong>Table StatCan accessible par cansim; CSV et SDMX disponibles</strong>
+<span>Variables num.</span><strong>5</strong>
 </div>
 <div class="dataset-r-stat">
-<span>Aperçu</span><strong>Métadonnées</strong>
+<span>Valeurs manquantes</span><strong>0 %</strong>
+</div>
+<div class="dataset-r-stat">
+<span>Aperçu</span><strong>population_pyramides_quebec_canada_latest.csv</strong>
 </div>
 </div>
 <div class="dataset-result-table-wrap">
@@ -302,52 +304,144 @@ Résultats R
 <thead>
 <tr>
 <th>
-champ
+year
 </th>
 <th>
-valeur
+geography
+</th>
+<th>
+gender
+</th>
+<th>
+age_group
+</th>
+<th>
+population
+</th>
+<th>
+population_plot
 </th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>
-theme
+2025
 </td>
 <td>
-Démographie
-</td>
-</tr>
-<tr>
-<td>
-territoire
+Canada
 </td>
 <td>
-Canada, Québec, provinces et te…
-</td>
-</tr>
-<tr>
-<td>
-unite
+Men+
 </td>
 <td>
-Combinaison année, géographie, …
+0 to 4 years
+</td>
+<td>
+959179
+</td>
+<td>
+-959179
 </td>
 </tr>
 <tr>
 <td>
-niveau
+2025
 </td>
 <td>
-Introduction à intermédiaire
+Canada
+</td>
+<td>
+Men+
+</td>
+<td>
+5 to 9 years
+</td>
+<td>
+1095748
+</td>
+<td>
+-1095748
 </td>
 </tr>
 <tr>
 <td>
-format
+2025
 </td>
 <td>
-Table StatCan accessible par ca…
+Canada
+</td>
+<td>
+Men+
+</td>
+<td>
+10 to 14 years
+</td>
+<td>
+1156401
+</td>
+<td>
+-1156401
+</td>
+</tr>
+<tr>
+<td>
+2025
+</td>
+<td>
+Canada
+</td>
+<td>
+Men+
+</td>
+<td>
+15 to 19 years
+</td>
+<td>
+1195736
+</td>
+<td>
+-1195736
+</td>
+</tr>
+<tr>
+<td>
+2025
+</td>
+<td>
+Canada
+</td>
+<td>
+Men+
+</td>
+<td>
+20 to 24 years
+</td>
+<td>
+1419266
+</td>
+<td>
+-1419266
+</td>
+</tr>
+<tr>
+<td>
+2025
+</td>
+<td>
+Canada
+</td>
+<td>
+Men+
+</td>
+<td>
+25 to 29 years
+</td>
+<td>
+1556583
+</td>
+<td>
+-1556583
 </td>
 </tr>
 </tbody>
@@ -358,8 +452,8 @@ Table StatCan accessible par ca…
 <div class="dataset-card-label">
 Lecture statistique
 </div>
-<svg class="dataset-r-chart" viewbox="0 0 320 210" role="img" aria-label="Concepts pédagogiques">
-<text x="0" y="30" class="dataset-svg-label">importation de données ouvertes</text><rect x="150" y="18" width="90" height="14" rx="3" class="dataset-svg-bar"></rect><text x="0" y="54" class="dataset-svg-label">nettoyage de données</text><rect x="150" y="42" width="90" height="14" rx="3" class="dataset-svg-bar"></rect><text x="0" y="78" class="dataset-svg-label">filtrage</text><rect x="150" y="66" width="90" height="14" rx="3" class="dataset-svg-bar"></rect><text x="0" y="102" class="dataset-svg-label">groupes d'âge</text><rect x="150" y="90" width="90" height="14" rx="3" class="dataset-svg-bar"></rect><text x="0" y="126" class="dataset-svg-label">proportions</text><rect x="150" y="114" width="90" height="14" rx="3" class="dataset-svg-bar"></rect><text x="0" y="150" class="dataset-svg-label">pyramide des âges</text><rect x="150" y="138" width="90" height="14" rx="3" class="dataset-svg-bar"></rect><text x="0" y="174" class="dataset-svg-label">comparaison temporelle</text><rect x="150" y="162" width="90" height="14" rx="3" class="dataset-svg-bar"></rect>
+<svg class="dataset-r-chart" viewbox="0 0 320 210" role="img" aria-label="Aperçu numérique généré par R">
+<line x1="34" y1="158" x2="292" y2="158" class="dataset-svg-axis"></line><line x1="34" y1="36" x2="34" y2="158" class="dataset-svg-axis"></line><polyline points="34,71.8 40.4,72.8 46.7,68.5 53.1,58.3 59.4,46 65.8,51.7 72.2,50.9 78.5,54.3 84.9,66.6 91.2,65.8 97.6,52 103.9,58.5 110.3,77.3 116.7,95.3 123,118.8 129.4,139 135.7,150.7 142.1,156.4 148.5,158 154.8,90 161.2,81.1 167.5,75.8 173.9,76.5 180.3,74.7 186.6,66.7 193,54.7 199.3,58 205.7,56.3 212.1,58.6 218.4,69.7 224.8,67.8 231.1,52.7 237.5,55 243.8,72 250.2,88.6 256.6,110.5 262.9,130.1 269.3,143.1 275.6,153 282,157.4" class="dataset-svg-line"></polyline><circle cx="34" cy="71.8" r="3.2" class="dataset-svg-point"></circle><circle cx="40.4" cy="72.8" r="3.2" class="dataset-svg-point"></circle><circle cx="46.7" cy="68.5" r="3.2" class="dataset-svg-point"></circle><circle cx="53.1" cy="58.3" r="3.2" class="dataset-svg-point"></circle><circle cx="59.4" cy="46" r="3.2" class="dataset-svg-point"></circle><circle cx="65.8" cy="51.7" r="3.2" class="dataset-svg-point"></circle><circle cx="72.2" cy="50.9" r="3.2" class="dataset-svg-point"></circle><circle cx="78.5" cy="54.3" r="3.2" class="dataset-svg-point"></circle><circle cx="84.9" cy="66.6" r="3.2" class="dataset-svg-point"></circle><circle cx="91.2" cy="65.8" r="3.2" class="dataset-svg-point"></circle><circle cx="97.6" cy="52" r="3.2" class="dataset-svg-point"></circle><circle cx="103.9" cy="58.5" r="3.2" class="dataset-svg-point"></circle><circle cx="110.3" cy="77.3" r="3.2" class="dataset-svg-point"></circle><circle cx="116.7" cy="95.3" r="3.2" class="dataset-svg-point"></circle><circle cx="123" cy="118.8" r="3.2" class="dataset-svg-point"></circle><circle cx="129.4" cy="139" r="3.2" class="dataset-svg-point"></circle><circle cx="135.7" cy="150.7" r="3.2" class="dataset-svg-point"></circle><circle cx="142.1" cy="156.4" r="3.2" class="dataset-svg-point"></circle><circle cx="148.5" cy="158" r="3.2" class="dataset-svg-point"></circle><circle cx="154.8" cy="90" r="3.2" class="dataset-svg-point"></circle><circle cx="161.2" cy="81.1" r="3.2" class="dataset-svg-point"></circle><circle cx="167.5" cy="75.8" r="3.2" class="dataset-svg-point"></circle><circle cx="173.9" cy="76.5" r="3.2" class="dataset-svg-point"></circle><circle cx="180.3" cy="74.7" r="3.2" class="dataset-svg-point"></circle><circle cx="186.6" cy="66.7" r="3.2" class="dataset-svg-point"></circle><circle cx="193" cy="54.7" r="3.2" class="dataset-svg-point"></circle><circle cx="199.3" cy="58" r="3.2" class="dataset-svg-point"></circle><circle cx="205.7" cy="56.3" r="3.2" class="dataset-svg-point"></circle><circle cx="212.1" cy="58.6" r="3.2" class="dataset-svg-point"></circle><circle cx="218.4" cy="69.7" r="3.2" class="dataset-svg-point"></circle><circle cx="224.8" cy="67.8" r="3.2" class="dataset-svg-point"></circle><circle cx="231.1" cy="52.7" r="3.2" class="dataset-svg-point"></circle><circle cx="237.5" cy="55" r="3.2" class="dataset-svg-point"></circle><circle cx="243.8" cy="72" r="3.2" class="dataset-svg-point"></circle><circle cx="250.2" cy="88.6" r="3.2" class="dataset-svg-point"></circle><circle cx="256.6" cy="110.5" r="3.2" class="dataset-svg-point"></circle><circle cx="262.9" cy="130.1" r="3.2" class="dataset-svg-point"></circle><circle cx="269.3" cy="143.1" r="3.2" class="dataset-svg-point"></circle><circle cx="275.6" cy="153" r="3.2" class="dataset-svg-point"></circle><circle cx="282" cy="157.4" r="3.2" class="dataset-svg-point"></circle><text x="34" y="24" class="dataset-svg-title">population</text><text x="34" y="186" class="dataset-svg-label">438</text><text x="230" y="186" class="dataset-svg-label">330418</text>
 </svg>
 </div>
 </div>

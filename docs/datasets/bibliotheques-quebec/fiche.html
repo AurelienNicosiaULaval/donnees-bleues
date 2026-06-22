@@ -263,7 +263,7 @@ Construire un portrait régional des visites, prêts et dépenses par habitant.
 Aperçu reproductible
 </h2>
 <p>
-Aperçu léger calculé par R à partir des métadonnées vérifiées afin de garder la fiche rapide et stable au rendu.
+Aperçu calculé par R à partir de data/processed/bibliotheques-quebec/statistiques_bibliotheques_quebec_2024_selection.csv.
 </p>
 </div>
 <div class="dataset-r-grid">
@@ -271,13 +271,12 @@ Aperçu léger calculé par R à partir des métadonnées vérifiées afin de ga
 <div class="dataset-card-label">
 Code minimal
 </div>
-<pre><code class="language-r">library(yaml)
+<pre><code class="language-r">library(dplyr)
 
-metadata &lt;- yaml::read_yaml("datasets/bibliotheques-quebec/metadata.yml")
-data.frame(
-  champ = c("theme", "territoire", "unite", "niveau"),
-  valeur = c(metadata$theme, metadata$geography, metadata$unit, metadata$level)
-)</code></pre>
+donnees &lt;- read.csv("data/processed/bibliotheques-quebec/statistiques_bibliotheques_quebec_2024_selection.csv", check.names = FALSE)
+
+glimpse(donnees)
+donnees |&gt; summarise(lignes = n(), colonnes = ncol(donnees))</code></pre>
 </div>
 <div class="dataset-result-card">
 <div class="dataset-card-label">
@@ -285,16 +284,19 @@ Résultats R
 </div>
 <div class="dataset-r-stats">
 <div class="dataset-r-stat">
-<span>Lignes déclarées</span><strong>188 lignes pour la ressource 2024</strong>
+<span>Lignes lues</span><strong>188</strong>
 </div>
 <div class="dataset-r-stat">
-<span>Colonnes déclarées</span><strong>262 colonnes dans le CSV source; 16 colonnes préparées</strong>
+<span>Colonnes</span><strong>10</strong>
 </div>
 <div class="dataset-r-stat">
-<span>Format</span><strong>CSV séparé par point-virgule préparé localement</strong>
+<span>Variables num.</span><strong>6</strong>
 </div>
 <div class="dataset-r-stat">
-<span>Aperçu</span><strong>Métadonnées</strong>
+<span>Valeurs manquantes</span><strong>2.4 %</strong>
+</div>
+<div class="dataset-r-stat">
+<span>Aperçu</span><strong>statistiques_bibliotheques_quebec_2024_selection.csv</strong>
 </div>
 </div>
 <div class="dataset-result-table-wrap">
@@ -302,52 +304,143 @@ Résultats R
 <thead>
 <tr>
 <th>
-champ
+bibliotheque
 </th>
 <th>
-valeur
+region_administrative
+</th>
+<th>
+population_desservie
+</th>
+<th>
+categorie_bibliotheque
+</th>
+<th>
+modalites_abonnement
+</th>
+<th>
+visites_total
 </th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>
-theme
+Acton Vale
 </td>
 <td>
-Culture et services publics
-</td>
-</tr>
-<tr>
-<td>
-territoire
+16: Montérégie
 </td>
 <td>
-Québec
-</td>
-</tr>
-<tr>
-<td>
-unite
+7823
 </td>
 <td>
-Bibliothèque publique ou centre…
+Publique relevant directement d…
+</td>
+<td>
+Gratuite
+</td>
+<td>
+15579
 </td>
 </tr>
 <tr>
 <td>
-niveau
+Alma
 </td>
 <td>
-Introduction à avancé
+02: Saguenay-Lac-Saint-Jean
+</td>
+<td>
+30649
+</td>
+<td>
+Publique relevant directement d…
+</td>
+<td>
+Gratuite
+</td>
+<td>
+55024
 </td>
 </tr>
 <tr>
 <td>
-format
+Amos
 </td>
 <td>
-CSV séparé par point-virgule pr…
+08: Abitibi-Témiscamingue
+</td>
+<td>
+12757
+</td>
+<td>
+Publique relevant directement d…
+</td>
+<td>
+Gratuite
+</td>
+<td>
+43747
+</td>
+</tr>
+<tr>
+<td>
+Amqui
+</td>
+<td>
+01: Bas-Saint-Laurent
+</td>
+<td>
+6129
+</td>
+<td>
+Publique relevant directement d…
+</td>
+<td>
+Gratuite
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+Baie-Comeau
+</td>
+<td>
+09: Côte-Nord
+</td>
+<td>
+20684
+</td>
+<td>
+Publique relevant directement d…
+</td>
+<td>
+Gratuite
+</td>
+<td>
+89486
+</td>
+</tr>
+<tr>
+<td>
+Baie-D'Urfé
+</td>
+<td>
+06: Montréal
+</td>
+<td>
+3710
+</td>
+<td>
+Publique relevant d'une corpora…
+</td>
+<td>
+Gratuite
+</td>
+<td>
+18025
 </td>
 </tr>
 </tbody>
@@ -358,8 +451,8 @@ CSV séparé par point-virgule pr…
 <div class="dataset-card-label">
 Lecture statistique
 </div>
-<svg class="dataset-r-chart" viewbox="0 0 320 210" role="img" aria-label="Concepts pédagogiques">
-<text x="0" y="30" class="dataset-svg-label">importation CSV</text><rect x="150" y="18" width="90" height="14" rx="3" class="dataset-svg-bar"></rect><text x="0" y="54" class="dataset-svg-label">nettoyage de noms de variables</text><rect x="150" y="42" width="90" height="14" rx="3" class="dataset-svg-bar"></rect><text x="0" y="78" class="dataset-svg-label">conversion numérique</text><rect x="150" y="66" width="90" height="14" rx="3" class="dataset-svg-bar"></rect><text x="0" y="102" class="dataset-svg-label">ratios</text><rect x="150" y="90" width="90" height="14" rx="3" class="dataset-svg-bar"></rect><text x="0" y="126" class="dataset-svg-label">comparaison régionale</text><rect x="150" y="114" width="90" height="14" rx="3" class="dataset-svg-bar"></rect><text x="0" y="150" class="dataset-svg-label">valeurs manquantes</text><rect x="150" y="138" width="90" height="14" rx="3" class="dataset-svg-bar"></rect><text x="0" y="174" class="dataset-svg-label">indicateurs administratifs</text><rect x="150" y="162" width="90" height="14" rx="3" class="dataset-svg-bar"></rect>
+<svg class="dataset-r-chart" viewbox="0 0 320 210" role="img" aria-label="Aperçu numérique généré par R">
+<line x1="34" y1="158" x2="292" y2="158" class="dataset-svg-axis"></line><line x1="34" y1="36" x2="34" y2="158" class="dataset-svg-axis"></line><polyline points="34,146.1 40.4,156.8 46.7,156 53.1,157.4 59.4,154.2 65.8,155.2 72.2,152 78.5,154.9 84.9,134.3 91.2,146.8 97.6,156.8 103.9,131.7 110.3,58 116.7,136.7 123,155.1 129.4,90.9 135.7,143.6 142.1,78.9 148.5,157.5 154.8,152.8 161.2,156.6 167.5,142 173.9,148.6 180.3,135 186.6,157.5 193,130.3 199.3,158 205.7,149.3 212.1,155.2 218.4,146.1 224.8,134.6 231.1,51 237.5,128.4 243.8,81.8 250.2,121.2 256.6,129.4 262.9,115 269.3,106.7 275.6,46 282,125.2" class="dataset-svg-line"></polyline><circle cx="34" cy="146.1" r="3.2" class="dataset-svg-point"></circle><circle cx="40.4" cy="156.8" r="3.2" class="dataset-svg-point"></circle><circle cx="46.7" cy="156" r="3.2" class="dataset-svg-point"></circle><circle cx="53.1" cy="157.4" r="3.2" class="dataset-svg-point"></circle><circle cx="59.4" cy="154.2" r="3.2" class="dataset-svg-point"></circle><circle cx="65.8" cy="155.2" r="3.2" class="dataset-svg-point"></circle><circle cx="72.2" cy="152" r="3.2" class="dataset-svg-point"></circle><circle cx="78.5" cy="154.9" r="3.2" class="dataset-svg-point"></circle><circle cx="84.9" cy="134.3" r="3.2" class="dataset-svg-point"></circle><circle cx="91.2" cy="146.8" r="3.2" class="dataset-svg-point"></circle><circle cx="97.6" cy="156.8" r="3.2" class="dataset-svg-point"></circle><circle cx="103.9" cy="131.7" r="3.2" class="dataset-svg-point"></circle><circle cx="110.3" cy="58" r="3.2" class="dataset-svg-point"></circle><circle cx="116.7" cy="136.7" r="3.2" class="dataset-svg-point"></circle><circle cx="123" cy="155.1" r="3.2" class="dataset-svg-point"></circle><circle cx="129.4" cy="90.9" r="3.2" class="dataset-svg-point"></circle><circle cx="135.7" cy="143.6" r="3.2" class="dataset-svg-point"></circle><circle cx="142.1" cy="78.9" r="3.2" class="dataset-svg-point"></circle><circle cx="148.5" cy="157.5" r="3.2" class="dataset-svg-point"></circle><circle cx="154.8" cy="152.8" r="3.2" class="dataset-svg-point"></circle><circle cx="161.2" cy="156.6" r="3.2" class="dataset-svg-point"></circle><circle cx="167.5" cy="142" r="3.2" class="dataset-svg-point"></circle><circle cx="173.9" cy="148.6" r="3.2" class="dataset-svg-point"></circle><circle cx="180.3" cy="135" r="3.2" class="dataset-svg-point"></circle><circle cx="186.6" cy="157.5" r="3.2" class="dataset-svg-point"></circle><circle cx="193" cy="130.3" r="3.2" class="dataset-svg-point"></circle><circle cx="199.3" cy="158" r="3.2" class="dataset-svg-point"></circle><circle cx="205.7" cy="149.3" r="3.2" class="dataset-svg-point"></circle><circle cx="212.1" cy="155.2" r="3.2" class="dataset-svg-point"></circle><circle cx="218.4" cy="146.1" r="3.2" class="dataset-svg-point"></circle><circle cx="224.8" cy="134.6" r="3.2" class="dataset-svg-point"></circle><circle cx="231.1" cy="51" r="3.2" class="dataset-svg-point"></circle><circle cx="237.5" cy="128.4" r="3.2" class="dataset-svg-point"></circle><circle cx="243.8" cy="81.8" r="3.2" class="dataset-svg-point"></circle><circle cx="250.2" cy="121.2" r="3.2" class="dataset-svg-point"></circle><circle cx="256.6" cy="129.4" r="3.2" class="dataset-svg-point"></circle><circle cx="262.9" cy="115" r="3.2" class="dataset-svg-point"></circle><circle cx="269.3" cy="106.7" r="3.2" class="dataset-svg-point"></circle><circle cx="275.6" cy="46" r="3.2" class="dataset-svg-point"></circle><circle cx="282" cy="125.2" r="3.2" class="dataset-svg-point"></circle><text x="34" y="24" class="dataset-svg-title">population_desservie</text><text x="34" y="186" class="dataset-svg-label">4825</text><text x="230" y="186" class="dataset-svg-label">202459</text>
 </svg>
 </div>
 </div>

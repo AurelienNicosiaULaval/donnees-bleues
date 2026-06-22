@@ -1,0 +1,61 @@
+---
+title: "Portrait des interventions du SIM"
+embed-resources: true
+---
+
+# Portrait des interventions du SIM
+
+## Contexte
+
+Cette activité utilise les interventions du Service de sécurité incendie de Montréal pour pratiquer les tableaux de fréquences et la visualisation de variables catégorielles.
+
+## Objectifs d'apprentissage
+
+- Identifier l'unité statistique d'un jeu administratif.
+- Compter les grands types d'interventions.
+- Produire un graphique en barres lisible.
+- Formuler une limite d'interprétation.
+
+## Données utilisées
+
+Fiche : [Interventions des pompiers de Montréal](fiche.qmd)
+
+Source : Données ouvertes de la Ville de Montréal / Service de sécurité incendie de Montréal.
+
+Licence : Attribution (CC-BY 4.0).
+
+## Métadonnées pédagogiques
+
+| Champ | Information |
+|---|---|
+| Question directrice | Quels grands types d'interventions dominent dans la ressource courante? |
+| Concepts | Tableaux de fréquences; Visualisation; Limites d'interprétation |
+| Niveau | Introductif |
+| Type | Exercice; Exploration de données |
+| Contexte | Sécurité publique |
+| Accroche | Interventions d'urgence locales |
+| Durée | 30-45 minutes |
+| Matériel | énoncé; code; données |
+| Math/stats avancées | non |
+
+## Consignes
+
+1. Importer la ressource CSV courante.
+2. Examiner les variables `DESCRIPTION_GROUPE` et `INCIDENT_TYPE_DESC`.
+3. Compter les interventions par `DESCRIPTION_GROUPE`.
+4. Tracer un graphique en barres.
+5. Rédiger deux phrases : une observation descriptive et une limite.
+
+## Questions
+
+1. Quel groupe d'interventions est le plus fréquent?
+2. Pourquoi les effectifs bruts ne suffisent-ils pas pour comparer les arrondissements?
+3. Que mesure ce jeu de données : le risque réel ou les interventions consignées?
+
+## Pistes de solution
+
+Une solution acceptable présente un tableau de fréquences, un graphique clair et une phrase indiquant que les données décrivent des interventions administratives, pas une mesure directe du risque réel.
+
+## Prolongement
+
+Comparer les grands groupes d'interventions selon le mois ou l'arrondissement.

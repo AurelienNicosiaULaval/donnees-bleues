@@ -1,0 +1,72 @@
+id: construction-quartiers-quebec
+title: "Construction, bâtiments et quartiers à la Ville de Québec"
+short_title: "Construction et quartiers"
+theme: "Aménagement du territoire"
+source_name: "Ville de Québec, Données Québec"
+source_url: "https://www.donneesquebec.ca/recherche/dataset/permis-delivres-ville-de-quebec"
+license: "Attribution (CC-BY 4.0)"
+access_date: "2026-06-21"
+geography: "Ville de Québec"
+unit: "Permis, bâtiment, quartier ou agrégat par quartier selon le fichier"
+data_type: "Tabulaire, spatial, administratif, agrégé"
+format: "CSV officiels nettoyés; CSV agrégé par quartier"
+n_rows: "66 470 permis; 284 964 empreintes de bâtiments; 35 quartiers; 35 lignes agrégées par quartier dans la version téléchargée le 2026-06-21"
+n_cols: "10 colonnes permis; 4 colonnes bâtiments; 5 colonnes quartiers; 21 colonnes pour l'agrégé par quartier"
+update_frequency: "Mise à jour fréquente; métadonnées modifiées le 2026-06-21 pour les permis et quartiers, le 2026-06-07 pour les bâtiments selon l'API CKAN de Données Québec consultée le 2026-06-21"
+level: "Intermédiaire"
+concepts:
+  - données ouvertes municipales
+  - nettoyage de noms de variables
+  - données spatiales
+  - jointure spatiale
+  - agrégation par quartier
+  - densité
+  - superficies
+  - statistique descriptive
+  - visualisation
+  - limites des données administratives
+variables_principales:
+  - numero_permis
+  - date_delivrance
+  - domaine
+  - type_permis
+  - longitude
+  - latitude
+  - type_batiment
+  - geometrie
+  - id_quartier
+  - nom_quartier
+  - nombre_permis
+  - nombre_batiments
+  - superficie_empreintes_batiments_m2
+  - part_superficie_batie
+idees_mini_projets:
+  - "Comparer le nombre de permis délivrés par quartier."
+  - "Analyser la densité de bâtiments et la part de superficie bâtie selon les quartiers."
+  - "Construire une carte ou un graphique des quartiers où l'activité administrative liée aux permis est la plus forte."
+tags:
+  - données ouvertes
+  - Ville de Québec
+  - Données Québec
+  - permis
+  - bâtiments
+  - quartiers
+  - urbanisme
+  - aménagement
+  - spatial
+  - sf
+  - tidyverse
+  - enseignement
+zero_waste:
+  contexte_quebecois: 3
+  accessibilite_pedagogique: 3
+  qualite_documentaire: 3
+  potentiel_nettoyage: 3
+  potentiel_visualisation: 3
+  potentiel_statistique_descriptive: 3
+  potentiel_inference: 1
+  potentiel_modelisation: 2
+  potentiel_ethique: 2
+  reutilisabilite: 3
+status: "source vérifiée"
+notes: "Sources officielles utilisées : Permis délivrés à la Ville de Québec, Empreintes des bâtiments et Quartiers, publiés par la Ville de Québec dans Données Québec. Les fichiers préparés conservent les variables sources avec noms nettoyés et ajoutent un agrégat descriptif par quartier."

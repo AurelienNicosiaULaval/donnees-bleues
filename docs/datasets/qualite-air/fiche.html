@@ -263,7 +263,7 @@ Comparer les stations sans date de fermeture selon les régions et les types de 
 Aperçu reproductible
 </h2>
 <p>
-Aperçu léger calculé par R à partir des métadonnées vérifiées afin de garder la fiche rapide et stable au rendu.
+Aperçu calculé par R à partir de data/processed/qualite-air/rsqaq_stations.csv.
 </p>
 </div>
 <div class="dataset-r-grid">
@@ -271,13 +271,12 @@ Aperçu léger calculé par R à partir des métadonnées vérifiées afin de ga
 <div class="dataset-card-label">
 Code minimal
 </div>
-<pre><code class="language-r">library(yaml)
+<pre><code class="language-r">library(dplyr)
 
-metadata &lt;- yaml::read_yaml("datasets/qualite-air/metadata.yml")
-data.frame(
-  champ = c("theme", "territoire", "unite", "niveau"),
-  valeur = c(metadata$theme, metadata$geography, metadata$unit, metadata$level)
-)</code></pre>
+donnees &lt;- read.csv("data/processed/qualite-air/rsqaq_stations.csv", check.names = FALSE)
+
+glimpse(donnees)
+donnees |&gt; summarise(lignes = n(), colonnes = ncol(donnees))</code></pre>
 </div>
 <div class="dataset-result-card">
 <div class="dataset-card-label">
@@ -285,16 +284,19 @@ Résultats R
 </div>
 <div class="dataset-r-stats">
 <div class="dataset-r-stat">
-<span>Lignes déclarées</span><strong>245 stations préparées</strong>
+<span>Lignes lues</span><strong>245</strong>
 </div>
 <div class="dataset-r-stat">
-<span>Colonnes déclarées</span><strong>10 colonnes dans le CSV source; 20 colonnes préparées</strong>
+<span>Colonnes</span><strong>11</strong>
 </div>
 <div class="dataset-r-stat">
-<span>Format</span><strong>CSV officiel préparé localement</strong>
+<span>Variables num.</span><strong>4</strong>
 </div>
 <div class="dataset-r-stat">
-<span>Aperçu</span><strong>Métadonnées</strong>
+<span>Valeurs manquantes</span><strong>2.2 %</strong>
+</div>
+<div class="dataset-r-stat">
+<span>Aperçu</span><strong>rsqaq_stations.csv</strong>
 </div>
 </div>
 <div class="dataset-result-table-wrap">
@@ -302,52 +304,144 @@ Résultats R
 <thead>
 <tr>
 <th>
-champ
+id_station
 </th>
 <th>
-valeur
+nom_station
+</th>
+<th>
+ra
+</th>
+<th>
+adresse
+</th>
+<th>
+municipalite
+</th>
+<th>
+type_milieu
 </th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>
-theme
+1802
 </td>
 <td>
-Environnement
-</td>
-</tr>
-<tr>
-<td>
-territoire
+Murdochville - École anglaise
 </td>
 <td>
-Québec, hors stations situées s…
-</td>
-</tr>
-<tr>
-<td>
-unite
+11
 </td>
 <td>
-Station de mesure incluse dans …
+5ième rue
+</td>
+<td>
+Murdochville
+</td>
+<td>
+Urbain
 </td>
 </tr>
 <tr>
 <td>
-niveau
+1803
 </td>
 <td>
-Introduction à intermédiaire
+Murdochville - Garage municipal
+</td>
+<td>
+11
+</td>
+<td>
+Chemin de la Mine
+</td>
+<td>
+Murdochville
+</td>
+<td>
+Urbain
 </td>
 </tr>
 <tr>
 <td>
-format
+1804
 </td>
 <td>
-CSV officiel préparé localement
+Murdochville
+</td>
+<td>
+11
+</td>
+<td>
+603 des Bouleaux
+</td>
+<td>
+Murdochville
+</td>
+<td>
+Urbain
+</td>
+</tr>
+<tr>
+<td>
+1805
+</td>
+<td>
+Murdochville - Parc Lions
+</td>
+<td>
+11
+</td>
+<td>
+603 des Bouleaux
+</td>
+<td>
+Murdochville
+</td>
+<td>
+Urbain
+</td>
+</tr>
+<tr>
+<td>
+1810
+</td>
+<td>
+Auclair
+</td>
+<td>
+1
+</td>
+<td>
+66, rang St-Grégoire Nord
+</td>
+<td>
+Auclair
+</td>
+<td>
+Forêt
+</td>
+</tr>
+<tr>
+<td>
+1820
+</td>
+<td>
+Côte-Ouimet
+</td>
+<td>
+1
+</td>
+<td>
+Rang Ouimet
+</td>
+<td>
+Saint-Charles-Garnier
+</td>
+<td>
+Forêt
 </td>
 </tr>
 </tbody>
@@ -358,8 +452,8 @@ CSV officiel préparé localement
 <div class="dataset-card-label">
 Lecture statistique
 </div>
-<svg class="dataset-r-chart" viewbox="0 0 320 210" role="img" aria-label="Concepts pédagogiques">
-<text x="0" y="30" class="dataset-svg-label">importation CSV</text><rect x="150" y="18" width="90" height="14" rx="3" class="dataset-svg-bar"></rect><text x="0" y="54" class="dataset-svg-label">dates</text><rect x="150" y="42" width="90" height="14" rx="3" class="dataset-svg-bar"></rect><text x="0" y="78" class="dataset-svg-label">valeurs manquantes</text><rect x="150" y="66" width="90" height="14" rx="3" class="dataset-svg-bar"></rect><text x="0" y="102" class="dataset-svg-label">statut préparé</text><rect x="150" y="90" width="90" height="14" rx="3" class="dataset-svg-bar"></rect><text x="0" y="126" class="dataset-svg-label">données spatiales simples</text><rect x="150" y="114" width="90" height="14" rx="3" class="dataset-svg-bar"></rect><text x="0" y="150" class="dataset-svg-label">couverture territoriale</text><rect x="150" y="138" width="90" height="14" rx="3" class="dataset-svg-bar"></rect><text x="0" y="174" class="dataset-svg-label">statistique descriptive</text><rect x="150" y="162" width="90" height="14" rx="3" class="dataset-svg-bar"></rect>
+<svg class="dataset-r-chart" viewbox="0 0 320 210" role="img" aria-label="Aperçu numérique généré par R">
+<line x1="34" y1="158" x2="292" y2="158" class="dataset-svg-axis"></line><line x1="34" y1="36" x2="34" y2="158" class="dataset-svg-axis"></line><polyline points="34,158 40.4,151.7 46.7,151.7 53.1,145.1 59.4,138.5 65.8,118.7 72.2,118.5 78.5,118.5 84.9,118.4 91.2,118.4 97.6,117.4 103.9,117.3 110.3,117.3 116.7,117.3 123,117.2 129.4,117.2 135.7,117.2 142.1,117.1 148.5,117.1 154.8,117.1 161.2,117 167.5,105.5 173.9,105.4 180.3,103.8 186.6,85.6 193,83.9 199.3,83.9 205.7,83.9 212.1,83.8 218.4,83.8 224.8,83.8 231.1,83.7 237.5,83.7 243.8,83.7 250.2,83.6 256.6,83.6 262.9,80 269.3,79.8 275.6,74.1 282,46" class="dataset-svg-line"></polyline><circle cx="34" cy="158" r="3.2" class="dataset-svg-point"></circle><circle cx="40.4" cy="151.7" r="3.2" class="dataset-svg-point"></circle><circle cx="46.7" cy="151.7" r="3.2" class="dataset-svg-point"></circle><circle cx="53.1" cy="145.1" r="3.2" class="dataset-svg-point"></circle><circle cx="59.4" cy="138.5" r="3.2" class="dataset-svg-point"></circle><circle cx="65.8" cy="118.7" r="3.2" class="dataset-svg-point"></circle><circle cx="72.2" cy="118.5" r="3.2" class="dataset-svg-point"></circle><circle cx="78.5" cy="118.5" r="3.2" class="dataset-svg-point"></circle><circle cx="84.9" cy="118.4" r="3.2" class="dataset-svg-point"></circle><circle cx="91.2" cy="118.4" r="3.2" class="dataset-svg-point"></circle><circle cx="97.6" cy="117.4" r="3.2" class="dataset-svg-point"></circle><circle cx="103.9" cy="117.3" r="3.2" class="dataset-svg-point"></circle><circle cx="110.3" cy="117.3" r="3.2" class="dataset-svg-point"></circle><circle cx="116.7" cy="117.3" r="3.2" class="dataset-svg-point"></circle><circle cx="123" cy="117.2" r="3.2" class="dataset-svg-point"></circle><circle cx="129.4" cy="117.2" r="3.2" class="dataset-svg-point"></circle><circle cx="135.7" cy="117.2" r="3.2" class="dataset-svg-point"></circle><circle cx="142.1" cy="117.1" r="3.2" class="dataset-svg-point"></circle><circle cx="148.5" cy="117.1" r="3.2" class="dataset-svg-point"></circle><circle cx="154.8" cy="117.1" r="3.2" class="dataset-svg-point"></circle><circle cx="161.2" cy="117" r="3.2" class="dataset-svg-point"></circle><circle cx="167.5" cy="105.5" r="3.2" class="dataset-svg-point"></circle><circle cx="173.9" cy="105.4" r="3.2" class="dataset-svg-point"></circle><circle cx="180.3" cy="103.8" r="3.2" class="dataset-svg-point"></circle><circle cx="186.6" cy="85.6" r="3.2" class="dataset-svg-point"></circle><circle cx="193" cy="83.9" r="3.2" class="dataset-svg-point"></circle><circle cx="199.3" cy="83.9" r="3.2" class="dataset-svg-point"></circle><circle cx="205.7" cy="83.9" r="3.2" class="dataset-svg-point"></circle><circle cx="212.1" cy="83.8" r="3.2" class="dataset-svg-point"></circle><circle cx="218.4" cy="83.8" r="3.2" class="dataset-svg-point"></circle><circle cx="224.8" cy="83.8" r="3.2" class="dataset-svg-point"></circle><circle cx="231.1" cy="83.7" r="3.2" class="dataset-svg-point"></circle><circle cx="237.5" cy="83.7" r="3.2" class="dataset-svg-point"></circle><circle cx="243.8" cy="83.7" r="3.2" class="dataset-svg-point"></circle><circle cx="250.2" cy="83.6" r="3.2" class="dataset-svg-point"></circle><circle cx="256.6" cy="83.6" r="3.2" class="dataset-svg-point"></circle><circle cx="262.9" cy="80" r="3.2" class="dataset-svg-point"></circle><circle cx="269.3" cy="79.8" r="3.2" class="dataset-svg-point"></circle><circle cx="275.6" cy="74.1" r="3.2" class="dataset-svg-point"></circle><circle cx="282" cy="46" r="3.2" class="dataset-svg-point"></circle><text x="34" y="24" class="dataset-svg-title">id_station</text><text x="34" y="186" class="dataset-svg-label">6810</text><text x="230" y="186" class="dataset-svg-label">10200</text>
 </svg>
 </div>
 </div>

@@ -39,12 +39,13 @@ Le message éditorial du projet est le suivant : un jeu de données n'est pas se
 
 ## Jeux de données inclus
 
-Les sources initiales ont été vérifiées le 2026-06-01. La source Statistique Canada ajoutée pour les pyramides des âges a été vérifiée le 2026-06-18.
+Les sources initiales ont été vérifiées le 2026-06-01. La source Statistique Canada ajoutée pour les pyramides des âges a été vérifiée le 2026-06-18. Les sources de la Ville de Québec ajoutées pour la construction, les bâtiments et les quartiers ont été vérifiées le 2026-06-21.
 
 | Dossier | Jeu de données | Source |
 |---|---|---|
 | `datasets/bixi` | État des stations BIXI | BIXI Montréal, Données Québec |
 | `datasets/bibliotheques-quebec` | Statistiques des bibliothèques publiques du Québec | Bibliothèque et Archives nationales du Québec, Données Québec |
+| `datasets/construction-quartiers-quebec` | Construction, bâtiments et quartiers à la Ville de Québec | Ville de Québec, Données Québec |
 | `datasets/pyramides-ages` | Pyramides des âges au Canada et au Québec | Statistique Canada |
 | `datasets/qualite-air` | RSQAQ - Stations de la qualité de l'air | MELCCFP, Données Québec |
 
@@ -58,11 +59,13 @@ install.packages(c(
   "dplyr",
   "ggplot2",
   "httr2",
+  "janitor",
   "jsonlite",
   "knitr",
   "lubridate",
   "purrr",
   "readr",
+  "sf",
   "stringr",
   "tidyr",
   "yaml"
@@ -114,6 +117,7 @@ Les scripts de préparation peuvent être lancés depuis la racine du projet :
 ```bash
 Rscript datasets/bixi/preparation.R
 Rscript datasets/bibliotheques-quebec/preparation.R
+Rscript datasets/construction-quartiers-quebec/preparation.R
 Rscript datasets/pyramides-ages/preparation.R
 Rscript datasets/qualite-air/preparation.R
 ```
@@ -199,7 +203,7 @@ Le MVP contient :
 
 - un site Quarto publiable depuis `docs/`;
 - une identité éditoriale en français;
-- quatre fiches de jeux de données québécois ou canadiens avec un usage québécois explicite;
+- plusieurs fiches de jeux de données québécois ou canadiens avec un usage québécois explicite;
 - huit activités pédagogiques;
 - un catalogue d'activités indexé par question, niveau, type, concept, contexte et accroche;
 - trois modules transversaux;

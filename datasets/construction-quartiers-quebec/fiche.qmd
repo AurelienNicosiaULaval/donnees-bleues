@@ -1,0 +1,170 @@
+---
+title: "Construction, bâtiments et quartiers à la Ville de Québec"
+embed-resources: true
+page-layout: full
+toc: false
+execute:
+  freeze: false
+---
+
+```{r}
+#| label: dataset-detail-header
+#| echo: false
+#| results: asis
+source_path <- if (file.exists("R/utils_dataset_page.R")) "R/utils_dataset_page.R" else "../../R/utils_dataset_page.R"
+source(source_path)
+render_dataset_detail_header()
+```
+
+## Pourquoi ce jeu est intéressant
+
+Ce dossier réunit trois jeux officiels de la Ville de Québec : les permis délivrés, les empreintes de bâtiments et les quartiers. Il permet de travailler un cas réaliste d'intégration de données municipales, avec nettoyage de noms de variables, géométries, jointure spatiale et agrégation par quartier.
+
+Le fichier préparé `quebec_construction_quartiers.csv` donne une entrée pédagogique directe pour analyser l'activité administrative liée aux permis et certains aspects de la forme bâtie selon les quartiers.
+
+## Sources
+
+| Jeu | Organisme producteur | URL | Licence | Date de téléchargement |
+|---|---|---|---|---|
+| Permis délivrés à la Ville de Québec | Ville de Québec | <https://www.donneesquebec.ca/recherche/dataset/permis-delivres-ville-de-quebec> | Attribution (CC-BY 4.0) selon Données Québec | 2026-06-21 |
+| Empreintes des bâtiments | Ville de Québec | <https://www.donneesquebec.ca/recherche/dataset/empreintes-des-batiments> | Attribution (CC-BY 4.0) selon Données Québec | 2026-06-21 |
+| Quartiers | Ville de Québec | <https://www.donneesquebec.ca/recherche/dataset/vque_9> | Attribution (CC-BY 4.0) selon Données Québec | 2026-06-21 |
+
+Les métadonnées CKAN consultées le 2026-06-21 indiquent une modification le 2026-06-21 pour les permis, le 2026-06-07 pour les empreintes des bâtiments et le 2026-06-21 pour les quartiers.
+
+## Fichiers préparés
+
+| Fichier | Description | Lignes | Colonnes |
+|---|---|---:|---:|
+| `permis_delivres_quebec.csv` | CSV officiel des permis, noms de variables nettoyés | 66 470 | 10 |
+| `batiments_quebec.csv` | CSV officiel des empreintes de bâtiments, noms de variables nettoyés | 284 964 | 4 |
+| `quartiers_quebec.csv` | CSV officiel des quartiers, noms de variables nettoyés | 35 | 5 |
+| `quebec_construction_quartiers.csv` | Agrégat par quartier construit à partir des trois sources | 35 | 21 |
+
+## Ce que représente une ligne
+
+Dans `permis_delivres_quebec.csv`, une ligne représente un permis publié dans le fichier officiel.
+
+Dans `batiments_quebec.csv`, une ligne représente une empreinte de bâtiment publiée dans le fichier officiel.
+
+Dans `quartiers_quebec.csv`, une ligne représente un quartier officiel de la Ville de Québec.
+
+Dans `quebec_construction_quartiers.csv`, une ligne représente un quartier officiel avec des indicateurs agrégés calculés à partir des permis et des bâtiments qui ont pu être appariés spatialement.
+
+## Variables principales
+
+| Variable | Fichier | Description | Origine |
+|---|---|---|---|
+| `numero_permis` | permis | Numéro du permis | Variable officielle, nom nettoyé |
+| `date_delivrance` | permis | Date de délivrance du permis | Variable officielle, convertie en date ISO |
+| `domaine` | permis | Domaine de l'intervention du permis | Variable officielle |
+| `type_permis` | permis | Type de permis émis | Variable officielle |
+| `longitude`, `latitude` | permis | Coordonnées du permis | Variables officielles |
+| `type_batiment` | bâtiments | Type de bâtiment publié | Variable officielle |
+| `geometrie` | bâtiments, quartiers | Géométrie WKT | Variable officielle |
+| `id_quartier`, `nom_quartier` | agrégé | Identifiant et nom du quartier | Variables officielles du fichier quartiers |
+| `nombre_permis` | agrégé | Nombre de permis appariés au quartier | Compte dérivé par jointure spatiale |
+| `nombre_batiments` | agrégé | Nombre de bâtiments appariés au quartier | Compte dérivé par jointure spatiale |
+| `superficie_empreintes_batiments_m2` | agrégé | Somme des superficies des empreintes de bâtiments | Calcul dérivé des géométries officielles |
+| `part_superficie_batie` | agrégé | Part de la superficie du quartier occupée par les empreintes | Ratio dérivé |
+
+Le dictionnaire complet est écrit dans `data/processed/construction-quartiers-quebec/dictionnaire_variables.csv` par le script de préparation.
+
+## Agrégat par quartier
+
+Le fichier `quebec_construction_quartiers.csv` contient des indicateurs descriptifs par quartier :
+
+- nombre total de permis;
+- nombre de permis par kilomètre carré;
+- comptes de permis pour quelques catégories exactes de la variable `domaine`;
+- nombre total de bâtiments;
+- nombre de bâtiments par kilomètre carré;
+- comptes de bâtiments pour quelques catégories exactes de la variable `type_batiment`;
+- superficie totale des empreintes de bâtiments;
+- superficie moyenne des empreintes de bâtiments;
+- part de la superficie du quartier occupée par les empreintes de bâtiments.
+
+Les catégories comptées ne sont pas regroupées manuellement. Elles correspondent à des valeurs exactes publiées dans les fichiers sources.
+
+## Méthode de préparation
+
+Le script `preparation.R` :
+
+1. interroge l'API CKAN de Données Québec pour récupérer les métadonnées officielles;
+2. télécharge les trois ressources CSV officielles;
+3. nettoie les noms de variables avec `janitor::clean_names()`;
+4. écrit une version CSV simple pour chaque source;
+5. transforme les géométries WKT en objets `sf`;
+6. apparie spatialement les permis et bâtiments aux quartiers;
+7. écrit l'agrégat `quebec_construction_quartiers.csv`;
+8. écrit les fichiers de documentation locale.
+
+## Score zero waste dataset
+
+| Dimension | Score | Justification |
+|---|---:|---|
+| Contexte québécois | 3 | Les trois sources décrivent directement la Ville de Québec. |
+| Accessibilité pédagogique | 3 | Les permis, bâtiments et quartiers sont concrets pour des étudiantes et étudiants. |
+| Qualité documentaire | 3 | Les ressources Données Québec décrivent les principales variables et la licence. |
+| Potentiel de nettoyage | 3 | Les données demandent nettoyage de noms, dates, géométries et appariement. |
+| Potentiel de visualisation | 3 | Les quartiers se prêtent aux cartes et aux graphiques comparatifs. |
+| Potentiel de statistique descriptive | 3 | Les comptes, densités et ratios sont directement exploitables. |
+| Potentiel d'inférence | 1 | Les données sont administratives et descriptives; elles ne forment pas un échantillon probabiliste. |
+| Potentiel de modélisation | 2 | Des modèles exploratoires sont possibles, avec prudence sur la causalité et la couverture spatiale. |
+| Potentiel de discussion éthique | 2 | Les données portent sur le territoire urbain et peuvent soutenir une discussion sur l'interprétation des quartiers. |
+| Réutilisabilité dans plusieurs cours | 3 | Le dossier couvre nettoyage, données spatiales, agrégation, visualisation et communication. |
+
+Total : 26 sur 30.
+
+## Code R minimal
+
+```{r}
+#| eval: false
+library(dplyr)
+library(ggplot2)
+library(readr)
+
+construction_quartiers <- read_csv(
+  "data/processed/construction-quartiers-quebec/quebec_construction_quartiers.csv",
+  show_col_types = FALSE
+)
+
+construction_quartiers |>
+  arrange(desc(permis_par_km2)) |>
+  slice_head(n = 10) |>
+  ggplot(aes(x = reorder(nom_quartier, permis_par_km2), y = permis_par_km2)) +
+  geom_col(fill = "#325EA8") +
+  coord_flip() +
+  labs(
+    x = "Quartier",
+    y = "Permis par km²",
+    title = "Densité de permis délivrés par quartier à Québec"
+  ) +
+  theme_minimal()
+```
+
+## Limites et précautions
+
+- Le fichier des permis ne contient pas la valeur monétaire des travaux.
+- Le fichier des permis ne contient pas la superficie des travaux.
+- Le fichier des permis ne contient pas directement le quartier; le quartier est obtenu par jointure spatiale.
+- Le fichier des empreintes de bâtiments ne contient pas la hauteur, le nombre d'étages, l'année de construction ou l'usage détaillé.
+- Le fichier des quartiers ne contient pas la population, le nombre de logements ou le zonage.
+- Certains permis et bâtiments ne tombent dans aucun quartier officiel. Ils ne sont pas forcés dans un quartier.
+- Les superficies de bâtiments sont calculées à partir des géométries publiées; elles ne remplacent pas une mesure cadastrale ou architecturale officielle.
+- Les données décrivent des objets et événements administratifs; elles ne permettent pas d'établir des effets causaux sur le développement urbain.
+
+## Activité courte
+
+En 30 à 45 minutes, faire classer les quartiers selon le nombre de permis par kilomètre carré et produire un graphique des dix quartiers les plus élevés.
+
+## Activité longue
+
+En 2 à 3 heures, faire produire un court rapport qui compare l'activité de permis et la forme bâtie dans les quartiers, avec une section obligatoire sur les limites des données disponibles.
+
+```{r}
+#| label: dataset-detail-footer
+#| echo: false
+#| results: asis
+render_dataset_detail_footer()
+```

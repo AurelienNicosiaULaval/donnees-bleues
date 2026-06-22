@@ -1,0 +1,73 @@
+---
+title: "Construction et quartiers - activité courte"
+embed-resources: true
+---
+
+# Construction et quartiers - activité courte
+
+## Contexte
+
+La Ville de Québec publie des données ouvertes sur les permis délivrés, les empreintes de bâtiments et les quartiers. Dans cette activité, vous utilisez le fichier agrégé par quartier pour comparer l'activité de permis en tenant compte de la superficie des quartiers.
+
+## Objectifs d'apprentissage
+
+- Importer un CSV préparé.
+- Trier et filtrer des quartiers.
+- Interpréter une densité par kilomètre carré.
+- Produire un graphique comparatif.
+- Distinguer un indicateur descriptif d'une conclusion causale.
+
+## Données utilisées
+
+Source : Ville de Québec, Données Québec, jeux `Permis délivrés à la Ville de Québec`, `Empreintes des bâtiments` et `Quartiers`, sous licence Attribution (CC-BY 4.0). Fiche : [Construction, bâtiments et quartiers à la Ville de Québec](fiche.qmd).
+
+Fichier principal : `data/processed/construction-quartiers-quebec/quebec_construction_quartiers.csv`.
+
+## Consignes
+
+1. Lancer `Rscript datasets/construction-quartiers-quebec/preparation.R` depuis la racine du projet si le fichier préparé n'existe pas.
+2. Importer `quebec_construction_quartiers.csv`.
+3. Identifier les dix quartiers avec la plus forte valeur de `permis_par_km2`.
+4. Produire un graphique à barres horizontales.
+5. Comparer le classement obtenu avec le classement par `nombre_permis`.
+6. Rédiger trois phrases d'interprétation et deux limites.
+
+## Code de départ
+
+```{r}
+#| eval: false
+library(dplyr)
+library(ggplot2)
+library(readr)
+
+construction_quartiers <- read_csv(
+  "data/processed/construction-quartiers-quebec/quebec_construction_quartiers.csv",
+  show_col_types = FALSE
+)
+
+top_quartiers <- construction_quartiers |>
+  arrange(desc(permis_par_km2)) |>
+  slice_head(n = 10)
+
+ggplot(top_quartiers, aes(x = reorder(nom_quartier, permis_par_km2), y = permis_par_km2)) +
+  geom_col(fill = "#325EA8") +
+  coord_flip() +
+  labs(
+    x = "Quartier",
+    y = "Permis par km²",
+    title = "Densité de permis délivrés par quartier"
+  ) +
+  theme_minimal()
+```
+
+## Questions
+
+1. Pourquoi comparer `permis_par_km2` plutôt que seulement `nombre_permis`?
+2. Quels quartiers changent le plus de rang lorsque l'on utilise une densité?
+3. Le fichier permet-il de connaître la valeur monétaire des travaux?
+4. Le fichier permet-il de savoir si les travaux ont réellement été réalisés?
+5. Quelle information manque pour comparer les quartiers par habitant?
+
+## Pistes de solution
+
+Une réponse correcte distingue les comptes et les densités. Elle mentionne que les permis sont des événements administratifs géolocalisés et que le fichier ne contient pas la valeur des travaux, la superficie des travaux ou la population des quartiers.

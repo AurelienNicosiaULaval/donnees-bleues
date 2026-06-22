@@ -1,0 +1,27 @@
+id: construction-quartiers-quebec-forme-batie-long
+title: "Portrait des permis et de la forme bâtie par quartier"
+question: "Comment relier activité administrative de construction et forme bâtie sans surinterpréter les données?"
+dataset_id: construction-quartiers-quebec
+dataset_title: "Construction, bâtiments et quartiers à la Ville de Québec"
+activity_url: "datasets/construction-quartiers-quebec/activite-longue.qmd"
+duration: "2-3 heures"
+level: "Intermédiaire à avancé"
+activity_type:
+  - "Étude de cas"
+  - "Projet ou tâche longue"
+  - "Exploration de données"
+concepts:
+  - "Jointure spatiale"
+  - "Agrégation"
+  - "Visualisation"
+  - "Communication"
+context: "Aménagement du territoire"
+hook: "Ville, permis et quartiers"
+materials:
+  - "énoncé"
+  - "code"
+  - "données ouvertes"
+  - "notes enseignantes"
+advanced_math_stats: false
+teacher_notes: "Exiger une section limites et faire distinguer les permis délivrés, les travaux réels et la forme bâtie mesurée par empreinte au sol."
+status: "prêt"

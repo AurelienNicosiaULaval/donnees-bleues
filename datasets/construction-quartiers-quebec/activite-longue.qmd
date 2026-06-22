@@ -1,0 +1,91 @@
+---
+title: "Construction et quartiers - activité longue"
+embed-resources: true
+---
+
+# Construction et quartiers - activité longue
+
+## Contexte
+
+Cette activité propose un mini-rapport sur l'activité de permis et la forme bâtie dans les quartiers de la Ville de Québec. Le fichier utilisé est un agrégat construit à partir de trois sources officielles : permis délivrés, empreintes de bâtiments et quartiers.
+
+## Objectifs d'apprentissage
+
+- Comprendre une jointure spatiale entre points, polygones de bâtiments et quartiers.
+- Comparer des quartiers avec des comptes, densités et ratios.
+- Visualiser plusieurs indicateurs descriptifs.
+- Identifier les informations absentes des sources.
+- Rédiger une interprétation prudente de données administratives.
+
+## Données utilisées
+
+Source : Ville de Québec, Données Québec, jeux `Permis délivrés à la Ville de Québec`, `Empreintes des bâtiments` et `Quartiers`, sous licence Attribution (CC-BY 4.0). Fiche : [Construction, bâtiments et quartiers à la Ville de Québec](fiche.qmd).
+
+Fichier principal : `data/processed/construction-quartiers-quebec/quebec_construction_quartiers.csv`.
+
+Fichiers utiles de documentation :
+
+- `data/processed/construction-quartiers-quebec/documentation_sources.csv`;
+- `data/processed/construction-quartiers-quebec/dictionnaire_variables.csv`;
+- `data/processed/construction-quartiers-quebec/appariement_quartiers_resume.csv`.
+
+## Travail demandé
+
+Produire un rapport court qui répond à la question suivante :
+
+Quels quartiers présentent une forte activité de permis et quelles caractéristiques de forme bâtie peut-on décrire avec les empreintes disponibles?
+
+Le rapport doit contenir :
+
+1. un tableau des dix quartiers avec le plus grand `nombre_permis`;
+2. un graphique des dix quartiers avec la plus forte valeur de `permis_par_km2`;
+3. un graphique ou tableau sur `part_superficie_batie`;
+4. une comparaison entre `permis_par_km2` et `batiments_par_km2`;
+5. une section limites qui indique clairement les informations non disponibles.
+
+## Code de départ
+
+```{r}
+#| eval: false
+library(dplyr)
+library(ggplot2)
+library(readr)
+
+construction_quartiers <- read_csv(
+  "data/processed/construction-quartiers-quebec/quebec_construction_quartiers.csv",
+  show_col_types = FALSE
+)
+
+construction_quartiers |>
+  arrange(desc(nombre_permis)) |>
+  select(nom_quartier, nombre_permis, permis_par_km2, nombre_batiments, part_superficie_batie) |>
+  slice_head(n = 10)
+
+ggplot(
+  construction_quartiers,
+  aes(x = batiments_par_km2, y = permis_par_km2, label = nom_quartier)
+) +
+  geom_point(color = "#325EA8", size = 2.4, alpha = 0.8) +
+  labs(
+    x = "Bâtiments par km²",
+    y = "Permis par km²",
+    title = "Permis et densité de bâtiments par quartier"
+  ) +
+  theme_minimal()
+```
+
+## Questions d'interprétation
+
+1. Les quartiers avec le plus de permis sont-ils aussi ceux avec la plus forte densité de permis?
+2. Les quartiers avec une forte part de superficie bâtie ont-ils aussi une forte densité de bâtiments?
+3. Quels résultats changeraient si l'on disposait de la population des quartiers?
+4. Pourquoi faut-il éviter d'interpréter les permis comme des travaux réalisés?
+5. Quels objets sources ne sont pas appariés aux quartiers officiels?
+
+## Critères de réussite
+
+- Le rapport cite les trois sources officielles.
+- Les graphiques distinguent clairement comptes, densités et ratios.
+- Les variables dérivées sont définies.
+- Les limites sont explicites.
+- Aucune variable absente des sources n'est inventée.

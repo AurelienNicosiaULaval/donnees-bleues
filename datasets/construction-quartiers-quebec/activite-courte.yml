@@ -1,0 +1,25 @@
+id: construction-quartiers-quebec-densite-court
+title: "Comparer les permis par quartier"
+question: "Quels quartiers ont la plus forte densité de permis délivrés?"
+dataset_id: construction-quartiers-quebec
+dataset_title: "Construction, bâtiments et quartiers à la Ville de Québec"
+activity_url: "datasets/construction-quartiers-quebec/activite-courte.qmd"
+duration: "30-45 minutes"
+level: "Intermédiaire"
+activity_type:
+  - "Exercice"
+  - "Exploration de données"
+  - "Visualisation"
+concepts:
+  - "Agrégation"
+  - "Densité"
+  - "Statistique descriptive"
+context: "Aménagement du territoire"
+hook: "Comparer des quartiers familiers"
+materials:
+  - "énoncé"
+  - "code"
+  - "données ouvertes"
+advanced_math_stats: false
+teacher_notes: "Insister sur le fait que permis_par_km2 est un indicateur descriptif et que le fichier ne contient ni valeur monétaire ni superficie des travaux."
+status: "prêt"

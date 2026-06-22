@@ -1,0 +1,61 @@
+---
+title: "Temporalité et territoire des interventions du SIM"
+embed-resources: true
+---
+
+# Temporalité et territoire des interventions du SIM
+
+## Contexte
+
+Cette activité relie nettoyage de dates, agrégation temporelle, comparaison territoriale et limites d'interprétation dans un jeu de données de sécurité publique.
+
+## Objectifs d'apprentissage
+
+- Transformer une date-heure en variables temporelles.
+- Agréger des interventions par mois et par type.
+- Comparer des arrondissements avec prudence.
+- Présenter les résultats dans un mini-rapport reproductible.
+
+## Données utilisées
+
+Fiche : [Interventions des pompiers de Montréal](fiche.qmd)
+
+Source : Données ouvertes de la Ville de Montréal / Service de sécurité incendie de Montréal.
+
+Licence : Attribution (CC-BY 4.0).
+
+## Métadonnées pédagogiques
+
+| Champ | Information |
+|---|---|
+| Question directrice | Les interventions du SIM varient-elles selon le mois et l'arrondissement? |
+| Concepts | Dates; Agrégation; Comparaison de groupes; Communication |
+| Niveau | Intermédiaire |
+| Type | Projet ou tâche longue; Étude de cas |
+| Contexte | Sécurité publique |
+| Accroche | Urgences, temps et territoires |
+| Durée | 2-3 heures |
+| Matériel | énoncé; code; données; notes enseignantes |
+| Math/stats avancées | non |
+
+## Consignes
+
+1. Importer la ressource CSV courante.
+2. Créer une variable `mois` à partir de `CREATION_DATE_TIME`.
+3. Calculer le nombre d'interventions par mois et par `DESCRIPTION_GROUPE`.
+4. Comparer quelques arrondissements avec un tableau ou un graphique.
+5. Ajouter une courte section sur les limites liées à la localisation approximative et aux données administratives.
+
+## Questions
+
+1. Les variations mensuelles sont-elles semblables pour tous les groupes d'interventions?
+2. Quels arrondissements ont les volumes bruts les plus élevés dans la ressource courante?
+3. Quelles données supplémentaires seraient nécessaires pour comparer des risques?
+
+## Pistes de solution
+
+Un bon rapport distingue les constats descriptifs des interprétations, indique clairement la période utilisée et évite de présenter les coordonnées comme des localisations exactes.
+
+## Prolongement
+
+Créer une variable binaire indiquant si `NOMBRE_UNITES` dépasse un seuil choisi, puis ajuster un modèle de classification simple avec validation.

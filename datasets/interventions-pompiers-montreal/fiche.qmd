@@ -1,0 +1,188 @@
+---
+title: "Interventions des pompiers de Montréal"
+embed-resources: true
+page-layout: full
+toc: false
+execute:
+  freeze: false
+---
+
+```{r}
+#| label: dataset-detail-header
+#| echo: false
+#| results: asis
+source_path <- if (file.exists("R/utils_dataset_page.R")) "R/utils_dataset_page.R" else "../../R/utils_dataset_page.R"
+source(source_path)
+render_dataset_detail_header()
+```
+
+## Pourquoi ce jeu est intéressant
+
+Ce jeu permet de travailler avec des données locales sur les interventions d'urgence à Montréal. Il combine des dimensions temporelles, spatiales et catégorielles : moment de l'intervention, type d'incident, arrondissement, caserne, division du SIM, localisation approximative et nombre de véhicules déployés.
+
+Il est particulièrement utile pour enseigner les dates, l'agrégation, les tableaux de fréquences, les séries temporelles, la cartographie prudente et une introduction à la classification simple.
+
+## Source
+
+| Champ | Information |
+|---|---|
+| Source | Données ouvertes de la Ville de Montréal |
+| Organisme producteur | Service de sécurité incendie de Montréal |
+| Territoire | Agglomération de Montréal |
+| URL officielle | <https://donnees.montreal.ca/fr/dataset/interventions-service-securite-incendie-montreal> |
+| Licence | Attribution (CC-BY 4.0) |
+| Date d'accès | 2026-06-21 |
+| Fréquence de mise à jour | Quotidienne; fiche descriptive modifiée le 2026-06-21 selon l'API CKAN consultée |
+| Statut | source vérifiée |
+
+## Ce que représente une ligne
+
+Une ligne représente une intervention réalisée par le Service de sécurité incendie de Montréal. Selon la description officielle, les données proviennent du système de répartition assisté par Poste de travail, un sous-système opérationnel utilisé pour la gestion en temps réel, la répartition des véhicules et le suivi des interventions.
+
+## Variables principales
+
+| Variable source | Rôle pédagogique | Remarque |
+|---|---|---|
+| `CREATION_DATE_TIME` | Date et heure de l'événement | Base pour les analyses par heure, jour, mois et saison |
+| `DESCRIPTION_GROUPE` | Groupe d'intervention | Regroupe les types d'interventions en grandes catégories |
+| `INCIDENT_TYPE_DESC` | Type d'incident | Niveau plus détaillé que `DESCRIPTION_GROUPE` |
+| `CASERNE` | Caserne responsable du territoire | Variable opérationnelle et territoriale |
+| `NOM_VILLE` | Ville où l'événement est survenu | Utile pour distinguer Montréal et les villes liées à l'agglomération |
+| `NOM_ARROND` | Arrondissement | Base pour les comparaisons territoriales |
+| `DIVISION` | Division du SIM | Découpage opérationnel |
+| `LATITUDE` | Latitude approximative | Position obfusquée, à utiliser avec prudence |
+| `LONGITUDE` | Longitude approximative | Position obfusquée, à utiliser avec prudence |
+| `NOMBRE_UNITES` | Nombre de véhicules déployés | Variable quantitative discrète, utile pour un indicateur de mobilisation |
+
+## Taille et structure
+
+| Élément | Information |
+|---|---|
+| Nombre de lignes | Je ne sais pas. |
+| Taille des fichiers | Fichiers CSV par période; environ 18,6 Mo pour la ressource courante, 73,1 Mo pour 2020 à 2024 et 114,5 Mo pour 2015 à 2022 selon la page consultée le 2026-06-21 |
+| Nombre de colonnes | 13 champs observés dans l'en-tête du CSV courant consulté le 2026-06-21 |
+| Structure | Tabulaire, spatial, temporel, catégoriel |
+| Format | CSV, GeoJSON et SHP |
+| Couverture temporelle | Depuis 2005 selon la fiche officielle |
+| Niveau pédagogique recommandé | Introduction à intermédiaire |
+
+## Concepts enseignables
+
+- nettoyage de données;
+- dates;
+- agrégation;
+- tableaux de fréquences;
+- visualisation;
+- cartes;
+- séries temporelles;
+- comparaison de groupes;
+- classification simple.
+
+## Score zéro déchet
+
+| Dimension | Score | Justification |
+|---|---:|---|
+| Contexte québécois | 3 | Le jeu décrit des interventions d'urgence dans l'agglomération de Montréal. |
+| Accessibilité pédagogique | 3 | Les variables clés sont concrètes et faciles à expliquer. |
+| Qualité documentaire | 3 | La page officielle fournit une description, une méthodologie, des limites et un dictionnaire. |
+| Potentiel de nettoyage | 2 | Le traitement des dates, des types et des valeurs manquantes suffit pour une activité réaliste. |
+| Potentiel de visualisation | 3 | Les dimensions temporelles et spatiales se prêtent à plusieurs graphiques. |
+| Potentiel de statistique descriptive | 3 | Les fréquences, proportions et comparaisons de groupes sont directes. |
+| Potentiel d'inférence | 2 | Des comparaisons exploratoires sont possibles avec prudence. |
+| Potentiel de modélisation | 2 | Un modèle simple peut prédire une mobilisation élevée, sans conclusion causale. |
+| Potentiel de discussion éthique | 3 | La localisation approximative et l'interprétation du risque ouvrent une discussion importante. |
+| Réutilisabilité dans plusieurs cours | 3 | Le jeu peut servir en nettoyage, visualisation, séries temporelles, cartographie et modélisation. |
+
+Total : 27 sur 30.
+
+## Activité courte
+
+En 30 à 45 minutes, faire produire un portrait des grands types d'interventions avec `DESCRIPTION_GROUPE`, puis demander une phrase sur ce que ces fréquences mesurent réellement.
+
+## Activité longue
+
+En 2 à 3 heures, demander un mini-rapport Quarto combinant agrégation mensuelle, comparaison par arrondissement, graphique temporel et carte agrégée.
+
+## Projets possibles
+
+- Dresser le portrait des types d'interventions.
+- Analyser les variations par heure, jour, mois et saison.
+- Comparer les interventions entre arrondissements.
+- Cartographier les interventions avec agrégation spatiale.
+- Étudier le nombre d'unités déployées.
+- Construire un mini-modèle pour prédire les interventions mobilisant plusieurs unités.
+
+## Questions pédagogiques possibles
+
+1. Quelle est l'unité statistique du jeu de données?
+2. Quels types d'interventions dominent dans la ressource courante?
+3. Les profils horaires diffèrent-ils selon `DESCRIPTION_GROUPE`?
+4. Comment comparer des arrondissements sans confondre volume brut et exposition?
+5. Comment utiliser les coordonnées sans donner une impression de précision excessive?
+6. Quel seuil définit une intervention mobilisant plusieurs unités?
+7. Quelles variables pourraient être utilisées dans un modèle simple?
+8. Pourquoi ces données ne mesurent-elles pas directement le risque réel?
+
+## Code R minimal
+
+```{r}
+#| eval: false
+# Load libraries
+library(readr)
+library(dplyr)
+library(lubridate)
+library(ggplot2)
+
+# Import the current CSV resource from the official Ville de Montréal portal
+sim_url <- "https://donnees.montreal.ca/dataset/2fc8a2b9-1556-410e-a118-c46e97e9f19e/resource/71e86320-e35c-4b4c-878a-e52124294355/download/donneesouvertes-interventions-sim.csv"
+
+interventions <- read_csv(sim_url, show_col_types = FALSE)
+
+# Count interventions by month and broad intervention type
+interventions_mensuelles <- interventions |>
+  mutate(
+    mois = floor_date(CREATION_DATE_TIME, unit = "month"),
+    type_intervention = DESCRIPTION_GROUPE
+  ) |>
+  filter(!is.na(mois), !is.na(type_intervention)) |>
+  count(mois, type_intervention, name = "n_interventions")
+
+# Plot monthly counts by intervention type
+ggplot(
+  interventions_mensuelles,
+  aes(x = mois, y = n_interventions, color = type_intervention)
+) +
+  geom_line(linewidth = 0.8) +
+  geom_point(size = 1.4) +
+  labs(
+    title = "Interventions du SIM par mois et par type",
+    x = "Mois",
+    y = "Nombre d'interventions",
+    color = "Type d'intervention"
+  ) +
+  theme_minimal()
+```
+
+## Limites et précautions
+
+- La localisation est approximative afin de protéger la vie privée et les renseignements personnels.
+- La position géographique correspond à une intersection du segment de rue où l'intervention a eu lieu, pas nécessairement au lieu exact.
+- Ces données administratives décrivent les interventions consignées par le SIM; elles ne mesurent pas directement le risque réel d'incendie ou d'urgence.
+- Le type d'un événement peut être modifié si des éléments s'ajoutent au rapport initial.
+- Les données peuvent être révisées et sont regroupées par année calendaire.
+- Les comparaisons entre arrondissements devraient tenir compte de la population, de la superficie, de l'activité urbaine et d'autres facteurs de contexte.
+
+## Extensions
+
+- Extension intro : produire un tableau de fréquences par `DESCRIPTION_GROUPE`.
+- Extension intermédiaire : comparer les profils horaires de deux groupes d'interventions.
+- Extension avancée : créer une variable binaire `plusieurs_unites` et ajuster un modèle de classification simple.
+- Extension cartographie : agréger les points dans une grille ou par arrondissement avant de cartographier.
+- Extension communication scientifique : rédiger une note méthodologique sur les limites de la localisation obfusquée.
+
+```{r}
+#| label: dataset-detail-footer
+#| echo: false
+#| results: asis
+render_dataset_detail_footer()
+```

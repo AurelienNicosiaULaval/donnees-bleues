@@ -1,0 +1,24 @@
+id: "interventions-pompiers-montreal-portrait-court"
+title: "Portrait des interventions du SIM"
+question: "Quels grands types d'interventions dominent dans la ressource courante?"
+dataset_id: "interventions-pompiers-montreal"
+dataset_title: "Interventions des pompiers de Montréal"
+activity_url: "datasets/interventions-pompiers-montreal/activite-courte.qmd"
+duration: "30-45 minutes"
+level: "Introductif"
+activity_type:
+  - "Exercice"
+  - "Exploration de données"
+concepts:
+  - "Tableaux de fréquences"
+  - "Visualisation"
+  - "Limites d'interprétation"
+context: "Sécurité publique"
+hook: "Interventions d'urgence locales"
+materials:
+  - "énoncé"
+  - "code"
+  - "données"
+advanced_math_stats: false
+teacher_notes: "Utiliser la ressource courante et limiter l'analyse aux grands groupes d'interventions."
+status: "prêt"

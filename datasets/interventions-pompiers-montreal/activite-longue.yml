@@ -1,0 +1,26 @@
+id: "interventions-pompiers-montreal-saisonnalite-long"
+title: "Temporalité et territoire des interventions du SIM"
+question: "Les interventions du SIM varient-elles selon le mois et l'arrondissement?"
+dataset_id: "interventions-pompiers-montreal"
+dataset_title: "Interventions des pompiers de Montréal"
+activity_url: "datasets/interventions-pompiers-montreal/activite-longue.qmd"
+duration: "2-3 heures"
+level: "Intermédiaire"
+activity_type:
+  - "Projet ou tâche longue"
+  - "Étude de cas"
+concepts:
+  - "Dates"
+  - "Agrégation"
+  - "Comparaison de groupes"
+  - "Communication"
+context: "Sécurité publique"
+hook: "Urgences, temps et territoires"
+materials:
+  - "énoncé"
+  - "code"
+  - "données"
+  - "notes enseignantes"
+advanced_math_stats: false
+teacher_notes: "Demander une carte agrégée ou une comparaison par arrondissement, pas une interprétation de points individuels."
+status: "prêt"

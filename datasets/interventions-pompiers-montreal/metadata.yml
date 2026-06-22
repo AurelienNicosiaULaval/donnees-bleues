@@ -1,0 +1,70 @@
+id: "interventions-pompiers-montreal"
+title: "Interventions des pompiers de Montréal"
+short_title: "Interventions SIM"
+theme: "Sécurité publique"
+source_name: "Données ouvertes de la Ville de Montréal / Service de sécurité incendie de Montréal"
+source_url: "https://donnees.montreal.ca/fr/dataset/interventions-service-securite-incendie-montreal"
+license: "Attribution (CC-BY 4.0)"
+access_date: "2026-06-21"
+geography: "Agglomération de Montréal"
+unit: "Intervention réalisée par le Service de sécurité incendie de Montréal"
+data_type: "Tabulaire, spatial, temporel, catégoriel"
+format: "CSV, GeoJSON et SHP"
+n_rows: "Fichiers par période; ressource courante d'environ 18,6 Mo, ressource 2020 à 2024 d'environ 73,1 Mo et ressource 2015 à 2022 d'environ 114,5 Mo selon la page consultée le 2026-06-21"
+n_cols: "13 champs observés dans l'en-tête du CSV courant consulté le 2026-06-21"
+update_frequency: "Quotidienne; fiche descriptive modifiée le 2026-06-21 selon l'API CKAN consultée"
+level: "Introduction à intermédiaire"
+organisme: "Service de sécurité incendie de Montréal"
+territoire: "Agglomération de Montréal"
+taille_approximative: "Fichiers CSV par période; environ 18,6 Mo à 114,5 Mo pour les principales ressources listées"
+niveau_pedagogique_recommande: "Introduction à intermédiaire"
+variables_principales:
+  - "CREATION_DATE_TIME"
+  - "DESCRIPTION_GROUPE"
+  - "INCIDENT_TYPE_DESC"
+  - "CASERNE"
+  - "NOM_VILLE"
+  - "NOM_ARROND"
+  - "DIVISION"
+  - "LATITUDE"
+  - "LONGITUDE"
+  - "NOMBRE_UNITES"
+idees_mini_projets:
+  - "Dresser le portrait des types d'interventions."
+  - "Analyser les variations par heure, jour, mois et saison."
+  - "Comparer les interventions entre arrondissements."
+  - "Cartographier les interventions avec agrégation spatiale."
+  - "Étudier le nombre d'unités déployées."
+  - "Construire un mini-modèle pour prédire les interventions mobilisant plusieurs unités."
+tags:
+  - "Montréal"
+  - "données ouvertes"
+  - "sécurité publique"
+  - "interventions d'urgence"
+  - "séries temporelles"
+  - "spatial"
+  - "visualisation"
+  - "modélisation"
+concepts:
+  - "nettoyage de données"
+  - "dates"
+  - "agrégation"
+  - "tableaux de fréquences"
+  - "visualisation"
+  - "cartes"
+  - "séries temporelles"
+  - "comparaison de groupes"
+  - "classification simple"
+zero_waste:
+  contexte_quebecois: 3
+  accessibilite_pedagogique: 3
+  qualite_documentaire: 3
+  potentiel_nettoyage: 2
+  potentiel_visualisation: 3
+  potentiel_statistique_descriptive: 3
+  potentiel_inference: 2
+  potentiel_modelisation: 2
+  potentiel_ethique: 3
+  reutilisabilite: 3
+status: "source vérifiée"
+notes: "Source, licence, dictionnaire de données et ressource CSV courante vérifiés sur le portail des données ouvertes de la Ville de Montréal. La localisation est obfusquée et les données peuvent évoluer dans le temps selon la description officielle."

@@ -263,7 +263,7 @@ Comparer le nombre de sites et le volume autorisé total par provenance de l'eau
 Aperçu reproductible
 </h2>
 <p>
-Aperçu léger calculé par R à partir des métadonnées vérifiées afin de garder la fiche rapide et stable au rendu.
+Aperçu calculé par R à partir de data/processed/prelevements-eau-autorises/prelevements_eau_autorises.csv.
 </p>
 </div>
 <div class="dataset-r-grid">
@@ -271,13 +271,12 @@ Aperçu léger calculé par R à partir des métadonnées vérifiées afin de ga
 <div class="dataset-card-label">
 Code minimal
 </div>
-<pre><code class="language-r">library(yaml)
+<pre><code class="language-r">library(dplyr)
 
-metadata &lt;- yaml::read_yaml("datasets/prelevements-eau-autorises/metadata.yml")
-data.frame(
-  champ = c("theme", "territoire", "unite", "niveau"),
-  valeur = c(metadata$theme, metadata$geography, metadata$unit, metadata$level)
-)</code></pre>
+donnees &lt;- read.csv("data/processed/prelevements-eau-autorises/prelevements_eau_autorises.csv", check.names = FALSE)
+
+glimpse(donnees)
+donnees |&gt; summarise(lignes = n(), colonnes = ncol(donnees))</code></pre>
 </div>
 <div class="dataset-result-card">
 <div class="dataset-card-label">
@@ -285,16 +284,19 @@ Résultats R
 </div>
 <div class="dataset-r-stats">
 <div class="dataset-r-stat">
-<span>Lignes déclarées</span><strong>1 777 sites de prélèvement préparés</strong>
+<span>Lignes lues</span><strong>1 777</strong>
 </div>
 <div class="dataset-r-stat">
-<span>Colonnes déclarées</span><strong>16 colonnes préparées; 9 colonnes dans le CSV source</strong>
+<span>Colonnes</span><strong>10</strong>
 </div>
 <div class="dataset-r-stat">
-<span>Format</span><strong>CSV officiel préparé localement; GeoJSON, GPKG, FGDB, SHP, XLSX, REST, WMS et PDF disponibles</strong>
+<span>Variables num.</span><strong>6</strong>
 </div>
 <div class="dataset-r-stat">
-<span>Aperçu</span><strong>Métadonnées</strong>
+<span>Valeurs manquantes</span><strong>9.5 %</strong>
+</div>
+<div class="dataset-r-stat">
+<span>Aperçu</span><strong>prelevements_eau_autorises.csv</strong>
 </div>
 </div>
 <div class="dataset-result-table-wrap">
@@ -302,52 +304,144 @@ Résultats R
 <thead>
 <tr>
 <th>
-champ
+no_doc
 </th>
 <th>
-valeur
+site_id
+</th>
+<th>
+nombre_sites_document
+</th>
+<th>
+nom_intervenant
+</th>
+<th>
+volume_autorise_l_j
+</th>
+<th>
+volume_autorise_m3_j
 </th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>
-theme
+401161221
 </td>
 <td>
-Prélèvements d'eau
-</td>
-</tr>
-<tr>
-<td>
-territoire
+401161221_1
 </td>
 <td>
-Québec
-</td>
-</tr>
-<tr>
-<td>
-unite
+1
 </td>
 <td>
-Site de prélèvement d'eau autor…
+Municipalité de Tingwick
+</td>
+<td>
+817600
+</td>
+<td>
+817.6
 </td>
 </tr>
 <tr>
 <td>
-niveau
+401163915
 </td>
 <td>
-Intermédiaire
+401163915_1
+</td>
+<td>
+4
+</td>
+<td>
+Club Naturiste Les Loisirs Air-…
+</td>
+<td>
+40900
+</td>
+<td>
+40.9
 </td>
 </tr>
 <tr>
 <td>
-format
+401163915
 </td>
 <td>
-CSV officiel préparé localement…
+401163915_2
+</td>
+<td>
+4
+</td>
+<td>
+Club Naturiste Les Loisirs Air-…
+</td>
+<td>
+60000
+</td>
+<td>
+60.0
+</td>
+</tr>
+<tr>
+<td>
+401163915
+</td>
+<td>
+401163915_3
+</td>
+<td>
+4
+</td>
+<td>
+Club Naturiste Les Loisirs Air-…
+</td>
+<td>
+49100
+</td>
+<td>
+49.1
+</td>
+</tr>
+<tr>
+<td>
+401163915
+</td>
+<td>
+401163915_4
+</td>
+<td>
+4
+</td>
+<td>
+Club Naturiste Les Loisirs Air-…
+</td>
+<td>
+81700
+</td>
+<td>
+81.7
+</td>
+</tr>
+<tr>
+<td>
+401164158
+</td>
+<td>
+401164158_1
+</td>
+<td>
+2
+</td>
+<td>
+Municipalité de Champlain
+</td>
+<td>
+436300
+</td>
+<td>
+436.3
 </td>
 </tr>
 </tbody>
@@ -358,8 +452,8 @@ CSV officiel préparé localement…
 <div class="dataset-card-label">
 Lecture statistique
 </div>
-<svg class="dataset-r-chart" viewbox="0 0 320 210" role="img" aria-label="Concepts pédagogiques">
-<text x="0" y="30" class="dataset-svg-label">eau</text><rect x="150" y="18" width="90" height="14" rx="3" class="dataset-svg-bar"></rect><text x="0" y="54" class="dataset-svg-label">volume autorisé</text><rect x="150" y="42" width="90" height="14" rx="3" class="dataset-svg-bar"></rect><text x="0" y="78" class="dataset-svg-label">données administratives</text><rect x="150" y="66" width="90" height="14" rx="3" class="dataset-svg-bar"></rect><text x="0" y="102" class="dataset-svg-label">agrégation</text><rect x="150" y="90" width="90" height="14" rx="3" class="dataset-svg-bar"></rect><text x="0" y="126" class="dataset-svg-label">valeurs extrêmes</text><rect x="150" y="114" width="90" height="14" rx="3" class="dataset-svg-bar"></rect><text x="0" y="150" class="dataset-svg-label">cartographie</text><rect x="150" y="138" width="90" height="14" rx="3" class="dataset-svg-bar"></rect><text x="0" y="174" class="dataset-svg-label">unités de mesure</text><rect x="150" y="162" width="90" height="14" rx="3" class="dataset-svg-bar"></rect>
+<svg class="dataset-r-chart" viewbox="0 0 320 210" role="img" aria-label="Aperçu numérique généré par R">
+<line x1="34" y1="158" x2="292" y2="158" class="dataset-svg-axis"></line><line x1="34" y1="36" x2="34" y2="158" class="dataset-svg-axis"></line><polyline points="34,102 40.4,158 46.7,120.7 53.1,139.3 59.4,120.7 65.8,46 72.2,46 78.5,46 84.9,46 91.2,46 97.6,46 103.9,139.3 110.3,158 116.7,139.3 123,139.3 129.4,158 135.7,158 142.1,139.3 148.5,139.3 154.8,158 161.2,158 167.5,158 173.9,139.3 180.3,139.3 186.6,139.3 193,139.3 199.3,158 205.7,120.7 212.1,139.3 218.4,120.7 224.8,120.7 231.1,120.7 237.5,158 243.8,158 250.2,120.7 256.6,120.7 262.9,120.7 269.3,102 275.6,158 282,158" class="dataset-svg-line"></polyline><circle cx="34" cy="102" r="3.2" class="dataset-svg-point"></circle><circle cx="40.4" cy="158" r="3.2" class="dataset-svg-point"></circle><circle cx="46.7" cy="120.7" r="3.2" class="dataset-svg-point"></circle><circle cx="53.1" cy="139.3" r="3.2" class="dataset-svg-point"></circle><circle cx="59.4" cy="120.7" r="3.2" class="dataset-svg-point"></circle><circle cx="65.8" cy="46" r="3.2" class="dataset-svg-point"></circle><circle cx="72.2" cy="46" r="3.2" class="dataset-svg-point"></circle><circle cx="78.5" cy="46" r="3.2" class="dataset-svg-point"></circle><circle cx="84.9" cy="46" r="3.2" class="dataset-svg-point"></circle><circle cx="91.2" cy="46" r="3.2" class="dataset-svg-point"></circle><circle cx="97.6" cy="46" r="3.2" class="dataset-svg-point"></circle><circle cx="103.9" cy="139.3" r="3.2" class="dataset-svg-point"></circle><circle cx="110.3" cy="158" r="3.2" class="dataset-svg-point"></circle><circle cx="116.7" cy="139.3" r="3.2" class="dataset-svg-point"></circle><circle cx="123" cy="139.3" r="3.2" class="dataset-svg-point"></circle><circle cx="129.4" cy="158" r="3.2" class="dataset-svg-point"></circle><circle cx="135.7" cy="158" r="3.2" class="dataset-svg-point"></circle><circle cx="142.1" cy="139.3" r="3.2" class="dataset-svg-point"></circle><circle cx="148.5" cy="139.3" r="3.2" class="dataset-svg-point"></circle><circle cx="154.8" cy="158" r="3.2" class="dataset-svg-point"></circle><circle cx="161.2" cy="158" r="3.2" class="dataset-svg-point"></circle><circle cx="167.5" cy="158" r="3.2" class="dataset-svg-point"></circle><circle cx="173.9" cy="139.3" r="3.2" class="dataset-svg-point"></circle><circle cx="180.3" cy="139.3" r="3.2" class="dataset-svg-point"></circle><circle cx="186.6" cy="139.3" r="3.2" class="dataset-svg-point"></circle><circle cx="193" cy="139.3" r="3.2" class="dataset-svg-point"></circle><circle cx="199.3" cy="158" r="3.2" class="dataset-svg-point"></circle><circle cx="205.7" cy="120.7" r="3.2" class="dataset-svg-point"></circle><circle cx="212.1" cy="139.3" r="3.2" class="dataset-svg-point"></circle><circle cx="218.4" cy="120.7" r="3.2" class="dataset-svg-point"></circle><circle cx="224.8" cy="120.7" r="3.2" class="dataset-svg-point"></circle><circle cx="231.1" cy="120.7" r="3.2" class="dataset-svg-point"></circle><circle cx="237.5" cy="158" r="3.2" class="dataset-svg-point"></circle><circle cx="243.8" cy="158" r="3.2" class="dataset-svg-point"></circle><circle cx="250.2" cy="120.7" r="3.2" class="dataset-svg-point"></circle><circle cx="256.6" cy="120.7" r="3.2" class="dataset-svg-point"></circle><circle cx="262.9" cy="120.7" r="3.2" class="dataset-svg-point"></circle><circle cx="269.3" cy="102" r="3.2" class="dataset-svg-point"></circle><circle cx="275.6" cy="158" r="3.2" class="dataset-svg-point"></circle><circle cx="282" cy="158" r="3.2" class="dataset-svg-point"></circle><text x="34" y="24" class="dataset-svg-title">nombre_sites_document</text><text x="34" y="186" class="dataset-svg-label">1</text><text x="230" y="186" class="dataset-svg-label">7</text>
 </svg>
 </div>
 </div>
