@@ -5651,7 +5651,7 @@ padding-bottom: 2.4rem;
 .dataset-detail-hero,
 .dataset-simple-summary,
 .dataset-r-lab,
-.dataset-detail-content,
+.dataset-doc-panel,
 .dataset-activities-panel {
 margin-left: auto;
 margin-right: auto;
@@ -5807,8 +5807,12 @@ grid-template-columns: minmax(180px, 1fr) minmax(92px, auto) auto;
 }
 .dataset-detail-content {
 color: #172033;
-margin-top: 1.35rem;
+margin-left: 0;
+margin-right: 0;
+margin-top: 0;
+max-width: none;
 overflow-x: hidden;
+width: auto;
 }
 .dataset-detail-content > section[id^="activite-"],
 .dataset-detail-content > section[id^="activité-"] {
@@ -5824,50 +5828,60 @@ line-height: 1.16;
 margin: 0;
 padding: 0.95rem 0 0.75rem;
 }
-.dataset-doc-section {
-border-top: 1px solid #e5ecf5;
-}
-.dataset-doc-section:last-child {
+.dataset-doc-panel {
 border-bottom: 1px solid #e5ecf5;
+border-top: 1px solid #e5ecf5;
+margin-top: 1.2rem;
+scroll-margin-top: 5rem;
 }
-.dataset-doc-section summary {
+.dataset-doc-panel summary {
 align-items: center;
 cursor: pointer;
 display: grid;
-gap: 0.75rem;
+gap: 0.2rem 0.75rem;
 grid-template-columns: minmax(0, 1fr) auto;
 list-style: none;
-padding: 0.9rem 0;
+padding: 0.85rem 0;
 }
-.dataset-doc-section summary::-webkit-details-marker {
+.dataset-doc-panel summary::-webkit-details-marker {
 display: none;
 }
-.dataset-doc-section summary::after {
+.dataset-doc-panel summary::after {
+align-self: center;
 color: #0045a5;
 content: "+";
 font-size: 1.3rem;
 font-weight: 650;
+grid-column: 2;
+grid-row: 1 / span 2;
 line-height: 1;
 }
-.dataset-doc-section[open] summary::after {
+.dataset-doc-panel[open] summary::after {
 content: "-";
 }
-.dataset-doc-section summary h2 {
+.dataset-doc-panel summary span {
+color: #0045a5;
+display: block;
+font-size: 0.69rem;
+font-weight: 850;
+letter-spacing: 0;
+text-transform: uppercase;
+}
+.dataset-doc-panel summary strong {
 color: #101828;
-font-size: 1.12rem;
+display: block;
+font-size: 1.05rem;
 font-weight: 800;
 letter-spacing: 0;
 line-height: 1.22;
 margin: 0;
 padding: 0;
 }
-.dataset-doc-section summary h2 .anchorjs-link {
-display: none;
+.dataset-doc-panel[open] .dataset-detail-content {
+border-top: 1px solid #eef2f7;
+padding: 1rem 0 1.15rem;
 }
-.dataset-doc-section-body {
-padding: 0 0 1.05rem;
-}
-.dataset-doc-section-body > *:first-child {
+.dataset-detail-content > *:first-child {
 margin-top: 0;
 }
 .dataset-detail-content p,
@@ -5965,7 +5979,7 @@ grid-template-columns: 1fr;
 .dataset-detail-hero,
 .dataset-simple-summary,
 .dataset-r-lab,
-.dataset-detail-content,
+.dataset-doc-panel,
 .dataset-activities-panel {
 width: calc(100% - 1.5rem);
 }
@@ -9481,7 +9495,11 @@ Précédent
 </div>
 </div>
 </section>
-<div id="documentation" class="dataset-detail-content">
+<details class="dataset-doc-panel" id="documentation">
+<summary>
+<span>Documentation complète</span><strong>Sources, variables, code R minimal, méthode et limites</strong>
+</summary>
+<div class="dataset-detail-content">
 <section id="pourquoi-ce-jeu-est-intéressant" class="level2">
 <h2 class="anchored" data-anchor-id="pourquoi-ce-jeu-est-intéressant">Pourquoi ce jeu est intéressant</h2>
 <p>Ce dossier réunit trois jeux officiels de la Ville de Québec : les permis délivrés, les empreintes de bâtiments et les quartiers. Il permet de travailler un cas réaliste d’intégration de données municipales, avec nettoyage de noms de variables, géométries, jointure spatiale et agrégation par quartier.</p>
@@ -11041,6 +11059,7 @@ Précédent
 <p>En 2 à 3 heures, faire produire un court rapport qui compare l’activité de permis et la forme bâtie dans les quartiers, avec une section obligatoire sur les limites des données disponibles.</p>
 </section>
 </div>
+</details>
 <section class="dataset-activities-panel">
 <div class="dataset-section-heading">
 <span>Activités pédagogiques</span>
@@ -11167,75 +11186,24 @@ Comment relier activité administrative de construction et forme bâtie sans sur
     });
     render();
   }
-  function initDocSections() {
-    var content = document.querySelector('.dataset-detail-content');
-    if (!content || content.dataset.sectionsEnhanced === 'true') return;
-    content.dataset.sectionsEnhanced = 'true';
-    var children = Array.from(content.children);
-    var currentBody = null;
-    var firstSection = true;
-    var hasActivityPanel = !!document.querySelector('.dataset-activities-panel');
-    function isActivityId(value) {
-      return /^activit[eé]-/.test(value || '');
-    }
-    children.forEach(function(child) {
-      var isLevelTwoSection = child.matches && child.matches('section.level2');
-      if (isLevelTwoSection) {
-        if (hasActivityPanel && isActivityId(child.id)) {
-          child.remove();
-          return;
-        }
-        var heading = child.querySelector(':scope > h2');
-        if (!heading) return;
-        var details = document.createElement('details');
-        details.className = 'dataset-doc-section';
-        if (child.id) {
-          details.id = child.id;
-          child.removeAttribute('id');
-        }
-        details.open = firstSection;
-        var summary = document.createElement('summary');
-        var body = document.createElement('div');
-        body.className = 'dataset-doc-section-body';
-        content.insertBefore(details, child);
-        summary.appendChild(heading);
-        details.appendChild(summary);
-        details.appendChild(body);
-        while (child.firstChild) {
-          body.appendChild(child.firstChild);
-        }
-        child.remove();
-        currentBody = body;
-        firstSection = false;
-      } else if (child.tagName && child.tagName.toLowerCase() === 'h2') {
-        var details = document.createElement('details');
-        details.className = 'dataset-doc-section';
-        details.open = firstSection;
-        var summary = document.createElement('summary');
-        var body = document.createElement('div');
-        body.className = 'dataset-doc-section-body';
-        content.insertBefore(details, child);
-        summary.appendChild(child);
-        details.appendChild(summary);
-        details.appendChild(body);
-        currentBody = body;
-        firstSection = false;
-      } else if (currentBody) {
-        currentBody.appendChild(child);
-      }
-    });
-    function openHashTarget() {
+  function initDocumentationPanel() {
+    var panel = document.getElementById('documentation');
+    if (!panel) return;
+    function openForHash() {
       if (!window.location.hash) return;
-      var target = document.getElementById(window.location.hash.slice(1));
-      if (!target) return;
-      var details = target.matches && target.matches('.dataset-doc-section') ? target : target.closest('.dataset-doc-section');
-      if (details) details.open = true;
+      var id = window.location.hash.slice(1);
+      if (id === 'documentation') {
+        panel.open = true;
+        return;
+      }
+      var target = document.getElementById(id);
+      if (target && panel.contains(target)) panel.open = true;
     }
-    window.addEventListener('hashchange', openHashTarget);
-    openHashTarget();
+    window.addEventListener('hashchange', openForHash);
+    openForHash();
   }
   function initAll() {
-    initDocSections();
+    initDocumentationPanel();
     document.querySelectorAll('.dataset-datatable').forEach(initDatatable);
   }
   if (document.readyState === 'loading') {

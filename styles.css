@@ -1886,7 +1886,7 @@ code {
 .dataset-detail-hero,
 .dataset-simple-summary,
 .dataset-r-lab,
-.dataset-detail-content,
+.dataset-doc-panel,
 .dataset-activities-panel {
   margin-left: auto;
   margin-right: auto;
@@ -2065,8 +2065,12 @@ code {
 
 .dataset-detail-content {
   color: #172033;
-  margin-top: 1.35rem;
+  margin-left: 0;
+  margin-right: 0;
+  margin-top: 0;
+  max-width: none;
   overflow-x: hidden;
+  width: auto;
 }
 
 .dataset-detail-content > section[id^="activite-"],
@@ -2085,43 +2089,55 @@ code {
   padding: 0.95rem 0 0.75rem;
 }
 
-.dataset-doc-section {
-  border-top: 1px solid #e5ecf5;
-}
-
-.dataset-doc-section:last-child {
+.dataset-doc-panel {
   border-bottom: 1px solid #e5ecf5;
+  border-top: 1px solid #e5ecf5;
+  margin-top: 1.2rem;
+  scroll-margin-top: 5rem;
 }
 
-.dataset-doc-section summary {
+.dataset-doc-panel summary {
   align-items: center;
   cursor: pointer;
   display: grid;
-  gap: 0.75rem;
+  gap: 0.2rem 0.75rem;
   grid-template-columns: minmax(0, 1fr) auto;
   list-style: none;
-  padding: 0.9rem 0;
+  padding: 0.85rem 0;
 }
 
-.dataset-doc-section summary::-webkit-details-marker {
+.dataset-doc-panel summary::-webkit-details-marker {
   display: none;
 }
 
-.dataset-doc-section summary::after {
+.dataset-doc-panel summary::after {
+  align-self: center;
   color: #0045a5;
   content: "+";
   font-size: 1.3rem;
   font-weight: 650;
+  grid-column: 2;
+  grid-row: 1 / span 2;
   line-height: 1;
 }
 
-.dataset-doc-section[open] summary::after {
+.dataset-doc-panel[open] summary::after {
   content: "-";
 }
 
-.dataset-doc-section summary h2 {
+.dataset-doc-panel summary span {
+  color: #0045a5;
+  display: block;
+  font-size: 0.69rem;
+  font-weight: 850;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+.dataset-doc-panel summary strong {
   color: #101828;
-  font-size: 1.12rem;
+  display: block;
+  font-size: 1.05rem;
   font-weight: 800;
   letter-spacing: 0;
   line-height: 1.22;
@@ -2129,15 +2145,12 @@ code {
   padding: 0;
 }
 
-.dataset-doc-section summary h2 .anchorjs-link {
-  display: none;
+.dataset-doc-panel[open] .dataset-detail-content {
+  border-top: 1px solid #eef2f7;
+  padding: 1rem 0 1.15rem;
 }
 
-.dataset-doc-section-body {
-  padding: 0 0 1.05rem;
-}
-
-.dataset-doc-section-body > *:first-child {
+.dataset-detail-content > *:first-child {
   margin-top: 0;
 }
 
@@ -2251,7 +2264,7 @@ code {
   .dataset-detail-hero,
   .dataset-simple-summary,
   .dataset-r-lab,
-  .dataset-detail-content,
+  .dataset-doc-panel,
   .dataset-activities-panel {
     width: calc(100% - 1.5rem);
   }

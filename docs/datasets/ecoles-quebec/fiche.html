@@ -328,7 +328,11 @@ Précédent
 </div>
 </div>
 </section>
-<div id="documentation" class="dataset-detail-content">
+<details class="dataset-doc-panel" id="documentation">
+<summary>
+<span>Documentation complète</span><strong>Sources, variables, code R minimal, méthode et limites</strong>
+</summary>
+<div class="dataset-detail-content">
 <section id="pourquoi-ce-jeu-est-intéressant" class="level2">
 <h2 class="anchored" data-anchor-id="pourquoi-ce-jeu-est-intéressant">Pourquoi ce jeu est intéressant</h2>
 <p>Ce jeu de données place les personnes étudiantes devant une source québécoise réaliste : des écoles publiques, des immeubles scolaires, des coordonnées géographiques, des régions administratives et plusieurs décisions de comptage qui changent l’interprétation.</p>
@@ -1087,6 +1091,7 @@ Précédent
 </ul>
 </section>
 </div>
+</details>
 <section class="dataset-activities-panel">
 <div class="dataset-section-heading">
 <span>Activités pédagogiques</span>
@@ -1213,75 +1218,24 @@ Comment produire une carte utile des écoles publiques du Québec sans transform
     });
     render();
   }
-  function initDocSections() {
-    var content = document.querySelector('.dataset-detail-content');
-    if (!content || content.dataset.sectionsEnhanced === 'true') return;
-    content.dataset.sectionsEnhanced = 'true';
-    var children = Array.from(content.children);
-    var currentBody = null;
-    var firstSection = true;
-    var hasActivityPanel = !!document.querySelector('.dataset-activities-panel');
-    function isActivityId(value) {
-      return /^activit[eé]-/.test(value || '');
-    }
-    children.forEach(function(child) {
-      var isLevelTwoSection = child.matches && child.matches('section.level2');
-      if (isLevelTwoSection) {
-        if (hasActivityPanel && isActivityId(child.id)) {
-          child.remove();
-          return;
-        }
-        var heading = child.querySelector(':scope > h2');
-        if (!heading) return;
-        var details = document.createElement('details');
-        details.className = 'dataset-doc-section';
-        if (child.id) {
-          details.id = child.id;
-          child.removeAttribute('id');
-        }
-        details.open = firstSection;
-        var summary = document.createElement('summary');
-        var body = document.createElement('div');
-        body.className = 'dataset-doc-section-body';
-        content.insertBefore(details, child);
-        summary.appendChild(heading);
-        details.appendChild(summary);
-        details.appendChild(body);
-        while (child.firstChild) {
-          body.appendChild(child.firstChild);
-        }
-        child.remove();
-        currentBody = body;
-        firstSection = false;
-      } else if (child.tagName && child.tagName.toLowerCase() === 'h2') {
-        var details = document.createElement('details');
-        details.className = 'dataset-doc-section';
-        details.open = firstSection;
-        var summary = document.createElement('summary');
-        var body = document.createElement('div');
-        body.className = 'dataset-doc-section-body';
-        content.insertBefore(details, child);
-        summary.appendChild(child);
-        details.appendChild(summary);
-        details.appendChild(body);
-        currentBody = body;
-        firstSection = false;
-      } else if (currentBody) {
-        currentBody.appendChild(child);
-      }
-    });
-    function openHashTarget() {
+  function initDocumentationPanel() {
+    var panel = document.getElementById('documentation');
+    if (!panel) return;
+    function openForHash() {
       if (!window.location.hash) return;
-      var target = document.getElementById(window.location.hash.slice(1));
-      if (!target) return;
-      var details = target.matches && target.matches('.dataset-doc-section') ? target : target.closest('.dataset-doc-section');
-      if (details) details.open = true;
+      var id = window.location.hash.slice(1);
+      if (id === 'documentation') {
+        panel.open = true;
+        return;
+      }
+      var target = document.getElementById(id);
+      if (target && panel.contains(target)) panel.open = true;
     }
-    window.addEventListener('hashchange', openHashTarget);
-    openHashTarget();
+    window.addEventListener('hashchange', openForHash);
+    openForHash();
   }
   function initAll() {
-    initDocSections();
+    initDocumentationPanel();
     document.querySelectorAll('.dataset-datatable').forEach(initDatatable);
   }
   if (document.readyState === 'loading') {
