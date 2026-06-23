@@ -38,6 +38,11 @@ n_short <- if (n_activities > 0) sum(activities_data$duration == "30-45 minutes"
 n_long <- if (n_activities > 0) sum(activities_data$duration == "2-3 heures") else 0
 n_datasets <- if (n_activities > 0) length(unique(activities_data$dataset_id)) else 0
 n_contexts <- if (n_activities > 0) length(unique(activities_data$context)) else 0
+n_ready <- if (n_activities > 0 && "pedagogical_status" %in% names(activities_data)) {
+  sum(activities_data$pedagogical_status == "pret_a_enseigner", na.rm = TRUE)
+} else {
+  0
+}
 
 top_concepts <- if (n_activities > 0) {
   names(head(count_tokens(activities_data$concepts), 5))
@@ -78,7 +83,7 @@ Activités indexées
 `r n_activities`
 :::
 
-`r n_short` courtes, `r n_long` longues, sur `r n_datasets` jeux de données.
+`r n_short` courtes, `r n_long` longues, `r n_ready` prêtes à enseigner, sur `r n_datasets` jeux de données.
 :::
 
 :::
@@ -237,6 +242,17 @@ split_values <- function(value) {
   values[values != ""]
 }
 
+status_label <- function(value) {
+  value <- str_squish(as.character(value))
+  value[is.na(value) | value == ""] <- "Je ne sais pas."
+  case_when(
+    value == "pret_a_enseigner" ~ "Prête à enseigner",
+    value == "a_consolider" ~ "À préparer",
+    value == "ebauche" ~ "Ébauche",
+    TRUE ~ value
+  )
+}
+
 format_tokens <- function(value, class_name = "act-token") {
   values <- split_values(value)
   paste0(
@@ -322,6 +338,8 @@ if (file.exists(activity_catalogue_path)) {
   cat('<div class="act-filter-group"><h4>Niveau</h4>', format_filter_group(activities$level, "level"), '</div>\n', sep = "")
   cat('<div class="act-filter-group"><h4>Concept</h4>', format_filter_group(concept_values, "concept", max_options = 7), '</div>\n', sep = "")
   cat('<div class="act-filter-group"><h4>Contexte</h4>', format_filter_group(activities$context, "context", max_options = 8), '</div>\n', sep = "")
+  cat('<div class="act-filter-group"><h4>Statut pédagogique</h4>', format_filter_group(status_label(activities$pedagogical_status), "status"), '</div>\n', sep = "")
+  cat('<div class="act-filter-group"><h4>Usage</h4>', format_filter_group(activities$recommended_use, "use"), '</div>\n', sep = "")
   cat('<div class="act-filter-group"><h4>Matériel</h4>', format_filter_group(material_values, "material"), '</div>\n', sep = "")
   cat('</aside>\n')
 
@@ -338,6 +356,10 @@ if (file.exists(activity_catalogue_path)) {
     advanced_label <- ifelse(row$advanced_math_stats, "Math/stats avancées", "Sans math/stats avancées")
     activity_type <- str_replace_all(clean_value(row$activity_type, ""), ";\\s*", ", ")
     materials <- str_replace_all(clean_value(row$materials, ""), ";\\s*", ", ")
+    pedagogical_status <- status_label(clean_value(row$pedagogical_status, ""))
+    recommended_use <- clean_value(row$recommended_use, "")
+    expected_output <- clean_value(row$expected_output, "")
+    teacher_preparation <- clean_value(row$teacher_preparation, "")
     concept_tokens <- split_values(row$concepts)
     type_tokens <- split_values(row$activity_type)
     material_tokens <- split_values(row$materials)
@@ -353,6 +375,10 @@ if (file.exists(activity_catalogue_path)) {
       row$hook,
       row$materials,
       row$teacher_notes,
+      pedagogical_status,
+      recommended_use,
+      expected_output,
+      teacher_preparation,
       sep = " "
     )
 
@@ -367,6 +393,10 @@ if (file.exists(activity_catalogue_path)) {
       html_escape(clean_value(row$level, "")),
       '" data-context="',
       html_escape(clean_value(row$context, "")),
+      '" data-status="',
+      html_escape(pedagogical_status),
+      '" data-use="',
+      html_escape(recommended_use),
       '" data-concepts="',
       html_escape(paste(concept_tokens, collapse = "||")),
       '" data-types="',
@@ -382,16 +412,20 @@ if (file.exists(activity_catalogue_path)) {
     cat('<div class="act-card-meta">\n')
     cat('<span>', html_escape(clean_value(row$duration)), '</span>\n', sep = "")
     cat('<span>', html_escape(clean_value(row$level)), '</span>\n', sep = "")
+    cat('<span>', html_escape(pedagogical_status), '</span>\n', sep = "")
     cat('</div>\n')
     cat('<h3><a href="', html_escape(activity_html), '">', html_escape(row$title), '</a></h3>\n', sep = "")
     cat('<p class="act-card-question">', html_escape(row$question), '</p>\n', sep = "")
     cat('<div class="act-card-dataset"><span>Jeu de données</span><p>', html_escape(row$dataset_title), '</p></div>\n', sep = "")
+    cat('<div class="act-card-dataset"><span>À produire</span><p>', html_escape(expected_output), '</p></div>\n', sep = "")
+    cat('<div class="act-card-dataset"><span>Préparation</span><p>', html_escape(teacher_preparation), '</p></div>\n', sep = "")
     cat('<div class="act-card-tags">', format_tokens(row$concepts), '</div>\n', sep = "")
     cat('<dl class="act-card-details">\n')
     cat('<div><dt>Type</dt><dd>', html_escape(activity_type), '</dd></div>\n', sep = "")
     cat('<div><dt>Contexte</dt><dd>', html_escape(row$context), '</dd></div>\n', sep = "")
     cat('<div><dt>Accroche</dt><dd>', html_escape(row$hook), '</dd></div>\n', sep = "")
     cat('<div><dt>Matériel</dt><dd>', html_escape(materials), '</dd></div>\n', sep = "")
+    cat('<div><dt>Usage</dt><dd>', html_escape(recommended_use), '</dd></div>\n', sep = "")
     cat('<div><dt>Portée</dt><dd>', html_escape(advanced_label), '</dd></div>\n', sep = "")
     cat('</dl>\n')
     cat('<a class="act-card-action" href="', html_escape(activity_html), '">Ouvrir l’activité <i class="bi bi-arrow-right" aria-hidden="true"></i></a>\n', sep = "")
@@ -445,7 +479,7 @@ if (file.exists(activity_catalogue_path)) {
   cat('    const concepts = checked("concept");\n')
   cat('    quickButtons.forEach(function (button) {\n')
   cat('      const active =\n')
-  cat('        (button.hasAttribute("data-clear-activity-filters") && !searchInput.value && durations.length === 0 && levels.length === 0 && concepts.length === 0 && checked("context").length === 0 && checked("material").length === 0) ||\n')
+  cat('        (button.hasAttribute("data-clear-activity-filters") && !searchInput.value && durations.length === 0 && levels.length === 0 && concepts.length === 0 && checked("context").length === 0 && checked("status").length === 0 && checked("use").length === 0 && checked("material").length === 0) ||\n')
   cat('        (button.dataset.quickDuration && durations.length === 1 && durations[0] === button.dataset.quickDuration) ||\n')
   cat('        (button.dataset.quickLevel && levels.length === 1 && levels[0] === button.dataset.quickLevel) ||\n')
   cat('        (button.dataset.quickConcept && concepts.length === 1 && concepts[0] === button.dataset.quickConcept);\n')
@@ -468,6 +502,8 @@ if (file.exists(activity_catalogue_path)) {
   cat('    const levels = checked("level");\n')
   cat('    const concepts = checked("concept");\n')
   cat('    const contexts = checked("context");\n')
+  cat('    const statuses = checked("status");\n')
+  cat('    const uses = checked("use");\n')
   cat('    const materials = checked("material");\n')
   cat('    let visible = 0;\n')
   cat('    cards.forEach(function (card) {\n')
@@ -476,6 +512,8 @@ if (file.exists(activity_catalogue_path)) {
   cat('        matchesList(durations, card.dataset.duration) &&\n')
   cat('        matchesList(levels, card.dataset.level) &&\n')
   cat('        matchesList(contexts, card.dataset.context) &&\n')
+  cat('        matchesList(statuses, card.dataset.status) &&\n')
+  cat('        matchesList(uses, card.dataset.use) &&\n')
   cat('        matchesTokens(concepts, card.dataset.concepts) &&\n')
   cat('        matchesTokens(materials, card.dataset.materials);\n')
   cat('      card.hidden = !show;\n')

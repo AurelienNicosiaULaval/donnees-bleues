@@ -1,28 +1,40 @@
 id: emploi-regional-quebec-court
-title: "Laboratoire - Emploi régional"
-question: "Comment comparer le taux de chômage de quelques régions du Québec sans surinterpréter des estimations d'enquête?"
+title: Laboratoire - Emploi régional
+question: Comment comparer le taux de chômage de quelques régions du Québec sans surinterpréter
+  des estimations d'enquête?
 dataset_id: emploi-regional-quebec
-dataset_title: "Emploi régional au Québec"
-activity_url: "datasets/emploi-regional-quebec/activite-courte.qmd"
-duration: "60-90 minutes"
-level: "Introduction à intermédiaire"
+dataset_title: Emploi régional au Québec
+activity_url: datasets/emploi-regional-quebec/activite-courte.qmd
+duration: 60-90 minutes
+level: Introduction à intermédiaire
 activity_type:
-  - "Laboratoire d'introduction"
-  - "Exploration de données"
+- Laboratoire d'introduction
+- Exploration de données
 concepts:
-  - "séries temporelles"
-  - "comparaison de groupes"
-  - "données d'enquête"
-  - "qualité des estimations"
-  - "analyse exploratoire"
-  - "statistiques descriptives"
-context: "Marché du travail"
-hook: "Comparer des régions sans confondre taux, niveau et incertitude"
+- séries temporelles
+- comparaison de groupes
+- données d'enquête
+- qualité des estimations
+- analyse exploratoire
+- statistiques descriptives
+context: Marché du travail
+hook: Comparer des régions sans confondre taux, niveau et incertitude
 materials:
-  - "fiche"
-  - "script de préparation"
-  - "CSV préparé localement"
-  - "source officielle"
-advanced_math_stats: false
-teacher_notes: "Faire valider l'unité statistique, l'unité de mesure et les codes de qualité avant l'interprétation."
-status: "source officielle vérifiée"
+- fiche
+- script de préparation
+- CSV préparé localement
+- source officielle
+advanced_math_stats: no
+teacher_notes: Faire valider l'unité statistique, l'unité de mesure et les codes de
+  qualité avant l'interprétation.
+status: source officielle vérifiée
+pedagogical_status: pret_a_enseigner
+teacher_preparation: 'Préparation requise : exécuter `Rscript datasets/emploi-regional-quebec/preparation.R`
+  depuis la racine, puis vérifier que `data/processed/emploi-regional-quebec/emploi_regional_quebec.csv`
+  existe.'
+expected_output: Un tableau ou graphique descriptif accompagné de trois phrases d'interprétation
+  prudente.
+requires_prepared_data: yes
+requires_live_download: yes
+recommended_use: Laboratoire guidé
+result_visible_in_page: yes

@@ -1,8 +1,48 @@
 ---
 title: "Volumes autorisés par provenance de l'eau"
+embed-resources: true
 ---
 
+
 # Volumes autorisés par provenance de l'eau
+
+<!-- activity-teacher-brief:start -->
+::: {.activity-teacher-brief}
+
+## En classe, cette activité sert à...
+
+Cette activité sert à travailler les notions suivantes : Agrégation, Volume autorisé, Valeurs extrêmes, Visualisation à partir d'une question située dans le contexte suivant : Prélèvements d'eau. Elle demande aux étudiantes et étudiants de répondre à la question directrice suivante : Quels types de provenance représentent les plus grands volumes autorisés?
+
+::: {.activity-quick-facts}
+| Élément | Information |
+|---|---|
+| Durée | 30-45 minutes |
+| Niveau | Intermédiaire |
+| Usage recommandé | Exercice guidé |
+| Préparation enseignant | Vérifier que `data/processed/prelevements-eau-autorises/prelevements_eau_autorises.csv` est disponible; aucune collecte en direct n'est nécessaire pour lancer l'activité. |
+| Production attendue | Un tableau ou graphique descriptif accompagné de trois phrases d'interprétation prudente. |
+| Données | `data/processed/prelevements-eau-autorises/prelevements_eau_autorises.csv` |
+:::
+
+:::
+<!-- activity-teacher-brief:end -->
+
+## Préparation enseignante
+
+- Vérifier que `data/processed/prelevements-eau-autorises/prelevements_eau_autorises.csv` est disponible; aucune collecte en direct n'est nécessaire pour lancer l'activité.
+- Fichier préparé : `data/processed/prelevements-eau-autorises/prelevements_eau_autorises.csv`.
+- Script de préparation : `datasets/prelevements-eau-autorises/preparation.R`.
+- Point à surveiller : Insister sur la distinction entre volume maximal autorisé et volume réellement prélevé. Faire comparer nombre de sites et volume total.
+
+## Résultat attendu
+
+Un tableau ou graphique descriptif accompagné de trois phrases d'interprétation prudente. La production doit aussi contenir une phrase sur l'unité statistique et une phrase sur une limite de la source.
+
+## Limites à faire nommer
+
+- Insister sur la distinction entre volume maximal autorisé et volume réellement prélevé. Faire comparer nombre de sites et volume total.
+- Si une variable ou un dénominateur nécessaire n'est pas disponible dans les données, l'écrire explicitement plutôt que l'inférer.
+
 
 ## Contexte
 

@@ -1,28 +1,39 @@
 id: rsqaq-couverture-stations-long
-title: "Couverture territoriale et temporelle des stations RSQAQ"
-question: "Que révèle un répertoire de stations sur la mesure environnementale, et que ne révèle-t-il pas?"
+title: Couverture territoriale et temporelle des stations RSQAQ
+question: Que révèle un répertoire de stations sur la mesure environnementale, et
+  que ne révèle-t-il pas?
 dataset_id: qualite-air
-dataset_title: "Stations du réseau de qualité de l'air du Québec"
-activity_url: "datasets/qualite-air/activite-longue.qmd"
-duration: "2-3 heures"
-level: "Introduction à intermédiaire"
+dataset_title: Stations du réseau de qualité de l'air du Québec
+activity_url: datasets/qualite-air/activite-longue.qmd
+duration: 2-3 heures
+level: Introduction à intermédiaire
 activity_type:
-  - "Étude de cas"
-  - "Projet ou tâche longue"
-  - "Exploration de données"
+- Étude de cas
+- Projet ou tâche longue
+- Exploration de données
 concepts:
-  - "Données et mesure"
-  - "Dates"
-  - "Carte de points"
-  - "Couverture territoriale"
-  - "Communication prudente"
-context: "Environnement"
-hook: "Une carte de stations n'est pas une carte de qualité de l'air"
+- Données et mesure
+- Dates
+- Carte de points
+- Couverture territoriale
+- Communication prudente
+context: Environnement
+hook: Une carte de stations n'est pas une carte de qualité de l'air
 materials:
-  - "énoncé"
-  - "code"
-  - "table préparée"
-  - "notes enseignantes"
-advanced_math_stats: false
-teacher_notes: "Exiger une section qui distingue répertoire de stations, mesures horaires, contaminants et qualité de l'air."
-status: "source officielle vérifiée"
+- énoncé
+- code
+- table préparée
+- notes enseignantes
+advanced_math_stats: no
+teacher_notes: Exiger une section qui distingue répertoire de stations, mesures horaires,
+  contaminants et qualité de l'air.
+status: source officielle vérifiée
+pedagogical_status: pret_a_enseigner
+teacher_preparation: Vérifier que `data/processed/qualite-air/rsqaq_stations.csv`
+  est disponible; aucune collecte en direct n'est nécessaire pour lancer l'activité.
+expected_output: Un court rapport reproductible avec contexte, tableau ou graphique,
+  interprétation et limites.
+requires_prepared_data: yes
+requires_live_download: no
+recommended_use: Mini-projet guidé
+result_visible_in_page: yes

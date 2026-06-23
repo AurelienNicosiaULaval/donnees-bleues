@@ -1,8 +1,67 @@
 ---
 title: "Comparer des taux de diplomation selon l'IMSE"
+embed-resources: true
 ---
 
+
 # Comparer des taux de diplomation selon l'IMSE
+
+<!-- activity-teacher-brief:start -->
+::: {.activity-teacher-brief}
+
+## En classe, cette activité sert à...
+
+Cette activité sert à travailler les notions suivantes : Taux, Comparaison de groupes, Statistique descriptive à partir d'une question située dans le contexte suivant : Éducation. Elle demande aux étudiantes et étudiants de répondre à la question directrice suivante : Comment comparer correctement deux taux de diplomation agrégés?
+
+::: {.activity-quick-facts}
+| Élément | Information |
+|---|---|
+| Durée | 30-45 minutes |
+| Niveau | Introductif |
+| Usage recommandé | Exercice guidé |
+| Préparation enseignant | Vérifier les droits de diffusion avant la séance; utiliser seulement les résumés publics et ne pas publier les lignes de données. |
+| Production attendue | Un tableau ou graphique descriptif accompagné de trois phrases d'interprétation prudente. |
+| Données | `data/processed/cohortes-diplomation/ecart_diplomation_imse.csv` |
+:::
+
+:::
+<!-- activity-teacher-brief:end -->
+
+## Préparation enseignante
+
+- Vérifier les droits de diffusion avant la séance; utiliser seulement les résumés publics et ne pas publier les lignes de données.
+- Fichier préparé : `data/processed/cohortes-diplomation/ecart_diplomation_imse.csv`.
+- Script de préparation : `datasets/cohortes-diplomation/preparation.R`.
+- Point à surveiller : Insister sur la différence entre pourcentage et point de pourcentage, sur la vérification de l'écart publié et sur le caractère agrégé de l'indicateur.
+
+## Code R minimal
+
+```{r}
+#| eval: false
+library(dplyr)
+library(readr)
+
+if (!file.exists("data/processed/cohortes-diplomation/ecart_diplomation_imse.csv")) {
+  source("datasets/cohortes-diplomation/preparation.R")
+}
+
+donnees <- read_csv(
+  "data/processed/cohortes-diplomation/ecart_diplomation_imse.csv",
+  show_col_types = FALSE
+)
+
+glimpse(donnees)
+```
+
+## Résultat attendu
+
+Un tableau ou graphique descriptif accompagné de trois phrases d'interprétation prudente. La production doit aussi contenir une phrase sur l'unité statistique et une phrase sur une limite de la source.
+
+## Limites à faire nommer
+
+- Insister sur la différence entre pourcentage et point de pourcentage, sur la vérification de l'écart publié et sur le caractère agrégé de l'indicateur.
+- Si une variable ou un dénominateur nécessaire n'est pas disponible dans les données, l'écrire explicitement plutôt que l'inférer.
+
 
 ## Contexte
 

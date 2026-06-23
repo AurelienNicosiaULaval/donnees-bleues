@@ -1,8 +1,60 @@
 ---
 title: "Laboratoire - Phosphore total par station"
+embed-resources: true
 ---
 
+
 # Laboratoire - Phosphore total par station
+
+<!-- activity-teacher-brief:start -->
+::: {.activity-teacher-brief}
+
+## En classe, cette activité sert à...
+
+Cette activité sert à travailler les notions suivantes : Séries temporelles agrégées, Statistique descriptive, Visualisation, Unités de mesure à partir d'une question située dans le contexte suivant : Qualité de l'eau. Elle demande aux étudiantes et étudiants de répondre à la question directrice suivante : Comment décrire l'évolution du phosphore total médian dans une station de suivi?
+
+::: {.activity-quick-facts}
+| Élément | Information |
+|---|---|
+| Durée | 30-45 minutes |
+| Niveau | Introductif |
+| Usage recommandé | Exercice guidé |
+| Préparation enseignant | Vérifier que `data/processed/suivi-rivieres-fleuve/stations_qualite_eau_aires.csv` est disponible; aucune collecte en direct n'est nécessaire pour lancer l'activité. |
+| Production attendue | Un tableau ou graphique descriptif accompagné de trois phrases d'interprétation prudente. |
+| Données | `data/processed/suivi-rivieres-fleuve/stations_qualite_eau_aires.csv` |
+:::
+
+:::
+<!-- activity-teacher-brief:end -->
+
+## Données utilisées
+
+Source : Données Québec / MELCCFP. Licence : Attribution (CC-BY 4.0) selon les métadonnées CKAN vérifiées le 2026-06-21. Fichier principal pour l'activité : `data/processed/suivi-rivieres-fleuve/stations_qualite_eau_aires.csv`
+
+## Préparation enseignante
+
+- Vérifier que `data/processed/suivi-rivieres-fleuve/stations_qualite_eau_aires.csv` est disponible; aucune collecte en direct n'est nécessaire pour lancer l'activité.
+- Fichier préparé : `data/processed/suivi-rivieres-fleuve/stations_qualite_eau_aires.csv`.
+- Script de préparation : `datasets/suivi-rivieres-fleuve/preparation.R`.
+- Point à surveiller : Faire expliciter l'unité statistique et l'unité mg/l dans la conclusion.
+
+## Résultat attendu
+
+Un tableau ou graphique descriptif accompagné de trois phrases d'interprétation prudente. La production doit aussi contenir une phrase sur l'unité statistique et une phrase sur une limite de la source.
+
+## Questions
+
+1. Quelle est l'unité statistique utilisée dans cette activité?
+2. Quelle transformation ou agrégation est nécessaire avant de répondre à la question?
+3. Quelle information manque pour aller plus loin?
+4. Quelle conclusion serait trop forte avec ces seules données?
+5. Comment formuler une conclusion prudente à partir du résultat obtenu?
+
+## Limites à faire nommer
+
+- Faire expliciter l'unité statistique et l'unité mg/l dans la conclusion.
+- Si une variable ou un dénominateur nécessaire n'est pas disponible dans les données, l'écrire explicitement plutôt que l'inférer.
+
 
 ## Contexte
 

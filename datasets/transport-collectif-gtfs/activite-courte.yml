@@ -1,25 +1,37 @@
 id: transport-collectif-gtfs-court
-title: "Cartographier les arrêts du RTC"
-question: "Que peut-on conclure, et que ne peut-on pas conclure, à partir d'une carte des arrêts du RTC?"
+title: Cartographier les arrêts du RTC
+question: Que peut-on conclure, et que ne peut-on pas conclure, à partir d'une carte
+  des arrêts du RTC?
 dataset_id: transport-collectif-gtfs
-dataset_title: "Horaires, arrêts et parcours GTFS du RTC"
-activity_url: "datasets/transport-collectif-gtfs/activite-courte.qmd"
-duration: "45-60 minutes"
-level: "Intermédiaire"
+dataset_title: Horaires, arrêts et parcours GTFS du RTC
+activity_url: datasets/transport-collectif-gtfs/activite-courte.qmd
+duration: 45-60 minutes
+level: Intermédiaire
 activity_type:
-  - "Laboratoire"
-  - "Exploration de données"
+- Laboratoire
+- Exploration de données
 concepts:
-  - "GTFS"
-  - "Données spatiales"
-  - "Unité statistique"
-  - "Valeurs codées"
-context: "Mobilité et transport collectif"
-hook: "Une carte d'arrêts ne mesure pas l'achalandage"
+- GTFS
+- Données spatiales
+- Unité statistique
+- Valeurs codées
+context: Mobilité et transport collectif
+hook: Une carte d'arrêts ne mesure pas l'achalandage
 materials:
-  - "fiche"
-  - "code"
-  - "table préparée"
-advanced_math_stats: false
-teacher_notes: "Faire expliciter que le code d'accessibilité 0 signifie information non disponible dans GTFS."
-status: "source officielle vérifiée"
+- fiche
+- code
+- table préparée
+advanced_math_stats: no
+teacher_notes: Faire expliciter que le code d'accessibilité 0 signifie information
+  non disponible dans GTFS.
+status: source officielle vérifiée
+pedagogical_status: pret_a_enseigner
+teacher_preparation: 'Préparation requise : exécuter `Rscript datasets/transport-collectif-gtfs/preparation.R`
+  depuis la racine, puis vérifier que `data/processed/transport-collectif-gtfs/arrets_gtfs_rtc.csv`
+  existe.'
+expected_output: Une carte ou un graphique descriptif accompagné d'une phrase sur
+  l'unité statistique et les limites.
+requires_prepared_data: yes
+requires_live_download: yes
+recommended_use: Laboratoire guidé
+result_visible_in_page: yes

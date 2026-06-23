@@ -1,24 +1,34 @@
 id: diplomation-comparaison-imse-court
-title: "Comparer des taux de diplomation selon l'IMSE"
-question: "Comment comparer correctement deux taux de diplomation agrégés?"
+title: Comparer des taux de diplomation selon l'IMSE
+question: Comment comparer correctement deux taux de diplomation agrégés?
 dataset_id: cohortes-diplomation
-dataset_title: "Cohortes de diplomation"
-activity_url: "datasets/cohortes-diplomation/activite-courte.qmd"
-duration: "30-45 minutes"
-level: "Introductif"
+dataset_title: Cohortes de diplomation
+activity_url: datasets/cohortes-diplomation/activite-courte.qmd
+duration: 30-45 minutes
+level: Introductif
 activity_type:
-  - "Exercice"
-  - "Exploration de données"
+- Exercice
+- Exploration de données
 concepts:
-  - "Taux"
-  - "Comparaison de groupes"
-  - "Statistique descriptive"
-context: "Éducation"
-hook: "Interpréter un indicateur public d'éducation"
+- Taux
+- Comparaison de groupes
+- Statistique descriptive
+context: Éducation
+hook: Interpréter un indicateur public d'éducation
 materials:
-  - "énoncé"
-  - "code"
-  - "données"
-advanced_math_stats: false
-teacher_notes: "Insister sur la différence entre pourcentage et point de pourcentage, sur la vérification de l'écart publié et sur le caractère agrégé de l'indicateur."
-status: "source officielle vérifiée le 2026-06-20"
+- énoncé
+- code
+- données
+advanced_math_stats: no
+teacher_notes: Insister sur la différence entre pourcentage et point de pourcentage,
+  sur la vérification de l'écart publié et sur le caractère agrégé de l'indicateur.
+status: source officielle vérifiée le 2026-06-20
+pedagogical_status: pret_a_enseigner
+teacher_preparation: Vérifier les droits de diffusion avant la séance; utiliser seulement
+  les résumés publics et ne pas publier les lignes de données.
+expected_output: Un tableau ou graphique descriptif accompagné de trois phrases d'interprétation
+  prudente.
+requires_prepared_data: yes
+requires_live_download: no
+recommended_use: Exercice guidé
+result_visible_in_page: yes

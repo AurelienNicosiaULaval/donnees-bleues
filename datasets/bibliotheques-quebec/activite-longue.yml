@@ -1,28 +1,38 @@
 id: bibliotheques-portrait-regional-long
-title: "Mini-projet - Portrait régional des bibliothèques publiques"
-question: "Comment construire des indicateurs comparables à partir de données administratives?"
+title: Mini-projet - Portrait régional des bibliothèques publiques
+question: Comment construire des indicateurs comparables à partir de données administratives?
 dataset_id: bibliotheques-quebec
-dataset_title: "Statistiques des bibliothèques publiques du Québec"
-activity_url: "datasets/bibliotheques-quebec/activite-longue.qmd"
-duration: "2-3 heures"
-level: "Intermédiaire"
+dataset_title: Statistiques des bibliothèques publiques du Québec
+activity_url: datasets/bibliotheques-quebec/activite-longue.qmd
+duration: 2-3 heures
+level: Intermédiaire
 activity_type:
-  - "Étude de cas"
-  - "Projet ou tâche longue"
-  - "Exploration de données"
+- Étude de cas
+- Projet ou tâche longue
+- Exploration de données
 concepts:
-  - "Données et mesure"
-  - "Statistique descriptive"
-  - "Modélisation et relations"
-  - "Communication"
-context: "Culture et services publics"
-hook: "Comparer des régions sans confondre description et causalité"
+- Données et mesure
+- Statistique descriptive
+- Modélisation et relations
+- Communication
+context: Culture et services publics
+hook: Comparer des régions sans confondre description et causalité
 materials:
-  - "fiche vérifiée"
-  - "script de préparation"
-  - "table préparée"
-  - "résumés régionaux"
-  - "notes enseignantes"
-advanced_math_stats: false
-teacher_notes: "Demander un calcul régional à partir des volumes agrégés et de la population totale. Présenter la modélisation comme exploratoire."
-status: "source officielle vérifiée"
+- fiche vérifiée
+- script de préparation
+- table préparée
+- résumés régionaux
+- notes enseignantes
+advanced_math_stats: no
+teacher_notes: Demander un calcul régional à partir des volumes agrégés et de la population
+  totale. Présenter la modélisation comme exploratoire.
+status: source officielle vérifiée
+pedagogical_status: pret_a_enseigner
+teacher_preparation: Vérifier que `data/processed/bibliotheques-quebec/statistiques_bibliotheques_quebec_2024_selection.csv`
+  est disponible; aucune collecte en direct n'est nécessaire pour lancer l'activité.
+expected_output: Un court rapport reproductible avec contexte, tableau ou graphique,
+  interprétation et limites.
+requires_prepared_data: yes
+requires_live_download: no
+recommended_use: Mini-projet guidé
+result_visible_in_page: yes

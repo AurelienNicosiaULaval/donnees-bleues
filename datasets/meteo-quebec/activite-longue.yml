@@ -1,28 +1,40 @@
 id: meteo-quebec-long
-title: "Portrait descriptif de la météo quotidienne à Québec"
-question: "Comment produire un portrait descriptif prudent de la météo quotidienne à Québec?"
+title: Portrait descriptif de la météo quotidienne à Québec
+question: Comment produire un portrait descriptif prudent de la météo quotidienne
+  à Québec?
 dataset_id: meteo-quebec
-dataset_title: "Météo quotidienne à Québec"
-activity_url: "datasets/meteo-quebec/activite-longue.qmd"
-duration: "2-3 heures"
-level: "Introduction à intermédiaire"
+dataset_title: Météo quotidienne à Québec
+activity_url: datasets/meteo-quebec/activite-longue.qmd
+duration: 2-3 heures
+level: Introduction à intermédiaire
 activity_type:
-  - "Projet ou tâche longue"
-  - "Étude de cas"
+- Projet ou tâche longue
+- Étude de cas
 concepts:
-  - "séries temporelles"
-  - "valeurs manquantes"
-  - "visualisation"
-  - "statistiques descriptives"
-  - "communication prudente"
-context: "Météorologie québécoise"
-hook: "Un graphique météo est parlant, mais il doit rester statistiquement prudent"
+- séries temporelles
+- valeurs manquantes
+- visualisation
+- statistiques descriptives
+- communication prudente
+context: Météorologie québécoise
+hook: Un graphique météo est parlant, mais il doit rester statistiquement prudent
 materials:
-  - "fiche"
-  - "code"
-  - "table préparée"
-  - "source officielle"
-  - "notes enseignantes"
-advanced_math_stats: false
-teacher_notes: "Exiger une section courte sur les valeurs manquantes et une limite explicite : une station ne représente pas tout le Québec."
-status: "source officielle vérifiée"
+- fiche
+- code
+- table préparée
+- source officielle
+- notes enseignantes
+advanced_math_stats: no
+teacher_notes: 'Exiger une section courte sur les valeurs manquantes et une limite
+  explicite : une station ne représente pas tout le Québec.'
+status: source officielle vérifiée
+pedagogical_status: pret_a_enseigner
+teacher_preparation: 'Préparation requise : exécuter `Rscript datasets/meteo-quebec/preparation.R`
+  depuis la racine, puis vérifier que `data/processed/meteo-quebec/meteo_quebec.csv`
+  existe.'
+expected_output: Un court rapport reproductible avec contexte, tableau ou graphique,
+  interprétation et limites.
+requires_prepared_data: yes
+requires_live_download: no
+recommended_use: Mini-projet guidé
+result_visible_in_page: yes

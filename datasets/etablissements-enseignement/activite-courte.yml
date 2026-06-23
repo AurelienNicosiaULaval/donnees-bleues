@@ -1,26 +1,37 @@
-id: "etablissements-carte-court"
-title: "Cartographier une ressource scolaire sans mélanger les unités"
-question: "Comment cartographier une ressource scolaire sans confondre les unités statistiques?"
-dataset_id: "etablissements-enseignement"
-dataset_title: "Localisation des établissements d'enseignement au Québec"
-activity_url: "datasets/etablissements-enseignement/activite-courte.qmd"
-duration: "30-45 minutes"
-level: "Introductif"
+id: etablissements-carte-court
+title: Cartographier une ressource scolaire sans mélanger les unités
+question: Comment cartographier une ressource scolaire sans confondre les unités statistiques?
+dataset_id: etablissements-enseignement
+dataset_title: Localisation des établissements d'enseignement au Québec
+activity_url: datasets/etablissements-enseignement/activite-courte.qmd
+duration: 30-45 minutes
+level: Introductif
 activity_type:
-  - "Exercice"
-  - "Exploration de données"
+- Exercice
+- Exploration de données
 concepts:
-  - "Unité statistique"
-  - "Carte de points"
-  - "Données ouvertes"
-  - "Filtrage"
-context: "Éducation et territoire"
-hook: "Une carte peut être techniquement correcte, mais statistiquement trompeuse"
+- Unité statistique
+- Carte de points
+- Données ouvertes
+- Filtrage
+context: Éducation et territoire
+hook: Une carte peut être techniquement correcte, mais statistiquement trompeuse
 materials:
-  - "énoncé"
-  - "code"
-  - "table préparée"
-  - "page source"
-advanced_math_stats: false
-teacher_notes: "Faire choisir une seule ressource avant toute carte. Le point d'apprentissage est de distinguer un établissement, un immeuble, une installation et un lien école-immeuble."
-status: "source officielle vérifiée"
+- énoncé
+- code
+- table préparée
+- page source
+advanced_math_stats: no
+teacher_notes: Faire choisir une seule ressource avant toute carte. Le point d'apprentissage
+  est de distinguer un établissement, un immeuble, une installation et un lien école-immeuble.
+status: source officielle vérifiée
+pedagogical_status: pret_a_enseigner
+teacher_preparation: 'Préparation requise : exécuter `Rscript datasets/etablissements-enseignement/preparation.R`
+  depuis la racine, puis vérifier que `data/processed/etablissements-enseignement/etablissements_enseignement_quebec.csv`
+  existe.'
+expected_output: Une carte ou un graphique descriptif accompagné d'une phrase sur
+  l'unité statistique et les limites.
+requires_prepared_data: yes
+requires_live_download: yes
+recommended_use: Exercice guidé
+result_visible_in_page: yes

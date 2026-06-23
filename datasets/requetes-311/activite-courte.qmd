@@ -1,8 +1,48 @@
 ---
 title: "Laboratoire - Catégories de requêtes 311 par arrondissement"
+embed-resources: true
 ---
 
+
 # Laboratoire - Catégories de requêtes 311 par arrondissement
+
+<!-- activity-teacher-brief:start -->
+::: {.activity-teacher-brief}
+
+## En classe, cette activité sert à...
+
+Cette activité sert à travailler les notions suivantes : Comptage, Catégories, Visualisation à partir d'une question située dans le contexte suivant : Services municipaux. Elle demande aux étudiantes et étudiants de répondre à la question directrice suivante : Quelles catégories de demandes dominent dans un arrondissement?
+
+::: {.activity-quick-facts}
+| Élément | Information |
+|---|---|
+| Durée | 30-45 minutes |
+| Niveau | Introductif |
+| Usage recommandé | Exercice guidé |
+| Préparation enseignant | Préparation requise : exécuter `Rscript datasets/requetes-311/preparation.R` depuis la racine, puis vérifier que `data/processed/requetes-311/requetes_311_non_information_echantillon.csv` existe. |
+| Production attendue | Un tableau ou graphique descriptif accompagné de trois phrases d'interprétation prudente. |
+| Données | `data/processed/requetes-311/requetes_311_non_information_echantillon.csv` |
+:::
+
+:::
+<!-- activity-teacher-brief:end -->
+
+## Données utilisées
+
+Source : Données Québec / Ville de Montréal. Licence : Attribution (CC-BY 4.0) selon les métadonnées CKAN vérifiées le 2026-06-21. Fichier principal pour l'activité : `data/processed/requetes-311/requetes_311_non_information_echantillon.csv`
+
+## Préparation enseignante
+
+- Préparation requise : exécuter `Rscript datasets/requetes-311/preparation.R` depuis la racine, puis vérifier que `data/processed/requetes-311/requetes_311_non_information_echantillon.csv` existe.
+- Fichier préparé : `data/processed/requetes-311/requetes_311_non_information_echantillon.csv`.
+- Script de préparation : `datasets/requetes-311/preparation.R`.
+- Point à surveiller : Faire expliciter que l'échantillon exclut les lignes Information et que les volumes dépendent des pratiques de signalement.
+
+## Limites à faire nommer
+
+- Faire expliciter que l'échantillon exclut les lignes Information et que les volumes dépendent des pratiques de signalement.
+- Si une variable ou un dénominateur nécessaire n'est pas disponible dans les données, l'écrire explicitement plutôt que l'inférer.
+
 
 ## Contexte
 

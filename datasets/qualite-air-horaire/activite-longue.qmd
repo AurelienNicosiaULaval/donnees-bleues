@@ -1,8 +1,72 @@
 ---
 title: "Tableau de bord exploratoire de la qualité de l'air"
+embed-resources: true
 ---
 
+
 # Tableau de bord exploratoire de la qualité de l'air
+
+<!-- activity-teacher-brief:start -->
+::: {.activity-teacher-brief}
+
+## En classe, cette activité sert à...
+
+Cette activité sert à travailler les notions suivantes : séries temporelles, valeurs manquantes, résumé journalier, visualisation, données environnementales à partir d'une question située dans le contexte suivant : Environnement. Elle demande aux étudiantes et étudiants de répondre à la question directrice suivante : Comment construire un portrait exploratoire des contaminants atmosphériques sans surinterpréter les épisodes?
+
+::: {.activity-quick-facts}
+| Élément | Information |
+|---|---|
+| Durée | 2-3 heures |
+| Niveau | Introduction à intermédiaire |
+| Usage recommandé | Mini-projet guidé |
+| Préparation enseignant | Préparation requise : exécuter `Rscript datasets/qualite-air-horaire/preparation.R` depuis la racine, puis vérifier que `data/processed/qualite-air-horaire/resume_journalier_contaminants_2025.csv` existe. |
+| Production attendue | Un court rapport reproductible avec contexte, tableau ou graphique, interprétation et limites. |
+| Données | `data/processed/qualite-air-horaire/resume_journalier_contaminants_2025.csv` |
+:::
+
+:::
+<!-- activity-teacher-brief:end -->
+
+## Contexte
+
+Cette activité utilise le jeu de données [Qualité de l'air au Québec](fiche.qmd). Elle part d'une question de classe plutôt que d'une démonstration technique : Comment construire un portrait exploratoire des contaminants atmosphériques sans surinterpréter les épisodes?
+
+## Objectifs d'apprentissage
+
+- Travailler séries temporelles.
+- Travailler valeurs manquantes.
+- Travailler résumé journalier.
+- Travailler visualisation.
+- Nommer au moins une limite d'interprétation.
+
+## Préparation enseignante
+
+- Préparation requise : exécuter `Rscript datasets/qualite-air-horaire/preparation.R` depuis la racine, puis vérifier que `data/processed/qualite-air-horaire/resume_journalier_contaminants_2025.csv` existe.
+- Fichier préparé : `data/processed/qualite-air-horaire/resume_journalier_contaminants_2025.csv`.
+- Script de préparation : `datasets/qualite-air-horaire/preparation.R`.
+- Point à surveiller : Demander une section qui distingue observation élevée, hypothèse explicative et preuve causale.
+
+## Consignes
+
+1. Importer `resume_journalier_contaminants_2025.csv` ou exécuter `datasets/qualite-air-horaire/preparation.R` si le fichier est absent.
+2. Identifier ce que représente une ligne du fichier.
+3. Produire un tableau ou un graphique adapté à la question directrice.
+4. Rédiger une interprétation courte qui distingue description et explication.
+5. Nommer au moins une limite méthodologique ou une information absente.
+
+## Déroulé suggéré
+
+1. Cadrer la source, la licence et l'unité statistique.
+2. Préparer ou importer les données.
+3. Produire un premier résumé descriptif.
+4. Construire la visualisation ou le tableau principal.
+5. Rédiger l'interprétation et les limites.
+
+## Limites à faire nommer
+
+- Demander une section qui distingue observation élevée, hypothèse explicative et preuve causale.
+- Si une variable ou un dénominateur nécessaire n'est pas disponible dans les données, l'écrire explicitement plutôt que l'inférer.
+
 
 ## Mise en situation
 

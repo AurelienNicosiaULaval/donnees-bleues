@@ -1,8 +1,44 @@
 ---
 title: "Pyramide des âges du Québec en 2025"
+embed-resources: true
 ---
 
+
 # Pyramide des âges du Québec en 2025
+
+<!-- activity-teacher-brief:start -->
+::: {.activity-teacher-brief}
+
+## En classe, cette activité sert à...
+
+Cette activité sert à travailler les notions suivantes : Données ouvertes, Filtrage, Statistique descriptive, Visualisation, Proportions à partir d'une question située dans le contexte suivant : Démographie. Elle demande aux étudiantes et étudiants de répondre à la question directrice suivante : Comment transformer une table démographique en pyramide des âges lisible?
+
+::: {.activity-quick-facts}
+| Élément | Information |
+|---|---|
+| Durée | 30-45 minutes |
+| Niveau | Introductif |
+| Usage recommandé | Exercice guidé |
+| Préparation enseignant | Vérifier que `data/processed/pyramides-ages/population_pyramides_quebec_canada_latest.csv` est disponible; aucune collecte en direct n'est nécessaire pour lancer l'activité. |
+| Production attendue | Un tableau ou graphique descriptif accompagné de trois phrases d'interprétation prudente. |
+| Données | `data/processed/pyramides-ages/population_pyramides_quebec_canada_latest.csv` |
+:::
+
+:::
+<!-- activity-teacher-brief:end -->
+
+## Préparation enseignante
+
+- Vérifier que `data/processed/pyramides-ages/population_pyramides_quebec_canada_latest.csv` est disponible; aucune collecte en direct n'est nécessaire pour lancer l'activité.
+- Fichier préparé : `data/processed/pyramides-ages/population_pyramides_quebec_canada_latest.csv`.
+- Script de préparation : `datasets/pyramides-ages/preparation.R`.
+- Point à surveiller : Insister sur la différence entre population réelle, proportion et valeur négative d'affichage.
+
+## Limites à faire nommer
+
+- Insister sur la différence entre population réelle, proportion et valeur négative d'affichage.
+- Si une variable ou un dénominateur nécessaire n'est pas disponible dans les données, l'écrire explicitement plutôt que l'inférer.
+
 
 ## Contexte
 

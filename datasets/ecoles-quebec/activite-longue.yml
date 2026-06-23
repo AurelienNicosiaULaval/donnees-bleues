@@ -1,28 +1,40 @@
 id: ecoles-quebec-long
-title: "Mini-projet - Écoles Québec"
-question: "Comment produire une carte utile des écoles publiques du Québec sans transformer des points géographiques en conclusion sur l'accès scolaire?"
+title: Mini-projet - Écoles Québec
+question: Comment produire une carte utile des écoles publiques du Québec sans transformer
+  des points géographiques en conclusion sur l'accès scolaire?
 dataset_id: ecoles-quebec
-dataset_title: "Établissements scolaires du Québec"
-activity_url: "datasets/ecoles-quebec/activite-longue.qmd"
-duration: "2-3 heures"
-level: "Introduction à intermédiaire"
+dataset_title: Établissements scolaires du Québec
+activity_url: datasets/ecoles-quebec/activite-longue.qmd
+duration: 2-3 heures
+level: Introduction à intermédiaire
 activity_type:
-  - "Projet ou tâche longue"
-  - "Étude de cas"
+- Projet ou tâche longue
+- Étude de cas
 concepts:
-  - "géolocalisation"
-  - "cartographie"
-  - "jointures"
-  - "unité statistique"
-  - "double comptage"
-  - "données publiques"
-context: "Éducation et territoire"
-hook: "Analyse territoriale québécoise"
+- géolocalisation
+- cartographie
+- jointures
+- unité statistique
+- double comptage
+- données publiques
+context: Éducation et territoire
+hook: Analyse territoriale québécoise
 materials:
-  - "fiche"
-  - "code"
-  - "source officielle"
-  - "notes enseignantes"
-advanced_math_stats: false
-teacher_notes: "Demander une comparaison explicite entre lignes, organismes et immeubles, puis une limite sur l'accès scolaire."
-status: "source officielle vérifiée le 2026-06-20"
+- fiche
+- code
+- source officielle
+- notes enseignantes
+advanced_math_stats: no
+teacher_notes: Demander une comparaison explicite entre lignes, organismes et immeubles,
+  puis une limite sur l'accès scolaire.
+status: source officielle vérifiée le 2026-06-20
+pedagogical_status: pret_a_enseigner
+teacher_preparation: 'Préparation requise : exécuter `Rscript datasets/ecoles-quebec/preparation.R`
+  depuis la racine, puis vérifier que `data/processed/ecoles-quebec/ecoles_publiques_quebec.csv`
+  existe.'
+expected_output: Un court rapport reproductible avec contexte, tableau ou graphique,
+  interprétation et limites.
+requires_prepared_data: yes
+requires_live_download: yes
+recommended_use: Mini-projet guidé
+result_visible_in_page: yes

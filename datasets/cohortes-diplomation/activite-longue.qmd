@@ -1,8 +1,83 @@
 ---
 title: "Tendances de diplomation selon l'IMSE"
+embed-resources: true
 ---
 
+
 # Tendances de diplomation selon l'IMSE
+
+<!-- activity-teacher-brief:start -->
+::: {.activity-teacher-brief}
+
+## En classe, cette activité sert à...
+
+Cette activité sert à travailler les notions suivantes : Séries temporelles, Comparaison de groupes, Visualisation, Communication à partir d'une question située dans le contexte suivant : Éducation. Elle demande aux étudiantes et étudiants de répondre à la question directrice suivante : Comment l'écart de diplomation évolue-t-il, et quelles limites faut-il expliciter?
+
+::: {.activity-quick-facts}
+| Élément | Information |
+|---|---|
+| Durée | 2-3 heures |
+| Niveau | Introductif à intermédiaire |
+| Usage recommandé | Mini-projet guidé |
+| Préparation enseignant | Vérifier les droits de diffusion avant la séance; utiliser seulement les résumés publics et ne pas publier les lignes de données. |
+| Production attendue | Un court rapport reproductible avec contexte, tableau ou graphique, interprétation et limites. |
+| Données | `data/processed/cohortes-diplomation/ecart_diplomation_imse.csv` |
+:::
+
+:::
+<!-- activity-teacher-brief:end -->
+
+## Préparation enseignante
+
+- Vérifier les droits de diffusion avant la séance; utiliser seulement les résumés publics et ne pas publier les lignes de données.
+- Fichier préparé : `data/processed/cohortes-diplomation/ecart_diplomation_imse.csv`.
+- Script de préparation : `datasets/cohortes-diplomation/preparation.R`.
+- Point à surveiller : Demander une section explicite sur les limites d'un indicateur agrégé fondé sur le lieu de résidence, ainsi qu'un contrôle de cohérence entre les deux taux et l'écart publié.
+
+## Appui R minimal
+
+```{r}
+#| eval: false
+library(dplyr)
+library(readr)
+
+if (!file.exists("data/processed/cohortes-diplomation/ecart_diplomation_imse.csv")) {
+  source("datasets/cohortes-diplomation/preparation.R")
+}
+
+donnees <- read_csv(
+  "data/processed/cohortes-diplomation/ecart_diplomation_imse.csv",
+  show_col_types = FALSE
+)
+
+glimpse(donnees)
+```
+
+## Résultat attendu
+
+Un court rapport reproductible avec contexte, tableau ou graphique, interprétation et limites. La production doit aussi contenir une phrase sur l'unité statistique et une phrase sur une limite de la source.
+
+## Déroulé suggéré
+
+1. Cadrer la source, la licence et l'unité statistique.
+2. Préparer ou importer les données.
+3. Produire un premier résumé descriptif.
+4. Construire la visualisation ou le tableau principal.
+5. Rédiger l'interprétation et les limites.
+
+## Critères d'évaluation
+
+- Exactitude de l'unité statistique et de la source.
+- Reproductibilité du traitement.
+- Lisibilité du tableau ou du graphique.
+- Interprétation prudente, sans causalité non justifiée.
+- Limites clairement visibles dans le livrable.
+
+## Limites à faire nommer
+
+- Demander une section explicite sur les limites d'un indicateur agrégé fondé sur le lieu de résidence, ainsi qu'un contrôle de cohérence entre les deux taux et l'écart publié.
+- Si une variable ou un dénominateur nécessaire n'est pas disponible dans les données, l'écrire explicitement plutôt que l'inférer.
+
 
 ## Contexte
 

@@ -1,25 +1,37 @@
 id: defavorisation-ecoles-primaires-court
-title: "Laboratoire - Diffusion et indices de défavorisation"
-question: "Quels liens observe-t-on entre IMSE, SFR et nombre d'élèves parmi les écoles dont les indices sont diffusés?"
+title: Laboratoire - Diffusion et indices de défavorisation
+question: Quels liens observe-t-on entre IMSE, SFR et nombre d'élèves parmi les écoles
+  dont les indices sont diffusés?
 dataset_id: defavorisation-ecoles-primaires
-dataset_title: "Indices de défavorisation des écoles primaires du Québec"
-activity_url: "datasets/defavorisation-ecoles-primaires/activite-courte.qmd"
-duration: "60-90 minutes"
-level: "Introduction à intermédiaire"
+dataset_title: Indices de défavorisation des écoles primaires du Québec
+activity_url: datasets/defavorisation-ecoles-primaires/activite-courte.qmd
+duration: 60-90 minutes
+level: Introduction à intermédiaire
 activity_type:
-  - "Laboratoire d'introduction"
-  - "Exploration de données"
+- Laboratoire d'introduction
+- Exploration de données
 concepts:
-  - "variables numériques"
-  - "régression linéaire"
-  - "valeurs manquantes"
-  - "diffusion partielle"
-context: "Éducation et équité"
-hook: "Prédiction responsable"
+- variables numériques
+- régression linéaire
+- valeurs manquantes
+- diffusion partielle
+context: Éducation et équité
+hook: Prédiction responsable
 materials:
-  - "fiche"
-  - "code"
-  - "source officielle"
-advanced_math_stats: false
-teacher_notes: "Faire discuter la variable Diffusion avant toute analyse numérique; les lignes non diffusées ne sont pas de simples valeurs manquantes."
-status: "source officielle vérifiée le 2026-06-20"
+- fiche
+- code
+- source officielle
+advanced_math_stats: no
+teacher_notes: Faire discuter la variable Diffusion avant toute analyse numérique;
+  les lignes non diffusées ne sont pas de simples valeurs manquantes.
+status: source officielle vérifiée le 2026-06-20
+pedagogical_status: pret_a_enseigner
+teacher_preparation: 'Préparation requise : exécuter `Rscript datasets/defavorisation-ecoles-primaires/preparation.R`
+  depuis la racine, puis vérifier que `data/processed/defavorisation-ecoles-primaires/defavorisation_ecoles_primaires.csv`
+  existe.'
+expected_output: Un tableau ou graphique descriptif accompagné de trois phrases d'interprétation
+  prudente.
+requires_prepared_data: yes
+requires_live_download: yes
+recommended_use: Laboratoire guidé
+result_visible_in_page: yes

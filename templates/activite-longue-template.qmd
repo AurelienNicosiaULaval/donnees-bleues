@@ -1,0 +1,49 @@
+---
+title: "Titre de l'activité longue"
+embed-resources: true
+---
+
+# Titre de l'activité longue
+
+<!-- activity-teacher-brief:start -->
+::: {.activity-teacher-brief}
+
+## En classe, cette activité sert à...
+
+Décrire la situation, le rôle des données et le livrable attendu.
+
+::: {.activity-quick-facts}
+| Élément | À préciser |
+|---|---|
+| Durée | 2-3 heures |
+| Niveau | À préciser |
+| Usage recommandé | Mini-projet guidé |
+| Préparation enseignant | À préciser |
+| Production attendue | Mini-rapport, protocole ou présentation courte |
+| Données | Chemin exact du fichier ou `Je ne sais pas.` |
+:::
+
+:::
+<!-- activity-teacher-brief:end -->
+
+## Contexte
+
+## Question directrice
+
+## Données utilisées
+
+## Préparation enseignante
+
+## Livrables
+
+## Déroulé suggéré
+
+## Appui R minimal
+
+## Résultat attendu
+
+## Limites à faire nommer
+
+## Critères d'évaluation
+
+## Pistes de solution

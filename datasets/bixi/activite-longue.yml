@@ -1,28 +1,38 @@
 id: bixi-rapport-stations-long
-title: "Mini-projet - Rapport BIXI sur un instantané GBFS"
-question: "Que peut-on conclure, et ne pas conclure, à partir d'un instantané BIXI?"
+title: Mini-projet - Rapport BIXI sur un instantané GBFS
+question: Que peut-on conclure, et ne pas conclure, à partir d'un instantané BIXI?
 dataset_id: bixi
-dataset_title: "État des stations BIXI"
-activity_url: "datasets/bixi/activite-longue.qmd"
-duration: "2-3 heures"
-level: "Intermédiaire"
+dataset_title: État des stations BIXI
+activity_url: datasets/bixi/activite-longue.qmd
+duration: 2-3 heures
+level: Intermédiaire
 activity_type:
-  - "Étude de cas"
-  - "Projet ou tâche longue"
-  - "Exploration de données"
+- Étude de cas
+- Projet ou tâche longue
+- Exploration de données
 concepts:
-  - "Données et mesure"
-  - "Statistique descriptive"
-  - "Visualisation"
-  - "Communication"
-context: "Mobilité urbaine"
-hook: "Un instantané opérationnel exige des limites explicites"
+- Données et mesure
+- Statistique descriptive
+- Visualisation
+- Communication
+context: Mobilité urbaine
+hook: Un instantané opérationnel exige des limites explicites
 materials:
-  - "fiche vérifiée"
-  - "script de préparation"
-  - "table préparée"
-  - "résumés de capacité"
-  - "notes enseignantes"
-advanced_math_stats: false
-teacher_notes: "Exiger une section séparant variables fixes, variables instantanées et conclusions impossibles sans données temporelles."
-status: "source officielle vérifiée"
+- fiche vérifiée
+- script de préparation
+- table préparée
+- résumés de capacité
+- notes enseignantes
+advanced_math_stats: no
+teacher_notes: Exiger une section séparant variables fixes, variables instantanées
+  et conclusions impossibles sans données temporelles.
+status: source officielle vérifiée
+pedagogical_status: pret_a_enseigner
+teacher_preparation: Vérifier que `data/processed/bixi/stations_bixi_snapshot.csv`
+  est disponible; aucune collecte en direct n'est nécessaire pour lancer l'activité.
+expected_output: Un court rapport reproductible avec contexte, tableau ou graphique,
+  interprétation et limites.
+requires_prepared_data: yes
+requires_live_download: no
+recommended_use: Mini-projet guidé
+result_visible_in_page: yes

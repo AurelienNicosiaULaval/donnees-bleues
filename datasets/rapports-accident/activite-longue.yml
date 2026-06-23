@@ -1,27 +1,39 @@
-id: "rapports-accident-modele-long"
-title: "Mini-projet - Modéliser prudemment la gravité des accidents"
-question: "Quels facteurs sont associés à la gravité des accidents, sans conclure trop vite à la causalité?"
-dataset_id: "rapports-accident"
-dataset_title: "Rapports d'accident"
-activity_url: "datasets/rapports-accident/activite-longue.qmd"
-duration: "2-3 heures"
-level: "Intermédiaire"
+id: rapports-accident-modele-long
+title: Mini-projet - Modéliser prudemment la gravité des accidents
+question: Quels facteurs sont associés à la gravité des accidents, sans conclure trop
+  vite à la causalité?
+dataset_id: rapports-accident
+dataset_title: Rapports d'accident
+activity_url: datasets/rapports-accident/activite-longue.qmd
+duration: 2-3 heures
+level: Intermédiaire
 activity_type:
-  - "Projet ou tâche longue"
-  - "Étude de cas"
+- Projet ou tâche longue
+- Étude de cas
 concepts:
-  - "Nettoyage"
-  - "Modélisation"
-  - "Validation"
-  - "Communication prudente"
-context: "Transport et sécurité routière"
-hook: "Une association statistique n'est pas une preuve causale"
+- Nettoyage
+- Modélisation
+- Validation
+- Communication prudente
+context: Transport et sécurité routière
+hook: Une association statistique n'est pas une preuve causale
 materials:
-  - "fiche vérifiée"
-  - "script de préparation"
-  - "table préparée"
-  - "documentation officielle"
-  - "notes enseignantes"
-advanced_math_stats: true
-teacher_notes: "Exiger une section sur les dénominateurs d'exposition manquants et interdire les conclusions du type région plus dangereuse."
-status: "source officielle vérifiée"
+- fiche vérifiée
+- script de préparation
+- table préparée
+- documentation officielle
+- notes enseignantes
+advanced_math_stats: yes
+teacher_notes: Exiger une section sur les dénominateurs d'exposition manquants et
+  interdire les conclusions du type région plus dangereuse.
+status: source officielle vérifiée
+pedagogical_status: pret_a_enseigner
+teacher_preparation: 'Préparation requise : exécuter `Rscript datasets/rapports-accident/preparation.R`
+  depuis la racine, puis vérifier que `data/processed/rapports-accident/rapports_accident_2022_prepares.csv`
+  existe.'
+expected_output: Un court rapport reproductible avec contexte, tableau ou graphique,
+  interprétation et limites.
+requires_prepared_data: yes
+requires_live_download: yes
+recommended_use: Mini-projet guidé
+result_visible_in_page: yes

@@ -1,26 +1,38 @@
-id: "niveaux-eau-rapport-long"
-title: "Mini-rapport sur les niveaux d'eau d'inondation"
-question: "Comment résumer des observations ponctuelles d'inondation sans surinterpréter la carte?"
-dataset_id: "niveaux-eau-inondation"
-dataset_title: "Niveaux d'eau lors d'une inondation"
-activity_url: "datasets/niveaux-eau-inondation/activite-longue.qmd"
-duration: "2-3 heures"
-level: "Intermédiaire"
+id: niveaux-eau-rapport-long
+title: Mini-rapport sur les niveaux d'eau d'inondation
+question: Comment résumer des observations ponctuelles d'inondation sans surinterpréter
+  la carte?
+dataset_id: niveaux-eau-inondation
+dataset_title: Niveaux d'eau lors d'une inondation
+activity_url: datasets/niveaux-eau-inondation/activite-longue.qmd
+duration: 2-3 heures
+level: Intermédiaire
 activity_type:
-  - "Étude de cas"
-  - "Projet ou tâche longue"
+- Étude de cas
+- Projet ou tâche longue
 concepts:
-  - "Données spatiales"
-  - "Valeurs manquantes"
-  - "Précision de mesure"
-  - "Communication du risque"
-context: "Inondations et sécurité civile"
-hook: "Les points sont précis, mais leur interprétation demande du contexte"
+- Données spatiales
+- Valeurs manquantes
+- Précision de mesure
+- Communication du risque
+context: Inondations et sécurité civile
+hook: Les points sont précis, mais leur interprétation demande du contexte
 materials:
-  - "énoncé"
-  - "code"
-  - "table préparée"
-  - "notes enseignantes"
-advanced_math_stats: false
-teacher_notes: "Faire distinguer marqueur ponctuel, événement d'inondation, niveau maximal et zone inondée."
-status: "source officielle vérifiée"
+- énoncé
+- code
+- table préparée
+- notes enseignantes
+advanced_math_stats: no
+teacher_notes: Faire distinguer marqueur ponctuel, événement d'inondation, niveau
+  maximal et zone inondée.
+status: source officielle vérifiée
+pedagogical_status: pret_a_enseigner
+teacher_preparation: 'Préparation requise : exécuter `Rscript datasets/niveaux-eau-inondation/preparation.R`
+  depuis la racine, puis vérifier que `data/processed/niveaux-eau-inondation/niveaux_eau_inondation.csv`
+  existe.'
+expected_output: Un court rapport reproductible avec contexte, tableau ou graphique,
+  interprétation et limites.
+requires_prepared_data: yes
+requires_live_download: yes
+recommended_use: Mini-projet guidé
+result_visible_in_page: yes

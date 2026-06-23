@@ -1,26 +1,36 @@
-id: "interventions-pompiers-montreal-saisonnalite-long"
-title: "Temporalité et territoire des interventions du SIM"
-question: "Les interventions du SIM varient-elles selon le mois et l'arrondissement?"
-dataset_id: "interventions-pompiers-montreal"
-dataset_title: "Interventions des pompiers de Montréal"
-activity_url: "datasets/interventions-pompiers-montreal/activite-longue.qmd"
-duration: "2-3 heures"
-level: "Intermédiaire"
+id: interventions-pompiers-montreal-saisonnalite-long
+title: Temporalité et territoire des interventions du SIM
+question: Les interventions du SIM varient-elles selon le mois et l'arrondissement?
+dataset_id: interventions-pompiers-montreal
+dataset_title: Interventions des pompiers de Montréal
+activity_url: datasets/interventions-pompiers-montreal/activite-longue.qmd
+duration: 2-3 heures
+level: Intermédiaire
 activity_type:
-  - "Projet ou tâche longue"
-  - "Étude de cas"
+- Projet ou tâche longue
+- Étude de cas
 concepts:
-  - "Dates"
-  - "Agrégation"
-  - "Comparaison de groupes"
-  - "Communication"
-context: "Sécurité publique"
-hook: "Urgences, temps et territoires"
+- Dates
+- Agrégation
+- Comparaison de groupes
+- Communication
+context: Sécurité publique
+hook: Urgences, temps et territoires
 materials:
-  - "énoncé"
-  - "code"
-  - "données"
-  - "notes enseignantes"
-advanced_math_stats: false
-teacher_notes: "Demander une carte agrégée ou une comparaison par arrondissement, pas une interprétation de points individuels."
-status: "prêt"
+- énoncé
+- code
+- données
+- notes enseignantes
+advanced_math_stats: no
+teacher_notes: Demander une carte agrégée ou une comparaison par arrondissement, pas
+  une interprétation de points individuels.
+status: prêt
+pedagogical_status: a_consolider
+teacher_preparation: Lire la fiche, ouvrir la source officielle et choisir la ressource
+  à utiliser; aucun CSV préparé directement exploitable n'est garanti dans le dépôt.
+expected_output: Un court rapport reproductible avec contexte, tableau ou graphique,
+  interprétation et limites.
+requires_prepared_data: no
+requires_live_download: yes
+recommended_use: Mini-projet guidé
+result_visible_in_page: yes

@@ -1,8 +1,84 @@
 ---
 title: "Mini-projet - Bassins versants et qualité de l'eau"
+embed-resources: true
 ---
 
+
 # Mini-projet - Bassins versants et qualité de l'eau
+
+<!-- activity-teacher-brief:start -->
+::: {.activity-teacher-brief}
+
+## En classe, cette activité sert à...
+
+Cette activité sert à travailler les notions suivantes : Séries temporelles agrégées, Visualisation, Données spatiales, Jointure, Communication prudente à partir d'une question située dans le contexte suivant : Qualité de l'eau. Elle demande aux étudiantes et étudiants de répondre à la question directrice suivante : Comment comparer des stations ou des bassins versants sans confondre couverture du suivi, indicateurs agrégés et causalité environnementale?
+
+::: {.activity-quick-facts}
+| Élément | Information |
+|---|---|
+| Durée | 2-3 heures |
+| Niveau | Intermédiaire |
+| Usage recommandé | Mini-projet guidé |
+| Préparation enseignant | Vérifier que `data/processed/suivi-rivieres-fleuve/stations_qualite_eau_aires.csv` est disponible; aucune collecte en direct n'est nécessaire pour lancer l'activité. |
+| Production attendue | Un court rapport reproductible avec contexte, tableau ou graphique, interprétation et limites. |
+| Données | `data/processed/suivi-rivieres-fleuve/stations_qualite_eau_aires.csv` |
+:::
+
+:::
+<!-- activity-teacher-brief:end -->
+
+## Objectifs d'apprentissage
+
+- Travailler Séries temporelles agrégées.
+- Travailler Visualisation.
+- Travailler Données spatiales.
+- Travailler Jointure.
+- Nommer au moins une limite d'interprétation.
+
+## Données utilisées
+
+Source : Données Québec / MELCCFP. Licence : Attribution (CC-BY 4.0) selon les métadonnées CKAN vérifiées le 2026-06-21. Fichier principal pour l'activité : `data/processed/suivi-rivieres-fleuve/stations_qualite_eau_aires.csv`
+
+## Préparation enseignante
+
+- Vérifier que `data/processed/suivi-rivieres-fleuve/stations_qualite_eau_aires.csv` est disponible; aucune collecte en direct n'est nécessaire pour lancer l'activité.
+- Fichier préparé : `data/processed/suivi-rivieres-fleuve/stations_qualite_eau_aires.csv`.
+- Script de préparation : `datasets/suivi-rivieres-fleuve/preparation.R`.
+- Point à surveiller : Exiger une section séparée sur les limites: période, unité statistique, valeurs manquantes et causalité.
+
+## Consignes
+
+1. Importer `stations_qualite_eau_aires.csv` ou exécuter `datasets/suivi-rivieres-fleuve/preparation.R` si le fichier est absent.
+2. Identifier ce que représente une ligne du fichier.
+3. Produire un tableau ou un graphique adapté à la question directrice.
+4. Rédiger une interprétation courte qui distingue description et explication.
+5. Nommer au moins une limite méthodologique ou une information absente.
+
+## Résultat attendu
+
+Un court rapport reproductible avec contexte, tableau ou graphique, interprétation et limites. La production doit aussi contenir une phrase sur l'unité statistique et une phrase sur une limite de la source.
+
+## Questions
+
+1. Quelle est l'unité statistique utilisée dans cette activité?
+2. Quelle transformation ou agrégation est nécessaire avant de répondre à la question?
+3. Quelle information manque pour aller plus loin?
+4. Quelle conclusion serait trop forte avec ces seules données?
+5. Comment formuler une conclusion prudente à partir du résultat obtenu?
+
+## Déroulé suggéré
+
+1. Cadrer la source, la licence et l'unité statistique.
+2. Préparer ou importer les données.
+3. Produire un premier résumé descriptif.
+4. Construire la visualisation ou le tableau principal.
+5. Rédiger l'interprétation et les limites.
+
+## Limites à faire nommer
+
+- Exiger une section séparée sur les limites: période, unité statistique, valeurs manquantes et causalité.
+- Si une variable ou un dénominateur nécessaire n'est pas disponible dans les données, l'écrire explicitement plutôt que l'inférer.
+
 
 ## Contexte
 

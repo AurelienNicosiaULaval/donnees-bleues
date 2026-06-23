@@ -1,28 +1,41 @@
 id: defavorisation-ecoles-primaires-long
-title: "Mini-projet - Défavorisation des écoles"
-question: "Comment construire un modèle descriptif de l'IMSE sans transformer un indicateur éducatif sensible en outil de décision non justifié?"
+title: Mini-projet - Défavorisation des écoles
+question: Comment construire un modèle descriptif de l'IMSE sans transformer un indicateur
+  éducatif sensible en outil de décision non justifié?
 dataset_id: defavorisation-ecoles-primaires
-dataset_title: "Indices de défavorisation des écoles primaires du Québec"
-activity_url: "datasets/defavorisation-ecoles-primaires/activite-longue.qmd"
-duration: "2-3 heures"
-level: "Introduction à intermédiaire"
+dataset_title: Indices de défavorisation des écoles primaires du Québec
+activity_url: datasets/defavorisation-ecoles-primaires/activite-longue.qmd
+duration: 2-3 heures
+level: Introduction à intermédiaire
 activity_type:
-  - "Projet ou tâche longue"
-  - "Étude de cas"
+- Projet ou tâche longue
+- Étude de cas
 concepts:
-  - "régression linéaire"
-  - "prédiction"
-  - "résidus"
-  - "validation entraînement-test"
-  - "biais algorithmiques"
-  - "éthique"
-context: "Éducation et équité"
-hook: "Prédiction responsable"
+- régression linéaire
+- prédiction
+- résidus
+- validation entraînement-test
+- biais algorithmiques
+- éthique
+context: Éducation et équité
+hook: Prédiction responsable
 materials:
-  - "fiche"
-  - "code"
-  - "source officielle"
-  - "notes enseignantes"
-advanced_math_stats: false
-teacher_notes: "Demander une interprétation en langage simple des coefficients, une mesure d'erreur et une distinction claire entre prédiction statistique et indice officiel."
-status: "source officielle vérifiée le 2026-06-20"
+- fiche
+- code
+- source officielle
+- notes enseignantes
+advanced_math_stats: no
+teacher_notes: Demander une interprétation en langage simple des coefficients, une
+  mesure d'erreur et une distinction claire entre prédiction statistique et indice
+  officiel.
+status: source officielle vérifiée le 2026-06-20
+pedagogical_status: pret_a_enseigner
+teacher_preparation: 'Préparation requise : exécuter `Rscript datasets/defavorisation-ecoles-primaires/preparation.R`
+  depuis la racine, puis vérifier que `data/processed/defavorisation-ecoles-primaires/defavorisation_ecoles_primaires.csv`
+  existe.'
+expected_output: Un court rapport reproductible avec contexte, tableau ou graphique,
+  interprétation et limites.
+requires_prepared_data: yes
+requires_live_download: yes
+recommended_use: Mini-projet guidé
+result_visible_in_page: yes

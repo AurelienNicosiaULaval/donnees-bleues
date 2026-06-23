@@ -3,7 +3,46 @@ title: "Construction et quartiers - activité courte"
 embed-resources: true
 ---
 
+
 # Construction et quartiers - activité courte
+
+<!-- activity-teacher-brief:start -->
+::: {.activity-teacher-brief}
+
+## En classe, cette activité sert à...
+
+Cette activité sert à travailler les notions suivantes : Agrégation, Densité, Statistique descriptive à partir d'une question située dans le contexte suivant : Aménagement du territoire. Elle demande aux étudiantes et étudiants de répondre à la question directrice suivante : Quels quartiers ont la plus forte densité de permis délivrés?
+
+::: {.activity-quick-facts}
+| Élément | Information |
+|---|---|
+| Durée | 30-45 minutes |
+| Niveau | Intermédiaire |
+| Usage recommandé | Exercice guidé |
+| Préparation enseignant | Vérifier que `data/processed/construction-quartiers-quebec/quebec_construction_quartiers.csv` est disponible; aucune collecte en direct n'est nécessaire pour lancer l'activité. |
+| Production attendue | Un tableau ou graphique descriptif accompagné de trois phrases d'interprétation prudente. |
+| Données | `data/processed/construction-quartiers-quebec/quebec_construction_quartiers.csv` |
+:::
+
+:::
+<!-- activity-teacher-brief:end -->
+
+## Préparation enseignante
+
+- Vérifier que `data/processed/construction-quartiers-quebec/quebec_construction_quartiers.csv` est disponible; aucune collecte en direct n'est nécessaire pour lancer l'activité.
+- Fichier préparé : `data/processed/construction-quartiers-quebec/quebec_construction_quartiers.csv`.
+- Script de préparation : `datasets/construction-quartiers-quebec/preparation.R`.
+- Point à surveiller : Insister sur le fait que permis_par_km2 est un indicateur descriptif et que le fichier ne contient ni valeur monétaire ni superficie des travaux.
+
+## Résultat attendu
+
+Un tableau ou graphique descriptif accompagné de trois phrases d'interprétation prudente. La production doit aussi contenir une phrase sur l'unité statistique et une phrase sur une limite de la source.
+
+## Limites à faire nommer
+
+- Insister sur le fait que permis_par_km2 est un indicateur descriptif et que le fichier ne contient ni valeur monétaire ni superficie des travaux.
+- Si une variable ou un dénominateur nécessaire n'est pas disponible dans les données, l'écrire explicitement plutôt que l'inférer.
+
 
 ## Contexte
 

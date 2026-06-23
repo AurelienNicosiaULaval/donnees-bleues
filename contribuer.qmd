@@ -132,6 +132,8 @@ datasets/nom-du-jeu/
 - `templates/fiche-dataset-template.qmd`
 - `templates/metadata-template.yml`
 - `templates/activite-template.qmd`
+- `templates/activite-courte-template.qmd`
+- `templates/activite-longue-template.qmd`
 - `templates/activite-metadata-template.yml`
 - `templates/zero-waste-score-template.yml`
 :::

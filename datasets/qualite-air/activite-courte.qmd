@@ -1,8 +1,44 @@
 ---
 title: "Stations RSQAQ - types de milieu et statut préparé"
+embed-resources: true
 ---
 
+
 # Stations RSQAQ - types de milieu et statut préparé
+
+<!-- activity-teacher-brief:start -->
+::: {.activity-teacher-brief}
+
+## En classe, cette activité sert à...
+
+Cette activité sert à travailler les notions suivantes : Données et mesure, Valeurs manquantes, Statistique descriptive, Visualisation à partir d'une question située dans le contexte suivant : Environnement. Elle demande aux étudiantes et étudiants de répondre à la question directrice suivante : Comment les stations sans date de fermeture se répartissent-elles selon le type de milieu?
+
+::: {.activity-quick-facts}
+| Élément | Information |
+|---|---|
+| Durée | 30-45 minutes |
+| Niveau | Introduction |
+| Usage recommandé | Exercice guidé |
+| Préparation enseignant | Vérifier que `data/processed/qualite-air/rsqaq_stations.csv` est disponible; aucune collecte en direct n'est nécessaire pour lancer l'activité. |
+| Production attendue | Un tableau ou graphique descriptif accompagné de trois phrases d'interprétation prudente. |
+| Données | `data/processed/qualite-air/rsqaq_stations.csv` |
+:::
+
+:::
+<!-- activity-teacher-brief:end -->
+
+## Préparation enseignante
+
+- Vérifier que `data/processed/qualite-air/rsqaq_stations.csv` est disponible; aucune collecte en direct n'est nécessaire pour lancer l'activité.
+- Fichier préparé : `data/processed/qualite-air/rsqaq_stations.csv`.
+- Script de préparation : `datasets/qualite-air/preparation.R`.
+- Point à surveiller : Faire expliciter que station_sans_date_fermeture est une règle de préparation basée sur la date de fermeture publiée.
+
+## Limites à faire nommer
+
+- Faire expliciter que station_sans_date_fermeture est une règle de préparation basée sur la date de fermeture publiée.
+- Si une variable ou un dénominateur nécessaire n'est pas disponible dans les données, l'écrire explicitement plutôt que l'inférer.
+
 
 ## Contexte
 

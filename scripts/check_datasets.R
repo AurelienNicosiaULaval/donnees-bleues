@@ -54,6 +54,7 @@ validate_card_images(catalogue)
 
 catalogue_activites <- build_activity_catalogue("datasets")
 validate_activity_catalogue(catalogue_activites)
+validate_activity_pages(catalogue_activites)
 
 tryCatch(
   validate_ulaval_private_source(root = ".", phases = c("core", "ges"), require_source = FALSE),

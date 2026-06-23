@@ -1,8 +1,44 @@
 ---
 title: "PM2.5 et journées élevées en 2025"
+embed-resources: true
 ---
 
+
 # PM2.5 et journées élevées en 2025
+
+<!-- activity-teacher-brief:start -->
+::: {.activity-teacher-brief}
+
+## En classe, cette activité sert à...
+
+Cette activité sert à travailler les notions suivantes : séries temporelles, résumé journalier, valeurs manquantes, visualisation, communication prudente à partir d'une question située dans le contexte suivant : Environnement. Elle demande aux étudiantes et étudiants de répondre à la question directrice suivante : Quelles journées présentent les moyennes journalières de PM2.5 les plus élevées, et que peut-on conclure prudemment?
+
+::: {.activity-quick-facts}
+| Élément | Information |
+|---|---|
+| Durée | 60-90 minutes |
+| Niveau | Introduction à intermédiaire |
+| Usage recommandé | Laboratoire guidé |
+| Préparation enseignant | Préparation requise : exécuter `Rscript datasets/qualite-air-horaire/preparation.R` depuis la racine, puis vérifier que `data/processed/qualite-air-horaire/resume_journalier_contaminants_2025.csv` existe. |
+| Production attendue | Un tableau ou graphique descriptif accompagné de trois phrases d'interprétation prudente. |
+| Données | `data/processed/qualite-air-horaire/resume_journalier_contaminants_2025.csv` |
+:::
+
+:::
+<!-- activity-teacher-brief:end -->
+
+## Préparation enseignante
+
+- Préparation requise : exécuter `Rscript datasets/qualite-air-horaire/preparation.R` depuis la racine, puis vérifier que `data/processed/qualite-air-horaire/resume_journalier_contaminants_2025.csv` existe.
+- Fichier préparé : `data/processed/qualite-air-horaire/resume_journalier_contaminants_2025.csv`.
+- Script de préparation : `datasets/qualite-air-horaire/preparation.R`.
+- Point à surveiller : Faire comparer les résultats avec un seuil de 18 heures valides et avec 24 heures valides.
+
+## Limites à faire nommer
+
+- Faire comparer les résultats avec un seuil de 18 heures valides et avec 24 heures valides.
+- Si une variable ou un dénominateur nécessaire n'est pas disponible dans les données, l'écrire explicitement plutôt que l'inférer.
+
 
 ## Contexte
 

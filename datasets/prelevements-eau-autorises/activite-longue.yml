@@ -1,27 +1,38 @@
 id: prelevements-eau-territoires-long
-title: "Portrait spatial des prélèvements d'eau autorisés"
-question: "Comment décrire les volumes et la localisation des prélèvements d'eau autorisés sans les confondre avec des volumes réels?"
+title: Portrait spatial des prélèvements d'eau autorisés
+question: Comment décrire les volumes et la localisation des prélèvements d'eau autorisés
+  sans les confondre avec des volumes réels?
 dataset_id: prelevements-eau-autorises
-dataset_title: "Registre des prélèvements d'eau autorisés"
-activity_url: "datasets/prelevements-eau-autorises/activite-longue.qmd"
-duration: "2-3 heures"
-level: "Intermédiaire"
+dataset_title: Registre des prélèvements d'eau autorisés
+activity_url: datasets/prelevements-eau-autorises/activite-longue.qmd
+duration: 2-3 heures
+level: Intermédiaire
 activity_type:
-  - "Étude de cas"
-  - "Projet ou tâche longue"
-  - "Exploration de données"
+- Étude de cas
+- Projet ou tâche longue
+- Exploration de données
 concepts:
-  - "Agrégation"
-  - "Données spatiales"
-  - "Valeurs extrêmes"
-  - "Communication prudente"
-context: "Prélèvements d'eau"
-hook: "Les plus grands sites peuvent dominer toute la lecture du jeu"
+- Agrégation
+- Données spatiales
+- Valeurs extrêmes
+- Communication prudente
+context: Prélèvements d'eau
+hook: Les plus grands sites peuvent dominer toute la lecture du jeu
 materials:
-  - "énoncé"
-  - "code"
-  - "table préparée"
-  - "notes enseignantes"
-advanced_math_stats: false
-teacher_notes: "Demander une section explicite sur l'absence de volumes réellement prélevés et sur la mise en garde officielle : la donnée n'a aucune valeur légale."
-status: "source officielle vérifiée"
+- énoncé
+- code
+- table préparée
+- notes enseignantes
+advanced_math_stats: no
+teacher_notes: 'Demander une section explicite sur l''absence de volumes réellement
+  prélevés et sur la mise en garde officielle : la donnée n''a aucune valeur légale.'
+status: source officielle vérifiée
+pedagogical_status: pret_a_enseigner
+teacher_preparation: Vérifier que `data/processed/prelevements-eau-autorises/prelevements_eau_autorises.csv`
+  est disponible; aucune collecte en direct n'est nécessaire pour lancer l'activité.
+expected_output: Un court rapport reproductible avec contexte, tableau ou graphique,
+  interprétation et limites.
+requires_prepared_data: yes
+requires_live_download: no
+recommended_use: Mini-projet guidé
+result_visible_in_page: yes

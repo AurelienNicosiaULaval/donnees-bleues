@@ -1,29 +1,40 @@
 id: pyramides-ages-comparaison-long
-title: "Comparer la structure d'âge du Québec et du Canada"
-question: "Comment décrire l'évolution d'une structure démographique avec des données agrégées?"
+title: Comparer la structure d'âge du Québec et du Canada
+question: Comment décrire l'évolution d'une structure démographique avec des données
+  agrégées?
 dataset_id: pyramides-ages
-dataset_title: "Pyramides des âges au Canada et au Québec"
-activity_url: "datasets/pyramides-ages/activite-longue.qmd"
-duration: "2-3 heures"
-level: "Intermédiaire"
+dataset_title: Pyramides des âges au Canada et au Québec
+activity_url: datasets/pyramides-ages/activite-longue.qmd
+duration: 2-3 heures
+level: Intermédiaire
 activity_type:
-  - "Étude de cas"
-  - "Projet ou tâche longue"
-  - "Exploration de données"
+- Étude de cas
+- Projet ou tâche longue
+- Exploration de données
 concepts:
-  - "Données ouvertes"
-  - "Statistique descriptive"
-  - "Visualisation"
-  - "Comparaison temporelle"
-  - "Communication"
-context: "Démographie"
-hook: "Vieillissement démographique"
+- Données ouvertes
+- Statistique descriptive
+- Visualisation
+- Comparaison temporelle
+- Communication
+context: Démographie
+hook: Vieillissement démographique
 materials:
-  - "énoncé"
-  - "code"
-  - "données préparées"
-  - "source officielle"
-  - "notes enseignantes"
-advanced_math_stats: false
-teacher_notes: "Demander de comparer en proportions et de séparer les résultats descriptifs des interprétations causales."
-status: "source officielle vérifiée"
+- énoncé
+- code
+- données préparées
+- source officielle
+- notes enseignantes
+advanced_math_stats: no
+teacher_notes: Demander de comparer en proportions et de séparer les résultats descriptifs
+  des interprétations causales.
+status: source officielle vérifiée
+pedagogical_status: pret_a_enseigner
+teacher_preparation: Vérifier que `data/processed/pyramides-ages/population_pyramides_quebec_canada_latest.csv`
+  est disponible; aucune collecte en direct n'est nécessaire pour lancer l'activité.
+expected_output: Un court rapport reproductible avec contexte, tableau ou graphique,
+  interprétation et limites.
+requires_prepared_data: yes
+requires_live_download: no
+recommended_use: Mini-projet guidé
+result_visible_in_page: yes

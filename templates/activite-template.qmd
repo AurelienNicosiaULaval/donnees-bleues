@@ -1,12 +1,35 @@
 ---
 title: "Titre de l'activité"
+embed-resources: true
 ---
 
 # Titre de l'activité
 
+<!-- activity-teacher-brief:start -->
+::: {.activity-teacher-brief}
+
+## En classe, cette activité sert à...
+
+Formuler en deux ou trois phrases ce que l'activité permet de faire en classe.
+Nommer la question, le geste statistique et la limite principale.
+
+::: {.activity-quick-facts}
+| Élément | À préciser |
+|---|---|
+| Durée | 30-45 minutes ou 2-3 heures |
+| Niveau | Introductif, intermédiaire ou avancé |
+| Usage recommandé | Laboratoire, discussion, devoir ou mini-projet |
+| Préparation enseignant | Fichier à préparer ou source à ouvrir |
+| Production attendue | Tableau, graphique, court texte, protocole ou mini-rapport |
+| Données | Chemin exact du fichier ou `Je ne sais pas.` |
+:::
+
+:::
+<!-- activity-teacher-brief:end -->
+
 ## Contexte
 
-Décrire brièvement la situation.
+Décrire brièvement la situation et le contexte de données.
 
 ## Objectifs d'apprentissage
 
@@ -16,35 +39,48 @@ Décrire brièvement la situation.
 
 ## Données utilisées
 
-Indiquer la source vérifiée, la licence et le lien vers la fiche.
+Indiquer la source vérifiée, la licence, le lien vers la fiche et le chemin du fichier utilisé.
+Si le fichier n'est pas disponible dans le dépôt, écrire `Je ne sais pas.` et préciser la préparation requise.
 
-## Métadonnées pédagogiques
+## Préparation enseignante
 
-| Champ | Information |
-|---|---|
-| Question directrice | À compléter. |
-| Concepts | À compléter. |
-| Niveau | À compléter. |
-| Type | À compléter. |
-| Contexte | À compléter. |
-| Accroche | À compléter. |
-| Durée | À compléter. |
-| Matériel | À compléter. |
-| Math/stats avancées | À compléter. |
+- Vérifier que le fichier préparé est disponible avant la séance.
+- Exécuter le script `preparation.R` seulement si nécessaire.
+- Prévoir une phrase de prudence sur les limites de la source.
 
 ## Consignes
 
 1. Importer les données.
 2. Examiner la structure.
 3. Produire un résumé.
-4. Produire une visualisation.
+4. Produire une visualisation ou un tableau.
 5. Interpréter les résultats avec prudence.
+
+## Code R minimal
+
+```{r}
+#| eval: false
+library(dplyr)
+library(readr)
+
+donnees <- read_csv("chemin/vers/le/fichier.csv", show_col_types = FALSE)
+glimpse(donnees)
+```
+
+## Résultat attendu
+
+Décrire la production attendue et le critère minimal de réussite.
 
 ## Questions
 
-1. Question 1.
-2. Question 2.
-3. Question 3.
+1. Quelle est l'unité statistique?
+2. Quelle transformation est nécessaire avant l'interprétation?
+3. Quelle conclusion serait trop forte avec ces seules données?
+
+## Limites à faire nommer
+
+- Limite 1.
+- Limite 2.
 
 ## Pistes de solution
 

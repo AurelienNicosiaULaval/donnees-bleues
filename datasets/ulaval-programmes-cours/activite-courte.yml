@@ -1,25 +1,36 @@
 id: ulaval-validation-import-court
-title: "Laboratoire - Valider un import institutionnel privé"
-question: "Comment vérifier qu'un import institutionnel privé conserve les valeurs, les clés et la provenance sans publier les lignes?"
+title: Laboratoire - Valider un import institutionnel privé
+question: Comment vérifier qu'un import institutionnel privé conserve les valeurs,
+  les clés et la provenance sans publier les lignes?
 dataset_id: ulaval-programmes-cours
-dataset_title: "Programmes et cours institutionnels ULaval"
-activity_url: "datasets/ulaval-programmes-cours/activite-courte.qmd"
-duration: "30-45 minutes"
-level: "Intermédiaire"
+dataset_title: Programmes et cours institutionnels ULaval
+activity_url: datasets/ulaval-programmes-cours/activite-courte.qmd
+duration: 30-45 minutes
+level: Intermédiaire
 activity_type:
-  - "Exercice"
-  - "Validation de données"
+- Exercice
+- Validation de données
 concepts:
-  - "Importation contrôlée"
-  - "Provenance"
-  - "Validation"
-  - "Droits de réutilisation"
-context: "Éducation supérieure"
-hook: "Une validation réussie ne donne pas automatiquement un droit de publication."
+- Importation contrôlée
+- Provenance
+- Validation
+- Droits de réutilisation
+context: Éducation supérieure
+hook: Une validation réussie ne donne pas automatiquement un droit de publication.
 materials:
-  - "fiche vérifiée"
-  - "script de préparation"
-  - "résumés publics"
-advanced_math_stats: false
-teacher_notes: "Ne pas publier les lignes de données. L'activité porte sur les contrôles et les limites de diffusion."
-status: "source privée locale validée"
+- fiche vérifiée
+- script de préparation
+- résumés publics
+advanced_math_stats: no
+teacher_notes: Ne pas publier les lignes de données. L'activité porte sur les contrôles
+  et les limites de diffusion.
+status: source privée locale validée
+pedagogical_status: pret_a_enseigner
+teacher_preparation: Vérifier les droits de diffusion avant la séance; utiliser seulement
+  les résumés publics et ne pas publier les lignes de données.
+expected_output: Un tableau ou graphique descriptif accompagné de trois phrases d'interprétation
+  prudente.
+requires_prepared_data: yes
+requires_live_download: no
+recommended_use: Audit de source
+result_visible_in_page: yes

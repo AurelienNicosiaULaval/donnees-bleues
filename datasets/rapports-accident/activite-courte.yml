@@ -1,25 +1,37 @@
-id: "rapports-accident-gravite-court"
-title: "Laboratoire - Gravité des accidents par mois"
-question: "Comment la gravité observée varie-t-elle selon le mois dans les rapports d'accident 2022?"
-dataset_id: "rapports-accident"
-dataset_title: "Rapports d'accident"
-activity_url: "datasets/rapports-accident/activite-courte.qmd"
-duration: "30-45 minutes"
-level: "Intermédiaire"
+id: rapports-accident-gravite-court
+title: Laboratoire - Gravité des accidents par mois
+question: Comment la gravité observée varie-t-elle selon le mois dans les rapports
+  d'accident 2022?
+dataset_id: rapports-accident
+dataset_title: Rapports d'accident
+activity_url: datasets/rapports-accident/activite-courte.qmd
+duration: 30-45 minutes
+level: Intermédiaire
 activity_type:
-  - "Exercice"
-  - "Exploration de données"
+- Exercice
+- Exploration de données
 concepts:
-  - "Tableaux croisés"
-  - "Visualisation"
-  - "Variables catégorielles"
-context: "Transport et sécurité routière"
-hook: "Une fréquence d'accidents n'est pas un risque routier"
+- Tableaux croisés
+- Visualisation
+- Variables catégorielles
+context: Transport et sécurité routière
+hook: Une fréquence d'accidents n'est pas un risque routier
 materials:
-  - "fiche vérifiée"
-  - "script de préparation"
-  - "table préparée"
-  - "résumés R"
-advanced_math_stats: false
-teacher_notes: "Insister sur le code 9 pour trois ou plus et sur l'absence de dénominateur d'exposition."
-status: "source officielle vérifiée"
+- fiche vérifiée
+- script de préparation
+- table préparée
+- résumés R
+advanced_math_stats: no
+teacher_notes: Insister sur le code 9 pour trois ou plus et sur l'absence de dénominateur
+  d'exposition.
+status: source officielle vérifiée
+pedagogical_status: pret_a_enseigner
+teacher_preparation: 'Préparation requise : exécuter `Rscript datasets/rapports-accident/preparation.R`
+  depuis la racine, puis vérifier que `data/processed/rapports-accident/rapports_accident_2022_prepares.csv`
+  existe.'
+expected_output: Un court rapport reproductible avec contexte, tableau ou graphique,
+  interprétation et limites.
+requires_prepared_data: yes
+requires_live_download: yes
+recommended_use: Exercice guidé
+result_visible_in_page: yes

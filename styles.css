@@ -1598,6 +1598,75 @@ body:has(.catalogue-reference) main.content {
   margin-bottom: 0.8rem;
 }
 
+.activity-teacher-brief {
+  background: #f8fbff;
+  border: 1px solid #d9e6f7;
+  border-left: 4px solid var(--db-blue);
+  border-radius: 6px;
+  margin: 1rem 0 1.5rem;
+  padding: 1rem;
+}
+
+.activity-teacher-brief h2 {
+  font-size: 1.2rem;
+  margin-top: 0;
+}
+
+.activity-teacher-brief p {
+  color: #344054;
+  line-height: 1.55;
+  margin-bottom: 0.9rem;
+}
+
+.activity-quick-facts {
+  margin-top: 0.85rem;
+}
+
+.activity-quick-facts table {
+  background: #ffffff;
+  border: 1px solid #e3e9f2;
+  border-radius: 6px;
+  display: table;
+  font-size: 0.88rem;
+  table-layout: fixed;
+  margin-bottom: 0;
+  overflow: hidden;
+  width: 100%;
+}
+
+.activity-quick-facts col:first-child {
+  width: 42% !important;
+}
+
+.activity-quick-facts col:nth-child(2) {
+  width: 58% !important;
+}
+
+.activity-quick-facts th,
+.activity-quick-facts td {
+  border-color: #edf2f7;
+  vertical-align: top;
+  word-break: normal;
+}
+
+.activity-quick-facts th {
+  min-width: 8rem;
+  overflow-wrap: normal;
+  width: 42%;
+}
+
+.activity-quick-facts td {
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+.activity-quick-facts td code,
+.activity-quick-facts td code span {
+  overflow-wrap: anywhere;
+  white-space: normal;
+  word-break: break-word;
+}
+
 .tag-list {
   display: flex;
   flex-wrap: wrap;
@@ -2438,6 +2507,14 @@ code {
   color: #667085;
 }
 
+.dataset-activity-meta .dataset-activity-status {
+  background: #eef6ef;
+  border: 1px solid #d2ead5;
+  border-radius: 999px;
+  color: #28613b;
+  padding: 0.05rem 0.45rem;
+}
+
 .dataset-activity-card strong {
   color: #0045a5;
   display: block;
@@ -2454,6 +2531,14 @@ code {
 }
 
 .dataset-activity-note {
+  border-top: 1px solid #eef2f7;
+  color: #56637a !important;
+  font-size: 0.8rem !important;
+  margin-top: 0.6rem !important;
+  padding-top: 0.55rem;
+}
+
+.dataset-activity-output {
   border-top: 1px solid #eef2f7;
   color: #56637a !important;
   font-size: 0.8rem !important;

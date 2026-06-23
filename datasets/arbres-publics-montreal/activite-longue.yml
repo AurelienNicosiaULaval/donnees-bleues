@@ -1,26 +1,37 @@
-id: "arbres-publics-carte-long"
-title: "Carte et qualité des données des arbres publics"
-question: "Comment cartographier ou résumer un inventaire d'arbres publics tout en montrant ses limites?"
-dataset_id: "arbres-publics-montreal"
-dataset_title: "Arbres publics sur le territoire de Montréal"
-activity_url: "datasets/arbres-publics-montreal/activite-longue.qmd"
-duration: "2-3 heures"
-level: "Intermédiaire"
+id: arbres-publics-carte-long
+title: Carte et qualité des données des arbres publics
+question: Comment cartographier ou résumer un inventaire d'arbres publics tout en
+  montrant ses limites?
+dataset_id: arbres-publics-montreal
+dataset_title: Arbres publics sur le territoire de Montréal
+activity_url: datasets/arbres-publics-montreal/activite-longue.qmd
+duration: 2-3 heures
+level: Intermédiaire
 activity_type:
-  - "Mini-projet"
-  - "Étude de cas"
+- Mini-projet
+- Étude de cas
 concepts:
-  - "Carte"
-  - "Données manquantes"
-  - "Statistique descriptive"
-  - "Qualité des données"
-context: "Foresterie urbaine"
-hook: "Une carte d'inventaire doit montrer sa couverture et ses limites"
+- Carte
+- Données manquantes
+- Statistique descriptive
+- Qualité des données
+context: Foresterie urbaine
+hook: Une carte d'inventaire doit montrer sa couverture et ses limites
 materials:
-  - "énoncé"
-  - "code"
-  - "source officielle"
-  - "résumés préparés"
-advanced_math_stats: false
-teacher_notes: "Insister sur la qualité des coordonnées et les limites d'inventaire."
-status: "source officielle vérifiée"
+- énoncé
+- code
+- source officielle
+- résumés préparés
+advanced_math_stats: no
+teacher_notes: Insister sur la qualité des coordonnées et les limites d'inventaire.
+status: source officielle vérifiée
+pedagogical_status: pret_a_enseigner
+teacher_preparation: 'Préparation requise : exécuter `Rscript datasets/arbres-publics-montreal/preparation.R`
+  depuis la racine, puis vérifier que `data/processed/arbres-publics-montreal/arbres_publics_montreal.csv`
+  existe.'
+expected_output: Un court rapport reproductible avec contexte, tableau ou graphique,
+  interprétation et limites.
+requires_prepared_data: yes
+requires_live_download: yes
+recommended_use: Mini-projet guidé
+result_visible_in_page: yes

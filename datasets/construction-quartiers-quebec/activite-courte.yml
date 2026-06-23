@@ -1,25 +1,35 @@
 id: construction-quartiers-quebec-densite-court
-title: "Comparer les permis par quartier"
-question: "Quels quartiers ont la plus forte densité de permis délivrés?"
+title: Comparer les permis par quartier
+question: Quels quartiers ont la plus forte densité de permis délivrés?
 dataset_id: construction-quartiers-quebec
-dataset_title: "Construction, bâtiments et quartiers à la Ville de Québec"
-activity_url: "datasets/construction-quartiers-quebec/activite-courte.qmd"
-duration: "30-45 minutes"
-level: "Intermédiaire"
+dataset_title: Construction, bâtiments et quartiers à la Ville de Québec
+activity_url: datasets/construction-quartiers-quebec/activite-courte.qmd
+duration: 30-45 minutes
+level: Intermédiaire
 activity_type:
-  - "Exercice"
-  - "Exploration de données"
-  - "Visualisation"
+- Exercice
+- Exploration de données
+- Visualisation
 concepts:
-  - "Agrégation"
-  - "Densité"
-  - "Statistique descriptive"
-context: "Aménagement du territoire"
-hook: "Comparer des quartiers familiers"
+- Agrégation
+- Densité
+- Statistique descriptive
+context: Aménagement du territoire
+hook: Comparer des quartiers familiers
 materials:
-  - "énoncé"
-  - "code"
-  - "données ouvertes"
-advanced_math_stats: false
-teacher_notes: "Insister sur le fait que permis_par_km2 est un indicateur descriptif et que le fichier ne contient ni valeur monétaire ni superficie des travaux."
-status: "prêt"
+- énoncé
+- code
+- données ouvertes
+advanced_math_stats: no
+teacher_notes: Insister sur le fait que permis_par_km2 est un indicateur descriptif
+  et que le fichier ne contient ni valeur monétaire ni superficie des travaux.
+status: prêt
+pedagogical_status: pret_a_enseigner
+teacher_preparation: Vérifier que `data/processed/construction-quartiers-quebec/quebec_construction_quartiers.csv`
+  est disponible; aucune collecte en direct n'est nécessaire pour lancer l'activité.
+expected_output: Un tableau ou graphique descriptif accompagné de trois phrases d'interprétation
+  prudente.
+requires_prepared_data: yes
+requires_live_download: no
+recommended_use: Exercice guidé
+result_visible_in_page: yes

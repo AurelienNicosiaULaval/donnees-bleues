@@ -1,8 +1,52 @@
 ---
 title: "Laboratoire - Profils fonciers par classe de population"
+embed-resources: true
 ---
 
+
 # Laboratoire - Profils fonciers par classe de population
+
+<!-- activity-teacher-brief:start -->
+::: {.activity-teacher-brief}
+
+## En classe, cette activité sert à...
+
+Cette activité sert à travailler les notions suivantes : Dictionnaire de variables, Classes de population, Médiane, Visualisation, Interprétation prudente à partir d'une question située dans le contexte suivant : Finances et fiscalité municipales. Elle demande aux étudiantes et étudiants de répondre à la question directrice suivante : Comment la part résidentielle de l'évaluation imposable uniformisée varie-t-elle selon la classe de population?
+
+::: {.activity-quick-facts}
+| Élément | Information |
+|---|---|
+| Durée | 45-60 minutes |
+| Niveau | Introduction à intermédiaire |
+| Usage recommandé | Laboratoire guidé |
+| Préparation enseignant | Préparation requise : exécuter `Rscript datasets/budgets-municipaux-quebec/preparation.R` depuis la racine, puis vérifier que `data/processed/budgets-municipaux-quebec/profil_financier_municipalites_2025.csv` existe. |
+| Production attendue | Un tableau ou graphique descriptif accompagné de trois phrases d'interprétation prudente. |
+| Données | `data/processed/budgets-municipaux-quebec/profil_financier_municipalites_2025.csv` |
+:::
+
+:::
+<!-- activity-teacher-brief:end -->
+
+## Préparation enseignante
+
+- Préparation requise : exécuter `Rscript datasets/budgets-municipaux-quebec/preparation.R` depuis la racine, puis vérifier que `data/processed/budgets-municipaux-quebec/profil_financier_municipalites_2025.csv` existe.
+- Fichier préparé : `data/processed/budgets-municipaux-quebec/profil_financier_municipalites_2025.csv`.
+- Script de préparation : `datasets/budgets-municipaux-quebec/preparation.R`.
+- Point à surveiller : Faire vérifier le sens de FIALX02005 dans le dictionnaire avant tout graphique.
+
+## Questions
+
+1. Quelle est l'unité statistique utilisée dans cette activité?
+2. Quelle transformation ou agrégation est nécessaire avant de répondre à la question?
+3. Quelle information manque pour aller plus loin?
+4. Quelle conclusion serait trop forte avec ces seules données?
+5. Comment formuler une conclusion prudente à partir du résultat obtenu?
+
+## Limites à faire nommer
+
+- Faire vérifier le sens de FIALX02005 dans le dictionnaire avant tout graphique.
+- Si une variable ou un dénominateur nécessaire n'est pas disponible dans les données, l'écrire explicitement plutôt que l'inférer.
+
 
 ## Contexte
 

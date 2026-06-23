@@ -1,8 +1,84 @@
 ---
 title: "Mini-projet - Concevoir un protocole d'archivage GTFS-realtime"
+embed-resources: true
 ---
 
+
 # Mini-projet - Concevoir un protocole d'archivage GTFS-realtime
+
+<!-- activity-teacher-brief:start -->
+::: {.activity-teacher-brief}
+
+## En classe, cette activité sert à...
+
+Cette activité sert à travailler les notions suivantes : flux temps réel, séries temporelles, échantillonnage temporel, données manquantes, qualité de service à partir d'une question située dans le contexte suivant : Mobilité et performance de service. Elle demande aux étudiantes et étudiants de répondre à la question directrice suivante : Comment archiver un flux GTFS-realtime pour produire une table de ponctualité utilisable en statistique descriptive?
+
+::: {.activity-quick-facts}
+| Élément | Information |
+|---|---|
+| Durée | 2-3 heures |
+| Niveau | Intermédiaire |
+| Usage recommandé | Audit de source |
+| Préparation enseignant | Vérifier que `data/processed/retards-transport-collectif/resume_retards_transport.csv` est disponible; aucune collecte en direct n'est nécessaire pour lancer l'activité. |
+| Production attendue | Un protocole ou une note d'audit qui distingue ce qui est vérifié, ce qui manque et ce qui ne peut pas encore être mesuré. |
+| Données | `data/processed/retards-transport-collectif/resume_retards_transport.csv` |
+:::
+
+:::
+<!-- activity-teacher-brief:end -->
+
+## Objectifs d'apprentissage
+
+- Travailler flux temps réel.
+- Travailler séries temporelles.
+- Travailler échantillonnage temporel.
+- Travailler données manquantes.
+- Nommer au moins une limite d'interprétation.
+
+## Données utilisées
+
+Source : Société de transport de Montréal / Données Québec. Licence : Attribution (CC-BY 4.0) selon les métadonnées CKAN vérifiées le 2026-06-21. Fichier principal pour l'activité : `data/processed/retards-transport-collectif/resume_retards_transport.csv`
+
+## Préparation enseignante
+
+- Vérifier que `data/processed/retards-transport-collectif/resume_retards_transport.csv` est disponible; aucune collecte en direct n'est nécessaire pour lancer l'activité.
+- Fichier préparé : `data/processed/retards-transport-collectif/resume_retards_transport.csv`.
+- Script de préparation : `datasets/retards-transport-collectif/preparation.R`.
+- Point à surveiller : Évaluer la qualité du protocole et la prudence statistique plutôt que la capacité à accéder au flux en direct.
+
+## Consignes
+
+1. Importer `resume_retards_transport.csv` ou exécuter `datasets/retards-transport-collectif/preparation.R` si le fichier est absent.
+2. Identifier ce que représente une ligne du fichier.
+3. Produire un tableau ou un graphique adapté à la question directrice.
+4. Rédiger une interprétation courte qui distingue description et explication.
+5. Nommer au moins une limite méthodologique ou une information absente.
+
+## Résultat attendu
+
+Un protocole ou une note d'audit qui distingue ce qui est vérifié, ce qui manque et ce qui ne peut pas encore être mesuré. La production doit aussi contenir une phrase sur l'unité statistique et une phrase sur une limite de la source.
+
+## Questions
+
+1. Quelle est l'unité statistique utilisée dans cette activité?
+2. Quelle transformation ou agrégation est nécessaire avant de répondre à la question?
+3. Quelle information manque pour aller plus loin?
+4. Quelle conclusion serait trop forte avec ces seules données?
+5. Comment formuler une conclusion prudente à partir du résultat obtenu?
+
+## Déroulé suggéré
+
+1. Cadrer la source, la licence et l'unité statistique.
+2. Préparer ou importer les données.
+3. Produire un premier résumé descriptif.
+4. Construire la visualisation ou le tableau principal.
+5. Rédiger l'interprétation et les limites.
+
+## Limites à faire nommer
+
+- Évaluer la qualité du protocole et la prudence statistique plutôt que la capacité à accéder au flux en direct.
+- Si une variable ou un dénominateur nécessaire n'est pas disponible dans les données, l'écrire explicitement plutôt que l'inférer.
+
 
 ## Contexte
 

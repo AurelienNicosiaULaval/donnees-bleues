@@ -1,8 +1,48 @@
 ---
 title: "Laboratoire - Gravité des accidents par mois"
+embed-resources: true
 ---
 
+
 # Laboratoire - Gravité des accidents par mois
+
+<!-- activity-teacher-brief:start -->
+::: {.activity-teacher-brief}
+
+## En classe, cette activité sert à...
+
+Cette activité sert à travailler les notions suivantes : Tableaux croisés, Visualisation, Variables catégorielles à partir d'une question située dans le contexte suivant : Transport et sécurité routière. Elle demande aux étudiantes et étudiants de répondre à la question directrice suivante : Comment la gravité observée varie-t-elle selon le mois dans les rapports d'accident 2022?
+
+::: {.activity-quick-facts}
+| Élément | Information |
+|---|---|
+| Durée | 30-45 minutes |
+| Niveau | Intermédiaire |
+| Usage recommandé | Exercice guidé |
+| Préparation enseignant | Préparation requise : exécuter `Rscript datasets/rapports-accident/preparation.R` depuis la racine, puis vérifier que `data/processed/rapports-accident/rapports_accident_2022_prepares.csv` existe. |
+| Production attendue | Un court rapport reproductible avec contexte, tableau ou graphique, interprétation et limites. |
+| Données | `data/processed/rapports-accident/rapports_accident_2022_prepares.csv` |
+:::
+
+:::
+<!-- activity-teacher-brief:end -->
+
+## Données utilisées
+
+Source : Données Québec / Société de l'assurance automobile du Québec. Licence : Attribution (CC-BY 4.0) selon les métadonnées CKAN vérifiées le 2026-06-21. Fichier principal pour l'activité : `data/processed/rapports-accident/rapports_accident_2022_prepares.csv`
+
+## Préparation enseignante
+
+- Préparation requise : exécuter `Rscript datasets/rapports-accident/preparation.R` depuis la racine, puis vérifier que `data/processed/rapports-accident/rapports_accident_2022_prepares.csv` existe.
+- Fichier préparé : `data/processed/rapports-accident/rapports_accident_2022_prepares.csv`.
+- Script de préparation : `datasets/rapports-accident/preparation.R`.
+- Point à surveiller : Insister sur le code 9 pour trois ou plus et sur l'absence de dénominateur d'exposition.
+
+## Limites à faire nommer
+
+- Insister sur le code 9 pour trois ou plus et sur l'absence de dénominateur d'exposition.
+- Si une variable ou un dénominateur nécessaire n'est pas disponible dans les données, l'écrire explicitement plutôt que l'inférer.
+
 
 ## Contexte
 

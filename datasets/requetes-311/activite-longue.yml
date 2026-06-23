@@ -1,27 +1,38 @@
-id: "requetes-311-saisonnalite-long"
-title: "Mini-projet - Saisonnalité des demandes 311"
-question: "Les demandes de services municipaux observées varient-elles selon la saison?"
-dataset_id: "requetes-311"
-dataset_title: "Demandes de services citoyennes 311 à Montréal"
-activity_url: "datasets/requetes-311/activite-longue.qmd"
-duration: "2-3 heures"
-level: "Intermédiaire"
+id: requetes-311-saisonnalite-long
+title: Mini-projet - Saisonnalité des demandes 311
+question: Les demandes de services municipaux observées varient-elles selon la saison?
+dataset_id: requetes-311
+dataset_title: Demandes de services citoyennes 311 à Montréal
+activity_url: datasets/requetes-311/activite-longue.qmd
+duration: 2-3 heures
+level: Intermédiaire
 activity_type:
-  - "Projet ou tâche longue"
-  - "Étude de cas"
+- Projet ou tâche longue
+- Étude de cas
 concepts:
-  - "Séries temporelles"
-  - "Nettoyage"
-  - "Communication"
-  - "Biais de déclaration"
-context: "Services municipaux"
-hook: "Les demandes observées ne sont pas les besoins réels"
+- Séries temporelles
+- Nettoyage
+- Communication
+- Biais de déclaration
+context: Services municipaux
+hook: Les demandes observées ne sont pas les besoins réels
 materials:
-  - "fiche vérifiée"
-  - "script de préparation"
-  - "table préparée"
-  - "résumés temporels"
-  - "notes enseignantes"
-advanced_math_stats: false
-teacher_notes: "Limiter le nombre de catégories et demander une section sur l'échantillonnage, les canaux de provenance et l'année 2026 partielle."
-status: "source officielle vérifiée"
+- fiche vérifiée
+- script de préparation
+- table préparée
+- résumés temporels
+- notes enseignantes
+advanced_math_stats: no
+teacher_notes: Limiter le nombre de catégories et demander une section sur l'échantillonnage,
+  les canaux de provenance et l'année 2026 partielle.
+status: source officielle vérifiée
+pedagogical_status: pret_a_enseigner
+teacher_preparation: 'Préparation requise : exécuter `Rscript datasets/requetes-311/preparation.R`
+  depuis la racine, puis vérifier que `data/processed/requetes-311/requetes_311_non_information_echantillon.csv`
+  existe.'
+expected_output: Un court rapport reproductible avec contexte, tableau ou graphique,
+  interprétation et limites.
+requires_prepared_data: yes
+requires_live_download: yes
+recommended_use: Mini-projet guidé
+result_visible_in_page: yes

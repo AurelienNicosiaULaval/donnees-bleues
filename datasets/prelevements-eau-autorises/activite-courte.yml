@@ -1,25 +1,35 @@
 id: prelevements-eau-provenance-court
-title: "Volumes autorisés par provenance de l'eau"
-question: "Quels types de provenance représentent les plus grands volumes autorisés?"
+title: Volumes autorisés par provenance de l'eau
+question: Quels types de provenance représentent les plus grands volumes autorisés?
 dataset_id: prelevements-eau-autorises
-dataset_title: "Registre des prélèvements d'eau autorisés"
-activity_url: "datasets/prelevements-eau-autorises/activite-courte.qmd"
-duration: "30-45 minutes"
-level: "Intermédiaire"
+dataset_title: Registre des prélèvements d'eau autorisés
+activity_url: datasets/prelevements-eau-autorises/activite-courte.qmd
+duration: 30-45 minutes
+level: Intermédiaire
 activity_type:
-  - "Exercice"
-  - "Exploration de données"
+- Exercice
+- Exploration de données
 concepts:
-  - "Agrégation"
-  - "Volume autorisé"
-  - "Valeurs extrêmes"
-  - "Visualisation"
-context: "Prélèvements d'eau"
-hook: "Beaucoup de sites ne signifie pas nécessairement le plus grand volume autorisé"
+- Agrégation
+- Volume autorisé
+- Valeurs extrêmes
+- Visualisation
+context: Prélèvements d'eau
+hook: Beaucoup de sites ne signifie pas nécessairement le plus grand volume autorisé
 materials:
-  - "énoncé"
-  - "code"
-  - "table préparée"
-advanced_math_stats: false
-teacher_notes: "Insister sur la distinction entre volume maximal autorisé et volume réellement prélevé. Faire comparer nombre de sites et volume total."
-status: "source officielle vérifiée"
+- énoncé
+- code
+- table préparée
+advanced_math_stats: no
+teacher_notes: Insister sur la distinction entre volume maximal autorisé et volume
+  réellement prélevé. Faire comparer nombre de sites et volume total.
+status: source officielle vérifiée
+pedagogical_status: pret_a_enseigner
+teacher_preparation: Vérifier que `data/processed/prelevements-eau-autorises/prelevements_eau_autorises.csv`
+  est disponible; aucune collecte en direct n'est nécessaire pour lancer l'activité.
+expected_output: Un tableau ou graphique descriptif accompagné de trois phrases d'interprétation
+  prudente.
+requires_prepared_data: yes
+requires_live_download: no
+recommended_use: Exercice guidé
+result_visible_in_page: yes

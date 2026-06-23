@@ -1,8 +1,48 @@
 ---
 title: "Cartographier une ressource scolaire sans mélanger les unités"
+embed-resources: true
 ---
 
+
 # Cartographier une ressource scolaire sans mélanger les unités
+
+<!-- activity-teacher-brief:start -->
+::: {.activity-teacher-brief}
+
+## En classe, cette activité sert à...
+
+Cette activité sert à travailler les notions suivantes : Unité statistique, Carte de points, Données ouvertes, Filtrage à partir d'une question située dans le contexte suivant : Éducation et territoire. Elle demande aux étudiantes et étudiants de répondre à la question directrice suivante : Comment cartographier une ressource scolaire sans confondre les unités statistiques?
+
+::: {.activity-quick-facts}
+| Élément | Information |
+|---|---|
+| Durée | 30-45 minutes |
+| Niveau | Introductif |
+| Usage recommandé | Exercice guidé |
+| Préparation enseignant | Préparation requise : exécuter `Rscript datasets/etablissements-enseignement/preparation.R` depuis la racine, puis vérifier que `data/processed/etablissements-enseignement/etablissements_enseignement_quebec.csv` existe. |
+| Production attendue | Une carte ou un graphique descriptif accompagné d'une phrase sur l'unité statistique et les limites. |
+| Données | `data/processed/etablissements-enseignement/etablissements_enseignement_quebec.csv` |
+:::
+
+:::
+<!-- activity-teacher-brief:end -->
+
+## Préparation enseignante
+
+- Préparation requise : exécuter `Rscript datasets/etablissements-enseignement/preparation.R` depuis la racine, puis vérifier que `data/processed/etablissements-enseignement/etablissements_enseignement_quebec.csv` existe.
+- Fichier préparé : `data/processed/etablissements-enseignement/etablissements_enseignement_quebec.csv`.
+- Script de préparation : `datasets/etablissements-enseignement/preparation.R`.
+- Point à surveiller : Faire choisir une seule ressource avant toute carte. Le point d'apprentissage est de distinguer un établissement, un immeuble, une installation et un lien école-immeuble.
+
+## Résultat attendu
+
+Une carte ou un graphique descriptif accompagné d'une phrase sur l'unité statistique et les limites. La production doit aussi contenir une phrase sur l'unité statistique et une phrase sur une limite de la source.
+
+## Limites à faire nommer
+
+- Faire choisir une seule ressource avant toute carte. Le point d'apprentissage est de distinguer un établissement, un immeuble, une installation et un lien école-immeuble.
+- Si une variable ou un dénominateur nécessaire n'est pas disponible dans les données, l'écrire explicitement plutôt que l'inférer.
+
 
 ## Contexte
 

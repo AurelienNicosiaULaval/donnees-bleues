@@ -1,27 +1,39 @@
-id: "grhq-jointure-long"
-title: "Préparer une analyse spatiale avec la GRHQ"
-question: "Comment préparer une analyse spatiale avec la GRHQ sans télécharger inutilement tout le Québec?"
-dataset_id: "grhq"
-dataset_title: "Géobase du réseau hydrographique du Québec"
-activity_url: "datasets/grhq/activite-longue.qmd"
-duration: "2-3 heures"
-level: "Intermédiaire à avancé"
+id: grhq-jointure-long
+title: Préparer une analyse spatiale avec la GRHQ
+question: Comment préparer une analyse spatiale avec la GRHQ sans télécharger inutilement
+  tout le Québec?
+dataset_id: grhq
+dataset_title: Géobase du réseau hydrographique du Québec
+activity_url: datasets/grhq/activite-longue.qmd
+duration: 2-3 heures
+level: Intermédiaire à avancé
 activity_type:
-  - "Projet ou tâche longue"
-  - "Étude de cas"
+- Projet ou tâche longue
+- Étude de cas
 concepts:
-  - "Index spatial"
-  - "FGDB"
-  - "sf"
-  - "Jointure spatiale"
-  - "Limites computationnelles"
-context: "Hydrographie"
-hook: "Un bon projet spatial commence par un bon périmètre"
+- Index spatial
+- FGDB
+- sf
+- Jointure spatiale
+- Limites computationnelles
+context: Hydrographie
+hook: Un bon projet spatial commence par un bon périmètre
 materials:
-  - "énoncé"
-  - "code"
-  - "index préparé"
-  - "notes enseignantes"
-advanced_math_stats: false
-teacher_notes: "Limiter l'analyse à une unité GRHQ. Exiger une distinction explicite entre index de téléchargement, WMS de visualisation et FGDB analysable."
-status: "source officielle vérifiée"
+- énoncé
+- code
+- index préparé
+- notes enseignantes
+advanced_math_stats: no
+teacher_notes: Limiter l'analyse à une unité GRHQ. Exiger une distinction explicite
+  entre index de téléchargement, WMS de visualisation et FGDB analysable.
+status: source officielle vérifiée
+pedagogical_status: pret_a_enseigner
+teacher_preparation: 'Préparation requise : exécuter `Rscript datasets/grhq/preparation.R`
+  depuis la racine, puis vérifier que `data/processed/grhq/grhq_index_telechargement.csv`
+  existe.'
+expected_output: Un court rapport reproductible avec contexte, tableau ou graphique,
+  interprétation et limites.
+requires_prepared_data: yes
+requires_live_download: yes
+recommended_use: Mini-projet guidé
+result_visible_in_page: yes

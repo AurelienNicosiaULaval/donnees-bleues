@@ -1,8 +1,60 @@
 ---
 title: "Laboratoire - Emploi régional"
+embed-resources: true
 ---
 
+
 # Laboratoire - Emploi régional
+
+<!-- activity-teacher-brief:start -->
+::: {.activity-teacher-brief}
+
+## En classe, cette activité sert à...
+
+Cette activité sert à travailler les notions suivantes : séries temporelles, comparaison de groupes, données d'enquête, qualité des estimations, analyse exploratoire, statistiques descriptives à partir d'une question située dans le contexte suivant : Marché du travail. Elle demande aux étudiantes et étudiants de répondre à la question directrice suivante : Comment comparer le taux de chômage de quelques régions du Québec sans surinterpréter des estimations d'enquête?
+
+::: {.activity-quick-facts}
+| Élément | Information |
+|---|---|
+| Durée | 60-90 minutes |
+| Niveau | Introduction à intermédiaire |
+| Usage recommandé | Laboratoire guidé |
+| Préparation enseignant | Préparation requise : exécuter `Rscript datasets/emploi-regional-quebec/preparation.R` depuis la racine, puis vérifier que `data/processed/emploi-regional-quebec/emploi_regional_quebec.csv` existe. |
+| Production attendue | Un tableau ou graphique descriptif accompagné de trois phrases d'interprétation prudente. |
+| Données | `data/processed/emploi-regional-quebec/emploi_regional_quebec.csv` |
+:::
+
+:::
+<!-- activity-teacher-brief:end -->
+
+## Données utilisées
+
+Source : Institut de la statistique du Québec / Statistique Canada, Enquête sur la population active. Licence : Reproduction de l'information du site de l'Institut de la statistique du Québec interdite sauf permission écrite.. Fichier principal pour l'activité : `data/processed/emploi-regional-quebec/emploi_regional_quebec.csv`
+
+## Préparation enseignante
+
+- Préparation requise : exécuter `Rscript datasets/emploi-regional-quebec/preparation.R` depuis la racine, puis vérifier que `data/processed/emploi-regional-quebec/emploi_regional_quebec.csv` existe.
+- Fichier préparé : `data/processed/emploi-regional-quebec/emploi_regional_quebec.csv`.
+- Script de préparation : `datasets/emploi-regional-quebec/preparation.R`.
+- Point à surveiller : Faire valider l'unité statistique, l'unité de mesure et les codes de qualité avant l'interprétation.
+
+## Résultat attendu
+
+Un tableau ou graphique descriptif accompagné de trois phrases d'interprétation prudente. La production doit aussi contenir une phrase sur l'unité statistique et une phrase sur une limite de la source.
+
+## Questions
+
+1. Quelle est l'unité statistique utilisée dans cette activité?
+2. Quelle transformation ou agrégation est nécessaire avant de répondre à la question?
+3. Quelle information manque pour aller plus loin?
+4. Quelle conclusion serait trop forte avec ces seules données?
+5. Comment formuler une conclusion prudente à partir du résultat obtenu?
+
+## Limites à faire nommer
+
+- Faire valider l'unité statistique, l'unité de mesure et les codes de qualité avant l'interprétation.
+- Si une variable ou un dénominateur nécessaire n'est pas disponible dans les données, l'écrire explicitement plutôt que l'inférer.
+
 
 ## Contexte
 

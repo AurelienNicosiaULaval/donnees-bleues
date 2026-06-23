@@ -1,8 +1,84 @@
 ---
 title: "Mini-projet - Saisonnalité des demandes 311"
+embed-resources: true
 ---
 
+
 # Mini-projet - Saisonnalité des demandes 311
+
+<!-- activity-teacher-brief:start -->
+::: {.activity-teacher-brief}
+
+## En classe, cette activité sert à...
+
+Cette activité sert à travailler les notions suivantes : Séries temporelles, Nettoyage, Communication, Biais de déclaration à partir d'une question située dans le contexte suivant : Services municipaux. Elle demande aux étudiantes et étudiants de répondre à la question directrice suivante : Les demandes de services municipaux observées varient-elles selon la saison?
+
+::: {.activity-quick-facts}
+| Élément | Information |
+|---|---|
+| Durée | 2-3 heures |
+| Niveau | Intermédiaire |
+| Usage recommandé | Mini-projet guidé |
+| Préparation enseignant | Préparation requise : exécuter `Rscript datasets/requetes-311/preparation.R` depuis la racine, puis vérifier que `data/processed/requetes-311/requetes_311_non_information_echantillon.csv` existe. |
+| Production attendue | Un court rapport reproductible avec contexte, tableau ou graphique, interprétation et limites. |
+| Données | `data/processed/requetes-311/requetes_311_non_information_echantillon.csv` |
+:::
+
+:::
+<!-- activity-teacher-brief:end -->
+
+## Objectifs d'apprentissage
+
+- Travailler Séries temporelles.
+- Travailler Nettoyage.
+- Travailler Communication.
+- Travailler Biais de déclaration.
+- Nommer au moins une limite d'interprétation.
+
+## Données utilisées
+
+Source : Données Québec / Ville de Montréal. Licence : Attribution (CC-BY 4.0) selon les métadonnées CKAN vérifiées le 2026-06-21. Fichier principal pour l'activité : `data/processed/requetes-311/requetes_311_non_information_echantillon.csv`
+
+## Préparation enseignante
+
+- Préparation requise : exécuter `Rscript datasets/requetes-311/preparation.R` depuis la racine, puis vérifier que `data/processed/requetes-311/requetes_311_non_information_echantillon.csv` existe.
+- Fichier préparé : `data/processed/requetes-311/requetes_311_non_information_echantillon.csv`.
+- Script de préparation : `datasets/requetes-311/preparation.R`.
+- Point à surveiller : Limiter le nombre de catégories et demander une section sur l'échantillonnage, les canaux de provenance et l'année 2026 partielle.
+
+## Consignes
+
+1. Importer `requetes_311_non_information_echantillon.csv` ou exécuter `datasets/requetes-311/preparation.R` si le fichier est absent.
+2. Identifier ce que représente une ligne du fichier.
+3. Produire un tableau ou un graphique adapté à la question directrice.
+4. Rédiger une interprétation courte qui distingue description et explication.
+5. Nommer au moins une limite méthodologique ou une information absente.
+
+## Résultat attendu
+
+Un court rapport reproductible avec contexte, tableau ou graphique, interprétation et limites. La production doit aussi contenir une phrase sur l'unité statistique et une phrase sur une limite de la source.
+
+## Questions
+
+1. Quelle est l'unité statistique utilisée dans cette activité?
+2. Quelle transformation ou agrégation est nécessaire avant de répondre à la question?
+3. Quelle information manque pour aller plus loin?
+4. Quelle conclusion serait trop forte avec ces seules données?
+5. Comment formuler une conclusion prudente à partir du résultat obtenu?
+
+## Déroulé suggéré
+
+1. Cadrer la source, la licence et l'unité statistique.
+2. Préparer ou importer les données.
+3. Produire un premier résumé descriptif.
+4. Construire la visualisation ou le tableau principal.
+5. Rédiger l'interprétation et les limites.
+
+## Limites à faire nommer
+
+- Limiter le nombre de catégories et demander une section sur l'échantillonnage, les canaux de provenance et l'année 2026 partielle.
+- Si une variable ou un dénominateur nécessaire n'est pas disponible dans les données, l'écrire explicitement plutôt que l'inférer.
+
 
 ## Contexte
 

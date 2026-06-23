@@ -1,8 +1,48 @@
 ---
 title: "Laboratoire - Visites par habitant dans les bibliothèques"
+embed-resources: true
 ---
 
+
 # Laboratoire - Visites par habitant dans les bibliothèques
+
+<!-- activity-teacher-brief:start -->
+::: {.activity-teacher-brief}
+
+## En classe, cette activité sert à...
+
+Cette activité sert à travailler les notions suivantes : Données et mesure, Statistique descriptive, Visualisation à partir d'une question située dans le contexte suivant : Culture et services publics. Elle demande aux étudiantes et étudiants de répondre à la question directrice suivante : Pourquoi les visites totales ne suffisent-elles pas pour comparer des bibliothèques?
+
+::: {.activity-quick-facts}
+| Élément | Information |
+|---|---|
+| Durée | 30-45 minutes |
+| Niveau | Introductif |
+| Usage recommandé | Exercice guidé |
+| Préparation enseignant | Vérifier que `data/processed/bibliotheques-quebec/statistiques_bibliotheques_quebec_2024_selection.csv` est disponible; aucune collecte en direct n'est nécessaire pour lancer l'activité. |
+| Production attendue | Un tableau ou graphique descriptif accompagné de trois phrases d'interprétation prudente. |
+| Données | `data/processed/bibliotheques-quebec/statistiques_bibliotheques_quebec_2024_selection.csv` |
+:::
+
+:::
+<!-- activity-teacher-brief:end -->
+
+## Données utilisées
+
+Source : Bibliothèque et Archives nationales du Québec / Données Québec. Licence : Attribution (CC-BY 4.0) selon les métadonnées CKAN vérifiées le 2026-06-21. Fichier principal pour l'activité : `data/processed/bibliotheques-quebec/statistiques_bibliotheques_quebec_2024_selection.csv`
+
+## Préparation enseignante
+
+- Vérifier que `data/processed/bibliotheques-quebec/statistiques_bibliotheques_quebec_2024_selection.csv` est disponible; aucune collecte en direct n'est nécessaire pour lancer l'activité.
+- Fichier préparé : `data/processed/bibliotheques-quebec/statistiques_bibliotheques_quebec_2024_selection.csv`.
+- Script de préparation : `datasets/bibliotheques-quebec/preparation.R`.
+- Point à surveiller : Faire distinguer visites totales, population desservie et visites par habitant. Insister sur la ligne sans population et sur les interprétations non causales.
+
+## Limites à faire nommer
+
+- Faire distinguer visites totales, population desservie et visites par habitant. Insister sur la ligne sans population et sur les interprétations non causales.
+- Si une variable ou un dénominateur nécessaire n'est pas disponible dans les données, l'écrire explicitement plutôt que l'inférer.
+
 
 ## Contexte
 

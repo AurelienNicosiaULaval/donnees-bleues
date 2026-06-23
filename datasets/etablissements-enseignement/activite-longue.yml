@@ -1,26 +1,38 @@
-id: "etablissements-acces-long"
-title: "Portrait territorial prudent des établissements d'enseignement"
-question: "Comment décrire un territoire scolaire sans surinterpréter une source de localisation?"
-dataset_id: "etablissements-enseignement"
-dataset_title: "Localisation des établissements d'enseignement au Québec"
-activity_url: "datasets/etablissements-enseignement/activite-longue.qmd"
-duration: "2-3 heures"
-level: "Intermédiaire"
+id: etablissements-acces-long
+title: Portrait territorial prudent des établissements d'enseignement
+question: Comment décrire un territoire scolaire sans surinterpréter une source de
+  localisation?
+dataset_id: etablissements-enseignement
+dataset_title: Localisation des établissements d'enseignement au Québec
+activity_url: datasets/etablissements-enseignement/activite-longue.qmd
+duration: 2-3 heures
+level: Intermédiaire
 activity_type:
-  - "Projet ou tâche longue"
-  - "Étude de cas"
+- Projet ou tâche longue
+- Étude de cas
 concepts:
-  - "Unité statistique"
-  - "Données manquantes"
-  - "Statistique descriptive"
-  - "Cartographie"
-context: "Éducation et territoire"
-hook: "Une bonne carte ne suffit pas : il faut savoir ce qui est compté"
+- Unité statistique
+- Données manquantes
+- Statistique descriptive
+- Cartographie
+context: Éducation et territoire
+hook: 'Une bonne carte ne suffit pas : il faut savoir ce qui est compté'
 materials:
-  - "énoncé"
-  - "code"
-  - "table préparée"
-  - "notes enseignantes"
-advanced_math_stats: false
-teacher_notes: "Exiger une section sur les lignes sans région administrative et une phrase claire disant que les coordonnées ne mesurent pas l'accessibilité."
-status: "source officielle vérifiée"
+- énoncé
+- code
+- table préparée
+- notes enseignantes
+advanced_math_stats: no
+teacher_notes: Exiger une section sur les lignes sans région administrative et une
+  phrase claire disant que les coordonnées ne mesurent pas l'accessibilité.
+status: source officielle vérifiée
+pedagogical_status: pret_a_enseigner
+teacher_preparation: 'Préparation requise : exécuter `Rscript datasets/etablissements-enseignement/preparation.R`
+  depuis la racine, puis vérifier que `data/processed/etablissements-enseignement/etablissements_enseignement_quebec.csv`
+  existe.'
+expected_output: Un court rapport reproductible avec contexte, tableau ou graphique,
+  interprétation et limites.
+requires_prepared_data: yes
+requires_live_download: yes
+recommended_use: Mini-projet guidé
+result_visible_in_page: yes

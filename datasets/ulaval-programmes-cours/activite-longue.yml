@@ -1,28 +1,39 @@
 id: ulaval-rapport-methodologique-long
-title: "Mini-projet - Rapport méthodologique sans diffusion des lignes"
-question: "Comment produire un rapport utile sur une source institutionnelle privée sans créer une diffusion publique non autorisée?"
+title: Mini-projet - Rapport méthodologique sans diffusion des lignes
+question: Comment produire un rapport utile sur une source institutionnelle privée
+  sans créer une diffusion publique non autorisée?
 dataset_id: ulaval-programmes-cours
-dataset_title: "Programmes et cours institutionnels ULaval"
-activity_url: "datasets/ulaval-programmes-cours/activite-longue.qmd"
-duration: "2-3 heures"
-level: "Intermédiaire"
+dataset_title: Programmes et cours institutionnels ULaval
+activity_url: datasets/ulaval-programmes-cours/activite-longue.qmd
+duration: 2-3 heures
+level: Intermédiaire
 activity_type:
-  - "Étude de cas"
-  - "Projet ou tâche longue"
-  - "Communication"
+- Étude de cas
+- Projet ou tâche longue
+- Communication
 concepts:
-  - "Provenance"
-  - "Validation"
-  - "Rapport reproductible"
-  - "Droits de réutilisation"
-  - "Communication prudente"
-context: "Éducation supérieure"
-hook: "Un bon rapport peut être utile sans publier les lignes privées."
+- Provenance
+- Validation
+- Rapport reproductible
+- Droits de réutilisation
+- Communication prudente
+context: Éducation supérieure
+hook: Un bon rapport peut être utile sans publier les lignes privées.
 materials:
-  - "fiche vérifiée"
-  - "script de préparation"
-  - "résumés publics"
-  - "notes méthodologiques"
-advanced_math_stats: false
-teacher_notes: "Demander un rendu local ou un rapport public sans lignes privées. Vérifier que le texte ne suggère pas une approbation officielle."
-status: "source privée locale validée"
+- fiche vérifiée
+- script de préparation
+- résumés publics
+- notes méthodologiques
+advanced_math_stats: no
+teacher_notes: Demander un rendu local ou un rapport public sans lignes privées. Vérifier
+  que le texte ne suggère pas une approbation officielle.
+status: source privée locale validée
+pedagogical_status: pret_a_enseigner
+teacher_preparation: Vérifier les droits de diffusion avant la séance; utiliser seulement
+  les résumés publics et ne pas publier les lignes de données.
+expected_output: Un court rapport reproductible avec contexte, tableau ou graphique,
+  interprétation et limites.
+requires_prepared_data: yes
+requires_live_download: no
+recommended_use: Mini-projet guidé
+result_visible_in_page: yes

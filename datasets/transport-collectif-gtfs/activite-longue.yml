@@ -1,27 +1,39 @@
 id: transport-collectif-gtfs-long
-title: "Offre planifiée du RTC en GTFS"
-question: "Quels parcours du RTC ont le plus de trajets planifiés dans le flux GTFS téléchargé?"
+title: Offre planifiée du RTC en GTFS
+question: Quels parcours du RTC ont le plus de trajets planifiés dans le flux GTFS
+  téléchargé?
 dataset_id: transport-collectif-gtfs
-dataset_title: "Horaires, arrêts et parcours GTFS du RTC"
-activity_url: "datasets/transport-collectif-gtfs/activite-longue.qmd"
-duration: "2-3 heures"
-level: "Intermédiaire"
+dataset_title: Horaires, arrêts et parcours GTFS du RTC
+activity_url: datasets/transport-collectif-gtfs/activite-longue.qmd
+duration: 2-3 heures
+level: Intermédiaire
 activity_type:
-  - "Mini-projet"
-  - "Étude de cas"
+- Mini-projet
+- Étude de cas
 concepts:
-  - "Données relationnelles"
-  - "Jointures"
-  - "GTFS"
-  - "Statistique descriptive"
-  - "Communication des limites"
-context: "Mobilité et transport collectif"
-hook: "Le nombre de trajets planifiés n'est pas un nombre d'usagers"
+- Données relationnelles
+- Jointures
+- GTFS
+- Statistique descriptive
+- Communication des limites
+context: Mobilité et transport collectif
+hook: Le nombre de trajets planifiés n'est pas un nombre d'usagers
 materials:
-  - "fiche"
-  - "code"
-  - "source officielle"
-  - "résumés préparés"
-advanced_math_stats: false
-teacher_notes: "Exiger une phrase sur la date du ZIP et une phrase distinguant GTFS statique et temps réel."
-status: "source officielle vérifiée"
+- fiche
+- code
+- source officielle
+- résumés préparés
+advanced_math_stats: no
+teacher_notes: Exiger une phrase sur la date du ZIP et une phrase distinguant GTFS
+  statique et temps réel.
+status: source officielle vérifiée
+pedagogical_status: pret_a_enseigner
+teacher_preparation: 'Préparation requise : exécuter `Rscript datasets/transport-collectif-gtfs/preparation.R`
+  depuis la racine, puis vérifier que `data/processed/transport-collectif-gtfs/arrets_gtfs_rtc.csv`
+  existe.'
+expected_output: Un court rapport reproductible avec contexte, tableau ou graphique,
+  interprétation et limites.
+requires_prepared_data: yes
+requires_live_download: yes
+recommended_use: Mini-projet guidé
+result_visible_in_page: yes

@@ -1,8 +1,76 @@
 ---
 title: "Stations RSQAQ - couverture territoriale et temporelle"
+embed-resources: true
 ---
 
+
 # Stations RSQAQ - couverture territoriale et temporelle
+
+<!-- activity-teacher-brief:start -->
+::: {.activity-teacher-brief}
+
+## En classe, cette activité sert à...
+
+Cette activité sert à travailler les notions suivantes : Données et mesure, Dates, Carte de points, Couverture territoriale, Communication prudente à partir d'une question située dans le contexte suivant : Environnement. Elle demande aux étudiantes et étudiants de répondre à la question directrice suivante : Que révèle un répertoire de stations sur la mesure environnementale, et que ne révèle-t-il pas?
+
+::: {.activity-quick-facts}
+| Élément | Information |
+|---|---|
+| Durée | 2-3 heures |
+| Niveau | Introduction à intermédiaire |
+| Usage recommandé | Mini-projet guidé |
+| Préparation enseignant | Vérifier que `data/processed/qualite-air/rsqaq_stations.csv` est disponible; aucune collecte en direct n'est nécessaire pour lancer l'activité. |
+| Production attendue | Un court rapport reproductible avec contexte, tableau ou graphique, interprétation et limites. |
+| Données | `data/processed/qualite-air/rsqaq_stations.csv` |
+:::
+
+:::
+<!-- activity-teacher-brief:end -->
+
+## Contexte
+
+Cette activité utilise le jeu de données [Stations du réseau de qualité de l'air du Québec](fiche.qmd). Elle part d'une question de classe plutôt que d'une démonstration technique : Que révèle un répertoire de stations sur la mesure environnementale, et que ne révèle-t-il pas?
+
+## Objectifs d'apprentissage
+
+- Travailler Données et mesure.
+- Travailler Dates.
+- Travailler Carte de points.
+- Travailler Couverture territoriale.
+- Nommer au moins une limite d'interprétation.
+
+## Préparation enseignante
+
+- Vérifier que `data/processed/qualite-air/rsqaq_stations.csv` est disponible; aucune collecte en direct n'est nécessaire pour lancer l'activité.
+- Fichier préparé : `data/processed/qualite-air/rsqaq_stations.csv`.
+- Script de préparation : `datasets/qualite-air/preparation.R`.
+- Point à surveiller : Exiger une section qui distingue répertoire de stations, mesures horaires, contaminants et qualité de l'air.
+
+## Consignes
+
+1. Importer `rsqaq_stations.csv` ou exécuter `datasets/qualite-air/preparation.R` si le fichier est absent.
+2. Identifier ce que représente une ligne du fichier.
+3. Produire un tableau ou un graphique adapté à la question directrice.
+4. Rédiger une interprétation courte qui distingue description et explication.
+5. Nommer au moins une limite méthodologique ou une information absente.
+
+## Résultat attendu
+
+Un court rapport reproductible avec contexte, tableau ou graphique, interprétation et limites. La production doit aussi contenir une phrase sur l'unité statistique et une phrase sur une limite de la source.
+
+## Déroulé suggéré
+
+1. Cadrer la source, la licence et l'unité statistique.
+2. Préparer ou importer les données.
+3. Produire un premier résumé descriptif.
+4. Construire la visualisation ou le tableau principal.
+5. Rédiger l'interprétation et les limites.
+
+## Limites à faire nommer
+
+- Exiger une section qui distingue répertoire de stations, mesures horaires, contaminants et qualité de l'air.
+- Si une variable ou un dénominateur nécessaire n'est pas disponible dans les données, l'écrire explicitement plutôt que l'inférer.
+
 
 ## Mise en situation professionnelle
 

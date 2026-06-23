@@ -19,5 +19,11 @@ materials:
   - "données"
 advanced_math_stats: false
 teacher_notes:
+pedagogical_status: "pret_a_enseigner"
+teacher_preparation:
+expected_output:
+requires_prepared_data: true
+requires_live_download: false
+recommended_use:
+result_visible_in_page: true
 status:
-

@@ -1,27 +1,39 @@
 id: qualite-air-pm25-court
-title: "PM2.5 et journées élevées en 2025"
-question: "Quelles journées présentent les moyennes journalières de PM2.5 les plus élevées, et que peut-on conclure prudemment?"
+title: PM2.5 et journées élevées en 2025
+question: Quelles journées présentent les moyennes journalières de PM2.5 les plus
+  élevées, et que peut-on conclure prudemment?
 dataset_id: qualite-air-horaire
-dataset_title: "Qualité de l'air au Québec"
-activity_url: "datasets/qualite-air-horaire/activite-courte.qmd"
-duration: "60-90 minutes"
-level: "Introduction à intermédiaire"
+dataset_title: Qualité de l'air au Québec
+activity_url: datasets/qualite-air-horaire/activite-courte.qmd
+duration: 60-90 minutes
+level: Introduction à intermédiaire
 activity_type:
-  - "Laboratoire d'introduction"
-  - "Exploration de données"
+- Laboratoire d'introduction
+- Exploration de données
 concepts:
-  - "séries temporelles"
-  - "résumé journalier"
-  - "valeurs manquantes"
-  - "visualisation"
-  - "communication prudente"
-context: "Environnement"
-hook: "Question québécoise concrète"
+- séries temporelles
+- résumé journalier
+- valeurs manquantes
+- visualisation
+- communication prudente
+context: Environnement
+hook: Question québécoise concrète
 materials:
-  - "fiche"
-  - "code"
-  - "données préparées"
-  - "source officielle"
-advanced_math_stats: false
-teacher_notes: "Faire comparer les résultats avec un seuil de 18 heures valides et avec 24 heures valides."
-status: "source officielle vérifiée"
+- fiche
+- code
+- données préparées
+- source officielle
+advanced_math_stats: no
+teacher_notes: Faire comparer les résultats avec un seuil de 18 heures valides et
+  avec 24 heures valides.
+status: source officielle vérifiée
+pedagogical_status: pret_a_enseigner
+teacher_preparation: 'Préparation requise : exécuter `Rscript datasets/qualite-air-horaire/preparation.R`
+  depuis la racine, puis vérifier que `data/processed/qualite-air-horaire/resume_journalier_contaminants_2025.csv`
+  existe.'
+expected_output: Un tableau ou graphique descriptif accompagné de trois phrases d'interprétation
+  prudente.
+requires_prepared_data: yes
+requires_live_download: yes
+recommended_use: Laboratoire guidé
+result_visible_in_page: yes

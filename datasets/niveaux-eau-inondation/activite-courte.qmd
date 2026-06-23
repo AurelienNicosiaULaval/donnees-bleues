@@ -1,8 +1,48 @@
 ---
 title: "Cartographier des marqueurs de niveaux d'eau"
+embed-resources: true
 ---
 
+
 # Cartographier des marqueurs de niveaux d'eau
+
+<!-- activity-teacher-brief:start -->
+::: {.activity-teacher-brief}
+
+## En classe, cette activité sert à...
+
+Cette activité sert à travailler les notions suivantes : Données spatiales, Carte, Précision de mesure, Communication du risque à partir d'une question située dans le contexte suivant : Inondations et sécurité civile. Elle demande aux étudiantes et étudiants de répondre à la question directrice suivante : Où se situent les marqueurs ponctuels de niveaux d'eau documentés lors d'inondations?
+
+::: {.activity-quick-facts}
+| Élément | Information |
+|---|---|
+| Durée | 30-45 minutes |
+| Niveau | Introductif |
+| Usage recommandé | Exercice guidé |
+| Préparation enseignant | Préparation requise : exécuter `Rscript datasets/niveaux-eau-inondation/preparation.R` depuis la racine, puis vérifier que `data/processed/niveaux-eau-inondation/niveaux_eau_inondation.csv` existe. |
+| Production attendue | Une carte ou un graphique descriptif accompagné d'une phrase sur l'unité statistique et les limites. |
+| Données | `data/processed/niveaux-eau-inondation/niveaux_eau_inondation.csv` |
+:::
+
+:::
+<!-- activity-teacher-brief:end -->
+
+## Préparation enseignante
+
+- Préparation requise : exécuter `Rscript datasets/niveaux-eau-inondation/preparation.R` depuis la racine, puis vérifier que `data/processed/niveaux-eau-inondation/niveaux_eau_inondation.csv` existe.
+- Fichier préparé : `data/processed/niveaux-eau-inondation/niveaux_eau_inondation.csv`.
+- Script de préparation : `datasets/niveaux-eau-inondation/preparation.R`.
+- Point à surveiller : Faire écrire explicitement qu'un point représente un marqueur de niveau d'eau, pas une zone inondée.
+
+## Résultat attendu
+
+Une carte ou un graphique descriptif accompagné d'une phrase sur l'unité statistique et les limites. La production doit aussi contenir une phrase sur l'unité statistique et une phrase sur une limite de la source.
+
+## Limites à faire nommer
+
+- Faire écrire explicitement qu'un point représente un marqueur de niveau d'eau, pas une zone inondée.
+- Si une variable ou un dénominateur nécessaire n'est pas disponible dans les données, l'écrire explicitement plutôt que l'inférer.
+
 
 ## Contexte
 

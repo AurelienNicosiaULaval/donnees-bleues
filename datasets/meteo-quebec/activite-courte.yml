@@ -1,25 +1,36 @@
 id: meteo-quebec-court
-title: "Variabilité saisonnière de la température à Québec"
-question: "Quelle saison présente la plus forte variabilité de température à Québec?"
+title: Variabilité saisonnière de la température à Québec
+question: Quelle saison présente la plus forte variabilité de température à Québec?
 dataset_id: meteo-quebec
-dataset_title: "Météo quotidienne à Québec"
-activity_url: "datasets/meteo-quebec/activite-courte.qmd"
-duration: "45-60 minutes"
-level: "Introduction"
+dataset_title: Météo quotidienne à Québec
+activity_url: datasets/meteo-quebec/activite-courte.qmd
+duration: 45-60 minutes
+level: Introduction
 activity_type:
-  - "Laboratoire d'introduction"
-  - "Exploration de données"
+- Laboratoire d'introduction
+- Exploration de données
 concepts:
-  - "séries temporelles"
-  - "statistiques descriptives"
-  - "valeurs manquantes"
-  - "visualisation"
-context: "Météorologie québécoise"
-hook: "Des données météo familières pour apprendre à résumer une série temporelle"
+- séries temporelles
+- statistiques descriptives
+- valeurs manquantes
+- visualisation
+context: Météorologie québécoise
+hook: Des données météo familières pour apprendre à résumer une série temporelle
 materials:
-  - "fiche"
-  - "code"
-  - "table préparée"
-advanced_math_stats: false
-teacher_notes: "Faire vérifier les valeurs manquantes avant les graphiques. Insister sur le fait que la réponse décrit une station, pas tout le Québec."
-status: "source officielle vérifiée"
+- fiche
+- code
+- table préparée
+advanced_math_stats: no
+teacher_notes: Faire vérifier les valeurs manquantes avant les graphiques. Insister
+  sur le fait que la réponse décrit une station, pas tout le Québec.
+status: source officielle vérifiée
+pedagogical_status: pret_a_enseigner
+teacher_preparation: 'Préparation requise : exécuter `Rscript datasets/meteo-quebec/preparation.R`
+  depuis la racine, puis vérifier que `data/processed/meteo-quebec/meteo_quebec.csv`
+  existe.'
+expected_output: Un tableau ou graphique descriptif accompagné de trois phrases d'interprétation
+  prudente.
+requires_prepared_data: yes
+requires_live_download: no
+recommended_use: Laboratoire guidé
+result_visible_in_page: yes

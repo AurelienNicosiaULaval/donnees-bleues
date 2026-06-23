@@ -1,24 +1,34 @@
-id: "interventions-pompiers-montreal-portrait-court"
-title: "Portrait des interventions du SIM"
-question: "Quels grands types d'interventions dominent dans la ressource courante?"
-dataset_id: "interventions-pompiers-montreal"
-dataset_title: "Interventions des pompiers de Montréal"
-activity_url: "datasets/interventions-pompiers-montreal/activite-courte.qmd"
-duration: "30-45 minutes"
-level: "Introductif"
+id: interventions-pompiers-montreal-portrait-court
+title: Portrait des interventions du SIM
+question: Quels grands types d'interventions dominent dans la ressource courante?
+dataset_id: interventions-pompiers-montreal
+dataset_title: Interventions des pompiers de Montréal
+activity_url: datasets/interventions-pompiers-montreal/activite-courte.qmd
+duration: 30-45 minutes
+level: Introductif
 activity_type:
-  - "Exercice"
-  - "Exploration de données"
+- Exercice
+- Exploration de données
 concepts:
-  - "Tableaux de fréquences"
-  - "Visualisation"
-  - "Limites d'interprétation"
-context: "Sécurité publique"
-hook: "Interventions d'urgence locales"
+- Tableaux de fréquences
+- Visualisation
+- Limites d'interprétation
+context: Sécurité publique
+hook: Interventions d'urgence locales
 materials:
-  - "énoncé"
-  - "code"
-  - "données"
-advanced_math_stats: false
-teacher_notes: "Utiliser la ressource courante et limiter l'analyse aux grands groupes d'interventions."
-status: "prêt"
+- énoncé
+- code
+- données
+advanced_math_stats: no
+teacher_notes: Utiliser la ressource courante et limiter l'analyse aux grands groupes
+  d'interventions.
+status: prêt
+pedagogical_status: a_consolider
+teacher_preparation: Lire la fiche, ouvrir la source officielle et choisir la ressource
+  à utiliser; aucun CSV préparé directement exploitable n'est garanti dans le dépôt.
+expected_output: Un tableau ou graphique descriptif accompagné de trois phrases d'interprétation
+  prudente.
+requires_prepared_data: no
+requires_live_download: yes
+recommended_use: Exercice guidé
+result_visible_in_page: yes

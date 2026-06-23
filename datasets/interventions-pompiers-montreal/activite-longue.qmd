@@ -3,7 +3,71 @@ title: "Temporalité et territoire des interventions du SIM"
 embed-resources: true
 ---
 
+
 # Temporalité et territoire des interventions du SIM
+
+<!-- activity-teacher-brief:start -->
+::: {.activity-teacher-brief}
+
+## En classe, cette activité sert à...
+
+Cette activité sert à travailler les notions suivantes : Dates, Agrégation, Comparaison de groupes, Communication à partir d'une question située dans le contexte suivant : Sécurité publique. Elle demande aux étudiantes et étudiants de répondre à la question directrice suivante : Les interventions du SIM varient-elles selon le mois et l'arrondissement?
+
+::: {.activity-quick-facts}
+| Élément | Information |
+|---|---|
+| Durée | 2-3 heures |
+| Niveau | Intermédiaire |
+| Usage recommandé | Mini-projet guidé |
+| Préparation enseignant | Lire la fiche, ouvrir la source officielle et choisir la ressource à utiliser; aucun CSV préparé directement exploitable n'est garanti dans le dépôt. |
+| Production attendue | Un court rapport reproductible avec contexte, tableau ou graphique, interprétation et limites. |
+| Données | `Je ne sais pas.` |
+:::
+
+:::
+<!-- activity-teacher-brief:end -->
+
+## Préparation enseignante
+
+- Lire la fiche, ouvrir la source officielle et choisir la ressource à utiliser; aucun CSV préparé directement exploitable n'est garanti dans le dépôt.
+- Fichier préparé : `Je ne sais pas.`
+- Script de préparation : `datasets/interventions-pompiers-montreal/preparation.R`.
+- Point à surveiller : Demander une carte agrégée ou une comparaison par arrondissement, pas une interprétation de points individuels.
+
+## Appui R minimal
+
+```{r}
+#| eval: false
+# Je ne sais pas quel CSV préparé utiliser pour cette activité.
+# Lire la fiche, choisir la ressource officielle et documenter la date d'accès.
+source("datasets/interventions-pompiers-montreal/preparation.R")
+```
+
+## Résultat attendu
+
+Un court rapport reproductible avec contexte, tableau ou graphique, interprétation et limites. La production doit aussi contenir une phrase sur l'unité statistique et une phrase sur une limite de la source.
+
+## Déroulé suggéré
+
+1. Cadrer la source, la licence et l'unité statistique.
+2. Préparer ou importer les données.
+3. Produire un premier résumé descriptif.
+4. Construire la visualisation ou le tableau principal.
+5. Rédiger l'interprétation et les limites.
+
+## Critères d'évaluation
+
+- Exactitude de l'unité statistique et de la source.
+- Reproductibilité du traitement.
+- Lisibilité du tableau ou du graphique.
+- Interprétation prudente, sans causalité non justifiée.
+- Limites clairement visibles dans le livrable.
+
+## Limites à faire nommer
+
+- Demander une carte agrégée ou une comparaison par arrondissement, pas une interprétation de points individuels.
+- Si une variable ou un dénominateur nécessaire n'est pas disponible dans les données, l'écrire explicitement plutôt que l'inférer.
+
 
 ## Contexte
 

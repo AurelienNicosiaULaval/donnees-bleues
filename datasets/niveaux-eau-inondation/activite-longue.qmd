@@ -1,8 +1,64 @@
 ---
 title: "Mini-rapport sur les niveaux d'eau d'inondation"
+embed-resources: true
 ---
 
+
 # Mini-rapport sur les niveaux d'eau d'inondation
+
+<!-- activity-teacher-brief:start -->
+::: {.activity-teacher-brief}
+
+## En classe, cette activité sert à...
+
+Cette activité sert à travailler les notions suivantes : Données spatiales, Valeurs manquantes, Précision de mesure, Communication du risque à partir d'une question située dans le contexte suivant : Inondations et sécurité civile. Elle demande aux étudiantes et étudiants de répondre à la question directrice suivante : Comment résumer des observations ponctuelles d'inondation sans surinterpréter la carte?
+
+::: {.activity-quick-facts}
+| Élément | Information |
+|---|---|
+| Durée | 2-3 heures |
+| Niveau | Intermédiaire |
+| Usage recommandé | Mini-projet guidé |
+| Préparation enseignant | Préparation requise : exécuter `Rscript datasets/niveaux-eau-inondation/preparation.R` depuis la racine, puis vérifier que `data/processed/niveaux-eau-inondation/niveaux_eau_inondation.csv` existe. |
+| Production attendue | Un court rapport reproductible avec contexte, tableau ou graphique, interprétation et limites. |
+| Données | `data/processed/niveaux-eau-inondation/niveaux_eau_inondation.csv` |
+:::
+
+:::
+<!-- activity-teacher-brief:end -->
+
+## Préparation enseignante
+
+- Préparation requise : exécuter `Rscript datasets/niveaux-eau-inondation/preparation.R` depuis la racine, puis vérifier que `data/processed/niveaux-eau-inondation/niveaux_eau_inondation.csv` existe.
+- Fichier préparé : `data/processed/niveaux-eau-inondation/niveaux_eau_inondation.csv`.
+- Script de préparation : `datasets/niveaux-eau-inondation/preparation.R`.
+- Point à surveiller : Faire distinguer marqueur ponctuel, événement d'inondation, niveau maximal et zone inondée.
+
+## Consignes
+
+1. Importer `niveaux_eau_inondation.csv` ou exécuter `datasets/niveaux-eau-inondation/preparation.R` si le fichier est absent.
+2. Identifier ce que représente une ligne du fichier.
+3. Produire un tableau ou un graphique adapté à la question directrice.
+4. Rédiger une interprétation courte qui distingue description et explication.
+5. Nommer au moins une limite méthodologique ou une information absente.
+
+## Résultat attendu
+
+Un court rapport reproductible avec contexte, tableau ou graphique, interprétation et limites. La production doit aussi contenir une phrase sur l'unité statistique et une phrase sur une limite de la source.
+
+## Déroulé suggéré
+
+1. Cadrer la source, la licence et l'unité statistique.
+2. Préparer ou importer les données.
+3. Produire un premier résumé descriptif.
+4. Construire la visualisation ou le tableau principal.
+5. Rédiger l'interprétation et les limites.
+
+## Limites à faire nommer
+
+- Faire distinguer marqueur ponctuel, événement d'inondation, niveau maximal et zone inondée.
+- Si une variable ou un dénominateur nécessaire n'est pas disponible dans les données, l'écrire explicitement plutôt que l'inférer.
+
 
 ## Contexte
 

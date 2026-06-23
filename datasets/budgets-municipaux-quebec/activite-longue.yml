@@ -1,30 +1,42 @@
 id: profil-financier-portrait-long
-title: "Portrait descriptif des profils financiers municipaux"
-question: "Comment décrire les profils financiers et fonciers des municipalités du Québec selon la classe de population et la région administrative?"
+title: Portrait descriptif des profils financiers municipaux
+question: Comment décrire les profils financiers et fonciers des municipalités du
+  Québec selon la classe de population et la région administrative?
 dataset_id: budgets-municipaux-quebec
-dataset_title: "Profil financier des municipalités locales du Québec"
-activity_url: "datasets/budgets-municipaux-quebec/activite-longue.qmd"
-duration: "2-3 heures"
-level: "Introduction à intermédiaire"
+dataset_title: Profil financier des municipalités locales du Québec
+activity_url: datasets/budgets-municipaux-quebec/activite-longue.qmd
+duration: 2-3 heures
+level: Introduction à intermédiaire
 activity_type:
-  - "Mini-projet"
-  - "Étude de cas"
-  - "Exploration de données"
+- Mini-projet
+- Étude de cas
+- Exploration de données
 concepts:
-  - "Format long"
-  - "Dictionnaire de variables"
-  - "Ratios"
-  - "Indices"
-  - "Valeurs manquantes"
-  - "Comparaison descriptive"
-context: "Finances et fiscalité municipales"
-hook: "Un profil municipal doit être décrit avant d'être comparé"
+- Format long
+- Dictionnaire de variables
+- Ratios
+- Indices
+- Valeurs manquantes
+- Comparaison descriptive
+context: Finances et fiscalité municipales
+hook: Un profil municipal doit être décrit avant d'être comparé
 materials:
-  - "fiche"
-  - "code"
-  - "table préparée"
-  - "dictionnaire des postes"
-  - "notes enseignantes"
-advanced_math_stats: false
-teacher_notes: "Demander une section explicite distinguant profil financier, richesse foncière, dépenses budgétaires et explication causale."
-status: "source officielle vérifiée"
+- fiche
+- code
+- table préparée
+- dictionnaire des postes
+- notes enseignantes
+advanced_math_stats: no
+teacher_notes: Demander une section explicite distinguant profil financier, richesse
+  foncière, dépenses budgétaires et explication causale.
+status: source officielle vérifiée
+pedagogical_status: pret_a_enseigner
+teacher_preparation: 'Préparation requise : exécuter `Rscript datasets/budgets-municipaux-quebec/preparation.R`
+  depuis la racine, puis vérifier que `data/processed/budgets-municipaux-quebec/profil_financier_municipalites_2025.csv`
+  existe.'
+expected_output: Un court rapport reproductible avec contexte, tableau ou graphique,
+  interprétation et limites.
+requires_prepared_data: yes
+requires_live_download: yes
+recommended_use: Mini-projet guidé
+result_visible_in_page: yes

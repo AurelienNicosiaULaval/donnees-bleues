@@ -1,8 +1,103 @@
 ---
 title: "Mini-projet - Écoles Québec"
+embed-resources: true
 ---
 
+
 # Mini-projet - Écoles Québec
+
+<!-- activity-teacher-brief:start -->
+::: {.activity-teacher-brief}
+
+## En classe, cette activité sert à...
+
+Cette activité sert à travailler les notions suivantes : géolocalisation, cartographie, jointures, unité statistique, double comptage, données publiques à partir d'une question située dans le contexte suivant : Éducation et territoire. Elle demande aux étudiantes et étudiants de répondre à la question directrice suivante : Comment produire une carte utile des écoles publiques du Québec sans transformer des points géographiques en conclusion sur l'accès scolaire?
+
+::: {.activity-quick-facts}
+| Élément | Information |
+|---|---|
+| Durée | 2-3 heures |
+| Niveau | Introduction à intermédiaire |
+| Usage recommandé | Mini-projet guidé |
+| Préparation enseignant | Préparation requise : exécuter `Rscript datasets/ecoles-quebec/preparation.R` depuis la racine, puis vérifier que `data/processed/ecoles-quebec/ecoles_publiques_quebec.csv` existe. |
+| Production attendue | Un court rapport reproductible avec contexte, tableau ou graphique, interprétation et limites. |
+| Données | `data/processed/ecoles-quebec/ecoles_publiques_quebec.csv` |
+:::
+
+:::
+<!-- activity-teacher-brief:end -->
+
+## Objectifs d'apprentissage
+
+- Travailler géolocalisation.
+- Travailler cartographie.
+- Travailler jointures.
+- Travailler unité statistique.
+- Nommer au moins une limite d'interprétation.
+
+## Données utilisées
+
+Source : Données Québec / Ministère de l'Éducation et Ministère de l'Enseignement supérieur. Licence : Attribution (CC-BY 4.0) selon les métadonnées CKAN vérifiées le 2026-06-20. Fichier principal pour l'activité : `data/processed/ecoles-quebec/ecoles_publiques_quebec.csv`
+
+## Préparation enseignante
+
+- Préparation requise : exécuter `Rscript datasets/ecoles-quebec/preparation.R` depuis la racine, puis vérifier que `data/processed/ecoles-quebec/ecoles_publiques_quebec.csv` existe.
+- Fichier préparé : `data/processed/ecoles-quebec/ecoles_publiques_quebec.csv`.
+- Script de préparation : `datasets/ecoles-quebec/preparation.R`.
+- Point à surveiller : Demander une comparaison explicite entre lignes, organismes et immeubles, puis une limite sur l'accès scolaire.
+
+## Consignes
+
+1. Importer `ecoles_publiques_quebec.csv` ou exécuter `datasets/ecoles-quebec/preparation.R` si le fichier est absent.
+2. Identifier ce que représente une ligne du fichier.
+3. Produire un tableau ou un graphique adapté à la question directrice.
+4. Rédiger une interprétation courte qui distingue description et explication.
+5. Nommer au moins une limite méthodologique ou une information absente.
+
+## Appui R minimal
+
+```{r}
+#| eval: false
+library(dplyr)
+library(readr)
+
+if (!file.exists("data/processed/ecoles-quebec/ecoles_publiques_quebec.csv")) {
+  source("datasets/ecoles-quebec/preparation.R")
+}
+
+donnees <- read_csv(
+  "data/processed/ecoles-quebec/ecoles_publiques_quebec.csv",
+  show_col_types = FALSE
+)
+
+glimpse(donnees)
+```
+
+## Résultat attendu
+
+Un court rapport reproductible avec contexte, tableau ou graphique, interprétation et limites. La production doit aussi contenir une phrase sur l'unité statistique et une phrase sur une limite de la source.
+
+## Questions
+
+1. Quelle est l'unité statistique utilisée dans cette activité?
+2. Quelle transformation ou agrégation est nécessaire avant de répondre à la question?
+3. Quelle information manque pour aller plus loin?
+4. Quelle conclusion serait trop forte avec ces seules données?
+5. Comment formuler une conclusion prudente à partir du résultat obtenu?
+
+## Déroulé suggéré
+
+1. Cadrer la source, la licence et l'unité statistique.
+2. Préparer ou importer les données.
+3. Produire un premier résumé descriptif.
+4. Construire la visualisation ou le tableau principal.
+5. Rédiger l'interprétation et les limites.
+
+## Limites à faire nommer
+
+- Demander une comparaison explicite entre lignes, organismes et immeubles, puis une limite sur l'accès scolaire.
+- Si une variable ou un dénominateur nécessaire n'est pas disponible dans les données, l'écrire explicitement plutôt que l'inférer.
+
 
 ## Contexte
 

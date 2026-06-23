@@ -1,26 +1,37 @@
 id: retards-transport-collectif-court
-title: "Laboratoire - Peut-on mesurer les retards STM avec cette source?"
-question: "Peut-on mesurer les retards des bus STM directement avec cette source, ou faut-il d'abord construire un protocole d'archivage?"
+title: Laboratoire - Peut-on mesurer les retards STM avec cette source?
+question: Peut-on mesurer les retards des bus STM directement avec cette source, ou
+  faut-il d'abord construire un protocole d'archivage?
 dataset_id: retards-transport-collectif
-dataset_title: "Flux temps réel STM et ponctualité des bus"
-activity_url: "datasets/retards-transport-collectif/activite-courte.qmd"
-duration: "45-60 minutes"
-level: "Intermédiaire"
+dataset_title: Flux temps réel STM et ponctualité des bus
+activity_url: datasets/retards-transport-collectif/activite-courte.qmd
+duration: 45-60 minutes
+level: Intermédiaire
 activity_type:
-  - "Laboratoire d'audit de source"
-  - "Métadonnées et protocole"
+- Laboratoire d'audit de source
+- Métadonnées et protocole
 concepts:
-  - "flux temps réel"
-  - "métadonnées"
-  - "unité statistique"
-  - "variables dérivées"
-context: "Mobilité et performance de service"
-hook: "Une source officielle peut être réelle sans être immédiatement analysable."
+- flux temps réel
+- métadonnées
+- unité statistique
+- variables dérivées
+context: Mobilité et performance de service
+hook: Une source officielle peut être réelle sans être immédiatement analysable.
 materials:
-  - "fiche"
-  - "code"
-  - "API CKAN"
-  - "source officielle"
-advanced_math_stats: false
-teacher_notes: "Faire écrire explicitement ce qui est vérifié, ce qui ne l'est pas et ce qui devrait être collecté avant toute moyenne de retard."
-status: "prêt à enseigner"
+- fiche
+- code
+- API CKAN
+- source officielle
+advanced_math_stats: no
+teacher_notes: Faire écrire explicitement ce qui est vérifié, ce qui ne l'est pas
+  et ce qui devrait être collecté avant toute moyenne de retard.
+status: prêt à enseigner
+pedagogical_status: pret_a_enseigner
+teacher_preparation: Vérifier que `data/processed/retards-transport-collectif/resume_retards_transport.csv`
+  est disponible; aucune collecte en direct n'est nécessaire pour lancer l'activité.
+expected_output: Un protocole ou une note d'audit qui distingue ce qui est vérifié,
+  ce qui manque et ce qui ne peut pas encore être mesuré.
+requires_prepared_data: yes
+requires_live_download: no
+recommended_use: Audit de source
+result_visible_in_page: yes

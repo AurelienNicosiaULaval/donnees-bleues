@@ -1,26 +1,38 @@
 id: condamnations-alimentaires-quebec-long
-title: "Mini-projet - Condamnations alimentaires"
-question: "Produire un court article reproductible sur les condamnations alimentaires sans interprétation sensationnaliste."
+title: Mini-projet - Condamnations alimentaires
+question: Produire un court article reproductible sur les condamnations alimentaires
+  sans interprétation sensationnaliste.
 dataset_id: condamnations-alimentaires-quebec
-dataset_title: "Condamnations des établissements alimentaires au Québec"
-activity_url: "datasets/condamnations-alimentaires-quebec/activite-longue.qmd"
-duration: "2-3 heures"
-level: "Introduction à intermédiaire"
+dataset_title: Condamnations des établissements alimentaires au Québec
+activity_url: datasets/condamnations-alimentaires-quebec/activite-longue.qmd
+duration: 2-3 heures
+level: Introduction à intermédiaire
 activity_type:
-  - "Projet ou tâche longue"
-  - "Étude de cas"
+- Projet ou tâche longue
+- Étude de cas
 concepts:
-  - "variables catégorielles"
-  - "dates"
-  - "montants"
-  - "communication publique"
-context: "Santé publique et alimentation"
-hook: "Journalisme de données"
+- variables catégorielles
+- dates
+- montants
+- communication publique
+context: Santé publique et alimentation
+hook: Journalisme de données
 materials:
-  - "fiche"
-  - "code"
-  - "source officielle"
-  - "notes enseignantes"
-advanced_math_stats: false
-teacher_notes: "Demander une section sur les limites, surtout l'absence de dénominateur, les délais administratifs et les précautions liées aux noms et adresses publics."
-status: "source officielle vérifiée le 2026-06-20"
+- fiche
+- code
+- source officielle
+- notes enseignantes
+advanced_math_stats: no
+teacher_notes: Demander une section sur les limites, surtout l'absence de dénominateur,
+  les délais administratifs et les précautions liées aux noms et adresses publics.
+status: source officielle vérifiée le 2026-06-20
+pedagogical_status: pret_a_enseigner
+teacher_preparation: 'Préparation requise : exécuter `Rscript datasets/condamnations-alimentaires-quebec/preparation.R`
+  depuis la racine, puis vérifier que `data/processed/condamnations-alimentaires-quebec/condamnations_alimentaires_quebec.csv`
+  existe.'
+expected_output: Un court rapport reproductible avec contexte, tableau ou graphique,
+  interprétation et limites.
+requires_prepared_data: yes
+requires_live_download: no
+recommended_use: Mini-projet guidé
+result_visible_in_page: yes

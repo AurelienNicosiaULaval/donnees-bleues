@@ -1,29 +1,40 @@
 id: qualite-eau-bassins-long
-title: "Mini-projet - Bassins versants et qualité de l'eau"
-question: "Comment comparer des stations ou des bassins versants sans confondre couverture du suivi, indicateurs agrégés et causalité environnementale?"
+title: Mini-projet - Bassins versants et qualité de l'eau
+question: Comment comparer des stations ou des bassins versants sans confondre couverture
+  du suivi, indicateurs agrégés et causalité environnementale?
 dataset_id: suivi-rivieres-fleuve
-dataset_title: "Suivi de la qualité de l'eau du fleuve et des rivières"
-activity_url: "datasets/suivi-rivieres-fleuve/activite-longue.qmd"
-duration: "2-3 heures"
-level: "Intermédiaire"
+dataset_title: Suivi de la qualité de l'eau du fleuve et des rivières
+activity_url: datasets/suivi-rivieres-fleuve/activite-longue.qmd
+duration: 2-3 heures
+level: Intermédiaire
 activity_type:
-  - "Étude de cas"
-  - "Projet ou tâche longue"
-  - "Exploration de données"
+- Étude de cas
+- Projet ou tâche longue
+- Exploration de données
 concepts:
-  - "Séries temporelles agrégées"
-  - "Visualisation"
-  - "Données spatiales"
-  - "Jointure"
-  - "Communication prudente"
-context: "Qualité de l'eau"
-hook: "Comparer des bassins exige de distinguer couverture de suivi et état environnemental."
+- Séries temporelles agrégées
+- Visualisation
+- Données spatiales
+- Jointure
+- Communication prudente
+context: Qualité de l'eau
+hook: Comparer des bassins exige de distinguer couverture de suivi et état environnemental.
 materials:
-  - "fiche vérifiée"
-  - "script de préparation"
-  - "table préparée"
-  - "résumés R"
-  - "notes enseignantes"
-advanced_math_stats: false
-teacher_notes: "Exiger une section séparée sur les limites: période, unité statistique, valeurs manquantes et causalité."
-status: "source officielle vérifiée"
+- fiche vérifiée
+- script de préparation
+- table préparée
+- résumés R
+- notes enseignantes
+advanced_math_stats: no
+teacher_notes: 'Exiger une section séparée sur les limites: période, unité statistique,
+  valeurs manquantes et causalité.'
+status: source officielle vérifiée
+pedagogical_status: pret_a_enseigner
+teacher_preparation: Vérifier que `data/processed/suivi-rivieres-fleuve/stations_qualite_eau_aires.csv`
+  est disponible; aucune collecte en direct n'est nécessaire pour lancer l'activité.
+expected_output: Un court rapport reproductible avec contexte, tableau ou graphique,
+  interprétation et limites.
+requires_prepared_data: yes
+requires_live_download: no
+recommended_use: Mini-projet guidé
+result_visible_in_page: yes

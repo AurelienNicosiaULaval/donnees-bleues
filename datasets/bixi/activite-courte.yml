@@ -1,25 +1,35 @@
 id: bixi-disponibilite-stations-court
-title: "Laboratoire - Disponibilité instantanée des stations BIXI"
-question: "Comment décrire la disponibilité des vélos BIXI dans un instantané?"
+title: Laboratoire - Disponibilité instantanée des stations BIXI
+question: Comment décrire la disponibilité des vélos BIXI dans un instantané?
 dataset_id: bixi
-dataset_title: "État des stations BIXI"
-activity_url: "datasets/bixi/activite-courte.qmd"
-duration: "30-45 minutes"
-level: "Introductif"
+dataset_title: État des stations BIXI
+activity_url: datasets/bixi/activite-courte.qmd
+duration: 30-45 minutes
+level: Introductif
 activity_type:
-  - "Exercice"
-  - "Exploration de données"
+- Exercice
+- Exploration de données
 concepts:
-  - "Données et mesure"
-  - "Statistique descriptive"
-  - "Visualisation"
-context: "Mobilité urbaine"
-hook: "Un flux temps réel ne mesure pas directement la demande"
+- Données et mesure
+- Statistique descriptive
+- Visualisation
+context: Mobilité urbaine
+hook: Un flux temps réel ne mesure pas directement la demande
 materials:
-  - "fiche vérifiée"
-  - "script de préparation"
-  - "table préparée"
-  - "résumés R"
-advanced_math_stats: false
-teacher_notes: "Faire distinguer disponibilité instantanée, demande des usagers et rééquilibrage opérationnel. Filtrer les coordonnées invalides avant toute carte."
-status: "source officielle vérifiée"
+- fiche vérifiée
+- script de préparation
+- table préparée
+- résumés R
+advanced_math_stats: no
+teacher_notes: Faire distinguer disponibilité instantanée, demande des usagers et
+  rééquilibrage opérationnel. Filtrer les coordonnées invalides avant toute carte.
+status: source officielle vérifiée
+pedagogical_status: pret_a_enseigner
+teacher_preparation: Vérifier que `data/processed/bixi/stations_bixi_snapshot.csv`
+  est disponible; aucune collecte en direct n'est nécessaire pour lancer l'activité.
+expected_output: Un tableau ou graphique descriptif accompagné de trois phrases d'interprétation
+  prudente.
+requires_prepared_data: yes
+requires_live_download: no
+recommended_use: Exercice guidé
+result_visible_in_page: yes

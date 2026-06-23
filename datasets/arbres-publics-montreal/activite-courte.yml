@@ -1,25 +1,36 @@
-id: "arbres-publics-essences-court"
-title: "Essences d'arbres par arrondissement"
-question: "Quelles essences d'arbres publics sont les plus fréquentes dans un arrondissement choisi?"
-dataset_id: "arbres-publics-montreal"
-dataset_title: "Arbres publics sur le territoire de Montréal"
-activity_url: "datasets/arbres-publics-montreal/activite-courte.qmd"
-duration: "30-45 minutes"
-level: "Introductif"
+id: arbres-publics-essences-court
+title: Essences d'arbres par arrondissement
+question: Quelles essences d'arbres publics sont les plus fréquentes dans un arrondissement
+  choisi?
+dataset_id: arbres-publics-montreal
+dataset_title: Arbres publics sur le territoire de Montréal
+activity_url: datasets/arbres-publics-montreal/activite-courte.qmd
+duration: 30-45 minutes
+level: Introductif
 activity_type:
-  - "Laboratoire"
-  - "Exploration de données"
+- Laboratoire
+- Exploration de données
 concepts:
-  - "Comptage"
-  - "Catégories"
-  - "Visualisation"
-  - "Qualité des données"
-context: "Foresterie urbaine"
-hook: "Un arbre inventorié n'est pas une mesure complète de canopée"
+- Comptage
+- Catégories
+- Visualisation
+- Qualité des données
+context: Foresterie urbaine
+hook: Un arbre inventorié n'est pas une mesure complète de canopée
 materials:
-  - "énoncé"
-  - "code"
-  - "table préparée"
-advanced_math_stats: false
-teacher_notes: "Préparer un extrait si la taille du fichier ralentit les postes étudiants."
-status: "source officielle vérifiée"
+- énoncé
+- code
+- table préparée
+advanced_math_stats: no
+teacher_notes: Préparer un extrait si la taille du fichier ralentit les postes étudiants.
+status: source officielle vérifiée
+pedagogical_status: pret_a_enseigner
+teacher_preparation: 'Préparation requise : exécuter `Rscript datasets/arbres-publics-montreal/preparation.R`
+  depuis la racine, puis vérifier que `data/processed/arbres-publics-montreal/arbres_publics_montreal.csv`
+  existe.'
+expected_output: Un tableau ou graphique descriptif accompagné de trois phrases d'interprétation
+  prudente.
+requires_prepared_data: yes
+requires_live_download: yes
+recommended_use: Exercice guidé
+result_visible_in_page: yes

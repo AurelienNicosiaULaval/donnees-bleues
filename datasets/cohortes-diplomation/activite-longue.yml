@@ -1,27 +1,38 @@
 id: diplomation-tendances-cohortes-long
-title: "Tendances de diplomation selon l'IMSE"
-question: "Comment l'écart de diplomation évolue-t-il, et quelles limites faut-il expliciter?"
+title: Tendances de diplomation selon l'IMSE
+question: Comment l'écart de diplomation évolue-t-il, et quelles limites faut-il expliciter?
 dataset_id: cohortes-diplomation
-dataset_title: "Cohortes de diplomation"
-activity_url: "datasets/cohortes-diplomation/activite-longue.qmd"
-duration: "2-3 heures"
-level: "Introductif à intermédiaire"
+dataset_title: Cohortes de diplomation
+activity_url: datasets/cohortes-diplomation/activite-longue.qmd
+duration: 2-3 heures
+level: Introductif à intermédiaire
 activity_type:
-  - "Étude de cas"
-  - "Projet ou tâche longue"
-  - "Exploration de données"
+- Étude de cas
+- Projet ou tâche longue
+- Exploration de données
 concepts:
-  - "Séries temporelles"
-  - "Comparaison de groupes"
-  - "Visualisation"
-  - "Communication"
-context: "Éducation"
-hook: "Comparer les cohortes sans surinterpréter des taux agrégés"
+- Séries temporelles
+- Comparaison de groupes
+- Visualisation
+- Communication
+context: Éducation
+hook: Comparer les cohortes sans surinterpréter des taux agrégés
 materials:
-  - "énoncé"
-  - "code"
-  - "données"
-  - "notes enseignantes"
-advanced_math_stats: false
-teacher_notes: "Demander une section explicite sur les limites d'un indicateur agrégé fondé sur le lieu de résidence, ainsi qu'un contrôle de cohérence entre les deux taux et l'écart publié."
-status: "source officielle vérifiée le 2026-06-20"
+- énoncé
+- code
+- données
+- notes enseignantes
+advanced_math_stats: no
+teacher_notes: Demander une section explicite sur les limites d'un indicateur agrégé
+  fondé sur le lieu de résidence, ainsi qu'un contrôle de cohérence entre les deux
+  taux et l'écart publié.
+status: source officielle vérifiée le 2026-06-20
+pedagogical_status: pret_a_enseigner
+teacher_preparation: Vérifier les droits de diffusion avant la séance; utiliser seulement
+  les résumés publics et ne pas publier les lignes de données.
+expected_output: Un court rapport reproductible avec contexte, tableau ou graphique,
+  interprétation et limites.
+requires_prepared_data: yes
+requires_live_download: no
+recommended_use: Mini-projet guidé
+result_visible_in_page: yes

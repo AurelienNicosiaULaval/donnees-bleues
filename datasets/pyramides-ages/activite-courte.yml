@@ -1,28 +1,38 @@
 id: pyramides-ages-quebec-court
-title: "Pyramide des âges du Québec en 2025"
-question: "Comment transformer une table démographique en pyramide des âges lisible?"
+title: Pyramide des âges du Québec en 2025
+question: Comment transformer une table démographique en pyramide des âges lisible?
 dataset_id: pyramides-ages
-dataset_title: "Pyramides des âges au Canada et au Québec"
-activity_url: "datasets/pyramides-ages/activite-courte.qmd"
-duration: "30-45 minutes"
-level: "Introductif"
+dataset_title: Pyramides des âges au Canada et au Québec
+activity_url: datasets/pyramides-ages/activite-courte.qmd
+duration: 30-45 minutes
+level: Introductif
 activity_type:
-  - "Exercice"
-  - "Visualisation"
-  - "Exploration de données"
+- Exercice
+- Visualisation
+- Exploration de données
 concepts:
-  - "Données ouvertes"
-  - "Filtrage"
-  - "Statistique descriptive"
-  - "Visualisation"
-  - "Proportions"
-context: "Démographie"
-hook: "Graphique emblématique"
+- Données ouvertes
+- Filtrage
+- Statistique descriptive
+- Visualisation
+- Proportions
+context: Démographie
+hook: Graphique emblématique
 materials:
-  - "énoncé"
-  - "code"
-  - "données préparées"
-  - "source officielle"
-advanced_math_stats: false
-teacher_notes: "Insister sur la différence entre population réelle, proportion et valeur négative d'affichage."
-status: "source officielle vérifiée"
+- énoncé
+- code
+- données préparées
+- source officielle
+advanced_math_stats: no
+teacher_notes: Insister sur la différence entre population réelle, proportion et valeur
+  négative d'affichage.
+status: source officielle vérifiée
+pedagogical_status: pret_a_enseigner
+teacher_preparation: Vérifier que `data/processed/pyramides-ages/population_pyramides_quebec_canada_latest.csv`
+  est disponible; aucune collecte en direct n'est nécessaire pour lancer l'activité.
+expected_output: Un tableau ou graphique descriptif accompagné de trois phrases d'interprétation
+  prudente.
+requires_prepared_data: yes
+requires_live_download: no
+recommended_use: Exercice guidé
+result_visible_in_page: yes

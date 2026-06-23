@@ -1,26 +1,38 @@
-id: "actes-criminels-rapport-long"
-title: "Rapport descriptif et éthique sur les actes criminels"
-question: "Comment construire un rapport descriptif responsable avec des données policières ouvertes?"
-dataset_id: "actes-criminels-montreal"
-dataset_title: "Actes criminels enregistrés à Montréal"
-activity_url: "datasets/actes-criminels-montreal/activite-longue.qmd"
-duration: "2-3 heures"
-level: "Avancé"
+id: actes-criminels-rapport-long
+title: Rapport descriptif et éthique sur les actes criminels
+question: Comment construire un rapport descriptif responsable avec des données policières
+  ouvertes?
+dataset_id: actes-criminels-montreal
+dataset_title: Actes criminels enregistrés à Montréal
+activity_url: datasets/actes-criminels-montreal/activite-longue.qmd
+duration: 2-3 heures
+level: Avancé
 activity_type:
-  - "Mini-projet"
-  - "Étude de cas"
+- Mini-projet
+- Étude de cas
 concepts:
-  - "Éthique"
-  - "Séries temporelles"
-  - "Agrégation"
-  - "Communication des limites"
-context: "Sécurité publique"
-hook: "Un rapport responsable doit contenir des limites aussi visibles que les résultats"
+- Éthique
+- Séries temporelles
+- Agrégation
+- Communication des limites
+context: Sécurité publique
+hook: Un rapport responsable doit contenir des limites aussi visibles que les résultats
 materials:
-  - "énoncé"
-  - "code"
-  - "source officielle"
-  - "résumés préparés"
-advanced_math_stats: false
-teacher_notes: "Exiger une section limites et interdire les conclusions sur les personnes ou communautés."
-status: "source officielle vérifiée"
+- énoncé
+- code
+- source officielle
+- résumés préparés
+advanced_math_stats: no
+teacher_notes: Exiger une section limites et interdire les conclusions sur les personnes
+  ou communautés.
+status: source officielle vérifiée
+pedagogical_status: pret_a_enseigner
+teacher_preparation: 'Préparation requise : exécuter `Rscript datasets/actes-criminels-montreal/preparation.R`
+  depuis la racine, puis vérifier que `data/processed/actes-criminels-montreal/actes_criminels_montreal.csv`
+  existe.'
+expected_output: Un court rapport reproductible avec contexte, tableau ou graphique,
+  interprétation et limites.
+requires_prepared_data: yes
+requires_live_download: yes
+recommended_use: Mini-projet guidé
+result_visible_in_page: yes

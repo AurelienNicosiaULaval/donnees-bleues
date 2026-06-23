@@ -1,26 +1,37 @@
-id: "grhq-carte-court"
-title: "Choisir une unité GRHQ avec l'index de téléchargement"
-question: "Comment choisir une unité GRHQ avant de télécharger une géodatabase?"
-dataset_id: "grhq"
-dataset_title: "Géobase du réseau hydrographique du Québec"
-activity_url: "datasets/grhq/activite-courte.qmd"
-duration: "30-45 minutes"
-level: "Intermédiaire"
+id: grhq-carte-court
+title: Choisir une unité GRHQ avec l'index de téléchargement
+question: Comment choisir une unité GRHQ avant de télécharger une géodatabase?
+dataset_id: grhq
+dataset_title: Géobase du réseau hydrographique du Québec
+activity_url: datasets/grhq/activite-courte.qmd
+duration: 30-45 minutes
+level: Intermédiaire
 activity_type:
-  - "Exercice"
-  - "Exploration de données"
+- Exercice
+- Exploration de données
 concepts:
-  - "Index de téléchargement"
-  - "Métadonnées"
-  - "Données spatiales"
-  - "Reproductibilité"
-context: "Hydrographie"
-hook: "Avant la carte, il faut choisir le bon fichier"
+- Index de téléchargement
+- Métadonnées
+- Données spatiales
+- Reproductibilité
+context: Hydrographie
+hook: Avant la carte, il faut choisir le bon fichier
 materials:
-  - "énoncé"
-  - "code"
-  - "index préparé"
-  - "page source"
-advanced_math_stats: false
-teacher_notes: "Ne pas faire télécharger les FGDB dans l'activité courte. L'objectif est de comprendre l'index et de justifier une unité de téléchargement."
-status: "source officielle vérifiée"
+- énoncé
+- code
+- index préparé
+- page source
+advanced_math_stats: no
+teacher_notes: Ne pas faire télécharger les FGDB dans l'activité courte. L'objectif
+  est de comprendre l'index et de justifier une unité de téléchargement.
+status: source officielle vérifiée
+pedagogical_status: pret_a_enseigner
+teacher_preparation: 'Préparation requise : exécuter `Rscript datasets/grhq/preparation.R`
+  depuis la racine, puis vérifier que `data/processed/grhq/grhq_index_telechargement.csv`
+  existe.'
+expected_output: Un tableau ou graphique descriptif accompagné de trois phrases d'interprétation
+  prudente.
+requires_prepared_data: yes
+requires_live_download: yes
+recommended_use: Exercice guidé
+result_visible_in_page: yes

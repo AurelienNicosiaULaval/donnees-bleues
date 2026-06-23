@@ -1,25 +1,36 @@
 id: rsqaq-stations-types-court
-title: "Types de milieu et statut préparé des stations"
-question: "Comment les stations sans date de fermeture se répartissent-elles selon le type de milieu?"
+title: Types de milieu et statut préparé des stations
+question: Comment les stations sans date de fermeture se répartissent-elles selon
+  le type de milieu?
 dataset_id: qualite-air
-dataset_title: "Stations du réseau de qualité de l'air du Québec"
-activity_url: "datasets/qualite-air/activite-courte.qmd"
-duration: "30-45 minutes"
-level: "Introduction"
+dataset_title: Stations du réseau de qualité de l'air du Québec
+activity_url: datasets/qualite-air/activite-courte.qmd
+duration: 30-45 minutes
+level: Introduction
 activity_type:
-  - "Exercice"
-  - "Exploration de données"
+- Exercice
+- Exploration de données
 concepts:
-  - "Données et mesure"
-  - "Valeurs manquantes"
-  - "Statistique descriptive"
-  - "Visualisation"
-context: "Environnement"
-hook: "Une station de mesure n'est pas une mesure de pollution"
+- Données et mesure
+- Valeurs manquantes
+- Statistique descriptive
+- Visualisation
+context: Environnement
+hook: Une station de mesure n'est pas une mesure de pollution
 materials:
-  - "énoncé"
-  - "code"
-  - "table préparée"
-advanced_math_stats: false
-teacher_notes: "Faire expliciter que station_sans_date_fermeture est une règle de préparation basée sur la date de fermeture publiée."
-status: "source officielle vérifiée"
+- énoncé
+- code
+- table préparée
+advanced_math_stats: no
+teacher_notes: Faire expliciter que station_sans_date_fermeture est une règle de préparation
+  basée sur la date de fermeture publiée.
+status: source officielle vérifiée
+pedagogical_status: pret_a_enseigner
+teacher_preparation: Vérifier que `data/processed/qualite-air/rsqaq_stations.csv`
+  est disponible; aucune collecte en direct n'est nécessaire pour lancer l'activité.
+expected_output: Un tableau ou graphique descriptif accompagné de trois phrases d'interprétation
+  prudente.
+requires_prepared_data: yes
+requires_live_download: no
+recommended_use: Exercice guidé
+result_visible_in_page: yes

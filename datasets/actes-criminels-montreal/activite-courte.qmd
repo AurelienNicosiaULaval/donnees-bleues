@@ -1,8 +1,79 @@
 ---
 title: "Laboratoire - Lire prudemment des données de sécurité publique"
+embed-resources: true
 ---
 
+
 # Laboratoire - Lire prudemment des données de sécurité publique
+
+<!-- activity-teacher-brief:start -->
+::: {.activity-teacher-brief}
+
+## En classe, cette activité sert à...
+
+Cette activité sert à travailler les notions suivantes : Données sensibles, Unité statistique, Catégories, Statistique descriptive, Éthique à partir d'une question située dans le contexte suivant : Sécurité publique. Elle demande aux étudiantes et étudiants de répondre à la question directrice suivante : Que peut-on décrire sans transformer ces données ouvertes en statistiques officielles?
+
+::: {.activity-quick-facts}
+| Élément | Information |
+|---|---|
+| Durée | 30-45 minutes |
+| Niveau | Intermédiaire |
+| Usage recommandé | Discussion guidée |
+| Préparation enseignant | Préparation requise : exécuter `Rscript datasets/actes-criminels-montreal/preparation.R` depuis la racine, puis vérifier que `data/processed/actes-criminels-montreal/actes_criminels_montreal.csv` existe. |
+| Production attendue | Un tableau ou graphique descriptif accompagné de trois phrases d'interprétation prudente. |
+| Données | `data/processed/actes-criminels-montreal/actes_criminels_montreal.csv` |
+:::
+
+:::
+<!-- activity-teacher-brief:end -->
+
+## Données utilisées
+
+Source : Données Québec / Ville de Montréal / SPVM. Licence : Attribution (CC-BY 4.0) selon les métadonnées CKAN vérifiées le 2026-06-21. Fichier principal pour l'activité : `data/processed/actes-criminels-montreal/actes_criminels_montreal.csv`
+
+## Préparation enseignante
+
+- Préparation requise : exécuter `Rscript datasets/actes-criminels-montreal/preparation.R` depuis la racine, puis vérifier que `data/processed/actes-criminels-montreal/actes_criminels_montreal.csv` existe.
+- Fichier préparé : `data/processed/actes-criminels-montreal/actes_criminels_montreal.csv`.
+- Script de préparation : `datasets/actes-criminels-montreal/preparation.R`.
+- Point à surveiller : Ne pas demander de classement de quartiers dangereux et interdire les cartes de points bruts.
+
+## Code R minimal
+
+```{r}
+#| eval: false
+library(dplyr)
+library(readr)
+
+if (!file.exists("data/processed/actes-criminels-montreal/actes_criminels_montreal.csv")) {
+  source("datasets/actes-criminels-montreal/preparation.R")
+}
+
+donnees <- read_csv(
+  "data/processed/actes-criminels-montreal/actes_criminels_montreal.csv",
+  show_col_types = FALSE
+)
+
+glimpse(donnees)
+```
+
+## Résultat attendu
+
+Un tableau ou graphique descriptif accompagné de trois phrases d'interprétation prudente. La production doit aussi contenir une phrase sur l'unité statistique et une phrase sur une limite de la source.
+
+## Questions
+
+1. Quelle est l'unité statistique utilisée dans cette activité?
+2. Quelle transformation ou agrégation est nécessaire avant de répondre à la question?
+3. Quelle information manque pour aller plus loin?
+4. Quelle conclusion serait trop forte avec ces seules données?
+5. Comment formuler une conclusion prudente à partir du résultat obtenu?
+
+## Limites à faire nommer
+
+- Ne pas demander de classement de quartiers dangereux et interdire les cartes de points bruts.
+- Si une variable ou un dénominateur nécessaire n'est pas disponible dans les données, l'écrire explicitement plutôt que l'inférer.
+
 
 ## Contexte
 

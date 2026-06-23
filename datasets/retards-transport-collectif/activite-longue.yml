@@ -1,28 +1,39 @@
 id: retards-transport-collectif-long
-title: "Mini-projet - Concevoir un protocole d'archivage GTFS-realtime"
-question: "Comment archiver un flux GTFS-realtime pour produire une table de ponctualité utilisable en statistique descriptive?"
+title: Mini-projet - Concevoir un protocole d'archivage GTFS-realtime
+question: Comment archiver un flux GTFS-realtime pour produire une table de ponctualité
+  utilisable en statistique descriptive?
 dataset_id: retards-transport-collectif
-dataset_title: "Flux temps réel STM et ponctualité des bus"
-activity_url: "datasets/retards-transport-collectif/activite-longue.qmd"
-duration: "2-3 heures"
-level: "Intermédiaire"
+dataset_title: Flux temps réel STM et ponctualité des bus
+activity_url: datasets/retards-transport-collectif/activite-longue.qmd
+duration: 2-3 heures
+level: Intermédiaire
 activity_type:
-  - "Projet ou tâche longue"
-  - "Protocole de collecte"
+- Projet ou tâche longue
+- Protocole de collecte
 concepts:
-  - "flux temps réel"
-  - "séries temporelles"
-  - "échantillonnage temporel"
-  - "données manquantes"
-  - "qualité de service"
-context: "Mobilité et performance de service"
-hook: "Avant de modéliser un retard, il faut construire la donnée qui le mesure."
+- flux temps réel
+- séries temporelles
+- échantillonnage temporel
+- données manquantes
+- qualité de service
+context: Mobilité et performance de service
+hook: Avant de modéliser un retard, il faut construire la donnée qui le mesure.
 materials:
-  - "fiche"
-  - "code"
-  - "API CKAN"
-  - "source officielle"
-  - "protocole d'archivage"
-advanced_math_stats: false
-teacher_notes: "Évaluer la qualité du protocole et la prudence statistique plutôt que la capacité à accéder au flux en direct."
-status: "prêt à enseigner"
+- fiche
+- code
+- API CKAN
+- source officielle
+- protocole d'archivage
+advanced_math_stats: no
+teacher_notes: Évaluer la qualité du protocole et la prudence statistique plutôt que
+  la capacité à accéder au flux en direct.
+status: prêt à enseigner
+pedagogical_status: pret_a_enseigner
+teacher_preparation: Vérifier que `data/processed/retards-transport-collectif/resume_retards_transport.csv`
+  est disponible; aucune collecte en direct n'est nécessaire pour lancer l'activité.
+expected_output: Un protocole ou une note d'audit qui distingue ce qui est vérifié,
+  ce qui manque et ce qui ne peut pas encore être mesuré.
+requires_prepared_data: yes
+requires_live_download: no
+recommended_use: Audit de source
+result_visible_in_page: yes

@@ -1,25 +1,36 @@
-id: "niveaux-eau-carte-court"
-title: "Cartographier des marqueurs de niveaux d'eau"
-question: "Où se situent les marqueurs ponctuels de niveaux d'eau documentés lors d'inondations?"
-dataset_id: "niveaux-eau-inondation"
-dataset_title: "Niveaux d'eau lors d'une inondation"
-activity_url: "datasets/niveaux-eau-inondation/activite-courte.qmd"
-duration: "30-45 minutes"
-level: "Introductif"
+id: niveaux-eau-carte-court
+title: Cartographier des marqueurs de niveaux d'eau
+question: Où se situent les marqueurs ponctuels de niveaux d'eau documentés lors d'inondations?
+dataset_id: niveaux-eau-inondation
+dataset_title: Niveaux d'eau lors d'une inondation
+activity_url: datasets/niveaux-eau-inondation/activite-courte.qmd
+duration: 30-45 minutes
+level: Introductif
 activity_type:
-  - "Exercice"
-  - "Exploration de données"
+- Exercice
+- Exploration de données
 concepts:
-  - "Données spatiales"
-  - "Carte"
-  - "Précision de mesure"
-  - "Communication du risque"
-context: "Inondations et sécurité civile"
-hook: "Une carte de points ne montre pas une zone inondée"
+- Données spatiales
+- Carte
+- Précision de mesure
+- Communication du risque
+context: Inondations et sécurité civile
+hook: Une carte de points ne montre pas une zone inondée
 materials:
-  - "énoncé"
-  - "code"
-  - "table préparée"
-advanced_math_stats: false
-teacher_notes: "Faire écrire explicitement qu'un point représente un marqueur de niveau d'eau, pas une zone inondée."
-status: "source officielle vérifiée"
+- énoncé
+- code
+- table préparée
+advanced_math_stats: no
+teacher_notes: Faire écrire explicitement qu'un point représente un marqueur de niveau
+  d'eau, pas une zone inondée.
+status: source officielle vérifiée
+pedagogical_status: pret_a_enseigner
+teacher_preparation: 'Préparation requise : exécuter `Rscript datasets/niveaux-eau-inondation/preparation.R`
+  depuis la racine, puis vérifier que `data/processed/niveaux-eau-inondation/niveaux_eau_inondation.csv`
+  existe.'
+expected_output: Une carte ou un graphique descriptif accompagné d'une phrase sur
+  l'unité statistique et les limites.
+requires_prepared_data: yes
+requires_live_download: yes
+recommended_use: Exercice guidé
+result_visible_in_page: yes

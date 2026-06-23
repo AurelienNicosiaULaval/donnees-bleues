@@ -1,25 +1,36 @@
-id: "requetes-311-categories-court"
-title: "Laboratoire - Catégories de requêtes 311 par arrondissement"
-question: "Quelles catégories de demandes dominent dans un arrondissement?"
-dataset_id: "requetes-311"
-dataset_title: "Demandes de services citoyennes 311 à Montréal"
-activity_url: "datasets/requetes-311/activite-courte.qmd"
-duration: "30-45 minutes"
-level: "Introductif"
+id: requetes-311-categories-court
+title: Laboratoire - Catégories de requêtes 311 par arrondissement
+question: Quelles catégories de demandes dominent dans un arrondissement?
+dataset_id: requetes-311
+dataset_title: Demandes de services citoyennes 311 à Montréal
+activity_url: datasets/requetes-311/activite-courte.qmd
+duration: 30-45 minutes
+level: Introductif
 activity_type:
-  - "Exercice"
-  - "Exploration de données"
+- Exercice
+- Exploration de données
 concepts:
-  - "Comptage"
-  - "Catégories"
-  - "Visualisation"
-context: "Services municipaux"
-hook: "Un signalement 311 n'est pas une mesure directe du besoin"
+- Comptage
+- Catégories
+- Visualisation
+context: Services municipaux
+hook: Un signalement 311 n'est pas une mesure directe du besoin
 materials:
-  - "fiche vérifiée"
-  - "script de préparation"
-  - "table préparée"
-  - "résumés R"
-advanced_math_stats: false
-teacher_notes: "Faire expliciter que l'échantillon exclut les lignes Information et que les volumes dépendent des pratiques de signalement."
-status: "source officielle vérifiée"
+- fiche vérifiée
+- script de préparation
+- table préparée
+- résumés R
+advanced_math_stats: no
+teacher_notes: Faire expliciter que l'échantillon exclut les lignes Information et
+  que les volumes dépendent des pratiques de signalement.
+status: source officielle vérifiée
+pedagogical_status: pret_a_enseigner
+teacher_preparation: 'Préparation requise : exécuter `Rscript datasets/requetes-311/preparation.R`
+  depuis la racine, puis vérifier que `data/processed/requetes-311/requetes_311_non_information_echantillon.csv`
+  existe.'
+expected_output: Un tableau ou graphique descriptif accompagné de trois phrases d'interprétation
+  prudente.
+requires_prepared_data: yes
+requires_live_download: yes
+recommended_use: Exercice guidé
+result_visible_in_page: yes

@@ -1,8 +1,48 @@
 ---
 title: "Choisir une unité GRHQ avec l'index de téléchargement"
+embed-resources: true
 ---
 
+
 # Choisir une unité GRHQ avec l'index de téléchargement
+
+<!-- activity-teacher-brief:start -->
+::: {.activity-teacher-brief}
+
+## En classe, cette activité sert à...
+
+Cette activité sert à travailler les notions suivantes : Index de téléchargement, Métadonnées, Données spatiales, Reproductibilité à partir d'une question située dans le contexte suivant : Hydrographie. Elle demande aux étudiantes et étudiants de répondre à la question directrice suivante : Comment choisir une unité GRHQ avant de télécharger une géodatabase?
+
+::: {.activity-quick-facts}
+| Élément | Information |
+|---|---|
+| Durée | 30-45 minutes |
+| Niveau | Intermédiaire |
+| Usage recommandé | Exercice guidé |
+| Préparation enseignant | Préparation requise : exécuter `Rscript datasets/grhq/preparation.R` depuis la racine, puis vérifier que `data/processed/grhq/grhq_index_telechargement.csv` existe. |
+| Production attendue | Un tableau ou graphique descriptif accompagné de trois phrases d'interprétation prudente. |
+| Données | `data/processed/grhq/grhq_index_telechargement.csv` |
+:::
+
+:::
+<!-- activity-teacher-brief:end -->
+
+## Préparation enseignante
+
+- Préparation requise : exécuter `Rscript datasets/grhq/preparation.R` depuis la racine, puis vérifier que `data/processed/grhq/grhq_index_telechargement.csv` existe.
+- Fichier préparé : `data/processed/grhq/grhq_index_telechargement.csv`.
+- Script de préparation : `datasets/grhq/preparation.R`.
+- Point à surveiller : Ne pas faire télécharger les FGDB dans l'activité courte. L'objectif est de comprendre l'index et de justifier une unité de téléchargement.
+
+## Résultat attendu
+
+Un tableau ou graphique descriptif accompagné de trois phrases d'interprétation prudente. La production doit aussi contenir une phrase sur l'unité statistique et une phrase sur une limite de la source.
+
+## Limites à faire nommer
+
+- Ne pas faire télécharger les FGDB dans l'activité courte. L'objectif est de comprendre l'index et de justifier une unité de téléchargement.
+- Si une variable ou un dénominateur nécessaire n'est pas disponible dans les données, l'écrire explicitement plutôt que l'inférer.
+
 
 ## Contexte
 

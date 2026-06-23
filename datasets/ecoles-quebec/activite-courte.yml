@@ -1,26 +1,38 @@
 id: ecoles-quebec-court
-title: "Laboratoire - Écoles Québec"
-question: "Comment les écoles publiques du Québec sont-elles localisées, et que compte-t-on exactement quand on regroupe les lignes par région?"
+title: Laboratoire - Écoles Québec
+question: Comment les écoles publiques du Québec sont-elles localisées, et que compte-t-on
+  exactement quand on regroupe les lignes par région?
 dataset_id: ecoles-quebec
-dataset_title: "Établissements scolaires du Québec"
-activity_url: "datasets/ecoles-quebec/activite-courte.qmd"
-duration: "60-90 minutes"
-level: "Introduction à intermédiaire"
+dataset_title: Établissements scolaires du Québec
+activity_url: datasets/ecoles-quebec/activite-courte.qmd
+duration: 60-90 minutes
+level: Introduction à intermédiaire
 activity_type:
-  - "Laboratoire d'introduction"
-  - "Exploration de données"
+- Laboratoire d'introduction
+- Exploration de données
 concepts:
-  - "géolocalisation"
-  - "cartographie"
-  - "jointures"
-  - "unité statistique"
-  - "double comptage"
-context: "Éducation et territoire"
-hook: "Question québécoise concrète"
+- géolocalisation
+- cartographie
+- jointures
+- unité statistique
+- double comptage
+context: Éducation et territoire
+hook: Question québécoise concrète
 materials:
-  - "fiche"
-  - "code"
-  - "source officielle"
-advanced_math_stats: false
-teacher_notes: "Faire valider l'unité statistique avant tout graphique; une ligne est un lien école-immeuble."
-status: "source officielle vérifiée le 2026-06-20"
+- fiche
+- code
+- source officielle
+advanced_math_stats: no
+teacher_notes: Faire valider l'unité statistique avant tout graphique; une ligne est
+  un lien école-immeuble.
+status: source officielle vérifiée le 2026-06-20
+pedagogical_status: pret_a_enseigner
+teacher_preparation: 'Préparation requise : exécuter `Rscript datasets/ecoles-quebec/preparation.R`
+  depuis la racine, puis vérifier que `data/processed/ecoles-quebec/ecoles_publiques_quebec.csv`
+  existe.'
+expected_output: Un tableau ou graphique descriptif accompagné de trois phrases d'interprétation
+  prudente.
+requires_prepared_data: yes
+requires_live_download: yes
+recommended_use: Laboratoire guidé
+result_visible_in_page: yes

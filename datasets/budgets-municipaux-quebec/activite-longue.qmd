@@ -1,8 +1,80 @@
 ---
 title: "Mini-projet - Portrait descriptif des profils financiers municipaux"
+embed-resources: true
 ---
 
+
 # Mini-projet - Portrait descriptif des profils financiers municipaux
+
+<!-- activity-teacher-brief:start -->
+::: {.activity-teacher-brief}
+
+## En classe, cette activité sert à...
+
+Cette activité sert à travailler les notions suivantes : Format long, Dictionnaire de variables, Ratios, Indices, Valeurs manquantes, Comparaison descriptive à partir d'une question située dans le contexte suivant : Finances et fiscalité municipales. Elle demande aux étudiantes et étudiants de répondre à la question directrice suivante : Comment décrire les profils financiers et fonciers des municipalités du Québec selon la classe de population et la région administrative?
+
+::: {.activity-quick-facts}
+| Élément | Information |
+|---|---|
+| Durée | 2-3 heures |
+| Niveau | Introduction à intermédiaire |
+| Usage recommandé | Mini-projet guidé |
+| Préparation enseignant | Préparation requise : exécuter `Rscript datasets/budgets-municipaux-quebec/preparation.R` depuis la racine, puis vérifier que `data/processed/budgets-municipaux-quebec/profil_financier_municipalites_2025.csv` existe. |
+| Production attendue | Un court rapport reproductible avec contexte, tableau ou graphique, interprétation et limites. |
+| Données | `data/processed/budgets-municipaux-quebec/profil_financier_municipalites_2025.csv` |
+:::
+
+:::
+<!-- activity-teacher-brief:end -->
+
+## Objectifs d'apprentissage
+
+- Travailler Format long.
+- Travailler Dictionnaire de variables.
+- Travailler Ratios.
+- Travailler Indices.
+- Nommer au moins une limite d'interprétation.
+
+## Préparation enseignante
+
+- Préparation requise : exécuter `Rscript datasets/budgets-municipaux-quebec/preparation.R` depuis la racine, puis vérifier que `data/processed/budgets-municipaux-quebec/profil_financier_municipalites_2025.csv` existe.
+- Fichier préparé : `data/processed/budgets-municipaux-quebec/profil_financier_municipalites_2025.csv`.
+- Script de préparation : `datasets/budgets-municipaux-quebec/preparation.R`.
+- Point à surveiller : Demander une section explicite distinguant profil financier, richesse foncière, dépenses budgétaires et explication causale.
+
+## Consignes
+
+1. Importer `profil_financier_municipalites_2025.csv` ou exécuter `datasets/budgets-municipaux-quebec/preparation.R` si le fichier est absent.
+2. Identifier ce que représente une ligne du fichier.
+3. Produire un tableau ou un graphique adapté à la question directrice.
+4. Rédiger une interprétation courte qui distingue description et explication.
+5. Nommer au moins une limite méthodologique ou une information absente.
+
+## Résultat attendu
+
+Un court rapport reproductible avec contexte, tableau ou graphique, interprétation et limites. La production doit aussi contenir une phrase sur l'unité statistique et une phrase sur une limite de la source.
+
+## Questions
+
+1. Quelle est l'unité statistique utilisée dans cette activité?
+2. Quelle transformation ou agrégation est nécessaire avant de répondre à la question?
+3. Quelle information manque pour aller plus loin?
+4. Quelle conclusion serait trop forte avec ces seules données?
+5. Comment formuler une conclusion prudente à partir du résultat obtenu?
+
+## Déroulé suggéré
+
+1. Cadrer la source, la licence et l'unité statistique.
+2. Préparer ou importer les données.
+3. Produire un premier résumé descriptif.
+4. Construire la visualisation ou le tableau principal.
+5. Rédiger l'interprétation et les limites.
+
+## Limites à faire nommer
+
+- Demander une section explicite distinguant profil financier, richesse foncière, dépenses budgétaires et explication causale.
+- Si une variable ou un dénominateur nécessaire n'est pas disponible dans les données, l'écrire explicitement plutôt que l'inférer.
+
 
 ## Contexte
 

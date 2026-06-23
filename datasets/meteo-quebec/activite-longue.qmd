@@ -1,8 +1,64 @@
 ---
 title: "Portrait descriptif de la météo quotidienne à Québec"
+embed-resources: true
 ---
 
+
 # Portrait descriptif de la météo quotidienne à Québec
+
+<!-- activity-teacher-brief:start -->
+::: {.activity-teacher-brief}
+
+## En classe, cette activité sert à...
+
+Cette activité sert à travailler les notions suivantes : séries temporelles, valeurs manquantes, visualisation, statistiques descriptives, communication prudente à partir d'une question située dans le contexte suivant : Météorologie québécoise. Elle demande aux étudiantes et étudiants de répondre à la question directrice suivante : Comment produire un portrait descriptif prudent de la météo quotidienne à Québec?
+
+::: {.activity-quick-facts}
+| Élément | Information |
+|---|---|
+| Durée | 2-3 heures |
+| Niveau | Introduction à intermédiaire |
+| Usage recommandé | Mini-projet guidé |
+| Préparation enseignant | Préparation requise : exécuter `Rscript datasets/meteo-quebec/preparation.R` depuis la racine, puis vérifier que `data/processed/meteo-quebec/meteo_quebec.csv` existe. |
+| Production attendue | Un court rapport reproductible avec contexte, tableau ou graphique, interprétation et limites. |
+| Données | `data/processed/meteo-quebec/meteo_quebec.csv` |
+:::
+
+:::
+<!-- activity-teacher-brief:end -->
+
+## Préparation enseignante
+
+- Préparation requise : exécuter `Rscript datasets/meteo-quebec/preparation.R` depuis la racine, puis vérifier que `data/processed/meteo-quebec/meteo_quebec.csv` existe.
+- Fichier préparé : `data/processed/meteo-quebec/meteo_quebec.csv`.
+- Script de préparation : `datasets/meteo-quebec/preparation.R`.
+- Point à surveiller : Exiger une section courte sur les valeurs manquantes et une limite explicite : une station ne représente pas tout le Québec.
+
+## Consignes
+
+1. Importer `meteo_quebec.csv` ou exécuter `datasets/meteo-quebec/preparation.R` si le fichier est absent.
+2. Identifier ce que représente une ligne du fichier.
+3. Produire un tableau ou un graphique adapté à la question directrice.
+4. Rédiger une interprétation courte qui distingue description et explication.
+5. Nommer au moins une limite méthodologique ou une information absente.
+
+## Résultat attendu
+
+Un court rapport reproductible avec contexte, tableau ou graphique, interprétation et limites. La production doit aussi contenir une phrase sur l'unité statistique et une phrase sur une limite de la source.
+
+## Déroulé suggéré
+
+1. Cadrer la source, la licence et l'unité statistique.
+2. Préparer ou importer les données.
+3. Produire un premier résumé descriptif.
+4. Construire la visualisation ou le tableau principal.
+5. Rédiger l'interprétation et les limites.
+
+## Limites à faire nommer
+
+- Exiger une section courte sur les valeurs manquantes et une limite explicite : une station ne représente pas tout le Québec.
+- Si une variable ou un dénominateur nécessaire n'est pas disponible dans les données, l'écrire explicitement plutôt que l'inférer.
+
 
 ## Contexte
 

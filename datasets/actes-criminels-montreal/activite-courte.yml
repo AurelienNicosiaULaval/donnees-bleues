@@ -1,26 +1,39 @@
-id: "actes-criminels-ethique-court"
-title: "Lire prudemment des données de sécurité publique"
-question: "Que peut-on décrire sans transformer ces données ouvertes en statistiques officielles?"
-dataset_id: "actes-criminels-montreal"
-dataset_title: "Actes criminels enregistrés à Montréal"
-activity_url: "datasets/actes-criminels-montreal/activite-courte.qmd"
-duration: "30-45 minutes"
-level: "Intermédiaire"
+id: actes-criminels-ethique-court
+title: Lire prudemment des données de sécurité publique
+question: Que peut-on décrire sans transformer ces données ouvertes en statistiques
+  officielles?
+dataset_id: actes-criminels-montreal
+dataset_title: Actes criminels enregistrés à Montréal
+activity_url: datasets/actes-criminels-montreal/activite-courte.qmd
+duration: 30-45 minutes
+level: Intermédiaire
 activity_type:
-  - "Laboratoire"
-  - "Discussion guidée"
+- Laboratoire
+- Discussion guidée
 concepts:
-  - "Données sensibles"
-  - "Unité statistique"
-  - "Catégories"
-  - "Statistique descriptive"
-  - "Éthique"
-context: "Sécurité publique"
-hook: "Des données sensibles ne deviennent pas des statistiques officielles par simple visualisation"
+- Données sensibles
+- Unité statistique
+- Catégories
+- Statistique descriptive
+- Éthique
+context: Sécurité publique
+hook: Des données sensibles ne deviennent pas des statistiques officielles par simple
+  visualisation
 materials:
-  - "énoncé"
-  - "code"
-  - "table préparée"
-advanced_math_stats: false
-teacher_notes: "Ne pas demander de classement de quartiers dangereux et interdire les cartes de points bruts."
-status: "source officielle vérifiée"
+- énoncé
+- code
+- table préparée
+advanced_math_stats: no
+teacher_notes: Ne pas demander de classement de quartiers dangereux et interdire les
+  cartes de points bruts.
+status: source officielle vérifiée
+pedagogical_status: pret_a_enseigner
+teacher_preparation: 'Préparation requise : exécuter `Rscript datasets/actes-criminels-montreal/preparation.R`
+  depuis la racine, puis vérifier que `data/processed/actes-criminels-montreal/actes_criminels_montreal.csv`
+  existe.'
+expected_output: Un tableau ou graphique descriptif accompagné de trois phrases d'interprétation
+  prudente.
+requires_prepared_data: yes
+requires_live_download: yes
+recommended_use: Discussion guidée
+result_visible_in_page: yes

@@ -164,6 +164,17 @@ dataset_activity_href <- function(item) {
   basename(sub("[.]qmd$", ".html", url))
 }
 
+dataset_activity_status_label <- function(item) {
+  status <- dataset_squish(item$pedagogical_status, "")
+  switch(
+    status,
+    pret_a_enseigner = "Prête à enseigner",
+    a_consolider = "À préparer",
+    ebauche = "Ébauche",
+    ""
+  )
+}
+
 dataset_activity_cards <- function(metadata, ctx) {
   activities <- dataset_read_activity_items(ctx)
 
@@ -176,21 +187,29 @@ dataset_activity_cards <- function(metadata, ctx) {
     tag <- if (href == "") "article" else "a"
     href_attr <- if (href == "") "" else paste0(' href="', dataset_html_escape(href), '"')
     activity_type <- dataset_badge_list(item$activity_type, class = "dataset-activity-chip", max_items = 3L)
-    notes <- dataset_squish(item$teacher_notes, "")
-    notes_html <- if (notes == "") {
+    status_label <- dataset_activity_status_label(item)
+    status_html <- if (status_label == "") {
       ""
     } else {
-      paste0('<p class="dataset-activity-note">', dataset_html_escape(notes), '</p>')
+      paste0('<span class="dataset-activity-status">', dataset_html_escape(status_label), '</span>')
+    }
+    output <- dataset_squish(item$expected_output, "")
+    output_html <- if (output == "") {
+      ""
+    } else {
+      paste0('<p class="dataset-activity-output">À produire : ', dataset_html_escape(output), '</p>')
     }
 
     paste0(
       '<', tag, ' class="dataset-activity-card"', href_attr, '>',
       '<div class="dataset-activity-meta"><span>', dataset_html_escape(dataset_squish(item$duration, "Activité")), '</span>',
-      '<span>', dataset_html_escape(dataset_squish(item$level, dataset_squish(metadata$level))), '</span></div>',
+      '<span>', dataset_html_escape(dataset_squish(item$level, dataset_squish(metadata$level))), '</span>',
+      status_html,
+      '</div>',
       '<strong>', dataset_html_escape(dataset_squish(item$title, "Activité pédagogique")), '</strong>',
       '<p>', dataset_html_escape(dataset_squish(item$question, "Question à préciser.")), '</p>',
       '<div class="dataset-activity-chips">', activity_type, '</div>',
-      notes_html,
+      output_html,
       '</', tag, '>'
     )
   }, character(1))
@@ -749,6 +768,7 @@ render_dataset_detail_header <- function() {
   featured_duration <- dataset_squish(featured_activity$duration, "Durée à préciser")
   featured_level <- dataset_squish(featured_activity$level, dataset_squish(metadata$level))
   featured_type <- dataset_badge_list(featured_activity$activity_type, class = "dataset-activity-chip", max_items = 3L)
+  featured_status <- dataset_activity_status_label(featured_activity)
   teaching_note <- dataset_squish(featured_activity$teacher_notes, dataset_squish(metadata$notes, "Je ne sais pas."))
   source_url <- dataset_squish(metadata$source_url, "")
   contributor_badge <- dataset_contributor_badge(metadata)
@@ -845,7 +865,7 @@ render_dataset_detail_header <- function() {
     '<span class="dataset-panel-label">Activité prête à lancer</span>\n',
     '<h2>', dataset_html_escape(featured_title), '</h2>\n',
     '<p>', dataset_html_escape(featured_question), '</p>\n',
-    '<div class="dataset-featured-meta"><span>', dataset_html_escape(featured_duration), '</span><span>', dataset_html_escape(featured_level), '</span></div>\n',
+    '<div class="dataset-featured-meta"><span>', dataset_html_escape(featured_duration), '</span><span>', dataset_html_escape(featured_level), '</span><span>', dataset_html_escape(dataset_squish(featured_status, "Préparation à vérifier")), '</span></div>\n',
     '<div class="dataset-activity-chips">', featured_type, '</div>\n',
     '</aside>\n',
     '</section>\n',

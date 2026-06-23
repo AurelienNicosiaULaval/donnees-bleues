@@ -3,7 +3,55 @@ title: "Portrait des interventions du SIM"
 embed-resources: true
 ---
 
+
 # Portrait des interventions du SIM
+
+<!-- activity-teacher-brief:start -->
+::: {.activity-teacher-brief}
+
+## En classe, cette activité sert à...
+
+Cette activité sert à travailler les notions suivantes : Tableaux de fréquences, Visualisation, Limites d'interprétation à partir d'une question située dans le contexte suivant : Sécurité publique. Elle demande aux étudiantes et étudiants de répondre à la question directrice suivante : Quels grands types d'interventions dominent dans la ressource courante?
+
+::: {.activity-quick-facts}
+| Élément | Information |
+|---|---|
+| Durée | 30-45 minutes |
+| Niveau | Introductif |
+| Usage recommandé | Exercice guidé |
+| Préparation enseignant | Lire la fiche, ouvrir la source officielle et choisir la ressource à utiliser; aucun CSV préparé directement exploitable n'est garanti dans le dépôt. |
+| Production attendue | Un tableau ou graphique descriptif accompagné de trois phrases d'interprétation prudente. |
+| Données | `Je ne sais pas.` |
+:::
+
+:::
+<!-- activity-teacher-brief:end -->
+
+## Préparation enseignante
+
+- Lire la fiche, ouvrir la source officielle et choisir la ressource à utiliser; aucun CSV préparé directement exploitable n'est garanti dans le dépôt.
+- Fichier préparé : `Je ne sais pas.`
+- Script de préparation : `datasets/interventions-pompiers-montreal/preparation.R`.
+- Point à surveiller : Utiliser la ressource courante et limiter l'analyse aux grands groupes d'interventions.
+
+## Code R minimal
+
+```{r}
+#| eval: false
+# Je ne sais pas quel CSV préparé utiliser pour cette activité.
+# Lire la fiche, choisir la ressource officielle et documenter la date d'accès.
+source("datasets/interventions-pompiers-montreal/preparation.R")
+```
+
+## Résultat attendu
+
+Un tableau ou graphique descriptif accompagné de trois phrases d'interprétation prudente. La production doit aussi contenir une phrase sur l'unité statistique et une phrase sur une limite de la source.
+
+## Limites à faire nommer
+
+- Utiliser la ressource courante et limiter l'analyse aux grands groupes d'interventions.
+- Si une variable ou un dénominateur nécessaire n'est pas disponible dans les données, l'écrire explicitement plutôt que l'inférer.
+
 
 ## Contexte
 
