@@ -181,7 +181,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- margin-sidebar -->
 
 <!-- main -->
-<main class="content column-page" id="quarto-document-content">
+<main class="content page-columns page-full column-page" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
@@ -202,8 +202,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section class="dataset-detail-page">
-<div class="dataset-detail-hero">
+<section class="dataset-detail-page page-columns page-full">
+<section class="dataset-teacher-hero page-columns page-full">
 <div class="dataset-hero-copy">
 <nav class="dataset-breadcrumb">
 <a href="../../catalogue.html">Catalogue</a><span>/</span><span>Qualité de l'eau</span>
@@ -211,46 +211,74 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h1>
 Suivi de la qualité de l'eau du fleuve et des rivières
 </h1>
-<p class="dataset-hero-source">
-Source : <a href="https://www.donneesquebec.ca/recherche/dataset/suivi-physicochimique-des-rivieres-et-du-fleuve">Données Québec / MELCCFP</a>
+<p class="dataset-teacher-question">
+Comment décrire l'évolution du phosphore total médian dans une station de suivi?
 </p>
-<p class="dataset-hero-summary">
-Station de suivi et année de fin d'une période de suivi agrégée
-</p>
+<div class="dataset-source-strip">
+<span>Source : <a href="https://www.donneesquebec.ca/recherche/dataset/suivi-physicochimique-des-rivieres-et-du-fleuve">Données Québec / MELCCFP</a></span><span>Licence : Attribution (CC-BY 4.0) selon les métadonnées CKAN vérifiées le 2026-06-21</span><span>Téléchargé : 2026-06-21</span>
+</div>
 <div class="dataset-hero-actions">
-<a class="dataset-button no-external" href="#apercu-interactif">Voir les données</a><a class="dataset-button secondary no-external" href="#documentation">Documentation</a>
+<a class="dataset-button no-external" href="#apercu-interactif">Voir les données</a><a class="dataset-button secondary no-external" href="#activites-pedagogiques">Activités</a>
 </div>
 </div>
-</div>
-<section class="dataset-simple-summary">
-<div class="dataset-start-question">
-<span>Point de départ</span>
-<p>
-Décrire l'évolution du phosphore total médian pour une station suivie longtemps.
-</p>
-</div>
-<div class="dataset-simple-facts">
-<div class="dataset-simple-fact">
-<span>Territoire</span><strong>Québec</strong>
-</div>
-<div class="dataset-simple-fact">
-<span>Niveau</span><strong>Introduction à intermédiaire</strong>
-</div>
-<div class="dataset-simple-fact">
-<span>Format</span><strong>ZIP CSV officiel préparé localement; ressources spatiales FGDB, GeoJSON, GPKG, REST et WMS aussi publiées</strong>
-</div>
-</div>
-</section>
-<section class="dataset-r-lab" id="apercu-interactif">
-<div class="dataset-section-heading">
-<span>Aperçu</span>
+<aside class="dataset-featured-activity">
+<span class="dataset-panel-label">Activité prête à lancer</span>
 <h2 class="anchored">
-Les premières lignes
+Laboratoire - Phosphore total par station
+</h2>
+<p>
+Comment décrire l'évolution du phosphore total médian dans une station de suivi?
+</p>
+<div class="dataset-featured-meta">
+<span>30-45 minutes</span><span>Introductif</span>
+</div>
+<div class="dataset-activity-chips">
+<span class="dataset-activity-chip">Exercice</span><span class="dataset-activity-chip">Exploration de données</span>
+</div>
+</aside>
+</section>
+<section class="dataset-teacher-plan">
+<article>
+<span class="dataset-panel-label">Pourquoi l’utiliser?</span>
+<p>
+Pour travailler Séries temporelles agrégées, Statistique descriptive, Visualisation, Unités de mesure à partir d’un contexte qualité de l'eau lié à Québec.
+</p>
+<div class="dataset-chip-row">
+<span class="dataset-chip">Séries temporelles agrégées</span><span class="dataset-chip">Statistique descriptive</span><span class="dataset-chip">Visualisation</span><span class="dataset-chip">Unités de mesure</span><span class="dataset-chip">données environnementales</span><span class="dataset-chip">séries temporelles agrégées</span>
+</div>
+</article>
+<article>
+<span class="dataset-panel-label">Ce que les étudiantes et étudiants font</span>
+<ul>
+<li>
+Décrire l'évolution du phosphore total médian pour une station suivie longtemps.
+</li>
+<li>
+Comparer des indicateurs de qualité de l'eau entre bassins en tenant compte des périodes disponibles.
+</li>
+<li>
+Joindre les aires de drainage pour discuter le contexte territorial sans conclure causalement.
+</li>
+</ul>
+</article>
+<article>
+<span class="dataset-panel-label">À cadrer en classe</span>
+<p>
+Faire expliciter l'unité statistique et l'unité mg/l dans la conclusion.
+</p>
+</article>
+</section>
+<section class="dataset-r-lab page-columns page-full" id="apercu-interactif">
+<div class="dataset-section-heading">
+<span>Aperçu des données</span>
+<h2 class="anchored">
+Entrer par les lignes, puis poser une question
 </h2>
 <p>
 Aperçu calculé par R à partir de data/processed/suivi-rivieres-fleuve/stations_qualite_eau_aires.csv.
 </p>
 </div>
+<div class="dataset-preview-layout page-columns page-full">
 <div class="dataset-result-card">
 <div class="dataset-card-label">
 Table consultable
@@ -4169,6 +4197,24 @@ Précédent
 <span data-dataset-page=""></span><button type="button" data-dataset-next="">Suivant</button>
 </div>
 </div>
+</div>
+<aside class="dataset-variable-panel">
+<span class="dataset-panel-label">Variables à repérer</span>
+<div class="dataset-variable-list">
+<span class="dataset-variable-chip">no_bqma</span><span class="dataset-variable-chip">hydronyme</span><span class="dataset-variable-chip">type_station</span><span class="dataset-variable-chip">type_suivi</span><span class="dataset-variable-chip">annee</span><span class="dataset-variable-chip">iqbp_med</span><span class="dataset-variable-chip">ptot_med_mgl</span>
+</div>
+<div class="dataset-simple-facts">
+<div class="dataset-simple-fact">
+<span>Territoire</span><strong>Québec</strong>
+</div>
+<div class="dataset-simple-fact">
+<span>Niveau</span><strong>Introduction à intermédiaire</strong>
+</div>
+<div class="dataset-simple-fact">
+<span>Format</span><strong>ZIP CSV officiel préparé localement; ressources spatiales FGDB, GeoJSON, GPKG, REST et WMS aussi publiées</strong>
+</div>
+</div>
+</aside>
 </div>
 </section>
 <details class="dataset-doc-panel" id="documentation">
@@ -8941,7 +8987,7 @@ Précédent
 </section>
 </div>
 </details>
-<section class="dataset-activities-panel">
+<section class="dataset-activities-panel" id="activites-pedagogiques">
 <div class="dataset-section-heading">
 <span>Activités pédagogiques</span>
 <h2 class="anchored">
@@ -8949,18 +8995,35 @@ Pour aller plus loin
 </h2>
 </div>
 <div class="dataset-activity-grid">
-<div class="dataset-activity-card">
-<span>30-45 minutes</span><strong>Laboratoire - Phosphore total par station</strong>
+<a class="dataset-activity-card" href="activite-courte.html">
+<div class="dataset-activity-meta">
+<span>30-45 minutes</span><span>Introductif</span>
+</div>
+<strong>Laboratoire - Phosphore total par station</strong>
 <p>
 Comment décrire l'évolution du phosphore total médian dans une station de suivi?
 </p>
+<div class="dataset-activity-chips">
+<span class="dataset-activity-chip">Exercice</span><span class="dataset-activity-chip">Exploration de données</span>
 </div>
-<div class="dataset-activity-card">
-<span>2-3 heures</span><strong>Mini-projet - Bassins versants et qualité de l'eau</strong>
+<p class="dataset-activity-note">
+Faire expliciter l'unité statistique et l'unité mg/l dans la conclusion.
+</p>
+</a> <a class="dataset-activity-card" href="activite-longue.html">
+<div class="dataset-activity-meta">
+<span>2-3 heures</span><span>Intermédiaire</span>
+</div>
+<strong>Mini-projet - Bassins versants et qualité de l'eau</strong>
 <p>
 Comment comparer des stations ou des bassins versants sans confondre couverture du suivi, indicateurs agrégés et causalité environnementale?
 </p>
+<div class="dataset-activity-chips">
+<span class="dataset-activity-chip">Étude de cas</span><span class="dataset-activity-chip">Projet ou tâche longue</span><span class="dataset-activity-chip">Exploration de données</span>
 </div>
+<p class="dataset-activity-note">
+Exiger une section séparée sur les limites: période, unité statistique, valeurs manquantes et causalité.
+</p>
+</a>
 </div>
 </section>
 </section>

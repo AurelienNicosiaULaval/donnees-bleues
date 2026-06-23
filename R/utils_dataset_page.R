@@ -130,7 +130,7 @@ dataset_image_src <- function(metadata, ctx) {
   paste(ctx$relative_root, "assets", "cards", filename, sep = "/")
 }
 
-dataset_activity_cards <- function(metadata, ctx) {
+dataset_read_activity_items <- function(ctx) {
   activity_files <- list.files(
     ctx$dataset_dir,
     pattern = "^activite-.*[.]yml$",
@@ -138,17 +138,60 @@ dataset_activity_cards <- function(metadata, ctx) {
   )
 
   if (length(activity_files) == 0L) {
+    return(list())
+  }
+
+  lapply(sort(activity_files), yaml::read_yaml)
+}
+
+dataset_badge_list <- function(items, class = "dataset-chip", max_items = 6L) {
+  items <- head(unique(dataset_list(items)), max_items)
+  if (length(items) == 0L) {
     return("")
   }
 
-  cards <- vapply(activity_files, function(path) {
-    item <- yaml::read_yaml(path)
+  paste(vapply(items, function(item) {
+    paste0('<span class="', class, '">', dataset_html_escape(item), '</span>')
+  }, character(1)), collapse = "")
+}
+
+dataset_activity_href <- function(item) {
+  url <- dataset_squish(item$activity_url, "")
+  if (url == "") {
+    return("")
+  }
+
+  basename(sub("[.]qmd$", ".html", url))
+}
+
+dataset_activity_cards <- function(metadata, ctx) {
+  activities <- dataset_read_activity_items(ctx)
+
+  if (length(activities) == 0L) {
+    return("")
+  }
+
+  cards <- vapply(activities, function(item) {
+    href <- dataset_activity_href(item)
+    tag <- if (href == "") "article" else "a"
+    href_attr <- if (href == "") "" else paste0(' href="', dataset_html_escape(href), '"')
+    activity_type <- dataset_badge_list(item$activity_type, class = "dataset-activity-chip", max_items = 3L)
+    notes <- dataset_squish(item$teacher_notes, "")
+    notes_html <- if (notes == "") {
+      ""
+    } else {
+      paste0('<p class="dataset-activity-note">', dataset_html_escape(notes), '</p>')
+    }
+
     paste0(
-      '<div class="dataset-activity-card">',
-      '<span>', dataset_html_escape(dataset_squish(item$duration, "Activité")), '</span>',
+      '<', tag, ' class="dataset-activity-card"', href_attr, '>',
+      '<div class="dataset-activity-meta"><span>', dataset_html_escape(dataset_squish(item$duration, "Activité")), '</span>',
+      '<span>', dataset_html_escape(dataset_squish(item$level, dataset_squish(metadata$level))), '</span></div>',
       '<strong>', dataset_html_escape(dataset_squish(item$title, "Activité pédagogique")), '</strong>',
       '<p>', dataset_html_escape(dataset_squish(item$question, "Question à préciser.")), '</p>',
-      '</div>'
+      '<div class="dataset-activity-chips">', activity_type, '</div>',
+      notes_html,
+      '</', tag, '>'
     )
   }, character(1))
 
@@ -693,10 +736,20 @@ render_dataset_detail_header <- function() {
   metadata <- dataset_read_metadata(ctx$dataset_dir)
   csv_path <- dataset_processed_csv(metadata, ctx)
   preview <- dataset_read_preview(csv_path)
+  activities <- dataset_read_activity_items(ctx)
+  featured_activity <- if (length(activities) > 0L) activities[[1L]] else list()
   projects <- dataset_list(metadata$idees_mini_projets)
   if (length(projects) == 0L) {
     projects <- paste0("Explorer ", tolower(dataset_squish(metadata$theme, "ce jeu de données")), " avec une question descriptive.")
   }
+  concepts <- unique(c(dataset_list(featured_activity$concepts), dataset_list(metadata$concepts)))
+  variables <- dataset_list(metadata$variables_principales)
+  featured_title <- dataset_squish(featured_activity$title, "Activité de départ")
+  featured_question <- dataset_squish(featured_activity$question, projects[[1]])
+  featured_duration <- dataset_squish(featured_activity$duration, "Durée à préciser")
+  featured_level <- dataset_squish(featured_activity$level, dataset_squish(metadata$level))
+  featured_type <- dataset_badge_list(featured_activity$activity_type, class = "dataset-activity-chip", max_items = 3L)
+  teaching_note <- dataset_squish(featured_activity$teacher_notes, dataset_squish(metadata$notes, "Je ne sais pas."))
   source_url <- dataset_squish(metadata$source_url, "")
   contributor_badge <- dataset_contributor_badge(metadata)
   source_name <- dataset_squish(metadata$source_name)
@@ -723,6 +776,34 @@ render_dataset_detail_header <- function() {
     ),
     sep = ""
   )
+  source_meta <- paste0(
+    '<div class="dataset-source-strip">',
+    '<span>Source : ', source_html, '</span>',
+    '<span>Licence : ', dataset_html_escape(dataset_squish(metadata$license)), '</span>',
+    '<span>Téléchargé : ', dataset_html_escape(dataset_squish(metadata$access_date)), '</span>',
+    '</div>'
+  )
+  project_items <- paste(vapply(head(projects, 3L), function(item) {
+    paste0('<li>', dataset_html_escape(item), '</li>')
+  }, character(1)), collapse = "")
+  concept_badges <- dataset_badge_list(concepts, max_items = 6L)
+  variable_badges <- dataset_badge_list(variables, class = "dataset-variable-chip", max_items = 7L)
+  if (variable_badges == "") {
+    variable_badges <- '<span class="dataset-variable-chip">Variables à préciser</span>'
+  }
+  concept_summary <- dataset_collapse(head(concepts, 4L), sep = ", ")
+  if (concept_summary == "") {
+    concept_summary <- dataset_squish(metadata$theme, "un thème à préciser")
+  }
+  why_text <- paste0(
+    "Pour travailler ",
+    dataset_html_escape(concept_summary),
+    " à partir d'un contexte ",
+    dataset_html_escape(tolower(dataset_squish(metadata$theme, "québécois"))),
+    " lié à ",
+    dataset_html_escape(dataset_squish(metadata$geography)),
+    "."
+  )
 
   result_table <- if (!is.null(preview)) {
     dataset_preview_table(
@@ -747,27 +828,38 @@ render_dataset_detail_header <- function() {
 
   cat(
     '<section class="dataset-detail-page">\n',
-    '<div class="dataset-detail-hero">\n',
+    '<section class="dataset-teacher-hero">\n',
     '<div class="dataset-hero-copy">\n',
     '<nav class="dataset-breadcrumb"><a href="', ctx$relative_root, '/catalogue.html">Catalogue</a><span>/</span><span>',
     dataset_html_escape(dataset_squish(metadata$theme)), '</span></nav>\n',
     '<h1>', dataset_html_escape(dataset_squish(metadata$title, "Jeu de données")), '</h1>\n',
-    '<p class="dataset-hero-source">Source : ', source_html, '</p>\n',
+    '<p class="dataset-teacher-question">', dataset_html_escape(featured_question), '</p>\n',
     contributor_badge,
-    '<p class="dataset-hero-summary">', dataset_html_escape(dataset_squish(metadata$unit)), '</p>\n',
+    source_meta,
     '<div class="dataset-hero-actions">',
     '<a class="dataset-button no-external" href="#apercu-interactif">Voir les données</a>',
-    '<a class="dataset-button secondary no-external" href="#documentation">Documentation</a>',
+    '<a class="dataset-button secondary no-external" href="#activites-pedagogiques">Activités</a>',
     '</div>\n',
     '</div>\n',
-    '</div>\n',
-    '<section class="dataset-simple-summary">\n',
-    '<div class="dataset-start-question"><span>Point de départ</span><p>', dataset_html_escape(projects[[1]]), '</p></div>\n',
-    '<div class="dataset-simple-facts">', fact_items, '</div>\n',
+    '<aside class="dataset-featured-activity">\n',
+    '<span class="dataset-panel-label">Activité prête à lancer</span>\n',
+    '<h2>', dataset_html_escape(featured_title), '</h2>\n',
+    '<p>', dataset_html_escape(featured_question), '</p>\n',
+    '<div class="dataset-featured-meta"><span>', dataset_html_escape(featured_duration), '</span><span>', dataset_html_escape(featured_level), '</span></div>\n',
+    '<div class="dataset-activity-chips">', featured_type, '</div>\n',
+    '</aside>\n',
+    '</section>\n',
+    '<section class="dataset-teacher-plan">\n',
+    '<article><span class="dataset-panel-label">Pourquoi l’utiliser?</span><p>', why_text, '</p><div class="dataset-chip-row">', concept_badges, '</div></article>\n',
+    '<article><span class="dataset-panel-label">Ce que les étudiantes et étudiants font</span><ul>', project_items, '</ul></article>\n',
+    '<article><span class="dataset-panel-label">À cadrer en classe</span><p>', dataset_html_escape(teaching_note), '</p></article>\n',
     '</section>\n',
     '<section class="dataset-r-lab" id="apercu-interactif">\n',
-    '<div class="dataset-section-heading"><span>Aperçu</span><h2>Les premières lignes</h2><p>', data_note, '</p></div>\n',
+    '<div class="dataset-section-heading"><span>Aperçu des données</span><h2>Entrer par les lignes, puis poser une question</h2><p>', data_note, '</p></div>\n',
+    '<div class="dataset-preview-layout">',
     '<div class="dataset-result-card"><div class="dataset-card-label">Table consultable</div>', result_table, '</div>\n',
+    '<aside class="dataset-variable-panel"><span class="dataset-panel-label">Variables à repérer</span><div class="dataset-variable-list">', variable_badges, '</div><div class="dataset-simple-facts">', fact_items, '</div></aside>\n',
+    '</div>',
     '</section>\n',
     '<details class="dataset-doc-panel" id="documentation">\n',
     '<summary><span>Documentation complète</span><strong>Sources, variables, code R minimal, méthode et limites</strong></summary>\n',
@@ -786,7 +878,7 @@ render_dataset_detail_footer <- function() {
     ""
   } else {
     paste0(
-      '<section class="dataset-activities-panel">',
+      '<section class="dataset-activities-panel" id="activites-pedagogiques">',
       '<div class="dataset-section-heading"><span>Activités pédagogiques</span><h2>Pour aller plus loin</h2></div>',
       '<div class="dataset-activity-grid">', activities, '</div>',
       '</section>\n'

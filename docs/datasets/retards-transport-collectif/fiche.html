@@ -181,7 +181,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- margin-sidebar -->
 
 <!-- main -->
-<main class="content column-page" id="quarto-document-content">
+<main class="content page-columns page-full column-page" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
@@ -202,8 +202,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section class="dataset-detail-page">
-<div class="dataset-detail-hero">
+<section class="dataset-detail-page page-columns page-full">
+<section class="dataset-teacher-hero page-columns page-full">
 <div class="dataset-hero-copy">
 <nav class="dataset-breadcrumb">
 <a href="../../catalogue.html">Catalogue</a><span>/</span><span>Mobilité et performance de service</span>
@@ -211,46 +211,74 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h1>
 Flux temps réel STM et ponctualité des bus
 </h1>
-<p class="dataset-hero-source">
-Source : <a href="https://www.donneesquebec.ca/recherche/dataset/vmtl-stm-bus-temps-reel-gtfs-realtime">Société de transport de Montréal / Données Québec</a>
+<p class="dataset-teacher-question">
+Peut-on mesurer les retards des bus STM directement avec cette source, ou faut-il d'abord construire un protocole d'archivage?
 </p>
-<p class="dataset-hero-summary">
-Observation temps réel à archiver localement: mise à jour de trajet, position de véhicule ou alerte GTFS-realtime
-</p>
+<div class="dataset-source-strip">
+<span>Source : <a href="https://www.donneesquebec.ca/recherche/dataset/vmtl-stm-bus-temps-reel-gtfs-realtime">Société de transport de Montréal / Données Québec</a></span><span>Licence : Attribution (CC-BY 4.0) selon les métadonnées CKAN vérifiées le 2026-06-21</span><span>Téléchargé : 2026-06-21</span>
+</div>
 <div class="dataset-hero-actions">
-<a class="dataset-button no-external" href="#apercu-interactif">Voir les données</a><a class="dataset-button secondary no-external" href="#documentation">Documentation</a>
+<a class="dataset-button no-external" href="#apercu-interactif">Voir les données</a><a class="dataset-button secondary no-external" href="#activites-pedagogiques">Activités</a>
 </div>
 </div>
-</div>
-<section class="dataset-simple-summary">
-<div class="dataset-start-question">
-<span>Point de départ</span>
-<p>
-Concevoir un protocole d'archivage reproductible pour un flux GTFS-realtime.
-</p>
-</div>
-<div class="dataset-simple-facts">
-<div class="dataset-simple-fact">
-<span>Territoire</span><strong>Réseau d'autobus de la STM</strong>
-</div>
-<div class="dataset-simple-fact">
-<span>Niveau</span><strong>Intermédiaire</strong>
-</div>
-<div class="dataset-simple-fact">
-<span>Format</span><strong>GTFS-realtime via portail développeur STM; aucune table historique officielle directement téléchargeable dans CKAN</strong>
-</div>
-</div>
-</section>
-<section class="dataset-r-lab" id="apercu-interactif">
-<div class="dataset-section-heading">
-<span>Aperçu</span>
+<aside class="dataset-featured-activity">
+<span class="dataset-panel-label">Activité prête à lancer</span>
 <h2 class="anchored">
-Les premières lignes
+Laboratoire - Peut-on mesurer les retards STM avec cette source?
+</h2>
+<p>
+Peut-on mesurer les retards des bus STM directement avec cette source, ou faut-il d'abord construire un protocole d'archivage?
+</p>
+<div class="dataset-featured-meta">
+<span>45-60 minutes</span><span>Intermédiaire</span>
+</div>
+<div class="dataset-activity-chips">
+<span class="dataset-activity-chip">Laboratoire d'audit de source</span><span class="dataset-activity-chip">Métadonnées et protocole</span>
+</div>
+</aside>
+</section>
+<section class="dataset-teacher-plan">
+<article>
+<span class="dataset-panel-label">Pourquoi l’utiliser?</span>
+<p>
+Pour travailler flux temps réel, métadonnées, unité statistique, variables dérivées à partir d’un contexte mobilité et performance de service lié à Réseau d'autobus de la STM.
+</p>
+<div class="dataset-chip-row">
+<span class="dataset-chip">flux temps réel</span><span class="dataset-chip">métadonnées</span><span class="dataset-chip">unité statistique</span><span class="dataset-chip">variables dérivées</span><span class="dataset-chip">séries temporelles</span><span class="dataset-chip">données manquantes</span>
+</div>
+</article>
+<article>
+<span class="dataset-panel-label">Ce que les étudiantes et étudiants font</span>
+<ul>
+<li>
+Concevoir un protocole d'archivage reproductible pour un flux GTFS-realtime.
+</li>
+<li>
+Comparer la distribution des retards par ligne après avoir vérifié que delay_seconds est présent.
+</li>
+<li>
+Évaluer les biais produits par la fréquence de collecte et les données manquantes.
+</li>
+</ul>
+</article>
+<article>
+<span class="dataset-panel-label">À cadrer en classe</span>
+<p>
+Faire écrire explicitement ce qui est vérifié, ce qui ne l'est pas et ce qui devrait être collecté avant toute moyenne de retard.
+</p>
+</article>
+</section>
+<section class="dataset-r-lab page-columns page-full" id="apercu-interactif">
+<div class="dataset-section-heading">
+<span>Aperçu des données</span>
+<h2 class="anchored">
+Entrer par les lignes, puis poser une question
 </h2>
 <p>
 Aperçu calculé par R à partir de data/processed/retards-transport-collectif/resume_retards_transport.csv.
 </p>
 </div>
+<div class="dataset-preview-layout page-columns page-full">
 <div class="dataset-result-card">
 <div class="dataset-card-label">
 Table consultable
@@ -361,6 +389,24 @@ Précédent
 <span data-dataset-page=""></span><button type="button" data-dataset-next="">Suivant</button>
 </div>
 </div>
+</div>
+<aside class="dataset-variable-panel">
+<span class="dataset-panel-label">Variables à repérer</span>
+<div class="dataset-variable-list">
+<span class="dataset-variable-chip">collection_time</span><span class="dataset-variable-chip">message_type</span><span class="dataset-variable-chip">route_id</span><span class="dataset-variable-chip">trip_id</span><span class="dataset-variable-chip">vehicle_id</span><span class="dataset-variable-chip">stop_id</span><span class="dataset-variable-chip">delay_seconds</span>
+</div>
+<div class="dataset-simple-facts">
+<div class="dataset-simple-fact">
+<span>Territoire</span><strong>Réseau d'autobus de la STM</strong>
+</div>
+<div class="dataset-simple-fact">
+<span>Niveau</span><strong>Intermédiaire</strong>
+</div>
+<div class="dataset-simple-fact">
+<span>Format</span><strong>GTFS-realtime via portail développeur STM; aucune table historique officielle directement téléchargeable dans CKAN</strong>
+</div>
+</div>
+</aside>
 </div>
 </section>
 <details class="dataset-doc-panel" id="documentation">
@@ -933,7 +979,7 @@ Précédent
 </section>
 </div>
 </details>
-<section class="dataset-activities-panel">
+<section class="dataset-activities-panel" id="activites-pedagogiques">
 <div class="dataset-section-heading">
 <span>Activités pédagogiques</span>
 <h2 class="anchored">
@@ -941,18 +987,35 @@ Pour aller plus loin
 </h2>
 </div>
 <div class="dataset-activity-grid">
-<div class="dataset-activity-card">
-<span>45-60 minutes</span><strong>Laboratoire - Peut-on mesurer les retards STM avec cette source?</strong>
+<a class="dataset-activity-card" href="activite-courte.html">
+<div class="dataset-activity-meta">
+<span>45-60 minutes</span><span>Intermédiaire</span>
+</div>
+<strong>Laboratoire - Peut-on mesurer les retards STM avec cette source?</strong>
 <p>
 Peut-on mesurer les retards des bus STM directement avec cette source, ou faut-il d'abord construire un protocole d'archivage?
 </p>
+<div class="dataset-activity-chips">
+<span class="dataset-activity-chip">Laboratoire d'audit de source</span><span class="dataset-activity-chip">Métadonnées et protocole</span>
 </div>
-<div class="dataset-activity-card">
-<span>2-3 heures</span><strong>Mini-projet - Concevoir un protocole d'archivage GTFS-realtime</strong>
+<p class="dataset-activity-note">
+Faire écrire explicitement ce qui est vérifié, ce qui ne l'est pas et ce qui devrait être collecté avant toute moyenne de retard.
+</p>
+</a> <a class="dataset-activity-card" href="activite-longue.html">
+<div class="dataset-activity-meta">
+<span>2-3 heures</span><span>Intermédiaire</span>
+</div>
+<strong>Mini-projet - Concevoir un protocole d'archivage GTFS-realtime</strong>
 <p>
 Comment archiver un flux GTFS-realtime pour produire une table de ponctualité utilisable en statistique descriptive?
 </p>
+<div class="dataset-activity-chips">
+<span class="dataset-activity-chip">Projet ou tâche longue</span><span class="dataset-activity-chip">Protocole de collecte</span>
 </div>
+<p class="dataset-activity-note">
+Évaluer la qualité du protocole et la prudence statistique plutôt que la capacité à accéder au flux en direct.
+</p>
+</a>
 </div>
 </section>
 </section>

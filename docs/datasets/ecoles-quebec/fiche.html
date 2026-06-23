@@ -181,7 +181,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- margin-sidebar -->
 
 <!-- main -->
-<main class="content column-page" id="quarto-document-content">
+<main class="content page-columns page-full column-page" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
@@ -202,8 +202,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section class="dataset-detail-page">
-<div class="dataset-detail-hero">
+<section class="dataset-detail-page page-columns page-full">
+<section class="dataset-teacher-hero page-columns page-full">
 <div class="dataset-hero-copy">
 <nav class="dataset-breadcrumb">
 <a href="../../catalogue.html">Catalogue</a><span>/</span><span>Éducation et territoire</span>
@@ -211,46 +211,74 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h1>
 Établissements scolaires du Québec
 </h1>
-<p class="dataset-hero-source">
-Source : <a href="https://www.donneesquebec.ca/recherche/dataset/localisation-des-etablissements-d-enseignement-du-reseau-scolaire-au-quebec">Données Québec / Ministère de l'Éducation et Ministère de l'Enseignement supérieur</a>
+<p class="dataset-teacher-question">
+Comment les écoles publiques du Québec sont-elles localisées, et que compte-t-on exactement quand on regroupe les lignes par région?
 </p>
-<p class="dataset-hero-summary">
-Lien école publique-immeuble scolaire
-</p>
+<div class="dataset-source-strip">
+<span>Source : <a href="https://www.donneesquebec.ca/recherche/dataset/localisation-des-etablissements-d-enseignement-du-reseau-scolaire-au-quebec">Données Québec / Ministère de l'Éducation et Ministère de l'Enseignement supérieur</a></span><span>Licence : Attribution (CC-BY 4.0) selon les métadonnées CKAN vérifiées le 2026-06-20</span><span>Téléchargé : 2026-06-20</span>
+</div>
 <div class="dataset-hero-actions">
-<a class="dataset-button no-external" href="#apercu-interactif">Voir les données</a><a class="dataset-button secondary no-external" href="#documentation">Documentation</a>
+<a class="dataset-button no-external" href="#apercu-interactif">Voir les données</a><a class="dataset-button secondary no-external" href="#activites-pedagogiques">Activités</a>
 </div>
 </div>
-</div>
-<section class="dataset-simple-summary">
-<div class="dataset-start-question">
-<span>Point de départ</span>
-<p>
-Cartographier les liens école-immeuble et discuter les risques de double comptage.
-</p>
-</div>
-<div class="dataset-simple-facts">
-<div class="dataset-simple-fact">
-<span>Territoire</span><strong>Québec</strong>
-</div>
-<div class="dataset-simple-fact">
-<span>Niveau</span><strong>Introduction à intermédiaire</strong>
-</div>
-<div class="dataset-simple-fact">
-<span>Format</span><strong>CSV officiel; autres formats disponibles dans le paquet</strong>
-</div>
-</div>
-</section>
-<section class="dataset-r-lab" id="apercu-interactif">
-<div class="dataset-section-heading">
-<span>Aperçu</span>
+<aside class="dataset-featured-activity">
+<span class="dataset-panel-label">Activité prête à lancer</span>
 <h2 class="anchored">
-Les premières lignes
+Laboratoire - Écoles Québec
+</h2>
+<p>
+Comment les écoles publiques du Québec sont-elles localisées, et que compte-t-on exactement quand on regroupe les lignes par région?
+</p>
+<div class="dataset-featured-meta">
+<span>60-90 minutes</span><span>Introduction à intermédiaire</span>
+</div>
+<div class="dataset-activity-chips">
+<span class="dataset-activity-chip">Laboratoire d'introduction</span><span class="dataset-activity-chip">Exploration de données</span>
+</div>
+</aside>
+</section>
+<section class="dataset-teacher-plan">
+<article>
+<span class="dataset-panel-label">Pourquoi l’utiliser?</span>
+<p>
+Pour travailler géolocalisation, cartographie, jointures, unité statistique à partir d’un contexte éducation et territoire lié à Québec.
+</p>
+<div class="dataset-chip-row">
+<span class="dataset-chip">géolocalisation</span><span class="dataset-chip">cartographie</span><span class="dataset-chip">jointures</span><span class="dataset-chip">unité statistique</span><span class="dataset-chip">double comptage</span><span class="dataset-chip">données publiques</span>
+</div>
+</article>
+<article>
+<span class="dataset-panel-label">Ce que les étudiantes et étudiants font</span>
+<ul>
+<li>
+Cartographier les liens école-immeuble et discuter les risques de double comptage.
+</li>
+<li>
+Comparer les ordres d'enseignement selon les régions administratives.
+</li>
+<li>
+Construire un indicateur descriptif simple par région sans le présenter comme une mesure d'accès.
+</li>
+</ul>
+</article>
+<article>
+<span class="dataset-panel-label">À cadrer en classe</span>
+<p>
+Faire valider l'unité statistique avant tout graphique; une ligne est un lien école-immeuble.
+</p>
+</article>
+</section>
+<section class="dataset-r-lab page-columns page-full" id="apercu-interactif">
+<div class="dataset-section-heading">
+<span>Aperçu des données</span>
+<h2 class="anchored">
+Entrer par les lignes, puis poser une question
 </h2>
 <p>
 Aperçu léger calculé par R à partir des métadonnées vérifiées afin de garder la fiche rapide et stable au rendu.
 </p>
 </div>
+<div class="dataset-preview-layout page-columns page-full">
 <div class="dataset-result-card">
 <div class="dataset-card-label">
 Table consultable
@@ -326,6 +354,24 @@ Précédent
 <span data-dataset-page=""></span><button type="button" data-dataset-next="">Suivant</button>
 </div>
 </div>
+</div>
+<aside class="dataset-variable-panel">
+<span class="dataset-panel-label">Variables à repérer</span>
+<div class="dataset-variable-list">
+<span class="dataset-variable-chip">CD_ORGNS</span><span class="dataset-variable-chip">NOM_OFFCL_ORGNS</span><span class="dataset-variable-chip">CD_IMM</span><span class="dataset-variable-chip">NOM_IMM</span><span class="dataset-variable-chip">ORDRE_ENS</span><span class="dataset-variable-chip">CD_CS</span><span class="dataset-variable-chip">TYPE_CS</span>
+</div>
+<div class="dataset-simple-facts">
+<div class="dataset-simple-fact">
+<span>Territoire</span><strong>Québec</strong>
+</div>
+<div class="dataset-simple-fact">
+<span>Niveau</span><strong>Introduction à intermédiaire</strong>
+</div>
+<div class="dataset-simple-fact">
+<span>Format</span><strong>CSV officiel; autres formats disponibles dans le paquet</strong>
+</div>
+</div>
+</aside>
 </div>
 </section>
 <details class="dataset-doc-panel" id="documentation">
@@ -1092,7 +1138,7 @@ Précédent
 </section>
 </div>
 </details>
-<section class="dataset-activities-panel">
+<section class="dataset-activities-panel" id="activites-pedagogiques">
 <div class="dataset-section-heading">
 <span>Activités pédagogiques</span>
 <h2 class="anchored">
@@ -1100,18 +1146,35 @@ Pour aller plus loin
 </h2>
 </div>
 <div class="dataset-activity-grid">
-<div class="dataset-activity-card">
-<span>60-90 minutes</span><strong>Laboratoire - Écoles Québec</strong>
+<a class="dataset-activity-card" href="activite-courte.html">
+<div class="dataset-activity-meta">
+<span>60-90 minutes</span><span>Introduction à intermédiaire</span>
+</div>
+<strong>Laboratoire - Écoles Québec</strong>
 <p>
 Comment les écoles publiques du Québec sont-elles localisées, et que compte-t-on exactement quand on regroupe les lignes par région?
 </p>
+<div class="dataset-activity-chips">
+<span class="dataset-activity-chip">Laboratoire d'introduction</span><span class="dataset-activity-chip">Exploration de données</span>
 </div>
-<div class="dataset-activity-card">
-<span>2-3 heures</span><strong>Mini-projet - Écoles Québec</strong>
+<p class="dataset-activity-note">
+Faire valider l'unité statistique avant tout graphique; une ligne est un lien école-immeuble.
+</p>
+</a> <a class="dataset-activity-card" href="activite-longue.html">
+<div class="dataset-activity-meta">
+<span>2-3 heures</span><span>Introduction à intermédiaire</span>
+</div>
+<strong>Mini-projet - Écoles Québec</strong>
 <p>
 Comment produire une carte utile des écoles publiques du Québec sans transformer des points géographiques en conclusion sur l'accès scolaire?
 </p>
+<div class="dataset-activity-chips">
+<span class="dataset-activity-chip">Projet ou tâche longue</span><span class="dataset-activity-chip">Étude de cas</span>
 </div>
+<p class="dataset-activity-note">
+Demander une comparaison explicite entre lignes, organismes et immeubles, puis une limite sur l'accès scolaire.
+</p>
+</a>
 </div>
 </section>
 </section>

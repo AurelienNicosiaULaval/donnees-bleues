@@ -181,7 +181,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- margin-sidebar -->
 
 <!-- main -->
-<main class="content column-page" id="quarto-document-content">
+<main class="content page-columns page-full column-page" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
@@ -202,8 +202,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section class="dataset-detail-page">
-<div class="dataset-detail-hero">
+<section class="dataset-detail-page page-columns page-full">
+<section class="dataset-teacher-hero page-columns page-full">
 <div class="dataset-hero-copy">
 <nav class="dataset-breadcrumb">
 <a href="../../catalogue.html">Catalogue</a><span>/</span><span>Hydrographie</span>
@@ -211,46 +211,74 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h1>
 Géobase du réseau hydrographique du Québec
 </h1>
-<p class="dataset-hero-source">
-Source : <a href="https://www.donneesquebec.ca/recherche/dataset/grhq">Données Québec / Ministère des Ressources naturelles et des Forêts</a>
+<p class="dataset-teacher-question">
+Comment choisir une unité GRHQ avant de télécharger une géodatabase?
 </p>
-<p class="dataset-hero-summary">
-Une ligne préparée correspond à une unité de téléchargement de l'index GRHQ
-</p>
+<div class="dataset-source-strip">
+<span>Source : <a href="https://www.donneesquebec.ca/recherche/dataset/grhq">Données Québec / Ministère des Ressources naturelles et des Forêts</a></span><span>Licence : Attribution (CC-BY 4.0) selon les métadonnées CKAN vérifiées le 2026-06-21</span><span>Téléchargé : 2026-06-21</span>
+</div>
 <div class="dataset-hero-actions">
-<a class="dataset-button no-external" href="#apercu-interactif">Voir les données</a><a class="dataset-button secondary no-external" href="#documentation">Documentation</a>
+<a class="dataset-button no-external" href="#apercu-interactif">Voir les données</a><a class="dataset-button secondary no-external" href="#activites-pedagogiques">Activités</a>
 </div>
 </div>
-</div>
-<section class="dataset-simple-summary">
-<div class="dataset-start-question">
-<span>Point de départ</span>
-<p>
-Choisir une unité de téléchargement GRHQ et justifier ce choix.
-</p>
-</div>
-<div class="dataset-simple-facts">
-<div class="dataset-simple-fact">
-<span>Territoire</span><strong>Québec</strong>
-</div>
-<div class="dataset-simple-fact">
-<span>Niveau</span><strong>Intermédiaire à avancé</strong>
-</div>
-<div class="dataset-simple-fact">
-<span>Format</span><strong>Index CSV préparé localement; ressources officielles FGDB, SHP, WMS et PDF documentées</strong>
-</div>
-</div>
-</section>
-<section class="dataset-r-lab" id="apercu-interactif">
-<div class="dataset-section-heading">
-<span>Aperçu</span>
+<aside class="dataset-featured-activity">
+<span class="dataset-panel-label">Activité prête à lancer</span>
 <h2 class="anchored">
-Les premières lignes
+Choisir une unité GRHQ avec l'index de téléchargement
+</h2>
+<p>
+Comment choisir une unité GRHQ avant de télécharger une géodatabase?
+</p>
+<div class="dataset-featured-meta">
+<span>30-45 minutes</span><span>Intermédiaire</span>
+</div>
+<div class="dataset-activity-chips">
+<span class="dataset-activity-chip">Exercice</span><span class="dataset-activity-chip">Exploration de données</span>
+</div>
+</aside>
+</section>
+<section class="dataset-teacher-plan">
+<article>
+<span class="dataset-panel-label">Pourquoi l’utiliser?</span>
+<p>
+Pour travailler Index de téléchargement, Métadonnées, Données spatiales, Reproductibilité à partir d’un contexte hydrographie lié à Québec.
+</p>
+<div class="dataset-chip-row">
+<span class="dataset-chip">Index de téléchargement</span><span class="dataset-chip">Métadonnées</span><span class="dataset-chip">Données spatiales</span><span class="dataset-chip">Reproductibilité</span><span class="dataset-chip">hydrographie</span><span class="dataset-chip">index de téléchargement</span>
+</div>
+</article>
+<article>
+<span class="dataset-panel-label">Ce que les étudiantes et étudiants font</span>
+<ul>
+<li>
+Choisir une unité de téléchargement GRHQ et justifier ce choix.
+</li>
+<li>
+Comparer les unités complètes et les unités fractionnées de l'index.
+</li>
+<li>
+Préparer le plan d'une jointure spatiale avec des stations de qualité de l'eau.
+</li>
+</ul>
+</article>
+<article>
+<span class="dataset-panel-label">À cadrer en classe</span>
+<p>
+Ne pas faire télécharger les FGDB dans l'activité courte. L'objectif est de comprendre l'index et de justifier une unité de téléchargement.
+</p>
+</article>
+</section>
+<section class="dataset-r-lab page-columns page-full" id="apercu-interactif">
+<div class="dataset-section-heading">
+<span>Aperçu des données</span>
+<h2 class="anchored">
+Entrer par les lignes, puis poser une question
 </h2>
 <p>
 Aperçu léger calculé par R à partir des métadonnées vérifiées afin de garder la fiche rapide et stable au rendu.
 </p>
 </div>
+<div class="dataset-preview-layout page-columns page-full">
 <div class="dataset-result-card">
 <div class="dataset-card-label">
 Table consultable
@@ -326,6 +354,24 @@ Précédent
 <span data-dataset-page=""></span><button type="button" data-dataset-next="">Suivant</button>
 </div>
 </div>
+</div>
+<aside class="dataset-variable-panel">
+<span class="dataset-panel-label">Variables à repérer</span>
+<div class="dataset-variable-list">
+<span class="dataset-variable-chip">bloc</span><span class="dataset-variable-chip">region_hydrographique</span><span class="dataset-variable-chip">partie</span><span class="dataset-variable-chip">is_split_unit</span><span class="dataset-variable-chip">unit_kind</span><span class="dataset-variable-chip">zone</span><span class="dataset-variable-chip">fgdb_zip_file</span>
+</div>
+<div class="dataset-simple-facts">
+<div class="dataset-simple-fact">
+<span>Territoire</span><strong>Québec</strong>
+</div>
+<div class="dataset-simple-fact">
+<span>Niveau</span><strong>Intermédiaire à avancé</strong>
+</div>
+<div class="dataset-simple-fact">
+<span>Format</span><strong>Index CSV préparé localement; ressources officielles FGDB, SHP, WMS et PDF documentées</strong>
+</div>
+</div>
+</aside>
 </div>
 </section>
 <details class="dataset-doc-panel" id="documentation">
@@ -972,7 +1018,7 @@ Précédent
 </section>
 </div>
 </details>
-<section class="dataset-activities-panel">
+<section class="dataset-activities-panel" id="activites-pedagogiques">
 <div class="dataset-section-heading">
 <span>Activités pédagogiques</span>
 <h2 class="anchored">
@@ -980,18 +1026,35 @@ Pour aller plus loin
 </h2>
 </div>
 <div class="dataset-activity-grid">
-<div class="dataset-activity-card">
-<span>30-45 minutes</span><strong>Choisir une unité GRHQ avec l'index de téléchargement</strong>
+<a class="dataset-activity-card" href="activite-courte.html">
+<div class="dataset-activity-meta">
+<span>30-45 minutes</span><span>Intermédiaire</span>
+</div>
+<strong>Choisir une unité GRHQ avec l'index de téléchargement</strong>
 <p>
 Comment choisir une unité GRHQ avant de télécharger une géodatabase?
 </p>
+<div class="dataset-activity-chips">
+<span class="dataset-activity-chip">Exercice</span><span class="dataset-activity-chip">Exploration de données</span>
 </div>
-<div class="dataset-activity-card">
-<span>2-3 heures</span><strong>Préparer une analyse spatiale avec la GRHQ</strong>
+<p class="dataset-activity-note">
+Ne pas faire télécharger les FGDB dans l'activité courte. L'objectif est de comprendre l'index et de justifier une unité de téléchargement.
+</p>
+</a> <a class="dataset-activity-card" href="activite-longue.html">
+<div class="dataset-activity-meta">
+<span>2-3 heures</span><span>Intermédiaire à avancé</span>
+</div>
+<strong>Préparer une analyse spatiale avec la GRHQ</strong>
 <p>
 Comment préparer une analyse spatiale avec la GRHQ sans télécharger inutilement tout le Québec?
 </p>
+<div class="dataset-activity-chips">
+<span class="dataset-activity-chip">Projet ou tâche longue</span><span class="dataset-activity-chip">Étude de cas</span>
 </div>
+<p class="dataset-activity-note">
+Limiter l'analyse à une unité GRHQ. Exiger une distinction explicite entre index de téléchargement, WMS de visualisation et FGDB analysable.
+</p>
+</a>
 </div>
 </section>
 </section>

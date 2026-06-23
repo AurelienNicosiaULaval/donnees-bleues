@@ -181,7 +181,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- margin-sidebar -->
 
 <!-- main -->
-<main class="content column-page" id="quarto-document-content">
+<main class="content page-columns page-full column-page" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
@@ -202,8 +202,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section class="dataset-detail-page">
-<div class="dataset-detail-hero">
+<section class="dataset-detail-page page-columns page-full">
+<section class="dataset-teacher-hero page-columns page-full">
 <div class="dataset-hero-copy">
 <nav class="dataset-breadcrumb">
 <a href="../../catalogue.html">Catalogue</a><span>/</span><span>Sécurité publique</span>
@@ -211,46 +211,74 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h1>
 Actes criminels enregistrés à Montréal
 </h1>
-<p class="dataset-hero-source">
-Source : <a href="https://www.donneesquebec.ca/recherche/dataset/vmtl-actes-criminels">Données Québec / Ville de Montréal / SPVM</a>
+<p class="dataset-teacher-question">
+Que peut-on décrire sans transformer ces données ouvertes en statistiques officielles?
 </p>
-<p class="dataset-hero-summary">
-Acte criminel enregistré par le SPVM dans ce jeu de données ouvert
-</p>
+<div class="dataset-source-strip">
+<span>Source : <a href="https://www.donneesquebec.ca/recherche/dataset/vmtl-actes-criminels">Données Québec / Ville de Montréal / SPVM</a></span><span>Licence : Attribution (CC-BY 4.0) selon les métadonnées CKAN vérifiées le 2026-06-21</span><span>Téléchargé : 2026-06-21</span>
+</div>
 <div class="dataset-hero-actions">
-<a class="dataset-button no-external" href="#apercu-interactif">Voir les données</a><a class="dataset-button secondary no-external" href="#documentation">Documentation</a>
+<a class="dataset-button no-external" href="#apercu-interactif">Voir les données</a><a class="dataset-button secondary no-external" href="#activites-pedagogiques">Activités</a>
 </div>
 </div>
-</div>
-<section class="dataset-simple-summary">
-<div class="dataset-start-question">
-<span>Point de départ</span>
-<p>
-Comparer les catégories publiées par mois sans les traiter comme statistiques officielles.
-</p>
-</div>
-<div class="dataset-simple-facts">
-<div class="dataset-simple-fact">
-<span>Territoire</span><strong>Montréal</strong>
-</div>
-<div class="dataset-simple-fact">
-<span>Niveau</span><strong>Intermédiaire à avancé</strong>
-</div>
-<div class="dataset-simple-fact">
-<span>Format</span><strong>CSV officiel préparé localement; GeoJSON et ZIP disponibles à la source</strong>
-</div>
-</div>
-</section>
-<section class="dataset-r-lab" id="apercu-interactif">
-<div class="dataset-section-heading">
-<span>Aperçu</span>
+<aside class="dataset-featured-activity">
+<span class="dataset-panel-label">Activité prête à lancer</span>
 <h2 class="anchored">
-Les premières lignes
+Lire prudemment des données de sécurité publique
+</h2>
+<p>
+Que peut-on décrire sans transformer ces données ouvertes en statistiques officielles?
+</p>
+<div class="dataset-featured-meta">
+<span>30-45 minutes</span><span>Intermédiaire</span>
+</div>
+<div class="dataset-activity-chips">
+<span class="dataset-activity-chip">Laboratoire</span><span class="dataset-activity-chip">Discussion guidée</span>
+</div>
+</aside>
+</section>
+<section class="dataset-teacher-plan">
+<article>
+<span class="dataset-panel-label">Pourquoi l’utiliser?</span>
+<p>
+Pour travailler Données sensibles, Unité statistique, Catégories, Statistique descriptive à partir d’un contexte sécurité publique lié à Montréal.
+</p>
+<div class="dataset-chip-row">
+<span class="dataset-chip">Données sensibles</span><span class="dataset-chip">Unité statistique</span><span class="dataset-chip">Catégories</span><span class="dataset-chip">Statistique descriptive</span><span class="dataset-chip">Éthique</span><span class="dataset-chip">données sensibles</span>
+</div>
+</article>
+<article>
+<span class="dataset-panel-label">Ce que les étudiantes et étudiants font</span>
+<ul>
+<li>
+Comparer les catégories publiées par mois sans les traiter comme statistiques officielles.
+</li>
+<li>
+Créer une visualisation temporelle agrégée plutôt qu'une carte de points sensibles.
+</li>
+<li>
+Rédiger une note d'éthique sur les biais de déclaration et les risques de stigmatisation.
+</li>
+</ul>
+</article>
+<article>
+<span class="dataset-panel-label">À cadrer en classe</span>
+<p>
+Ne pas demander de classement de quartiers dangereux et interdire les cartes de points bruts.
+</p>
+</article>
+</section>
+<section class="dataset-r-lab page-columns page-full" id="apercu-interactif">
+<div class="dataset-section-heading">
+<span>Aperçu des données</span>
+<h2 class="anchored">
+Entrer par les lignes, puis poser une question
 </h2>
 <p>
 Aperçu léger calculé par R à partir des métadonnées vérifiées afin de garder la fiche rapide et stable au rendu.
 </p>
 </div>
+<div class="dataset-preview-layout page-columns page-full">
 <div class="dataset-result-card">
 <div class="dataset-card-label">
 Table consultable
@@ -326,6 +354,24 @@ Précédent
 <span data-dataset-page=""></span><button type="button" data-dataset-next="">Suivant</button>
 </div>
 </div>
+</div>
+<aside class="dataset-variable-panel">
+<span class="dataset-panel-label">Variables à repérer</span>
+<div class="dataset-variable-list">
+<span class="dataset-variable-chip">categorie</span><span class="dataset-variable-chip">date</span><span class="dataset-variable-chip">annee</span><span class="dataset-variable-chip">mois</span><span class="dataset-variable-chip">quart</span><span class="dataset-variable-chip">pdq</span><span class="dataset-variable-chip">longitude</span>
+</div>
+<div class="dataset-simple-facts">
+<div class="dataset-simple-fact">
+<span>Territoire</span><strong>Montréal</strong>
+</div>
+<div class="dataset-simple-fact">
+<span>Niveau</span><strong>Intermédiaire à avancé</strong>
+</div>
+<div class="dataset-simple-fact">
+<span>Format</span><strong>CSV officiel préparé localement; GeoJSON et ZIP disponibles à la source</strong>
+</div>
+</div>
+</aside>
 </div>
 </section>
 <details class="dataset-doc-panel" id="documentation">
@@ -1016,7 +1062,7 @@ Précédent
 </section>
 </div>
 </details>
-<section class="dataset-activities-panel">
+<section class="dataset-activities-panel" id="activites-pedagogiques">
 <div class="dataset-section-heading">
 <span>Activités pédagogiques</span>
 <h2 class="anchored">
@@ -1024,18 +1070,35 @@ Pour aller plus loin
 </h2>
 </div>
 <div class="dataset-activity-grid">
-<div class="dataset-activity-card">
-<span>30-45 minutes</span><strong>Lire prudemment des données de sécurité publique</strong>
+<a class="dataset-activity-card" href="activite-courte.html">
+<div class="dataset-activity-meta">
+<span>30-45 minutes</span><span>Intermédiaire</span>
+</div>
+<strong>Lire prudemment des données de sécurité publique</strong>
 <p>
 Que peut-on décrire sans transformer ces données ouvertes en statistiques officielles?
 </p>
+<div class="dataset-activity-chips">
+<span class="dataset-activity-chip">Laboratoire</span><span class="dataset-activity-chip">Discussion guidée</span>
 </div>
-<div class="dataset-activity-card">
-<span>2-3 heures</span><strong>Rapport descriptif et éthique sur les actes criminels</strong>
+<p class="dataset-activity-note">
+Ne pas demander de classement de quartiers dangereux et interdire les cartes de points bruts.
+</p>
+</a> <a class="dataset-activity-card" href="activite-longue.html">
+<div class="dataset-activity-meta">
+<span>2-3 heures</span><span>Avancé</span>
+</div>
+<strong>Rapport descriptif et éthique sur les actes criminels</strong>
 <p>
 Comment construire un rapport descriptif responsable avec des données policières ouvertes?
 </p>
+<div class="dataset-activity-chips">
+<span class="dataset-activity-chip">Mini-projet</span><span class="dataset-activity-chip">Étude de cas</span>
 </div>
+<p class="dataset-activity-note">
+Exiger une section limites et interdire les conclusions sur les personnes ou communautés.
+</p>
+</a>
 </div>
 </section>
 </section>

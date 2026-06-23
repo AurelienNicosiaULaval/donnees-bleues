@@ -181,7 +181,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- margin-sidebar -->
 
 <!-- main -->
-<main class="content column-page" id="quarto-document-content">
+<main class="content page-columns page-full column-page" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
@@ -202,8 +202,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section class="dataset-detail-page">
-<div class="dataset-detail-hero">
+<section class="dataset-detail-page page-columns page-full">
+<section class="dataset-teacher-hero page-columns page-full">
 <div class="dataset-hero-copy">
 <nav class="dataset-breadcrumb">
 <a href="../../catalogue.html">Catalogue</a><span>/</span><span>Marché du travail</span>
@@ -211,46 +211,68 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h1>
 Emploi régional au Québec
 </h1>
-<p class="dataset-hero-source">
-Source : <a href="https://statistique.quebec.ca/fr/document/population-active-emploi-et-chomage-regions-administratives-rmr-et-quebec">Institut de la statistique du Québec / Statistique Canada, Enquête sur la population active</a>
+<p class="dataset-teacher-question">
+Comment comparer le taux de chômage de quelques régions du Québec sans surinterpréter des estimations d'enquête?
 </p>
-<p class="dataset-hero-summary">
-Combinaison indicateur, territoire et mois
-</p>
+<div class="dataset-source-strip">
+<span>Source : <a href="https://statistique.quebec.ca/fr/document/population-active-emploi-et-chomage-regions-administratives-rmr-et-quebec">Institut de la statistique du Québec / Statistique Canada, Enquête sur la population active</a></span><span>Licence : Reproduction de l'information du site de l'Institut de la statistique du Québec interdite sauf permission écrite.</span><span>Téléchargé : 2026-06-20</span>
+</div>
 <div class="dataset-hero-actions">
-<a class="dataset-button no-external" href="#apercu-interactif">Voir les données</a><a class="dataset-button secondary no-external" href="#documentation">Documentation</a>
+<a class="dataset-button no-external" href="#apercu-interactif">Voir les données</a><a class="dataset-button secondary no-external" href="#activites-pedagogiques">Activités</a>
 </div>
 </div>
-</div>
-<section class="dataset-simple-summary">
-<div class="dataset-start-question">
-<span>Point de départ</span>
-<p>
-Explorer marché du travail avec une question descriptive.
-</p>
-</div>
-<div class="dataset-simple-facts">
-<div class="dataset-simple-fact">
-<span>Territoire</span><strong>Régions administratives et ensemble du Québec</strong>
-</div>
-<div class="dataset-simple-fact">
-<span>Niveau</span><strong>Introduction à intermédiaire</strong>
-</div>
-<div class="dataset-simple-fact">
-<span>Format</span><strong>XLSX officiel, préparé localement en CSV long</strong>
-</div>
-</div>
-</section>
-<section class="dataset-r-lab" id="apercu-interactif">
-<div class="dataset-section-heading">
-<span>Aperçu</span>
+<aside class="dataset-featured-activity">
+<span class="dataset-panel-label">Activité prête à lancer</span>
 <h2 class="anchored">
-Les premières lignes
+Laboratoire - Emploi régional
+</h2>
+<p>
+Comment comparer le taux de chômage de quelques régions du Québec sans surinterpréter des estimations d'enquête?
+</p>
+<div class="dataset-featured-meta">
+<span>60-90 minutes</span><span>Introduction à intermédiaire</span>
+</div>
+<div class="dataset-activity-chips">
+<span class="dataset-activity-chip">Laboratoire d'introduction</span><span class="dataset-activity-chip">Exploration de données</span>
+</div>
+</aside>
+</section>
+<section class="dataset-teacher-plan">
+<article>
+<span class="dataset-panel-label">Pourquoi l’utiliser?</span>
+<p>
+Pour travailler séries temporelles, comparaison de groupes, données d'enquête, qualité des estimations à partir d’un contexte marché du travail lié à Régions administratives et ensemble du Québec.
+</p>
+<div class="dataset-chip-row">
+<span class="dataset-chip">séries temporelles</span><span class="dataset-chip">comparaison de groupes</span><span class="dataset-chip">données d'enquête</span><span class="dataset-chip">qualité des estimations</span><span class="dataset-chip">analyse exploratoire</span><span class="dataset-chip">statistiques descriptives</span>
+</div>
+</article>
+<article>
+<span class="dataset-panel-label">Ce que les étudiantes et étudiants font</span>
+<ul>
+<li>
+Explorer marché du travail avec une question descriptive.
+</li>
+</ul>
+</article>
+<article>
+<span class="dataset-panel-label">À cadrer en classe</span>
+<p>
+Faire valider l'unité statistique, l'unité de mesure et les codes de qualité avant l'interprétation.
+</p>
+</article>
+</section>
+<section class="dataset-r-lab page-columns page-full" id="apercu-interactif">
+<div class="dataset-section-heading">
+<span>Aperçu des données</span>
+<h2 class="anchored">
+Entrer par les lignes, puis poser une question
 </h2>
 <p>
 Aperçu léger calculé par R à partir des métadonnées vérifiées afin de garder la fiche rapide et stable au rendu.
 </p>
 </div>
+<div class="dataset-preview-layout page-columns page-full">
 <div class="dataset-result-card">
 <div class="dataset-card-label">
 Table consultable
@@ -326,6 +348,24 @@ Précédent
 <span data-dataset-page=""></span><button type="button" data-dataset-next="">Suivant</button>
 </div>
 </div>
+</div>
+<aside class="dataset-variable-panel">
+<span class="dataset-panel-label">Variables à repérer</span>
+<div class="dataset-variable-list">
+<span class="dataset-variable-chip">Variables à préciser</span>
+</div>
+<div class="dataset-simple-facts">
+<div class="dataset-simple-fact">
+<span>Territoire</span><strong>Régions administratives et ensemble du Québec</strong>
+</div>
+<div class="dataset-simple-fact">
+<span>Niveau</span><strong>Introduction à intermédiaire</strong>
+</div>
+<div class="dataset-simple-fact">
+<span>Format</span><strong>XLSX officiel, préparé localement en CSV long</strong>
+</div>
+</div>
+</aside>
 </div>
 </section>
 <details class="dataset-doc-panel" id="documentation">
@@ -1036,7 +1076,7 @@ Précédent
 </section>
 </div>
 </details>
-<section class="dataset-activities-panel">
+<section class="dataset-activities-panel" id="activites-pedagogiques">
 <div class="dataset-section-heading">
 <span>Activités pédagogiques</span>
 <h2 class="anchored">
@@ -1044,18 +1084,35 @@ Pour aller plus loin
 </h2>
 </div>
 <div class="dataset-activity-grid">
-<div class="dataset-activity-card">
-<span>60-90 minutes</span><strong>Laboratoire - Emploi régional</strong>
+<a class="dataset-activity-card" href="activite-courte.html">
+<div class="dataset-activity-meta">
+<span>60-90 minutes</span><span>Introduction à intermédiaire</span>
+</div>
+<strong>Laboratoire - Emploi régional</strong>
 <p>
 Comment comparer le taux de chômage de quelques régions du Québec sans surinterpréter des estimations d'enquête?
 </p>
+<div class="dataset-activity-chips">
+<span class="dataset-activity-chip">Laboratoire d'introduction</span><span class="dataset-activity-chip">Exploration de données</span>
 </div>
-<div class="dataset-activity-card">
-<span>2-3 heures</span><strong>Mini-projet - Emploi régional</strong>
+<p class="dataset-activity-note">
+Faire valider l'unité statistique, l'unité de mesure et les codes de qualité avant l'interprétation.
+</p>
+</a> <a class="dataset-activity-card" href="activite-longue.html">
+<div class="dataset-activity-meta">
+<span>2-3 heures</span><span>Introduction à intermédiaire</span>
+</div>
+<strong>Mini-projet - Emploi régional</strong>
 <p>
 Comment la dynamique du marché du travail diffère-t-elle entre deux régions administratives et l'ensemble du Québec de 2011 à 2026?
 </p>
+<div class="dataset-activity-chips">
+<span class="dataset-activity-chip">Projet ou tâche longue</span><span class="dataset-activity-chip">Étude de cas</span>
 </div>
+<p class="dataset-activity-note">
+Demander un court paragraphe sur les limites de l'EPA, les moyennes mobiles sur trois mois et les codes <code>F</code> et <code>*</code>.
+</p>
+</a>
 </div>
 </section>
 </section>

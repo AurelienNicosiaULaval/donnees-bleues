@@ -181,7 +181,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- margin-sidebar -->
 
 <!-- main -->
-<main class="content column-page" id="quarto-document-content">
+<main class="content page-columns page-full column-page" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
@@ -202,8 +202,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section class="dataset-detail-page">
-<div class="dataset-detail-hero">
+<section class="dataset-detail-page page-columns page-full">
+<section class="dataset-teacher-hero page-columns page-full">
 <div class="dataset-hero-copy">
 <nav class="dataset-breadcrumb">
 <a href="../../catalogue.html">Catalogue</a><span>/</span><span>Inondations et sécurité civile</span>
@@ -211,46 +211,74 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h1>
 Niveaux d'eau lors d'une inondation
 </h1>
-<p class="dataset-hero-source">
-Source : <a href="https://www.donneesquebec.ca/recherche/dataset/niveaux-deau-inondation-msp">Données Québec / Ministère de la Sécurité intérieure</a>
+<p class="dataset-teacher-question">
+Où se situent les marqueurs ponctuels de niveaux d'eau documentés lors d'inondations?
 </p>
-<p class="dataset-hero-summary">
-Marqueur ponctuel de niveau d'eau observé lors d'un événement d'inondation
-</p>
+<div class="dataset-source-strip">
+<span>Source : <a href="https://www.donneesquebec.ca/recherche/dataset/niveaux-deau-inondation-msp">Données Québec / Ministère de la Sécurité intérieure</a></span><span>Licence : Attribution (CC-BY 4.0) selon les métadonnées CKAN vérifiées le 2026-06-21</span><span>Téléchargé : 2026-06-21</span>
+</div>
 <div class="dataset-hero-actions">
-<a class="dataset-button no-external" href="#apercu-interactif">Voir les données</a><a class="dataset-button secondary no-external" href="#documentation">Documentation</a>
+<a class="dataset-button no-external" href="#apercu-interactif">Voir les données</a><a class="dataset-button secondary no-external" href="#activites-pedagogiques">Activités</a>
 </div>
 </div>
-</div>
-<section class="dataset-simple-summary">
-<div class="dataset-start-question">
-<span>Point de départ</span>
-<p>
-Cartographier les marqueurs de niveau d'eau sans les confondre avec l'étendue inondée.
-</p>
-</div>
-<div class="dataset-simple-facts">
-<div class="dataset-simple-fact">
-<span>Territoire</span><strong>Québec méridional</strong>
-</div>
-<div class="dataset-simple-fact">
-<span>Niveau</span><strong>Introduction à intermédiaire</strong>
-</div>
-<div class="dataset-simple-fact">
-<span>Format</span><strong>CSV officiel préparé localement; GeoJSON, SHP, WMS et WFS disponibles</strong>
-</div>
-</div>
-</section>
-<section class="dataset-r-lab" id="apercu-interactif">
-<div class="dataset-section-heading">
-<span>Aperçu</span>
+<aside class="dataset-featured-activity">
+<span class="dataset-panel-label">Activité prête à lancer</span>
 <h2 class="anchored">
-Les premières lignes
+Cartographier des marqueurs de niveaux d'eau
+</h2>
+<p>
+Où se situent les marqueurs ponctuels de niveaux d'eau documentés lors d'inondations?
+</p>
+<div class="dataset-featured-meta">
+<span>30-45 minutes</span><span>Introductif</span>
+</div>
+<div class="dataset-activity-chips">
+<span class="dataset-activity-chip">Exercice</span><span class="dataset-activity-chip">Exploration de données</span>
+</div>
+</aside>
+</section>
+<section class="dataset-teacher-plan">
+<article>
+<span class="dataset-panel-label">Pourquoi l’utiliser?</span>
+<p>
+Pour travailler Données spatiales, Carte, Précision de mesure, Communication du risque à partir d’un contexte inondations et sécurité civile lié à Québec méridional.
+</p>
+<div class="dataset-chip-row">
+<span class="dataset-chip">Données spatiales</span><span class="dataset-chip">Carte</span><span class="dataset-chip">Précision de mesure</span><span class="dataset-chip">Communication du risque</span><span class="dataset-chip">données spatiales</span><span class="dataset-chip">événement extrême</span>
+</div>
+</article>
+<article>
+<span class="dataset-panel-label">Ce que les étudiantes et étudiants font</span>
+<ul>
+<li>
+Cartographier les marqueurs de niveau d'eau sans les confondre avec l'étendue inondée.
+</li>
+<li>
+Comparer les observations MAX et ACT selon l'année d'observation.
+</li>
+<li>
+Rédiger une note de communication du risque qui distingue observation ponctuelle et zone inondée.
+</li>
+</ul>
+</article>
+<article>
+<span class="dataset-panel-label">À cadrer en classe</span>
+<p>
+Faire écrire explicitement qu'un point représente un marqueur de niveau d'eau, pas une zone inondée.
+</p>
+</article>
+</section>
+<section class="dataset-r-lab page-columns page-full" id="apercu-interactif">
+<div class="dataset-section-heading">
+<span>Aperçu des données</span>
+<h2 class="anchored">
+Entrer par les lignes, puis poser une question
 </h2>
 <p>
 Aperçu léger calculé par R à partir des métadonnées vérifiées afin de garder la fiche rapide et stable au rendu.
 </p>
 </div>
+<div class="dataset-preview-layout page-columns page-full">
 <div class="dataset-result-card">
 <div class="dataset-card-label">
 Table consultable
@@ -326,6 +354,24 @@ Précédent
 <span data-dataset-page=""></span><button type="button" data-dataset-next="">Suivant</button>
 </div>
 </div>
+</div>
+<aside class="dataset-variable-panel">
+<span class="dataset-panel-label">Variables à repérer</span>
+<div class="dataset-variable-list">
+<span class="dataset-variable-chip">id_msp</span><span class="dataset-variable-chip">rapport_code</span><span class="dataset-variable-chip">date_obs</span><span class="dataset-variable-chip">annee_obs</span><span class="dataset-variable-chip">type_obs</span><span class="dataset-variable-chip">type_observation</span><span class="dataset-variable-chip">long_wgs84</span>
+</div>
+<div class="dataset-simple-facts">
+<div class="dataset-simple-fact">
+<span>Territoire</span><strong>Québec méridional</strong>
+</div>
+<div class="dataset-simple-fact">
+<span>Niveau</span><strong>Introduction à intermédiaire</strong>
+</div>
+<div class="dataset-simple-fact">
+<span>Format</span><strong>CSV officiel préparé localement; GeoJSON, SHP, WMS et WFS disponibles</strong>
+</div>
+</div>
+</aside>
 </div>
 </section>
 <details class="dataset-doc-panel" id="documentation">
@@ -959,7 +1005,7 @@ Précédent
 </section>
 </div>
 </details>
-<section class="dataset-activities-panel">
+<section class="dataset-activities-panel" id="activites-pedagogiques">
 <div class="dataset-section-heading">
 <span>Activités pédagogiques</span>
 <h2 class="anchored">
@@ -967,18 +1013,35 @@ Pour aller plus loin
 </h2>
 </div>
 <div class="dataset-activity-grid">
-<div class="dataset-activity-card">
-<span>30-45 minutes</span><strong>Cartographier des marqueurs de niveaux d'eau</strong>
+<a class="dataset-activity-card" href="activite-courte.html">
+<div class="dataset-activity-meta">
+<span>30-45 minutes</span><span>Introductif</span>
+</div>
+<strong>Cartographier des marqueurs de niveaux d'eau</strong>
 <p>
 Où se situent les marqueurs ponctuels de niveaux d'eau documentés lors d'inondations?
 </p>
+<div class="dataset-activity-chips">
+<span class="dataset-activity-chip">Exercice</span><span class="dataset-activity-chip">Exploration de données</span>
 </div>
-<div class="dataset-activity-card">
-<span>2-3 heures</span><strong>Mini-rapport sur les niveaux d'eau d'inondation</strong>
+<p class="dataset-activity-note">
+Faire écrire explicitement qu'un point représente un marqueur de niveau d'eau, pas une zone inondée.
+</p>
+</a> <a class="dataset-activity-card" href="activite-longue.html">
+<div class="dataset-activity-meta">
+<span>2-3 heures</span><span>Intermédiaire</span>
+</div>
+<strong>Mini-rapport sur les niveaux d'eau d'inondation</strong>
 <p>
 Comment résumer des observations ponctuelles d'inondation sans surinterpréter la carte?
 </p>
+<div class="dataset-activity-chips">
+<span class="dataset-activity-chip">Étude de cas</span><span class="dataset-activity-chip">Projet ou tâche longue</span>
 </div>
+<p class="dataset-activity-note">
+Faire distinguer marqueur ponctuel, événement d'inondation, niveau maximal et zone inondée.
+</p>
+</a>
 </div>
 </section>
 </section>

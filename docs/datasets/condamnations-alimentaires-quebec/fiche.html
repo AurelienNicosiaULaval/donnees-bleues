@@ -181,7 +181,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- margin-sidebar -->
 
 <!-- main -->
-<main class="content column-page" id="quarto-document-content">
+<main class="content page-columns page-full column-page" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
@@ -202,8 +202,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section class="dataset-detail-page">
-<div class="dataset-detail-hero">
+<section class="dataset-detail-page page-columns page-full">
+<section class="dataset-teacher-hero page-columns page-full">
 <div class="dataset-hero-copy">
 <nav class="dataset-breadcrumb">
 <a href="../../catalogue.html">Catalogue</a><span>/</span><span>Santé publique et alimentation</span>
@@ -211,49 +211,77 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h1>
 Condamnations des établissements alimentaires au Québec
 </h1>
-<p class="dataset-hero-source">
-Source : <a href="https://www.donneesquebec.ca/recherche/dataset/condamnations-des-etablissements-alimentaires-et-condamnations-concernant-le-bien-etre-des-anim">Données Québec / MAPAQ; version pédagogique fixe dans UlavalSSD</a>
+<p class="dataset-teacher-question">
+Quels types d'établissements apparaissent le plus souvent dans la version pédagogique, et que peut-on conclure sans dénominateur?
 </p>
 <div class="dataset-contributor-badge">
 <span>Personne à contacter</span><strong>Aurélien Nicosia</strong><small>Révision pédagogique et statistique</small>
 </div>
-<p class="dataset-hero-summary">
-Condamnation publiée dans la version pédagogique du jeu
-</p>
+<div class="dataset-source-strip">
+<span>Source : <a href="https://www.donneesquebec.ca/recherche/dataset/condamnations-des-etablissements-alimentaires-et-condamnations-concernant-le-bien-etre-des-anim">Données Québec / MAPAQ; version pédagogique fixe dans UlavalSSD</a></span><span>Licence : Attribution (CC-BY 4.0) selon les métadonnées CKAN vérifiées le 2026-06-20; paquet UlavalSSD sous licence MIT</span><span>Téléchargé : 2026-06-20</span>
+</div>
 <div class="dataset-hero-actions">
-<a class="dataset-button no-external" href="#apercu-interactif">Voir les données</a><a class="dataset-button secondary no-external" href="#documentation">Documentation</a>
+<a class="dataset-button no-external" href="#apercu-interactif">Voir les données</a><a class="dataset-button secondary no-external" href="#activites-pedagogiques">Activités</a>
 </div>
 </div>
-</div>
-<section class="dataset-simple-summary">
-<div class="dataset-start-question">
-<span>Point de départ</span>
-<p>
-Identifier les types d'établissements les plus souvent présents dans la version pédagogique.
-</p>
-</div>
-<div class="dataset-simple-facts">
-<div class="dataset-simple-fact">
-<span>Territoire</span><strong>Québec</strong>
-</div>
-<div class="dataset-simple-fact">
-<span>Niveau</span><strong>Introduction à intermédiaire</strong>
-</div>
-<div class="dataset-simple-fact">
-<span>Format</span><strong>CSV officiel dynamique; data.frame R fixe dans UlavalSSD</strong>
-</div>
-</div>
-</section>
-<section class="dataset-r-lab" id="apercu-interactif">
-<div class="dataset-section-heading">
-<span>Aperçu</span>
+<aside class="dataset-featured-activity">
+<span class="dataset-panel-label">Activité prête à lancer</span>
 <h2 class="anchored">
-Les premières lignes
+Laboratoire - Condamnations alimentaires
+</h2>
+<p>
+Quels types d'établissements apparaissent le plus souvent dans la version pédagogique, et que peut-on conclure sans dénominateur?
+</p>
+<div class="dataset-featured-meta">
+<span>60-90 minutes</span><span>Introduction à intermédiaire</span>
+</div>
+<div class="dataset-activity-chips">
+<span class="dataset-activity-chip">Laboratoire d'introduction</span><span class="dataset-activity-chip">Exploration de données</span>
+</div>
+</aside>
+</section>
+<section class="dataset-teacher-plan">
+<article>
+<span class="dataset-panel-label">Pourquoi l’utiliser?</span>
+<p>
+Pour travailler variables catégorielles, nettoyage de chaînes, tableaux de fréquences, dates à partir d’un contexte santé publique et alimentation lié à Québec.
+</p>
+<div class="dataset-chip-row">
+<span class="dataset-chip">variables catégorielles</span><span class="dataset-chip">nettoyage de chaînes</span><span class="dataset-chip">tableaux de fréquences</span><span class="dataset-chip">dates</span><span class="dataset-chip">montants</span><span class="dataset-chip">communication publique</span>
+</div>
+</article>
+<article>
+<span class="dataset-panel-label">Ce que les étudiantes et étudiants font</span>
+<ul>
+<li>
+Identifier les types d'établissements les plus souvent présents dans la version pédagogique.
+</li>
+<li>
+Nettoyer la variable d'amende et comparer les montants selon le type d'infraction.
+</li>
+<li>
+Rédiger un court article de données sur les infractions alimentaires à Montréal.
+</li>
+</ul>
+</article>
+<article>
+<span class="dataset-panel-label">À cadrer en classe</span>
+<p>
+Insister sur l'unité statistique, la conversion de l'amende et le fait que compter des condamnations ne donne pas un taux de risque.
+</p>
+</article>
+</section>
+<section class="dataset-r-lab page-columns page-full" id="apercu-interactif">
+<div class="dataset-section-heading">
+<span>Aperçu des données</span>
+<h2 class="anchored">
+Entrer par les lignes, puis poser une question
 </h2>
 <p>
 Aperçu léger calculé par R à partir des métadonnées vérifiées afin de garder la fiche rapide et stable au rendu.
 </p>
 </div>
+<div class="dataset-preview-layout page-columns page-full">
 <div class="dataset-result-card">
 <div class="dataset-card-label">
 Table consultable
@@ -329,6 +357,24 @@ Précédent
 <span data-dataset-page=""></span><button type="button" data-dataset-next="">Suivant</button>
 </div>
 </div>
+</div>
+<aside class="dataset-variable-panel">
+<span class="dataset-panel-label">Variables à repérer</span>
+<div class="dataset-variable-list">
+<span class="dataset-variable-chip">Nom_exploitant</span><span class="dataset-variable-chip">Raison_sociale</span><span class="dataset-variable-chip">Description_infraction</span><span class="dataset-variable-chip">Adresse_lieu_infraction</span><span class="dataset-variable-chip">Type_etablissement</span><span class="dataset-variable-chip">Date_infraction</span><span class="dataset-variable-chip">Date_jugement</span>
+</div>
+<div class="dataset-simple-facts">
+<div class="dataset-simple-fact">
+<span>Territoire</span><strong>Québec</strong>
+</div>
+<div class="dataset-simple-fact">
+<span>Niveau</span><strong>Introduction à intermédiaire</strong>
+</div>
+<div class="dataset-simple-fact">
+<span>Format</span><strong>CSV officiel dynamique; data.frame R fixe dans UlavalSSD</strong>
+</div>
+</div>
+</aside>
 </div>
 </section>
 <details class="dataset-doc-panel" id="documentation">
@@ -929,7 +975,7 @@ Précédent
 </section>
 </div>
 </details>
-<section class="dataset-activities-panel">
+<section class="dataset-activities-panel" id="activites-pedagogiques">
 <div class="dataset-section-heading">
 <span>Activités pédagogiques</span>
 <h2 class="anchored">
@@ -937,18 +983,35 @@ Pour aller plus loin
 </h2>
 </div>
 <div class="dataset-activity-grid">
-<div class="dataset-activity-card">
-<span>60-90 minutes</span><strong>Laboratoire - Condamnations alimentaires</strong>
+<a class="dataset-activity-card" href="activite-courte.html">
+<div class="dataset-activity-meta">
+<span>60-90 minutes</span><span>Introduction à intermédiaire</span>
+</div>
+<strong>Laboratoire - Condamnations alimentaires</strong>
 <p>
 Quels types d'établissements apparaissent le plus souvent dans la version pédagogique, et que peut-on conclure sans dénominateur?
 </p>
+<div class="dataset-activity-chips">
+<span class="dataset-activity-chip">Laboratoire d'introduction</span><span class="dataset-activity-chip">Exploration de données</span>
 </div>
-<div class="dataset-activity-card">
-<span>2-3 heures</span><strong>Mini-projet - Condamnations alimentaires</strong>
+<p class="dataset-activity-note">
+Insister sur l'unité statistique, la conversion de l'amende et le fait que compter des condamnations ne donne pas un taux de risque.
+</p>
+</a> <a class="dataset-activity-card" href="activite-longue.html">
+<div class="dataset-activity-meta">
+<span>2-3 heures</span><span>Introduction à intermédiaire</span>
+</div>
+<strong>Mini-projet - Condamnations alimentaires</strong>
 <p>
 Produire un court article reproductible sur les condamnations alimentaires sans interprétation sensationnaliste.
 </p>
+<div class="dataset-activity-chips">
+<span class="dataset-activity-chip">Projet ou tâche longue</span><span class="dataset-activity-chip">Étude de cas</span>
 </div>
+<p class="dataset-activity-note">
+Demander une section sur les limites, surtout l'absence de dénominateur, les délais administratifs et les précautions liées aux noms et adresses publics.
+</p>
+</a>
 </div>
 </section>
 </section>

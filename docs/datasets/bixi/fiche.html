@@ -181,7 +181,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- margin-sidebar -->
 
 <!-- main -->
-<main class="content column-page" id="quarto-document-content">
+<main class="content page-columns page-full column-page" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
@@ -202,8 +202,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section class="dataset-detail-page">
-<div class="dataset-detail-hero">
+<section class="dataset-detail-page page-columns page-full">
+<section class="dataset-teacher-hero page-columns page-full">
 <div class="dataset-hero-copy">
 <nav class="dataset-breadcrumb">
 <a href="../../catalogue.html">Catalogue</a><span>/</span><span>Mobilité urbaine</span>
@@ -211,46 +211,74 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h1>
 État des stations BIXI
 </h1>
-<p class="dataset-hero-source">
-Source : <a href="https://www.donneesquebec.ca/recherche/dataset/vmtl-bixi-etat-des-stations">BIXI Montréal / Données Québec</a>
+<p class="dataset-teacher-question">
+Comment décrire la disponibilité des vélos BIXI dans un instantané?
 </p>
-<p class="dataset-hero-summary">
-Station BIXI dans un instantané du flux GBFS
-</p>
+<div class="dataset-source-strip">
+<span>Source : <a href="https://www.donneesquebec.ca/recherche/dataset/vmtl-bixi-etat-des-stations">BIXI Montréal / Données Québec</a></span><span>Licence : Attribution (CC-BY 4.0) selon les métadonnées CKAN vérifiées le 2026-06-21</span><span>Téléchargé : 2026-06-21</span>
+</div>
 <div class="dataset-hero-actions">
-<a class="dataset-button no-external" href="#apercu-interactif">Voir les données</a><a class="dataset-button secondary no-external" href="#documentation">Documentation</a>
+<a class="dataset-button no-external" href="#apercu-interactif">Voir les données</a><a class="dataset-button secondary no-external" href="#activites-pedagogiques">Activités</a>
 </div>
 </div>
-</div>
-<section class="dataset-simple-summary">
-<div class="dataset-start-question">
-<span>Point de départ</span>
-<p>
-Décrire la disponibilité instantanée des vélos selon la capacité des stations.
-</p>
-</div>
-<div class="dataset-simple-facts">
-<div class="dataset-simple-fact">
-<span>Territoire</span><strong>Montréal</strong>
-</div>
-<div class="dataset-simple-fact">
-<span>Niveau</span><strong>Introduction à intermédiaire</strong>
-</div>
-<div class="dataset-simple-fact">
-<span>Format</span><strong>GBFS JSON préparé localement en CSV</strong>
-</div>
-</div>
-</section>
-<section class="dataset-r-lab" id="apercu-interactif">
-<div class="dataset-section-heading">
-<span>Aperçu</span>
+<aside class="dataset-featured-activity">
+<span class="dataset-panel-label">Activité prête à lancer</span>
 <h2 class="anchored">
-Les premières lignes
+Laboratoire - Disponibilité instantanée des stations BIXI
+</h2>
+<p>
+Comment décrire la disponibilité des vélos BIXI dans un instantané?
+</p>
+<div class="dataset-featured-meta">
+<span>30-45 minutes</span><span>Introductif</span>
+</div>
+<div class="dataset-activity-chips">
+<span class="dataset-activity-chip">Exercice</span><span class="dataset-activity-chip">Exploration de données</span>
+</div>
+</aside>
+</section>
+<section class="dataset-teacher-plan">
+<article>
+<span class="dataset-panel-label">Pourquoi l’utiliser?</span>
+<p>
+Pour travailler Données et mesure, Statistique descriptive, Visualisation, importation JSON à partir d’un contexte mobilité urbaine lié à Montréal.
+</p>
+<div class="dataset-chip-row">
+<span class="dataset-chip">Données et mesure</span><span class="dataset-chip">Statistique descriptive</span><span class="dataset-chip">Visualisation</span><span class="dataset-chip">importation JSON</span><span class="dataset-chip">flux GBFS</span><span class="dataset-chip">jointure</span>
+</div>
+</article>
+<article>
+<span class="dataset-panel-label">Ce que les étudiantes et étudiants font</span>
+<ul>
+<li>
+Décrire la disponibilité instantanée des vélos selon la capacité des stations.
+</li>
+<li>
+Construire une carte de disponibilité en filtrant les coordonnées invalides.
+</li>
+<li>
+Comparer plusieurs instantanés collectés à heures fixes pour étudier la variabilité temporelle.
+</li>
+</ul>
+</article>
+<article>
+<span class="dataset-panel-label">À cadrer en classe</span>
+<p>
+Faire distinguer disponibilité instantanée, demande des usagers et rééquilibrage opérationnel. Filtrer les coordonnées invalides avant toute carte.
+</p>
+</article>
+</section>
+<section class="dataset-r-lab page-columns page-full" id="apercu-interactif">
+<div class="dataset-section-heading">
+<span>Aperçu des données</span>
+<h2 class="anchored">
+Entrer par les lignes, puis poser une question
 </h2>
 <p>
 Aperçu calculé par R à partir de data/processed/bixi/stations_bixi_snapshot.csv.
 </p>
 </div>
+<div class="dataset-preview-layout page-columns page-full">
 <div class="dataset-result-card">
 <div class="dataset-card-label">
 Table consultable
@@ -4169,6 +4197,24 @@ Précédent
 <span data-dataset-page=""></span><button type="button" data-dataset-next="">Suivant</button>
 </div>
 </div>
+</div>
+<aside class="dataset-variable-panel">
+<span class="dataset-panel-label">Variables à repérer</span>
+<div class="dataset-variable-list">
+<span class="dataset-variable-chip">station_id</span><span class="dataset-variable-chip">name</span><span class="dataset-variable-chip">lat</span><span class="dataset-variable-chip">lon</span><span class="dataset-variable-chip">capacity</span><span class="dataset-variable-chip">groupe_capacite</span><span class="dataset-variable-chip">num_bikes_available</span>
+</div>
+<div class="dataset-simple-facts">
+<div class="dataset-simple-fact">
+<span>Territoire</span><strong>Montréal</strong>
+</div>
+<div class="dataset-simple-fact">
+<span>Niveau</span><strong>Introduction à intermédiaire</strong>
+</div>
+<div class="dataset-simple-fact">
+<span>Format</span><strong>GBFS JSON préparé localement en CSV</strong>
+</div>
+</div>
+</aside>
 </div>
 </section>
 <details class="dataset-doc-panel" id="documentation">
@@ -8738,7 +8784,7 @@ Précédent
 </section>
 </div>
 </details>
-<section class="dataset-activities-panel">
+<section class="dataset-activities-panel" id="activites-pedagogiques">
 <div class="dataset-section-heading">
 <span>Activités pédagogiques</span>
 <h2 class="anchored">
@@ -8746,18 +8792,35 @@ Pour aller plus loin
 </h2>
 </div>
 <div class="dataset-activity-grid">
-<div class="dataset-activity-card">
-<span>30-45 minutes</span><strong>Laboratoire - Disponibilité instantanée des stations BIXI</strong>
+<a class="dataset-activity-card" href="activite-courte.html">
+<div class="dataset-activity-meta">
+<span>30-45 minutes</span><span>Introductif</span>
+</div>
+<strong>Laboratoire - Disponibilité instantanée des stations BIXI</strong>
 <p>
 Comment décrire la disponibilité des vélos BIXI dans un instantané?
 </p>
+<div class="dataset-activity-chips">
+<span class="dataset-activity-chip">Exercice</span><span class="dataset-activity-chip">Exploration de données</span>
 </div>
-<div class="dataset-activity-card">
-<span>2-3 heures</span><strong>Mini-projet - Rapport BIXI sur un instantané GBFS</strong>
+<p class="dataset-activity-note">
+Faire distinguer disponibilité instantanée, demande des usagers et rééquilibrage opérationnel. Filtrer les coordonnées invalides avant toute carte.
+</p>
+</a> <a class="dataset-activity-card" href="activite-longue.html">
+<div class="dataset-activity-meta">
+<span>2-3 heures</span><span>Intermédiaire</span>
+</div>
+<strong>Mini-projet - Rapport BIXI sur un instantané GBFS</strong>
 <p>
 Que peut-on conclure, et ne pas conclure, à partir d'un instantané BIXI?
 </p>
+<div class="dataset-activity-chips">
+<span class="dataset-activity-chip">Étude de cas</span><span class="dataset-activity-chip">Projet ou tâche longue</span><span class="dataset-activity-chip">Exploration de données</span>
 </div>
+<p class="dataset-activity-note">
+Exiger une section séparant variables fixes, variables instantanées et conclusions impossibles sans données temporelles.
+</p>
+</a>
 </div>
 </section>
 </section>

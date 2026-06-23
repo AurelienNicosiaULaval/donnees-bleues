@@ -181,7 +181,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- margin-sidebar -->
 
 <!-- main -->
-<main class="content column-page" id="quarto-document-content">
+<main class="content page-columns page-full column-page" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
@@ -202,8 +202,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section class="dataset-detail-page">
-<div class="dataset-detail-hero">
+<section class="dataset-detail-page page-columns page-full">
+<section class="dataset-teacher-hero page-columns page-full">
 <div class="dataset-hero-copy">
 <nav class="dataset-breadcrumb">
 <a href="../../catalogue.html">Catalogue</a><span>/</span><span>Éducation supérieure</span>
@@ -211,46 +211,74 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h1>
 Programmes et cours institutionnels ULaval
 </h1>
-<p class="dataset-hero-source">
-Source : <a href="https://www.bqp.ulaval.ca/fichiers/ressources/gestion/codes-programmes-actifs.pdf">Université Laval, Bureau de la qualité des programmes</a>
+<p class="dataset-teacher-question">
+Comment vérifier qu'un import institutionnel privé conserve les valeurs, les clés et la provenance sans publier les lignes?
 </p>
-<p class="dataset-hero-summary">
-Programme actif, nouvelle activité de formation, cours accessible ou indicateur institutionnel selon le fichier source
-</p>
+<div class="dataset-source-strip">
+<span>Source : <a href="https://www.bqp.ulaval.ca/fichiers/ressources/gestion/codes-programmes-actifs.pdf">Université Laval, Bureau de la qualité des programmes</a></span><span>Licence : Aucune licence ouverte explicite identifiée pour les données sources; réutilisation publique à valider auprès de l'Université Laval ou par avis juridique.</span><span>Téléchargé : 2026-06-21</span>
+</div>
 <div class="dataset-hero-actions">
-<a class="dataset-button no-external" href="#apercu-interactif">Voir les données</a><a class="dataset-button secondary no-external" href="#documentation">Documentation</a>
+<a class="dataset-button no-external" href="#apercu-interactif">Voir les données</a><a class="dataset-button secondary no-external" href="#activites-pedagogiques">Activités</a>
 </div>
 </div>
-</div>
-<section class="dataset-simple-summary">
-<div class="dataset-start-question">
-<span>Point de départ</span>
-<p>
-Valider un import de données institutionnelles sans modifier les valeurs ni publier les lignes.
-</p>
-</div>
-<div class="dataset-simple-facts">
-<div class="dataset-simple-fact">
-<span>Territoire</span><strong>Université Laval</strong>
-</div>
-<div class="dataset-simple-fact">
-<span>Niveau</span><strong>Intermédiaire</strong>
-</div>
-<div class="dataset-simple-fact">
-<span>Format</span><strong>CSV UTF-8 dans le dépôt privé source; seuls des résumés de validation sont publiés dans Données bleues</strong>
-</div>
-</div>
-</section>
-<section class="dataset-r-lab" id="apercu-interactif">
-<div class="dataset-section-heading">
-<span>Aperçu</span>
+<aside class="dataset-featured-activity">
+<span class="dataset-panel-label">Activité prête à lancer</span>
 <h2 class="anchored">
-Les premières lignes
+Laboratoire - Valider un import institutionnel privé
+</h2>
+<p>
+Comment vérifier qu'un import institutionnel privé conserve les valeurs, les clés et la provenance sans publier les lignes?
+</p>
+<div class="dataset-featured-meta">
+<span>30-45 minutes</span><span>Intermédiaire</span>
+</div>
+<div class="dataset-activity-chips">
+<span class="dataset-activity-chip">Exercice</span><span class="dataset-activity-chip">Validation de données</span>
+</div>
+</aside>
+</section>
+<section class="dataset-teacher-plan">
+<article>
+<span class="dataset-panel-label">Pourquoi l’utiliser?</span>
+<p>
+Pour travailler Importation contrôlée, Provenance, Validation, Droits de réutilisation à partir d’un contexte éducation supérieure lié à Université Laval.
+</p>
+<div class="dataset-chip-row">
+<span class="dataset-chip">Importation contrôlée</span><span class="dataset-chip">Provenance</span><span class="dataset-chip">Validation</span><span class="dataset-chip">Droits de réutilisation</span><span class="dataset-chip">importation contrôlée</span><span class="dataset-chip">provenance</span>
+</div>
+</article>
+<article>
+<span class="dataset-panel-label">Ce que les étudiantes et étudiants font</span>
+<ul>
+<li>
+Valider un import de données institutionnelles sans modifier les valeurs ni publier les lignes.
+</li>
+<li>
+Comparer les contrôles de clés, de provenance et de droits entre plusieurs fichiers.
+</li>
+<li>
+Produire une note méthodologique sur ce qui peut être montré publiquement et ce qui doit rester privé.
+</li>
+</ul>
+</article>
+<article>
+<span class="dataset-panel-label">À cadrer en classe</span>
+<p>
+Ne pas publier les lignes de données. L'activité porte sur les contrôles et les limites de diffusion.
+</p>
+</article>
+</section>
+<section class="dataset-r-lab page-columns page-full" id="apercu-interactif">
+<div class="dataset-section-heading">
+<span>Aperçu des données</span>
+<h2 class="anchored">
+Entrer par les lignes, puis poser une question
 </h2>
 <p>
 Aperçu calculé par R à partir de data/processed/ulaval-programmes-cours/resume_ulaval_programmes_cours.csv.
 </p>
 </div>
+<div class="dataset-preview-layout page-columns page-full">
 <div class="dataset-result-card">
 <div class="dataset-card-label">
 Table consultable
@@ -361,6 +389,24 @@ Précédent
 <span data-dataset-page=""></span><button type="button" data-dataset-next="">Suivant</button>
 </div>
 </div>
+</div>
+<aside class="dataset-variable-panel">
+<span class="dataset-panel-label">Variables à repérer</span>
+<div class="dataset-variable-list">
+<span class="dataset-variable-chip">code_programme</span><span class="dataset-variable-chip">programme</span><span class="dataset-variable-chip">code_cours</span><span class="dataset-variable-chip">titre</span><span class="dataset-variable-chip">faculte</span><span class="dataset-variable-chip">credits</span><span class="dataset-variable-chip">source_id</span>
+</div>
+<div class="dataset-simple-facts">
+<div class="dataset-simple-fact">
+<span>Territoire</span><strong>Université Laval</strong>
+</div>
+<div class="dataset-simple-fact">
+<span>Niveau</span><strong>Intermédiaire</strong>
+</div>
+<div class="dataset-simple-fact">
+<span>Format</span><strong>CSV UTF-8 dans le dépôt privé source; seuls des résumés de validation sont publiés dans Données bleues</strong>
+</div>
+</div>
+</aside>
 </div>
 </section>
 <details class="dataset-doc-panel" id="documentation">
@@ -1107,7 +1153,7 @@ Précédent
 </section>
 </div>
 </details>
-<section class="dataset-activities-panel">
+<section class="dataset-activities-panel" id="activites-pedagogiques">
 <div class="dataset-section-heading">
 <span>Activités pédagogiques</span>
 <h2 class="anchored">
@@ -1115,18 +1161,35 @@ Pour aller plus loin
 </h2>
 </div>
 <div class="dataset-activity-grid">
-<div class="dataset-activity-card">
-<span>30-45 minutes</span><strong>Laboratoire - Valider un import institutionnel privé</strong>
+<a class="dataset-activity-card" href="activite-courte.html">
+<div class="dataset-activity-meta">
+<span>30-45 minutes</span><span>Intermédiaire</span>
+</div>
+<strong>Laboratoire - Valider un import institutionnel privé</strong>
 <p>
 Comment vérifier qu'un import institutionnel privé conserve les valeurs, les clés et la provenance sans publier les lignes?
 </p>
+<div class="dataset-activity-chips">
+<span class="dataset-activity-chip">Exercice</span><span class="dataset-activity-chip">Validation de données</span>
 </div>
-<div class="dataset-activity-card">
-<span>2-3 heures</span><strong>Mini-projet - Rapport méthodologique sans diffusion des lignes</strong>
+<p class="dataset-activity-note">
+Ne pas publier les lignes de données. L'activité porte sur les contrôles et les limites de diffusion.
+</p>
+</a> <a class="dataset-activity-card" href="activite-longue.html">
+<div class="dataset-activity-meta">
+<span>2-3 heures</span><span>Intermédiaire</span>
+</div>
+<strong>Mini-projet - Rapport méthodologique sans diffusion des lignes</strong>
 <p>
 Comment produire un rapport utile sur une source institutionnelle privée sans créer une diffusion publique non autorisée?
 </p>
+<div class="dataset-activity-chips">
+<span class="dataset-activity-chip">Étude de cas</span><span class="dataset-activity-chip">Projet ou tâche longue</span><span class="dataset-activity-chip">Communication</span>
 </div>
+<p class="dataset-activity-note">
+Demander un rendu local ou un rapport public sans lignes privées. Vérifier que le texte ne suggère pas une approbation officielle.
+</p>
+</a>
 </div>
 </section>
 </section>

@@ -181,7 +181,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- margin-sidebar -->
 
 <!-- main -->
-<main class="content column-page" id="quarto-document-content">
+<main class="content page-columns page-full column-page" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
@@ -202,8 +202,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section class="dataset-detail-page">
-<div class="dataset-detail-hero">
+<section class="dataset-detail-page page-columns page-full">
+<section class="dataset-teacher-hero page-columns page-full">
 <div class="dataset-hero-copy">
 <nav class="dataset-breadcrumb">
 <a href="../../catalogue.html">Catalogue</a><span>/</span><span>Éducation et équité</span>
@@ -211,49 +211,77 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h1>
 Indices de défavorisation des écoles primaires du Québec
 </h1>
-<p class="dataset-hero-source">
-Source : <a href="https://www.donneesquebec.ca/recherche/dataset/indices-de-defavorisation/resource/6c5d4a5d-ba3b-40a6-b570-916f43ab622c">Données Québec / Ministère de l'Éducation et Ministère de l'Enseignement supérieur</a>
+<p class="dataset-teacher-question">
+Quels liens observe-t-on entre IMSE, SFR et nombre d'élèves parmi les écoles dont les indices sont diffusés?
 </p>
 <div class="dataset-contributor-badge">
 <span>Personne à contacter</span><strong>Aurélien Nicosia</strong><small>Révision pédagogique et statistique</small>
 </div>
-<p class="dataset-hero-summary">
-École primaire publique pour une année scolaire
-</p>
+<div class="dataset-source-strip">
+<span>Source : <a href="https://www.donneesquebec.ca/recherche/dataset/indices-de-defavorisation/resource/6c5d4a5d-ba3b-40a6-b570-916f43ab622c">Données Québec / Ministère de l'Éducation et Ministère de l'Enseignement supérieur</a></span><span>Licence : Attribution (CC-BY 4.0) selon les métadonnées CKAN vérifiées le 2026-06-20</span><span>Téléchargé : 2026-06-20</span>
+</div>
 <div class="dataset-hero-actions">
-<a class="dataset-button no-external" href="#apercu-interactif">Voir les données</a><a class="dataset-button secondary no-external" href="#documentation">Documentation</a>
+<a class="dataset-button no-external" href="#apercu-interactif">Voir les données</a><a class="dataset-button secondary no-external" href="#activites-pedagogiques">Activités</a>
 </div>
 </div>
-</div>
-<section class="dataset-simple-summary">
-<div class="dataset-start-question">
-<span>Point de départ</span>
-<p>
-Construire un modèle linéaire descriptif pour prédire l'IMSE à partir du SFR et du nombre d'élèves.
-</p>
-</div>
-<div class="dataset-simple-facts">
-<div class="dataset-simple-fact">
-<span>Territoire</span><strong>Écoles primaires publiques du Québec</strong>
-</div>
-<div class="dataset-simple-fact">
-<span>Niveau</span><strong>Introduction à intermédiaire</strong>
-</div>
-<div class="dataset-simple-fact">
-<span>Format</span><strong>CSV officiel</strong>
-</div>
-</div>
-</section>
-<section class="dataset-r-lab" id="apercu-interactif">
-<div class="dataset-section-heading">
-<span>Aperçu</span>
+<aside class="dataset-featured-activity">
+<span class="dataset-panel-label">Activité prête à lancer</span>
 <h2 class="anchored">
-Les premières lignes
+Laboratoire - Diffusion et indices de défavorisation
+</h2>
+<p>
+Quels liens observe-t-on entre IMSE, SFR et nombre d'élèves parmi les écoles dont les indices sont diffusés?
+</p>
+<div class="dataset-featured-meta">
+<span>60-90 minutes</span><span>Introduction à intermédiaire</span>
+</div>
+<div class="dataset-activity-chips">
+<span class="dataset-activity-chip">Laboratoire d'introduction</span><span class="dataset-activity-chip">Exploration de données</span>
+</div>
+</aside>
+</section>
+<section class="dataset-teacher-plan">
+<article>
+<span class="dataset-panel-label">Pourquoi l’utiliser?</span>
+<p>
+Pour travailler variables numériques, régression linéaire, valeurs manquantes, diffusion partielle à partir d’un contexte éducation et équité lié à Écoles primaires publiques du Québec.
+</p>
+<div class="dataset-chip-row">
+<span class="dataset-chip">variables numériques</span><span class="dataset-chip">régression linéaire</span><span class="dataset-chip">valeurs manquantes</span><span class="dataset-chip">diffusion partielle</span><span class="dataset-chip">biais algorithmiques</span><span class="dataset-chip">indicateurs socioéconomiques</span>
+</div>
+</article>
+<article>
+<span class="dataset-panel-label">Ce que les étudiantes et étudiants font</span>
+<ul>
+<li>
+Construire un modèle linéaire descriptif pour prédire l'IMSE à partir du SFR et du nombre d'élèves.
+</li>
+<li>
+Comparer les écoles selon les déciles IMSE et SFR.
+</li>
+<li>
+Discuter les risques d'interprétation et de biais dans une prédiction appliquée à un indicateur éducatif sensible.
+</li>
+</ul>
+</article>
+<article>
+<span class="dataset-panel-label">À cadrer en classe</span>
+<p>
+Faire discuter la variable Diffusion avant toute analyse numérique; les lignes non diffusées ne sont pas de simples valeurs manquantes.
+</p>
+</article>
+</section>
+<section class="dataset-r-lab page-columns page-full" id="apercu-interactif">
+<div class="dataset-section-heading">
+<span>Aperçu des données</span>
+<h2 class="anchored">
+Entrer par les lignes, puis poser une question
 </h2>
 <p>
 Aperçu léger calculé par R à partir des métadonnées vérifiées afin de garder la fiche rapide et stable au rendu.
 </p>
 </div>
+<div class="dataset-preview-layout page-columns page-full">
 <div class="dataset-result-card">
 <div class="dataset-card-label">
 Table consultable
@@ -329,6 +357,24 @@ Précédent
 <span data-dataset-page=""></span><button type="button" data-dataset-next="">Suivant</button>
 </div>
 </div>
+</div>
+<aside class="dataset-variable-panel">
+<span class="dataset-panel-label">Variables à repérer</span>
+<div class="dataset-variable-list">
+<span class="dataset-variable-chip">Code_Cs</span><span class="dataset-variable-chip">Nom_Cs</span><span class="dataset-variable-chip">Code_Org</span><span class="dataset-variable-chip">Nom_Org</span><span class="dataset-variable-chip">IMSE</span><span class="dataset-variable-chip">Rang_Decile_IMSE</span><span class="dataset-variable-chip">SFR</span>
+</div>
+<div class="dataset-simple-facts">
+<div class="dataset-simple-fact">
+<span>Territoire</span><strong>Écoles primaires publiques du Québec</strong>
+</div>
+<div class="dataset-simple-fact">
+<span>Niveau</span><strong>Introduction à intermédiaire</strong>
+</div>
+<div class="dataset-simple-fact">
+<span>Format</span><strong>CSV officiel</strong>
+</div>
+</div>
+</aside>
 </div>
 </section>
 <details class="dataset-doc-panel" id="documentation">
@@ -1015,7 +1061,7 @@ Précédent
 </section>
 </div>
 </details>
-<section class="dataset-activities-panel">
+<section class="dataset-activities-panel" id="activites-pedagogiques">
 <div class="dataset-section-heading">
 <span>Activités pédagogiques</span>
 <h2 class="anchored">
@@ -1023,18 +1069,35 @@ Pour aller plus loin
 </h2>
 </div>
 <div class="dataset-activity-grid">
-<div class="dataset-activity-card">
-<span>60-90 minutes</span><strong>Laboratoire - Diffusion et indices de défavorisation</strong>
+<a class="dataset-activity-card" href="activite-courte.html">
+<div class="dataset-activity-meta">
+<span>60-90 minutes</span><span>Introduction à intermédiaire</span>
+</div>
+<strong>Laboratoire - Diffusion et indices de défavorisation</strong>
 <p>
 Quels liens observe-t-on entre IMSE, SFR et nombre d'élèves parmi les écoles dont les indices sont diffusés?
 </p>
+<div class="dataset-activity-chips">
+<span class="dataset-activity-chip">Laboratoire d'introduction</span><span class="dataset-activity-chip">Exploration de données</span>
 </div>
-<div class="dataset-activity-card">
-<span>2-3 heures</span><strong>Mini-projet - Défavorisation des écoles</strong>
+<p class="dataset-activity-note">
+Faire discuter la variable Diffusion avant toute analyse numérique; les lignes non diffusées ne sont pas de simples valeurs manquantes.
+</p>
+</a> <a class="dataset-activity-card" href="activite-longue.html">
+<div class="dataset-activity-meta">
+<span>2-3 heures</span><span>Introduction à intermédiaire</span>
+</div>
+<strong>Mini-projet - Défavorisation des écoles</strong>
 <p>
 Comment construire un modèle descriptif de l'IMSE sans transformer un indicateur éducatif sensible en outil de décision non justifié?
 </p>
+<div class="dataset-activity-chips">
+<span class="dataset-activity-chip">Projet ou tâche longue</span><span class="dataset-activity-chip">Étude de cas</span>
 </div>
+<p class="dataset-activity-note">
+Demander une interprétation en langage simple des coefficients, une mesure d'erreur et une distinction claire entre prédiction statistique et indice officiel.
+</p>
+</a>
 </div>
 </section>
 </section>

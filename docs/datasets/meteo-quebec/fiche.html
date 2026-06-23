@@ -181,7 +181,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- margin-sidebar -->
 
 <!-- main -->
-<main class="content column-page" id="quarto-document-content">
+<main class="content page-columns page-full column-page" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
@@ -202,8 +202,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section class="dataset-detail-page">
-<div class="dataset-detail-hero">
+<section class="dataset-detail-page page-columns page-full">
+<section class="dataset-teacher-hero page-columns page-full">
 <div class="dataset-hero-copy">
 <nav class="dataset-breadcrumb">
 <a href="../../catalogue.html">Catalogue</a><span>/</span><span>Météorologie</span>
@@ -211,49 +211,77 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h1>
 Météo quotidienne à Québec
 </h1>
-<p class="dataset-hero-source">
-Source : <a href="https://climate.weather.gc.ca/historical_data/search_historic_data_e.html">UlavalSSD::MeteoQuebec, construit avec weathercan à partir d'ECCC</a>
+<p class="dataset-teacher-question">
+Quelle saison présente la plus forte variabilité de température à Québec?
 </p>
 <div class="dataset-contributor-badge">
 <span>Personne à contacter</span><strong>Aurélien Nicosia</strong><small>Révision pédagogique et statistique</small>
 </div>
-<p class="dataset-hero-summary">
-Observation météorologique quotidienne pour la station Québec/Jean-Lesage
-</p>
+<div class="dataset-source-strip">
+<span>Source : <a href="https://climate.weather.gc.ca/historical_data/search_historic_data_e.html">UlavalSSD::MeteoQuebec, construit avec weathercan à partir d'ECCC</a></span><span>Licence : Données ECCC soumises à l'entente de licence d'ECCC; paquet UlavalSSD sous licence MIT</span><span>Téléchargé : 2026-06-21</span>
+</div>
 <div class="dataset-hero-actions">
-<a class="dataset-button no-external" href="#apercu-interactif">Voir les données</a><a class="dataset-button secondary no-external" href="#documentation">Documentation</a>
+<a class="dataset-button no-external" href="#apercu-interactif">Voir les données</a><a class="dataset-button secondary no-external" href="#activites-pedagogiques">Activités</a>
 </div>
 </div>
-</div>
-<section class="dataset-simple-summary">
-<div class="dataset-start-question">
-<span>Point de départ</span>
-<p>
-Comparer les températures moyennes quotidiennes selon les saisons.
-</p>
-</div>
-<div class="dataset-simple-facts">
-<div class="dataset-simple-fact">
-<span>Territoire</span><strong>Station Québec/Jean-Lesage, Québec</strong>
-</div>
-<div class="dataset-simple-fact">
-<span>Niveau</span><strong>Introduction</strong>
-</div>
-<div class="dataset-simple-fact">
-<span>Format</span><strong>Objet data.frame dans UlavalSSD 0.2.0; CSV préparé localement</strong>
-</div>
-</div>
-</section>
-<section class="dataset-r-lab" id="apercu-interactif">
-<div class="dataset-section-heading">
-<span>Aperçu</span>
+<aside class="dataset-featured-activity">
+<span class="dataset-panel-label">Activité prête à lancer</span>
 <h2 class="anchored">
-Les premières lignes
+Variabilité saisonnière de la température à Québec
+</h2>
+<p>
+Quelle saison présente la plus forte variabilité de température à Québec?
+</p>
+<div class="dataset-featured-meta">
+<span>45-60 minutes</span><span>Introduction</span>
+</div>
+<div class="dataset-activity-chips">
+<span class="dataset-activity-chip">Laboratoire d'introduction</span><span class="dataset-activity-chip">Exploration de données</span>
+</div>
+</aside>
+</section>
+<section class="dataset-teacher-plan">
+<article>
+<span class="dataset-panel-label">Pourquoi l’utiliser?</span>
+<p>
+Pour travailler séries temporelles, statistiques descriptives, valeurs manquantes, visualisation à partir d’un contexte météorologie lié à Station Québec/Jean-Lesage, Québec.
+</p>
+<div class="dataset-chip-row">
+<span class="dataset-chip">séries temporelles</span><span class="dataset-chip">statistiques descriptives</span><span class="dataset-chip">valeurs manquantes</span><span class="dataset-chip">visualisation</span><span class="dataset-chip">variables numériques</span><span class="dataset-chip">saisonnalité</span>
+</div>
+</article>
+<article>
+<span class="dataset-panel-label">Ce que les étudiantes et étudiants font</span>
+<ul>
+<li>
+Comparer les températures moyennes quotidiennes selon les saisons.
+</li>
+<li>
+Visualiser l'évolution annuelle des précipitations totales.
+</li>
+<li>
+Décrire les valeurs manquantes avant de comparer pluie, neige et précipitations.
+</li>
+</ul>
+</article>
+<article>
+<span class="dataset-panel-label">À cadrer en classe</span>
+<p>
+Faire vérifier les valeurs manquantes avant les graphiques. Insister sur le fait que la réponse décrit une station, pas tout le Québec.
+</p>
+</article>
+</section>
+<section class="dataset-r-lab page-columns page-full" id="apercu-interactif">
+<div class="dataset-section-heading">
+<span>Aperçu des données</span>
+<h2 class="anchored">
+Entrer par les lignes, puis poser une question
 </h2>
 <p>
 Aperçu léger calculé par R à partir des métadonnées vérifiées afin de garder la fiche rapide et stable au rendu.
 </p>
 </div>
+<div class="dataset-preview-layout page-columns page-full">
 <div class="dataset-result-card">
 <div class="dataset-card-label">
 Table consultable
@@ -329,6 +357,24 @@ Précédent
 <span data-dataset-page=""></span><button type="button" data-dataset-next="">Suivant</button>
 </div>
 </div>
+</div>
+<aside class="dataset-variable-panel">
+<span class="dataset-panel-label">Variables à repérer</span>
+<div class="dataset-variable-list">
+<span class="dataset-variable-chip">date</span><span class="dataset-variable-chip">annee</span><span class="dataset-variable-chip">mois</span><span class="dataset-variable-chip">saison</span><span class="dataset-variable-chip">max_temp</span><span class="dataset-variable-chip">mean_temp</span><span class="dataset-variable-chip">min_temp</span>
+</div>
+<div class="dataset-simple-facts">
+<div class="dataset-simple-fact">
+<span>Territoire</span><strong>Station Québec/Jean-Lesage, Québec</strong>
+</div>
+<div class="dataset-simple-fact">
+<span>Niveau</span><strong>Introduction</strong>
+</div>
+<div class="dataset-simple-fact">
+<span>Format</span><strong>Objet data.frame dans UlavalSSD 0.2.0; CSV préparé localement</strong>
+</div>
+</div>
+</aside>
 </div>
 </section>
 <details class="dataset-doc-panel" id="documentation">
@@ -920,7 +966,7 @@ Précédent
 </section>
 </div>
 </details>
-<section class="dataset-activities-panel">
+<section class="dataset-activities-panel" id="activites-pedagogiques">
 <div class="dataset-section-heading">
 <span>Activités pédagogiques</span>
 <h2 class="anchored">
@@ -928,18 +974,35 @@ Pour aller plus loin
 </h2>
 </div>
 <div class="dataset-activity-grid">
-<div class="dataset-activity-card">
-<span>45-60 minutes</span><strong>Variabilité saisonnière de la température à Québec</strong>
+<a class="dataset-activity-card" href="activite-courte.html">
+<div class="dataset-activity-meta">
+<span>45-60 minutes</span><span>Introduction</span>
+</div>
+<strong>Variabilité saisonnière de la température à Québec</strong>
 <p>
 Quelle saison présente la plus forte variabilité de température à Québec?
 </p>
+<div class="dataset-activity-chips">
+<span class="dataset-activity-chip">Laboratoire d'introduction</span><span class="dataset-activity-chip">Exploration de données</span>
 </div>
-<div class="dataset-activity-card">
-<span>2-3 heures</span><strong>Portrait descriptif de la météo quotidienne à Québec</strong>
+<p class="dataset-activity-note">
+Faire vérifier les valeurs manquantes avant les graphiques. Insister sur le fait que la réponse décrit une station, pas tout le Québec.
+</p>
+</a> <a class="dataset-activity-card" href="activite-longue.html">
+<div class="dataset-activity-meta">
+<span>2-3 heures</span><span>Introduction à intermédiaire</span>
+</div>
+<strong>Portrait descriptif de la météo quotidienne à Québec</strong>
 <p>
 Comment produire un portrait descriptif prudent de la météo quotidienne à Québec?
 </p>
+<div class="dataset-activity-chips">
+<span class="dataset-activity-chip">Projet ou tâche longue</span><span class="dataset-activity-chip">Étude de cas</span>
 </div>
+<p class="dataset-activity-note">
+Exiger une section courte sur les valeurs manquantes et une limite explicite : une station ne représente pas tout le Québec.
+</p>
+</a>
 </div>
 </section>
 </section>
