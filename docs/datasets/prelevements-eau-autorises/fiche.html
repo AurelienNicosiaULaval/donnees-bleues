@@ -212,84 +212,48 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 Registre des prélèvements d'eau autorisés
 </h1>
 <p class="dataset-hero-source">
-Données Québec / Ministère de l'Environnement, de la Lutte contre les changements climatiques, de la Faune et des Parcs
+Source : <a href="https://www.donneesquebec.ca/recherche/dataset/prelevements-eau-volumes-autorises-par-melccfp">Données Québec / Ministère de l'Environnement, de la Lutte contre les changements climatiques, de la Faune et des Parcs</a>
 </p>
 <p class="dataset-hero-summary">
 Site de prélèvement d'eau autorisé actif depuis l'entrée en vigueur du RPEP
 </p>
 <div class="dataset-hero-actions">
-<a class="dataset-button no-external" href="#apercu-interactif">Voir les résultats R</a><a class="dataset-button secondary" href="https://www.donneesquebec.ca/recherche/dataset/prelevements-eau-volumes-autorises-par-melccfp">Source officielle</a>
+<a class="dataset-button no-external" href="#apercu-interactif">Voir les données</a><a class="dataset-button secondary no-external" href="#documentation">Documentation</a>
 </div>
 </div>
-<div class="dataset-hero-media">
-<img src="../../assets/cards/prelevements-eau-autorises.jpg" alt="Illustration du jeu de données Registre des prélèvements d'eau autorisés">
 </div>
-</div>
-<div class="dataset-overview-grid">
-<div class="dataset-fact">
-<span>Territoire</span><strong>Québec</strong>
-</div>
-<div class="dataset-fact">
-<span>Niveau</span><strong>Intermédiaire</strong>
-</div>
-<div class="dataset-fact">
-<span>Structure</span><strong>Données administratives ponctuelles, tabulaires et spatiales</strong>
-</div>
-<div class="dataset-fact">
-<span>Format</span><strong>CSV officiel préparé localement; GeoJSON, GPKG, FGDB, SHP, XLSX, REST, WMS et PDF disponibles</strong>
-</div>
-</div>
-<div class="dataset-pedagogy-band">
-<div class="dataset-pedagogy-main">
-<span>Question de départ</span>
+<section class="dataset-simple-summary">
+<div class="dataset-start-question">
+<span>Point de départ</span>
 <p>
 Comparer le nombre de sites et le volume autorisé total par provenance de l'eau.
 </p>
 </div>
-<div class="dataset-score-box">
-<span>Potentiel pédagogique</span><strong>27 / 30</strong>
-<div class="dataset-score-track">
-<span class="dataset-score-segment is-filled"></span><span class="dataset-score-segment is-filled"></span><span class="dataset-score-segment is-filled"></span><span class="dataset-score-segment is-filled"></span><span class="dataset-score-segment is-filled"></span>
+<div class="dataset-simple-facts">
+<div class="dataset-simple-fact">
+<span>Territoire</span><strong>Québec</strong>
+</div>
+<div class="dataset-simple-fact">
+<span>Niveau</span><strong>Intermédiaire</strong>
+</div>
+<div class="dataset-simple-fact">
+<span>Format</span><strong>CSV officiel préparé localement; GeoJSON, GPKG, FGDB, SHP, XLSX, REST, WMS et PDF disponibles</strong>
 </div>
 </div>
-</div>
-<div class="dataset-chip-strip">
-<span>eau</span><span>volume autorisé</span><span>données administratives</span><span>agrégation</span><span>valeurs extrêmes</span><span>cartographie</span><span>unités de mesure</span>
-</div>
-<section class="dataset-r-lab" id="r-en-action">
+</section>
+<section class="dataset-r-lab" id="apercu-interactif">
 <div class="dataset-section-heading">
-<span>R en action</span>
+<span>Aperçu</span>
 <h2 class="anchored">
-Aperçu des résultats
+Les premières lignes
 </h2>
 <p>
 Aperçu calculé par R à partir de data/processed/prelevements-eau-autorises/prelevements_eau_autorises.csv.
 </p>
 </div>
-<div class="dataset-r-grid dataset-r-grid-compact">
-<div id="apercu-interactif" class="dataset-result-card">
+<div class="dataset-result-card">
 <div class="dataset-card-label">
-Résultats R
-</div>
-<div class="dataset-r-stats">
-<div class="dataset-r-stat">
-<span>Lignes dans l'aperçu</span><strong>500</strong>
-</div>
-<div class="dataset-r-stat">
-<span>Lignes déclarées</span><strong>1 777 sites de prélèvement préparés</strong>
-</div>
-<div class="dataset-r-stat">
-<span>Colonnes dans le CSV</span><strong>10</strong>
-</div>
-<div class="dataset-r-stat">
-<span>Variables num.</span><strong>6</strong>
-</div>
-<div class="dataset-r-stat">
-<span>Valeurs manquantes</span><strong>9.2 %</strong>
-</div>
-<div class="dataset-r-stat">
-<span>Aperçu</span><strong>prelevements_eau_autorises.csv</strong>
-</div>
+Table consultable
 </div>
 <div id="dataset-header-result-table" class="dataset-datatable">
 <div class="dataset-datatable-toolbar">
@@ -4105,50 +4069,8 @@ Précédent
 </div>
 </div>
 </div>
-<div class="dataset-chart-card">
-<div class="dataset-card-label">
-Lecture statistique
-</div>
-<svg class="dataset-r-chart" viewbox="0 0 320 210" role="img" aria-label="Aperçu numérique généré par R">
-<line x1="34" y1="158" x2="292" y2="158" class="dataset-svg-axis"></line><line x1="34" y1="36" x2="34" y2="158" class="dataset-svg-axis"></line><polyline points="34,130 40.4,158 46.7,158 53.1,158 59.4,158 65.8,158 72.2,130 78.5,130 84.9,130 91.2,130 97.6,158 103.9,158 110.3,158 116.7,46 123,46 129.4,46 135.7,46 142.1,46 148.5,158 154.8,158 161.2,158 167.5,130 173.9,130 180.3,158 186.6,158 193,158 199.3,158 205.7,158 212.1,102 218.4,102 224.8,102 231.1,158 237.5,158 243.8,158 250.2,158 256.6,158 262.9,158 269.3,158 275.6,158 282,158" class="dataset-svg-line"></polyline><circle cx="34" cy="130" r="3.2" class="dataset-svg-point"></circle><circle cx="40.4" cy="158" r="3.2" class="dataset-svg-point"></circle><circle cx="46.7" cy="158" r="3.2" class="dataset-svg-point"></circle><circle cx="53.1" cy="158" r="3.2" class="dataset-svg-point"></circle><circle cx="59.4" cy="158" r="3.2" class="dataset-svg-point"></circle><circle cx="65.8" cy="158" r="3.2" class="dataset-svg-point"></circle><circle cx="72.2" cy="130" r="3.2" class="dataset-svg-point"></circle><circle cx="78.5" cy="130" r="3.2" class="dataset-svg-point"></circle><circle cx="84.9" cy="130" r="3.2" class="dataset-svg-point"></circle><circle cx="91.2" cy="130" r="3.2" class="dataset-svg-point"></circle><circle cx="97.6" cy="158" r="3.2" class="dataset-svg-point"></circle><circle cx="103.9" cy="158" r="3.2" class="dataset-svg-point"></circle><circle cx="110.3" cy="158" r="3.2" class="dataset-svg-point"></circle><circle cx="116.7" cy="46" r="3.2" class="dataset-svg-point"></circle><circle cx="123" cy="46" r="3.2" class="dataset-svg-point"></circle><circle cx="129.4" cy="46" r="3.2" class="dataset-svg-point"></circle><circle cx="135.7" cy="46" r="3.2" class="dataset-svg-point"></circle><circle cx="142.1" cy="46" r="3.2" class="dataset-svg-point"></circle><circle cx="148.5" cy="158" r="3.2" class="dataset-svg-point"></circle><circle cx="154.8" cy="158" r="3.2" class="dataset-svg-point"></circle><circle cx="161.2" cy="158" r="3.2" class="dataset-svg-point"></circle><circle cx="167.5" cy="130" r="3.2" class="dataset-svg-point"></circle><circle cx="173.9" cy="130" r="3.2" class="dataset-svg-point"></circle><circle cx="180.3" cy="158" r="3.2" class="dataset-svg-point"></circle><circle cx="186.6" cy="158" r="3.2" class="dataset-svg-point"></circle><circle cx="193" cy="158" r="3.2" class="dataset-svg-point"></circle><circle cx="199.3" cy="158" r="3.2" class="dataset-svg-point"></circle><circle cx="205.7" cy="158" r="3.2" class="dataset-svg-point"></circle><circle cx="212.1" cy="102" r="3.2" class="dataset-svg-point"></circle><circle cx="218.4" cy="102" r="3.2" class="dataset-svg-point"></circle><circle cx="224.8" cy="102" r="3.2" class="dataset-svg-point"></circle><circle cx="231.1" cy="158" r="3.2" class="dataset-svg-point"></circle><circle cx="237.5" cy="158" r="3.2" class="dataset-svg-point"></circle><circle cx="243.8" cy="158" r="3.2" class="dataset-svg-point"></circle><circle cx="250.2" cy="158" r="3.2" class="dataset-svg-point"></circle><circle cx="256.6" cy="158" r="3.2" class="dataset-svg-point"></circle><circle cx="262.9" cy="158" r="3.2" class="dataset-svg-point"></circle><circle cx="269.3" cy="158" r="3.2" class="dataset-svg-point"></circle><circle cx="275.6" cy="158" r="3.2" class="dataset-svg-point"></circle><circle cx="282" cy="158" r="3.2" class="dataset-svg-point"></circle><text x="34" y="24" class="dataset-svg-title">nombre_sites_document</text><text x="34" y="186" class="dataset-svg-label">1</text><text x="230" y="186" class="dataset-svg-label">5</text>
-</svg>
-</div>
-</div>
 </section>
-<section class="dataset-teaching-panel">
-<div>
-<span>Mini-projets</span>
-<ul>
-<li>
-Comparer le nombre de sites et le volume autorisé total par provenance de l'eau.
-</li>
-<li>
-Cartographier les sites de prélèvement autorisés sans les confondre avec des volumes réellement prélevés.
-</li>
-<li>
-Évaluer l'influence des plus grands sites sur les graphiques de volumes.
-</li>
-</ul>
-</div>
-<div>
-<span>Activités liées</span>
-<div class="dataset-activity-grid">
-<div class="dataset-activity-card">
-<span>30-45 minutes</span><strong>Volumes autorisés par provenance de l'eau</strong>
-<p>
-Quels types de provenance représentent les plus grands volumes autorisés?
-</p>
-</div>
-<div class="dataset-activity-card">
-<span>2-3 heures</span><strong>Portrait spatial des prélèvements d'eau autorisés</strong>
-<p>
-Comment décrire les volumes et la localisation des prélèvements d'eau autorisés sans les confondre avec des volumes réels?
-</p>
-</div>
-</div>
-</div>
-</section>
-<div class="dataset-detail-content">
+<div id="documentation" class="dataset-detail-content">
 <section id="pourquoi-ce-jeu-est-intéressant" class="level2">
 <h2 class="anchored" data-anchor-id="pourquoi-ce-jeu-est-intéressant">Pourquoi ce jeu est intéressant</h2>
 <p>Ce jeu relie directement statistique descriptive, ressources hydriques et décision administrative. Les variables sont simples à manipuler, mais l’interprétation demande de la rigueur : le volume fourni est un volume maximal autorisé, pas un volume réellement prélevé.</p>
@@ -4694,8 +4616,6 @@ Résultat visible
 <p>
 Sortie calculée par R à partir de data/processed/prelevements-eau-autorises/prelevements_eau_autorises.csv. Les exemples qui téléchargent une source externe restent non évalués pendant le rendu du site afin de garder les fiches stables.
 </p>
-<div class="dataset-minimal-result-grid">
-<div>
 <div class="dataset-r-stats">
 <div class="dataset-r-stat">
 <span>Lignes dans l'aperçu</span><strong>500</strong>
@@ -8530,13 +8450,6 @@ Précédent
 </div>
 </div>
 </div>
-<div class="dataset-minimal-chart">
-<svg class="dataset-r-chart" viewbox="0 0 320 210" role="img" aria-label="Aperçu numérique généré par R">
-<line x1="34" y1="158" x2="292" y2="158" class="dataset-svg-axis"></line><line x1="34" y1="36" x2="34" y2="158" class="dataset-svg-axis"></line><polyline points="34,130 40.4,158 46.7,158 53.1,158 59.4,158 65.8,158 72.2,130 78.5,130 84.9,130 91.2,130 97.6,158 103.9,158 110.3,158 116.7,46 123,46 129.4,46 135.7,46 142.1,46 148.5,158 154.8,158 161.2,158 167.5,130 173.9,130 180.3,158 186.6,158 193,158 199.3,158 205.7,158 212.1,102 218.4,102 224.8,102 231.1,158 237.5,158 243.8,158 250.2,158 256.6,158 262.9,158 269.3,158 275.6,158 282,158" class="dataset-svg-line"></polyline><circle cx="34" cy="130" r="3.2" class="dataset-svg-point"></circle><circle cx="40.4" cy="158" r="3.2" class="dataset-svg-point"></circle><circle cx="46.7" cy="158" r="3.2" class="dataset-svg-point"></circle><circle cx="53.1" cy="158" r="3.2" class="dataset-svg-point"></circle><circle cx="59.4" cy="158" r="3.2" class="dataset-svg-point"></circle><circle cx="65.8" cy="158" r="3.2" class="dataset-svg-point"></circle><circle cx="72.2" cy="130" r="3.2" class="dataset-svg-point"></circle><circle cx="78.5" cy="130" r="3.2" class="dataset-svg-point"></circle><circle cx="84.9" cy="130" r="3.2" class="dataset-svg-point"></circle><circle cx="91.2" cy="130" r="3.2" class="dataset-svg-point"></circle><circle cx="97.6" cy="158" r="3.2" class="dataset-svg-point"></circle><circle cx="103.9" cy="158" r="3.2" class="dataset-svg-point"></circle><circle cx="110.3" cy="158" r="3.2" class="dataset-svg-point"></circle><circle cx="116.7" cy="46" r="3.2" class="dataset-svg-point"></circle><circle cx="123" cy="46" r="3.2" class="dataset-svg-point"></circle><circle cx="129.4" cy="46" r="3.2" class="dataset-svg-point"></circle><circle cx="135.7" cy="46" r="3.2" class="dataset-svg-point"></circle><circle cx="142.1" cy="46" r="3.2" class="dataset-svg-point"></circle><circle cx="148.5" cy="158" r="3.2" class="dataset-svg-point"></circle><circle cx="154.8" cy="158" r="3.2" class="dataset-svg-point"></circle><circle cx="161.2" cy="158" r="3.2" class="dataset-svg-point"></circle><circle cx="167.5" cy="130" r="3.2" class="dataset-svg-point"></circle><circle cx="173.9" cy="130" r="3.2" class="dataset-svg-point"></circle><circle cx="180.3" cy="158" r="3.2" class="dataset-svg-point"></circle><circle cx="186.6" cy="158" r="3.2" class="dataset-svg-point"></circle><circle cx="193" cy="158" r="3.2" class="dataset-svg-point"></circle><circle cx="199.3" cy="158" r="3.2" class="dataset-svg-point"></circle><circle cx="205.7" cy="158" r="3.2" class="dataset-svg-point"></circle><circle cx="212.1" cy="102" r="3.2" class="dataset-svg-point"></circle><circle cx="218.4" cy="102" r="3.2" class="dataset-svg-point"></circle><circle cx="224.8" cy="102" r="3.2" class="dataset-svg-point"></circle><circle cx="231.1" cy="158" r="3.2" class="dataset-svg-point"></circle><circle cx="237.5" cy="158" r="3.2" class="dataset-svg-point"></circle><circle cx="243.8" cy="158" r="3.2" class="dataset-svg-point"></circle><circle cx="250.2" cy="158" r="3.2" class="dataset-svg-point"></circle><circle cx="256.6" cy="158" r="3.2" class="dataset-svg-point"></circle><circle cx="262.9" cy="158" r="3.2" class="dataset-svg-point"></circle><circle cx="269.3" cy="158" r="3.2" class="dataset-svg-point"></circle><circle cx="275.6" cy="158" r="3.2" class="dataset-svg-point"></circle><circle cx="282" cy="158" r="3.2" class="dataset-svg-point"></circle><text x="34" y="24" class="dataset-svg-title">nombre_sites_document</text><text x="34" y="186" class="dataset-svg-label">1</text><text x="230" y="186" class="dataset-svg-label">5</text>
-</svg>
-</div>
-</div>
-</div>
 </section>
 <section id="limites-et-précautions" class="level2">
 <h2 class="anchored" data-anchor-id="limites-et-précautions">Limites et précautions</h2>
@@ -8568,6 +8481,28 @@ Précédent
 </ul>
 </section>
 </div>
+<section class="dataset-activities-panel">
+<div class="dataset-section-heading">
+<span>Activités pédagogiques</span>
+<h2 class="anchored">
+Pour aller plus loin
+</h2>
+</div>
+<div class="dataset-activity-grid">
+<div class="dataset-activity-card">
+<span>30-45 minutes</span><strong>Volumes autorisés par provenance de l'eau</strong>
+<p>
+Quels types de provenance représentent les plus grands volumes autorisés?
+</p>
+</div>
+<div class="dataset-activity-card">
+<span>2-3 heures</span><strong>Portrait spatial des prélèvements d'eau autorisés</strong>
+<p>
+Comment décrire les volumes et la localisation des prélèvements d'eau autorisés sans les confondre avec des volumes réels?
+</p>
+</div>
+</div>
+</section>
 </section>
 <script>
 (function() {
@@ -8672,7 +8607,75 @@ Précédent
     });
     render();
   }
+  function initDocSections() {
+    var content = document.querySelector('.dataset-detail-content');
+    if (!content || content.dataset.sectionsEnhanced === 'true') return;
+    content.dataset.sectionsEnhanced = 'true';
+    var children = Array.from(content.children);
+    var currentBody = null;
+    var firstSection = true;
+    var hasActivityPanel = !!document.querySelector('.dataset-activities-panel');
+    function isActivityId(value) {
+      return /^activit[eé]-/.test(value || '');
+    }
+    children.forEach(function(child) {
+      var isLevelTwoSection = child.matches && child.matches('section.level2');
+      if (isLevelTwoSection) {
+        if (hasActivityPanel && isActivityId(child.id)) {
+          child.remove();
+          return;
+        }
+        var heading = child.querySelector(':scope > h2');
+        if (!heading) return;
+        var details = document.createElement('details');
+        details.className = 'dataset-doc-section';
+        if (child.id) {
+          details.id = child.id;
+          child.removeAttribute('id');
+        }
+        details.open = firstSection;
+        var summary = document.createElement('summary');
+        var body = document.createElement('div');
+        body.className = 'dataset-doc-section-body';
+        content.insertBefore(details, child);
+        summary.appendChild(heading);
+        details.appendChild(summary);
+        details.appendChild(body);
+        while (child.firstChild) {
+          body.appendChild(child.firstChild);
+        }
+        child.remove();
+        currentBody = body;
+        firstSection = false;
+      } else if (child.tagName && child.tagName.toLowerCase() === 'h2') {
+        var details = document.createElement('details');
+        details.className = 'dataset-doc-section';
+        details.open = firstSection;
+        var summary = document.createElement('summary');
+        var body = document.createElement('div');
+        body.className = 'dataset-doc-section-body';
+        content.insertBefore(details, child);
+        summary.appendChild(child);
+        details.appendChild(summary);
+        details.appendChild(body);
+        currentBody = body;
+        firstSection = false;
+      } else if (currentBody) {
+        currentBody.appendChild(child);
+      }
+    });
+    function openHashTarget() {
+      if (!window.location.hash) return;
+      var target = document.getElementById(window.location.hash.slice(1));
+      if (!target) return;
+      var details = target.matches && target.matches('.dataset-doc-section') ? target : target.closest('.dataset-doc-section');
+      if (details) details.open = true;
+    }
+    window.addEventListener('hashchange', openHashTarget);
+    openHashTarget();
+  }
   function initAll() {
+    initDocSections();
     document.querySelectorAll('.dataset-datatable').forEach(initDatatable);
   }
   if (document.readyState === 'loading') {

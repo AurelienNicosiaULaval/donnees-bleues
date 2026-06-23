@@ -212,78 +212,48 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 Géobase du réseau hydrographique du Québec
 </h1>
 <p class="dataset-hero-source">
-Données Québec / Ministère des Ressources naturelles et des Forêts
+Source : <a href="https://www.donneesquebec.ca/recherche/dataset/grhq">Données Québec / Ministère des Ressources naturelles et des Forêts</a>
 </p>
 <p class="dataset-hero-summary">
 Une ligne préparée correspond à une unité de téléchargement de l'index GRHQ
 </p>
 <div class="dataset-hero-actions">
-<a class="dataset-button no-external" href="#apercu-interactif">Voir les résultats R</a><a class="dataset-button secondary" href="https://www.donneesquebec.ca/recherche/dataset/grhq">Source officielle</a>
+<a class="dataset-button no-external" href="#apercu-interactif">Voir les données</a><a class="dataset-button secondary no-external" href="#documentation">Documentation</a>
 </div>
 </div>
-<div class="dataset-hero-media">
-<img src="../../assets/cards/grhq.jpg" alt="Illustration du jeu de données Géobase du réseau hydrographique du Québec">
 </div>
-</div>
-<div class="dataset-overview-grid">
-<div class="dataset-fact">
-<span>Territoire</span><strong>Québec</strong>
-</div>
-<div class="dataset-fact">
-<span>Niveau</span><strong>Intermédiaire à avancé</strong>
-</div>
-<div class="dataset-fact">
-<span>Structure</span><strong>Index spatial, métadonnées de téléchargement et référentiel hydrographique</strong>
-</div>
-<div class="dataset-fact">
-<span>Format</span><strong>Index CSV préparé localement; ressources officielles FGDB, SHP, WMS et PDF documentées</strong>
-</div>
-</div>
-<div class="dataset-pedagogy-band">
-<div class="dataset-pedagogy-main">
-<span>Question de départ</span>
+<section class="dataset-simple-summary">
+<div class="dataset-start-question">
+<span>Point de départ</span>
 <p>
 Choisir une unité de téléchargement GRHQ et justifier ce choix.
 </p>
 </div>
-<div class="dataset-score-box">
-<span>Potentiel pédagogique</span><strong>24 / 30</strong>
-<div class="dataset-score-track">
-<span class="dataset-score-segment is-filled"></span><span class="dataset-score-segment is-filled"></span><span class="dataset-score-segment is-filled"></span><span class="dataset-score-segment is-filled"></span><span class="dataset-score-segment"></span>
+<div class="dataset-simple-facts">
+<div class="dataset-simple-fact">
+<span>Territoire</span><strong>Québec</strong>
+</div>
+<div class="dataset-simple-fact">
+<span>Niveau</span><strong>Intermédiaire à avancé</strong>
+</div>
+<div class="dataset-simple-fact">
+<span>Format</span><strong>Index CSV préparé localement; ressources officielles FGDB, SHP, WMS et PDF documentées</strong>
 </div>
 </div>
-</div>
-<div class="dataset-chip-strip">
-<span>hydrographie</span><span>index de téléchargement</span><span>données spatiales</span><span>métadonnées</span><span>unité statistique</span><span>sf</span><span>jointure spatiale</span>
-</div>
-<section class="dataset-r-lab" id="r-en-action">
+</section>
+<section class="dataset-r-lab" id="apercu-interactif">
 <div class="dataset-section-heading">
-<span>R en action</span>
+<span>Aperçu</span>
 <h2 class="anchored">
-Aperçu des résultats
+Les premières lignes
 </h2>
 <p>
 Aperçu léger calculé par R à partir des métadonnées vérifiées afin de garder la fiche rapide et stable au rendu.
 </p>
 </div>
-<div class="dataset-r-grid dataset-r-grid-compact">
-<div id="apercu-interactif" class="dataset-result-card">
+<div class="dataset-result-card">
 <div class="dataset-card-label">
-Résultats R
-</div>
-<div class="dataset-r-stats">
-<div class="dataset-r-stat">
-<span>Lignes déclarées</span><strong>16 unités de téléchargement dans l'index CSV préparé</strong>
-</div>
-<div class="dataset-r-stat">
-<span>Colonnes déclarées</span><strong>11 colonnes dans la table préparée</strong>
-</div>
-<div class="dataset-r-stat">
-<span>Format</span><strong>Index CSV préparé localement; ressources officielles FGDB, SHP, WMS et PDF documentées</strong>
-</div>
-<div class="dataset-r-stat">
-<span>Aperçu</span><strong>Métadonnées</strong>
-</div>
+Table consultable
 </div>
 <div id="dataset-header-result-table" class="dataset-datatable">
 <div class="dataset-datatable-toolbar">
@@ -357,50 +327,8 @@ Précédent
 </div>
 </div>
 </div>
-<div class="dataset-chart-card">
-<div class="dataset-card-label">
-Lecture statistique
-</div>
-<svg class="dataset-r-chart" viewbox="0 0 320 210" role="img" aria-label="Concepts pédagogiques">
-<text x="0" y="30" class="dataset-svg-label">hydrographie</text><rect x="150" y="18" width="90" height="14" rx="3" class="dataset-svg-bar"></rect><text x="0" y="54" class="dataset-svg-label">index de téléchargement</text><rect x="150" y="42" width="90" height="14" rx="3" class="dataset-svg-bar"></rect><text x="0" y="78" class="dataset-svg-label">données spatiales</text><rect x="150" y="66" width="90" height="14" rx="3" class="dataset-svg-bar"></rect><text x="0" y="102" class="dataset-svg-label">métadonnées</text><rect x="150" y="90" width="90" height="14" rx="3" class="dataset-svg-bar"></rect><text x="0" y="126" class="dataset-svg-label">unité statistique</text><rect x="150" y="114" width="90" height="14" rx="3" class="dataset-svg-bar"></rect><text x="0" y="150" class="dataset-svg-label">sf</text><rect x="150" y="138" width="90" height="14" rx="3" class="dataset-svg-bar"></rect><text x="0" y="174" class="dataset-svg-label">jointure spatiale</text><rect x="150" y="162" width="90" height="14" rx="3" class="dataset-svg-bar"></rect>
-</svg>
-</div>
-</div>
 </section>
-<section class="dataset-teaching-panel">
-<div>
-<span>Mini-projets</span>
-<ul>
-<li>
-Choisir une unité de téléchargement GRHQ et justifier ce choix.
-</li>
-<li>
-Comparer les unités complètes et les unités fractionnées de l'index.
-</li>
-<li>
-Préparer le plan d'une jointure spatiale avec des stations de qualité de l'eau.
-</li>
-</ul>
-</div>
-<div>
-<span>Activités liées</span>
-<div class="dataset-activity-grid">
-<div class="dataset-activity-card">
-<span>30-45 minutes</span><strong>Choisir une unité GRHQ avec l'index de téléchargement</strong>
-<p>
-Comment choisir une unité GRHQ avant de télécharger une géodatabase?
-</p>
-</div>
-<div class="dataset-activity-card">
-<span>2-3 heures</span><strong>Préparer une analyse spatiale avec la GRHQ</strong>
-<p>
-Comment préparer une analyse spatiale avec la GRHQ sans télécharger inutilement tout le Québec?
-</p>
-</div>
-</div>
-</div>
-</section>
-<div class="dataset-detail-content">
+<div id="documentation" class="dataset-detail-content">
 <section id="pourquoi-ce-jeu-est-intéressant" class="level2">
 <h2 class="anchored" data-anchor-id="pourquoi-ce-jeu-est-intéressant">Pourquoi ce jeu est intéressant</h2>
 <p>La GRHQ est un bon jeu pour enseigner une idée importante en données spatiales : avant de lire une couche géométrique, il faut comprendre l’index, le format, l’unité de téléchargement et la taille implicite des fichiers. La fiche ne transforme donc pas la GRHQ en simple CSV. Elle prépare l’index officiel qui sert à choisir une unité hydrographique, puis elle documente les ressources spatiales détaillées disponibles.</p>
@@ -923,8 +851,6 @@ Résultat visible
 <p>
 Aucune table préparée locale n’est disponible pour exécuter un aperçu tabulaire fiable. Les exemples qui téléchargent une source externe restent non évalués pendant le rendu du site afin de garder les fiches stables.
 </p>
-<div class="dataset-minimal-result-grid">
-<div>
 <div class="dataset-r-stats">
 <div class="dataset-r-stat">
 <span>Lignes déclarées</span><strong>16 unités de téléchargement dans l'index CSV préparé</strong>
@@ -1011,13 +937,6 @@ Précédent
 </div>
 </div>
 </div>
-<div class="dataset-minimal-chart">
-<svg class="dataset-r-chart" viewbox="0 0 320 210" role="img" aria-label="Concepts pédagogiques">
-<text x="0" y="30" class="dataset-svg-label">hydrographie</text><rect x="150" y="18" width="90" height="14" rx="3" class="dataset-svg-bar"></rect><text x="0" y="54" class="dataset-svg-label">index de téléchargement</text><rect x="150" y="42" width="90" height="14" rx="3" class="dataset-svg-bar"></rect><text x="0" y="78" class="dataset-svg-label">données spatiales</text><rect x="150" y="66" width="90" height="14" rx="3" class="dataset-svg-bar"></rect><text x="0" y="102" class="dataset-svg-label">métadonnées</text><rect x="150" y="90" width="90" height="14" rx="3" class="dataset-svg-bar"></rect><text x="0" y="126" class="dataset-svg-label">unité statistique</text><rect x="150" y="114" width="90" height="14" rx="3" class="dataset-svg-bar"></rect><text x="0" y="150" class="dataset-svg-label">sf</text><rect x="150" y="138" width="90" height="14" rx="3" class="dataset-svg-bar"></rect><text x="0" y="174" class="dataset-svg-label">jointure spatiale</text><rect x="150" y="162" width="90" height="14" rx="3" class="dataset-svg-bar"></rect>
-</svg>
-</div>
-</div>
-</div>
 </section>
 <section id="limites-et-précautions" class="level2">
 <h2 class="anchored" data-anchor-id="limites-et-précautions">Limites et précautions</h2>
@@ -1048,6 +967,28 @@ Précédent
 </ul>
 </section>
 </div>
+<section class="dataset-activities-panel">
+<div class="dataset-section-heading">
+<span>Activités pédagogiques</span>
+<h2 class="anchored">
+Pour aller plus loin
+</h2>
+</div>
+<div class="dataset-activity-grid">
+<div class="dataset-activity-card">
+<span>30-45 minutes</span><strong>Choisir une unité GRHQ avec l'index de téléchargement</strong>
+<p>
+Comment choisir une unité GRHQ avant de télécharger une géodatabase?
+</p>
+</div>
+<div class="dataset-activity-card">
+<span>2-3 heures</span><strong>Préparer une analyse spatiale avec la GRHQ</strong>
+<p>
+Comment préparer une analyse spatiale avec la GRHQ sans télécharger inutilement tout le Québec?
+</p>
+</div>
+</div>
+</section>
 </section>
 <script>
 (function() {
@@ -1152,7 +1093,75 @@ Précédent
     });
     render();
   }
+  function initDocSections() {
+    var content = document.querySelector('.dataset-detail-content');
+    if (!content || content.dataset.sectionsEnhanced === 'true') return;
+    content.dataset.sectionsEnhanced = 'true';
+    var children = Array.from(content.children);
+    var currentBody = null;
+    var firstSection = true;
+    var hasActivityPanel = !!document.querySelector('.dataset-activities-panel');
+    function isActivityId(value) {
+      return /^activit[eé]-/.test(value || '');
+    }
+    children.forEach(function(child) {
+      var isLevelTwoSection = child.matches && child.matches('section.level2');
+      if (isLevelTwoSection) {
+        if (hasActivityPanel && isActivityId(child.id)) {
+          child.remove();
+          return;
+        }
+        var heading = child.querySelector(':scope > h2');
+        if (!heading) return;
+        var details = document.createElement('details');
+        details.className = 'dataset-doc-section';
+        if (child.id) {
+          details.id = child.id;
+          child.removeAttribute('id');
+        }
+        details.open = firstSection;
+        var summary = document.createElement('summary');
+        var body = document.createElement('div');
+        body.className = 'dataset-doc-section-body';
+        content.insertBefore(details, child);
+        summary.appendChild(heading);
+        details.appendChild(summary);
+        details.appendChild(body);
+        while (child.firstChild) {
+          body.appendChild(child.firstChild);
+        }
+        child.remove();
+        currentBody = body;
+        firstSection = false;
+      } else if (child.tagName && child.tagName.toLowerCase() === 'h2') {
+        var details = document.createElement('details');
+        details.className = 'dataset-doc-section';
+        details.open = firstSection;
+        var summary = document.createElement('summary');
+        var body = document.createElement('div');
+        body.className = 'dataset-doc-section-body';
+        content.insertBefore(details, child);
+        summary.appendChild(child);
+        details.appendChild(summary);
+        details.appendChild(body);
+        currentBody = body;
+        firstSection = false;
+      } else if (currentBody) {
+        currentBody.appendChild(child);
+      }
+    });
+    function openHashTarget() {
+      if (!window.location.hash) return;
+      var target = document.getElementById(window.location.hash.slice(1));
+      if (!target) return;
+      var details = target.matches && target.matches('.dataset-doc-section') ? target : target.closest('.dataset-doc-section');
+      if (details) details.open = true;
+    }
+    window.addEventListener('hashchange', openHashTarget);
+    openHashTarget();
+  }
   function initAll() {
+    initDocSections();
     document.querySelectorAll('.dataset-datatable').forEach(initDatatable);
   }
   if (document.readyState === 'loading') {

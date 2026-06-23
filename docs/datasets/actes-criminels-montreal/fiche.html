@@ -212,78 +212,48 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 Actes criminels enregistrés à Montréal
 </h1>
 <p class="dataset-hero-source">
-Données Québec / Ville de Montréal / SPVM
+Source : <a href="https://www.donneesquebec.ca/recherche/dataset/vmtl-actes-criminels">Données Québec / Ville de Montréal / SPVM</a>
 </p>
 <p class="dataset-hero-summary">
 Acte criminel enregistré par le SPVM dans ce jeu de données ouvert
 </p>
 <div class="dataset-hero-actions">
-<a class="dataset-button no-external" href="#apercu-interactif">Voir les résultats R</a><a class="dataset-button secondary" href="https://www.donneesquebec.ca/recherche/dataset/vmtl-actes-criminels">Source officielle</a>
+<a class="dataset-button no-external" href="#apercu-interactif">Voir les données</a><a class="dataset-button secondary no-external" href="#documentation">Documentation</a>
 </div>
 </div>
-<div class="dataset-hero-media">
-<img src="../../assets/cards/actes-criminels-montreal.jpg" alt="Illustration du jeu de données Actes criminels enregistrés à Montréal">
 </div>
-</div>
-<div class="dataset-overview-grid">
-<div class="dataset-fact">
-<span>Territoire</span><strong>Montréal</strong>
-</div>
-<div class="dataset-fact">
-<span>Niveau</span><strong>Intermédiaire à avancé</strong>
-</div>
-<div class="dataset-fact">
-<span>Structure</span><strong>Tabulaire, spatial, temporel et catégoriel</strong>
-</div>
-<div class="dataset-fact">
-<span>Format</span><strong>CSV officiel préparé localement; GeoJSON et ZIP disponibles à la source</strong>
-</div>
-</div>
-<div class="dataset-pedagogy-band">
-<div class="dataset-pedagogy-main">
-<span>Question de départ</span>
+<section class="dataset-simple-summary">
+<div class="dataset-start-question">
+<span>Point de départ</span>
 <p>
 Comparer les catégories publiées par mois sans les traiter comme statistiques officielles.
 </p>
 </div>
-<div class="dataset-score-box">
-<span>Potentiel pédagogique</span><strong>22 / 30</strong>
-<div class="dataset-score-track">
-<span class="dataset-score-segment is-filled"></span><span class="dataset-score-segment is-filled"></span><span class="dataset-score-segment is-filled"></span><span class="dataset-score-segment is-filled"></span><span class="dataset-score-segment"></span>
+<div class="dataset-simple-facts">
+<div class="dataset-simple-fact">
+<span>Territoire</span><strong>Montréal</strong>
+</div>
+<div class="dataset-simple-fact">
+<span>Niveau</span><strong>Intermédiaire à avancé</strong>
+</div>
+<div class="dataset-simple-fact">
+<span>Format</span><strong>CSV officiel préparé localement; GeoJSON et ZIP disponibles à la source</strong>
 </div>
 </div>
-</div>
-<div class="dataset-chip-strip">
-<span>données sensibles</span><span>unité statistique</span><span>catégories</span><span>séries temporelles</span><span>valeurs manquantes</span><span>cartographie responsable</span><span>biais de déclaration</span>
-</div>
-<section class="dataset-r-lab" id="r-en-action">
+</section>
+<section class="dataset-r-lab" id="apercu-interactif">
 <div class="dataset-section-heading">
-<span>R en action</span>
+<span>Aperçu</span>
 <h2 class="anchored">
-Aperçu des résultats
+Les premières lignes
 </h2>
 <p>
 Aperçu léger calculé par R à partir des métadonnées vérifiées afin de garder la fiche rapide et stable au rendu.
 </p>
 </div>
-<div class="dataset-r-grid dataset-r-grid-compact">
-<div id="apercu-interactif" class="dataset-result-card">
+<div class="dataset-result-card">
 <div class="dataset-card-label">
-Résultats R
-</div>
-<div class="dataset-r-stats">
-<div class="dataset-r-stat">
-<span>Lignes déclarées</span><strong>352 366 actes dans le CSV téléchargé le 2026-06-21</strong>
-</div>
-<div class="dataset-r-stat">
-<span>Colonnes déclarées</span><strong>8 champs dans le CSV source; 13 colonnes préparées</strong>
-</div>
-<div class="dataset-r-stat">
-<span>Format</span><strong>CSV officiel préparé localement; GeoJSON et ZIP disponibles à la source</strong>
-</div>
-<div class="dataset-r-stat">
-<span>Aperçu</span><strong>Métadonnées</strong>
-</div>
+Table consultable
 </div>
 <div id="dataset-header-result-table" class="dataset-datatable">
 <div class="dataset-datatable-toolbar">
@@ -357,50 +327,8 @@ Précédent
 </div>
 </div>
 </div>
-<div class="dataset-chart-card">
-<div class="dataset-card-label">
-Lecture statistique
-</div>
-<svg class="dataset-r-chart" viewbox="0 0 320 210" role="img" aria-label="Concepts pédagogiques">
-<text x="0" y="30" class="dataset-svg-label">données sensibles</text><rect x="150" y="18" width="90" height="14" rx="3" class="dataset-svg-bar"></rect><text x="0" y="54" class="dataset-svg-label">unité statistique</text><rect x="150" y="42" width="90" height="14" rx="3" class="dataset-svg-bar"></rect><text x="0" y="78" class="dataset-svg-label">catégories</text><rect x="150" y="66" width="90" height="14" rx="3" class="dataset-svg-bar"></rect><text x="0" y="102" class="dataset-svg-label">séries temporelles</text><rect x="150" y="90" width="90" height="14" rx="3" class="dataset-svg-bar"></rect><text x="0" y="126" class="dataset-svg-label">valeurs manquantes</text><rect x="150" y="114" width="90" height="14" rx="3" class="dataset-svg-bar"></rect><text x="0" y="150" class="dataset-svg-label">cartographie responsable</text><rect x="150" y="138" width="90" height="14" rx="3" class="dataset-svg-bar"></rect><text x="0" y="174" class="dataset-svg-label">biais de déclaration</text><rect x="150" y="162" width="90" height="14" rx="3" class="dataset-svg-bar"></rect>
-</svg>
-</div>
-</div>
 </section>
-<section class="dataset-teaching-panel">
-<div>
-<span>Mini-projets</span>
-<ul>
-<li>
-Comparer les catégories publiées par mois sans les traiter comme statistiques officielles.
-</li>
-<li>
-Créer une visualisation temporelle agrégée plutôt qu'une carte de points sensibles.
-</li>
-<li>
-Rédiger une note d'éthique sur les biais de déclaration et les risques de stigmatisation.
-</li>
-</ul>
-</div>
-<div>
-<span>Activités liées</span>
-<div class="dataset-activity-grid">
-<div class="dataset-activity-card">
-<span>30-45 minutes</span><strong>Lire prudemment des données de sécurité publique</strong>
-<p>
-Que peut-on décrire sans transformer ces données ouvertes en statistiques officielles?
-</p>
-</div>
-<div class="dataset-activity-card">
-<span>2-3 heures</span><strong>Rapport descriptif et éthique sur les actes criminels</strong>
-<p>
-Comment construire un rapport descriptif responsable avec des données policières ouvertes?
-</p>
-</div>
-</div>
-</div>
-</section>
-<div class="dataset-detail-content">
+<div id="documentation" class="dataset-detail-content">
 <section id="pourquoi-ce-jeu-est-intéressant" class="level2">
 <h2 class="anchored" data-anchor-id="pourquoi-ce-jeu-est-intéressant">Pourquoi ce jeu est intéressant</h2>
 <p>Ce jeu peut servir à enseigner la prudence avec les données de sécurité publique : catégories administratives, dates, quarts, postes de quartier, localisation partielle, agrégation et risques de surinterprétation.</p>
@@ -965,8 +893,6 @@ Résultat visible
 <p>
 Aucune table préparée locale n’est disponible pour exécuter un aperçu tabulaire fiable. Les exemples qui téléchargent une source externe restent non évalués pendant le rendu du site afin de garder les fiches stables.
 </p>
-<div class="dataset-minimal-result-grid">
-<div>
 <div class="dataset-r-stats">
 <div class="dataset-r-stat">
 <span>Lignes déclarées</span><strong>352 366 actes dans le CSV téléchargé le 2026-06-21</strong>
@@ -1053,13 +979,6 @@ Précédent
 </div>
 </div>
 </div>
-<div class="dataset-minimal-chart">
-<svg class="dataset-r-chart" viewbox="0 0 320 210" role="img" aria-label="Concepts pédagogiques">
-<text x="0" y="30" class="dataset-svg-label">données sensibles</text><rect x="150" y="18" width="90" height="14" rx="3" class="dataset-svg-bar"></rect><text x="0" y="54" class="dataset-svg-label">unité statistique</text><rect x="150" y="42" width="90" height="14" rx="3" class="dataset-svg-bar"></rect><text x="0" y="78" class="dataset-svg-label">catégories</text><rect x="150" y="66" width="90" height="14" rx="3" class="dataset-svg-bar"></rect><text x="0" y="102" class="dataset-svg-label">séries temporelles</text><rect x="150" y="90" width="90" height="14" rx="3" class="dataset-svg-bar"></rect><text x="0" y="126" class="dataset-svg-label">valeurs manquantes</text><rect x="150" y="114" width="90" height="14" rx="3" class="dataset-svg-bar"></rect><text x="0" y="150" class="dataset-svg-label">cartographie responsable</text><rect x="150" y="138" width="90" height="14" rx="3" class="dataset-svg-bar"></rect><text x="0" y="174" class="dataset-svg-label">biais de déclaration</text><rect x="150" y="162" width="90" height="14" rx="3" class="dataset-svg-bar"></rect>
-</svg>
-</div>
-</div>
-</div>
 </section>
 <section id="limites-et-précautions" class="level2">
 <h2 class="anchored" data-anchor-id="limites-et-précautions">Limites et précautions</h2>
@@ -1092,6 +1011,28 @@ Précédent
 </ul>
 </section>
 </div>
+<section class="dataset-activities-panel">
+<div class="dataset-section-heading">
+<span>Activités pédagogiques</span>
+<h2 class="anchored">
+Pour aller plus loin
+</h2>
+</div>
+<div class="dataset-activity-grid">
+<div class="dataset-activity-card">
+<span>30-45 minutes</span><strong>Lire prudemment des données de sécurité publique</strong>
+<p>
+Que peut-on décrire sans transformer ces données ouvertes en statistiques officielles?
+</p>
+</div>
+<div class="dataset-activity-card">
+<span>2-3 heures</span><strong>Rapport descriptif et éthique sur les actes criminels</strong>
+<p>
+Comment construire un rapport descriptif responsable avec des données policières ouvertes?
+</p>
+</div>
+</div>
+</section>
 </section>
 <script>
 (function() {
@@ -1196,7 +1137,75 @@ Précédent
     });
     render();
   }
+  function initDocSections() {
+    var content = document.querySelector('.dataset-detail-content');
+    if (!content || content.dataset.sectionsEnhanced === 'true') return;
+    content.dataset.sectionsEnhanced = 'true';
+    var children = Array.from(content.children);
+    var currentBody = null;
+    var firstSection = true;
+    var hasActivityPanel = !!document.querySelector('.dataset-activities-panel');
+    function isActivityId(value) {
+      return /^activit[eé]-/.test(value || '');
+    }
+    children.forEach(function(child) {
+      var isLevelTwoSection = child.matches && child.matches('section.level2');
+      if (isLevelTwoSection) {
+        if (hasActivityPanel && isActivityId(child.id)) {
+          child.remove();
+          return;
+        }
+        var heading = child.querySelector(':scope > h2');
+        if (!heading) return;
+        var details = document.createElement('details');
+        details.className = 'dataset-doc-section';
+        if (child.id) {
+          details.id = child.id;
+          child.removeAttribute('id');
+        }
+        details.open = firstSection;
+        var summary = document.createElement('summary');
+        var body = document.createElement('div');
+        body.className = 'dataset-doc-section-body';
+        content.insertBefore(details, child);
+        summary.appendChild(heading);
+        details.appendChild(summary);
+        details.appendChild(body);
+        while (child.firstChild) {
+          body.appendChild(child.firstChild);
+        }
+        child.remove();
+        currentBody = body;
+        firstSection = false;
+      } else if (child.tagName && child.tagName.toLowerCase() === 'h2') {
+        var details = document.createElement('details');
+        details.className = 'dataset-doc-section';
+        details.open = firstSection;
+        var summary = document.createElement('summary');
+        var body = document.createElement('div');
+        body.className = 'dataset-doc-section-body';
+        content.insertBefore(details, child);
+        summary.appendChild(child);
+        details.appendChild(summary);
+        details.appendChild(body);
+        currentBody = body;
+        firstSection = false;
+      } else if (currentBody) {
+        currentBody.appendChild(child);
+      }
+    });
+    function openHashTarget() {
+      if (!window.location.hash) return;
+      var target = document.getElementById(window.location.hash.slice(1));
+      if (!target) return;
+      var details = target.matches && target.matches('.dataset-doc-section') ? target : target.closest('.dataset-doc-section');
+      if (details) details.open = true;
+    }
+    window.addEventListener('hashchange', openHashTarget);
+    openHashTarget();
+  }
   function initAll() {
+    initDocSections();
     document.querySelectorAll('.dataset-datatable').forEach(initDatatable);
   }
   if (document.readyState === 'loading') {

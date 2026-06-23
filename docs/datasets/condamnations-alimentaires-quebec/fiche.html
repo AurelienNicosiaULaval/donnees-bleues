@@ -212,7 +212,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 Condamnations des établissements alimentaires au Québec
 </h1>
 <p class="dataset-hero-source">
-Données Québec / MAPAQ; version pédagogique fixe dans UlavalSSD
+Source : <a href="https://www.donneesquebec.ca/recherche/dataset/condamnations-des-etablissements-alimentaires-et-condamnations-concernant-le-bien-etre-des-anim">Données Québec / MAPAQ; version pédagogique fixe dans UlavalSSD</a>
 </p>
 <div class="dataset-contributor-badge">
 <span>Personne à contacter</span><strong>Aurélien Nicosia</strong><small>Révision pédagogique et statistique</small>
@@ -221,72 +221,42 @@ Données Québec / MAPAQ; version pédagogique fixe dans UlavalSSD
 Condamnation publiée dans la version pédagogique du jeu
 </p>
 <div class="dataset-hero-actions">
-<a class="dataset-button no-external" href="#apercu-interactif">Voir les résultats R</a><a class="dataset-button secondary" href="https://www.donneesquebec.ca/recherche/dataset/condamnations-des-etablissements-alimentaires-et-condamnations-concernant-le-bien-etre-des-anim">Source officielle</a>
+<a class="dataset-button no-external" href="#apercu-interactif">Voir les données</a><a class="dataset-button secondary no-external" href="#documentation">Documentation</a>
 </div>
 </div>
-<div class="dataset-hero-media">
-<img src="../../assets/cards/condamnations-alimentaires-quebec.jpg" alt="Illustration du jeu de données Condamnations des établissements alimentaires au Québec">
 </div>
-</div>
-<div class="dataset-overview-grid">
-<div class="dataset-fact">
-<span>Territoire</span><strong>Québec</strong>
-</div>
-<div class="dataset-fact">
-<span>Niveau</span><strong>Introduction à intermédiaire</strong>
-</div>
-<div class="dataset-fact">
-<span>Structure</span><strong>Tableau administratif, variables catégorielles, dates, montants</strong>
-</div>
-<div class="dataset-fact">
-<span>Format</span><strong>CSV officiel dynamique; data.frame R fixe dans UlavalSSD</strong>
-</div>
-</div>
-<div class="dataset-pedagogy-band">
-<div class="dataset-pedagogy-main">
-<span>Question de départ</span>
+<section class="dataset-simple-summary">
+<div class="dataset-start-question">
+<span>Point de départ</span>
 <p>
 Identifier les types d'établissements les plus souvent présents dans la version pédagogique.
 </p>
 </div>
-<div class="dataset-score-box">
-<span>Potentiel pédagogique</span><strong>26 / 30</strong>
-<div class="dataset-score-track">
-<span class="dataset-score-segment is-filled"></span><span class="dataset-score-segment is-filled"></span><span class="dataset-score-segment is-filled"></span><span class="dataset-score-segment is-filled"></span><span class="dataset-score-segment is-filled"></span>
+<div class="dataset-simple-facts">
+<div class="dataset-simple-fact">
+<span>Territoire</span><strong>Québec</strong>
+</div>
+<div class="dataset-simple-fact">
+<span>Niveau</span><strong>Introduction à intermédiaire</strong>
+</div>
+<div class="dataset-simple-fact">
+<span>Format</span><strong>CSV officiel dynamique; data.frame R fixe dans UlavalSSD</strong>
 </div>
 </div>
-</div>
-<div class="dataset-chip-strip">
-<span>variables catégorielles</span><span>nettoyage de chaînes</span><span>dates</span><span>tableaux de fréquences</span><span>montants</span><span>communication publique</span><span>éthique</span>
-</div>
-<section class="dataset-r-lab" id="r-en-action">
+</section>
+<section class="dataset-r-lab" id="apercu-interactif">
 <div class="dataset-section-heading">
-<span>R en action</span>
+<span>Aperçu</span>
 <h2 class="anchored">
-Aperçu des résultats
+Les premières lignes
 </h2>
 <p>
 Aperçu léger calculé par R à partir des métadonnées vérifiées afin de garder la fiche rapide et stable au rendu.
 </p>
 </div>
-<div class="dataset-r-grid dataset-r-grid-compact">
-<div id="apercu-interactif" class="dataset-result-card">
+<div class="dataset-result-card">
 <div class="dataset-card-label">
-Résultats R
-</div>
-<div class="dataset-r-stats">
-<div class="dataset-r-stat">
-<span>Lignes déclarées</span><strong>1 712 lignes dans UlavalSSD 0.2.0; 2 988 lignes dans le CSV officiel consulté le 2026-06-20</strong>
-</div>
-<div class="dataset-r-stat">
-<span>Colonnes déclarées</span><strong>10 colonnes dans UlavalSSD; 14 colonnes après préparation locale; 20 colonnes dans le CSV officiel</strong>
-</div>
-<div class="dataset-r-stat">
-<span>Format</span><strong>CSV officiel dynamique; data.frame R fixe dans UlavalSSD</strong>
-</div>
-<div class="dataset-r-stat">
-<span>Aperçu</span><strong>Métadonnées</strong>
-</div>
+Table consultable
 </div>
 <div id="dataset-header-result-table" class="dataset-datatable">
 <div class="dataset-datatable-toolbar">
@@ -360,50 +330,8 @@ Précédent
 </div>
 </div>
 </div>
-<div class="dataset-chart-card">
-<div class="dataset-card-label">
-Lecture statistique
-</div>
-<svg class="dataset-r-chart" viewbox="0 0 320 210" role="img" aria-label="Concepts pédagogiques">
-<text x="0" y="30" class="dataset-svg-label">variables catégorielles</text><rect x="150" y="18" width="90" height="14" rx="3" class="dataset-svg-bar"></rect><text x="0" y="54" class="dataset-svg-label">nettoyage de chaînes</text><rect x="150" y="42" width="90" height="14" rx="3" class="dataset-svg-bar"></rect><text x="0" y="78" class="dataset-svg-label">dates</text><rect x="150" y="66" width="90" height="14" rx="3" class="dataset-svg-bar"></rect><text x="0" y="102" class="dataset-svg-label">tableaux de fréquences</text><rect x="150" y="90" width="90" height="14" rx="3" class="dataset-svg-bar"></rect><text x="0" y="126" class="dataset-svg-label">montants</text><rect x="150" y="114" width="90" height="14" rx="3" class="dataset-svg-bar"></rect><text x="0" y="150" class="dataset-svg-label">communication publique</text><rect x="150" y="138" width="90" height="14" rx="3" class="dataset-svg-bar"></rect><text x="0" y="174" class="dataset-svg-label">éthique</text><rect x="150" y="162" width="90" height="14" rx="3" class="dataset-svg-bar"></rect>
-</svg>
-</div>
-</div>
 </section>
-<section class="dataset-teaching-panel">
-<div>
-<span>Mini-projets</span>
-<ul>
-<li>
-Identifier les types d'établissements les plus souvent présents dans la version pédagogique.
-</li>
-<li>
-Nettoyer la variable d'amende et comparer les montants selon le type d'infraction.
-</li>
-<li>
-Rédiger un court article de données sur les infractions alimentaires à Montréal.
-</li>
-</ul>
-</div>
-<div>
-<span>Activités liées</span>
-<div class="dataset-activity-grid">
-<div class="dataset-activity-card">
-<span>60-90 minutes</span><strong>Laboratoire - Condamnations alimentaires</strong>
-<p>
-Quels types d'établissements apparaissent le plus souvent dans la version pédagogique, et que peut-on conclure sans dénominateur?
-</p>
-</div>
-<div class="dataset-activity-card">
-<span>2-3 heures</span><strong>Mini-projet - Condamnations alimentaires</strong>
-<p>
-Produire un court article reproductible sur les condamnations alimentaires sans interprétation sensationnaliste.
-</p>
-</div>
-</div>
-</div>
-</section>
-<div class="dataset-detail-content">
+<div id="documentation" class="dataset-detail-content">
 <section id="pourquoi-ce-jeu-est-intéressant" class="level2">
 <h2 class="anchored" data-anchor-id="pourquoi-ce-jeu-est-intéressant">Pourquoi ce jeu est intéressant</h2>
 <p>Ce jeu place les personnes étudiantes dans une situation proche du journalisme de données : une liste publique de condamnations, des noms d’établissements, des descriptions textuelles, des dates, des montants d’amende et un besoin immédiat de prudence. Il est utile pour enseigner les tableaux de fréquences, le nettoyage de chaînes, la conversion de montants et la communication responsable de résultats publics.</p>
@@ -888,8 +816,6 @@ Résultat visible
 <p>
 Aucune table préparée locale n’est disponible pour exécuter un aperçu tabulaire fiable. Les exemples qui téléchargent une source externe restent non évalués pendant le rendu du site afin de garder les fiches stables.
 </p>
-<div class="dataset-minimal-result-grid">
-<div>
 <div class="dataset-r-stats">
 <div class="dataset-r-stat">
 <span>Lignes déclarées</span><strong>1 712 lignes dans UlavalSSD 0.2.0; 2 988 lignes dans le CSV officiel consulté le 2026-06-20</strong>
@@ -976,13 +902,6 @@ Précédent
 </div>
 </div>
 </div>
-<div class="dataset-minimal-chart">
-<svg class="dataset-r-chart" viewbox="0 0 320 210" role="img" aria-label="Concepts pédagogiques">
-<text x="0" y="30" class="dataset-svg-label">variables catégorielles</text><rect x="150" y="18" width="90" height="14" rx="3" class="dataset-svg-bar"></rect><text x="0" y="54" class="dataset-svg-label">nettoyage de chaînes</text><rect x="150" y="42" width="90" height="14" rx="3" class="dataset-svg-bar"></rect><text x="0" y="78" class="dataset-svg-label">dates</text><rect x="150" y="66" width="90" height="14" rx="3" class="dataset-svg-bar"></rect><text x="0" y="102" class="dataset-svg-label">tableaux de fréquences</text><rect x="150" y="90" width="90" height="14" rx="3" class="dataset-svg-bar"></rect><text x="0" y="126" class="dataset-svg-label">montants</text><rect x="150" y="114" width="90" height="14" rx="3" class="dataset-svg-bar"></rect><text x="0" y="150" class="dataset-svg-label">communication publique</text><rect x="150" y="138" width="90" height="14" rx="3" class="dataset-svg-bar"></rect><text x="0" y="174" class="dataset-svg-label">éthique</text><rect x="150" y="162" width="90" height="14" rx="3" class="dataset-svg-bar"></rect>
-</svg>
-</div>
-</div>
-</div>
 </section>
 <section id="limites-et-précautions" class="level2">
 <h2 class="anchored" data-anchor-id="limites-et-précautions">Limites et précautions</h2>
@@ -1005,6 +924,28 @@ Précédent
 </ul>
 </section>
 </div>
+<section class="dataset-activities-panel">
+<div class="dataset-section-heading">
+<span>Activités pédagogiques</span>
+<h2 class="anchored">
+Pour aller plus loin
+</h2>
+</div>
+<div class="dataset-activity-grid">
+<div class="dataset-activity-card">
+<span>60-90 minutes</span><strong>Laboratoire - Condamnations alimentaires</strong>
+<p>
+Quels types d'établissements apparaissent le plus souvent dans la version pédagogique, et que peut-on conclure sans dénominateur?
+</p>
+</div>
+<div class="dataset-activity-card">
+<span>2-3 heures</span><strong>Mini-projet - Condamnations alimentaires</strong>
+<p>
+Produire un court article reproductible sur les condamnations alimentaires sans interprétation sensationnaliste.
+</p>
+</div>
+</div>
+</section>
 </section>
 <script>
 (function() {
@@ -1109,7 +1050,75 @@ Précédent
     });
     render();
   }
+  function initDocSections() {
+    var content = document.querySelector('.dataset-detail-content');
+    if (!content || content.dataset.sectionsEnhanced === 'true') return;
+    content.dataset.sectionsEnhanced = 'true';
+    var children = Array.from(content.children);
+    var currentBody = null;
+    var firstSection = true;
+    var hasActivityPanel = !!document.querySelector('.dataset-activities-panel');
+    function isActivityId(value) {
+      return /^activit[eé]-/.test(value || '');
+    }
+    children.forEach(function(child) {
+      var isLevelTwoSection = child.matches && child.matches('section.level2');
+      if (isLevelTwoSection) {
+        if (hasActivityPanel && isActivityId(child.id)) {
+          child.remove();
+          return;
+        }
+        var heading = child.querySelector(':scope > h2');
+        if (!heading) return;
+        var details = document.createElement('details');
+        details.className = 'dataset-doc-section';
+        if (child.id) {
+          details.id = child.id;
+          child.removeAttribute('id');
+        }
+        details.open = firstSection;
+        var summary = document.createElement('summary');
+        var body = document.createElement('div');
+        body.className = 'dataset-doc-section-body';
+        content.insertBefore(details, child);
+        summary.appendChild(heading);
+        details.appendChild(summary);
+        details.appendChild(body);
+        while (child.firstChild) {
+          body.appendChild(child.firstChild);
+        }
+        child.remove();
+        currentBody = body;
+        firstSection = false;
+      } else if (child.tagName && child.tagName.toLowerCase() === 'h2') {
+        var details = document.createElement('details');
+        details.className = 'dataset-doc-section';
+        details.open = firstSection;
+        var summary = document.createElement('summary');
+        var body = document.createElement('div');
+        body.className = 'dataset-doc-section-body';
+        content.insertBefore(details, child);
+        summary.appendChild(child);
+        details.appendChild(summary);
+        details.appendChild(body);
+        currentBody = body;
+        firstSection = false;
+      } else if (currentBody) {
+        currentBody.appendChild(child);
+      }
+    });
+    function openHashTarget() {
+      if (!window.location.hash) return;
+      var target = document.getElementById(window.location.hash.slice(1));
+      if (!target) return;
+      var details = target.matches && target.matches('.dataset-doc-section') ? target : target.closest('.dataset-doc-section');
+      if (details) details.open = true;
+    }
+    window.addEventListener('hashchange', openHashTarget);
+    openHashTarget();
+  }
   function initAll() {
+    initDocSections();
     document.querySelectorAll('.dataset-datatable').forEach(initDatatable);
   }
   if (document.readyState === 'loading') {

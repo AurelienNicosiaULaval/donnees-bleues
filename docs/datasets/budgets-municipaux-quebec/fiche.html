@@ -212,78 +212,48 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 Profil financier des municipalités locales du Québec
 </h1>
 <p class="dataset-hero-source">
-Données Québec / Ministère des Affaires municipales et de l'Habitation
+Source : <a href="https://www.donneesquebec.ca/recherche/dataset/profil-financier-des-municipalites-locales">Données Québec / Ministère des Affaires municipales et de l'Habitation</a>
 </p>
 <p class="dataset-hero-summary">
 Municipalité locale ou agglomération publiée dans le profil financier 2024-2025, données de 2025
 </p>
 <div class="dataset-hero-actions">
-<a class="dataset-button no-external" href="#apercu-interactif">Voir les résultats R</a><a class="dataset-button secondary" href="https://www.donneesquebec.ca/recherche/dataset/profil-financier-des-municipalites-locales">Source officielle</a>
+<a class="dataset-button no-external" href="#apercu-interactif">Voir les données</a><a class="dataset-button secondary no-external" href="#documentation">Documentation</a>
 </div>
 </div>
-<div class="dataset-hero-media">
-<img src="../../assets/cards/budgets-municipaux-quebec.jpg" alt="Illustration du jeu de données Profil financier des municipalités locales du Québec">
 </div>
-</div>
-<div class="dataset-overview-grid">
-<div class="dataset-fact">
-<span>Territoire</span><strong>Québec, municipalités locales et agglomérations publiées dans la ressource 2024-2025</strong>
-</div>
-<div class="dataset-fact">
-<span>Niveau</span><strong>Introduction à intermédiaire</strong>
-</div>
-<div class="dataset-fact">
-<span>Structure</span><strong>Table administrative financière, fiscale, foncière et territoriale</strong>
-</div>
-<div class="dataset-fact">
-<span>Format</span><strong>CSV officiel préparé localement; dictionnaire officiel des postes</strong>
-</div>
-</div>
-<div class="dataset-pedagogy-band">
-<div class="dataset-pedagogy-main">
-<span>Question de départ</span>
+<section class="dataset-simple-summary">
+<div class="dataset-start-question">
+<span>Point de départ</span>
 <p>
 Comparer les indicateurs de richesse foncière selon les classes de population.
 </p>
 </div>
-<div class="dataset-score-box">
-<span>Potentiel pédagogique</span><strong>27 / 30</strong>
-<div class="dataset-score-track">
-<span class="dataset-score-segment is-filled"></span><span class="dataset-score-segment is-filled"></span><span class="dataset-score-segment is-filled"></span><span class="dataset-score-segment is-filled"></span><span class="dataset-score-segment is-filled"></span>
+<div class="dataset-simple-facts">
+<div class="dataset-simple-fact">
+<span>Territoire</span><strong>Québec, municipalités locales et agglomérations publiées dans la ressource 2024-2025</strong>
+</div>
+<div class="dataset-simple-fact">
+<span>Niveau</span><strong>Introduction à intermédiaire</strong>
+</div>
+<div class="dataset-simple-fact">
+<span>Format</span><strong>CSV officiel préparé localement; dictionnaire officiel des postes</strong>
 </div>
 </div>
-</div>
-<div class="dataset-chip-strip">
-<span>importation CSV</span><span>dictionnaire de variables</span><span>pivot long</span><span>classes de population</span><span>ratios</span><span>indices</span><span>valeurs manquantes</span>
-</div>
-<section class="dataset-r-lab" id="r-en-action">
+</section>
+<section class="dataset-r-lab" id="apercu-interactif">
 <div class="dataset-section-heading">
-<span>R en action</span>
+<span>Aperçu</span>
 <h2 class="anchored">
-Aperçu des résultats
+Les premières lignes
 </h2>
 <p>
 Aperçu léger calculé par R à partir des métadonnées vérifiées afin de garder la fiche rapide et stable au rendu.
 </p>
 </div>
-<div class="dataset-r-grid dataset-r-grid-compact">
-<div id="apercu-interactif" class="dataset-result-card">
+<div class="dataset-result-card">
 <div class="dataset-card-label">
-Résultats R
-</div>
-<div class="dataset-r-stats">
-<div class="dataset-r-stat">
-<span>Lignes déclarées</span><strong>1 105 municipalités ou agglomérations préparées; 15 470 lignes dans la version longue</strong>
-</div>
-<div class="dataset-r-stat">
-<span>Colonnes déclarées</span><strong>29 colonnes dans le CSV source; 31 colonnes dans la table municipale préparée</strong>
-</div>
-<div class="dataset-r-stat">
-<span>Format</span><strong>CSV officiel préparé localement; dictionnaire officiel des postes</strong>
-</div>
-<div class="dataset-r-stat">
-<span>Aperçu</span><strong>Métadonnées</strong>
-</div>
+Table consultable
 </div>
 <div id="dataset-header-result-table" class="dataset-datatable">
 <div class="dataset-datatable-toolbar">
@@ -357,50 +327,8 @@ Précédent
 </div>
 </div>
 </div>
-<div class="dataset-chart-card">
-<div class="dataset-card-label">
-Lecture statistique
-</div>
-<svg class="dataset-r-chart" viewbox="0 0 320 210" role="img" aria-label="Concepts pédagogiques">
-<text x="0" y="30" class="dataset-svg-label">importation CSV</text><rect x="150" y="18" width="90" height="14" rx="3" class="dataset-svg-bar"></rect><text x="0" y="54" class="dataset-svg-label">dictionnaire de variables</text><rect x="150" y="42" width="90" height="14" rx="3" class="dataset-svg-bar"></rect><text x="0" y="78" class="dataset-svg-label">pivot long</text><rect x="150" y="66" width="90" height="14" rx="3" class="dataset-svg-bar"></rect><text x="0" y="102" class="dataset-svg-label">classes de population</text><rect x="150" y="90" width="90" height="14" rx="3" class="dataset-svg-bar"></rect><text x="0" y="126" class="dataset-svg-label">ratios</text><rect x="150" y="114" width="90" height="14" rx="3" class="dataset-svg-bar"></rect><text x="0" y="150" class="dataset-svg-label">indices</text><rect x="150" y="138" width="90" height="14" rx="3" class="dataset-svg-bar"></rect><text x="0" y="174" class="dataset-svg-label">valeurs manquantes</text><rect x="150" y="162" width="90" height="14" rx="3" class="dataset-svg-bar"></rect>
-</svg>
-</div>
-</div>
 </section>
-<section class="dataset-teaching-panel">
-<div>
-<span>Mini-projets</span>
-<ul>
-<li>
-Comparer les indicateurs de richesse foncière selon les classes de population.
-</li>
-<li>
-Visualiser les différences régionales sans confondre nombre de municipalités et population totale.
-</li>
-<li>
-Construire une version longue avec dictionnaire des postes et documenter les limites d'interprétation.
-</li>
-</ul>
-</div>
-<div>
-<span>Activités liées</span>
-<div class="dataset-activity-grid">
-<div class="dataset-activity-card">
-<span>45-60 minutes</span><strong>Profils fonciers par classe de population</strong>
-<p>
-Comment la part résidentielle de l'évaluation imposable uniformisée varie-t-elle selon la classe de population?
-</p>
-</div>
-<div class="dataset-activity-card">
-<span>2-3 heures</span><strong>Portrait descriptif des profils financiers municipaux</strong>
-<p>
-Comment décrire les profils financiers et fonciers des municipalités du Québec selon la classe de population et la région administrative?
-</p>
-</div>
-</div>
-</div>
-</section>
-<div class="dataset-detail-content">
+<div id="documentation" class="dataset-detail-content">
 <section id="pourquoi-ce-jeu-est-intéressant" class="level2">
 <h2 class="anchored" data-anchor-id="pourquoi-ce-jeu-est-intéressant">Pourquoi ce jeu est intéressant</h2>
 <p>Ce jeu est utile pour enseigner un réflexe central en science des données : lire la documentation avant d’analyser. Le titre courant parle souvent de finances municipales, mais le CSV préparé ici ne contient pas un budget détaillé par postes de dépenses. Il décrit plutôt le profil financier 2024-2025 des municipalités locales, avec des indicateurs issus du sommaire du rôle d’évaluation foncière 2025.</p>
@@ -1048,8 +976,6 @@ Résultat visible
 <p>
 Aucune table préparée locale n’est disponible pour exécuter un aperçu tabulaire fiable. Les exemples qui téléchargent une source externe restent non évalués pendant le rendu du site afin de garder les fiches stables.
 </p>
-<div class="dataset-minimal-result-grid">
-<div>
 <div class="dataset-r-stats">
 <div class="dataset-r-stat">
 <span>Lignes déclarées</span><strong>1 105 municipalités ou agglomérations préparées; 15 470 lignes dans la version longue</strong>
@@ -1136,13 +1062,6 @@ Précédent
 </div>
 </div>
 </div>
-<div class="dataset-minimal-chart">
-<svg class="dataset-r-chart" viewbox="0 0 320 210" role="img" aria-label="Concepts pédagogiques">
-<text x="0" y="30" class="dataset-svg-label">importation CSV</text><rect x="150" y="18" width="90" height="14" rx="3" class="dataset-svg-bar"></rect><text x="0" y="54" class="dataset-svg-label">dictionnaire de variables</text><rect x="150" y="42" width="90" height="14" rx="3" class="dataset-svg-bar"></rect><text x="0" y="78" class="dataset-svg-label">pivot long</text><rect x="150" y="66" width="90" height="14" rx="3" class="dataset-svg-bar"></rect><text x="0" y="102" class="dataset-svg-label">classes de population</text><rect x="150" y="90" width="90" height="14" rx="3" class="dataset-svg-bar"></rect><text x="0" y="126" class="dataset-svg-label">ratios</text><rect x="150" y="114" width="90" height="14" rx="3" class="dataset-svg-bar"></rect><text x="0" y="150" class="dataset-svg-label">indices</text><rect x="150" y="138" width="90" height="14" rx="3" class="dataset-svg-bar"></rect><text x="0" y="174" class="dataset-svg-label">valeurs manquantes</text><rect x="150" y="162" width="90" height="14" rx="3" class="dataset-svg-bar"></rect>
-</svg>
-</div>
-</div>
-</div>
 </section>
 <section id="limites-et-précautions" class="level2">
 <h2 class="anchored" data-anchor-id="limites-et-précautions">Limites et précautions</h2>
@@ -1175,6 +1094,28 @@ Précédent
 </ul>
 </section>
 </div>
+<section class="dataset-activities-panel">
+<div class="dataset-section-heading">
+<span>Activités pédagogiques</span>
+<h2 class="anchored">
+Pour aller plus loin
+</h2>
+</div>
+<div class="dataset-activity-grid">
+<div class="dataset-activity-card">
+<span>45-60 minutes</span><strong>Profils fonciers par classe de population</strong>
+<p>
+Comment la part résidentielle de l'évaluation imposable uniformisée varie-t-elle selon la classe de population?
+</p>
+</div>
+<div class="dataset-activity-card">
+<span>2-3 heures</span><strong>Portrait descriptif des profils financiers municipaux</strong>
+<p>
+Comment décrire les profils financiers et fonciers des municipalités du Québec selon la classe de population et la région administrative?
+</p>
+</div>
+</div>
+</section>
 </section>
 <script>
 (function() {
@@ -1279,7 +1220,75 @@ Précédent
     });
     render();
   }
+  function initDocSections() {
+    var content = document.querySelector('.dataset-detail-content');
+    if (!content || content.dataset.sectionsEnhanced === 'true') return;
+    content.dataset.sectionsEnhanced = 'true';
+    var children = Array.from(content.children);
+    var currentBody = null;
+    var firstSection = true;
+    var hasActivityPanel = !!document.querySelector('.dataset-activities-panel');
+    function isActivityId(value) {
+      return /^activit[eé]-/.test(value || '');
+    }
+    children.forEach(function(child) {
+      var isLevelTwoSection = child.matches && child.matches('section.level2');
+      if (isLevelTwoSection) {
+        if (hasActivityPanel && isActivityId(child.id)) {
+          child.remove();
+          return;
+        }
+        var heading = child.querySelector(':scope > h2');
+        if (!heading) return;
+        var details = document.createElement('details');
+        details.className = 'dataset-doc-section';
+        if (child.id) {
+          details.id = child.id;
+          child.removeAttribute('id');
+        }
+        details.open = firstSection;
+        var summary = document.createElement('summary');
+        var body = document.createElement('div');
+        body.className = 'dataset-doc-section-body';
+        content.insertBefore(details, child);
+        summary.appendChild(heading);
+        details.appendChild(summary);
+        details.appendChild(body);
+        while (child.firstChild) {
+          body.appendChild(child.firstChild);
+        }
+        child.remove();
+        currentBody = body;
+        firstSection = false;
+      } else if (child.tagName && child.tagName.toLowerCase() === 'h2') {
+        var details = document.createElement('details');
+        details.className = 'dataset-doc-section';
+        details.open = firstSection;
+        var summary = document.createElement('summary');
+        var body = document.createElement('div');
+        body.className = 'dataset-doc-section-body';
+        content.insertBefore(details, child);
+        summary.appendChild(child);
+        details.appendChild(summary);
+        details.appendChild(body);
+        currentBody = body;
+        firstSection = false;
+      } else if (currentBody) {
+        currentBody.appendChild(child);
+      }
+    });
+    function openHashTarget() {
+      if (!window.location.hash) return;
+      var target = document.getElementById(window.location.hash.slice(1));
+      if (!target) return;
+      var details = target.matches && target.matches('.dataset-doc-section') ? target : target.closest('.dataset-doc-section');
+      if (details) details.open = true;
+    }
+    window.addEventListener('hashchange', openHashTarget);
+    openHashTarget();
+  }
   function initAll() {
+    initDocSections();
     document.querySelectorAll('.dataset-datatable').forEach(initDatatable);
   }
   if (document.readyState === 'loading') {

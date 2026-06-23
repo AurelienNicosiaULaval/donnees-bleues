@@ -212,84 +212,48 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 Flux temps réel STM et ponctualité des bus
 </h1>
 <p class="dataset-hero-source">
-Société de transport de Montréal / Données Québec
+Source : <a href="https://www.donneesquebec.ca/recherche/dataset/vmtl-stm-bus-temps-reel-gtfs-realtime">Société de transport de Montréal / Données Québec</a>
 </p>
 <p class="dataset-hero-summary">
 Observation temps réel à archiver localement: mise à jour de trajet, position de véhicule ou alerte GTFS-realtime
 </p>
 <div class="dataset-hero-actions">
-<a class="dataset-button no-external" href="#apercu-interactif">Voir les résultats R</a><a class="dataset-button secondary" href="https://www.donneesquebec.ca/recherche/dataset/vmtl-stm-bus-temps-reel-gtfs-realtime">Source officielle</a>
+<a class="dataset-button no-external" href="#apercu-interactif">Voir les données</a><a class="dataset-button secondary no-external" href="#documentation">Documentation</a>
 </div>
 </div>
-<div class="dataset-hero-media">
-<img src="../../assets/cards/retards-transport-collectif.jpg" alt="Illustration du jeu de données Flux temps réel STM et ponctualité des bus">
 </div>
-</div>
-<div class="dataset-overview-grid">
-<div class="dataset-fact">
-<span>Territoire</span><strong>Réseau d'autobus de la STM</strong>
-</div>
-<div class="dataset-fact">
-<span>Niveau</span><strong>Intermédiaire</strong>
-</div>
-<div class="dataset-fact">
-<span>Structure</span><strong>Flux GTFS-realtime, métadonnées CKAN et protocole d'archivage pédagogique</strong>
-</div>
-<div class="dataset-fact">
-<span>Format</span><strong>GTFS-realtime via portail développeur STM; aucune table historique officielle directement téléchargeable dans CKAN</strong>
-</div>
-</div>
-<div class="dataset-pedagogy-band">
-<div class="dataset-pedagogy-main">
-<span>Question de départ</span>
+<section class="dataset-simple-summary">
+<div class="dataset-start-question">
+<span>Point de départ</span>
 <p>
 Concevoir un protocole d'archivage reproductible pour un flux GTFS-realtime.
 </p>
 </div>
-<div class="dataset-score-box">
-<span>Potentiel pédagogique</span><strong>21 / 30</strong>
-<div class="dataset-score-track">
-<span class="dataset-score-segment is-filled"></span><span class="dataset-score-segment is-filled"></span><span class="dataset-score-segment is-filled"></span><span class="dataset-score-segment is-filled"></span><span class="dataset-score-segment"></span>
+<div class="dataset-simple-facts">
+<div class="dataset-simple-fact">
+<span>Territoire</span><strong>Réseau d'autobus de la STM</strong>
+</div>
+<div class="dataset-simple-fact">
+<span>Niveau</span><strong>Intermédiaire</strong>
+</div>
+<div class="dataset-simple-fact">
+<span>Format</span><strong>GTFS-realtime via portail développeur STM; aucune table historique officielle directement téléchargeable dans CKAN</strong>
 </div>
 </div>
-</div>
-<div class="dataset-chip-strip">
-<span>flux temps réel</span><span>métadonnées</span><span>séries temporelles</span><span>données manquantes</span><span>échantillonnage temporel</span><span>jointure GTFS</span><span>qualité de service</span>
-</div>
-<section class="dataset-r-lab" id="r-en-action">
+</section>
+<section class="dataset-r-lab" id="apercu-interactif">
 <div class="dataset-section-heading">
-<span>R en action</span>
+<span>Aperçu</span>
 <h2 class="anchored">
-Aperçu des résultats
+Les premières lignes
 </h2>
 <p>
 Aperçu calculé par R à partir de data/processed/retards-transport-collectif/resume_retards_transport.csv.
 </p>
 </div>
-<div class="dataset-r-grid dataset-r-grid-compact">
-<div id="apercu-interactif" class="dataset-result-card">
+<div class="dataset-result-card">
 <div class="dataset-card-label">
-Résultats R
-</div>
-<div class="dataset-r-stats">
-<div class="dataset-r-stat">
-<span>Lignes dans l'aperçu</span><strong>1</strong>
-</div>
-<div class="dataset-r-stat">
-<span>Lignes déclarées</span><strong>Je ne sais pas. Le paquet CKAN expose un flux temps réel à accès développeur, pas une table historique.</strong>
-</div>
-<div class="dataset-r-stat">
-<span>Colonnes dans le CSV</span><strong>17</strong>
-</div>
-<div class="dataset-r-stat">
-<span>Variables num.</span><strong>4</strong>
-</div>
-<div class="dataset-r-stat">
-<span>Valeurs manquantes</span><strong>0 %</strong>
-</div>
-<div class="dataset-r-stat">
-<span>Aperçu</span><strong>resume_retards_transport.csv</strong>
-</div>
+Table consultable
 </div>
 <div id="dataset-header-result-table" class="dataset-datatable">
 <div class="dataset-datatable-toolbar">
@@ -398,50 +362,8 @@ Précédent
 </div>
 </div>
 </div>
-<div class="dataset-chart-card">
-<div class="dataset-card-label">
-Lecture statistique
-</div>
-<p class="dataset-empty-result">
-Pas assez de valeurs numériques pour tracer un aperçu.
-</p>
-</div>
-</div>
 </section>
-<section class="dataset-teaching-panel">
-<div>
-<span>Mini-projets</span>
-<ul>
-<li>
-Concevoir un protocole d'archivage reproductible pour un flux GTFS-realtime.
-</li>
-<li>
-Comparer la distribution des retards par ligne après avoir vérifié que delay_seconds est présent.
-</li>
-<li>
-Évaluer les biais produits par la fréquence de collecte et les données manquantes.
-</li>
-</ul>
-</div>
-<div>
-<span>Activités liées</span>
-<div class="dataset-activity-grid">
-<div class="dataset-activity-card">
-<span>45-60 minutes</span><strong>Laboratoire - Peut-on mesurer les retards STM avec cette source?</strong>
-<p>
-Peut-on mesurer les retards des bus STM directement avec cette source, ou faut-il d'abord construire un protocole d'archivage?
-</p>
-</div>
-<div class="dataset-activity-card">
-<span>2-3 heures</span><strong>Mini-projet - Concevoir un protocole d'archivage GTFS-realtime</strong>
-<p>
-Comment archiver un flux GTFS-realtime pour produire une table de ponctualité utilisable en statistique descriptive?
-</p>
-</div>
-</div>
-</div>
-</section>
-<div class="dataset-detail-content">
+<div id="documentation" class="dataset-detail-content">
 <section id="pourquoi-cette-source-est-intéressante" class="level2">
 <h2 class="anchored" data-anchor-id="pourquoi-cette-source-est-intéressante">Pourquoi cette source est intéressante</h2>
 <p>Cette fiche ne décrit pas un CSV historique de retards déjà prêt. Elle décrit une source temps réel de la Société de transport de Montréal : le flux GTFS-realtime publié dans Données Québec pour les horaires et le positionnement des bus.</p>
@@ -859,8 +781,6 @@ Résultat visible
 <p>
 Sortie calculée par R à partir de data/processed/retards-transport-collectif/resume_retards_transport.csv. Les exemples qui téléchargent une source externe restent non évalués pendant le rendu du site afin de garder les fiches stables.
 </p>
-<div class="dataset-minimal-result-grid">
-<div>
 <div class="dataset-r-stats">
 <div class="dataset-r-stat">
 <span>Lignes dans l'aperçu</span><strong>1</strong>
@@ -988,13 +908,6 @@ Précédent
 </div>
 </div>
 </div>
-<div class="dataset-minimal-chart">
-<p class="dataset-empty-result">
-Pas assez de valeurs numériques pour tracer un aperçu.
-</p>
-</div>
-</div>
-</div>
 </section>
 <section id="limites-et-précautions" class="level2">
 <h2 class="anchored" data-anchor-id="limites-et-précautions">Limites et précautions</h2>
@@ -1015,6 +928,28 @@ Pas assez de valeurs numériques pour tracer un aperçu.
 </ul>
 </section>
 </div>
+<section class="dataset-activities-panel">
+<div class="dataset-section-heading">
+<span>Activités pédagogiques</span>
+<h2 class="anchored">
+Pour aller plus loin
+</h2>
+</div>
+<div class="dataset-activity-grid">
+<div class="dataset-activity-card">
+<span>45-60 minutes</span><strong>Laboratoire - Peut-on mesurer les retards STM avec cette source?</strong>
+<p>
+Peut-on mesurer les retards des bus STM directement avec cette source, ou faut-il d'abord construire un protocole d'archivage?
+</p>
+</div>
+<div class="dataset-activity-card">
+<span>2-3 heures</span><strong>Mini-projet - Concevoir un protocole d'archivage GTFS-realtime</strong>
+<p>
+Comment archiver un flux GTFS-realtime pour produire une table de ponctualité utilisable en statistique descriptive?
+</p>
+</div>
+</div>
+</section>
 </section>
 <script>
 (function() {
@@ -1119,7 +1054,75 @@ Pas assez de valeurs numériques pour tracer un aperçu.
     });
     render();
   }
+  function initDocSections() {
+    var content = document.querySelector('.dataset-detail-content');
+    if (!content || content.dataset.sectionsEnhanced === 'true') return;
+    content.dataset.sectionsEnhanced = 'true';
+    var children = Array.from(content.children);
+    var currentBody = null;
+    var firstSection = true;
+    var hasActivityPanel = !!document.querySelector('.dataset-activities-panel');
+    function isActivityId(value) {
+      return /^activit[eé]-/.test(value || '');
+    }
+    children.forEach(function(child) {
+      var isLevelTwoSection = child.matches && child.matches('section.level2');
+      if (isLevelTwoSection) {
+        if (hasActivityPanel && isActivityId(child.id)) {
+          child.remove();
+          return;
+        }
+        var heading = child.querySelector(':scope > h2');
+        if (!heading) return;
+        var details = document.createElement('details');
+        details.className = 'dataset-doc-section';
+        if (child.id) {
+          details.id = child.id;
+          child.removeAttribute('id');
+        }
+        details.open = firstSection;
+        var summary = document.createElement('summary');
+        var body = document.createElement('div');
+        body.className = 'dataset-doc-section-body';
+        content.insertBefore(details, child);
+        summary.appendChild(heading);
+        details.appendChild(summary);
+        details.appendChild(body);
+        while (child.firstChild) {
+          body.appendChild(child.firstChild);
+        }
+        child.remove();
+        currentBody = body;
+        firstSection = false;
+      } else if (child.tagName && child.tagName.toLowerCase() === 'h2') {
+        var details = document.createElement('details');
+        details.className = 'dataset-doc-section';
+        details.open = firstSection;
+        var summary = document.createElement('summary');
+        var body = document.createElement('div');
+        body.className = 'dataset-doc-section-body';
+        content.insertBefore(details, child);
+        summary.appendChild(child);
+        details.appendChild(summary);
+        details.appendChild(body);
+        currentBody = body;
+        firstSection = false;
+      } else if (currentBody) {
+        currentBody.appendChild(child);
+      }
+    });
+    function openHashTarget() {
+      if (!window.location.hash) return;
+      var target = document.getElementById(window.location.hash.slice(1));
+      if (!target) return;
+      var details = target.matches && target.matches('.dataset-doc-section') ? target : target.closest('.dataset-doc-section');
+      if (details) details.open = true;
+    }
+    window.addEventListener('hashchange', openHashTarget);
+    openHashTarget();
+  }
   function initAll() {
+    initDocSections();
     document.querySelectorAll('.dataset-datatable').forEach(initDatatable);
   }
   if (document.readyState === 'loading') {

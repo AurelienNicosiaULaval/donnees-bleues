@@ -596,7 +596,75 @@ dataset_datatable_script <- function() {
     "    });",
     "    render();",
     "  }",
+    "  function initDocSections() {",
+    "    var content = document.querySelector('.dataset-detail-content');",
+    "    if (!content || content.dataset.sectionsEnhanced === 'true') return;",
+    "    content.dataset.sectionsEnhanced = 'true';",
+    "    var children = Array.from(content.children);",
+    "    var currentBody = null;",
+    "    var firstSection = true;",
+    "    var hasActivityPanel = !!document.querySelector('.dataset-activities-panel');",
+    "    function isActivityId(value) {",
+    "      return /^activit[eé]-/.test(value || '');",
+    "    }",
+    "    children.forEach(function(child) {",
+    "      var isLevelTwoSection = child.matches && child.matches('section.level2');",
+    "      if (isLevelTwoSection) {",
+    "        if (hasActivityPanel && isActivityId(child.id)) {",
+    "          child.remove();",
+    "          return;",
+    "        }",
+    "        var heading = child.querySelector(':scope > h2');",
+    "        if (!heading) return;",
+    "        var details = document.createElement('details');",
+    "        details.className = 'dataset-doc-section';",
+    "        if (child.id) {",
+    "          details.id = child.id;",
+    "          child.removeAttribute('id');",
+    "        }",
+    "        details.open = firstSection;",
+    "        var summary = document.createElement('summary');",
+    "        var body = document.createElement('div');",
+    "        body.className = 'dataset-doc-section-body';",
+    "        content.insertBefore(details, child);",
+    "        summary.appendChild(heading);",
+    "        details.appendChild(summary);",
+    "        details.appendChild(body);",
+    "        while (child.firstChild) {",
+    "          body.appendChild(child.firstChild);",
+    "        }",
+    "        child.remove();",
+    "        currentBody = body;",
+    "        firstSection = false;",
+    "      } else if (child.tagName && child.tagName.toLowerCase() === 'h2') {",
+    "        var details = document.createElement('details');",
+    "        details.className = 'dataset-doc-section';",
+    "        details.open = firstSection;",
+    "        var summary = document.createElement('summary');",
+    "        var body = document.createElement('div');",
+    "        body.className = 'dataset-doc-section-body';",
+    "        content.insertBefore(details, child);",
+    "        summary.appendChild(child);",
+    "        details.appendChild(summary);",
+    "        details.appendChild(body);",
+    "        currentBody = body;",
+    "        firstSection = false;",
+    "      } else if (currentBody) {",
+    "        currentBody.appendChild(child);",
+    "      }",
+    "    });",
+    "    function openHashTarget() {",
+    "      if (!window.location.hash) return;",
+    "      var target = document.getElementById(window.location.hash.slice(1));",
+    "      if (!target) return;",
+    "      var details = target.matches && target.matches('.dataset-doc-section') ? target : target.closest('.dataset-doc-section');",
+    "      if (details) details.open = true;",
+    "    }",
+    "    window.addEventListener('hashchange', openHashTarget);",
+    "    openHashTarget();",
+    "  }",
     "  function initAll() {",
+    "    initDocSections();",
     "    document.querySelectorAll('.dataset-datatable').forEach(initDatatable);",
     "  }",
     "  if (document.readyState === 'loading') {",
@@ -662,10 +730,8 @@ render_dataset_minimal_result <- function() {
     '<div class="dataset-minimal-result">',
     '<div class="dataset-card-label">Résultat visible</div>',
     '<p>', data_note, ' Les exemples qui téléchargent une source externe restent non évalués pendant le rendu du site afin de garder les fiches stables.</p>',
-    '<div class="dataset-minimal-result-grid">',
-    '<div><div class="dataset-r-stats">', dataset_result_stats(preview, metadata, csv_path, ctx$root), '</div>', result_table, '</div>',
-    '<div class="dataset-minimal-chart">', dataset_chart_svg(preview, metadata), '</div>',
-    '</div>',
+    '<div class="dataset-r-stats">', dataset_result_stats(preview, metadata, csv_path, ctx$root), '</div>',
+    result_table,
     '</div>',
     sep = ""
   )
@@ -678,29 +744,36 @@ render_dataset_detail_header <- function() {
   metadata <- dataset_read_metadata(ctx$dataset_dir)
   csv_path <- dataset_processed_csv(metadata, ctx)
   preview <- dataset_read_preview(csv_path)
-  score <- dataset_score_total(metadata)
-  score_label <- if (is.na(score)) "Je ne sais pas." else paste0(score, " / 30")
-  concepts <- head(dataset_list(metadata$concepts), 7)
-  projects <- head(dataset_list(metadata$idees_mini_projets), 3)
+  projects <- dataset_list(metadata$idees_mini_projets)
   if (length(projects) == 0L) {
     projects <- paste0("Explorer ", tolower(dataset_squish(metadata$theme, "ce jeu de données")), " avec une question descriptive.")
   }
-  activities <- dataset_activity_cards(metadata, ctx)
   source_url <- dataset_squish(metadata$source_url, "")
   contributor_badge <- dataset_contributor_badge(metadata)
-  source_button <- if (source_url == "") {
-    ""
+  source_name <- dataset_squish(metadata$source_name)
+  source_html <- if (source_url == "") {
+    dataset_html_escape(source_name)
   } else {
-    paste0('<a class="dataset-button secondary" href="', dataset_html_escape(source_url), '">Source officielle</a>')
+    paste0('<a href="', dataset_html_escape(source_url), '">', dataset_html_escape(source_name), '</a>')
   }
-
-  concept_chips <- paste(vapply(concepts, function(item) {
-    paste0('<span>', dataset_html_escape(item), '</span>')
-  }, character(1)), collapse = "")
-
-  project_items <- paste(vapply(projects, function(item) {
-    paste0('<li>', dataset_html_escape(item), '</li>')
-  }, character(1)), collapse = "")
+  fact_items <- paste(
+    paste0(
+      '<div class="dataset-simple-fact"><span>Territoire</span><strong>',
+      dataset_html_escape(dataset_squish(metadata$geography)),
+      '</strong></div>'
+    ),
+    paste0(
+      '<div class="dataset-simple-fact"><span>Niveau</span><strong>',
+      dataset_html_escape(dataset_squish(metadata$level)),
+      '</strong></div>'
+    ),
+    paste0(
+      '<div class="dataset-simple-fact"><span>Format</span><strong>',
+      dataset_html_escape(dataset_squish(metadata$format)),
+      '</strong></div>'
+    ),
+    sep = ""
+  )
 
   result_table <- if (!is.null(preview)) {
     dataset_preview_table(
@@ -730,39 +803,24 @@ render_dataset_detail_header <- function() {
     '<nav class="dataset-breadcrumb"><a href="', ctx$relative_root, '/catalogue.html">Catalogue</a><span>/</span><span>',
     dataset_html_escape(dataset_squish(metadata$theme)), '</span></nav>\n',
     '<h1>', dataset_html_escape(dataset_squish(metadata$title, "Jeu de données")), '</h1>\n',
-    '<p class="dataset-hero-source">', dataset_html_escape(dataset_squish(metadata$source_name)), '</p>\n',
+    '<p class="dataset-hero-source">Source : ', source_html, '</p>\n',
     contributor_badge,
     '<p class="dataset-hero-summary">', dataset_html_escape(dataset_squish(metadata$unit)), '</p>\n',
     '<div class="dataset-hero-actions">',
-    '<a class="dataset-button no-external" href="#apercu-interactif">Voir les résultats R</a>',
-    source_button,
+    '<a class="dataset-button no-external" href="#apercu-interactif">Voir les données</a>',
+    '<a class="dataset-button secondary no-external" href="#documentation">Documentation</a>',
     '</div>\n',
     '</div>\n',
-    '<div class="dataset-hero-media"><img src="', dataset_html_escape(dataset_image_src(metadata, ctx)), '" alt="Illustration du jeu de données ', dataset_html_escape(dataset_squish(metadata$title)), '"></div>\n',
     '</div>\n',
-    '<div class="dataset-overview-grid">\n',
-    '<div class="dataset-fact"><span>Territoire</span><strong>', dataset_html_escape(dataset_squish(metadata$geography)), '</strong></div>\n',
-    '<div class="dataset-fact"><span>Niveau</span><strong>', dataset_html_escape(dataset_squish(metadata$level)), '</strong></div>\n',
-    '<div class="dataset-fact"><span>Structure</span><strong>', dataset_html_escape(dataset_squish(metadata$data_type)), '</strong></div>\n',
-    '<div class="dataset-fact"><span>Format</span><strong>', dataset_html_escape(dataset_squish(metadata$format)), '</strong></div>\n',
-    '</div>\n',
-    '<div class="dataset-pedagogy-band">\n',
-    '<div class="dataset-pedagogy-main"><span>Question de départ</span><p>', dataset_html_escape(projects[[1]]), '</p></div>\n',
-    '<div class="dataset-score-box"><span>Potentiel pédagogique</span><strong>', dataset_html_escape(score_label), '</strong><div class="dataset-score-track">', dataset_score_segments(score), '</div></div>\n',
-    '</div>\n',
-    '<div class="dataset-chip-strip">', concept_chips, '</div>\n',
-    '<section class="dataset-r-lab" id="r-en-action">\n',
-    '<div class="dataset-section-heading"><span>R en action</span><h2>Aperçu des résultats</h2><p>', data_note, '</p></div>\n',
-    '<div class="dataset-r-grid dataset-r-grid-compact">\n',
-    '<div class="dataset-result-card" id="apercu-interactif"><div class="dataset-card-label">Résultats R</div><div class="dataset-r-stats">', dataset_result_stats(preview, metadata, csv_path, ctx$root), '</div>', result_table, '</div>\n',
-    '<div class="dataset-chart-card"><div class="dataset-card-label">Lecture statistique</div>', dataset_chart_svg(preview, metadata), '</div>\n',
-    '</div>\n',
+    '<section class="dataset-simple-summary">\n',
+    '<div class="dataset-start-question"><span>Point de départ</span><p>', dataset_html_escape(projects[[1]]), '</p></div>\n',
+    '<div class="dataset-simple-facts">', fact_items, '</div>\n',
     '</section>\n',
-    '<section class="dataset-teaching-panel">\n',
-    '<div><span>Mini-projets</span><ul>', project_items, '</ul></div>\n',
-    '<div><span>Activités liées</span><div class="dataset-activity-grid">', activities, '</div></div>\n',
+    '<section class="dataset-r-lab" id="apercu-interactif">\n',
+    '<div class="dataset-section-heading"><span>Aperçu</span><h2>Les premières lignes</h2><p>', data_note, '</p></div>\n',
+    '<div class="dataset-result-card"><div class="dataset-card-label">Table consultable</div>', result_table, '</div>\n',
     '</section>\n',
-    '<div class="dataset-detail-content">\n',
+    '<div class="dataset-detail-content" id="documentation">\n',
     sep = ""
   )
 
@@ -770,6 +828,20 @@ render_dataset_detail_header <- function() {
 }
 
 render_dataset_detail_footer <- function() {
-  cat('</div>\n</section>\n', dataset_datatable_script(), "\n", sep = "")
+  ctx <- dataset_current_context()
+  metadata <- dataset_read_metadata(ctx$dataset_dir)
+  activities <- dataset_activity_cards(metadata, ctx)
+  activity_section <- if (activities == "") {
+    ""
+  } else {
+    paste0(
+      '<section class="dataset-activities-panel">',
+      '<div class="dataset-section-heading"><span>Activités pédagogiques</span><h2>Pour aller plus loin</h2></div>',
+      '<div class="dataset-activity-grid">', activities, '</div>',
+      '</section>\n'
+    )
+  }
+
+  cat('</div>\n', activity_section, '</section>\n', dataset_datatable_script(), "\n", sep = "")
   invisible(NULL)
 }

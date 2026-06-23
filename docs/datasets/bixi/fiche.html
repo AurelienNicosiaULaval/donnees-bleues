@@ -212,84 +212,48 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 État des stations BIXI
 </h1>
 <p class="dataset-hero-source">
-BIXI Montréal / Données Québec
+Source : <a href="https://www.donneesquebec.ca/recherche/dataset/vmtl-bixi-etat-des-stations">BIXI Montréal / Données Québec</a>
 </p>
 <p class="dataset-hero-summary">
 Station BIXI dans un instantané du flux GBFS
 </p>
 <div class="dataset-hero-actions">
-<a class="dataset-button no-external" href="#apercu-interactif">Voir les résultats R</a><a class="dataset-button secondary" href="https://www.donneesquebec.ca/recherche/dataset/vmtl-bixi-etat-des-stations">Source officielle</a>
+<a class="dataset-button no-external" href="#apercu-interactif">Voir les données</a><a class="dataset-button secondary no-external" href="#documentation">Documentation</a>
 </div>
 </div>
-<div class="dataset-hero-media">
-<img src="../../assets/cards/bixi.jpg" alt="Illustration du jeu de données État des stations BIXI">
 </div>
-</div>
-<div class="dataset-overview-grid">
-<div class="dataset-fact">
-<span>Territoire</span><strong>Montréal</strong>
-</div>
-<div class="dataset-fact">
-<span>Niveau</span><strong>Introduction à intermédiaire</strong>
-</div>
-<div class="dataset-fact">
-<span>Structure</span><strong>Tabulaire, géographique et opérationnel, issu de flux JSON temps réel</strong>
-</div>
-<div class="dataset-fact">
-<span>Format</span><strong>GBFS JSON préparé localement en CSV</strong>
-</div>
-</div>
-<div class="dataset-pedagogy-band">
-<div class="dataset-pedagogy-main">
-<span>Question de départ</span>
+<section class="dataset-simple-summary">
+<div class="dataset-start-question">
+<span>Point de départ</span>
 <p>
 Décrire la disponibilité instantanée des vélos selon la capacité des stations.
 </p>
 </div>
-<div class="dataset-score-box">
-<span>Potentiel pédagogique</span><strong>25 / 30</strong>
-<div class="dataset-score-track">
-<span class="dataset-score-segment is-filled"></span><span class="dataset-score-segment is-filled"></span><span class="dataset-score-segment is-filled"></span><span class="dataset-score-segment is-filled"></span><span class="dataset-score-segment is-filled"></span>
+<div class="dataset-simple-facts">
+<div class="dataset-simple-fact">
+<span>Territoire</span><strong>Montréal</strong>
+</div>
+<div class="dataset-simple-fact">
+<span>Niveau</span><strong>Introduction à intermédiaire</strong>
+</div>
+<div class="dataset-simple-fact">
+<span>Format</span><strong>GBFS JSON préparé localement en CSV</strong>
 </div>
 </div>
-</div>
-<div class="dataset-chip-strip">
-<span>importation JSON</span><span>flux GBFS</span><span>jointure</span><span>indicateurs opérationnels</span><span>ratios</span><span>coordonnées invalides</span><span>visualisation</span>
-</div>
-<section class="dataset-r-lab" id="r-en-action">
+</section>
+<section class="dataset-r-lab" id="apercu-interactif">
 <div class="dataset-section-heading">
-<span>R en action</span>
+<span>Aperçu</span>
 <h2 class="anchored">
-Aperçu des résultats
+Les premières lignes
 </h2>
 <p>
 Aperçu calculé par R à partir de data/processed/bixi/stations_bixi_snapshot.csv.
 </p>
 </div>
-<div class="dataset-r-grid dataset-r-grid-compact">
-<div id="apercu-interactif" class="dataset-result-card">
+<div class="dataset-result-card">
 <div class="dataset-card-label">
-Résultats R
-</div>
-<div class="dataset-r-stats">
-<div class="dataset-r-stat">
-<span>Lignes dans l'aperçu</span><strong>500</strong>
-</div>
-<div class="dataset-r-stat">
-<span>Lignes déclarées</span><strong>1 084 stations dans l'instantané préparé le 2026-06-21 à 08:20 EDT</strong>
-</div>
-<div class="dataset-r-stat">
-<span>Colonnes dans le CSV</span><strong>13</strong>
-</div>
-<div class="dataset-r-stat">
-<span>Variables num.</span><strong>11</strong>
-</div>
-<div class="dataset-r-stat">
-<span>Valeurs manquantes</span><strong>0 %</strong>
-</div>
-<div class="dataset-r-stat">
-<span>Aperçu</span><strong>stations_bixi_snapshot.csv</strong>
-</div>
+Table consultable
 </div>
 <div id="dataset-header-result-table" class="dataset-datatable">
 <div class="dataset-datatable-toolbar">
@@ -4206,50 +4170,8 @@ Précédent
 </div>
 </div>
 </div>
-<div class="dataset-chart-card">
-<div class="dataset-card-label">
-Lecture statistique
-</div>
-<svg class="dataset-r-chart" viewbox="0 0 320 210" role="img" aria-label="Aperçu numérique généré par R">
-<line x1="34" y1="158" x2="292" y2="158" class="dataset-svg-axis"></line><line x1="34" y1="36" x2="34" y2="158" class="dataset-svg-axis"></line><polyline points="34,158 40.4,155.1 46.7,152.3 53.1,149.4 59.4,146.5 65.8,143.6 72.2,140.8 78.5,137.9 84.9,135 91.2,132.2 97.6,129.3 103.9,126.4 110.3,123.5 116.7,120.7 123,117.8 129.4,114.9 135.7,112.1 142.1,109.2 148.5,106.3 154.8,103.4 161.2,100.6 167.5,97.7 173.9,94.8 180.3,91.9 186.6,89.1 193,86.2 199.3,83.3 205.7,80.5 212.1,77.6 218.4,74.7 224.8,71.8 231.1,69 237.5,66.1 243.8,63.2 250.2,60.4 256.6,57.5 262.9,54.6 269.3,51.7 275.6,48.9 282,46" class="dataset-svg-line"></polyline><circle cx="34" cy="158" r="3.2" class="dataset-svg-point"></circle><circle cx="40.4" cy="155.1" r="3.2" class="dataset-svg-point"></circle><circle cx="46.7" cy="152.3" r="3.2" class="dataset-svg-point"></circle><circle cx="53.1" cy="149.4" r="3.2" class="dataset-svg-point"></circle><circle cx="59.4" cy="146.5" r="3.2" class="dataset-svg-point"></circle><circle cx="65.8" cy="143.6" r="3.2" class="dataset-svg-point"></circle><circle cx="72.2" cy="140.8" r="3.2" class="dataset-svg-point"></circle><circle cx="78.5" cy="137.9" r="3.2" class="dataset-svg-point"></circle><circle cx="84.9" cy="135" r="3.2" class="dataset-svg-point"></circle><circle cx="91.2" cy="132.2" r="3.2" class="dataset-svg-point"></circle><circle cx="97.6" cy="129.3" r="3.2" class="dataset-svg-point"></circle><circle cx="103.9" cy="126.4" r="3.2" class="dataset-svg-point"></circle><circle cx="110.3" cy="123.5" r="3.2" class="dataset-svg-point"></circle><circle cx="116.7" cy="120.7" r="3.2" class="dataset-svg-point"></circle><circle cx="123" cy="117.8" r="3.2" class="dataset-svg-point"></circle><circle cx="129.4" cy="114.9" r="3.2" class="dataset-svg-point"></circle><circle cx="135.7" cy="112.1" r="3.2" class="dataset-svg-point"></circle><circle cx="142.1" cy="109.2" r="3.2" class="dataset-svg-point"></circle><circle cx="148.5" cy="106.3" r="3.2" class="dataset-svg-point"></circle><circle cx="154.8" cy="103.4" r="3.2" class="dataset-svg-point"></circle><circle cx="161.2" cy="100.6" r="3.2" class="dataset-svg-point"></circle><circle cx="167.5" cy="97.7" r="3.2" class="dataset-svg-point"></circle><circle cx="173.9" cy="94.8" r="3.2" class="dataset-svg-point"></circle><circle cx="180.3" cy="91.9" r="3.2" class="dataset-svg-point"></circle><circle cx="186.6" cy="89.1" r="3.2" class="dataset-svg-point"></circle><circle cx="193" cy="86.2" r="3.2" class="dataset-svg-point"></circle><circle cx="199.3" cy="83.3" r="3.2" class="dataset-svg-point"></circle><circle cx="205.7" cy="80.5" r="3.2" class="dataset-svg-point"></circle><circle cx="212.1" cy="77.6" r="3.2" class="dataset-svg-point"></circle><circle cx="218.4" cy="74.7" r="3.2" class="dataset-svg-point"></circle><circle cx="224.8" cy="71.8" r="3.2" class="dataset-svg-point"></circle><circle cx="231.1" cy="69" r="3.2" class="dataset-svg-point"></circle><circle cx="237.5" cy="66.1" r="3.2" class="dataset-svg-point"></circle><circle cx="243.8" cy="63.2" r="3.2" class="dataset-svg-point"></circle><circle cx="250.2" cy="60.4" r="3.2" class="dataset-svg-point"></circle><circle cx="256.6" cy="57.5" r="3.2" class="dataset-svg-point"></circle><circle cx="262.9" cy="54.6" r="3.2" class="dataset-svg-point"></circle><circle cx="269.3" cy="51.7" r="3.2" class="dataset-svg-point"></circle><circle cx="275.6" cy="48.9" r="3.2" class="dataset-svg-point"></circle><circle cx="282" cy="46" r="3.2" class="dataset-svg-point"></circle><text x="34" y="24" class="dataset-svg-title">station_id</text><text x="34" y="186" class="dataset-svg-label">519</text><text x="230" y="186" class="dataset-svg-label">558</text>
-</svg>
-</div>
-</div>
 </section>
-<section class="dataset-teaching-panel">
-<div>
-<span>Mini-projets</span>
-<ul>
-<li>
-Décrire la disponibilité instantanée des vélos selon la capacité des stations.
-</li>
-<li>
-Construire une carte de disponibilité en filtrant les coordonnées invalides.
-</li>
-<li>
-Comparer plusieurs instantanés collectés à heures fixes pour étudier la variabilité temporelle.
-</li>
-</ul>
-</div>
-<div>
-<span>Activités liées</span>
-<div class="dataset-activity-grid">
-<div class="dataset-activity-card">
-<span>30-45 minutes</span><strong>Laboratoire - Disponibilité instantanée des stations BIXI</strong>
-<p>
-Comment décrire la disponibilité des vélos BIXI dans un instantané?
-</p>
-</div>
-<div class="dataset-activity-card">
-<span>2-3 heures</span><strong>Mini-projet - Rapport BIXI sur un instantané GBFS</strong>
-<p>
-Que peut-on conclure, et ne pas conclure, à partir d'un instantané BIXI?
-</p>
-</div>
-</div>
-</div>
-</section>
-<div class="dataset-detail-content">
+<div id="documentation" class="dataset-detail-content">
 <section id="pourquoi-ce-jeu-est-intéressant" class="level2">
 <h2 class="anchored" data-anchor-id="pourquoi-ce-jeu-est-intéressant">Pourquoi ce jeu est intéressant</h2>
 <p>Ce jeu de données décrit l’état instantané des stations BIXI à Montréal. Il relie trois dimensions très pédagogiques : localisation, capacité et disponibilité opérationnelle.</p>
@@ -4844,8 +4766,6 @@ Résultat visible
 <p>
 Sortie calculée par R à partir de data/processed/bixi/stations_bixi_snapshot.csv. Les exemples qui téléchargent une source externe restent non évalués pendant le rendu du site afin de garder les fiches stables.
 </p>
-<div class="dataset-minimal-result-grid">
-<div>
 <div class="dataset-r-stats">
 <div class="dataset-r-stat">
 <span>Lignes dans l'aperçu</span><strong>500</strong>
@@ -8781,13 +8701,6 @@ Précédent
 </div>
 </div>
 </div>
-<div class="dataset-minimal-chart">
-<svg class="dataset-r-chart" viewbox="0 0 320 210" role="img" aria-label="Aperçu numérique généré par R">
-<line x1="34" y1="158" x2="292" y2="158" class="dataset-svg-axis"></line><line x1="34" y1="36" x2="34" y2="158" class="dataset-svg-axis"></line><polyline points="34,158 40.4,155.1 46.7,152.3 53.1,149.4 59.4,146.5 65.8,143.6 72.2,140.8 78.5,137.9 84.9,135 91.2,132.2 97.6,129.3 103.9,126.4 110.3,123.5 116.7,120.7 123,117.8 129.4,114.9 135.7,112.1 142.1,109.2 148.5,106.3 154.8,103.4 161.2,100.6 167.5,97.7 173.9,94.8 180.3,91.9 186.6,89.1 193,86.2 199.3,83.3 205.7,80.5 212.1,77.6 218.4,74.7 224.8,71.8 231.1,69 237.5,66.1 243.8,63.2 250.2,60.4 256.6,57.5 262.9,54.6 269.3,51.7 275.6,48.9 282,46" class="dataset-svg-line"></polyline><circle cx="34" cy="158" r="3.2" class="dataset-svg-point"></circle><circle cx="40.4" cy="155.1" r="3.2" class="dataset-svg-point"></circle><circle cx="46.7" cy="152.3" r="3.2" class="dataset-svg-point"></circle><circle cx="53.1" cy="149.4" r="3.2" class="dataset-svg-point"></circle><circle cx="59.4" cy="146.5" r="3.2" class="dataset-svg-point"></circle><circle cx="65.8" cy="143.6" r="3.2" class="dataset-svg-point"></circle><circle cx="72.2" cy="140.8" r="3.2" class="dataset-svg-point"></circle><circle cx="78.5" cy="137.9" r="3.2" class="dataset-svg-point"></circle><circle cx="84.9" cy="135" r="3.2" class="dataset-svg-point"></circle><circle cx="91.2" cy="132.2" r="3.2" class="dataset-svg-point"></circle><circle cx="97.6" cy="129.3" r="3.2" class="dataset-svg-point"></circle><circle cx="103.9" cy="126.4" r="3.2" class="dataset-svg-point"></circle><circle cx="110.3" cy="123.5" r="3.2" class="dataset-svg-point"></circle><circle cx="116.7" cy="120.7" r="3.2" class="dataset-svg-point"></circle><circle cx="123" cy="117.8" r="3.2" class="dataset-svg-point"></circle><circle cx="129.4" cy="114.9" r="3.2" class="dataset-svg-point"></circle><circle cx="135.7" cy="112.1" r="3.2" class="dataset-svg-point"></circle><circle cx="142.1" cy="109.2" r="3.2" class="dataset-svg-point"></circle><circle cx="148.5" cy="106.3" r="3.2" class="dataset-svg-point"></circle><circle cx="154.8" cy="103.4" r="3.2" class="dataset-svg-point"></circle><circle cx="161.2" cy="100.6" r="3.2" class="dataset-svg-point"></circle><circle cx="167.5" cy="97.7" r="3.2" class="dataset-svg-point"></circle><circle cx="173.9" cy="94.8" r="3.2" class="dataset-svg-point"></circle><circle cx="180.3" cy="91.9" r="3.2" class="dataset-svg-point"></circle><circle cx="186.6" cy="89.1" r="3.2" class="dataset-svg-point"></circle><circle cx="193" cy="86.2" r="3.2" class="dataset-svg-point"></circle><circle cx="199.3" cy="83.3" r="3.2" class="dataset-svg-point"></circle><circle cx="205.7" cy="80.5" r="3.2" class="dataset-svg-point"></circle><circle cx="212.1" cy="77.6" r="3.2" class="dataset-svg-point"></circle><circle cx="218.4" cy="74.7" r="3.2" class="dataset-svg-point"></circle><circle cx="224.8" cy="71.8" r="3.2" class="dataset-svg-point"></circle><circle cx="231.1" cy="69" r="3.2" class="dataset-svg-point"></circle><circle cx="237.5" cy="66.1" r="3.2" class="dataset-svg-point"></circle><circle cx="243.8" cy="63.2" r="3.2" class="dataset-svg-point"></circle><circle cx="250.2" cy="60.4" r="3.2" class="dataset-svg-point"></circle><circle cx="256.6" cy="57.5" r="3.2" class="dataset-svg-point"></circle><circle cx="262.9" cy="54.6" r="3.2" class="dataset-svg-point"></circle><circle cx="269.3" cy="51.7" r="3.2" class="dataset-svg-point"></circle><circle cx="275.6" cy="48.9" r="3.2" class="dataset-svg-point"></circle><circle cx="282" cy="46" r="3.2" class="dataset-svg-point"></circle><text x="34" y="24" class="dataset-svg-title">station_id</text><text x="34" y="186" class="dataset-svg-label">519</text><text x="230" y="186" class="dataset-svg-label">558</text>
-</svg>
-</div>
-</div>
-</div>
 </section>
 <section id="limites-et-précautions" class="level2">
 <h2 class="anchored" data-anchor-id="limites-et-précautions">Limites et précautions</h2>
@@ -8820,6 +8733,28 @@ Précédent
 </ul>
 </section>
 </div>
+<section class="dataset-activities-panel">
+<div class="dataset-section-heading">
+<span>Activités pédagogiques</span>
+<h2 class="anchored">
+Pour aller plus loin
+</h2>
+</div>
+<div class="dataset-activity-grid">
+<div class="dataset-activity-card">
+<span>30-45 minutes</span><strong>Laboratoire - Disponibilité instantanée des stations BIXI</strong>
+<p>
+Comment décrire la disponibilité des vélos BIXI dans un instantané?
+</p>
+</div>
+<div class="dataset-activity-card">
+<span>2-3 heures</span><strong>Mini-projet - Rapport BIXI sur un instantané GBFS</strong>
+<p>
+Que peut-on conclure, et ne pas conclure, à partir d'un instantané BIXI?
+</p>
+</div>
+</div>
+</section>
 </section>
 <script>
 (function() {
@@ -8924,7 +8859,75 @@ Précédent
     });
     render();
   }
+  function initDocSections() {
+    var content = document.querySelector('.dataset-detail-content');
+    if (!content || content.dataset.sectionsEnhanced === 'true') return;
+    content.dataset.sectionsEnhanced = 'true';
+    var children = Array.from(content.children);
+    var currentBody = null;
+    var firstSection = true;
+    var hasActivityPanel = !!document.querySelector('.dataset-activities-panel');
+    function isActivityId(value) {
+      return /^activit[eé]-/.test(value || '');
+    }
+    children.forEach(function(child) {
+      var isLevelTwoSection = child.matches && child.matches('section.level2');
+      if (isLevelTwoSection) {
+        if (hasActivityPanel && isActivityId(child.id)) {
+          child.remove();
+          return;
+        }
+        var heading = child.querySelector(':scope > h2');
+        if (!heading) return;
+        var details = document.createElement('details');
+        details.className = 'dataset-doc-section';
+        if (child.id) {
+          details.id = child.id;
+          child.removeAttribute('id');
+        }
+        details.open = firstSection;
+        var summary = document.createElement('summary');
+        var body = document.createElement('div');
+        body.className = 'dataset-doc-section-body';
+        content.insertBefore(details, child);
+        summary.appendChild(heading);
+        details.appendChild(summary);
+        details.appendChild(body);
+        while (child.firstChild) {
+          body.appendChild(child.firstChild);
+        }
+        child.remove();
+        currentBody = body;
+        firstSection = false;
+      } else if (child.tagName && child.tagName.toLowerCase() === 'h2') {
+        var details = document.createElement('details');
+        details.className = 'dataset-doc-section';
+        details.open = firstSection;
+        var summary = document.createElement('summary');
+        var body = document.createElement('div');
+        body.className = 'dataset-doc-section-body';
+        content.insertBefore(details, child);
+        summary.appendChild(child);
+        details.appendChild(summary);
+        details.appendChild(body);
+        currentBody = body;
+        firstSection = false;
+      } else if (currentBody) {
+        currentBody.appendChild(child);
+      }
+    });
+    function openHashTarget() {
+      if (!window.location.hash) return;
+      var target = document.getElementById(window.location.hash.slice(1));
+      if (!target) return;
+      var details = target.matches && target.matches('.dataset-doc-section') ? target : target.closest('.dataset-doc-section');
+      if (details) details.open = true;
+    }
+    window.addEventListener('hashchange', openHashTarget);
+    openHashTarget();
+  }
   function initAll() {
+    initDocSections();
     document.querySelectorAll('.dataset-datatable').forEach(initDatatable);
   }
   if (document.readyState === 'loading') {

@@ -212,84 +212,48 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 Statistiques des bibliothèques publiques du Québec
 </h1>
 <p class="dataset-hero-source">
-Bibliothèque et Archives nationales du Québec / Données Québec
+Source : <a href="https://www.donneesquebec.ca/recherche/dataset/statistiques_des_bibliotheques_publiques_du_quebec">Bibliothèque et Archives nationales du Québec / Données Québec</a>
 </p>
 <p class="dataset-hero-summary">
 Bibliothèque publique ou centre régional dans la ressource annuelle 2024
 </p>
 <div class="dataset-hero-actions">
-<a class="dataset-button no-external" href="#apercu-interactif">Voir les résultats R</a><a class="dataset-button secondary" href="https://www.donneesquebec.ca/recherche/dataset/statistiques_des_bibliotheques_publiques_du_quebec">Source officielle</a>
+<a class="dataset-button no-external" href="#apercu-interactif">Voir les données</a><a class="dataset-button secondary no-external" href="#documentation">Documentation</a>
 </div>
 </div>
-<div class="dataset-hero-media">
-<img src="../../assets/cards/bibliotheques-quebec.jpg" alt="Illustration du jeu de données Statistiques des bibliothèques publiques du Québec">
 </div>
-</div>
-<div class="dataset-overview-grid">
-<div class="dataset-fact">
-<span>Territoire</span><strong>Québec</strong>
-</div>
-<div class="dataset-fact">
-<span>Niveau</span><strong>Introduction à avancé</strong>
-</div>
-<div class="dataset-fact">
-<span>Structure</span><strong>Tabulaire large, administratif et financier</strong>
-</div>
-<div class="dataset-fact">
-<span>Format</span><strong>CSV séparé par point-virgule préparé localement</strong>
-</div>
-</div>
-<div class="dataset-pedagogy-band">
-<div class="dataset-pedagogy-main">
-<span>Question de départ</span>
+<section class="dataset-simple-summary">
+<div class="dataset-start-question">
+<span>Point de départ</span>
 <p>
 Construire un portrait régional des visites, prêts et dépenses par habitant.
 </p>
 </div>
-<div class="dataset-score-box">
-<span>Potentiel pédagogique</span><strong>28 / 30</strong>
-<div class="dataset-score-track">
-<span class="dataset-score-segment is-filled"></span><span class="dataset-score-segment is-filled"></span><span class="dataset-score-segment is-filled"></span><span class="dataset-score-segment is-filled"></span><span class="dataset-score-segment is-filled"></span>
+<div class="dataset-simple-facts">
+<div class="dataset-simple-fact">
+<span>Territoire</span><strong>Québec</strong>
+</div>
+<div class="dataset-simple-fact">
+<span>Niveau</span><strong>Introduction à avancé</strong>
+</div>
+<div class="dataset-simple-fact">
+<span>Format</span><strong>CSV séparé par point-virgule préparé localement</strong>
 </div>
 </div>
-</div>
-<div class="dataset-chip-strip">
-<span>importation CSV</span><span>nettoyage de noms de variables</span><span>conversion numérique</span><span>ratios</span><span>comparaison régionale</span><span>valeurs manquantes</span><span>indicateurs administratifs</span>
-</div>
-<section class="dataset-r-lab" id="r-en-action">
+</section>
+<section class="dataset-r-lab" id="apercu-interactif">
 <div class="dataset-section-heading">
-<span>R en action</span>
+<span>Aperçu</span>
 <h2 class="anchored">
-Aperçu des résultats
+Les premières lignes
 </h2>
 <p>
 Aperçu calculé par R à partir de data/processed/bibliotheques-quebec/statistiques_bibliotheques_quebec_2024_selection.csv.
 </p>
 </div>
-<div class="dataset-r-grid dataset-r-grid-compact">
-<div id="apercu-interactif" class="dataset-result-card">
+<div class="dataset-result-card">
 <div class="dataset-card-label">
-Résultats R
-</div>
-<div class="dataset-r-stats">
-<div class="dataset-r-stat">
-<span>Lignes dans l'aperçu</span><strong>188</strong>
-</div>
-<div class="dataset-r-stat">
-<span>Lignes déclarées</span><strong>188 lignes pour la ressource 2024</strong>
-</div>
-<div class="dataset-r-stat">
-<span>Colonnes dans le CSV</span><strong>10</strong>
-</div>
-<div class="dataset-r-stat">
-<span>Variables num.</span><strong>6</strong>
-</div>
-<div class="dataset-r-stat">
-<span>Valeurs manquantes</span><strong>2.4 %</strong>
-</div>
-<div class="dataset-r-stat">
-<span>Aperçu</span><strong>statistiques_bibliotheques_quebec_2024_selection.csv</strong>
-</div>
+Table consultable
 </div>
 <div id="dataset-header-result-table" class="dataset-datatable">
 <div class="dataset-datatable-toolbar">
@@ -4194,50 +4158,8 @@ Précédent
 </div>
 </div>
 </div>
-<div class="dataset-chart-card">
-<div class="dataset-card-label">
-Lecture statistique
-</div>
-<svg class="dataset-r-chart" viewbox="0 0 320 210" role="img" aria-label="Aperçu numérique généré par R">
-<line x1="34" y1="158" x2="292" y2="158" class="dataset-svg-axis"></line><line x1="34" y1="36" x2="34" y2="158" class="dataset-svg-axis"></line><polyline points="34,146.1 40.4,156.8 46.7,156 53.1,157.4 59.4,154.2 65.8,155.2 72.2,152 78.5,154.9 84.9,134.3 91.2,146.8 97.6,156.8 103.9,131.7 110.3,58 116.7,136.7 123,155.1 129.4,90.9 135.7,143.6 142.1,78.9 148.5,157.5 154.8,152.8 161.2,156.6 167.5,142 173.9,148.6 180.3,135 186.6,157.5 193,130.3 199.3,158 205.7,149.3 212.1,155.2 218.4,146.1 224.8,134.6 231.1,51 237.5,128.4 243.8,81.8 250.2,121.2 256.6,129.4 262.9,115 269.3,106.7 275.6,46 282,125.2" class="dataset-svg-line"></polyline><circle cx="34" cy="146.1" r="3.2" class="dataset-svg-point"></circle><circle cx="40.4" cy="156.8" r="3.2" class="dataset-svg-point"></circle><circle cx="46.7" cy="156" r="3.2" class="dataset-svg-point"></circle><circle cx="53.1" cy="157.4" r="3.2" class="dataset-svg-point"></circle><circle cx="59.4" cy="154.2" r="3.2" class="dataset-svg-point"></circle><circle cx="65.8" cy="155.2" r="3.2" class="dataset-svg-point"></circle><circle cx="72.2" cy="152" r="3.2" class="dataset-svg-point"></circle><circle cx="78.5" cy="154.9" r="3.2" class="dataset-svg-point"></circle><circle cx="84.9" cy="134.3" r="3.2" class="dataset-svg-point"></circle><circle cx="91.2" cy="146.8" r="3.2" class="dataset-svg-point"></circle><circle cx="97.6" cy="156.8" r="3.2" class="dataset-svg-point"></circle><circle cx="103.9" cy="131.7" r="3.2" class="dataset-svg-point"></circle><circle cx="110.3" cy="58" r="3.2" class="dataset-svg-point"></circle><circle cx="116.7" cy="136.7" r="3.2" class="dataset-svg-point"></circle><circle cx="123" cy="155.1" r="3.2" class="dataset-svg-point"></circle><circle cx="129.4" cy="90.9" r="3.2" class="dataset-svg-point"></circle><circle cx="135.7" cy="143.6" r="3.2" class="dataset-svg-point"></circle><circle cx="142.1" cy="78.9" r="3.2" class="dataset-svg-point"></circle><circle cx="148.5" cy="157.5" r="3.2" class="dataset-svg-point"></circle><circle cx="154.8" cy="152.8" r="3.2" class="dataset-svg-point"></circle><circle cx="161.2" cy="156.6" r="3.2" class="dataset-svg-point"></circle><circle cx="167.5" cy="142" r="3.2" class="dataset-svg-point"></circle><circle cx="173.9" cy="148.6" r="3.2" class="dataset-svg-point"></circle><circle cx="180.3" cy="135" r="3.2" class="dataset-svg-point"></circle><circle cx="186.6" cy="157.5" r="3.2" class="dataset-svg-point"></circle><circle cx="193" cy="130.3" r="3.2" class="dataset-svg-point"></circle><circle cx="199.3" cy="158" r="3.2" class="dataset-svg-point"></circle><circle cx="205.7" cy="149.3" r="3.2" class="dataset-svg-point"></circle><circle cx="212.1" cy="155.2" r="3.2" class="dataset-svg-point"></circle><circle cx="218.4" cy="146.1" r="3.2" class="dataset-svg-point"></circle><circle cx="224.8" cy="134.6" r="3.2" class="dataset-svg-point"></circle><circle cx="231.1" cy="51" r="3.2" class="dataset-svg-point"></circle><circle cx="237.5" cy="128.4" r="3.2" class="dataset-svg-point"></circle><circle cx="243.8" cy="81.8" r="3.2" class="dataset-svg-point"></circle><circle cx="250.2" cy="121.2" r="3.2" class="dataset-svg-point"></circle><circle cx="256.6" cy="129.4" r="3.2" class="dataset-svg-point"></circle><circle cx="262.9" cy="115" r="3.2" class="dataset-svg-point"></circle><circle cx="269.3" cy="106.7" r="3.2" class="dataset-svg-point"></circle><circle cx="275.6" cy="46" r="3.2" class="dataset-svg-point"></circle><circle cx="282" cy="125.2" r="3.2" class="dataset-svg-point"></circle><text x="34" y="24" class="dataset-svg-title">population_desservie</text><text x="34" y="186" class="dataset-svg-label">4825</text><text x="230" y="186" class="dataset-svg-label">202459</text>
-</svg>
-</div>
-</div>
 </section>
-<section class="dataset-teaching-panel">
-<div>
-<span>Mini-projets</span>
-<ul>
-<li>
-Construire un portrait régional des visites, prêts et dépenses par habitant.
-</li>
-<li>
-Comparer les bibliothèques en distinguant volumes et ratios.
-</li>
-<li>
-Discuter les limites d'indicateurs administratifs pour évaluer l'accès aux services.
-</li>
-</ul>
-</div>
-<div>
-<span>Activités liées</span>
-<div class="dataset-activity-grid">
-<div class="dataset-activity-card">
-<span>30-45 minutes</span><strong>Laboratoire - Visites par habitant dans les bibliothèques</strong>
-<p>
-Pourquoi les visites totales ne suffisent-elles pas pour comparer des bibliothèques?
-</p>
-</div>
-<div class="dataset-activity-card">
-<span>2-3 heures</span><strong>Mini-projet - Portrait régional des bibliothèques publiques</strong>
-<p>
-Comment construire des indicateurs comparables à partir de données administratives?
-</p>
-</div>
-</div>
-</div>
-</section>
-<div class="dataset-detail-content">
+<div id="documentation" class="dataset-detail-content">
 <section id="pourquoi-ce-jeu-est-intéressant" class="level2">
 <h2 class="anchored" data-anchor-id="pourquoi-ce-jeu-est-intéressant">Pourquoi ce jeu est intéressant</h2>
 <p>Ce jeu de données permet d’étudier les bibliothèques publiques québécoises comme un vrai cas de données administratives : fréquentation, prêts, usagers inscrits, population desservie, activités et dépenses de fonctionnement.</p>
@@ -4931,8 +4853,6 @@ Résultat visible
 <p>
 Sortie calculée par R à partir de data/processed/bibliotheques-quebec/statistiques_bibliotheques_quebec_2024_selection.csv. Les exemples qui téléchargent une source externe restent non évalués pendant le rendu du site afin de garder les fiches stables.
 </p>
-<div class="dataset-minimal-result-grid">
-<div>
 <div class="dataset-r-stats">
 <div class="dataset-r-stat">
 <span>Lignes dans l'aperçu</span><strong>188</strong>
@@ -8856,13 +8776,6 @@ Précédent
 </div>
 </div>
 </div>
-<div class="dataset-minimal-chart">
-<svg class="dataset-r-chart" viewbox="0 0 320 210" role="img" aria-label="Aperçu numérique généré par R">
-<line x1="34" y1="158" x2="292" y2="158" class="dataset-svg-axis"></line><line x1="34" y1="36" x2="34" y2="158" class="dataset-svg-axis"></line><polyline points="34,146.1 40.4,156.8 46.7,156 53.1,157.4 59.4,154.2 65.8,155.2 72.2,152 78.5,154.9 84.9,134.3 91.2,146.8 97.6,156.8 103.9,131.7 110.3,58 116.7,136.7 123,155.1 129.4,90.9 135.7,143.6 142.1,78.9 148.5,157.5 154.8,152.8 161.2,156.6 167.5,142 173.9,148.6 180.3,135 186.6,157.5 193,130.3 199.3,158 205.7,149.3 212.1,155.2 218.4,146.1 224.8,134.6 231.1,51 237.5,128.4 243.8,81.8 250.2,121.2 256.6,129.4 262.9,115 269.3,106.7 275.6,46 282,125.2" class="dataset-svg-line"></polyline><circle cx="34" cy="146.1" r="3.2" class="dataset-svg-point"></circle><circle cx="40.4" cy="156.8" r="3.2" class="dataset-svg-point"></circle><circle cx="46.7" cy="156" r="3.2" class="dataset-svg-point"></circle><circle cx="53.1" cy="157.4" r="3.2" class="dataset-svg-point"></circle><circle cx="59.4" cy="154.2" r="3.2" class="dataset-svg-point"></circle><circle cx="65.8" cy="155.2" r="3.2" class="dataset-svg-point"></circle><circle cx="72.2" cy="152" r="3.2" class="dataset-svg-point"></circle><circle cx="78.5" cy="154.9" r="3.2" class="dataset-svg-point"></circle><circle cx="84.9" cy="134.3" r="3.2" class="dataset-svg-point"></circle><circle cx="91.2" cy="146.8" r="3.2" class="dataset-svg-point"></circle><circle cx="97.6" cy="156.8" r="3.2" class="dataset-svg-point"></circle><circle cx="103.9" cy="131.7" r="3.2" class="dataset-svg-point"></circle><circle cx="110.3" cy="58" r="3.2" class="dataset-svg-point"></circle><circle cx="116.7" cy="136.7" r="3.2" class="dataset-svg-point"></circle><circle cx="123" cy="155.1" r="3.2" class="dataset-svg-point"></circle><circle cx="129.4" cy="90.9" r="3.2" class="dataset-svg-point"></circle><circle cx="135.7" cy="143.6" r="3.2" class="dataset-svg-point"></circle><circle cx="142.1" cy="78.9" r="3.2" class="dataset-svg-point"></circle><circle cx="148.5" cy="157.5" r="3.2" class="dataset-svg-point"></circle><circle cx="154.8" cy="152.8" r="3.2" class="dataset-svg-point"></circle><circle cx="161.2" cy="156.6" r="3.2" class="dataset-svg-point"></circle><circle cx="167.5" cy="142" r="3.2" class="dataset-svg-point"></circle><circle cx="173.9" cy="148.6" r="3.2" class="dataset-svg-point"></circle><circle cx="180.3" cy="135" r="3.2" class="dataset-svg-point"></circle><circle cx="186.6" cy="157.5" r="3.2" class="dataset-svg-point"></circle><circle cx="193" cy="130.3" r="3.2" class="dataset-svg-point"></circle><circle cx="199.3" cy="158" r="3.2" class="dataset-svg-point"></circle><circle cx="205.7" cy="149.3" r="3.2" class="dataset-svg-point"></circle><circle cx="212.1" cy="155.2" r="3.2" class="dataset-svg-point"></circle><circle cx="218.4" cy="146.1" r="3.2" class="dataset-svg-point"></circle><circle cx="224.8" cy="134.6" r="3.2" class="dataset-svg-point"></circle><circle cx="231.1" cy="51" r="3.2" class="dataset-svg-point"></circle><circle cx="237.5" cy="128.4" r="3.2" class="dataset-svg-point"></circle><circle cx="243.8" cy="81.8" r="3.2" class="dataset-svg-point"></circle><circle cx="250.2" cy="121.2" r="3.2" class="dataset-svg-point"></circle><circle cx="256.6" cy="129.4" r="3.2" class="dataset-svg-point"></circle><circle cx="262.9" cy="115" r="3.2" class="dataset-svg-point"></circle><circle cx="269.3" cy="106.7" r="3.2" class="dataset-svg-point"></circle><circle cx="275.6" cy="46" r="3.2" class="dataset-svg-point"></circle><circle cx="282" cy="125.2" r="3.2" class="dataset-svg-point"></circle><text x="34" y="24" class="dataset-svg-title">population_desservie</text><text x="34" y="186" class="dataset-svg-label">4825</text><text x="230" y="186" class="dataset-svg-label">202459</text>
-</svg>
-</div>
-</div>
-</div>
 </section>
 <section id="limites-et-précautions" class="level2">
 <h2 class="anchored" data-anchor-id="limites-et-précautions">Limites et précautions</h2>
@@ -8893,6 +8806,28 @@ Précédent
 </ul>
 </section>
 </div>
+<section class="dataset-activities-panel">
+<div class="dataset-section-heading">
+<span>Activités pédagogiques</span>
+<h2 class="anchored">
+Pour aller plus loin
+</h2>
+</div>
+<div class="dataset-activity-grid">
+<div class="dataset-activity-card">
+<span>30-45 minutes</span><strong>Laboratoire - Visites par habitant dans les bibliothèques</strong>
+<p>
+Pourquoi les visites totales ne suffisent-elles pas pour comparer des bibliothèques?
+</p>
+</div>
+<div class="dataset-activity-card">
+<span>2-3 heures</span><strong>Mini-projet - Portrait régional des bibliothèques publiques</strong>
+<p>
+Comment construire des indicateurs comparables à partir de données administratives?
+</p>
+</div>
+</div>
+</section>
 </section>
 <script>
 (function() {
@@ -8997,7 +8932,75 @@ Précédent
     });
     render();
   }
+  function initDocSections() {
+    var content = document.querySelector('.dataset-detail-content');
+    if (!content || content.dataset.sectionsEnhanced === 'true') return;
+    content.dataset.sectionsEnhanced = 'true';
+    var children = Array.from(content.children);
+    var currentBody = null;
+    var firstSection = true;
+    var hasActivityPanel = !!document.querySelector('.dataset-activities-panel');
+    function isActivityId(value) {
+      return /^activit[eé]-/.test(value || '');
+    }
+    children.forEach(function(child) {
+      var isLevelTwoSection = child.matches && child.matches('section.level2');
+      if (isLevelTwoSection) {
+        if (hasActivityPanel && isActivityId(child.id)) {
+          child.remove();
+          return;
+        }
+        var heading = child.querySelector(':scope > h2');
+        if (!heading) return;
+        var details = document.createElement('details');
+        details.className = 'dataset-doc-section';
+        if (child.id) {
+          details.id = child.id;
+          child.removeAttribute('id');
+        }
+        details.open = firstSection;
+        var summary = document.createElement('summary');
+        var body = document.createElement('div');
+        body.className = 'dataset-doc-section-body';
+        content.insertBefore(details, child);
+        summary.appendChild(heading);
+        details.appendChild(summary);
+        details.appendChild(body);
+        while (child.firstChild) {
+          body.appendChild(child.firstChild);
+        }
+        child.remove();
+        currentBody = body;
+        firstSection = false;
+      } else if (child.tagName && child.tagName.toLowerCase() === 'h2') {
+        var details = document.createElement('details');
+        details.className = 'dataset-doc-section';
+        details.open = firstSection;
+        var summary = document.createElement('summary');
+        var body = document.createElement('div');
+        body.className = 'dataset-doc-section-body';
+        content.insertBefore(details, child);
+        summary.appendChild(child);
+        details.appendChild(summary);
+        details.appendChild(body);
+        currentBody = body;
+        firstSection = false;
+      } else if (currentBody) {
+        currentBody.appendChild(child);
+      }
+    });
+    function openHashTarget() {
+      if (!window.location.hash) return;
+      var target = document.getElementById(window.location.hash.slice(1));
+      if (!target) return;
+      var details = target.matches && target.matches('.dataset-doc-section') ? target : target.closest('.dataset-doc-section');
+      if (details) details.open = true;
+    }
+    window.addEventListener('hashchange', openHashTarget);
+    openHashTarget();
+  }
   function initAll() {
+    initDocSections();
     document.querySelectorAll('.dataset-datatable').forEach(initDatatable);
   }
   if (document.readyState === 'loading') {

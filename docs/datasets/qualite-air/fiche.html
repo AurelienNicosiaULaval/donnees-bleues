@@ -212,84 +212,48 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 Stations du réseau de qualité de l'air du Québec
 </h1>
 <p class="dataset-hero-source">
-Données Québec / MELCCFP / RSQAQ
+Source : <a href="https://www.donneesquebec.ca/recherche/dataset/rsqaq-stations">Données Québec / MELCCFP / RSQAQ</a>
 </p>
 <p class="dataset-hero-summary">
 Station de mesure incluse dans le répertoire public RSQAQ
 </p>
 <div class="dataset-hero-actions">
-<a class="dataset-button no-external" href="#apercu-interactif">Voir les résultats R</a><a class="dataset-button secondary" href="https://www.donneesquebec.ca/recherche/dataset/rsqaq-stations">Source officielle</a>
+<a class="dataset-button no-external" href="#apercu-interactif">Voir les données</a><a class="dataset-button secondary no-external" href="#documentation">Documentation</a>
 </div>
 </div>
-<div class="dataset-hero-media">
-<img src="../../assets/cards/qualite-air.jpg" alt="Illustration du jeu de données Stations du réseau de qualité de l'air du Québec">
 </div>
-</div>
-<div class="dataset-overview-grid">
-<div class="dataset-fact">
-<span>Territoire</span><strong>Québec, hors stations situées sur l'île de Montréal selon les métadonnées CKAN</strong>
-</div>
-<div class="dataset-fact">
-<span>Niveau</span><strong>Introduction à intermédiaire</strong>
-</div>
-<div class="dataset-fact">
-<span>Structure</span><strong>Répertoire d'infrastructure de mesure, tabulaire, spatial et temporel</strong>
-</div>
-<div class="dataset-fact">
-<span>Format</span><strong>CSV officiel préparé localement</strong>
-</div>
-</div>
-<div class="dataset-pedagogy-band">
-<div class="dataset-pedagogy-main">
-<span>Question de départ</span>
+<section class="dataset-simple-summary">
+<div class="dataset-start-question">
+<span>Point de départ</span>
 <p>
 Comparer les stations sans date de fermeture selon les régions et les types de milieu.
 </p>
 </div>
-<div class="dataset-score-box">
-<span>Potentiel pédagogique</span><strong>26 / 30</strong>
-<div class="dataset-score-track">
-<span class="dataset-score-segment is-filled"></span><span class="dataset-score-segment is-filled"></span><span class="dataset-score-segment is-filled"></span><span class="dataset-score-segment is-filled"></span><span class="dataset-score-segment is-filled"></span>
+<div class="dataset-simple-facts">
+<div class="dataset-simple-fact">
+<span>Territoire</span><strong>Québec, hors stations situées sur l'île de Montréal selon les métadonnées CKAN</strong>
+</div>
+<div class="dataset-simple-fact">
+<span>Niveau</span><strong>Introduction à intermédiaire</strong>
+</div>
+<div class="dataset-simple-fact">
+<span>Format</span><strong>CSV officiel préparé localement</strong>
 </div>
 </div>
-</div>
-<div class="dataset-chip-strip">
-<span>importation CSV</span><span>dates</span><span>valeurs manquantes</span><span>statut préparé</span><span>données spatiales simples</span><span>couverture territoriale</span><span>statistique descriptive</span>
-</div>
-<section class="dataset-r-lab" id="r-en-action">
+</section>
+<section class="dataset-r-lab" id="apercu-interactif">
 <div class="dataset-section-heading">
-<span>R en action</span>
+<span>Aperçu</span>
 <h2 class="anchored">
-Aperçu des résultats
+Les premières lignes
 </h2>
 <p>
 Aperçu calculé par R à partir de data/processed/qualite-air/rsqaq_stations.csv.
 </p>
 </div>
-<div class="dataset-r-grid dataset-r-grid-compact">
-<div id="apercu-interactif" class="dataset-result-card">
+<div class="dataset-result-card">
 <div class="dataset-card-label">
-Résultats R
-</div>
-<div class="dataset-r-stats">
-<div class="dataset-r-stat">
-<span>Lignes dans l'aperçu</span><strong>245</strong>
-</div>
-<div class="dataset-r-stat">
-<span>Lignes déclarées</span><strong>245 stations préparées</strong>
-</div>
-<div class="dataset-r-stat">
-<span>Colonnes dans le CSV</span><strong>11</strong>
-</div>
-<div class="dataset-r-stat">
-<span>Variables num.</span><strong>4</strong>
-</div>
-<div class="dataset-r-stat">
-<span>Valeurs manquantes</span><strong>2.2 %</strong>
-</div>
-<div class="dataset-r-stat">
-<span>Aperçu</span><strong>rsqaq_stations.csv</strong>
-</div>
+Table consultable
 </div>
 <div id="dataset-header-result-table" class="dataset-datatable">
 <div class="dataset-datatable-toolbar">
@@ -4183,50 +4147,8 @@ Précédent
 </div>
 </div>
 </div>
-<div class="dataset-chart-card">
-<div class="dataset-card-label">
-Lecture statistique
-</div>
-<svg class="dataset-r-chart" viewbox="0 0 320 210" role="img" aria-label="Aperçu numérique généré par R">
-<line x1="34" y1="158" x2="292" y2="158" class="dataset-svg-axis"></line><line x1="34" y1="36" x2="34" y2="158" class="dataset-svg-axis"></line><polyline points="34,158 40.4,151.7 46.7,151.7 53.1,145.1 59.4,138.5 65.8,118.7 72.2,118.5 78.5,118.5 84.9,118.4 91.2,118.4 97.6,117.4 103.9,117.3 110.3,117.3 116.7,117.3 123,117.2 129.4,117.2 135.7,117.2 142.1,117.1 148.5,117.1 154.8,117.1 161.2,117 167.5,105.5 173.9,105.4 180.3,103.8 186.6,85.6 193,83.9 199.3,83.9 205.7,83.9 212.1,83.8 218.4,83.8 224.8,83.8 231.1,83.7 237.5,83.7 243.8,83.7 250.2,83.6 256.6,83.6 262.9,80 269.3,79.8 275.6,74.1 282,46" class="dataset-svg-line"></polyline><circle cx="34" cy="158" r="3.2" class="dataset-svg-point"></circle><circle cx="40.4" cy="151.7" r="3.2" class="dataset-svg-point"></circle><circle cx="46.7" cy="151.7" r="3.2" class="dataset-svg-point"></circle><circle cx="53.1" cy="145.1" r="3.2" class="dataset-svg-point"></circle><circle cx="59.4" cy="138.5" r="3.2" class="dataset-svg-point"></circle><circle cx="65.8" cy="118.7" r="3.2" class="dataset-svg-point"></circle><circle cx="72.2" cy="118.5" r="3.2" class="dataset-svg-point"></circle><circle cx="78.5" cy="118.5" r="3.2" class="dataset-svg-point"></circle><circle cx="84.9" cy="118.4" r="3.2" class="dataset-svg-point"></circle><circle cx="91.2" cy="118.4" r="3.2" class="dataset-svg-point"></circle><circle cx="97.6" cy="117.4" r="3.2" class="dataset-svg-point"></circle><circle cx="103.9" cy="117.3" r="3.2" class="dataset-svg-point"></circle><circle cx="110.3" cy="117.3" r="3.2" class="dataset-svg-point"></circle><circle cx="116.7" cy="117.3" r="3.2" class="dataset-svg-point"></circle><circle cx="123" cy="117.2" r="3.2" class="dataset-svg-point"></circle><circle cx="129.4" cy="117.2" r="3.2" class="dataset-svg-point"></circle><circle cx="135.7" cy="117.2" r="3.2" class="dataset-svg-point"></circle><circle cx="142.1" cy="117.1" r="3.2" class="dataset-svg-point"></circle><circle cx="148.5" cy="117.1" r="3.2" class="dataset-svg-point"></circle><circle cx="154.8" cy="117.1" r="3.2" class="dataset-svg-point"></circle><circle cx="161.2" cy="117" r="3.2" class="dataset-svg-point"></circle><circle cx="167.5" cy="105.5" r="3.2" class="dataset-svg-point"></circle><circle cx="173.9" cy="105.4" r="3.2" class="dataset-svg-point"></circle><circle cx="180.3" cy="103.8" r="3.2" class="dataset-svg-point"></circle><circle cx="186.6" cy="85.6" r="3.2" class="dataset-svg-point"></circle><circle cx="193" cy="83.9" r="3.2" class="dataset-svg-point"></circle><circle cx="199.3" cy="83.9" r="3.2" class="dataset-svg-point"></circle><circle cx="205.7" cy="83.9" r="3.2" class="dataset-svg-point"></circle><circle cx="212.1" cy="83.8" r="3.2" class="dataset-svg-point"></circle><circle cx="218.4" cy="83.8" r="3.2" class="dataset-svg-point"></circle><circle cx="224.8" cy="83.8" r="3.2" class="dataset-svg-point"></circle><circle cx="231.1" cy="83.7" r="3.2" class="dataset-svg-point"></circle><circle cx="237.5" cy="83.7" r="3.2" class="dataset-svg-point"></circle><circle cx="243.8" cy="83.7" r="3.2" class="dataset-svg-point"></circle><circle cx="250.2" cy="83.6" r="3.2" class="dataset-svg-point"></circle><circle cx="256.6" cy="83.6" r="3.2" class="dataset-svg-point"></circle><circle cx="262.9" cy="80" r="3.2" class="dataset-svg-point"></circle><circle cx="269.3" cy="79.8" r="3.2" class="dataset-svg-point"></circle><circle cx="275.6" cy="74.1" r="3.2" class="dataset-svg-point"></circle><circle cx="282" cy="46" r="3.2" class="dataset-svg-point"></circle><text x="34" y="24" class="dataset-svg-title">id_station</text><text x="34" y="186" class="dataset-svg-label">6810</text><text x="230" y="186" class="dataset-svg-label">10200</text>
-</svg>
-</div>
-</div>
 </section>
-<section class="dataset-teaching-panel">
-<div>
-<span>Mini-projets</span>
-<ul>
-<li>
-Comparer les stations sans date de fermeture selon les régions et les types de milieu.
-</li>
-<li>
-Visualiser l'évolution du réseau par décennie d'ouverture.
-</li>
-<li>
-Construire une carte de points et expliquer pourquoi elle ne mesure pas directement la pollution.
-</li>
-</ul>
-</div>
-<div>
-<span>Activités liées</span>
-<div class="dataset-activity-grid">
-<div class="dataset-activity-card">
-<span>30-45 minutes</span><strong>Types de milieu et statut préparé des stations</strong>
-<p>
-Comment les stations sans date de fermeture se répartissent-elles selon le type de milieu?
-</p>
-</div>
-<div class="dataset-activity-card">
-<span>2-3 heures</span><strong>Couverture territoriale et temporelle des stations RSQAQ</strong>
-<p>
-Que révèle un répertoire de stations sur la mesure environnementale, et que ne révèle-t-il pas?
-</p>
-</div>
-</div>
-</div>
-</section>
-<div class="dataset-detail-content">
+<div id="documentation" class="dataset-detail-content">
 <section id="pourquoi-ce-jeu-est-intéressant" class="level2">
 <h2 class="anchored" data-anchor-id="pourquoi-ce-jeu-est-intéressant">Pourquoi ce jeu est intéressant</h2>
 <p>Ce jeu décrit l’infrastructure de mesure du Réseau de surveillance de la qualité de l’air du Québec. Il ne donne pas directement les concentrations de polluants. Cette distinction en fait une bonne fiche pédagogique : les étudiants doivent comprendre ce qu’une donnée représente avant de produire une carte ou un graphique.</p>
@@ -4847,8 +4769,6 @@ Résultat visible
 <p>
 Sortie calculée par R à partir de data/processed/qualite-air/rsqaq_stations.csv. Les exemples qui téléchargent une source externe restent non évalués pendant le rendu du site afin de garder les fiches stables.
 </p>
-<div class="dataset-minimal-result-grid">
-<div>
 <div class="dataset-r-stats">
 <div class="dataset-r-stat">
 <span>Lignes dans l'aperçu</span><strong>245</strong>
@@ -8761,13 +8681,6 @@ Précédent
 </div>
 </div>
 </div>
-<div class="dataset-minimal-chart">
-<svg class="dataset-r-chart" viewbox="0 0 320 210" role="img" aria-label="Aperçu numérique généré par R">
-<line x1="34" y1="158" x2="292" y2="158" class="dataset-svg-axis"></line><line x1="34" y1="36" x2="34" y2="158" class="dataset-svg-axis"></line><polyline points="34,158 40.4,151.7 46.7,151.7 53.1,145.1 59.4,138.5 65.8,118.7 72.2,118.5 78.5,118.5 84.9,118.4 91.2,118.4 97.6,117.4 103.9,117.3 110.3,117.3 116.7,117.3 123,117.2 129.4,117.2 135.7,117.2 142.1,117.1 148.5,117.1 154.8,117.1 161.2,117 167.5,105.5 173.9,105.4 180.3,103.8 186.6,85.6 193,83.9 199.3,83.9 205.7,83.9 212.1,83.8 218.4,83.8 224.8,83.8 231.1,83.7 237.5,83.7 243.8,83.7 250.2,83.6 256.6,83.6 262.9,80 269.3,79.8 275.6,74.1 282,46" class="dataset-svg-line"></polyline><circle cx="34" cy="158" r="3.2" class="dataset-svg-point"></circle><circle cx="40.4" cy="151.7" r="3.2" class="dataset-svg-point"></circle><circle cx="46.7" cy="151.7" r="3.2" class="dataset-svg-point"></circle><circle cx="53.1" cy="145.1" r="3.2" class="dataset-svg-point"></circle><circle cx="59.4" cy="138.5" r="3.2" class="dataset-svg-point"></circle><circle cx="65.8" cy="118.7" r="3.2" class="dataset-svg-point"></circle><circle cx="72.2" cy="118.5" r="3.2" class="dataset-svg-point"></circle><circle cx="78.5" cy="118.5" r="3.2" class="dataset-svg-point"></circle><circle cx="84.9" cy="118.4" r="3.2" class="dataset-svg-point"></circle><circle cx="91.2" cy="118.4" r="3.2" class="dataset-svg-point"></circle><circle cx="97.6" cy="117.4" r="3.2" class="dataset-svg-point"></circle><circle cx="103.9" cy="117.3" r="3.2" class="dataset-svg-point"></circle><circle cx="110.3" cy="117.3" r="3.2" class="dataset-svg-point"></circle><circle cx="116.7" cy="117.3" r="3.2" class="dataset-svg-point"></circle><circle cx="123" cy="117.2" r="3.2" class="dataset-svg-point"></circle><circle cx="129.4" cy="117.2" r="3.2" class="dataset-svg-point"></circle><circle cx="135.7" cy="117.2" r="3.2" class="dataset-svg-point"></circle><circle cx="142.1" cy="117.1" r="3.2" class="dataset-svg-point"></circle><circle cx="148.5" cy="117.1" r="3.2" class="dataset-svg-point"></circle><circle cx="154.8" cy="117.1" r="3.2" class="dataset-svg-point"></circle><circle cx="161.2" cy="117" r="3.2" class="dataset-svg-point"></circle><circle cx="167.5" cy="105.5" r="3.2" class="dataset-svg-point"></circle><circle cx="173.9" cy="105.4" r="3.2" class="dataset-svg-point"></circle><circle cx="180.3" cy="103.8" r="3.2" class="dataset-svg-point"></circle><circle cx="186.6" cy="85.6" r="3.2" class="dataset-svg-point"></circle><circle cx="193" cy="83.9" r="3.2" class="dataset-svg-point"></circle><circle cx="199.3" cy="83.9" r="3.2" class="dataset-svg-point"></circle><circle cx="205.7" cy="83.9" r="3.2" class="dataset-svg-point"></circle><circle cx="212.1" cy="83.8" r="3.2" class="dataset-svg-point"></circle><circle cx="218.4" cy="83.8" r="3.2" class="dataset-svg-point"></circle><circle cx="224.8" cy="83.8" r="3.2" class="dataset-svg-point"></circle><circle cx="231.1" cy="83.7" r="3.2" class="dataset-svg-point"></circle><circle cx="237.5" cy="83.7" r="3.2" class="dataset-svg-point"></circle><circle cx="243.8" cy="83.7" r="3.2" class="dataset-svg-point"></circle><circle cx="250.2" cy="83.6" r="3.2" class="dataset-svg-point"></circle><circle cx="256.6" cy="83.6" r="3.2" class="dataset-svg-point"></circle><circle cx="262.9" cy="80" r="3.2" class="dataset-svg-point"></circle><circle cx="269.3" cy="79.8" r="3.2" class="dataset-svg-point"></circle><circle cx="275.6" cy="74.1" r="3.2" class="dataset-svg-point"></circle><circle cx="282" cy="46" r="3.2" class="dataset-svg-point"></circle><text x="34" y="24" class="dataset-svg-title">id_station</text><text x="34" y="186" class="dataset-svg-label">6810</text><text x="230" y="186" class="dataset-svg-label">10200</text>
-</svg>
-</div>
-</div>
-</div>
 </section>
 <section id="limites-et-précautions" class="level2">
 <h2 class="anchored" data-anchor-id="limites-et-précautions">Limites et précautions</h2>
@@ -8799,6 +8712,28 @@ Précédent
 </ul>
 </section>
 </div>
+<section class="dataset-activities-panel">
+<div class="dataset-section-heading">
+<span>Activités pédagogiques</span>
+<h2 class="anchored">
+Pour aller plus loin
+</h2>
+</div>
+<div class="dataset-activity-grid">
+<div class="dataset-activity-card">
+<span>30-45 minutes</span><strong>Types de milieu et statut préparé des stations</strong>
+<p>
+Comment les stations sans date de fermeture se répartissent-elles selon le type de milieu?
+</p>
+</div>
+<div class="dataset-activity-card">
+<span>2-3 heures</span><strong>Couverture territoriale et temporelle des stations RSQAQ</strong>
+<p>
+Que révèle un répertoire de stations sur la mesure environnementale, et que ne révèle-t-il pas?
+</p>
+</div>
+</div>
+</section>
 </section>
 <script>
 (function() {
@@ -8903,7 +8838,75 @@ Précédent
     });
     render();
   }
+  function initDocSections() {
+    var content = document.querySelector('.dataset-detail-content');
+    if (!content || content.dataset.sectionsEnhanced === 'true') return;
+    content.dataset.sectionsEnhanced = 'true';
+    var children = Array.from(content.children);
+    var currentBody = null;
+    var firstSection = true;
+    var hasActivityPanel = !!document.querySelector('.dataset-activities-panel');
+    function isActivityId(value) {
+      return /^activit[eé]-/.test(value || '');
+    }
+    children.forEach(function(child) {
+      var isLevelTwoSection = child.matches && child.matches('section.level2');
+      if (isLevelTwoSection) {
+        if (hasActivityPanel && isActivityId(child.id)) {
+          child.remove();
+          return;
+        }
+        var heading = child.querySelector(':scope > h2');
+        if (!heading) return;
+        var details = document.createElement('details');
+        details.className = 'dataset-doc-section';
+        if (child.id) {
+          details.id = child.id;
+          child.removeAttribute('id');
+        }
+        details.open = firstSection;
+        var summary = document.createElement('summary');
+        var body = document.createElement('div');
+        body.className = 'dataset-doc-section-body';
+        content.insertBefore(details, child);
+        summary.appendChild(heading);
+        details.appendChild(summary);
+        details.appendChild(body);
+        while (child.firstChild) {
+          body.appendChild(child.firstChild);
+        }
+        child.remove();
+        currentBody = body;
+        firstSection = false;
+      } else if (child.tagName && child.tagName.toLowerCase() === 'h2') {
+        var details = document.createElement('details');
+        details.className = 'dataset-doc-section';
+        details.open = firstSection;
+        var summary = document.createElement('summary');
+        var body = document.createElement('div');
+        body.className = 'dataset-doc-section-body';
+        content.insertBefore(details, child);
+        summary.appendChild(child);
+        details.appendChild(summary);
+        details.appendChild(body);
+        currentBody = body;
+        firstSection = false;
+      } else if (currentBody) {
+        currentBody.appendChild(child);
+      }
+    });
+    function openHashTarget() {
+      if (!window.location.hash) return;
+      var target = document.getElementById(window.location.hash.slice(1));
+      if (!target) return;
+      var details = target.matches && target.matches('.dataset-doc-section') ? target : target.closest('.dataset-doc-section');
+      if (details) details.open = true;
+    }
+    window.addEventListener('hashchange', openHashTarget);
+    openHashTarget();
+  }
   function initAll() {
+    initDocSections();
     document.querySelectorAll('.dataset-datatable').forEach(initDatatable);
   }
   if (document.readyState === 'loading') {
