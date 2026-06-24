@@ -3818,6 +3818,319 @@ body:has(.activities-page) main.content {
   }
 }
 
+/* Simplified activity catalogue: compact entry, visible cards, lighter filters. */
+.act-hero {
+  align-items: center;
+  background: #f7fbff;
+  border-bottom: 1px solid #d9e2ef;
+  display: grid;
+  gap: 1.4rem;
+  grid-column: screen-start / screen-end;
+  grid-template-columns: minmax(0, 1fr) minmax(230px, 0.28fr);
+  max-width: none;
+  min-height: 0;
+  padding: 2.35rem max(1.5rem, calc((100vw - 1180px) / 2)) 2.1rem;
+  width: 100%;
+}
+
+.act-hero-copy {
+  max-width: 780px;
+}
+
+.act-hero .act-kicker {
+  color: #0045a5;
+}
+
+.act-hero h1 {
+  color: #101828;
+  font-size: clamp(2rem, 3.2vw, 3rem);
+  line-height: 1.04;
+  margin: 0 0 0.65rem;
+  max-width: 760px;
+}
+
+.act-hero-lede {
+  color: #344054;
+  font-size: 1.05rem;
+  max-width: 760px;
+}
+
+.act-hero-actions {
+  gap: 0.55rem;
+  margin-top: 1.05rem;
+}
+
+.act-hero-actions .dataset-button.secondary {
+  background: #ffffff;
+}
+
+.act-hero-panel {
+  align-self: center;
+  background: #ffffff;
+  border: 1px solid #d9e2ef;
+  border-radius: 6px;
+  justify-self: end;
+  max-width: 300px;
+  padding: 0.85rem;
+}
+
+.act-panel-number {
+  font-size: 3.2rem;
+  margin: 0.35rem 0 0.55rem;
+}
+
+.act-catalogue {
+  padding-top: 1.45rem;
+}
+
+.act-catalogue-head {
+  align-items: start;
+  border-bottom: 1px solid #e5ecf5;
+  padding-bottom: 0.95rem;
+}
+
+.act-catalogue-head h2 {
+  font-size: clamp(1.45rem, 2.1vw, 1.9rem);
+  line-height: 1.12;
+}
+
+.act-catalogue-count {
+  background: #eef8f3;
+  border-radius: 5px;
+  font-size: 1rem;
+  padding: 0.62rem 0.8rem;
+}
+
+.act-control-panel {
+  background: #ffffff;
+  border-bottom: 1px solid #e5ecf5;
+  gap: 0.75rem;
+  margin-top: 0;
+  padding: 0.95rem 0;
+}
+
+.act-search-box {
+  max-width: 760px;
+}
+
+.act-filter-drawer {
+  border-bottom: 1px solid #e5ecf5;
+  margin: 0;
+  padding: 0;
+}
+
+.act-filter-drawer summary {
+  align-items: center;
+  cursor: pointer;
+  display: grid;
+  gap: 0.15rem 0.8rem;
+  grid-template-columns: minmax(0, 1fr) auto;
+  list-style: none;
+  padding: 0.85rem 0;
+}
+
+.act-filter-drawer summary::-webkit-details-marker {
+  display: none;
+}
+
+.act-filter-drawer summary::after {
+  color: #0045a5;
+  content: "+";
+  font-size: 1.3rem;
+  font-weight: 650;
+  grid-column: 2;
+  grid-row: 1 / span 2;
+  line-height: 1;
+}
+
+.act-filter-drawer[open] summary::after {
+  content: "-";
+}
+
+.act-filter-drawer summary span {
+  color: #0045a5;
+  display: block;
+  font-size: 0.74rem;
+  font-weight: 850;
+  text-transform: uppercase;
+}
+
+.act-filter-drawer summary strong {
+  color: #101828;
+  display: block;
+  font-size: 0.95rem;
+  line-height: 1.25;
+}
+
+.act-filter-drawer-grid {
+  display: grid;
+  gap: 0.8rem;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  padding: 0 0 0.9rem;
+}
+
+.act-filter-drawer .act-reset {
+  margin-bottom: 1rem;
+}
+
+.act-filter-group {
+  border: 1px solid #e5ecf5;
+  border-radius: 6px;
+  gap: 0.55rem;
+  margin: 0;
+  padding: 0.75rem;
+}
+
+.act-filter-group h4 {
+  font-size: 0.82rem;
+}
+
+.act-layout {
+  display: block;
+  margin-top: 1rem;
+}
+
+.act-results-bar {
+  margin-bottom: 0.85rem;
+}
+
+.act-grid {
+  gap: 0.8rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.act-card {
+  border-color: #e0e7f1;
+  border-radius: 6px;
+  min-height: 0;
+  padding: 0.9rem;
+}
+
+.act-card-meta {
+  margin-bottom: 0.65rem;
+}
+
+.act-card-meta span,
+.act-token {
+  border-radius: 5px;
+  font-size: 0.73rem;
+  padding: 0.22rem 0.42rem;
+}
+
+.act-card-meta .act-card-status {
+  background: #eef8f3;
+  border-color: #cde8d8;
+  color: #28613b;
+}
+
+.act-card h3 {
+  font-size: 1.02rem;
+  line-height: 1.22;
+  margin-bottom: 0.45rem;
+}
+
+.act-card-question {
+  font-size: 0.92rem;
+  font-weight: 750;
+  margin-bottom: 0.75rem;
+}
+
+.act-card-summary {
+  background: #f8fbff;
+  border: 1px solid #e1e9f5;
+  border-radius: 6px;
+  display: grid;
+  gap: 0.55rem;
+  margin-bottom: 0.7rem;
+  padding: 0.65rem;
+}
+
+.act-card-summary p {
+  color: #172033;
+  font-size: 0.85rem;
+  font-weight: 650;
+  line-height: 1.36;
+  margin: 0;
+}
+
+.act-card-summary span {
+  color: #0045a5;
+  display: block;
+  font-size: 0.68rem;
+  font-weight: 850;
+  margin-bottom: 0.15rem;
+  text-transform: uppercase;
+}
+
+.act-card-tags {
+  margin-bottom: 0.65rem;
+}
+
+.act-card-details {
+  gap: 0.38rem;
+  margin-bottom: 0.85rem;
+}
+
+.act-card-details div {
+  grid-template-columns: 82px minmax(0, 1fr);
+}
+
+.act-card-details dt,
+.act-card-details dd {
+  font-size: 0.78rem;
+}
+
+.act-card-action {
+  font-size: 0.86rem;
+}
+
+.act-modules {
+  padding-bottom: 3rem;
+  padding-top: 3rem;
+}
+
+@media (max-width: 980px) {
+  .act-hero,
+  .act-catalogue-head {
+    grid-template-columns: 1fr;
+  }
+
+  .act-hero-panel,
+  .act-catalogue-count {
+    justify-self: start;
+  }
+
+  .act-filter-drawer-grid,
+  .act-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .act-hero {
+    padding: 1.9rem 1rem 1.65rem;
+  }
+
+  .act-hero h1 {
+    font-size: 1.85rem;
+  }
+
+  .act-hero-actions {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .act-catalogue,
+  .act-section {
+    width: calc(100% - 2rem);
+  }
+
+  .act-results-bar {
+    align-items: start;
+    flex-direction: column;
+  }
+}
+
 body:has(.about-page) main.content {
   grid-column: screen-start / screen-end;
   max-width: none;
