@@ -99,6 +99,103 @@ render_featured_datasets <- function(data) {
     )
   }, character(1)), collapse = "\n")
 }
+
+activity_link <- function(activity) {
+  if (!is.data.frame(activity) || nrow(activity) == 0L) {
+    return(NULL)
+  }
+
+  href <- str_replace(activity$activity_url[[1]], "[.]qmd$", ".html")
+  title <- activity$title[[1]]
+  question <- activity$question[[1]]
+  list(
+    href = href,
+    title = title,
+    question = question
+  )
+}
+
+render_example_step <- function(number, label, title, text, href) {
+  paste0(
+    '<a class="home-example-step" href="', home_escape(href), '">',
+    '<span>', home_escape(number), '</span>',
+    '<strong>', home_escape(label), '</strong>',
+    '<em>', home_escape(title), '</em>',
+    '<small>', home_escape(text), '</small>',
+    '</a>'
+  )
+}
+
+render_home_example <- function(catalogue, activities, target_dataset_id = "bixi") {
+  if (!is.data.frame(catalogue) || nrow(catalogue) == 0L) {
+    return('<p class="home-empty">Aucun exemple complet disponible pour le moment.</p>')
+  }
+
+  dataset <- catalogue |>
+    filter(.data$id == target_dataset_id) |>
+    slice_head(n = 1)
+
+  if (nrow(dataset) == 0L) {
+    return('<p class="home-empty">Aucun exemple complet disponible pour le moment.</p>')
+  }
+
+  dataset_href <- str_replace(dataset$fiche[[1]], "[.]qmd$", ".html")
+
+  short_activity <- activities |>
+    filter(.data$dataset_id == target_dataset_id, .data$duration == "30-45 minutes") |>
+    slice_head(n = 1) |>
+    activity_link()
+
+  long_activity <- activities |>
+    filter(.data$dataset_id == target_dataset_id, .data$duration == "2-3 heures") |>
+    slice_head(n = 1) |>
+    activity_link()
+
+  short_step <- if (is.null(short_activity)) {
+    ""
+  } else {
+    render_example_step(
+      "02",
+      "Activité courte",
+      short_activity$title,
+      short_activity$question,
+      short_activity$href
+    )
+  }
+
+  long_step <- if (is.null(long_activity)) {
+    ""
+  } else {
+    render_example_step(
+      "03",
+      "Activité longue",
+      long_activity$title,
+      long_activity$question,
+      long_activity$href
+    )
+  }
+
+  paste0(
+    '<article class="home-example-card">',
+    '<div class="home-example-copy">',
+    '<span>Exemple en 2 minutes</span>',
+    '<h3>Partir de ', home_escape(dataset$short_title[[1]]), ' et arriver à une activité prête à adapter.</h3>',
+    '<p>Cette séquence montre le geste central du site : choisir une source, comprendre son contexte, puis la transformer en situation d’enseignement.</p>',
+    '</div>',
+    '<div class="home-example-steps">',
+    render_example_step(
+      "01",
+      "Fiche",
+      dataset$short_title[[1]],
+      "Source, unité statistique, variables, limites et résultats R.",
+      dataset_href
+    ),
+    short_step,
+    long_step,
+    '</div>',
+    '</article>'
+  )
+}
 ```
 
 ::: {.home-page}
@@ -299,6 +396,14 @@ Utiliser la grille zéro déchet pour décider si une source mérite d'être pr�
 [Lire le cadre](zero-waste.qmd)
 :::
 :::
+:::
+
+::: {.home-section .home-example}
+```{r}
+#| echo: false
+#| results: asis
+cat(render_home_example(catalogue, activities, "bixi"))
+```
 :::
 
 ::: {.home-section .home-featured}

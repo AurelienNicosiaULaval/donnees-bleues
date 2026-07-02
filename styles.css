@@ -30,6 +30,22 @@ a {
   color: var(--db-blue);
 }
 
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 3px solid rgba(11, 87, 208, 0.45);
+  outline-offset: 3px;
+}
+
+.navbar-toggler:focus,
+.navbar-toggler:focus-visible {
+  outline: 3px solid rgba(11, 87, 208, 0.55);
+  outline-offset: 3px;
+  box-shadow: none;
+}
+
 .navbar {
   background: #ffffff !important;
   border-bottom: 1px solid #e5e7eb;
@@ -1272,6 +1288,13 @@ body:has(.catalogue-reference) main.content {
   margin: 0;
 }
 
+.filter-help {
+  color: #667085;
+  font-size: 0.78rem;
+  line-height: 1.4;
+  margin: -0.35rem 0 0;
+}
+
 .filter-option {
   align-items: center;
   color: #111827;
@@ -1529,6 +1552,13 @@ body:has(.catalogue-reference) main.content {
   font-weight: 500;
 }
 
+.dataset-score-label strong {
+  color: #111827;
+  font-size: 0.78rem;
+  font-weight: 800;
+  margin-left: auto;
+}
+
 .dataset-score-track {
   display: grid;
   gap: 0.25rem;
@@ -1544,6 +1574,13 @@ body:has(.catalogue-reference) main.content {
 
 .score-segment.is-filled {
   background: #4a9f38;
+}
+
+.dataset-score-help {
+  color: #667085;
+  font-size: 0.78rem;
+  line-height: 1.4;
+  margin: 0.45rem 0 0;
 }
 
 .dataset-card-body > p:has(.dataset-action) {
@@ -2632,7 +2669,7 @@ body:has(.zero-waste-page) main.content {
 .zw-hero {
   align-items: end;
   background:
-    linear-gradient(90deg, rgba(8, 24, 56, 0.88) 0%, rgba(8, 24, 56, 0.76) 46%, rgba(8, 24, 56, 0.18) 100%),
+    linear-gradient(90deg, rgba(8, 24, 56, 0.96) 0%, rgba(8, 24, 56, 0.88) 46%, rgba(8, 24, 56, 0.38) 100%),
     url("assets/cards/zero-dechet.png");
   background-position: center;
   background-size: cover;
@@ -2670,8 +2707,9 @@ body:has(.zero-waste-page) main.content {
 }
 
 .zw-hero-lede {
-  color: #eef7ff;
+  color: #ffffff;
   font-size: 1.14rem;
+  font-weight: 650;
   margin: 0;
   max-width: 740px;
 }
@@ -3044,18 +3082,18 @@ body:has(.zero-waste-page) main.content {
 @media (max-width: 700px) {
   .zw-hero {
     background:
-      linear-gradient(180deg, rgba(8, 24, 56, 0.9) 0%, rgba(8, 24, 56, 0.72) 100%),
+      linear-gradient(180deg, rgba(8, 24, 56, 0.97) 0%, rgba(8, 24, 56, 0.86) 100%),
       url("assets/cards/zero-dechet.png");
     min-height: 0;
-    padding: 3.2rem 1rem 2.5rem;
+    padding: 2.45rem 1rem 2rem;
   }
 
   .zw-hero h1 {
-    font-size: 2.35rem;
+    font-size: 2.12rem;
   }
 
   .zw-hero-lede {
-    font-size: 1rem;
+    font-size: 0.96rem;
   }
 
   .zw-hero-actions,
@@ -4948,6 +4986,97 @@ body:has(.home-page) main.content {
   text-underline-offset: 0.16em;
 }
 
+.home-example-card {
+  align-items: stretch;
+  background: #f8fbff;
+  border: 1px solid #d9e2ef;
+  border-radius: 6px;
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: minmax(0, 0.82fr) minmax(0, 1.18fr);
+  padding: 1.05rem;
+}
+
+.home-example-copy {
+  min-width: 0;
+}
+
+.home-example-copy > span {
+  color: #0045a5;
+  display: block;
+  font-size: 0.76rem;
+  font-weight: 850;
+  letter-spacing: 0.06em;
+  margin-bottom: 0.55rem;
+  text-transform: uppercase;
+}
+
+.home-example-copy h3 {
+  font-size: 1.25rem;
+  margin: 0 0 0.55rem;
+}
+
+.home-example-copy p {
+  margin: 0;
+}
+
+.home-example-steps {
+  display: grid;
+  gap: 0.65rem;
+}
+
+.home-example-step {
+  background: #ffffff;
+  border: 1px solid #d9e2ef;
+  border-radius: 6px;
+  color: #172033;
+  display: grid;
+  gap: 0.12rem 0.65rem;
+  grid-template-columns: auto minmax(0, 1fr);
+  padding: 0.72rem;
+  text-decoration: none;
+}
+
+.home-example-step:hover,
+.home-example-step:focus {
+  border-color: #0b57d0;
+  color: #172033;
+}
+
+.home-example-step > span {
+  align-items: center;
+  background: #eef5ff;
+  border-radius: 999px;
+  color: #0045a5;
+  display: inline-flex;
+  font-size: 0.76rem;
+  font-weight: 850;
+  grid-row: 1 / span 3;
+  height: 2rem;
+  justify-content: center;
+  width: 2rem;
+}
+
+.home-example-step strong {
+  color: #00445d;
+  font-size: 0.74rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.home-example-step em {
+  color: #101828;
+  font-size: 0.95rem;
+  font-style: normal;
+  font-weight: 800;
+}
+
+.home-example-step small {
+  color: #5d6b82;
+  font-size: 0.82rem;
+  line-height: 1.35;
+}
+
 .home-empty {
   background: #f8fbff;
   border: 1px solid #d8e2ef;
@@ -5032,19 +5161,20 @@ body:has(.home-page) main.content {
       url("assets/cards/transport-collectif-gtfs.jpg");
     grid-template-columns: 1fr;
     min-height: 0;
-    padding: 3.2rem 1rem 2.5rem;
+    padding: 2.45rem 1rem 2rem;
   }
 
   .home-hero h1 {
-    font-size: 2.55rem;
+    font-size: 2.28rem;
   }
 
   .home-subtitle {
-    font-size: 1.08rem;
+    font-size: 1rem;
   }
 
   .home-lede {
-    font-size: 1rem;
+    font-size: 0.95rem;
+    line-height: 1.5;
   }
 
   .home-hero-signal {
@@ -5060,6 +5190,8 @@ body:has(.home-page) main.content {
   .home-stat-strip,
   .home-path-grid,
   .home-promise-grid,
+  .home-example-card,
+  .home-example-steps,
   .home-dataset-grid {
     grid-template-columns: 1fr;
   }

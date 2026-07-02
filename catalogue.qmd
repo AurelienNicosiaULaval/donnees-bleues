@@ -125,6 +125,53 @@ format_filter_group <- function(values, name, max_options = Inf, more_label = "V
   options
 }
 
+concept_family_definitions <- list(
+  "Importer et nettoyer" = c(
+    "importation", "nettoyage", "conversion", "valeurs manquantes",
+    "qualité des données", "dictionnaire", "format long", "jointure",
+    "clés", "codes", "coordonnées invalides"
+  ),
+  "Décrire et comparer" = c(
+    "statistique descriptive", "comparaison", "groupes", "catégories",
+    "tableaux de fréquences", "unités de mesure", "ratios", "médiane",
+    "indicateurs"
+  ),
+  "Visualiser" = c(
+    "visualisation", "graphique", "carte", "cartographie"
+  ),
+  "Modéliser" = c(
+    "modélisation", "régression", "prédiction", "relations"
+  ),
+  "Éthique et limites" = c(
+    "éthique", "limites", "biais", "communication prudente",
+    "données sensibles", "risques", "communication du risque"
+  ),
+  "Données spatiales" = c(
+    "spatial", "spatiale", "géolocalisation", "cartographie",
+    "coordonnées", "territoire"
+  ),
+  "Séries temporelles" = c(
+    "séries temporelles", "temporelle", "dates", "mensuelle", "annuelle"
+  )
+)
+
+concept_families <- function(value) {
+  concept_text <- str_to_lower(paste(split_concepts(value), collapse = " "))
+  if (concept_text == "") {
+    return(character())
+  }
+
+  families <- names(concept_family_definitions)[vapply(concept_family_definitions, function(patterns) {
+    any(str_detect(concept_text, fixed(str_to_lower(patterns))))
+  }, logical(1))]
+
+  if (length(families) == 0L) {
+    "Autres notions"
+  } else {
+    families
+  }
+}
+
 format_chip <- function(label, attrs = "", active = FALSE) {
   class <- if (active) "filter-chip is-active" else "filter-chip"
   paste0('<button class="', class, '" type="button" ', attrs, '>', html_escape(label), "</button>")
@@ -150,6 +197,8 @@ if (file.exists(catalogue_path)) {
   theme_filters <- format_filter_group(catalogue$theme, "theme", max_options = 5)
   level_filters <- format_filter_group(catalogue$level, "level")
   concept_values <- unlist(lapply(catalogue$concepts, split_concepts))
+  concept_family_values <- unlist(lapply(catalogue$concepts, concept_families))
+  concept_family_filters <- format_filter_group(concept_family_values, "concept-family")
   concept_filters <- format_filter_group(concept_values, "concept", max_options = 6)
   license_filters <- format_filter_group(catalogue$license, "license", max_options = 3)
 
@@ -187,7 +236,8 @@ if (file.exists(catalogue_path)) {
   cat('</div>\n')
   cat('<div class="filter-group"><h3>Thème</h3>', theme_filters, '</div>\n', sep = "")
   cat('<div class="filter-group"><h3>Niveau recommandé</h3>', level_filters, '</div>\n', sep = "")
-  cat('<div class="filter-group"><h3>Notions pédagogiques</h3>', concept_filters, '</div>\n', sep = "")
+  cat('<div class="filter-group"><h3>Familles pédagogiques</h3><p class="filter-help">Entrées rapides pour choisir une intention d’enseignement.</p>', concept_family_filters, '</div>\n', sep = "")
+  cat('<div class="filter-group"><h3>Notions détaillées</h3><p class="filter-help">Filtres plus fins issus des fiches de données.</p>', concept_filters, '</div>\n', sep = "")
   cat('<div class="filter-group"><h3>Licence</h3>', license_filters, '</div>\n', sep = "")
   cat('</div>\n')
 
@@ -213,6 +263,7 @@ if (file.exists(catalogue_path)) {
     image_alt <- paste("Illustration du thème", row$theme)
     score <- format_score(row$zero_waste_score)
     concept_tokens <- split_concepts(row$concepts)
+    concept_family_tokens <- concept_families(row$concepts)
     learning_focus <- format_learning_focus(row)
     source_line <- paste(
       clean_value(row$theme, ""),
@@ -247,6 +298,8 @@ if (file.exists(catalogue_path)) {
       html_escape(search_text),
       '" data-concepts="',
       html_escape(paste(concept_tokens, collapse = "||")),
+      '" data-concept-families="',
+      html_escape(paste(concept_family_tokens, collapse = "||")),
       '" data-license="',
       html_escape(clean_value(row$license, "")),
       '" data-score="',
@@ -276,9 +329,10 @@ if (file.exists(catalogue_path)) {
     cat('<span><i class="bi bi-geo-alt" aria-hidden="true"></i>', html_escape(clean_value(row$geography)), '</span>\n', sep = "")
     cat('</div>\n')
     cat('<div class="dataset-learning"><span>Idée en classe</span><p>', html_escape(learning_focus), '</p></div>\n', sep = "")
-    cat('<div class="dataset-score" aria-label="Score zéro déchet ', html_escape(score$label), '">\n', sep = "")
-    cat('<div class="dataset-score-label"><span>Potentiel pédagogique <i class="bi bi-info-circle" aria-hidden="true"></i></span></div>\n', sep = "")
+    cat('<div class="dataset-score" aria-label="Score zéro déchet ', html_escape(score$label), ', potentiel de réutilisation pédagogique">\n', sep = "")
+    cat('<div class="dataset-score-label"><span>Réutilisation pédagogique <i class="bi bi-info-circle" aria-hidden="true"></i></span><strong>', html_escape(score$label), '</strong></div>\n', sep = "")
     cat('<div class="dataset-score-track">', format_score_segments(score), "</div>\n", sep = "")
+    cat('<p class="dataset-score-help">Capacité à soutenir plusieurs apprentissages : contexte, préparation, visualisation, modélisation et limites.</p>\n')
     cat("</div>\n")
     cat('<a class="dataset-action" href="', html_escape(fiche_html), '">Voir la fiche <i class="bi bi-arrow-right" aria-hidden="true"></i></a>\n', sep = "")
     cat("</div>\n")
@@ -333,6 +387,7 @@ if (file.exists(catalogue_path)) {
   cat('    const themes = checked("theme");\n')
   cat('    const levels = checked("level");\n')
   cat('    const concepts = checked("concept");\n')
+  cat('    const conceptFamilies = checked("concept-family");\n')
   cat('    const licenses = checked("license");\n')
   cat('    let visible = 0;\n')
   cat('    cards.forEach(function (card) {\n')
@@ -340,9 +395,10 @@ if (file.exists(catalogue_path)) {
   cat('      const matchesQuery = queryTokens.length === 0 || queryTokens.every(function (token) { return searchableText.includes(token); });\n')
   cat('      const matchesTheme = matchesList(themes, card.dataset.theme);\n')
   cat('      const matchesLevel = matchesList(levels, card.dataset.level) && (!activeLevelFragment || normalize(card.dataset.level).includes(normalize(activeLevelFragment)));\n')
+  cat('      const matchesConceptFamily = matchesTokens(conceptFamilies, card.dataset.conceptFamilies);\n')
   cat('      const matchesConcept = matchesTokens(concepts, card.dataset.concepts);\n')
   cat('      const matchesLicense = matchesList(licenses, card.dataset.license);\n')
-  cat('      const show = matchesQuery && matchesTheme && matchesLevel && matchesConcept && matchesLicense;\n')
+  cat('      const show = matchesQuery && matchesTheme && matchesLevel && matchesConceptFamily && matchesConcept && matchesLicense;\n')
   cat('      card.hidden = !show;\n')
   cat('      if (show) visible += 1;\n')
   cat('    });\n')
