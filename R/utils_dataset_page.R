@@ -741,8 +741,10 @@ render_dataset_minimal_result <- function() {
     '<div class="dataset-minimal-result">',
     '<div class="dataset-card-label">Résultat visible</div>',
     '<p>', data_note, ' Les exemples qui téléchargent une source externe restent non évalués pendant le rendu du site afin de garder les fiches stables.</p>',
-    '<div class="dataset-r-stats">', dataset_result_stats(preview, metadata, csv_path, ctx$root), '</div>',
-    result_table,
+    '<div class="dataset-minimal-result-grid">',
+    '<div><div class="dataset-r-stats">', dataset_result_stats(preview, metadata, csv_path, ctx$root), '</div>', result_table, '</div>',
+    '<div class="dataset-minimal-chart">', dataset_chart_svg(preview, metadata), '</div>',
+    '</div>',
     '</div>',
     sep = ""
   )

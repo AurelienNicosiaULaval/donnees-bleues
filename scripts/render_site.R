@@ -47,5 +47,5 @@ write_activity_catalogue(catalogue_activites, "data/metadata/catalogue_activites
 saveRDS(catalogue_activites, "data/metadata/catalogue_activites.rds")
 
 for (input in site_inputs()) {
-  run_quarto(c("render", input, "--no-clean"))
+  run_quarto(c("render", input, "--execute", "--no-cache", "--no-clean"))
 }
