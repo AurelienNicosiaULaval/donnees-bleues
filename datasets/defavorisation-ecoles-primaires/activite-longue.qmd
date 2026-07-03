@@ -1,6 +1,6 @@
 ---
 title: "Mini-projet - Défavorisation des écoles"
-embed-resources: true
+embed-resources: false
 ---
 
 

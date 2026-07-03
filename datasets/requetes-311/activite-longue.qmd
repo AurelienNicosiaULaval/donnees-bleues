@@ -1,6 +1,6 @@
 ---
 title: "Mini-projet - Saisonnalité des demandes 311"
-embed-resources: true
+embed-resources: false
 ---
 
 

@@ -1,6 +1,6 @@
 ---
 title: "Mini-projet - Carte et qualité des données des arbres publics"
-embed-resources: true
+embed-resources: false
 ---
 
 

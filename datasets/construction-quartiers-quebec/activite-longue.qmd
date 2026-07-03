@@ -1,6 +1,6 @@
 ---
 title: "Construction et quartiers - activité longue"
-embed-resources: true
+embed-resources: false
 ---
 
 

@@ -1,6 +1,6 @@
 ---
 title: "Tendances de diplomation selon l'IMSE"
-embed-resources: true
+embed-resources: false
 ---
 
 

@@ -1,6 +1,6 @@
 ---
 title: "Mini-rapport sur les niveaux d'eau d'inondation"
-embed-resources: true
+embed-resources: false
 ---
 
 

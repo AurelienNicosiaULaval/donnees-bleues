@@ -1,6 +1,6 @@
 ---
 title: "Temporalité et territoire des interventions du SIM"
-embed-resources: true
+embed-resources: false
 ---
 
 

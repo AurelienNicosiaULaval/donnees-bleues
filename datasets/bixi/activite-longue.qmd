@@ -1,6 +1,6 @@
 ---
 title: "Mini-projet - Rapport BIXI sur un instantané GBFS"
-embed-resources: true
+embed-resources: false
 ---
 
 

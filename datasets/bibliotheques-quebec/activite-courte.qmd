@@ -1,6 +1,6 @@
 ---
 title: "Laboratoire - Visites par habitant dans les bibliothèques"
-embed-resources: true
+embed-resources: false
 ---
 
 

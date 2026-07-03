@@ -1,6 +1,6 @@
 ---
 title: "Laboratoire - Peut-on mesurer les retards STM avec cette source?"
-embed-resources: true
+embed-resources: false
 ---
 
 

@@ -1,6 +1,6 @@
 ---
 title: "Laboratoire - Écoles Québec"
-embed-resources: true
+embed-resources: false
 ---
 
 

@@ -1,6 +1,6 @@
 ---
 title: "Interventions des pompiers de Montréal"
-embed-resources: true
+embed-resources: false
 page-layout: full
 toc: false
 execute:

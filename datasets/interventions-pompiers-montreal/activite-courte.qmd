@@ -1,6 +1,6 @@
 ---
 title: "Portrait des interventions du SIM"
-embed-resources: true
+embed-resources: false
 ---
 
 

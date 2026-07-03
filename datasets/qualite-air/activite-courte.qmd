@@ -1,6 +1,6 @@
 ---
 title: "Stations RSQAQ - types de milieu et statut préparé"
-embed-resources: true
+embed-resources: false
 ---
 
 

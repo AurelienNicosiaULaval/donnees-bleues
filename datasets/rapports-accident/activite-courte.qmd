@@ -1,6 +1,6 @@
 ---
 title: "Laboratoire - Gravité des accidents par mois"
-embed-resources: true
+embed-resources: false
 ---
 
 

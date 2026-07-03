@@ -1,6 +1,6 @@
 ---
 title: "Titre de l'activité courte"
-embed-resources: true
+embed-resources: false
 ---
 
 # Titre de l'activité courte

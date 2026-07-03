@@ -1,6 +1,6 @@
 ---
 title: "Tableau de bord exploratoire de la qualité de l'air"
-embed-resources: true
+embed-resources: false
 ---
 
 

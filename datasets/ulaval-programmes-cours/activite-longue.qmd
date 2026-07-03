@@ -1,6 +1,6 @@
 ---
 title: "Mini-projet - Rapport méthodologique sans diffusion des lignes"
-embed-resources: true
+embed-resources: false
 ---
 
 

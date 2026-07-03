@@ -4,6 +4,7 @@ project:
   resources:
     - favicon.svg
     - assets/logo-donnees-bleues.svg
+    - assets/cards/*.webp
     - assets/cards/*.png
     - assets/cards/*.jpg
   render:

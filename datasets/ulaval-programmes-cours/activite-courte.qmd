@@ -1,6 +1,6 @@
 ---
 title: "Laboratoire - Valider un import institutionnel privé"
-embed-resources: true
+embed-resources: false
 ---
 
 

@@ -1,6 +1,6 @@
 ---
 title: "Laboratoire - Emploi régional"
-embed-resources: true
+embed-resources: false
 ---
 
 

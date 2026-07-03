@@ -1,6 +1,6 @@
 ---
 title: "Mini-projet - Modéliser prudemment la gravité des accidents"
-embed-resources: true
+embed-resources: false
 ---
 
 

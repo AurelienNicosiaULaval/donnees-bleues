@@ -244,7 +244,7 @@ if (file.exists(catalogue_path)) {
   cat('<main class="catalogue-results">\n')
   cat('<div class="catalogue-results-bar">\n')
   cat('<p class="catalogue-count" data-result-count aria-live="polite">', nrow(catalogue), ' jeux de données</p>\n', sep = "")
-  cat('<label class="catalogue-sort">Trier par <select id="dataset-sort"><option value="relevance">Pertinence</option><option value="title">Titre</option><option value="score">Score zéro déchet</option></select></label>\n')
+  cat('<label class="catalogue-sort">Trier par <select id="dataset-sort"><option value="relevance">Pertinence</option><option value="title">Titre</option><option value="score">Réutilisation pédagogique</option></select></label>\n')
   cat('</div>\n')
 
   cat('<div class="dataset-grid">\n')
@@ -254,7 +254,7 @@ if (file.exists(catalogue_path)) {
     fiche_html <- str_replace(row$fiche, "\\.qmd$", ".html")
     image_candidates <- file.path(
       "assets/cards",
-      paste0(row$id, c(".jpg", ".jpeg", ".png", ".webp"))
+      paste0(row$id, c(".webp", ".jpg", ".jpeg", ".png"))
     )
     image_path <- image_candidates[file.exists(image_candidates)][1]
     if (length(image_path) == 0 || is.na(image_path)) {
@@ -317,7 +317,7 @@ if (file.exists(catalogue_path)) {
       html_escape(image_path),
       '" alt="',
       html_escape(image_alt),
-      '"></a>\n',
+      '" loading="lazy" decoding="async" width="224" height="224"></a>\n',
       sep = ""
     )
 

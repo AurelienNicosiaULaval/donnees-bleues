@@ -1,5 +1,5 @@
 card_image_extensions <- function() {
-  c("jpg", "jpeg", "png")
+  c("webp", "jpg", "jpeg", "png")
 }
 
 card_image_path <- function(id, cards_dir = "assets/cards") {

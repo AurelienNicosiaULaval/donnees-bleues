@@ -1,6 +1,6 @@
 ---
 title: "Mini-projet - Concevoir un protocole d'archivage GTFS-realtime"
-embed-resources: true
+embed-resources: false
 ---
 
 

@@ -1,6 +1,6 @@
 ---
 title: "Laboratoire - Catégories de requêtes 311 par arrondissement"
-embed-resources: true
+embed-resources: false
 ---
 
 

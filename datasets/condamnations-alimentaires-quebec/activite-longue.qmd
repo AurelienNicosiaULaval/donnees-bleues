@@ -1,6 +1,6 @@
 ---
 title: "Mini-projet - Condamnations alimentaires"
-embed-resources: true
+embed-resources: false
 ---
 
 

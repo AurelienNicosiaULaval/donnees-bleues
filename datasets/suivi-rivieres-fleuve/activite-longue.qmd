@@ -1,6 +1,6 @@
 ---
 title: "Mini-projet - Bassins versants et qualité de l'eau"
-embed-resources: true
+embed-resources: false
 ---
 
 

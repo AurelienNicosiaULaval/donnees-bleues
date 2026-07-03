@@ -1,6 +1,6 @@
 ---
 title: "Laboratoire - Cartographier les arrêts du RTC"
-embed-resources: true
+embed-resources: false
 ---
 
 

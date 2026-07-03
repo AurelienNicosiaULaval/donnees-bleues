@@ -1,6 +1,6 @@
 ---
 title: "Volumes autorisés par provenance de l'eau"
-embed-resources: true
+embed-resources: false
 ---
 
 

@@ -124,7 +124,7 @@ dataset_score_segments <- function(total) {
 
 dataset_image_src <- function(metadata, ctx) {
   id <- dataset_squish(metadata$id, basename(ctx$dataset_dir))
-  candidates <- file.path(ctx$root, "assets", "cards", paste0(id, c(".jpg", ".jpeg", ".png", ".webp")))
+  candidates <- file.path(ctx$root, "assets", "cards", paste0(id, c(".webp", ".jpg", ".jpeg", ".png")))
   existing <- candidates[file.exists(candidates)]
   filename <- if (length(existing) > 0L) basename(existing[[1]]) else "catalogue.png"
   paste(ctx$relative_root, "assets", "cards", filename, sep = "/")
