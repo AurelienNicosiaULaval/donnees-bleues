@@ -2849,6 +2849,9 @@ fiche, code, données préparées, source officielle
 <p class="act-empty" data-empty-activities="" hidden="">
 Aucune activité ne correspond aux filtres actuels.
 </p>
+<button class="act-show-more" type="button" data-show-more-activities="">
+Afficher plus d’activités
+</button>
 </div>
 </div>
 </section>
@@ -2863,7 +2866,11 @@ Aucune activité ne correspond aux filtres actuels.
   const resultLabel = root.querySelector("[data-activity-result-label]");
   const countLabel = root.querySelector("[data-activity-count]");
   const emptyLabel = root.querySelector("[data-empty-activities]");
+  const showMoreButton = root.querySelector("[data-show-more-activities]");
   const quickButtons = Array.from(root.querySelectorAll(".act-chip"));
+  const initialLimit = 12;
+  const stepLimit = 12;
+  let visibleLimit = initialLimit;
   const normalize = function (value) {
     return (value || "").toString().toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
   };
@@ -2887,6 +2894,10 @@ Aucune activité ne correspond aux filtres actuels.
     const tokens = (value || "").split("||");
     return selected.some(function (item) { return tokens.includes(item); });
   };
+  const filtersAreActive = function () {
+    return Boolean(searchInput.value) || ["duration", "level", "concept", "context", "status", "use", "material"].some(function (name) { return checked(name).length > 0; });
+  };
+  const resetLimit = function () { visibleLimit = initialLimit; };
   const updateQuickState = function () {
     const durations = checked("duration");
     const levels = checked("level");
@@ -2921,6 +2932,8 @@ Aucune activité ne correspond aux filtres actuels.
     const statuses = checked("status");
     const uses = checked("use");
     const materials = checked("material");
+    const limitResults = !filtersAreActive();
+    let matched = 0;
     let visible = 0;
     cards.forEach(function (card) {
       const show =
@@ -2932,32 +2945,44 @@ Aucune activité ne correspond aux filtres actuels.
         matchesList(uses, card.dataset.use) &&
         matchesTokens(concepts, card.dataset.concepts) &&
         matchesTokens(materials, card.dataset.materials);
-      card.hidden = !show;
-      if (show) visible += 1;
+      if (!show) {
+        card.hidden = true;
+        return;
+      }
+      matched += 1;
+      const showWithinLimit = !limitResults || matched <= visibleLimit;
+      card.hidden = !showWithinLimit;
+      if (showWithinLimit) visible += 1;
     });
-    resultLabel.textContent = plural(visible) + " affichée" + (visible > 1 ? "s" : "");
-    countLabel.textContent = plural(visible);
-    emptyLabel.hidden = visible !== 0;
+    resultLabel.textContent = limitResults && visible < matched ? visible + " sur " + plural(matched) + " affichées" : plural(matched) + " affichée" + (matched > 1 ? "s" : "");
+    countLabel.textContent = plural(matched);
+    emptyLabel.hidden = matched !== 0;
+    if (showMoreButton) {
+      showMoreButton.hidden = !limitResults || visible >= matched;
+    }
     updateQuickState();
   };
-  searchInput.addEventListener("input", update);
-  if (sortSelect) sortSelect.addEventListener("change", function () { sortCards(); update(); });
-  root.querySelectorAll(".act-filter-drawer input").forEach(function (input) { input.addEventListener("change", update); });
+  searchInput.addEventListener("input", function () { resetLimit(); update(); });
+  if (sortSelect) sortSelect.addEventListener("change", function () { resetLimit(); sortCards(); update(); });
+  root.querySelectorAll(".act-filter-drawer input").forEach(function (input) { input.addEventListener("change", function () { resetLimit(); update(); }); });
   root.querySelectorAll("[data-reset-activities], [data-clear-activity-filters]").forEach(function (button) {
-    button.addEventListener("click", function () { clearAll(); sortCards(); update(); searchInput.focus(); });
+    button.addEventListener("click", function () { resetLimit(); clearAll(); sortCards(); update(); searchInput.focus(); });
   });
   root.querySelectorAll("[data-quick-duration]").forEach(function (button) {
-    button.addEventListener("click", function () { clearAll(); setOnly("duration", button.dataset.quickDuration); update(); });
+    button.addEventListener("click", function () { resetLimit(); clearAll(); setOnly("duration", button.dataset.quickDuration); update(); });
   });
   root.querySelectorAll("[data-quick-level]").forEach(function (button) {
-    button.addEventListener("click", function () { clearAll(); setOnly("level", button.dataset.quickLevel); update(); });
+    button.addEventListener("click", function () { resetLimit(); clearAll(); setOnly("level", button.dataset.quickLevel); update(); });
   });
   root.querySelectorAll("[data-quick-concept]").forEach(function (button) {
-    button.addEventListener("click", function () { clearAll(); setOnly("concept", button.dataset.quickConcept); update(); });
+    button.addEventListener("click", function () { resetLimit(); clearAll(); setOnly("concept", button.dataset.quickConcept); update(); });
   });
   root.querySelectorAll("[data-quick-status]").forEach(function (button) {
-    button.addEventListener("click", function () { clearAll(); setOnly("status", button.dataset.quickStatus); update(); });
+    button.addEventListener("click", function () { resetLimit(); clearAll(); setOnly("status", button.dataset.quickStatus); update(); });
   });
+  if (showMoreButton) {
+    showMoreButton.addEventListener("click", function () { visibleLimit += stepLimit; update(); });
+  }
   root.querySelectorAll("[data-toggle-activity-filter]").forEach(function (button) {
     button.addEventListener("click", function () {
       const group = button.closest(".act-filter-group");

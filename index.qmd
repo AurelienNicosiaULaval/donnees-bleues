@@ -75,7 +75,15 @@ render_featured_datasets <- function(data) {
 
   paste(vapply(seq_len(nrow(data)), function(i) {
     row <- data[i, , drop = FALSE]
-    image <- file.path("assets", "cards", paste0(row$id, ".jpg"))
+    image_candidates <- file.path(
+      "assets",
+      "cards",
+      paste0(row$id, c(".webp", ".jpg", ".jpeg", ".png"))
+    )
+    image <- image_candidates[file.exists(image_candidates)][1]
+    if (length(image) == 0L || is.na(image)) {
+      image <- file.path("assets", "cards", "catalogue.png")
+    }
     href <- str_replace(row$fiche, "[.]qmd$", ".html")
     score <- if (!is.na(row$zero_waste_score)) {
       paste0(row$zero_waste_score, " / 30")
@@ -214,7 +222,7 @@ Des jeux de données québécois pour apprendre à importer, nettoyer, visualise
 :::
 
 ::: {.home-lede}
-Beaucoup d'exemples pédagogiques en statistique, en programmation R et en science des données reposent sur des jeux de données non québécois, souvent américains. Ils peuvent être utiles, mais ils laissent souvent le territoire, les institutions, les licences, les unités statistiques et les limites loin de la salle de classe. Données bleues propose une autre entrée : des sources québécoises et canadiennes vérifiées, transformées en fiches, activités et pistes de projet.
+Données bleues rassemble des sources québécoises et canadiennes vérifiées, puis les transforme en fiches, activités et pistes de projet. Le site met le contexte au premier plan : territoire, organisme producteur, licence, unité statistique, variables et limites d'interprétation.
 :::
 
 ::: {.home-hero-actions}
@@ -263,135 +271,47 @@ contextes d'enseignement
 ::: {.home-section .home-thesis}
 ::: {.home-section-heading}
 ::: {.home-label}
-Point de départ
+Pourquoi ce site existe
 :::
 
-## Le contexte n'est pas une décoration. C'est une partie de la méthode.
+## Le contexte fait partie de la méthode.
 
-Un jeu de données enseigne toujours plus que des colonnes. Il enseigne une façon de mesurer, une institution, une géographie, une licence, des choix de collecte, des angles morts et des limites d'interprétation.
-:::
-
-::: {.home-thesis-grid}
-::: {.home-thesis-copy}
-Quand les exemples viennent presque toujours d'ailleurs, le geste statistique devient trop abstrait. On peut apprendre une fonction R ou un modèle, mais perdre la question la plus formatrice : qu'est-ce que ces données représentent réellement?
-
-Données bleues remet ce contexte au centre. Le site aide à choisir des données locales, à les documenter correctement et à en faire du matériel pédagogique réutilisable plutôt qu'un exemple jetable.
-:::
-
-::: {.home-thesis-panel}
-::: {.home-panel-title}
-Au lieu de demander seulement :
-:::
-
-« Quel modèle appliquer? »
-
-::: {.home-panel-title}
-On apprend aussi à demander :
-:::
-
-« Qui a produit ces données, pour quel usage, avec quelles limites, et que peut-on raisonnablement conclure? »
-:::
+Un jeu de données enseigne toujours plus que des colonnes : une façon de mesurer, une institution, une géographie, une licence, des choix de collecte et des limites d'interprétation. Données bleues aide à transformer ces éléments en ressources directement utilisables en classe.
 :::
 :::
 
 ::: {.home-section .home-promise}
 ::: {.home-section-heading}
 ::: {.home-label}
-Ce que le site apporte
+Utiliser le site
 :::
 
-## Une source devient une séquence d'apprentissage.
-
-Chaque fiche vise à réduire le temps de préparation tout en augmentant la qualité du contexte présenté aux personnes étudiantes.
-:::
-
-::: {.home-promise-grid}
-::: {.home-promise-item}
-::: {.home-promise-number}
-01
-:::
-
-### Trouver
-
-Repérer rapidement une source québécoise par thème, niveau, concepts enseignables ou score zéro déchet.
-:::
-
-::: {.home-promise-item}
-::: {.home-promise-number}
-02
-:::
-
-### Comprendre
-
-Identifier l'unité statistique, les variables principales, la provenance, la licence et les limites.
-:::
-
-::: {.home-promise-item}
-::: {.home-promise-number}
-03
-:::
-
-### Enseigner
-
-Transformer la source en activité courte, laboratoire, mini-projet ou rapport reproductible.
-:::
-
-::: {.home-promise-item}
-::: {.home-promise-number}
-04
-:::
-
-### Réutiliser
-
-Reprendre le même jeu de données dans plusieurs apprentissages : nettoyage, visualisation, inférence, modélisation, communication.
-:::
-:::
-:::
-
-::: {.home-section .home-paths}
-::: {.home-section-heading}
-::: {.home-label}
-Par où commencer?
-:::
-
-## Trois portes d'entrée, selon le besoin du moment.
+## Trois entrées rapides
 
 Le site peut servir de catalogue de sources, de banque d'activités ou de cadre d'évaluation pédagogique.
 :::
 
-::: {.home-path-grid}
-::: {.home-path-card}
-::: {.home-path-eyebrow}
-01 / Catalogue
-:::
+::: {.home-link-row}
+::: {.home-promise-item}
+### Catalogue
 
-### Je cherche une source
-
-Comparer les fiches par thème, niveau, concepts, format et potentiel pédagogique.
+Comparer les fiches par thème, niveau, format et potentiel pédagogique.
 
 [Ouvrir le catalogue](catalogue.qmd)
 :::
 
-::: {.home-path-card}
-::: {.home-path-eyebrow}
-02 / Activités
-:::
+::: {.home-promise-item}
+### Activités
 
-### Je prépare une séance
-
-Choisir une activité courte, une tâche longue ou un mini-projet déjà relié à une source.
+Choisir une activité courte, une tâche longue ou un mini-projet relié à une source.
 
 [Voir les activités](activites.qmd)
 :::
 
-::: {.home-path-card}
-::: {.home-path-eyebrow}
-03 / Évaluation
-:::
+::: {.home-promise-item}
+### Zéro déchet
 
-### J'évalue un jeu de données
-
-Utiliser la grille zéro déchet pour décider si une source mérite d'être préparée.
+Évaluer si une source mérite d'être préparée pour plusieurs apprentissages.
 
 [Lire le cadre](zero-waste.qmd)
 :::
@@ -412,9 +332,9 @@ cat(render_home_example(catalogue, activities, "bixi"))
 Exemples
 :::
 
-## Trois fiches qui montrent l'esprit du projet.
+## Trois fiches représentatives
 
-Ces fiches couvrent des réalités proches de la classe : mobilité, environnement, finances municipales et données publiques documentées.
+Mobilité, environnement et finances municipales, avec sources documentées et activités associées.
 :::
 
 ::: {.home-dataset-grid}
@@ -433,33 +353,15 @@ cat(render_featured_datasets(featured_datasets))
 Catalogue actuel
 :::
 
-## Une base locale qui grandit.
+## `r n_datasets` fiches, `r n_activities` activités
 
-Cette version contient `r n_datasets` fiches réparties dans `r n_themes` thèmes pédagogiques. Les thèmes les plus visibles dans le catalogue actuel sont : `r theme_list`.
-
-Le projet couvre notamment l'eau, l'environnement, la mobilité, l'éducation, la démographie, les services publics, le territoire et les données institutionnelles. Les sources et leurs dates d'accès sont listées dans les références.
+La base couvre `r n_themes` thèmes. Les plus visibles actuellement sont : `r theme_list`. Les sources et les dates d'accès sont listées dans les références.
 :::
 
 ::: {.home-current-actions}
 [Consulter les sources](references.qmd){.dataset-button .secondary}
 [À propos du projet](about.qmd){.dataset-button}
 :::
-:::
-:::
-
-::: {.home-final}
-::: {.home-final-copy}
-::: {.home-label}
-Finalité
-:::
-
-## Enseigner avec des données qui ont une adresse.
-
-Données bleues avance par sources vérifiées, activités testables, scripts reproductibles et limites explicites. L'objectif est simple : rendre les exemples de statistique et de science des données plus situés, plus réutilisables et plus honnêtes.
-:::
-
-::: {.home-final-actions}
-[Contribuer](contribuer.qmd){.dataset-button}
 :::
 :::
 

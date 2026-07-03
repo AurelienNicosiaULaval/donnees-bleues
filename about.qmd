@@ -85,29 +85,21 @@ contextes d'enseignement
 
 ::: {.about-section .about-problem}
 ::: {.about-section-heading}
-## Le problème n'est pas seulement le choix d'un fichier
+## Pourquoi Données bleues existe
 
-Un jeu de données transporte toujours un contexte. Il porte des unités d'observation, des définitions administratives, des décisions de collecte, des angles morts, des droits de réutilisation et des limites d'interprétation.
-:::
-
-::: {.about-split}
-::: {.about-copy}
-Lorsque les exemples de cours reposent surtout sur des données éloignées du Québec, une partie du travail pédagogique disparaît. Les personnes étudiantes apprennent une technique, mais elles voient moins clairement comment cette technique s'applique à des institutions, des territoires et des débats publics proches d'elles.
-
-Données bleues ne cherche pas à rejeter les jeux de données classiques. Le projet cherche plutôt à compléter ces exemples avec des sources locales, vérifiées, contextualisées et prêtes à être réutilisées dans plusieurs cours.
+Les exemples de cours en statistique et en science des données sont souvent efficaces pour apprendre une méthode, mais ils rendent parfois le contexte abstrait. Données bleues complète ces exemples par des sources québécoises vérifiées, documentées et reliées à des activités de cours.
 :::
 
 ::: {.about-emphasis}
-Un bon jeu de données pour enseigner n'est pas seulement intéressant. Il doit aussi être compréhensible, vérifiable, documenté, transformable et suffisamment riche pour soutenir plusieurs apprentissages.
-:::
+Un bon jeu de données pour enseigner doit être compréhensible, vérifiable, documenté, transformable et suffisamment riche pour soutenir plusieurs apprentissages.
 :::
 :::
 
 ::: {.about-section .about-answer}
 ::: {.about-section-heading}
-## Ce que Données bleues veut changer
+## Ce que chaque fiche rend visible
 
-Le projet transforme une source ouverte en ressource pédagogique complète. Une fiche ne s'arrête pas à un lien vers un fichier : elle explique la provenance, la structure, les limites, les usages possibles et les activités associées.
+Une fiche ne s'arrête pas à un lien vers un fichier. Elle expose la provenance, la structure, les limites, les usages possibles et les activités associées.
 :::
 
 ::: {.about-principles}
@@ -139,35 +131,9 @@ Fournir des activités courtes et longues pour passer rapidement d'une source à
 
 ::: {.about-section .about-method}
 ::: {.about-section-heading}
-## Une fiche doit rendre le contexte enseignable
+## Structure minimale d'une fiche
 
-Chaque fiche est pensée comme un point d'entrée vers un cours, pas comme une simple archive.
-:::
-
-::: {.about-method-grid}
-::: {.about-method-item}
-### Source
-
-Lien officiel, organisme producteur, date d'accès, statut de la source et conditions de réutilisation.
-:::
-
-::: {.about-method-item}
-### Données
-
-Unité statistique, variables principales, formats, préparation reproductible et exemples de code R.
-:::
-
-::: {.about-method-item}
-### Pédagogie
-
-Concepts visés, niveau recommandé, activité courte, activité longue, idées de projets et score zéro déchet.
-:::
-
-::: {.about-method-item}
-### Limites
-
-Ce que les données permettent de dire, ce qu'elles ne permettent pas de dire et les précautions à prendre en classe.
-:::
+Chaque fiche réunit quatre éléments : source officielle, unité statistique, variables principales et limites d'interprétation. Les activités associées indiquent comment passer de la source à une séance, un laboratoire ou un projet.
 :::
 :::
 
@@ -175,27 +141,7 @@ Ce que les données permettent de dire, ce qu'elles ne permettent pas de dire et
 ::: {.about-section-heading}
 ## Pour qui?
 
-Données bleues s'adresse aux personnes qui veulent enseigner avec des données réelles sans perdre la rigueur documentaire et reproductible.
-:::
-
-::: {.about-audience-grid}
-::: {.about-audience-item}
-### Enseignantes et enseignants
-
-Pour trouver rapidement des exemples contextualisés, des scripts R et des activités adaptables.
-:::
-
-::: {.about-audience-item}
-### Étudiantes et étudiants
-
-Pour travailler avec des données dont le contexte social, territorial ou institutionnel peut être discuté.
-:::
-
-::: {.about-audience-item}
-### Responsables de cours
-
-Pour bâtir des séquences où les mêmes sources reviennent dans plusieurs apprentissages.
-:::
+Données bleues s'adresse aux personnes qui veulent enseigner avec des données réelles sans perdre la rigueur documentaire et reproductible : enseignantes et enseignants, étudiantes et étudiants, responsables de cours et équipes qui préparent du matériel pédagogique.
 :::
 :::
 

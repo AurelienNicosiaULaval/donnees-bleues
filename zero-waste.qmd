@@ -14,10 +14,10 @@ page-layout: full
 Cadre pédagogique
 :::
 
-# Un bon jeu de données ne s'épuise pas après une seule activité. {#zw-title}
+# Jeu de données zéro déchet {#zw-title}
 
 ::: {.zw-hero-lede}
-Le principe zéro déchet aide à choisir des données qui servent réellement l'apprentissage : comprendre le contexte, préparer les données, visualiser, modéliser, interpréter, communiquer et discuter les limites.
+Un cadre simple pour choisir les sources qui servent plusieurs apprentissages sans masquer leur contexte, leurs limites et leur coût de préparation.
 :::
 
 ::: {.zw-hero-actions}
@@ -26,46 +26,24 @@ Le principe zéro déchet aide à choisir des données qui servent réellement l
 :::
 
 :::
-
-::: {.zw-hero-signal aria-label="Score maximal de la grille zéro déchet"}
-
-::: {.zw-hero-signal-label}
-Score maximal
 :::
 
-::: {.zw-hero-score}
-30
-:::
-
-10 dimensions, chacune cotée de 0 à 3.
-:::
-
-:::
-
-::: {.zw-intro-band aria-label="Résumé du cadre"}
+::: {.zw-intro-band aria-label="Résumé du cadre zéro déchet"}
 
 ::: {.zw-intro-item}
 ::: {.zw-label}
-L'idée centrale
+Idée centrale
 :::
 
-Un jeu de données zéro déchet est une source pédagogique dont on extrait plusieurs apprentissages cohérents, sans forcer des usages artificiels.
+Une source mérite d'être préparée si elle permet d'enseigner plus qu'une opération isolée : importer, nettoyer, visualiser, interpréter, modéliser avec prudence et communiquer.
 :::
 
 ::: {.zw-intro-item}
 ::: {.zw-label}
-Le problème
+Règle de lecture
 :::
 
-En classe, un fichier peut être techniquement correct mais pédagogiquement pauvre si le contexte est flou, si l'unité statistique est obscure ou si les limites ne peuvent pas être discutées.
-:::
-
-::: {.zw-intro-item}
-::: {.zw-label}
-La réponse
-:::
-
-La grille rend les choix explicites avant de construire une fiche, une activité courte, une activité longue ou un projet complet.
+Le score ne classe pas les jeux de données. Il aide à décider si une source justifie le temps de documentation et de préparation pédagogique.
 :::
 
 :::
@@ -74,84 +52,32 @@ La grille rend les choix explicites avant de construire une fiche, une activité
 
 ::: {.zw-section-heading}
 ::: {.zw-label}
-Contexte
+Usage
 :::
 
-## Pourquoi ce cadre existe {#zw-context}
+## Ce que le cadre vérifie {#zw-context}
 
-Données bleues vise à transformer des sources québécoises en matériel de cours directement utilisable. Le défi n'est pas seulement de trouver des données ouvertes. Le défi est de trouver des données qui soutiennent une progression pédagogique complète.
+Le cadre force trois questions avant de transformer une source en activité : les lignes et variables sont-elles compréhensibles, les opérations statistiques sont-elles enseignables, et les limites peuvent-elles être discutées en classe?
 :::
 
-::: {.zw-story-grid}
-
-::: {.zw-story-card}
+::: {.zw-compact-points}
+::: {.zw-compact-point}
 ### Avant la classe
 
-Le cadre aide à décider si une source mérite le temps de préparation nécessaire : documentation, licence, téléchargement, nettoyage, variables principales et limites d'interprétation.
+Vérifier la provenance, la licence, la structure, les variables principales et les limites.
 :::
 
-::: {.zw-story-card}
+::: {.zw-compact-point}
 ### Pendant la classe
 
-Il permet de choisir des données qui rendent visibles les opérations statistiques importantes, plutôt que de noyer les personnes étudiantes dans une complexité technique sans objectif clair.
+Choisir des tâches qui rendent visibles les gestes statistiques importants, sans complexité inutile.
 :::
 
-::: {.zw-story-card}
+::: {.zw-compact-point}
 ### Après la classe
 
-Il favorise des ressources qui peuvent être reprises, adaptées, prolongées et discutées dans plusieurs cours ou à plusieurs niveaux.
+Réutiliser la même source dans plusieurs niveaux, modules ou projets lorsque cela reste pertinent.
 :::
-
-:::
-
-:::
-
-::: {.zw-section .zw-objective}
-
-::: {.zw-objective-copy}
-::: {.zw-label}
-Objectif
-:::
-
-## Maximiser le rendement pédagogique sans masquer la réalité des données. {#zw-objective-title}
-
-Le but n'est pas de privilégier les gros fichiers. Un petit jeu de données peut être excellent s'il permet d'enseigner plusieurs opérations avec un coût cognitif raisonnable. À l'inverse, une source volumineuse peut être peu utile si sa structure, sa provenance ou ses limites empêchent de poser des questions interprétables.
-:::
-
-::: {.zw-principles aria-label="Principes du cadre zéro déchet"}
-
-::: {.zw-principle}
-::: {.zw-number}
-01
-:::
-
-Partir d'un contexte compréhensible.
-:::
-
-::: {.zw-principle}
-::: {.zw-number}
-02
-:::
-
-Identifier clairement l'unité statistique.
-:::
-
-::: {.zw-principle}
-::: {.zw-number}
-03
-:::
-
-Transformer les difficultés réelles en occasions d'apprentissage.
-:::
-
-::: {.zw-principle}
-::: {.zw-number}
-04
-:::
-
-Assumer les limites plutôt que les dissimuler.
-:::
-
 :::
 
 :::
@@ -160,64 +86,38 @@ Assumer les limites plutôt que les dissimuler.
 
 ::: {.zw-section-heading}
 ::: {.zw-label}
-Parcours
+Progression
 :::
 
-## Un même jeu de données, plusieurs apprentissages {#zw-flow-title}
+## Un même jeu, plusieurs apprentissages {#zw-flow-title}
 
-Le cadre sert à repérer les sources qui peuvent accompagner une vraie progression, de la première lecture du fichier jusqu'à la communication des résultats.
+Une bonne source peut soutenir une trajectoire complète : lecture du fichier, préparation, exploration, visualisation, modélisation raisonnable et communication reproductible.
 :::
 
-::: {.zw-flow-list}
-
-::: {.zw-flow-item}
-::: {.zw-flow-name}
+::: {.zw-flow-pills aria-label="Étapes pédagogiques possibles"}
+::: {.zw-pill}
 Importer
 :::
 
-Lire les fichiers, comprendre le format et conserver un script reproductible.
-:::
-
-::: {.zw-flow-item}
-::: {.zw-flow-name}
+::: {.zw-pill}
 Nettoyer
 :::
 
-Traiter les types de variables, les valeurs manquantes, les libellés et les unités.
-:::
-
-::: {.zw-flow-item}
-::: {.zw-flow-name}
+::: {.zw-pill}
 Explorer
 :::
 
-Décrire les distributions, repérer les anomalies et formuler des questions.
-:::
-
-::: {.zw-flow-item}
-::: {.zw-flow-name}
+::: {.zw-pill}
 Visualiser
 :::
 
-Construire des graphiques ou des cartes qui clarifient la structure des données.
-:::
-
-::: {.zw-flow-item}
-::: {.zw-flow-name}
+::: {.zw-pill}
 Modéliser
 :::
 
-Utiliser une méthode raisonnable pour le niveau visé, avec validation et prudence.
-:::
-
-::: {.zw-flow-item}
-::: {.zw-flow-name}
+::: {.zw-pill}
 Communiquer
 :::
-
-Produire un résultat interprétable, sourcé et reproductible.
-:::
-
 :::
 
 :::
@@ -229,114 +129,23 @@ Produire un résultat interprétable, sourcé et reproductible.
 Évaluation
 :::
 
-## La grille zéro déchet {#zw-grid-title}
+## Grille zéro déchet {#zw-grid-title}
 
-Chaque dimension est cotée de 0 à 3. Le score maximal est 30. Cette grille est un outil de conception pédagogique interne au projet, pas une mesure scientifique validée.
+Chaque dimension est cotée de 0 à 3. Le total maximal est 30. La grille reste un outil de conception pédagogique interne, pas une mesure scientifique validée.
 :::
 
-::: {.zw-score-grid}
-
-::: {.zw-score-card}
-::: {.zw-label}
-Contexte
-:::
-
-### Contexte québécois
-
-Le jeu de données est lié à un territoire, une institution ou un enjeu québécois.
-:::
-
-::: {.zw-score-card}
-::: {.zw-label}
-Entrée
-:::
-
-### Accessibilité pédagogique
-
-Les personnes étudiantes peuvent comprendre rapidement ce que les lignes et les variables représentent.
-:::
-
-::: {.zw-score-card}
-::: {.zw-label}
-Provenance
-:::
-
-### Qualité documentaire
-
-La source, la licence, la structure et les variables principales sont suffisamment documentées.
-:::
-
-::: {.zw-score-card}
-::: {.zw-label}
-Préparation
-:::
-
-### Potentiel de nettoyage
-
-Le jeu permet d'enseigner des opérations réalistes de préparation des données.
-:::
-
-::: {.zw-score-card}
-::: {.zw-label}
-Graphiques
-:::
-
-### Potentiel de visualisation
-
-Les variables se prêtent à des graphiques, cartes ou tableaux utiles pour apprendre.
-:::
-
-::: {.zw-score-card}
-::: {.zw-label}
-Résumés
-:::
-
-### Statistique descriptive
-
-Les indicateurs numériques produits ont une interprétation claire.
-:::
-
-::: {.zw-score-card}
-::: {.zw-label}
-Incertitude
-:::
-
-### Potentiel d'inférence
-
-Le jeu permet de poser des questions de comparaison, d'incertitude ou de généralisation avec prudence.
-:::
-
-::: {.zw-score-card}
-::: {.zw-label}
-Modèles
-:::
-
-### Potentiel de modélisation
-
-Une modélisation raisonnable peut être formulée pour le niveau pédagogique visé.
-:::
-
-::: {.zw-score-card}
-::: {.zw-label}
-Limites
-:::
-
-### Discussion éthique
-
-Le jeu ouvre une discussion sur les biais, la mesure, les usages, les populations ou le territoire.
-:::
-
-::: {.zw-score-card}
-::: {.zw-label}
-Durabilité
-:::
-
-### Réutilisabilité
-
-La même source peut soutenir plusieurs modules, niveaux, activités ou projets.
-:::
-
-:::
+| Dimension | Ce qui est évalué |
+|---|---|
+| Contexte québécois | Lien à un territoire, une institution ou un enjeu proche de la classe. |
+| Accessibilité pédagogique | Compréhension rapide des lignes, variables et unités. |
+| Qualité documentaire | Source, licence, structure et variables suffisamment documentées. |
+| Préparation | Nettoyage réaliste, sans coût technique disproportionné. |
+| Visualisation | Graphiques, cartes ou tableaux utiles pour apprendre. |
+| Statistique descriptive | Indicateurs numériques interprétables. |
+| Inférence | Comparaisons ou incertitude discutables avec prudence. |
+| Modélisation | Modèle raisonnable pour le niveau visé. |
+| Éthique et limites | Discussion possible sur biais, mesure, usages ou territoire. |
+| Réutilisabilité | Source utile dans plusieurs activités, modules ou projets. |
 
 :::
 
@@ -347,46 +156,17 @@ La même source peut soutenir plusieurs modules, niveaux, activités ou projets.
 Lecture du score
 :::
 
-## Ce que le total veut dire {#zw-scale-title}
+## Interprétation du total {#zw-scale-title}
 
-Le score sert à guider une décision de conception. Il ne remplace pas le jugement pédagogique.
+Le total guide la décision pédagogique. Il ne remplace pas le jugement professionnel.
 :::
 
-::: {.zw-scale-grid}
-
-::: {.zw-scale-item}
-::: {.zw-scale-score}
-0 à 10
-:::
-
-Potentiel limité ou usage très ciblé.
-:::
-
-::: {.zw-scale-item}
-::: {.zw-scale-score}
-11 à 20
-:::
-
-Bon jeu pour une activité.
-:::
-
-::: {.zw-scale-item}
-::: {.zw-scale-score}
-21 à 25
-:::
-
-Très bon jeu pour plusieurs modules.
-:::
-
-::: {.zw-scale-item .zw-scale-item-strong}
-::: {.zw-scale-score}
-26 à 30
-:::
-
-Jeu structurant pour un cours ou un projet complet.
-:::
-
-:::
+| Score | Lecture |
+|---|---|
+| 0 à 10 | Potentiel limité ou usage très ciblé. |
+| 11 à 20 | Bon jeu pour une activité. |
+| 21 à 25 | Très bon jeu pour plusieurs modules. |
+| 26 à 30 | Jeu structurant pour un cours ou un projet complet. |
 
 :::
 
@@ -397,37 +177,33 @@ Jeu structurant pour un cours ou un projet complet.
 Exemple
 :::
 
-## Une source, plusieurs angles d'enseignement {#zw-example-title}
+## BIXI comme séquence complète {#zw-example-title}
 
-Un jeu de données sur des stations de vélopartage peut soutenir une séquence complète : importer des données JSON, joindre des tables de description et d'état, calculer des indicateurs d'occupation, visualiser une distribution, produire une carte, discuter du caractère instantané des données et rédiger un court rapport reproductible.
+Une source sur les stations de vélopartage peut servir à importer du JSON, joindre des tables, calculer des indicateurs d'occupation, cartographier les stations, discuter du caractère instantané des données et rédiger un court rapport reproductible.
 :::
 
-::: {.zw-example-stack aria-label="Usages pédagogiques possibles"}
-::: {.zw-chip}
+::: {.zw-flow-pills aria-label="Usages pédagogiques possibles avec BIXI"}
+::: {.zw-pill}
 Importation JSON
 :::
 
-::: {.zw-chip}
+::: {.zw-pill}
 Jointures
 :::
 
-::: {.zw-chip}
+::: {.zw-pill}
 Indicateurs
 :::
 
-::: {.zw-chip}
-Distribution
-:::
-
-::: {.zw-chip}
+::: {.zw-pill}
 Carte
 :::
 
-::: {.zw-chip}
+::: {.zw-pill}
 Limites
 :::
 
-::: {.zw-chip}
+::: {.zw-pill}
 Rapport Quarto
 :::
 :::
@@ -441,10 +217,13 @@ Rapport Quarto
 Implémentation
 :::
 
-## Calcul reproductible du score {#zw-code-title}
+## Calcul reproductible {#zw-code-title}
 
 La fonction `compute_zero_waste_score()` calcule le total, le pourcentage et l'interprétation à partir des dix dimensions du cadre.
 :::
+
+<details class="zw-details">
+<summary>Voir l'exemple R</summary>
 
 ```{r}
 #| eval: false
@@ -466,6 +245,8 @@ scores <- c(
 compute_zero_waste_score(scores)
 ```
 
+</details>
+
 :::
 
 ::: {.zw-section .zw-limits}
@@ -479,9 +260,9 @@ Limites
 :::
 
 ::: {.zw-limits-copy}
-La grille ne doit pas transformer une décision pédagogique en classement définitif. Elle sert à expliciter les raisons d'un choix, à documenter les compromis et à repérer les sources qui méritent un investissement de préparation.
+La grille ne doit pas devenir un classement définitif. Elle sert à documenter les raisons d'un choix, les compromis et les sources qui méritent un investissement de préparation.
 
-Il ne faut pas forcer tous les apprentissages avec le même jeu. Si une source ne permet pas d'enseigner une notion de façon pertinente, le meilleur choix est de le reconnaître et d'utiliser un autre exemple.
+Il ne faut pas forcer tous les apprentissages avec la même source. Si une notion n'est pas enseignable de façon pertinente, le meilleur choix est de le reconnaître et d'utiliser un autre exemple.
 :::
 
 :::
@@ -493,7 +274,7 @@ Il ne faut pas forcer tous les apprentissages avec le même jeu. Si une source n
 Prochaine étape
 :::
 
-## Trouver un jeu de données qui mérite une vraie vie pédagogique. {#zw-next-title}
+## Trouver une source à vraie valeur pédagogique {#zw-next-title}
 :::
 
 ::: {.zw-final-actions}
