@@ -13,6 +13,14 @@ Le message éditorial du projet est le suivant : un jeu de données n'est pas se
 - Favoriser des workflows reproductibles avec R et Quarto.
 - Préparer une architecture compatible avec une future application Shiny ou un package R.
 
+## Dans l’écosystème de recherche et d’enseignement
+
+Ce dépôt fait partie de l’écosystème ouvert d’Aurélien Nicosia en statistique computationnelle, logiciels scientifiques en R, science des données reproductible et pédagogie statistique.
+
+* Research Lab : [https://aureliennicosiaulaval.github.io/web_site/research-lab.html](https://aureliennicosiaulaval.github.io/web_site/research-lab.html)
+* Profil GitHub : [https://github.com/AurelienNicosiaULaval](https://github.com/AurelienNicosiaULaval)
+* Projets reliés : [`STT-1100_notes_de_cours`](https://github.com/AurelienNicosiaULaval/STT-1100_notes_de_cours), [`UlavalSSD`](https://github.com/AurelienNicosiaULaval/UlavalSSD), [`tutorizeR`](https://github.com/AurelienNicosiaULaval/tutorizeR)
+
 ## Structure du dépôt
 
 ```text
