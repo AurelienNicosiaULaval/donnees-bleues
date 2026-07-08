@@ -47,15 +47,21 @@ Ce dépôt fait partie de l’écosystème ouvert d’Aurélien Nicosia en stati
 
 ## Jeux de données inclus
 
-Les sources initiales ont été vérifiées le 2026-06-01. La source Statistique Canada ajoutée pour les pyramides des âges a été vérifiée le 2026-06-18. Les sources de la Ville de Québec ajoutées pour la construction, les bâtiments et les quartiers ont été vérifiées le 2026-06-21.
+Le catalogue public est la source à jour pour l'inventaire des jeux de données et des activités pédagogiques :
 
-| Dossier | Jeu de données | Source |
-|---|---|---|
-| `datasets/bixi` | État des stations BIXI | BIXI Montréal, Données Québec |
-| `datasets/bibliotheques-quebec` | Statistiques des bibliothèques publiques du Québec | Bibliothèque et Archives nationales du Québec, Données Québec |
-| `datasets/construction-quartiers-quebec` | Construction, bâtiments et quartiers à la Ville de Québec | Ville de Québec, Données Québec |
-| `datasets/pyramides-ages` | Pyramides des âges au Canada et au Québec | Statistique Canada |
-| `datasets/qualite-air` | RSQAQ - Stations de la qualité de l'air | MELCCFP, Données Québec |
+- Catalogue public : [https://aureliennicosiaulaval.github.io/donnees-bleues/catalogue.html](https://aureliennicosiaulaval.github.io/donnees-bleues/catalogue.html)
+- Catalogue généré : [`data/metadata/catalogue.csv`](data/metadata/catalogue.csv)
+- Catalogue des activités : [`data/metadata/catalogue_activites.csv`](data/metadata/catalogue_activites.csv)
+
+Chaque fiche de jeu de données contient la source originale, l'URL consultée, la licence ou les conditions de réutilisation lorsqu'elles sont disponibles, la date d'accès, le statut de préparation et les limites d'interprétation.
+
+## Attribution et réutilisation
+
+Chaque jeu de données est documenté avec sa source originale, son URL, sa licence ou ses conditions de réutilisation lorsqu'elles sont disponibles, sa date d'accès et des notes de prudence.
+
+La plateforme Données bleues vise à faciliter l'enseignement de la statistique et de la science des données à partir de données québécoises ouvertes ou publiquement accessibles. Elle ne remplace pas les sources originales.
+
+Pour réutiliser un jeu de données, il faut toujours consulter la fiche correspondante et respecter les conditions de la source originale.
 
 ## Installation minimale
 
@@ -211,8 +217,8 @@ Le MVP contient :
 
 - un site Quarto publiable depuis `docs/`;
 - une identité éditoriale en français;
-- plusieurs fiches de jeux de données québécois ou canadiens avec un usage québécois explicite;
-- huit activités pédagogiques;
+- un catalogue généré qui présente l'inventaire à jour des jeux de données et des activités pédagogiques;
+- des fiches de jeux de données québécois ou canadiens avec un usage québécois explicite;
 - un catalogue d'activités indexé par question, niveau, type, concept, contexte et accroche;
 - trois modules transversaux;
 - des scripts R de préparation;
@@ -222,7 +228,6 @@ Le MVP contient :
 
 ## Éléments à compléter manuellement
 
-- Remplacer `site-url` dans `_quarto.yml` par l'URL GitHub Pages réelle.
 - Tester les activités avec un groupe étudiant.
 - Ajouter des corrigés enseignants si nécessaire.
 - Vérifier périodiquement les URL et les licences.
