@@ -53,7 +53,7 @@ Le catalogue public est la source à jour pour l'inventaire des jeux de données
 - Catalogue généré : [`data/metadata/catalogue.csv`](data/metadata/catalogue.csv)
 - Catalogue des activités : [`data/metadata/catalogue_activites.csv`](data/metadata/catalogue_activites.csv)
 
-Chaque fiche de jeu de données contient la source originale, l'URL consultée, la licence ou les conditions de réutilisation lorsqu'elles sont disponibles, la date d'accès, le statut de préparation et les limites d'interprétation.
+Ces catalogues remplacent la liste statique du README et doivent être considérés comme les inventaires de référence.
 
 ## Attribution et réutilisation
 
