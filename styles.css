@@ -7556,3 +7556,81 @@ summary:focus-visible,
     grid-column: 1;
   }
 }
+
+/* Catalogue : parcours de recherche visible dès le premier écran. */
+.catalogue-page .catalogue-hero-row {
+  align-items: start;
+  grid-template-columns: minmax(0, 0.78fr) minmax(440px, 1.22fr);
+  margin: 0 0 1.35rem;
+  padding-bottom: 1.35rem;
+}
+
+.catalogue-page .catalogue-title-block h1 {
+  font-size: clamp(2.7rem, 4.3vw, 4.5rem);
+  line-height: 0.98;
+  margin-bottom: 0.75rem;
+  max-width: 12ch;
+}
+
+.catalogue-page .catalogue-title-block > p {
+  font-size: clamp(1rem, 1.35vw, 1.2rem);
+  max-width: 34rem;
+}
+
+.catalogue-page .catalogue-top-controls {
+  align-self: start;
+  gap: 0.75rem;
+  padding: 1rem;
+}
+
+.catalogue-page .catalogue-intent-panel {
+  border-top: 1px solid var(--db-border);
+  margin: 0 0 1.35rem;
+  max-width: none;
+  padding-top: 0.9rem;
+}
+
+.catalogue-page .catalogue-intent-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.catalogue-page .catalogue-intent {
+  min-height: 76px;
+  padding: 0.7rem 0.8rem;
+}
+
+.catalogue-page .catalogue-intent span {
+  font-size: 0.95rem;
+}
+
+.catalogue-page .catalogue-layout {
+  margin-top: 0;
+}
+
+.catalogue-page .catalogue-sidebar h2 {
+  font-family: var(--db-sans);
+  font-size: 0.98rem;
+  letter-spacing: 0;
+  line-height: 1.2;
+}
+
+.catalogue-page .dataset-grid {
+  gap: 0.9rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.catalogue-page .dataset-card {
+  grid-template-columns: 96px minmax(0, 1fr);
+}
+
+@media (max-width: 1080px) {
+  .catalogue-page .catalogue-hero-row,
+  .catalogue-page .catalogue-intent-grid,
+  .catalogue-page .dataset-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .catalogue-page .catalogue-title-block h1 {
+    max-width: 16ch;
+  }
+}

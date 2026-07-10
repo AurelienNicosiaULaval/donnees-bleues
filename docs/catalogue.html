@@ -165,11 +165,21 @@ ul.task-list li input[type="checkbox"] {
 Explorer
 </p>
 <h1>
-Des données publiques pour construire une vraie séance.
+Explorer les données publiques.
 </h1>
 <p>
-Recherchez une fiche par contexte, niveau, geste d’analyse ou potentiel pédagogique. Chaque résultat conserve ce qu’il faut pour décider : source, limites et usages possibles.
+Trouvez une fiche selon le contexte, le niveau ou le geste d’analyse à travailler. Chaque résultat garde l’essentiel pour décider : source, limites et usages possibles.
 </p>
+</div>
+<div class="catalogue-top-controls" role="search" aria-label="Recherche dans le catalogue">
+<div class="catalogue-search-row">
+<p><label class="catalogue-search-box" for="dataset-search"><i class="bi bi-search" aria-hidden="true"></i><span class="visually-hidden">Recherche</span><input id="dataset-search" type="search" placeholder="Rechercher un jeu de données (ex. qualité de l’eau, mobilité...)" autocomplete="off"></label> <button class="catalogue-help" type="button"><i class="bi bi-question-circle" aria-hidden="true"></i>Conseils de recherche</button></p>
+</div>
+<div class="catalogue-chip-row" aria-label="Filtres rapides">
+<p><span class="filter-kicker">Thème</span> <button class="filter-chip is-active" type="button" data-clear-group="theme">Tous les thèmes</button> <span class="filter-kicker">Niveau</span> <button class="filter-chip is-active" type="button" data-clear-group="level">Tous les niveaux</button> <button class="filter-chip" type="button" data-level-fragment="Introduction">Introduction</button> <button class="filter-chip" type="button" data-level-fragment="Intermédiaire">Intermédiaire</button> <button class="filter-chip" type="button" data-level-fragment="avancé">Avancé</button> <span class="filter-spacer"></span> <button class="more-filters" type="button" data-toggle-mobile-filters="" aria-controls="catalogue-filters" aria-expanded="false">Filtres détaillés <i class="bi bi-sliders" aria-hidden="true"></i></button> <button class="catalogue-reset-link top-reset" type="button" data-reset-catalogue="">Réinitialiser</button></p>
+</div>
+</div>
+</div>
 <section class="catalogue-intent-panel" aria-labelledby="catalogue-intent-title">
 <h2 id="catalogue-intent-title" class="anchored">
 Commencer par une intention pédagogique
@@ -192,16 +202,6 @@ Choisissez le geste que vous voulez travailler en classe; le catalogue se filtre
 </button>
 </div>
 </section>
-</div>
-<div class="catalogue-top-controls" role="search" aria-label="Recherche dans le catalogue">
-<div class="catalogue-search-row">
-<p><label class="catalogue-search-box" for="dataset-search"><i class="bi bi-search" aria-hidden="true"></i><span class="visually-hidden">Recherche</span><input id="dataset-search" type="search" placeholder="Rechercher un jeu de données (ex. qualité de l’eau, mobilité...)" autocomplete="off"></label> <button class="catalogue-help" type="button"><i class="bi bi-question-circle" aria-hidden="true"></i>Conseils de recherche</button></p>
-</div>
-<div class="catalogue-chip-row" aria-label="Filtres rapides">
-<p><span class="filter-kicker">Thème <i class="bi bi-chevron-down" aria-hidden="true"></i></span> <button class="filter-chip is-active" type="button" data-clear-group="theme">Tous les thèmes</button> <span class="filter-kicker">Niveau <i class="bi bi-chevron-down" aria-hidden="true"></i></span> <button class="filter-chip is-active" type="button" data-clear-group="level">Tous les niveaux</button> <button class="filter-chip" type="button" data-level-fragment="Introduction">Introduction</button> <button class="filter-chip" type="button" data-level-fragment="Intermédiaire">Intermédiaire</button> <button class="filter-chip" type="button" data-level-fragment="avancé">Avancé</button> <span class="filter-spacer"></span> <button class="more-filters" type="button" data-toggle-mobile-filters="" aria-controls="catalogue-filters" aria-expanded="false">Filtres détaillés <i class="bi bi-sliders" aria-hidden="true"></i></button> <button class="catalogue-reset-link top-reset" type="button" data-reset-catalogue="">Réinitialiser</button></p>
-</div>
-</div>
-</div>
 <div class="catalogue-layout">
 <div id="catalogue-filters" class="catalogue-sidebar" role="complementary" aria-label="Filtres du catalogue">
 <div class="catalogue-sidebar-head">
@@ -1174,6 +1174,9 @@ Aucune fiche ne correspond aux filtres actuels.
       button.setAttribute("aria-pressed", String(isActive));
     });
   };
+  const revealResults = function () {
+    root.querySelector(".catalogue-results")?.scrollIntoView({ behavior: "smooth", block: "start" });
+  };
   searchInput.addEventListener("input", update);
   if (sortSelect) sortSelect.addEventListener("change", function () { sortCards(); update(); });
   root.querySelectorAll(".catalogue-sidebar input").forEach(function (input) {
@@ -1185,6 +1188,7 @@ Aucune fiche ne correspond aux filtres actuels.
       root.querySelectorAll("input[name=\"" + name + "\"]").forEach(function (input) { input.checked = false; });
       if (name === "level") activeLevelFragment = "";
       update();
+      revealResults();
     });
   });
   root.querySelectorAll("[data-level-fragment]").forEach(function (button) {
@@ -1192,6 +1196,7 @@ Aucune fiche ne correspond aux filtres actuels.
       activeLevelFragment = activeLevelFragment === button.dataset.levelFragment ? "" : button.dataset.levelFragment;
       root.querySelectorAll("input[name=\"level\"]").forEach(function (input) { input.checked = false; });
       update();
+      revealResults();
     });
   });
   intentButtons.forEach(function (button) {
@@ -1201,7 +1206,7 @@ Aucune fiche ne correspond aux filtres actuels.
       searchInput.value = "";
       activeLevelFragment = "";
       update();
-      root.querySelector(".catalogue-results")?.scrollIntoView({ behavior: "smooth", block: "start" });
+      revealResults();
     });
   });
   root.querySelectorAll("[data-toggle-filter-group]").forEach(function (button) {
