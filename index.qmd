@@ -92,7 +92,7 @@ render_featured_datasets <- function(data) {
     }
 
     paste0(
-      '<article class="home-dataset-card">',
+      '<article class="home-dataset-card db-card">',
       '<img src="', home_escape(image), '" alt="Illustration de ', home_escape(row$short_title), '">',
       '<div class="home-dataset-card-body">',
       '<span>', home_escape(row$theme), '</span>',
@@ -206,119 +206,92 @@ render_home_example <- function(catalogue, activities, target_dataset_id = "bixi
 }
 ```
 
-::: {.home-page}
+::: {.home-page .db-page}
 
-::: {.home-hero}
+::: {.home-hero .db-editorial-hero}
 ::: {.home-hero-copy}
 
 ::: {.home-kicker}
 Infrastructure pédagogique ouverte
 :::
 
-# Données bleues
+# Des données publiques à enseigner.
 
 ::: {.home-subtitle}
-Des jeux de données québécois pour apprendre à importer, nettoyer, visualiser, modéliser et surtout interpréter avec contexte.
+Des ressources québécoises et canadiennes pour préparer des cours de statistique, de R et de science des données avec des sources, des limites et des contextes visibles.
 :::
 
 ::: {.home-lede}
-Données bleues rassemble des sources québécoises et canadiennes vérifiées, puis les transforme en fiches, activités et pistes de projet. Le site met le contexte au premier plan : territoire, organisme producteur, licence, unité statistique, variables et limites d'interprétation.
+Données bleues transforme des jeux de données publics vérifiés en fiches, activités et séquences adaptables. Le point de départ n'est pas seulement une méthode : c'est une question située, une institution, un territoire et une manière prudente d'interpréter.
 :::
 
 ::: {.home-hero-actions}
-[Explorer le catalogue](catalogue.qmd){.dataset-button}
-[Commencer par une activité](activites.qmd){.dataset-button .secondary}
+[Explorer les données](catalogue.qmd){.dataset-button}
+[Préparer une séance](activites.qmd#preparer-un-cours){.dataset-button .secondary}
 :::
 
 :::
 
-::: {.home-hero-signal}
-::: {.home-signal-label}
-La promesse
-:::
-
-Passer d'un fichier trouvé en ligne à une ressource de cours complète : source, contexte, variables, limites, activité courte, activité longue et discussion pédagogique.
-:::
-
-:::
-
-::: {.home-stat-strip}
-::: {.home-stat}
-`r n_datasets`
-
-fiches de jeux de données
-:::
-
-::: {.home-stat}
-`r n_themes`
-
-thèmes pédagogiques
-:::
-
-::: {.home-stat}
-`r n_activities`
-
-activités prêtes à adapter
-:::
-
-::: {.home-stat}
-`r n_contexts`
-
-contextes d'enseignement
+::: {.home-hero-art}
+![Territoires et données, illustration abstraite](assets/illustrations/hero-territory.svg){.db-hero-illustration}
 :::
 :::
 
-::: {.home-section .home-thesis}
+::: {.home-intent-section}
 ::: {.home-section-heading}
 ::: {.home-label}
-Pourquoi ce site existe
+Commencer par le geste à enseigner
 :::
 
-## Le contexte fait partie de la méthode.
-
-Un jeu de données enseigne toujours plus que des colonnes : une façon de mesurer, une institution, une géographie, une licence, des choix de collecte et des limites d'interprétation. Données bleues aide à transformer ces éléments en ressources directement utilisables en classe.
-:::
+## Quatre portes d'entrée pour une prochaine séance.
 :::
 
-::: {.home-section .home-promise}
+::: {.home-intent-grid}
+::: {.home-intent-card}
+### Préparer
+
+Trouver une activité adaptée au temps disponible, au niveau et à la production attendue.
+
+[Planifier un cours](activites.qmd#preparer-un-cours)
+:::
+
+::: {.home-intent-card}
+### Décrire
+
+Entrer dans une fiche, vérifier ce que représente une ligne, puis comparer avec prudence.
+
+[Explorer les fiches](catalogue.qmd)
+:::
+
+::: {.home-intent-card}
+### Visualiser
+
+Choisir une source qui permet de produire un graphique ou une carte vraiment interprétable.
+
+[Voir le catalogue](catalogue.qmd)
+:::
+
+::: {.home-intent-card}
+### Discuter les limites
+
+Rendre visibles la provenance, la licence, les choix de mesure et les conclusions impossibles.
+
+[Lire la méthode](zero-waste.qmd)
+:::
+:::
+:::
+
+::: {.home-section .home-example .db-plan-section}
 ::: {.home-section-heading}
 ::: {.home-label}
-Utiliser le site
+Préparer une séance
 :::
 
-## Trois entrées rapides
+## Une source devient un parcours d'apprentissage.
 
-Le site peut servir de catalogue de sources, de banque d'activités ou de cadre d'évaluation pédagogique.
+Choisir une donnée, comprendre ce qu'elle mesure, puis adapter une activité au groupe réel.
 :::
 
-::: {.home-link-row}
-::: {.home-promise-item}
-### Catalogue
-
-Comparer les fiches par thème, niveau, format et potentiel pédagogique.
-
-[Ouvrir le catalogue](catalogue.qmd)
-:::
-
-::: {.home-promise-item}
-### Activités
-
-Choisir une activité courte, une tâche longue ou un mini-projet relié à une source.
-
-[Voir les activités](activites.qmd)
-:::
-
-::: {.home-promise-item}
-### Zéro déchet
-
-Évaluer si une source mérite d'être préparée pour plusieurs apprentissages.
-
-[Lire le cadre](zero-waste.qmd)
-:::
-:::
-:::
-
-::: {.home-section .home-example}
 ```{r}
 #| echo: false
 #| results: asis
@@ -329,12 +302,12 @@ cat(render_home_example(catalogue, activities, "bixi"))
 ::: {.home-section .home-featured}
 ::: {.home-section-heading}
 ::: {.home-label}
-Exemples
+À explorer maintenant
 :::
 
-## Trois fiches représentatives
+## Des ressources ancrées dans des réalités proches de la classe.
 
-Mobilité, environnement et finances municipales, avec sources documentées et activités associées.
+Mobilité, environnement et finances municipales, avec des sources documentées et des activités associées.
 :::
 
 ::: {.home-dataset-grid}
@@ -346,22 +319,20 @@ cat(render_featured_datasets(featured_datasets))
 :::
 :::
 
-::: {.home-section .home-current}
-::: {.home-current-panel}
+::: {.home-current-panel .db-provenance-panel}
 ::: {.home-current-copy}
 ::: {.home-label}
-Catalogue actuel
+Ce qui compte
 :::
 
-## `r n_datasets` fiches, `r n_activities` activités
+## `r n_datasets` fiches, `r n_activities` activités, un même niveau d'exigence.
 
-La base couvre `r n_themes` thèmes. Les plus visibles actuellement sont : `r theme_list`. Les sources et les dates d'accès sont listées dans les références.
+Chaque ressource garde sa source, son contexte, ses limites et son niveau de préparation. La base couvre `r n_themes` thèmes, dont `r theme_list`.
 :::
 
 ::: {.home-current-actions}
-[Consulter les sources](references.qmd){.dataset-button .secondary}
-[À propos du projet](about.qmd){.dataset-button}
-:::
+[Consulter les références](references.qmd){.dataset-button .secondary}
+[Comprendre le projet](about.qmd){.dataset-button}
 :::
 :::
 

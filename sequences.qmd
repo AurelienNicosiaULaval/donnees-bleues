@@ -1,5 +1,5 @@
 ---
-title: "Séquences adaptables"
+title: "Séquences pédagogiques"
 toc: false
 page-layout: full
 format:

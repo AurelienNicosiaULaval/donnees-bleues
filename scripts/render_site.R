@@ -16,6 +16,12 @@ run_quarto <- function(args) {
   }
 }
 
+clear_quarto_session_artifacts <- function() {
+  if (dir.exists(".quarto")) unlink(".quarto", recursive = TRUE, force = TRUE)
+  if (dir.exists("site_libs")) unlink("site_libs", recursive = TRUE, force = TRUE)
+  invisible(TRUE)
+}
+
 site_inputs <- function() {
   root_pages <- c(
     "index.qmd",
@@ -52,6 +58,7 @@ write_activity_catalogue(catalogue_activites, "data/metadata/catalogue_activites
 saveRDS(catalogue_activites, "data/metadata/catalogue_activites.rds")
 
 for (input in site_inputs()) {
+  clear_quarto_session_artifacts()
   run_quarto(c("render", input, "--execute", "--no-cache", "--no-clean"))
 }
 

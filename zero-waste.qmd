@@ -1,5 +1,5 @@
 ---
-title: "Jeu de données zéro déchet"
+title: "Méthode : données zéro déchet"
 toc: false
 page-layout: full
 ---
@@ -14,7 +14,7 @@ page-layout: full
 Cadre pédagogique
 :::
 
-# Jeu de données zéro déchet {#zw-title}
+# Une méthode pour choisir des données qui restent enseignables. {#zw-title}
 
 ::: {.zw-hero-lede}
 Un cadre simple pour choisir les sources qui servent plusieurs apprentissages sans masquer leur contexte, leurs limites et leur coût de préparation.

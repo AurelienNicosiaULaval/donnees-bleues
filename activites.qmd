@@ -1,5 +1,5 @@
 ---
-title: "Activités"
+title: "Planifier une séance"
 toc: false
 page-layout: full
 ---
@@ -76,10 +76,10 @@ format_planner_options <- function(values) {
 Catalogue pédagogique
 :::
 
-# Activités pédagogiques
+# Planifier une séance avec des données publiques
 
 ::: {.act-hero-lede}
-Trouver rapidement une activité exploitable en classe : partir d'une question, choisir le temps disponible, puis ouvrir une fiche prête à adapter.
+Partir du temps disponible, du niveau et de la production attendue pour trouver une activité à adapter au groupe réel.
 :::
 
 ::: {.act-hero-actions}

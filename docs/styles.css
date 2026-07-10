@@ -3902,6 +3902,942 @@ body:has(.activities-page) main.content {
   }
 }
 
+/* --------------------------------------------------------------------------
+   Refonte visuelle : bibliothèque éditoriale, atelier et navigation
+   -------------------------------------------------------------------------- */
+
+:root {
+  --db-blue: #003da5;
+  --db-blue-dark: #00235e;
+  --db-blue-soft: #eaf1fb;
+  --db-blue-mid: #1557bf;
+  --db-cyan-soft: #f1f6fc;
+  --db-green: #1f6b53;
+  --db-green-soft: #edf7f2;
+  --db-gold: #a95a2d;
+  --db-gold-soft: #fff1e8;
+  --db-ink: #0b1f3a;
+  --db-muted: #52627a;
+  --db-muted-soft: #eef1f5;
+  --db-border: #d4deec;
+  --db-surface: #faf8f2;
+  --db-paper: #fffdf8;
+  --db-shadow: 0 18px 44px rgba(11, 31, 58, 0.1);
+  --db-serif: Georgia, Cambria, "Times New Roman", serif;
+  --db-sans: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--db-surface);
+  color: var(--db-ink);
+  font-family: var(--db-sans);
+  font-size: 16px;
+  line-height: 1.62;
+}
+
+body::before {
+  background: linear-gradient(180deg, rgba(0, 61, 165, 0.025), transparent 30rem);
+  content: "";
+  inset: 0;
+  pointer-events: none;
+  position: fixed;
+  z-index: -1;
+}
+
+.navbar {
+  background: rgba(255, 253, 248, 0.96) !important;
+  border-bottom: 1px solid rgba(11, 31, 58, 0.12);
+  box-shadow: none;
+  min-height: 72px;
+}
+
+.navbar .navbar-container {
+  margin: 0 auto;
+  max-width: 1440px;
+  min-height: 72px;
+  padding-left: clamp(1rem, 3vw, 3rem);
+  padding-right: clamp(1rem, 3vw, 3rem);
+}
+
+.navbar-brand {
+  align-items: center;
+  color: var(--db-ink) !important;
+  font-family: var(--db-serif);
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.navbar-brand img,
+.navbar-logo {
+  height: 38px;
+  margin-right: 0.55rem;
+  width: 38px;
+}
+
+.navbar .nav-link {
+  color: var(--db-ink) !important;
+  font-size: 0.77rem;
+  font-weight: 760;
+  letter-spacing: 0.01em;
+  padding: 0.55rem 0.68rem;
+}
+
+.navbar .nav-link:hover,
+.navbar .nav-link:focus,
+.navbar .nav-link.active {
+  color: var(--db-blue) !important;
+}
+
+.navbar .nav-link.active {
+  border-bottom: 2px solid var(--db-blue);
+}
+
+.navbar .navbar-nav.ms-auto .nav-item:last-child .nav-link {
+  background: var(--db-blue);
+  border: 1px solid var(--db-blue);
+  border-radius: 999px;
+  color: #fff !important;
+  margin-left: 0.4rem;
+  padding: 0.38rem 0.7rem;
+}
+
+.navbar .navbar-nav.ms-auto .nav-item:last-child .nav-link:hover,
+.navbar .navbar-nav.ms-auto .nav-item:last-child .nav-link:focus {
+  background: var(--db-blue-dark);
+  border-color: var(--db-blue-dark);
+}
+
+.page-columns,
+.quarto-container.page-columns {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 1440px;
+}
+
+.db-page,
+.catalogue-page,
+.activities-page,
+.about-page,
+.contrib-page,
+.zero-waste-page,
+.dataset-detail-page {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 1320px;
+}
+
+.db-page h1,
+.db-page h2,
+.db-page h3,
+.catalogue-page h1,
+.catalogue-page h2,
+.activities-page h1,
+.activities-page h2,
+.about-page h1,
+.about-page h2,
+.contrib-page h1,
+.contrib-page h2,
+.zero-waste-page h1,
+.zero-waste-page h2,
+.dataset-detail-page h1,
+.dataset-detail-page h2,
+main.content > h1 {
+  color: var(--db-ink);
+  font-family: var(--db-serif);
+  letter-spacing: -0.042em;
+}
+
+.db-page h1,
+.catalogue-page h1,
+.activities-page h1,
+.about-page h1,
+.contrib-page h1,
+.zero-waste-page h1,
+.dataset-detail-page h1,
+main.content > h1 {
+  font-size: clamp(2.45rem, 5.4vw, 5.25rem);
+  line-height: 0.98;
+}
+
+.anchored {
+  position: relative;
+}
+
+.anchored > .anchorjs-link {
+  display: none;
+  left: 100%;
+  margin-left: 0.35rem;
+  position: absolute;
+}
+
+.db-page h2,
+.catalogue-page h2,
+.activities-page h2,
+.about-page h2,
+.contrib-page h2,
+.zero-waste-page h2,
+.dataset-detail-page h2,
+main.content > h2 {
+  font-size: clamp(1.7rem, 3vw, 2.75rem);
+  line-height: 1.06;
+}
+
+.home-kicker,
+.home-label,
+.act-kicker,
+.act-label,
+.about-kicker,
+.zw-kicker,
+.zw-label,
+.dataset-panel-label,
+.dataset-card-label,
+.contrib-page .contrib-section-heading > p:first-child {
+  color: var(--db-blue);
+  font-family: var(--db-sans);
+  font-size: 0.69rem;
+  font-weight: 850;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+}
+
+.dataset-button,
+.db-button {
+  align-items: center;
+  background: var(--db-blue);
+  border: 1px solid var(--db-blue);
+  border-radius: 999px;
+  box-shadow: none;
+  color: #fff !important;
+  display: inline-flex;
+  font-size: 0.82rem;
+  font-weight: 780;
+  gap: 0.4rem;
+  justify-content: center;
+  min-height: 44px;
+  padding: 0.6rem 1rem;
+  text-decoration: none !important;
+  transition: background 160ms ease, border-color 160ms ease, transform 160ms ease;
+}
+
+.dataset-button:hover,
+.dataset-button:focus,
+.db-button:hover,
+.db-button:focus {
+  background: var(--db-blue-dark);
+  border-color: var(--db-blue-dark);
+  color: #fff !important;
+  transform: translateY(-1px);
+}
+
+.dataset-button.secondary,
+.db-button.secondary {
+  background: transparent;
+  border-color: rgba(0, 61, 165, 0.35);
+  color: var(--db-blue) !important;
+}
+
+.dataset-button.secondary:hover,
+.dataset-button.secondary:focus,
+.db-button.secondary:hover,
+.db-button.secondary:focus {
+  background: var(--db-blue-soft);
+  border-color: var(--db-blue);
+  color: var(--db-blue-dark) !important;
+}
+
+.db-card,
+.dataset-card,
+.activity-card,
+.act-activity-card,
+.dataset-activity-card,
+.act-module-card,
+.contrib-type-card,
+.contrib-quality-item,
+.about-audience-card,
+.zw-compact-point {
+  background: var(--db-paper);
+  border: 1px solid var(--db-border);
+  border-radius: 16px;
+  box-shadow: none;
+}
+
+.db-card:hover,
+.dataset-card:hover,
+.activity-card:hover,
+.act-activity-card:hover,
+.dataset-activity-card:hover,
+.act-module-card:hover,
+.contrib-type-card:hover {
+  border-color: rgba(0, 61, 165, 0.45);
+  box-shadow: var(--db-shadow);
+  transform: translateY(-3px);
+}
+
+/* Accueil ----------------------------------------------------------------- */
+
+.home-page {
+  padding: clamp(1.4rem, 3vw, 3.5rem) clamp(0.1rem, 1vw, 1rem) 5rem;
+}
+
+.home-hero.db-editorial-hero {
+  align-items: stretch;
+  background: transparent;
+  border: 0;
+  display: grid;
+  gap: clamp(1.5rem, 4vw, 4rem);
+  grid-template-columns: minmax(0, 1.05fr) minmax(280px, 0.72fr);
+  margin: 0 0 clamp(2.5rem, 6vw, 5rem);
+  padding: 0;
+}
+
+.home-hero-copy {
+  align-self: center;
+  max-width: 760px;
+  padding: clamp(1rem, 2.5vw, 3rem) 0;
+}
+
+.home-hero h1 {
+  font-size: clamp(3.15rem, 6.2vw, 6.8rem);
+  margin: 0.45rem 0 1.2rem;
+  max-width: 760px;
+}
+
+.home-subtitle {
+  color: var(--db-blue-dark);
+  font-family: var(--db-serif);
+  font-size: clamp(1.25rem, 2vw, 1.75rem);
+  line-height: 1.28;
+  max-width: 690px;
+}
+
+.home-lede {
+  color: var(--db-muted);
+  font-size: 1rem;
+  max-width: 670px;
+}
+
+.home-hero-actions,
+.home-current-actions,
+.act-hero-actions,
+.about-hero-actions,
+.contrib-hero-actions,
+.zw-hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+}
+
+.home-hero-art {
+  align-self: center;
+  background: var(--db-paper);
+  border: 1px solid var(--db-border);
+  border-radius: 24px;
+  box-shadow: var(--db-shadow);
+  overflow: hidden;
+  padding: 0.6rem;
+}
+
+.db-hero-illustration {
+  border-radius: 18px;
+  display: block;
+  height: auto;
+  width: 100%;
+}
+
+.home-hero-art figcaption {
+  display: none;
+}
+
+.home-intent-section,
+.home-section {
+  border-top: 1px solid var(--db-border);
+  margin-top: clamp(2.5rem, 6vw, 5.5rem);
+  padding-top: clamp(1.7rem, 4vw, 3.8rem);
+}
+
+.home-section-heading {
+  max-width: 760px;
+}
+
+.home-section-heading > p,
+.home-section-heading p,
+.home-section-heading + p {
+  color: var(--db-muted);
+}
+
+.home-intent-grid {
+  display: grid;
+  gap: 0.8rem;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  margin-top: 1.5rem;
+}
+
+.home-intent-card {
+  border-left: 3px solid var(--db-blue);
+  padding: 1rem 1rem 1rem 1.1rem;
+}
+
+.home-intent-card:nth-child(2) { border-left-color: #3173c3; }
+.home-intent-card:nth-child(3) { border-left-color: #5a8bc8; }
+.home-intent-card:nth-child(4) { border-left-color: var(--db-gold); }
+
+.home-intent-card h3,
+.home-intent-card p {
+  margin: 0;
+}
+
+.home-intent-card h3 {
+  font-family: var(--db-serif);
+  font-size: 1.36rem;
+}
+
+.home-intent-card p {
+  color: var(--db-muted);
+  font-size: 0.88rem;
+  line-height: 1.48;
+  margin: 0.4rem 0 0.75rem;
+}
+
+.home-intent-card a,
+.home-example-step,
+.home-dataset-card-meta a {
+  color: var(--db-blue);
+  font-size: 0.82rem;
+  font-weight: 780;
+  text-decoration: none;
+}
+
+.home-intent-card a:hover,
+.home-intent-card a:focus,
+.home-example-step:hover,
+.home-example-step:focus,
+.home-dataset-card-meta a:hover,
+.home-dataset-card-meta a:focus {
+  color: var(--db-blue-dark);
+  text-decoration: underline;
+  text-underline-offset: 0.16em;
+}
+
+.home-example-card {
+  background: var(--db-blue-dark);
+  border: 0;
+  border-radius: 20px;
+  box-shadow: none;
+  color: #fff;
+  display: grid;
+  gap: 1.3rem;
+  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+  padding: clamp(1.3rem, 3vw, 2.5rem);
+}
+
+.home-example-copy > span,
+.home-example-copy p,
+.home-example-step small,
+.home-example-step em {
+  color: rgba(255, 255, 255, 0.76);
+}
+
+.home-example-copy h3 {
+  color: #fff;
+  font-family: var(--db-serif);
+  font-size: clamp(1.55rem, 2.7vw, 2.45rem);
+  line-height: 1.08;
+}
+
+.home-example-steps {
+  display: grid;
+  gap: 0.6rem;
+}
+
+.home-example-step {
+  align-items: start;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+  color: #fff;
+  display: grid;
+  gap: 0.18rem 0.65rem;
+  grid-template-columns: auto 1fr;
+  padding: 0.78rem;
+}
+
+.home-example-step > span {
+  color: #b8d6ff;
+  font-size: 0.72rem;
+  font-weight: 850;
+  grid-row: span 3;
+}
+
+.home-example-step strong { color: #fff; }
+
+.home-dataset-grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin-top: 1.5rem;
+}
+
+.home-dataset-card {
+  overflow: hidden;
+}
+
+.home-dataset-card img {
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  width: 100%;
+}
+
+.home-dataset-card-body { padding: 1rem; }
+
+.home-dataset-card-body > span,
+.home-dataset-card-meta strong {
+  color: var(--db-blue);
+  font-size: 0.68rem;
+  font-weight: 850;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.home-dataset-card h3 {
+  font-family: var(--db-serif);
+  font-size: 1.35rem;
+  margin: 0.45rem 0;
+}
+
+.home-dataset-card p { color: var(--db-muted); font-size: 0.88rem; }
+
+.home-dataset-card-meta {
+  align-items: center;
+  border-top: 1px solid var(--db-border);
+  display: flex;
+  justify-content: space-between;
+  margin-top: 0.8rem;
+  padding-top: 0.75rem;
+}
+
+.home-current-panel.db-provenance-panel {
+  align-items: end;
+  background: var(--db-paper);
+  border: 1px solid var(--db-border);
+  border-left: 5px solid var(--db-blue);
+  border-radius: 14px;
+  display: grid;
+  gap: 1.2rem;
+  grid-template-columns: minmax(0, 1fr) auto;
+  margin-top: clamp(2.5rem, 6vw, 5.5rem);
+  padding: clamp(1.25rem, 3vw, 2.4rem);
+}
+
+/* Explorer et planifier --------------------------------------------------- */
+
+.catalogue-page,
+.activities-page {
+  padding-top: clamp(1rem, 3vw, 2.5rem);
+}
+
+.catalogue-hero-row,
+.act-hero,
+.about-hero,
+.contrib-hero,
+.zw-hero {
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid var(--db-border);
+  border-radius: 0;
+  box-shadow: none;
+  gap: clamp(1.5rem, 3vw, 3rem);
+  padding: 0 0 clamp(1.8rem, 4vw, 3.25rem);
+}
+
+.catalogue-title-block > p,
+.act-hero-lede,
+.about-lede,
+.contrib-lede,
+.zw-hero-lede {
+  color: var(--db-muted);
+  font-family: var(--db-serif);
+  font-size: clamp(1.1rem, 1.7vw, 1.45rem);
+  line-height: 1.42;
+  max-width: 700px;
+}
+
+.catalogue-top-controls,
+.act-control-panel,
+.act-course-planner-form {
+  background: var(--db-paper);
+  border: 1px solid var(--db-border);
+  border-radius: 16px;
+  box-shadow: none;
+}
+
+.catalogue-intent-panel {
+  background: transparent;
+  border: 0;
+  margin-top: 1.25rem;
+  padding: 0;
+}
+
+.catalogue-intent-grid {
+  gap: 0.65rem;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.catalogue-intent {
+  background: var(--db-paper);
+  border: 1px solid var(--db-border);
+  border-radius: 10px;
+  color: var(--db-ink);
+  min-height: 108px;
+  padding: 0.9rem;
+  text-align: left;
+}
+
+.catalogue-intent:hover,
+.catalogue-intent:focus-visible,
+.catalogue-intent.is-active {
+  background: var(--db-blue);
+  border-color: var(--db-blue);
+  color: #fff;
+}
+
+.catalogue-intent span { font-family: var(--db-serif); font-size: 1.08rem; }
+.catalogue-intent small { display: block; font-size: 0.77rem; line-height: 1.32; margin-top: 0.35rem; }
+
+.catalogue-search-box,
+.act-search-box {
+  background: #fff;
+  border: 1px solid var(--db-border);
+  border-radius: 999px;
+  min-height: 50px;
+}
+
+.catalogue-search-box:focus-within,
+.act-search-box:focus-within {
+  border-color: var(--db-blue);
+  box-shadow: 0 0 0 4px rgba(0, 61, 165, 0.13);
+}
+
+.filter-chip,
+.act-chip,
+.catalogue-reset-link,
+.more-filters,
+.act-filter-toggle {
+  background: transparent;
+  border-color: var(--db-border);
+  border-radius: 999px;
+  color: var(--db-ink);
+  font-size: 0.78rem;
+}
+
+.filter-chip.is-active,
+.filter-chip:hover,
+.filter-chip:focus,
+.act-chip.is-active,
+.act-chip:hover,
+.act-chip:focus {
+  background: var(--db-blue-soft);
+  border-color: var(--db-blue);
+  color: var(--db-blue-dark);
+}
+
+.catalogue-sidebar,
+.act-filter-panel {
+  background: var(--db-paper);
+  border: 1px solid var(--db-border);
+  border-radius: 14px;
+}
+
+.dataset-card,
+.act-activity-card {
+  background: var(--db-paper);
+  border-radius: 14px;
+}
+
+.dataset-card h3,
+.act-activity-card h3,
+.dataset-activity-card h3 {
+  font-family: var(--db-serif);
+}
+
+.dataset-card .dataset-source,
+.dataset-learning,
+.act-activity-question,
+.act-activity-output,
+.dataset-activity-output { color: var(--db-muted); }
+
+.dataset-score,
+.dataset-learning,
+.dataset-facts,
+.act-activity-meta,
+.act-activity-tokens,
+.dataset-activity-meta,
+.dataset-activity-chips {
+  border-color: var(--db-border);
+}
+
+.act-course-planner {
+  background: var(--db-blue-soft);
+  border: 0;
+  border-radius: 18px;
+  padding: clamp(1.2rem, 3vw, 2.5rem);
+}
+
+.act-course-planner-form {
+  display: grid;
+  gap: 0.85rem;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin-top: 1.15rem;
+  padding: 1rem;
+}
+
+.act-course-planner-form label {
+  color: var(--db-ink);
+  font-size: 0.76rem;
+  font-weight: 780;
+}
+
+.act-course-planner-form select {
+  background: #fff;
+  border: 1px solid var(--db-border);
+  border-radius: 8px;
+  color: var(--db-ink);
+  margin-top: 0.35rem;
+  min-height: 42px;
+  width: 100%;
+}
+
+.act-course-planner-form button { align-self: end; }
+
+.act-module-card,
+.home-intent-card,
+.contrib-type-card,
+.contrib-quality-item {
+  padding: 1.1rem;
+}
+
+/* Pages éditoriales, fiches et contrats --------------------------------- */
+
+.about-problem-panel,
+.contrib-hero-panel,
+.about-final,
+.contrib-final,
+.zw-final,
+.zw-intro-band,
+.dataset-teacher-plan,
+.dataset-featured-activity,
+.activity-contract {
+  background: var(--db-paper);
+  border: 1px solid var(--db-border);
+  border-radius: 16px;
+  box-shadow: none;
+}
+
+.about-problem-panel,
+.contrib-hero-panel,
+.zw-intro-band { border-left: 4px solid var(--db-blue); }
+
+.about-section,
+.contrib-section,
+.zw-section {
+  border-top-color: var(--db-border);
+}
+
+.about-section-heading,
+.contrib-section-heading,
+.zw-section-heading { max-width: 780px; }
+
+.about-section p,
+.contrib-section p,
+.zw-section p,
+.dataset-detail-content p,
+.dataset-detail-content li { color: var(--db-muted); }
+
+.dataset-detail-page {
+  padding: clamp(1rem, 3vw, 2.75rem) 0 4rem;
+}
+
+.dataset-teacher-hero {
+  background: transparent;
+  border-bottom: 1px solid var(--db-border);
+  gap: clamp(1.25rem, 3vw, 3rem);
+  padding: 0 0 clamp(1.5rem, 3vw, 2.8rem);
+}
+
+.dataset-hero-copy h1 {
+  font-family: var(--db-serif);
+  font-size: clamp(2.2rem, 4.2vw, 4.6rem);
+}
+
+.dataset-teacher-question,
+.dataset-hero-summary { color: var(--db-muted); font-size: 1.05rem; }
+
+.dataset-featured-activity {
+  border-left: 4px solid var(--db-blue);
+  padding: 1.15rem;
+}
+
+.dataset-teacher-plan {
+  display: grid;
+  gap: 0;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin-top: 1.25rem;
+  overflow: hidden;
+}
+
+.dataset-teacher-plan article {
+  border-right: 1px solid var(--db-border);
+  padding: 1rem;
+}
+
+.dataset-teacher-plan article:last-child { border-right: 0; }
+
+.dataset-r-lab,
+.dataset-activities-panel,
+.dataset-detail-content {
+  border-top: 1px solid var(--db-border);
+  margin-top: 2rem;
+  padding-top: 2rem;
+}
+
+.dataset-result-card,
+.dataset-variable-panel,
+.dataset-doc-panel,
+.dataset-code-card,
+.dataset-chart-card,
+.dataset-minimal-result,
+.dataset-source-strip {
+  background: var(--db-paper);
+  border-color: var(--db-border);
+  border-radius: 14px;
+  box-shadow: none;
+}
+
+.dataset-variable-chip,
+.dataset-chip-row span,
+.dataset-activity-chips span,
+.act-token {
+  background: var(--db-blue-soft);
+  border: 0;
+  border-radius: 999px;
+  color: var(--db-blue-dark);
+  font-size: 0.73rem;
+}
+
+.dataset-activity-status,
+.activity-contract-status {
+  background: var(--db-green-soft);
+  color: var(--db-green);
+}
+
+.activity-contract {
+  border-left: 4px solid var(--db-blue);
+  margin-top: 2rem;
+  padding: clamp(1.1rem, 2.5vw, 2rem);
+}
+
+.activity-contract h2 { font-family: var(--db-serif); }
+
+.activity-contract dl > div {
+  border-bottom-color: var(--db-border);
+}
+
+.activity-contract dt { color: var(--db-blue-dark); }
+
+main.content:not(:has(.db-page, .catalogue-page, .activities-page, .about-page, .contrib-page, .zero-waste-page, .dataset-detail-page)) {
+  background: var(--db-paper);
+  border: 1px solid var(--db-border);
+  border-radius: 16px;
+  margin-top: 2rem;
+  padding: clamp(1.25rem, 4vw, 3.5rem);
+}
+
+main.content:not(:has(.db-page, .catalogue-page, .activities-page, .about-page, .contrib-page, .zero-waste-page, .dataset-detail-page)) > h1 {
+  border-bottom: 1px solid var(--db-border);
+  margin-bottom: 1.8rem;
+  padding-bottom: 1.25rem;
+}
+
+.page-footer {
+  background: var(--db-blue-dark);
+  border-top: 0;
+  color: rgba(255, 255, 255, 0.78);
+  font-size: 0.8rem;
+  margin-top: 4rem;
+}
+
+.page-footer a { color: #fff; }
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+summary:focus-visible,
+[tabindex]:focus-visible {
+  box-shadow: 0 0 0 4px rgba(0, 61, 165, 0.18);
+  outline: 3px solid var(--db-blue) !important;
+}
+
+@media (max-width: 1080px) {
+  .home-intent-grid,
+  .catalogue-intent-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+
+  .act-course-planner-form { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+
+  .dataset-teacher-plan { grid-template-columns: 1fr; }
+  .dataset-teacher-plan article { border-bottom: 1px solid var(--db-border); border-right: 0; }
+  .dataset-teacher-plan article:last-child { border-bottom: 0; }
+}
+
+@media (max-width: 820px) {
+  .navbar,
+  .navbar .navbar-container { min-height: 64px; }
+
+  .navbar .navbar-container { padding-left: 1rem; padding-right: 1rem; }
+  .navbar .nav-link.active { border-bottom: 0; }
+
+  .home-page { padding: 1rem 0 3rem; }
+  .home-hero.db-editorial-hero,
+  .home-example-card,
+  .home-current-panel.db-provenance-panel { grid-template-columns: 1fr; }
+  .home-hero h1 { font-size: clamp(2.8rem, 14vw, 4.7rem); }
+
+  .home-intent-grid,
+  .catalogue-intent-grid,
+  .home-dataset-grid,
+  .act-course-planner-form { grid-template-columns: 1fr; }
+
+  .home-intent-card { border-bottom: 1px solid var(--db-border); border-left-width: 4px; }
+  .home-dataset-card { display: block; }
+  .home-dataset-card img { height: auto; min-height: 0; }
+
+  .catalogue-hero-row,
+  .act-hero,
+  .about-hero,
+  .contrib-hero,
+  .zw-hero { display: block; }
+
+  .catalogue-top-controls,
+  .act-control-panel,
+  .act-course-planner-form { padding: 0.8rem; }
+
+  .dataset-detail-page { padding-left: 0; padding-right: 0; }
+  .dataset-teacher-hero { display: block; }
+  .dataset-featured-activity { margin-top: 1rem; }
+
+  main.content:not(:has(.db-page, .catalogue-page, .activities-page, .about-page, .contrib-page, .zero-waste-page, .dataset-detail-page)) {
+    border-left: 0;
+    border-radius: 0;
+    border-right: 0;
+    margin-top: 1rem;
+    padding: 1.25rem 1rem;
+  }
+}
+
 /* Audit 2026-07: mobile navigation, catalogue entry points and activity contracts. */
 .navbar-toggler {
   border-color: rgba(23, 32, 51, 0.35);
@@ -6603,7 +7539,20 @@ summary:focus-visible,
     width: 100%;
   }
 
-  .home-dataset-card-body {
+.home-dataset-card-body {
     min-width: 0;
+  }
+}
+
+/* Les étapes de contribution gardent leur texte dans la seconde colonne. */
+.contrib-step > h3,
+.contrib-step > p {
+  grid-column: 2;
+}
+
+@media (max-width: 820px) {
+  .contrib-step > h3,
+  .contrib-step > p {
+    grid-column: 1;
   }
 }

@@ -3,12 +3,12 @@
   <desc id="desc">Logo hexagonal bleu Québec avec la fleur de lys du drapeau du Québec.</desc>
   <defs>
     <linearGradient id="db-blue-gradient" x1="96" y1="64" x2="416" y2="448" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="#4F7CC9"/>
-      <stop offset="0.55" stop-color="#325EA8"/>
-      <stop offset="1" stop-color="#223F78"/>
+      <stop offset="0" stop-color="#1557BF"/>
+      <stop offset="0.55" stop-color="#003DA5"/>
+      <stop offset="1" stop-color="#00235E"/>
     </linearGradient>
     <filter id="soft-shadow" x="-12%" y="-12%" width="124%" height="124%">
-      <feDropShadow dx="0" dy="12" stdDeviation="12" flood-color="#172033" flood-opacity="0.18"/>
+      <feDropShadow dx="0" dy="12" stdDeviation="12" flood-color="#0B1F3A" flood-opacity="0.18"/>
     </filter>
   </defs>
   <polygon points="256,26 456,141 456,371 256,486 56,371 56,141" fill="url(#db-blue-gradient)" filter="url(#soft-shadow)"/>

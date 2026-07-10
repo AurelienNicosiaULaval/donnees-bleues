@@ -1,5 +1,5 @@
 ---
-title: "Catalogue"
+title: "Explorer les données"
 toc: false
 page-layout: full
 ---
@@ -205,8 +205,9 @@ if (file.exists(catalogue_path)) {
   cat('<section class="catalogue-page page-full catalogue-reference" data-catalogue>\n')
   cat('<div class="catalogue-hero-row">\n')
   cat('<div class="catalogue-title-block">\n')
-  cat('<h1>Catalogue</h1>\n')
-  cat('<p>Explorez des données ouvertes pour vos analyses et projets pédagogiques. Recherchez et filtrez rapidement les fiches utiles.</p>\n')
+  cat('<p class="catalogue-overline">Explorer</p>\n')
+  cat('<h1>Des données publiques pour construire une vraie séance.</h1>\n')
+  cat("<p>Recherchez une fiche par contexte, niveau, geste d'analyse ou potentiel pédagogique. Chaque résultat conserve ce qu'il faut pour décider : source, limites et usages possibles.</p>\n")
   cat('<section class="catalogue-intent-panel" aria-labelledby="catalogue-intent-title">\n')
   cat('<h2 id="catalogue-intent-title">Commencer par une intention pédagogique</h2>\n')
   cat('<p>Choisissez le geste que vous voulez travailler en classe; le catalogue se filtre ensuite automatiquement.</p>\n')
