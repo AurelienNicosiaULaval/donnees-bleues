@@ -43,7 +43,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-27b7f237192eb03e5555e2d61f6c5099.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-678eb615bd8f57929f3ad5b5079cb7e5.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -152,23 +152,6 @@ ul.task-list li input[type="checkbox"] {
 <!-- main -->
 <main class="content column-page" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">Catalogue</h1>
-</div>
-
-
-
-<div class="quarto-title-meta column-page">
-
-    
-  
-    
-  </div>
-  
-
-
-</header>
 
 
 <section class="catalogue-page page-full catalogue-reference" data-catalogue="">
@@ -180,18 +163,40 @@ Catalogue
 <p>
 Explorez des données ouvertes pour vos analyses et projets pédagogiques. Recherchez et filtrez rapidement les fiches utiles.
 </p>
+<section class="catalogue-intent-panel" aria-labelledby="catalogue-intent-title">
+<h2 id="catalogue-intent-title" class="anchored">
+Commencer par une intention pédagogique
+</h2>
+<p>
+Choisissez le geste que vous voulez travailler en classe; le catalogue se filtre ensuite automatiquement.
+</p>
+<div class="catalogue-intent-grid">
+<button class="catalogue-intent" type="button" data-intent-family="Importer et nettoyer" aria-pressed="false">
+<span>Préparer des données</span><small>Importer, nettoyer et vérifier</small>
+</button>
+<button class="catalogue-intent" type="button" data-intent-family="Décrire et comparer" aria-pressed="false">
+<span>Décrire et comparer</span><small>Tableaux, indicateurs et groupes</small>
+</button>
+<button class="catalogue-intent" type="button" data-intent-family="Visualiser" aria-pressed="false">
+<span>Visualiser</span><small>Graphiques et cartes utiles</small>
+</button>
+<button class="catalogue-intent" type="button" data-intent-family="Éthique et limites" aria-pressed="false">
+<span>Discuter les limites</span><small>Mesure, biais et prudence</small>
+</button>
+</div>
+</section>
 </div>
 <div class="catalogue-top-controls" role="search" aria-label="Recherche dans le catalogue">
 <div class="catalogue-search-row">
 <p><label class="catalogue-search-box" for="dataset-search"><i class="bi bi-search" aria-hidden="true"></i><span class="visually-hidden">Recherche</span><input id="dataset-search" type="search" placeholder="Rechercher un jeu de données (ex. qualité de l’eau, mobilité...)" autocomplete="off"></label> <button class="catalogue-help" type="button"><i class="bi bi-question-circle" aria-hidden="true"></i>Conseils de recherche</button></p>
 </div>
 <div class="catalogue-chip-row" aria-label="Filtres rapides">
-<p><span class="filter-kicker">Thème <i class="bi bi-chevron-down" aria-hidden="true"></i></span> <button class="filter-chip is-active" type="button" data-clear-group="theme">Tous les thèmes</button> <span class="filter-kicker">Niveau <i class="bi bi-chevron-down" aria-hidden="true"></i></span> <button class="filter-chip is-active" type="button" data-clear-group="level">Tous les niveaux</button> <button class="filter-chip" type="button" data-level-fragment="Introduction">Introduction</button> <button class="filter-chip" type="button" data-level-fragment="Intermédiaire">Intermédiaire</button> <button class="filter-chip" type="button" data-level-fragment="avancé">Avancé</button> <span class="filter-spacer"></span> <button class="more-filters" type="button" data-focus-filters="">Plus de filtres <i class="bi bi-sliders" aria-hidden="true"></i></button> <button class="catalogue-reset-link top-reset" type="button" data-reset-catalogue="">Réinitialiser</button></p>
+<p><span class="filter-kicker">Thème <i class="bi bi-chevron-down" aria-hidden="true"></i></span> <button class="filter-chip is-active" type="button" data-clear-group="theme">Tous les thèmes</button> <span class="filter-kicker">Niveau <i class="bi bi-chevron-down" aria-hidden="true"></i></span> <button class="filter-chip is-active" type="button" data-clear-group="level">Tous les niveaux</button> <button class="filter-chip" type="button" data-level-fragment="Introduction">Introduction</button> <button class="filter-chip" type="button" data-level-fragment="Intermédiaire">Intermédiaire</button> <button class="filter-chip" type="button" data-level-fragment="avancé">Avancé</button> <span class="filter-spacer"></span> <button class="more-filters" type="button" data-toggle-mobile-filters="" aria-controls="catalogue-filters" aria-expanded="false">Filtres détaillés <i class="bi bi-sliders" aria-hidden="true"></i></button> <button class="catalogue-reset-link top-reset" type="button" data-reset-catalogue="">Réinitialiser</button></p>
 </div>
 </div>
 </div>
 <div class="catalogue-layout">
-<div class="catalogue-sidebar" role="complementary" aria-label="Filtres du catalogue">
+<div id="catalogue-filters" class="catalogue-sidebar" role="complementary" aria-label="Filtres du catalogue">
 <div class="catalogue-sidebar-head">
 <h2 class="anchored">
 Affiner les résultats
@@ -236,6 +241,9 @@ Licence
 </h3>
 <label class="filter-option" for="license-1"><input id="license-1" type="checkbox" name="license" value="Attribution (CC-BY 4.0) selon les métadonnées CKAN vérifiées le 2026-06-21"><span>Attribution (CC-BY 4.0) selon les métadonnées CKAN vérifiées le 2026-06-21</span><strong>15</strong></label> <label class="filter-option" for="license-2"><input id="license-2" type="checkbox" name="license" value="Attribution (CC-BY 4.0)"><span>Attribution (CC-BY 4.0)</span><strong>2</strong></label> <label class="filter-option" for="license-3"><input id="license-3" type="checkbox" name="license" value="Attribution (CC-BY 4.0) selon les métadonnées CKAN vérifiées le 2026-06-20"><span>Attribution (CC-BY 4.0) selon les métadonnées CKAN vérifiées le 2026-06-20</span><strong>2</strong></label> <label class="filter-option is-extra" for="license-4"><input id="license-4" type="checkbox" name="license" value="Reproduction de l'information du site de l'Institut de la statistique du Québec interdite sauf permission écrite."><span>Reproduction de l'information du site de l'Institut de la statistique du Québec interdite sauf permission écrite.</span><strong>2</strong></label> <label class="filter-option is-extra" for="license-5"><input id="license-5" type="checkbox" name="license" value="Attribution (CC-BY 4.0) selon les métadonnées CKAN vérifiées le 2026-06-20; paquet UlavalSSD sous licence MIT"><span>Attribution (CC-BY 4.0) selon les métadonnées CKAN vérifiées le 2026-06-20; paquet UlavalSSD sous licence MIT</span><strong>1</strong></label> <label class="filter-option is-extra" for="license-6"><input id="license-6" type="checkbox" name="license" value="Attribution (CC-BY 4.0) selon les métadonnées CKAN; conditions RTC à respecter pour la provenance et la date de mise à jour"><span>Attribution (CC-BY 4.0) selon les métadonnées CKAN; conditions RTC à respecter pour la provenance et la date de mise à jour</span><strong>1</strong></label> <label class="filter-option is-extra" for="license-7"><input id="license-7" type="checkbox" name="license" value="Aucune licence ouverte explicite identifiée pour les données sources; réutilisation publique à valider auprès de l'Université Laval ou par avis juridique."><span>Aucune licence ouverte explicite identifiée pour les données sources; réutilisation publique à valider auprès de l'Université Laval ou par avis juridique.</span><strong>1</strong></label> <label class="filter-option is-extra" for="license-8"><input id="license-8" type="checkbox" name="license" value="Données ECCC soumises à l'entente de licence d'ECCC; paquet UlavalSSD sous licence MIT"><span>Données ECCC soumises à l'entente de licence d'ECCC; paquet UlavalSSD sous licence MIT</span><strong>1</strong></label> <label class="filter-option is-extra" for="license-9"><input id="license-9" type="checkbox" name="license" value="Licence ouverte de Statistique Canada"><span>Licence ouverte de Statistique Canada</span><strong>1</strong></label> <button class="filter-more" type="button" data-toggle-filter-group="license">Voir plus</button>
 </div>
+<button class="catalogue-filters-close" type="button" data-close-mobile-filters="">
+Fermer les filtres
+</button>
 </div>
 <main class="catalogue-results">
 <div class="catalogue-results-bar">
@@ -1095,6 +1103,10 @@ Aucune fiche ne correspond aux filtres actuels.
   const emptyNode = root.querySelector("[data-empty-catalogue]");
   const grid = root.querySelector(".dataset-grid");
   const cards = Array.from(root.querySelectorAll(".dataset-card"));
+  const filterSidebar = root.querySelector(".catalogue-sidebar");
+  const mobileFiltersButton = root.querySelector("[data-toggle-mobile-filters]");
+  const mobileFiltersCloseButton = root.querySelector("[data-close-mobile-filters]");
+  const intentButtons = Array.from(root.querySelectorAll("[data-intent-family]"));
   let activeLevelFragment = "";
   const normalize = function (value) {
     return (value || "").toString().toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
@@ -1149,6 +1161,11 @@ Aucune fiche ne correspond aux filtres actuels.
     root.querySelectorAll("[data-level-fragment]").forEach(function (button) {
       button.classList.toggle("is-active", button.dataset.levelFragment === activeLevelFragment);
     });
+    intentButtons.forEach(function (button) {
+      const isActive = conceptFamilies.length === 1 && conceptFamilies[0] === button.dataset.intentFamily;
+      button.classList.toggle("is-active", isActive);
+      button.setAttribute("aria-pressed", String(isActive));
+    });
   };
   searchInput.addEventListener("input", update);
   if (sortSelect) sortSelect.addEventListener("change", function () { sortCards(); update(); });
@@ -1170,6 +1187,16 @@ Aucune fiche ne correspond aux filtres actuels.
       update();
     });
   });
+  intentButtons.forEach(function (button) {
+    button.addEventListener("click", function () {
+      root.querySelectorAll("input[name=\"concept-family\"]").forEach(function (input) { input.checked = input.value === button.dataset.intentFamily; });
+      root.querySelectorAll("input[name=\"concept\"]").forEach(function (input) { input.checked = false; });
+      searchInput.value = "";
+      activeLevelFragment = "";
+      update();
+      root.querySelector(".catalogue-results")?.scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+  });
   root.querySelectorAll("[data-toggle-filter-group]").forEach(function (button) {
     button.addEventListener("click", function () {
       const group = button.closest(".filter-group");
@@ -1177,8 +1204,27 @@ Aucune fiche ne correspond aux filtres actuels.
       button.textContent = group.classList.contains("is-expanded") ? "Voir moins" : "Voir plus";
     });
   });
-  root.querySelector("[data-focus-filters]")?.addEventListener("click", function () {
-    root.querySelector(".catalogue-sidebar")?.scrollIntoView({ behavior: "smooth", block: "start" });
+  const setMobileFiltersOpen = function (open, returnFocus) {
+    if (!filterSidebar || !mobileFiltersButton) return;
+    filterSidebar.classList.toggle("is-mobile-open", open);
+    mobileFiltersButton.setAttribute("aria-expanded", String(open));
+    if (open) {
+      filterSidebar.scrollIntoView({ behavior: "smooth", block: "start" });
+      window.setTimeout(function () { filterSidebar.querySelector("input, button")?.focus(); }, 250);
+    } else if (returnFocus) {
+      mobileFiltersButton.focus();
+    }
+  };
+  mobileFiltersButton?.addEventListener("click", function () {
+    if (window.matchMedia("(max-width: 900px)").matches) {
+      setMobileFiltersOpen(!filterSidebar.classList.contains("is-mobile-open"), false);
+    } else {
+      filterSidebar?.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  });
+  mobileFiltersCloseButton?.addEventListener("click", function () { setMobileFiltersOpen(false, true); });
+  window.addEventListener("resize", function () {
+    if (!window.matchMedia("(max-width: 900px)").matches) setMobileFiltersOpen(false, false);
   });
   resetButtons.forEach(function (button) {
     button.addEventListener("click", function () {
