@@ -78,7 +78,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-27b7f237192eb03e5555e2d61f6c5099.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-678eb615bd8f57929f3ad5b5079cb7e5.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -216,23 +216,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">Mini-projet - Concevoir un protocole d’archivage GTFS-realtime</h1>
-</div>
-
-
-
-<div class="quarto-title-meta">
-
-    
-  
-    
-  </div>
-  
-
-
-</header>
 
 
 <section id="mini-projet---concevoir-un-protocole-darchivage-gtfs-realtime" class="level1">
@@ -438,6 +421,184 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Prudence de l’interprétation statistique.</li>
 <li>Qualité de la communication écrite.</li>
 </ul>
+<section class="activity-contract" aria-labelledby="activity-contract-retards-transport-collectif-long">
+<p class="activity-contract-kicker">
+Fiche de mise en œuvre
+</p>
+<h2 id="activity-contract-retards-transport-collectif-long" class="anchored">
+Contrat pédagogique
+</h2>
+<p>
+Le statut pédagogique décrit le degré de préparation de l’activité. Il ne remplace pas la vérification de la source de données.
+</p>
+<dl>
+<div>
+<dt>
+Objectifs d'apprentissage
+</dt>
+<dd>
+<ul>
+<li>
+Travailler flux temps réel.
+</li>
+<li>
+Travailler séries temporelles.
+</li>
+<li>
+Travailler échantillonnage temporel.
+</li>
+<li>
+Travailler données manquantes.
+</li>
+<li>
+Nommer au moins une limite d'interprétation.
+</li>
+<li>
+Vérifier que <code>data/processed/retards-transport-collectif/resume_retards_transport.csv</code> est disponible; aucune collecte en direct n'est nécessaire pour lancer l'activité.
+</li>
+<li>
+Fichier préparé : <code>data/processed/retards-transport-collectif/resume_retards_transport.csv</code>.
+</li>
+<li>
+Script de préparation : <code>datasets/retards-transport-collectif/preparation.R</code>.
+</li>
+<li>
+Point à surveiller : Évaluer la qualité du protocole et la prudence statistique plutôt que la capacité à accéder au flux en direct.
+</li>
+<li>
+Évaluer la qualité du protocole et la prudence statistique plutôt que la capacité à accéder au flux en direct.
+</li>
+<li>
+Si une variable ou un dénominateur nécessaire n'est pas disponible dans les données, l'écrire explicitement plutôt que l'inférer.
+</li>
+<li>
+une position de véhicule à un instant donné;
+</li>
+<li>
+une mise à jour de trajet;
+</li>
+<li>
+une mise à jour de passage à un arrêt;
+</li>
+<li>
+une alerte de service.
+</li>
+<li>
+<code>collection_time</code>;
+</li>
+<li>
+<code>message_type</code>;
+</li>
+<li>
+<code>route_id</code>;
+</li>
+<li>
+<code>trip_id</code> ou <code>vehicle_id</code>;
+</li>
+<li>
+<code>stop_id</code>, si l'unité est liée aux arrêts;
+</li>
+<li>
+<code>delay_seconds</code>, si le champ est présent;
+</li>
+<li>
+<code>retard_minutes</code>, comme variable dérivée;
+</li>
+<li>
+un indicateur de données manquantes ou de message incomplet.
+</li>
+<li>
+Exactitude de la description de la source.
+</li>
+<li>
+Cohérence entre la question, l'unité statistique et les variables.
+</li>
+<li>
+Reproductibilité du protocole.
+</li>
+<li>
+Gestion explicite des données manquantes et des erreurs de collecte.
+</li>
+<li>
+Prudence de l'interprétation statistique.
+</li>
+<li>
+Qualité de la communication écrite.
+</li>
+</ul>
+</dd>
+</div>
+<div>
+<dt>
+Prérequis
+</dt>
+<dd>
+<ul>
+<li>
+Vérifier le fichier ou le script de préparation annoncé avant la séance; adapter la mise en route au niveau indiqué.
+</li>
+</ul>
+</dd>
+</div>
+<div>
+<dt>
+Préparation enseignante
+</dt>
+<dd>
+<ul>
+<li>
+Vérifier que <code>data/processed/retards-transport-collectif/resume_retards_transport.csv</code> est disponible; aucune collecte en direct n'est nécessaire pour lancer l'activité.
+</li>
+</ul>
+</dd>
+</div>
+<div>
+<dt>
+Production attendue
+</dt>
+<dd>
+<ul>
+<li>
+Un protocole ou une note d'audit qui distingue ce qui est vérifié, ce qui manque et ce qui ne peut pas encore être mesuré.
+</li>
+</ul>
+</dd>
+</div>
+<div>
+<dt>
+Critères de réussite
+</dt>
+<dd>
+<ul>
+<li>
+La production attendue est remise : Un protocole ou une note d'audit qui distingue ce qui est vérifié, ce qui manque et ce qui ne peut pas encore être mesuré.
+</li>
+<li>
+Les résultats sont interprétés sans dépasser les limites de la source.
+</li>
+</ul>
+</dd>
+</div>
+<div>
+<dt>
+Adaptations possibles
+</dt>
+<dd>
+<ul>
+<li>
+Fournir une table préparée ou réduire le nombre de variables pour une première utilisation.
+</li>
+<li>
+Ajouter une comparaison, une justification méthodologique ou une discussion des limites pour approfondir.
+</li>
+</ul>
+</dd>
+</div>
+</dl>
+<p class="activity-contract-status">
+<strong>Statut pédagogique :</strong> Prête à enseigner
+</p>
+</section>
 
 
 </section>

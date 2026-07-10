@@ -103,3 +103,12 @@ Quels liens observe-t-on entre IMSE, SFR et nombre d'élèves parmi les écoles 
 ## Pistes de solution
 
 Une bonne réponse distingue les écoles diffusées et non diffusées avant toute analyse numérique. Une réponse excellente explique que les lignes non diffusées ne doivent pas recevoir un indice prédit présenté comme officiel.
+
+```{r}
+#| label: activity-pedagogical-contract
+#| echo: false
+#| results: asis
+contract_source_path <- if (file.exists("R/utils_activity_contract.R")) "R/utils_activity_contract.R" else "../../R/utils_activity_contract.R"
+source(contract_source_path)
+render_activity_contract()
+```

@@ -1,0 +1,39 @@
+---
+title: "Séquence - Préparer, analyser et communiquer"
+toc: true
+format:
+  html:
+    embed-resources: true
+---
+
+# Préparer, analyser et communiquer
+
+## Positionnement
+
+Cette séquence adaptable est conçue pour un travail plus long. Elle ne prescrit pas un cours particulier et ne prétend pas avoir été testée en classe.
+
+## Objectifs d'apprentissage
+
+- Documenter les transformations réalisées lors de la préparation de données.
+- Produire une analyse descriptive reproductible.
+- Communiquer les résultats, les choix méthodologiques et les limites dans un même livrable.
+
+## Déroulement suggéré
+
+1. Commencer par le [module nettoyage](module-nettoyage.qmd) pour rendre les transformations visibles.
+2. Utiliser le [Laboratoire - Disponibilité instantanée des stations BIXI](../datasets/bixi/activite-courte.qmd) comme préparation guidée.
+3. Faire produire le [Mini-projet - Rapport BIXI sur un instantané GBFS](../datasets/bixi/activite-longue.qmd), ou une activité longue comparable du catalogue.
+
+## Production attendue
+
+Un dépôt ou document reproductible contenant le script, un tableau ou graphique, une réponse à la question directrice et une section de limites.
+
+## Critères de réussite
+
+- Les transformations sont traçables dans un script ou un document reproductible.
+- Les indicateurs utilisent une unité statistique et un dénominateur cohérents.
+- Les conclusions séparent les résultats observés des hypothèses ou questions restantes.
+
+## Adaptations
+
+Fournir un squelette de document ou une table préparée lorsque le temps est limité. Pour approfondir, demander une analyse de sensibilité ou une comparaison de plusieurs instantanés.

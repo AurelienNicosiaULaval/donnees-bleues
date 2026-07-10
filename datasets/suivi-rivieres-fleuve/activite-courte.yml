@@ -34,3 +34,21 @@ requires_prepared_data: yes
 requires_live_download: no
 recommended_use: Exercice guidé
 result_visible_in_page: yes
+
+learning_objectives:
+  - "Importer une table préparée à partir d'un ZIP officiel."
+  - "Identifier l'unité statistique d'une observation environnementale agrégée."
+  - "Choisir une station avec suffisamment d'années d'observation."
+  - "Produire un graphique temporel lisible."
+  - "Formuler une conclusion prudente."
+
+prerequisites:
+  - "Vérifier le fichier ou le script de préparation annoncé avant la séance; adapter la mise en route au niveau indiqué."
+
+success_criteria:
+  - "La production attendue est remise : Un tableau ou graphique descriptif accompagné de trois phrases d'interprétation prudente."
+  - "Les résultats sont interprétés sans dépasser les limites de la source."
+
+adaptations:
+  - "Fournir une table préparée ou réduire le nombre de variables pour une première utilisation."
+  - "Ajouter une comparaison, une justification méthodologique ou une discussion des limites pour approfondir."

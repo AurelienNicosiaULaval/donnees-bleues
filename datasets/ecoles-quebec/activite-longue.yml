@@ -38,3 +38,33 @@ requires_prepared_data: yes
 requires_live_download: yes
 recommended_use: Mini-projet guidé
 result_visible_in_page: yes
+
+learning_objectives:
+  - "Travailler géolocalisation."
+  - "Travailler cartographie."
+  - "Travailler jointures."
+  - "Travailler unité statistique."
+  - "Nommer au moins une limite d'interprétation."
+  - "Préparation requise : exécuter `Rscript datasets/ecoles-quebec/preparation.R` depuis la racine, puis vérifier que `data/processed/ecoles-quebec/ecoles_publiques_quebec.csv` existe."
+  - "Fichier préparé : `data/processed/ecoles-quebec/ecoles_publiques_quebec.csv`."
+  - "Script de préparation : `datasets/ecoles-quebec/preparation.R`."
+  - "Point à surveiller : Demander une comparaison explicite entre lignes, organismes et immeubles, puis une limite sur l'accès scolaire."
+  - "Demander une comparaison explicite entre lignes, organismes et immeubles, puis une limite sur l'accès scolaire."
+  - "Si une variable ou un dénominateur nécessaire n'est pas disponible dans les données, l'écrire explicitement plutôt que l'inférer."
+  - "Reproductibilité du traitement."
+  - "Qualité des noms de variables."
+  - "Pertinence des regroupements."
+  - "Lisibilité des graphiques."
+  - "Prudence de l'interprétation."
+  - "Distinction claire entre carte descriptive et mesure d'accès."
+
+prerequisites:
+  - "Vérifier le fichier ou le script de préparation annoncé avant la séance; adapter la mise en route au niveau indiqué."
+
+success_criteria:
+  - "La production attendue est remise : Un court rapport reproductible avec contexte, tableau ou graphique, interprétation et limites."
+  - "Les résultats sont interprétés sans dépasser les limites de la source."
+
+adaptations:
+  - "Fournir une table préparée ou réduire le nombre de variables pour une première utilisation."
+  - "Ajouter une comparaison, une justification méthodologique ou une discussion des limites pour approfondir."

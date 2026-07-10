@@ -1,6 +1,7 @@
 source("R/utils_catalogue.R")
 source("R/utils_activities.R")
 source("R/utils_card_images.R")
+source("R/utils_site_validation.R")
 
 run_quarto <- function(args) {
   status <- system2("quarto", args, stdout = TRUE, stderr = TRUE)
@@ -23,6 +24,8 @@ site_inputs <- function() {
     "activites.qmd",
     "about.qmd",
     "contribuer.qmd",
+    "retours-classe.qmd",
+    "sequences.qmd",
     "references.qmd",
     "credits-images.qmd",
     "donnees-ulaval.qmd"
@@ -43,9 +46,13 @@ saveRDS(catalogue, "data/metadata/catalogue.rds")
 
 catalogue_activites <- build_activity_catalogue("datasets")
 validate_activity_catalogue(catalogue_activites)
+validate_activity_contract_renderers(catalogue_activites)
+validate_documented_paths()
 write_activity_catalogue(catalogue_activites, "data/metadata/catalogue_activites.csv")
 saveRDS(catalogue_activites, "data/metadata/catalogue_activites.rds")
 
 for (input in site_inputs()) {
   run_quarto(c("render", input, "--execute", "--no-cache", "--no-clean"))
 }
+
+postprocess_site_headings("docs")

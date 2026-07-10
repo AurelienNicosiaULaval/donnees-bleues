@@ -991,7 +991,6 @@ body:has(.dataset-detail-page) main.content {
 body:has(.catalogue-reference) .navbar {
   background: #ffffff !important;
   border-bottom: 1px solid #e5e7eb;
-  height: 58px;
   box-shadow: none;
   min-height: 58px;
 }
@@ -3900,6 +3899,288 @@ body:has(.activities-page) main.content {
   .act-hero-actions {
     align-items: stretch;
     flex-direction: column;
+  }
+}
+
+/* Audit 2026-07: mobile navigation, catalogue entry points and activity contracts. */
+.navbar-toggler {
+  border-color: rgba(23, 32, 51, 0.35);
+  color: var(--db-ink);
+}
+
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='%23172033' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
+}
+
+.catalogue-intent-panel {
+  border-top: 1px solid #d9e2ef;
+  margin-top: 1.2rem;
+  max-width: 560px;
+  padding-top: 1rem;
+}
+
+.catalogue-intent-panel h2 {
+  color: #172033;
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: 0;
+  margin: 0 0 0.35rem;
+}
+
+.catalogue-intent-panel > p {
+  color: #5b677d;
+  font-size: 0.8rem;
+  line-height: 1.35;
+  margin: 0 0 0.7rem;
+}
+
+.catalogue-intent-grid {
+  display: grid;
+  gap: 0.45rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.catalogue-intent {
+  background: #ffffff;
+  border: 1px solid #d3dfef;
+  border-radius: 5px;
+  color: #172033;
+  cursor: pointer;
+  display: grid;
+  font: inherit;
+  gap: 0.16rem;
+  min-height: 64px;
+  padding: 0.58rem 0.65rem;
+  text-align: left;
+}
+
+.catalogue-intent:hover,
+.catalogue-intent:focus-visible,
+.catalogue-intent.is-active {
+  background: #eef5ff;
+  border-color: #0b57d0;
+  color: #0045a5;
+}
+
+.catalogue-intent span {
+  font-size: 0.8rem;
+  font-weight: 750;
+  line-height: 1.2;
+}
+
+.catalogue-intent small {
+  color: #5b677d;
+  font-size: 0.71rem;
+  line-height: 1.25;
+}
+
+.catalogue-filters-close {
+  display: none;
+}
+
+.catalogue-layout.page-columns {
+  grid-template-columns: 220px minmax(0, 1fr) !important;
+}
+
+.catalogue-layout.page-columns > .catalogue-sidebar {
+  grid-column: 1;
+}
+
+.catalogue-layout.page-columns > .catalogue-results {
+  grid-column: 2;
+}
+
+.act-course-planner {
+  background: #f8fbff;
+  border: 1px solid #d8e6f8;
+  border-radius: 6px;
+  margin-top: 2rem;
+  padding: 1.15rem;
+}
+
+.act-course-planner .dataset-button {
+  margin-top: 0.9rem;
+}
+
+.act-course-planner-form {
+  align-items: end;
+  display: grid;
+  gap: 0.75rem;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin-top: 1rem;
+}
+
+.act-course-planner-form label {
+  color: #344054;
+  display: grid;
+  font-size: 0.8rem;
+  font-weight: 800;
+  gap: 0.35rem;
+}
+
+.act-course-planner-form select {
+  background: #ffffff;
+  border: 1px solid #c9d7e9;
+  border-radius: 5px;
+  color: #172033;
+  font: inherit;
+  min-height: 42px;
+  padding: 0.35rem 0.5rem;
+  width: 100%;
+}
+
+.act-course-planner-form .dataset-button {
+  margin: 0;
+  min-height: 42px;
+}
+
+.activity-contract {
+  background: #f8fbff;
+  border: 1px solid #d8e6f8;
+  border-radius: 6px;
+  color: #172033;
+  margin: 2rem 0;
+  padding: 1.1rem;
+}
+
+.activity-contract-kicker {
+  color: #0045a5;
+  font-size: 0.75rem;
+  font-weight: 850;
+  letter-spacing: 0.04em;
+  margin: 0 0 0.3rem;
+  text-transform: uppercase;
+}
+
+.activity-contract h2 {
+  color: #101828;
+  font-size: 1.4rem;
+  margin: 0 0 0.45rem;
+}
+
+.activity-contract > p:not(.activity-contract-kicker):not(.activity-contract-status) {
+  color: #344054;
+  line-height: 1.48;
+}
+
+.activity-contract dl {
+  display: grid;
+  gap: 0.75rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin: 1rem 0;
+}
+
+.activity-contract dl > div {
+  background: #ffffff;
+  border: 1px solid #dce7f4;
+  border-radius: 5px;
+  padding: 0.75rem;
+}
+
+.activity-contract dt {
+  color: #0045a5;
+  font-size: 0.76rem;
+  font-weight: 850;
+  margin-bottom: 0.35rem;
+}
+
+.activity-contract dd {
+  color: #344054;
+  margin: 0;
+}
+
+.activity-contract dd ul {
+  margin: 0;
+  padding-left: 1.1rem;
+}
+
+.activity-contract dd li + li {
+  margin-top: 0.35rem;
+}
+
+.activity-contract-status {
+  background: #eef8f3;
+  border: 1px solid #b9dfcb;
+  border-radius: 5px;
+  color: #1d704d;
+  margin: 0;
+  padding: 0.7rem;
+}
+
+@media (max-width: 991.98px) {
+  .navbar .navbar-container {
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .navbar-collapse {
+    background: #ffffff;
+    border-top: 1px solid #e5e7eb;
+    flex-basis: 100%;
+    margin-top: 0.55rem;
+    padding: 0.35rem 0 0.55rem;
+  }
+
+  .navbar .nav-link {
+    align-items: center;
+    display: flex;
+    min-height: 44px;
+  }
+}
+
+@media (max-width: 900px) {
+  .catalogue-layout.page-columns {
+    grid-template-columns: 1fr !important;
+  }
+
+  .catalogue-layout.page-columns > .catalogue-sidebar,
+  .catalogue-layout.page-columns > .catalogue-results {
+    grid-column: 1;
+  }
+
+  .catalogue-sidebar {
+    display: none;
+    order: 0;
+  }
+
+  .catalogue-sidebar.is-mobile-open {
+    display: block;
+  }
+
+  .catalogue-results {
+    order: 1;
+  }
+
+  .catalogue-filters-close {
+    align-items: center;
+    background: #ffffff;
+    border: 1px solid #0b57d0;
+    border-radius: 4px;
+    color: #0045a5;
+    cursor: pointer;
+    display: inline-flex;
+    font: inherit;
+    font-size: 0.84rem;
+    font-weight: 700;
+    justify-content: center;
+    margin: 0.2rem 0 0.8rem;
+    min-height: 44px;
+    padding: 0.5rem 0.9rem;
+  }
+
+  .act-course-planner-form,
+  .activity-contract dl {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .catalogue-intent {
+    min-height: 70px;
+  }
+
+  .more-filters {
+    min-height: 44px;
   }
 }
 

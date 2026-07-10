@@ -35,3 +35,21 @@ requires_prepared_data: yes
 requires_live_download: no
 recommended_use: Audit de source
 result_visible_in_page: yes
+
+learning_objectives:
+  - "Identifier ce qui est vérifiable dans une page CKAN."
+  - "Distinguer une source opérationnelle d'une table analytique."
+  - "Définir une unité statistique avant de proposer une analyse."
+  - "Repérer les variables qui doivent être dérivées plutôt que supposées."
+  - "Rédiger une limite méthodologique claire."
+
+prerequisites:
+  - "Vérifier le fichier ou le script de préparation annoncé avant la séance; adapter la mise en route au niveau indiqué."
+
+success_criteria:
+  - "La production attendue est remise : Un protocole ou une note d'audit qui distingue ce qui est vérifié, ce qui manque et ce qui ne peut pas encore être mesuré."
+  - "Les résultats sont interprétés sans dépasser les limites de la source."
+
+adaptations:
+  - "Fournir une table préparée ou réduire le nombre de variables pour une première utilisation."
+  - "Ajouter une comparaison, une justification méthodologique ou une discussion des limites pour approfondir."

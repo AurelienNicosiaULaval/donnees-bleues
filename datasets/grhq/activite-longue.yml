@@ -37,3 +37,34 @@ requires_prepared_data: yes
 requires_live_download: yes
 recommended_use: Mini-projet guidé
 result_visible_in_page: yes
+
+learning_objectives:
+  - "Utiliser un index officiel pour limiter un téléchargement spatial"
+  - "Documenter une ressource FGDB avant son importation"
+  - "Préparer une lecture avec `sf`"
+  - "Distinguer visualisation WMS et données analysables"
+  - "Concevoir une jointure spatiale avec un autre jeu environnemental"
+  - "Communiquer les limites d'un référentiel spatial"
+  - "ne télécharge pas tout le référentiel sans justification;"
+  - "distingue index, WMS et FGDB;"
+  - "indique clairement ce que représente une ligne de l'index;"
+  - "propose un code de lecture spatial réaliste;"
+  - "formule une question d'analyse compatible avec les données;"
+  - "cite la source et la licence;"
+  - "documente les limites de taille, de projection et de précision."
+  - "Comparer le rendu WMS simple et détaillé."
+  - "Lire une couche FGDB avec `sf`."
+  - "Joindre des stations de qualité de l'eau à une unité GRHQ."
+  - "Simplifier une géométrie pour une carte web."
+  - "Discuter la différence entre données de référence et données d'observation."
+
+prerequisites:
+  - "Vérifier le fichier ou le script de préparation annoncé avant la séance; adapter la mise en route au niveau indiqué."
+
+success_criteria:
+  - "La production attendue est remise : Un court rapport reproductible avec contexte, tableau ou graphique, interprétation et limites."
+  - "Les résultats sont interprétés sans dépasser les limites de la source."
+
+adaptations:
+  - "Fournir une table préparée ou réduire le nombre de variables pour une première utilisation."
+  - "Ajouter une comparaison, une justification méthodologique ou une discussion des limites pour approfondir."

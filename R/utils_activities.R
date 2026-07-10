@@ -22,11 +22,26 @@ required_activity_fields <- function() {
     "pedagogical_status",
     "teacher_preparation",
     "expected_output",
+    "learning_objectives",
+    "prerequisites",
+    "success_criteria",
+    "adaptations",
     "requires_prepared_data",
     "requires_live_download",
     "recommended_use",
     "result_visible_in_page",
     "status"
+  )
+}
+
+required_activity_contract_fields <- function() {
+  c(
+    "learning_objectives",
+    "prerequisites",
+    "teacher_preparation",
+    "expected_output",
+    "success_criteria",
+    "adaptations"
   )
 }
 
@@ -87,6 +102,10 @@ activity_metadata_row <- function(metadata, metadata_path) {
     pedagogical_status = metadata$pedagogical_status,
     teacher_preparation = metadata$teacher_preparation,
     expected_output = metadata$expected_output,
+    learning_objectives = collapse_activity_field(metadata$learning_objectives),
+    prerequisites = collapse_activity_field(metadata$prerequisites),
+    success_criteria = collapse_activity_field(metadata$success_criteria),
+    adaptations = collapse_activity_field(metadata$adaptations),
     requires_prepared_data = as.logical(metadata$requires_prepared_data),
     requires_live_download = as.logical(metadata$requires_live_download),
     recommended_use = metadata$recommended_use,
@@ -166,6 +185,14 @@ validate_activity_catalogue <- function(catalogue) {
   for (field in text_fields) {
     if (any(is.na(catalogue[[field]]) | catalogue[[field]] == "")) {
       stop("Le champ d'activité ", field, " doit être non vide.", call. = FALSE)
+    }
+  }
+
+  contract_fields <- required_activity_contract_fields()
+  for (field in contract_fields) {
+    values <- trimws(as.character(catalogue[[field]]))
+    if (any(is.na(values) | values == "")) {
+      stop("Le champ du contrat pédagogique ", field, " doit être non vide.", call. = FALSE)
     }
   }
 
@@ -252,4 +279,24 @@ validate_activity_pages <- function(catalogue) {
   }
 
   invisible(catalogue)
+}
+
+validate_activity_contract_renderers <- function(catalogue, root = ".") {
+  paths <- file.path(root, catalogue$activity_url)
+  missing_renderer <- vapply(paths, function(path) {
+    !file.exists(path) || !any(grepl(
+      "render_activity_contract\\(\\)",
+      readLines(path, warn = FALSE, encoding = "UTF-8")
+    ))
+  }, logical(1))
+
+  if (any(missing_renderer)) {
+    stop(
+      "Chaque activité doit rendre son contrat pédagogique. Pages incomplètes : ",
+      paste(catalogue$activity_url[missing_renderer], collapse = ", "),
+      call. = FALSE
+    )
+  }
+
+  invisible(TRUE)
 }

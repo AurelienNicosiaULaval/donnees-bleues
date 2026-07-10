@@ -130,3 +130,12 @@ Une solution correcte doit produire un graphique lisible, avec `Men+` d'un côt�
 ## Prolongement
 
 Refaire la même pyramide pour le Canada, puis comparer les formes sans utiliser les effectifs absolus comme seul argument.
+
+```{r}
+#| label: activity-pedagogical-contract
+#| echo: false
+#| results: asis
+contract_source_path <- if (file.exists("R/utils_activity_contract.R")) "R/utils_activity_contract.R" else "../../R/utils_activity_contract.R"
+source(contract_source_path)
+render_activity_contract()
+```

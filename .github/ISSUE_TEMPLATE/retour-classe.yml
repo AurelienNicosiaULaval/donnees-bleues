@@ -1,0 +1,49 @@
+name: Retour après usage en classe
+description: Documenter une mise en œuvre d'activité sans renseigner de données personnelles.
+title: "Retour d'usage : "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Merci de ne pas inclure de renseignement personnel, de production étudiante identifiable ou de donnée non publiable.
+  - type: input
+    id: activity
+    attributes:
+      label: Activité utilisée
+      description: Indiquer l'identifiant ou le lien de l'activité.
+    validations:
+      required: true
+  - type: input
+    id: context
+    attributes:
+      label: Contexte général
+      description: Cours, niveau et taille approximative du groupe, seulement si ces informations peuvent être partagées.
+  - type: textarea
+    id: implementation
+    attributes:
+      label: Mise en œuvre
+      description: Indiquer la durée prévue, la durée réelle et le matériel utilisé.
+    validations:
+      required: true
+  - type: textarea
+    id: obstacles
+    attributes:
+      label: Obstacles et adaptations
+      description: Décrire les difficultés rencontrées et les adaptations apportées.
+    validations:
+      required: true
+  - type: textarea
+    id: outcomes
+    attributes:
+      label: Productions et apprentissages observés
+      description: Décrire sans identifier les personnes étudiantes.
+  - type: dropdown
+    id: reuse
+    attributes:
+      label: Recommandation de réutilisation
+      options:
+        - Oui, sans modification majeure
+        - Oui, avec adaptations
+        - Non, à revoir
+    validations:
+      required: true

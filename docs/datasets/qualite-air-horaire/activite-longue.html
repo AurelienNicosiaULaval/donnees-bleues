@@ -78,7 +78,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-27b7f237192eb03e5555e2d61f6c5099.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-678eb615bd8f57929f3ad5b5079cb7e5.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -211,23 +211,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">Tableau de bord exploratoire de la qualité de l’air</h1>
-</div>
-
-
-
-<div class="quarto-title-meta">
-
-    
-  
-    
-  </div>
-  
-
-
-</header>
 
 
 <section id="tableau-de-bord-exploratoire-de-la-qualité-de-lair" class="level1">
@@ -486,6 +469,178 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Comparer PM2.5 et O3 dans deux graphiques séparés.</li>
 <li>Créer une note de communication publique sur une journée élevée.</li>
 </ul>
+<section class="activity-contract" aria-labelledby="activity-contract-qualite-air-dashboard-long">
+<p class="activity-contract-kicker">
+Fiche de mise en œuvre
+</p>
+<h2 id="activity-contract-qualite-air-dashboard-long" class="anchored">
+Contrat pédagogique
+</h2>
+<p>
+Le statut pédagogique décrit le degré de préparation de l’activité. Il ne remplace pas la vérification de la source de données.
+</p>
+<dl>
+<div>
+<dt>
+Objectifs d'apprentissage
+</dt>
+<dd>
+<ul>
+<li>
+Travailler séries temporelles.
+</li>
+<li>
+Travailler valeurs manquantes.
+</li>
+<li>
+Travailler résumé journalier.
+</li>
+<li>
+Travailler visualisation.
+</li>
+<li>
+Nommer au moins une limite d'interprétation.
+</li>
+<li>
+Préparation requise : exécuter <code>Rscript datasets/qualite-air-horaire/preparation.R</code> depuis la racine, puis vérifier que <code>data/processed/qualite-air-horaire/resume_journalier_contaminants_2025.csv</code> existe.
+</li>
+<li>
+Fichier préparé : <code>data/processed/qualite-air-horaire/resume_journalier_contaminants_2025.csv</code>.
+</li>
+<li>
+Script de préparation : <code>datasets/qualite-air-horaire/preparation.R</code>.
+</li>
+<li>
+Point à surveiller : Demander une section qui distingue observation élevée, hypothèse explicative et preuve causale.
+</li>
+<li>
+Demander une section qui distingue observation élevée, hypothèse explicative et preuve causale.
+</li>
+<li>
+Si une variable ou un dénominateur nécessaire n'est pas disponible dans les données, l'écrire explicitement plutôt que l'inférer.
+</li>
+<li>
+une courte description de la source;
+</li>
+<li>
+une section sur les valeurs manquantes;
+</li>
+<li>
+un graphique temporel pour PM2.5;
+</li>
+<li>
+un graphique ou tableau comparant plusieurs contaminants;
+</li>
+<li>
+une sélection d'une station ou d'une période;
+</li>
+<li>
+une section de limites;
+</li>
+<li>
+le code reproductible.
+</li>
+<li>
+<code>data/processed/qualite-air-horaire/resume_journalier_contaminants_2025.csv</code>;
+</li>
+<li>
+<code>data/processed/qualite-air-horaire/resume_contaminants_2025.csv</code>;
+</li>
+<li>
+<code>data/processed/qualite-air-horaire/resume_stations_2025.csv</code>;
+</li>
+<li>
+<code>data/processed/qualite-air-horaire/episodes_pm25_2025.csv</code>;
+</li>
+<li>
+<code>data/processed/qualite-air-horaire/valeurs_manquantes_contaminants_2025.csv</code>.
+</li>
+<li>
+Construire un tableau de bord Shiny avec choix de station et contaminant.
+</li>
+<li>
+Ajouter une carte si des coordonnées de stations sont jointes à partir d'une autre source.
+</li>
+<li>
+Comparer PM2.5 et O3 dans deux graphiques séparés.
+</li>
+<li>
+Créer une note de communication publique sur une journée élevée.
+</li>
+</ul>
+</dd>
+</div>
+<div>
+<dt>
+Prérequis
+</dt>
+<dd>
+<ul>
+<li>
+Vérifier le fichier ou le script de préparation annoncé avant la séance; adapter la mise en route au niveau indiqué.
+</li>
+</ul>
+</dd>
+</div>
+<div>
+<dt>
+Préparation enseignante
+</dt>
+<dd>
+<ul>
+<li>
+Préparation requise : exécuter <code>Rscript datasets/qualite-air-horaire/preparation.R</code> depuis la racine, puis vérifier que <code>data/processed/qualite-air-horaire/resume_journalier_contaminants_2025.csv</code> existe.
+</li>
+</ul>
+</dd>
+</div>
+<div>
+<dt>
+Production attendue
+</dt>
+<dd>
+<ul>
+<li>
+Un court rapport reproductible avec contexte, tableau ou graphique, interprétation et limites.
+</li>
+</ul>
+</dd>
+</div>
+<div>
+<dt>
+Critères de réussite
+</dt>
+<dd>
+<ul>
+<li>
+La production attendue est remise : Un court rapport reproductible avec contexte, tableau ou graphique, interprétation et limites.
+</li>
+<li>
+Les résultats sont interprétés sans dépasser les limites de la source.
+</li>
+</ul>
+</dd>
+</div>
+<div>
+<dt>
+Adaptations possibles
+</dt>
+<dd>
+<ul>
+<li>
+Fournir une table préparée ou réduire le nombre de variables pour une première utilisation.
+</li>
+<li>
+Ajouter une comparaison, une justification méthodologique ou une discussion des limites pour approfondir.
+</li>
+</ul>
+</dd>
+</div>
+</dl>
+<p class="activity-contract-status">
+<strong>Statut pédagogique :</strong> Prête à enseigner
+</p>
+</section>
 
 
 </section>

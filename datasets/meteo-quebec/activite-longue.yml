@@ -38,3 +38,35 @@ requires_prepared_data: yes
 requires_live_download: no
 recommended_use: Mini-projet guidé
 result_visible_in_page: yes
+
+learning_objectives:
+  - "Construire un court rapport Quarto reproductible"
+  - "Préparer et importer une table météorologique"
+  - "Résumer les températures et les précipitations"
+  - "Visualiser une série temporelle quotidienne"
+  - "Comparer des distributions saisonnières"
+  - "Documenter les valeurs manquantes"
+  - "Distinguer analyse descriptive et conclusion climatique"
+  - "utilise une variable `date` correcte;"
+  - "cite la source pédagogique et la source primaire;"
+  - "présente les valeurs manquantes avant les conclusions;"
+  - "contient deux graphiques lisibles;"
+  - "indique les unités des variables;"
+  - "ne généralise pas à tout le Québec;"
+  - "distingue météo quotidienne et climat."
+  - "Calculer le nombre de jours sous -20 °C par année."
+  - "Décrire les journées de précipitations extrêmes."
+  - "Comparer les résultats avant et après 2000."
+  - "Ajouter une source sur les normales climatiques."
+  - "Construire une courte capsule sur la différence entre météo, variabilité et climat."
+
+prerequisites:
+  - "Vérifier le fichier ou le script de préparation annoncé avant la séance; adapter la mise en route au niveau indiqué."
+
+success_criteria:
+  - "La production attendue est remise : Un court rapport reproductible avec contexte, tableau ou graphique, interprétation et limites."
+  - "Les résultats sont interprétés sans dépasser les limites de la source."
+
+adaptations:
+  - "Fournir une table préparée ou réduire le nombre de variables pour une première utilisation."
+  - "Ajouter une comparaison, une justification méthodologique ou une discussion des limites pour approfondir."

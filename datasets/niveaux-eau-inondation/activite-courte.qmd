@@ -150,3 +150,12 @@ Une solution acceptable présente une carte et indique explicitement qu'un point
 ## Prolongement
 
 Filtrer une seule année, refaire la carte et comparer visuellement la concentration des observations.
+
+```{r}
+#| label: activity-pedagogical-contract
+#| echo: false
+#| results: asis
+contract_source_path <- if (file.exists("R/utils_activity_contract.R")) "R/utils_activity_contract.R" else "../../R/utils_activity_contract.R"
+source(contract_source_path)
+render_activity_contract()
+```

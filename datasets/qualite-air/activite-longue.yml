@@ -37,3 +37,31 @@ requires_prepared_data: yes
 requires_live_download: no
 recommended_use: Mini-projet guidé
 result_visible_in_page: yes
+
+learning_objectives:
+  - "Travailler Données et mesure."
+  - "Travailler Dates."
+  - "Travailler Carte de points."
+  - "Travailler Couverture territoriale."
+  - "Nommer au moins une limite d'interprétation."
+  - "Vérifier que `data/processed/qualite-air/rsqaq_stations.csv` est disponible; aucune collecte en direct n'est nécessaire pour lancer l'activité."
+  - "Fichier préparé : `data/processed/qualite-air/rsqaq_stations.csv`."
+  - "Script de préparation : `datasets/qualite-air/preparation.R`."
+  - "Point à surveiller : Exiger une section qui distingue répertoire de stations, mesures horaires, contaminants et qualité de l'air."
+  - "Exiger une section qui distingue répertoire de stations, mesures horaires, contaminants et qualité de l'air."
+  - "Si une variable ou un dénominateur nécessaire n'est pas disponible dans les données, l'écrire explicitement plutôt que l'inférer."
+  - "`data/processed/qualite-air/rsqaq_stations.csv`"
+  - "`data/processed/qualite-air/resume_regions_rsqaq_stations.csv`"
+  - "`data/processed/qualite-air/resume_decennies_ouverture_rsqaq_stations.csv`"
+  - "`data/processed/qualite-air/valeurs_manquantes_rsqaq_stations.csv`"
+
+prerequisites:
+  - "Vérifier le fichier ou le script de préparation annoncé avant la séance; adapter la mise en route au niveau indiqué."
+
+success_criteria:
+  - "La production attendue est remise : Un court rapport reproductible avec contexte, tableau ou graphique, interprétation et limites."
+  - "Les résultats sont interprétés sans dépasser les limites de la source."
+
+adaptations:
+  - "Fournir une table préparée ou réduire le nombre de variables pour une première utilisation."
+  - "Ajouter une comparaison, une justification méthodologique ou une discussion des limites pour approfondir."

@@ -38,3 +38,39 @@ requires_prepared_data: yes
 requires_live_download: no
 recommended_use: Mini-projet guidé
 result_visible_in_page: yes
+
+learning_objectives:
+  - "Travailler Séries temporelles agrégées."
+  - "Travailler Visualisation."
+  - "Travailler Données spatiales."
+  - "Travailler Jointure."
+  - "Nommer au moins une limite d'interprétation."
+  - "Vérifier que `data/processed/suivi-rivieres-fleuve/stations_qualite_eau_aires.csv` est disponible; aucune collecte en direct n'est nécessaire pour lancer l'activité."
+  - "Fichier préparé : `data/processed/suivi-rivieres-fleuve/stations_qualite_eau_aires.csv`."
+  - "Script de préparation : `datasets/suivi-rivieres-fleuve/preparation.R`."
+  - "Point à surveiller : Exiger une section séparée sur les limites: période, unité statistique, valeurs manquantes et causalité."
+  - "Exiger une section séparée sur les limites: période, unité statistique, valeurs manquantes et causalité."
+  - "Si une variable ou un dénominateur nécessaire n'est pas disponible dans les données, l'écrire explicitement plutôt que l'inférer."
+  - "`ptot_med_mgl`;"
+  - "`ntot_med_mgl`;"
+  - "`nox_med_mgl`;"
+  - "`chla_med_ugl`;"
+  - "`cf_med_ufc`;"
+  - "`iqbp_med`."
+  - "Exactitude de la description de la source et de l'unité statistique."
+  - "Qualité du choix des stations ou bassins."
+  - "Respect des unités et des valeurs manquantes."
+  - "Lisibilité des graphiques."
+  - "Prudence de la conclusion environnementale."
+  - "Reproductibilité du code."
+
+prerequisites:
+  - "Vérifier le fichier ou le script de préparation annoncé avant la séance; adapter la mise en route au niveau indiqué."
+
+success_criteria:
+  - "La production attendue est remise : Un court rapport reproductible avec contexte, tableau ou graphique, interprétation et limites."
+  - "Les résultats sont interprétés sans dépasser les limites de la source."
+
+adaptations:
+  - "Fournir une table préparée ou réduire le nombre de variables pour une première utilisation."
+  - "Ajouter une comparaison, une justification méthodologique ou une discussion des limites pour approfondir."

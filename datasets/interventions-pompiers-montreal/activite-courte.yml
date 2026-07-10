@@ -32,3 +32,20 @@ requires_prepared_data: no
 requires_live_download: yes
 recommended_use: Exercice guidé
 result_visible_in_page: yes
+
+learning_objectives:
+  - "Identifier l'unité statistique d'un jeu administratif."
+  - "Compter les grands types d'interventions."
+  - "Produire un graphique en barres lisible."
+  - "Formuler une limite d'interprétation."
+
+prerequisites:
+  - "Aucun prérequis additionnel n'est déclaré; adapter la mise en route au niveau indiqué."
+
+success_criteria:
+  - "La production attendue est remise : Un tableau ou graphique descriptif accompagné de trois phrases d'interprétation prudente."
+  - "Les résultats sont interprétés sans dépasser les limites de la source."
+
+adaptations:
+  - "Fournir une table préparée ou réduire le nombre de variables pour une première utilisation."
+  - "Ajouter une comparaison, une justification méthodologique ou une discussion des limites pour approfondir."

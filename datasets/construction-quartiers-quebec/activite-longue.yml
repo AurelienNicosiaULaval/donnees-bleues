@@ -36,3 +36,29 @@ requires_prepared_data: yes
 requires_live_download: no
 recommended_use: Mini-projet guidé
 result_visible_in_page: yes
+
+learning_objectives:
+  - "Comprendre une jointure spatiale entre points, polygones de bâtiments et quartiers."
+  - "Comparer des quartiers avec des comptes, densités et ratios."
+  - "Visualiser plusieurs indicateurs descriptifs."
+  - "Identifier les informations absentes des sources."
+  - "Rédiger une interprétation prudente de données administratives."
+  - "`data/processed/construction-quartiers-quebec/documentation_sources.csv`;"
+  - "`data/processed/construction-quartiers-quebec/dictionnaire_variables.csv`;"
+  - "`data/processed/construction-quartiers-quebec/appariement_quartiers_resume.csv`."
+  - "Le rapport cite les trois sources officielles."
+  - "Les graphiques distinguent clairement comptes, densités et ratios."
+  - "Les variables dérivées sont définies."
+  - "Les limites sont explicites."
+  - "Aucune variable absente des sources n'est inventée."
+
+prerequisites:
+  - "Vérifier le fichier ou le script de préparation annoncé avant la séance; adapter la mise en route au niveau indiqué."
+
+success_criteria:
+  - "La production attendue est remise : Un court rapport reproductible avec contexte, tableau ou graphique, interprétation et limites."
+  - "Les résultats sont interprétés sans dépasser les limites de la source."
+
+adaptations:
+  - "Fournir une table préparée ou réduire le nombre de variables pour une première utilisation."
+  - "Ajouter une comparaison, une justification méthodologique ou une discussion des limites pour approfondir."

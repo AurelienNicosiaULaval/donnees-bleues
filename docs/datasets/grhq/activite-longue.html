@@ -78,7 +78,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-27b7f237192eb03e5555e2d61f6c5099.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-678eb615bd8f57929f3ad5b5079cb7e5.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -213,23 +213,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">Préparer une analyse spatiale avec la GRHQ</h1>
-</div>
-
-
-
-<div class="quarto-title-meta">
-
-    
-  
-    
-  </div>
-  
-
-
-</header>
 
 
 <section id="préparer-une-analyse-spatiale-avec-la-grhq" class="level1">
@@ -512,6 +495,151 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Simplifier une géométrie pour une carte web.</li>
 <li>Discuter la différence entre données de référence et données d’observation.</li>
 </ul>
+<section class="activity-contract" aria-labelledby="activity-contract-grhq-jointure-long">
+<p class="activity-contract-kicker">
+Fiche de mise en œuvre
+</p>
+<h2 id="activity-contract-grhq-jointure-long" class="anchored">
+Contrat pédagogique
+</h2>
+<p>
+Le statut pédagogique décrit le degré de préparation de l’activité. Il ne remplace pas la vérification de la source de données.
+</p>
+<dl>
+<div>
+<dt>
+Objectifs d'apprentissage
+</dt>
+<dd>
+<ul>
+<li>
+Utiliser un index officiel pour limiter un téléchargement spatial
+</li>
+<li>
+Documenter une ressource FGDB avant son importation
+</li>
+<li>
+Préparer une lecture avec <code>sf</code>
+</li>
+<li>
+Distinguer visualisation WMS et données analysables
+</li>
+<li>
+Concevoir une jointure spatiale avec un autre jeu environnemental
+</li>
+<li>
+Communiquer les limites d'un référentiel spatial
+</li>
+<li>
+ne télécharge pas tout le référentiel sans justification;
+</li>
+<li>
+distingue index, WMS et FGDB;
+</li>
+<li>
+indique clairement ce que représente une ligne de l'index;
+</li>
+<li>
+propose un code de lecture spatial réaliste;
+</li>
+<li>
+formule une question d'analyse compatible avec les données;
+</li>
+<li>
+cite la source et la licence;
+</li>
+<li>
+documente les limites de taille, de projection et de précision.
+</li>
+<li>
+Comparer le rendu WMS simple et détaillé.
+</li>
+<li>
+Lire une couche FGDB avec <code>sf</code>.
+</li>
+<li>
+Joindre des stations de qualité de l'eau à une unité GRHQ.
+</li>
+<li>
+Simplifier une géométrie pour une carte web.
+</li>
+<li>
+Discuter la différence entre données de référence et données d'observation.
+</li>
+</ul>
+</dd>
+</div>
+<div>
+<dt>
+Prérequis
+</dt>
+<dd>
+<ul>
+<li>
+Vérifier le fichier ou le script de préparation annoncé avant la séance; adapter la mise en route au niveau indiqué.
+</li>
+</ul>
+</dd>
+</div>
+<div>
+<dt>
+Préparation enseignante
+</dt>
+<dd>
+<ul>
+<li>
+Préparation requise : exécuter <code>Rscript datasets/grhq/preparation.R</code> depuis la racine, puis vérifier que <code>data/processed/grhq/grhq_index_telechargement.csv</code> existe.
+</li>
+</ul>
+</dd>
+</div>
+<div>
+<dt>
+Production attendue
+</dt>
+<dd>
+<ul>
+<li>
+Un court rapport reproductible avec contexte, tableau ou graphique, interprétation et limites.
+</li>
+</ul>
+</dd>
+</div>
+<div>
+<dt>
+Critères de réussite
+</dt>
+<dd>
+<ul>
+<li>
+La production attendue est remise : Un court rapport reproductible avec contexte, tableau ou graphique, interprétation et limites.
+</li>
+<li>
+Les résultats sont interprétés sans dépasser les limites de la source.
+</li>
+</ul>
+</dd>
+</div>
+<div>
+<dt>
+Adaptations possibles
+</dt>
+<dd>
+<ul>
+<li>
+Fournir une table préparée ou réduire le nombre de variables pour une première utilisation.
+</li>
+<li>
+Ajouter une comparaison, une justification méthodologique ou une discussion des limites pour approfondir.
+</li>
+</ul>
+</dd>
+</div>
+</dl>
+<p class="activity-contract-status">
+<strong>Statut pédagogique :</strong> Prête à enseigner
+</p>
+</section>
 
 
 </section>

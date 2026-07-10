@@ -1,0 +1,39 @@
+---
+title: "Séquence - Visualiser pour comparer"
+toc: true
+format:
+  html:
+    embed-resources: true
+---
+
+# Visualiser pour comparer
+
+## Positionnement
+
+Cette séquence adaptable relie une question de comparaison à une visualisation et à son interprétation. Elle n'est pas présentée comme testée en classe.
+
+## Objectifs d'apprentissage
+
+- Choisir un graphique compatible avec les variables et la question.
+- Rendre une visualisation lisible par ses titres, axes et légendes.
+- Formuler une interprétation qui ne transforme pas une comparaison descriptive en relation causale.
+
+## Déroulement suggéré
+
+1. Travailler le [module visualisation](module-visualisation.qmd) avec un exemple court choisi dans le catalogue.
+2. Réaliser [Essences d'arbres par arrondissement](../datasets/arbres-publics-montreal/activite-courte.qmd) pour produire une première comparaison.
+3. Prolonger avec [Carte et qualité des données des arbres publics](../datasets/arbres-publics-montreal/activite-longue.qmd) si le groupe doit justifier des choix spatiaux et des contrôles de qualité.
+
+## Production attendue
+
+Un graphique accompagné d'une légende informative, d'un constat descriptif et d'une limite d'interprétation.
+
+## Critères de réussite
+
+- Le graphique est choisi pour une question formulée explicitement.
+- Les éléments nécessaires à la lecture sont présents.
+- L'interprétation décrit les données sans attribuer de causalité non observée.
+
+## Adaptations
+
+Proposer une forme de graphique imposée lors de la première séance. Pour approfondir, demander de comparer deux encodages visuels et de défendre le choix final.

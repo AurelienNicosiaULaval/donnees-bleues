@@ -3,6 +3,7 @@ source("R/utils_zero_waste.R")
 source("R/utils_activities.R")
 source("R/utils_ulaval.R")
 source("R/utils_card_images.R")
+source("R/utils_site_validation.R")
 
 required_files <- c(
   "fiche.qmd",
@@ -55,6 +56,8 @@ validate_card_images(catalogue)
 catalogue_activites <- build_activity_catalogue("datasets")
 validate_activity_catalogue(catalogue_activites)
 validate_activity_pages(catalogue_activites)
+validate_activity_contract_renderers(catalogue_activites)
+validate_documented_paths()
 
 tryCatch(
   validate_ulaval_private_source(root = ".", phases = c("core", "ges"), require_source = FALSE),

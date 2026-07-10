@@ -103,3 +103,12 @@ Que peut-on décrire sans transformer ces données ouvertes en statistiques offi
 ## Pistes de solution
 
 Une bonne réponse donne un tableau par catégorie et rappelle que le jeu ne représente pas les statistiques officielles du SPVM. Une réponse excellente explique aussi pourquoi les points localisés ne doivent pas être cartographiés sans agrégation.
+
+```{r}
+#| label: activity-pedagogical-contract
+#| echo: false
+#| results: asis
+contract_source_path <- if (file.exists("R/utils_activity_contract.R")) "R/utils_activity_contract.R" else "../../R/utils_activity_contract.R"
+source(contract_source_path)
+render_activity_contract()
+```

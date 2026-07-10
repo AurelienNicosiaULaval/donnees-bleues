@@ -110,3 +110,12 @@ ggplot(top_quartiers, aes(x = reorder(nom_quartier, permis_par_km2), y = permis_
 ## Pistes de solution
 
 Une réponse correcte distingue les comptes et les densités. Elle mentionne que les permis sont des événements administratifs géolocalisés et que le fichier ne contient pas la valeur des travaux, la superficie des travaux ou la population des quartiers.
+
+```{r}
+#| label: activity-pedagogical-contract
+#| echo: false
+#| results: asis
+contract_source_path <- if (file.exists("R/utils_activity_contract.R")) "R/utils_activity_contract.R" else "../../R/utils_activity_contract.R"
+source(contract_source_path)
+render_activity_contract()
+```

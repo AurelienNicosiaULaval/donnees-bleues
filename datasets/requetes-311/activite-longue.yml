@@ -36,3 +36,31 @@ requires_prepared_data: yes
 requires_live_download: yes
 recommended_use: Mini-projet guidé
 result_visible_in_page: yes
+
+learning_objectives:
+  - "Travailler Séries temporelles."
+  - "Travailler Nettoyage."
+  - "Travailler Communication."
+  - "Travailler Biais de déclaration."
+  - "Nommer au moins une limite d'interprétation."
+  - "Préparation requise : exécuter `Rscript datasets/requetes-311/preparation.R` depuis la racine, puis vérifier que `data/processed/requetes-311/requetes_311_non_information_echantillon.csv` existe."
+  - "Fichier préparé : `data/processed/requetes-311/requetes_311_non_information_echantillon.csv`."
+  - "Script de préparation : `datasets/requetes-311/preparation.R`."
+  - "Point à surveiller : Limiter le nombre de catégories et demander une section sur l'échantillonnage, les canaux de provenance et l'année 2026 partielle."
+  - "Limiter le nombre de catégories et demander une section sur l'échantillonnage, les canaux de provenance et l'année 2026 partielle."
+  - "Si une variable ou un dénominateur nécessaire n'est pas disponible dans les données, l'écrire explicitement plutôt que l'inférer."
+  - "Comparer téléphone et mobile pour une même activité."
+  - "Limiter l'analyse à un arrondissement."
+  - "Cartographier une activité avec `coordonnees_disponibles == TRUE`."
+  - "Ajouter une population d'arrondissement pour construire un taux exploratoire."
+
+prerequisites:
+  - "Vérifier le fichier ou le script de préparation annoncé avant la séance; adapter la mise en route au niveau indiqué."
+
+success_criteria:
+  - "La production attendue est remise : Un court rapport reproductible avec contexte, tableau ou graphique, interprétation et limites."
+  - "Les résultats sont interprétés sans dépasser les limites de la source."
+
+adaptations:
+  - "Fournir une table préparée ou réduire le nombre de variables pour une première utilisation."
+  - "Ajouter une comparaison, une justification méthodologique ou une discussion des limites pour approfondir."

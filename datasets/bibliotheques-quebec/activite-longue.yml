@@ -36,3 +36,31 @@ requires_prepared_data: yes
 requires_live_download: no
 recommended_use: Mini-projet guidé
 result_visible_in_page: yes
+
+learning_objectives:
+  - "Travailler Données et mesure."
+  - "Travailler Statistique descriptive."
+  - "Travailler Modélisation et relations."
+  - "Travailler Communication."
+  - "Nommer au moins une limite d'interprétation."
+  - "Vérifier que `data/processed/bibliotheques-quebec/statistiques_bibliotheques_quebec_2024_selection.csv` est disponible; aucune collecte en direct n'est nécessaire pour lancer l'activité."
+  - "Fichier préparé : `data/processed/bibliotheques-quebec/statistiques_bibliotheques_quebec_2024_selection.csv`."
+  - "Script de préparation : `datasets/bibliotheques-quebec/preparation.R`."
+  - "Point à surveiller : Demander un calcul régional à partir des volumes agrégés et de la population totale. Présenter la modélisation comme exploratoire."
+  - "Demander un calcul régional à partir des volumes agrégés et de la population totale. Présenter la modélisation comme exploratoire."
+  - "Si une variable ou un dénominateur nécessaire n'est pas disponible dans les données, l'écrire explicitement plutôt que l'inférer."
+  - "Limiter le portrait à une seule région et comparer les bibliothèques."
+  - "Comparer les prêts par habitant et les dépenses par habitant."
+  - "Produire une note synthèse destinée à une direction municipale fictive."
+  - "Ajouter une carte régionale avec une source géographique externe documentée."
+
+prerequisites:
+  - "Vérifier le fichier ou le script de préparation annoncé avant la séance; adapter la mise en route au niveau indiqué."
+
+success_criteria:
+  - "La production attendue est remise : Un court rapport reproductible avec contexte, tableau ou graphique, interprétation et limites."
+  - "Les résultats sont interprétés sans dépasser les limites de la source."
+
+adaptations:
+  - "Fournir une table préparée ou réduire le nombre de variables pour une première utilisation."
+  - "Ajouter une comparaison, une justification méthodologique ou une discussion des limites pour approfondir."

@@ -38,3 +38,42 @@ requires_prepared_data: yes
 requires_live_download: no
 recommended_use: Mini-projet guidé
 result_visible_in_page: yes
+
+learning_objectives:
+  - "Travailler Données ouvertes."
+  - "Travailler Statistique descriptive."
+  - "Travailler Visualisation."
+  - "Travailler Comparaison temporelle."
+  - "Nommer au moins une limite d'interprétation."
+  - "Vérifier que `data/processed/pyramides-ages/population_pyramides_quebec_canada_latest.csv` est disponible; aucune collecte en direct n'est nécessaire pour lancer l'activité."
+  - "Fichier préparé : `data/processed/pyramides-ages/population_pyramides_quebec_canada_latest.csv`."
+  - "Script de préparation : `datasets/pyramides-ages/preparation.R`."
+  - "Point à surveiller : Demander de comparer en proportions et de séparer les résultats descriptifs des interprétations causales."
+  - "Demander de comparer en proportions et de séparer les résultats descriptifs des interprétations causales."
+  - "Si une variable ou un dénominateur nécessaire n'est pas disponible dans les données, l'écrire explicitement plutôt que l'inférer."
+  - "une brève description de la source;"
+  - "deux pyramides des âges en proportions;"
+  - "un tableau de la part des 65 ans et plus en 2001 et 2025;"
+  - "une comparaison Canada-Québec;"
+  - "une section de limites;"
+  - "du code reproductible."
+  - "`data/processed/pyramides-ages/population_pyramides_quebec_canada_latest.csv`;"
+  - "`data/processed/pyramides-ages/population_pyramides_quebec_canada_2001_2025.csv`;"
+  - "`data/processed/pyramides-ages/indicateurs_age_quebec_canada_2025.csv`;"
+  - "`data/processed/pyramides-ages/evolution_65_plus_quebec_canada.csv`."
+  - "Comparer le Québec avec une autre province."
+  - "Ajouter une troisième année."
+  - "Ajouter une animation temporelle."
+  - "Produire une version interactive avec Shiny."
+  - "Transformer le rapport en tutoriel learnr."
+
+prerequisites:
+  - "Vérifier le fichier ou le script de préparation annoncé avant la séance; adapter la mise en route au niveau indiqué."
+
+success_criteria:
+  - "La production attendue est remise : Un court rapport reproductible avec contexte, tableau ou graphique, interprétation et limites."
+  - "Les résultats sont interprétés sans dépasser les limites de la source."
+
+adaptations:
+  - "Fournir une table préparée ou réduire le nombre de variables pour une première utilisation."
+  - "Ajouter une comparaison, une justification méthodologique ou une discussion des limites pour approfondir."

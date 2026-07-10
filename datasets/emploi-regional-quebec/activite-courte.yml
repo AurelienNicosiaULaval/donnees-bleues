@@ -38,3 +38,22 @@ requires_prepared_data: yes
 requires_live_download: yes
 recommended_use: Laboratoire guidé
 result_visible_in_page: yes
+
+learning_objectives:
+  - "Identifier l'unité statistique d'un jeu de données réel."
+  - "Importer ou préparer une ressource officielle sans perdre la provenance."
+  - "Distinguer un niveau en milliers de personnes et un taux en pourcentage."
+  - "Repérer les codes de qualité `F` et `*`."
+  - "Produire une visualisation simple et interprétable."
+  - "Formuler une conclusion prudente en séparant description et explication."
+
+prerequisites:
+  - "Vérifier le fichier ou le script de préparation annoncé avant la séance; adapter la mise en route au niveau indiqué."
+
+success_criteria:
+  - "La production attendue est remise : Un tableau ou graphique descriptif accompagné de trois phrases d'interprétation prudente."
+  - "Les résultats sont interprétés sans dépasser les limites de la source."
+
+adaptations:
+  - "Fournir une table préparée ou réduire le nombre de variables pour une première utilisation."
+  - "Ajouter une comparaison, une justification méthodologique ou une discussion des limites pour approfondir."
