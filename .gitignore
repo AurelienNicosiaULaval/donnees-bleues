@@ -18,3 +18,5 @@ docs/.quarto/
 
 /.quarto/
 **/*.quarto_ipynb
+.quarto/
+site_libs/

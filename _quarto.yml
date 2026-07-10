@@ -4,6 +4,8 @@ project:
   resources:
     - favicon.svg
     - assets/logo-donnees-bleues.svg
+    - assets/logo-donnees-bleues-horizontal.svg
+    - assets/illustrations/*.svg
     - assets/cards/*.webp
     - assets/cards/*.png
     - assets/cards/*.jpg
@@ -39,12 +41,14 @@ website:
     left:
       - text: "Accueil"
         href: index.qmd
-      - text: "Catalogue"
+      - text: "Explorer"
         href: catalogue.qmd
-      - text: "Zéro déchet"
-        href: zero-waste.qmd
-      - text: "Activités"
+      - text: "Planifier"
         href: activites.qmd
+      - text: "Séquences"
+        href: sequences.qmd
+      - text: "Méthode"
+        href: zero-waste.qmd
       - text: "À propos"
         href: about.qmd
     right:
@@ -58,7 +62,7 @@ website:
         href: contribuer.qmd
   page-footer:
     left: "Données bleues"
-    right: "Ressource pédagogique ouverte en développement"
+    right: "Des données publiques à enseigner, avec contexte."
 
 format:
   html:

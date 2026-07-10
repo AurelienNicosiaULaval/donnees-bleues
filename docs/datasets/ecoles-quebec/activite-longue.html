@@ -20,7 +20,7 @@ div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
   width: 0.8em;
-  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */
   vertical-align: middle;
 }
 /* CSS for syntax highlighting */
@@ -135,41 +135,45 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../index.html"> 
+    <a class="nav-link" href="../../index.html">
 <span class="menu-text">Accueil</span></a>
-  </li>  
+  </li>
   <li class="nav-item">
-    <a class="nav-link" href="../../catalogue.html"> 
-<span class="menu-text">Catalogue</span></a>
-  </li>  
+    <a class="nav-link" href="../../catalogue.html">
+<span class="menu-text">Explorer</span></a>
+  </li>
   <li class="nav-item">
-    <a class="nav-link" href="../../zero-waste.html"> 
-<span class="menu-text">Zéro déchet</span></a>
-  </li>  
+    <a class="nav-link" href="../../activites.html">
+<span class="menu-text">Planifier</span></a>
+  </li>
   <li class="nav-item">
-    <a class="nav-link" href="../../activites.html"> 
-<span class="menu-text">Activités</span></a>
-  </li>  
+    <a class="nav-link" href="../../sequences.html">
+<span class="menu-text">Séquences</span></a>
+  </li>
   <li class="nav-item">
-    <a class="nav-link" href="../../about.html"> 
+    <a class="nav-link" href="../../zero-waste.html">
+<span class="menu-text">Méthode</span></a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="../../about.html">
 <span class="menu-text">À propos</span></a>
-  </li>  
+  </li>
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
     <a class="nav-link" href="../../references.html"> <i class="bi bi-book" role="img">
-</i> 
+</i>
 <span class="menu-text">Documentation</span></a>
-  </li>  
+  </li>
   <li class="nav-item">
     <a class="nav-link" href="https://github.com/AurelienNicosiaULaval/donnees-bleues"> <i class="bi bi-github" role="img">
-</i> 
+</i>
 <span class="menu-text">GitHub</span></a>
-  </li>  
+  </li>
   <li class="nav-item">
-    <a class="nav-link" href="../../contribuer.html"> 
+    <a class="nav-link" href="../../contribuer.html">
 <span class="menu-text">Contribuer</span></a>
-  </li>  
+  </li>
 </ul>
           </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
@@ -184,7 +188,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">On this page</h2>
-   
+
   <ul>
   <li><a href="#mini-projet---écoles-québec" id="toc-mini-projet---écoles-québec" class="nav-link active" data-scroll-target="#mini-projet---écoles-québec">Mini-projet - Écoles Québec</a>
   <ul class="collapse">
@@ -535,7 +539,7 @@ Ajouter une comparaison, une justification méthodologique ou une discussion des
     anchorJS.add('.anchored');
     const isCodeAnnotation = (el) => {
       for (const clz of el.classList) {
-        if (clz.startsWith('code-annotation-')) {                     
+        if (clz.startsWith('code-annotation-')) {
           return true;
         }
       }
@@ -555,11 +559,11 @@ Ajouter une comparaison, une justification méthodologique ou une discussion des
         button.setAttribute("data-bs-toggle", "tooltip");
         button.setAttribute("data-bs-placement", "left");
         button.setAttribute("data-bs-title", "Copied!");
-        tooltip = new bootstrap.Tooltip(button, 
-          { trigger: "manual", 
+        tooltip = new bootstrap.Tooltip(button,
+          { trigger: "manual",
             customClass: "code-copy-button-tooltip",
             offset: [0, -8]});
-        tooltip.show();    
+        tooltip.show();
       }
       setTimeout(function() {
         if (tooltip) {
@@ -641,7 +645,7 @@ Ajouter une comparaison, une justification méthodologique ou une discussion des
       if (onUntriggerFn) {
         config.onUntrigger = onUntriggerFn;
       }
-      window.tippy(el, config); 
+      window.tippy(el, config);
     }
     const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
     for (var i=0; i<noterefs.length; i++) {
@@ -716,7 +720,7 @@ Ajouter une comparaison, une justification méthodologique ou une discussion des
       tippyHover(xref, undefined, function(instance) {
         instance.disable();
         let url = xref.getAttribute('href');
-        let hash = undefined; 
+        let hash = undefined;
         if (url.startsWith('#')) {
           hash = url;
         } else {
@@ -744,7 +748,7 @@ Ajouter une comparaison, une justification méthodologique ou une discussion des
               if (note !== null) {
                 const html = processXRef(id, note);
                 instance.setContent(html);
-              } 
+              }
             }).finally(() => {
               instance.enable();
               instance.show();
@@ -768,7 +772,7 @@ Ajouter une comparaison, une justification méthodologique ou une discussion des
               }
               const html = processXRef(null, note);
               instance.setContent(html);
-            } 
+            }
           }).finally(() => {
             instance.enable();
             instance.show();
@@ -808,7 +812,7 @@ Ajouter une comparaison, une justification méthodologique ou une discussion des
               height = bottom - top;
             }
             if (top !== null && height !== null && parent !== null) {
-              // cook up a div (if necessary) and position it 
+              // cook up a div (if necessary) and position it
               let div = window.document.getElementById("code-annotation-line-highlight");
               if (div === null) {
                 div = window.document.createElement("div");
@@ -934,12 +938,12 @@ Ajouter une comparaison, une justification méthodologique ou une discussion des
   <div class="nav-footer">
     <div class="nav-footer-left">
 <p>Données bleues</p>
-</div>   
+</div>
     <div class="nav-footer-center">
       &nbsp;
     <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/AurelienNicosiaULaval/donnees-bleues/blob/main/datasets/ecoles-quebec/activite-longue.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li><li><a href="https://github.com/AurelienNicosiaULaval/donnees-bleues/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
-<p>Ressource pédagogique ouverte en développement</p>
+<p>Des données publiques à enseigner, avec contexte.</p>
 </div>
   </div>
 </footer>

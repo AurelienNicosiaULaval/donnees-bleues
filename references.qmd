@@ -1,8 +1,8 @@
 ---
-title: "Références et sources"
+title: "Sources et méthode"
 ---
 
-# Références et sources
+# Sources et méthode
 
 Cette page liste les sources générales et les sources de données utilisées dans le MVP. Les liens ont été vérifiés le 2026-06-01.
 
@@ -24,4 +24,3 @@ Cette page liste les sources générales et les sources de données utilisées d
 ## Notes
 
 Les scores zéro déchet sont des évaluations pédagogiques internes au projet. Ils ne proviennent pas des organismes producteurs.
-

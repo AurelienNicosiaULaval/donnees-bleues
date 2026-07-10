@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Catalogue – Données bleues</title>
+<title>Explorer les données – Données bleues</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -20,7 +20,7 @@ div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
   width: 0.8em;
-  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */
   vertical-align: middle;
 }
 </style>
@@ -74,7 +74,7 @@ ul.task-list li input[type="checkbox"] {
 
 
 <link rel="stylesheet" href="styles.css">
-<meta property="og:title" content="Catalogue – Données bleues">
+<meta property="og:title" content="Explorer les données – Données bleues">
 <meta property="og:image" content="https://aureliennicosiaulaval.github.io/donnees-bleues/assets/cards/construction-quartiers-quebec.webp">
 <meta property="og:site_name" content="Données bleues">
 <meta property="og:image:alt" content="Illustration du thème Aménagement du territoire">
@@ -102,41 +102,45 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./index.html"> 
+    <a class="nav-link" href="./index.html">
 <span class="menu-text">Accueil</span></a>
-  </li>  
+  </li>
   <li class="nav-item">
-    <a class="nav-link active" href="./catalogue.html" aria-current="page"> 
-<span class="menu-text">Catalogue</span></a>
-  </li>  
+    <a class="nav-link active" href="./catalogue.html" aria-current="page">
+<span class="menu-text">Explorer</span></a>
+  </li>
   <li class="nav-item">
-    <a class="nav-link" href="./zero-waste.html"> 
-<span class="menu-text">Zéro déchet</span></a>
-  </li>  
+    <a class="nav-link" href="./activites.html">
+<span class="menu-text">Planifier</span></a>
+  </li>
   <li class="nav-item">
-    <a class="nav-link" href="./activites.html"> 
-<span class="menu-text">Activités</span></a>
-  </li>  
+    <a class="nav-link" href="./sequences.html">
+<span class="menu-text">Séquences</span></a>
+  </li>
   <li class="nav-item">
-    <a class="nav-link" href="./about.html"> 
+    <a class="nav-link" href="./zero-waste.html">
+<span class="menu-text">Méthode</span></a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="./about.html">
 <span class="menu-text">À propos</span></a>
-  </li>  
+  </li>
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
     <a class="nav-link" href="./references.html"> <i class="bi bi-book" role="img">
-</i> 
+</i>
 <span class="menu-text">Documentation</span></a>
-  </li>  
+  </li>
   <li class="nav-item">
     <a class="nav-link" href="https://github.com/AurelienNicosiaULaval/donnees-bleues"> <i class="bi bi-github" role="img">
-</i> 
+</i>
 <span class="menu-text">GitHub</span></a>
-  </li>  
+  </li>
   <li class="nav-item">
-    <a class="nav-link" href="./contribuer.html"> 
+    <a class="nav-link" href="./contribuer.html">
 <span class="menu-text">Contribuer</span></a>
-  </li>  
+  </li>
 </ul>
           </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
@@ -148,7 +152,7 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    
+
 <!-- main -->
 <main class="content column-page" id="quarto-document-content">
 
@@ -157,11 +161,14 @@ ul.task-list li input[type="checkbox"] {
 <section class="catalogue-page page-full catalogue-reference" data-catalogue="">
 <div class="catalogue-hero-row">
 <div class="catalogue-title-block">
+<p class="catalogue-overline">
+Explorer
+</p>
 <h1>
-Catalogue
+Des données publiques pour construire une vraie séance.
 </h1>
 <p>
-Explorez des données ouvertes pour vos analyses et projets pédagogiques. Recherchez et filtrez rapidement les fiches utiles.
+Recherchez une fiche par contexte, niveau, geste d’analyse ou potentiel pédagogique. Chaque résultat conserve ce qu’il faut pour décider : source, limites et usages possibles.
 </p>
 <section class="catalogue-intent-panel" aria-labelledby="catalogue-intent-title">
 <h2 id="catalogue-intent-title" class="anchored">
@@ -1261,7 +1268,7 @@ Aucune fiche ne correspond aux filtres actuels.
     anchorJS.add('.anchored');
     const isCodeAnnotation = (el) => {
       for (const clz of el.classList) {
-        if (clz.startsWith('code-annotation-')) {                     
+        if (clz.startsWith('code-annotation-')) {
           return true;
         }
       }
@@ -1281,11 +1288,11 @@ Aucune fiche ne correspond aux filtres actuels.
         button.setAttribute("data-bs-toggle", "tooltip");
         button.setAttribute("data-bs-placement", "left");
         button.setAttribute("data-bs-title", "Copied!");
-        tooltip = new bootstrap.Tooltip(button, 
-          { trigger: "manual", 
+        tooltip = new bootstrap.Tooltip(button,
+          { trigger: "manual",
             customClass: "code-copy-button-tooltip",
             offset: [0, -8]});
-        tooltip.show();    
+        tooltip.show();
       }
       setTimeout(function() {
         if (tooltip) {
@@ -1367,7 +1374,7 @@ Aucune fiche ne correspond aux filtres actuels.
       if (onUntriggerFn) {
         config.onUntrigger = onUntriggerFn;
       }
-      window.tippy(el, config); 
+      window.tippy(el, config);
     }
     const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
     for (var i=0; i<noterefs.length; i++) {
@@ -1442,7 +1449,7 @@ Aucune fiche ne correspond aux filtres actuels.
       tippyHover(xref, undefined, function(instance) {
         instance.disable();
         let url = xref.getAttribute('href');
-        let hash = undefined; 
+        let hash = undefined;
         if (url.startsWith('#')) {
           hash = url;
         } else {
@@ -1470,7 +1477,7 @@ Aucune fiche ne correspond aux filtres actuels.
               if (note !== null) {
                 const html = processXRef(id, note);
                 instance.setContent(html);
-              } 
+              }
             }).finally(() => {
               instance.enable();
               instance.show();
@@ -1494,7 +1501,7 @@ Aucune fiche ne correspond aux filtres actuels.
               }
               const html = processXRef(null, note);
               instance.setContent(html);
-            } 
+            }
           }).finally(() => {
             instance.enable();
             instance.show();
@@ -1534,7 +1541,7 @@ Aucune fiche ne correspond aux filtres actuels.
               height = bottom - top;
             }
             if (top !== null && height !== null && parent !== null) {
-              // cook up a div (if necessary) and position it 
+              // cook up a div (if necessary) and position it
               let div = window.document.getElementById("code-annotation-line-highlight");
               if (div === null) {
                 div = window.document.createElement("div");
@@ -1660,12 +1667,12 @@ Aucune fiche ne correspond aux filtres actuels.
   <div class="nav-footer">
     <div class="nav-footer-left">
 <p>Données bleues</p>
-</div>   
+</div>
     <div class="nav-footer-center">
       &nbsp;
     <div class="toc-actions"><ul><li><a href="https://github.com/AurelienNicosiaULaval/donnees-bleues/blob/main/catalogue.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li><li><a href="https://github.com/AurelienNicosiaULaval/donnees-bleues/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
-<p>Ressource pédagogique ouverte en développement</p>
+<p>Des données publiques à enseigner, avec contexte.</p>
 </div>
   </div>
 </footer>
