@@ -187,3 +187,12 @@ Les résultats doivent être présentés comme descriptifs. La table ne contient
 - Ajouter une animation temporelle.
 - Produire une version interactive avec Shiny.
 - Transformer le rapport en tutoriel learnr.
+
+```{r}
+#| label: activity-pedagogical-contract
+#| echo: false
+#| results: asis
+contract_source_path <- if (file.exists("R/utils_activity_contract.R")) "R/utils_activity_contract.R" else "../../R/utils_activity_contract.R"
+source(contract_source_path)
+render_activity_contract()
+```

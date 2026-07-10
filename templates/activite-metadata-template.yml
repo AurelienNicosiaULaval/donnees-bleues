@@ -22,6 +22,14 @@ teacher_notes:
 pedagogical_status: "pret_a_enseigner"
 teacher_preparation:
 expected_output:
+learning_objectives:
+  - "Objectif observable à compléter"
+prerequisites:
+  - "Prérequis à compléter"
+success_criteria:
+  - "Critère de réussite à compléter"
+adaptations:
+  - "Adaptation à compléter"
 requires_prepared_data: true
 requires_live_download: false
 recommended_use:

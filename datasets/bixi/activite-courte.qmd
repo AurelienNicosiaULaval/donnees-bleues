@@ -85,3 +85,12 @@ Le script de préparation vérifie le paquet CKAN, le fichier de découverte GBF
 ## Pistes de solution
 
 Une bonne réponse distingue disponibilité instantanée et demande. Une réponse plus solide signale aussi que les stations non installées et les coordonnées invalides doivent être traitées avant toute visualisation spatiale.
+
+```{r}
+#| label: activity-pedagogical-contract
+#| echo: false
+#| results: asis
+contract_source_path <- if (file.exists("R/utils_activity_contract.R")) "R/utils_activity_contract.R" else "../../R/utils_activity_contract.R"
+source(contract_source_path)
+render_activity_contract()
+```

@@ -84,3 +84,12 @@ Le script de préparation vérifie 188 lignes, 262 colonnes sources et 19 ressou
 ## Pistes de solution
 
 Une réponse minimale calcule le ratio et produit l'histogramme. Une meilleure réponse signale que certaines bibliothèques peuvent desservir des personnes au-delà de la population résidente, et que les ratios élevés doivent être documentés plutôt qu'interprétés automatiquement comme une performance supérieure.
+
+```{r}
+#| label: activity-pedagogical-contract
+#| echo: false
+#| results: asis
+contract_source_path <- if (file.exists("R/utils_activity_contract.R")) "R/utils_activity_contract.R" else "../../R/utils_activity_contract.R"
+source(contract_source_path)
+render_activity_contract()
+```

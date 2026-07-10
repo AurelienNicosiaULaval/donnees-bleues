@@ -32,9 +32,12 @@ Ce dépôt fait partie de l’écosystème ouvert d’Aurélien Nicosia en stati
 ├── activites.qmd
 ├── catalogue.qmd
 ├── contribuer.qmd
+├── retours-classe.qmd
+├── sequences.qmd
 ├── references.qmd
 ├── zero-waste.qmd
 ├── styles.css
+├── .github/
 ├── R/
 ├── scripts/
 ├── datasets/
@@ -82,6 +85,7 @@ install.packages(c(
   "sf",
   "stringr",
   "tidyr",
+  "xml2",
   "yaml"
 ))
 ```
@@ -122,7 +126,13 @@ data/metadata/catalogue_activites.rds
 Rscript scripts/check_datasets.R
 ```
 
-La vérification contrôle la présence des fichiers obligatoires, les champs des métadonnées, les scores zero waste dataset et les métadonnées des activités.
+La vérification contrôle la présence des fichiers obligatoires, les champs des métadonnées, les scores zero waste dataset, les chemins documentés et le contrat pédagogique des activités.
+
+## Contrat pédagogique des activités
+
+Chaque fichier `activite-*.yml` doit déclarer des objectifs d'apprentissage, des prérequis, la préparation enseignante, une production attendue, des critères de réussite, des adaptations possibles et un statut pédagogique distinct du statut de la source.
+
+Le statut pédagogique décrit le degré de préparation de l'activité. Il ne constitue pas une preuve d'efficacité pédagogique. Le site affiche le contrat sur chaque page d'activité et propose une [fiche de retour après usage](templates/retour-classe-template.md) pour documenter les essais sans données personnelles.
 
 ## Préparer les données
 
@@ -183,15 +193,7 @@ Le site généré est placé dans `docs/`.
 
 ## Publication GitHub Pages
 
-Option A, recommandée pour le MVP :
-
-1. Rendre le site localement avec `quarto render`.
-2. Pousser le dépôt sur GitHub.
-3. Dans les paramètres GitHub Pages du dépôt, choisir la branche principale et le dossier `/docs`.
-
-Option B, à ajouter plus tard :
-
-Créer un workflow GitHub Actions qui installe R, installe les packages, génère le catalogue et rend le site automatiquement. Cette option est utile lorsque le projet contient plus de jeux de données ou des dépendances plus lourdes.
+Le workflow `.github/workflows/publish-pages.yml` valide les métadonnées, rend le site depuis un clone GitHub propre et déploie l'artefact Pages après chaque poussée sur `main`. Dans les paramètres GitHub Pages du dépôt, sélectionner la source « GitHub Actions ».
 
 ## Ajouter un jeu de données
 

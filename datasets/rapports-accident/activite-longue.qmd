@@ -128,3 +128,12 @@ Un rapport solide peut modéliser `accident_avec_victime` avec `mois`, `meteo`, 
 - Étudier séparément les accidents impliquant un vélo.
 - Comparer deux régions en gardant une section sur les dénominateurs manquants.
 - Ajouter des données de population ou de circulation pour transformer la question.
+
+```{r}
+#| label: activity-pedagogical-contract
+#| echo: false
+#| results: asis
+contract_source_path <- if (file.exists("R/utils_activity_contract.R")) "R/utils_activity_contract.R" else "../../R/utils_activity_contract.R"
+source(contract_source_path)
+render_activity_contract()
+```

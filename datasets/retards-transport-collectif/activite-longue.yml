@@ -37,3 +37,45 @@ requires_prepared_data: yes
 requires_live_download: no
 recommended_use: Audit de source
 result_visible_in_page: yes
+
+learning_objectives:
+  - "Travailler flux temps réel."
+  - "Travailler séries temporelles."
+  - "Travailler échantillonnage temporel."
+  - "Travailler données manquantes."
+  - "Nommer au moins une limite d'interprétation."
+  - "Vérifier que `data/processed/retards-transport-collectif/resume_retards_transport.csv` est disponible; aucune collecte en direct n'est nécessaire pour lancer l'activité."
+  - "Fichier préparé : `data/processed/retards-transport-collectif/resume_retards_transport.csv`."
+  - "Script de préparation : `datasets/retards-transport-collectif/preparation.R`."
+  - "Point à surveiller : Évaluer la qualité du protocole et la prudence statistique plutôt que la capacité à accéder au flux en direct."
+  - "Évaluer la qualité du protocole et la prudence statistique plutôt que la capacité à accéder au flux en direct."
+  - "Si une variable ou un dénominateur nécessaire n'est pas disponible dans les données, l'écrire explicitement plutôt que l'inférer."
+  - "une position de véhicule à un instant donné;"
+  - "une mise à jour de trajet;"
+  - "une mise à jour de passage à un arrêt;"
+  - "une alerte de service."
+  - "`collection_time`;"
+  - "`message_type`;"
+  - "`route_id`;"
+  - "`trip_id` ou `vehicle_id`;"
+  - "`stop_id`, si l'unité est liée aux arrêts;"
+  - "`delay_seconds`, si le champ est présent;"
+  - "`retard_minutes`, comme variable dérivée;"
+  - "un indicateur de données manquantes ou de message incomplet."
+  - "Exactitude de la description de la source."
+  - "Cohérence entre la question, l'unité statistique et les variables."
+  - "Reproductibilité du protocole."
+  - "Gestion explicite des données manquantes et des erreurs de collecte."
+  - "Prudence de l'interprétation statistique."
+  - "Qualité de la communication écrite."
+
+prerequisites:
+  - "Vérifier le fichier ou le script de préparation annoncé avant la séance; adapter la mise en route au niveau indiqué."
+
+success_criteria:
+  - "La production attendue est remise : Un protocole ou une note d'audit qui distingue ce qui est vérifié, ce qui manque et ce qui ne peut pas encore être mesuré."
+  - "Les résultats sont interprétés sans dépasser les limites de la source."
+
+adaptations:
+  - "Fournir une table préparée ou réduire le nombre de variables pour une première utilisation."
+  - "Ajouter une comparaison, une justification méthodologique ou une discussion des limites pour approfondir."

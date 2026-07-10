@@ -132,9 +132,8 @@ datasets/nom-du-jeu/
 - `templates/fiche-dataset-template.qmd`
 - `templates/metadata-template.yml`
 - `templates/activite-template.qmd`
-- `templates/activite-courte-template.qmd`
-- `templates/activite-longue-template.qmd`
 - `templates/activite-metadata-template.yml`
+- `templates/retour-classe-template.md`
 - `templates/zero-waste-score-template.yml`
 :::
 :::
@@ -208,6 +207,16 @@ git push -u origin ajout-nouveau-dataset
 
 ::: {.contrib-pr-note}
 La pull request devrait expliquer la source ajoutée, l'intérêt pédagogique, les fichiers touchés, les scripts exécutés et les limites encore présentes.
+:::
+
+::: {.contrib-section .contrib-quality}
+::: {.contrib-section-heading}
+## Retour après usage en classe
+
+Une activité documentée n'est pas automatiquement testée en classe. Après une mise en œuvre, consigner la durée réelle, les obstacles, les adaptations, les productions obtenues et la recommandation de réutilisation, sans publier de renseignement personnel ou de travail étudiant.
+:::
+
+[Consigner un retour d'usage](retours-classe.qmd){.dataset-button}
 :::
 :::
 

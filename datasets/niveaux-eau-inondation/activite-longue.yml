@@ -36,3 +36,35 @@ requires_prepared_data: yes
 requires_live_download: yes
 recommended_use: Mini-projet guidé
 result_visible_in_page: yes
+
+learning_objectives:
+  - "Préparer une ressource CSV officielle"
+  - "Produire un résumé par année et type d'observation"
+  - "Décrire les valeurs manquantes"
+  - "Cartographier des observations ponctuelles"
+  - "Interpréter la précision horizontale et verticale"
+  - "Rédiger une note de communication du risque"
+  - "définit clairement un marqueur ponctuel;"
+  - "ne confond pas un point avec une zone inondée;"
+  - "distingue `MAX` et `ACT`;"
+  - "présente une carte lisible;"
+  - "documente les valeurs manquantes;"
+  - "mentionne la précision horizontale et verticale;"
+  - "cite la source et la licence;"
+  - "formule une conclusion prudente."
+  - "Lire le GeoJSON officiel avec `sf`."
+  - "Joindre les points à des bassins versants."
+  - "Comparer les altitudes par type d'observation."
+  - "Produire une carte interactive avec les liens de rapport."
+  - "Rédiger une note destinée au public sur les limites d'une carte de points."
+
+prerequisites:
+  - "Vérifier le fichier ou le script de préparation annoncé avant la séance; adapter la mise en route au niveau indiqué."
+
+success_criteria:
+  - "La production attendue est remise : Un court rapport reproductible avec contexte, tableau ou graphique, interprétation et limites."
+  - "Les résultats sont interprétés sans dépasser les limites de la source."
+
+adaptations:
+  - "Fournir une table préparée ou réduire le nombre de variables pour une première utilisation."
+  - "Ajouter une comparaison, une justification méthodologique ou une discussion des limites pour approfondir."

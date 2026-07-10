@@ -107,3 +107,12 @@ Une solution acceptable présente un tableau de fréquences, un graphique clair 
 ## Prolongement
 
 Comparer les grands groupes d'interventions selon le mois ou l'arrondissement.
+
+```{r}
+#| label: activity-pedagogical-contract
+#| echo: false
+#| results: asis
+contract_source_path <- if (file.exists("R/utils_activity_contract.R")) "R/utils_activity_contract.R" else "../../R/utils_activity_contract.R"
+source(contract_source_path)
+render_activity_contract()
+```

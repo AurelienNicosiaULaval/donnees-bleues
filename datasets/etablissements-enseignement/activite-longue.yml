@@ -36,3 +36,33 @@ requires_prepared_data: yes
 requires_live_download: yes
 recommended_use: Mini-projet guidé
 result_visible_in_page: yes
+
+learning_objectives:
+  - "Préparer des fichiers CSV officiels avec un script reproductible"
+  - "Décrire la structure d'une source multi-ressources"
+  - "Choisir une unité statistique adaptée à une question"
+  - "Construire un tableau descriptif et une carte"
+  - "Discuter les données manquantes et les limites d'accès territorial"
+  - "Rédiger une interprétation vérifiable"
+  - "précise l'unité statistique avant les résultats;"
+  - "ne mélange pas les 9 ressources comme si elles représentaient toutes des établissements uniques;"
+  - "montre au moins un tableau et une carte;"
+  - "quantifie les données manquantes pertinentes;"
+  - "distingue clairement localisation, disponibilité et accessibilité;"
+  - "cite la source et la licence."
+  - "Joindre des données de population par âge et région."
+  - "Calculer des ratios exploratoires par 10 000 jeunes."
+  - "Comparer les résultats avec et sans les lignes sans région administrative."
+  - "Produire une carte interactive avec `leaflet`."
+  - "Ajouter une courte section méthodologique sur les risques d'un comptage naïf."
+
+prerequisites:
+  - "Vérifier le fichier ou le script de préparation annoncé avant la séance; adapter la mise en route au niveau indiqué."
+
+success_criteria:
+  - "La production attendue est remise : Un court rapport reproductible avec contexte, tableau ou graphique, interprétation et limites."
+  - "Les résultats sont interprétés sans dépasser les limites de la source."
+
+adaptations:
+  - "Fournir une table préparée ou réduire le nombre de variables pour une première utilisation."
+  - "Ajouter une comparaison, une justification méthodologique ou une discussion des limites pour approfondir."

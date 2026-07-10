@@ -35,3 +35,21 @@ requires_prepared_data: yes
 requires_live_download: yes
 recommended_use: Exercice guidé
 result_visible_in_page: yes
+
+learning_objectives:
+  - "Importer une table préparée issue de plusieurs fichiers CSV officiels"
+  - "Identifier l'unité statistique d'une ressource"
+  - "Filtrer une ressource cohérente"
+  - "Produire une carte exploratoire"
+  - "Rédiger une limite d'interprétation"
+
+prerequisites:
+  - "Vérifier le fichier ou le script de préparation annoncé avant la séance; adapter la mise en route au niveau indiqué."
+
+success_criteria:
+  - "La production attendue est remise : Une carte ou un graphique descriptif accompagné d'une phrase sur l'unité statistique et les limites."
+  - "Les résultats sont interprétés sans dépasser les limites de la source."
+
+adaptations:
+  - "Fournir une table préparée ou réduire le nombre de variables pour une première utilisation."
+  - "Ajouter une comparaison, une justification méthodologique ou une discussion des limites pour approfondir."

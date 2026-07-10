@@ -36,3 +36,34 @@ requires_prepared_data: yes
 requires_live_download: no
 recommended_use: Mini-projet guidé
 result_visible_in_page: yes
+
+learning_objectives:
+  - "Préparer une ressource officielle"
+  - "Construire des agrégations par catégorie"
+  - "Décrire des valeurs extrêmes"
+  - "Produire une carte de points"
+  - "Documenter les valeurs manquantes"
+  - "Communiquer les limites d'une donnée administrative"
+  - "définit clairement le site de prélèvement autorisé;"
+  - "convertit les volumes en mètres cubes par jour;"
+  - "distingue nombre de sites et volume total;"
+  - "montre les principaux sites ou intervenants;"
+  - "inclut une carte lisible;"
+  - "cite la mise en garde officielle sur l'absence de valeur légale;"
+  - "ne parle pas de volume réellement prélevé."
+  - "Comparer les résultats avec et sans les dix plus grands sites."
+  - "Produire une carte avec une taille de point proportionnelle au logarithme du volume."
+  - "Joindre les sites à des bassins versants."
+  - "Comparer les intervenants multi-sites."
+  - "Rédiger une note publique sur la portée administrative du registre."
+
+prerequisites:
+  - "Vérifier le fichier ou le script de préparation annoncé avant la séance; adapter la mise en route au niveau indiqué."
+
+success_criteria:
+  - "La production attendue est remise : Un court rapport reproductible avec contexte, tableau ou graphique, interprétation et limites."
+  - "Les résultats sont interprétés sans dépasser les limites de la source."
+
+adaptations:
+  - "Fournir une table préparée ou réduire le nombre de variables pour une première utilisation."
+  - "Ajouter une comparaison, une justification méthodologique ou une discussion des limites pour approfondir."

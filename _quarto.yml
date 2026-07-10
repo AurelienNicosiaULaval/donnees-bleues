@@ -14,6 +14,8 @@ project:
     - "activites.qmd"
     - "about.qmd"
     - "contribuer.qmd"
+    - "retours-classe.qmd"
+    - "sequences.qmd"
     - "references.qmd"
     - "credits-images.qmd"
     - "donnees-ulaval.qmd"
@@ -32,8 +34,8 @@ website:
   navbar:
     logo: assets/logo-donnees-bleues.svg
     logo-alt: "Logo Données bleues"
-    background: "#325EA8"
-    foreground: "#ffffff"
+    background: "#ffffff"
+    foreground: "#172033"
     left:
       - text: "Accueil"
         href: index.qmd

@@ -35,3 +35,21 @@ requires_prepared_data: yes
 requires_live_download: yes
 recommended_use: Laboratoire guidé
 result_visible_in_page: yes
+
+learning_objectives:
+  - "Importer une table préparée à partir d'un ZIP officiel."
+  - "Identifier l'unité statistique d'une table GTFS."
+  - "Produire une carte simple des arrêts."
+  - "Lire correctement les codes d'accessibilité."
+  - "Rédiger une conclusion descriptive prudente."
+
+prerequisites:
+  - "Vérifier le fichier ou le script de préparation annoncé avant la séance; adapter la mise en route au niveau indiqué."
+
+success_criteria:
+  - "La production attendue est remise : Une carte ou un graphique descriptif accompagné d'une phrase sur l'unité statistique et les limites."
+  - "Les résultats sont interprétés sans dépasser les limites de la source."
+
+adaptations:
+  - "Fournir une table préparée ou réduire le nombre de variables pour une première utilisation."
+  - "Ajouter une comparaison, une justification méthodologique ou une discussion des limites pour approfondir."

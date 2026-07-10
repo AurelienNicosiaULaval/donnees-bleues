@@ -34,3 +34,20 @@ requires_prepared_data: no
 requires_live_download: yes
 recommended_use: Mini-projet guidé
 result_visible_in_page: yes
+
+learning_objectives:
+  - "Transformer une date-heure en variables temporelles."
+  - "Agréger des interventions par mois et par type."
+  - "Comparer des arrondissements avec prudence."
+  - "Présenter les résultats dans un mini-rapport reproductible."
+
+prerequisites:
+  - "Aucun prérequis additionnel n'est déclaré; adapter la mise en route au niveau indiqué."
+
+success_criteria:
+  - "La production attendue est remise : Un court rapport reproductible avec contexte, tableau ou graphique, interprétation et limites."
+  - "Les résultats sont interprétés sans dépasser les limites de la source."
+
+adaptations:
+  - "Fournir une table préparée ou réduire le nombre de variables pour une première utilisation."
+  - "Ajouter une comparaison, une justification méthodologique ou une discussion des limites pour approfondir."

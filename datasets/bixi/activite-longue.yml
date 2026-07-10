@@ -36,3 +36,31 @@ requires_prepared_data: yes
 requires_live_download: no
 recommended_use: Mini-projet guidé
 result_visible_in_page: yes
+
+learning_objectives:
+  - "Travailler Données et mesure."
+  - "Travailler Statistique descriptive."
+  - "Travailler Visualisation."
+  - "Travailler Communication."
+  - "Nommer au moins une limite d'interprétation."
+  - "Vérifier que `data/processed/bixi/stations_bixi_snapshot.csv` est disponible; aucune collecte en direct n'est nécessaire pour lancer l'activité."
+  - "Fichier préparé : `data/processed/bixi/stations_bixi_snapshot.csv`."
+  - "Script de préparation : `datasets/bixi/preparation.R`."
+  - "Point à surveiller : Exiger une section séparant variables fixes, variables instantanées et conclusions impossibles sans données temporelles."
+  - "Exiger une section séparant variables fixes, variables instantanées et conclusions impossibles sans données temporelles."
+  - "Si une variable ou un dénominateur nécessaire n'est pas disponible dans les données, l'écrire explicitement plutôt que l'inférer."
+  - "Collecter trois instantanés dans la journée et comparer les changements."
+  - "Comparer les stations avec et sans vélos électriques disponibles."
+  - "Ajouter une couche géographique de quartiers documentée séparément."
+  - "Construire une note méthodologique pour un tableau de bord opérationnel."
+
+prerequisites:
+  - "Vérifier le fichier ou le script de préparation annoncé avant la séance; adapter la mise en route au niveau indiqué."
+
+success_criteria:
+  - "La production attendue est remise : Un court rapport reproductible avec contexte, tableau ou graphique, interprétation et limites."
+  - "Les résultats sont interprétés sans dépasser les limites de la source."
+
+adaptations:
+  - "Fournir une table préparée ou réduire le nombre de variables pour une première utilisation."
+  - "Ajouter une comparaison, une justification méthodologique ou une discussion des limites pour approfondir."

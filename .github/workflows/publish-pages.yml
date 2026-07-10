@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - main
+  pull_request:
   workflow_dispatch:
 
 permissions:
@@ -56,6 +57,7 @@ jobs:
             any::stringr
             any::tibble
             any::tidyr
+            any::xml2
             any::yaml
             any::sessioninfo
 
@@ -67,11 +69,13 @@ jobs:
           touch docs/.nojekyll
 
       - name: Upload GitHub Pages artifact
+        if: github.event_name != 'pull_request'
         uses: actions/upload-pages-artifact@v4
         with:
           path: docs
 
   deploy:
+    if: github.event_name != 'pull_request'
     runs-on: ubuntu-latest
     needs: build
     environment:

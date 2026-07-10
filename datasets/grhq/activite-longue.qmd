@@ -209,3 +209,12 @@ Une conclusion prudente peut prendre cette forme :
 - Joindre des stations de qualité de l'eau à une unité GRHQ.
 - Simplifier une géométrie pour une carte web.
 - Discuter la différence entre données de référence et données d'observation.
+
+```{r}
+#| label: activity-pedagogical-contract
+#| echo: false
+#| results: asis
+contract_source_path <- if (file.exists("R/utils_activity_contract.R")) "R/utils_activity_contract.R" else "../../R/utils_activity_contract.R"
+source(contract_source_path)
+render_activity_contract()
+```

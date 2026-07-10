@@ -1,0 +1,75 @@
+---
+title: "Retour après usage en classe"
+toc: false
+page-layout: full
+format:
+  html:
+    embed-resources: true
+---
+
+::: {.contrib-page}
+
+::: {.contrib-hero}
+::: {.contrib-hero-copy}
+
+# Retour après usage en classe
+
+::: {.contrib-lede}
+Un retour d'usage permet de distinguer une activité documentée d'une activité effectivement mise à l'essai. Il améliore les consignes sans transformer une observation locale en preuve générale d'efficacité.
+:::
+
+::: {.contrib-hero-actions}
+[Ouvrir le formulaire de retour](https://github.com/AurelienNicosiaULaval/donnees-bleues/issues/new?template=retour-classe.yml){.dataset-button}
+[Télécharger le modèle](templates/retour-classe-template.md){.dataset-button .secondary}
+:::
+
+:::
+
+::: {.contrib-hero-panel}
+## Principe de prudence
+
+Ne pas publier de renseignement personnel, de travail étudiant identifiable, de note ou de donnée non publiable.
+:::
+:::
+
+::: {.contrib-section .contrib-quality}
+::: {.contrib-section-heading}
+## Informations utiles à consigner
+
+Le formulaire demande l'activité utilisée, la durée réelle, le matériel effectivement utilisé, les obstacles, les adaptations, les productions observées et une recommandation de réutilisation. Ces informations sont séparées du statut de vérification de la source.
+:::
+
+::: {.contrib-quality-grid}
+::: {.contrib-quality-item}
+### Mise en œuvre
+
+Documenter la durée, le groupe dans la mesure où cela est partageable, et les conditions matérielles.
+:::
+
+::: {.contrib-quality-item}
+### Adaptations
+
+Indiquer ce qui a dû être simplifié, préparé à l'avance ou approfondi.
+:::
+
+::: {.contrib-quality-item}
+### Réutilisation
+
+Dire si l'activité serait reprise telle quelle, modifiée ou écartée, avec une justification concise.
+:::
+:::
+:::
+
+::: {.contrib-final}
+::: {.contrib-final-copy}
+## Une mise en œuvre ne devient pas une preuve générale
+
+Un retour documente un contexte précis. Il peut guider une révision, mais ne permet pas à lui seul de conclure à l'efficacité pédagogique pour tous les groupes.
+:::
+
+::: {.contrib-final-actions}
+[Voir les activités](activites.qmd){.dataset-button .secondary}
+:::
+:::
+
+:::

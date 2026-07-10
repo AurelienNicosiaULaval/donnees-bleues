@@ -50,6 +50,20 @@ top_concepts <- if (n_activities > 0) {
 } else {
   character()
 }
+
+html_option_escape <- function(value) {
+  value <- as.character(value)
+  value <- str_replace_all(value, "&", "&amp;")
+  value <- str_replace_all(value, "<", "&lt;")
+  value <- str_replace_all(value, ">", "&gt;")
+  value <- str_replace_all(value, '"', "&quot;")
+  str_replace_all(value, "'", "&#39;")
+}
+
+format_planner_options <- function(values) {
+  values <- sort(unique(values[!is.na(values) & values != ""]))
+  paste0('<option value="', html_option_escape(values), '">', html_option_escape(values), '</option>', collapse = "")
+}
 ```
 
 ::: {.activities-page}
@@ -86,6 +100,39 @@ Activités indexées
 
 `r n_short` courtes, `r n_lab` laboratoires, `r n_long` longues, `r n_ready` prêtes à enseigner.
 :::
+
+:::
+
+::: {#preparer-un-cours .act-section .act-course-planner}
+
+::: {.act-section-heading}
+::: {.act-label}
+Préparer un cours
+:::
+
+## Partir du temps, du niveau et de la production attendue
+
+Cette entrée applique les mêmes filtres que le catalogue. Elle ne remplace pas la lecture du contrat pédagogique de l’activité, notamment pour les prérequis et les adaptations.
+
+[Consigner un retour après une mise en œuvre](retours-classe.qmd){.dataset-button .secondary}
+:::
+
+```{r}
+#| label: activity-course-planner
+#| echo: false
+#| results: asis
+if (n_activities > 0) {
+  planner_concepts <- unlist(lapply(activities_data$concepts, split_tokens), use.names = FALSE)
+  cat('<form class="act-course-planner-form" data-course-planner>\n')
+  cat('<label>Temps disponible<select data-plan-duration><option value="">Toute durée</option>', format_planner_options(activities_data$duration), '</select></label>\n', sep = "")
+  cat('<label>Niveau ou prérequis<select data-plan-level><option value="">Tout niveau</option>', format_planner_options(activities_data$level), '</select></label>\n', sep = "")
+  cat('<label>Objectif d’apprentissage<select data-plan-concept><option value="">Tout objectif</option>', format_planner_options(planner_concepts), '</select></label>\n', sep = "")
+  cat('<label>Format ou production<select data-plan-use><option value="">Tout format</option>', format_planner_options(activities_data$recommended_use), '</select></label>\n', sep = "")
+  cat('<label>Contexte recherché<select data-plan-context><option value="">Tout contexte</option>', format_planner_options(activities_data$context), '</select></label>\n', sep = "")
+  cat('<button type="submit" class="dataset-button">Voir les activités correspondantes <i class="bi bi-arrow-down" aria-hidden="true"></i></button>\n')
+  cat('</form>\n')
+}
+```
 
 :::
 
@@ -249,7 +296,7 @@ if (file.exists(activity_catalogue_path)) {
   cat('<div class="act-layout">\n')
   cat('<div class="act-results">\n')
   cat('<div class="act-results-bar">\n')
-  cat('<p data-activity-result-label>', nrow(activities), ' activités affichées</p>\n', sep = "")
+  cat('<p data-activity-result-label tabindex="-1">', nrow(activities), ' activités affichées</p>\n', sep = "")
   cat('<label>Trier par <select id="activity-sort"><option value="default">Recommandé</option><option value="title">Titre</option><option value="duration">Durée</option><option value="level">Niveau</option></select></label>\n')
   cat('</div>\n')
   cat('<div class="act-grid">\n')
@@ -355,6 +402,7 @@ if (file.exists(activity_catalogue_path)) {
   cat('  const emptyLabel = root.querySelector("[data-empty-activities]");\n')
   cat('  const showMoreButton = root.querySelector("[data-show-more-activities]");\n')
   cat('  const quickButtons = Array.from(root.querySelectorAll(".act-chip"));\n')
+  cat('  const coursePlanner = document.querySelector("[data-course-planner]");\n')
   cat('  const initialLimit = 12;\n')
   cat('  const stepLimit = 12;\n')
   cat('  let visibleLimit = initialLimit;\n')
@@ -372,6 +420,7 @@ if (file.exists(activity_catalogue_path)) {
   cat('    searchInput.value = "";\n')
   cat('    root.querySelectorAll(".act-filter-drawer input").forEach(function (input) { input.checked = false; });\n')
   cat('    if (sortSelect) sortSelect.value = "default";\n')
+  cat('    coursePlanner?.querySelectorAll("select").forEach(function (select) { select.value = ""; });\n')
   cat('  };\n')
   cat('  const matchesList = function (selected, value) {\n')
   cat('    return selected.length === 0 || selected.includes(value || "");\n')
@@ -467,6 +516,26 @@ if (file.exists(activity_catalogue_path)) {
   cat('  root.querySelectorAll("[data-quick-status]").forEach(function (button) {\n')
   cat('    button.addEventListener("click", function () { resetLimit(); clearAll(); setOnly("status", button.dataset.quickStatus); update(); });\n')
   cat('  });\n')
+  cat('  coursePlanner?.addEventListener("submit", function (event) {\n')
+  cat('    event.preventDefault();\n')
+  cat('    const selections = [\n')
+  cat('      ["duration", coursePlanner.querySelector("[data-plan-duration]")?.value, "[data-plan-duration]"],\n')
+  cat('      ["level", coursePlanner.querySelector("[data-plan-level]")?.value, "[data-plan-level]"],\n')
+  cat('      ["concept", coursePlanner.querySelector("[data-plan-concept]")?.value, "[data-plan-concept]"],\n')
+  cat('      ["use", coursePlanner.querySelector("[data-plan-use]")?.value, "[data-plan-use]"],\n')
+  cat('      ["context", coursePlanner.querySelector("[data-plan-context]")?.value, "[data-plan-context]"]\n')
+  cat('    ];\n')
+  cat('    resetLimit();\n')
+  cat('    clearAll();\n')
+  cat('    selections.forEach(function (selection) {\n')
+  cat('      if (selection[1]) setOnly(selection[0], selection[1]);\n')
+  cat('      coursePlanner.querySelector(selection[2]).value = selection[1] || "";\n')
+  cat('    });\n')
+  cat('    sortCards();\n')
+  cat('    update();\n')
+  cat('    root.scrollIntoView({ behavior: "smooth", block: "start" });\n')
+  cat('    window.setTimeout(function () { resultLabel.focus(); }, 350);\n')
+  cat('  });\n')
   cat('  if (showMoreButton) {\n')
   cat('    showMoreButton.addEventListener("click", function () { visibleLimit += stepLimit; update(); });\n')
   cat('  }\n')
@@ -499,6 +568,12 @@ Les modules transversaux regroupent plusieurs gestes d'analyse autour d'une mêm
 :::
 
 ::: {.act-module-grid}
+
+::: {.act-module-card}
+### [Séquences adaptables](sequences.qmd)
+
+Trois parcours réutilisables pour relier une première exploration, une production et une discussion des limites, sans les présenter comme validés en classe.
+:::
 
 ::: {.act-module-card}
 ### [Visualisation](activities/module-visualisation.qmd)

@@ -37,3 +37,40 @@ requires_prepared_data: yes
 requires_live_download: no
 recommended_use: Mini-projet guidé
 result_visible_in_page: yes
+
+learning_objectives:
+  - "Travailler Provenance."
+  - "Travailler Validation."
+  - "Travailler Rapport reproductible."
+  - "Travailler Droits de réutilisation."
+  - "Nommer au moins une limite d'interprétation."
+  - "Vérifier les droits de diffusion avant la séance; utiliser seulement les résumés publics et ne pas publier les lignes de données."
+  - "Fichier préparé : `data/processed/ulaval-programmes-cours/resume_ulaval_programmes_cours.csv`."
+  - "Script de préparation : `datasets/ulaval-programmes-cours/preparation.R`."
+  - "Point à surveiller : Demander un rendu local ou un rapport public sans lignes privées. Vérifier que le texte ne suggère pas une approbation officielle."
+  - "Demander un rendu local ou un rapport public sans lignes privées. Vérifier que le texte ne suggère pas une approbation officielle."
+  - "Si une variable ou un dénominateur nécessaire n'est pas disponible dans les données, l'écrire explicitement plutôt que l'inférer."
+  - "compilation indépendante et non officielle;"
+  - "aucune licence ouverte explicite identifiée;"
+  - "Je ne sais pas pour l'autorisation de republication publique à grande échelle."
+  - "`resume_ulaval_programmes_cours.csv`;"
+  - "`resume_fichiers_ulaval.csv`;"
+  - "`resume_controles_ulaval.csv`;"
+  - "`resume_droits_ulaval.csv`."
+  - "Exactitude du statut institutionnel et juridique."
+  - "Absence de lignes privées et de PDF sources dans le rapport public."
+  - "Qualité des contrôles de validation."
+  - "Clarté sur ce qui est vérifié et ce qui ne l'est pas."
+  - "Reproductibilité du code."
+  - "Prudence du langage."
+
+prerequisites:
+  - "Vérifier le fichier ou le script de préparation annoncé avant la séance; adapter la mise en route au niveau indiqué."
+
+success_criteria:
+  - "La production attendue est remise : Un court rapport reproductible avec contexte, tableau ou graphique, interprétation et limites."
+  - "Les résultats sont interprétés sans dépasser les limites de la source."
+
+adaptations:
+  - "Fournir une table préparée ou réduire le nombre de variables pour une première utilisation."
+  - "Ajouter une comparaison, une justification méthodologique ou une discussion des limites pour approfondir."

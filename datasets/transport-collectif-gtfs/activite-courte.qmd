@@ -103,3 +103,12 @@ Que peut-on conclure, et que ne peut-on pas conclure, à partir d'une carte des 
 ## Pistes de solution
 
 Une bonne réponse décrit la couverture spatiale observée et explique que les arrêts ne mesurent pas l'achalandage. Une réponse excellente distingue aussi information manquante et absence d'accessibilité dans le codage GTFS.
+
+```{r}
+#| label: activity-pedagogical-contract
+#| echo: false
+#| results: asis
+contract_source_path <- if (file.exists("R/utils_activity_contract.R")) "R/utils_activity_contract.R" else "../../R/utils_activity_contract.R"
+source(contract_source_path)
+render_activity_contract()
+```

@@ -1,0 +1,57 @@
+---
+title: "Séquences adaptables"
+toc: false
+page-layout: full
+format:
+  html:
+    embed-resources: true
+---
+
+::: {.activities-page}
+
+::: {.act-section .act-modules}
+::: {.act-section-heading}
+::: {.act-label}
+Séquences modèles
+:::
+
+# Trois séquences adaptables
+
+Ces séquences proposent des enchaînements de gestes d'analyse. Elles ne sont pas rattachées à un cours cible et ne sont pas présentées comme validées en classe. Adapter la durée, les prérequis et l'évaluation au groupe réel.
+:::
+
+::: {.act-module-grid}
+::: {.act-module-card}
+### [Lire, décrire et limiter](activities/sequence-lire-decrire-limiter.qmd)
+
+Une première séquence pour relier unité statistique, tableau descriptif et discussion des limites.
+:::
+
+::: {.act-module-card}
+### [Visualiser pour comparer](activities/sequence-visualiser-comparer.qmd)
+
+Une séquence pour passer d'une question de comparaison à un graphique lisible et interprété avec prudence.
+:::
+
+::: {.act-module-card}
+### [Préparer, analyser et communiquer](activities/sequence-preparer-analyser-communiquer.qmd)
+
+Une séquence longue qui met en relation préparation de données, production reproductible et communication des limites.
+:::
+:::
+
+::: {.contrib-final}
+::: {.contrib-final-copy}
+## Commencer par une activité adaptée
+
+Utiliser l'outil de préparation de cours pour filtrer par temps, niveau, objectif et format avant d'adopter une séquence.
+:::
+
+::: {.contrib-final-actions}
+[Préparer un cours](activites.qmd#preparer-un-cours){.dataset-button .secondary}
+:::
+:::
+
+:::
+
+:::

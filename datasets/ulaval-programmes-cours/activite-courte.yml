@@ -34,3 +34,21 @@ requires_prepared_data: yes
 requires_live_download: no
 recommended_use: Audit de source
 result_visible_in_page: yes
+
+learning_objectives:
+  - "Lire un résumé de validation sans accéder aux lignes privées."
+  - "Identifier les fichiers attendus et les lignes observées."
+  - "Vérifier la présence des clés et des champs de provenance."
+  - "Expliquer pourquoi les PDF et CSV sources ne sont pas redistribués."
+  - "Distinguer validation locale et autorisation de publication."
+
+prerequisites:
+  - "Vérifier le fichier ou le script de préparation annoncé avant la séance; adapter la mise en route au niveau indiqué."
+
+success_criteria:
+  - "La production attendue est remise : Un tableau ou graphique descriptif accompagné de trois phrases d'interprétation prudente."
+  - "Les résultats sont interprétés sans dépasser les limites de la source."
+
+adaptations:
+  - "Fournir une table préparée ou réduire le nombre de variables pour une première utilisation."
+  - "Ajouter une comparaison, une justification méthodologique ou une discussion des limites pour approfondir."

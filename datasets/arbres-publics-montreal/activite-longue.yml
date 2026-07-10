@@ -35,3 +35,32 @@ requires_prepared_data: yes
 requires_live_download: yes
 recommended_use: Mini-projet guidé
 result_visible_in_page: yes
+
+learning_objectives:
+  - "Travailler Carte."
+  - "Travailler Données manquantes."
+  - "Travailler Statistique descriptive."
+  - "Travailler Qualité des données."
+  - "Nommer au moins une limite d'interprétation."
+  - "Préparation requise : exécuter `Rscript datasets/arbres-publics-montreal/preparation.R` depuis la racine, puis vérifier que `data/processed/arbres-publics-montreal/arbres_publics_montreal.csv` existe."
+  - "Fichier préparé : `data/processed/arbres-publics-montreal/arbres_publics_montreal.csv`."
+  - "Script de préparation : `datasets/arbres-publics-montreal/preparation.R`."
+  - "Point à surveiller : Insister sur la qualité des coordonnées et les limites d'inventaire."
+  - "Insister sur la qualité des coordonnées et les limites d'inventaire."
+  - "Si une variable ou un dénominateur nécessaire n'est pas disponible dans les données, l'écrire explicitement plutôt que l'inférer."
+  - "Reproductibilité du traitement."
+  - "Qualité du tableau de valeurs manquantes."
+  - "Choix responsable de la visualisation spatiale."
+  - "Prudence des comparaisons entre arrondissements."
+  - "Clarté de la section limites."
+
+prerequisites:
+  - "Vérifier le fichier ou le script de préparation annoncé avant la séance; adapter la mise en route au niveau indiqué."
+
+success_criteria:
+  - "La production attendue est remise : Un court rapport reproductible avec contexte, tableau ou graphique, interprétation et limites."
+  - "Les résultats sont interprétés sans dépasser les limites de la source."
+
+adaptations:
+  - "Fournir une table préparée ou réduire le nombre de variables pour une première utilisation."
+  - "Ajouter une comparaison, une justification méthodologique ou une discussion des limites pour approfondir."

@@ -136,3 +136,12 @@ Une solution acceptable identifie une unité, donne son URL FGDB et explique que
 ## Prolongement
 
 Télécharger seulement l'unité choisie, puis inspecter les couches disponibles avec `sf::st_layers()`.
+
+```{r}
+#| label: activity-pedagogical-contract
+#| echo: false
+#| results: asis
+contract_source_path <- if (file.exists("R/utils_activity_contract.R")) "R/utils_activity_contract.R" else "../../R/utils_activity_contract.R"
+source(contract_source_path)
+render_activity_contract()
+```

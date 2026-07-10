@@ -1,0 +1,39 @@
+---
+title: "Séquence - Lire, décrire et limiter"
+toc: true
+format:
+  html:
+    embed-resources: true
+---
+
+# Lire, décrire et limiter
+
+## Positionnement
+
+Cette séquence adaptable convient à une première rencontre avec des données réelles. Elle n'est pas associée à un cours précis ni validée en classe. Prévoir une adaptation des consignes selon le niveau du groupe.
+
+## Objectifs d'apprentissage
+
+- Identifier l'unité statistique et les variables disponibles.
+- Produire un tableau ou un graphique descriptif répondant à une question explicite.
+- Distinguer une observation dans le fichier d'une conclusion que les données ne permettent pas de tirer.
+
+## Déroulement suggéré
+
+1. Utiliser [Lire prudemment des données de sécurité publique](../datasets/actes-criminels-montreal/activite-courte.qmd) pour introduire l'unité statistique et les limites de diffusion.
+2. Demander une production courte : un tableau de fréquences, une phrase de constat et une phrase de limite.
+3. Reprendre la même logique avec [Essences d'arbres par arrondissement](../datasets/arbres-publics-montreal/activite-courte.qmd) afin de comparer une source moins sensible.
+
+## Production attendue
+
+Une fiche d'analyse d'une page qui distingue la question, la donnée mobilisée, un résultat descriptif et une limite.
+
+## Critères de réussite
+
+- La production identifie correctement ce qu'une ligne représente.
+- Le résultat répond à une question limitée et vérifiable.
+- La limite est précise et reliée à la couverture, au temps ou à la définition de la source.
+
+## Adaptations
+
+Fournir une table réduite pour une première utilisation. Pour approfondir, demander une comparaison de deux sources et une justification du choix de visualisation.

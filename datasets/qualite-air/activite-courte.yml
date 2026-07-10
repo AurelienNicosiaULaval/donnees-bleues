@@ -34,3 +34,22 @@ requires_prepared_data: yes
 requires_live_download: no
 recommended_use: Exercice guidé
 result_visible_in_page: yes
+
+learning_objectives:
+  - "Importer une table préparée."
+  - "Identifier l'unité statistique."
+  - "Travailler avec une valeur manquante utile."
+  - "Produire un tableau de fréquences."
+  - "Produire un graphique à barres."
+  - "Formuler une limite d'interprétation."
+
+prerequisites:
+  - "Vérifier le fichier ou le script de préparation annoncé avant la séance; adapter la mise en route au niveau indiqué."
+
+success_criteria:
+  - "La production attendue est remise : Un tableau ou graphique descriptif accompagné de trois phrases d'interprétation prudente."
+  - "Les résultats sont interprétés sans dépasser les limites de la source."
+
+adaptations:
+  - "Fournir une table préparée ou réduire le nombre de variables pour une première utilisation."
+  - "Ajouter une comparaison, une justification méthodologique ou une discussion des limites pour approfondir."

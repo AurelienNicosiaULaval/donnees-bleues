@@ -35,3 +35,21 @@ requires_prepared_data: yes
 requires_live_download: yes
 recommended_use: Exercice guidé
 result_visible_in_page: yes
+
+learning_objectives:
+  - "Exécuter un script de préparation à partir d'une source officielle."
+  - "Importer une table préparée."
+  - "Créer un tableau croisé de variables catégorielles."
+  - "Visualiser une proportion mensuelle."
+  - "Formuler une limite liée à l'absence de dénominateur d'exposition."
+
+prerequisites:
+  - "Vérifier le fichier ou le script de préparation annoncé avant la séance; adapter la mise en route au niveau indiqué."
+
+success_criteria:
+  - "La production attendue est remise : Un court rapport reproductible avec contexte, tableau ou graphique, interprétation et limites."
+  - "Les résultats sont interprétés sans dépasser les limites de la source."
+
+adaptations:
+  - "Fournir une table préparée ou réduire le nombre de variables pour une première utilisation."
+  - "Ajouter une comparaison, une justification méthodologique ou une discussion des limites pour approfondir."
