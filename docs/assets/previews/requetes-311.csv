@@ -1,0 +1,121 @@
+id_unique,nature,activite,type_lieu_intervention,arrondissement,arrondissement_geo,date_creation,annee_creation,mois_creation,provenance_originale
+22-5,Requete,Nid-de-poule,Adresse,Rosemont - La Petite-Patrie,Rosemont-La Petite-Patrie,2022-01-01T07:52:06Z,2022,2022-01-01T00:00:00Z,Internet
+22-13330,Requete,Dépôt illégal - Déchets,Adresse,Côte-des-Neiges - Notre-Dame-de-Grâce,Côte-des-Neiges-Notre-Dame-de-Grâce,2022-01-20T14:10:03Z,2022,2022-01-01T00:00:00Z,Mobile
+22-27933,Requete,Entrée d'eau en plomb-Autre demande,Adresse,Le Sud-Ouest,Le Sud-Ouest,2022-02-08T09:15:40Z,2022,2022-02-01T00:00:00Z,Téléphone
+22-41748,Requete,Trottoir glissant,Adresse,Ahuntsic - Cartierville,Ahuntsic-Cartierville,2022-02-23T14:01:37Z,2022,2022-02-01T00:00:00Z,Téléphone
+22-55790,Requete,Voirie - Divers,Adresse,Saint-Léonard,Saint-Léonard,2022-03-08T11:53:58Z,2022,2022-03-01T00:00:00Z,Téléphone
+22-70041,Requete,Pavage - Réparation,Adresse,Anjou,Anjou,2022-03-25T15:42:41Z,2022,2022-03-01T00:00:00Z,Téléphone
+22-83324,Requete,Dépôt illégal - Déchets,Intersection,Le Sud-Ouest,Le Sud-Ouest,2022-04-11T14:43:54Z,2022,2022-04-01T00:00:00Z,Téléphone
+22-97546,Requete,Dépôt illégal - Déchets,Adresse,Ville-Marie,Ville-Marie,2022-04-25T16:38:23Z,2022,2022-04-01T00:00:00Z,Téléphone
+22-111710,Requete,Mobilier urbain,Adresse,Ville-Marie,Ville-Marie,2022-05-06T14:23:43Z,2022,2022-05-01T00:00:00Z,Téléphone
+22-125834,Requete,"*Bac de recyclage Endommagé, perdu, volé",Adresse,Saint-Laurent,Saint-Laurent,2022-05-18T13:19:56Z,2022,2022-05-01T00:00:00Z,Téléphone
+22-139580,Requete,Dépôt illégal - Déchets,Adresse,Villeray-Saint-Michel - Parc-Extension,Villeray-Saint-Michel-Parc-Extension,2022-05-30T21:05:07Z,2022,2022-05-01T00:00:00Z,Mobile
+22-152948,Requete,Éclairage existant - Entretien,Adresse,Le Plateau-Mont-Royal,Le Plateau-Mont-Royal,2022-06-09T15:17:07Z,2022,2022-06-01T00:00:00Z,Internet
+22-166456,Requete,Gazon ou herbes hautes - Domaine privé,Adresse,Le Sud-Ouest,Le Sud-Ouest,2022-06-21T08:48:32Z,2022,2022-06-01T00:00:00Z,Téléphone
+22-180485,Requete,Gazon ou mauvaises herbes - Domaine public,Intersection,Rivière-des-Prairies - Pointe-aux-Trembles,Rivière-des-Prairies-Pointe-aux-Trembles,2022-07-04T13:52:34Z,2022,2022-07-01T00:00:00Z,Téléphone
+22-194108,Requete,Dépôt illégal - Déchets,Adresse,Le Plateau-Mont-Royal,Le Plateau-Mont-Royal,2022-07-14T15:33:04Z,2022,2022-07-01T00:00:00Z,Mobile
+22-207706,Requete,Collecte des matières recyclables,Adresse,Pierrefonds - Roxboro,Pierrefonds-Roxboro,2022-07-26T14:35:13Z,2022,2022-07-01T00:00:00Z,Personne
+22-221844,Requete,Gazon ou mauvaises herbes - Domaine public,Adresse,LaSalle,LaSalle,2022-08-09T11:29:59Z,2022,2022-08-01T00:00:00Z,Téléphone
+22-235205,Requete,Fermeture d'une conduite d'eau - Urgence,Troncon,Ahuntsic - Cartierville,Ahuntsic-Cartierville,2022-08-22T09:19:07Z,2022,2022-08-01T00:00:00Z,Téléphone
+22-249424,Requete,Fermeture d'entrée d'eau,Adresse,Ville-Marie,Ville-Marie,2022-09-02T19:23:23Z,2022,2022-09-01T00:00:00Z,Téléphone
+22-263830,Requete,Débris sur la voie publique,Adresse,Saint-Laurent,Saint-Laurent,2022-09-17T16:52:50Z,2022,2022-09-01T00:00:00Z,Téléphone
+22-278013,Requete,Y-Eau - Divers,Adresse,Côte-des-Neiges - Notre-Dame-de-Grâce,Côte-des-Neiges-Notre-Dame-de-Grâce,2022-10-03T20:22:59Z,2022,2022-10-01T00:00:00Z,Téléphone
+22-291496,Requete,Nettoyage du domaine public,Intersection,Rivière-des-Prairies - Pointe-aux-Trembles,Rivière-des-Prairies-Pointe-aux-Trembles,2022-10-19T09:35:54Z,2022,2022-10-01T00:00:00Z,Téléphone
+22-304370,Requete,Distribution de sacs,Adresse,Saint-Laurent,Saint-Laurent,2022-11-01T14:00:11Z,2022,2022-11-01T00:00:00Z,Personne
+22-317609,Requete,Contrôle animalier,Adresse,Mercier - Hochelaga-Maisonneuve,Mercier-Hochelaga-Maisonneuve,2022-11-15T09:45:53Z,2022,2022-11-01T00:00:00Z,Téléphone
+22-330693,Requete,Collecte de déchets,Adresse,Le Sud-Ouest,Le Sud-Ouest,2022-12-02T09:26:01Z,2022,2022-12-01T00:00:00Z,Téléphone
+22-344365,Requete,Signalisation - Neige,Adresse,Côte-des-Neiges - Notre-Dame-de-Grâce,Côte-des-Neiges-Notre-Dame-de-Grâce,2022-12-21T02:15:13Z,2022,2022-12-01T00:00:00Z,Internet
+23-7365,Requete,Signalisation - Circulation - Études,Adresse,Rosemont - La Petite-Patrie,Rosemont-La Petite-Patrie,2023-01-12T15:25:34Z,2023,2023-01-01T00:00:00Z,Téléphone
+23-21230,Requete,Dépôt illégal - Déchets,Adresse,Le Plateau-Mont-Royal,Le Plateau-Mont-Royal,2023-01-28T15:43:03Z,2023,2023-01-01T00:00:00Z,Mobile
+23-34750,Requete,Pavage - Réparation,Adresse,Lachine,Lachine,2023-02-09T13:18:41Z,2023,2023-02-01T00:00:00Z,Téléphone
+23-48563,Requete,Sports et loisirs - Activités,Adresse,LaSalle,LaSalle,2023-03-02T09:21:23Z,2023,2023-03-01T00:00:00Z,Personne
+23-63167,Requete,Changement d'adresse - Taxes foncières,Adresse,Le Sud-Ouest,Le Sud-Ouest,2023-03-23T16:10:07Z,2023,2023-03-01T00:00:00Z,Téléphone
+23-76934,Requete,Nettoyage du domaine public,Adresse,Villeray-Saint-Michel - Parc-Extension,Villeray-Saint-Michel-Parc-Extension,2023-04-06T20:00:54Z,2023,2023-04-01T00:00:00Z,Téléphone
+23-90311,Requete,Panneau de signalisation entretien prioritaire,Adresse,Saint-Laurent,Saint-Laurent,2023-04-18T09:45:10Z,2023,2023-04-01T00:00:00Z,Personne
+23-104052,Requete,Dépôt illégal - Déchets,Adresse,Rosemont - La Petite-Patrie,Rosemont-La Petite-Patrie,2023-04-30T16:17:05Z,2023,2023-04-01T00:00:00Z,Internet
+23-118477,Requete,*Bac résidus alimentaire,Adresse,Rivière-des-Prairies - Pointe-aux-Trembles,Rivière-des-Prairies-Pointe-aux-Trembles,2023-05-11T17:04:24Z,2023,2023-05-01T00:00:00Z,Téléphone
+23-132669,Requete,Fuite d'eau,Adresse,Le Plateau-Mont-Royal,Le Plateau-Mont-Royal,2023-05-25T11:44:48Z,2023,2023-05-01T00:00:00Z,Téléphone
+23-145525,Requete,Puisard/TH-Première intervention,Adresse,Saint-Laurent,Saint-Laurent,2023-06-04T16:40:27Z,2023,2023-06-01T00:00:00Z,Téléphone
+23-158811,Requete,Terrain insalubre - Domaine privé,Adresse,Villeray-Saint-Michel - Parc-Extension,Villeray-Saint-Michel-Parc-Extension,2023-06-15T06:41:06Z,2023,2023-06-01T00:00:00Z,Mobile
+23-173362,Requete,Collecte des matières recyclables,Adresse,Lachine,Lachine,2023-06-29T09:53:35Z,2023,2023-06-01T00:00:00Z,Téléphone
+23-187482,Requete,Gazon ou mauvaises herbes - Domaine public,Troncon,Côte-des-Neiges - Notre-Dame-de-Grâce,Côte-des-Neiges-Notre-Dame-de-Grâce,2023-07-12T10:50:41Z,2023,2023-07-01T00:00:00Z,Téléphone
+23-201789,Requete,Feux de circulation - Entretien,Intersection,Côte-des-Neiges - Notre-Dame-de-Grâce,Côte-des-Neiges-Notre-Dame-de-Grâce,2023-07-24T16:37:56Z,2023,2023-07-01T00:00:00Z,Téléphone
+23-216327,Requete,Nettoyage du domaine public,Troncon,Ahuntsic - Cartierville,Ahuntsic-Cartierville,2023-08-04T14:58:06Z,2023,2023-08-01T00:00:00Z,Téléphone
+23-230198,Requete,Bac roulant,Adresse,LaSalle,LaSalle,2023-08-17T18:03:48Z,2023,2023-08-01T00:00:00Z,Téléphone
+23-245432,Requete,*Branchement d'égout - Domaine privé,Adresse,Ahuntsic - Cartierville,Ahuntsic-Cartierville,2023-09-01T09:29:13Z,2023,2023-09-01T00:00:00Z,Personne
+23-259497,Requete,Bac roulant,Adresse,Verdun,Verdun,2023-09-15T10:27:11Z,2023,2023-09-01T00:00:00Z,Personne
+23-273607,Requete,Extermination à l'extérieur - Rats,Adresse,Le Sud-Ouest,Le Sud-Ouest,2023-09-29T13:52:33Z,2023,2023-09-01T00:00:00Z,Téléphone
+23-287134,Requete,Logement - Inspection,Adresse,Mercier - Hochelaga-Maisonneuve,Mercier-Hochelaga-Maisonneuve,2023-10-15T10:26:29Z,2023,2023-10-01T00:00:00Z,Téléphone
+23-299603,Requete,Distribution de sacs,Adresse,Saint-Laurent,Saint-Laurent,2023-10-30T15:48:42Z,2023,2023-10-01T00:00:00Z,Téléphone
+23-313223,Requete,Bac roulant,Adresse,LaSalle,LaSalle,2023-11-15T09:34:39Z,2023,2023-11-01T00:00:00Z,Téléphone
+23-327511,Requete,Voirie - Divers,Adresse,Lachine,Lachine,2023-12-04T14:12:08Z,2023,2023-12-01T00:00:00Z,Courriel
+23-341519,Requete,Signalisation - Circulation - Études,Intersection,Ahuntsic - Cartierville,Ahuntsic-Cartierville,2023-12-21T09:48:13Z,2023,2023-12-01T00:00:00Z,Courriel
+24-9802,Requete,Collecte de déchets,Adresse,Saint-Laurent,Saint-Laurent,2024-01-13T09:09:18Z,2024,2024-01-01T00:00:00Z,Téléphone
+24-23151,Requete,Collecte des encombrants,Adresse,Mercier - Hochelaga-Maisonneuve,Mercier-Hochelaga-Maisonneuve,2024-01-26T17:51:35Z,2024,2024-01-01T00:00:00Z,Téléphone
+24-37135,Requete,Encaissement - Oasis,Adresse,Saint-Laurent,Saint-Laurent,2024-02-16T14:04:55Z,2024,2024-02-01T00:00:00Z,Personne
+24-51267,Requete,Terrain insalubre - Domaine privé,Adresse,Ville-Marie,Ville-Marie,2024-03-08T14:16:06Z,2024,2024-03-01T00:00:00Z,Téléphone
+24-64990,Requete,Bac roulant - Matières recyclables,Adresse,Verdun,Verdun,2024-03-29T11:43:24Z,2024,2024-03-01T00:00:00Z,Téléphone
+24-79729,Requete,Collecte des matières recyclables,Adresse,Ville-Marie,Ville-Marie,2024-04-11T20:31:05Z,2024,2024-04-01T00:00:00Z,Mobile
+24-93405,Commentaire,Utilisation illégale de l'eau,Adresse,Rivière-des-Prairies - Pointe-aux-Trembles,Rivière-des-Prairies-Pointe-aux-Trembles,2024-04-24T16:21:05Z,2024,2024-04-01T00:00:00Z,Téléphone
+24-107261,Requete,Éclairage existant - Entretien,Adresse,Villeray-Saint-Michel - Parc-Extension,Villeray-Saint-Michel-Parc-Extension,2024-05-07T14:18:30Z,2024,2024-05-01T00:00:00Z,Mobile
+24-121643,Requete,Parc - Divers,Adresse,L'Île-Bizard - Sainte-Geneviève,L'Île-Bizard-Sainte-Geneviève,2024-05-21T10:18:58Z,2024,2024-05-01T00:00:00Z,Personne
+24-135703,Requete,Relevé CPTE,Adresse,Saint-Laurent,Saint-Laurent,2024-05-31T09:22:44Z,2024,2024-05-01T00:00:00Z,Personne
+24-149696,Plainte,Collecte de déchets,Adresse,Pierrefonds - Roxboro,Pierrefonds-Roxboro,2024-06-11T12:06:00Z,2024,2024-06-01T00:00:00Z,Téléphone
+24-163127,Requete,Danger potentiel - Arbre,Adresse,Mercier - Hochelaga-Maisonneuve,Mercier-Hochelaga-Maisonneuve,2024-06-22T16:18:51Z,2024,2024-06-01T00:00:00Z,Téléphone
+24-177503,Requete,Élagage,Adresse,Mercier - Hochelaga-Maisonneuve,Mercier-Hochelaga-Maisonneuve,2024-07-05T15:32:53Z,2024,2024-07-01T00:00:00Z,Téléphone
+24-191179,Requete,Fermeture d'entrée d'eau,Adresse,Côte-des-Neiges - Notre-Dame-de-Grâce,Côte-des-Neiges-Notre-Dame-de-Grâce,2024-07-17T11:13:28Z,2024,2024-07-01T00:00:00Z,Téléphone
+24-204698,Requete,Autre - Stationnement municipal,Adresse,Saint-Laurent,Saint-Laurent,2024-07-29T15:59:44Z,2024,2024-07-01T00:00:00Z,Courriel
+24-218806,Requete,Fermeture d'entrée d'eau,Adresse,Saint-Laurent,Saint-Laurent,2024-08-11T12:52:21Z,2024,2024-08-01T00:00:00Z,Téléphone
+24-232664,Requete,Feux de circulation - Entretien,Adresse,Le Sud-Ouest,Le Sud-Ouest,2024-08-22T16:05:20Z,2024,2024-08-01T00:00:00Z,Téléphone
+24-246438,Requete,Signalisation non autorisée - Analyse,Intersection,Rosemont - La Petite-Patrie,Rosemont-La Petite-Patrie,2024-09-04T12:47:03Z,2024,2024-09-01T00:00:00Z,Téléphone
+24-259911,Requete,Installations sportives extérieures - Entretien,Adresse,L'Île-Bizard - Sainte-Geneviève,L'Île-Bizard-Sainte-Geneviève,2024-09-16T16:36:08Z,2024,2024-09-01T00:00:00Z,Personne
+24-274402,Requete,Dépôt illégal - Déchets,Adresse,Le Plateau-Mont-Royal,Le Plateau-Mont-Royal,2024-09-30T17:07:11Z,2024,2024-09-01T00:00:00Z,Mobile
+24-289030,Requete,Nid-de-poule,Adresse,Rivière-des-Prairies - Pointe-aux-Trembles,Rivière-des-Prairies-Pointe-aux-Trembles,2024-10-17T05:47:03Z,2024,2024-10-01T00:00:00Z,Internet
+24-302771,Requete,Éclairage existant - Entretien,Adresse,Villeray-Saint-Michel - Parc-Extension,Villeray-Saint-Michel-Parc-Extension,2024-11-01T10:49:11Z,2024,2024-11-01T00:00:00Z,Téléphone
+24-317574,Requete,Bac roulant - Déchets,Adresse,Côte-des-Neiges - Notre-Dame-de-Grâce,Côte-des-Neiges-Notre-Dame-de-Grâce,2024-11-19T08:47:54Z,2024,2024-11-01T00:00:00Z,Téléphone
+24-332312,Requete,Fermeture d'entrée d'eau,Adresse,Rosemont - La Petite-Patrie,Rosemont-La Petite-Patrie,2024-12-10T07:52:21Z,2024,2024-12-01T00:00:00Z,Téléphone
+25-1135,Requete,Panneau de signalisation entretien prioritaire,Adresse,Ville-Marie,Ville-Marie,2025-01-03T12:29:51Z,2025,2025-01-01T00:00:00Z,Téléphone
+25-14630,Requete,Débris sur la voie publique,Intersection,Pierrefonds - Roxboro,Pierrefonds-Roxboro,2025-01-21T20:07:00Z,2025,2025-01-01T00:00:00Z,Téléphone
+25-29171,Requete,Retour DDS,Adresse,Côte-des-Neiges - Notre-Dame-de-Grâce,Côte-des-Neiges-Notre-Dame-de-Grâce,2025-02-11T11:30:41Z,2025,2025-02-01T00:00:00Z,Téléphone
+25-43332,Requete,Opération déneigement,Adresse,Rivière-des-Prairies - Pointe-aux-Trembles,Rivière-des-Prairies-Pointe-aux-Trembles,2025-02-21T12:56:13Z,2025,2025-02-01T00:00:00Z,Internet
+25-56837,Requete,Collecte de déchets,Adresse,Le Plateau-Mont-Royal,Le Plateau-Mont-Royal,2025-03-03T16:17:16Z,2025,2025-03-01T00:00:00Z,Personne
+25-71752,Requete,Éclairage - Études,Adresse,Pierrefonds - Roxboro,Pierrefonds-Roxboro,2025-03-19T17:16:20Z,2025,2025-03-01T00:00:00Z,Téléphone
+25-85758,Requete,Taxes foncières,Adresse,Rivière-des-Prairies - Pointe-aux-Trembles,Rivière-des-Prairies-Pointe-aux-Trembles,2025-04-07T09:37:24Z,2025,2025-04-01T00:00:00Z,Téléphone
+25-99910,Requete,Taxes foncières,Adresse,Verdun,Verdun,2025-04-23T11:27:40Z,2025,2025-04-01T00:00:00Z,Téléphone
+25-113378,Requete,Abattage d'arbre,Adresse,Rosemont - La Petite-Patrie,Rosemont-La Petite-Patrie,2025-05-05T13:34:34Z,2025,2025-05-01T00:00:00Z,Téléphone
+25-127279,Requete,Voie cyclable - Marquage et signalisation écrite,Troncon,Rosemont - La Petite-Patrie,Rosemont-La Petite-Patrie,2025-05-16T10:25:33Z,2025,2025-05-01T00:00:00Z,Téléphone
+25-140886,Requete,Bac roulant - Matières recyclables,Adresse,Anjou,Anjou,2025-05-28T14:48:44Z,2025,2025-05-01T00:00:00Z,Téléphone
+25-155057,Requete,Fermeture d'une conduite d'eau - Urgence,Troncon,Ville-Marie,Ville-Marie,2025-06-09T10:06:35Z,2025,2025-06-01T00:00:00Z,Téléphone
+25-169388,Requete,Abattage d'arbre,Adresse,Rivière-des-Prairies - Pointe-aux-Trembles,Rivière-des-Prairies-Pointe-aux-Trembles,2025-06-19T13:55:21Z,2025,2025-06-01T00:00:00Z,Personne
+25-183032,Requete,Puisard/TH-Couvercle Abs./Déplacé,Adresse,LaSalle,LaSalle,2025-07-02T15:12:11Z,2025,2025-07-01T00:00:00Z,Téléphone
+25-197025,Requete,Feux de circulation - Entretien,Intersection,Anjou,Anjou,2025-07-13T20:36:15Z,2025,2025-07-01T00:00:00Z,Téléphone
+25-211280,Requete,Nettoyage du domaine public,Adresse,Le Plateau-Mont-Royal,Le Plateau-Mont-Royal,2025-07-23T19:34:11Z,2025,2025-07-01T00:00:00Z,Mobile
+25-225027,Requete,Collecte de déchets,Adresse,Verdun,Verdun,2025-08-05T10:27:00Z,2025,2025-08-01T00:00:00Z,Téléphone
+25-238680,Requete,Bac roulant - Matières recyclables,Adresse,Pierrefonds - Roxboro,Pierrefonds-Roxboro,2025-08-15T15:23:10Z,2025,2025-08-01T00:00:00Z,Téléphone
+25-252343,Requete,Abattage d'arbre,Adresse,Rosemont - La Petite-Patrie,Rosemont-La Petite-Patrie,2025-08-27T16:12:01Z,2025,2025-08-01T00:00:00Z,Personne
+25-267429,Requete,Entretien d'édifices municipaux,Installation,Anjou,Anjou,2025-09-10T11:43:01Z,2025,2025-09-01T00:00:00Z,Personne
+25-281292,Plainte,Terrain insalubre - Domaine privé,Adresse,Le Plateau-Mont-Royal,Le Plateau-Mont-Royal,2025-09-23T09:14:19Z,2025,2025-09-01T00:00:00Z,Téléphone
+25-295172,Commentaire,Info-travaux - Arrondissement,Adresse,Ville-Marie,Ville-Marie,2025-10-06T14:30:26Z,2025,2025-10-01T00:00:00Z,Courriel
+25-309634,Requete,Dépôt illégal - Déchets,Adresse,Côte-des-Neiges - Notre-Dame-de-Grâce,Côte-des-Neiges-Notre-Dame-de-Grâce,2025-10-22T11:09:17Z,2025,2025-10-01T00:00:00Z,Téléphone
+25-322871,Requete,Signalisation - Circulation - Études,Intersection,Le Sud-Ouest,Le Sud-Ouest,2025-11-06T07:35:59Z,2025,2025-11-01T00:00:00Z,Personne
+25-336829,Requete,Élagage,Adresse,Saint-Léonard,Saint-Léonard,2025-11-18T09:17:09Z,2025,2025-11-01T00:00:00Z,Téléphone
+25-349860,Requete,Trottoir glissant,Troncon,Rosemont - La Petite-Patrie,Rosemont-La Petite-Patrie,2025-12-01T17:11:31Z,2025,2025-12-01T00:00:00Z,Téléphone
+25-363262,Requete,Signalisation écrite - Entretien,Intersection,Mercier - Hochelaga-Maisonneuve,Mercier-Hochelaga-Maisonneuve,2025-12-16T12:16:18Z,2025,2025-12-01T00:00:00Z,Téléphone
+25-376215,Requete,Trottoir glissant,Adresse,Mercier - Hochelaga-Maisonneuve,Mercier-Hochelaga-Maisonneuve,2025-12-31T10:53:20Z,2025,2025-12-01T00:00:00Z,Téléphone
+26-13455,Requete,Pavage - Réparation,Troncon,Saint-Léonard,Saint-Léonard,2026-01-11T15:56:44Z,2026,2026-01-01T00:00:00Z,Téléphone
+26-27973,Requete,Collecte de déchets,Adresse,Rosemont - La Petite-Patrie,Rosemont-La Petite-Patrie,2026-01-21T13:39:56Z,2026,2026-01-01T00:00:00Z,Téléphone
+26-42062,Requete,Nid-de-poule,Intersection,Villeray-Saint-Michel - Parc-Extension,Villeray-Saint-Michel-Parc-Extension,2026-02-03T16:27:53Z,2026,2026-02-01T00:00:00Z,Téléphone
+26-55338,Requete,Opération déneigement,Adresse,LaSalle,LaSalle,2026-02-17T11:56:10Z,2026,2026-02-01T00:00:00Z,Téléphone
+26-69488,Requete,Dépôt illégal - Déchets,Adresse,Villeray-Saint-Michel - Parc-Extension,Villeray-Saint-Michel-Parc-Extension,2026-03-03T18:41:12Z,2026,2026-03-01T00:00:00Z,Mobile
+26-83310,Requete,Nid-de-poule,Intersection,Rivière-des-Prairies - Pointe-aux-Trembles,Rivière-des-Prairies-Pointe-aux-Trembles,2026-03-17T12:13:17Z,2026,2026-03-01T00:00:00Z,Téléphone
+26-96991,Requete,Puisard/TH-Refoulement/Débordement/Blocage,Adresse,Anjou,Anjou,2026-04-01T10:25:08Z,2026,2026-04-01T00:00:00Z,Téléphone
+26-110784,Requete,Pavage - Réparation,Adresse,Mercier - Hochelaga-Maisonneuve,Mercier-Hochelaga-Maisonneuve,2026-04-13T17:26:06Z,2026,2026-04-01T00:00:00Z,Mobile
+26-124418,Requete,Logement - Réparation,Adresse,Saint-Laurent,Saint-Laurent,2026-04-22T12:06:20Z,2026,2026-04-01T00:00:00Z,Téléphone
+26-138093,Requete,Panneau de signalisation entretien prioritaire,Adresse,Côte-des-Neiges - Notre-Dame-de-Grâce,Côte-des-Neiges-Notre-Dame-de-Grâce,2026-04-30T11:08:52Z,2026,2026-04-01T00:00:00Z,Téléphone
+26-151836,Requete,Panneau de signalisation entretien prioritaire,Adresse,Saint-Léonard,Saint-Léonard,2026-05-08T15:05:12Z,2026,2026-05-01T00:00:00Z,Téléphone
+26-167026,Requete,Signalisation non autorisée - Analyse,Adresse,Montréal-Nord,Montréal-Nord,2026-05-20T14:40:32Z,2026,2026-05-01T00:00:00Z,Téléphone
+26-181009,Requete,Puisard/TH-Couvercle Brisé,Adresse,Rivière-des-Prairies - Pointe-aux-Trembles,Rivière-des-Prairies-Pointe-aux-Trembles,2026-05-29T14:54:01Z,2026,2026-05-01T00:00:00Z,Personne
+26-194752,Requete,Voirie - Divers,Adresse,Anjou,Anjou,2026-06-08T14:11:44Z,2026,2026-06-01T00:00:00Z,Personne
+26-207901,Commentaire,Nettoyage du domaine public,Adresse,Mercier - Hochelaga-Maisonneuve,Mercier-Hochelaga-Maisonneuve,2026-06-16T19:43:47Z,2026,2026-06-01T00:00:00Z,Téléphone
+26-221901,Requete,Voirie - Divers,Adresse,Rivière-des-Prairies - Pointe-aux-Trembles,Rivière-des-Prairies-Pointe-aux-Trembles,2026-06-26T15:39:45Z,2026,2026-06-01T00:00:00Z,Téléphone
+26-234768,Requete,Bac roulant - Matières recyclables,Adresse,LaSalle,LaSalle,2026-07-06T20:12:31Z,2026,2026-07-01T00:00:00Z,Téléphone

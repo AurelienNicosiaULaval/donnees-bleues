@@ -264,7 +264,7 @@ Faire écrire explicitement ce qui est vérifié, ce qui ne l'est pas et ce qui 
 Entrer par les lignes, puis poser une question
 </h2>
 <p>
-Aucun extrait public de lignes réelles n’est disponible dans cette fiche.
+Extrait public de la table préparée à partir de la source officielle, limité à 120 lignes pour une exploration rapide.
 </p>
 </div>
 <div class="dataset-preview-layout">
@@ -272,17 +272,195 @@ Aucun extrait public de lignes réelles n’est disponible dans cette fiche.
 <div class="dataset-card-label">
 Table consultable
 </div>
-<div class="dataset-preview-unavailable">
-<strong>Aperçu tabulaire non publié</strong>
-<p>
-Cette fiche ne contient pas encore d’extrait public de lignes réelles. Les métadonnées restent décrites dans la documentation; consultez <a href="https://www.donneesquebec.ca/recherche/dataset/vmtl-stm-bus-temps-reel-gtfs-realtime">Société de transport de Montréal / Données Québec</a> pour accéder à la source complète.
-</p>
+<div id="dataset-header-result-table" class="dataset-datatable">
+<div class="dataset-datatable-toolbar">
+<label><span>Recherche</span><input type="search" data-dataset-search="" placeholder="Filtrer"></label><label><span>Lignes</span><select data-dataset-page-size=""><option value="10">10</option><option value="25">25</option><option value="50">50</option><option value="100">100</option></select></label><span class="dataset-datatable-count" data-dataset-count=""></span>
+</div>
+<div class="dataset-result-table-wrap">
+<table class="dataset-result-table">
+<thead>
+<tr>
+<th>
+<button type="button" class="dataset-sort-button" data-dataset-sort="0">
+message_type<span aria-hidden="true"></span>
+</button>
+</th>
+<th>
+<button type="button" class="dataset-sort-button" data-dataset-sort="1">
+field_pedagogique<span aria-hidden="true"></span>
+</button>
+</th>
+<th>
+<button type="button" class="dataset-sort-button" data-dataset-sort="2">
+role_statistique<span aria-hidden="true"></span>
+</button>
+</th>
+<th>
+<button type="button" class="dataset-sort-button" data-dataset-sort="3">
+status<span aria-hidden="true"></span>
+</button>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+TripUpdate
+</td>
+<td>
+route_id
+</td>
+<td>
+Identifiant de ligne ou parcours à utiliser pour les regroupements.
+</td>
+<td>
+Champ attendu dans la spécification GTFS-realtime; non validé dans le flux ST…
+</td>
+</tr>
+<tr>
+<td>
+TripUpdate
+</td>
+<td>
+trip_id
+</td>
+<td>
+Identifiant de trajet, utile pour relier le temps réel aux horaires planifiés.
+</td>
+<td>
+Champ attendu dans la spécification GTFS-realtime; non validé dans le flux ST…
+</td>
+</tr>
+<tr>
+<td>
+TripUpdate
+</td>
+<td>
+stop_id
+</td>
+<td>
+Arrêt auquel associer une mise à jour de temps de passage.
+</td>
+<td>
+Champ attendu dans la spécification GTFS-realtime; non validé dans le flux ST…
+</td>
+</tr>
+<tr>
+<td>
+TripUpdate
+</td>
+<td>
+delay_seconds
+</td>
+<td>
+Retard brut en secondes lorsque la mise à jour de passage contient un délai.
+</td>
+<td>
+Champ possible dans StopTimeUpdate; à vérifier après extraction.
+</td>
+</tr>
+<tr>
+<td>
+VehiclePosition
+</td>
+<td>
+vehicle_id
+</td>
+<td>
+Identifiant du véhicule observé dans un instantané.
+</td>
+<td>
+Champ attendu dans la spécification GTFS-realtime; non validé dans le flux ST…
+</td>
+</tr>
+<tr>
+<td>
+VehiclePosition
+</td>
+<td>
+latitude
+</td>
+<td>
+Coordonnée pour cartographier la position du véhicule.
+</td>
+<td>
+Champ attendu dans la spécification GTFS-realtime; non validé dans le flux ST…
+</td>
+</tr>
+<tr>
+<td>
+VehiclePosition
+</td>
+<td>
+longitude
+</td>
+<td>
+Coordonnée pour cartographier la position du véhicule.
+</td>
+<td>
+Champ attendu dans la spécification GTFS-realtime; non validé dans le flux ST…
+</td>
+</tr>
+<tr>
+<td>
+VehiclePosition
+</td>
+<td>
+occupancy_status
+</td>
+<td>
+Niveau d'occupation publié depuis la version 2 du flux, selon la documentatio…
+</td>
+<td>
+Champ à vérifier après extraction du flux STM.
+</td>
+</tr>
+<tr>
+<td>
+Archivage local
+</td>
+<td>
+collection_time
+</td>
+<td>
+Horodatage ajouté par le protocole d'archivage pour analyser les séries tempo…
+</td>
+<td>
+Variable dérivée par l'équipe pédagogique.
+</td>
+</tr>
+<tr>
+<td>
+Archivage local
+</td>
+<td>
+retard_minutes
+</td>
+<td>
+Conversion de delay_seconds en minutes pour les graphiques et les résumés.
+</td>
+<td>
+Variable dérivée; ne pas présenter comme colonne brute garantie.
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="dataset-datatable-pager">
+<button type="button" data-dataset-prev="">
+Précédent
+</button>
+<span data-dataset-page=""></span><button type="button" data-dataset-next="">Suivant</button>
+</div>
+</div>
+<div class="dataset-preview-chart">
+<span class="dataset-panel-label">Aperçu graphique</span><svg class="dataset-r-chart" viewbox="0 0 320 190" role="img" aria-label="Types de variables"><text x="0" y="44" class="dataset-svg-label">cat.</text><rect x="72" y="30" width="230" height="18" rx="4" class="dataset-svg-bar"></rect><text x="312" y="44" class="dataset-svg-value">4</text></svg>
 </div>
 </div>
 <div class="dataset-variable-panel">
 <span class="dataset-panel-label">Variables à repérer</span>
 <div class="dataset-variable-list">
-<span class="dataset-variable-chip">collection_time</span><span class="dataset-variable-chip">message_type</span><span class="dataset-variable-chip">route_id</span><span class="dataset-variable-chip">trip_id</span><span class="dataset-variable-chip">vehicle_id</span><span class="dataset-variable-chip">stop_id</span><span class="dataset-variable-chip">delay_seconds</span>
+<span class="dataset-variable-chip">message_type</span><span class="dataset-variable-chip">field_pedagogique</span><span class="dataset-variable-chip">role_statistique</span><span class="dataset-variable-chip">status</span>
 </div>
 <div class="dataset-simple-facts">
 <div class="dataset-simple-fact">
