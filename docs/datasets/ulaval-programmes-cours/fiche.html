@@ -257,129 +257,29 @@ Ne pas publier les lignes de données. L'activité porte sur les contrôles et l
 </p>
 </article>
 </section>
-<section class="dataset-r-lab page-columns page-full" id="apercu-interactif">
+<section class="dataset-r-lab" id="apercu-interactif">
 <div class="dataset-section-heading">
 <span>Aperçu des données</span>
 <h2 class="anchored">
 Entrer par les lignes, puis poser une question
 </h2>
 <p>
-Aperçu calculé par R à partir de data/processed/ulaval-programmes-cours/resume_ulaval_programmes_cours.csv.
+Aucun extrait public de lignes réelles n’est disponible dans cette fiche.
 </p>
 </div>
-<div class="dataset-preview-layout page-columns page-full">
+<div class="dataset-preview-layout">
 <div class="dataset-result-card">
 <div class="dataset-card-label">
 Table consultable
 </div>
-<div id="dataset-header-result-table" class="dataset-datatable">
-<div class="dataset-datatable-toolbar">
-<label><span>Recherche</span><input type="search" data-dataset-search="" placeholder="Filtrer"></label><label><span>Lignes</span><select data-dataset-page-size=""><option value="10">10</option><option value="25">25</option><option value="50">50</option><option value="100">100</option></select></label><span class="dataset-datatable-count" data-dataset-count=""></span>
-</div>
-<div class="dataset-result-table-wrap">
-<table class="dataset-result-table">
-<thead>
-<tr>
-<th>
-<button type="button" class="dataset-sort-button" data-dataset-sort="0">
-access_date<span aria-hidden="true"></span>
-</button>
-</th>
-<th>
-<button type="button" class="dataset-sort-button" data-dataset-sort="1">
-source_found<span aria-hidden="true"></span>
-</button>
-</th>
-<th>
-<button type="button" class="dataset-sort-button" data-dataset-sort="2">
-source_status<span aria-hidden="true"></span>
-</button>
-</th>
-<th>
-<button type="button" class="dataset-sort-button" data-dataset-sort="3">
-source_path_recorded<span aria-hidden="true"></span>
-</button>
-</th>
-<th>
-<button type="button" class="dataset-sort-button" data-dataset-sort="4">
-n_reference_files_expected<span aria-hidden="true"></span>
-</button>
-</th>
-<th>
-<button type="button" class="dataset-sort-button" data-dataset-sort="5">
-n_reference_files_available<span aria-hidden="true"></span>
-</button>
-</th>
-<th>
-<button type="button" class="dataset-sort-button" data-dataset-sort="6">
-n_manifest_datasets<span aria-hidden="true"></span>
-</button>
-</th>
-<th>
-<button type="button" class="dataset-sort-button" data-dataset-sort="7">
-n_core_datasets<span aria-hidden="true"></span>
-</button>
-</th>
-<th>
-<button type="button" class="dataset-sort-button" data-dataset-sort="8">
-n_core_expected_rows<span aria-hidden="true"></span>
-</button>
-</th>
-<th>
-<button type="button" class="dataset-sort-button" data-dataset-sort="9">
-n_ges_datasets<span aria-hidden="true"></span>
-</button>
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-2026-06-21
-</td>
-<td>
-TRUE
-</td>
-<td>
-source privée locale validée
-</td>
-<td>
-chemin local privé non publié
-</td>
-<td>
-8
-</td>
-<td>
-8
-</td>
-<td>
-7
-</td>
-<td>
-3
-</td>
-<td>
-1375
-</td>
-<td>
-3
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-<p class="dataset-table-note">
-aperçu limité aux 10 premières colonnes.
+<div class="dataset-preview-unavailable">
+<strong>Aperçu tabulaire non publié</strong>
+<p>
+Cette fiche ne contient pas encore d’extrait public de lignes réelles. Les métadonnées restent décrites dans la documentation; consultez <a href="https://www.bqp.ulaval.ca/fichiers/ressources/gestion/codes-programmes-actifs.pdf">Université Laval, Bureau de la qualité des programmes</a> pour accéder à la source complète.
 </p>
-<div class="dataset-datatable-pager">
-<button type="button" data-dataset-prev="">
-Précédent
-</button>
-<span data-dataset-page=""></span><button type="button" data-dataset-next="">Suivant</button>
 </div>
 </div>
-</div>
-<aside class="dataset-variable-panel">
+<div class="dataset-variable-panel">
 <span class="dataset-panel-label">Variables à repérer</span>
 <div class="dataset-variable-list">
 <span class="dataset-variable-chip">code_programme</span><span class="dataset-variable-chip">programme</span><span class="dataset-variable-chip">code_cours</span><span class="dataset-variable-chip">titre</span><span class="dataset-variable-chip">faculte</span><span class="dataset-variable-chip">credits</span><span class="dataset-variable-chip">source_id</span>
@@ -395,7 +295,7 @@ Précédent
 <span>Format</span><strong>CSV UTF-8 dans le dépôt privé source; seuls des résumés de validation sont publiés dans Données bleues</strong>
 </div>
 </div>
-</aside>
+</div>
 </div>
 </section>
 <details class="dataset-doc-panel" id="documentation">
@@ -984,149 +884,6 @@ Précédent
 <span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>fichiers <span class="sc">|&gt;</span></span>
 <span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(dataset_id, phase, observed_rows, keys_unique, protected_fields_present)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<div class="dataset-minimal-result">
-<div class="dataset-card-label">
-Résultat visible
-</div>
-<p>
-Sortie calculée par R à partir de data/processed/ulaval-programmes-cours/resume_ulaval_programmes_cours.csv. Les exemples qui téléchargent une source externe restent non évalués pendant le rendu du site afin de garder les fiches stables.
-</p>
-<div class="dataset-minimal-result-grid">
-<div>
-<div class="dataset-r-stats">
-<div class="dataset-r-stat">
-<span>Lignes dans l'aperçu</span><strong>1</strong>
-</div>
-<div class="dataset-r-stat">
-<span>Lignes déclarées</span><strong>1 375 lignes core validées; 119 lignes GES validées; 165 lignes d'indicateurs repères validées localement</strong>
-</div>
-<div class="dataset-r-stat">
-<span>Colonnes dans le CSV</span><strong>18</strong>
-</div>
-<div class="dataset-r-stat">
-<span>Variables num.</span><strong>9</strong>
-</div>
-<div class="dataset-r-stat">
-<span>Valeurs manquantes</span><strong>0 %</strong>
-</div>
-<div class="dataset-r-stat">
-<span>Aperçu</span><strong>resume_ulaval_programmes_cours.csv</strong>
-</div>
-</div>
-<div id="dataset-code-result-table" class="dataset-datatable">
-<div class="dataset-datatable-toolbar">
-<label><span>Recherche</span><input type="search" data-dataset-search="" placeholder="Filtrer"></label><label><span>Lignes</span><select data-dataset-page-size=""><option value="10">10</option><option value="25">25</option><option value="50">50</option><option value="100">100</option></select></label><span class="dataset-datatable-count" data-dataset-count=""></span>
-</div>
-<div class="dataset-result-table-wrap">
-<table class="dataset-result-table">
-<thead>
-<tr>
-<th>
-<button type="button" class="dataset-sort-button" data-dataset-sort="0">
-access_date<span aria-hidden="true"></span>
-</button>
-</th>
-<th>
-<button type="button" class="dataset-sort-button" data-dataset-sort="1">
-source_found<span aria-hidden="true"></span>
-</button>
-</th>
-<th>
-<button type="button" class="dataset-sort-button" data-dataset-sort="2">
-source_status<span aria-hidden="true"></span>
-</button>
-</th>
-<th>
-<button type="button" class="dataset-sort-button" data-dataset-sort="3">
-source_path_recorded<span aria-hidden="true"></span>
-</button>
-</th>
-<th>
-<button type="button" class="dataset-sort-button" data-dataset-sort="4">
-n_reference_files_expected<span aria-hidden="true"></span>
-</button>
-</th>
-<th>
-<button type="button" class="dataset-sort-button" data-dataset-sort="5">
-n_reference_files_available<span aria-hidden="true"></span>
-</button>
-</th>
-<th>
-<button type="button" class="dataset-sort-button" data-dataset-sort="6">
-n_manifest_datasets<span aria-hidden="true"></span>
-</button>
-</th>
-<th>
-<button type="button" class="dataset-sort-button" data-dataset-sort="7">
-n_core_datasets<span aria-hidden="true"></span>
-</button>
-</th>
-<th>
-<button type="button" class="dataset-sort-button" data-dataset-sort="8">
-n_core_expected_rows<span aria-hidden="true"></span>
-</button>
-</th>
-<th>
-<button type="button" class="dataset-sort-button" data-dataset-sort="9">
-n_ges_datasets<span aria-hidden="true"></span>
-</button>
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-2026-06-21
-</td>
-<td>
-TRUE
-</td>
-<td>
-source privée locale validée
-</td>
-<td>
-chemin local privé non publié
-</td>
-<td>
-8
-</td>
-<td>
-8
-</td>
-<td>
-7
-</td>
-<td>
-3
-</td>
-<td>
-1375
-</td>
-<td>
-3
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-<p class="dataset-table-note">
-aperçu limité aux 10 premières colonnes.
-</p>
-<div class="dataset-datatable-pager">
-<button type="button" data-dataset-prev="">
-Précédent
-</button>
-<span data-dataset-page=""></span><button type="button" data-dataset-next="">Suivant</button>
-</div>
-</div>
-</div>
-<div class="dataset-minimal-chart">
-<p class="dataset-empty-result">
-Pas assez de valeurs numériques pour tracer un aperçu.
-</p>
-</div>
-</div>
 </div>
 </section>
 <section id="limites-et-précautions" class="level2">

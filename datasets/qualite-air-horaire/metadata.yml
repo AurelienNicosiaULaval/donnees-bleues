@@ -15,6 +15,8 @@ format: "CSV officiel 2025 préparé localement; une ressource CSV par année de
 n_rows: "457 686 lignes horaires dans le CSV 2025; 65 306 résumés journaliers préparés"
 n_cols: "13 colonnes dans le CSV 2025; 10 colonnes dans le résumé journalier préparé"
 processed_file: "data/processed/qualite-air-horaire/resume_journalier_contaminants_2025.csv"
+preview_file: "assets/previews/qualite-air-horaire-pm25-radisson-2025.csv"
+preview_note: "Extrait public de 120 résumés journaliers de PM2.5 à la station Radisson, échantillonnés sur 2025 depuis la ressource officielle. Il sert à explorer la structure et une série temporelle; la ressource complète reste disponible à la source."
 contaminant_summary_file: "data/processed/qualite-air-horaire/resume_contaminants_2025.csv"
 station_summary_file: "data/processed/qualite-air-horaire/resume_stations_2025.csv"
 update_frequency: "Annuelle par ressource publiée; paquet CKAN modifié le 2026-06-19"

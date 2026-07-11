@@ -244,33 +244,12 @@ dataset_processed_csv <- function(metadata, ctx) {
     return(NA_character_)
   }
 
-  id <- dataset_squish(metadata$id, basename(ctx$dataset_dir))
-  declared <- dataset_squish(metadata$processed_file %||% metadata$processed_path, "")
-
-  candidates <- character()
-  if (declared != "") {
-    candidates <- c(candidates, file.path(ctx$root, declared))
-  }
-
-  candidates <- c(
-    candidates,
-    list.files(
-      file.path(ctx$root, "data", "processed", id),
-      pattern = "[.]csv$",
-      full.names = TRUE
-    ),
-    list.files(
-      file.path(ctx$dataset_dir, "data_processed"),
-      pattern = "[.]csv$",
-      full.names = TRUE
-    )
-  )
-
-  candidates <- unique(candidates[file.exists(candidates)])
-  if (length(candidates) == 0L) {
+  preview_declared <- dataset_squish(metadata$preview_file, "")
+  if (preview_declared == "") {
     NA_character_
   } else {
-    candidates[[1]]
+    preview_path <- file.path(ctx$root, preview_declared)
+    if (file.exists(preview_path)) preview_path else NA_character_
   }
 }
 
@@ -453,23 +432,7 @@ dataset_result_stats <- function(data, metadata, csv_path, root) {
 
 dataset_chart_svg <- function(data, metadata) {
   if (is.null(data) || nrow(data) == 0L || ncol(data) == 0L) {
-    concepts <- dataset_list(metadata$concepts)
-    values <- rep(1, length(concepts))
-    names(values) <- concepts
-    if (length(values) == 0L) {
-      return('<p class="dataset-empty-result">Graphique non disponible sans fichier préparé.</p>')
-    }
-    values <- head(values, 7)
-    max_value <- max(values)
-    bars <- paste(vapply(seq_along(values), function(i) {
-      width <- 16 + (as.numeric(values[[i]]) / max_value) * 74
-      y <- 18 + (i - 1) * 24
-      paste0(
-        '<text x="0" y="', y + 12, '" class="dataset-svg-label">', dataset_html_escape(names(values)[[i]]), '</text>',
-        '<rect x="150" y="', y, '" width="', width, '" height="14" rx="3" class="dataset-svg-bar"></rect>'
-      )
-    }, character(1)), collapse = "")
-    return(paste0('<svg class="dataset-r-chart" viewBox="0 0 320 210" role="img" aria-label="Concepts pédagogiques">', bars, '</svg>'))
+    return("")
   }
 
   data <- as.data.frame(data)
@@ -491,7 +454,7 @@ dataset_chart_svg <- function(data, metadata) {
     return(paste0('<svg class="dataset-r-chart" viewBox="0 0 320 190" role="img" aria-label="Types de variables">', bars, '</svg>'))
   }
 
-  preferred <- grep("ecart|taux|volume|population|nombre|^nb_|total|valeur|ratio|proportion|pourcentage", numeric_columns, ignore.case = TRUE, value = TRUE)
+  preferred <- grep("moyenne|mediane|p95|maximum|ecart|taux|volume|population|nombre|^nb_|total|valeur|ratio|proportion|pourcentage", numeric_columns, ignore.case = TRUE, value = TRUE)
   y_col <- if (length(preferred) > 0L) preferred[[1]] else numeric_columns[[1]]
   y <- suppressWarnings(as.numeric(data[[y_col]]))
   keep <- which(!is.na(y))
@@ -501,7 +464,10 @@ dataset_chart_svg <- function(data, metadata) {
 
   keep <- tail(keep, min(length(keep), 40L))
   y <- y[keep]
-  x <- seq_along(y)
+  date_columns <- names(data)[tolower(names(data)) %in% c("date", "date_heure", "dateheure")]
+  dates <- if (length(date_columns) > 0L) suppressWarnings(as.Date(data[[date_columns[[1]]]][keep])) else rep(as.Date(NA), length(keep))
+  use_dates <- sum(!is.na(dates)) >= 2L
+  x <- if (use_dates) as.numeric(dates) else seq_along(y)
   y_range <- range(y, na.rm = TRUE)
   if (diff(y_range) == 0) {
     y_range <- y_range + c(-0.5, 0.5)
@@ -510,6 +476,8 @@ dataset_chart_svg <- function(data, metadata) {
   x_svg <- 34 + (x - min(x)) / max(1, diff(range(x))) * 248
   y_svg <- 158 - (y - y_range[[1]]) / diff(y_range) * 112
   points <- paste(round(x_svg, 1), round(y_svg, 1), sep = ",", collapse = " ")
+  left_x_label <- if (use_dates) format(min(dates, na.rm = TRUE), "%d %b") else "1"
+  right_x_label <- if (use_dates) format(max(dates, na.rm = TRUE), "%d %b") else as.character(length(x))
 
   paste0(
     '<svg class="dataset-r-chart" viewBox="0 0 320 210" role="img" aria-label="Aperçu numérique généré par R">',
@@ -522,6 +490,8 @@ dataset_chart_svg <- function(data, metadata) {
     '<text x="34" y="24" class="dataset-svg-title">', dataset_html_escape(y_col), '</text>',
     '<text x="34" y="186" class="dataset-svg-label">', dataset_html_escape(format(round(y_range[[1]], 2), trim = TRUE)), '</text>',
     '<text x="230" y="186" class="dataset-svg-label">', dataset_html_escape(format(round(y_range[[2]], 2), trim = TRUE)), '</text>',
+    '<text x="34" y="202" class="dataset-svg-label">', dataset_html_escape(left_x_label), '</text>',
+    '<text x="250" y="202" class="dataset-svg-label">', dataset_html_escape(right_x_label), '</text>',
     '</svg>'
   )
 }
@@ -709,46 +679,50 @@ dataset_metadata_table <- function(metadata, table_id = NULL, interactive = FALS
   )
 }
 
-render_dataset_minimal_result <- function() {
-  ctx <- dataset_current_context()
-  metadata <- dataset_read_metadata(ctx$dataset_dir)
-  csv_path <- dataset_processed_csv(metadata, ctx)
-  preview <- dataset_read_preview(csv_path)
-
-  if (!is.null(preview)) {
-    data_note <- paste0(
-      "Sortie calculée par R à partir de ",
-      dataset_html_escape(dataset_relative_path(csv_path, ctx$root)),
-      "."
-    )
-    result_table <- dataset_preview_table(
-      preview,
-      max_rows = 120L,
-      max_cols = 10L,
-      table_id = "dataset-code-result-table",
-      interactive = TRUE
-    )
+dataset_preview_unavailable <- function(metadata) {
+  source_name <- dataset_squish(metadata$source_name, "la source officielle")
+  source_url <- dataset_squish(metadata$source_url, "")
+  source_link <- if (source_url == "") {
+    dataset_html_escape(source_name)
   } else {
-    data_note <- "Aucune table préparée locale n'est disponible pour exécuter un aperçu tabulaire fiable."
-    result_table <- dataset_metadata_table(
-      metadata,
-      table_id = "dataset-code-result-table",
-      interactive = TRUE
+    paste0(
+      '<a href="', dataset_html_escape(source_url), '">',
+      dataset_html_escape(source_name),
+      "</a>"
     )
   }
 
-  cat(
-    '<div class="dataset-minimal-result">',
-    '<div class="dataset-card-label">Résultat visible</div>',
-    '<p>', data_note, ' Les exemples qui téléchargent une source externe restent non évalués pendant le rendu du site afin de garder les fiches stables.</p>',
-    '<div class="dataset-minimal-result-grid">',
-    '<div><div class="dataset-r-stats">', dataset_result_stats(preview, metadata, csv_path, ctx$root), '</div>', result_table, '</div>',
-    '<div class="dataset-minimal-chart">', dataset_chart_svg(preview, metadata), '</div>',
-    '</div>',
-    '</div>',
-    sep = ""
+  paste0(
+    '<div class="dataset-preview-unavailable">',
+    '<strong>Aperçu tabulaire non publié</strong>',
+    '<p>Cette fiche ne contient pas encore d’extrait public de lignes réelles. ',
+    'Les métadonnées restent décrites dans la documentation; ',
+    'consultez ', source_link, ' pour accéder à la source complète.</p>',
+    '</div>'
   )
+}
 
+dataset_preview_note <- function(metadata, csv_path, root) {
+  note <- dataset_squish(metadata$preview_note, "")
+  if (note != "") {
+    return(dataset_html_escape(note))
+  }
+
+  if (!is.na(csv_path) && file.exists(csv_path)) {
+    return(paste0(
+      "Aperçu calculé par R à partir de ",
+      dataset_html_escape(dataset_relative_path(csv_path, root)),
+      "."
+    ))
+  }
+
+  "Aucun extrait public de lignes réelles n’est disponible dans cette fiche."
+}
+
+render_dataset_minimal_result <- function() {
+  # L'aperçu interactif est rendu une seule fois dans l'en-tête de fiche.
+  # Les blocs conservés dans les fiches plus bas ne doivent pas répéter ni
+  # maquiller des métadonnées comme des observations.
   invisible(NULL)
 }
 
@@ -836,16 +810,17 @@ render_dataset_detail_header <- function() {
       interactive = TRUE
     )
   } else {
-    dataset_metadata_table(
-      metadata,
-      table_id = "dataset-header-result-table",
-      interactive = TRUE
-    )
+    dataset_preview_unavailable(metadata)
   }
-  data_note <- if (!is.na(csv_path) && file.exists(csv_path)) {
-    paste0("Aperçu calculé par R à partir de ", dataset_html_escape(dataset_relative_path(csv_path, ctx$root)), ".")
+  data_note <- dataset_preview_note(metadata, csv_path, ctx$root)
+  preview_chart <- if (is.null(preview)) {
+    ""
   } else {
-    "Aperçu léger calculé par R à partir des métadonnées vérifiées afin de garder la fiche rapide et stable au rendu."
+    paste0(
+      '<div class="dataset-preview-chart"><span class="dataset-panel-label">Aperçu graphique</span>',
+      dataset_chart_svg(preview, metadata),
+      "</div>"
+    )
   }
 
   cat(
@@ -879,8 +854,8 @@ render_dataset_detail_header <- function() {
     '<section class="dataset-r-lab" id="apercu-interactif">\n',
     '<div class="dataset-section-heading"><span>Aperçu des données</span><h2>Entrer par les lignes, puis poser une question</h2><p>', data_note, '</p></div>\n',
     '<div class="dataset-preview-layout">',
-    '<div class="dataset-result-card"><div class="dataset-card-label">Table consultable</div>', result_table, '</div>\n',
-    '<aside class="dataset-variable-panel"><span class="dataset-panel-label">Variables à repérer</span><div class="dataset-variable-list">', variable_badges, '</div><div class="dataset-simple-facts">', fact_items, '</div></aside>\n',
+    '<div class="dataset-result-card"><div class="dataset-card-label">Table consultable</div>', result_table, preview_chart, '</div>\n',
+    '<div class="dataset-variable-panel"><span class="dataset-panel-label">Variables à repérer</span><div class="dataset-variable-list">', variable_badges, '</div><div class="dataset-simple-facts">', fact_items, '</div></div>\n',
     '</div>',
     '</section>\n',
     '<details class="dataset-doc-panel" id="documentation">\n',

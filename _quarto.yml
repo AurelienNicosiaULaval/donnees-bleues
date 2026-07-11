@@ -6,6 +6,7 @@ project:
     - assets/logo-donnees-bleues.svg
     - assets/logo-donnees-bleues-horizontal.svg
     - assets/illustrations/*.svg
+    - assets/previews/*.csv
     - assets/cards/*.webp
     - assets/cards/*.png
     - assets/cards/*.jpg

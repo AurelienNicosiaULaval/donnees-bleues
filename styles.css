@@ -7634,3 +7634,59 @@ summary:focus-visible,
     max-width: 16ch;
   }
 }
+
+/* Aperçus de données : ne jamais présenter les métadonnées comme des lignes. */
+.dataset-preview-chart {
+  border-top: 1px solid var(--db-border);
+  margin-top: 1.1rem;
+  padding-top: 1rem;
+}
+
+.dataset-preview-chart .dataset-r-chart {
+  margin-top: 0.55rem;
+  max-width: 100%;
+}
+
+.dataset-preview-unavailable {
+  background: var(--db-blue-soft);
+  border-left: 3px solid var(--db-blue);
+  color: var(--db-ink);
+  margin: 0;
+  padding: 1rem;
+}
+
+.dataset-preview-unavailable p {
+  color: var(--db-muted);
+  margin: 0.45rem 0 0;
+}
+
+/*
+ * Quarto ajoute ses propres classes de grille aux fragments HTML produits par
+ * les fiches. Sans cette règle explicite, une grille imbriquée peut se réduire
+ * à quelques pixels sur mobile et rendre l'aperçu inutilisable.
+ */
+body .dataset-r-lab.page-columns > .dataset-preview-layout.page-columns {
+  display: grid !important;
+  gap: 0.9rem;
+  grid-column: 1 / -1 !important;
+  grid-template-columns: minmax(0, 1fr) minmax(230px, 0.34fr) !important;
+  margin: 0;
+  max-width: none;
+  width: 100%;
+}
+
+body .dataset-r-lab.page-columns > .dataset-preview-layout.page-columns > .dataset-result-card,
+body .dataset-r-lab.page-columns > .dataset-preview-layout.page-columns > .dataset-variable-panel {
+  grid-column: auto !important;
+  width: auto;
+}
+
+@media (max-width: 900px) {
+  body .dataset-r-lab.page-columns > .dataset-preview-layout.page-columns {
+    grid-template-columns: minmax(0, 1fr) !important;
+  }
+
+  body .dataset-r-lab.page-columns > .dataset-preview-layout.page-columns > .dataset-result-card {
+    width: 100%;
+  }
+}
