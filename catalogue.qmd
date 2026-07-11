@@ -329,7 +329,7 @@ if (file.exists(catalogue_path)) {
       html_escape(image_path),
       '" alt="',
       html_escape(image_alt),
-      '" loading="lazy" decoding="async" width="224" height="224"></a>\n',
+      '" loading="lazy" decoding="async" width="640" height="360"></a>\n',
       sep = ""
     )
 
