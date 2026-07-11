@@ -240,17 +240,22 @@ dataset_contributor_badge <- function(metadata) {
 }
 
 dataset_processed_csv <- function(metadata, ctx) {
-  if (identical(metadata$embed_processed_preview, FALSE)) {
+  license <- tolower(dataset_squish(metadata$license, ""))
+  license_blocks_preview <- grepl(
+    "reproduction.*interdite|aucune licence ouverte|réutilisation publique à valider",
+    license
+  )
+  if (identical(metadata$embed_processed_preview, FALSE) && license_blocks_preview) {
     return(NA_character_)
   }
 
-  preview_declared <- dataset_squish(metadata$preview_file, "")
-  if (preview_declared == "") {
-    NA_character_
-  } else {
-    preview_path <- file.path(ctx$root, preview_declared)
-    if (file.exists(preview_path)) preview_path else NA_character_
-  }
+  id <- dataset_squish(metadata$id, basename(ctx$dataset_dir))
+  preview_declared <- dataset_squish(
+    metadata$preview_file,
+    file.path("assets", "previews", paste0(id, ".csv"))
+  )
+  preview_path <- file.path(ctx$root, preview_declared)
+  if (file.exists(preview_path)) preview_path else NA_character_
 }
 
 dataset_relative_path <- function(path, root) {
@@ -454,8 +459,15 @@ dataset_chart_svg <- function(data, metadata) {
     return(paste0('<svg class="dataset-r-chart" viewBox="0 0 320 190" role="img" aria-label="Types de variables">', bars, '</svg>'))
   }
 
-  preferred <- grep("moyenne|mediane|p95|maximum|ecart|taux|volume|population|nombre|^nb_|total|valeur|ratio|proportion|pourcentage", numeric_columns, ignore.case = TRUE, value = TRUE)
-  y_col <- if (length(preferred) > 0L) preferred[[1]] else numeric_columns[[1]]
+  preferred <- grep("moyenne|mediane|p95|maximum|ecart|taux|volume|population|nombre|^nb_|total|valeur|ratio|proportion|pourcentage|capacity|available|docks|amende", numeric_columns, ignore.case = TRUE, value = TRUE)
+  fallback_numeric <- numeric_columns[!grepl("(^|_)(id|code|year|annee|mois|jour|rang|decile|source_row)($|_)", numeric_columns, ignore.case = TRUE)]
+  y_col <- if (length(preferred) > 0L) {
+    preferred[[1]]
+  } else if (length(fallback_numeric) > 0L) {
+    fallback_numeric[[1]]
+  } else {
+    numeric_columns[[1]]
+  }
   y <- suppressWarnings(as.numeric(data[[y_col]]))
   keep <- which(!is.na(y))
   if (length(keep) < 2L) {
@@ -710,9 +722,7 @@ dataset_preview_note <- function(metadata, csv_path, root) {
 
   if (!is.na(csv_path) && file.exists(csv_path)) {
     return(paste0(
-      "Aperçu calculé par R à partir de ",
-      dataset_html_escape(dataset_relative_path(csv_path, root)),
-      "."
+      "Extrait public de la table préparée à partir de la source officielle, limité à 120 lignes pour une exploration rapide."
     ))
   }
 
@@ -738,7 +748,11 @@ render_dataset_detail_header <- function() {
     projects <- paste0("Explorer ", tolower(dataset_squish(metadata$theme, "ce jeu de données")), " avec une question descriptive.")
   }
   concepts <- unique(c(dataset_list(featured_activity$concepts), dataset_list(metadata$concepts)))
-  variables <- dataset_list(metadata$variables_principales)
+  variables <- if (!is.null(preview) && ncol(preview) > 0L) {
+    names(preview)
+  } else {
+    dataset_list(metadata$variables_principales)
+  }
   featured_title <- dataset_squish(featured_activity$title, "Activité de départ")
   featured_question <- dataset_squish(featured_activity$question, projects[[1]])
   featured_duration <- dataset_squish(featured_activity$duration, "Durée à préciser")

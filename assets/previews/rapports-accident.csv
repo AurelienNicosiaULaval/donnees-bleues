@@ -1,0 +1,121 @@
+annee,identifiant_accident,mois_code,mois,plage_horaire,jour_semaine_code,type_jour,gravite,accident_avec_victime,accident_mortel_ou_grave
+2022,2022 _ 1,03,Mars,16:00:00-19:59:00,SEM,Lundi au vendredi,Dommages matériels seulement,FALSE,FALSE
+2022,2022 _ 100815,04,Avril,12:00:00-15:59:00,SEM,Lundi au vendredi,Dommages matériels seulement,FALSE,FALSE
+2022,2022 _ 101633,09,Septembre,04:00:00-07:59:00,SEM,Lundi au vendredi,Dommages matériels seulement,FALSE,FALSE
+2022,2022 _ 102451,02,Février,16:00:00-19:59:00,SEM,Lundi au vendredi,Dommages matériels seulement,FALSE,FALSE
+2022,2022 _ 10327,07,Juillet,04:00:00-07:59:00,FDS,Samedi ou dimanche,Dommages matériels seulement,FALSE,FALSE
+2022,2022 _ 104089,09,Septembre,08:00:00-11:59:00,FDS,Samedi ou dimanche,Dommages matériels inférieurs au seuil de rapportage,FALSE,FALSE
+2022,2022 _ 104907,11,Novembre,16:00:00-19:59:00,SEM,Lundi au vendredi,Dommages matériels inférieurs au seuil de rapportage,FALSE,FALSE
+2022,2022 _ 105725,02,Février,12:00:00-15:59:00,SEM,Lundi au vendredi,Dommages matériels seulement,FALSE,FALSE
+2022,2022 _ 106543,08,Août,08:00:00-11:59:00,SEM,Lundi au vendredi,Dommages matériels seulement,FALSE,FALSE
+2022,2022 _ 107361,07,Juillet,12:00:00-15:59:00,SEM,Lundi au vendredi,Dommages matériels inférieurs au seuil de rapportage,FALSE,FALSE
+2022,2022 _ 10818,05,Mai,20:00:00-23:59:00,FDS,Samedi ou dimanche,Léger,TRUE,FALSE
+2022,2022 _ 1163,02,Février,04:00:00-07:59:00,SEM,Lundi au vendredi,Mortel ou grave,TRUE,TRUE
+2022,2022 _ 12448,05,Mai,12:00:00-15:59:00,FDS,Samedi ou dimanche,Dommages matériels inférieurs au seuil de rapportage,FALSE,FALSE
+2022,2022 _ 13267,09,Septembre,08:00:00-11:59:00,SEM,Lundi au vendredi,Léger,TRUE,FALSE
+2022,2022 _ 14085,12,Décembre,12:00:00-15:59:00,FDS,Samedi ou dimanche,Dommages matériels seulement,FALSE,FALSE
+2022,2022 _ 14903,01,Janvier,12:00:00-15:59:00,FDS,Samedi ou dimanche,Léger,TRUE,FALSE
+2022,2022 _ 15721,01,Janvier,12:00:00-15:59:00,FDS,Samedi ou dimanche,Léger,TRUE,FALSE
+2022,2022 _ 1654,10,Octobre,16:00:00-19:59:00,SEM,Lundi au vendredi,Dommages matériels inférieurs au seuil de rapportage,FALSE,FALSE
+2022,2022 _ 17358,06,Juin,12:00:00-15:59:00,SEM,Lundi au vendredi,Léger,TRUE,FALSE
+2022,2022 _ 18176,08,Août,08:00:00-11:59:00,SEM,Lundi au vendredi,Dommages matériels seulement,FALSE,FALSE
+2022,2022 _ 18995,11,Novembre,16:00:00-19:59:00,SEM,Lundi au vendredi,Dommages matériels seulement,FALSE,FALSE
+2022,2022 _ 19812,02,Février,12:00:00-15:59:00,SEM,Lundi au vendredi,Dommages matériels inférieurs au seuil de rapportage,FALSE,FALSE
+2022,2022 _ 20630,10,Octobre,16:00:00-19:59:00,SEM,Lundi au vendredi,Dommages matériels seulement,FALSE,FALSE
+2022,2022 _ 21449,02,Février,12:00:00-15:59:00,SEM,Lundi au vendredi,Dommages matériels inférieurs au seuil de rapportage,FALSE,FALSE
+2022,2022 _ 22267,11,Novembre,08:00:00-11:59:00,SEM,Lundi au vendredi,Léger,TRUE,FALSE
+2022,2022 _ 23085,11,Novembre,08:00:00-11:59:00,SEM,Lundi au vendredi,Dommages matériels seulement,FALSE,FALSE
+2022,2022 _ 23903,08,Août,16:00:00-19:59:00,SEM,Lundi au vendredi,Léger,TRUE,FALSE
+2022,2022 _ 24721,07,Juillet,08:00:00-11:59:00,SEM,Lundi au vendredi,Léger,TRUE,FALSE
+2022,2022 _ 2554,08,Août,08:00:00-11:59:00,SEM,Lundi au vendredi,Dommages matériels inférieurs au seuil de rapportage,FALSE,FALSE
+2022,2022 _ 26358,06,Juin,16:00:00-19:59:00,SEM,Lundi au vendredi,Dommages matériels inférieurs au seuil de rapportage,FALSE,FALSE
+2022,2022 _ 27177,09,Septembre,04:00:00-07:59:00,FDS,Samedi ou dimanche,Dommages matériels seulement,FALSE,FALSE
+2022,2022 _ 27996,12,Décembre,12:00:00-15:59:00,SEM,Lundi au vendredi,Dommages matériels seulement,FALSE,FALSE
+2022,2022 _ 28813,01,Janvier,12:00:00-15:59:00,SEM,Lundi au vendredi,Dommages matériels inférieurs au seuil de rapportage,FALSE,FALSE
+2022,2022 _ 29631,04,Avril,12:00:00-15:59:00,FDS,Samedi ou dimanche,Dommages matériels inférieurs au seuil de rapportage,FALSE,FALSE
+2022,2022 _ 30449,07,Juillet,12:00:00-15:59:00,SEM,Lundi au vendredi,Léger,TRUE,FALSE
+2022,2022 _ 31267,10,Octobre,12:00:00-15:59:00,SEM,Lundi au vendredi,Léger,TRUE,FALSE
+2022,2022 _ 32085,04,Avril,08:00:00-11:59:00,SEM,Lundi au vendredi,Dommages matériels inférieurs au seuil de rapportage,FALSE,FALSE
+2022,2022 _ 32903,03,Mars,16:00:00-19:59:00,SEM,Lundi au vendredi,Dommages matériels inférieurs au seuil de rapportage,FALSE,FALSE
+2022,2022 _ 33721,01,Janvier,04:00:00-07:59:00,SEM,Lundi au vendredi,Dommages matériels seulement,FALSE,FALSE
+2022,2022 _ 34540,07,Juillet,12:00:00-15:59:00,SEM,Lundi au vendredi,Dommages matériels inférieurs au seuil de rapportage,FALSE,FALSE
+2022,2022 _ 35359,12,Décembre,20:00:00-23:59:00,SEM,Lundi au vendredi,Dommages matériels seulement,FALSE,FALSE
+2022,2022 _ 36177,12,Décembre,16:00:00-19:59:00,SEM,Lundi au vendredi,Léger,TRUE,FALSE
+2022,2022 _ 36996,03,Mars,12:00:00-15:59:00,SEM,Lundi au vendredi,Dommages matériels seulement,FALSE,FALSE
+2022,2022 _ 37813,10,Octobre,00:00:00-03:59:00,FDS,Samedi ou dimanche,Dommages matériels seulement,FALSE,FALSE
+2022,2022 _ 38631,04,Avril,04:00:00-07:59:00,SEM,Lundi au vendredi,Dommages matériels inférieurs au seuil de rapportage,FALSE,FALSE
+2022,2022 _ 3945,11,Novembre,16:00:00-19:59:00,SEM,Lundi au vendredi,Dommages matériels seulement,FALSE,FALSE
+2022,2022 _ 40267,06,Juin,12:00:00-15:59:00,SEM,Lundi au vendredi,Léger,TRUE,FALSE
+2022,2022 _ 41086,08,Août,08:00:00-11:59:00,FDS,Samedi ou dimanche,Dommages matériels inférieurs au seuil de rapportage,FALSE,FALSE
+2022,2022 _ 41904,11,Novembre,04:00:00-07:59:00,SEM,Lundi au vendredi,Dommages matériels inférieurs au seuil de rapportage,FALSE,FALSE
+2022,2022 _ 42722,03,Mars,20:00:00-23:59:00,FDS,Samedi ou dimanche,Dommages matériels seulement,FALSE,FALSE
+2022,2022 _ 43540,01,Janvier,20:00:00-23:59:00,SEM,Lundi au vendredi,Dommages matériels seulement,FALSE,FALSE
+2022,2022 _ 44359,03,Mars,12:00:00-15:59:00,SEM,Lundi au vendredi,Dommages matériels seulement,FALSE,FALSE
+2022,2022 _ 45177,06,Juin,08:00:00-11:59:00,SEM,Lundi au vendredi,Dommages matériels seulement,FALSE,FALSE
+2022,2022 _ 45996,09,Septembre,16:00:00-19:59:00,SEM,Lundi au vendredi,Dommages matériels seulement,FALSE,FALSE
+2022,2022 _ 46813,11,Novembre,16:00:00-19:59:00,SEM,Lundi au vendredi,Dommages matériels inférieurs au seuil de rapportage,FALSE,FALSE
+2022,2022 _ 47631,04,Avril,16:00:00-19:59:00,SEM,Lundi au vendredi,Dommages matériels seulement,FALSE,FALSE
+2022,2022 _ 48450,02,Février,08:00:00-11:59:00,FDS,Samedi ou dimanche,Léger,TRUE,FALSE
+2022,2022 _ 49269,10,Octobre,12:00:00-15:59:00,FDS,Samedi ou dimanche,Dommages matériels seulement,FALSE,FALSE
+2022,2022 _ 50086,08,Août,16:00:00-19:59:00,SEM,Lundi au vendredi,Léger,TRUE,FALSE
+2022,2022 _ 50904,01,Janvier,12:00:00-15:59:00,FDS,Samedi ou dimanche,Léger,TRUE,FALSE
+2022,2022 _ 51722,04,Avril,16:00:00-19:59:00,SEM,Lundi au vendredi,Dommages matériels inférieurs au seuil de rapportage,FALSE,FALSE
+2022,2022 _ 52540,05,Mai,16:00:00-19:59:00,SEM,Lundi au vendredi,Léger,TRUE,FALSE
+2022,2022 _ 53359,05,Mai,00:00:00-03:59:00,FDS,Samedi ou dimanche,Dommages matériels seulement,FALSE,FALSE
+2022,2022 _ 54177,01,Janvier,12:00:00-15:59:00,SEM,Lundi au vendredi,Léger,TRUE,FALSE
+2022,2022 _ 54997,12,Décembre,00:00:00-03:59:00,SEM,Lundi au vendredi,Mortel ou grave,TRUE,TRUE
+2022,2022 _ 55814,05,Mai,16:00:00-19:59:00,FDS,Samedi ou dimanche,Dommages matériels inférieurs au seuil de rapportage,FALSE,FALSE
+2022,2022 _ 56632,11,Novembre,16:00:00-19:59:00,SEM,Lundi au vendredi,Dommages matériels seulement,FALSE,FALSE
+2022,2022 _ 57450,05,Mai,20:00:00-23:59:00,SEM,Lundi au vendredi,Dommages matériels seulement,FALSE,FALSE
+2022,2022 _ 58269,01,Janvier,12:00:00-15:59:00,SEM,Lundi au vendredi,Dommages matériels inférieurs au seuil de rapportage,FALSE,FALSE
+2022,2022 _ 59087,11,Novembre,20:00:00-23:59:00,SEM,Lundi au vendredi,Dommages matériels inférieurs au seuil de rapportage,FALSE,FALSE
+2022,2022 _ 59905,04,Avril,12:00:00-15:59:00,SEM,Lundi au vendredi,Dommages matériels seulement,FALSE,FALSE
+2022,2022 _ 60722,04,Avril,16:00:00-19:59:00,FDS,Samedi ou dimanche,Léger,TRUE,FALSE
+2022,2022 _ 61540,07,Juillet,12:00:00-15:59:00,FDS,Samedi ou dimanche,Dommages matériels seulement,FALSE,FALSE
+2022,2022 _ 6236,05,Mai,20:00:00-23:59:00,SEM,Lundi au vendredi,Dommages matériels inférieurs au seuil de rapportage,FALSE,FALSE
+2022,2022 _ 63178,02,Février,16:00:00-19:59:00,SEM,Lundi au vendredi,Dommages matériels inférieurs au seuil de rapportage,FALSE,FALSE
+2022,2022 _ 63997,10,Octobre,08:00:00-11:59:00,SEM,Lundi au vendredi,Dommages matériels seulement,FALSE,FALSE
+2022,2022 _ 64814,07,Juillet,16:00:00-19:59:00,SEM,Lundi au vendredi,Dommages matériels seulement,FALSE,FALSE
+2022,2022 _ 65632,07,Juillet,12:00:00-15:59:00,SEM,Lundi au vendredi,Dommages matériels seulement,FALSE,FALSE
+2022,2022 _ 66450,07,Juillet,12:00:00-15:59:00,FDS,Samedi ou dimanche,Léger,TRUE,FALSE
+2022,2022 _ 67269,08,Août,08:00:00-11:59:00,SEM,Lundi au vendredi,Dommages matériels seulement,FALSE,FALSE
+2022,2022 _ 68087,07,Juillet,12:00:00-15:59:00,SEM,Lundi au vendredi,Dommages matériels inférieurs au seuil de rapportage,FALSE,FALSE
+2022,2022 _ 68906,11,Novembre,16:00:00-19:59:00,FDS,Samedi ou dimanche,Dommages matériels seulement,FALSE,FALSE
+2022,2022 _ 69724,09,Septembre,08:00:00-11:59:00,SEM,Lundi au vendredi,Dommages matériels inférieurs au seuil de rapportage,FALSE,FALSE
+2022,2022 _ 70541,01,Janvier,08:00:00-11:59:00,FDS,Samedi ou dimanche,Dommages matériels inférieurs au seuil de rapportage,FALSE,FALSE
+2022,2022 _ 7136,01,Janvier,12:00:00-15:59:00,SEM,Lundi au vendredi,Dommages matériels inférieurs au seuil de rapportage,FALSE,FALSE
+2022,2022 _ 72178,07,Juillet,16:00:00-19:59:00,FDS,Samedi ou dimanche,Dommages matériels inférieurs au seuil de rapportage,FALSE,FALSE
+2022,2022 _ 72997,10,Octobre,16:00:00-19:59:00,SEM,Lundi au vendredi,Léger,TRUE,FALSE
+2022,2022 _ 73814,03,Mars,04:00:00-07:59:00,SEM,Lundi au vendredi,Dommages matériels seulement,FALSE,FALSE
+2022,2022 _ 74632,03,Mars,16:00:00-19:59:00,SEM,Lundi au vendredi,Léger,TRUE,FALSE
+2022,2022 _ 75450,08,Août,08:00:00-11:59:00,SEM,Lundi au vendredi,Dommages matériels inférieurs au seuil de rapportage,FALSE,FALSE
+2022,2022 _ 7627,06,Juin,16:00:00-19:59:00,SEM,Lundi au vendredi,Léger,TRUE,FALSE
+2022,2022 _ 77088,05,Mai,04:00:00-07:59:00,SEM,Lundi au vendredi,Dommages matériels inférieurs au seuil de rapportage,FALSE,FALSE
+2022,2022 _ 77906,09,Septembre,04:00:00-07:59:00,SEM,Lundi au vendredi,Dommages matériels seulement,FALSE,FALSE
+2022,2022 _ 78724,01,Janvier,04:00:00-07:59:00,SEM,Lundi au vendredi,Dommages matériels seulement,FALSE,FALSE
+2022,2022 _ 79542,01,Janvier,12:00:00-15:59:00,SEM,Lundi au vendredi,Dommages matériels seulement,FALSE,FALSE
+2022,2022 _ 8036,11,Novembre,16:00:00-19:59:00,SEM,Lundi au vendredi,Léger,TRUE,FALSE
+2022,2022 _ 81178,11,Novembre,16:00:00-19:59:00,SEM,Lundi au vendredi,Léger,TRUE,FALSE
+2022,2022 _ 81997,08,Août,20:00:00-23:59:00,SEM,Lundi au vendredi,Léger,TRUE,FALSE
+2022,2022 _ 82815,08,Août,08:00:00-11:59:00,FDS,Samedi ou dimanche,Dommages matériels inférieurs au seuil de rapportage,FALSE,FALSE
+2022,2022 _ 83633,02,Février,16:00:00-19:59:00,SEM,Lundi au vendredi,Dommages matériels seulement,FALSE,FALSE
+2022,2022 _ 84451,03,Mars,16:00:00-19:59:00,SEM,Lundi au vendredi,Dommages matériels inférieurs au seuil de rapportage,FALSE,FALSE
+2022,2022 _ 8527,07,Juillet,12:00:00-15:59:00,SEM,Lundi au vendredi,Dommages matériels inférieurs au seuil de rapportage,FALSE,FALSE
+2022,2022 _ 86088,09,Septembre,12:00:00-15:59:00,SEM,Lundi au vendredi,Dommages matériels inférieurs au seuil de rapportage,FALSE,FALSE
+2022,2022 _ 86906,02,Février,12:00:00-15:59:00,SEM,Lundi au vendredi,Dommages matériels inférieurs au seuil de rapportage,FALSE,FALSE
+2022,2022 _ 87724,02,Février,08:00:00-11:59:00,SEM,Lundi au vendredi,Dommages matériels seulement,FALSE,FALSE
+2022,2022 _ 88542,12,Décembre,16:00:00-19:59:00,SEM,Lundi au vendredi,Dommages matériels seulement,FALSE,FALSE
+2022,2022 _ 89360,09,Septembre,12:00:00-15:59:00,SEM,Lundi au vendredi,Léger,TRUE,FALSE
+2022,2022 _ 90179,10,Octobre,16:00:00-19:59:00,FDS,Samedi ou dimanche,Dommages matériels seulement,FALSE,FALSE
+2022,2022 _ 90998,10,Octobre,08:00:00-11:59:00,SEM,Lundi au vendredi,Dommages matériels seulement,FALSE,FALSE
+2022,2022 _ 91815,07,Juillet,20:00:00-23:59:00,SEM,Lundi au vendredi,Dommages matériels seulement,FALSE,FALSE
+2022,2022 _ 92633,04,Avril,08:00:00-11:59:00,FDS,Samedi ou dimanche,Dommages matériels seulement,FALSE,FALSE
+2022,2022 _ 93451,06,Juin,16:00:00-19:59:00,SEM,Lundi au vendredi,Dommages matériels inférieurs au seuil de rapportage,FALSE,FALSE
+2022,2022 _ 9427,12,Décembre,08:00:00-11:59:00,SEM,Lundi au vendredi,Dommages matériels inférieurs au seuil de rapportage,FALSE,FALSE
+2022,2022 _ 95088,12,Décembre,16:00:00-19:59:00,SEM,Lundi au vendredi,Dommages matériels inférieurs au seuil de rapportage,FALSE,FALSE
+2022,2022 _ 95906,03,Mars,12:00:00-15:59:00,SEM,Lundi au vendredi,Dommages matériels inférieurs au seuil de rapportage,FALSE,FALSE
+2022,2022 _ 96725,01,Janvier,16:00:00-19:59:00,SEM,Lundi au vendredi,Dommages matériels seulement,FALSE,FALSE
+2022,2022 _ 97543,06,Juin,12:00:00-15:59:00,SEM,Lundi au vendredi,Léger,TRUE,FALSE
+2022,2022 _ 98361,01,Janvier,08:00:00-11:59:00,SEM,Lundi au vendredi,Léger,TRUE,FALSE
+2022,2022 _ 9918,11,Novembre,20:00:00-23:59:00,SEM,Lundi au vendredi,Dommages matériels inférieurs au seuil de rapportage,FALSE,FALSE
+2022,2022 _ 99999,01,Janvier,04:00:00-07:59:00,SEM,Lundi au vendredi,Dommages matériels seulement,FALSE,FALSE

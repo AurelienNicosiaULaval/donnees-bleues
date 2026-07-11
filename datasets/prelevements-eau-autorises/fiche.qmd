@@ -39,8 +39,8 @@ La fiche est donc utile pour enseigner trois gestes essentiels : convertir des u
 
 | Champ | Information |
 |---|---|
-| Page Données Québec | <https://www.donneesquebec.ca/recherche/dataset/prelevements-eau-volumes-autorises-par-melccfp> |
-| API CKAN | <https://www.donneesquebec.ca/recherche/api/3/action/package_show?id=prelevements-eau-volumes-autorises-par-melccfp> |
+| Page Données Québec | <https://www.donneesquebec.ca/recherche/dataset/prelevements-eau> |
+| API CKAN | <https://www.donneesquebec.ca/recherche/api/3/action/package_show?id=prelevements-eau> |
 | CSV officiel | <https://www.donneesquebec.ca/recherche/dataset/d9564fe0-6d50-4f89-b12e-47a461e1f68e/resource/5c090292-a681-4413-9399-f17bcdf62753/download/prelevement_autorise_20250915.csv> |
 | PDF de métadonnées | <https://www.donneesquebec.ca/recherche/dataset/d9564fe0-6d50-4f89-b12e-47a461e1f68e/resource/24b357f1-fd58-44a7-8cd3-7098645ae907/download/md_prelevementseauautorises.pdf> |
 | Miroir ouvert.canada.ca | <https://open.canada.ca/data/fr/dataset/d9564fe0-6d50-4f89-b12e-47a461e1f68e> |
@@ -242,7 +242,7 @@ render_dataset_minimal_result()
 
 ## Références utilisées
 
-- Données Québec. 2026. Prélèvements d'eau et volumes autorisés par le MELCCFP. <https://www.donneesquebec.ca/recherche/dataset/prelevements-eau-volumes-autorises-par-melccfp>
+- Données Québec. 2026. Prélèvements d'eau et volumes autorisés par le MELCCFP. <https://www.donneesquebec.ca/recherche/dataset/prelevements-eau>
 - MELCCFP. 2025. Métadonnées, prélèvements d'eau et volumes autorisés depuis l'entrée en vigueur du RPEP. <https://www.donneesquebec.ca/recherche/dataset/d9564fe0-6d50-4f89-b12e-47a461e1f68e/resource/24b357f1-fd58-44a7-8cd3-7098645ae907/download/md_prelevementseauautorises.pdf>
 - Gouvernement du Canada. 2026. Prélèvements d'eau et volumes autorisés par le MELCCFP, miroir ouvert.canada.ca. <https://open.canada.ca/data/fr/dataset/d9564fe0-6d50-4f89-b12e-47a461e1f68e>
 

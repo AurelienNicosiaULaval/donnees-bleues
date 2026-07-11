@@ -1,0 +1,11 @@
+message_type,field_pedagogique,role_statistique,status
+TripUpdate,route_id,Identifiant de ligne ou parcours à utiliser pour les regroupements.,Champ attendu dans la spécification GTFS-realtime; non validé dans le flux STM sans clé API.
+TripUpdate,trip_id,"Identifiant de trajet, utile pour relier le temps réel aux horaires planifiés.",Champ attendu dans la spécification GTFS-realtime; non validé dans le flux STM sans clé API.
+TripUpdate,stop_id,Arrêt auquel associer une mise à jour de temps de passage.,Champ attendu dans la spécification GTFS-realtime; non validé dans le flux STM sans clé API.
+TripUpdate,delay_seconds,Retard brut en secondes lorsque la mise à jour de passage contient un délai.,Champ possible dans StopTimeUpdate; à vérifier après extraction.
+VehiclePosition,vehicle_id,Identifiant du véhicule observé dans un instantané.,Champ attendu dans la spécification GTFS-realtime; non validé dans le flux STM sans clé API.
+VehiclePosition,latitude,Coordonnée pour cartographier la position du véhicule.,Champ attendu dans la spécification GTFS-realtime; non validé dans le flux STM sans clé API.
+VehiclePosition,longitude,Coordonnée pour cartographier la position du véhicule.,Champ attendu dans la spécification GTFS-realtime; non validé dans le flux STM sans clé API.
+VehiclePosition,occupancy_status,"Niveau d'occupation publié depuis la version 2 du flux, selon la documentation STM.",Champ à vérifier après extraction du flux STM.
+Archivage local,collection_time,Horodatage ajouté par le protocole d'archivage pour analyser les séries temporelles.,Variable dérivée par l'équipe pédagogique.
+Archivage local,retard_minutes,Conversion de delay_seconds en minutes pour les graphiques et les résumés.,Variable dérivée; ne pas présenter comme colonne brute garantie.

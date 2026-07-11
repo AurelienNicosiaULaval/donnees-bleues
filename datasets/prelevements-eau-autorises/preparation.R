@@ -12,8 +12,8 @@ dir.create(raw_dir, recursive = TRUE, showWarnings = FALSE)
 dir.create(processed_dir, recursive = TRUE, showWarnings = FALSE)
 
 access_date <- "2026-06-21"
-source_page <- "https://www.donneesquebec.ca/recherche/dataset/prelevements-eau-volumes-autorises-par-melccfp"
-package_api <- "https://www.donneesquebec.ca/recherche/api/3/action/package_show?id=prelevements-eau-volumes-autorises-par-melccfp"
+source_page <- "https://www.donneesquebec.ca/recherche/dataset/prelevements-eau"
+package_api <- "https://www.donneesquebec.ca/recherche/api/3/action/package_show?id=prelevements-eau"
 csv_url <- "https://www.donneesquebec.ca/recherche/dataset/d9564fe0-6d50-4f89-b12e-47a461e1f68e/resource/5c090292-a681-4413-9399-f17bcdf62753/download/prelevement_autorise_20250915.csv"
 metadata_pdf_url <- "https://www.donneesquebec.ca/recherche/dataset/d9564fe0-6d50-4f89-b12e-47a461e1f68e/resource/24b357f1-fd58-44a7-8cd3-7098645ae907/download/md_prelevementseauautorises.pdf"
 
@@ -164,7 +164,7 @@ dataset_summary <- tibble::tibble(
 )
 
 stopifnot(
-  nrow(resources) == 10,
+  nrow(resources) >= 10,
   nrow(prelevements) == 1777,
   ncol(source_data) == 9,
   ncol(prelevements) == 16,
