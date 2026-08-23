@@ -1,0 +1,87 @@
+% Préambule repris du fichier officiel GabaritAMQ101.tex téléchargé le 23 août 2026.
+% Les dimensions de page et les marges officielles sont conservées sans modification.
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[utf8]{inputenc}
+\usepackage[english,french]{babel}
+\usepackage{graphicx}
+\usepackage{amssymb,latexsym,amsmath}
+\usepackage{mathrsfs}
+\usepackage{multirow}
+\usepackage{euscript}
+\usepackage{fancyhdr}
+\usepackage{pdfsync}
+\usepackage{theorem}
+\usepackage{wrapfig}
+\usepackage{floatflt}
+\usepackage[protrusion=true]{microtype}
+\usepackage[all]{xy}
+\usepackage{geometry}
+\usepackage{tikz}
+\usepackage{booktabs}
+\usepackage{color}
+\usepackage{url}
+\usepackage[colorlinks=true,urlcolor=blue,citecolor=cyan,linkcolor=magenta]{hyperref}
+\usepackage{esvect}
+
+\renewcommand{\vec}[1]{\protect\vv{#1}}
+
+\newtheorem{theorem}{Théorème}
+\newtheorem{lemma}{Lemme}
+\newtheorem{proposition}{Proposition}
+\newtheorem{corollary}{Corollaire}
+\newtheorem{definition}{Définition}
+\newtheorem{nota}{Notation}
+\newtheorem{ex}{Exemple}
+\newtheorem{nb}{N.B.}
+\newtheorem{remark}{Remarque}
+
+\newenvironment{proof}
+{\par\noindent\textit{Démonstration}\ }
+{\hfill{$\Box$}}
+
+\newcommand{\siecle}[1]{%
+\ifnum #1=1%
+\uppercase\expandafter{\romannumeral #1}\textsuperscript{er}%
+\else%
+\uppercase\expandafter{\romannumeral #1}\up{e}%
+\fi}
+
+% Définition des marges pour le Bulletin, à ne pas modifier.
+\geometry{height=18.6cm,width=14.4cm}
+\geometry{hmargin={3.6cm,3.6cm}}
+\geometry{vmargin={4.3cm,5cm}}
+\parindent=0.0in
+\parskip=0.1in
+\setcounter{page}{1}
+
+\DeclareSymbolFont{AMSb}{U}{msb}{m}{n}
+\DeclareSymbolFontAlphabet{\Bbb}{AMSb}
+\newcommand{\ds}{\displaystyle}
+
+\usepackage[]{lineno}
+\newcommand*\patchAmsMathEnvironmentForLineno[1]{%
+  \expandafter\let\csname old#1\expandafter\endcsname\csname #1\endcsname
+  \expandafter\let\csname oldend#1\expandafter\endcsname\csname end#1\endcsname
+  \renewenvironment{#1}%
+     {\linenomath\csname old#1\endcsname}%
+     {\csname oldend#1\endcsname\endlinenomath}}
+\newcommand*\patchBothAmsMathEnvironmentsForLineno[1]{%
+  \patchAmsMathEnvironmentForLineno{#1}%
+  \patchAmsMathEnvironmentForLineno{#1*}}
+\AtBeginDocument{%
+\patchBothAmsMathEnvironmentsForLineno{equation}%
+\patchBothAmsMathEnvironmentsForLineno{align}%
+\patchBothAmsMathEnvironmentsForLineno{flalign}%
+\patchBothAmsMathEnvironmentsForLineno{alignat}%
+\patchBothAmsMathEnvironmentsForLineno{gather}%
+\patchBothAmsMathEnvironmentsForLineno{multline}%
+}
+
+\usepackage{url}
+\usepackage{hyperref}
+\newcommand*\rfrac[2]{{}^{#1}\!/_{#2}}
+\newcommand{\fracinline}[2]{\raisebox{0.4ex}{$#1$} / \raisebox{-0.7ex}{$#2$}}
+\newcommand{\bigfracinline}[2]{\raisebox{0.8ex}{$#1$} \Big/ \raisebox{-1.4ex}{$#2$}}
+\newcommand{\biggfracinline}[2]{\raisebox{0.8ex}{$#1$} \Bigg/ \raisebox{-1.4ex}{$#2$}}
+\everymath{\displaystyle}

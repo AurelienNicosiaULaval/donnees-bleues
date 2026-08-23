@@ -1,0 +1,31 @@
+\documentclass[tikz,border=4pt]{standalone}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[french]{babel}
+\usepackage{lmodern}
+\usetikzlibrary{arrows.meta,positioning}
+
+\begin{document}
+\begin{tikzpicture}[
+  font=\sffamily\small,
+  node distance=6mm,
+  boite/.style={
+    draw=black,
+    rounded corners=2pt,
+    align=center,
+    minimum height=14mm,
+    text width=28mm,
+    fill=black!6
+  },
+  fleche/.style={-{Stealth[length=2.5mm]},line width=0.7pt}
+]
+\node[boite] (source) {Source ouverte\\\footnotesize organisme, droits\\unité};
+\node[boite,right=of source] (fiche) {Fiche documentée\\\footnotesize provenance, variables\\limites};
+\node[boite,right=of fiche] (activite) {Activité\\\footnotesize question, production\\critères};
+\node[boite,right=of activite] (sequence) {Séquence\\\footnotesize progression\\adaptations};
+
+\draw[fleche] (source) -- (fiche);
+\draw[fleche] (fiche) -- (activite);
+\draw[fleche] (activite) -- (sequence);
+\end{tikzpicture}
+\end{document}
