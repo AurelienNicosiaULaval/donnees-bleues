@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr"><head>
 
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.9.38">
@@ -1537,7 +1537,7 @@ const initMatch = () => ({
   i: 0,
   lohisByNode: new Map()
 })
-/**
+/** 
  * keeps track of the start (lo) and end (hi) index of the match per node (leaf)
  * note: mutates the contents of `matchContext`
  */
@@ -1549,16 +1549,16 @@ const advanceMatch = (leaf, leafi, matchContext) => {
   matchContext.lohisByNode.set(leaf, { lo: curLoHi?.lo ?? leafi, hi: leafi })
 }
 /**
- * Finds all non-overlapping matches for a search string in the document.
+ * Finds all non-overlapping matches for a search string in the document. 
  * The search string may be split between multiple consecutive leaf nodes.
- *
+ * 
  * Whitespace in the search string must be present in the document to match, but
  * there may be addititional whitespace in the document that is ignored.
- *
+ * 
  * e.g. searching for `dogs rock` would match `dogs  \n <span> rock</span>`,
- * and would contribute the match
+ * and would contribute the match 
  * `{ i:9, els: new Map([[textNode, {lo:0, hi:8}],[spanNode,{lo:0,hi:5}]]) }`
- *
+ * 
  * @returns {Map<HTMLElement,{lo:number,hi:number}>[]}
  */
 function searchMatches(inSearch, el) {
@@ -1603,7 +1603,7 @@ function searchMatches(inSearch, el) {
   return matches
 }
 
-/**
+/** 
  * e.g. `markMatches(myTextNode, [[0,5],[12,15]])` would wrap the
  * character sequences in myTextNode from 0-5 and 12-15 in marks.
  * Its important to mark all sequences in a text node at once
@@ -1665,7 +1665,7 @@ function scrollToFirstVisibleMatch(mainEl) {
  *
  * arrayMapPush(m, 'dog', 'Max')
  * console.log(m) // Map { dog->['Max'] }
- *
+ * 
  * arrayMapPush(m, 'dog', 'Samba')
  * arrayMapPush(m, 'cat', 'Scruffle')
  * console.log(m) // Map { dog->['Max', 'Samba'], cat->['Scruffle'] }
@@ -1679,7 +1679,7 @@ const arrayMapPush = (map, key, item) => {
 // copy&paste any string from a quarto page and
 // this should find that string in the page and highlight it.
 // exception: text that starts outside/inside a tabset and ends
-// inside/outside that tabset.
+// inside/outside that tabset. 
 function highlight(searchStr, el) {
   const matches = searchMatches(searchStr, el);
 
@@ -3981,17 +3981,17 @@ vertical-align: -.125em;
   ],
   "show-item-context": false,
   "language": {
-    "search-no-results-text": "No results",
-    "search-matching-documents-text": "matching documents",
-    "search-copy-link-title": "Copy link to search",
-    "search-hide-matches-text": "Hide additional matches",
-    "search-more-match-text": "more match in this document",
-    "search-more-matches-text": "more matches in this document",
-    "search-clear-button-title": "Clear",
+    "search-no-results-text": "Pas de résultats",
+    "search-matching-documents-text": "documents trouvés",
+    "search-copy-link-title": "Copier le lien vers la recherche",
+    "search-hide-matches-text": "Cacher les correspondances additionnelles",
+    "search-more-match-text": "correspondance de plus dans ce document",
+    "search-more-matches-text": "correspondances de plus dans ce document",
+    "search-clear-button-title": "Effacer",
     "search-text-placeholder": "",
-    "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit",
-    "search-label": "Search"
+    "search-detached-cancel-button-title": "Annuler",
+    "search-submit-button-title": "Envoyer",
+    "search-label": "Recherche"
   }
 }</script>
 
@@ -10514,10 +10514,28 @@ line-height: 1.2;
 }
 .catalogue-page .dataset-grid {
 gap: 0.9rem;
-grid-template-columns: repeat(2, minmax(0, 1fr));
+grid-template-columns: minmax(0, 1fr);
 }
 .catalogue-page .dataset-card {
-grid-template-columns: 96px minmax(0, 1fr);
+grid-template-columns: minmax(240px, 34%) minmax(0, 1fr);
+}
+.catalogue-page .dataset-media {
+min-height: 100%;
+}
+.catalogue-page .dataset-media .db-card-image {
+aspect-ratio: 16 / 9;
+height: 100%;
+min-height: 100%;
+object-fit: cover;
+}
+.catalogue-page .dataset-card-body {
+padding: 0.85rem 1rem 0.9rem;
+}
+.catalogue-page .dataset-card h3 {
+font-size: 1.08rem;
+}
+.catalogue-page .dataset-learning p {
+-webkit-line-clamp: 2;
 }
 @media (max-width: 1080px) {
 .catalogue-page .catalogue-hero-row,
@@ -10527,6 +10545,23 @@ grid-template-columns: 1fr;
 }
 .catalogue-page .catalogue-title-block h1 {
 max-width: 16ch;
+}
+}
+@media (max-width: 640px) {
+.catalogue-page .dataset-card {
+grid-template-columns: minmax(0, 1fr);
+}
+.catalogue-page .dataset-media {
+display: block;
+min-height: 0;
+}
+.catalogue-page .dataset-media .db-card-image {
+height: auto;
+min-height: 0;
+width: 100%;
+}
+.catalogue-page .dataset-card-body {
+padding: 0.75rem 0.85rem 0.8rem;
 }
 }
 
@@ -10593,52 +10628,52 @@ width: 100%;
     <span class="navbar-title">Données bleues</span>
     </a>
   </div>
-            <div id="quarto-search" class title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+            <div id="quarto-search" class title="Recherche"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Basculer la navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./index.html">
+    <a class="nav-link" href="./index.html"> 
 <span class="menu-text">Accueil</span></a>
-  </li>
+  </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./catalogue.html">
+    <a class="nav-link" href="./catalogue.html"> 
 <span class="menu-text">Explorer</span></a>
-  </li>
+  </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./activites.html">
+    <a class="nav-link" href="./activites.html"> 
 <span class="menu-text">Planifier</span></a>
-  </li>
+  </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./sequences.html">
+    <a class="nav-link" href="./sequences.html"> 
 <span class="menu-text">Séquences</span></a>
-  </li>
+  </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./zero-waste.html">
+    <a class="nav-link" href="./zero-waste.html"> 
 <span class="menu-text">Méthode</span></a>
-  </li>
+  </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./about.html">
+    <a class="nav-link" href="./about.html"> 
 <span class="menu-text">À propos</span></a>
-  </li>
+  </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
     <a class="nav-link" href="./references.html"> <i class="bi bi-book" role="img">
-</i>
+</i> 
 <span class="menu-text">Documentation</span></a>
-  </li>
+  </li>  
   <li class="nav-item">
     <a class="nav-link" href="https://github.com/AurelienNicosiaULaval/donnees-bleues"> <i class="bi bi-github" role="img">
-</i>
+</i> 
 <span class="menu-text">GitHub</span></a>
-  </li>
+  </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./contribuer.html">
+    <a class="nav-link" href="./contribuer.html"> 
 <span class="menu-text">Contribuer</span></a>
-  </li>
+  </li>  
 </ul>
           </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
@@ -10650,7 +10685,7 @@ width: 100%;
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-
+    
 <!-- main -->
 <main class="content column-page" id="quarto-document-content">
 
@@ -10717,7 +10752,7 @@ width: 100%;
     anchorJS.add('.anchored');
     const isCodeAnnotation = (el) => {
       for (const clz of el.classList) {
-        if (clz.startsWith('code-annotation-')) {
+        if (clz.startsWith('code-annotation-')) {                     
           return true;
         }
       }
@@ -10731,17 +10766,17 @@ width: 100%;
       // flash "checked"
       button.classList.add('code-copy-button-checked');
       var currentTitle = button.getAttribute("title");
-      button.setAttribute("title", "Copied!");
+      button.setAttribute("title", "Copié");
       let tooltip;
       if (window.bootstrap) {
         button.setAttribute("data-bs-toggle", "tooltip");
         button.setAttribute("data-bs-placement", "left");
-        button.setAttribute("data-bs-title", "Copied!");
-        tooltip = new bootstrap.Tooltip(button,
-          { trigger: "manual",
+        button.setAttribute("data-bs-title", "Copié");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
             customClass: "code-copy-button-tooltip",
             offset: [0, -8]});
-        tooltip.show();
+        tooltip.show();    
       }
       setTimeout(function() {
         if (tooltip) {
@@ -10823,7 +10858,7 @@ width: 100%;
       if (onUntriggerFn) {
         config.onUntrigger = onUntriggerFn;
       }
-      window.tippy(el, config);
+      window.tippy(el, config); 
     }
     const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
     for (var i=0; i<noterefs.length; i++) {
@@ -10898,7 +10933,7 @@ width: 100%;
       tippyHover(xref, undefined, function(instance) {
         instance.disable();
         let url = xref.getAttribute('href');
-        let hash = undefined;
+        let hash = undefined; 
         if (url.startsWith('#')) {
           hash = url;
         } else {
@@ -10926,7 +10961,7 @@ width: 100%;
               if (note !== null) {
                 const html = processXRef(id, note);
                 instance.setContent(html);
-              }
+              } 
             }).finally(() => {
               instance.enable();
               instance.show();
@@ -10950,7 +10985,7 @@ width: 100%;
               }
               const html = processXRef(null, note);
               instance.setContent(html);
-            }
+            } 
           }).finally(() => {
             instance.enable();
             instance.show();
@@ -10990,7 +11025,7 @@ width: 100%;
               height = bottom - top;
             }
             if (top !== null && height !== null && parent !== null) {
-              // cook up a div (if necessary) and position it
+              // cook up a div (if necessary) and position it 
               let div = window.document.getElementById("code-annotation-line-highlight");
               if (div === null) {
                 div = window.document.createElement("div");
@@ -11115,11 +11150,11 @@ width: 100%;
 <footer class="footer">
   <div class="nav-footer">
     <div class="nav-footer-left">
-<p>Données bleues</p>
-</div>
+<p>Données bleues · version 0.1.0 · 23 août 2026</p>
+</div>   
     <div class="nav-footer-center">
        
-    <div class="toc-actions"><ul><li><a href="https://github.com/AurelienNicosiaULaval/donnees-bleues/blob/main/retours-classe.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li><li><a href="https://github.com/AurelienNicosiaULaval/donnees-bleues/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+    <div class="toc-actions"><ul><li><a href="https://github.com/AurelienNicosiaULaval/donnees-bleues/blob/main/retours-classe.qmd" class="toc-action"><i class="bi bi-github"></i>Voir la source</a></li><li><a href="https://github.com/AurelienNicosiaULaval/donnees-bleues/issues/new" class="toc-action"><i class="bi empty"></i>Faire part d&#39;un problème</a></li></ul></div></div>
     <div class="nav-footer-right">
 <p>Des données publiques à enseigner, avec contexte.</p>
 </div>
