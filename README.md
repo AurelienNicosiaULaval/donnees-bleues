@@ -1,6 +1,6 @@
 # Données bleues
 
-Données bleues est un MVP de plateforme pédagogique ouverte qui valorise des jeux de données québécois pour l'enseignement de la statistique, de la programmation R et de la science des données.
+Données bleues est une plateforme pédagogique ouverte qui valorise des jeux de données québécois pour l'enseignement de la statistique, de la programmation R et de la science des données. La version publique de référence est la version 0.1.0, publiée le 23 août 2026.
 
 Le message éditorial du projet est le suivant : un jeu de données n'est pas seulement une table. C'est un territoire d'apprentissage.
 
@@ -57,6 +57,10 @@ Le catalogue public est la source à jour pour l'inventaire des jeux de données
 - Catalogue des activités : [`data/metadata/catalogue_activites.csv`](data/metadata/catalogue_activites.csv)
 
 Ces catalogues remplacent la liste statique du README et doivent être considérés comme les inventaires de référence.
+
+## Citer la plateforme
+
+Les métadonnées de citation de la version 0.1.0 se trouvent dans [`CITATION.cff`](CITATION.cff). La version figée est accessible dans la [livraison GitHub v0.1.0](https://github.com/AurelienNicosiaULaval/donnees-bleues/releases/tag/v0.1.0).
 
 ## Attribution et réutilisation
 

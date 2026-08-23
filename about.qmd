@@ -160,11 +160,21 @@ La rigueur commence aussi par des limites claires.
 :::
 :::
 
+::: {.about-section .about-version}
+::: {.about-section-heading}
+## Version et citation
+
+La version publique de référence est la version 0.1.0, publiée le 23 août 2026. Elle fige 26 fiches de jeux de données, 52 activités, trois séquences et trois modules transversaux. Le statut pédagogique déclaré dans le catalogue décrit le degré de préparation des activités; il ne constitue pas une preuve d'efficacité pédagogique.
+
+Cette version peut être citée à partir du fichier [`CITATION.cff`](CITATION.cff) ou consultée dans la [livraison GitHub v0.1.0](https://github.com/AurelienNicosiaULaval/donnees-bleues/releases/tag/v0.1.0).
+:::
+:::
+
 ::: {.about-final}
 ::: {.about-final-copy}
 ## Une infrastructure ouverte, mais exigeante
 
-L'objectif est de construire un répertoire durable : des sources vérifiées, des scripts reproductibles, des activités réalistes et des limites visibles. Le projet avance par ajouts prudents, révisions et usages en classe.
+L'objectif est de construire un répertoire durable : des sources vérifiées, des scripts reproductibles, des activités réalistes et des limites visibles. Le projet avance par ajouts prudents, révisions documentaires et retours d'usage lorsqu'ils existent.
 :::
 
 ::: {.about-final-actions}

@@ -1,0 +1,21 @@
+cff-version: 1.2.0
+message: "Si vous utilisez Données bleues, veuillez citer cette version."
+type: software
+title: "Données bleues"
+abstract: >-
+  Plateforme pédagogique ouverte qui documente des jeux de données québécois
+  et canadiens et les relie à des activités pour l'enseignement de la
+  statistique, de la programmation R et de la science des données.
+authors:
+  - family-names: "Nicosia"
+    given-names: "Aurélien"
+version: 0.1.0
+date-released: 2026-08-23
+repository-code: "https://github.com/AurelienNicosiaULaval/donnees-bleues"
+url: "https://aureliennicosiaulaval.github.io/donnees-bleues/"
+keywords:
+  - "enseignement de la statistique"
+  - "science des données"
+  - "programmation R"
+  - "données québécoises"
+  - "ressources éducatives libres"

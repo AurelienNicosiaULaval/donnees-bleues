@@ -2,6 +2,7 @@ project:
   type: website
   output-dir: docs
   resources:
+    - CITATION.cff
     - favicon.svg
     - assets/logo-donnees-bleues.svg
     - assets/logo-donnees-bleues-horizontal.svg
@@ -10,6 +11,7 @@ project:
     - assets/cards/*.webp
     - assets/cards/*.png
     - assets/cards/*.jpg
+    - templates/retour-classe-template.md
   render:
     - "index.qmd"
     - "catalogue.qmd"
@@ -62,8 +64,10 @@ website:
       - text: "Contribuer"
         href: contribuer.qmd
   page-footer:
-    left: "Données bleues"
+    left: "Données bleues · version 0.1.0 · 23 août 2026"
     right: "Des données publiques à enseigner, avec contexte."
+
+lang: fr
 
 format:
   html:
