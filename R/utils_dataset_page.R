@@ -314,14 +314,14 @@ dataset_preview_table <- function(
     label <- dataset_html_escape(names(visible)[[j]])
     if (interactive) {
       paste0(
-        '<th><button type="button" class="dataset-sort-button" data-dataset-sort="',
+        '<th scope="col" aria-sort="none"><button type="button" class="dataset-sort-button" data-dataset-sort="',
         j - 1L,
         '">',
         label,
         '<span aria-hidden="true"></span></button></th>'
       )
     } else {
-      paste0("<th>", label, "</th>")
+      paste0('<th scope="col">', label, '</th>')
     }
   }, character(1)), collapse = "")
 
@@ -361,7 +361,7 @@ dataset_preview_table <- function(
   }
 
   table_html <- paste0(
-    '<div class="dataset-result-table-wrap"><table class="dataset-result-table">',
+    '<div class="dataset-result-table-wrap" tabindex="0" role="region" aria-label="Tableau de données, défilement horizontal"><table class="dataset-result-table">',
     '<thead><tr>', header, '</tr></thead>',
     '<tbody>', paste(rows, collapse = ""), '</tbody>',
     '</table></div>',
@@ -384,12 +384,12 @@ dataset_preview_table <- function(
     '<option value="50">50</option>',
     '<option value="100">100</option>',
     '</select></label>',
-    '<span class="dataset-datatable-count" data-dataset-count></span>',
+    '<span class="dataset-datatable-count" data-dataset-count role="status" aria-live="polite"></span>',
     '</div>',
     table_html,
     '<div class="dataset-datatable-pager">',
     '<button type="button" data-dataset-prev>Précédent</button>',
-    '<span data-dataset-page></span>',
+    '<span data-dataset-page aria-live="polite"></span>',
     '<button type="button" data-dataset-next>Suivant</button>',
     '</div>',
     '</div>'
@@ -538,6 +538,7 @@ dataset_datatable_script <- function() {
     "        var indicator = button.querySelector('span');",
     "        if (!indicator) return;",
     "        var col = Number(button.dataset.datasetSort);",
+    "        button.closest('th').setAttribute('aria-sort', col === state.sortCol ? (state.sortDir === 1 ? 'ascending' : 'descending') : 'none');",
     "        indicator.textContent = col === state.sortCol ? (state.sortDir === 1 ? ' ↑' : ' ↓') : '';",
     "      });",
     "    }",

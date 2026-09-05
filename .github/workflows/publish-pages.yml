@@ -48,10 +48,7 @@ jobs:
       - name: Test the distributed activities without downloads
         run: Rscript scripts/check_classroom_kits.R
       - name: Test activities that require source acquisition
-        run: |
-          Rscript datasets/cohortes-diplomation/preparation.R
-          Rscript datasets/emploi-regional-quebec/preparation.R
-          Rscript scripts/check_source_activities.R
+        run: Rscript scripts/check_source_activities.R --acquire
       - name: Render a new site and verify the exact artifact
         run: |
           rm -rf docs

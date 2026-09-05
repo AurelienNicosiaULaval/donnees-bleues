@@ -10,7 +10,12 @@ library(ggplot2)
 donnees <- read_csv("data/processed/bixi/stations_bixi_snapshot.csv", show_col_types = FALSE)
 stopifnot(nrow(donnees) > 0)
 
-selection <- donnees |> filter(capacity > 0, is.finite(taux_occupation))
+selection <- donnees |>
+  filter(capacity > 0, is.finite(taux_occupation)) |>
+  mutate(groupe_capacite = factor(groupe_capacite, levels = c(
+    "Petite station, 15 bornes ou moins", "Station moyenne, 16 à 25 bornes",
+    "Grande station, 26 à 35 bornes", "Très grande station, 36 bornes ou plus")))
+stopifnot(!anyNA(selection$groupe_capacite))
 resume <- selection |> group_by(groupe_capacite, etat_operationnel) |> summarise(
   stations = n(), occupation_mediane = median(taux_occupation),
   proportion_sans_velo = mean(num_bikes_available == 0), .groups = "drop")

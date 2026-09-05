@@ -47,12 +47,10 @@ Rscript scripts/check_site.R
 
 `render_site.R` reconstruit les catalogues, rend les pages et finalise leurs titres. Utiliser ce script pour une livraison complète. Le résultat se trouve dans `docs/`. `check_site.R` vérifie la structure HTML, les liens, les ancres et les téléchargements de cet artefact.
 
-`check_classroom_kits.R` extrait les ZIP dans des dossiers temporaires, vérifie les empreintes et les colonnes, puis exécute séparément les analyses fournies. Les quatre analyses ISQ demandent les deux acquisitions suivantes :
+`check_classroom_kits.R` extrait les ZIP dans des dossiers temporaires, vérifie les empreintes et les colonnes, puis exécute séparément les analyses fournies. Pour les quatre analyses ISQ, la commande suivante extrait leurs trousses, exécute le script d’acquisition fourni, puis teste les analyses hors ligne :
 
 ```bash
-Rscript datasets/cohortes-diplomation/preparation.R
-Rscript datasets/emploi-regional-quebec/preparation.R
-Rscript scripts/check_source_activities.R
+Rscript scripts/check_source_activities.R --acquire
 ```
 
 Le rendu des pages affiche le code sans exécuter les analyses. Le succès du rendu ne remplace donc pas ces tests. Les journaux et figures de contrôle sont dans `data/validation/`, ignoré par Git.

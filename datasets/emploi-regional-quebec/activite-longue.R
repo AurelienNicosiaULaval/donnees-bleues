@@ -16,6 +16,8 @@ resume <- selection |> group_by(indicateur, territoire) |> summarise(
   periodes = n(), valeurs_disponibles = sum(!is.na(valeur)),
   valeurs_signalees = sum(indicateur_qualite %in% c("F", "*")), .groups = "drop")
 print(resume)
-print(ggplot(selection, aes(x = date, y = valeur, colour = territoire)) + geom_line() +
+print(ggplot(selection, aes(x = date, y = valeur, colour = territoire, linetype = territoire)) + geom_line() +
+  scale_colour_viridis_d(end = 0.75) +
   facet_wrap(vars(indicateur), scales = "free_y") +
-  labs(x = "Mois", y = "Taux publié (%)", colour = "Territoire", subtitle = "Comparaison descriptive; aucune conclusion causale"))
+  labs(x = "Mois", y = "Taux publié (%)", colour = "Territoire", linetype = "Territoire",
+       subtitle = "Comparaison descriptive; aucune conclusion causale"))

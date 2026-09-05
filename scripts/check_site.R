@@ -5,6 +5,10 @@ root <- normalizePath('docs')
 pages <- list.files(root, pattern = '[.]html$', recursive = TRUE, full.names = TRUE)
 documents <- setNames(lapply(pages, xml2::read_html), pages)
 errors <- character()
+search_index <- jsonlite::read_json(file.path(root, 'search.json'))
+indexed_pages <- unique(vapply(search_index, function(entry) sub('[?#].*$', '', entry$href), character(1)))
+relative_pages <- substring(pages, nchar(root) + 2L)
+if (!all(relative_pages %in% indexed_pages)) errors <- c(errors, 'Certaines pages sont absentes de la recherche générale.')
 for (page in pages) {
   doc <- documents[[page]]
   first_link <- xml2::xml_find_first(doc, '(//body//a)[1]')
@@ -33,8 +37,8 @@ for (page in pages) {
     }
   }
 }
-# Exact archive bytes must be the ones that passed the classroom checks.
-for (source in list.files('assets/classroom', pattern = '[.]zip$', full.names = TRUE)) {
+# Exact archive and receipt bytes must be the ones that passed the classroom checks.
+for (source in list.files('assets/classroom', pattern = '[.]zip([.]json)?$', full.names = TRUE)) {
   dest <- file.path('docs', source)
   if (!file.exists(dest) || digest::digest(file = source, algo = 'sha256') != digest::digest(file = dest, algo = 'sha256')) {
     errors <- c(errors, paste('Archive rendue différente :', source))

@@ -11,5 +11,5 @@
   text-align: left;
 }
 .activity-download p:last-child { margin-bottom: 0; }
-.activity-download summary { cursor: pointer; }
+.activity-download summary { cursor: pointer; color: #344054; }
 .activity-download code { overflow-wrap: anywhere; }
