@@ -1,0 +1,66 @@
+---
+title: "Modéliser la surmortalité au Québec"
+toc: false
+body-classes: hub-page
+page-layout: full
+embed-resources: true
+---
+
+[Lectures et documents](../lectures.qmd) / Santé et démographie
+
+::: {.resource-hero}
+# Modéliser la surmortalité au Québec
+
+Comment estimer le nombre de décès qui auraient été observés en l’absence d’une perturbation? Ce document de l’Institut de la statistique du Québec explique la construction d’un modèle à partir des décès hebdomadaires québécois.
+
+[Lire le document sur le site de l’ISQ](https://statistique.quebec.ca/fr/produit/publication/methodologie-modele-estimation-surmortalite-institut-statistique-quebec){.dataset-button}
+:::
+
+## Le document et ses auteurs
+
+*Méthodologie du modèle d’estimation de la surmortalité*, par Frédéric Fleury-Payeur, Alexandre Paquette et Enrique Acosta. Publication de l’Institut de la statistique du Québec, mise à jour le 2 avril 2026.
+
+Niveau : avancé. Prérequis suggérés : régression et notions d’inférence statistique. Langue : français.
+
+## Des concepts illustrés avec des données québécoises
+
+::: {.bixi-learning-grid}
+::: {.bixi-learning-card}
+### Modéliser des dénombrements
+
+Les décès hebdomadaires servent à ajuster des modèles linéaires généralisés (GLM) ou additifs généralisés (GAM). Le document explique le recours à un lien logarithmique et à une distribution quasi-Poisson pour tenir compte de la surdispersion.
+:::
+::: {.bixi-learning-card}
+### Séparer tendance et saisonnalité
+
+Le modèle distingue l’évolution de fond, les variations saisonnières et les changements démographiques. Le texte présente les options paramétriques et les splines utilisées pour représenter ces composantes.
+:::
+::: {.bixi-learning-card}
+### Interpréter une prévision
+
+La surmortalité compare les décès observés aux décès attendus selon le modèle. Le document décrit les intervalles de prévision, le traitement des observations atypiques et les conséquences d’une révision des estimations de population.
+:::
+:::
+
+## Les données et les outils
+
+L’analyse utilise les décès hebdomadaires au Québec ainsi que les estimations de population. Elle distingue notamment les groupes d’âge, le sexe et les regroupements régionaux. Le document précise les outils R employés : `glm()` et `gam()` du paquet `mgcv`.
+
+La page source présente aussi un tableau comparant les décès observés et les anciennes et nouvelles estimations des décès attendus pour 2020 à 2023. Ses produits connexes donnent accès aux séries de décès et de surmortalité.
+
+## Pistes de lecture en classe
+
+Ces questions sont proposées par Données bleues pour accompagner la lecture :
+
+- Pourquoi modéliser des taux plutôt que les seuls nombres de décès lorsque la population change?
+- Quel rôle jouent la tendance et la saisonnalité dans la définition d’une mortalité attendue?
+- Pourquoi le choix de la période de référence et l’exclusion d’observations atypiques influencent-ils les résultats?
+- Comment l’incertitude évolue-t-elle lorsque la projection s’éloigne de la période de référence?
+
+L’estimation repose sur des hypothèses, notamment la poursuite de la tendance prépandémique. Les décès attendus constituent une prévision issue du modèle.
+
+## Attribution et utilisation
+
+Ressource proposée au répertoire par Aurélien Nicosia. Aucun usage dans un cours n’est documenté pour le moment.
+
+Le document demeure hébergé par l’ISQ. Consulter les conditions de la source pour sa réutilisation; les licences de Données bleues ne s’appliquent pas à ce document externe.

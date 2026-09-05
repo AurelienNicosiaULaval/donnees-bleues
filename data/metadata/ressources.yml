@@ -25,3 +25,31 @@
   note: 'Le tutoriel porte sur les trajets. La fiche BIXI de Données bleues décrit
     un instantané de l’état des stations : ce sont des ressources complémentaires,
     avec des unités statistiques différentes.'
+
+- id: modelisation-surmortalite-quebec
+  type: document
+  title: Modéliser la surmortalité au Québec
+  format: Document méthodologique · ISQ
+  description: Comprendre comment les décès hebdomadaires au Québec servent à construire un modèle de mortalité attendue, avec tendance, saisonnalité et incertitude.
+  themes: Santé et démographie
+  concepts:
+  - Régression
+  - GLM
+  - GAM
+  - Quasi-Poisson
+  - Surdispersion
+  - Séries temporelles
+  - Saisonnalité
+  - Intervalles de prévision
+  - R
+  authors:
+  - Frédéric Fleury-Payeur
+  - Alexandre Paquette
+  - Enrique Acosta
+  contributor: Aurélien Nicosia
+  url: https://statistique.quebec.ca/fr/produit/publication/methodologie-modele-estimation-surmortalite-institut-statistique-quebec
+  evidence_url: https://statistique.quebec.ca/fr/produit/publication/methodologie-modele-estimation-surmortalite-institut-statistique-quebec
+  courses: []
+  related_datasets: []
+  license: Document externe de l’ISQ. Consulter les conditions de réutilisation de la source.
+  note: Document méthodologique de niveau avancé, mis à jour le 2 avril 2026. La ressource est référencée sans être reproduite.
