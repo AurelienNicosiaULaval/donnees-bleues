@@ -6,7 +6,10 @@
   const emailLink = document.getElementById('contribution-email');
   const endpoint = form.dataset.endpoint;
   const submit = form.querySelector('[type=submit]');
-  if (endpoint) submit.textContent = 'Envoyer la proposition';
+  if (endpoint) {
+    submit.textContent = 'Envoyer la proposition';
+    status.textContent = 'Votre proposition sera envoyée à info@donneesbleues.ca lorsque vous cliquerez sur Envoyer.';
+  }
   form.addEventListener('submit', async event => {
     event.preventDefault();
     if (!form.reportValidity()) return;
