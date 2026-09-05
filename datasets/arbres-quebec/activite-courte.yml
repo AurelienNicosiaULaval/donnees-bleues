@@ -1,0 +1,45 @@
+id: arbres-quebec-premiers-pas
+title: Explorer 200 arbres du Québec
+question: Comment le diamètre et la hauteur varient-ils entre les quatre espèces de cet échantillon ?
+dataset_id: arbres-quebec
+dataset_title: 'Arbres du Québec : quatre espèces forestières'
+activity_url: datasets/arbres-quebec/activite-courte.qmd
+script_file: datasets/arbres-quebec/activite-courte.R
+classroom_archive: assets/classroom/arbres-quebec.zip
+access_mode: frozen
+duration: 45-60 minutes
+level: Introduction
+level_ids: [introduction]
+activity_type: [Laboratoire, Exploration de données]
+concepts: [Analyse exploratoire, Comparaison de groupes, Statistiques descriptives, Valeurs manquantes, Visualisation]
+concept_ids: [analyse-exploratoire, comparaison-de-groupes, statistiques-descriptives, valeurs-manquantes, visualisation]
+context: Foresterie québécoise
+hook: 'Quatre espèces, deux mesures observées et des âges manquants : découvrir ce que décrit vraiment un échantillon construit pour la classe.'
+materials: [Trousse ZIP et projet RStudio, Script R complet, CSV de 200 arbres et dictionnaire, Page Quarto avec résultats]
+advanced_math_stats: false
+teacher_notes: 'Activité exécutée techniquement, non testée en classe. Les 50 arbres par espèce sont imposés par la sélection. L’âge manque pour les 50 érables rouges et deux autres arbres. Ne pas traiter la surface terrière comme une troisième mesure distincte.'
+pedagogical_status: pret_a_enseigner
+teacher_preparation: 'Extraire la trousse, ouvrir Donnees-bleues.Rproj, installer les bibliothèques avant la séance et exécuter activite-courte.R. Les fichiers fonctionnent ensuite hors ligne.'
+expected_output: 'Un tableau descriptif par espèce, un nuage diamètre-hauteur et les réponses aux quatre exercices, avec une limite d’interprétation.'
+learning_objectives:
+  - Importer le CSV en conservant les identifiants comme du texte.
+  - Calculer les effectifs et les moyennes du diamètre et de la hauteur par espèce.
+  - Repérer la répartition des âges manquants et interpréter le nuage diamètre-hauteur.
+  - Expliquer pourquoi les proportions provinciales ne sont pas estimées par cet échantillon.
+prerequisites:
+  - Ouvrir un projet RStudio et exécuter un script.
+  - Reconnaître une variable quantitative, une catégorie et une valeur manquante.
+success_criteria:
+  - Le tableau contient quatre espèces et 50 arbres par espèce.
+  - Les axes indiquent le diamètre en centimètres et la hauteur observée en mètres.
+  - Les 52 âges manquants sont signalés, dont ceux des 50 érables rouges.
+  - La conclusion distingue les résultats de l’échantillon d’une affirmation sur tous les arbres du Québec.
+adaptations:
+  - Faire exécuter le script par la personne enseignante et discuter les sorties collectivement.
+  - Pour approfondir, remplacer les moyennes par des médianes ou comparer des graphiques par espèce.
+requires_prepared_data: true
+requires_live_download: false
+recommended_use: Exercice guidé
+result_visible_in_page: true
+status: 'Fichiers inclus et script exécuté ; efficacité en classe non évaluée'
+courses: []

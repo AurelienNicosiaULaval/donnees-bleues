@@ -7,12 +7,6 @@ source("R/utils_site_validation.R")
 
 required_files <- c(
   "fiche.qmd",
-  "activite-courte.qmd",
-  "activite-courte.yml",
-  "activite-courte.R",
-  "activite-longue.qmd",
-  "activite-longue.yml",
-  "activite-longue.R",
   "preparation.R",
   "metadata.yml"
 )
@@ -32,7 +26,13 @@ if (length(dataset_dirs) == 0L) {
 errors <- character()
 
 for (dataset_dir in dataset_dirs) {
-  missing_files <- required_files[!file.exists(file.path(dataset_dir, required_files))]
+  activities <- list.files(dataset_dir, pattern = "^activite-.*[.]yml$")
+  if (!length(activities)) {
+    errors <- c(errors, paste(dataset_dir, "aucune activité déclarée"))
+  }
+  expected_files <- c(required_files, activities,
+    sub("[.]yml$", ".qmd", activities), sub("[.]yml$", ".R", activities))
+  missing_files <- expected_files[!file.exists(file.path(dataset_dir, expected_files))]
   if (length(missing_files) > 0L) {
     errors <- c(errors, paste(dataset_dir, "fichiers manquants :", paste(missing_files, collapse = ", ")))
     next

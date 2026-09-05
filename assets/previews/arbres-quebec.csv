@@ -1,0 +1,121 @@
+species,species_latin,diameter_cm,height_m,age_years,basal_area_m2,ecological_region,survey_year
+Bouleau à papier (blanc),Betula papyrifera,18.8,15.3,54,0.027759112687119412,Coteaux du réservoir Gouin,2017
+Bouleau à papier (blanc),Betula papyrifera,17.8,17.5,88,0.024884555409084755,Coteaux du réservoir Cabonga,2017
+Bouleau à papier (blanc),Betula papyrifera,30.9,22,83,0.07499060203935176,Coteaux du réservoir Cabonga,2017
+Bouleau à papier (blanc),Betula papyrifera,15,13.2,58,0.017671458676442587,Massif du lac Jacques-Cartier,2017
+Bouleau à papier (blanc),Betula papyrifera,17.8,12.2,58,0.024884555409084755,Massif du lac Jacques-Cartier,2017
+Bouleau à papier (blanc),Betula papyrifera,13.9,14.4,39,0.015174677915002103,Collines du lac Nominingue,2017
+Bouleau à papier (blanc),Betula papyrifera,9.4,11.6,53,0.006939778171779853,Côte gaspésienne,2019
+Bouleau à papier (blanc),Betula papyrifera,9.1,9.5,25,0.00650388219109427,Collines des moyennes Appalaches,2019
+Bouleau à papier (blanc),Betula papyrifera,21.7,16.7,67,0.03698361411622244,Collines des moyennes Appalaches,2019
+Bouleau à papier (blanc),Betula papyrifera,25.3,20.4,65,0.05027255104090726,Collines des moyennes Appalaches,2019
+Bouleau à papier (blanc),Betula papyrifera,30.7,21,71,0.07402299150204611,Collines de l'Outaouais et du Témiscamingue,2020
+Bouleau à papier (blanc),Betula papyrifera,9.4,14.2,34,0.006939778171779853,Collines de l'Outaouais et du Témiscamingue,2020
+Bouleau à papier (blanc),Betula papyrifera,22.5,20.9,79,0.03976078202199582,Coteaux du réservoir Cabonga,2020
+Bouleau à papier (blanc),Betula papyrifera,13.6,10.1,63,0.014526724430199206,Coteaux du réservoir Gouin,2020
+Bouleau à papier (blanc),Betula papyrifera,9.7,10.8,28,0.0073898113194065885,Coteaux du réservoir Gouin,2020
+Bouleau à papier (blanc),Betula papyrifera,10.1,10.9,33,0.008011846664817369,Hautes collines du bas Saint-Maurice,2021
+Bouleau à papier (blanc),Betula papyrifera,13.2,11.9,28,0.01368477759903714,Collines du haut Saint-Maurice,2021
+Bouleau à papier (blanc),Betula papyrifera,14.5,12,54,0.01651299638543135,Collines du moyen Saint-Maurice,2021
+Bouleau à papier (blanc),Betula papyrifera,11.8,13.2,20,0.010935884027146072,Collines du moyen Saint-Maurice,2021
+Bouleau à papier (blanc),Betula papyrifera,11.2,11.8,66,0.00985203456165759,Collines du moyen Saint-Maurice,2021
+Bouleau à papier (blanc),Betula papyrifera,14.2,15.4,44,0.015836768566746144,Collines du lac Nominingue,2021
+Bouleau à papier (blanc),Betula papyrifera,15.1,15.3,65,0.017907863523625216,Collines du haut Saint-Maurice,2022
+Bouleau à papier (blanc),Betula papyrifera,26.8,15.9,100,0.056410437687858334,Collines du moyen Saint-Maurice,2023
+Bouleau à papier (blanc),Betula papyrifera,12,13,38,0.011309733552923255,Massif du mont Valin,2023
+Bouleau à papier (blanc),Betula papyrifera,13.6,8.6,64,0.014526724430199206,Massif du lac Jacques-Cartier,2023
+Bouleau à papier (blanc),Betula papyrifera,11.6,10.9,34,0.010568317686676062,Collines du lac Péribonka,2024
+Bouleau à papier (blanc),Betula papyrifera,18.7,16.1,105,0.02746458837584537,Collines qui ceinturent le lac Saint-Jean,2024
+Bouleau à papier (blanc),Betula papyrifera,9.8,12.4,39,0.0075429639612690945,Plaine du lac Matagami,2025
+Bouleau à papier (blanc),Betula papyrifera,23.4,14.1,35,0.04300526183499067,Haut massif gaspésien,2017
+Bouleau à papier (blanc),Betula papyrifera,11.5,12.8,34,0.010386890710931254,Collines qui ceinturent le lac Saint-Jean,2023
+Épinette noire,Picea mariana,18.5,20.1,112,0.026880252142277666,Collines de l'Outaouais et du Témiscamingue,2017
+Épinette noire,Picea mariana,14.2,11.2,35,0.015836768566746144,Hautes collines de Charlevoix et du Saguenay,2017
+Épinette noire,Picea mariana,16.5,12.1,48,0.021382464998495533,Hautes collines de Charlevoix et du Saguenay,2017
+Épinette noire,Picea mariana,10,3.9,25,0.007853981633974483,Massif du lac Jacques-Cartier,2017
+Épinette noire,Picea mariana,18.5,12.1,94,0.026880252142277666,Côte gaspésienne,2019
+Épinette noire,Picea mariana,25.1,16,68,0.04948086969220264,Coteaux des basses Appalaches,2019
+Épinette noire,Picea mariana,11.8,7.6,68,0.010935884027146072,Haut massif gaspésien,2019
+Épinette noire,Picea mariana,12,10.4,40,0.011309733552923255,Collines de l'Outaouais et du Témiscamingue,2020
+Épinette noire,Picea mariana,9.6,11.4,35,0.007238229473870883,Coteaux du réservoir Cabonga,2020
+Épinette noire,Picea mariana,11.4,10.2,25,0.010207034531513238,Coteaux du réservoir Cabonga,2020
+Épinette noire,Picea mariana,16.5,12.9,46,0.021382464998495533,Coteaux du réservoir Gouin,2020
+Épinette noire,Picea mariana,14.9,16.9,85,0.017436624625586747,Plaine du lac Opémisca,2020
+Épinette noire,Picea mariana,9.6,9.7,25,0.007238229473870883,Coteaux du réservoir Gouin,2020
+Épinette noire,Picea mariana,19.4,18.5,138,0.029559245277626354,Plaine de l'Abitibi,2021
+Épinette noire,Picea mariana,13.6,11.8,45,0.014526724430199206,Collines du moyen Saint-Maurice,2021
+Épinette noire,Picea mariana,11.3,10.9,59,0.010028749148422018,Plaine de l'Abitibi,2021
+Épinette noire,Picea mariana,10.6,11.4,NA,0.008824733763933728,Collines du haut Saint-Maurice,2022
+Épinette noire,Picea mariana,14.3,12.7,45,0.016060607043314423,Collines du moyen Saint-Maurice,2022
+Épinette noire,Picea mariana,9.2,7.6,24,0.006647610054996002,Collines du moyen Saint-Maurice,2022
+Épinette noire,Picea mariana,9.2,8,26,0.006647610054996002,Hautes collines du bas Saint-Maurice,2023
+Épinette noire,Picea mariana,10.3,8.8,99,0.00833228911548353,Massif du lac Jacques-Cartier,2023
+Épinette noire,Picea mariana,11.1,8,41,0.00967689077121996,Massif du lac Jacques-Cartier,2023
+Épinette noire,Picea mariana,15.5,14.7,142,0.018869190875623696,Coteaux du lac Manouane,2024
+Épinette noire,Picea mariana,10.2,8.4,52,0.00817128249198705,Coteaux de la rivière Nestaocano,2024
+Épinette noire,Picea mariana,10.2,10.2,31,0.00817128249198705,Coteaux de la rivière Nestaocano,2024
+Épinette noire,Picea mariana,19.5,12.4,42,0.029864765163187975,Collines du lac Péribonka,2024
+Épinette noire,Picea mariana,13.3,10.1,22,0.013892908112337465,Plaine du lac Matagami,2025
+Épinette noire,Picea mariana,11,8.8,26,0.009503317777109124,Plaine du lac Matagami,2025
+Épinette noire,Picea mariana,9.3,10,45,0.006792908715224532,Collines de l'Outaouais et du Témiscamingue,2015
+Épinette noire,Picea mariana,21.4,15.7,78,0.03596809429094954,Collines du lac Nominingue,2020
+Érable rouge,Acer rubrum,16.7,16.3,NA,0.02190396937899143,Collines de l'Outaouais et du Témiscamingue,2017
+Érable rouge,Acer rubrum,11.6,11.6,NA,0.010568317686676062,Coteaux du réservoir Cabonga,2017
+Érable rouge,Acer rubrum,26.8,15.9,NA,0.056410437687858334,Coteaux du réservoir Cabonga,2017
+Érable rouge,Acer rubrum,9.8,11.3,NA,0.0075429639612690945,Coteaux du réservoir Cabonga,2017
+Érable rouge,Acer rubrum,9.9,7.3,NA,0.007697687399458391,Hautes collines de Charlevoix et du Saguenay,2017
+Érable rouge,Acer rubrum,9.2,8.2,NA,0.006647610054996002,Coteaux des basses Appalaches,2018
+Érable rouge,Acer rubrum,20.3,13.4,NA,0.03236547291544545,Collines des moyennes Appalaches,2019
+Érable rouge,Acer rubrum,12.9,14,NA,0.013069810837096936,Collines des moyennes Appalaches,2019
+Érable rouge,Acer rubrum,14.3,16,NA,0.016060607043314423,Collines des moyennes Appalaches,2019
+Érable rouge,Acer rubrum,25.9,19.9,NA,0.05268529419886423,Collines de l'Outaouais et du Témiscamingue,2020
+Érable rouge,Acer rubrum,9.9,9.4,NA,0.007697687399458391,Collines de l'Outaouais et du Témiscamingue,2020
+Érable rouge,Acer rubrum,12.1,14.4,NA,0.01149901451030204,Coteaux du réservoir Cabonga,2020
+Érable rouge,Acer rubrum,10.4,13,NA,0.008494866535306803,Coteaux du réservoir Cabonga,2020
+Érable rouge,Acer rubrum,12.1,13.7,NA,0.01149901451030204,Coteaux du réservoir Cabonga,2020
+Érable rouge,Acer rubrum,10.3,12.3,NA,0.00833228911548353,Plaines et coteaux du lac Simard,2020
+Érable rouge,Acer rubrum,35.5,20.1,NA,0.09897980354216342,Hautes collines du bas Saint-Maurice,2021
+Érable rouge,Acer rubrum,11.1,10.8,NA,0.00967689077121996,Hautes collines du bas Saint-Maurice,2021
+Érable rouge,Acer rubrum,28.9,20.1,NA,0.06559724000511827,Collines du lac Nominingue,2021
+Érable rouge,Acer rubrum,23,18.4,NA,0.04154756284372502,Collines du lac Nominingue,2021
+Érable rouge,Acer rubrum,15.4,14.3,NA,0.018626502843133885,Collines du moyen Saint-Maurice,2022
+Érable rouge,Acer rubrum,24.6,15.5,NA,0.04752915525615999,Collines du moyen Saint-Maurice,2022
+Érable rouge,Acer rubrum,11.2,12.1,NA,0.00985203456165759,Collines du moyen Saint-Maurice,2022
+Érable rouge,Acer rubrum,10.1,16.8,NA,0.008011846664817369,Plaine du bas Outaouais et de l'archipel de Montréal,2022
+Érable rouge,Acer rubrum,16.5,15.5,NA,0.021382464998495533,Coteaux des basses Appalaches,2016
+Érable rouge,Acer rubrum,13,17.4,NA,0.013273228961416878,Coteaux des basses Appalaches,2016
+Érable rouge,Acer rubrum,17.7,14.9,NA,0.024605739061078654,Collines de la basse Gatineau,2015
+Érable rouge,Acer rubrum,34.3,21.3,NA,0.09240130852554637,Collines du moyen Saint-Maurice,2021
+Érable rouge,Acer rubrum,12.5,13.6,NA,0.01227184630308513,Hautes collines du bas Saint-Maurice,2019
+Érable rouge,Acer rubrum,33.8,27.3,NA,0.08972702777917807,Plaine du Saint-Laurent,2022
+Érable rouge,Acer rubrum,13.2,15.6,NA,0.01368477759903714,Collines du lac Nominingue,2020
+Sapin baumier,Abies balsamea,15.7,15,36,0.019359279329583704,Collines de l'Outaouais et du Témiscamingue,2017
+Sapin baumier,Abies balsamea,14.9,12.9,64,0.017436624625586747,Coteaux du réservoir Cabonga,2017
+Sapin baumier,Abies balsamea,9.5,7.5,20,0.007088218424661971,Massif du lac Jacques-Cartier,2017
+Sapin baumier,Abies balsamea,14.5,7.7,54,0.01651299638543135,Massif du lac Jacques-Cartier,2017
+Sapin baumier,Abies balsamea,16,13.4,68,0.020106192982974676,Massif du lac Jacques-Cartier,2017
+Sapin baumier,Abies balsamea,22.9,18,58,0.04118706508672558,Hautes collines de Charlevoix et du Saguenay,2017
+Sapin baumier,Abies balsamea,10.4,10.3,31,0.008494866535306803,Collines des moyennes Appalaches,2019
+Sapin baumier,Abies balsamea,11.7,8.9,18,0.010751315458747667,Côte de la baie des Chaleurs,2019
+Sapin baumier,Abies balsamea,25.9,21.7,93,0.05268529419886423,Côte de la baie des Chaleurs,2019
+Sapin baumier,Abies balsamea,18.6,13.9,25,0.027171634860898127,Collines des moyennes Appalaches,2019
+Sapin baumier,Abies balsamea,16.1,12.7,27,0.02035830579342526,Haut massif gaspésien,2019
+Sapin baumier,Abies balsamea,12.3,10,33,0.011882288814039998,Collines de l'Outaouais et du Témiscamingue,2020
+Sapin baumier,Abies balsamea,15.3,16.9,61,0.018385385606970867,Collines de l'Outaouais et du Témiscamingue,2020
+Sapin baumier,Abies balsamea,10,9.6,62,0.007853981633974483,Coteaux du réservoir Cabonga,2020
+Sapin baumier,Abies balsamea,10.8,9.4,55,0.009160884177867838,Plaines et coteaux du lac Simard,2020
+Sapin baumier,Abies balsamea,14.6,11.1,37,0.016741547250980007,Plaines et coteaux du lac Simard,2020
+Sapin baumier,Abies balsamea,11.9,12.4,37,0.011122023391871266,Plaine de l'Abitibi,2021
+Sapin baumier,Abies balsamea,20.4,12.6,34,0.0326851299679482,Collines du moyen Saint-Maurice,2021
+Sapin baumier,Abies balsamea,16.1,12.7,87,0.02035830579342526,Hautes collines du bas Saint-Maurice,2021
+Sapin baumier,Abies balsamea,13.3,8.5,15,0.013892908112337465,Coteaux des basses Appalaches,2022
+Sapin baumier,Abies balsamea,12.4,15,54,0.012076282160399163,Collines du moyen Saint-Maurice,2022
+Sapin baumier,Abies balsamea,15.7,13.4,42,0.019359279329583704,Coteaux des basses Appalaches,2022
+Sapin baumier,Abies balsamea,10.5,13.6,65,0.008659014751456867,Hautes collines du bas Saint-Maurice,2023
+Sapin baumier,Abies balsamea,11.7,13.5,35,0.010751315458747667,Hautes collines du bas Saint-Maurice,2023
+Sapin baumier,Abies balsamea,11.4,8.3,35,0.010207034531513238,Hautes collines du bas Saint-Maurice,2023
+Sapin baumier,Abies balsamea,11.2,8.7,61,0.00985203456165759,Collines du haut Saint-Maurice,2024
+Sapin baumier,Abies balsamea,15.1,15.3,63,0.017907863523625216,Collines qui ceinturent le lac Saint-Jean,2024
+Sapin baumier,Abies balsamea,13.4,13.2,35,0.014102609421964583,Plaines et coteaux du lac Simard,2018
+Sapin baumier,Abies balsamea,9.8,6.5,32,0.0075429639612690945,Coteaux du réservoir Gouin,2018
+Sapin baumier,Abies balsamea,12,9.6,27,0.011309733552923255,Massif du lac Jacques-Cartier,2016

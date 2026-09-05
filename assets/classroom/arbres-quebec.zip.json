@@ -1,0 +1,26 @@
+{
+  "dataset_id": "arbres-quebec",
+  "title": "Arbres du Québec : quatre espèces forestières",
+  "mode": "frozen",
+  "prepared_at_utc": "2026-09-05T23:31:53Z",
+  "source_name": "MRNF / PET5 ; sélection pédagogique par Aurélien Nicosia ; taxonomie VASCAN",
+  "source_url": "https://github.com/AurelienNicosiaULaval/arbres_quebec/releases/tag/v1.0.0",
+  "license_url": "https://creativecommons.org/licenses/by/4.0/deed.fr",
+  "original_licenses": {
+    "code": "MIT",
+    "content": "CC-BY-4.0",
+    "notices": ["LICENSE", "LICENCE-CONTENUS.md", "datasets/arbres-quebec/DATA_LICENSES.md", "datasets/arbres-quebec/LICENCE-SOURCE.md", "datasets/arbres-quebec/DICTIONNAIRE.md"]
+  },
+  "selection": "Les 200 arbres et les 21 colonnes du CSV v1.0.0 sont conservés, sans nouvelle sélection ni imputation. Les identifiants doivent être lus comme du texte.",
+  "tables": [
+    {
+      "path": "data/processed/arbres-quebec/arbres_quebec_small.csv",
+      "rows": 200,
+      "columns": ["species", "species_code", "species_fr", "species_latin", "genus", "family", "diameter_cm", "height_m", "age_years", "basal_area_m2", "canopy_stratum", "ecological_region", "survey_year", "plot_id", "tree_id", "record_id", "data_quality_flag", "observation_quality", "small_sampling_seed", "small_n_per_species", "small_sampling_rule"],
+      "sha256": "f1b867c028b6a69a7e0fa072c14911b560077a732dbb5b5a8d4a9ab410a35f54",
+      "prepared_table_sha256": "1af11ff0fc824f35286987928f0423441540ece1badb674f347ab05db07d4ccf"
+    }
+  ],
+  "archive_sha256": "9630ff2105feafbc097266d2ffa9c0ceaf049412436c682248824e8e399e834a",
+  "archive_bytes": 17181
+}

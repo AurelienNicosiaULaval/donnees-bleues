@@ -8,6 +8,12 @@ library(yaml)
 
 preview_dir <- "assets/previews"
 metadata_paths <- list.files("datasets", pattern = "metadata.yml$", recursive = TRUE, full.names = TRUE)
+selected_ids <- commandArgs(trailingOnly = TRUE)
+if (length(selected_ids)) {
+  known_ids <- basename(dirname(metadata_paths))
+  if (!all(selected_ids %in% known_ids)) stop("Identifiant de jeu inconnu.", call. = FALSE)
+  metadata_paths <- metadata_paths[known_ids %in% selected_ids]
+}
 preview_input_overrides <- c(
   "retards-transport-collectif" = "data/processed/retards-transport-collectif/variables_gtfs_realtime_retards_transport.csv"
 )

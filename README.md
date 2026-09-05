@@ -55,7 +55,7 @@ Rscript scripts/check_site.R
 Rscript scripts/check_source_activities.R --acquire
 ```
 
-Le rendu des pages affiche le code sans exécuter les analyses. Le succès du rendu ne remplace donc pas ces tests. Les journaux et figures de contrôle sont dans `data/validation/`, ignoré par Git.
+La plupart des pages affichent le code sans exécuter les analyses ; certaines affichent aussi les résultats recalculés depuis leur trousse. Le succès du rendu ne remplace pas les tests des scripts distribués. Les journaux et figures de contrôle sont dans `data/validation/`, ignoré par Git.
 
 ## Actualiser une source et ses ressources de classe
 
@@ -69,13 +69,13 @@ Rscript scripts/build_classroom_kits.R
 Rscript scripts/check_classroom_kits.R
 ```
 
-Les générateurs de ressources parcourent tous les jeux : préparer les autres jeux manquants avec `Rscript scripts/prepare_datasets.R --all` avant une reconstruction complète. Une réexécution avec `DB_OFFLINE=true` réutilise uniquement les fichiers sources dont l’empreinte et l’URL correspondent au reçu enregistré.
+Le générateur d’aperçus accepte un identifiant, par exemple `Rscript scripts/build_public_previews.R arbres-quebec`. Sans cet argument, les générateurs de ressources parcourent tous les jeux : préparer les autres jeux manquants avec `Rscript scripts/prepare_datasets.R --all` avant une reconstruction complète. Une réexécution avec `DB_OFFLINE=true` réutilise uniquement les fichiers sources dont l’empreinte et l’URL correspondent au reçu enregistré.
 
 Chaque `metadata.yml` déclare explicitement l’autorisation de publication, les fichiers et colonnes de classe, les colonnes d’aperçu et le graphique. Une colonne nouvelle n’entre pas automatiquement dans une archive. Réexaminer les conditions de la source avant de changer ces listes. Les données privées ULaval restent hors du dépôt et des archives publiques.
 
 ## Contribuer
 
-Les [modèles](templates/) définissent la structure d’une fiche, d’une activité et de leurs métadonnées. Une contribution doit fournir un script de préparation, deux scripts d’activité exécutables et leurs ressources de lancement. Les concepts et niveaux viennent de `data/metadata/taxonomie.yml`; ajouter un alias à une notion existante plutôt qu’un doublon de casse ou d’accent.
+Les [modèles](templates/) définissent la structure d’une fiche, d’une activité et de leurs métadonnées. Une contribution doit fournir un script de préparation, au moins une activité déclarée avec sa page Quarto, ses métadonnées, son script exécutable et ses ressources de lancement. Les concepts et niveaux viennent de `data/metadata/taxonomie.yml`; ajouter un alias à une notion existante plutôt qu’un doublon de casse ou d’accent.
 
 La disponibilité technique d’une trousse n’établit pas son efficacité pédagogique. La [fiche de retour de classe](templates/retour-classe-template.md) permet de documenter les usages et difficultés sans données personnelles étudiantes.
 

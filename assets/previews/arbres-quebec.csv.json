@@ -1,0 +1,56 @@
+{
+  "dataset_id": "arbres-quebec",
+  "prepared_at_utc": "2026-09-05T23:31:53Z",
+  "prepared_file": "arbres_quebec_small.csv",
+  "prepared_sha256": "1af11ff0fc824f35286987928f0423441540ece1badb674f347ab05db07d4ccf",
+  "preview_sha256": "894b2a2eb7f1a6afa964168613f1a288c388dcf32955452b37a4a02f52880d34",
+  "rows": 120,
+  "columns": ["species", "species_latin", "diameter_cm", "height_m", "age_years", "basal_area_m2", "ecological_region", "survey_year"],
+  "selection": "Au plus 120 positions régulièrement espacées dans l'ordre de la table préparée; sélection déterministe non aléatoire",
+  "source_name": "MRNF / PET5 ; sélection pédagogique par Aurélien Nicosia ; taxonomie VASCAN",
+  "source_url": "https://github.com/AurelienNicosiaULaval/arbres_quebec/releases/tag/v1.0.0",
+  "license": "Données MRNF et adaptations : CC BY 4.0 ; taxonomie VASCAN : CC0 1.0 ; code et activité source : MIT",
+  "license_url": "https://creativecommons.org/licenses/by/4.0/deed.fr",
+  "sources": [
+    {
+      "source_url": "https://raw.githubusercontent.com/AurelienNicosiaULaval/arbres_quebec/v1.0.0/data_clean/arbres_quebec_small_dictionary.csv",
+      "acquisition_kind": "download",
+      "acquired_at_utc": "2026-09-05T23:31:52Z",
+      "started_at_utc": "2026-09-05T23:31:52Z",
+      "file": "arbres_quebec_small_dictionary.csv",
+      "bytes": 4422,
+      "sha256": "3dba4d4b5e72a7620b5692af0eae7f20ddbbf1ece5ea79e0c7e250d1c8f322cd",
+      "details": {}
+    },
+    {
+      "source_url": "https://raw.githubusercontent.com/AurelienNicosiaULaval/arbres_quebec/v1.0.0/data_clean/arbres_quebec_small_provenance.csv",
+      "acquisition_kind": "download",
+      "acquired_at_utc": "2026-09-05T23:31:52Z",
+      "started_at_utc": "2026-09-05T23:31:52Z",
+      "file": "arbres_quebec_small_provenance.csv",
+      "bytes": 29866,
+      "sha256": "fcaa1b9848a609b8b3cc4c942c3a31eccc69b3e8782dfad755d283b96bf49b0f",
+      "details": {}
+    },
+    {
+      "source_url": "https://raw.githubusercontent.com/AurelienNicosiaULaval/arbres_quebec/v1.0.0/data_clean/arbres_quebec_small.csv",
+      "acquisition_kind": "download",
+      "acquired_at_utc": "2026-09-05T23:31:52Z",
+      "started_at_utc": "2026-09-05T23:31:52Z",
+      "file": "arbres_quebec_small.csv",
+      "bytes": 64335,
+      "sha256": "1af11ff0fc824f35286987928f0423441540ece1badb674f347ab05db07d4ccf",
+      "details": {}
+    },
+    {
+      "source_url": "https://raw.githubusercontent.com/AurelienNicosiaULaval/arbres_quebec/v1.0.0/data_clean/small_sampling_manifest.csv",
+      "acquisition_kind": "download",
+      "acquired_at_utc": "2026-09-05T23:31:53Z",
+      "started_at_utc": "2026-09-05T23:31:52Z",
+      "file": "small_sampling_manifest.csv",
+      "bytes": 558,
+      "sha256": "2419ce3fd763a7c837b8c492af35b198bdc944a62a7d9ebc594812a86fa984c7",
+      "details": {}
+    }
+  ]
+}

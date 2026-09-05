@@ -1,6 +1,9 @@
 # Build and validate self-contained teaching kits from explicit publication policies.
-classroom_script_paths <- function(id) {
-  file.path('datasets', id, c('activite-courte.R', 'activite-longue.R'))
+classroom_script_paths <- function(id, datasets_dir = 'datasets') {
+  metadata_paths <- sort(list.files(file.path(datasets_dir, id),
+    pattern = '^activite-.*[.]yml$', full.names = TRUE))
+  if (!length(metadata_paths)) stop('Aucune activité déclarée : ', id, call. = FALSE)
+  sub('[.]yml$', '.R', metadata_paths)
 }
 
 classroom_policy <- function(metadata) {
@@ -57,6 +60,14 @@ build_classroom_kit <- function(metadata, output_dir = 'assets/classroom') {
     if (!file.copy(path, dest, overwrite = TRUE)) stop('Copie impossible : ', path)
   }
   for (path in c(scripts, 'LICENSE', 'LICENCE-CONTENUS.md')) copy(path)
+  notices <- unlist(policy$notices, use.names = FALSE)
+  for (path in notices) {
+    if (!startsWith(path, paste0('datasets/', id, '/')) ||
+        grepl('..', path, fixed = TRUE) || !grepl('[.]md$', path)) {
+      stop('Notice de source invalide : ', path, call. = FALSE)
+    }
+    copy(path)
+  }
   source_paths <- scripts
   if (policy$mode == 'source_required') {
     source_paths <- c(source_paths, file.path('datasets', id, 'preparation.R'),
@@ -103,7 +114,7 @@ build_classroom_kit <- function(metadata, output_dir = 'assets/classroom') {
     prepared_at_utc = prep_manifest$prepared_at_utc, source_name = metadata$source_name,
     source_url = metadata$source_url, license_url = metadata$publication$license_url,
     original_licenses = list(code = 'MIT', content = 'CC-BY-4.0',
-      notices = c('LICENSE', 'LICENCE-CONTENUS.md')),
+      notices = c('LICENSE', 'LICENCE-CONTENUS.md', notices)),
     selection = policy$reason, r_version_tested = '4.5.0',
     packages_tested = setNames(lapply(packages, function(p) as.character(utils::packageVersion(p))), packages),
     sources = sources, tables = tables)
@@ -117,11 +128,12 @@ build_classroom_kit <- function(metadata, output_dir = 'assets/classroom') {
     '2. Double-cliquer sur Donnees-bleues.Rproj pour ouvrir RStudio.',
     '3. Avant la séance, ouvrir installer-packages.R et cliquer Source avec Internet.',
     if (policy$mode == 'source_required') '4. Ouvrir preparer-donnees.R et cliquer Source avec Internet.' else '4. Conserver les sous-dossiers de données à leur place.',
-    paste0('5. Ouvrir datasets/', id, '/activite-courte.R ou activite-longue.R, puis cliquer Source.'),
+    paste0('5. Ouvrir ', paste(scripts, collapse = ' ou '), ', puis cliquer Source.'),
     '6. Lire les tableaux dans Console et les graphiques dans Plots. Les consignes propres à chaque activité sont sur le site.', '',
     paste0('Activités : https://aureliennicosiaulaval.github.io/donnees-bleues/datasets/', id, '/fiche.html'), '',
     '## Source et réutilisation', '', paste0('Producteur : ', metadata$source_name),
     paste0('Source : ', metadata$source_url), paste0('Conditions : ', metadata$publication$license_url),
+    if (length(notices)) paste0('Attributions et documentation incluses : ', paste(notices, collapse = ', '), '.'),
     paste0('Préparation : ', prep_manifest$prepared_at_utc, ' (UTC). Les dates de chaque acquisition figurent dans provenance.json.'),
     'Transformation : préparation par Données bleues, puis sélection des colonnes déclarées. Les observations et résumés reflètent cet instantané; ils ne sont pas actualisés par les scripts d’activité.',
     'Lors d’une réutilisation, conserver l’attribution au producteur, le lien vers la source, les conditions et la date de préparation. Mentionner vos modifications.',

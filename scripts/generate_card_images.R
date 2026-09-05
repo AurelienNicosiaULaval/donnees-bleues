@@ -384,11 +384,15 @@ write_credits_page <- function(cards) {
     "",
     "# Crédits images",
     "",
-    "Les vignettes des jeux de données sont des versions recadrées et recompressées en 16:9 de fichiers publiés sur Wikimedia Commons.",
+    "Les vignettes photographiques des jeux de données sont des versions recadrées et recompressées en 16:9 de fichiers publiés sur Wikimedia Commons.",
     "",
     "| Carte | Image source | Auteur ou organisme | Licence |",
     "|---|---|---|---|",
-    rows
+    rows,
+    "",
+    "## Vignette calculée à partir des données",
+    "",
+    'La vignette « Arbres du Québec » est un nuage diamètre-hauteur calculé par Aurélien Nicosia à partir du jeu pédagogique [Arbres du Québec, version 1.0.0](https://github.com/AurelienNicosiaULaval/arbres_quebec/releases/tag/v1.0.0). Figure originale sous CC BY 4.0 ; mesures MRNF / PET5 sous CC BY 4.0 et taxonomie VASCAN sous CC0. La vignette est produite par le script `scripts/build_arbres_quebec_card.R`.'
   )
 
   writeLines(page, "credits-images.qmd", useBytes = TRUE)

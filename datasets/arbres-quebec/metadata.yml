@@ -1,0 +1,75 @@
+id: arbres-quebec
+title: 'Arbres du Québec : quatre espèces forestières'
+short_title: Arbres du Québec
+summary: '200 arbres mesurés au Québec, quatre espèces forestières et 21 variables. Un petit jeu pour explorer les diamètres, les hauteurs et les valeurs manquantes.'
+download_url: https://raw.githubusercontent.com/AurelienNicosiaULaval/arbres_quebec/v1.0.0/data_clean/arbres_quebec_small.csv
+download_label: 'Télécharger les 200 arbres (CSV)'
+preview_note: 'Aperçu de 120 arbres et de huit variables du jeu pédagogique dérivé, version 1.0.0. Le téléchargement complet contient 200 arbres et 21 variables.'
+theme: Foresterie québécoise
+source_name: 'MRNF / PET5 ; sélection pédagogique par Aurélien Nicosia ; taxonomie VASCAN'
+source_url: https://github.com/AurelienNicosiaULaval/arbres_quebec/releases/tag/v1.0.0
+source_csv_url: https://raw.githubusercontent.com/AurelienNicosiaULaval/arbres_quebec/v1.0.0/data_clean/arbres_quebec_small.csv
+source_dictionary_url: https://raw.githubusercontent.com/AurelienNicosiaULaval/arbres_quebec/v1.0.0/data_clean/arbres_quebec_small_dictionary.csv
+license: 'Données MRNF et adaptations : CC BY 4.0 ; taxonomie VASCAN : CC0 1.0 ; code et activité source : MIT'
+access_date: '2026-09-05'
+geography: Québec
+unit: 'Un arbre sélectionné dans une placette PET5 ; 200 placettes distinctes'
+data_type: 'Tabulaire ; mesures forestières et catégories'
+format: 'CSV pédagogique versionné, dictionnaire, provenance et trousse RStudio'
+n_rows: '200 arbres : 50 par espèce'
+n_cols: '21 variables dans le CSV pédagogique'
+processed_file: data/processed/arbres-quebec/arbres_quebec_small.csv
+update_frequency: 'Version figée 1.0.0 ; source MRNF extraite le 25 juin 2026 ; relevés 2015-2025'
+level: Introduction
+level_ids: [introduction]
+organisme: 'MRNF ; Aurélien Nicosia pour le jeu dérivé'
+territoire: Québec
+taille_approximative: '200 arbres ; quatre espèces ; 200 placettes ; 21 variables'
+niveau_pedagogique_recommande: Introduction
+variables_principales: [species, diameter_cm, height_m, age_years, basal_area_m2, ecological_region, survey_year, plot_id]
+idees_mini_projets:
+  - Décrire le diamètre et la hauteur observée par espèce.
+  - Comparer moyennes et médianes et tracer des nuages de points par espèce.
+  - Étudier la répartition des âges manquants et la portée d’un échantillon équilibré.
+tags: [Québec, forêt, arbres, MRNF, PET5, diamètre, hauteur, échantillonnage, initiation R]
+concepts: [Arbres, Analyse exploratoire, Comparaison de groupes, Statistiques descriptives, Valeurs manquantes, Visualisation]
+concept_ids: [arbres, analyse-exploratoire, comparaison-de-groupes, statistiques-descriptives, valeurs-manquantes, visualisation]
+zero_waste:
+  contexte_quebecois: 3
+  accessibilite_pedagogique: 3
+  qualite_documentaire: 3
+  potentiel_nettoyage: 2
+  potentiel_visualisation: 3
+  potentiel_statistique_descriptive: 3
+  potentiel_inference: 1
+  potentiel_modelisation: 1
+  potentiel_ethique: 2
+  reutilisabilite: 3
+status: 'Version 1.0.0 contrôlée ; activité exécutée techniquement, non testée en classe'
+notes: 'Échantillon sélectionné et équilibré pour l’enseignement, sans représentativité provinciale établie. Les 52 âges manquants, dont les 50 érables rouges, sont conservés. La surface terrière est calculée à partir du diamètre.'
+contributor_name: Aurélien Nicosia
+contributor_role: 'Construction du jeu pédagogique dérivé et de l’activité ; intégration à Données bleues'
+courses: []
+publication:
+  preview: true
+  reviewed_on: '2026-09-05'
+  license_url: https://creativecommons.org/licenses/by/4.0/deed.fr
+  preview_columns: [species, species_latin, diameter_cm, height_m, age_years, basal_area_m2, ecological_region, survey_year]
+  reason: 'Extrait du jeu dérivé MRNF sous CC BY 4.0 ; taxonomie VASCAN sous CC0 ; attributions et transformations documentées.'
+  classroom:
+    mode: frozen
+    reason: 'Les 200 arbres et les 21 colonnes du CSV v1.0.0 sont conservés, sans nouvelle sélection ni imputation. Les identifiants doivent être lus comme du texte.'
+    notices:
+      - datasets/arbres-quebec/DATA_LICENSES.md
+      - datasets/arbres-quebec/LICENCE-SOURCE.md
+      - datasets/arbres-quebec/DICTIONNAIRE.md
+    files:
+      - path: data/processed/arbres-quebec/arbres_quebec_small.csv
+        columns: [species, species_code, species_fr, species_latin, genus, family, diameter_cm, height_m, age_years, basal_area_m2, canopy_stratum, ecological_region, survey_year, plot_id, tree_id, record_id, data_quality_flag, observation_quality, small_sampling_seed, small_n_per_species, small_sampling_rule]
+chart:
+  type: scatter
+  x_variable: diameter_cm
+  y_variable: height_m
+  x_label: Diamètre à hauteur de poitrine (cm)
+  y_label: Hauteur observée (m)
+  title: Diamètre et hauteur dans l’extrait pédagogique

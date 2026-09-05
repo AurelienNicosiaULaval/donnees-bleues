@@ -1,0 +1,123 @@
+---
+title: "Explorer 200 arbres du Québec"
+author: "Aurélien Nicosia"
+page-layout: full
+body-classes: hub-page arbres-page
+css: arbres.css
+toc: false
+embed-resources: true
+execute:
+  freeze: false
+  warning: false
+  message: false
+---
+
+# Explorer 200 arbres du Québec
+
+Comment le diamètre et la hauteur varient-ils entre les quatre espèces de cet échantillon ?
+
+Durée proposée : 45 à 60 minutes. Niveau : introduction. Activité adaptée des [premiers pas de la version 1.0.0 d’Arbres du Québec](https://github.com/AurelienNicosiaULaval/arbres_quebec/blob/v1.0.0/docs/premiers_pas.qmd), par Aurélien Nicosia. Le script est exécuté techniquement ; l’activité n’a pas été testée en classe.
+
+## Préparation enseignante
+
+Télécharger la trousse ci-dessous, la décompresser et ouvrir `Donnees-bleues.Rproj`. Avant la séance, ouvrir `installer-packages.R` et cliquer sur Source avec une connexion Internet. Les données sont ensuite utilisables hors ligne.
+
+```{r}
+#| echo: false
+#| results: asis
+source(if (file.exists("R/utils_activity_contract.R")) "R/utils_activity_contract.R" else "../../R/utils_activity_contract.R")
+render_activity_resources()
+```
+
+## Contexte
+
+La fiche [Arbres du Québec : quatre espèces forestières](fiche.qmd) présente le CSV complet et son dictionnaire. Une ligne représente un arbre sélectionné dans une placette ; les 200 arbres viennent de 200 placettes distinctes. Les diamètres et les hauteurs sont observés, et les relevés s’étendent de 2015 à 2025.
+
+La source des mesures est le MRNF, jeu PET5 téléchargé le 25 juin 2026. Aurélien Nicosia a construit un petit jeu équilibré de 50 arbres par espèce, avec des noms vérifiés au moyen de VASCAN. Les quatre effectifs ne sont donc pas des estimations de proportions provinciales.
+
+## Consignes
+
+1. Dans le projet RStudio de la trousse, ouvrir `datasets/arbres-quebec/activite-courte.R` et cliquer sur Source. Lire le tableau dans Console et le graphique dans Plots.
+2. Identifier l’unité observée, les deux mesures quantitatives et leurs unités. Vérifier que les identifiants sont importés comme du texte.
+3. Comparer les moyennes de diamètre et de hauteur entre espèces dans cet échantillon. Examiner où se concentrent les âges manquants.
+4. Répondre aux quatre exercices ci-dessous, en distinguant l’échantillon construit pour l’enseignement de l’ensemble des arbres québécois.
+
+## Résultat attendu
+
+Un tableau descriptif par espèce, un nuage diamètre-hauteur et les réponses aux quatre exercices. Terminer par une limite précise d’interprétation.
+
+```{r}
+#| include: false
+library(knitr)
+# Exécuter la trousse distribuée : le rendu ne dépend pas des données de travail.
+executer_trousse <- function() {
+  metadata <- activity_contract_metadata()
+  archive <- normalizePath(activity_project_path(metadata$classroom_archive))
+  stage <- tempfile("arbres-activite-")
+  dir.create(stage)
+  utils::unzip(archive, exdir = stage)
+  ancien <- setwd(stage)
+  on.exit({ setwd(ancien); unlink(stage, recursive = TRUE) })
+  source(metadata$script_file, local = TRUE)
+  list(portrait = portrait, graphique = graphique)
+}
+resultats <- executer_trousse()
+portrait <- resultats$portrait
+graphique <- resultats$graphique
+```
+
+```{r}
+#| echo: false
+kable(portrait, digits = 2,
+      col.names = c("Espèce", "Arbres", "Diamètre moyen (cm)",
+                    "Hauteur moyenne (m)", "Âges manquants"))
+```
+
+Les 52 âges manquants sont conservés, dont ceux des 50 érables rouges. Remplacer ces valeurs par zéro fausserait le sens de la variable. Les exclure supprimerait notamment tous les érables rouges de la comparaison.
+
+```{r}
+#| echo: false
+#| fig-width: 10
+#| fig-height: 6
+#| fig-alt: "Nuage des diamètres et des hauteurs observés pour 200 arbres, avec une couleur pour chacune des quatre espèces."
+graphique
+```
+
+Le nuage décrit une association entre diamètre et hauteur dans ce petit jeu. La surface terrière n’est pas une troisième mesure distincte : elle est calculée à partir du diamètre.
+
+## Quatre exercices
+
+1. Remplacer les moyennes par des médianes dans le tableau.
+2. Ajouter `facet_wrap(~ species)` au graphique et comparer la lecture obtenue.
+3. Retrouver les années les plus ancienne et récente avec `range(arbres$survey_year)`.
+4. Expliquer pourquoi les quatre effectifs égaux ne permettent pas de conclure que chaque espèce représente 25 % des arbres du Québec.
+
+Point d’arrêt : avoir produit le tableau et le graphique, puis répondu aux quatre questions.
+
+## Limites à faire nommer
+
+- L’échantillon est sélectionné et équilibré pour l’enseignement. La représentativité des proportions et des moyennes provinciales n’est pas établie.
+- L’âge publié dépend de la carotte et du niveau de lecture ; il ne faut pas l’interpréter automatiquement comme l’âge total de l’arbre.
+- Les régions écologiques ne sont pas des régions administratives.
+- La surface terrière est une fonction déterministe du diamètre. La compter comme une mesure supplémentaire dans une ACP créerait une redondance.
+- Cette initiation ne démontre pas une efficacité pédagogique en classe ni des performances de classification.
+
+## Code complet
+
+Le code ci-dessous est celui de la trousse. Il conserve les 21 variables du jeu publié et ne télécharge aucune donnée pendant l’activité.
+
+```{r}
+#| echo: false
+#| results: asis
+render_activity_code()
+```
+
+## Sources et attribution
+
+MRNF (2018, extraction du 25 juin 2026), [PET5](https://www.donneesquebec.ca/recherche/dataset/placettes-echantillons-temporaires-du-cinquieme-inventaire), CC BY 4.0. Brouillet et collaborateurs (2010+), [VASCAN 37.16](https://data.canadensys.net/ipt/resource?r=vascan&v=37.16), CC0 1.0. Aurélien Nicosia (2026), [Arbres du Québec, version 1.0.0](https://github.com/AurelienNicosiaULaval/arbres_quebec/releases/tag/v1.0.0), activité source sous MIT. Les attributions, transformations et conditions complètes sont incluses dans la trousse.
+
+```{r}
+#| echo: false
+#| results: asis
+render_activity_contract()
+```

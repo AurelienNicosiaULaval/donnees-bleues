@@ -693,6 +693,15 @@ render_dataset_detail_header <- function() {
   teaching_note <- dataset_squish(featured_activity$teacher_notes, dataset_squish(metadata$notes, "Je ne sais pas."))
   source_url <- dataset_squish(metadata$source_url, "")
   contributor_badge <- dataset_contributor_badge(metadata)
+  summary <- dataset_squish(metadata$summary, "")
+  summary_html <- if (summary == "") "" else paste0(
+    '<p class="dataset-summary">', dataset_html_escape(summary), '</p>'
+  )
+  download_url <- dataset_squish(metadata$download_url, "")
+  download_html <- if (download_url == "") "" else paste0(
+    '<a class="dataset-button no-external" href="', dataset_html_escape(download_url), '">',
+    dataset_html_escape(dataset_squish(metadata$download_label, "Télécharger les données")), '</a>'
+  )
   source_name <- dataset_squish(metadata$source_name)
   source_html <- if (source_url == "") {
     dataset_html_escape(source_name)
@@ -783,10 +792,12 @@ render_dataset_detail_header <- function() {
     '<nav class="dataset-breadcrumb"><a href="', ctx$relative_root, '/catalogue.html">Catalogue</a><span>/</span><span>',
     dataset_html_escape(dataset_squish(metadata$theme)), '</span></nav>\n',
     '<h1>', dataset_html_escape(dataset_squish(metadata$title, "Jeu de données")), '</h1>\n',
+    summary_html,
     '<p class="dataset-teacher-question">', dataset_html_escape(featured_question), '</p>\n',
     contributor_badge,
     source_meta,
     '<div class="dataset-hero-actions">',
+    download_html,
     '<a class="dataset-button no-external" href="#apercu-interactif">Voir les données</a>',
     '<a class="dataset-button secondary no-external" href="#activites-pedagogiques">Activités</a>',
     '</div>\n',
