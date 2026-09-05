@@ -217,14 +217,14 @@ render_home_example <- function(catalogue, activities, target_dataset_id = "bixi
 Infrastructure pédagogique ouverte
 :::
 
-# Des données publiques à enseigner.
+# Des données québécoises à enseigner.
 
 ::: {.home-subtitle}
-Des ressources québécoises et canadiennes pour préparer des cours de statistique, de R et de science des données avec des sources, des limites et des contextes visibles.
+Des ressources ancrées dans les réalités du Québec pour préparer des cours de statistique, de R et de science des données avec des sources, des limites et des contextes visibles.
 :::
 
 ::: {.home-lede}
-Données bleues transforme des jeux de données publics vérifiés en fiches, activités et séquences adaptables. Le point de départ n'est pas seulement une méthode : c'est une question située, une institution, un territoire et une manière prudente d'interpréter.
+Données bleues met les données québécoises au cœur de l’enseignement, avec des fiches, des activités et des séquences adaptables. Le point de départ n'est pas seulement une méthode : c'est une question située, une institution, un territoire et une manière prudente d'interpréter.
 :::
 
 ::: {.home-hero-actions}

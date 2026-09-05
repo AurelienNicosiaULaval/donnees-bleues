@@ -10,6 +10,8 @@ embed-resources: true
 
 Un jeu de données, une activité, un article, un billet, des notes de cours ou une application : partagez un lien et quelques mots sur son intérêt pour enseigner la science des données au Québec. Aucun compte GitHub n’est nécessaire.
 
+[Voir les contributeurs du projet](about.qmd#contributeurs).
+
 Votre proposition sera examinée avant publication. Les champs marqués d’un astérisque sont obligatoires.
 
 ```{r}

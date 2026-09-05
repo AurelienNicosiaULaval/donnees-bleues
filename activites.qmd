@@ -78,7 +78,7 @@ format_planner_options <- function(values) {
 Catalogue pédagogique
 :::
 
-# Planifier une séance avec des données publiques
+# Planifier une séance avec des données québécoises
 
 ::: {.act-hero-lede}
 Partir du temps disponible, du niveau et de la production attendue pour trouver une activité à adapter au groupe réel.

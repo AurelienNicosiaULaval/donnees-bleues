@@ -42,13 +42,17 @@ La plateforme réunit des données, des activités pédagogiques, des lectures e
 
 ## Notre mission
 
-Faciliter l’accès à des ressources contextualisées, documentées et réutilisables pour enseigner et apprendre la science des données. Rendre visibles leurs auteurs, leurs sources et leurs limites fait partie de cette mission.
+Mettre les données québécoises au cœur de l’enseignement et de l’apprentissage de la science des données. Faciliter leur exploration à travers des ressources contextualisées, documentées et réutilisables. Rendre visibles leurs auteurs, leurs sources et leurs limites fait partie de cette mission.
 
 Le projet vise un répertoire durable, enrichi par les contributions et les retours d’usage. Les contenus de tiers restent attribués à leurs producteurs ; les usages dans des cours sont indiqués lorsqu’ils sont documentés.
 
 ## À qui s’adresse Données bleues ?
 
 Aux enseignantes et enseignants, aux étudiantes et étudiants, ainsi qu’aux équipes qui préparent des cours de statistique, de programmation R ou de science des données.
+
+## Contributeurs {#contributeurs}
+
+Cette section présentera les personnes ayant contribué aux ressources du site, avec les liens vers leurs contributions.
 
 ## Participer au projet
 

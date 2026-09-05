@@ -208,7 +208,7 @@ if (file.exists(catalogue_path)) {
   cat('<div class="catalogue-hero-row">\n')
   cat('<div class="catalogue-title-block">\n')
   cat('<p class="catalogue-overline">Explorer</p>\n')
-  cat('<h1>Explorer les données publiques.</h1>\n')
+  cat('<h1>Explorer les données québécoises.</h1>\n')
   cat("<p>Trouvez une fiche selon le contexte, le niveau ou le geste d'analyse à travailler. Chaque résultat garde l'essentiel pour décider : source, limites et usages possibles.</p>\n")
   cat('</div>\n')
   cat('<div class="catalogue-top-controls" role="search" aria-label="Recherche dans le catalogue">\n')
