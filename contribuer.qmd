@@ -20,7 +20,7 @@ Votre proposition sera examinée avant publication. Les champs marqués d’un a
 library(htmltools)
 endpoint <- Sys.getenv("CONTRIBUTION_ENDPOINT", "")
 if (nzchar(endpoint) && !grepl("^https://", endpoint)) stop("CONTRIBUTION_ENDPOINT doit utiliser HTTPS")
-recipient <- Sys.getenv("CONTRIBUTION_EMAIL", "aurelien.nicosia@mat.ulaval.ca")
+recipient <- Sys.getenv("CONTRIBUTION_EMAIL", "info@donneesbleues.ca")
 if (!grepl("^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+[.][A-Za-z]{2,}$", recipient)) stop("Adresse de contribution invalide")
 cat('<form id="contribution-form" class="contribution-form" data-recipient="', htmlEscape(recipient, attribute = TRUE), '" data-endpoint="', htmlEscape(endpoint, attribute = TRUE), '">', sep = '')
 ```
@@ -47,7 +47,7 @@ cat('<form id="contribution-form" class="contribution-form" data-recipient="', h
 <textarea id="contribution-output" rows="12" readonly style="width:100%"></textarea>
 <p><a id="contribution-email" class="dataset-button" hidden>Ouvrir ma messagerie</a> <button id="contribution-copy" type="button">Copier la proposition</button></p>
 </section>
-<noscript>Vous pouvez envoyer votre proposition à <a href="mailto:aurelien.nicosia@mat.ulaval.ca">Aurélien Nicosia</a> en indiquant le titre, le lien, l’auteur et les cours concernés.</noscript>
+<noscript>Vous pouvez envoyer votre proposition à <a href="mailto:info@donneesbleues.ca">info@donneesbleues.ca</a> en indiquant le titre, le lien, l’auteur et les cours concernés.</noscript>
 <script src="assets/js/contribute.js"></script>
 ```
 
@@ -57,7 +57,7 @@ cat('<form id="contribution-form" class="contribution-form" data-recipient="', h
 if (nzchar(endpoint)) {
   cat("Votre nom, votre courriel et votre proposition seront transmis au service de réception puis conservés dans la boîte de l’équipe pour traiter votre demande. Votre courriel ne sera pas publié.")
 } else {
-  cat("Le formulaire prépare un courriel à Aurélien Nicosia. Les informations restent dans cette page jusqu’à votre envoi depuis votre messagerie.")
+  cat("Le formulaire prépare un courriel à info@donneesbleues.ca. Les informations restent dans cette page jusqu’à votre envoi depuis votre messagerie.")
 }
 ```
 
