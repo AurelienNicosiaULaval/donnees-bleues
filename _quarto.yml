@@ -39,7 +39,7 @@ project:
 website:
   title: "Données bleues"
   description: "Catalogue pédagogique de jeux de données québécois et canadiens pour l'enseignement de la statistique, de R et de la science des données."
-  site-url: "https://aureliennicosiaulaval.github.io/donnees-bleues/"
+  site-url: "https://donneesbleues.ca/"
   repo-url: "https://github.com/AurelienNicosiaULaval/donnees-bleues"
   repo-actions: [source, issue]
   open-graph: true
