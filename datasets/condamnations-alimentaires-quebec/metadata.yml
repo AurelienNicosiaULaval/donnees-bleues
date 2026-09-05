@@ -14,7 +14,10 @@ format: "CSV officiel dynamique; data.frame R fixe dans UlavalSSD"
 n_rows: "1 712 lignes dans UlavalSSD 0.2.0; 2 988 lignes dans le CSV officiel consulté le 2026-06-20"
 n_cols: "10 colonnes dans UlavalSSD; 14 colonnes après préparation locale; 20 colonnes dans le CSV officiel"
 update_frequency: "Quotidienne pour la ressource officielle; version UlavalSSD fixe pour le cours"
-level: "Introduction à intermédiaire"
+level: Introduction à intermédiaire
+level_ids:
+- introduction
+- intermediaire
 processed_file: "data/processed/condamnations-alimentaires-quebec/condamnations_alimentaires_quebec.csv"
 embed_processed_preview: false
 organisme: "Ministère de l'Agriculture, des Pêcheries et de l'Alimentation"
@@ -43,13 +46,21 @@ tags:
   - "données ouvertes"
   - "variables catégorielles"
 concepts:
-  - "variables catégorielles"
-  - "nettoyage de chaînes"
-  - "dates"
-  - "tableaux de fréquences"
-  - "montants"
-  - "communication publique"
-  - "éthique"
+- Variables catégorielles
+- Nettoyage de chaînes
+- Dates
+- Tableaux de fréquences
+- Montants
+- Communication publique
+- Éthique
+concept_ids:
+- variables-categorielles
+- nettoyage-de-chaines
+- dates
+- tableaux-de-frequences
+- montants
+- communication-publique
+- ethique
 zero_waste:
   contexte_quebecois: 3
   accessibilite_pedagogique: 3
@@ -66,3 +77,41 @@ contributor_role: "Révision pédagogique et statistique"
 stt1100_contact: true
 status: "source officielle vérifiée; version pédagogique fixe dans UlavalSSD"
 notes: "Utilisé dans l'aventure 3 de STT-1100. La ressource officielle est dynamique et contient 20 colonnes; la version pédagogique UlavalSSD 0.2.0 conserve 10 colonnes pour travailler les variables catégorielles, les dates et les amendes. Les lignes nominatives ne sont pas intégrées au rendu public de la fiche."
+
+publication:
+  preview: true
+  reviewed_on: '2026-09-05'
+  license_url: https://creativecommons.org/licenses/by/4.0/deed.fr
+  preview_columns:
+  - Description_infraction
+  - Type_etablissement
+  - Date_infraction
+  - Date_jugement
+  - Date_publication
+  - Amende
+  - SOC_NOM_ARTCL_INFRC
+  - amende_num
+  - ville_montreal
+  - delai_infraction_jugement_jours
+  reason: Extrait pédagogique limité aux colonnes déclarées; attribution et conditions de la source conservées.
+  classroom:
+    mode: frozen
+    reason: Table de classe limitée aux colonnes déclarées, sans tirage supplémentaire de lignes. Attribution
+      et conditions tierces conservées.
+    files:
+    - path: data/processed/condamnations-alimentaires-quebec/condamnations_alimentaires_quebec.csv
+      columns:
+      - Type_etablissement
+      - Date_infraction
+      - Date_jugement
+      - Date_publication
+      - amende_num
+      - delai_infraction_jugement_jours
+      - delai_jugement_publication_jours
+chart:
+  type: histogram
+  x_variable: amende_num
+  x_label: Montant de l’amende (dollars canadiens)
+  y_label: Condamnations dans l’extrait (nombre)
+  title: Distribution des amendes
+  bins: 12

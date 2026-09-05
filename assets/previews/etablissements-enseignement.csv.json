@@ -1,0 +1,106 @@
+{
+  "dataset_id": "etablissements-enseignement",
+  "prepared_at_utc": "2026-09-05T11:04:44Z",
+  "prepared_file": "etablissements_enseignement_quebec.csv",
+  "prepared_sha256": "c8d2fbb677934e11a698914d28d5e031ec503274b3873a1a546c644e2802020b",
+  "preview_sha256": "4c864200d60604d97433dec8edeb61427c0e4b19b3a9c9756486074e7e01889a",
+  "rows": 120,
+  "columns": ["source_resource", "resource_label", "unit_kind", "nom", "municipalite", "region_administrative", "has_region"],
+  "selection": "Au plus 120 positions régulièrement espacées dans l'ordre de la table préparée; sélection déterministe non aléatoire",
+  "source_name": "Données Québec / Ministère de l'Éducation et Ministère de l'Enseignement supérieur",
+  "source_url": "https://www.donneesquebec.ca/recherche/dataset/localisation-des-etablissements-d-enseignement-du-reseau-scolaire-au-quebec",
+  "license": "Attribution (CC-BY 4.0) selon les métadonnées CKAN vérifiées le 2026-06-21",
+  "license_url": "https://creativecommons.org/licenses/by/4.0/deed.fr",
+  "sources": [
+    {
+      "source_url": "https://www.donneesquebec.ca/recherche/dataset/2d3b5cf8-b347-49c7-ad3b-bd6a9c15e443/resource/13aa95e2-22a3-4f20-878a-47dbf3480338/download/es_collegial.csv",
+      "acquisition_kind": "download",
+      "acquired_at_utc": "2026-09-05T11:04:37Z",
+      "started_at_utc": "2026-09-05T11:04:36Z",
+      "file": "es_collegial.csv",
+      "bytes": 100068,
+      "sha256": "047c56745e8777e071ecec9f63d229c58e01551d4e70c8897dc6d05b2b37946e",
+      "details": {}
+    },
+    {
+      "source_url": "https://www.donneesquebec.ca/recherche/dataset/2d3b5cf8-b347-49c7-ad3b-bd6a9c15e443/resource/fc341512-12f8-431d-9225-d6b0c09c05cd/download/es_universitaire.csv",
+      "acquisition_kind": "download",
+      "acquired_at_utc": "2026-09-05T11:04:37Z",
+      "started_at_utc": "2026-09-05T11:04:37Z",
+      "file": "es_universitaire.csv",
+      "bytes": 7376,
+      "sha256": "165e627282999b8bd7fdc558ae6a5977c842a0ad1b99c232b36d071bfe1cf631",
+      "details": {}
+    },
+    {
+      "source_url": "https://www.donneesquebec.ca/recherche/dataset/2d3b5cf8-b347-49c7-ad3b-bd6a9c15e443/resource/881849c6-9cde-46e5-a3b4-ea131e603962/download/pps_gouvernemental.csv",
+      "acquisition_kind": "download",
+      "acquired_at_utc": "2026-09-05T11:04:37Z",
+      "started_at_utc": "2026-09-05T11:04:37Z",
+      "file": "pps_gouvernemental.csv",
+      "bytes": 12738,
+      "sha256": "d153bb5a9b97ee93343de4bec4b6b03969070023c3198cedc8f0062f0298d994",
+      "details": {}
+    },
+    {
+      "source_url": "https://www.donneesquebec.ca/recherche/dataset/2d3b5cf8-b347-49c7-ad3b-bd6a9c15e443/resource/83aae1b5-87b5-4e3d-9074-c0d4778fe812/download/pps_prive_etablissement.csv",
+      "acquisition_kind": "download",
+      "acquired_at_utc": "2026-09-05T11:04:38Z",
+      "started_at_utc": "2026-09-05T11:04:37Z",
+      "file": "pps_prive_etablissement.csv",
+      "bytes": 55815,
+      "sha256": "e095455bd8cb5a9872bcd85a21cfa8f19e8d1862d115575247441bbb8487c7ac",
+      "details": {}
+    },
+    {
+      "source_url": "https://www.donneesquebec.ca/recherche/dataset/2d3b5cf8-b347-49c7-ad3b-bd6a9c15e443/resource/e22aa6f1-c4ff-4896-9534-6fa65133b3e9/download/pps_prive_installation.csv",
+      "acquisition_kind": "download",
+      "acquired_at_utc": "2026-09-05T11:04:39Z",
+      "started_at_utc": "2026-09-05T11:04:38Z",
+      "file": "pps_prive_installation.csv",
+      "bytes": 126612,
+      "sha256": "f100a91cb76b8f3f45d452c9e7ed5ec583368cbff3baf9ce84836ed638d114d6",
+      "details": {}
+    },
+    {
+      "source_url": "https://www.donneesquebec.ca/recherche/dataset/2d3b5cf8-b347-49c7-ad3b-bd6a9c15e443/resource/c6640a54-bc4b-43ec-864e-6c325dce61bc/download/pps_public_ecole.csv",
+      "acquisition_kind": "download",
+      "acquired_at_utc": "2026-09-05T11:04:42Z",
+      "started_at_utc": "2026-09-05T11:04:39Z",
+      "file": "pps_public_ecole.csv",
+      "bytes": 2306345,
+      "sha256": "74d4e092425559494b951c631f64759f5ebf274cea1770d12b33917b6673c131",
+      "details": {}
+    },
+    {
+      "source_url": "https://www.donneesquebec.ca/recherche/dataset/2d3b5cf8-b347-49c7-ad3b-bd6a9c15e443/resource/6c444597-1803-4263-a6fd-a3e814df4a03/download/pps_public_immeuble.csv",
+      "acquisition_kind": "download",
+      "acquired_at_utc": "2026-09-05T11:04:42Z",
+      "started_at_utc": "2026-09-05T11:04:42Z",
+      "file": "pps_public_immeuble.csv",
+      "bytes": 1020566,
+      "sha256": "798383df8e1e2d2610d7b97cd32c61731175c25d22bb5789b186a4cfe6b704c6",
+      "details": {}
+    },
+    {
+      "source_url": "https://www.donneesquebec.ca/recherche/dataset/2d3b5cf8-b347-49c7-ad3b-bd6a9c15e443/resource/af51e052-dc4e-4d36-b341-09f83ebce263/download/pps_public_ssocial_cs.csv",
+      "acquisition_kind": "download",
+      "acquired_at_utc": "2026-09-05T11:04:43Z",
+      "started_at_utc": "2026-09-05T11:04:42Z",
+      "file": "pps_public_ssocial_cs.csv",
+      "bytes": 16793,
+      "sha256": "8da3275fe861237ce1d7827fa52254282d3a9168e5ea6be6179a5dcdbe8b6b54",
+      "details": {}
+    },
+    {
+      "source_url": "https://www.donneesquebec.ca/recherche/dataset/2d3b5cf8-b347-49c7-ad3b-bd6a9c15e443/resource/fbcb0e03-1f1a-4467-a6f8-2c275dc0056d/download/pps_public_ssocial_org.csv",
+      "acquisition_kind": "download",
+      "acquired_at_utc": "2026-09-05T11:04:44Z",
+      "started_at_utc": "2026-09-05T11:04:43Z",
+      "file": "pps_public_ssocial_org.csv",
+      "bytes": 810295,
+      "sha256": "af02d27399c5fddc7b952845a58d1762349e7b767e9d2ce39c223d48b38277a7",
+      "details": {}
+    }
+  ]
+}

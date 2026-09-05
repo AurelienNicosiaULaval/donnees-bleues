@@ -18,7 +18,10 @@ processed_file: "data/processed/pyramides-ages/population_pyramides_quebec_canad
 comparison_file: "data/processed/pyramides-ages/population_pyramides_quebec_canada_2001_2025.csv"
 indicators_file: "data/processed/pyramides-ages/indicateurs_age_quebec_canada_2025.csv"
 update_frequency: "Annuelle"
-level: "Introduction à intermédiaire"
+level: Introduction à intermédiaire
+level_ids:
+- introduction
+- intermediaire
 organisme: "Statistique Canada"
 territoire: "Canada et Québec"
 taille_approximative: "84 lignes préparées pour 2025; 168 lignes pour la comparaison 2001-2025"
@@ -37,14 +40,23 @@ idees_mini_projets:
   - "Comparer le poids des 65 ans et plus au Québec et au Canada entre 2001 et 2025."
   - "Présenter une comparaison en proportions pour éviter de confondre taille de population et structure d'âge."
 concepts:
-  - importation de données ouvertes
-  - nettoyage de données
-  - filtrage
-  - groupes d'âge
-  - proportions
-  - pyramide des âges
-  - comparaison temporelle
-  - interprétation démographique
+- Importation de données ouvertes
+- Nettoyage
+- Filtrage
+- Groupes d'âge
+- Proportions
+- Pyramide des âges
+- Comparaison temporelle
+- Interprétation démographique
+concept_ids:
+- importation-de-donnees-ouvertes
+- nettoyage
+- filtrage
+- groupes-d-age
+- proportions
+- pyramide-des-ages
+- comparaison-temporelle
+- interpretation-demographique
 tags:
   - données ouvertes
   - Statistique Canada
@@ -74,3 +86,49 @@ status: "source officielle vérifiée; table StatCan 17-10-0005-01 préparée lo
 notes: "La table contient des estimations agrégées de population au 1er juillet. Les valeurs négatives dans population_plot servent seulement à afficher la pyramide; elles ne représentent pas une population négative."
 contributor_name: "Aurélien Nicosia"
 contributor_role: "Révision pédagogique et statistique"
+
+publication:
+  preview: true
+  reviewed_on: '2026-09-05'
+  license_url: https://www.statcan.gc.ca/fr/reference/licence
+  preview_columns:
+  - year
+  - geography
+  - gender
+  - age_group
+  - population
+  - population_plot
+  - proportion
+  - proportion_plot
+  reason: Extrait pédagogique limité aux colonnes déclarées; attribution et conditions de la source conservées.
+  classroom:
+    mode: frozen
+    reason: Table de classe limitée aux colonnes déclarées, sans tirage supplémentaire de lignes. Attribution
+      et conditions tierces conservées.
+    files:
+    - path: data/processed/pyramides-ages/evolution_65_plus_quebec_canada.csv
+      columns:
+      - year
+      - geography
+      - population_total
+      - population_65_plus
+      - pct_65_plus
+    - path: data/processed/pyramides-ages/population_pyramides_quebec_canada_latest.csv
+      columns:
+      - year
+      - geography
+      - gender
+      - age_group
+      - population
+      - population_plot
+      - proportion
+      - proportion_plot
+chart:
+  type: pyramid
+  x_variable: proportion_plot
+  y_variable: age_group
+  x_label: Part de la population du Québec (%)
+  y_label: Groupe d’âge
+  title: Pyramide des âges du Québec
+  filter:
+    geography: Quebec

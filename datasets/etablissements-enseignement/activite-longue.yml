@@ -1,68 +1,61 @@
 id: etablissements-acces-long
 title: Portrait territorial prudent des établissements d'enseignement
-question: Comment décrire un territoire scolaire sans surinterpréter une source de
-  localisation?
+question: Comment préparer un portrait territorial sans confondre les unités?
 dataset_id: etablissements-enseignement
 dataset_title: Localisation des établissements d'enseignement au Québec
 activity_url: datasets/etablissements-enseignement/activite-longue.qmd
 duration: 2-3 heures
 level: Intermédiaire
+level_ids:
+- intermediaire
 activity_type:
 - Projet ou tâche longue
 - Étude de cas
 concepts:
 - Unité statistique
-- Données manquantes
-- Statistique descriptive
+- Valeurs manquantes
+- Statistiques descriptives
 - Cartographie
+concept_ids:
+- unite-statistique
+- valeurs-manquantes
+- statistiques-descriptives
+- cartographie
 context: Éducation et territoire
-hook: 'Une bonne carte ne suffit pas : il faut savoir ce qui est compté'
+hook: Additionner des ressources de niveaux différents ne donne pas un nombre d’établissements uniques. Une
+  région manquante n’est pas une absence d’établissement.
 materials:
-- énoncé
-- code
-- table préparée
-- notes enseignantes
-advanced_math_stats: no
-teacher_notes: Exiger une section sur les lignes sans région administrative et une
-  phrase claire disant que les coordonnées ne mesurent pas l'accessibilité.
-status: source officielle vérifiée
+- Trousse ZIP et projet RStudio
+- Script R complet
+- CSV préparés et provenance
+advanced_math_stats: false
+teacher_notes: Additionner des ressources de niveaux différents ne donne pas un nombre d’établissements uniques.
+  Une région manquante n’est pas une absence d’établissement.
+status: Documentation de source et ressources de classe fournies
 pedagogical_status: pret_a_enseigner
-teacher_preparation: 'Préparation requise : exécuter `Rscript datasets/etablissements-enseignement/preparation.R`
-  depuis la racine, puis vérifier que `data/processed/etablissements-enseignement/etablissements_enseignement_quebec.csv`
-  existe.'
-expected_output: Un court rapport reproductible avec contexte, tableau ou graphique,
-  interprétation et limites.
-requires_prepared_data: yes
-requires_live_download: yes
+teacher_preparation: Extraire la trousse, ouvrir le projet RStudio, installer les packages avant la séance
+  et lancer le script.
+expected_output: Les tableaux et graphiques du script, accompagnés d’une interprétation de 6 à 8 lignes répondant
+  à la question.
+requires_prepared_data: true
+requires_live_download: false
 recommended_use: Mini-projet guidé
-result_visible_in_page: yes
-
+result_visible_in_page: false
 learning_objectives:
-  - "Préparer des fichiers CSV officiels avec un script reproductible"
-  - "Décrire la structure d'une source multi-ressources"
-  - "Choisir une unité statistique adaptée à une question"
-  - "Construire un tableau descriptif et une carte"
-  - "Discuter les données manquantes et les limites d'accès territorial"
-  - "Rédiger une interprétation vérifiable"
-  - "précise l'unité statistique avant les résultats;"
-  - "ne mélange pas les 9 ressources comme si elles représentaient toutes des établissements uniques;"
-  - "montre au moins un tableau et une carte;"
-  - "quantifie les données manquantes pertinentes;"
-  - "distingue clairement localisation, disponibilité et accessibilité;"
-  - "cite la source et la licence."
-  - "Joindre des données de population par âge et région."
-  - "Calculer des ratios exploratoires par 10 000 jeunes."
-  - "Comparer les résultats avec et sans les lignes sans région administrative."
-  - "Produire une carte interactive avec `leaflet`."
-  - "Ajouter une courte section méthodologique sur les risques d'un comptage naïf."
-
+- Examiner les unités et les proportions de régions manquantes par ressource.
+- Lire les décomptes régionaux et la carte de Montréal en signalant les unités mélangées.
+- Formuler une limite qui découle de la source et de l’unité observée.
 prerequisites:
-  - "Vérifier le fichier ou le script de préparation annoncé avant la séance; adapter la mise en route au niveau indiqué."
-
+- Savoir ouvrir un projet RStudio et exécuter un script R.
+- Savoir lire un tableau groupé et un graphique descriptif; repérer les valeurs manquantes.
 success_criteria:
-  - "La production attendue est remise : Un court rapport reproductible avec contexte, tableau ou graphique, interprétation et limites."
-  - "Les résultats sont interprétés sans dépasser les limites de la source."
-
+- L’unité, la période ou la portée documentaire et les variables utilisées sont nommées.
+- Examiner les unités et les proportions de régions manquantes par ressource.
+- Lire les décomptes régionaux et la carte de Montréal en signalant les unités mélangées.
+- La conclusion répond à la question et explique au moins une limite précise.
 adaptations:
-  - "Fournir une table préparée ou réduire le nombre de variables pour une première utilisation."
-  - "Ajouter une comparaison, une justification méthodologique ou une discussion des limites pour approfondir."
+- Débuter avec le script exécuté par la personne enseignante, puis faire interpréter une seule sortie.
+- Pour approfondir, modifier une sélection ou un regroupement et justifier ce que cela change.
+script_file: datasets/etablissements-enseignement/activite-longue.R
+classroom_archive: assets/classroom/etablissements-enseignement.zip
+access_mode: frozen

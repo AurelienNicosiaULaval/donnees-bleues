@@ -1,0 +1,56 @@
+{
+  "dataset_id": "requetes-311",
+  "prepared_at_utc": "2026-09-05T11:06:39Z",
+  "prepared_file": "requetes_311_non_information_echantillon.csv",
+  "prepared_sha256": "94f1b8c2827c1ba76de458651e066cfc847cbcfbdfc12d7bc228b521ce1ff03b",
+  "preview_sha256": "cf101d2f208a67186cdcb8ec56f2eac32aa2ac0209d065a00aa1e99395883f43",
+  "rows": 120,
+  "columns": ["id_unique", "nature", "activite", "type_lieu_intervention", "arrondissement", "arrondissement_geo", "date_creation", "annee_creation", "mois_creation", "provenance_originale"],
+  "selection": "Au plus 120 positions régulièrement espacées dans l'ordre de la table préparée; sélection déterministe non aléatoire",
+  "source_name": "Données Québec / Ville de Montréal",
+  "source_url": "https://www.donneesquebec.ca/recherche/dataset/vmtl-requete-311",
+  "license": "Attribution (CC-BY 4.0) selon les métadonnées CKAN vérifiées le 2026-06-21",
+  "license_url": "https://creativecommons.org/licenses/by/4.0/deed.fr",
+  "sources": [
+    {
+      "source_url": "https://www.donneesquebec.ca/recherche/api/3/action/package_show?id=vmtl-requete-311",
+      "acquisition_kind": "download",
+      "acquired_at_utc": "2026-09-05T11:05:07Z",
+      "started_at_utc": "2026-09-05T11:05:07Z",
+      "file": "package_show_requetes_311.json",
+      "bytes": 22284,
+      "sha256": "ac41ee765b1a292f822de5f0573ebfad56ed464fa494f1d61cedd84e8b7e19d0",
+      "details": {}
+    },
+    {
+      "source_url": "https://donnees.montreal.ca/dataset/5866f832-676d-4b07-be6a-e99c21eb17e4/resource/2cfa0e06-9be4-49a6-b7f1-ee9f2363a872/download/requetes311.csv",
+      "acquisition_kind": "stream_reservoir_sample",
+      "acquired_at_utc": "2026-09-05T11:06:37Z",
+      "started_at_utc": "2026-09-05T11:05:08Z",
+      "file": "requetes311_non_information_reservoir_100000.csv",
+      "bytes": 30137184,
+      "sha256": "b152e29ec64264194561a10478ad8e26068e7829b0336995426666d3a9ddf2c1",
+      "details": {
+        "seed": 311,
+        "sample_size": 100000,
+        "selection": "NATURE différente de Information; échantillonnage réservoir uniforme",
+        "hash_scope": "Fichier dérivé conservé; CSV source complet non conservé"
+      }
+    },
+    {
+      "source_url": "https://donnees.montreal.ca/dataset/5866f832-676d-4b07-be6a-e99c21eb17e4/resource/2cfa0e06-9be4-49a6-b7f1-ee9f2363a872/download/requetes311.csv",
+      "acquisition_kind": "stream_reservoir_sample",
+      "acquired_at_utc": "2026-09-05T11:06:37Z",
+      "started_at_utc": "2026-09-05T11:05:08Z",
+      "file": "requetes311_stream_summary.csv",
+      "bytes": 343,
+      "sha256": "77ee4e8bda7aa84d2541c7de61dab881937d9aabc7b0f61a5fb10c731234825d",
+      "details": {
+        "seed": 311,
+        "sample_size": 100000,
+        "selection": "NATURE différente de Information; échantillonnage réservoir uniforme",
+        "hash_scope": "Fichier dérivé conservé; CSV source complet non conservé"
+      }
+    }
+  ]
+}

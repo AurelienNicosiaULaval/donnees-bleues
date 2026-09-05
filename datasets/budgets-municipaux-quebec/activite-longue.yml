@@ -1,12 +1,14 @@
 id: profil-financier-portrait-long
 title: Portrait descriptif des profils financiers municipaux
-question: Comment décrire les profils financiers et fonciers des municipalités du
-  Québec selon la classe de population et la région administrative?
+question: Comment comparer des indicateurs fonciers entre territoires?
 dataset_id: budgets-municipaux-quebec
 dataset_title: Profil financier des municipalités locales du Québec
 activity_url: datasets/budgets-municipaux-quebec/activite-longue.qmd
 duration: 2-3 heures
 level: Introduction à intermédiaire
+level_ids:
+- introduction
+- intermediaire
 activity_type:
 - Mini-projet
 - Étude de cas
@@ -18,59 +20,48 @@ concepts:
 - Indices
 - Valeurs manquantes
 - Comparaison descriptive
+concept_ids:
+- format-long
+- dictionnaire-de-variables
+- ratios
+- indices
+- valeurs-manquantes
+- comparaison-descriptive
 context: Finances et fiscalité municipales
-hook: Un profil municipal doit être décrit avant d'être comparé
+hook: Le dictionnaire distingue parts et indices. Comparer des profils publiés ne permet pas d’évaluer l’efficacité
+  d’une administration.
 materials:
-- fiche
-- code
-- table préparée
-- dictionnaire des postes
-- notes enseignantes
-advanced_math_stats: no
-teacher_notes: Demander une section explicite distinguant profil financier, richesse
-  foncière, dépenses budgétaires et explication causale.
-status: source officielle vérifiée
+- Trousse ZIP et projet RStudio
+- Script R complet
+- CSV préparés et provenance
+advanced_math_stats: false
+teacher_notes: Le dictionnaire distingue parts et indices. Comparer des profils publiés ne permet pas d’évaluer
+  l’efficacité d’une administration.
+status: Documentation de source et ressources de classe fournies
 pedagogical_status: pret_a_enseigner
-teacher_preparation: 'Préparation requise : exécuter `Rscript datasets/budgets-municipaux-quebec/preparation.R`
-  depuis la racine, puis vérifier que `data/processed/budgets-municipaux-quebec/profil_financier_municipalites_2025.csv`
-  existe.'
-expected_output: Un court rapport reproductible avec contexte, tableau ou graphique,
-  interprétation et limites.
-requires_prepared_data: yes
-requires_live_download: yes
+teacher_preparation: Extraire la trousse, ouvrir le projet RStudio, installer les packages avant la séance
+  et lancer le script.
+expected_output: Les tableaux et graphiques du script, accompagnés d’une interprétation de 6 à 8 lignes répondant
+  à la question.
+requires_prepared_data: true
+requires_live_download: false
 recommended_use: Mini-projet guidé
-result_visible_in_page: yes
-
+result_visible_in_page: false
 learning_objectives:
-  - "Travailler Format long."
-  - "Travailler Dictionnaire de variables."
-  - "Travailler Ratios."
-  - "Travailler Indices."
-  - "Nommer au moins une limite d'interprétation."
-  - "Préparation requise : exécuter `Rscript datasets/budgets-municipaux-quebec/preparation.R` depuis la racine, puis vérifier que `data/processed/budgets-municipaux-quebec/profil_financier_municipalites_2025.csv` existe."
-  - "Fichier préparé : `data/processed/budgets-municipaux-quebec/profil_financier_municipalites_2025.csv`."
-  - "Script de préparation : `datasets/budgets-municipaux-quebec/preparation.R`."
-  - "Point à surveiller : Demander une section explicite distinguant profil financier, richesse foncière, dépenses budgétaires et explication causale."
-  - "Demander une section explicite distinguant profil financier, richesse foncière, dépenses budgétaires et explication causale."
-  - "Si une variable ou un dénominateur nécessaire n'est pas disponible dans les données, l'écrire explicitement plutôt que l'inférer."
-  - "`data/processed/budgets-municipaux-quebec/profil_financier_municipalites_2025.csv`"
-  - "`data/processed/budgets-municipaux-quebec/profil_financier_municipalites_long_2025.csv`"
-  - "`data/processed/budgets-municipaux-quebec/dictionnaire_postes_profil_financier_2025.csv`"
-  - "`data/processed/budgets-municipaux-quebec/valeurs_manquantes_profil_financier_2025.csv`"
-  - "Reproductibilité du traitement."
-  - "Utilisation explicite du dictionnaire des postes."
-  - "Pertinence des regroupements."
-  - "Lisibilité des graphiques."
-  - "Prudence de l'interprétation."
-  - "Distinction claire entre description, comparaison et explication causale."
-
+- Résumer les cinq postes retenus par région sans mélanger leurs unités.
+- Interpréter la distribution de l’indice RFU FIALX02097 par classe de population.
+- Formuler une limite qui découle de la source et de l’unité observée.
 prerequisites:
-  - "Vérifier le fichier ou le script de préparation annoncé avant la séance; adapter la mise en route au niveau indiqué."
-
+- Savoir ouvrir un projet RStudio et exécuter un script R.
+- Savoir lire un tableau groupé et un graphique descriptif; repérer les valeurs manquantes.
 success_criteria:
-  - "La production attendue est remise : Un court rapport reproductible avec contexte, tableau ou graphique, interprétation et limites."
-  - "Les résultats sont interprétés sans dépasser les limites de la source."
-
+- L’unité, la période ou la portée documentaire et les variables utilisées sont nommées.
+- Résumer les cinq postes retenus par région sans mélanger leurs unités.
+- Interpréter la distribution de l’indice RFU FIALX02097 par classe de population.
+- La conclusion répond à la question et explique au moins une limite précise.
 adaptations:
-  - "Fournir une table préparée ou réduire le nombre de variables pour une première utilisation."
-  - "Ajouter une comparaison, une justification méthodologique ou une discussion des limites pour approfondir."
+- Débuter avec le script exécuté par la personne enseignante, puis faire interpréter une seule sortie.
+- Pour approfondir, modifier une sélection ou un regroupement et justifier ce que cela change.
+script_file: datasets/budgets-municipaux-quebec/activite-longue.R
+classroom_archive: assets/classroom/budgets-municipaux-quebec.zip
+access_mode: frozen

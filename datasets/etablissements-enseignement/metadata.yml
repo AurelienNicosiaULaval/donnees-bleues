@@ -17,7 +17,10 @@ n_cols: "31 colonnes dans la table préparée"
 processed_file: "data/processed/etablissements-enseignement/etablissements_enseignement_quebec.csv"
 resource_summary_file: "data/processed/etablissements-enseignement/ressources_etablissements_enseignement.csv"
 update_frequency: "Hebdomadaire selon le miroir ouvert.canada.ca; paquet CKAN modifié le 16 juin 2026"
-level: "Introduction à intermédiaire"
+level: Introduction à intermédiaire
+level_ids:
+- introduction
+- intermediaire
 organisme: "Ministère de l'Éducation et Ministère de l'Enseignement supérieur"
 territoire: "Québec"
 taille_approximative: "14 067 lignes préparées; 9 fichiers CSV sources"
@@ -46,14 +49,23 @@ tags:
   - "cartographie"
   - "statistiques descriptives"
 concepts:
-  - "cartographie"
-  - "données spatiales"
-  - "multi-ressources"
-  - "unité statistique"
-  - "données ouvertes"
-  - "statistiques descriptives"
-  - "qualité des métadonnées"
-  - "réseau scolaire"
+- Cartographie
+- Données spatiales
+- Multi-ressources
+- Unité statistique
+- Données ouvertes
+- Statistiques descriptives
+- Qualité des métadonnées
+- Réseau scolaire
+concept_ids:
+- cartographie
+- donnees-spatiales
+- multi-ressources
+- unite-statistique
+- donnees-ouvertes
+- statistiques-descriptives
+- qualite-des-metadonnees
+- reseau-scolaire
 zero_waste:
   contexte_quebecois: 3
   accessibilite_pedagogique: 3
@@ -69,3 +81,42 @@ status: "source officielle vérifiée; 9 CSV officiels préparés localement"
 notes: "Attention pédagogique centrale : les lignes ne représentent pas toujours la même unité. Elles peuvent correspondre à un établissement, une installation, un lien école-immeuble, un immeuble ou un siège social. Les 7 847 lignes sans région administrative ne doivent pas être ignorées sans justification."
 contributor_name: "Aurélien Nicosia"
 contributor_role: "Révision pédagogique et statistique"
+
+publication:
+  preview: true
+  reviewed_on: '2026-09-05'
+  license_url: https://creativecommons.org/licenses/by/4.0/deed.fr
+  preview_columns:
+  - source_resource
+  - resource_label
+  - unit_kind
+  - nom
+  - municipalite
+  - region_administrative
+  - has_region
+  reason: Extrait pédagogique limité aux colonnes déclarées; attribution et conditions de la source conservées.
+  classroom:
+    mode: frozen
+    reason: Table de classe limitée aux colonnes déclarées, sans tirage supplémentaire de lignes. Attribution
+      et conditions tierces conservées.
+    files:
+    - path: data/processed/etablissements-enseignement/etablissements_enseignement_quebec.csv
+      columns:
+      - source_resource
+      - resource_label
+      - network_category
+      - unit_kind
+      - code_organisme
+      - code_immeuble
+      - nom
+      - longitude
+      - latitude
+      - region_administrative
+      - has_region
+      - has_coordinates
+chart:
+  type: count
+  x_variable: resource_label
+  x_label: Lignes dans l’extrait (nombre)
+  y_label: Ressource source
+  title: Composition de l’extrait multi-ressources

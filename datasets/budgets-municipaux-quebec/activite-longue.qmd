@@ -1,208 +1,64 @@
 ---
-title: "Mini-projet - Portrait descriptif des profils financiers municipaux"
-embed-resources: false
+title: "Portrait descriptif des profils financiers municipaux"
+embed-resources: true
 ---
 
+# Portrait descriptif des profils financiers municipaux
 
-# Mini-projet - Portrait descriptif des profils financiers municipaux
 
-<!-- activity-teacher-brief:start -->
-::: {.activity-teacher-brief}
+Comment comparer des indicateurs fonciers entre territoires?
 
-## En classe, cette activité sert à...
-
-Cette activité sert à travailler les notions suivantes : Format long, Dictionnaire de variables, Ratios, Indices, Valeurs manquantes, Comparaison descriptive à partir d'une question située dans le contexte suivant : Finances et fiscalité municipales. Elle demande aux étudiantes et étudiants de répondre à la question directrice suivante : Comment décrire les profils financiers et fonciers des municipalités du Québec selon la classe de population et la région administrative?
-
-::: {.activity-quick-facts}
-| Élément | Information |
-|---|---|
-| Durée | 2-3 heures |
-| Niveau | Introduction à intermédiaire |
-| Usage recommandé | Mini-projet guidé |
-| Préparation enseignant | Préparation requise : exécuter `Rscript datasets/budgets-municipaux-quebec/preparation.R` depuis la racine, puis vérifier que `data/processed/budgets-municipaux-quebec/profil_financier_municipalites_2025.csv` existe. |
-| Production attendue | Un court rapport reproductible avec contexte, tableau ou graphique, interprétation et limites. |
-| Données | `data/processed/budgets-municipaux-quebec/profil_financier_municipalites_2025.csv` |
-:::
-
-:::
-<!-- activity-teacher-brief:end -->
-
-## Objectifs d'apprentissage
-
-- Travailler Format long.
-- Travailler Dictionnaire de variables.
-- Travailler Ratios.
-- Travailler Indices.
-- Nommer au moins une limite d'interprétation.
+Durée : 2-3 heures. Niveau : Introduction à intermédiaire.
 
 ## Préparation enseignante
 
-- Préparation requise : exécuter `Rscript datasets/budgets-municipaux-quebec/preparation.R` depuis la racine, puis vérifier que `data/processed/budgets-municipaux-quebec/profil_financier_municipalites_2025.csv` existe.
-- Fichier préparé : `data/processed/budgets-municipaux-quebec/profil_financier_municipalites_2025.csv`.
-- Script de préparation : `datasets/budgets-municipaux-quebec/preparation.R`.
-- Point à surveiller : Demander une section explicite distinguant profil financier, richesse foncière, dépenses budgétaires et explication causale.
+Télécharger la trousse ci-dessous. Extraire le ZIP, puis double-cliquer sur `Donnees-bleues.Rproj`. Avant la séance, ouvrir `installer-packages.R` et cliquer sur Source avec une connexion Internet.
 
-## Consignes
+Une fois les packages installés, les scripts utilisent les fichiers inclus et peuvent être exécutés hors ligne.
 
-1. Importer `profil_financier_municipalites_2025.csv` ou exécuter `datasets/budgets-municipaux-quebec/preparation.R` si le fichier est absent.
-2. Identifier ce que représente une ligne du fichier.
-3. Produire un tableau ou un graphique adapté à la question directrice.
-4. Rédiger une interprétation courte qui distingue description et explication.
-5. Nommer au moins une limite méthodologique ou une information absente.
-
-## Résultat attendu
-
-Un court rapport reproductible avec contexte, tableau ou graphique, interprétation et limites. La production doit aussi contenir une phrase sur l'unité statistique et une phrase sur une limite de la source.
-
-## Questions
-
-1. Quelle est l'unité statistique utilisée dans cette activité?
-2. Quelle transformation ou agrégation est nécessaire avant de répondre à la question?
-3. Quelle information manque pour aller plus loin?
-4. Quelle conclusion serait trop forte avec ces seules données?
-5. Comment formuler une conclusion prudente à partir du résultat obtenu?
-
-## Déroulé suggéré
-
-1. Cadrer la source, la licence et l'unité statistique.
-2. Préparer ou importer les données.
-3. Produire un premier résumé descriptif.
-4. Construire la visualisation ou le tableau principal.
-5. Rédiger l'interprétation et les limites.
-
-## Limites à faire nommer
-
-- Demander une section explicite distinguant profil financier, richesse foncière, dépenses budgétaires et explication causale.
-- Si une variable ou un dénominateur nécessaire n'est pas disponible dans les données, l'écrire explicitement plutôt que l'inférer.
-
+```{r}
+#| label: activity-classroom-resources
+#| echo: false
+#| results: asis
+source(if (file.exists("R/utils_activity_contract.R")) "R/utils_activity_contract.R" else "../../R/utils_activity_contract.R")
+render_activity_resources()
+```
 
 ## Contexte
 
-Ce mini-projet demande de construire un portrait descriptif des profils financiers municipaux publiés par le MAMH. Le but n'est pas de juger les municipalités, mais de produire une analyse transparente, reproductible et prudente.
+Cette activité utilise la fiche [Profil financier des municipalités locales du Québec](fiche.qmd). Unité : Une municipalité, ou un couple municipalité-poste dans la table longue.
 
-Le projet doit utiliser les fichiers préparés par `preparation.R`, en particulier la table longue. Cette structure oblige à documenter le sens des indicateurs au lieu de traiter les codes `FIALX` comme des noms évidents.
+Source : [Données Québec / Ministère des Affaires municipales et de l'Habitation](https://www.donneesquebec.ca/recherche/dataset/profil-financier-des-municipalites-locales). Les dates de préparation, les fichiers et les conditions de réutilisation sont indiqués dans la trousse.
 
-## Question directrice
+## Consignes
 
-Comment décrire les profils financiers et fonciers des municipalités du Québec selon la classe de population et la région administrative?
+1. Ouvrir `activite-longue.R` dans le sous-dossier `datasets/budgets-municipaux-quebec` du projet RStudio et cliquer sur Source. Les tableaux apparaissent dans Console et les graphiques dans Plots.
+2. Résumer les cinq postes retenus par région sans mélanger leurs unités.
+3. Interpréter la distribution de l’indice RFU FIALX02097 par classe de population.
+4. Rédiger une réponse à la question en nommant l’unité observée et une limite de la source.
 
-## Données à utiliser
+## Résultat attendu
 
-- `data/processed/budgets-municipaux-quebec/profil_financier_municipalites_2025.csv`
-- `data/processed/budgets-municipaux-quebec/profil_financier_municipalites_long_2025.csv`
-- `data/processed/budgets-municipaux-quebec/dictionnaire_postes_profil_financier_2025.csv`
-- `data/processed/budgets-municipaux-quebec/valeurs_manquantes_profil_financier_2025.csv`
+Les tableaux et graphiques du script, accompagnés d’une interprétation de 6 à 8 lignes répondant à la question.
 
-Si les fichiers ne sont pas présents, exécuter depuis la racine du projet :
+## Limites à faire nommer
 
-```r
-source("datasets/budgets-municipaux-quebec/preparation.R")
-```
+Le dictionnaire distingue parts et indices. Comparer des profils publiés ne permet pas d’évaluer l’efficacité d’une administration.
 
-## Code de départ
+## Code complet
+
+Ce script complet est celui de la trousse. Il lit les fichiers locaux et affiche les résultats dans RStudio.
 
 ```{r}
-#| eval: false
-# Load libraries
-library(dplyr)
-library(ggplot2)
-library(readr)
-library(stringr)
-
-# Import prepared files
-municipalites <- read_csv(
-  "data/processed/budgets-municipaux-quebec/profil_financier_municipalites_2025.csv",
-  show_col_types = FALSE
-)
-
-profil_long <- read_csv(
-  "data/processed/budgets-municipaux-quebec/profil_financier_municipalites_long_2025.csv",
-  show_col_types = FALSE
-)
-
-dictionnaire <- read_csv(
-  "data/processed/budgets-municipaux-quebec/dictionnaire_postes_profil_financier_2025.csv",
-  show_col_types = FALSE
-)
-
-valeurs_manquantes <- read_csv(
-  "data/processed/budgets-municipaux-quebec/valeurs_manquantes_profil_financier_2025.csv",
-  show_col_types = FALSE
-)
-
-# Choose a small set of interpretable indicators
-indicateurs_retenus <- c(
-  "FIALX02005",
-  "FIALX02006",
-  "FIALX02007",
-  "FIALX02010",
-  "FIALX02097"
-)
-
-profil_selection <- profil_long |>
-  filter(code_poste %in% indicateurs_retenus, !is.na(valeur)) |>
-  left_join(
-    dictionnaire |> select(code_poste, libelle_court, type_indicateur),
-    by = c("code_poste", "libelle_court", "type_indicateur")
-  )
-
-# Summary by region and indicator
-resume_regions <- profil_selection |>
-  filter(!is.na(region_administrative)) |>
-  group_by(region_administrative, code_poste, libelle_court) |>
-  summarise(
-    municipalites = n(),
-    mediane = median(valeur, na.rm = TRUE),
-    q1 = quantile(valeur, 0.25, na.rm = TRUE),
-    q3 = quantile(valeur, 0.75, na.rm = TRUE),
-    .groups = "drop"
-  )
-
-resume_regions
-
-# Visualise one selected indicator
-ggplot(
-  profil_selection |>
-    filter(code_poste == "FIALX02097", !is.na(classe_population)),
-  aes(x = classe_population, y = valeur)
-) +
-  geom_boxplot(fill = "#D8B365", color = "#4A3A1D", outlier.alpha = 0.35) +
-  coord_flip() +
-  labs(
-    x = "Classe de population",
-    y = "Indice RFU publié",
-    title = "Indice RFU par classe de population",
-    subtitle = "Profil financier 2024-2025, données de 2025"
-  )
+#| label: activity-code
+#| echo: false
+#| results: asis
+render_activity_code()
 ```
-
-## Livrables
-
-1. Une courte description de la source, de la licence et de l'unité statistique.
-2. Un tableau de valeurs manquantes commenté.
-3. Un tableau de résumé par classe de population.
-4. Un tableau ou graphique par région administrative.
-5. Deux visualisations complémentaires.
-6. Une section de limites expliquant ce que le fichier ne permet pas de conclure.
-
-## Critères d'évaluation suggérés
-
-- Reproductibilité du traitement.
-- Utilisation explicite du dictionnaire des postes.
-- Pertinence des regroupements.
-- Lisibilité des graphiques.
-- Prudence de l'interprétation.
-- Distinction claire entre description, comparaison et explication causale.
-
-## Mise en garde à intégrer
-
-Le fichier préparé ne mesure pas directement les dépenses municipales. Il ne suffit donc pas pour répondre à une question du type : quelle municipalité dépense le plus efficacement? Une analyse de ce type demanderait d'autres sources, une définition opérationnelle de l'efficacité et une stratégie méthodologique plus avancée.
 
 ```{r}
 #| label: activity-pedagogical-contract
 #| echo: false
 #| results: asis
-contract_source_path <- if (file.exists("R/utils_activity_contract.R")) "R/utils_activity_contract.R" else "../../R/utils_activity_contract.R"
-source(contract_source_path)
 render_activity_contract()
 ```

@@ -1,0 +1,36 @@
+{
+  "dataset_id": "grhq",
+  "prepared_at_utc": "2026-09-05T11:04:48Z",
+  "prepared_file": "grhq_index_telechargement.csv",
+  "prepared_sha256": "54dd15531140307d3d299be69748818c6746837c03f64f419839558ec1b634d5",
+  "preview_sha256": "63c5f2bafa3ffeb2d8f89e8159d82b450bc2c527cab6afb84470e4a37100d17c",
+  "rows": 16,
+  "columns": ["bloc", "region_hydrographique", "partie", "is_split_unit", "unit_kind", "zone"],
+  "selection": "Au plus 120 positions régulièrement espacées dans l'ordre de la table préparée; sélection déterministe non aléatoire",
+  "source_name": "Données Québec / Ministère des Ressources naturelles et des Forêts",
+  "source_url": "https://www.donneesquebec.ca/recherche/dataset/grhq",
+  "license": "Attribution (CC-BY 4.0) selon les métadonnées CKAN vérifiées le 2026-06-21",
+  "license_url": "https://creativecommons.org/licenses/by/4.0/deed.fr",
+  "sources": [
+    {
+      "source_url": "https://diffusion.mern.gouv.qc.ca/Diffusion/RGQ/Documentation/GRHQ/Index_GRHQ.csv",
+      "acquisition_kind": "download",
+      "acquired_at_utc": "2026-09-05T11:04:48Z",
+      "started_at_utc": "2026-09-05T11:04:45Z",
+      "file": "Index_GRHQ.csv",
+      "bytes": 2138,
+      "sha256": "93cc5776743e189646322872faf89d0aa17aaf59af66c1e3c4ac8341b992bf45",
+      "details": {}
+    },
+    {
+      "source_url": "https://www.donneesquebec.ca/recherche/api/3/action/package_show?id=grhq",
+      "acquisition_kind": "download",
+      "acquired_at_utc": "2026-09-05T11:04:45Z",
+      "started_at_utc": "2026-09-05T11:04:45Z",
+      "file": "package_show_grhq.json",
+      "bytes": 17674,
+      "sha256": "cb2d63d84912c6da256741724f2597d2cc06f9ad06caf870d4d69ec6cabb290c",
+      "details": {}
+    }
+  ]
+}

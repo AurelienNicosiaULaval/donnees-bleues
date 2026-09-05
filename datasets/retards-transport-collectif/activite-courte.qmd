@@ -1,119 +1,64 @@
 ---
-title: "Laboratoire - Peut-on mesurer les retards STM avec cette source?"
-embed-resources: false
+title: "Vérifier l’accès aux données de ponctualité"
+embed-resources: true
 ---
 
+# Vérifier l’accès aux données de ponctualité
 
-# Laboratoire - Peut-on mesurer les retards STM avec cette source?
 
-<!-- activity-teacher-brief:start -->
-::: {.activity-teacher-brief}
+La source publique permet-elle de calculer directement des retards?
 
-## En classe, cette activité sert à...
-
-Cette activité sert à travailler les notions suivantes : flux temps réel, métadonnées, unité statistique, variables dérivées à partir d'une question située dans le contexte suivant : Mobilité et performance de service. Elle demande aux étudiantes et étudiants de répondre à la question directrice suivante : Peut-on mesurer les retards des bus STM directement avec cette source, ou faut-il d'abord construire un protocole d'archivage?
-
-::: {.activity-quick-facts}
-| Élément | Information |
-|---|---|
-| Durée | 45-60 minutes |
-| Niveau | Intermédiaire |
-| Usage recommandé | Audit de source |
-| Préparation enseignant | Vérifier que `data/processed/retards-transport-collectif/resume_retards_transport.csv` est disponible; aucune collecte en direct n'est nécessaire pour lancer l'activité. |
-| Production attendue | Un protocole ou une note d'audit qui distingue ce qui est vérifié, ce qui manque et ce qui ne peut pas encore être mesuré. |
-| Données | `data/processed/retards-transport-collectif/resume_retards_transport.csv` |
-:::
-
-:::
-<!-- activity-teacher-brief:end -->
-
-## Données utilisées
-
-Source : Société de transport de Montréal / Données Québec. Licence : Attribution (CC-BY 4.0) selon les métadonnées CKAN vérifiées le 2026-06-21. Fichier principal pour l'activité : `data/processed/retards-transport-collectif/resume_retards_transport.csv`
+Durée : 45-60 minutes. Niveau : Intermédiaire.
 
 ## Préparation enseignante
 
-- Vérifier que `data/processed/retards-transport-collectif/resume_retards_transport.csv` est disponible; aucune collecte en direct n'est nécessaire pour lancer l'activité.
-- Fichier préparé : `data/processed/retards-transport-collectif/resume_retards_transport.csv`.
-- Script de préparation : `datasets/retards-transport-collectif/preparation.R`.
-- Point à surveiller : Faire écrire explicitement ce qui est vérifié, ce qui ne l'est pas et ce qui devrait être collecté avant toute moyenne de retard.
+Télécharger la trousse ci-dessous. Extraire le ZIP, puis double-cliquer sur `Donnees-bleues.Rproj`. Avant la séance, ouvrir `installer-packages.R` et cliquer sur Source avec une connexion Internet.
 
-## Résultat attendu
+Une fois les packages installés, les scripts utilisent les fichiers inclus et peuvent être exécutés hors ligne.
 
-Un protocole ou une note d'audit qui distingue ce qui est vérifié, ce qui manque et ce qui ne peut pas encore être mesuré. La production doit aussi contenir une phrase sur l'unité statistique et une phrase sur une limite de la source.
-
-## Questions
-
-1. Quelle est l'unité statistique utilisée dans cette activité?
-2. Quelle transformation ou agrégation est nécessaire avant de répondre à la question?
-3. Quelle information manque pour aller plus loin?
-4. Quelle conclusion serait trop forte avec ces seules données?
-5. Comment formuler une conclusion prudente à partir du résultat obtenu?
-
-## Limites à faire nommer
-
-- Faire écrire explicitement ce qui est vérifié, ce qui ne l'est pas et ce qui devrait être collecté avant toute moyenne de retard.
-- Si une variable ou un dénominateur nécessaire n'est pas disponible dans les données, l'écrire explicitement plutôt que l'inférer.
-
+```{r}
+#| label: activity-classroom-resources
+#| echo: false
+#| results: asis
+source(if (file.exists("R/utils_activity_contract.R")) "R/utils_activity_contract.R" else "../../R/utils_activity_contract.R")
+render_activity_resources()
+```
 
 ## Contexte
 
-Cette activité utilise la fiche [Flux temps réel STM et ponctualité des bus](fiche.qmd). Le but n'est pas de produire immédiatement une moyenne de retard. Le but est d'apprendre à vérifier si une source temps réel peut devenir un jeu de données statistique fiable.
+Cette activité utilise la fiche [Flux temps réel STM et ponctualité des bus](fiche.qmd). Unité : Une ressource documentaire, un champ GTFS Realtime ou une étape de protocole.
 
-## Objectifs d'apprentissage
-
-- Identifier ce qui est vérifiable dans une page CKAN.
-- Distinguer une source opérationnelle d'une table analytique.
-- Définir une unité statistique avant de proposer une analyse.
-- Repérer les variables qui doivent être dérivées plutôt que supposées.
-- Rédiger une limite méthodologique claire.
-
-## Question directrice
-
-Peut-on mesurer les retards des bus STM directement avec cette source, ou faut-il d'abord construire un protocole d'archivage?
+Source : [Société de transport de Montréal / Données Québec](https://www.donneesquebec.ca/recherche/dataset/vmtl-stm-bus-temps-reel-gtfs-realtime). Les dates de préparation, les fichiers et les conditions de réutilisation sont indiqués dans la trousse.
 
 ## Consignes
 
-1. Lire la fiche et ouvrir la page Données Québec.
-2. Identifier l'organisme, la licence, le format et le mode d'accès.
-3. Répondre explicitement à la question : existe-t-il une table historique de retards directement téléchargeable?
-4. Choisir une unité statistique possible pour une future table : position de véhicule, mise à jour de trajet ou mise à jour à un arrêt.
-5. Proposer cinq variables nécessaires, en distinguant variables brutes et variables dérivées.
-6. Rédiger une conclusion de 6 à 8 lignes qui commence par une phrase de prudence.
+1. Ouvrir `activite-courte.R` dans le sous-dossier `datasets/retards-transport-collectif` du projet RStudio et cliquer sur Source. Les tableaux apparaissent dans Console et les graphiques dans Plots.
+2. Lire les nombres de ressources, de téléchargements et de portails développeur.
+3. Identifier la condition d’accès et expliquer pourquoi aucun retard ne peut être calculé ici.
+4. Rédiger une réponse à la question en nommant l’unité observée et une limite de la source.
 
-## Appui R minimal
+## Résultat attendu
+
+Un tableau de contrôle et une note de décision répondant à la question.
+
+## Limites à faire nommer
+
+Aucune série de retards observés n’est fournie. Une analyse de ponctualité demanderait un accès au flux et un archivage préalable.
+
+## Code complet
+
+Ce script complet est celui de la trousse. Il lit les fichiers locaux et affiche les résultats dans RStudio.
 
 ```{r}
-#| eval: false
-library(dplyr)
-library(readr)
-
-source("datasets/retards-transport-collectif/preparation.R")
-
-resume <- read_csv(
-  "data/processed/retards-transport-collectif/resume_retards_transport.csv",
-  show_col_types = FALSE
-)
-
-resume |>
-  select(
-    n_resources_ckan,
-    n_gtfs_resources,
-    n_developer_portal_resources,
-    n_direct_download_resources,
-    source_requires_developer_account
-  )
+#| label: activity-code
+#| echo: false
+#| results: asis
+render_activity_code()
 ```
-
-## Pistes de solution
-
-Une bonne réponse affirme qu'aucune table historique de retards n'a été vérifiée dans CKAN et que l'accès au flux passe par le portail développeur STM. Elle propose ensuite une unité statistique cohérente et explique pourquoi `retard_minutes` doit être dérivé après inspection du flux.
 
 ```{r}
 #| label: activity-pedagogical-contract
 #| echo: false
 #| results: asis
-contract_source_path <- if (file.exists("R/utils_activity_contract.R")) "R/utils_activity_contract.R" else "../../R/utils_activity_contract.R"
-source(contract_source_path)
 render_activity_contract()
 ```

@@ -1,96 +1,64 @@
 ---
 title: "Laboratoire - Gravité des accidents par mois"
-embed-resources: false
+embed-resources: true
 ---
-
 
 # Laboratoire - Gravité des accidents par mois
 
-<!-- activity-teacher-brief:start -->
-::: {.activity-teacher-brief}
 
-## En classe, cette activité sert à...
+Comment les accidents déclarés se répartissent-ils selon leur gravité?
 
-Cette activité sert à travailler les notions suivantes : Tableaux croisés, Visualisation, Variables catégorielles à partir d'une question située dans le contexte suivant : Transport et sécurité routière. Elle demande aux étudiantes et étudiants de répondre à la question directrice suivante : Comment la gravité observée varie-t-elle selon le mois dans les rapports d'accident 2022?
-
-::: {.activity-quick-facts}
-| Élément | Information |
-|---|---|
-| Durée | 30-45 minutes |
-| Niveau | Intermédiaire |
-| Usage recommandé | Exercice guidé |
-| Préparation enseignant | Préparation requise : exécuter `Rscript datasets/rapports-accident/preparation.R` depuis la racine, puis vérifier que `data/processed/rapports-accident/rapports_accident_2022_prepares.csv` existe. |
-| Production attendue | Un court rapport reproductible avec contexte, tableau ou graphique, interprétation et limites. |
-| Données | `data/processed/rapports-accident/rapports_accident_2022_prepares.csv` |
-:::
-
-:::
-<!-- activity-teacher-brief:end -->
-
-## Données utilisées
-
-Source : Données Québec / Société de l'assurance automobile du Québec. Licence : Attribution (CC-BY 4.0) selon les métadonnées CKAN vérifiées le 2026-06-21. Fichier principal pour l'activité : `data/processed/rapports-accident/rapports_accident_2022_prepares.csv`
+Durée : 30-45 minutes. Niveau : Intermédiaire.
 
 ## Préparation enseignante
 
-- Préparation requise : exécuter `Rscript datasets/rapports-accident/preparation.R` depuis la racine, puis vérifier que `data/processed/rapports-accident/rapports_accident_2022_prepares.csv` existe.
-- Fichier préparé : `data/processed/rapports-accident/rapports_accident_2022_prepares.csv`.
-- Script de préparation : `datasets/rapports-accident/preparation.R`.
-- Point à surveiller : Insister sur le code 9 pour trois ou plus et sur l'absence de dénominateur d'exposition.
+Télécharger la trousse ci-dessous. Extraire le ZIP, puis double-cliquer sur `Donnees-bleues.Rproj`. Avant la séance, ouvrir `installer-packages.R` et cliquer sur Source avec une connexion Internet.
 
-## Limites à faire nommer
+Une fois les packages installés, les scripts utilisent les fichiers inclus et peuvent être exécutés hors ligne.
 
-- Insister sur le code 9 pour trois ou plus et sur l'absence de dénominateur d'exposition.
-- Si une variable ou un dénominateur nécessaire n'est pas disponible dans les données, l'écrire explicitement plutôt que l'inférer.
-
+```{r}
+#| label: activity-classroom-resources
+#| echo: false
+#| results: asis
+source(if (file.exists("R/utils_activity_contract.R")) "R/utils_activity_contract.R" else "../../R/utils_activity_contract.R")
+render_activity_resources()
+```
 
 ## Contexte
 
-Cette activité utilise la fiche [Rapports d'accident](fiche.qmd). L'objectif est de construire un tableau descriptif de gravité sans transformer des fréquences d'accidents en mesures de risque.
+Cette activité utilise la fiche [Rapports d'accident](fiche.qmd). Unité : Un accident routier déclaré dans les données 2022 préparées.
 
-## Objectifs d'apprentissage
-
-- Exécuter un script de préparation à partir d'une source officielle.
-- Importer une table préparée.
-- Créer un tableau croisé de variables catégorielles.
-- Visualiser une proportion mensuelle.
-- Formuler une limite liée à l'absence de dénominateur d'exposition.
-
-## Question directrice
-
-Comment la gravité observée varie-t-elle selon le mois dans les rapports d'accident 2022?
+Source : [Données Québec / Société de l'assurance automobile du Québec](https://www.donneesquebec.ca/recherche/dataset/rapports-d-accident). Les dates de préparation, les fichiers et les conditions de réutilisation sont indiqués dans la trousse.
 
 ## Consignes
 
-1. Exécuter `datasets/rapports-accident/preparation.R`.
-2. Importer `data/processed/rapports-accident/rapports_accident_2022_prepares.csv`.
-3. Vérifier le nombre de lignes et les quatre niveaux de `gravite`.
-4. Calculer le nombre d'accidents par mois et par gravité.
-5. Calculer la proportion mensuelle d'accidents avec victime.
-6. Produire un graphique à barres.
-7. Rédiger une interprétation de 6 à 8 lignes.
+1. Ouvrir `activite-courte.R` dans le sous-dossier `datasets/rapports-accident` du projet RStudio et cliquer sur Source. Les tableaux apparaissent dans Console et les graphiques dans Plots.
+2. Calculer les nombres et les proportions de chaque gravité.
+3. Lire le diagramme en indiquant l’année et la population d’accidents couverte.
+4. Rédiger une réponse à la question en nommant l’unité observée et une limite de la source.
 
-## Résultats attendus
+## Résultat attendu
 
-Le script de préparation vérifie 108 186 rapports pour l'année 2022, 25 champs sources et 42 colonnes préparées. Il produit aussi des résumés par gravité, mois, région et météo.
+Les tableaux et graphiques du script, accompagnés d’une interprétation de 6 à 8 lignes répondant à la question.
 
-## Questions
+## Limites à faire nommer
 
-1. Quelle est l'unité statistique?
-2. Pourquoi `NB_VICTIMES_TOTAL == 9` ne doit-il pas être additionné comme neuf victimes?
-3. Quels mois ont les proportions les plus élevées d'accidents avec victime?
-4. Pourquoi ces proportions ne sont-elles pas des risques mensuels?
-5. Quel dénominateur faudrait-il pour parler de risque routier?
+Sans dénominateur de trafic, les décomptes ne sont pas des risques. Les proportions portent sur les accidents enregistrés dans chaque groupe.
 
-## Pistes de solution
+## Code complet
 
-Une bonne réponse présente les fréquences et les proportions. Une réponse plus solide explique que les mois diffèrent aussi par la circulation, les trajets, les activités et les conditions d'exposition, qui ne sont pas dans ce fichier.
+Ce script complet est celui de la trousse. Il lit les fichiers locaux et affiche les résultats dans RStudio.
+
+```{r}
+#| label: activity-code
+#| echo: false
+#| results: asis
+render_activity_code()
+```
 
 ```{r}
 #| label: activity-pedagogical-contract
 #| echo: false
 #| results: asis
-contract_source_path <- if (file.exists("R/utils_activity_contract.R")) "R/utils_activity_contract.R" else "../../R/utils_activity_contract.R"
-source(contract_source_path)
 render_activity_contract()
 ```

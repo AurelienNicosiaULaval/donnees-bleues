@@ -39,91 +39,13 @@ textarea:focus-visible {
   outline-offset: 3px;
 }
 
-.navbar-toggler:focus,
-.navbar-toggler:focus-visible {
-  outline: 3px solid rgba(11, 87, 208, 0.55);
-  outline-offset: 3px;
-  box-shadow: none;
-}
 
-.navbar {
-  background: #ffffff !important;
-  border-bottom: 1px solid #e5e7eb;
-  box-shadow: none;
-  min-height: 58px;
-}
 
-.navbar .navbar-container {
-  max-width: 100%;
-  min-height: 58px;
-  padding-left: 1.6rem;
-  padding-right: 1.6rem;
-}
 
-.navbar-brand img,
-.navbar-logo {
-  height: 1.55rem;
-  max-height: 1.55rem;
-  width: auto;
-}
 
-.navbar-brand {
-  overflow: visible;
-  text-overflow: clip;
-}
 
-.navbar-title {
-  color: #0045a5;
-  font-size: 1.32rem;
-  font-weight: 800;
-  letter-spacing: 0;
-  max-width: none;
-  overflow: visible;
-  text-overflow: clip;
-  white-space: nowrap;
-}
 
-.navbar .nav-link {
-  color: #111827 !important;
-  font-size: 0.95rem;
-  font-weight: 600;
-  padding: 0.95rem 1.05rem 0.9rem;
-}
 
-.navbar .nav-link.active {
-  border-bottom: 3px solid #0b57d0;
-  color: #0045a5 !important;
-}
-
-.navbar .navbar-nav.ms-auto .nav-link {
-  align-items: center;
-  display: inline-flex;
-  gap: 0.4rem;
-  font-size: 0.82rem;
-  padding-left: 0.75rem;
-  padding-right: 0.75rem;
-}
-
-.navbar .navbar-nav.ms-auto .nav-item:last-child .nav-link {
-  background: #0645ad;
-  border: 1px solid #0645ad;
-  border-radius: 4px;
-  color: #ffffff !important;
-  margin-left: 0.45rem;
-  min-height: 34px;
-  padding: 0.42rem 0.9rem;
-}
-
-.navbar .navbar-nav.ms-auto .nav-item:last-child .nav-link:hover,
-.navbar .navbar-nav.ms-auto .nav-item:last-child .nav-link:focus {
-  background: #003f9a;
-  border-color: #003f9a;
-}
-
-.quarto-search-button,
-.aa-DetachedSearchButton {
-  color: #0045a5 !important;
-}
 
 .hero {
   background: #f8fbff;
@@ -988,47 +910,12 @@ body:has(.dataset-detail-page) main.content {
   display: block;
 }
 
-body:has(.catalogue-reference) .navbar {
-  background: #ffffff !important;
-  border-bottom: 1px solid #e5e7eb;
-  box-shadow: none;
-  min-height: 58px;
-}
 
-body:has(.catalogue-reference) .navbar .navbar-container {
-  min-height: 58px;
-  max-width: 100%;
-  padding-left: 1.6rem;
-  padding-right: 1.6rem;
-}
 
-body:has(.catalogue-reference) .navbar-title {
-  color: #0045a5;
-  font-size: 1.32rem;
-  font-weight: 800;
-}
 
-body:has(.catalogue-reference) .navbar-logo {
-  height: 1.55rem;
-  max-height: 1.55rem;
-}
 
-body:has(.catalogue-reference) .navbar .nav-link {
-  color: #111827 !important;
-  font-size: 0.95rem;
-  font-weight: 600;
-  padding: 0.95rem 1.05rem 0.9rem;
-}
 
-body:has(.catalogue-reference) .navbar .nav-link.active {
-  border-bottom: 3px solid #0b57d0;
-  color: #0045a5 !important;
-}
 
-body:has(.catalogue-reference) .quarto-search-button,
-body:has(.catalogue-reference) .aa-DetachedSearchButton {
-  color: #0045a5 !important;
-}
 
 body:has(.catalogue-reference) main.content {
   grid-column: screen-start / screen-end;
@@ -3948,69 +3835,10 @@ body::before {
   z-index: -1;
 }
 
-.navbar {
-  background: rgba(255, 253, 248, 0.96) !important;
-  border-bottom: 1px solid rgba(11, 31, 58, 0.12);
-  box-shadow: none;
-  min-height: 72px;
-}
 
-.navbar .navbar-container {
-  margin: 0 auto;
-  max-width: 1440px;
-  min-height: 72px;
-  padding-left: clamp(1rem, 3vw, 3rem);
-  padding-right: clamp(1rem, 3vw, 3rem);
-}
 
-.navbar-brand {
-  align-items: center;
-  color: var(--db-ink) !important;
-  font-family: var(--db-serif);
-  font-size: 1.05rem;
-  font-weight: 700;
-  letter-spacing: -0.02em;
-}
 
-.navbar-brand img,
-.navbar-logo {
-  height: 38px;
-  margin-right: 0.55rem;
-  width: 38px;
-}
 
-.navbar .nav-link {
-  color: var(--db-ink) !important;
-  font-size: 0.77rem;
-  font-weight: 760;
-  letter-spacing: 0.01em;
-  padding: 0.55rem 0.68rem;
-}
-
-.navbar .nav-link:hover,
-.navbar .nav-link:focus,
-.navbar .nav-link.active {
-  color: var(--db-blue) !important;
-}
-
-.navbar .nav-link.active {
-  border-bottom: 2px solid var(--db-blue);
-}
-
-.navbar .navbar-nav.ms-auto .nav-item:last-child .nav-link {
-  background: var(--db-blue);
-  border: 1px solid var(--db-blue);
-  border-radius: 999px;
-  color: #fff !important;
-  margin-left: 0.4rem;
-  padding: 0.38rem 0.7rem;
-}
-
-.navbar .navbar-nav.ms-auto .nav-item:last-child .nav-link:hover,
-.navbar .navbar-nav.ms-auto .nav-item:last-child .nav-link:focus {
-  background: var(--db-blue-dark);
-  border-color: var(--db-blue-dark);
-}
 
 .page-columns,
 .quarto-container.page-columns {
@@ -4801,6 +4629,7 @@ summary:focus-visible,
   .navbar .nav-link.active { border-bottom: 0; }
 
   .home-page { padding: 1rem 0 3rem; }
+  .home-hero.db-editorial-hero { padding-inline: 1rem; }
   .home-hero.db-editorial-hero,
   .home-example-card,
   .home-current-panel.db-provenance-panel { grid-template-columns: 1fr; }
@@ -4839,14 +4668,6 @@ summary:focus-visible,
 }
 
 /* Audit 2026-07: mobile navigation, catalogue entry points and activity contracts. */
-.navbar-toggler {
-  border-color: rgba(23, 32, 51, 0.35);
-  color: var(--db-ink);
-}
-
-.navbar-toggler-icon {
-  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='%23172033' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
-}
 
 .catalogue-intent-panel {
   border-top: 1px solid #d9e2ef;

@@ -1,134 +1,64 @@
 ---
 title: "Temporalité et territoire des interventions du SIM"
-embed-resources: false
+embed-resources: true
 ---
-
 
 # Temporalité et territoire des interventions du SIM
 
-<!-- activity-teacher-brief:start -->
-::: {.activity-teacher-brief}
 
-## En classe, cette activité sert à...
+Comment les interventions se répartissent-elles dans le temps et l’espace?
 
-Cette activité sert à travailler les notions suivantes : Dates, Agrégation, Comparaison de groupes, Communication à partir d'une question située dans le contexte suivant : Sécurité publique. Elle demande aux étudiantes et étudiants de répondre à la question directrice suivante : Les interventions du SIM varient-elles selon le mois et l'arrondissement?
-
-::: {.activity-quick-facts}
-| Élément | Information |
-|---|---|
-| Durée | 2-3 heures |
-| Niveau | Intermédiaire |
-| Usage recommandé | Mini-projet guidé |
-| Préparation enseignant | Lire la fiche, ouvrir la source officielle et choisir la ressource à utiliser; aucun CSV préparé directement exploitable n'est garanti dans le dépôt. |
-| Production attendue | Un court rapport reproductible avec contexte, tableau ou graphique, interprétation et limites. |
-| Données | `Je ne sais pas.` |
-:::
-
-:::
-<!-- activity-teacher-brief:end -->
+Durée : 2-3 heures. Niveau : Intermédiaire.
 
 ## Préparation enseignante
 
-- Lire la fiche, ouvrir la source officielle et choisir la ressource à utiliser; aucun CSV préparé directement exploitable n'est garanti dans le dépôt.
-- Fichier préparé : `Je ne sais pas.`
-- Script de préparation : `datasets/interventions-pompiers-montreal/preparation.R`.
-- Point à surveiller : Demander une carte agrégée ou une comparaison par arrondissement, pas une interprétation de points individuels.
+Télécharger la trousse ci-dessous. Extraire le ZIP, puis double-cliquer sur `Donnees-bleues.Rproj`. Avant la séance, ouvrir `installer-packages.R` et cliquer sur Source avec une connexion Internet.
 
-## Appui R minimal
+Une fois les packages installés, les scripts utilisent les fichiers inclus et peuvent être exécutés hors ligne.
 
 ```{r}
-#| eval: false
-# Je ne sais pas quel CSV préparé utiliser pour cette activité.
-# Lire la fiche, choisir la ressource officielle et documenter la date d'accès.
-source("datasets/interventions-pompiers-montreal/preparation.R")
+#| label: activity-classroom-resources
+#| echo: false
+#| results: asis
+source(if (file.exists("R/utils_activity_contract.R")) "R/utils_activity_contract.R" else "../../R/utils_activity_contract.R")
+render_activity_resources()
 ```
-
-## Résultat attendu
-
-Un court rapport reproductible avec contexte, tableau ou graphique, interprétation et limites. La production doit aussi contenir une phrase sur l'unité statistique et une phrase sur une limite de la source.
-
-## Déroulé suggéré
-
-1. Cadrer la source, la licence et l'unité statistique.
-2. Préparer ou importer les données.
-3. Produire un premier résumé descriptif.
-4. Construire la visualisation ou le tableau principal.
-5. Rédiger l'interprétation et les limites.
-
-## Critères d'évaluation
-
-- Exactitude de l'unité statistique et de la source.
-- Reproductibilité du traitement.
-- Lisibilité du tableau ou du graphique.
-- Interprétation prudente, sans causalité non justifiée.
-- Limites clairement visibles dans le livrable.
-
-## Limites à faire nommer
-
-- Demander une carte agrégée ou une comparaison par arrondissement, pas une interprétation de points individuels.
-- Si une variable ou un dénominateur nécessaire n'est pas disponible dans les données, l'écrire explicitement plutôt que l'inférer.
-
 
 ## Contexte
 
-Cette activité relie nettoyage de dates, agrégation temporelle, comparaison territoriale et limites d'interprétation dans un jeu de données de sécurité publique.
+Cette activité utilise la fiche [Interventions des pompiers de Montréal](fiche.qmd). Unité : Une intervention enregistrée dans la source municipale.
 
-## Objectifs d'apprentissage
-
-- Transformer une date-heure en variables temporelles.
-- Agréger des interventions par mois et par type.
-- Comparer des arrondissements avec prudence.
-- Présenter les résultats dans un mini-rapport reproductible.
-
-## Données utilisées
-
-Fiche : [Interventions des pompiers de Montréal](fiche.qmd)
-
-Source : Données ouvertes de la Ville de Montréal / Service de sécurité incendie de Montréal.
-
-Licence : Attribution (CC-BY 4.0).
-
-## Métadonnées pédagogiques
-
-| Champ | Information |
-|---|---|
-| Question directrice | Les interventions du SIM varient-elles selon le mois et l'arrondissement? |
-| Concepts | Dates; Agrégation; Comparaison de groupes; Communication |
-| Niveau | Intermédiaire |
-| Type | Projet ou tâche longue; Étude de cas |
-| Contexte | Sécurité publique |
-| Accroche | Urgences, temps et territoires |
-| Durée | 2-3 heures |
-| Matériel | énoncé; code; données; notes enseignantes |
-| Math/stats avancées | non |
+Source : [Données ouvertes de la Ville de Montréal / Service de sécurité incendie de Montréal](https://donnees.montreal.ca/fr/dataset/interventions-service-securite-incendie-montreal). Les dates de préparation, les fichiers et les conditions de réutilisation sont indiqués dans la trousse.
 
 ## Consignes
 
-1. Importer la ressource CSV courante.
-2. Créer une variable `mois` à partir de `CREATION_DATE_TIME`.
-3. Calculer le nombre d'interventions par mois et par `DESCRIPTION_GROUPE`.
-4. Comparer quelques arrondissements avec un tableau ou un graphique.
-5. Ajouter une courte section sur les limites liées à la localisation approximative et aux données administratives.
+1. Ouvrir `activite-longue.R` dans le sous-dossier `datasets/interventions-pompiers-montreal` du projet RStudio et cliquer sur Source. Les tableaux apparaissent dans Console et les graphiques dans Plots.
+2. Examiner les nombres mensuels par groupe d’intervention.
+3. Comparer les décomptes par arrondissement sans les interpréter comme des risques.
+4. Rédiger une réponse à la question en nommant l’unité observée et une limite de la source.
 
-## Questions
+## Résultat attendu
 
-1. Les variations mensuelles sont-elles semblables pour tous les groupes d'interventions?
-2. Quels arrondissements ont les volumes bruts les plus élevés dans la ressource courante?
-3. Quelles données supplémentaires seraient nécessaires pour comparer des risques?
+Les tableaux et graphiques du script, accompagnés d’une interprétation de 6 à 8 lignes répondant à la question.
 
-## Pistes de solution
+## Limites à faire nommer
 
-Un bon rapport distingue les constats descriptifs des interprétations, indique clairement la période utilisée et évite de présenter les coordonnées comme des localisations exactes.
+Les interventions ne constituent pas un risque par habitant; les pratiques de déclaration et la période de couverture influencent les nombres.
 
-## Prolongement
+## Code complet
 
-Créer une variable binaire indiquant si `NOMBRE_UNITES` dépasse un seuil choisi, puis ajuster un modèle de classification simple avec validation.
+Ce script complet est celui de la trousse. Il lit les fichiers locaux et affiche les résultats dans RStudio.
+
+```{r}
+#| label: activity-code
+#| echo: false
+#| results: asis
+render_activity_code()
+```
 
 ```{r}
 #| label: activity-pedagogical-contract
 #| echo: false
 #| results: asis
-contract_source_path <- if (file.exists("R/utils_activity_contract.R")) "R/utils_activity_contract.R" else "../../R/utils_activity_contract.R"
-source(contract_source_path)
 render_activity_contract()
 ```

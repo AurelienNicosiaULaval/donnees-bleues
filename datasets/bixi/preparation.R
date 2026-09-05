@@ -1,3 +1,4 @@
+source("R/utils_downloads.R")
 # Préparation : instantané des stations BIXI depuis les flux GBFS.
 # Source officielle : Données Québec / BIXI Montréal,
 # paquet CKAN 89fdc53c-cf70-485f-ab1a-9b10044d9f15.
@@ -39,7 +40,7 @@ processed_dir <- file.path(root, "data/processed/bixi")
 dir.create(raw_dir, recursive = TRUE, showWarnings = FALSE)
 dir.create(processed_dir, recursive = TRUE, showWarnings = FALSE)
 
-access_date <- as.Date("2026-06-21")
+access_date <- Sys.Date()
 snapshot_downloaded_at <- Sys.time()
 source_page <- "https://www.donneesquebec.ca/recherche/dataset/vmtl-bixi-etat-des-stations"
 source_api <- "https://www.donneesquebec.ca/recherche/api/3/action/package_show?id=vmtl-bixi-etat-des-stations"
@@ -50,8 +51,8 @@ gbfs_discovery_path <- file.path(raw_dir, "gbfs.json")
 station_information_path <- file.path(raw_dir, "station_information.json")
 station_status_path <- file.path(raw_dir, "station_status.json")
 
-download.file(source_api, package_json_path, mode = "wb", quiet = TRUE)
-download.file(gbfs_discovery_url, gbfs_discovery_path, mode = "wb", quiet = TRUE)
+download_source(source_api, package_json_path, mode = "wb", quiet = TRUE)
+download_source(gbfs_discovery_url, gbfs_discovery_path, mode = "wb", quiet = TRUE)
 
 package <- fromJSON(package_json_path, flatten = TRUE)
 if (!isTRUE(package$success)) {
@@ -90,11 +91,15 @@ if (length(station_information_url) != 1L || length(station_status_url) != 1L) {
   stop("Les flux GBFS requis sont absents du fichier de découverte.", call. = FALSE)
 }
 
-download.file(station_information_url, station_information_path, mode = "wb", quiet = TRUE)
-download.file(station_status_url, station_status_path, mode = "wb", quiet = TRUE)
+download_source(station_information_url, station_information_path, mode = "wb", quiet = TRUE)
+download_source(station_status_url, station_status_path, mode = "wb", quiet = TRUE)
 
 station_information_json <- fromJSON(station_information_path, flatten = TRUE)
 station_status_json <- fromJSON(station_status_path, flatten = TRUE)
+snapshot_downloaded_at <- as.POSIXct(
+  jsonlite::read_json(paste0(station_status_path, ".source.json"))$acquired_at_utc,
+  format = "%Y-%m-%dT%H:%M:%SZ", tz = "UTC"
+)
 
 station_information <- station_information_json$data$stations
 station_status <- station_status_json$data$stations
@@ -398,3 +403,5 @@ write_csv(summary_by_operation, file.path(processed_dir, "resume_operation_bixi.
 write_csv(availability_extremes, file.path(processed_dir, "stations_bixi_disponibilite_extreme.csv"))
 write_csv(missing_summary, file.path(processed_dir, "valeurs_manquantes_bixi.csv"))
 write_csv(dataset_summary, file.path(processed_dir, "resume_bixi_snapshot.csv"))
+
+record_preparation("bixi")

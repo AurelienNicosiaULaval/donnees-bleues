@@ -21,7 +21,10 @@ capacity_summary_file: "data/processed/bixi/resume_groupes_capacite_bixi.csv"
 operation_summary_file: "data/processed/bixi/resume_operation_bixi.csv"
 missing_summary_file: "data/processed/bixi/valeurs_manquantes_bixi.csv"
 update_frequency: "Flux GBFS temps réel; ttl de 10 secondes observé dans les flux le 2026-06-21"
-level: "Introduction à intermédiaire"
+level: Introduction à intermédiaire
+level_ids:
+- introduction
+- intermediaire
 organisme: "BIXI Montréal"
 territoire: "Montréal"
 taille_approximative: "1 084 stations; capacité totale 24 183 bornes; 10 800 vélos disponibles dans l'instantané"
@@ -56,14 +59,23 @@ tags:
   - temps réel
   - cartographie
 concepts:
-  - importation JSON
-  - flux GBFS
-  - jointure
-  - indicateurs opérationnels
-  - ratios
-  - coordonnées invalides
-  - visualisation
-  - limites d'un instantané
+- Importation JSON
+- Flux GBFS
+- Jointure
+- Indicateurs opérationnels
+- Ratios
+- Coordonnées invalides
+- Visualisation
+- Limites d'un instantané
+concept_ids:
+- importation-json
+- flux-gbfs
+- jointure
+- indicateurs-operationnels
+- ratios
+- coordonnees-invalides
+- visualisation
+- limites-d-un-instantane
 zero_waste:
   contexte_quebecois: 3
   accessibilite_pedagogique: 3
@@ -79,3 +91,44 @@ status: "source officielle vérifiée; flux GBFS préparés localement"
 notes: "Le flux est dynamique. Les résultats documentent un instantané et ne doivent pas être interprétés comme une mesure de demande quotidienne ou saisonnière."
 contributor_name: "Aurélien Nicosia"
 contributor_role: "Révision pédagogique et statistique"
+
+publication:
+  preview: true
+  reviewed_on: '2026-09-05'
+  license_url: https://creativecommons.org/licenses/by/4.0/deed.fr
+  preview_columns:
+  - station_id
+  - name
+  - short_name
+  - capacity
+  - groupe_capacite
+  - num_bikes_available
+  - num_bikes_classic_available
+  - num_ebikes_available
+  - num_bikes_disabled
+  - num_docks_available
+  reason: Extrait pédagogique limité aux colonnes déclarées; attribution et conditions de la source conservées.
+  classroom:
+    mode: frozen
+    reason: Table de classe limitée aux colonnes déclarées, sans tirage supplémentaire de lignes. Attribution
+      et conditions tierces conservées.
+    files:
+    - path: data/processed/bixi/stations_bixi_snapshot.csv
+      columns:
+      - station_id
+      - name
+      - capacity
+      - groupe_capacite
+      - num_bikes_available
+      - num_docks_available
+      - taux_occupation
+      - etat_operationnel
+      - last_reported_datetime
+      - snapshot_downloaded_at
+chart:
+  type: histogram
+  x_variable: capacity
+  x_label: Capacité d’une station (bornes)
+  y_label: Stations dans l’extrait (nombre)
+  title: Distribution des capacités
+  binwidth: 5

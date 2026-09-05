@@ -1,97 +1,64 @@
 ---
 title: "Laboratoire - Emploi régional"
-embed-resources: false
+embed-resources: true
 ---
-
 
 # Laboratoire - Emploi régional
 
-<!-- activity-teacher-brief:start -->
-::: {.activity-teacher-brief}
 
-## En classe, cette activité sert à...
+Comment les taux de chômage évoluent-ils dans les territoires retenus?
 
-Cette activité sert à travailler les notions suivantes : séries temporelles, comparaison de groupes, données d'enquête, qualité des estimations, analyse exploratoire, statistiques descriptives à partir d'une question située dans le contexte suivant : Marché du travail. Elle demande aux étudiantes et étudiants de répondre à la question directrice suivante : Comment comparer le taux de chômage de quelques régions du Québec sans surinterpréter des estimations d'enquête?
-
-::: {.activity-quick-facts}
-| Élément | Information |
-|---|---|
-| Durée | 60-90 minutes |
-| Niveau | Introduction à intermédiaire |
-| Usage recommandé | Laboratoire guidé |
-| Préparation enseignant | Préparation requise : exécuter `Rscript datasets/emploi-regional-quebec/preparation.R` depuis la racine, puis vérifier que `data/processed/emploi-regional-quebec/emploi_regional_quebec.csv` existe. |
-| Production attendue | Un tableau ou graphique descriptif accompagné de trois phrases d'interprétation prudente. |
-| Données | `data/processed/emploi-regional-quebec/emploi_regional_quebec.csv` |
-:::
-
-:::
-<!-- activity-teacher-brief:end -->
-
-## Données utilisées
-
-Source : Institut de la statistique du Québec / Statistique Canada, Enquête sur la population active. Licence : Reproduction de l'information du site de l'Institut de la statistique du Québec interdite sauf permission écrite.. Fichier principal pour l'activité : `data/processed/emploi-regional-quebec/emploi_regional_quebec.csv`
+Durée : 60-90 minutes. Niveau : Introduction à intermédiaire.
 
 ## Préparation enseignante
 
-- Préparation requise : exécuter `Rscript datasets/emploi-regional-quebec/preparation.R` depuis la racine, puis vérifier que `data/processed/emploi-regional-quebec/emploi_regional_quebec.csv` existe.
-- Fichier préparé : `data/processed/emploi-regional-quebec/emploi_regional_quebec.csv`.
-- Script de préparation : `datasets/emploi-regional-quebec/preparation.R`.
-- Point à surveiller : Faire valider l'unité statistique, l'unité de mesure et les codes de qualité avant l'interprétation.
+Télécharger la trousse ci-dessous. Extraire le ZIP, puis double-cliquer sur `Donnees-bleues.Rproj`. Avant la séance, ouvrir `installer-packages.R` et cliquer sur Source avec une connexion Internet.
 
-## Résultat attendu
+Consulter les conditions de l’ISQ, puis ouvrir `preparer-donnees.R` et cliquer sur Source avec Internet pour obtenir les CSV sur votre ordinateur. Les données ne sont pas incluses dans la trousse et ne doivent pas être redistribuées sans autorisation applicable.
 
-Un tableau ou graphique descriptif accompagné de trois phrases d'interprétation prudente. La production doit aussi contenir une phrase sur l'unité statistique et une phrase sur une limite de la source.
-
-## Questions
-
-1. Quelle est l'unité statistique utilisée dans cette activité?
-2. Quelle transformation ou agrégation est nécessaire avant de répondre à la question?
-3. Quelle information manque pour aller plus loin?
-4. Quelle conclusion serait trop forte avec ces seules données?
-5. Comment formuler une conclusion prudente à partir du résultat obtenu?
-
-## Limites à faire nommer
-
-- Faire valider l'unité statistique, l'unité de mesure et les codes de qualité avant l'interprétation.
-- Si une variable ou un dénominateur nécessaire n'est pas disponible dans les données, l'écrire explicitement plutôt que l'inférer.
-
+```{r}
+#| label: activity-classroom-resources
+#| echo: false
+#| results: asis
+source(if (file.exists("R/utils_activity_contract.R")) "R/utils_activity_contract.R" else "../../R/utils_activity_contract.R")
+render_activity_resources()
+```
 
 ## Contexte
 
-Ce laboratoire utilise la fiche [Emploi régional au Québec](fiche.qmd) pour travailler une question québécoise concrète : comparer des séries mensuelles régionales du marché du travail sans oublier l'unité de mesure et la qualité des estimations.
+Cette activité utilise la fiche [Emploi régional au Québec](fiche.qmd). Unité : Un indicateur mensuel pour un territoire, avec son unité et son indicateur de qualité.
 
-## Objectifs d'apprentissage
-
-- Identifier l'unité statistique d'un jeu de données réel.
-- Importer ou préparer une ressource officielle sans perdre la provenance.
-- Distinguer un niveau en milliers de personnes et un taux en pourcentage.
-- Repérer les codes de qualité `F` et `*`.
-- Produire une visualisation simple et interprétable.
-- Formuler une conclusion prudente en séparant description et explication.
-
-## Question directrice
-
-Comment comparer le taux de chômage de quelques régions du Québec sans surinterpréter des estimations d'enquête?
+Source : [Institut de la statistique du Québec / Statistique Canada, Enquête sur la population active](https://statistique.quebec.ca/fr/document/population-active-emploi-et-chomage-regions-administratives-rmr-et-quebec). Les dates de préparation, les fichiers et les conditions de réutilisation sont indiqués dans la trousse.
 
 ## Consignes
 
-1. Lire la fiche et repérer la source officielle.
-2. Exécuter `datasets/emploi-regional-quebec/preparation.R` pour produire le CSV préparé.
-3. Importer `data/processed/emploi-regional-quebec/emploi_regional_quebec.csv`.
-4. Filtrer l'indicateur `Taux de chômage` pour `Québec`, `Montréal` et `Capitale-Nationale`.
-5. Produire un graphique de lignes avec `date` en abscisse et `valeur` en ordonnée.
-6. Compter les valeurs dont `indicateur_qualite` vaut `F` ou `*`.
-7. Rédiger une conclusion de 5 à 8 lignes qui mentionne l'unité, la période couverte et une limite méthodologique.
+1. Ouvrir `activite-courte.R` dans le sous-dossier `datasets/emploi-regional-quebec` du projet RStudio et cliquer sur Source. Les tableaux apparaissent dans Console et les graphiques dans Plots.
+2. Comparer les séries du Québec, de Montréal et de la Capitale-Nationale dans leur unité.
+3. Lire les indicateurs de qualité avant de commenter les écarts.
+4. Rédiger une réponse à la question en nommant l’unité observée et une limite de la source.
 
-## Pistes de solution
+## Résultat attendu
 
-Une bonne réponse décrit une tendance principale et nomme explicitement l'unité statistique : indicateur, territoire et mois. Une réponse excellente explique aussi pourquoi les estimations régionales mensuelles sont publiées comme moyennes mobiles sur trois mois et signale les codes `F` ou `*` observés.
+Les tableaux et graphiques du script, accompagnés d’une interprétation de 6 à 8 lignes répondant à la question.
+
+## Limites à faire nommer
+
+Il s’agit d’estimations d’enquête. Les unités, indicateurs de qualité et territoires doivent être conservés; les écarts ne prouvent pas une cause économique.
+
+## Code complet
+
+Ce script complet est celui de la trousse. Il lit les fichiers locaux et affiche les résultats dans RStudio.
+
+```{r}
+#| label: activity-code
+#| echo: false
+#| results: asis
+render_activity_code()
+```
 
 ```{r}
 #| label: activity-pedagogical-contract
 #| echo: false
 #| results: asis
-contract_source_path <- if (file.exists("R/utils_activity_contract.R")) "R/utils_activity_contract.R" else "../../R/utils_activity_contract.R"
-source(contract_source_path)
 render_activity_contract()
 ```

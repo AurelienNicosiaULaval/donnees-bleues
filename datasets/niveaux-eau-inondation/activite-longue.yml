@@ -1,12 +1,13 @@
 id: niveaux-eau-rapport-long
 title: Mini-rapport sur les niveaux d'eau d'inondation
-question: Comment résumer des observations ponctuelles d'inondation sans surinterpréter
-  la carte?
+question: Comment les marqueurs et leur documentation varient-ils selon l’année?
 dataset_id: niveaux-eau-inondation
 dataset_title: Niveaux d'eau lors d'une inondation
 activity_url: datasets/niveaux-eau-inondation/activite-longue.qmd
 duration: 2-3 heures
 level: Intermédiaire
+level_ids:
+- intermediaire
 activity_type:
 - Étude de cas
 - Projet ou tâche longue
@@ -15,56 +16,46 @@ concepts:
 - Valeurs manquantes
 - Précision de mesure
 - Communication du risque
+concept_ids:
+- donnees-spatiales
+- valeurs-manquantes
+- precision-de-mesure
+- communication-du-risque
 context: Inondations et sécurité civile
-hook: Les points sont précis, mais leur interprétation demande du contexte
+hook: La carte montre des marqueurs, pas des zones inondées. La couverture de relevé ne permet pas de comparer
+  directement la fréquence annuelle des inondations.
 materials:
-- énoncé
-- code
-- table préparée
-- notes enseignantes
-advanced_math_stats: no
-teacher_notes: Faire distinguer marqueur ponctuel, événement d'inondation, niveau
-  maximal et zone inondée.
-status: source officielle vérifiée
+- Trousse ZIP et projet RStudio
+- Script R complet
+- CSV préparés et provenance
+advanced_math_stats: false
+teacher_notes: La carte montre des marqueurs, pas des zones inondées. La couverture de relevé ne permet pas
+  de comparer directement la fréquence annuelle des inondations.
+status: Documentation de source et ressources de classe fournies
 pedagogical_status: pret_a_enseigner
-teacher_preparation: 'Préparation requise : exécuter `Rscript datasets/niveaux-eau-inondation/preparation.R`
-  depuis la racine, puis vérifier que `data/processed/niveaux-eau-inondation/niveaux_eau_inondation.csv`
-  existe.'
-expected_output: Un court rapport reproductible avec contexte, tableau ou graphique,
-  interprétation et limites.
-requires_prepared_data: yes
-requires_live_download: yes
+teacher_preparation: Extraire la trousse, ouvrir le projet RStudio, installer les packages avant la séance
+  et lancer le script.
+expected_output: Les tableaux et graphiques du script, accompagnés d’une interprétation de 6 à 8 lignes répondant
+  à la question.
+requires_prepared_data: true
+requires_live_download: false
 recommended_use: Mini-projet guidé
-result_visible_in_page: yes
-
+result_visible_in_page: false
 learning_objectives:
-  - "Préparer une ressource CSV officielle"
-  - "Produire un résumé par année et type d'observation"
-  - "Décrire les valeurs manquantes"
-  - "Cartographier des observations ponctuelles"
-  - "Interpréter la précision horizontale et verticale"
-  - "Rédiger une note de communication du risque"
-  - "définit clairement un marqueur ponctuel;"
-  - "ne confond pas un point avec une zone inondée;"
-  - "distingue `MAX` et `ACT`;"
-  - "présente une carte lisible;"
-  - "documente les valeurs manquantes;"
-  - "mentionne la précision horizontale et verticale;"
-  - "cite la source et la licence;"
-  - "formule une conclusion prudente."
-  - "Lire le GeoJSON officiel avec `sf`."
-  - "Joindre les points à des bassins versants."
-  - "Comparer les altitudes par type d'observation."
-  - "Produire une carte interactive avec les liens de rapport."
-  - "Rédiger une note destinée au public sur les limites d'une carte de points."
-
+- Examiner dates, altitudes, types et valeurs manquantes.
+- Comparer les cartes par année en séparant couverture des relevés et fréquence des inondations.
+- Formuler une limite qui découle de la source et de l’unité observée.
 prerequisites:
-  - "Vérifier le fichier ou le script de préparation annoncé avant la séance; adapter la mise en route au niveau indiqué."
-
+- Savoir ouvrir un projet RStudio et exécuter un script R.
+- Savoir lire un tableau groupé et un graphique descriptif; repérer les valeurs manquantes.
 success_criteria:
-  - "La production attendue est remise : Un court rapport reproductible avec contexte, tableau ou graphique, interprétation et limites."
-  - "Les résultats sont interprétés sans dépasser les limites de la source."
-
+- L’unité, la période ou la portée documentaire et les variables utilisées sont nommées.
+- Examiner dates, altitudes, types et valeurs manquantes.
+- Comparer les cartes par année en séparant couverture des relevés et fréquence des inondations.
+- La conclusion répond à la question et explique au moins une limite précise.
 adaptations:
-  - "Fournir une table préparée ou réduire le nombre de variables pour une première utilisation."
-  - "Ajouter une comparaison, une justification méthodologique ou une discussion des limites pour approfondir."
+- Débuter avec le script exécuté par la personne enseignante, puis faire interpréter une seule sortie.
+- Pour approfondir, modifier une sélection ou un regroupement et justifier ce que cela change.
+script_file: datasets/niveaux-eau-inondation/activite-longue.R
+classroom_archive: assets/classroom/niveaux-eau-inondation.zip
+access_mode: frozen

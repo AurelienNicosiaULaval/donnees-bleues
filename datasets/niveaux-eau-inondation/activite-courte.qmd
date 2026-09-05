@@ -1,161 +1,64 @@
 ---
 title: "Cartographier des marqueurs de niveaux d'eau"
-embed-resources: false
+embed-resources: true
 ---
-
 
 # Cartographier des marqueurs de niveaux d'eau
 
-<!-- activity-teacher-brief:start -->
-::: {.activity-teacher-brief}
 
-## En classe, cette activité sert à...
+Que représente une carte de marqueurs de niveaux d’eau?
 
-Cette activité sert à travailler les notions suivantes : Données spatiales, Carte, Précision de mesure, Communication du risque à partir d'une question située dans le contexte suivant : Inondations et sécurité civile. Elle demande aux étudiantes et étudiants de répondre à la question directrice suivante : Où se situent les marqueurs ponctuels de niveaux d'eau documentés lors d'inondations?
-
-::: {.activity-quick-facts}
-| Élément | Information |
-|---|---|
-| Durée | 30-45 minutes |
-| Niveau | Introductif |
-| Usage recommandé | Exercice guidé |
-| Préparation enseignant | Préparation requise : exécuter `Rscript datasets/niveaux-eau-inondation/preparation.R` depuis la racine, puis vérifier que `data/processed/niveaux-eau-inondation/niveaux_eau_inondation.csv` existe. |
-| Production attendue | Une carte ou un graphique descriptif accompagné d'une phrase sur l'unité statistique et les limites. |
-| Données | `data/processed/niveaux-eau-inondation/niveaux_eau_inondation.csv` |
-:::
-
-:::
-<!-- activity-teacher-brief:end -->
+Durée : 30-45 minutes. Niveau : Introduction.
 
 ## Préparation enseignante
 
-- Préparation requise : exécuter `Rscript datasets/niveaux-eau-inondation/preparation.R` depuis la racine, puis vérifier que `data/processed/niveaux-eau-inondation/niveaux_eau_inondation.csv` existe.
-- Fichier préparé : `data/processed/niveaux-eau-inondation/niveaux_eau_inondation.csv`.
-- Script de préparation : `datasets/niveaux-eau-inondation/preparation.R`.
-- Point à surveiller : Faire écrire explicitement qu'un point représente un marqueur de niveau d'eau, pas une zone inondée.
+Télécharger la trousse ci-dessous. Extraire le ZIP, puis double-cliquer sur `Donnees-bleues.Rproj`. Avant la séance, ouvrir `installer-packages.R` et cliquer sur Source avec une connexion Internet.
 
-## Résultat attendu
+Une fois les packages installés, les scripts utilisent les fichiers inclus et peuvent être exécutés hors ligne.
 
-Une carte ou un graphique descriptif accompagné d'une phrase sur l'unité statistique et les limites. La production doit aussi contenir une phrase sur l'unité statistique et une phrase sur une limite de la source.
-
-## Limites à faire nommer
-
-- Faire écrire explicitement qu'un point représente un marqueur de niveau d'eau, pas une zone inondée.
-- Si une variable ou un dénominateur nécessaire n'est pas disponible dans les données, l'écrire explicitement plutôt que l'inférer.
-
+```{r}
+#| label: activity-classroom-resources
+#| echo: false
+#| results: asis
+source(if (file.exists("R/utils_activity_contract.R")) "R/utils_activity_contract.R" else "../../R/utils_activity_contract.R")
+render_activity_resources()
+```
 
 ## Contexte
 
-Cette activité utilise des observations ponctuelles de niveaux d'eau documentées lors d'inondations au Québec. Le but est de produire une carte simple, mais surtout d'apprendre à ne pas surinterpréter une carte de points.
+Cette activité utilise la fiche [Niveaux d'eau lors d'une inondation](fiche.qmd). Unité : Un marqueur de niveau d’eau observé lors d’une inondation.
 
-## Objectifs d'apprentissage
-
-- Préparer une ressource CSV officielle
-- Identifier une unité statistique
-- Distinguer les types `MAX` et `ACT`
-- Cartographier des coordonnées WGS84
-- Écrire des limites d'interprétation
-
-## Données utilisées
-
-Fiche : [Niveaux d'eau lors d'une inondation](fiche.qmd)
-
-Source : Données Québec / Ministère de la Sécurité intérieure.
-
-Licence : Attribution (CC-BY 4.0), selon les métadonnées CKAN consultées le 2026-06-21.
-
-Fichier préparé : `data/processed/niveaux-eau-inondation/niveaux_eau_inondation.csv`
-
-## Métadonnées pédagogiques
-
-| Champ | Information |
-|---|---|
-| Question directrice | Où se situent les marqueurs ponctuels de niveaux d'eau documentés lors d'inondations? |
-| Concepts | Données spatiales; Carte; Précision de mesure; Communication du risque |
-| Niveau | Introductif |
-| Type | Exercice; Exploration de données |
-| Contexte | Inondations et sécurité civile |
-| Accroche | Une carte de points ne montre pas une zone inondée |
-| Durée | 30-45 minutes |
-| Matériel | énoncé; code; table préparée |
-| Math/stats avancées | non |
+Source : [Données Québec / Ministère de la Sécurité intérieure](https://www.donneesquebec.ca/recherche/dataset/niveaux-deau-inondation-msp). Les dates de préparation, les fichiers et les conditions de réutilisation sont indiqués dans la trousse.
 
 ## Consignes
 
-1. Exécuter `datasets/niveaux-eau-inondation/preparation.R`.
-2. Importer la table préparée.
-3. Compter les observations `MAX` et `ACT`.
-4. Vérifier que les coordonnées sont complètes.
-5. Produire une carte des points colorés par `type_obs`.
-6. Écrire une phrase qui définit ce qu'un point représente.
-7. Écrire deux limites d'interprétation.
+1. Ouvrir `activite-courte.R` dans le sous-dossier `datasets/niveaux-eau-inondation` du projet RStudio et cliquer sur Source. Les tableaux apparaissent dans Console et les graphiques dans Plots.
+2. Compter les types d’observation et les coordonnées complètes.
+3. Lire la carte en annonçant ce que représente un point.
+4. Rédiger une réponse à la question en nommant l’unité observée et une limite de la source.
 
-## Code de départ
+## Résultat attendu
 
-À exécuter depuis la racine du projet.
+Les tableaux et graphiques du script, accompagnés d’une interprétation de 6 à 8 lignes répondant à la question.
+
+## Limites à faire nommer
+
+La carte montre des marqueurs, pas des zones inondées. La couverture de relevé ne permet pas de comparer directement la fréquence annuelle des inondations.
+
+## Code complet
+
+Ce script complet est celui de la trousse. Il lit les fichiers locaux et affiche les résultats dans RStudio.
 
 ```{r}
-#| eval: false
-# Load libraries
-library(dplyr)
-library(ggplot2)
-library(readr)
-
-# Prepare official CSV
-source("datasets/niveaux-eau-inondation/preparation.R")
-
-# Import prepared data
-niveaux <- read_csv(
-  "data/processed/niveaux-eau-inondation/niveaux_eau_inondation.csv",
-  show_col_types = FALSE
-)
-
-# Understand observation types
-niveaux |>
-  count(type_obs, type_observation, sort = TRUE)
-
-# Check coordinates
-niveaux |>
-  summarise(
-    lignes = n(),
-    coordonnees_completes = sum(has_coordinates)
-  )
-
-# Map observations
-ggplot(niveaux, aes(x = long_wgs84, y = lat_wgs84, color = type_obs)) +
-  geom_point(alpha = 0.65, size = 1.2) +
-  coord_quickmap() +
-  labs(
-    x = "Longitude",
-    y = "Latitude",
-    color = "Type",
-    title = "Marqueurs de niveaux d'eau lors d'inondations",
-    subtitle = "Un point représente un marqueur, pas une zone inondée"
-  )
+#| label: activity-code
+#| echo: false
+#| results: asis
+render_activity_code()
 ```
-
-## Questions
-
-1. Combien d'observations contient la table préparée?
-2. Combien sont de type `MAX`?
-3. Combien sont de type `ACT`?
-4. Que représente une ligne?
-5. Pourquoi la carte ne montre-t-elle pas l'étendue d'une inondation?
-6. Quelle information de précision accompagne les coordonnées?
-
-## Pistes de solution
-
-Une solution acceptable présente une carte et indique explicitement qu'un point représente un marqueur ponctuel de niveau d'eau. Une bonne solution ajoute que les points ne constituent pas un échantillon de toutes les inondations et ne délimitent pas les zones inondées.
-
-## Prolongement
-
-Filtrer une seule année, refaire la carte et comparer visuellement la concentration des observations.
 
 ```{r}
 #| label: activity-pedagogical-contract
 #| echo: false
 #| results: asis
-contract_source_path <- if (file.exists("R/utils_activity_contract.R")) "R/utils_activity_contract.R" else "../../R/utils_activity_contract.R"
-source(contract_source_path)
 render_activity_contract()
 ```

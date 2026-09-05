@@ -1,0 +1,36 @@
+{
+  "dataset_id": "transport-collectif-gtfs",
+  "prepared_at_utc": "2026-09-05T11:05:24Z",
+  "prepared_file": "arrets_gtfs_rtc.csv",
+  "prepared_sha256": "dcf5929aa4c69ba62446a1d392a07bf8cef65292a9d615aae9ee8b9799995f38",
+  "preview_sha256": "edd9573ad1dd084510af764121492c85d97f21029513db672048c3782a73c896",
+  "rows": 120,
+  "columns": ["stop_id", "stop_code", "stop_name", "stop_description", "wheelchair_boarding", "wheelchair_boarding_label", "stop_url", "access_date"],
+  "selection": "Au plus 120 positions régulièrement espacées dans l'ordre de la table préparée; sélection déterministe non aléatoire",
+  "source_name": "Données Québec / Réseau de transport de la Capitale",
+  "source_url": "https://www.donneesquebec.ca/recherche/dataset/rtc-gtfs-arrets-et-les-parcours",
+  "license": "Attribution (CC-BY 4.0) selon les métadonnées CKAN; conditions RTC à respecter pour la provenance et la date de mise à jour",
+  "license_url": "https://www.rtcquebec.ca/donnees-ouvertes",
+  "sources": [
+    {
+      "source_url": "https://cdn.rtcquebec.ca/Site_Internet/DonneesOuvertes/googletransit.zip",
+      "acquisition_kind": "download",
+      "acquired_at_utc": "2026-09-05T11:05:19Z",
+      "started_at_utc": "2026-09-05T11:05:12Z",
+      "file": "googletransit.zip",
+      "bytes": 35015800,
+      "sha256": "3e6db802049c9e650b24719061b692481d777c87bd060d58fbd3018fd331fe67",
+      "details": {}
+    },
+    {
+      "source_url": "https://www.donneesquebec.ca/recherche/api/3/action/package_show?id=rtc-gtfs-arrets-et-les-parcours",
+      "acquisition_kind": "download",
+      "acquired_at_utc": "2026-09-05T11:05:12Z",
+      "started_at_utc": "2026-09-05T11:05:12Z",
+      "file": "package_show_rtc_gtfs.json",
+      "bytes": 6321,
+      "sha256": "e81240796498f1e43a3eff321469080eac0c95626f7960aa092ab68ba11315fd",
+      "details": {}
+    }
+  ]
+}

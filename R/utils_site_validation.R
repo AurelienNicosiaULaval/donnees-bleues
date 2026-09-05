@@ -41,6 +41,22 @@ postprocess_site_headings <- function(output_dir = "docs") {
       writeChar(html, html_file, eos = NULL, useBytes = TRUE)
     }
 
+    # Quarto inserts include-before-body inside main; move the bypass before navigation.
+    skip_link <- trimws(paste(readLines("assets/skip-link.html", warn = FALSE), collapse = "\n"))
+    html <- gsub(skip_link, "", html, fixed = TRUE)
+    html <- sub("(<body[^>]*>)", paste0("\\1\n", skip_link), html, perl = TRUE)
+    if (!grepl('id="db-skip-link-script"', html, fixed = TRUE)) {
+      skip_script <- paste(readLines("assets/skip-link-script.html", warn = FALSE), collapse = "\n")
+      html <- sub("</body>", paste0(skip_script, "\n</body>"), html, fixed = TRUE)
+    }
+    # Make the repeated-navigation bypass focus its destination.
+    if (!grepl('id="quarto-document-content" tabindex="-1"', html, fixed = TRUE)) {
+      html <- gsub('id="quarto-document-content"', 'id="quarto-document-content" tabindex="-1"', html, fixed = TRUE)
+    }
+    # Le bouton Bootstrap contrôle une navigation, pas un menu ARIA applicatif.
+    html <- gsub('(<button[^>]*class="navbar-toggler"[^>]*) role="menu"', '\\1', html, perl = TRUE)
+    writeChar(html, html_file, eos = NULL, useBytes = TRUE)
+
     document <- xml2::read_html(html_file)
     headings <- xml2::xml_find_all(document, "//h1")
     title_block <- xml2::xml_find_first(

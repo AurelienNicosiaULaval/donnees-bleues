@@ -1,0 +1,65 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='576.00pt' height='360.00pt' viewBox='0 0 576.00 360.00'>
+<g class='svglite'>
+<defs>
+  <style type='text/css'><![CDATA[
+    .svglite line, .svglite polyline, .svglite polygon, .svglite path, .svglite rect, .svglite circle {
+      fill: none;
+      stroke: #000000;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      stroke-miterlimit: 10.00;
+    }
+    .svglite text {
+      white-space: pre;
+    }
+    .svglite g.glyphgroup path {
+      fill: inherit;
+      stroke: none;
+    }
+  ]]></style>
+</defs>
+<rect width='100%' height='100%' style='stroke: none; fill: #FFFFFF;'/>
+<defs>
+  <clipPath id='cpMC4wMHw1NzYuMDB8MC4wMHwzNjAuMDA='>
+    <rect x='0.00' y='0.00' width='576.00' height='360.00' />
+  </clipPath>
+</defs>
+<g clip-path='url(#cpMC4wMHw1NzYuMDB8MC4wMHwzNjAuMDA=)'>
+<rect x='0.00' y='0.00' width='576.00' height='360.00' style='stroke-width: 1.07; stroke: none; fill: #FFFFFF;' />
+</g>
+<defs>
+  <clipPath id='cpODIuMDl8NTcwLjUyfDM3Ljc0fDMxNS42Mg=='>
+    <rect x='82.09' y='37.74' width='488.43' height='277.89' />
+  </clipPath>
+</defs>
+<g clip-path='url(#cpODIuMDl8NTcwLjUyfDM3Ljc0fDMxNS42Mg==)'>
+<polyline points='82.09,263.52 570.52,263.52 ' style='stroke-width: 1.07; stroke: #EBEBEB; stroke-linecap: butt;' />
+<polyline points='82.09,176.68 570.52,176.68 ' style='stroke-width: 1.07; stroke: #EBEBEB; stroke-linecap: butt;' />
+<polyline points='82.09,89.84 570.52,89.84 ' style='stroke-width: 1.07; stroke: #EBEBEB; stroke-linecap: butt;' />
+<polyline points='104.29,315.62 104.29,37.74 ' style='stroke-width: 1.07; stroke: #EBEBEB; stroke-linecap: butt;' />
+<polyline points='215.30,315.62 215.30,37.74 ' style='stroke-width: 1.07; stroke: #EBEBEB; stroke-linecap: butt;' />
+<polyline points='326.30,315.62 326.30,37.74 ' style='stroke-width: 1.07; stroke: #EBEBEB; stroke-linecap: butt;' />
+<polyline points='437.31,315.62 437.31,37.74 ' style='stroke-width: 1.07; stroke: #EBEBEB; stroke-linecap: butt;' />
+<polyline points='548.32,315.62 548.32,37.74 ' style='stroke-width: 1.07; stroke: #EBEBEB; stroke-linecap: butt;' />
+<rect x='104.29' y='233.13' width='222.01' height='60.79' style='stroke-width: 1.07; stroke: none; stroke-linecap: butt; stroke-linejoin: miter; fill: #185B83;' />
+<rect x='104.29' y='146.29' width='444.03' height='60.79' style='stroke-width: 1.07; stroke: none; stroke-linecap: butt; stroke-linejoin: miter; fill: #185B83;' />
+<rect x='104.29' y='59.45' width='444.03' height='60.79' style='stroke-width: 1.07; stroke: none; stroke-linecap: butt; stroke-linejoin: miter; fill: #185B83;' />
+</g>
+<g clip-path='url(#cpMC4wMHw1NzYuMDB8MC4wMHwzNjAuMDA=)'>
+<text x='77.16' y='266.67' text-anchor='end' style='font-size: 8.80px;fill: #4D4D4D; font-family: "Arial";' textLength='59.66px' lengthAdjust='spacingAndGlyphs'>Archivage local</text>
+<text x='77.16' y='179.83' text-anchor='end' style='font-size: 8.80px;fill: #4D4D4D; font-family: "Arial";' textLength='43.17px' lengthAdjust='spacingAndGlyphs'>TripUpdate</text>
+<text x='77.16' y='92.99' text-anchor='end' style='font-size: 8.80px;fill: #4D4D4D; font-family: "Arial";' textLength='59.67px' lengthAdjust='spacingAndGlyphs'>VehiclePosition</text>
+<text x='104.29' y='326.85' text-anchor='middle' style='font-size: 8.80px;fill: #4D4D4D; font-family: "Arial";' textLength='4.89px' lengthAdjust='spacingAndGlyphs'>0</text>
+<text x='215.30' y='326.85' text-anchor='middle' style='font-size: 8.80px;fill: #4D4D4D; font-family: "Arial";' textLength='4.89px' lengthAdjust='spacingAndGlyphs'>1</text>
+<text x='326.30' y='326.85' text-anchor='middle' style='font-size: 8.80px;fill: #4D4D4D; font-family: "Arial";' textLength='4.89px' lengthAdjust='spacingAndGlyphs'>2</text>
+<text x='437.31' y='326.85' text-anchor='middle' style='font-size: 8.80px;fill: #4D4D4D; font-family: "Arial";' textLength='4.89px' lengthAdjust='spacingAndGlyphs'>3</text>
+<text x='548.32' y='326.85' text-anchor='middle' style='font-size: 8.80px;fill: #4D4D4D; font-family: "Arial";' textLength='4.89px' lengthAdjust='spacingAndGlyphs'>4</text>
+<text x='326.30' y='338.61' text-anchor='middle' style='font-size: 10.00px; font-family: "Arial";' textLength='148.41px' lengthAdjust='spacingAndGlyphs'>Champs du dictionnaire (nombre)</text>
+<text transform='translate(12.64,176.68) rotate(-90)' text-anchor='middle' style='font-size: 10.00px; font-family: "Arial";' textLength='101.73px' lengthAdjust='spacingAndGlyphs'>Message ou traitement</text>
+<text x='82.09' y='30.37' style='font-size: 9.00px; font-family: "Arial";' textLength='210.00px' lengthAdjust='spacingAndGlyphs'>Dictionnaire de variables, sans observation de retard</text>
+<text x='82.09' y='15.50' style='font-size: 14.00px;fill: #172033; font-family: "Arial";' textLength='268.33px' lengthAdjust='spacingAndGlyphs'>Composition du dictionnaire GTFS-realtime</text>
+<text x='82.09' y='352.63' style='font-size: 9.00px; font-family: "Arial";' textLength='246.50px' lengthAdjust='spacingAndGlyphs'>0 ligne(s) avec une mesure manquante ou non finie exclue(s).</text>
+</g>
+</g>
+</svg>

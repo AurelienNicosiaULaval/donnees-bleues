@@ -4,6 +4,7 @@ page-layout: full
 toc: false
 execute:
   freeze: false
+embed-resources: true
 ---
 
 ```{r}

@@ -1,0 +1,42 @@
+{
+  "dataset_id": "budgets-municipaux-quebec",
+  "title": "Profil financier des municipalités locales du Québec",
+  "mode": "frozen",
+  "prepared_at_utc": "2026-09-05T11:04:27Z",
+  "source_name": "Données Québec / Ministère des Affaires municipales et de l'Habitation",
+  "source_url": "https://www.donneesquebec.ca/recherche/dataset/profil-financier-des-municipalites-locales",
+  "license_url": "https://creativecommons.org/licenses/by/4.0/deed.fr",
+  "selection": "Table de classe limitée aux colonnes déclarées, sans tirage supplémentaire de lignes. Attribution et conditions tierces conservées.",
+  "tables": [
+    {
+      "path": "data/processed/budgets-municipaux-quebec/dictionnaire_postes_profil_financier_2025.csv",
+      "rows": 21,
+      "columns": ["code_poste", "sujet", "facettes", "type_indicateur", "libelle_court", "est_comparatif"],
+      "sha256": "8648d5cc5bcfc1fc38eb76cf5275582e12b32c6ff04b7b2a8b5d96ef1d3c8eb5",
+      "prepared_table_sha256": "8648d5cc5bcfc1fc38eb76cf5275582e12b32c6ff04b7b2a8b5d96ef1d3c8eb5"
+    },
+    {
+      "path": "data/processed/budgets-municipaux-quebec/profil_financier_municipalites_2025.csv",
+      "rows": 1105,
+      "columns": ["annee_edition", "annee_donnee", "code_geographique", "municipalite", "designation_organisme", "code_mrc", "mrc", "code_communaute_metropolitaine", "communaute_metropolitaine", "code_region_administrative", "region_administrative", "type_organisme", "population", "code_classe_population", "classe_population", "FIALX01959", "FIALX01960", "FIALX01961", "FIALX01962", "FIALX01963", "FIALX01977", "FIALX02005", "FIALX02006", "FIALX02007", "FIALX02008", "FIALX02009", "FIALX02010", "FIALX02011", "FIALX02097", "source_csv_url", "access_date"],
+      "sha256": "24a2fde486ee1c66289ddbfdac860f0a9ab4d5ed1e206c97bb85afc8865b19bc",
+      "prepared_table_sha256": "24a2fde486ee1c66289ddbfdac860f0a9ab4d5ed1e206c97bb85afc8865b19bc"
+    },
+    {
+      "path": "data/processed/budgets-municipaux-quebec/profil_financier_municipalites_long_2025.csv",
+      "rows": 15470,
+      "columns": ["annee_edition", "annee_donnee", "code_geographique", "municipalite", "designation_organisme", "code_mrc", "mrc", "code_communaute_metropolitaine", "communaute_metropolitaine", "code_region_administrative", "region_administrative", "type_organisme", "population", "code_classe_population", "classe_population", "source_csv_url", "access_date", "code_poste", "valeur", "sujet", "facettes", "type_indicateur", "libelle_court", "est_comparatif"],
+      "sha256": "d14a40a7933c42f9367783e6c2b9abb34a38fbe5382ba0bfdfe4536b0aa4cc00",
+      "prepared_table_sha256": "d14a40a7933c42f9367783e6c2b9abb34a38fbe5382ba0bfdfe4536b0aa4cc00"
+    },
+    {
+      "path": "data/processed/budgets-municipaux-quebec/valeurs_manquantes_profil_financier_2025.csv",
+      "rows": 31,
+      "columns": ["variable", "n_missing", "n_rows", "pct_missing"],
+      "sha256": "f677da53d40dec74f1117f3c38c981a1adf3dacb84f2ebe28f1ea4ae8c944722",
+      "prepared_table_sha256": "f677da53d40dec74f1117f3c38c981a1adf3dacb84f2ebe28f1ea4ae8c944722"
+    }
+  ],
+  "archive_sha256": "01078e68e612d3d5c86944864f3ad17bbd5af420568d23840a68391e1af07769",
+  "archive_bytes": 281746
+}

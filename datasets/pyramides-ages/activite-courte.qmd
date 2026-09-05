@@ -1,141 +1,64 @@
 ---
 title: "Pyramide des âges du Québec en 2025"
-embed-resources: false
+embed-resources: true
 ---
-
 
 # Pyramide des âges du Québec en 2025
 
-<!-- activity-teacher-brief:start -->
-::: {.activity-teacher-brief}
 
-## En classe, cette activité sert à...
+Quelle structure d’âge observe-t-on au Québec?
 
-Cette activité sert à travailler les notions suivantes : Données ouvertes, Filtrage, Statistique descriptive, Visualisation, Proportions à partir d'une question située dans le contexte suivant : Démographie. Elle demande aux étudiantes et étudiants de répondre à la question directrice suivante : Comment transformer une table démographique en pyramide des âges lisible?
-
-::: {.activity-quick-facts}
-| Élément | Information |
-|---|---|
-| Durée | 30-45 minutes |
-| Niveau | Introductif |
-| Usage recommandé | Exercice guidé |
-| Préparation enseignant | Vérifier que `data/processed/pyramides-ages/population_pyramides_quebec_canada_latest.csv` est disponible; aucune collecte en direct n'est nécessaire pour lancer l'activité. |
-| Production attendue | Un tableau ou graphique descriptif accompagné de trois phrases d'interprétation prudente. |
-| Données | `data/processed/pyramides-ages/population_pyramides_quebec_canada_latest.csv` |
-:::
-
-:::
-<!-- activity-teacher-brief:end -->
+Durée : 30-45 minutes. Niveau : Introduction.
 
 ## Préparation enseignante
 
-- Vérifier que `data/processed/pyramides-ages/population_pyramides_quebec_canada_latest.csv` est disponible; aucune collecte en direct n'est nécessaire pour lancer l'activité.
-- Fichier préparé : `data/processed/pyramides-ages/population_pyramides_quebec_canada_latest.csv`.
-- Script de préparation : `datasets/pyramides-ages/preparation.R`.
-- Point à surveiller : Insister sur la différence entre population réelle, proportion et valeur négative d'affichage.
+Télécharger la trousse ci-dessous. Extraire le ZIP, puis double-cliquer sur `Donnees-bleues.Rproj`. Avant la séance, ouvrir `installer-packages.R` et cliquer sur Source avec une connexion Internet.
 
-## Limites à faire nommer
+Une fois les packages installés, les scripts utilisent les fichiers inclus et peuvent être exécutés hors ligne.
 
-- Insister sur la différence entre population réelle, proportion et valeur négative d'affichage.
-- Si une variable ou un dénominateur nécessaire n'est pas disponible dans les données, l'écrire explicitement plutôt que l'inférer.
-
+```{r}
+#| label: activity-classroom-resources
+#| echo: false
+#| results: asis
+source(if (file.exists("R/utils_activity_contract.R")) "R/utils_activity_contract.R" else "../../R/utils_activity_contract.R")
+render_activity_resources()
+```
 
 ## Contexte
 
-Une pyramide des âges sert à représenter une population par groupe d'âge et par genre. Elle semble simple, mais elle demande plusieurs choix de préparation : année, territoire, unité, groupes d'âge et convention d'affichage.
+Cette activité utilise la fiche [Pyramides des âges au Canada et au Québec](fiche.qmd). Unité : Un groupe d’âge et de genre publié pour un territoire et une année.
 
-Dans cette activité, vous utilisez la table préparée à partir du tableau StatCan `17-10-0005-01` pour construire une pyramide des âges du Québec en 2025.
-
-## Objectifs d'apprentissage
-
-- Importer un fichier préparé avec `readr`.
-- Vérifier l'unité statistique avant de tracer un graphique.
-- Utiliser une variable signée seulement pour l'affichage.
-- Produire une pyramide des âges en proportions.
-- Rédiger une interprétation descriptive prudente.
-
-## Données utilisées
-
-Source : Statistique Canada, tableau `17-10-0005-01`, Estimations de la population au 1er juillet, par âge et genre, sous Licence ouverte de Statistique Canada.
-
-Fichier préparé : `data/processed/pyramides-ages/population_pyramides_quebec_canada_latest.csv`.
-
-Fiche : [Pyramides des âges au Canada et au Québec](fiche.qmd).
+Source : [Statistique Canada](https://www150.statcan.gc.ca/t1/tbl1/fr/tv.action?pid=1710000501). Les dates de préparation, les fichiers et les conditions de réutilisation sont indiqués dans la trousse.
 
 ## Consignes
 
-1. Exécuter `source("datasets/pyramides-ages/preparation.R")`.
-2. Importer le fichier préparé avec `read_csv()`.
-3. Garder seulement `geography == "Quebec"`.
-4. Vérifier que l'année est 2025 et que les groupes d'âge sont quinquennaux.
-5. Construire une pyramide avec `age_group`, `proportion_plot` et `gender`.
-6. Formater l'axe horizontal en valeurs absolues.
-7. Écrire trois observations descriptives.
+1. Ouvrir `activite-courte.R` dans le sous-dossier `datasets/pyramides-ages` du projet RStudio et cliquer sur Source. Les tableaux apparaissent dans Console et les graphiques dans Plots.
+2. Vérifier les groupes d’âge, le genre et l’année dans la table.
+3. Lire la pyramide avec les groupes d’âge ordonnés numériquement et les parts en pourcentage.
+4. Rédiger une réponse à la question en nommant l’unité observée et une limite de la source.
 
-## Code de départ
+## Résultat attendu
+
+Les tableaux et graphiques du script, accompagnés d’une interprétation de 6 à 8 lignes répondant à la question.
+
+## Limites à faire nommer
+
+Les effectifs sont des estimations de population. Les signes servent à placer les côtés de la pyramide; les proportions de population sont positives.
+
+## Code complet
+
+Ce script complet est celui de la trousse. Il lit les fichiers locaux et affiche les résultats dans RStudio.
 
 ```{r}
-#| eval: false
-# Load libraries
-library(dplyr)
-library(ggplot2)
-library(readr)
-library(scales)
-
-# Prepare and import data
-source("datasets/pyramides-ages/preparation.R")
-
-population <- read_csv(
-  "data/processed/pyramides-ages/population_pyramides_quebec_canada_latest.csv",
-  show_col_types = FALSE
-)
-
-population_quebec <- population |>
-  filter(geography == "Quebec")
-
-# Check the structure
-population_quebec |>
-  count(year, gender)
-
-# Build the pyramid
-ggplot(
-  population_quebec,
-  aes(x = age_group, y = proportion_plot, fill = gender)
-) +
-  geom_col(width = 0.85) +
-  coord_flip() +
-  scale_y_continuous(labels = function(x) percent(abs(x), accuracy = 1)) +
-  labs(
-    title = "Pyramide des âges du Québec, 2025",
-    subtitle = "Proportions de la population estimée au 1er juillet",
-    x = "Groupe d'âge",
-    y = "Part de la population",
-    fill = "Genre publié"
-  ) +
-  theme_minimal()
+#| label: activity-code
+#| echo: false
+#| results: asis
+render_activity_code()
 ```
-
-## Questions
-
-1. Pourquoi la variable `population_plot` contient-elle des valeurs négatives?
-2. Pourquoi ne faut-il pas inclure `All ages`, les âges simples, l'âge moyen ou l'âge médian dans la pyramide?
-3. Quels groupes d'âge occupent les plus grandes parts de la population québécoise?
-4. Que gagne-t-on à utiliser des proportions plutôt que des effectifs?
-5. Quelle conclusion serait trop forte avec cette seule table?
-
-## Résultats attendus
-
-Une solution correcte doit produire un graphique lisible, avec `Men+` d'un côté, `Women+` de l'autre, et un axe horizontal présenté en valeurs absolues. Le commentaire doit préciser que les valeurs négatives sont une convention graphique.
-
-## Prolongement
-
-Refaire la même pyramide pour le Canada, puis comparer les formes sans utiliser les effectifs absolus comme seul argument.
 
 ```{r}
 #| label: activity-pedagogical-contract
 #| echo: false
 #| results: asis
-contract_source_path <- if (file.exists("R/utils_activity_contract.R")) "R/utils_activity_contract.R" else "../../R/utils_activity_contract.R"
-source(contract_source_path)
 render_activity_contract()
 ```

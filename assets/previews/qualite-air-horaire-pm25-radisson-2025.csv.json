@@ -1,0 +1,36 @@
+{
+  "dataset_id": "qualite-air-horaire",
+  "prepared_at_utc": "2026-09-05T12:46:41Z",
+  "prepared_file": "resume_journalier_contaminants_2025.csv",
+  "prepared_sha256": "25bdf82632c2fff00c55517222e9171b950b7833cc3bc1c0455a3b4d08b3012f",
+  "preview_sha256": "9fbfffbf8cc54d0984edc804ca8bbe3af6e26214cd09ca4518111be8ed795e86",
+  "rows": 120,
+  "columns": ["date", "station_id", "station_name", "contaminant", "n_heures_valides", "moyenne", "mediane", "p95", "maximum", "source_year"],
+  "selection": "Radisson; PM2.5-T640; au moins 18 heures valides; au plus 120 positions régulièrement espacées dans l'ordre chronologique",
+  "source_name": "Données Québec / MELCCFP / RSQAQ",
+  "source_url": "https://www.donneesquebec.ca/recherche/dataset/rsqaq-donnees-horaires-continues",
+  "license": "Attribution (CC-BY 4.0) selon les métadonnées CKAN vérifiées le 2026-06-21",
+  "license_url": "https://creativecommons.org/licenses/by/4.0/deed.fr",
+  "sources": [
+    {
+      "source_url": "https://www.donneesquebec.ca/recherche/api/3/action/package_show?id=rsqaq-donnees-horaires-continues",
+      "acquisition_kind": "download",
+      "acquired_at_utc": "2026-09-05T11:05:00Z",
+      "started_at_utc": "2026-09-05T11:05:00Z",
+      "file": "package_show_rsqaq_donnees_horaires_continues.json",
+      "bytes": 97771,
+      "sha256": "7ec3bed559ba21385ec2f260681bb79f19b381518784ce7505f16b1820e6ed3e",
+      "details": {}
+    },
+    {
+      "source_url": "https://www.donneesquebec.ca/recherche/dataset/a80757bd-d442-4d3d-9269-11628330b727/resource/370a6be4-1530-4c2b-92f3-0a308224f284/download/rsqaq_continues_horaires_2025.csv",
+      "acquisition_kind": "download",
+      "acquired_at_utc": "2026-09-05T11:05:03Z",
+      "started_at_utc": "2026-09-05T11:05:00Z",
+      "file": "rsqaq_continues_horaires_2025.csv",
+      "bytes": 28212635,
+      "sha256": "2248e2418d069f28b9e7b9b21a08bd828e7c44ea717488c8fc168aded863348c",
+      "details": {}
+    }
+  ]
+}

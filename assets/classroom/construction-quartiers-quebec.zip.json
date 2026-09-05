@@ -1,0 +1,21 @@
+{
+  "dataset_id": "construction-quartiers-quebec",
+  "title": "Construction, bâtiments et quartiers à la Ville de Québec",
+  "mode": "frozen",
+  "prepared_at_utc": "2026-09-05T12:20:22Z",
+  "source_name": "Ville de Québec, Données Québec",
+  "source_url": "https://www.donneesquebec.ca/recherche/dataset/permis-delivres-ville-de-quebec",
+  "license_url": "https://creativecommons.org/licenses/by/4.0/deed.fr",
+  "selection": "Table de classe limitée aux colonnes déclarées, sans tirage supplémentaire de lignes. Attribution et conditions tierces conservées.",
+  "tables": [
+    {
+      "path": "data/processed/construction-quartiers-quebec/quebec_construction_quartiers.csv",
+      "rows": 35,
+      "columns": ["id_quartier", "nom_quartier", "superficie_quartier_m2", "perimetre_quartier_m", "nombre_permis", "nombre_permis_construction_batiment_principal", "nombre_permis_renovation_agrandissement", "nombre_permis_constructions_amenagements_accessoires", "nombre_permis_lotissement", "annee_min_permis", "annee_max_permis", "nombre_batiments", "nombre_batiments_residence", "nombre_batiments_garage_annexe_remise", "nombre_batiments_commercial", "superficie_empreintes_batiments_m2", "superficie_moyenne_batiment_m2", "superficie_quartier_km2", "permis_par_km2", "batiments_par_km2", "part_superficie_batie"],
+      "sha256": "69abb288d153b0980e8401a93e838d46301cf989ba5ccdabce8f7a9314242e2b",
+      "prepared_table_sha256": "69abb288d153b0980e8401a93e838d46301cf989ba5ccdabce8f7a9314242e2b"
+    }
+  ],
+  "archive_sha256": "35f6c41178e2a129cd60ae5349033150d8f453ea19c72913840e9172ddd21a75",
+  "archive_bytes": 9193
+}

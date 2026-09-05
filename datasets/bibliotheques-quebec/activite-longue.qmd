@@ -1,139 +1,64 @@
 ---
 title: "Mini-projet - Portrait régional des bibliothèques publiques"
-embed-resources: false
+embed-resources: true
 ---
-
 
 # Mini-projet - Portrait régional des bibliothèques publiques
 
-<!-- activity-teacher-brief:start -->
-::: {.activity-teacher-brief}
 
-## En classe, cette activité sert à...
+Que change la taille de la population desservie dans la comparaison des visites?
 
-Cette activité sert à travailler les notions suivantes : Données et mesure, Statistique descriptive, Modélisation et relations, Communication à partir d'une question située dans le contexte suivant : Culture et services publics. Elle demande aux étudiantes et étudiants de répondre à la question directrice suivante : Comment construire des indicateurs comparables à partir de données administratives?
-
-::: {.activity-quick-facts}
-| Élément | Information |
-|---|---|
-| Durée | 2-3 heures |
-| Niveau | Intermédiaire |
-| Usage recommandé | Mini-projet guidé |
-| Préparation enseignant | Vérifier que `data/processed/bibliotheques-quebec/statistiques_bibliotheques_quebec_2024_selection.csv` est disponible; aucune collecte en direct n'est nécessaire pour lancer l'activité. |
-| Production attendue | Un court rapport reproductible avec contexte, tableau ou graphique, interprétation et limites. |
-| Données | `data/processed/bibliotheques-quebec/statistiques_bibliotheques_quebec_2024_selection.csv` |
-:::
-
-:::
-<!-- activity-teacher-brief:end -->
-
-## Objectifs d'apprentissage
-
-- Travailler Données et mesure.
-- Travailler Statistique descriptive.
-- Travailler Modélisation et relations.
-- Travailler Communication.
-- Nommer au moins une limite d'interprétation.
-
-## Données utilisées
-
-Source : Bibliothèque et Archives nationales du Québec / Données Québec. Licence : Attribution (CC-BY 4.0) selon les métadonnées CKAN vérifiées le 2026-06-21. Fichier principal pour l'activité : `data/processed/bibliotheques-quebec/statistiques_bibliotheques_quebec_2024_selection.csv`
+Durée : 2-3 heures. Niveau : Intermédiaire.
 
 ## Préparation enseignante
 
-- Vérifier que `data/processed/bibliotheques-quebec/statistiques_bibliotheques_quebec_2024_selection.csv` est disponible; aucune collecte en direct n'est nécessaire pour lancer l'activité.
-- Fichier préparé : `data/processed/bibliotheques-quebec/statistiques_bibliotheques_quebec_2024_selection.csv`.
-- Script de préparation : `datasets/bibliotheques-quebec/preparation.R`.
-- Point à surveiller : Demander un calcul régional à partir des volumes agrégés et de la population totale. Présenter la modélisation comme exploratoire.
+Télécharger la trousse ci-dessous. Extraire le ZIP, puis double-cliquer sur `Donnees-bleues.Rproj`. Avant la séance, ouvrir `installer-packages.R` et cliquer sur Source avec une connexion Internet.
 
-## Consignes
+Une fois les packages installés, les scripts utilisent les fichiers inclus et peuvent être exécutés hors ligne.
 
-1. Importer `statistiques_bibliotheques_quebec_2024_selection.csv` ou exécuter `datasets/bibliotheques-quebec/preparation.R` si le fichier est absent.
-2. Identifier ce que représente une ligne du fichier.
-3. Produire un tableau ou un graphique adapté à la question directrice.
-4. Rédiger une interprétation courte qui distingue description et explication.
-5. Nommer au moins une limite méthodologique ou une information absente.
-
-## Résultat attendu
-
-Un court rapport reproductible avec contexte, tableau ou graphique, interprétation et limites. La production doit aussi contenir une phrase sur l'unité statistique et une phrase sur une limite de la source.
-
-## Questions
-
-1. Quelle est l'unité statistique utilisée dans cette activité?
-2. Quelle transformation ou agrégation est nécessaire avant de répondre à la question?
-3. Quelle information manque pour aller plus loin?
-4. Quelle conclusion serait trop forte avec ces seules données?
-5. Comment formuler une conclusion prudente à partir du résultat obtenu?
-
-## Déroulé suggéré
-
-1. Cadrer la source, la licence et l'unité statistique.
-2. Préparer ou importer les données.
-3. Produire un premier résumé descriptif.
-4. Construire la visualisation ou le tableau principal.
-5. Rédiger l'interprétation et les limites.
-
-## Limites à faire nommer
-
-- Demander un calcul régional à partir des volumes agrégés et de la population totale. Présenter la modélisation comme exploratoire.
-- Si une variable ou un dénominateur nécessaire n'est pas disponible dans les données, l'écrire explicitement plutôt que l'inférer.
-
+```{r}
+#| label: activity-classroom-resources
+#| echo: false
+#| results: asis
+source(if (file.exists("R/utils_activity_contract.R")) "R/utils_activity_contract.R" else "../../R/utils_activity_contract.R")
+render_activity_resources()
+```
 
 ## Contexte
 
-Cette activité combine préparation de données, statistique descriptive, visualisation et communication. Le rapport attendu doit comparer les régions administratives à partir d'indicateurs par habitant, sans transformer une comparaison descriptive en conclusion causale.
+Cette activité utilise la fiche [Statistiques des bibliothèques publiques du Québec](fiche.qmd). Unité : Une bibliothèque déclarante dans la sélection préparée des données 2024.
 
-## Question directrice
+Source : [Bibliothèque et Archives nationales du Québec / Données Québec](https://www.donneesquebec.ca/recherche/dataset/statistiques_des_bibliotheques_publiques_du_quebec). Les dates de préparation, les fichiers et les conditions de réutilisation sont indiqués dans la trousse.
 
-Comment construire un portrait régional des bibliothèques publiques du Québec à partir de données administratives vérifiées?
+## Consignes
 
-## Livrables
+1. Ouvrir `activite-longue.R` dans le sous-dossier `datasets/bibliotheques-quebec` du projet RStudio et cliquer sur Source. Les tableaux apparaissent dans Console et les graphiques dans Plots.
+2. Comparer les médianes des ratios par catégorie de bibliothèque.
+3. Lire le nuage population-visites et compter les visites manquantes avant le graphique.
+4. Rédiger une réponse à la question en nommant l’unité observée et une limite de la source.
 
-1. Un script reproductible qui exécute `datasets/bibliotheques-quebec/preparation.R`.
-2. Un tableau des variables retenues et de leur rôle statistique.
-3. Un tableau régional avec visites, prêts et dépenses par habitant.
-4. Deux visualisations, dont au moins une comparaison régionale.
-5. Un court modèle exploratoire ou une analyse de relation entre deux ratios.
-6. Une section limites qui distingue données administratives, accès aux services et qualité du service.
+## Résultat attendu
 
-## Étapes suggérées
+Les tableaux et graphiques du script, accompagnés d’une interprétation de 6 à 8 lignes répondant à la question.
 
-1. Importer la table préparée.
-2. Vérifier le nombre de lignes, les colonnes et les valeurs manquantes.
-3. Exclure uniquement les lignes sans population valide pour les ratios.
-4. Résumer les indicateurs par région administrative.
-5. Comparer `visites_par_habitant`, `prets_par_habitant` et `depenses_par_habitant`.
-6. Identifier les régions ou bibliothèques atypiques.
-7. Rédiger une interprétation qui mentionne au moins trois limites.
+## Limites à faire nommer
 
-## Critères d'évaluation suggérés
+Les territoires desservis, missions et modalités de comptage diffèrent. Un ratio élevé ne prouve pas une meilleure qualité de service.
 
-| Critère | Attendu |
-|---|---|
-| Reproductibilité | Le rapport exécute le script de préparation et importe la table préparée. |
-| Définition des indicateurs | Les volumes et les ratios sont distingués explicitement. |
-| Traitement des valeurs manquantes | Les exclusions liées aux dénominateurs sont justifiées. |
-| Visualisations | Les graphiques répondent à une question statistique précise. |
-| Analyse | Les comparaisons régionales sont descriptives et contextualisées. |
-| Limites | Les limites administratives et causales sont clairement énoncées. |
+## Code complet
 
-## Pistes de solution
+Ce script complet est celui de la trousse. Il lit les fichiers locaux et affiche les résultats dans RStudio.
 
-Un rapport solide commence par vérifier la structure des données. Il agrège ensuite les bibliothèques par région en additionnant les volumes et la population, puis calcule les ratios régionaux. Une modélisation simple peut être utilisée pour explorer une relation, mais elle ne doit pas être présentée comme une preuve d'effet.
-
-## Variantes possibles
-
-- Limiter le portrait à une seule région et comparer les bibliothèques.
-- Comparer les prêts par habitant et les dépenses par habitant.
-- Produire une note synthèse destinée à une direction municipale fictive.
-- Ajouter une carte régionale avec une source géographique externe documentée.
+```{r}
+#| label: activity-code
+#| echo: false
+#| results: asis
+render_activity_code()
+```
 
 ```{r}
 #| label: activity-pedagogical-contract
 #| echo: false
 #| results: asis
-contract_source_path <- if (file.exists("R/utils_activity_contract.R")) "R/utils_activity_contract.R" else "../../R/utils_activity_contract.R"
-source(contract_source_path)
 render_activity_contract()
 ```

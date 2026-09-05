@@ -1,0 +1,21 @@
+{
+  "dataset_id": "suivi-rivieres-fleuve",
+  "title": "Suivi de la qualité de l'eau du fleuve et des rivières",
+  "mode": "frozen",
+  "prepared_at_utc": "2026-09-05T11:05:12Z",
+  "source_name": "Données Québec / MELCCFP",
+  "source_url": "https://www.donneesquebec.ca/recherche/dataset/suivi-physicochimique-des-rivieres-et-du-fleuve",
+  "license_url": "https://creativecommons.org/licenses/by/4.0/deed.fr",
+  "selection": "Table de classe limitée aux colonnes déclarées, sans tirage supplémentaire de lignes. Attribution et conditions tierces conservées.",
+  "tables": [
+    {
+      "path": "data/processed/suivi-rivieres-fleuve/stations_qualite_eau_aires.csv",
+      "rows": 6990,
+      "columns": ["no_bqma", "hydronyme", "type_station", "type_suivi", "annee", "n_echant", "iqbp_med", "ptot_med_mgl", "ntot_med_mgl", "nox_med_mgl", "chla_med_ugl", "cf_med_ufc", "latitude", "longitude", "bv_n1m", "pc_agricole"],
+      "sha256": "1be189251278697aea1f47297fe50f34318a6c334d2734a8f548a1bc52c3943b",
+      "prepared_table_sha256": "5fa2874f5c7b1387ea29e8aae6d29bd2962876d09e0cb72fdcedd04730dcdaf6"
+    }
+  ],
+  "archive_sha256": "231da0d7a9c39267a8737b2e0d234f5ea436522c14a267d3dfa71959051669de",
+  "archive_bytes": 201175
+}

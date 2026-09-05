@@ -1,3 +1,4 @@
+source("R/utils_downloads.R")
 # Préparation : actes criminels à Montréal
 # Source officielle : Données Québec / Ville de Montréal, paquet CKAN 5829b5b0-ea6f-476f-be94-bc2b8797769a.
 
@@ -26,7 +27,7 @@ processed_dir <- file.path(root, "data/processed/actes-criminels-montreal")
 dir.create(raw_dir, recursive = TRUE, showWarnings = FALSE)
 dir.create(processed_dir, recursive = TRUE, showWarnings = FALSE)
 
-access_date <- as.Date("2026-06-21")
+access_date <- Sys.Date()
 source_page <- "https://www.donneesquebec.ca/recherche/dataset/vmtl-actes-criminels"
 source_api <- "https://www.donneesquebec.ca/recherche/api/3/action/package_show?id=vmtl-actes-criminels"
 source_montreal_page <- "https://donnees.montreal.ca/dataset/actes-criminels"
@@ -37,8 +38,8 @@ csv_url <- "https://donnees.montreal.ca/dataset/5829b5b0-ea6f-476f-be94-bc2b8797
 package_json_path <- file.path(raw_dir, "package_show_actes_criminels.json")
 csv_raw_path <- file.path(raw_dir, "actes-criminels.csv")
 
-download.file(source_api, package_json_path, mode = "wb", quiet = TRUE)
-download.file(csv_url, csv_raw_path, mode = "wb", quiet = TRUE)
+download_source(source_api, package_json_path, mode = "wb", quiet = TRUE)
+download_source(csv_url, csv_raw_path, mode = "wb", quiet = TRUE)
 
 package <- fromJSON(package_json_path)
 if (!isTRUE(package$success)) {
@@ -200,3 +201,5 @@ write_csv(summary_by_year, file.path(processed_dir, "resume_annees_actes_crimine
 write_csv(summary_by_month_category, file.path(processed_dir, "resume_mois_categories_actes_criminels.csv"))
 write_csv(missing_summary, file.path(processed_dir, "valeurs_manquantes_actes_criminels.csv"))
 write_csv(dataset_summary, file.path(processed_dir, "resume_actes_criminels.csv"))
+
+record_preparation("actes-criminels-montreal")

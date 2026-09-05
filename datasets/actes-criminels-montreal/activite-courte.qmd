@@ -1,114 +1,64 @@
 ---
-title: "Laboratoire - Lire prudemment des données de sécurité publique"
-embed-resources: false
+title: "Lire prudemment des données de sécurité publique"
+embed-resources: true
 ---
 
+# Lire prudemment des données de sécurité publique
 
-# Laboratoire - Lire prudemment des données de sécurité publique
 
-<!-- activity-teacher-brief:start -->
-::: {.activity-teacher-brief}
+Quelles catégories d’actes sont les plus enregistrées?
 
-## En classe, cette activité sert à...
-
-Cette activité sert à travailler les notions suivantes : Données sensibles, Unité statistique, Catégories, Statistique descriptive, Éthique à partir d'une question située dans le contexte suivant : Sécurité publique. Elle demande aux étudiantes et étudiants de répondre à la question directrice suivante : Que peut-on décrire sans transformer ces données ouvertes en statistiques officielles?
-
-::: {.activity-quick-facts}
-| Élément | Information |
-|---|---|
-| Durée | 30-45 minutes |
-| Niveau | Intermédiaire |
-| Usage recommandé | Discussion guidée |
-| Préparation enseignant | Préparation requise : exécuter `Rscript datasets/actes-criminels-montreal/preparation.R` depuis la racine, puis vérifier que `data/processed/actes-criminels-montreal/actes_criminels_montreal.csv` existe. |
-| Production attendue | Un tableau ou graphique descriptif accompagné de trois phrases d'interprétation prudente. |
-| Données | `data/processed/actes-criminels-montreal/actes_criminels_montreal.csv` |
-:::
-
-:::
-<!-- activity-teacher-brief:end -->
-
-## Données utilisées
-
-Source : Données Québec / Ville de Montréal / SPVM. Licence : Attribution (CC-BY 4.0) selon les métadonnées CKAN vérifiées le 2026-06-21. Fichier principal pour l'activité : `data/processed/actes-criminels-montreal/actes_criminels_montreal.csv`
+Durée : 30-45 minutes. Niveau : Intermédiaire.
 
 ## Préparation enseignante
 
-- Préparation requise : exécuter `Rscript datasets/actes-criminels-montreal/preparation.R` depuis la racine, puis vérifier que `data/processed/actes-criminels-montreal/actes_criminels_montreal.csv` existe.
-- Fichier préparé : `data/processed/actes-criminels-montreal/actes_criminels_montreal.csv`.
-- Script de préparation : `datasets/actes-criminels-montreal/preparation.R`.
-- Point à surveiller : Ne pas demander de classement de quartiers dangereux et interdire les cartes de points bruts.
+Télécharger la trousse ci-dessous. Extraire le ZIP, puis double-cliquer sur `Donnees-bleues.Rproj`. Avant la séance, ouvrir `installer-packages.R` et cliquer sur Source avec une connexion Internet.
 
-## Code R minimal
+Une fois les packages installés, les scripts utilisent les fichiers inclus et peuvent être exécutés hors ligne.
 
 ```{r}
-#| eval: false
-library(dplyr)
-library(readr)
-
-if (!file.exists("data/processed/actes-criminels-montreal/actes_criminels_montreal.csv")) {
-  source("datasets/actes-criminels-montreal/preparation.R")
-}
-
-donnees <- read_csv(
-  "data/processed/actes-criminels-montreal/actes_criminels_montreal.csv",
-  show_col_types = FALSE
-)
-
-glimpse(donnees)
+#| label: activity-classroom-resources
+#| echo: false
+#| results: asis
+source(if (file.exists("R/utils_activity_contract.R")) "R/utils_activity_contract.R" else "../../R/utils_activity_contract.R")
+render_activity_resources()
 ```
-
-## Résultat attendu
-
-Un tableau ou graphique descriptif accompagné de trois phrases d'interprétation prudente. La production doit aussi contenir une phrase sur l'unité statistique et une phrase sur une limite de la source.
-
-## Questions
-
-1. Quelle est l'unité statistique utilisée dans cette activité?
-2. Quelle transformation ou agrégation est nécessaire avant de répondre à la question?
-3. Quelle information manque pour aller plus loin?
-4. Quelle conclusion serait trop forte avec ces seules données?
-5. Comment formuler une conclusion prudente à partir du résultat obtenu?
-
-## Limites à faire nommer
-
-- Ne pas demander de classement de quartiers dangereux et interdire les cartes de points bruts.
-- Si une variable ou un dénominateur nécessaire n'est pas disponible dans les données, l'écrire explicitement plutôt que l'inférer.
-
 
 ## Contexte
 
-Cette activité utilise la fiche [Actes criminels enregistrés à Montréal](fiche.qmd). L'objectif est de produire une description honnête d'un fichier sensible, sans le transformer en portrait officiel de la criminalité.
+Cette activité utilise la fiche [Actes criminels enregistrés à Montréal](fiche.qmd). Unité : Un acte enregistré, catégorisé et daté.
 
-## Objectifs d'apprentissage
-
-- Identifier l'unité statistique d'un fichier de sécurité publique.
-- Résumer des catégories avec une table de fréquences.
-- Reconnaître une année partielle.
-- Écrire une limite méthodologique et une limite éthique.
-- Éviter une visualisation stigmatisante.
-
-## Question directrice
-
-Que peut-on décrire sans transformer ces données ouvertes en statistiques officielles?
+Source : [Données Québec / Ville de Montréal / SPVM](https://www.donneesquebec.ca/recherche/dataset/vmtl-actes-criminels). Les dates de préparation, les fichiers et les conditions de réutilisation sont indiqués dans la trousse.
 
 ## Consignes
 
-1. Exécuter `datasets/actes-criminels-montreal/preparation.R`.
-2. Importer `data/processed/actes-criminels-montreal/actes_criminels_montreal.csv`.
-3. Compter les actes par `categorie`.
-4. Vérifier la première et la dernière date du fichier.
-5. Identifier pourquoi 2026 ne doit pas être comparée directement aux années complètes.
-6. Rédiger une note de 5 à 8 lignes qui contient autant de limites que de résultats.
+1. Ouvrir `activite-courte.R` dans le sous-dossier `datasets/actes-criminels-montreal` du projet RStudio et cliquer sur Source. Les tableaux apparaissent dans Console et les graphiques dans Plots.
+2. Compter les actes par catégorie et lire le diagramme.
+3. Identifier la première et la dernière date de la table.
+4. Rédiger une réponse à la question en nommant l’unité observée et une limite de la source.
 
-## Pistes de solution
+## Résultat attendu
 
-Une bonne réponse donne un tableau par catégorie et rappelle que le jeu ne représente pas les statistiques officielles du SPVM. Une réponse excellente explique aussi pourquoi les points localisés ne doivent pas être cartographiés sans agrégation.
+Les tableaux et graphiques du script, accompagnés d’une interprétation de 6 à 8 lignes répondant à la question.
+
+## Limites à faire nommer
+
+La déclaration et l’enregistrement ne couvrent pas tous les crimes. Sans population exposée, les nombres ne sont pas des risques; la dernière année peut être incomplète.
+
+## Code complet
+
+Ce script complet est celui de la trousse. Il lit les fichiers locaux et affiche les résultats dans RStudio.
+
+```{r}
+#| label: activity-code
+#| echo: false
+#| results: asis
+render_activity_code()
+```
 
 ```{r}
 #| label: activity-pedagogical-contract
 #| echo: false
 #| results: asis
-contract_source_path <- if (file.exists("R/utils_activity_contract.R")) "R/utils_activity_contract.R" else "../../R/utils_activity_contract.R"
-source(contract_source_path)
 render_activity_contract()
 ```

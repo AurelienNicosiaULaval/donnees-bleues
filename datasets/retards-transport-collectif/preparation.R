@@ -1,3 +1,4 @@
+source("R/utils_downloads.R")
 # Préparation : flux temps réel STM et ponctualité du transport collectif
 # Source officielle : https://www.donneesquebec.ca/recherche/dataset/vmtl-stm-bus-temps-reel-gtfs-realtime
 #
@@ -49,9 +50,8 @@ pluck_number <- function(x, name) {
 }
 
 read_ckan_package <- function(url) {
-  tmp <- tempfile(fileext = ".json")
-  on.exit(unlink(tmp), add = TRUE)
-  curl::curl_download(url, tmp, quiet = TRUE, handle = curl::new_handle(useragent = "Mozilla/5.0"))
+  tmp <- "data/raw/retards-transport-collectif/package_show.json"
+  download_source(url, tmp, quiet = TRUE, handle = curl::new_handle(useragent = "Mozilla/5.0"))
   jsonlite::fromJSON(tmp, simplifyVector = FALSE)
 }
 
@@ -150,3 +150,5 @@ stopifnot(nrow(gtfs_fields_tbl) == 10)
 stopifnot(nrow(archive_protocol_tbl) == 7)
 
 message("Préparation terminée : ", output_dir)
+
+record_preparation("retards-transport-collectif")

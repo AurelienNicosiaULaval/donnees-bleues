@@ -1,3 +1,4 @@
+source("R/utils_downloads.R")
 # Préparation : Profil financier des municipalités locales
 # Source officielle : Données Québec, paquet CKAN b34de345-5bfe-4db2-a714-ed239a0c0b81.
 
@@ -12,7 +13,7 @@ processed_dir <- "data/processed/budgets-municipaux-quebec"
 dir.create(raw_dir, recursive = TRUE, showWarnings = FALSE)
 dir.create(processed_dir, recursive = TRUE, showWarnings = FALSE)
 
-access_date <- "2026-06-21"
+access_date <- as.character(Sys.Date())
 source_page <- "https://www.donneesquebec.ca/recherche/dataset/profil-financier-des-municipalites-locales"
 quebec_page <- "https://www.quebec.ca/gouvernement/gestion-municipale/finances-fiscalite-municipales/information-financiere/publications-financieres/profil-financier"
 package_api <- "https://www.donneesquebec.ca/recherche/api/3/action/package_show?id=profil-financier-des-municipalites-locales"
@@ -23,9 +24,9 @@ package_json_path <- file.path(raw_dir, "package_show_profil_financier_municipal
 csv_raw_path <- file.path(raw_dir, "PF-2024-2025.csv")
 postes_raw_path <- file.path(raw_dir, "PF-2024-2025-DescriptionPoste.csv")
 
-download.file(package_api, package_json_path, mode = "wb", quiet = TRUE)
-download.file(csv_url, csv_raw_path, mode = "wb", quiet = TRUE)
-download.file(postes_url, postes_raw_path, mode = "wb", quiet = TRUE)
+download_source(package_api, package_json_path, mode = "wb", quiet = TRUE)
+download_source(csv_url, csv_raw_path, mode = "wb", quiet = TRUE)
+download_source(postes_url, postes_raw_path, mode = "wb", quiet = TRUE)
 
 package <- fromJSON(package_json_path)
 if (!isTRUE(package$success)) {
@@ -301,3 +302,5 @@ message("Fichier préparé : ", file.path(processed_dir, "profil_financier_munic
 message("Municipalités préparées : ", nrow(municipalites))
 message("Indicateurs financiers municipaux : ", length(financial_cols))
 message("Ressources CKAN documentées : ", nrow(resources))
+
+record_preparation("budgets-municipaux-quebec")

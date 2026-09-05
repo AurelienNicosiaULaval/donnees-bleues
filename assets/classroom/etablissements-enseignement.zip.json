@@ -1,0 +1,21 @@
+{
+  "dataset_id": "etablissements-enseignement",
+  "title": "Localisation des établissements d'enseignement au Québec",
+  "mode": "frozen",
+  "prepared_at_utc": "2026-09-05T11:04:44Z",
+  "source_name": "Données Québec / Ministère de l'Éducation et Ministère de l'Enseignement supérieur",
+  "source_url": "https://www.donneesquebec.ca/recherche/dataset/localisation-des-etablissements-d-enseignement-du-reseau-scolaire-au-quebec",
+  "license_url": "https://creativecommons.org/licenses/by/4.0/deed.fr",
+  "selection": "Table de classe limitée aux colonnes déclarées, sans tirage supplémentaire de lignes. Attribution et conditions tierces conservées.",
+  "tables": [
+    {
+      "path": "data/processed/etablissements-enseignement/etablissements_enseignement_quebec.csv",
+      "rows": 14079,
+      "columns": ["source_resource", "resource_label", "network_category", "unit_kind", "code_organisme", "code_immeuble", "nom", "longitude", "latitude", "region_administrative", "has_region", "has_coordinates"],
+      "sha256": "87ae7f226111932c514df26ebec9b4c63d56b493abca8ee13e52831cca5e64c3",
+      "prepared_table_sha256": "c8d2fbb677934e11a698914d28d5e031ec503274b3873a1a546c644e2802020b"
+    }
+  ],
+  "archive_sha256": "4925d9a6769c840f2239384d1acafda9658e5e4a1c9bdadeb1bc16207bafa5ae",
+  "archive_bytes": 306631
+}

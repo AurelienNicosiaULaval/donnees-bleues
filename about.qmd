@@ -2,6 +2,7 @@
 title: "À propos"
 toc: false
 page-layout: full
+embed-resources: true
 ---
 
 ```{r}
@@ -40,7 +41,7 @@ n_contexts <- if (n_activities > 0) length(unique(activities$context)) else 0
 # À propos de Données bleues
 
 ::: {.about-lede}
-Données bleues est une infrastructure pédagogique ouverte pour enseigner la statistique, la programmation R et la science des données à partir de données québécoises, documentées et réutilisables.
+Données bleues est un répertoire pédagogique pour enseigner la statistique, la programmation R et la science des données à partir de données québécoises, documentées et réutilisables.
 :::
 
 ::: {.about-hero-actions}
@@ -53,7 +54,7 @@ Données bleues est une infrastructure pédagogique ouverte pour enseigner la st
 ::: {.about-problem-panel}
 ## Le point de départ
 
-Dans beaucoup d'exemples utilisés en statistique, en programmation R et en science des données, les jeux de données viennent de contextes non québécois, souvent américains. Ces exemples peuvent être utiles pour apprendre une méthode, mais ils rendent parfois le contexte abstrait : les institutions, les territoires, les catégories administratives, les licences et les enjeux publics ne sont pas ceux que les personnes étudiantes rencontrent au Québec.
+Le projet propose des exemples liés aux institutions, aux territoires et aux enjeux publics du Québec. Chaque activité relie une question statistique à une source dont les catégories, les unités et les conditions d’utilisation sont explicites.
 :::
 :::
 
@@ -87,7 +88,7 @@ contextes d'enseignement
 ::: {.about-section-heading}
 ## Pourquoi Données bleues existe
 
-Les exemples de cours en statistique et en science des données sont souvent efficaces pour apprendre une méthode, mais ils rendent parfois le contexte abstrait. Données bleues complète ces exemples par des sources québécoises vérifiées, documentées et reliées à des activités de cours.
+Données bleues aide à passer d’une source québécoise à une activité de cours. Les fiches rendent visibles les choix de préparation et les limites qui influencent l’interprétation.
 :::
 
 ::: {.about-emphasis}
@@ -164,15 +165,15 @@ La rigueur commence aussi par des limites claires.
 ::: {.about-section-heading}
 ## Version et citation
 
-La version publique de référence est la version 0.1.0, publiée le 23 août 2026. Elle fige 26 fiches de jeux de données, 52 activités, trois séquences et trois modules transversaux. Le statut pédagogique déclaré dans le catalogue décrit le degré de préparation des activités; il ne constitue pas une preuve d'efficacité pédagogique.
+Cette édition porte le numéro 0.2.0. Elle réunit 26 fiches, 52 activités, trois séquences et trois modules transversaux. Chaque activité fournit une trousse de lancement. La disponibilité des ressources et les vérifications techniques ne constituent pas une preuve d’efficacité pédagogique.
 
-Cette version peut être citée à partir du fichier [`CITATION.cff`](CITATION.cff) ou consultée dans la [livraison GitHub v0.1.0](https://github.com/AurelienNicosiaULaval/donnees-bleues/releases/tag/v0.1.0).
+Les métadonnées de citation se trouvent dans [`CITATION.cff`](CITATION.cff). Les [livraisons GitHub](https://github.com/AurelienNicosiaULaval/donnees-bleues/releases) donnent accès aux versions figées. Les données des trousses portent leurs propres dates de préparation et d’acquisition.
 :::
 :::
 
 ::: {.about-final}
 ::: {.about-final-copy}
-## Une infrastructure ouverte, mais exigeante
+## Un répertoire documenté et réutilisable
 
 L'objectif est de construire un répertoire durable : des sources vérifiées, des scripts reproductibles, des activités réalistes et des limites visibles. Le projet avance par ajouts prudents, révisions documentaires et retours d'usage lorsqu'ils existent.
 :::

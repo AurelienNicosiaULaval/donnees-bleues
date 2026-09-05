@@ -21,7 +21,9 @@ route_summary_file: "data/processed/transport-collectif-gtfs/resume_parcours_gtf
 accessibility_summary_file: "data/processed/transport-collectif-gtfs/resume_accessibilite_gtfs_rtc.csv"
 service_summary_file: "data/processed/transport-collectif-gtfs/resume_services_gtfs_rtc.csv"
 update_frequency: "Le RTC publie un ZIP GTFS vivant; le feed_info du ZIP téléchargé couvre les services du 2026-06-20 au 2026-08-21"
-level: "Intermédiaire"
+level: Intermédiaire
+level_ids:
+- intermediaire
 organisme: "RTC"
 territoire: "Région de Québec"
 taille_approximative: "10 fichiers GTFS; 4 370 arrêts; 182 parcours; 70 876 trajets; 63 dates de service"
@@ -56,14 +58,23 @@ tags:
   - données relationnelles
   - accessibilité
 concepts:
-  - importation d'un ZIP
-  - données relationnelles
-  - clés de jointure
-  - formats normalisés
-  - visualisation spatiale
-  - valeurs codées
-  - couverture de service
-  - communication prudente
+- Importation d'un ZIP
+- Données relationnelles
+- Clés de jointure
+- Formats normalisés
+- Visualisation spatiale
+- Valeurs codées
+- Couverture de service
+- Communication prudente
+concept_ids:
+- importation-d-un-zip
+- donnees-relationnelles
+- cles-de-jointure
+- formats-normalises
+- visualisation-spatiale
+- valeurs-codees
+- couverture-de-service
+- communication-prudente
 zero_waste:
   contexte_quebecois: 3
   accessibilite_pedagogique: 2
@@ -79,3 +90,37 @@ status: "source officielle vérifiée; ZIP GTFS du RTC préparé localement"
 notes: "Cette fiche décrit l'offre planifiée publiée dans un flux GTFS statique. Elle ne mesure ni l'achalandage, ni les retards, ni la satisfaction des usagers."
 contributor_name: "Aurélien Nicosia"
 contributor_role: "Révision pédagogique et statistique"
+
+publication:
+  preview: true
+  reviewed_on: '2026-09-05'
+  license_url: https://www.rtcquebec.ca/donnees-ouvertes
+  preview_columns:
+  - stop_id
+  - stop_code
+  - stop_name
+  - stop_description
+  - wheelchair_boarding
+  - wheelchair_boarding_label
+  - stop_url
+  - access_date
+  reason: Extrait pédagogique limité aux colonnes déclarées; attribution et conditions de la source conservées.
+  classroom:
+    mode: frozen
+    reason: Table de classe limitée aux colonnes déclarées, sans tirage supplémentaire de lignes. Attribution
+      et conditions tierces conservées.
+    files:
+    - path: data/processed/transport-collectif-gtfs/arrets_gtfs_rtc.csv
+      columns:
+      - stop_id
+      - stop_name
+      - latitude
+      - longitude
+      - wheelchair_boarding
+      - wheelchair_boarding_label
+chart:
+  type: count
+  x_variable: wheelchair_boarding_label
+  x_label: Arrêts dans l’extrait (nombre)
+  y_label: Information GTFS
+  title: Accessibilité déclarée des arrêts

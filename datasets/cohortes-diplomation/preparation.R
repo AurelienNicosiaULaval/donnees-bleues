@@ -1,3 +1,4 @@
+source("R/utils_downloads.R")
 # Préparer l'indicateur ISQ d'écart de diplomation selon l'IMSE.
 
 library(dplyr)
@@ -11,7 +12,7 @@ source_url <- "https://statistique.quebec.ca/api/fr/produit/graphique/ecart-dipl
 raw_path <- "data/raw/cohortes-diplomation/ecart_diplomation_imse.xlsx"
 processed_path <- "data/processed/cohortes-diplomation/ecart_diplomation_imse.csv"
 
-download.file(source_url, raw_path, mode = "wb", quiet = TRUE)
+download_source(source_url, raw_path, mode = "wb", quiet = TRUE)
 
 diplomation_raw <- read_excel(raw_path, col_names = FALSE, .name_repair = "minimal")
 names(diplomation_raw) <- paste0("col", seq_along(diplomation_raw))
@@ -65,3 +66,5 @@ write_csv(diplomation, processed_path)
 
 message("Fichier brut : ", raw_path)
 message("Fichier préparé : ", processed_path)
+
+record_preparation("cohortes-diplomation")

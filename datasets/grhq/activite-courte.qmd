@@ -1,147 +1,64 @@
 ---
 title: "Choisir une unité GRHQ avec l'index de téléchargement"
-embed-resources: false
+embed-resources: true
 ---
-
 
 # Choisir une unité GRHQ avec l'index de téléchargement
 
-<!-- activity-teacher-brief:start -->
-::: {.activity-teacher-brief}
 
-## En classe, cette activité sert à...
+Quelle unité GRHQ faut-il choisir dans l’index?
 
-Cette activité sert à travailler les notions suivantes : Index de téléchargement, Métadonnées, Données spatiales, Reproductibilité à partir d'une question située dans le contexte suivant : Hydrographie. Elle demande aux étudiantes et étudiants de répondre à la question directrice suivante : Comment choisir une unité GRHQ avant de télécharger une géodatabase?
-
-::: {.activity-quick-facts}
-| Élément | Information |
-|---|---|
-| Durée | 30-45 minutes |
-| Niveau | Intermédiaire |
-| Usage recommandé | Exercice guidé |
-| Préparation enseignant | Préparation requise : exécuter `Rscript datasets/grhq/preparation.R` depuis la racine, puis vérifier que `data/processed/grhq/grhq_index_telechargement.csv` existe. |
-| Production attendue | Un tableau ou graphique descriptif accompagné de trois phrases d'interprétation prudente. |
-| Données | `data/processed/grhq/grhq_index_telechargement.csv` |
-:::
-
-:::
-<!-- activity-teacher-brief:end -->
+Durée : 30-45 minutes. Niveau : Intermédiaire.
 
 ## Préparation enseignante
 
-- Préparation requise : exécuter `Rscript datasets/grhq/preparation.R` depuis la racine, puis vérifier que `data/processed/grhq/grhq_index_telechargement.csv` existe.
-- Fichier préparé : `data/processed/grhq/grhq_index_telechargement.csv`.
-- Script de préparation : `datasets/grhq/preparation.R`.
-- Point à surveiller : Ne pas faire télécharger les FGDB dans l'activité courte. L'objectif est de comprendre l'index et de justifier une unité de téléchargement.
+Télécharger la trousse ci-dessous. Extraire le ZIP, puis double-cliquer sur `Donnees-bleues.Rproj`. Avant la séance, ouvrir `installer-packages.R` et cliquer sur Source avec une connexion Internet.
 
-## Résultat attendu
+Une fois les packages installés, les scripts utilisent les fichiers inclus et peuvent être exécutés hors ligne.
 
-Un tableau ou graphique descriptif accompagné de trois phrases d'interprétation prudente. La production doit aussi contenir une phrase sur l'unité statistique et une phrase sur une limite de la source.
-
-## Limites à faire nommer
-
-- Ne pas faire télécharger les FGDB dans l'activité courte. L'objectif est de comprendre l'index et de justifier une unité de téléchargement.
-- Si une variable ou un dénominateur nécessaire n'est pas disponible dans les données, l'écrire explicitement plutôt que l'inférer.
-
+```{r}
+#| label: activity-classroom-resources
+#| echo: false
+#| results: asis
+source(if (file.exists("R/utils_activity_contract.R")) "R/utils_activity_contract.R" else "../../R/utils_activity_contract.R")
+render_activity_resources()
+```
 
 ## Contexte
 
-Cette activité porte sur un geste de science des données souvent négligé : choisir le bon fichier avant de commencer l'analyse. La GRHQ est volumineuse. Pour un exercice court, on travaille donc avec l'index officiel de téléchargement et non avec toutes les géodatabases du Québec.
+Cette activité utilise la fiche [Géobase du réseau hydrographique du Québec](fiche.qmd). Unité : Une unité de téléchargement dans l’index GRHQ, ou une ressource documentaire.
 
-## Objectifs d'apprentissage
-
-- Lire un index de téléchargement officiel
-- Identifier une unité de téléchargement
-- Distinguer index et données géométriques détaillées
-- Justifier un choix de ressource
-- Préparer une étape de téléchargement reproductible
-
-## Données utilisées
-
-Fiche : [Géobase du réseau hydrographique du Québec](fiche.qmd)
-
-Source : Données Québec / Ministère des Ressources naturelles et des Forêts.
-
-Licence : Attribution (CC-BY 4.0), selon les métadonnées CKAN consultées le 2026-06-21.
-
-Fichier préparé : `data/processed/grhq/grhq_index_telechargement.csv`
-
-## Métadonnées pédagogiques
-
-| Champ | Information |
-|---|---|
-| Question directrice | Comment choisir une unité GRHQ avant de télécharger une géodatabase? |
-| Concepts | Index de téléchargement; Métadonnées; Données spatiales; Reproductibilité |
-| Niveau | Intermédiaire |
-| Type | Exercice; Exploration de données |
-| Contexte | Hydrographie |
-| Accroche | Avant la carte, il faut choisir le bon fichier |
-| Durée | 30-45 minutes |
-| Matériel | énoncé; code; index préparé; page source |
-| Math/stats avancées | non |
+Source : [Données Québec / Ministère des Ressources naturelles et des Forêts](https://www.donneesquebec.ca/recherche/dataset/grhq). Les dates de préparation, les fichiers et les conditions de réutilisation sont indiqués dans la trousse.
 
 ## Consignes
 
-1. Exécuter le script `datasets/grhq/preparation.R`.
-2. Importer l'index préparé.
-3. Compter les unités complètes et les unités fractionnées.
-4. Choisir une unité de téléchargement.
-5. Copier l'URL FGDB associée à cette unité.
-6. Expliquer pourquoi il ne faut pas télécharger tout le référentiel pour cet exercice.
+1. Ouvrir `activite-courte.R` dans le sous-dossier `datasets/grhq` du projet RStudio et cliquer sur Source. Les tableaux apparaissent dans Console et les graphiques dans Plots.
+2. Compter les unités de téléchargement selon leur type.
+3. Sélectionner le bloc 08 en conservant son identifiant comme texte et repérer son lien FGDB.
+4. Rédiger une réponse à la question en nommant l’unité observée et une limite de la source.
 
-## Code de départ
+## Résultat attendu
 
-À exécuter depuis la racine du projet.
+Un tableau de contrôle et une note de décision répondant à la question.
+
+## Limites à faire nommer
+
+L’archive fournit l’index et la documentation. Aucune géodatabase n’est incluse et aucune analyse de géométrie n’est réalisée par ces scripts.
+
+## Code complet
+
+Ce script complet est celui de la trousse. Il lit les fichiers locaux et affiche les résultats dans RStudio.
 
 ```{r}
-#| eval: false
-# Load libraries
-library(dplyr)
-library(readr)
-
-# Prepare official metadata and index
-source("datasets/grhq/preparation.R")
-
-# Import prepared index
-index_grhq <- read_csv(
-  "data/processed/grhq/grhq_index_telechargement.csv",
-  show_col_types = FALSE
-)
-
-# Count download units
-index_grhq |>
-  count(unit_kind, sort = TRUE)
-
-# Choose one unit
-unite_choisie <- index_grhq |>
-  filter(bloc == "08")
-
-unite_choisie |>
-  select(bloc, zone, fgdb_url)
+#| label: activity-code
+#| echo: false
+#| results: asis
+render_activity_code()
 ```
-
-## Questions
-
-1. Combien d'unités de téléchargement contient l'index?
-2. Combien d'unités sont des régions complètes?
-3. Combien d'unités sont des parties de régions?
-4. Quelle unité avez-vous choisie?
-5. Que représente une ligne de l'index?
-6. Pourquoi cette table ne permet-elle pas encore de calculer une longueur de cours d'eau?
-
-## Pistes de solution
-
-Une solution acceptable identifie une unité, donne son URL FGDB et explique que l'index sert seulement à sélectionner un téléchargement. Une bonne solution précise que la géométrie hydrographique n'est pas encore lue à cette étape.
-
-## Prolongement
-
-Télécharger seulement l'unité choisie, puis inspecter les couches disponibles avec `sf::st_layers()`.
 
 ```{r}
 #| label: activity-pedagogical-contract
 #| echo: false
 #| results: asis
-contract_source_path <- if (file.exists("R/utils_activity_contract.R")) "R/utils_activity_contract.R" else "../../R/utils_activity_contract.R"
-source(contract_source_path)
 render_activity_contract()
 ```

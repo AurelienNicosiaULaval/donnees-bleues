@@ -1,0 +1,42 @@
+{
+  "dataset_id": "prelevements-eau-autorises",
+  "title": "Registre des prélèvements d'eau autorisés",
+  "mode": "frozen",
+  "prepared_at_utc": "2026-09-05T11:27:52Z",
+  "source_name": "Données Québec / Ministère de l'Environnement, de la Lutte contre les changements climatiques, de la Faune et des Parcs",
+  "source_url": "https://www.donneesquebec.ca/recherche/dataset/prelevements-eau",
+  "license_url": "https://creativecommons.org/licenses/by/4.0/deed.fr",
+  "selection": "Table de classe limitée aux colonnes déclarées, sans tirage supplémentaire de lignes. Attribution et conditions tierces conservées.",
+  "tables": [
+    {
+      "path": "data/processed/prelevements-eau-autorises/prelevements_eau_autorises.csv",
+      "rows": 1777,
+      "columns": ["no_doc", "site_id", "nombre_sites_document", "volume_autorise_l_j", "volume_autorise_m3_j", "precision_volume", "provenance_eau", "longitude", "latitude"],
+      "sha256": "d8e7515169682d8ffbc0f50111916e88354e7340456fa3e6f5c40eb7609f9946",
+      "prepared_table_sha256": "c6b70a3ead2ac96bd77735e20cfabdc6c0fb1ac801b2bd76c8a931ce8e520491"
+    },
+    {
+      "path": "data/processed/prelevements-eau-autorises/principaux_sites_prelevements_eau_autorises.csv",
+      "rows": 20,
+      "columns": ["no_doc", "site_id", "provenance_eau", "nombre_sites_document", "precision_volume", "volume_autorise_l_j", "volume_autorise_m3_j", "longitude", "latitude"],
+      "sha256": "e22e8f4cfb69a58284db5e4f8e9ae7b89c58452c7056318ca191dda6bf4232b0",
+      "prepared_table_sha256": "290b03db8d030debf5e8397531353b40608e12af08325eae8ade914246da1bdb"
+    },
+    {
+      "path": "data/processed/prelevements-eau-autorises/resume_provenance_prelevements_eau_autorises.csv",
+      "rows": 3,
+      "columns": ["provenance_eau", "n_sites", "n_documents", "n_intervenants", "n_volume_manquant", "volume_median_m3_j", "volume_max_m3_j"],
+      "sha256": "27795aabf63cef107a5f02392caad0a8e4a2f80d3ebfa9f1ce907ce04183bfa9",
+      "prepared_table_sha256": "27795aabf63cef107a5f02392caad0a8e4a2f80d3ebfa9f1ce907ce04183bfa9"
+    },
+    {
+      "path": "data/processed/prelevements-eau-autorises/valeurs_manquantes_prelevements_eau_autorises.csv",
+      "rows": 16,
+      "columns": ["variable", "n_missing", "n_rows", "pct_missing"],
+      "sha256": "7c3879668ef4b5ae4bc147c035c08583e2486a67cc51e8306e0cc2d147e06455",
+      "prepared_table_sha256": "7c3879668ef4b5ae4bc147c035c08583e2486a67cc51e8306e0cc2d147e06455"
+    }
+  ],
+  "archive_sha256": "46f638d2fc0e8e927759b5244004a70c5306b274d78f3c4c4562baa96aa99f84",
+  "archive_bytes": 48272
+}

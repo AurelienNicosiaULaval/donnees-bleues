@@ -12,26 +12,7 @@ preview_input_overrides <- c(
   "retards-transport-collectif" = "data/processed/retards-transport-collectif/variables_gtfs_realtime_retards_transport.csv"
 )
 
-license_blocks_preview <- function(license) {
-  grepl(
-    "reproduction.*interdite|aucune licence ouverte|réutilisation publique à valider",
-    tolower(as.character(license %||% ""))
-  )
-}
-
-safe_preview_columns <- function(data) {
-  columns <- names(data)[vapply(data, function(column) is.atomic(column) && !is.list(column), logical(1))]
-  protected <- grepl(
-    "adresse|address|adrs|rue|street|civique|postl|postal|courriel|email|telephone|phone|longitude|latitude|(^lat$)|(^lon$)|coord|geom|mtm|(^x$)|(^y$)|(^x_)|(^y_)|site_web|source.*url|nom_exploitant|raison_sociale|nom_intervenant",
-    columns,
-    ignore.case = TRUE
-  )
-  columns <- columns[!protected]
-  if (length(columns) == 0L) {
-    stop("Aucune colonne sûre à publier dans l'extrait.", call. = FALSE)
-  }
-  head(columns, 10L)
-}
+source("R/utils_publication.R")
 
 sample_preview_rows <- function(data, n_max = 120L) {
   if (nrow(data) == 0L) {
@@ -67,7 +48,8 @@ quality_air_preview <- function(input_path) {
 build_preview <- function(metadata_path) {
   metadata <- read_yaml(metadata_path)
   id <- as.character(metadata$id %||% basename(dirname(metadata_path)))
-  if (license_blocks_preview(metadata$license)) {
+  validate_publication_policy(metadata)
+  if (!isTRUE(metadata$publication$preview)) {
     return(tibble(id = id, status = "protégé", output = NA_character_, rows = NA_integer_))
   }
 
@@ -91,12 +73,22 @@ build_preview <- function(metadata_path) {
       show_col_types = FALSE
     )
     prepared_data |>
-      select(all_of(safe_preview_columns(prepared_data))) |>
+      select(all_of(unlist(metadata$publication$preview_columns))) |>
       sample_preview_rows()
   }
 
   dir.create(dirname(output_path), recursive = TRUE, showWarnings = FALSE)
   write_csv(preview, output_path)
+  validate_public_preview(metadata, output_path)
+  prepared_manifest <- jsonlite::read_json(file.path(dirname(input_path), "manifest.json"))
+  receipt <- list(dataset_id = id, prepared_at_utc = prepared_manifest$prepared_at_utc,
+    prepared_file = basename(input_path), prepared_sha256 = digest::digest(file = input_path, algo = "sha256"),
+    preview_sha256 = digest::digest(file = output_path, algo = "sha256"), rows = nrow(preview), columns = names(preview),
+    selection = if (id == "qualite-air-horaire") "Radisson; PM2.5-T640; au moins 18 heures valides; au plus 120 positions régulièrement espacées dans l'ordre chronologique" else "Au plus 120 positions régulièrement espacées dans l'ordre de la table préparée; sélection déterministe non aléatoire",
+    source_name = metadata$source_name, source_url = metadata$source_url,
+    license = metadata$license, license_url = metadata$publication$license_url,
+    sources = prepared_manifest$sources)
+  jsonlite::write_json(receipt, paste0(output_path, ".json"), auto_unbox = TRUE, pretty = TRUE)
   tibble(id = id, status = "publié", output = output_path, rows = nrow(preview))
 }
 

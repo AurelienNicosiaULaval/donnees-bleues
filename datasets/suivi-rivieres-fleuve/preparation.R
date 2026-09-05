@@ -1,3 +1,4 @@
+source("R/utils_downloads.R")
 # Préparer le suivi physicochimique et bactériologique des rivières et du fleuve.
 # Source officielle : https://www.donneesquebec.ca/recherche/dataset/suivi-physicochimique-des-rivieres-et-du-fleuve
 
@@ -49,9 +50,8 @@ pluck_number <- function(x, name) {
 }
 
 read_ckan_package <- function(url) {
-  tmp <- tempfile(fileext = ".json")
-  on.exit(unlink(tmp), add = TRUE)
-  curl::curl_download(url, tmp, quiet = TRUE, handle = curl::new_handle(useragent = "Mozilla/5.0"))
+  tmp <- "data/raw/suivi-rivieres-fleuve/package_show.json"
+  download_source(url, tmp, quiet = TRUE, handle = curl::new_handle(useragent = "Mozilla/5.0"))
   jsonlite::fromJSON(tmp, simplifyVector = FALSE)
 }
 
@@ -84,7 +84,7 @@ csv_resource <- resources_tbl |>
   slice(1)
 
 stopifnot(nrow(csv_resource) == 1)
-curl::curl_download(csv_resource$resource_url, zip_path, quiet = TRUE)
+download_source(csv_resource$resource_url, zip_path, quiet = TRUE)
 
 if (dir.exists(extract_dir)) {
   unlink(extract_dir, recursive = TRUE)
@@ -297,3 +297,5 @@ stopifnot(all(c("ptot_med_mgl", "iqbp_med", "cf_med_ufc") %in% indicator_summary
 
 message("Fichier brut : ", zip_path)
 message("Fichiers préparés dans ", processed_dir, "/")
+
+record_preparation("suivi-rivieres-fleuve")

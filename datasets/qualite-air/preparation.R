@@ -1,3 +1,4 @@
+source("R/utils_downloads.R")
 # Préparation : stations du Réseau de surveillance de la qualité de l'air du Québec
 # Source officielle : Données Québec, paquet CKAN 8656ad05-c174-41c5-9ed7-8c69d308beb9.
 
@@ -13,7 +14,7 @@ processed_dir <- "data/processed/qualite-air"
 dir.create(raw_dir, recursive = TRUE, showWarnings = FALSE)
 dir.create(processed_dir, recursive = TRUE, showWarnings = FALSE)
 
-access_date <- as.Date("2026-06-21")
+access_date <- Sys.Date()
 source_page <- "https://www.donneesquebec.ca/recherche/dataset/rsqaq-stations"
 source_secondary_url <- "https://www.environnement.gouv.qc.ca/air/reseau-surveillance/Carte.asp"
 package_api <- "https://www.donneesquebec.ca/recherche/api/3/action/package_show?id=rsqaq-stations"
@@ -22,8 +23,8 @@ csv_url <- "https://www.donneesquebec.ca/recherche/dataset/8656ad05-c174-41c5-9e
 package_json_path <- file.path(raw_dir, "package_show_rsqaq_stations.json")
 csv_raw_path <- file.path(raw_dir, "rsqaq_stations_de_la_qualite_de_lair.csv")
 
-download.file(package_api, package_json_path, mode = "wb", quiet = TRUE)
-download.file(csv_url, csv_raw_path, mode = "wb", quiet = TRUE)
+download_source(package_api, package_json_path, mode = "wb", quiet = TRUE)
+download_source(csv_url, csv_raw_path, mode = "wb", quiet = TRUE)
 
 package <- fromJSON(package_json_path)
 if (!isTRUE(package$success)) {
@@ -267,3 +268,5 @@ message("API CKAN : ", package_api)
 message("Fichier préparé : ", file.path(processed_dir, "rsqaq_stations.csv"))
 message("Stations préparées : ", nrow(stations))
 message("Stations sans date de fermeture : ", sum(stations$station_sans_date_fermeture))
+
+record_preparation("qualite-air")

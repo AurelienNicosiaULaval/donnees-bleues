@@ -19,7 +19,9 @@ resources_file: "data/processed/retards-transport-collectif/ressources_ckan_reta
 gtfs_fields_file: "data/processed/retards-transport-collectif/variables_gtfs_realtime_retards_transport.csv"
 archive_protocol_file: "data/processed/retards-transport-collectif/protocole_archivage_retards_transport.csv"
 update_frequency: "Temps réel ou quasi temps réel; une analyse historique exige un archivage local planifié"
-level: "Intermédiaire"
+level: Intermédiaire
+level_ids:
+- intermediaire
 organisme: "Société de transport de Montréal"
 territoire: "Montréal"
 taille_approximative: "Je ne sais pas. Aucune table historique n'est publiée dans le paquet CKAN vérifié."
@@ -50,14 +52,23 @@ tags:
   - "protocole d'archivage"
   - "qualité de service"
 concepts:
-  - "flux temps réel"
-  - "métadonnées"
-  - "séries temporelles"
-  - "données manquantes"
-  - "échantillonnage temporel"
-  - "jointure GTFS"
-  - "qualité de service"
-  - "communication prudente"
+- Flux temps réel
+- Métadonnées
+- Séries temporelles
+- Valeurs manquantes
+- Échantillonnage temporel
+- Jointure GTFS
+- Qualité de service
+- Communication prudente
+concept_ids:
+- flux-temps-reel
+- metadonnees
+- series-temporelles
+- valeurs-manquantes
+- echantillonnage-temporel
+- jointure-gtfs
+- qualite-de-service
+- communication-prudente
 zero_waste:
   contexte_quebecois: 3
   accessibilite_pedagogique: 1
@@ -73,3 +84,57 @@ status: "source officielle vérifiée; fiche de protocole, pas de table historiq
 notes: "Le paquet CKAN vérifié le 2026-06-21 contient une ressource GTFS pointant vers le portail développeur STM. Les retards doivent être construits à partir d'instantanés archivés et d'une extraction documentée du flux GTFS-realtime."
 contributor_name: "Aurélien Nicosia"
 contributor_role: "Révision pédagogique et statistique"
+
+publication:
+  preview: true
+  reviewed_on: '2026-09-05'
+  license_url: https://creativecommons.org/licenses/by/4.0/deed.fr
+  preview_columns:
+  - message_type
+  - field_pedagogique
+  - role_statistique
+  - status
+  reason: Extrait pédagogique limité aux colonnes déclarées; attribution et conditions de la source conservées.
+  classroom:
+    mode: documentation
+    reason: Documentation et synthèses publiques seulement; aucune donnée privée, géodatabase ni observation
+      de retard.
+    files:
+    - path: data/processed/retards-transport-collectif/protocole_archivage_retards_transport.csv
+      columns:
+      - step
+      - action
+      - point_de_controle
+    - path: data/processed/retards-transport-collectif/resume_retards_transport.csv
+      columns:
+      - access_date
+      - package_id
+      - package_name
+      - title
+      - organization
+      - license_title
+      - license_id
+      - package_metadata_modified
+      - n_resources_ckan
+      - n_gtfs_resources
+      - n_developer_portal_resources
+      - n_direct_download_resources
+      - source_requires_developer_account
+      - historical_table_available_in_ckan
+      - source_url
+      - api_url
+      - developer_url
+    - path: data/processed/retards-transport-collectif/variables_gtfs_realtime_retards_transport.csv
+      columns:
+      - message_type
+      - field_pedagogique
+      - role_statistique
+      - status
+chart:
+  type: count
+  x_variable: message_type
+  x_label: Champs du dictionnaire (nombre)
+  y_label: Message ou traitement
+  title: Composition du dictionnaire GTFS-realtime
+preview_note: Dictionnaire de champs attendus et dérivés, sans observation de retard. La lecture du flux STM exige
+  un accès au portail développeur.

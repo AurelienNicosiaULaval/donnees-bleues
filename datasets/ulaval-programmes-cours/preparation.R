@@ -1,3 +1,4 @@
+source("R/utils_downloads.R")
 # Préparation publique sûre : programmes et cours institutionnels ULaval.
 #
 # Les CSV sources demeurent privés et ne doivent pas être redistribués dans
@@ -148,3 +149,5 @@ message("Résumé ULaval généré dans ", processed_dir)
 if (!source_found) {
   message("Source privée absente : résumé public produit sans validation des fichiers locaux.")
 }
+
+record_preparation("ulaval-programmes-cours")

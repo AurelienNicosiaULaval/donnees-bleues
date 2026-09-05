@@ -1,0 +1,21 @@
+{
+  "dataset_id": "bibliotheques-quebec",
+  "title": "Statistiques des bibliothèques publiques du Québec",
+  "mode": "frozen",
+  "prepared_at_utc": "2026-09-05T11:04:22Z",
+  "source_name": "Bibliothèque et Archives nationales du Québec / Données Québec",
+  "source_url": "https://www.donneesquebec.ca/recherche/dataset/statistiques_des_bibliotheques_publiques_du_quebec",
+  "license_url": "https://creativecommons.org/licenses/by/4.0/deed.fr",
+  "selection": "Table de classe limitée aux colonnes déclarées, sans tirage supplémentaire de lignes. Attribution et conditions tierces conservées.",
+  "tables": [
+    {
+      "path": "data/processed/bibliotheques-quebec/statistiques_bibliotheques_quebec_2024_selection.csv",
+      "rows": 188,
+      "columns": ["bibliotheque", "region_administrative", "population_desservie", "categorie_bibliotheque", "visites_total", "prets_total", "visites_par_habitant", "prets_par_habitant"],
+      "sha256": "837a01bf5bdad05a1f877bc59f97d9f481bc99562d50cb0cb1fef61e4c9ce64f",
+      "prepared_table_sha256": "3a5211846ce1d886de509ac502d85120c9413e8f0f9f0f707e9890cb3b889a18"
+    }
+  ],
+  "archive_sha256": "e67d8222afefaed724886dfba52af42f23a784e15fd94b24cf847f195f8d3919",
+  "archive_bytes": 13470
+}

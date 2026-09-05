@@ -1,0 +1,26 @@
+{
+  "dataset_id": "ecoles-quebec",
+  "prepared_at_utc": "2026-09-05T11:04:34Z",
+  "prepared_file": "ecoles_publiques_quebec.csv",
+  "prepared_sha256": "e14343f759c96cfda097db43bfaec4c1a8a6d0607fa3b76ae61250d0f6308ae7",
+  "preview_sha256": "9e2e67c641c2cd7c3e949a8525a37fb6d93bcb0a3aabdc269b1c9319ce316be1",
+  "rows": 120,
+  "columns": ["lien_ecole_immeuble_id", "NOM_OFFCL_ORGNS", "NOM_IMM", "municipalite", "region_administrative", "type_reseau_public", "est_primaire", "est_secondaire", "nb_ordres_autorises"],
+  "selection": "Au plus 120 positions régulièrement espacées dans l'ordre de la table préparée; sélection déterministe non aléatoire",
+  "source_name": "Données Québec / Ministère de l'Éducation et Ministère de l'Enseignement supérieur",
+  "source_url": "https://www.donneesquebec.ca/recherche/dataset/localisation-des-etablissements-d-enseignement-du-reseau-scolaire-au-quebec",
+  "license": "Attribution (CC-BY 4.0) selon les métadonnées CKAN vérifiées le 2026-06-20",
+  "license_url": "https://creativecommons.org/licenses/by/4.0/deed.fr",
+  "sources": [
+    {
+      "source_url": "https://www.donneesquebec.ca/recherche/dataset/2d3b5cf8-b347-49c7-ad3b-bd6a9c15e443/resource/c6640a54-bc4b-43ec-864e-6c325dce61bc/download/pps_public_ecole.csv",
+      "acquisition_kind": "download",
+      "acquired_at_utc": "2026-09-05T11:04:34Z",
+      "started_at_utc": "2026-09-05T11:04:31Z",
+      "file": "pps_public_ecole.csv",
+      "bytes": 2306345,
+      "sha256": "74d4e092425559494b951c631f64759f5ebf274cea1770d12b33917b6673c131",
+      "details": {}
+    }
+  ]
+}

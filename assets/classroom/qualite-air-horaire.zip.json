@@ -1,0 +1,35 @@
+{
+  "dataset_id": "qualite-air-horaire",
+  "title": "Qualité de l'air au Québec",
+  "mode": "frozen",
+  "prepared_at_utc": "2026-09-05T12:46:41Z",
+  "source_name": "Données Québec / MELCCFP / RSQAQ",
+  "source_url": "https://www.donneesquebec.ca/recherche/dataset/rsqaq-donnees-horaires-continues",
+  "license_url": "https://creativecommons.org/licenses/by/4.0/deed.fr",
+  "selection": "Table de classe limitée aux colonnes déclarées, sans tirage supplémentaire de lignes. Attribution et conditions tierces conservées.",
+  "tables": [
+    {
+      "path": "data/processed/qualite-air-horaire/episodes_pm25_2025.csv",
+      "rows": 25,
+      "columns": ["source_year", "access_date", "date", "station_id", "station_name", "contaminant_source", "contaminant", "unite", "n_heures_valides", "moyenne", "mediane", "p95", "maximum"],
+      "sha256": "a82dea17f5b511a8f51ce2ef70d441069b6df9552bee25e1cdf3e9fec0956a59",
+      "prepared_table_sha256": "a82dea17f5b511a8f51ce2ef70d441069b6df9552bee25e1cdf3e9fec0956a59"
+    },
+    {
+      "path": "data/processed/qualite-air-horaire/resume_contaminants_2025.csv",
+      "rows": 11,
+      "columns": ["contaminant_source", "contaminant", "unite", "n_mesures", "n_stations", "premiere_mesure", "derniere_mesure", "moyenne", "mediane", "p95", "maximum"],
+      "sha256": "3019ddfa98c18b12f9987887fabd9704dc28ad81f71be95410a2fd5d9ea23c63",
+      "prepared_table_sha256": "3019ddfa98c18b12f9987887fabd9704dc28ad81f71be95410a2fd5d9ea23c63"
+    },
+    {
+      "path": "data/processed/qualite-air-horaire/resume_journalier_contaminants_2025.csv",
+      "rows": 46723,
+      "columns": ["source_year", "access_date", "date", "station_id", "station_name", "contaminant_source", "contaminant", "unite", "n_heures_valides", "moyenne", "mediane", "p95", "maximum"],
+      "sha256": "25bdf82632c2fff00c55517222e9171b950b7833cc3bc1c0455a3b4d08b3012f",
+      "prepared_table_sha256": "25bdf82632c2fff00c55517222e9171b950b7833cc3bc1c0455a3b4d08b3012f"
+    }
+  ],
+  "archive_sha256": "d8f5331e6e8b20464e6118c84bb2482ec3693196ea97c7bb66de0ddcc660a1f3",
+  "archive_bytes": 1107689
+}

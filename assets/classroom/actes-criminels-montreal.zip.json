@@ -1,0 +1,21 @@
+{
+  "dataset_id": "actes-criminels-montreal",
+  "title": "Actes criminels enregistrés à Montréal",
+  "mode": "frozen",
+  "prepared_at_utc": "2026-09-05T11:04:29Z",
+  "source_name": "Données Québec / Ville de Montréal / SPVM",
+  "source_url": "https://www.donneesquebec.ca/recherche/dataset/vmtl-actes-criminels",
+  "license_url": "https://creativecommons.org/licenses/by/4.0/deed.fr",
+  "selection": "Table de classe limitée aux colonnes déclarées, sans tirage supplémentaire de lignes. Attribution et conditions tierces conservées.",
+  "tables": [
+    {
+      "path": "data/processed/actes-criminels-montreal/actes_criminels_montreal.csv",
+      "rows": 358423,
+      "columns": ["categorie", "date", "annee", "mois", "quart"],
+      "sha256": "21f502d118454ebafa368a79f817461be14d4dba6cced956f77c24868558a906",
+      "prepared_table_sha256": "f1cc0b731cab16269f21d643d24867b650244ae0e6a545d8f8cb8aacf987cd7f"
+    }
+  ],
+  "archive_sha256": "e443ef50a7f031387f23ede2532e630d02ccd21b9f7f176c39cb14dc422619ad",
+  "archive_bytes": 470545
+}

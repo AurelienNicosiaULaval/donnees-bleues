@@ -1,0 +1,46 @@
+{
+  "dataset_id": "budgets-municipaux-quebec",
+  "prepared_at_utc": "2026-09-05T11:04:27Z",
+  "prepared_file": "profil_financier_municipalites_2025.csv",
+  "prepared_sha256": "24a2fde486ee1c66289ddbfdac860f0a9ab4d5ed1e206c97bb85afc8865b19bc",
+  "preview_sha256": "9ad3f1fb1da7b922fa0514de8ad6a11d6bd5da173aadceaf6968f320d2c4d92c",
+  "rows": 120,
+  "columns": ["annee_donnee", "code_geographique", "municipalite", "region_administrative", "population", "classe_population"],
+  "selection": "Au plus 120 positions régulièrement espacées dans l'ordre de la table préparée; sélection déterministe non aléatoire",
+  "source_name": "Données Québec / Ministère des Affaires municipales et de l'Habitation",
+  "source_url": "https://www.donneesquebec.ca/recherche/dataset/profil-financier-des-municipalites-locales",
+  "license": "Attribution (CC-BY 4.0) selon les métadonnées CKAN vérifiées le 2026-06-21",
+  "license_url": "https://creativecommons.org/licenses/by/4.0/deed.fr",
+  "sources": [
+    {
+      "source_url": "https://www.donneesquebec.ca/recherche/api/3/action/package_show?id=profil-financier-des-municipalites-locales",
+      "acquisition_kind": "download",
+      "acquired_at_utc": "2026-09-05T11:04:26Z",
+      "started_at_utc": "2026-09-05T11:04:24Z",
+      "file": "package_show_profil_financier_municipalites.json",
+      "bytes": 415579,
+      "sha256": "47b14bbd0743dfe4179a83b938fd2d0d9f3fb34127134a7d863ff223f90b5385",
+      "details": {}
+    },
+    {
+      "source_url": "https://mamh.gouv.qc.ca/fichiersdonneesouvertes/PF-2024-2025-DescriptionPoste.csv",
+      "acquisition_kind": "download",
+      "acquired_at_utc": "2026-09-05T11:04:27Z",
+      "started_at_utc": "2026-09-05T11:04:27Z",
+      "file": "PF-2024-2025-DescriptionPoste.csv",
+      "bytes": 4164,
+      "sha256": "cb27a542a563eb460fde8c32921a7bb748c11d248073a0fcb4ffbabdd6b13dd9",
+      "details": {}
+    },
+    {
+      "source_url": "https://mamh.gouv.qc.ca/fichiersdonneesouvertes/PF-2024-2025.csv",
+      "acquisition_kind": "download",
+      "acquired_at_utc": "2026-09-05T11:04:27Z",
+      "started_at_utc": "2026-09-05T11:04:26Z",
+      "file": "PF-2024-2025.csv",
+      "bytes": 247399,
+      "sha256": "562fc085b8ab8c654caaf61a309b433104359c818f9d639fe8898072e8d0fd7f",
+      "details": {}
+    }
+  ]
+}

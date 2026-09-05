@@ -1,118 +1,64 @@
 ---
 title: "Portrait des interventions du SIM"
-embed-resources: false
+embed-resources: true
 ---
-
 
 # Portrait des interventions du SIM
 
-<!-- activity-teacher-brief:start -->
-::: {.activity-teacher-brief}
 
-## En classe, cette activité sert à...
+Quels groupes d’interventions sont les plus représentés?
 
-Cette activité sert à travailler les notions suivantes : Tableaux de fréquences, Visualisation, Limites d'interprétation à partir d'une question située dans le contexte suivant : Sécurité publique. Elle demande aux étudiantes et étudiants de répondre à la question directrice suivante : Quels grands types d'interventions dominent dans la ressource courante?
-
-::: {.activity-quick-facts}
-| Élément | Information |
-|---|---|
-| Durée | 30-45 minutes |
-| Niveau | Introductif |
-| Usage recommandé | Exercice guidé |
-| Préparation enseignant | Lire la fiche, ouvrir la source officielle et choisir la ressource à utiliser; aucun CSV préparé directement exploitable n'est garanti dans le dépôt. |
-| Production attendue | Un tableau ou graphique descriptif accompagné de trois phrases d'interprétation prudente. |
-| Données | `Je ne sais pas.` |
-:::
-
-:::
-<!-- activity-teacher-brief:end -->
+Durée : 30-45 minutes. Niveau : Introduction.
 
 ## Préparation enseignante
 
-- Lire la fiche, ouvrir la source officielle et choisir la ressource à utiliser; aucun CSV préparé directement exploitable n'est garanti dans le dépôt.
-- Fichier préparé : `Je ne sais pas.`
-- Script de préparation : `datasets/interventions-pompiers-montreal/preparation.R`.
-- Point à surveiller : Utiliser la ressource courante et limiter l'analyse aux grands groupes d'interventions.
+Télécharger la trousse ci-dessous. Extraire le ZIP, puis double-cliquer sur `Donnees-bleues.Rproj`. Avant la séance, ouvrir `installer-packages.R` et cliquer sur Source avec une connexion Internet.
 
-## Code R minimal
+Une fois les packages installés, les scripts utilisent les fichiers inclus et peuvent être exécutés hors ligne.
 
 ```{r}
-#| eval: false
-# Je ne sais pas quel CSV préparé utiliser pour cette activité.
-# Lire la fiche, choisir la ressource officielle et documenter la date d'accès.
-source("datasets/interventions-pompiers-montreal/preparation.R")
+#| label: activity-classroom-resources
+#| echo: false
+#| results: asis
+source(if (file.exists("R/utils_activity_contract.R")) "R/utils_activity_contract.R" else "../../R/utils_activity_contract.R")
+render_activity_resources()
 ```
-
-## Résultat attendu
-
-Un tableau ou graphique descriptif accompagné de trois phrases d'interprétation prudente. La production doit aussi contenir une phrase sur l'unité statistique et une phrase sur une limite de la source.
-
-## Limites à faire nommer
-
-- Utiliser la ressource courante et limiter l'analyse aux grands groupes d'interventions.
-- Si une variable ou un dénominateur nécessaire n'est pas disponible dans les données, l'écrire explicitement plutôt que l'inférer.
-
 
 ## Contexte
 
-Cette activité utilise les interventions du Service de sécurité incendie de Montréal pour pratiquer les tableaux de fréquences et la visualisation de variables catégorielles.
+Cette activité utilise la fiche [Interventions des pompiers de Montréal](fiche.qmd). Unité : Une intervention enregistrée dans la source municipale.
 
-## Objectifs d'apprentissage
-
-- Identifier l'unité statistique d'un jeu administratif.
-- Compter les grands types d'interventions.
-- Produire un graphique en barres lisible.
-- Formuler une limite d'interprétation.
-
-## Données utilisées
-
-Fiche : [Interventions des pompiers de Montréal](fiche.qmd)
-
-Source : Données ouvertes de la Ville de Montréal / Service de sécurité incendie de Montréal.
-
-Licence : Attribution (CC-BY 4.0).
-
-## Métadonnées pédagogiques
-
-| Champ | Information |
-|---|---|
-| Question directrice | Quels grands types d'interventions dominent dans la ressource courante? |
-| Concepts | Tableaux de fréquences; Visualisation; Limites d'interprétation |
-| Niveau | Introductif |
-| Type | Exercice; Exploration de données |
-| Contexte | Sécurité publique |
-| Accroche | Interventions d'urgence locales |
-| Durée | 30-45 minutes |
-| Matériel | énoncé; code; données |
-| Math/stats avancées | non |
+Source : [Données ouvertes de la Ville de Montréal / Service de sécurité incendie de Montréal](https://donnees.montreal.ca/fr/dataset/interventions-service-securite-incendie-montreal). Les dates de préparation, les fichiers et les conditions de réutilisation sont indiqués dans la trousse.
 
 ## Consignes
 
-1. Importer la ressource CSV courante.
-2. Examiner les variables `DESCRIPTION_GROUPE` et `INCIDENT_TYPE_DESC`.
-3. Compter les interventions par `DESCRIPTION_GROUPE`.
-4. Tracer un graphique en barres.
-5. Rédiger deux phrases : une observation descriptive et une limite.
+1. Ouvrir `activite-courte.R` dans le sous-dossier `datasets/interventions-pompiers-montreal` du projet RStudio et cliquer sur Source. Les tableaux apparaissent dans Console et les graphiques dans Plots.
+2. Compter les interventions par groupe.
+3. Lire la répartition et la période couverte par les observations.
+4. Rédiger une réponse à la question en nommant l’unité observée et une limite de la source.
 
-## Questions
+## Résultat attendu
 
-1. Quel groupe d'interventions est le plus fréquent?
-2. Pourquoi les effectifs bruts ne suffisent-ils pas pour comparer les arrondissements?
-3. Que mesure ce jeu de données : le risque réel ou les interventions consignées?
+Les tableaux et graphiques du script, accompagnés d’une interprétation de 6 à 8 lignes répondant à la question.
 
-## Pistes de solution
+## Limites à faire nommer
 
-Une solution acceptable présente un tableau de fréquences, un graphique clair et une phrase indiquant que les données décrivent des interventions administratives, pas une mesure directe du risque réel.
+Les interventions ne constituent pas un risque par habitant; les pratiques de déclaration et la période de couverture influencent les nombres.
 
-## Prolongement
+## Code complet
 
-Comparer les grands groupes d'interventions selon le mois ou l'arrondissement.
+Ce script complet est celui de la trousse. Il lit les fichiers locaux et affiche les résultats dans RStudio.
+
+```{r}
+#| label: activity-code
+#| echo: false
+#| results: asis
+render_activity_code()
+```
 
 ```{r}
 #| label: activity-pedagogical-contract
 #| echo: false
 #| results: asis
-contract_source_path <- if (file.exists("R/utils_activity_contract.R")) "R/utils_activity_contract.R" else "../../R/utils_activity_contract.R"
-source(contract_source_path)
 render_activity_contract()
 ```

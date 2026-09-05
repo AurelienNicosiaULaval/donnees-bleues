@@ -1,0 +1,56 @@
+{
+  "dataset_id": "bixi",
+  "prepared_at_utc": "2026-09-05T11:04:24Z",
+  "prepared_file": "stations_bixi_snapshot.csv",
+  "prepared_sha256": "574d388144c812400cf740be498c7e20e4fd2189e8fecfe52c1b0be2bc84ecdf",
+  "preview_sha256": "28f3fc4e1434f993f8ce26c262f9a65fdb2a939226b3b72f0dc7f1084731419c",
+  "rows": 120,
+  "columns": ["station_id", "name", "short_name", "capacity", "groupe_capacite", "num_bikes_available", "num_bikes_classic_available", "num_ebikes_available", "num_bikes_disabled", "num_docks_available"],
+  "selection": "Au plus 120 positions régulièrement espacées dans l'ordre de la table préparée; sélection déterministe non aléatoire",
+  "source_name": "BIXI Montréal / Données Québec",
+  "source_url": "https://www.donneesquebec.ca/recherche/dataset/vmtl-bixi-etat-des-stations",
+  "license": "Attribution (CC-BY 4.0) selon les métadonnées CKAN vérifiées le 2026-06-21",
+  "license_url": "https://creativecommons.org/licenses/by/4.0/deed.fr",
+  "sources": [
+    {
+      "source_url": "https://gbfs.velobixi.com/gbfs/gbfs.json",
+      "acquisition_kind": "download",
+      "acquired_at_utc": "2026-09-05T11:04:23Z",
+      "started_at_utc": "2026-09-05T11:04:23Z",
+      "file": "gbfs.json",
+      "bytes": 815,
+      "sha256": "7e2fe39f77f387ed7483f2680039491e5c203311dd938ef1fd6fdd904459e3f8",
+      "details": {}
+    },
+    {
+      "source_url": "https://www.donneesquebec.ca/recherche/api/3/action/package_show?id=vmtl-bixi-etat-des-stations",
+      "acquisition_kind": "download",
+      "acquired_at_utc": "2026-09-05T11:04:23Z",
+      "started_at_utc": "2026-09-05T11:04:22Z",
+      "file": "package_show_bixi.json",
+      "bytes": 6609,
+      "sha256": "c7312c594826e7213f0167c5c8ec045fc6f21820981869e5f3b065b8dac4d188",
+      "details": {}
+    },
+    {
+      "source_url": "https://gbfs.velobixi.com/gbfs/fr/station_information.json",
+      "acquisition_kind": "download",
+      "acquired_at_utc": "2026-09-05T11:04:23Z",
+      "started_at_utc": "2026-09-05T11:04:23Z",
+      "file": "station_information.json",
+      "bytes": 381684,
+      "sha256": "c94cd91350d5fcbac27b8a5fa727fe6af2613302cda718ed9e6aba88f8abe3d4",
+      "details": {}
+    },
+    {
+      "source_url": "https://gbfs.velobixi.com/gbfs/fr/station_status.json",
+      "acquisition_kind": "download",
+      "acquired_at_utc": "2026-09-05T11:04:24Z",
+      "started_at_utc": "2026-09-05T11:04:23Z",
+      "file": "station_status.json",
+      "bytes": 302050,
+      "sha256": "ff1599a28eef56adef48779b726c5e0b291bcd6d9473e9e646d417de469960c7",
+      "details": {}
+    }
+  ]
+}

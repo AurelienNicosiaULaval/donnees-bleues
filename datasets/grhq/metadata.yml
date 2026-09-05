@@ -18,7 +18,10 @@ n_cols: "11 colonnes dans la table préparée"
 processed_file: "data/processed/grhq/grhq_index_telechargement.csv"
 resource_summary_file: "data/processed/grhq/ressources_grhq.csv"
 update_frequency: "Au besoin selon la page MRNF; paquet CKAN modifié le 11 juin 2026"
-level: "Intermédiaire à avancé"
+level: Intermédiaire à avancé
+level_ids:
+- intermediaire
+- avance
 organisme: "Ministère des Ressources naturelles et des Forêts"
 territoire: "Québec"
 taille_approximative: "16 unités de téléchargement dans l'index; géodatabases détaillées volumineuses"
@@ -45,14 +48,23 @@ tags:
   - "cartographie"
   - "hydrographie"
 concepts:
-  - "hydrographie"
-  - "index de téléchargement"
-  - "données spatiales"
-  - "métadonnées"
-  - "unité statistique"
-  - "sf"
-  - "jointure spatiale"
-  - "cartographie"
+- Hydrographie
+- Index de téléchargement
+- Données spatiales
+- Métadonnées
+- Unité statistique
+- sf
+- Jointure spatiale
+- Cartographie
+concept_ids:
+- hydrographie
+- index-de-telechargement
+- donnees-spatiales
+- metadonnees
+- unite-statistique
+- sf
+- jointure-spatiale
+- cartographie
 zero_waste:
   contexte_quebecois: 3
   accessibilite_pedagogique: 2
@@ -68,3 +80,47 @@ status: "source officielle vérifiée; index CSV préparé localement"
 notes: "La fiche prépare l'index officiel de téléchargement, pas les géodatabases complètes. Les analyses spatiales doivent sélectionner une seule unité GRHQ avant de télécharger une FGDB."
 contributor_name: "Aurélien Nicosia"
 contributor_role: "Révision pédagogique et statistique"
+
+publication:
+  preview: true
+  reviewed_on: '2026-09-05'
+  license_url: https://creativecommons.org/licenses/by/4.0/deed.fr
+  preview_columns:
+  - bloc
+  - region_hydrographique
+  - partie
+  - is_split_unit
+  - unit_kind
+  - zone
+  reason: Extrait pédagogique limité aux colonnes déclarées; attribution et conditions de la source conservées.
+  classroom:
+    mode: documentation
+    reason: Documentation et synthèses publiques seulement; aucune donnée privée, géodatabase ni observation
+      de retard.
+    files:
+    - path: data/processed/grhq/grhq_index_telechargement.csv
+      columns:
+      - bloc
+      - region_hydrographique
+      - partie
+      - is_split_unit
+      - unit_kind
+      - zone
+      - fgdb_zip_file
+      - fgdb_directory
+      - fgdb_url
+      - source_index_url
+      - access_date
+    - path: data/processed/grhq/ressources_grhq.csv
+      columns:
+      - resource_id
+      - resource_name
+      - format
+      - url
+      - last_modified
+chart:
+  type: count
+  x_variable: unit_kind
+  x_label: Blocs de téléchargement (nombre)
+  y_label: Unité du découpage
+  title: Composition de l’index de téléchargement

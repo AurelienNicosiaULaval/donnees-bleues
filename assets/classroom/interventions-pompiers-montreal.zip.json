@@ -1,0 +1,21 @@
+{
+  "dataset_id": "interventions-pompiers-montreal",
+  "title": "Interventions des pompiers de Montréal",
+  "mode": "frozen",
+  "prepared_at_utc": "2026-09-05T11:04:55Z",
+  "source_name": "Données ouvertes de la Ville de Montréal / Service de sécurité incendie de Montréal",
+  "source_url": "https://donnees.montreal.ca/fr/dataset/interventions-service-securite-incendie-montreal",
+  "license_url": "https://creativecommons.org/licenses/by/4.0/deed.fr",
+  "selection": "Table de classe limitée aux colonnes déclarées, sans tirage supplémentaire de lignes. Attribution et conditions tierces conservées.",
+  "tables": [
+    {
+      "path": "data/processed/interventions-pompiers-montreal/interventions_pompiers_montreal.csv",
+      "rows": 208542,
+      "columns": ["creation_date_time", "incident_type", "description_groupe", "nom_arrond", "nombre_unites"],
+      "sha256": "d5f480bcba0528ecd8e354879cc8f2acc841dff2fe3e16cbdda143548f530117",
+      "prepared_table_sha256": "0bef88e330437b548ed5d0ff22ea51775acd28ce544b57c171fd439862eab370"
+    }
+  ],
+  "archive_sha256": "21e1885f7ba32277a06640c08e1e54cc4f98d8d9c95ed25596acc767c7e53ef1",
+  "archive_bytes": 1560047
+}

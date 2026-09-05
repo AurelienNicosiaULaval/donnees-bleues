@@ -1,0 +1,21 @@
+{
+  "dataset_id": "arbres-publics-montreal",
+  "title": "Arbres publics sur le territoire de Montréal",
+  "mode": "frozen",
+  "prepared_at_utc": "2026-09-05T11:04:57Z",
+  "source_name": "Données Québec / Ville de Montréal",
+  "source_url": "https://www.donneesquebec.ca/recherche/dataset/vmtl-arbres",
+  "license_url": "https://creativecommons.org/licenses/by/4.0/deed.fr",
+  "selection": "Table de classe limitée aux colonnes déclarées, sans tirage supplémentaire de lignes. Attribution et conditions tierces conservées.",
+  "tables": [
+    {
+      "path": "data/processed/arbres-publics-montreal/arbres_publics_montreal.csv",
+      "rows": 335052,
+      "columns": ["arrondissement", "essence_fr", "dhp"],
+      "sha256": "a59f59387de2a37b67922335852f3458490f3535b9ed035eb84fdde340e1e3a4",
+      "prepared_table_sha256": "b4c617eda654ef9aaeeb9d0c39bf7a776265a987f37a00b05b87aa06a654ac43"
+    }
+  ],
+  "archive_sha256": "389226520e5fd06d9bcd19a3e982cbc0e626e0ebe6ed6a86ac48927624e7be9a",
+  "archive_bytes": 566283
+}

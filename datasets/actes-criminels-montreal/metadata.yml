@@ -21,7 +21,10 @@ category_summary_file: "data/processed/actes-criminels-montreal/resume_categorie
 year_summary_file: "data/processed/actes-criminels-montreal/resume_annees_actes_criminels.csv"
 missing_summary_file: "data/processed/actes-criminels-montreal/valeurs_manquantes_actes_criminels.csv"
 update_frequency: "CSV modifié le 2026-06-20; paquet CKAN modifié le 2026-06-20"
-level: "Intermédiaire à avancé"
+level: Intermédiaire à avancé
+level_ids:
+- intermediaire
+- avance
 organisme: "Ville de Montréal / SPVM"
 territoire: "Montréal"
 taille_approximative: "352 366 actes; 6 catégories; 3 quarts; 34 PDQ non manquants"
@@ -51,14 +54,23 @@ tags:
   - "statistiques descriptives"
   - "éthique"
 concepts:
-  - "données sensibles"
-  - "unité statistique"
-  - "catégories"
-  - "séries temporelles"
-  - "valeurs manquantes"
-  - "cartographie responsable"
-  - "biais de déclaration"
-  - "communication prudente"
+- Données sensibles
+- Unité statistique
+- Catégories
+- Séries temporelles
+- Valeurs manquantes
+- Cartographie responsable
+- Biais de déclaration
+- Communication prudente
+concept_ids:
+- donnees-sensibles
+- unite-statistique
+- categories
+- series-temporelles
+- valeurs-manquantes
+- cartographie-responsable
+- biais-de-declaration
+- communication-prudente
 zero_waste:
   contexte_quebecois: 3
   accessibilite_pedagogique: 2
@@ -74,3 +86,36 @@ status: "source officielle vérifiée; CSV préparé localement avec prudence é
 notes: "La description officielle indique que ce jeu ne représente pas les statistiques officielles du SPVM. Les activités doivent éviter les classements de quartiers dangereux et les cartes de points bruts."
 contributor_name: "Aurélien Nicosia"
 contributor_role: "Révision pédagogique et statistique"
+
+publication:
+  preview: true
+  reviewed_on: '2026-09-05'
+  license_url: https://creativecommons.org/licenses/by/4.0/deed.fr
+  preview_columns:
+  - categorie
+  - date
+  - annee
+  - mois
+  - quart
+  - pdq
+  - localisation_disponible
+  - access_date
+  reason: Extrait pédagogique limité aux colonnes déclarées; attribution et conditions de la source conservées.
+  classroom:
+    mode: frozen
+    reason: Table de classe limitée aux colonnes déclarées, sans tirage supplémentaire de lignes. Attribution
+      et conditions tierces conservées.
+    files:
+    - path: data/processed/actes-criminels-montreal/actes_criminels_montreal.csv
+      columns:
+      - categorie
+      - date
+      - annee
+      - mois
+      - quart
+chart:
+  type: count
+  x_variable: categorie
+  x_label: Actes dans l’extrait (nombre)
+  y_label: Catégorie
+  title: Catégories des actes de l’extrait

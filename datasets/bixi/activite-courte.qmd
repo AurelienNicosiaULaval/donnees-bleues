@@ -1,96 +1,64 @@
 ---
 title: "Laboratoire - Disponibilité instantanée des stations BIXI"
-embed-resources: false
+embed-resources: true
 ---
-
 
 # Laboratoire - Disponibilité instantanée des stations BIXI
 
-<!-- activity-teacher-brief:start -->
-::: {.activity-teacher-brief}
-
-## En classe, cette activité sert à...
-
-Cette activité sert à travailler les notions suivantes : Données et mesure, Statistique descriptive, Visualisation à partir d'une question située dans le contexte suivant : Mobilité urbaine. Elle demande aux étudiantes et étudiants de répondre à la question directrice suivante : Comment décrire la disponibilité des vélos BIXI dans un instantané?
-
-::: {.activity-quick-facts}
-| Élément | Information |
-|---|---|
-| Durée | 30-45 minutes |
-| Niveau | Introductif |
-| Usage recommandé | Exercice guidé |
-| Préparation enseignant | Vérifier que `data/processed/bixi/stations_bixi_snapshot.csv` est disponible; aucune collecte en direct n'est nécessaire pour lancer l'activité. |
-| Production attendue | Un tableau ou graphique descriptif accompagné de trois phrases d'interprétation prudente. |
-| Données | `data/processed/bixi/stations_bixi_snapshot.csv` |
-:::
-
-:::
-<!-- activity-teacher-brief:end -->
-
-## Données utilisées
-
-Source : BIXI Montréal / Données Québec. Licence : Attribution (CC-BY 4.0) selon les métadonnées CKAN vérifiées le 2026-06-21. Fichier principal pour l'activité : `data/processed/bixi/stations_bixi_snapshot.csv`
-
-## Préparation enseignante
-
-- Vérifier que `data/processed/bixi/stations_bixi_snapshot.csv` est disponible; aucune collecte en direct n'est nécessaire pour lancer l'activité.
-- Fichier préparé : `data/processed/bixi/stations_bixi_snapshot.csv`.
-- Script de préparation : `datasets/bixi/preparation.R`.
-- Point à surveiller : Faire distinguer disponibilité instantanée, demande des usagers et rééquilibrage opérationnel. Filtrer les coordonnées invalides avant toute carte.
-
-## Limites à faire nommer
-
-- Faire distinguer disponibilité instantanée, demande des usagers et rééquilibrage opérationnel. Filtrer les coordonnées invalides avant toute carte.
-- Si une variable ou un dénominateur nécessaire n'est pas disponible dans les données, l'écrire explicitement plutôt que l'inférer.
-
-
-## Contexte
-
-Cette activité utilise la fiche [État des stations BIXI](fiche.qmd). L'objectif est de résumer un instantané de disponibilité sans le confondre avec une mesure de demande.
-
-## Objectifs d'apprentissage
-
-- Exécuter un script qui importe deux flux JSON GBFS.
-- Joindre des tables par `station_id`.
-- Calculer un ratio avec un dénominateur pertinent.
-- Produire un histogramme descriptif.
-- Nommer une limite liée aux données temps réel.
-
-## Question directrice
 
 Comment décrire la disponibilité des vélos BIXI dans un instantané?
 
+Durée : 30-45 minutes. Niveau : Introduction.
+
+## Préparation enseignante
+
+Télécharger la trousse ci-dessous. Extraire le ZIP, puis double-cliquer sur `Donnees-bleues.Rproj`. Avant la séance, ouvrir `installer-packages.R` et cliquer sur Source avec une connexion Internet.
+
+Une fois les packages installés, les scripts utilisent les fichiers inclus et peuvent être exécutés hors ligne.
+
+```{r}
+#| label: activity-classroom-resources
+#| echo: false
+#| results: asis
+source(if (file.exists("R/utils_activity_contract.R")) "R/utils_activity_contract.R" else "../../R/utils_activity_contract.R")
+render_activity_resources()
+```
+
+## Contexte
+
+Cette activité utilise la fiche [État des stations BIXI](fiche.qmd). Unité : Une station BIXI dans un instantané de disponibilité.
+
+Source : [BIXI Montréal / Données Québec](https://www.donneesquebec.ca/recherche/dataset/vmtl-bixi-etat-des-stations). Les dates de préparation, les fichiers et les conditions de réutilisation sont indiqués dans la trousse.
+
 ## Consignes
 
-1. Exécuter `datasets/bixi/preparation.R`.
-2. Importer `data/processed/bixi/stations_bixi_snapshot.csv`.
-3. Garder les stations avec `capacity > 0`.
-4. Visualiser la distribution de `taux_occupation`.
-5. Calculer la proportion de stations sous 25 % d'occupation.
-6. Identifier les stations sans vélo disponible.
-7. Rédiger une interprétation de 6 à 8 lignes.
+1. Ouvrir `activite-courte.R` dans le sous-dossier `datasets/bixi` du projet RStudio et cliquer sur Source. Les tableaux apparaissent dans Console et les graphiques dans Plots.
+2. Vérifier le ratio vélos disponibles/capacité pour les stations de capacité positive.
+3. Calculer la proportion sous 25 %, repérer les stations sans vélo et lire l’histogramme.
+4. Rédiger une réponse à la question en nommant l’unité observée et une limite de la source.
 
-## Résultats attendus
+## Résultat attendu
 
-Le script de préparation vérifie le paquet CKAN, le fichier de découverte GBFS, les flux `station_information` et `station_status`, puis produit une table avec une ligne par station. Dans l'instantané préparé le 2026-06-21 à 08:20 EDT, la table contient 1 084 stations et 28 colonnes préparées.
+Les tableaux et graphiques du script, accompagnés d’une interprétation de 6 à 8 lignes répondant à la question.
 
-## Questions
+## Limites à faire nommer
 
-1. Quelle est l'unité statistique après la jointure?
-2. Pourquoi `capacity` est-elle un bon dénominateur pour comparer les stations?
-3. Que signifie une station avec `taux_occupation == 0`?
-4. Pourquoi faut-il filtrer les coordonnées `0,0` avant une carte?
-5. Quelle conclusion serait trop forte avec un seul instantané?
+Un instantané ne mesure ni la demande, ni les trajets, ni le rééquilibrage. Le statut opérationnel peut expliquer une disponibilité nulle.
 
-## Pistes de solution
+## Code complet
 
-Une bonne réponse distingue disponibilité instantanée et demande. Une réponse plus solide signale aussi que les stations non installées et les coordonnées invalides doivent être traitées avant toute visualisation spatiale.
+Ce script complet est celui de la trousse. Il lit les fichiers locaux et affiche les résultats dans RStudio.
+
+```{r}
+#| label: activity-code
+#| echo: false
+#| results: asis
+render_activity_code()
+```
 
 ```{r}
 #| label: activity-pedagogical-contract
 #| echo: false
 #| results: asis
-contract_source_path <- if (file.exists("R/utils_activity_contract.R")) "R/utils_activity_contract.R" else "../../R/utils_activity_contract.R"
-source(contract_source_path)
 render_activity_contract()
 ```

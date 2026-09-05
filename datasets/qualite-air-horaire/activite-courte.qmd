@@ -1,135 +1,64 @@
 ---
 title: "PM2.5 et journées élevées en 2025"
-embed-resources: false
+embed-resources: true
 ---
-
 
 # PM2.5 et journées élevées en 2025
 
-<!-- activity-teacher-brief:start -->
-::: {.activity-teacher-brief}
 
-## En classe, cette activité sert à...
+Comment décrire les séries journalières de PM2.5 avec une couverture minimale?
 
-Cette activité sert à travailler les notions suivantes : séries temporelles, résumé journalier, valeurs manquantes, visualisation, communication prudente à partir d'une question située dans le contexte suivant : Environnement. Elle demande aux étudiantes et étudiants de répondre à la question directrice suivante : Quelles journées présentent les moyennes journalières de PM2.5 les plus élevées, et que peut-on conclure prudemment?
-
-::: {.activity-quick-facts}
-| Élément | Information |
-|---|---|
-| Durée | 60-90 minutes |
-| Niveau | Introduction à intermédiaire |
-| Usage recommandé | Laboratoire guidé |
-| Préparation enseignant | Préparation requise : exécuter `Rscript datasets/qualite-air-horaire/preparation.R` depuis la racine, puis vérifier que `data/processed/qualite-air-horaire/resume_journalier_contaminants_2025.csv` existe. |
-| Production attendue | Un tableau ou graphique descriptif accompagné de trois phrases d'interprétation prudente. |
-| Données | `data/processed/qualite-air-horaire/resume_journalier_contaminants_2025.csv` |
-:::
-
-:::
-<!-- activity-teacher-brief:end -->
+Durée : 60-90 minutes. Niveau : Introduction à intermédiaire.
 
 ## Préparation enseignante
 
-- Préparation requise : exécuter `Rscript datasets/qualite-air-horaire/preparation.R` depuis la racine, puis vérifier que `data/processed/qualite-air-horaire/resume_journalier_contaminants_2025.csv` existe.
-- Fichier préparé : `data/processed/qualite-air-horaire/resume_journalier_contaminants_2025.csv`.
-- Script de préparation : `datasets/qualite-air-horaire/preparation.R`.
-- Point à surveiller : Faire comparer les résultats avec un seuil de 18 heures valides et avec 24 heures valides.
+Télécharger la trousse ci-dessous. Extraire le ZIP, puis double-cliquer sur `Donnees-bleues.Rproj`. Avant la séance, ouvrir `installer-packages.R` et cliquer sur Source avec une connexion Internet.
 
-## Limites à faire nommer
+Une fois les packages installés, les scripts utilisent les fichiers inclus et peuvent être exécutés hors ligne.
 
-- Faire comparer les résultats avec un seuil de 18 heures valides et avec 24 heures valides.
-- Si une variable ou un dénominateur nécessaire n'est pas disponible dans les données, l'écrire explicitement plutôt que l'inférer.
-
+```{r}
+#| label: activity-classroom-resources
+#| echo: false
+#| results: asis
+source(if (file.exists("R/utils_activity_contract.R")) "R/utils_activity_contract.R" else "../../R/utils_activity_contract.R")
+render_activity_resources()
+```
 
 ## Contexte
 
-Le RSQAQ publie des mesures horaires de contaminants atmosphériques. Dans cette activité, vous travaillez avec un résumé journalier préparé à partir du CSV officiel 2025.
+Cette activité utilise la fiche [Qualité de l'air au Québec](fiche.qmd). Unité : Un résumé journalier par station et contaminant, calculé à partir de valeurs horaires de 2025.
 
-La question n'est pas seulement de trouver les plus grandes valeurs. Il faut aussi vérifier la couverture horaire et expliquer ce qu'un classement descriptif permet ou ne permet pas de conclure.
-
-## Objectifs d'apprentissage
-
-- Importer un fichier préparé avec `readr`.
-- Filtrer un contaminant précis.
-- Utiliser un seuil minimal d'heures valides.
-- Produire une visualisation temporelle.
-- Rédiger une conclusion descriptive prudente.
-
-## Données utilisées
-
-Source : Données Québec / MELCCFP / RSQAQ, `RSQAQ - Données horaires continues`, ressource CSV 2025.
-
-Fichier préparé : `data/processed/qualite-air-horaire/resume_journalier_contaminants_2025.csv`.
-
-Fiche : [Qualité de l'air au Québec](fiche.qmd).
+Source : [Données Québec / MELCCFP / RSQAQ](https://www.donneesquebec.ca/recherche/dataset/rsqaq-donnees-horaires-continues). Les dates de préparation, les fichiers et les conditions de réutilisation sont indiqués dans la trousse.
 
 ## Consignes
 
-1. Exécuter `source("datasets/qualite-air-horaire/preparation.R")`.
-2. Importer le résumé journalier.
-3. Garder seulement `contaminant_source == "PM2.5-T640"`.
-4. Garder les jours avec au moins 18 heures valides.
-5. Identifier les dix moyennes journalières les plus élevées.
-6. Produire une série temporelle des moyennes journalières par station.
-7. Rédiger une conclusion de 6 à 8 lignes.
+1. Ouvrir `activite-courte.R` dans le sous-dossier `datasets/qualite-air-horaire` du projet RStudio et cliquer sur Source. Les tableaux apparaissent dans Console et les graphiques dans Plots.
+2. Retenir PM2.5-T640 et les jours ayant au moins 18 heures valides.
+3. Lire les moyennes par station et les journées aux valeurs les plus élevées.
+4. Rédiger une réponse à la question en nommant l’unité observée et une limite de la source.
 
-## Code de départ
+## Résultat attendu
+
+Les tableaux et graphiques du script, accompagnés d’une interprétation de 6 à 8 lignes répondant à la question.
+
+## Limites à faire nommer
+
+Les PM2,5-T640 sont exprimées en µg/m³. Les jours sont regroupés en HNE (UTC-5 fixe) à partir de la fin des intervalles horaires, avec au moins 18 heures valides. Ce filtre pédagogique ne constitue pas une évaluation réglementaire ou sanitaire.
+
+## Code complet
+
+Ce script complet est celui de la trousse. Il lit les fichiers locaux et affiche les résultats dans RStudio.
 
 ```{r}
-#| eval: false
-# Load libraries
-library(dplyr)
-library(ggplot2)
-library(readr)
-
-# Prepare and import data
-source("datasets/qualite-air-horaire/preparation.R")
-
-air_jour <- read_csv(
-  "data/processed/qualite-air-horaire/resume_journalier_contaminants_2025.csv",
-  show_col_types = FALSE
-)
-
-pm25 <- air_jour |>
-  filter(contaminant_source == "PM2.5-T640", n_heures_valides >= 18)
-
-pm25 |>
-  arrange(desc(moyenne)) |>
-  select(date, station_name, n_heures_valides, moyenne, maximum) |>
-  slice_head(n = 10)
-
-ggplot(pm25, aes(x = date, y = moyenne, group = station_id)) +
-  geom_line(alpha = 0.25, linewidth = 0.3) +
-  labs(
-    title = "Moyennes journalières de PM2.5 par station, 2025",
-    x = "Date",
-    y = "Moyenne journalière des valeurs publiées"
-  ) +
-  theme_minimal()
+#| label: activity-code
+#| echo: false
+#| results: asis
+render_activity_code()
 ```
-
-## Questions
-
-1. Pourquoi impose-t-on un seuil minimal d'heures valides?
-2. Quelle journée et quelle station arrivent en tête du classement?
-3. Le classement change-t-il si on exige 24 heures valides?
-4. Pourquoi une moyenne journalière élevée ne suffit-elle pas à identifier une cause?
-5. Que faudrait-il ajouter comme données pour interpréter un épisode?
-
-## Résultats attendus
-
-Une réponse correcte doit nommer le contaminant, le seuil d'heures valides, les stations les plus élevées et au moins une limite méthodologique.
-
-Une réponse plus solide compare les résultats obtenus avec `n_heures_valides >= 18` et `n_heures_valides == 24`.
-
-## Prolongement
-
-Refaire l'analyse pour `O3`, puis expliquer pourquoi les valeurs de PM2.5 et O3 ne doivent pas être placées sur la même échelle sans justification.
 
 ```{r}
 #| label: activity-pedagogical-contract
 #| echo: false
 #| results: asis
-contract_source_path <- if (file.exists("R/utils_activity_contract.R")) "R/utils_activity_contract.R" else "../../R/utils_activity_contract.R"
-source(contract_source_path)
 render_activity_contract()
 ```

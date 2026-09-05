@@ -1,0 +1,30 @@
+{
+  "dataset_id": "condamnations-alimentaires-quebec",
+  "prepared_at_utc": "2026-09-05T11:04:28Z",
+  "prepared_file": "condamnations_alimentaires_quebec.csv",
+  "prepared_sha256": "23281ef15f72d9ccd1b83fa17e45ddca62682829d0637c0d0209edbcaaa5c996",
+  "preview_sha256": "62fa2ba9a9c8af48f07e7d8f95ecfc23de0ad397a84983f8b07de88eb563b841",
+  "rows": 120,
+  "columns": ["Description_infraction", "Type_etablissement", "Date_infraction", "Date_jugement", "Date_publication", "Amende", "SOC_NOM_ARTCL_INFRC", "amende_num", "ville_montreal", "delai_infraction_jugement_jours"],
+  "selection": "Au plus 120 positions régulièrement espacées dans l'ordre de la table préparée; sélection déterministe non aléatoire",
+  "source_name": "Données Québec / MAPAQ; version pédagogique fixe dans UlavalSSD",
+  "source_url": "https://www.donneesquebec.ca/recherche/dataset/condamnations-des-etablissements-alimentaires-et-condamnations-concernant-le-bien-etre-des-anim",
+  "license": "Attribution (CC-BY 4.0) selon les métadonnées CKAN vérifiées le 2026-06-20; paquet UlavalSSD sous licence MIT",
+  "license_url": "https://creativecommons.org/licenses/by/4.0/deed.fr",
+  "sources": [
+    {
+      "source_url": "https://github.com/AurelienNicosiaULaval/UlavalSSD/tree/0b79f4c985ef87a32bdb5b83f193ae5f5ea6d640",
+      "acquisition_kind": "package_export",
+      "acquired_at_utc": "2026-09-05T11:04:28Z",
+      "started_at_utc": {},
+      "file": "UlavalSSD_listecondamnation.csv",
+      "bytes": 697677,
+      "sha256": "1a09a9dcc5cada8b836c2827976e85559073988ec6878fa218933df9e5f97033",
+      "details": {
+        "package": "UlavalSSD",
+        "version": "0.2.0",
+        "dataset": "listecondamnation"
+      }
+    }
+  ]
+}

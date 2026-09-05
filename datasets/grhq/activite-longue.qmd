@@ -1,220 +1,64 @@
 ---
 title: "Préparer une analyse spatiale avec la GRHQ"
-embed-resources: false
+embed-resources: true
 ---
-
 
 # Préparer une analyse spatiale avec la GRHQ
 
-<!-- activity-teacher-brief:start -->
-::: {.activity-teacher-brief}
 
-## En classe, cette activité sert à...
+Quelles ressources préparer avant une analyse spatiale GRHQ?
 
-Cette activité sert à travailler les notions suivantes : Index spatial, FGDB, sf, Jointure spatiale, Limites computationnelles à partir d'une question située dans le contexte suivant : Hydrographie. Elle demande aux étudiantes et étudiants de répondre à la question directrice suivante : Comment préparer une analyse spatiale avec la GRHQ sans télécharger inutilement tout le Québec?
-
-::: {.activity-quick-facts}
-| Élément | Information |
-|---|---|
-| Durée | 2-3 heures |
-| Niveau | Intermédiaire à avancé |
-| Usage recommandé | Mini-projet guidé |
-| Préparation enseignant | Préparation requise : exécuter `Rscript datasets/grhq/preparation.R` depuis la racine, puis vérifier que `data/processed/grhq/grhq_index_telechargement.csv` existe. |
-| Production attendue | Un court rapport reproductible avec contexte, tableau ou graphique, interprétation et limites. |
-| Données | `data/processed/grhq/grhq_index_telechargement.csv` |
-:::
-
-:::
-<!-- activity-teacher-brief:end -->
+Durée : 2-3 heures. Niveau : Intermédiaire à avancé.
 
 ## Préparation enseignante
 
-- Préparation requise : exécuter `Rscript datasets/grhq/preparation.R` depuis la racine, puis vérifier que `data/processed/grhq/grhq_index_telechargement.csv` existe.
-- Fichier préparé : `data/processed/grhq/grhq_index_telechargement.csv`.
-- Script de préparation : `datasets/grhq/preparation.R`.
-- Point à surveiller : Limiter l'analyse à une unité GRHQ. Exiger une distinction explicite entre index de téléchargement, WMS de visualisation et FGDB analysable.
+Télécharger la trousse ci-dessous. Extraire le ZIP, puis double-cliquer sur `Donnees-bleues.Rproj`. Avant la séance, ouvrir `installer-packages.R` et cliquer sur Source avec une connexion Internet.
 
-## Consignes
+Une fois les packages installés, les scripts utilisent les fichiers inclus et peuvent être exécutés hors ligne.
 
-1. Importer `grhq_index_telechargement.csv` ou exécuter `datasets/grhq/preparation.R` si le fichier est absent.
-2. Identifier ce que représente une ligne du fichier.
-3. Produire un tableau ou un graphique adapté à la question directrice.
-4. Rédiger une interprétation courte qui distingue description et explication.
-5. Nommer au moins une limite méthodologique ou une information absente.
-
-## Résultat attendu
-
-Un court rapport reproductible avec contexte, tableau ou graphique, interprétation et limites. La production doit aussi contenir une phrase sur l'unité statistique et une phrase sur une limite de la source.
-
-## Déroulé suggéré
-
-1. Cadrer la source, la licence et l'unité statistique.
-2. Préparer ou importer les données.
-3. Produire un premier résumé descriptif.
-4. Construire la visualisation ou le tableau principal.
-5. Rédiger l'interprétation et les limites.
-
-## Limites à faire nommer
-
-- Limiter l'analyse à une unité GRHQ. Exiger une distinction explicite entre index de téléchargement, WMS de visualisation et FGDB analysable.
-- Si une variable ou un dénominateur nécessaire n'est pas disponible dans les données, l'écrire explicitement plutôt que l'inférer.
-
+```{r}
+#| label: activity-classroom-resources
+#| echo: false
+#| results: asis
+source(if (file.exists("R/utils_activity_contract.R")) "R/utils_activity_contract.R" else "../../R/utils_activity_contract.R")
+render_activity_resources()
+```
 
 ## Contexte
 
-Cette activité simule le début d'un projet environnemental avec un référentiel spatial officiel. Le livrable attendu n'est pas seulement une carte. Il faut produire un plan d'analyse reproductible : choix de l'unité GRHQ, justification du périmètre, documentation des ressources, stratégie de lecture avec `sf` et limites.
+Cette activité utilise la fiche [Géobase du réseau hydrographique du Québec](fiche.qmd). Unité : Une unité de téléchargement dans l’index GRHQ, ou une ressource documentaire.
 
-## Objectifs d'apprentissage
+Source : [Données Québec / Ministère des Ressources naturelles et des Forêts](https://www.donneesquebec.ca/recherche/dataset/grhq). Les dates de préparation, les fichiers et les conditions de réutilisation sont indiqués dans la trousse.
 
-- Utiliser un index officiel pour limiter un téléchargement spatial
-- Documenter une ressource FGDB avant son importation
-- Préparer une lecture avec `sf`
-- Distinguer visualisation WMS et données analysables
-- Concevoir une jointure spatiale avec un autre jeu environnemental
-- Communiquer les limites d'un référentiel spatial
+## Consignes
 
-## Données utilisées
+1. Ouvrir `activite-longue.R` dans le sous-dossier `datasets/grhq` du projet RStudio et cliquer sur Source. Les tableaux apparaissent dans Console et les graphiques dans Plots.
+2. Identifier le bloc 08, son type et son URL officielle.
+3. Inventorier les formats documentés et rédiger les étapes d’une acquisition ultérieure de géodatabase.
+4. Rédiger une réponse à la question en nommant l’unité observée et une limite de la source.
 
-Fiche : [Géobase du réseau hydrographique du Québec](fiche.qmd)
+## Résultat attendu
 
-Source : Données Québec / Ministère des Ressources naturelles et des Forêts.
+Un tableau de contrôle et une note de décision répondant à la question.
 
-Licence : Attribution (CC-BY 4.0), selon les métadonnées CKAN consultées le 2026-06-21.
+## Limites à faire nommer
 
-Fichier préparé : `data/processed/grhq/grhq_index_telechargement.csv`
+L’archive fournit l’index et la documentation. Aucune géodatabase n’est incluse et aucune analyse de géométrie n’est réalisée par ces scripts.
 
-## Métadonnées pédagogiques
+## Code complet
 
-| Champ | Information |
-|---|---|
-| Question directrice | Comment préparer une analyse spatiale avec la GRHQ sans télécharger inutilement tout le Québec? |
-| Concepts | Index spatial; FGDB; `sf`; Jointure spatiale; Limites computationnelles |
-| Niveau | Intermédiaire à avancé |
-| Type | Projet ou tâche longue; Étude de cas |
-| Contexte | Hydrographie |
-| Accroche | Un bon projet spatial commence par un bon périmètre |
-| Durée | 2-3 heures |
-| Matériel | énoncé; code; index préparé; notes enseignantes |
-| Math/stats avancées | non |
-
-## Mandat
-
-Produire une courte note technique de 2 à 4 pages qui prépare une analyse spatiale avec la GRHQ. La note doit contenir :
-
-1. une question d'analyse;
-2. l'unité GRHQ choisie;
-3. l'URL FGDB correspondante;
-4. la liste des ressources CKAN utiles;
-5. une stratégie de lecture avec `sf`;
-6. une proposition de jointure avec un autre jeu environnemental;
-7. une section de limites.
-
-## Étapes recommandées
-
-1. Exécuter `datasets/grhq/preparation.R`.
-2. Importer l'index préparé.
-3. Choisir une unité de téléchargement.
-4. Documenter si l'unité est complète ou fractionnée.
-5. Identifier le rôle du WMS simple et du WMS détaillé.
-6. Préparer le code qui lirait une FGDB téléchargée localement.
-7. Proposer une jointure avec des stations de qualité de l'eau, des repères de crue ou un autre jeu environnemental.
-8. Rédiger les limites avant toute interprétation.
-
-## Code de départ
-
-À exécuter depuis la racine du projet.
+Ce script complet est celui de la trousse. Il lit les fichiers locaux et affiche les résultats dans RStudio.
 
 ```{r}
-#| eval: false
-# Load libraries
-library(dplyr)
-library(readr)
-
-# Prepare official metadata and index
-source("datasets/grhq/preparation.R")
-
-# Import prepared files
-index_grhq <- read_csv(
-  "data/processed/grhq/grhq_index_telechargement.csv",
-  show_col_types = FALSE
-)
-
-ressources_grhq <- read_csv(
-  "data/processed/grhq/ressources_grhq.csv",
-  show_col_types = FALSE
-)
-
-# Select one unit
-unite_choisie <- index_grhq |>
-  filter(bloc == "08")
-
-unite_choisie |>
-  select(bloc, zone, unit_kind, fgdb_url)
-
-# Identify official resource types
-ressources_grhq |>
-  count(format, sort = TRUE)
+#| label: activity-code
+#| echo: false
+#| results: asis
+render_activity_code()
 ```
-
-## Exemple de code après téléchargement
-
-Ce bloc n'est pas exécuté tant que la FGDB n'est pas téléchargée localement.
-
-```{r}
-#| eval: false
-# Load spatial package
-library(sf)
-
-# Replace this path with the local FGDB extracted from the selected unit
-fgdb_path <- "data/raw/grhq/08/08.gdb"
-
-# Inspect available layers
-st_layers(fgdb_path)
-
-# Read one selected layer after inspection
-# cours_eau <- st_read(fgdb_path, layer = "NOM_DE_LA_COUCHE")
-```
-
-## Questions à traiter
-
-1. Quelle question environnementale justifie l'utilisation de la GRHQ?
-2. Pourquoi l'unité choisie est-elle raisonnable pour un laboratoire?
-3. Le WMS suffit-il pour l'analyse, ou faut-il télécharger une FGDB?
-4. Quelle couche faudrait-il lire dans la FGDB?
-5. Quelle donnée externe pourrait être jointe spatialement?
-6. Quels résultats seraient invalides si l'on utilisait seulement l'index?
-
-## Critères de réussite
-
-Un bon rapport :
-
-- ne télécharge pas tout le référentiel sans justification;
-- distingue index, WMS et FGDB;
-- indique clairement ce que représente une ligne de l'index;
-- propose un code de lecture spatial réaliste;
-- formule une question d'analyse compatible avec les données;
-- cite la source et la licence;
-- documente les limites de taille, de projection et de précision.
-
-## Pistes de solution
-
-Une conclusion prudente peut prendre cette forme :
-
-> L'index GRHQ permet de sélectionner une unité de téléchargement, mais il ne contient pas les entités hydrographiques détaillées. Pour mesurer ou joindre spatialement le réseau, il faut télécharger la FGDB de l'unité choisie, inspecter ses couches et documenter la projection avant l'analyse.
-
-## Prolongements
-
-- Comparer le rendu WMS simple et détaillé.
-- Lire une couche FGDB avec `sf`.
-- Joindre des stations de qualité de l'eau à une unité GRHQ.
-- Simplifier une géométrie pour une carte web.
-- Discuter la différence entre données de référence et données d'observation.
 
 ```{r}
 #| label: activity-pedagogical-contract
 #| echo: false
 #| results: asis
-contract_source_path <- if (file.exists("R/utils_activity_contract.R")) "R/utils_activity_contract.R" else "../../R/utils_activity_contract.R"
-source(contract_source_path)
 render_activity_contract()
 ```

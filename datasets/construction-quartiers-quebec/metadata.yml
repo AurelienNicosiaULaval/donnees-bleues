@@ -14,18 +14,31 @@ processed_file: "data/processed/construction-quartiers-quebec/quebec_constructio
 n_rows: "66 470 permis; 284 964 empreintes de bâtiments; 35 quartiers; 35 lignes agrégées par quartier dans la version téléchargée le 2026-06-21"
 n_cols: "10 colonnes permis; 4 colonnes bâtiments; 5 colonnes quartiers; 21 colonnes pour l'agrégé par quartier"
 update_frequency: "Mise à jour fréquente; métadonnées modifiées le 2026-06-21 pour les permis et quartiers, le 2026-06-07 pour les bâtiments selon l'API CKAN de Données Québec consultée le 2026-06-21"
-level: "Intermédiaire"
+level: Intermédiaire
+level_ids:
+- intermediaire
 concepts:
-  - données ouvertes municipales
-  - nettoyage de noms de variables
-  - données spatiales
-  - jointure spatiale
-  - agrégation par quartier
-  - densité
-  - superficies
-  - statistique descriptive
-  - visualisation
-  - limites des données administratives
+- Données ouvertes municipales
+- Nettoyage de noms de variables
+- Données spatiales
+- Jointure spatiale
+- Agrégation par quartier
+- Densité
+- Superficies
+- Statistiques descriptives
+- Visualisation
+- Limites des données administratives
+concept_ids:
+- donnees-ouvertes-municipales
+- nettoyage-de-noms-de-variables
+- donnees-spatiales
+- jointure-spatiale
+- agregation-par-quartier
+- densite
+- superficies
+- statistiques-descriptives
+- visualisation
+- limites-des-donnees-administratives
 variables_principales:
   - numero_permis
   - date_delivrance
@@ -71,3 +84,56 @@ zero_waste:
   reutilisabilite: 3
 status: "source vérifiée"
 notes: "Sources officielles utilisées : Permis délivrés à la Ville de Québec, Empreintes des bâtiments et Quartiers, publiés par la Ville de Québec dans Données Québec. Les fichiers préparés conservent les variables sources avec noms nettoyés et ajoutent un agrégat descriptif par quartier."
+
+publication:
+  preview: true
+  reviewed_on: '2026-09-05'
+  license_url: https://creativecommons.org/licenses/by/4.0/deed.fr
+  preview_columns:
+  - id_quartier
+  - nom_quartier
+  - superficie_quartier_m2
+  - perimetre_quartier_m
+  - nombre_permis
+  - nombre_permis_construction_batiment_principal
+  - nombre_permis_renovation_agrandissement
+  - nombre_permis_constructions_amenagements_accessoires
+  - nombre_permis_lotissement
+  - annee_min_permis
+  reason: Extrait pédagogique limité aux colonnes déclarées; attribution et conditions de la source conservées.
+  classroom:
+    mode: frozen
+    reason: Table de classe limitée aux colonnes déclarées, sans tirage supplémentaire de lignes. Attribution
+      et conditions tierces conservées.
+    files:
+    - path: data/processed/construction-quartiers-quebec/quebec_construction_quartiers.csv
+      columns:
+      - id_quartier
+      - nom_quartier
+      - superficie_quartier_m2
+      - perimetre_quartier_m
+      - nombre_permis
+      - nombre_permis_construction_batiment_principal
+      - nombre_permis_renovation_agrandissement
+      - nombre_permis_constructions_amenagements_accessoires
+      - nombre_permis_lotissement
+      - annee_min_permis
+      - annee_max_permis
+      - nombre_batiments
+      - nombre_batiments_residence
+      - nombre_batiments_garage_annexe_remise
+      - nombre_batiments_commercial
+      - superficie_empreintes_batiments_m2
+      - superficie_moyenne_batiment_m2
+      - superficie_quartier_km2
+      - permis_par_km2
+      - batiments_par_km2
+      - part_superficie_batie
+chart:
+  type: bars
+  x_variable: nom_quartier
+  y_variable: nombre_permis
+  x_label: Permis délivrés (nombre)
+  y_label: Quartier
+  title: Dix quartiers comptant le plus de permis
+  top_n: 10

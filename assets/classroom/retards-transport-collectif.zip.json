@@ -1,0 +1,35 @@
+{
+  "dataset_id": "retards-transport-collectif",
+  "title": "Flux temps réel STM et ponctualité des bus",
+  "mode": "documentation",
+  "prepared_at_utc": "2026-09-05T11:05:10Z",
+  "source_name": "Société de transport de Montréal / Données Québec",
+  "source_url": "https://www.donneesquebec.ca/recherche/dataset/vmtl-stm-bus-temps-reel-gtfs-realtime",
+  "license_url": "https://creativecommons.org/licenses/by/4.0/deed.fr",
+  "selection": "Documentation et synthèses publiques seulement; aucune donnée privée, géodatabase ni observation de retard.",
+  "tables": [
+    {
+      "path": "data/processed/retards-transport-collectif/protocole_archivage_retards_transport.csv",
+      "rows": 7,
+      "columns": ["step", "action", "point_de_controle"],
+      "sha256": "f4db342d2ab1c113b82b0f349e443ae9a3192c5c9348866c27ee423ca8b89144",
+      "prepared_table_sha256": "f4db342d2ab1c113b82b0f349e443ae9a3192c5c9348866c27ee423ca8b89144"
+    },
+    {
+      "path": "data/processed/retards-transport-collectif/resume_retards_transport.csv",
+      "rows": 1,
+      "columns": ["access_date", "package_id", "package_name", "title", "organization", "license_title", "license_id", "package_metadata_modified", "n_resources_ckan", "n_gtfs_resources", "n_developer_portal_resources", "n_direct_download_resources", "source_requires_developer_account", "historical_table_available_in_ckan", "source_url", "api_url", "developer_url"],
+      "sha256": "f0c868c17d360241f484f41243496550e1989ef23f3c10d96de3e71e5d9ebcef",
+      "prepared_table_sha256": "f0c868c17d360241f484f41243496550e1989ef23f3c10d96de3e71e5d9ebcef"
+    },
+    {
+      "path": "data/processed/retards-transport-collectif/variables_gtfs_realtime_retards_transport.csv",
+      "rows": 10,
+      "columns": ["message_type", "field_pedagogique", "role_statistique", "status"],
+      "sha256": "5acafb9153ca791b93d7ea9bf2e70010f849f6ee72857d63b6e60ab7442e7f00",
+      "prepared_table_sha256": "5acafb9153ca791b93d7ea9bf2e70010f849f6ee72857d63b6e60ab7442e7f00"
+    }
+  ],
+  "archive_sha256": "04aa1596d802c57d1dd69193b0541eea8e186eeb9f25ed8f03d9ed374f0e835d",
+  "archive_bytes": 7199
+}

@@ -1,3 +1,4 @@
+source("R/utils_downloads.R")
 # Préparation : Qualité de l'air au Québec
 # Source officielle : Données Québec, paquet CKAN a80757bd-d442-4d3d-9269-11628330b727.
 
@@ -6,13 +7,14 @@ library(jsonlite)
 library(readr)
 library(stringr)
 library(tidyr)
+source("R/utils_data_checks.R")
 
 raw_dir <- "data/raw/qualite-air-horaire"
 processed_dir <- "data/processed/qualite-air-horaire"
 dir.create(raw_dir, recursive = TRUE, showWarnings = FALSE)
 dir.create(processed_dir, recursive = TRUE, showWarnings = FALSE)
 
-access_date <- "2026-06-21"
+access_date <- as.character(Sys.Date())
 source_page <- "https://www.donneesquebec.ca/recherche/dataset/rsqaq-donnees-horaires-continues"
 package_api <- "https://www.donneesquebec.ca/recherche/api/3/action/package_show?id=rsqaq-donnees-horaires-continues"
 source_year <- 2025L
@@ -20,7 +22,7 @@ source_year <- 2025L
 package_json_path <- file.path(raw_dir, "package_show_rsqaq_donnees_horaires_continues.json")
 raw_csv_path <- file.path(raw_dir, "rsqaq_continues_horaires_2025.csv")
 
-download.file(package_api, package_json_path, mode = "wb", quiet = TRUE)
+download_source(package_api, package_json_path, mode = "wb", quiet = TRUE)
 package <- fromJSON(package_json_path)
 if (!isTRUE(package$success)) {
   stop("L'API CKAN n'a pas retourné success = TRUE.", call. = FALSE)
@@ -43,7 +45,7 @@ if (nrow(resource_2025) != 1L) {
   stop("La ressource 2025 n'a pas été trouvée de façon unique.", call. = FALSE)
 }
 
-download.file(resource_2025$url[[1]], raw_csv_path, mode = "wb", quiet = TRUE)
+download_source(resource_2025$url[[1]], raw_csv_path, mode = "wb", quiet = TRUE)
 
 source_data <- read_csv(
   raw_csv_path,
@@ -78,6 +80,10 @@ if (length(missing_columns) > 0L) {
 }
 
 pollutant_columns <- setdiff(names(source_data), c("Station", "Date_Heure"))
+if (!setequal(pollutant_columns, setdiff(expected_columns, c("Station", "Date_Heure")))) {
+  stop("La liste des contaminants a changé; vérifier leurs unités et leur documentation.", call. = FALSE)
+}
+validate_unique_key(source_data, c("Station", "Date_Heure"), "mesures horaires")
 
 pollutant_labels <- c(
   "BC_880nm" = "BC 880 nm",
@@ -93,6 +99,16 @@ pollutant_labels <- c(
   "SO2" = "SO2"
 )
 
+# Unités et horodatage documentés dans la méthodologie du jeu officiel RSQAQ.
+# Chaque heure publiée marque la FIN de l'intervalle, en HNE (UTC-5 fixe).
+pollutant_units <- c(
+  "BC_880nm" = "µg/m³", "CO" = "ppm", "H2S" = "ppb",
+  "NO2-CAPS" = "ppb", "NO2" = "ppb", "NO-CAPS" = "ppb",
+  "NO" = "ppb", "O3" = "ppb", "PM0.1-CPC" = "k part/cm³",
+  "PM2.5-T640" = "µg/m³", "SO2" = "ppb"
+)
+stopifnot(setequal(names(pollutant_units), pollutant_columns))
+
 station_fields <- source_data |>
   distinct(Station) |>
   mutate(
@@ -103,8 +119,8 @@ station_fields <- source_data |>
 source_with_station <- source_data |>
   left_join(station_fields, by = "Station") |>
   mutate(
-    date_heure = as.POSIXct(Date_Heure, tz = "UTC"),
-    date = as.Date(date_heure),
+    date_heure = parse_air_hour_end(Date_Heure),
+    date = air_calendar_day(date_heure),
     year = as.integer(format(date_heure, "%Y")),
     month = as.integer(format(date_heure, "%m")),
     hour = as.integer(format(date_heure, "%H"))
@@ -116,9 +132,10 @@ long_measurements <- source_with_station |>
     names_to = "contaminant_source",
     values_to = "concentration"
   ) |>
-  filter(!is.na(concentration)) |>
+  filter(!is.na(concentration), format(date, "%Y") == as.character(source_year)) |>
   mutate(
     contaminant = unname(pollutant_labels[contaminant_source]),
+    unite = unname(pollutant_units[contaminant_source]),
     source_year = source_year,
     access_date = access_date
   ) |>
@@ -133,12 +150,13 @@ long_measurements <- source_with_station |>
     hour,
     contaminant_source,
     contaminant,
+    unite,
     concentration,
     access_date
   )
 
 daily_summary <- long_measurements |>
-  group_by(date, station_id, station_name, contaminant_source, contaminant) |>
+  group_by(date, station_id, station_name, contaminant_source, contaminant, unite) |>
   summarise(
     n_heures_valides = n(),
     moyenne = mean(concentration, na.rm = TRUE),
@@ -155,7 +173,7 @@ daily_summary <- long_measurements |>
   arrange(date, station_id, contaminant_source)
 
 contaminant_summary <- long_measurements |>
-  group_by(contaminant_source, contaminant) |>
+  group_by(contaminant_source, contaminant, unite) |>
   summarise(
     n_mesures = n(),
     n_stations = n_distinct(station_id),
@@ -189,6 +207,7 @@ missing_summary <- source_data |>
   ) |>
   mutate(
     contaminant = unname(pollutant_labels[contaminant_source]),
+    unite = unname(pollutant_units[contaminant_source]),
     n_rows = nrow(source_data),
     n_observed = n_rows - n_missing,
     pct_observed = round(100 * n_observed / n_rows, 2)
@@ -221,6 +240,9 @@ dataset_summary <- tibble::tibble(
     "n_contaminants",
     "n_non_missing_measurements",
     "daily_summary_rows",
+    "hours_timezone",
+    "daily_interval_convention",
+    "non_missing_measurements_outside_calendar_year",
     "first_datetime",
     "last_datetime",
     "pm25_measurements",
@@ -248,6 +270,9 @@ dataset_summary <- tibble::tibble(
     as.character(length(pollutant_columns)),
     as.character(nrow(long_measurements)),
     as.character(nrow(daily_summary)),
+    "HNE (UTC-5 fixe)",
+    "Date de début de l’intervalle horaire; seuls les jours de 2025 sont retenus",
+    as.character(sum(!is.na(as.matrix(source_data[pollutant_columns]))) - nrow(long_measurements)),
     as.character(min(long_measurements$date_heure, na.rm = TRUE)),
     as.character(max(long_measurements$date_heure, na.rm = TRUE)),
     as.character(contaminant_summary$n_mesures[contaminant_summary$contaminant_source == "PM2.5-T640"]),
@@ -257,19 +282,17 @@ dataset_summary <- tibble::tibble(
   )
 )
 
+validate_unique_key(daily_summary, c("date", "station_id", "contaminant_source"), "résumés journaliers")
 stopifnot(
-  nrow(resources) == 51L,
-  nrow(source_data) == 457686L,
-  ncol(source_data) == 13L,
-  n_distinct(source_with_station$station_id) == 54L,
-  length(pollutant_columns) == 11L,
-  nrow(long_measurements) == 1549609L,
-  nrow(daily_summary) == 65306L,
-  all(source_with_station$year == 2025L),
-  contaminant_summary$n_mesures[contaminant_summary$contaminant_source == "PM2.5-T640"] == 436243L,
-  contaminant_summary$n_stations[contaminant_summary$contaminant_source == "PM2.5-T640"] == 52L,
-  top_pm25_days$station_name[[1]] == "Radisson",
-  as.character(top_pm25_days$date[[1]]) == "2025-06-04"
+  !anyNA(source_with_station$date_heure),
+  all(source_with_station$year == source_year),
+  nrow(long_measurements) > 0L,
+  all(is.finite(long_measurements$concentration)),
+  all(daily_summary$n_heures_valides >= 1L & daily_summary$n_heures_valides <= 24L),
+  sum(daily_summary$n_heures_valides) == nrow(long_measurements),
+  sum(contaminant_summary$n_mesures) == nrow(long_measurements),
+  all(daily_summary$mediane <= daily_summary$maximum),
+  all(daily_summary$p95 <= daily_summary$maximum)
 )
 
 write_csv(daily_summary, file.path(processed_dir, "resume_journalier_contaminants_2025.csv"))
@@ -288,3 +311,5 @@ message("Résumé journalier : ", file.path(processed_dir, "resume_journalier_co
 message("Lignes brutes : ", nrow(source_data))
 message("Mesures non manquantes : ", nrow(long_measurements))
 message("Stations : ", n_distinct(source_with_station$station_id))
+
+record_preparation("qualite-air-horaire")

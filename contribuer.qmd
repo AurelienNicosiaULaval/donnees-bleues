@@ -2,6 +2,7 @@
 title: "Contribuer"
 toc: false
 page-layout: full
+embed-resources: true
 ---
 
 ::: {.contrib-page}
@@ -192,6 +193,21 @@ Si une commande échoue, corriger la source du problème avant de proposer la co
 
 ::: {.contrib-section .contrib-pr}
 ::: {.contrib-section-heading}
+## Fournir une trousse exécutable
+
+Chaque activité fournit un script R complet, déclaré dans `script_file`, et une archive dans `classroom_archive`. Le mode `access_mode` distingue les données incluses, la documentation et l’acquisition préalable. Le script doit lire les fichiers locaux et afficher ses résultats avec `print()`.
+
+Dans les métadonnées du jeu, déclarer les fichiers et colonnes autorisés dans `publication.classroom`, puis produire et tester les trousses :
+
+```bash
+Rscript scripts/build_classroom_kits.R
+Rscript scripts/check_classroom_kits.R
+Rscript scripts/render_site.R
+Rscript scripts/check_site.R
+```
+
+Les générateurs parcourent tous les jeux et nécessitent leurs tables préparées. Les tests utilisent les archives extraites et interdisent les téléchargements pendant l’analyse. Pour modifier une liste de colonnes, vérifier les conditions de la source et les besoins de l’activité. Les concepts et niveaux doivent correspondre à la taxonomie canonique; les variantes orthographiques deviennent des alias.
+
 ## Proposer la contribution
 
 Pour GitHub, utiliser de préférence une URL SSH.

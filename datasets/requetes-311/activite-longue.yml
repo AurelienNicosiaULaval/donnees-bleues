@@ -1,11 +1,13 @@
 id: requetes-311-saisonnalite-long
 title: Mini-projet - Saisonnalité des demandes 311
-question: Les demandes de services municipaux observées varient-elles selon la saison?
+question: Comment décrire dates et délais des demandes 311 échantillonnées?
 dataset_id: requetes-311
 dataset_title: Demandes de services citoyennes 311 à Montréal
 activity_url: datasets/requetes-311/activite-longue.qmd
 duration: 2-3 heures
 level: Intermédiaire
+level_ids:
+- intermediaire
 activity_type:
 - Projet ou tâche longue
 - Étude de cas
@@ -14,53 +16,46 @@ concepts:
 - Nettoyage
 - Communication
 - Biais de déclaration
+concept_ids:
+- series-temporelles
+- nettoyage
+- communication
+- biais-de-declaration
 context: Services municipaux
-hook: Les demandes observées ne sont pas les besoins réels
+hook: Il s’agit d’un échantillon de demandes, pas d’un recensement des problèmes. Un délai de changement de
+  statut n’est pas nécessairement un délai de résolution.
 materials:
-- fiche vérifiée
-- script de préparation
-- table préparée
-- résumés temporels
-- notes enseignantes
-advanced_math_stats: no
-teacher_notes: Limiter le nombre de catégories et demander une section sur l'échantillonnage,
-  les canaux de provenance et l'année 2026 partielle.
-status: source officielle vérifiée
+- Trousse ZIP et projet RStudio
+- Script R complet
+- CSV préparés et provenance
+advanced_math_stats: false
+teacher_notes: Il s’agit d’un échantillon de demandes, pas d’un recensement des problèmes. Un délai de changement
+  de statut n’est pas nécessairement un délai de résolution.
+status: Documentation de source et ressources de classe fournies
 pedagogical_status: pret_a_enseigner
-teacher_preparation: 'Préparation requise : exécuter `Rscript datasets/requetes-311/preparation.R`
-  depuis la racine, puis vérifier que `data/processed/requetes-311/requetes_311_non_information_echantillon.csv`
-  existe.'
-expected_output: Un court rapport reproductible avec contexte, tableau ou graphique,
-  interprétation et limites.
-requires_prepared_data: yes
-requires_live_download: yes
+teacher_preparation: Extraire la trousse, ouvrir le projet RStudio, installer les packages avant la séance
+  et lancer le script.
+expected_output: Les tableaux et graphiques du script, accompagnés d’une interprétation de 6 à 8 lignes répondant
+  à la question.
+requires_prepared_data: true
+requires_live_download: false
 recommended_use: Mini-projet guidé
-result_visible_in_page: yes
-
+result_visible_in_page: false
 learning_objectives:
-  - "Travailler Séries temporelles."
-  - "Travailler Nettoyage."
-  - "Travailler Communication."
-  - "Travailler Biais de déclaration."
-  - "Nommer au moins une limite d'interprétation."
-  - "Préparation requise : exécuter `Rscript datasets/requetes-311/preparation.R` depuis la racine, puis vérifier que `data/processed/requetes-311/requetes_311_non_information_echantillon.csv` existe."
-  - "Fichier préparé : `data/processed/requetes-311/requetes_311_non_information_echantillon.csv`."
-  - "Script de préparation : `datasets/requetes-311/preparation.R`."
-  - "Point à surveiller : Limiter le nombre de catégories et demander une section sur l'échantillonnage, les canaux de provenance et l'année 2026 partielle."
-  - "Limiter le nombre de catégories et demander une section sur l'échantillonnage, les canaux de provenance et l'année 2026 partielle."
-  - "Si une variable ou un dénominateur nécessaire n'est pas disponible dans les données, l'écrire explicitement plutôt que l'inférer."
-  - "Comparer téléphone et mobile pour une même activité."
-  - "Limiter l'analyse à un arrondissement."
-  - "Cartographier une activité avec `coordonnees_disponibles == TRUE`."
-  - "Ajouter une population d'arrondissement pour construire un taux exploratoire."
-
+- Examiner les nombres mensuels selon la nature de la demande.
+- Comparer les délais médians de changement de statut par arrondissement et les effectifs de délais connus.
+- Formuler une limite qui découle de la source et de l’unité observée.
 prerequisites:
-  - "Vérifier le fichier ou le script de préparation annoncé avant la séance; adapter la mise en route au niveau indiqué."
-
+- Savoir ouvrir un projet RStudio et exécuter un script R.
+- Savoir lire un tableau groupé et un graphique descriptif; repérer les valeurs manquantes.
 success_criteria:
-  - "La production attendue est remise : Un court rapport reproductible avec contexte, tableau ou graphique, interprétation et limites."
-  - "Les résultats sont interprétés sans dépasser les limites de la source."
-
+- L’unité, la période ou la portée documentaire et les variables utilisées sont nommées.
+- Examiner les nombres mensuels selon la nature de la demande.
+- Comparer les délais médians de changement de statut par arrondissement et les effectifs de délais connus.
+- La conclusion répond à la question et explique au moins une limite précise.
 adaptations:
-  - "Fournir une table préparée ou réduire le nombre de variables pour une première utilisation."
-  - "Ajouter une comparaison, une justification méthodologique ou une discussion des limites pour approfondir."
+- Débuter avec le script exécuté par la personne enseignante, puis faire interpréter une seule sortie.
+- Pour approfondir, modifier une sélection ou un regroupement et justifier ce que cela change.
+script_file: datasets/requetes-311/activite-longue.R
+classroom_archive: assets/classroom/requetes-311.zip
+access_mode: frozen

@@ -1,66 +1,62 @@
 id: bibliotheques-portrait-regional-long
 title: Mini-projet - Portrait régional des bibliothèques publiques
-question: Comment construire des indicateurs comparables à partir de données administratives?
+question: Que change la taille de la population desservie dans la comparaison des visites?
 dataset_id: bibliotheques-quebec
 dataset_title: Statistiques des bibliothèques publiques du Québec
 activity_url: datasets/bibliotheques-quebec/activite-longue.qmd
 duration: 2-3 heures
 level: Intermédiaire
+level_ids:
+- intermediaire
 activity_type:
 - Étude de cas
 - Projet ou tâche longue
 - Exploration de données
 concepts:
 - Données et mesure
-- Statistique descriptive
+- Statistiques descriptives
 - Modélisation et relations
 - Communication
+concept_ids:
+- donnees-et-mesure
+- statistiques-descriptives
+- modelisation-et-relations
+- communication
 context: Culture et services publics
-hook: Comparer des régions sans confondre description et causalité
+hook: Les territoires desservis, missions et modalités de comptage diffèrent. Un ratio élevé ne prouve pas
+  une meilleure qualité de service.
 materials:
-- fiche vérifiée
-- script de préparation
-- table préparée
-- résumés régionaux
-- notes enseignantes
-advanced_math_stats: no
-teacher_notes: Demander un calcul régional à partir des volumes agrégés et de la population
-  totale. Présenter la modélisation comme exploratoire.
-status: source officielle vérifiée
+- Trousse ZIP et projet RStudio
+- Script R complet
+- CSV préparés et provenance
+advanced_math_stats: false
+teacher_notes: Les territoires desservis, missions et modalités de comptage diffèrent. Un ratio élevé ne prouve
+  pas une meilleure qualité de service.
+status: Documentation de source et ressources de classe fournies
 pedagogical_status: pret_a_enseigner
-teacher_preparation: Vérifier que `data/processed/bibliotheques-quebec/statistiques_bibliotheques_quebec_2024_selection.csv`
-  est disponible; aucune collecte en direct n'est nécessaire pour lancer l'activité.
-expected_output: Un court rapport reproductible avec contexte, tableau ou graphique,
-  interprétation et limites.
-requires_prepared_data: yes
-requires_live_download: no
+teacher_preparation: Extraire la trousse, ouvrir le projet RStudio, installer les packages avant la séance
+  et lancer le script.
+expected_output: Les tableaux et graphiques du script, accompagnés d’une interprétation de 6 à 8 lignes répondant
+  à la question.
+requires_prepared_data: true
+requires_live_download: false
 recommended_use: Mini-projet guidé
-result_visible_in_page: yes
-
+result_visible_in_page: false
 learning_objectives:
-  - "Travailler Données et mesure."
-  - "Travailler Statistique descriptive."
-  - "Travailler Modélisation et relations."
-  - "Travailler Communication."
-  - "Nommer au moins une limite d'interprétation."
-  - "Vérifier que `data/processed/bibliotheques-quebec/statistiques_bibliotheques_quebec_2024_selection.csv` est disponible; aucune collecte en direct n'est nécessaire pour lancer l'activité."
-  - "Fichier préparé : `data/processed/bibliotheques-quebec/statistiques_bibliotheques_quebec_2024_selection.csv`."
-  - "Script de préparation : `datasets/bibliotheques-quebec/preparation.R`."
-  - "Point à surveiller : Demander un calcul régional à partir des volumes agrégés et de la population totale. Présenter la modélisation comme exploratoire."
-  - "Demander un calcul régional à partir des volumes agrégés et de la population totale. Présenter la modélisation comme exploratoire."
-  - "Si une variable ou un dénominateur nécessaire n'est pas disponible dans les données, l'écrire explicitement plutôt que l'inférer."
-  - "Limiter le portrait à une seule région et comparer les bibliothèques."
-  - "Comparer les prêts par habitant et les dépenses par habitant."
-  - "Produire une note synthèse destinée à une direction municipale fictive."
-  - "Ajouter une carte régionale avec une source géographique externe documentée."
-
+- Comparer les médianes des ratios par catégorie de bibliothèque.
+- Lire le nuage population-visites et compter les visites manquantes avant le graphique.
+- Formuler une limite qui découle de la source et de l’unité observée.
 prerequisites:
-  - "Vérifier le fichier ou le script de préparation annoncé avant la séance; adapter la mise en route au niveau indiqué."
-
+- Savoir ouvrir un projet RStudio et exécuter un script R.
+- Savoir lire un tableau groupé et un graphique descriptif; repérer les valeurs manquantes.
 success_criteria:
-  - "La production attendue est remise : Un court rapport reproductible avec contexte, tableau ou graphique, interprétation et limites."
-  - "Les résultats sont interprétés sans dépasser les limites de la source."
-
+- L’unité, la période ou la portée documentaire et les variables utilisées sont nommées.
+- Comparer les médianes des ratios par catégorie de bibliothèque.
+- Lire le nuage population-visites et compter les visites manquantes avant le graphique.
+- La conclusion répond à la question et explique au moins une limite précise.
 adaptations:
-  - "Fournir une table préparée ou réduire le nombre de variables pour une première utilisation."
-  - "Ajouter une comparaison, une justification méthodologique ou une discussion des limites pour approfondir."
+- Débuter avec le script exécuté par la personne enseignante, puis faire interpréter une seule sortie.
+- Pour approfondir, modifier une sélection ou un regroupement et justifier ce que cela change.
+script_file: datasets/bibliotheques-quebec/activite-longue.R
+classroom_archive: assets/classroom/bibliotheques-quebec.zip
+access_mode: frozen

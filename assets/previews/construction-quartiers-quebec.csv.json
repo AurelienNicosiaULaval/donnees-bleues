@@ -1,0 +1,76 @@
+{
+  "dataset_id": "construction-quartiers-quebec",
+  "prepared_at_utc": "2026-09-05T12:20:22Z",
+  "prepared_file": "quebec_construction_quartiers.csv",
+  "prepared_sha256": "69abb288d153b0980e8401a93e838d46301cf989ba5ccdabce8f7a9314242e2b",
+  "preview_sha256": "503db205c3853a4726000bc18c8b5046aed3b767df4248aef02ffbeebfbca4d0",
+  "rows": 35,
+  "columns": ["id_quartier", "nom_quartier", "superficie_quartier_m2", "perimetre_quartier_m", "nombre_permis", "nombre_permis_construction_batiment_principal", "nombre_permis_renovation_agrandissement", "nombre_permis_constructions_amenagements_accessoires", "nombre_permis_lotissement", "annee_min_permis"],
+  "selection": "Au plus 120 positions régulièrement espacées dans l'ordre de la table préparée; sélection déterministe non aléatoire",
+  "source_name": "Ville de Québec, Données Québec",
+  "source_url": "https://www.donneesquebec.ca/recherche/dataset/permis-delivres-ville-de-quebec",
+  "license": "Attribution (CC-BY 4.0)",
+  "license_url": "https://creativecommons.org/licenses/by/4.0/deed.fr",
+  "sources": [
+    {
+      "source_url": "https://www.donneesquebec.ca/recherche/api/3/action/package_show?id=empreintes-des-batiments",
+      "acquisition_kind": "download",
+      "acquired_at_utc": "2026-09-05T11:29:45Z",
+      "started_at_utc": "2026-09-05T11:29:45Z",
+      "file": "empreintes-des-batiments-response.json",
+      "bytes": 7295,
+      "sha256": "46e9027bfeef238991f3014d69c2bc4d9e3862c075528a015d1031dce9e4c210",
+      "details": {}
+    },
+    {
+      "source_url": "https://www.donneesquebec.ca/recherche/api/3/action/package_show?id=permis-delivres-ville-de-quebec",
+      "acquisition_kind": "download",
+      "acquired_at_utc": "2026-09-05T11:29:45Z",
+      "started_at_utc": "2026-09-05T11:29:45Z",
+      "file": "permis-delivres-ville-de-quebec-response.json",
+      "bytes": 9599,
+      "sha256": "d0ae40b03df4132d36f8c43510157493ee3542c74ca2d2ac676a96f707ef99e0",
+      "details": {}
+    },
+    {
+      "source_url": "https://www.donneesquebec.ca/recherche/api/3/action/package_show?id=vque_9",
+      "acquisition_kind": "download",
+      "acquired_at_utc": "2026-09-05T11:29:46Z",
+      "started_at_utc": "2026-09-05T11:29:45Z",
+      "file": "vque_9-response.json",
+      "bytes": 9745,
+      "sha256": "de8940ae878eb1795febd389bdd617e48c38d1720851f8f1592d8031b817d8c6",
+      "details": {}
+    },
+    {
+      "source_url": "https://www.donneesquebec.ca/recherche/dataset/d2a34f6d-3750-44e9-9a6d-aa9494a34df7/resource/0920b952-b349-4ddd-a7e3-eebf6f6b6336/download/vdq-batiments.csv",
+      "acquisition_kind": "download",
+      "acquired_at_utc": "2026-09-05T11:04:49Z",
+      "started_at_utc": "2026-09-05T11:04:34Z",
+      "file": "vdq-batiments.csv",
+      "bytes": 101772414,
+      "sha256": "7152951226d972b2a7d7b3378777d575b5372f660bf6edaa9467aedc9a8b30c3",
+      "details": {}
+    },
+    {
+      "source_url": "https://www.donneesquebec.ca/recherche/dataset/879abf6e-c6b2-430a-b44a-16335467c6f6/resource/9555031e-cfc5-4b78-bec9-4ab84b549f67/download/vdq-permis.csv",
+      "acquisition_kind": "download",
+      "acquired_at_utc": "2026-09-05T11:04:34Z",
+      "started_at_utc": "2026-09-05T11:04:30Z",
+      "file": "vdq-permis.csv",
+      "bytes": 17190116,
+      "sha256": "bb07ffe189ab743c048353aa9a3e415bf63c31a910fadc9c974d0acece86eb51",
+      "details": {}
+    },
+    {
+      "source_url": "https://www.donneesquebec.ca/recherche/dataset/5b1ae6f2-6719-46df-bd2f-e57a7034c917/resource/11b26afb-8215-4723-8dc5-78c93eec8763/download/vdq-quartier.csv",
+      "acquisition_kind": "download",
+      "acquired_at_utc": "2026-09-05T11:04:50Z",
+      "started_at_utc": "2026-09-05T11:04:49Z",
+      "file": "vdq-quartier.csv",
+      "bytes": 891336,
+      "sha256": "d8ee5cc56dfdeb904da75b905c5c32f5282452d084722b3ae0700c9e166cf3bb",
+      "details": {}
+    }
+  ]
+}

@@ -1,11 +1,13 @@
 id: grhq-carte-court
 title: Choisir une unité GRHQ avec l'index de téléchargement
-question: Comment choisir une unité GRHQ avant de télécharger une géodatabase?
+question: Quelle unité GRHQ faut-il choisir dans l’index?
 dataset_id: grhq
 dataset_title: Géobase du réseau hydrographique du Québec
 activity_url: datasets/grhq/activite-courte.qmd
 duration: 30-45 minutes
 level: Intermédiaire
+level_ids:
+- intermediaire
 activity_type:
 - Exercice
 - Exploration de données
@@ -14,42 +16,45 @@ concepts:
 - Métadonnées
 - Données spatiales
 - Reproductibilité
+concept_ids:
+- index-de-telechargement
+- metadonnees
+- donnees-spatiales
+- reproductibilite
 context: Hydrographie
-hook: Avant la carte, il faut choisir le bon fichier
+hook: L’archive fournit l’index et la documentation. Aucune géodatabase n’est incluse et aucune analyse de
+  géométrie n’est réalisée par ces scripts.
 materials:
-- énoncé
-- code
-- index préparé
-- page source
-advanced_math_stats: no
-teacher_notes: Ne pas faire télécharger les FGDB dans l'activité courte. L'objectif
-  est de comprendre l'index et de justifier une unité de téléchargement.
-status: source officielle vérifiée
+- Trousse ZIP et projet RStudio
+- Script R complet
+- Documentation publique
+advanced_math_stats: false
+teacher_notes: L’archive fournit l’index et la documentation. Aucune géodatabase n’est incluse et aucune analyse
+  de géométrie n’est réalisée par ces scripts.
+status: Documentation de source et ressources de classe fournies
 pedagogical_status: pret_a_enseigner
-teacher_preparation: 'Préparation requise : exécuter `Rscript datasets/grhq/preparation.R`
-  depuis la racine, puis vérifier que `data/processed/grhq/grhq_index_telechargement.csv`
-  existe.'
-expected_output: Un tableau ou graphique descriptif accompagné de trois phrases d'interprétation
-  prudente.
-requires_prepared_data: yes
-requires_live_download: yes
+teacher_preparation: Extraire la trousse, ouvrir le projet RStudio, installer les packages avant la séance
+  et lancer le script.
+expected_output: Un tableau de contrôle et une note de décision répondant à la question.
+requires_prepared_data: true
+requires_live_download: false
 recommended_use: Exercice guidé
-result_visible_in_page: yes
-
+result_visible_in_page: false
 learning_objectives:
-  - "Lire un index de téléchargement officiel"
-  - "Identifier une unité de téléchargement"
-  - "Distinguer index et données géométriques détaillées"
-  - "Justifier un choix de ressource"
-  - "Préparer une étape de téléchargement reproductible"
-
+- Compter les unités de téléchargement selon leur type.
+- Sélectionner le bloc 08 en conservant son identifiant comme texte et repérer son lien FGDB.
+- Formuler une limite qui découle de la source et de l’unité observée.
 prerequisites:
-  - "Vérifier le fichier ou le script de préparation annoncé avant la séance; adapter la mise en route au niveau indiqué."
-
+- Savoir ouvrir un projet RStudio et exécuter un script R.
+- Reconnaître une variable, un décompte et une proportion.
 success_criteria:
-  - "La production attendue est remise : Un tableau ou graphique descriptif accompagné de trois phrases d'interprétation prudente."
-  - "Les résultats sont interprétés sans dépasser les limites de la source."
-
+- L’unité, la période ou la portée documentaire et les variables utilisées sont nommées.
+- Compter les unités de téléchargement selon leur type.
+- Sélectionner le bloc 08 en conservant son identifiant comme texte et repérer son lien FGDB.
+- La conclusion répond à la question et explique au moins une limite précise.
 adaptations:
-  - "Fournir une table préparée ou réduire le nombre de variables pour une première utilisation."
-  - "Ajouter une comparaison, une justification méthodologique ou une discussion des limites pour approfondir."
+- Lire les tableaux ensemble sans programmer.
+- Pour approfondir, rédiger un protocole de collecte et ses contrôles avant toute acquisition.
+script_file: datasets/grhq/activite-courte.R
+classroom_archive: assets/classroom/grhq.zip
+access_mode: documentation

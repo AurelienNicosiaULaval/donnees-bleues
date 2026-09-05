@@ -1,3 +1,4 @@
+source("R/utils_downloads.R")
 # Préparation : Géobase du réseau hydrographique du Québec
 # Source officielle : Données Québec, paquet CKAN bfbdeb1d-8398-444b-ad78-ab81f9d14e60.
 #
@@ -15,7 +16,7 @@ processed_dir <- "data/processed/grhq"
 dir.create(raw_dir, recursive = TRUE, showWarnings = FALSE)
 dir.create(processed_dir, recursive = TRUE, showWarnings = FALSE)
 
-access_date <- "2026-06-21"
+access_date <- as.character(Sys.Date())
 source_page <- "https://www.donneesquebec.ca/recherche/dataset/grhq"
 package_api <- "https://www.donneesquebec.ca/recherche/api/3/action/package_show?id=grhq"
 index_url <- "https://diffusion.mern.gouv.qc.ca/Diffusion/RGQ/Documentation/GRHQ/Index_GRHQ.csv"
@@ -23,8 +24,8 @@ index_url <- "https://diffusion.mern.gouv.qc.ca/Diffusion/RGQ/Documentation/GRHQ
 package_json_path <- file.path(raw_dir, "package_show_grhq.json")
 index_raw_path <- file.path(raw_dir, "Index_GRHQ.csv")
 
-download.file(package_api, package_json_path, mode = "wb", quiet = TRUE)
-download.file(index_url, index_raw_path, mode = "wb", quiet = TRUE)
+download_source(package_api, package_json_path, mode = "wb", quiet = TRUE)
+download_source(index_url, index_raw_path, mode = "wb", quiet = TRUE)
 
 package <- fromJSON(package_json_path)
 if (!isTRUE(package$success)) {
@@ -115,3 +116,5 @@ message("API CKAN : ", package_api)
 message("Index préparé : ", file.path(processed_dir, "grhq_index_telechargement.csv"))
 message("Unités de téléchargement : ", nrow(grhq_index))
 message("Ressources CKAN documentées : ", nrow(resources))
+
+record_preparation("grhq")

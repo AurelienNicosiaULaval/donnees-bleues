@@ -1,228 +1,64 @@
 ---
 title: "Portrait spatial des prélèvements d'eau autorisés"
-embed-resources: false
+embed-resources: true
 ---
-
 
 # Portrait spatial des prélèvements d'eau autorisés
 
-<!-- activity-teacher-brief:start -->
-::: {.activity-teacher-brief}
 
-## En classe, cette activité sert à...
+Comment documenter et cartographier les sites de prélèvement?
 
-Cette activité sert à travailler les notions suivantes : Agrégation, Données spatiales, Valeurs extrêmes, Communication prudente à partir d'une question située dans le contexte suivant : Prélèvements d'eau. Elle demande aux étudiantes et étudiants de répondre à la question directrice suivante : Comment décrire les volumes et la localisation des prélèvements d'eau autorisés sans les confondre avec des volumes réels?
-
-::: {.activity-quick-facts}
-| Élément | Information |
-|---|---|
-| Durée | 2-3 heures |
-| Niveau | Intermédiaire |
-| Usage recommandé | Mini-projet guidé |
-| Préparation enseignant | Vérifier que `data/processed/prelevements-eau-autorises/prelevements_eau_autorises.csv` est disponible; aucune collecte en direct n'est nécessaire pour lancer l'activité. |
-| Production attendue | Un court rapport reproductible avec contexte, tableau ou graphique, interprétation et limites. |
-| Données | `data/processed/prelevements-eau-autorises/prelevements_eau_autorises.csv` |
-:::
-
-:::
-<!-- activity-teacher-brief:end -->
+Durée : 2-3 heures. Niveau : Intermédiaire.
 
 ## Préparation enseignante
 
-- Vérifier que `data/processed/prelevements-eau-autorises/prelevements_eau_autorises.csv` est disponible; aucune collecte en direct n'est nécessaire pour lancer l'activité.
-- Fichier préparé : `data/processed/prelevements-eau-autorises/prelevements_eau_autorises.csv`.
-- Script de préparation : `datasets/prelevements-eau-autorises/preparation.R`.
-- Point à surveiller : Demander une section explicite sur l'absence de volumes réellement prélevés et sur la mise en garde officielle : la donnée n'a aucune valeur légale.
+Télécharger la trousse ci-dessous. Extraire le ZIP, puis double-cliquer sur `Donnees-bleues.Rproj`. Avant la séance, ouvrir `installer-packages.R` et cliquer sur Source avec une connexion Internet.
 
-## Consignes
+Une fois les packages installés, les scripts utilisent les fichiers inclus et peuvent être exécutés hors ligne.
 
-1. Importer `prelevements_eau_autorises.csv` ou exécuter `datasets/prelevements-eau-autorises/preparation.R` si le fichier est absent.
-2. Identifier ce que représente une ligne du fichier.
-3. Produire un tableau ou un graphique adapté à la question directrice.
-4. Rédiger une interprétation courte qui distingue description et explication.
-5. Nommer au moins une limite méthodologique ou une information absente.
-
-## Résultat attendu
-
-Un court rapport reproductible avec contexte, tableau ou graphique, interprétation et limites. La production doit aussi contenir une phrase sur l'unité statistique et une phrase sur une limite de la source.
-
-## Déroulé suggéré
-
-1. Cadrer la source, la licence et l'unité statistique.
-2. Préparer ou importer les données.
-3. Produire un premier résumé descriptif.
-4. Construire la visualisation ou le tableau principal.
-5. Rédiger l'interprétation et les limites.
-
-## Limites à faire nommer
-
-- Demander une section explicite sur l'absence de volumes réellement prélevés et sur la mise en garde officielle : la donnée n'a aucune valeur légale.
-- Si une variable ou un dénominateur nécessaire n'est pas disponible dans les données, l'écrire explicitement plutôt que l'inférer.
-
+```{r}
+#| label: activity-classroom-resources
+#| echo: false
+#| results: asis
+source(if (file.exists("R/utils_activity_contract.R")) "R/utils_activity_contract.R" else "../../R/utils_activity_contract.R")
+render_activity_resources()
+```
 
 ## Contexte
 
-Cette activité demande un mini-rapport sur les sites de prélèvements d'eau autorisés selon leur provenance, leur volume maximal autorisé et leur localisation. Le rapport doit traiter le jeu comme une donnée administrative, pas comme une mesure directe de l'utilisation réelle de l'eau.
+Cette activité utilise la fiche [Registre des prélèvements d'eau autorisés](fiche.qmd). Unité : Un site de prélèvement autorisé, avec un plafond inscrit et ses éventuelles conditions communes.
 
-## Objectifs d'apprentissage
+Source : [Données Québec / Ministère de l'Environnement, de la Lutte contre les changements climatiques, de la Faune et des Parcs](https://www.donneesquebec.ca/recherche/dataset/prelevements-eau). Les dates de préparation, les fichiers et les conditions de réutilisation sont indiqués dans la trousse.
 
-- Préparer une ressource officielle
-- Construire des agrégations par catégorie
-- Décrire des valeurs extrêmes
-- Produire une carte de points
-- Documenter les valeurs manquantes
-- Communiquer les limites d'une donnée administrative
+## Consignes
 
-## Données utilisées
+1. Ouvrir `activite-longue.R` dans le sous-dossier `datasets/prelevements-eau-autorises` du projet RStudio et cliquer sur Source. Les tableaux apparaissent dans Console et les graphiques dans Plots.
+2. Compter les sites et documents; examiner les plafonds élevés avec leurs conditions.
+3. Cartographier les sites par provenance en distinguant autorisation et prélèvement réalisé.
+4. Rédiger une réponse à la question en nommant l’unité observée et une limite de la source.
 
-Fiche : [Registre des prélèvements d'eau autorisés](fiche.qmd)
+## Résultat attendu
 
-Source : Données Québec / MELCCFP.
+Les tableaux et graphiques du script, accompagnés d’une interprétation de 6 à 8 lignes répondant à la question.
 
-Licence : Attribution (CC-BY 4.0), selon les métadonnées CKAN consultées le 2026-06-21.
+## Limites à faire nommer
 
-Fichier préparé : `data/processed/prelevements-eau-autorises/prelevements_eau_autorises.csv`
+Les plafonds de plusieurs sites peuvent être soumis à une limite commune. Leur somme ne constitue pas un total autorisé; les volumes réellement prélevés ne sont pas observés.
 
-## Métadonnées pédagogiques
+## Code complet
 
-| Champ | Information |
-|---|---|
-| Question directrice | Comment décrire les volumes et la localisation des prélèvements d'eau autorisés sans les confondre avec des volumes réels? |
-| Concepts | Agrégation; Données spatiales; Valeurs extrêmes; Communication prudente |
-| Niveau | Intermédiaire |
-| Type | Étude de cas; Projet ou tâche longue; Exploration de données |
-| Contexte | Prélèvements d'eau |
-| Accroche | Les plus grands sites peuvent dominer toute la lecture du jeu |
-| Durée | 2-3 heures |
-| Matériel | énoncé; code; table préparée; notes enseignantes |
-| Math/stats avancées | non |
-
-## Mandat
-
-Produire un court rapport de 2 à 4 pages sur les sites de prélèvements d'eau autorisés. Le rapport doit contenir :
-
-1. une définition de l'unité statistique;
-2. un tableau par provenance de l'eau;
-3. un tableau des principaux sites ou intervenants;
-4. une carte de points;
-5. une section sur les valeurs manquantes;
-6. une conclusion qui distingue volume autorisé et volume réel.
-
-## Étapes recommandées
-
-1. Exécuter `datasets/prelevements-eau-autorises/preparation.R`.
-2. Importer la table préparée.
-3. Importer les résumés préparés si utile.
-4. Décrire le nombre de sites, documents et intervenants.
-5. Comparer les provenances de l'eau.
-6. Identifier les plus grands sites.
-7. Produire une carte simple.
-8. Rédiger les limites avant la conclusion.
-
-## Code de départ
-
-À exécuter depuis la racine du projet.
+Ce script complet est celui de la trousse. Il lit les fichiers locaux et affiche les résultats dans RStudio.
 
 ```{r}
-#| eval: false
-# Load libraries
-library(dplyr)
-library(ggplot2)
-library(readr)
-
-# Prepare official CSV
-source("datasets/prelevements-eau-autorises/preparation.R")
-
-# Import prepared files
-prelevements <- read_csv(
-  "data/processed/prelevements-eau-autorises/prelevements_eau_autorises.csv",
-  show_col_types = FALSE
-)
-
-resume_provenance <- read_csv(
-  "data/processed/prelevements-eau-autorises/resume_provenance_prelevements_eau_autorises.csv",
-  show_col_types = FALSE
-)
-
-principaux_sites <- read_csv(
-  "data/processed/prelevements-eau-autorises/principaux_sites_prelevements_eau_autorises.csv",
-  show_col_types = FALSE
-)
-
-valeurs_manquantes <- read_csv(
-  "data/processed/prelevements-eau-autorises/valeurs_manquantes_prelevements_eau_autorises.csv",
-  show_col_types = FALSE
-)
-
-# Key checks
-prelevements |>
-  summarise(
-    sites = n(),
-    documents = n_distinct(no_doc),
-    intervenants = n_distinct(nom_intervenant),
-    volume_total_m3_j = sum(volume_autorise_m3_j, na.rm = TRUE)
-  )
-
-resume_provenance
-principaux_sites |> select(nom_intervenant, provenance_eau, volume_autorise_m3_j) |> head(10)
+#| label: activity-code
+#| echo: false
+#| results: asis
+render_activity_code()
 ```
-
-## Visualisation suggérée
-
-```{r}
-#| eval: false
-ggplot(prelevements, aes(x = longitude, y = latitude, color = provenance_eau)) +
-  geom_point(alpha = 0.55, size = 1.1) +
-  coord_quickmap() +
-  labs(
-    x = "Longitude",
-    y = "Latitude",
-    color = "Provenance",
-    title = "Sites de prélèvements d'eau autorisés",
-    subtitle = "La carte montre des sites autorisés, pas les volumes réellement prélevés"
-  )
-```
-
-## Questions à traiter
-
-1. Quelle est l'unité statistique?
-2. Quelle provenance compte le plus de sites?
-3. Quelle provenance représente le plus grand volume total autorisé?
-4. Quels sites ou intervenants dominent les volumes?
-5. Quelles variables contiennent des valeurs manquantes?
-6. Pourquoi les résultats ne mesurent-ils pas la pression réelle sur la ressource?
-
-## Critères de réussite
-
-Un bon rapport :
-
-- définit clairement le site de prélèvement autorisé;
-- convertit les volumes en mètres cubes par jour;
-- distingue nombre de sites et volume total;
-- montre les principaux sites ou intervenants;
-- inclut une carte lisible;
-- cite la mise en garde officielle sur l'absence de valeur légale;
-- ne parle pas de volume réellement prélevé.
-
-## Pistes de solution
-
-Une conclusion prudente peut prendre cette forme :
-
-> Le registre décrit des sites de prélèvements autorisés et leurs volumes maximaux autorisés. Les prélèvements de surface dominent le volume total autorisé dans la version préparée, mais ces résultats ne mesurent pas les volumes réellement prélevés ni l'impact hydrologique.
-
-## Prolongements
-
-- Comparer les résultats avec et sans les dix plus grands sites.
-- Produire une carte avec une taille de point proportionnelle au logarithme du volume.
-- Joindre les sites à des bassins versants.
-- Comparer les intervenants multi-sites.
-- Rédiger une note publique sur la portée administrative du registre.
 
 ```{r}
 #| label: activity-pedagogical-contract
 #| echo: false
 #| results: asis
-contract_source_path <- if (file.exists("R/utils_activity_contract.R")) "R/utils_activity_contract.R" else "../../R/utils_activity_contract.R"
-source(contract_source_path)
 render_activity_contract()
 ```

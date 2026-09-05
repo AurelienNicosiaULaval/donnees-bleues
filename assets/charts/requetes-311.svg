@@ -1,0 +1,61 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='576.00pt' height='360.00pt' viewBox='0 0 576.00 360.00'>
+<g class='svglite'>
+<defs>
+  <style type='text/css'><![CDATA[
+    .svglite line, .svglite polyline, .svglite polygon, .svglite path, .svglite rect, .svglite circle {
+      fill: none;
+      stroke: #000000;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      stroke-miterlimit: 10.00;
+    }
+    .svglite text {
+      white-space: pre;
+    }
+    .svglite g.glyphgroup path {
+      fill: inherit;
+      stroke: none;
+    }
+  ]]></style>
+</defs>
+<rect width='100%' height='100%' style='stroke: none; fill: #FFFFFF;'/>
+<defs>
+  <clipPath id='cpMC4wMHw1NzYuMDB8MC4wMHwzNjAuMDA='>
+    <rect x='0.00' y='0.00' width='576.00' height='360.00' />
+  </clipPath>
+</defs>
+<g clip-path='url(#cpMC4wMHw1NzYuMDB8MC4wMHwzNjAuMDA=)'>
+<rect x='0.00' y='0.00' width='576.00' height='360.00' style='stroke-width: 1.07; stroke: none; fill: #FFFFFF;' />
+</g>
+<defs>
+  <clipPath id='cpNzUuMjB8NTcwLjUyfDM3Ljc0fDMxNS42Mg=='>
+    <rect x='75.20' y='37.74' width='495.32' height='277.89' />
+  </clipPath>
+</defs>
+<g clip-path='url(#cpNzUuMjB8NTcwLjUyfDM3Ljc0fDMxNS42Mg==)'>
+<polyline points='75.20,263.52 570.52,263.52 ' style='stroke-width: 1.07; stroke: #EBEBEB; stroke-linecap: butt;' />
+<polyline points='75.20,176.68 570.52,176.68 ' style='stroke-width: 1.07; stroke: #EBEBEB; stroke-linecap: butt;' />
+<polyline points='75.20,89.84 570.52,89.84 ' style='stroke-width: 1.07; stroke: #EBEBEB; stroke-linecap: butt;' />
+<polyline points='97.71,315.62 97.71,37.74 ' style='stroke-width: 1.07; stroke: #EBEBEB; stroke-linecap: butt;' />
+<polyline points='290.15,315.62 290.15,37.74 ' style='stroke-width: 1.07; stroke: #EBEBEB; stroke-linecap: butt;' />
+<polyline points='482.58,315.62 482.58,37.74 ' style='stroke-width: 1.07; stroke: #EBEBEB; stroke-linecap: butt;' />
+<rect x='97.71' y='146.29' width='7.70' height='60.79' style='stroke-width: 1.07; stroke: none; stroke-linecap: butt; stroke-linejoin: miter; fill: #185B83;' />
+<rect x='97.71' y='233.13' width='3.85' height='60.79' style='stroke-width: 1.07; stroke: none; stroke-linecap: butt; stroke-linejoin: miter; fill: #185B83;' />
+<rect x='97.71' y='59.45' width='450.29' height='60.79' style='stroke-width: 1.07; stroke: none; stroke-linecap: butt; stroke-linejoin: miter; fill: #185B83;' />
+</g>
+<g clip-path='url(#cpMC4wMHw1NzYuMDB8MC4wMHwzNjAuMDA=)'>
+<text x='70.27' y='266.67' text-anchor='end' style='font-size: 8.80px;fill: #4D4D4D; font-family: "Arial";' textLength='26.89px' lengthAdjust='spacingAndGlyphs'>Plainte</text>
+<text x='70.27' y='179.83' text-anchor='end' style='font-size: 8.80px;fill: #4D4D4D; font-family: "Arial";' textLength='52.78px' lengthAdjust='spacingAndGlyphs'>Commentaire</text>
+<text x='70.27' y='92.99' text-anchor='end' style='font-size: 8.80px;fill: #4D4D4D; font-family: "Arial";' textLength='33.25px' lengthAdjust='spacingAndGlyphs'>Requete</text>
+<text x='97.71' y='326.85' text-anchor='middle' style='font-size: 8.80px;fill: #4D4D4D; font-family: "Arial";' textLength='4.89px' lengthAdjust='spacingAndGlyphs'>0</text>
+<text x='290.15' y='326.85' text-anchor='middle' style='font-size: 8.80px;fill: #4D4D4D; font-family: "Arial";' textLength='9.78px' lengthAdjust='spacingAndGlyphs'>50</text>
+<text x='482.58' y='326.85' text-anchor='middle' style='font-size: 8.80px;fill: #4D4D4D; font-family: "Arial";' textLength='14.67px' lengthAdjust='spacingAndGlyphs'>100</text>
+<text x='322.86' y='338.61' text-anchor='middle' style='font-size: 10.00px; font-family: "Arial";' textLength='150.62px' lengthAdjust='spacingAndGlyphs'>Demandes dans l’extrait (nombre)</text>
+<text transform='translate(12.64,176.68) rotate(-90)' text-anchor='middle' style='font-size: 10.00px; font-family: "Arial";' textLength='98.97px' lengthAdjust='spacingAndGlyphs'>Nature de la demande</text>
+<text x='75.20' y='30.37' style='font-size: 9.00px; font-family: "Arial";' textLength='272.50px' lengthAdjust='spacingAndGlyphs'>Extrait consultable : 120 lignes avant retrait des valeurs manquantes</text>
+<text x='75.20' y='15.50' style='font-size: 14.00px;fill: #172033; font-family: "Arial";' textLength='312.70px' lengthAdjust='spacingAndGlyphs'>Demandes autres que les demandes d’information</text>
+<text x='75.20' y='352.63' style='font-size: 9.00px; font-family: "Arial";' textLength='246.50px' lengthAdjust='spacingAndGlyphs'>0 ligne(s) avec une mesure manquante ou non finie exclue(s).</text>
+</g>
+</g>
+</svg>

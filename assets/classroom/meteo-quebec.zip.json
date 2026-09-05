@@ -1,0 +1,35 @@
+{
+  "dataset_id": "meteo-quebec",
+  "title": "Météo quotidienne à Québec",
+  "mode": "frozen",
+  "prepared_at_utc": "2026-09-05T11:04:55Z",
+  "source_name": "UlavalSSD::MeteoQuebec, construit avec weathercan à partir d'ECCC",
+  "source_url": "https://climate.weather.gc.ca/historical_data/search_historic_data_e.html",
+  "license_url": "https://climat.meteo.gc.ca/prods_servs/attachment1_f.html",
+  "selection": "Table de classe limitée aux colonnes déclarées, sans tirage supplémentaire de lignes. Attribution et conditions tierces conservées.",
+  "tables": [
+    {
+      "path": "data/processed/meteo-quebec/meteo_quebec.csv",
+      "rows": 20111,
+      "columns": ["source_dataset", "station_label", "date", "annee", "mois_num", "mois", "jour", "saison", "max_temp", "mean_temp", "min_temp", "total_precip", "total_rain", "total_snow", "snow_grnd"],
+      "sha256": "11348fb37f75f83727598e6648d1a9c6f70d1a06dd29d5c48e3b23e4b2abe18a",
+      "prepared_table_sha256": "11348fb37f75f83727598e6648d1a9c6f70d1a06dd29d5c48e3b23e4b2abe18a"
+    },
+    {
+      "path": "data/processed/meteo-quebec/resume_saisons_meteo_quebec.csv",
+      "rows": 4,
+      "columns": ["saison", "n", "mean_temp_moyenne", "ecart_type_temperature", "precipitation_moyenne"],
+      "sha256": "0733ea75e900c62eddae8b34fff941f52ac588dce4b4cc691ba12cbe0a18001e",
+      "prepared_table_sha256": "0733ea75e900c62eddae8b34fff941f52ac588dce4b4cc691ba12cbe0a18001e"
+    },
+    {
+      "path": "data/processed/meteo-quebec/valeurs_manquantes_meteo_quebec.csv",
+      "rows": 15,
+      "columns": ["variable", "n_missing", "n_rows", "pct_missing"],
+      "sha256": "04987d02f62f7630fe00f9a51d9b3b14a7e4dda9d27aa3cc244629751bd5e66f",
+      "prepared_table_sha256": "04987d02f62f7630fe00f9a51d9b3b14a7e4dda9d27aa3cc244629751bd5e66f"
+    }
+  ],
+  "archive_sha256": "7d4fc37c503c9a0346c5dbcd9e8d26c14606badcd2c5b47b71af783bc49e26db",
+  "archive_bytes": 286592
+}

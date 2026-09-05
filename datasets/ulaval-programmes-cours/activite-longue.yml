@@ -1,12 +1,13 @@
 id: ulaval-rapport-methodologique-long
-title: Mini-projet - Rapport méthodologique sans diffusion des lignes
-question: Comment produire un rapport utile sur une source institutionnelle privée
-  sans créer une diffusion publique non autorisée?
+title: Documenter une intégration institutionnelle et ses droits
+question: Comment documenter l’état et les droits d’une intégration institutionnelle?
 dataset_id: ulaval-programmes-cours
 dataset_title: Programmes et cours institutionnels ULaval
 activity_url: datasets/ulaval-programmes-cours/activite-longue.qmd
 duration: 2-3 heures
 level: Intermédiaire
+level_ids:
+- intermediaire
 activity_type:
 - Étude de cas
 - Projet ou tâche longue
@@ -17,60 +18,46 @@ concepts:
 - Rapport reproductible
 - Droits de réutilisation
 - Communication prudente
+concept_ids:
+- provenance
+- validation
+- rapport-reproductible
+- droits-de-reutilisation
+- communication-prudente
 context: Éducation supérieure
-hook: Un bon rapport peut être utile sans publier les lignes privées.
+hook: Les données privées ne sont pas distribuées. Les nombres attendus sont des références de manifeste; les
+  valeurs observées absentes restent inconnues.
 materials:
-- fiche vérifiée
-- script de préparation
-- résumés publics
-- notes méthodologiques
-advanced_math_stats: no
-teacher_notes: Demander un rendu local ou un rapport public sans lignes privées. Vérifier
-  que le texte ne suggère pas une approbation officielle.
-status: source privée locale validée
+- Trousse ZIP et projet RStudio
+- Script R complet
+- Documentation publique
+advanced_math_stats: false
+teacher_notes: Les données privées ne sont pas distribuées. Les nombres attendus sont des références de manifeste;
+  les valeurs observées absentes restent inconnues.
+status: Documentation de source et ressources de classe fournies
 pedagogical_status: pret_a_enseigner
-teacher_preparation: Vérifier les droits de diffusion avant la séance; utiliser seulement
-  les résumés publics et ne pas publier les lignes de données.
-expected_output: Un court rapport reproductible avec contexte, tableau ou graphique,
-  interprétation et limites.
-requires_prepared_data: yes
-requires_live_download: no
+teacher_preparation: Extraire la trousse, ouvrir le projet RStudio, installer les packages avant la séance
+  et lancer le script.
+expected_output: Un tableau de contrôle et une note de décision répondant à la question.
+requires_prepared_data: true
+requires_live_download: false
 recommended_use: Mini-projet guidé
-result_visible_in_page: yes
-
+result_visible_in_page: false
 learning_objectives:
-  - "Travailler Provenance."
-  - "Travailler Validation."
-  - "Travailler Rapport reproductible."
-  - "Travailler Droits de réutilisation."
-  - "Nommer au moins une limite d'interprétation."
-  - "Vérifier les droits de diffusion avant la séance; utiliser seulement les résumés publics et ne pas publier les lignes de données."
-  - "Fichier préparé : `data/processed/ulaval-programmes-cours/resume_ulaval_programmes_cours.csv`."
-  - "Script de préparation : `datasets/ulaval-programmes-cours/preparation.R`."
-  - "Point à surveiller : Demander un rendu local ou un rapport public sans lignes privées. Vérifier que le texte ne suggère pas une approbation officielle."
-  - "Demander un rendu local ou un rapport public sans lignes privées. Vérifier que le texte ne suggère pas une approbation officielle."
-  - "Si une variable ou un dénominateur nécessaire n'est pas disponible dans les données, l'écrire explicitement plutôt que l'inférer."
-  - "compilation indépendante et non officielle;"
-  - "aucune licence ouverte explicite identifiée;"
-  - "Je ne sais pas pour l'autorisation de republication publique à grande échelle."
-  - "`resume_ulaval_programmes_cours.csv`;"
-  - "`resume_fichiers_ulaval.csv`;"
-  - "`resume_controles_ulaval.csv`;"
-  - "`resume_droits_ulaval.csv`."
-  - "Exactitude du statut institutionnel et juridique."
-  - "Absence de lignes privées et de PDF sources dans le rapport public."
-  - "Qualité des contrôles de validation."
-  - "Clarté sur ce qui est vérifié et ce qui ne l'est pas."
-  - "Reproductibilité du code."
-  - "Prudence du langage."
-
+- Examiner l’état de validation et les nombres attendus par phase.
+- Lire la synthèse des droits et conserver les observations inconnues comme manquantes.
+- Formuler une limite qui découle de la source et de l’unité observée.
 prerequisites:
-  - "Vérifier le fichier ou le script de préparation annoncé avant la séance; adapter la mise en route au niveau indiqué."
-
+- Savoir ouvrir un projet RStudio et exécuter un script R.
+- Savoir lire un tableau groupé et un graphique descriptif; repérer les valeurs manquantes.
 success_criteria:
-  - "La production attendue est remise : Un court rapport reproductible avec contexte, tableau ou graphique, interprétation et limites."
-  - "Les résultats sont interprétés sans dépasser les limites de la source."
-
+- L’unité, la période ou la portée documentaire et les variables utilisées sont nommées.
+- Examiner l’état de validation et les nombres attendus par phase.
+- Lire la synthèse des droits et conserver les observations inconnues comme manquantes.
+- La conclusion répond à la question et explique au moins une limite précise.
 adaptations:
-  - "Fournir une table préparée ou réduire le nombre de variables pour une première utilisation."
-  - "Ajouter une comparaison, une justification méthodologique ou une discussion des limites pour approfondir."
+- Lire les tableaux ensemble sans programmer.
+- Pour approfondir, rédiger un protocole de collecte et ses contrôles avant toute acquisition.
+script_file: datasets/ulaval-programmes-cours/activite-longue.R
+classroom_archive: assets/classroom/ulaval-programmes-cours.zip
+access_mode: documentation

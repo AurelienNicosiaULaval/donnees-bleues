@@ -20,7 +20,11 @@ region_summary_file: "data/processed/bibliotheques-quebec/resume_regions_bibliot
 category_summary_file: "data/processed/bibliotheques-quebec/resume_categories_bibliotheques_2024.csv"
 missing_summary_file: "data/processed/bibliotheques-quebec/valeurs_manquantes_bibliotheques_2024.csv"
 update_frequency: "Série annuelle; ressources disponibles de 2007 à 2024; ressource 2024 modifiée le 2025-10-06"
-level: "Introduction à avancé"
+level: Introduction à avancé
+level_ids:
+- introduction
+- intermediaire
+- avance
 organisme: "Bibliothèque et Archives nationales du Québec"
 territoire: "Québec"
 taille_approximative: "188 lignes; 262 colonnes source; 19 régions non manquantes; 59 981 972 visites déclarées"
@@ -52,14 +56,23 @@ tags:
   - statistique descriptive
   - modélisation exploratoire
 concepts:
-  - importation CSV
-  - nettoyage de noms de variables
-  - conversion numérique
-  - ratios
-  - comparaison régionale
-  - valeurs manquantes
-  - indicateurs administratifs
-  - communication prudente
+- Importation CSV
+- Nettoyage de noms de variables
+- Conversion numérique
+- Ratios
+- Comparaison régionale
+- Valeurs manquantes
+- Indicateurs administratifs
+- Communication prudente
+concept_ids:
+- importation-csv
+- nettoyage-de-noms-de-variables
+- conversion-numerique
+- ratios
+- comparaison-regionale
+- valeurs-manquantes
+- indicateurs-administratifs
+- communication-prudente
 zero_waste:
   contexte_quebecois: 3
   accessibilite_pedagogique: 3
@@ -75,3 +88,42 @@ status: "source officielle vérifiée; ressource 2024 préparée localement"
 notes: "Les données sont rapportées par les responsables des bibliothèques et complétées par des indicateurs de performance. Les comparaisons doivent distinguer volumes, ratios et contexte de service."
 contributor_name: "Aurélien Nicosia"
 contributor_role: "Révision pédagogique et statistique"
+
+publication:
+  preview: true
+  reviewed_on: '2026-09-05'
+  license_url: https://creativecommons.org/licenses/by/4.0/deed.fr
+  preview_columns:
+  - bibliotheque
+  - region_administrative
+  - population_desservie
+  - categorie_bibliotheque
+  - modalites_abonnement
+  - visites_total
+  - prets_total
+  - usagers_inscrits_total
+  - activites_total
+  - depenses_fonctionnement_total
+  reason: Extrait pédagogique limité aux colonnes déclarées; attribution et conditions de la source conservées.
+  classroom:
+    mode: frozen
+    reason: Table de classe limitée aux colonnes déclarées, sans tirage supplémentaire de lignes. Attribution
+      et conditions tierces conservées.
+    files:
+    - path: data/processed/bibliotheques-quebec/statistiques_bibliotheques_quebec_2024_selection.csv
+      columns:
+      - bibliotheque
+      - region_administrative
+      - population_desservie
+      - categorie_bibliotheque
+      - visites_total
+      - prets_total
+      - visites_par_habitant
+      - prets_par_habitant
+chart:
+  type: scatter
+  x_variable: population_desservie
+  y_variable: prets_total
+  x_label: Population desservie (personnes)
+  y_label: Prêts en 2024 (nombre)
+  title: Population desservie et prêts

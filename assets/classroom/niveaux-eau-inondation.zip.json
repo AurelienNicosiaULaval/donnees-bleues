@@ -1,0 +1,42 @@
+{
+  "dataset_id": "niveaux-eau-inondation",
+  "title": "Niveaux d'eau lors d'une inondation",
+  "mode": "frozen",
+  "prepared_at_utc": "2026-09-05T11:04:57Z",
+  "source_name": "Données Québec / Ministère de la Sécurité intérieure",
+  "source_url": "https://www.donneesquebec.ca/recherche/dataset/niveaux-deau-inondation-msp",
+  "license_url": "https://creativecommons.org/licenses/by/4.0/deed.fr",
+  "selection": "Table de classe limitée aux colonnes déclarées, sans tirage supplémentaire de lignes. Attribution et conditions tierces conservées.",
+  "tables": [
+    {
+      "path": "data/processed/niveaux-eau-inondation/niveaux_eau_inondation.csv",
+      "rows": 1500,
+      "columns": ["id_msp", "date_obs", "annee_obs", "type_obs", "type_observation", "long_wgs84", "lat_wgs84", "alt_m_cgvd", "err_xy_cm", "err_z_cm", "has_coordinates"],
+      "sha256": "7ee18c498ca9cda4c7c4e1375fb1f25377eb7c356417631fe5d55a2e1410e152",
+      "prepared_table_sha256": "024910a9fb4207b2e26dfe444be72077462c9dd55e09f374a32c36a6917f2ace"
+    },
+    {
+      "path": "data/processed/niveaux-eau-inondation/resume_annee_niveaux_eau_inondation.csv",
+      "rows": 16,
+      "columns": ["annee_obs", "type_obs", "n_observations"],
+      "sha256": "83b89b0b5bfec4567a3fa667dd92247f2f9a9b38a699f6f1625d072b414d538f",
+      "prepared_table_sha256": "83b89b0b5bfec4567a3fa667dd92247f2f9a9b38a699f6f1625d072b414d538f"
+    },
+    {
+      "path": "data/processed/niveaux-eau-inondation/resume_type_niveaux_eau_inondation.csv",
+      "rows": 2,
+      "columns": ["type_obs", "type_observation", "n_observations", "altitude_min", "altitude_mediane", "altitude_max", "erreur_xy_mediane_cm", "erreur_z_mediane_cm"],
+      "sha256": "4b15a8497b56d72c5d8b1c88b1b4f802ede916c176e11759bb85a18da9c27259",
+      "prepared_table_sha256": "4b15a8497b56d72c5d8b1c88b1b4f802ede916c176e11759bb85a18da9c27259"
+    },
+    {
+      "path": "data/processed/niveaux-eau-inondation/valeurs_manquantes_niveaux_eau_inondation.csv",
+      "rows": 27,
+      "columns": ["variable", "n_missing", "n_rows", "pct_missing"],
+      "sha256": "7e0a914662ec85b1923aefb5f746945ef4ca3b6fceb07c4c9a93fb78450e81bf",
+      "prepared_table_sha256": "7e0a914662ec85b1923aefb5f746945ef4ca3b6fceb07c4c9a93fb78450e81bf"
+    }
+  ],
+  "archive_sha256": "15df014a258fe027594afc7808cd055cbb78b5b1900e7ef349734ece062e20d7",
+  "archive_bytes": 39406
+}

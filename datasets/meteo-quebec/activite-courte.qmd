@@ -1,176 +1,64 @@
 ---
 title: "Variabilité saisonnière de la température à Québec"
-embed-resources: false
+embed-resources: true
 ---
-
 
 # Variabilité saisonnière de la température à Québec
 
-<!-- activity-teacher-brief:start -->
-::: {.activity-teacher-brief}
 
-## En classe, cette activité sert à...
+Comment la variabilité de température diffère-t-elle selon la saison?
 
-Cette activité sert à travailler les notions suivantes : séries temporelles, statistiques descriptives, valeurs manquantes, visualisation à partir d'une question située dans le contexte suivant : Météorologie québécoise. Elle demande aux étudiantes et étudiants de répondre à la question directrice suivante : Quelle saison présente la plus forte variabilité de température à Québec?
-
-::: {.activity-quick-facts}
-| Élément | Information |
-|---|---|
-| Durée | 45-60 minutes |
-| Niveau | Introduction |
-| Usage recommandé | Laboratoire guidé |
-| Préparation enseignant | Préparation requise : exécuter `Rscript datasets/meteo-quebec/preparation.R` depuis la racine, puis vérifier que `data/processed/meteo-quebec/meteo_quebec.csv` existe. |
-| Production attendue | Un tableau ou graphique descriptif accompagné de trois phrases d'interprétation prudente. |
-| Données | `data/processed/meteo-quebec/meteo_quebec.csv` |
-:::
-
-:::
-<!-- activity-teacher-brief:end -->
+Durée : 45-60 minutes. Niveau : Introduction.
 
 ## Préparation enseignante
 
-- Préparation requise : exécuter `Rscript datasets/meteo-quebec/preparation.R` depuis la racine, puis vérifier que `data/processed/meteo-quebec/meteo_quebec.csv` existe.
-- Fichier préparé : `data/processed/meteo-quebec/meteo_quebec.csv`.
-- Script de préparation : `datasets/meteo-quebec/preparation.R`.
-- Point à surveiller : Faire vérifier les valeurs manquantes avant les graphiques. Insister sur le fait que la réponse décrit une station, pas tout le Québec.
+Télécharger la trousse ci-dessous. Extraire le ZIP, puis double-cliquer sur `Donnees-bleues.Rproj`. Avant la séance, ouvrir `installer-packages.R` et cliquer sur Source avec une connexion Internet.
 
-## Résultat attendu
+Une fois les packages installés, les scripts utilisent les fichiers inclus et peuvent être exécutés hors ligne.
 
-Un tableau ou graphique descriptif accompagné de trois phrases d'interprétation prudente. La production doit aussi contenir une phrase sur l'unité statistique et une phrase sur une limite de la source.
-
-## Limites à faire nommer
-
-- Faire vérifier les valeurs manquantes avant les graphiques. Insister sur le fait que la réponse décrit une station, pas tout le Québec.
-- Si une variable ou un dénominateur nécessaire n'est pas disponible dans les données, l'écrire explicitement plutôt que l'inférer.
-
+```{r}
+#| label: activity-classroom-resources
+#| echo: false
+#| results: asis
+source(if (file.exists("R/utils_activity_contract.R")) "R/utils_activity_contract.R" else "../../R/utils_activity_contract.R")
+render_activity_resources()
+```
 
 ## Contexte
 
-Cette activité utilise le jeu `MeteoQuebec` de `UlavalSSD` pour introduire les dates, les saisons, les résumés par groupe et les graphiques simples. Le but n'est pas de conclure sur le climat, mais de produire une première description fiable de la météo quotidienne observée à une station.
+Cette activité utilise la fiche [Météo quotidienne à Québec](fiche.qmd). Unité : Une journée à la station de Québec dans la version pédagogique du package UlavalSSD.
 
-## Objectifs d'apprentissage
-
-- Préparer un jeu météorologique pédagogique
-- Lire un CSV préparé localement
-- Utiliser une variable date
-- Décrire les valeurs manquantes
-- Comparer la variabilité de température par saison
-- Produire un graphique lisible
-
-## Données utilisées
-
-Fiche : [Météo quotidienne à Québec](fiche.qmd)
-
-Source pédagogique : `UlavalSSD::MeteoQuebec`.
-
-Source primaire documentée : Environnement et Changement climatique Canada, via `weathercan`.
-
-Fichier préparé : `data/processed/meteo-quebec/meteo_quebec.csv`
-
-## Métadonnées pédagogiques
-
-| Champ | Information |
-|---|---|
-| Question directrice | Quelle saison présente la plus forte variabilité de température à Québec? |
-| Concepts | Séries temporelles; Statistiques descriptives; Valeurs manquantes; Visualisation |
-| Niveau | Introduction |
-| Type | Laboratoire d'introduction; Exploration de données |
-| Contexte | Météorologie québécoise |
-| Accroche | Des données météo familières pour apprendre à résumer une série temporelle |
-| Durée | 45-60 minutes |
-| Matériel | fiche; code; table préparée |
-| Math/stats avancées | non |
+Source : [UlavalSSD::MeteoQuebec, construit avec weathercan à partir d'ECCC](https://climate.weather.gc.ca/historical_data/search_historic_data_e.html). Les dates de préparation, les fichiers et les conditions de réutilisation sont indiqués dans la trousse.
 
 ## Consignes
 
-1. Exécuter `datasets/meteo-quebec/preparation.R`.
-2. Importer `data/processed/meteo-quebec/meteo_quebec.csv`.
-3. Vérifier le nombre de lignes et la période couverte.
-4. Résumer les valeurs manquantes des variables de température.
-5. Calculer la moyenne et l'écart-type de `mean_temp` par saison.
-6. Produire un graphique de distribution de `mean_temp` par saison.
-7. Rédiger une conclusion de 5 à 8 lignes avec une limite méthodologique.
+1. Ouvrir `activite-courte.R` dans le sous-dossier `datasets/meteo-quebec` du projet RStudio et cliquer sur Source. Les tableaux apparaissent dans Console et les graphiques dans Plots.
+2. Compter les températures manquantes et calculer moyenne et écart-type par saison.
+3. Comparer les distributions de température moyenne quotidienne en degrés Celsius.
+4. Rédiger une réponse à la question en nommant l’unité observée et une limite de la source.
 
-## Code de départ
+## Résultat attendu
 
-À exécuter depuis la racine du projet.
+Les tableaux et graphiques du script, accompagnés d’une interprétation de 6 à 8 lignes répondant à la question.
+
+## Limites à faire nommer
+
+Les jours sans mesure ne sont pas des zéros. Une station et une période limitée ne suffisent pas à caractériser le climat de tout le Québec.
+
+## Code complet
+
+Ce script complet est celui de la trousse. Il lit les fichiers locaux et affiche les résultats dans RStudio.
 
 ```{r}
-#| eval: false
-# Load libraries
-library(dplyr)
-library(ggplot2)
-library(readr)
-
-# Prepare data
-source("datasets/meteo-quebec/preparation.R")
-
-# Import prepared data
-meteo <- read_csv(
-  "data/processed/meteo-quebec/meteo_quebec.csv",
-  show_col_types = FALSE
-)
-
-# Check structure
-meteo |>
-  summarise(
-    lignes = n(),
-    premiere_date = min(date),
-    derniere_date = max(date)
-  )
-
-# Missing values for temperature variables
-meteo |>
-  summarise(
-    max_temp_manquant = sum(is.na(max_temp)),
-    mean_temp_manquant = sum(is.na(mean_temp)),
-    min_temp_manquant = sum(is.na(min_temp))
-  )
-
-# Seasonal summary
-resume_saison <- meteo |>
-  group_by(saison) |>
-  summarise(
-    n = n(),
-    moyenne = mean(mean_temp, na.rm = TRUE),
-    ecart_type = sd(mean_temp, na.rm = TRUE),
-    .groups = "drop"
-  ) |>
-  arrange(desc(ecart_type))
-
-resume_saison
-
-# Seasonal distribution
-ggplot(meteo, aes(x = saison, y = mean_temp)) +
-  geom_boxplot(outlier.alpha = 0.25) +
-  labs(
-    x = "Saison",
-    y = "Température moyenne quotidienne (°C)",
-    title = "Variabilité saisonnière de la température à Québec"
-  )
+#| label: activity-code
+#| echo: false
+#| results: asis
+render_activity_code()
 ```
-
-## Questions
-
-1. Quelle période le jeu préparé couvre-t-il?
-2. Combien de valeurs manquantes contient `mean_temp`?
-3. Quelle saison a le plus grand écart-type de `mean_temp`?
-4. Cette réponse change-t-elle si l'on regarde seulement les années récentes?
-5. Pourquoi ce résultat ne permet-il pas de conclure sur le climat du Québec?
-
-## Pistes de solution
-
-Dans la version `UlavalSSD` 0.2.0, le printemps présente le plus grand écart-type descriptif de `mean_temp`. Une bonne conclusion doit préciser que ce résultat décrit la station Québec/Jean-Lesage dans la version pédagogique du jeu.
-
-## Prolongement
-
-Refaire le calcul pour les années 2000 et plus, puis comparer l'ordre des saisons.
 
 ```{r}
 #| label: activity-pedagogical-contract
 #| echo: false
 #| results: asis
-contract_source_path <- if (file.exists("R/utils_activity_contract.R")) "R/utils_activity_contract.R" else "../../R/utils_activity_contract.R"
-source(contract_source_path)
 render_activity_contract()
 ```

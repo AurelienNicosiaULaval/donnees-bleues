@@ -1,3 +1,4 @@
+source("R/utils_downloads.R")
 # Préparation : rapports d'accident 2022.
 # Source officielle : Données Québec / Société de l'assurance automobile du Québec,
 # paquet CKAN 8dd0ab9b-d45d-4526-9256-c598fbc4ff3a.
@@ -47,7 +48,7 @@ processed_dir <- file.path(root, "data/processed/rapports-accident")
 dir.create(raw_dir, recursive = TRUE, showWarnings = FALSE)
 dir.create(processed_dir, recursive = TRUE, showWarnings = FALSE)
 
-access_date <- as.Date("2026-06-21")
+access_date <- Sys.Date()
 source_page <- "https://www.donneesquebec.ca/recherche/dataset/rapports-d-accident"
 source_api <- "https://www.donneesquebec.ca/recherche/api/3/action/package_show?id=rapports-d-accident"
 
@@ -55,7 +56,7 @@ package_json_path <- file.path(raw_dir, "package_show_rapports_accident.json")
 documentation_pdf_path <- file.path(raw_dir, "rapports-accident-documentation.pdf")
 csv_raw_path <- file.path(raw_dir, "Rapport_Accident_2022.csv")
 
-download.file(source_api, package_json_path, mode = "wb", quiet = TRUE)
+download_source(source_api, package_json_path, mode = "wb", quiet = TRUE)
 package <- fromJSON(package_json_path, flatten = TRUE)
 if (!isTRUE(package$success)) {
   stop("L'API CKAN n'a pas retourné success = TRUE.", call. = FALSE)
@@ -83,8 +84,8 @@ if (length(documentation_url) != 1L || length(csv_url) != 1L) {
   stop("Impossible d'identifier de façon unique la documentation PDF ou le CSV 2022.", call. = FALSE)
 }
 
-download.file(documentation_url, documentation_pdf_path, mode = "wb", quiet = TRUE)
-download.file(csv_url, csv_raw_path, mode = "wb", quiet = TRUE)
+download_source(documentation_url, documentation_pdf_path, mode = "wb", quiet = TRUE)
+download_source(csv_url, csv_raw_path, mode = "wb", quiet = TRUE)
 
 source_data <- read_csv(
   csv_raw_path,
@@ -412,3 +413,5 @@ write_csv(summary_by_road_context, file.path(processed_dir, "resume_surface_ecla
 write_csv(summary_indicators, file.path(processed_dir, "resume_indicateurs_2022.csv"))
 write_csv(missing_summary, file.path(processed_dir, "valeurs_manquantes_2022.csv"))
 write_csv(dataset_summary, file.path(processed_dir, "resume_rapports_accident_2022.csv"))
+
+record_preparation("rapports-accident")

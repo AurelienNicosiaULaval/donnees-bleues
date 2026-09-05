@@ -1,0 +1,21 @@
+{
+  "dataset_id": "ecoles-quebec",
+  "title": "Établissements scolaires du Québec",
+  "mode": "frozen",
+  "prepared_at_utc": "2026-09-05T11:04:34Z",
+  "source_name": "Données Québec / Ministère de l'Éducation et Ministère de l'Enseignement supérieur",
+  "source_url": "https://www.donneesquebec.ca/recherche/dataset/localisation-des-etablissements-d-enseignement-du-reseau-scolaire-au-quebec",
+  "license_url": "https://creativecommons.org/licenses/by/4.0/deed.fr",
+  "selection": "Table de classe limitée aux colonnes déclarées, sans tirage supplémentaire de lignes. Attribution et conditions tierces conservées.",
+  "tables": [
+    {
+      "path": "data/processed/ecoles-quebec/ecoles_publiques_quebec.csv",
+      "rows": 5454,
+      "columns": ["CD_ORGNS", "CD_IMM", "lien_ecole_immeuble_id", "longitude", "latitude", "region_administrative", "type_reseau_public"],
+      "sha256": "2b32f84bc1659ede79d4d7c9e0355b7e999a95cc9894777417ceceffa2a466db",
+      "prepared_table_sha256": "e14343f759c96cfda097db43bfaec4c1a8a6d0607fa3b76ae61250d0f6308ae7"
+    }
+  ],
+  "archive_sha256": "9eaef811215e448617934c412f1860267876ac5b83487d5ec9e65915f7672e80",
+  "archive_bytes": 82059
+}

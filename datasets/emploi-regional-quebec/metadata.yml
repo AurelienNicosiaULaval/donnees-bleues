@@ -16,14 +16,24 @@ n_rows: "25 160 observations préparées : 8 indicateurs x 185 mois x 17 territo
 n_cols: "12 colonnes dans la table préparée"
 processed_file: "data/processed/emploi-regional-quebec/emploi_regional_quebec.csv"
 update_frequency: "Mensuelle; tableau officiel mis à jour le 5 juin 2026"
-level: "Introduction à intermédiaire"
+level: Introduction à intermédiaire
+level_ids:
+- introduction
+- intermediaire
 concepts:
-  - séries temporelles
-  - comparaison de groupes
-  - données d'enquête
-  - nettoyage de données Excel
-  - statistiques descriptives
-  - indicateurs socioéconomiques
+- Séries temporelles
+- Comparaison de groupes
+- Données d'enquête
+- Nettoyage de données Excel
+- Statistiques descriptives
+- Indicateurs socioéconomiques
+concept_ids:
+- series-temporelles
+- comparaison-de-groupes
+- donnees-d-enquete
+- nettoyage-de-donnees-excel
+- statistiques-descriptives
+- indicateurs-socioeconomiques
 zero_waste:
   contexte_quebecois: 3
   accessibilite_pedagogique: 3
@@ -39,3 +49,14 @@ status: "source officielle vérifiée; fichier XLSX complet du tableau 916 prép
 notes: "Les estimations régionales mensuelles de l'EPA sont diffusées sous forme de moyennes mobiles sur trois mois et doivent être interprétées avec prudence, en particulier lorsque le fichier signale `F` ou `*`."
 contributor_name: "Aurélien Nicosia"
 contributor_role: "Révision pédagogique et statistique"
+
+publication:
+  preview: false
+  reason: Les conditions ISQ exigent une permission écrite pour la reproduction.
+  reviewed_on: '2026-09-05'
+  license_url: https://statistique.quebec.ca/fr/institut/nous-joindre/droits-auteur-permission-reproduction
+  classroom:
+    mode: source_required
+    reason: Données ISQ non redistribuées. Acquisition personnelle depuis la source avant la séance, selon
+      ses conditions.
+    files: []

@@ -1,8 +1,0 @@
-dataset_id,phase,source_file,expected_rows,observed_rows,observed_cols,key_fields,protected_fields,file_available,row_count_matches,keys_unique,protected_fields_present
-programmes_actifs,core,data/ulaval_programmes_actifs_2026_06.csv,753,753,11,code_programme,"source_id,page_source",TRUE,TRUE,TRUE,TRUE
-cours_accessibles,core,data/ulaval_cours_accessibles_2026_01_29.csv,344,344,11,code_cours,"source_id,page_source",TRUE,TRUE,TRUE,TRUE
-cours_nouveaux,core,data/ulaval_cours_nouveaux_2024_2025.csv,278,278,10,code_cours,"source_id,page_source",TRUE,TRUE,TRUE,TRUE
-ges_portees_1_2_historique,ges,data/ulaval_ges_portees_1_2_historique.csv,15,15,8,periode,"source_id,page_source,note",TRUE,TRUE,TRUE,TRUE
-ges_bilan_2023_2024,ges,data/ulaval_ges_bilan_2023_2024.csv,7,7,8,"periode,element","source_id,page_source,note",TRUE,TRUE,TRUE,TRUE
-ges_portee_3,ges,data/ulaval_ges_portee_3_historique.csv,97,97,13,"categorie_code,periode,metrique","source_id,page_source,note,statut_quantification",TRUE,TRUE,TRUE,TRUE
-indicateurs_reperes,indicateurs,data/ulaval_indicateurs_reperes_2025.csv,165,165,15,"indicateur_id,periode,sous_groupe","source_id,page_source,note,statut_valeur",TRUE,TRUE,TRUE,TRUE

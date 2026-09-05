@@ -4,6 +4,7 @@ page-layout: full
 toc: false
 execute:
   freeze: false
+embed-resources: true
 ---
 
 ```{r}
@@ -69,6 +70,8 @@ Une ligne n'est pas un volume consommé, un débit mesuré, une déclaration ann
 | `provenance_eau` | Souterraine, surface ou activités de dénoyage | Variable principale d'agrégation |
 | `longitude`, `latitude` | Coordonnées des sites | Toutes les lignes préparées ont des coordonnées |
 
+Les [métadonnées du MELCCFP (2025)](https://www.donneesquebec.ca/recherche/dataset/d9564fe0-6d50-4f89-b12e-47a461e1f68e/resource/24b357f1-fd58-44a7-8cd3-7098645ae907/download/md_prelevementseauautorises.pdf) décrivent des conditions communes à plusieurs sites. L’absence de texte dans `precision_volume` ne prouve pas l’absence de condition. Cette activité ne calcule pas de total autorisé.
+
 ## Taille et résultats R vérifiés
 
 | Indicateur | Valeur |
@@ -81,19 +84,18 @@ Une ligne n'est pas un volume consommé, un débit mesuré, une déclaration ann
 | Sites avec coordonnées | 1 777 |
 | Sites avec volume manquant | 19 |
 | Sites avec précision textuelle sur le volume | 130 |
-| Volume autorisé total | 4 670 107 m3/j |
 | Volume autorisé médian | 109,22 m3/j |
 | Volume autorisé maximal | 499 000 m3/j |
 
 ## Provenance de l'eau
 
-| Provenance | Sites | Documents | Intervenants | Volumes manquants | Volume total autorisé | Volume médian autorisé | Volume maximal autorisé |
-|---|---:|---:|---:|---:|---:|---:|---:|
-| Surface | 346 | 246 | 210 | 4 | 3 485 318 m3/j | 1 058,8 m3/j | 499 000 m3/j |
-| Souterraine | 1 424 | 816 | 673 | 11 | 1 166 715 m3/j | 72,0 m3/j | 102 600 m3/j |
-| Activités de dénoyage | 7 | 5 | 5 | 4 | 18 074 m3/j | 3 800,0 m3/j | 13 600 m3/j |
+| Provenance | Sites | Documents distincts | Volumes manquants | Plafond médian inscrit par site |
+|---|---:|---:|---:|---:|
+| Surface | 346 | 246 | 4 | 1 058,8 m³/j |
+| Souterraine | 1 424 | 816 | 11 | 72,0 m³/j |
+| Activités de dénoyage | 7 | 5 | 4 | 3 800,0 m³/j |
 
-La lecture pédagogique importante est que le nombre de sites et le volume total ne racontent pas la même histoire. Les sites souterrains sont les plus nombreux, alors que le volume total autorisé est dominé par les prélèvements de surface.
+Les médianes décrivent les valeurs inscrites sur les lignes du registre. Elles ne représentent pas des volumes réellement prélevés. Le dictionnaire officiel indique que plusieurs sites peuvent partager une condition limitant leur prélèvement total. Ni la somme des sites ni une déduplication automatique par document ne permettent de reconstituer ces conditions. Un même document peut aussi concerner plusieurs provenances; ses décomptes par catégorie ne s’additionnent pas nécessairement.
 
 ## Valeurs manquantes
 
@@ -196,22 +198,21 @@ resume_provenance <- prelevements |>
   group_by(provenance_eau) |>
   summarise(
     sites = n(),
-    volume_total_m3_j = sum(volume_autorise_m3_j, na.rm = TRUE),
     .groups = "drop"
   ) |>
-  arrange(desc(volume_total_m3_j))
+  arrange(desc(volume_median_m3_j))
 
 resume_provenance
 
 # Plot authorized volumes
-ggplot(resume_provenance, aes(x = reorder(provenance_eau, volume_total_m3_j), y = volume_total_m3_j)) +
+ggplot(resume_provenance, aes(x = reorder(provenance_eau, volume_median_m3_j), y = volume_median_m3_j)) +
   geom_col(fill = "#325EA8") +
   coord_flip() +
   labs(
     x = "Provenance de l'eau",
-    y = "Volume maximal autorisé total (m3/j)",
+    y = "Médiane des plafonds inscrits par site (m³/j)",
     title = "Volumes autorisés par provenance de l'eau",
-    subtitle = "Il s'agit de volumes autorisés, pas de volumes réellement prélevés"
+    subtitle = "Plafonds par site; aucune estimation de prélèvement réel ou de total autorisé"
   )
 ```
 

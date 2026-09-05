@@ -1,11 +1,14 @@
 id: diplomation-tendances-cohortes-long
 title: Tendances de diplomation selon l'IMSE
-question: Comment l'écart de diplomation évolue-t-il, et quelles limites faut-il expliciter?
+question: Comment les taux et leur écart évoluent-ils entre cohortes?
 dataset_id: cohortes-diplomation
 dataset_title: Cohortes de diplomation
 activity_url: datasets/cohortes-diplomation/activite-longue.qmd
 duration: 2-3 heures
-level: Introductif à intermédiaire
+level: Introduction à intermédiaire
+level_ids:
+- introduction
+- intermediaire
 activity_type:
 - Étude de cas
 - Projet ou tâche longue
@@ -15,41 +18,47 @@ concepts:
 - Comparaison de groupes
 - Visualisation
 - Communication
+concept_ids:
+- series-temporelles
+- comparaison-de-groupes
+- visualisation
+- communication
 context: Éducation
-hook: Comparer les cohortes sans surinterpréter des taux agrégés
+hook: Un écart entre groupes de milieux ne démontre pas un effet causal du milieu sur un individu. Les données
+  ISQ doivent être obtenues depuis la source avant la séance.
 materials:
-- énoncé
-- code
-- données
-- notes enseignantes
-advanced_math_stats: no
-teacher_notes: Demander une section explicite sur les limites d'un indicateur agrégé
-  fondé sur le lieu de résidence, ainsi qu'un contrôle de cohérence entre les deux
-  taux et l'écart publié.
-status: source officielle vérifiée le 2026-06-20
-pedagogical_status: pret_a_enseigner
-teacher_preparation: Vérifier les droits de diffusion avant la séance; utiliser seulement
-  les résumés publics et ne pas publier les lignes de données.
-expected_output: Un court rapport reproductible avec contexte, tableau ou graphique,
-  interprétation et limites.
-requires_prepared_data: yes
-requires_live_download: no
+- Trousse ZIP et projet RStudio
+- Script R complet
+- Script d’acquisition auprès de la source
+advanced_math_stats: false
+teacher_notes: Un écart entre groupes de milieux ne démontre pas un effet causal du milieu sur un individu.
+  Les données ISQ doivent être obtenues depuis la source avant la séance.
+status: Documentation de source et ressources de classe fournies
+pedagogical_status: a_consolider
+teacher_preparation: Extraire la trousse, ouvrir le projet RStudio, installer les packages avant la séance
+  et lancer le script. Obtenir les données auprès de l’ISQ avec le script fourni, selon les conditions de la
+  source.
+expected_output: Les tableaux et graphiques du script, accompagnés d’une interprétation de 6 à 8 lignes répondant
+  à la question.
+requires_prepared_data: true
+requires_live_download: true
 recommended_use: Mini-projet guidé
-result_visible_in_page: yes
-
+result_visible_in_page: false
 learning_objectives:
-  - "Visualiser une tendance de taux."
-  - "Comparer deux groupes."
-  - "Interpréter un écart en points de pourcentage."
-  - "Communiquer les limites de données agrégées."
-
+- Comparer les séries des deux taux de diplomation.
+- Lire séparément la série des écarts en points de pourcentage.
+- Formuler une limite qui découle de la source et de l’unité observée.
 prerequisites:
-  - "Vérifier le fichier ou le script de préparation annoncé avant la séance; adapter la mise en route au niveau indiqué."
-
+- Savoir ouvrir un projet RStudio et exécuter un script R.
+- Savoir lire un tableau groupé et un graphique descriptif; repérer les valeurs manquantes.
 success_criteria:
-  - "La production attendue est remise : Un court rapport reproductible avec contexte, tableau ou graphique, interprétation et limites."
-  - "Les résultats sont interprétés sans dépasser les limites de la source."
-
+- L’unité, la période ou la portée documentaire et les variables utilisées sont nommées.
+- Comparer les séries des deux taux de diplomation.
+- Lire séparément la série des écarts en points de pourcentage.
+- La conclusion répond à la question et explique au moins une limite précise.
 adaptations:
-  - "Fournir une table préparée ou réduire le nombre de variables pour une première utilisation."
-  - "Ajouter une comparaison, une justification méthodologique ou une discussion des limites pour approfondir."
+- Débuter avec le script exécuté par la personne enseignante, puis faire interpréter une seule sortie.
+- Pour approfondir, modifier une sélection ou un regroupement et justifier ce que cela change.
+script_file: datasets/cohortes-diplomation/activite-longue.R
+classroom_archive: assets/classroom/cohortes-diplomation.zip
+access_mode: source_required

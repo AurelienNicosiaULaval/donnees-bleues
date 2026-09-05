@@ -1,12 +1,13 @@
 id: rapports-accident-gravite-court
 title: Laboratoire - Gravité des accidents par mois
-question: Comment la gravité observée varie-t-elle selon le mois dans les rapports
-  d'accident 2022?
+question: Comment les accidents déclarés se répartissent-ils selon leur gravité?
 dataset_id: rapports-accident
 dataset_title: Rapports d'accident
 activity_url: datasets/rapports-accident/activite-courte.qmd
 duration: 30-45 minutes
 level: Intermédiaire
+level_ids:
+- intermediaire
 activity_type:
 - Exercice
 - Exploration de données
@@ -14,42 +15,45 @@ concepts:
 - Tableaux croisés
 - Visualisation
 - Variables catégorielles
+concept_ids:
+- tableaux-croises
+- visualisation
+- variables-categorielles
 context: Transport et sécurité routière
-hook: Une fréquence d'accidents n'est pas un risque routier
+hook: Sans dénominateur de trafic, les décomptes ne sont pas des risques. Les proportions portent sur les accidents
+  enregistrés dans chaque groupe.
 materials:
-- fiche vérifiée
-- script de préparation
-- table préparée
-- résumés R
-advanced_math_stats: no
-teacher_notes: Insister sur le code 9 pour trois ou plus et sur l'absence de dénominateur
-  d'exposition.
-status: source officielle vérifiée
+- Trousse ZIP et projet RStudio
+- Script R complet
+- CSV préparés et provenance
+advanced_math_stats: false
+teacher_notes: Sans dénominateur de trafic, les décomptes ne sont pas des risques. Les proportions portent
+  sur les accidents enregistrés dans chaque groupe.
+status: Documentation de source et ressources de classe fournies
 pedagogical_status: pret_a_enseigner
-teacher_preparation: 'Préparation requise : exécuter `Rscript datasets/rapports-accident/preparation.R`
-  depuis la racine, puis vérifier que `data/processed/rapports-accident/rapports_accident_2022_prepares.csv`
-  existe.'
-expected_output: Un court rapport reproductible avec contexte, tableau ou graphique,
-  interprétation et limites.
-requires_prepared_data: yes
-requires_live_download: yes
+teacher_preparation: Extraire la trousse, ouvrir le projet RStudio, installer les packages avant la séance
+  et lancer le script.
+expected_output: Les tableaux et graphiques du script, accompagnés d’une interprétation de 6 à 8 lignes répondant
+  à la question.
+requires_prepared_data: true
+requires_live_download: false
 recommended_use: Exercice guidé
-result_visible_in_page: yes
-
+result_visible_in_page: false
 learning_objectives:
-  - "Exécuter un script de préparation à partir d'une source officielle."
-  - "Importer une table préparée."
-  - "Créer un tableau croisé de variables catégorielles."
-  - "Visualiser une proportion mensuelle."
-  - "Formuler une limite liée à l'absence de dénominateur d'exposition."
-
+- Calculer les nombres et les proportions de chaque gravité.
+- Lire le diagramme en indiquant l’année et la population d’accidents couverte.
+- Formuler une limite qui découle de la source et de l’unité observée.
 prerequisites:
-  - "Vérifier le fichier ou le script de préparation annoncé avant la séance; adapter la mise en route au niveau indiqué."
-
+- Savoir ouvrir un projet RStudio et exécuter un script R.
+- Reconnaître une variable, un décompte et une proportion.
 success_criteria:
-  - "La production attendue est remise : Un court rapport reproductible avec contexte, tableau ou graphique, interprétation et limites."
-  - "Les résultats sont interprétés sans dépasser les limites de la source."
-
+- L’unité, la période ou la portée documentaire et les variables utilisées sont nommées.
+- Calculer les nombres et les proportions de chaque gravité.
+- Lire le diagramme en indiquant l’année et la population d’accidents couverte.
+- La conclusion répond à la question et explique au moins une limite précise.
 adaptations:
-  - "Fournir une table préparée ou réduire le nombre de variables pour une première utilisation."
-  - "Ajouter une comparaison, une justification méthodologique ou une discussion des limites pour approfondir."
+- Débuter avec le script exécuté par la personne enseignante, puis faire interpréter une seule sortie.
+- Pour approfondir, modifier une sélection ou un regroupement et justifier ce que cela change.
+script_file: datasets/rapports-accident/activite-courte.R
+classroom_archive: assets/classroom/rapports-accident.zip
+access_mode: frozen

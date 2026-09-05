@@ -1,0 +1,46 @@
+{
+  "dataset_id": "rapports-accident",
+  "prepared_at_utc": "2026-09-05T11:05:07Z",
+  "prepared_file": "rapports_accident_2022_prepares.csv",
+  "prepared_sha256": "4c318439a9768fe541070dec2f9fdf2687074f18e2417a8ae9d2ce1eb0415570",
+  "preview_sha256": "b29560a78f8fa4209062e9932be56bc4f6718bfcdce2c2ca5cf45c1d0d3932cf",
+  "rows": 120,
+  "columns": ["annee", "identifiant_accident", "mois_code", "mois", "plage_horaire", "jour_semaine_code", "type_jour", "gravite", "accident_avec_victime", "accident_mortel_ou_grave"],
+  "selection": "Au plus 120 positions régulièrement espacées dans l'ordre de la table préparée; sélection déterministe non aléatoire",
+  "source_name": "Données Québec / Société de l'assurance automobile du Québec",
+  "source_url": "https://www.donneesquebec.ca/recherche/dataset/rapports-d-accident",
+  "license": "Attribution (CC-BY 4.0) selon les métadonnées CKAN vérifiées le 2026-06-21",
+  "license_url": "https://creativecommons.org/licenses/by/4.0/deed.fr",
+  "sources": [
+    {
+      "source_url": "https://www.donneesquebec.ca/recherche/api/3/action/package_show?id=rapports-d-accident",
+      "acquisition_kind": "download",
+      "acquired_at_utc": "2026-09-05T11:05:02Z",
+      "started_at_utc": "2026-09-05T11:05:02Z",
+      "file": "package_show_rapports_accident.json",
+      "bytes": 20829,
+      "sha256": "46553f0b60768a6613fbd14238d1774424165c276475e1d03e55a2eb7f27f5c2",
+      "details": {}
+    },
+    {
+      "source_url": "https://dq-prd-bucket1.s3.ca-central-1.amazonaws.com/saaq/Rapport_Accident_2022.csv",
+      "acquisition_kind": "download",
+      "acquired_at_utc": "2026-09-05T11:05:05Z",
+      "started_at_utc": "2026-09-05T11:05:03Z",
+      "file": "Rapport_Accident_2022.csv",
+      "bytes": 20270782,
+      "sha256": "17fc60a26fb8ed8cc0fac871a7e4efc30cda95b93500e7a7f8213ba45008232a",
+      "details": {}
+    },
+    {
+      "source_url": "https://www.donneesquebec.ca/recherche/dataset/8dd0ab9b-d45d-4526-9256-c598fbc4ff3a/resource/86cd3bcb-fe10-4ca5-992e-5bb80e5c534a/download/rapports-accident-documentation.pdf",
+      "acquisition_kind": "download",
+      "acquired_at_utc": "2026-09-05T11:05:03Z",
+      "started_at_utc": "2026-09-05T11:05:02Z",
+      "file": "rapports-accident-documentation.pdf",
+      "bytes": 178302,
+      "sha256": "db93524d1d2f6cb684ed05c908f329f5f8d1ae93709945b9bdc30fb36394f089",
+      "details": {}
+    }
+  ]
+}

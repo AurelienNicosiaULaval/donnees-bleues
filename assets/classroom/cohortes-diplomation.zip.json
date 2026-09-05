@@ -1,0 +1,13 @@
+{
+  "dataset_id": "cohortes-diplomation",
+  "title": "Cohortes de diplomation",
+  "mode": "source_required",
+  "prepared_at_utc": "2026-09-05T11:04:28Z",
+  "source_name": "Institut de la statistique du Québec",
+  "source_url": "https://statistique.quebec.ca/fr/produit/publication/indicateurs-progres-ecart-diplomation",
+  "license_url": "https://statistique.quebec.ca/fr/institut/nous-joindre/droits-auteur-permission-reproduction",
+  "selection": "Données ISQ non redistribuées. Acquisition personnelle depuis la source avant la séance, selon ses conditions.",
+  "tables": [],
+  "archive_sha256": "db4b1e1ea1c4b03b12fe5ebd61cfaba8775764329c2d011d3e0554afbc06d923",
+  "archive_bytes": 9215
+}

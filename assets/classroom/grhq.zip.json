@@ -1,0 +1,28 @@
+{
+  "dataset_id": "grhq",
+  "title": "Géobase du réseau hydrographique du Québec",
+  "mode": "documentation",
+  "prepared_at_utc": "2026-09-05T11:04:48Z",
+  "source_name": "Données Québec / Ministère des Ressources naturelles et des Forêts",
+  "source_url": "https://www.donneesquebec.ca/recherche/dataset/grhq",
+  "license_url": "https://creativecommons.org/licenses/by/4.0/deed.fr",
+  "selection": "Documentation et synthèses publiques seulement; aucune donnée privée, géodatabase ni observation de retard.",
+  "tables": [
+    {
+      "path": "data/processed/grhq/grhq_index_telechargement.csv",
+      "rows": 16,
+      "columns": ["bloc", "region_hydrographique", "partie", "is_split_unit", "unit_kind", "zone", "fgdb_zip_file", "fgdb_directory", "fgdb_url", "source_index_url", "access_date"],
+      "sha256": "54dd15531140307d3d299be69748818c6746837c03f64f419839558ec1b634d5",
+      "prepared_table_sha256": "54dd15531140307d3d299be69748818c6746837c03f64f419839558ec1b634d5"
+    },
+    {
+      "path": "data/processed/grhq/ressources_grhq.csv",
+      "rows": 9,
+      "columns": ["resource_id", "resource_name", "format", "url", "last_modified"],
+      "sha256": "4ca87db0dccf7a9b4151214ad9bfd69953609700a3cfec9371b89b98cece2129",
+      "prepared_table_sha256": "a01e8bc31784ebf4839efeed3ce7bff01ca6d4bf2dcd3653aacc9f2260270838"
+    }
+  ],
+  "archive_sha256": "a09f16a2fe35842a570927ef221909900b1d037463a0afc6d1d0fa70bb1be4bc",
+  "archive_bytes": 6446
+}

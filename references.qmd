@@ -1,5 +1,6 @@
 ---
 title: "Sources et méthode"
+embed-resources: true
 ---
 
 # Sources et méthode

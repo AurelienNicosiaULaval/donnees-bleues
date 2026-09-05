@@ -1,114 +1,64 @@
 ---
-title: "Laboratoire - Défavorisation des écoles"
-embed-resources: false
+title: "Laboratoire - Diffusion et indices de défavorisation"
+embed-resources: true
 ---
 
+# Laboratoire - Diffusion et indices de défavorisation
 
-# Laboratoire - Défavorisation des écoles
 
-<!-- activity-teacher-brief:start -->
-::: {.activity-teacher-brief}
+Comment les indices IMSE et SFR sont-ils associés?
 
-## En classe, cette activité sert à...
-
-Cette activité sert à travailler les notions suivantes : variables numériques, régression linéaire, valeurs manquantes, diffusion partielle à partir d'une question située dans le contexte suivant : Éducation et équité. Elle demande aux étudiantes et étudiants de répondre à la question directrice suivante : Quels liens observe-t-on entre IMSE, SFR et nombre d'élèves parmi les écoles dont les indices sont diffusés?
-
-::: {.activity-quick-facts}
-| Élément | Information |
-|---|---|
-| Durée | 60-90 minutes |
-| Niveau | Introduction à intermédiaire |
-| Usage recommandé | Laboratoire guidé |
-| Préparation enseignant | Préparation requise : exécuter `Rscript datasets/defavorisation-ecoles-primaires/preparation.R` depuis la racine, puis vérifier que `data/processed/defavorisation-ecoles-primaires/defavorisation_ecoles_primaires.csv` existe. |
-| Production attendue | Un tableau ou graphique descriptif accompagné de trois phrases d'interprétation prudente. |
-| Données | `data/processed/defavorisation-ecoles-primaires/defavorisation_ecoles_primaires.csv` |
-:::
-
-:::
-<!-- activity-teacher-brief:end -->
-
-## Données utilisées
-
-Source : Données Québec / Ministère de l'Éducation et Ministère de l'Enseignement supérieur. Licence : Attribution (CC-BY 4.0) selon les métadonnées CKAN vérifiées le 2026-06-20. Fichier principal pour l'activité : `data/processed/defavorisation-ecoles-primaires/defavorisation_ecoles_primaires.csv`
+Durée : 60-90 minutes. Niveau : Introduction à intermédiaire.
 
 ## Préparation enseignante
 
-- Préparation requise : exécuter `Rscript datasets/defavorisation-ecoles-primaires/preparation.R` depuis la racine, puis vérifier que `data/processed/defavorisation-ecoles-primaires/defavorisation_ecoles_primaires.csv` existe.
-- Fichier préparé : `data/processed/defavorisation-ecoles-primaires/defavorisation_ecoles_primaires.csv`.
-- Script de préparation : `datasets/defavorisation-ecoles-primaires/preparation.R`.
-- Point à surveiller : Faire discuter la variable Diffusion avant toute analyse numérique; les lignes non diffusées ne sont pas de simples valeurs manquantes.
+Télécharger la trousse ci-dessous. Extraire le ZIP, puis double-cliquer sur `Donnees-bleues.Rproj`. Avant la séance, ouvrir `installer-packages.R` et cliquer sur Source avec une connexion Internet.
 
-## Code R minimal
+Une fois les packages installés, les scripts utilisent les fichiers inclus et peuvent être exécutés hors ligne.
 
 ```{r}
-#| eval: false
-library(dplyr)
-library(readr)
-
-if (!file.exists("data/processed/defavorisation-ecoles-primaires/defavorisation_ecoles_primaires.csv")) {
-  source("datasets/defavorisation-ecoles-primaires/preparation.R")
-}
-
-donnees <- read_csv(
-  "data/processed/defavorisation-ecoles-primaires/defavorisation_ecoles_primaires.csv",
-  show_col_types = FALSE
-)
-
-glimpse(donnees)
+#| label: activity-classroom-resources
+#| echo: false
+#| results: asis
+source(if (file.exists("R/utils_activity_contract.R")) "R/utils_activity_contract.R" else "../../R/utils_activity_contract.R")
+render_activity_resources()
 ```
-
-## Résultat attendu
-
-Un tableau ou graphique descriptif accompagné de trois phrases d'interprétation prudente. La production doit aussi contenir une phrase sur l'unité statistique et une phrase sur une limite de la source.
-
-## Questions
-
-1. Quelle est l'unité statistique utilisée dans cette activité?
-2. Quelle transformation ou agrégation est nécessaire avant de répondre à la question?
-3. Quelle information manque pour aller plus loin?
-4. Quelle conclusion serait trop forte avec ces seules données?
-5. Comment formuler une conclusion prudente à partir du résultat obtenu?
-
-## Limites à faire nommer
-
-- Faire discuter la variable Diffusion avant toute analyse numérique; les lignes non diffusées ne sont pas de simples valeurs manquantes.
-- Si une variable ou un dénominateur nécessaire n'est pas disponible dans les données, l'écrire explicitement plutôt que l'inférer.
-
 
 ## Contexte
 
-Ce laboratoire reprend la première mission de l'aventure 9 de STT-1100. Il sert à explorer les indicateurs de défavorisation avant de construire un modèle, avec une attention particulière à la variable `Diffusion`.
+Cette activité utilise la fiche [Indices de défavorisation des écoles primaires du Québec](fiche.qmd). Unité : Une école pour laquelle des indices de milieu sont publiés.
 
-## Objectifs d'apprentissage
-
-- Importer un fichier CSV officiel.
-- Identifier les lignes diffusées et non diffusées.
-- Explorer des relations entre variables numériques.
-- Interpréter une corrélation avec prudence.
-- Expliquer pourquoi une valeur non diffusée n'est pas une simple valeur manquante.
-
-## Question directrice
-
-Quels liens observe-t-on entre IMSE, SFR et nombre d'élèves parmi les écoles dont les indices sont diffusés?
+Source : [Données Québec / Ministère de l'Éducation et Ministère de l'Enseignement supérieur](https://www.donneesquebec.ca/recherche/dataset/indices-de-defavorisation/resource/6c5d4a5d-ba3b-40a6-b570-916f43ab622c). Les dates de préparation, les fichiers et les conditions de réutilisation sont indiqués dans la trousse.
 
 ## Consignes
 
-1. Lire le fichier CSV officiel ou le fichier fourni dans l'aventure.
-2. Compter les lignes où `Diffusion` vaut `OUI` et celles où `Diffusion` vaut `NON`.
-3. Décrire les variables `IMSE`, `SFR` et `Nbre_Eleves` seulement pour les lignes diffusées.
-4. Produire un graphique de `IMSE` selon `SFR`.
-5. Calculer la corrélation entre `IMSE` et `SFR`.
-6. Rédiger une conclusion prudente sur ce que le graphique montre et ne montre pas.
+1. Ouvrir `activite-courte.R` dans le sous-dossier `datasets/defavorisation-ecoles-primaires` du projet RStudio et cliquer sur Source. Les tableaux apparaissent dans Console et les graphiques dans Plots.
+2. Conserver seulement les indices diffusés et calculer leur corrélation.
+3. Lire le nuage des deux indices et vérifier les observations disponibles.
+4. Rédiger une réponse à la question en nommant l’unité observée et une limite de la source.
 
-## Pistes de solution
+## Résultat attendu
 
-Une bonne réponse distingue les écoles diffusées et non diffusées avant toute analyse numérique. Une réponse excellente explique que les lignes non diffusées ne doivent pas recevoir un indice prédit présenté comme officiel.
+Les tableaux et graphiques du script, accompagnés d’une interprétation de 6 à 8 lignes répondant à la question.
+
+## Limites à faire nommer
+
+Les indices caractérisent un milieu scolaire, pas chaque élève. Les valeurs masquées par la source restent exclues; la régression décrit une association dans ces données.
+
+## Code complet
+
+Ce script complet est celui de la trousse. Il lit les fichiers locaux et affiche les résultats dans RStudio.
+
+```{r}
+#| label: activity-code
+#| echo: false
+#| results: asis
+render_activity_code()
+```
 
 ```{r}
 #| label: activity-pedagogical-contract
 #| echo: false
 #| results: asis
-contract_source_path <- if (file.exists("R/utils_activity_contract.R")) "R/utils_activity_contract.R" else "../../R/utils_activity_contract.R"
-source(contract_source_path)
 render_activity_contract()
 ```

@@ -20,7 +20,10 @@ type_summary_file: "data/processed/qualite-air/resume_types_milieu_rsqaq_station
 region_summary_file: "data/processed/qualite-air/resume_regions_rsqaq_stations.csv"
 missing_summary_file: "data/processed/qualite-air/valeurs_manquantes_rsqaq_stations.csv"
 update_frequency: "Ressource CSV modifiée le 2026-06-19; paquet CKAN modifié le 2026-06-19"
-level: "Introduction à intermédiaire"
+level: Introduction à intermédiaire
+level_ids:
+- introduction
+- intermediaire
 organisme: "MELCCFP"
 territoire: "Québec"
 taille_approximative: "245 stations; 51 sans date de fermeture; 16 régions administratives; 3 types de milieu"
@@ -51,14 +54,23 @@ tags:
   - cartographie
   - statistique descriptive
 concepts:
-  - importation CSV
-  - dates
-  - valeurs manquantes
-  - statut préparé
-  - données spatiales simples
-  - couverture territoriale
-  - statistique descriptive
-  - communication prudente
+- Importation CSV
+- Dates
+- Valeurs manquantes
+- Statut préparé
+- Données spatiales simples
+- Couverture territoriale
+- Statistiques descriptives
+- Communication prudente
+concept_ids:
+- importation-csv
+- dates
+- valeurs-manquantes
+- statut-prepare
+- donnees-spatiales-simples
+- couverture-territoriale
+- statistiques-descriptives
+- communication-prudente
 zero_waste:
   contexte_quebecois: 3
   accessibilite_pedagogique: 3
@@ -74,3 +86,66 @@ status: "source officielle vérifiée; CSV des stations RSQAQ préparé localeme
 notes: "Cette fiche porte sur un répertoire de stations, pas sur les concentrations de polluants. Une date de fermeture manquante est traitée comme une station sans date de fermeture au 2026-06-21, pas comme une preuve administrative indépendante."
 contributor_name: "Aurélien Nicosia"
 contributor_role: "Révision pédagogique et statistique"
+
+publication:
+  preview: true
+  reviewed_on: '2026-09-05'
+  license_url: https://creativecommons.org/licenses/by/4.0/deed.fr
+  preview_columns:
+  - station_id
+  - station_name
+  - region_code
+  - region_administrative
+  - municipalite
+  - type_milieu
+  - date_ouverture
+  - date_fermeture
+  - annee_ouverture
+  - annee_fermeture
+  reason: Extrait pédagogique limité aux colonnes déclarées; attribution et conditions de la source conservées.
+  classroom:
+    mode: frozen
+    reason: Table de classe limitée aux colonnes déclarées, sans tirage supplémentaire de lignes. Attribution
+      et conditions tierces conservées.
+    files:
+    - path: data/processed/qualite-air/resume_decennies_ouverture_rsqaq_stations.csv
+      columns:
+      - decennie_ouverture
+      - n_stations
+    - path: data/processed/qualite-air/resume_regions_rsqaq_stations.csv
+      columns:
+      - region_code
+      - region_administrative
+      - n_stations
+      - n_sans_date_fermeture
+      - n_fermees
+      - n_types_milieu
+      - premiere_ouverture
+      - derniere_ouverture
+    - path: data/processed/qualite-air/rsqaq_stations.csv
+      columns:
+      - station_id
+      - station_name
+      - region_code
+      - region_administrative
+      - type_milieu
+      - date_ouverture
+      - date_fermeture
+      - latitude
+      - longitude
+      - annee_ouverture
+      - annee_fermeture
+      - decennie_ouverture
+      - station_sans_date_fermeture
+    - path: data/processed/qualite-air/valeurs_manquantes_rsqaq_stations.csv
+      columns:
+      - variable
+      - n_missing
+      - n_rows
+      - pct_missing
+chart:
+  type: count
+  x_variable: type_milieu
+  x_label: Stations dans l’extrait (nombre)
+  y_label: Milieu d’implantation
+  title: Milieux des stations de l’extrait

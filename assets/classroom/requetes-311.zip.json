@@ -1,0 +1,21 @@
+{
+  "dataset_id": "requetes-311",
+  "title": "Demandes de services citoyennes 311 à Montréal",
+  "mode": "frozen",
+  "prepared_at_utc": "2026-09-05T11:06:39Z",
+  "source_name": "Données Québec / Ville de Montréal",
+  "source_url": "https://www.donneesquebec.ca/recherche/dataset/vmtl-requete-311",
+  "license_url": "https://creativecommons.org/licenses/by/4.0/deed.fr",
+  "selection": "Table de classe limitée aux colonnes déclarées, sans tirage supplémentaire de lignes. Attribution et conditions tierces conservées.",
+  "tables": [
+    {
+      "path": "data/processed/requetes-311/requetes_311_non_information_echantillon.csv",
+      "rows": 100000,
+      "columns": ["nature", "activite", "arrondissement", "date_creation", "delai_statut_jours"],
+      "sha256": "b072d32cf6bd2f89b6806bd97d4521701fbfd407ebf8e892ff9a22e71fdd170d",
+      "prepared_table_sha256": "94f1b8c2827c1ba76de458651e066cfc847cbcfbdfc12d7bc228b521ce1ff03b"
+    }
+  ],
+  "archive_sha256": "c2c40656b497f5302c3eccaa2e869a777ead824440cddc8e96abe109fa6ed8fc",
+  "archive_bytes": 1657999
+}

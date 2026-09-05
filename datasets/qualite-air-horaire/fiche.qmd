@@ -4,6 +4,7 @@ page-layout: full
 toc: false
 execute:
   freeze: false
+embed-resources: true
 ---
 
 ```{r}
@@ -56,59 +57,59 @@ Dans la table préparée pour la fiche, une ligne représente plutôt un résum�
 
 Une ligne n'est pas un épisode de pollution, une exposition individuelle, un diagnostic sanitaire ou une mesure causale. C'est un résumé descriptif des valeurs publiées pour une station, un jour et un contaminant.
 
+## Unités et heures de mesure
+
+Selon la [méthodologie du RSQAQ](https://www.donneesquebec.ca/recherche/dataset/rsqaq-donnees-horaires-continues), les PM2,5-T640 sont exprimées en µg/m³. Les heures sont publiées en HNE (UTC-5 fixe) et marquent la fin de l’intervalle mesuré. Le résumé regroupe les intervalles selon leur jour civil HNE : l’heure publiée à minuit appartient au jour précédent. Le fichier annuel limite la couverture aux frontières de l’année; les effectifs d’heures valides restent visibles. Les unités des autres contaminants figurent dans les tables de la trousse.
+
 ## Variables principales
 
 | Variable préparée | Rôle | Point de vigilance |
 |---|---|---|
 | `source_year` | Année de la ressource utilisée | Ici 2025 |
-| `date` | Date du résumé journalier | Dérivée de `Date_Heure` sans conversion de fuseau |
+| `date` | Date du résumé journalier | Jour HNE du début de l’intervalle horaire, dont `Date_Heure` marque la fin |
 | `station_id` | Code de station extrait du libellé source | Utile pour regrouper sans dépendre du nom |
 | `station_name` | Nom de station | Peut contenir des libellés longs |
 | `contaminant_source` | Nom exact de la colonne source | Conserve la provenance technique |
 | `contaminant` | Libellé lisible du contaminant | N'est pas une conversion d'unité |
+| `unite` | Unité publiée pour le contaminant | Conserver cette unité dans les tableaux et graphiques |
 | `n_heures_valides` | Nombre d'heures non manquantes dans la journée | Sert à filtrer les journées peu couvertes |
 | `moyenne`, `mediane`, `p95`, `maximum` | Résumés des valeurs publiées | À interpréter par contaminant |
 
-## Taille et résultats R vérifiés
+## Résumés de la trousse actuelle
 
-| Indicateur | Valeur |
-|---|---:|
-| Ressources CSV annuelles dans le paquet CKAN | 51 |
-| Lignes horaires dans le CSV 2025 | 457 686 |
-| Colonnes dans le CSV 2025 | 13 |
-| Stations distinctes | 54 |
-| Contaminants publiés en colonnes | 11 |
-| Mesures non manquantes tous contaminants | 1 549 609 |
-| Résumés journaliers préparés | 65 306 |
-| Première heure publiée | 2025-01-01 00:00 |
-| Dernière heure publiée | 2025-12-31 23:00 |
-| Mesures PM2.5 non manquantes | 436 243 |
-| Stations avec PM2.5 | 52 |
-| Maximum horaire PM2.5 dans le CSV 2025 | 387,896 |
+Les tableaux ci-dessous sont calculés à partir des CSV inclus dans la trousse. Les unités restent propres à chaque contaminant; les moyennes de contaminants différents ne sont pas directement comparables.
 
-## Contaminants les plus couverts en 2025
+```{r}
+#| label: air-classroom-summaries
+#| echo: false
+#| results: asis
+library(dplyr)
+source(if (file.exists("R/utils_classroom.R")) "R/utils_classroom.R" else "../../R/utils_classroom.R")
+archive_air <- if (file.exists("assets/classroom/qualite-air-horaire.zip")) "assets/classroom/qualite-air-horaire.zip" else "../../assets/classroom/qualite-air-horaire.zip"
+air_jours <- read_classroom_table(archive_air, "data/processed/qualite-air-horaire/resume_journalier_contaminants_2025.csv")
+air_contaminants <- read_classroom_table(archive_air, "data/processed/qualite-air-horaire/resume_contaminants_2025.csv")
+air_episodes <- read_classroom_table(archive_air, "data/processed/qualite-air-horaire/episodes_pm25_2025.csv")
+knitr::kable(air_jours |> summarise(
+  `Lignes journalières` = n(), Stations = n_distinct(station_id),
+  `Mesures horaires valides` = sum(n_heures_valides),
+  `Premier jour HNE` = min(date), `Dernier jour HNE` = max(date)))
+```
 
-| Contaminant source | Mesures non manquantes | Stations | Moyenne | 95e percentile | Maximum |
-|---|---:|---:|---:|---:|---:|
-| PM2.5-T640 | 436 243 | 52 | 6,71 | 20,1 | 387,896 |
-| O3 | 413 010 | 50 | 27,1 | 44,4 | 87,0 |
-| NO | 188 051 | 25 | 1,81 | 8,38 | 232,0 |
-| NO2 | 181 701 | 25 | 5,64 | 18,0 | 95,8 |
-| SO2 | 146 261 | 18 | 1,22 | 3,17 | 297,0 |
+### Couverture par contaminant
 
-Ces nombres ne doivent pas être comparés naïvement entre contaminants. La fiche conserve les valeurs publiées par colonne et ne normalise pas les unités. Pour un cours d'introduction, il est préférable de choisir un contaminant à la fois.
+```{r}
+#| echo: false
+knitr::kable(air_contaminants |> select(contaminant_source, unite, n_mesures, n_stations, moyenne, p95, maximum), digits = 2)
+```
 
-## Journées PM2.5 élevées dans le résumé 2025
+### Journées aux moyennes de PM2,5 élevées
 
-| Date | Station | Heures valides | Moyenne journalière | Maximum horaire | 95e percentile |
-|---|---|---:|---:|---:|---:|
-| 2025-06-04 | Radisson | 24 | 100,3 | 203,8 | 202,1 |
-| 2025-07-26 | Montréal - York/Rosemont | 24 | 91,1 | 128,2 | 127,3 |
-| 2025-06-06 | Gatineau - Hull | 24 | 88,8 | 101,7 | 100,3 |
-| 2025-07-26 | Saint-Joseph-de-Sorel | 24 | 88,4 | 126,6 | 123,0 |
-| 2025-06-05 | Radisson | 24 | 87,6 | 186,7 | 186,2 |
+```{r}
+#| echo: false
+knitr::kable(air_episodes |> select(date, station_name, unite, n_heures_valides, moyenne, maximum, p95) |> slice_head(n = 5), digits = 2)
+```
 
-Ces journées sont des points de départ pour l'exploration. Elles ne suffisent pas à identifier une cause. Pour interpréter un épisode, il faut ajouter du contexte : météo, feux de forêt, transport régional des polluants, sources locales et validation instrumentale.
+Ces journées constituent des points de départ pour l’exploration. Les valeurs élevées ne suffisent pas à identifier une cause; leur interprétation nécessite le contexte et la validation instrumentale.
 
 ## Lecture statistique
 
@@ -195,7 +196,7 @@ ggplot(pm25, aes(x = date, y = moyenne, group = station_id)) +
   labs(
     title = "Moyennes journalières de PM2.5 par station, 2025",
     x = "Date",
-    y = "Moyenne journalière des valeurs publiées"
+    y = "Concentration moyenne de PM2,5 (µg/m³)"
   ) +
   theme_minimal()
 ```

@@ -15,7 +15,10 @@ format: "CSV officiel; autres formats disponibles dans le paquet"
 n_rows: "5 466 liens école-immeuble dans le CSV Écoles publiques"
 n_cols: "34 colonnes officielles; 48 colonnes après préparation locale"
 update_frequency: "Hebdomadaire selon l'API CKAN; paquet modifié le 2026-06-16"
-level: "Introduction à intermédiaire"
+level: Introduction à intermédiaire
+level_ids:
+- introduction
+- intermediaire
 organisme: "Ministère de l'Éducation et Ministère de l'Enseignement supérieur"
 territoire: "Québec"
 taille_approximative: "CSV officiel de 2 307 638 octets vérifié le 2026-06-20"
@@ -44,12 +47,19 @@ idees_mini_projets:
   - "Comparer les ordres d'enseignement selon les régions administratives."
   - "Construire un indicateur descriptif simple par région sans le présenter comme une mesure d'accès."
 concepts:
-  - géolocalisation
-  - cartographie
-  - jointures
-  - unité statistique
-  - double comptage
-  - données publiques
+- Géolocalisation
+- Cartographie
+- Jointure
+- Unité statistique
+- Double comptage
+- Données publiques
+concept_ids:
+- geolocalisation
+- cartographie
+- jointure
+- unite-statistique
+- double-comptage
+- donnees-publiques
 zero_waste:
   contexte_quebecois: 3
   accessibilite_pedagogique: 3
@@ -65,3 +75,39 @@ contributor_name: "Aurélien Nicosia"
 contributor_role: "Révision pédagogique et statistique"
 status: "source officielle vérifiée; ressource CSV Écoles publiques préparée localement"
 notes: "La ressource retenue est le CSV Écoles publiques. Une ligne représente un lien entre une école publique et un immeuble scolaire, pas nécessairement une école unique."
+
+publication:
+  preview: true
+  reviewed_on: '2026-09-05'
+  license_url: https://creativecommons.org/licenses/by/4.0/deed.fr
+  preview_columns:
+  - lien_ecole_immeuble_id
+  - NOM_OFFCL_ORGNS
+  - NOM_IMM
+  - municipalite
+  - region_administrative
+  - type_reseau_public
+  - est_primaire
+  - est_secondaire
+  - nb_ordres_autorises
+  reason: Extrait pédagogique limité aux colonnes déclarées; attribution et conditions de la source conservées.
+  classroom:
+    mode: frozen
+    reason: Table de classe limitée aux colonnes déclarées, sans tirage supplémentaire de lignes. Attribution
+      et conditions tierces conservées.
+    files:
+    - path: data/processed/ecoles-quebec/ecoles_publiques_quebec.csv
+      columns:
+      - CD_ORGNS
+      - CD_IMM
+      - lien_ecole_immeuble_id
+      - longitude
+      - latitude
+      - region_administrative
+      - type_reseau_public
+chart:
+  type: count
+  x_variable: type_reseau_public
+  x_label: Liens école-immeuble dans l’extrait (nombre)
+  y_label: Réseau public
+  title: Répartition des liens école-immeuble

@@ -1,121 +1,121 @@
 station_id,name,short_name,capacity,groupe_capacite,num_bikes_available,num_bikes_classic_available,num_ebikes_available,num_bikes_disabled,num_docks_available
-319,10e avenue / Masson,6383,27,"Grande station, 26 à 35 bornes",5,2,3,1,21
-366,1ère avenue / Rosemont,6362,23,"Station moyenne, 16 à 25 bornes",8,7,1,1,13
-129,2e avenue / St-Joseph,6916,19,"Station moyenne, 16 à 25 bornes",11,6,5,4,3
-375,5e avenue / Masson,6371,27,"Grande station, 26 à 35 bornes",15,13,2,3,9
-377,7e avenue / St-Joseph,6373,27,"Grande station, 26 à 35 bornes",5,4,1,1,21
-1026,André / de Rotterdam,9543,31,"Grande station, 26 à 35 bornes",9,3,6,2,20
-280,Augustin-Cantin / Shearer,6921,31,"Grande station, 26 à 35 bornes",9,9,0,3,19
-77,Bassin Peel (Smith / de la Commune),6085,27,"Grande station, 26 à 35 bornes",4,4,0,4,19
-530,Bennett / Ste-Catherine,7017,21,"Station moyenne, 16 à 25 bornes",0,0,0,1,20
-545,Berri / Rachel,7031,19,"Station moyenne, 16 à 25 bornes",17,16,1,2,0
-586,Bishop / de Maisonneuve,7073,35,"Grande station, 26 à 35 bornes",31,31,0,1,3
-1197,Bourgogne / Langevin,5508,17,"Station moyenne, 16 à 25 bornes",5,3,2,1,11
-5,Brittany / Ainsley,6005,23,"Station moyenne, 16 à 25 bornes",20,7,13,1,2
-403,Campus MIL (Outremont / Thérèse-Lavoie Roux),6066,31,"Grande station, 26 à 35 bornes",14,7,7,2,15
-903,Cartier / du Coteau-Rouge,5530,19,"Station moyenne, 16 à 25 bornes",11,9,2,0,8
-622,Chabanel / de l'Esplanade,7095,23,"Station moyenne, 16 à 25 bornes",5,5,0,3,15
-157,Chambord / du Mont-Royal,6157,27,"Grande station, 26 à 35 bornes",17,13,4,3,7
-31,City Councillors / de Maisonneuve,6032,19,"Station moyenne, 16 à 25 bornes",15,15,0,0,4
-199,Clark / St-Viateur,6199,15,"Petite station, 15 bornes ou moins",4,2,2,2,9
-211,Coloniale / Marie-Anne,6213,23,"Station moyenne, 16 à 25 bornes",20,18,2,1,2
-988,Curé-Labelle / 77e Avenue,9501,19,"Station moyenne, 16 à 25 bornes",11,6,5,0,8
-823,Cégep du Vieux-Montréal (Ontario / de l'Hôtel-de-Ville),8167,15,"Petite station, 15 bornes ou moins",15,15,0,0,0
-651,Dollard / Bernard,7124,23,"Station moyenne, 16 à 25 bornes",3,2,1,1,19
-1,Drummond / de Maisonneuve,6001,23,"Station moyenne, 16 à 25 bornes",19,16,3,0,4
-757,Durocher / Beaumont,8075,19,"Station moyenne, 16 à 25 bornes",2,0,2,0,17
-463,Egan / Laurendeau,6709,19,"Station moyenne, 16 à 25 bornes",3,3,0,0,16
-333,Faillon / St-Denis,6327,23,"Station moyenne, 16 à 25 bornes",2,1,1,1,20
-99,Frontenac / Ste-Catherine,6110,14,"Petite station, 15 bornes ou moins",3,3,0,0,11
-1087,Galt Ouest / Tétreault,3001,15,"Petite station, 15 bornes ou moins",8,2,6,0,7
-1164,Gareau / Lapointe,5569,19,"Station moyenne, 16 à 25 bornes",5,5,0,1,13
-1147,Gaétan-Laberge / de l'Église,8302,19,"Station moyenne, 16 à 25 bornes",12,12,0,0,7
-666,Glengarry / Graham,7139,15,"Petite station, 15 bornes ou moins",7,6,1,1,7
-446,Guilbault / St-Charles,5005,23,"Station moyenne, 16 à 25 bornes",6,6,0,0,17
-50,Henri-Julien / de Bellechasse,6051,19,"Station moyenne, 16 à 25 bornes",7,4,3,1,11
-276,Holt / Fullum,6905,27,"Grande station, 26 à 35 bornes",2,2,0,0,24
-774,Hôpital Santa Cabrini (de Pontoise / d'Évreux),8141,15,"Petite station, 15 bornes ou moins",8,3,5,3,4
-871,Industriel / Louis-J.-Lafortune,8214,11,"Petite station, 15 bornes ou moins",2,1,1,1,8
-590,Jean-Langlois / Dufresne,7077,31,"Grande station, 26 à 35 bornes",1,1,0,0,30
-80,Jeanne-d'Arc / Ontario,6091,23,"Station moyenne, 16 à 25 bornes",17,17,0,2,4
-729,La Fontaine / Panet,8063,19,"Station moyenne, 16 à 25 bornes",6,6,0,1,12
-447,Labonté / du Coteau-Rouge,5006,23,"Station moyenne, 16 à 25 bornes",13,8,5,3,6
-732,Lapierre / Serge,8030,15,"Petite station, 15 bornes ou moins",1,1,0,0,14
-846,Le Corbusier / St-Martin O,9008,18,"Station moyenne, 16 à 25 bornes",10,8,2,1,7
-891,Logan / Lafayette,5521,23,"Station moyenne, 16 à 25 bornes",8,6,2,1,14
-982,Léon / Donck,9503,19,"Station moyenne, 16 à 25 bornes",9,5,4,2,8
-636,Mairie d'arrondissement LaSalle (Dupras / Jeannette),7109,15,"Petite station, 15 bornes ou moins",4,4,0,0,11
-246,Marché Jean-Talon (Henri-Julien / Jean-Talon),6250,23,"Station moyenne, 16 à 25 bornes",0,0,0,0,23
-156,Marie-Anne / de la Roche,6156,19,"Station moyenne, 16 à 25 bornes",2,1,1,2,15
-810,Mayfield / St-Martin O,9003,19,"Station moyenne, 16 à 25 bornes",7,1,6,3,9
-681,Melville / de Maisonneuve,6437,15,"Petite station, 15 bornes ou moins",5,4,1,6,4
-46,Milton / Durocher,6204,31,"Grande station, 26 à 35 bornes",8,8,0,2,20
-1053,Montarville / Beaubien,5554,15,"Petite station, 15 bornes ou moins",4,4,0,0,11
-465,Mozart / Waverly,6711,15,"Petite station, 15 bornes ou moins",9,6,3,0,6
-45,Métro Bonaventure (de la Gauchetière / Mansfield),6046,31,"Grande station, 26 à 35 bornes",0,0,0,3,28
-628,Métro De la Savane (Bougainville / de Sorel),7101,19,"Station moyenne, 16 à 25 bornes",8,3,5,2,8
-529,Métro Langelier (Langelier / Sherbrooke),7016,19,"Station moyenne, 16 à 25 bornes",10,8,2,5,4
-790,Métro Montmorency (de l'Avenir),8083,23,"Station moyenne, 16 à 25 bornes",10,2,8,0,13
-642,Métro Radisson (Sherbrooke / des Groseilliers),7115,19,"Station moyenne, 16 à 25 bornes",10,5,5,2,7
-462,Métro Verdun (Willibrord / de Verdun),6708,21,"Station moyenne, 16 à 25 bornes",2,1,1,0,19
-994,Newman / Léger,8263,21,"Station moyenne, 16 à 25 bornes",5,4,1,0,16
-385,Omer-Lavallée / du Midway,6381,18,"Station moyenne, 16 à 25 bornes",4,4,0,1,13
-522,Panet / de Maisonneuve,7009,23,"Station moyenne, 16 à 25 bornes",5,5,0,1,17
-771,Parc Beaulac (Élizabeth),8149,15,"Petite station, 15 bornes ou moins",9,8,1,0,6
-1105,Parc Clair Matin (St-Laurent),9022,13,"Petite station, 15 bornes ou moins",8,4,4,0,5
-1049,Parc Fernand-Bouffard (Duvernay),5535,21,"Station moyenne, 16 à 25 bornes",6,5,1,0,15
-287,Parc Henri-Julien (Legendre),6917,23,"Station moyenne, 16 à 25 bornes",11,4,7,2,10
-1076,Parc Jacques-Cartier (Marcil / Jacques-Cartier Sud),3003,21,"Station moyenne, 16 à 25 bornes",13,1,12,0,8
-789,Parc Kirkland (des Érables / Boyer),8107,15,"Petite station, 15 bornes ou moins",13,12,1,1,1
-1128,Parc Leroux (Centrale / Alepin),8285,15,"Petite station, 15 bornes ou moins",8,7,1,1,6
-716,Parc Marlborough (Beauzèle / Robichaud),8059,15,"Petite station, 15 bornes ou moins",1,1,0,0,14
-1030,Parc Notre-Dame (Galipeau / Dufferin),9548,23,"Station moyenne, 16 à 25 bornes",12,6,6,0,11
-707,Parc Reine-Élizabeth (Penniston / Crawford),8065,15,"Petite station, 15 bornes ou moins",9,7,2,1,5
-632,Parc St-Louis (St-Joseph / 34e avenue),7105,23,"Station moyenne, 16 à 25 bornes",14,12,2,6,3
-799,Parc d'Antioche (Place d'Antioche / St-Zotique),8097,19,"Station moyenne, 16 à 25 bornes",14,13,1,4,1
-998,Parc des Hirondelles (Bousquet / Patenaude),9514,23,"Station moyenne, 16 à 25 bornes",4,4,0,0,19
-1190,Parc du Mont-St-Eustache (Boileau),9025,21,"Station moyenne, 16 à 25 bornes",12,6,6,0,9
-1173,Payer / Boisvert,5576,19,"Station moyenne, 16 à 25 bornes",2,1,1,0,17
-717,Place Rodolphe-Rousseau (Gohier / Édouard-Laurin),8068,25,"Station moyenne, 16 à 25 bornes",0,0,0,3,22
-431,Place du Commerce,6429,33,"Grande station, 26 à 35 bornes",18,16,2,3,10
-946,Principale / Jean-Duceppe,5519,19,"Station moyenne, 16 à 25 bornes",10,3,7,0,9
-520,REM Canora (Dunkirk / Jean-Talon),7007,27,"Grande station, 26 à 35 bornes",11,10,1,1,14
-271,REM Île-des-Soeurs (René-Lévesque),6275,19,"Station moyenne, 16 à 25 bornes",5,5,0,1,12
-963,Rielle / Wellington,8244,23,"Station moyenne, 16 à 25 bornes",4,4,0,0,19
-566,Ropery / Augustin-Cantin,7053,19,"Station moyenne, 16 à 25 bornes",1,1,0,0,18
-667,Sanguinet / Ontario,7140,17,"Station moyenne, 16 à 25 bornes",13,13,0,3,1
-935,Square St-Patrick (St-Columban),8224,19,"Station moyenne, 16 à 25 bornes",17,16,1,1,1
-960,St-André / Roy,8245,23,"Station moyenne, 16 à 25 bornes",3,1,2,1,19
-895,St-Charles / Montarville,5524,19,"Station moyenne, 16 à 25 bornes",7,7,0,1,11
-233,St-Dominique / Napoléon,6903,31,"Grande station, 26 à 35 bornes",6,4,2,1,24
-186,St-Hubert / Laurier,6186,19,"Station moyenne, 16 à 25 bornes",10,9,1,0,9
-634,St-Joseph / 21e avenue Lachine,7107,19,"Station moyenne, 16 à 25 bornes",8,8,0,1,10
-275,St-Maurice / St-Henri,6904,23,"Station moyenne, 16 à 25 bornes",3,3,0,0,20
-579,St-Urbain / de la Gauchetière,7066,43,"Très grande station, 36 bornes ou plus",27,26,1,0,16
-8,Ste-Catherine / Sanguinet,6008,43,"Très grande station, 36 bornes ou plus",2,2,0,0,41
-204,Ste-Famille / Prince-Arthur,6206,35,"Grande station, 26 à 35 bornes",14,14,0,0,21
-884,Terminus de bus EXO (Côte de Terrebonne),8163,21,"Station moyenne, 16 à 25 bornes",7,3,4,1,13
-647,Tupper / du Sussex,7120,31,"Grande station, 26 à 35 bornes",3,2,1,1,27
-67,University / Milton,6070,39,"Très grande station, 36 bornes ou plus",12,10,2,2,25
-34,Viger / Chenneville,6035,37,"Très grande station, 36 bornes ou plus",9,7,2,0,28
-980,Wellington / Queen,8260,21,"Station moyenne, 16 à 25 bornes",15,15,0,1,5
-930,Wolfe / Robin,8190,31,"Grande station, 26 à 35 bornes",5,5,0,2,24
-824,de Bellechasse / de Lanaudière,8185,19,"Station moyenne, 16 à 25 bornes",9,9,0,0,10
-320,de Bordeaux / St-Joseph,6385,19,"Station moyenne, 16 à 25 bornes",1,1,0,0,18
-712,de Chateaubriand / Jarry,8076,15,"Petite station, 15 bornes ou moins",2,2,0,0,13
-692,de Gaspé / Marmier,8056,21,"Station moyenne, 16 à 25 bornes",13,9,4,1,7
-1117,de Lanaudière / Jean-Talon,8276,23,"Station moyenne, 16 à 25 bornes",5,5,0,0,18
-68,de Maisonneuve / Aylmer (ouest),6073,37,"Très grande station, 36 bornes ou plus",35,35,0,0,2
-188,de Mentana / Marie-Anne,6188,27,"Grande station, 26 à 35 bornes",0,0,0,3,24
-1004,de Périgueux / Ampère,9521,23,"Station moyenne, 16 à 25 bornes",3,3,0,0,20
-554,de l'Esplanade / Beaubien,7040,19,"Station moyenne, 16 à 25 bornes",1,0,1,0,18
-401,de l'Hôtel-de-Ville / Sherbrooke,6021,31,"Grande station, 26 à 35 bornes",1,0,1,0,30
-1058,de la Commune / McGill,8267,56,"Très grande station, 36 bornes ou plus",13,12,1,3,40
-857,de la Côte-Ste-Catherine / Decelles,8135,19,"Station moyenne, 16 à 25 bornes",0,0,0,5,14
-842,de la Sorbonne / du Rousillon,9005,22,"Station moyenne, 16 à 25 bornes",17,15,2,0,5
-1025,des Nénuphars / du Bord-de-l'Eau,9542,19,"Station moyenne, 16 à 25 bornes",10,8,2,0,9
-650,des Récollets / Martial,7123,16,"Station moyenne, 16 à 25 bornes",0,0,0,1,15
-1006,du Bas-du-Plateau-Ouimet / Ste-Rose,9515,19,"Station moyenne, 16 à 25 bornes",15,15,0,0,4
-145,du Parc-La Fontaine / Duluth,6145,31,"Grande station, 26 à 35 bornes",24,23,1,1,6
-98,du Square-St-Louis / St-Denis,6109,35,"Grande station, 26 à 35 bornes",24,21,3,1,10
-491,Émile-Journault / Christophe-Colomb,6737,21,"Station moyenne, 16 à 25 bornes",7,5,2,3,11
+319,10e avenue / Masson,6383,23,"Station moyenne, 16 à 25 bornes",19,14,5,2,2
+366,1ère avenue / Rosemont,6362,23,"Station moyenne, 16 à 25 bornes",16,8,8,3,4
+129,2e avenue / St-Joseph,6916,19,"Station moyenne, 16 à 25 bornes",13,9,4,3,3
+311,4e avenue / de Verdun,6309,15,"Petite station, 15 bornes ou moins",12,12,0,0,3
+11,7e avenue / Masson,6011,19,"Station moyenne, 16 à 25 bornes",8,8,0,1,10
+94,Alexandre-DeSève / René-Lévesque,6105,19,"Station moyenne, 16 à 25 bornes",4,4,0,1,14
+126,Atwater / Sherbrooke,6093,31,"Grande station, 26 à 35 bornes",13,10,3,0,18
+517,Basile-Routhier / Émile-Jounault,7004,19,"Station moyenne, 16 à 25 bornes",2,0,2,0,17
+1118,Bennett / Pierre-de-Coubertin,8292,21,"Station moyenne, 16 à 25 bornes",4,3,1,0,17
+993,Berri / Jarry,8262,27,"Grande station, 26 à 35 bornes",8,7,1,0,19
+569,Bibliothèque de Verdun (Brown / Bannantyne),7056,19,"Station moyenne, 16 à 25 bornes",15,14,1,1,3
+28,Bourget / St-Jacques,6029,15,"Petite station, 15 bornes ou moins",13,13,0,2,0
+169,Boyer / du Mont-Royal,6169,23,"Station moyenne, 16 à 25 bornes",18,13,5,0,5
+138,Calixa-Lavallée / Rachel (ouest),6137,37,"Très grande station, 36 bornes ou plus",22,22,0,0,15
+543,Cartier / Masson,7029,19,"Station moyenne, 16 à 25 bornes",17,16,1,1,1
+867,Centre récréatif Édouard-Rivet (Notre-Dame / Lesage),8103,15,"Petite station, 15 bornes ou moins",10,8,2,0,5
+232,Chambord / Gilford,6237,19,"Station moyenne, 16 à 25 bornes",9,6,3,1,9
+270,Christophe-Colomb / St-Joseph,6274,27,"Grande station, 26 à 35 bornes",9,9,0,2,16
+432,Clark / Prince-Arthur,6411,31,"Grande station, 26 à 35 bornes",0,0,0,2,29
+840,Collège de Rosemont (Beaubien / 15e avenue),8204,29,"Grande station, 26 à 35 bornes",2,1,1,1,26
+9,Crescent / de Maisonneuve,6009,23,"Station moyenne, 16 à 25 bornes",0,0,0,2,21
+1079,Cégep de Sherbrooke (du Cégep / Terrill),3024,21,"Station moyenne, 16 à 25 bornes",12,2,10,0,9
+922,Desaulniers / Marquette,5520,21,"Station moyenne, 16 à 25 bornes",8,5,3,3,10
+334,Drolet / Gounod,6329,23,"Station moyenne, 16 à 25 bornes",9,5,4,0,14
+997,Dufault / Lesage,9513,23,"Station moyenne, 16 à 25 bornes",13,12,1,1,9
+499,Eadie / Galt,6744,19,"Station moyenne, 16 à 25 bornes",5,4,1,3,11
+230,Fabre / Laurier,6236,26,"Grande station, 26 à 35 bornes",24,18,6,1,1
+486,Fortune / Wellington,6732,27,"Grande station, 26 à 35 bornes",10,6,4,1,16
+635,Gagne / LaSalle,7108,19,"Station moyenne, 16 à 25 bornes",11,10,1,0,8
+825,Gare St-Michel / Montréal-Nord (Pie-IX / 56e),8193,15,"Petite station, 15 bornes ou moins",8,5,3,2,5
+396,Gary-Carter / St-Laurent,6321,42,"Très grande station, 36 bornes ou plus",32,31,1,5,5
+158,Gilford / de Brébeuf,6158,19,"Station moyenne, 16 à 25 bornes",10,10,0,0,9
+629,Graham / Kindersley,7102,11,"Petite station, 15 bornes ou moins",3,2,1,3,5
+480,Hamel / Sauriol,6726,15,"Petite station, 15 bornes ou moins",7,4,3,6,2
+259,Hingston / de Monkland,6263,23,"Station moyenne, 16 à 25 bornes",14,10,4,2,7
+210,Hutchison / des Pins,6212,27,"Grande station, 26 à 35 bornes",19,19,0,1,7
+1187,Hôtel de Ville de Boisbriand (des Commissaires / de la Grande-Allée),9043,21,"Station moyenne, 16 à 25 bornes",12,7,5,0,9
+491,Jacques-Casault / Christophe-Colomb,6737,21,"Station moyenne, 16 à 25 bornes",17,11,6,3,1
+224,Jeanne-Mance / Laurier,6227,22,"Station moyenne, 16 à 25 bornes",1,0,1,1,20
+986,Jubinville / Proulx,9502,19,"Station moyenne, 16 à 25 bornes",6,4,2,0,13
+466,LaSalle / Crawford,6712,15,"Petite station, 15 bornes ou moins",11,3,8,2,2
+39,Lambert-Closse / de Maisonneuve,6040,35,"Grande station, 26 à 35 bornes",26,24,2,3,6
+1201,Laurin / 25e avenue,9040,15,"Petite station, 15 bornes ou moins",13,9,4,2,0
+414,Letourneux / Hochelaga,6417,15,"Petite station, 15 bornes ou moins",4,3,1,1,10
+274,Louis-Hébert / Bélanger,6279,19,"Station moyenne, 16 à 25 bornes",5,4,1,1,13
+89,Mackay / de Maisonneuve,6100,35,"Grande station, 26 à 35 bornes",25,25,0,0,10
+1102,Mairie de St-Eustache (de l'Église / St-Louis),9016,13,"Petite station, 15 bornes ou moins",10,5,5,0,3
+1052,Marché public de Longueuil (de la Savane),5549,22,"Station moyenne, 16 à 25 bornes",5,4,1,0,17
+154,Marquette / du Mont-Royal,6154,23,"Station moyenne, 16 à 25 bornes",20,18,2,1,2
+584,McKenna / Édouard-Montpetit,7071,19,"Station moyenne, 16 à 25 bornes",6,5,1,2,11
+1183,Metcalfe / Ste-Catherine,8328,45,"Très grande station, 36 bornes ou plus",0,0,0,1,44
+959,Molson / Beaubien,8237,23,"Station moyenne, 16 à 25 bornes",20,12,8,1,2
+1152,Moreau / Ontario,8307,29,"Grande station, 26 à 35 bornes",6,5,1,1,16
+927,Métro Atwater (Atwater / Ste-Catherine),8219,35,"Grande station, 26 à 35 bornes",14,14,0,0,21
+317,Métro Côte-des-Neiges (Jean-Brillant / de la Côte-des-Neiges),6315,31,"Grande station, 26 à 35 bornes",5,2,3,2,24
+1229,Métro Jean-Drapeau (Chemin du Tour de l'Isle),8332,45,"Très grande station, 36 bornes ou plus",19,19,0,0,26
+516,Métro McGill (Union / de Maisonneuve),7003,27,"Grande station, 26 à 35 bornes",1,1,0,0,26
+471,Métro Plamondon (de Kent / Victoria),6717,19,"Station moyenne, 16 à 25 bornes",4,3,1,7,6
+349,Métro St-Michel (Shaugnessy),6347,23,"Station moyenne, 16 à 25 bornes",3,1,2,2,18
+657,Métro du Collège (Cartier / Décarie),7130,17,"Station moyenne, 16 à 25 bornes",2,2,0,4,10
+662,O'Brien / Poirier,7135,23,"Station moyenne, 16 à 25 bornes",11,6,5,4,8
+522,Panet / de Maisonneuve,7009,22,"Station moyenne, 16 à 25 bornes",10,10,0,4,7
+806,Parc Beaubien Outremont (Stuart / St-Viateur),8138,15,"Petite station, 15 bornes ou moins",10,8,2,1,4
+743,Parc Chénier (de l'Aréna / Chénier),8050,19,"Station moyenne, 16 à 25 bornes",2,1,1,1,16
+827,Parc Eusèbe-Ménard (Gouin / St-Vital),8125,21,"Station moyenne, 16 à 25 bornes",13,9,4,1,7
+950,Parc Hector-Toe-Blake (René-Lévesque),8238,17,"Station moyenne, 16 à 25 bornes",15,15,0,0,2
+443,Parc Immaculée-Conception (Davis),5002,27,"Grande station, 26 à 35 bornes",16,11,5,2,9
+789,Parc Kirkland (des Érables / Boyer),8107,15,"Petite station, 15 bornes ou moins",12,9,3,3,0
+555,Parc Loyola (Doherty / Somerled),7041,15,"Petite station, 15 bornes ou moins",13,13,0,1,1
+1050,Parc Michel-Chartrand (Adoncour / du Lac),5537,21,"Station moyenne, 16 à 25 bornes",5,4,1,1,15
+1112,Parc Olympique - Biodôme (Pierre-de-Coubertin),8320,53,"Très grande station, 36 bornes ou plus",35,35,0,0,18
+1191,Parc Rivière-Nord (Primeau / Lamoureux),9029,15,"Petite station, 15 bornes ou moins",10,6,4,0,5
+155,Parc St-Roch (Ball / Durocher),6155,15,"Petite station, 15 bornes ou moins",11,7,4,0,3
+1214,Parc Westwood (Thornton / Fabre),8317,15,"Petite station, 15 bornes ou moins",13,3,10,0,2
+1189,Parc des Camélias (Binette / des Clématites),9031,19,"Station moyenne, 16 à 25 bornes",9,5,4,0,10
+1068,Parc du Château-Pierrefonds (de Pierrefonds / du Château-Pierrefonds),8225,23,"Station moyenne, 16 à 25 bornes",13,6,7,0,10
+171,Paré / Mountain Sights,6171,13,"Petite station, 15 bornes ou moins",9,7,2,3,1
+905,Place Charles-Le Moyne (St-Charles),5527,27,"Grande station, 26 à 35 bornes",1,1,0,1,25
+363,Place de la Paix (St-Laurent),6359,27,"Grande station, 26 à 35 bornes",0,0,0,1,26
+1192,Poste de police (25e avenue),9024,21,"Station moyenne, 16 à 25 bornes",7,5,2,1,13
+1088,Queen-Victoria / de Portland,3005,15,"Petite station, 15 bornes ou moins",7,2,5,0,8
+696,REM Ville-de-Mont-Royal (Canora),8017,23,"Station moyenne, 16 à 25 bornes",19,16,3,0,4
+184,Resther / du Mont-Royal,6184,23,"Station moyenne, 16 à 25 bornes",2,2,0,2,19
+1034,Roland-Therrien / Jacques-Cartier,5539,15,"Petite station, 15 bornes ou moins",1,1,0,2,12
+174,Roy / St-Denis,6174,26,"Grande station, 26 à 35 bornes",2,2,0,0,24
+1110,Simard / Riverside,5560,21,"Station moyenne, 16 à 25 bornes",18,10,8,0,3
+170,St-André / Laurier,6170,19,"Station moyenne, 16 à 25 bornes",17,15,2,0,2
+914,St-Antoine / de la Montagne,8134,19,"Station moyenne, 16 à 25 bornes",16,15,1,1,2
+589,St-Dominique / Gounod,7076,22,"Station moyenne, 16 à 25 bornes",3,2,1,1,18
+909,St-Dominique / du Mont-Royal,8181,23,"Station moyenne, 16 à 25 bornes",7,4,3,1,15
+1181,St-Jacques / Vinet,6801,15,"Petite station, 15 bornes ou moins",7,7,0,0,8
+549,St-Martin / William,7035,23,"Station moyenne, 16 à 25 bornes",13,13,0,0,10
+379,St-Rémi / Ste-Émilie,6375,27,"Grande station, 26 à 35 bornes",0,0,0,1,26
+455,Stanley / Sherbrooke,6701,34,"Grande station, 26 à 35 bornes",5,5,0,0,29
+426,Ste-Catherine / Union,6413,37,"Très grande station, 36 bornes ou plus",0,0,0,3,34
+802,Terminus Le Carrefour (Terry-Fox / Le Carrefour),8090,31,"Grande station, 26 à 35 bornes",18,17,1,0,13
+754,Travaux publics LaSalle (Cordner / Léger),8024,15,"Petite station, 15 bornes ou moins",0,0,0,1,14
+1086,U. de Sherbrooke (École de musique - Voie 1),3014,21,"Station moyenne, 16 à 25 bornes",12,3,9,0,9
+1132,Victoria / Bouchette,8289,21,"Station moyenne, 16 à 25 bornes",12,11,1,0,9
+502,Waverly / Beaumont,6747,19,"Station moyenne, 16 à 25 bornes",2,1,1,1,16
+624,Wilfrid-Pelletier / Joseph-Renaud,7097,15,"Petite station, 15 bornes ou moins",4,2,2,1,10
+1013,d'Olympia / Olivier-Chauveau,9529,23,"Station moyenne, 16 à 25 bornes",0,0,0,0,23
+197,de Bordeaux / Masson,6197,19,"Station moyenne, 16 à 25 bornes",17,11,6,1,1
+368,de Chambly / Rachel,6364,23,"Station moyenne, 16 à 25 bornes",20,19,1,0,3
+128,de Gaspé / Beaubien,6915,19,"Station moyenne, 16 à 25 bornes",14,14,0,0,5
+908,de Gentilly / St-Jean,5525,23,"Station moyenne, 16 à 25 bornes",12,11,1,0,11
+351,de Laprairie / Centre,6350,22,"Station moyenne, 16 à 25 bornes",11,10,1,0,11
+661,de Maisonneuve / Wood,7134,19,"Station moyenne, 16 à 25 bornes",4,4,0,0,15
+877,de Mortagne / de Montarville,8113,19,"Station moyenne, 16 à 25 bornes",11,11,0,1,7
+713,de St-Firmin / Sauvé,8077,23,"Station moyenne, 16 à 25 bornes",15,10,5,1,7
+214,de l'Esplanade / St-Joseph,6216,35,"Grande station, 26 à 35 bornes",18,12,6,0,17
+573,de l'Église / de Verdun,7060,15,"Petite station, 15 bornes ou moins",14,14,0,1,0
+442,de la Côte St-Antoine / Argyle,6436,19,"Station moyenne, 16 à 25 bornes",6,5,1,2,11
+63,de la Montagne / Sherbrooke,6065,19,"Station moyenne, 16 à 25 bornes",4,3,1,0,15
+1123,des Galeries d'Anjou / Bélanger,8277,23,"Station moyenne, 16 à 25 bornes",4,2,2,0,19
+1202,des Promenades / des Mélèzes,9038,15,"Petite station, 15 bornes ou moins",9,5,4,0,6
+1006,du Bas-du-Plateau-Ouimet / Ste-Rose,9515,19,"Station moyenne, 16 à 25 bornes",8,3,5,0,11
+218,du Mont-Royal / Clark,6221,39,"Très grande station, 36 bornes ou plus",16,16,0,5,18
+98,du Square-St-Louis / St-Denis,6109,35,"Grande station, 26 à 35 bornes",14,13,1,0,21
+701,Émile-Journault / Christophe-Colomb,8013,23,"Station moyenne, 16 à 25 bornes",11,5,6,1,11

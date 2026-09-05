@@ -1,0 +1,36 @@
+{
+  "dataset_id": "qualite-air",
+  "prepared_at_utc": "2026-09-05T11:04:59Z",
+  "prepared_file": "rsqaq_stations.csv",
+  "prepared_sha256": "5f5b00ca4e5e4291eb1e8f05d135c906c651c12905982a936e15161e52bfc17b",
+  "preview_sha256": "22e302fb127e274a2bf724fb7f869c1bd1b26b825f58cff2d33e6bc542a7fdc8",
+  "rows": 120,
+  "columns": ["station_id", "station_name", "region_code", "region_administrative", "municipalite", "type_milieu", "date_ouverture", "date_fermeture", "annee_ouverture", "annee_fermeture"],
+  "selection": "Au plus 120 positions régulièrement espacées dans l'ordre de la table préparée; sélection déterministe non aléatoire",
+  "source_name": "Données Québec / MELCCFP / RSQAQ",
+  "source_url": "https://www.donneesquebec.ca/recherche/dataset/rsqaq-stations",
+  "license": "Attribution (CC-BY 4.0) selon les métadonnées CKAN vérifiées le 2026-06-21",
+  "license_url": "https://creativecommons.org/licenses/by/4.0/deed.fr",
+  "sources": [
+    {
+      "source_url": "https://www.donneesquebec.ca/recherche/api/3/action/package_show?id=rsqaq-stations",
+      "acquisition_kind": "download",
+      "acquired_at_utc": "2026-09-05T11:04:59Z",
+      "started_at_utc": "2026-09-05T11:04:59Z",
+      "file": "package_show_rsqaq_stations.json",
+      "bytes": 6602,
+      "sha256": "d1a7ea2c17df96ebe31e3fb15be57f9bb8c7700c24f6f85ce9ae62557d05d8bb",
+      "details": {}
+    },
+    {
+      "source_url": "https://www.donneesquebec.ca/recherche/dataset/8656ad05-c174-41c5-9ed7-8c69d308beb9/resource/cebea532-a9e0-4a39-8c2d-54f33d937c73/download/rsqaq_stations_de_la_qualite_de_lair.csv",
+      "acquisition_kind": "download",
+      "acquired_at_utc": "2026-09-05T11:04:59Z",
+      "started_at_utc": "2026-09-05T11:04:59Z",
+      "file": "rsqaq_stations_de_la_qualite_de_lair.csv",
+      "bytes": 29345,
+      "sha256": "966f63f2376b9164473910b8927946e4187a29849a6bfd93f13d1abaf14273c6",
+      "details": {}
+    }
+  ]
+}

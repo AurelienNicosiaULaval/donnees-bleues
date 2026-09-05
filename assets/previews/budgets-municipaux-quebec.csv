@@ -1,121 +1,121 @@
-annee_edition,annee_donnee,code_geographique,municipalite,designation_organisme,code_mrc,mrc,code_communaute_metropolitaine,communaute_metropolitaine,code_region_administrative
-2024,2025,01023,Les Îles-de-la-Madeleine,M,NA,NA,NA,NA,11
-2024,2025,03015,Petite-Vallée,M,AR030,La Côte-de-Gaspé,NA,NA,11
-2024,2025,04047,Cap-Chat,V,AR040,La Haute-Gaspésie,NA,NA,11
-2024,2025,05055,Saint-Siméon,P,AR050,Bonaventure,NA,NA,11
-2024,2025,06030,Pointe-à-la-Croix,M,AR060,Avignon,NA,NA,11
-2024,2025,07018,Causapscal,V,AR070,La Matapédia,NA,NA,1
-2024,2025,07080,Val-Brillant,M,AR070,La Matapédia,NA,NA,1
-2024,2025,08023,Sainte-Félicité,M,AR080,La Matanie,NA,NA,1
-2024,2025,09010,Saint-Charles-Garnier,P,AR090,La Mitis,NA,NA,1
-2024,2025,09060,Grand-Métis,M,AR090,La Mitis,NA,NA,1
-2024,2025,10030,Saint-Anaclet-de-Lessard,P,AR100,Rimouski-Neigette,NA,NA,1
-2024,2025,11025,Saint-Médard,M,AR110,Les Basques,NA,NA,1
-2024,2025,12015,Saint-Antonin,V,AR120,Rivière-du-Loup,NA,NA,1
-2024,2025,12080,Notre-Dame-du-Portage,M,AR120,Rivière-du-Loup,NA,NA,1
-2024,2025,13050,Lejeune,M,AR130,Témiscouata,NA,NA,1
-2024,2025,13090,Saint-Honoré-de-Témiscouata,M,AR130,Témiscouata,NA,NA,1
-2024,2025,14040,Saint-André-de-Kamouraska,M,AR140,Kamouraska,NA,NA,1
-2024,2025,14090,Sainte-Anne-de-la-Pocatière,P,AR140,Kamouraska,NA,NA,1
-2024,2025,16013,Baie-Saint-Paul,V,AR160,Charlevoix,NA,NA,3
-2024,2025,17025,Sainte-Félicité,M,AR170,L'Islet,NA,NA,12
-2024,2025,18005,Saint-Just-de-Bretenières,M,AR180,Montmagny,NA,NA,12
-2024,2025,18050,Montmagny,V,AR180,Montmagny,NA,NA,12
-2024,2025,19025,Saint-Malachie,P,AR190,Bellechasse,NA,NA,12
-2024,2025,19075,Saint-Gervais,M,AR190,Bellechasse,NA,NA,12
-2024,2025,20020,Saint-Laurent-de-l'Île-d'Orléans,M,AR200,L'Île-d'Orléans,CM235,Communauté métropolitaine de Québec,3
-2024,2025,21040,L'Ange-Gardien,M,AR210,La Côte-de-Beaupré,CM235,Communauté métropolitaine de Québec,3
-2024,2025,22040,Lac-Beauport,M,AR220,La Jacques-Cartier,CM235,Communauté métropolitaine de Québec,3
-2024,2025,26022,Saint-Elzéar,M,AR260,La Nouvelle-Beauce,NA,NA,12
-2024,2025,27028,Beauceville,V,AR270,Beauce-Centre,NA,NA,12
-2024,2025,28015,Sainte-Aurélie,M,AR280,Les Etchemins,NA,NA,12
-2024,2025,28065,Sainte-Sabine,P,AR280,Les Etchemins,NA,NA,12
-2024,2025,29050,Saint-René,P,AR290,Beauce-Sartigan,NA,NA,12
-2024,2025,30005,Saint-Augustin-de-Woburn,P,AR300,Le Granit,NA,NA,5
-2024,2025,30050,Sainte-Cécile-de-Whitton,M,AR300,Le Granit,NA,NA,5
-2024,2025,30110,Stratford,CT,AR300,Le Granit,NA,NA,5
-2024,2025,31056,Adstock,M,AR310,Les Appalaches,NA,NA,12
-2024,2025,31140,Saint-Jacques-de-Leeds,M,AR310,Les Appalaches,NA,NA,12
-2024,2025,32080,Notre-Dame-de-Lourdes,P,AR320,L'Érable,NA,NA,17
-2024,2025,33060,Laurier-Station,VL,AR330,Lotbinière,NA,NA,12
-2024,2025,33123,Leclercville,M,AR330,Lotbinière,NA,NA,12
-2024,2025,34065,Saint-Marc-des-Carrières,V,AR340,Portneuf,NA,NA,3
-2024,2025,34135,Rivière-à-Pierre,M,AR340,Portneuf,NA,NA,3
-2024,2025,35055,Trois-Rives,M,AR350,Mékinac,NA,NA,4
-2024,2025,37235,Notre-Dame-du-Mont-Carmel,P,AR372,Des Chenaux,NA,NA,4
-2024,2025,38035,Sainte-Françoise,M,AR380,Bécancour,NA,NA,17
-2024,2025,39015,Notre-Dame-de-Ham,M,AR390,Arthabaska,NA,NA,17
-2024,2025,39090,Sainte-Élizabeth-de-Warwick,M,AR390,Arthabaska,NA,NA,17
-2024,2025,39170,Saint-Louis-de-Blandford,M,AR390,Arthabaska,NA,NA,17
-2024,2025,41020,Chartierville,M,AR410,Le Haut-Saint-François,NA,NA,5
-2024,2025,41085,Lingwick,CT,AR410,Le Haut-Saint-François,NA,NA,5
-2024,2025,42050,Sainte-Anne-de-la-Rochelle,M,AR420,Le Val-Saint-François,NA,NA,5
-2024,2025,42098,Richmond,V,AR420,Le Val-Saint-François,NA,NA,5
-2024,2025,44037,Coaticook,V,AR440,Coaticook,NA,NA,5
-2024,2025,45030,Potton,CT,AR450,Memphrémagog,NA,NA,5
-2024,2025,45093,Eastman,M,AR450,Memphrémagog,NA,NA,5
-2024,2025,46030,Stanbridge Station,M,AR460,Brome-Missisquoi,NA,NA,5
-2024,2025,46080,Cowansville,V,AR460,Brome-Missisquoi,NA,NA,5
-2024,2025,47025,Waterloo,V,AR470,La Haute-Yamaska,NA,NA,5
-2024,2025,48020,Sainte-Christine,P,AR480,Acton,NA,NA,16
-2024,2025,49030,Saint-Lucien,M,AR490,Drummond,NA,NA,17
-2024,2025,49105,Saint-Eugène,M,AR490,Drummond,NA,NA,17
-2024,2025,50042,Saint-Léonard-d'Aston,M,AR500,Nicolet-Yamaska,NA,NA,17
-2024,2025,50113,Pierreville,M,AR500,Nicolet-Yamaska,NA,NA,17
-2024,2025,51045,Saint-Justin,M,AR510,Maskinongé,NA,NA,4
-2024,2025,52007,Lavaltrie,V,AR520,D'Autray,NA,NA,14
-2024,2025,52070,Saint-Norbert,P,AR520,D'Autray,NA,NA,14
-2024,2025,53020,Saint-Robert,M,AR530,Pierre-De Saurel,NA,NA,16
-2024,2025,54017,Saint-Damase,M,AR540,Les Maskoutains,NA,NA,16
-2024,2025,54095,Sainte-Hélène-de-Bagot,M,AR540,Les Maskoutains,NA,NA,16
-2024,2025,55023,Saint-Césaire,V,AR550,Rouville,NA,NA,16
-2024,2025,56023,Lacolle,M,AR560,Le Haut-Richelieu,NA,NA,16
-2024,2025,56105,Sainte-Brigide-d'Iberville,M,AR560,Le Haut-Richelieu,NA,NA,16
-2024,2025,57045,Saint-Mathieu-de-Beloeil,M,AR570,La Vallée-du-Richelieu,CM663,Communauté métropolitaine de Montréal,16
-2024,2025,58227,Longueuil,V,NA,NA,CM663,Communauté métropolitaine de Montréal,16
-2024,2025,60028,L'Assomption,V,AR600,L'Assomption,CM663,Communauté métropolitaine de Montréal,14
-2024,2025,61040,Saint-Ambroise-de-Kildare,M,AR610,Joliette,NA,NA,14
-2024,2025,62047,Chertsey,M,AR620,Matawinie,NA,NA,14
-2024,2025,63005,Sainte-Marie-Salomé,M,AR630,Montcalm,NA,NA,14
-2024,2025,64008,Terrebonne,V,AR640,Les Moulins,CM663,Communauté métropolitaine de Montréal,14
-2024,2025,66072,Mont-Royal,V,NA,NA,CM663,Communauté métropolitaine de Montréal,6
-2024,2025,66142,Dollard-des-Ormeaux,V,NA,NA,CM663,Communauté métropolitaine de Montréal,6
-2024,2025,67045,Mercier,V,AR670,Roussillon,CM663,Communauté métropolitaine de Montréal,16
-2024,2025,68040,Saint-Jacques-le-Mineur,M,AR680,Les Jardins-de-Napierville,NA,NA,16
-2024,2025,69037,Ormstown,M,AR690,Le Haut-Saint-Laurent,NA,NA,16
-2024,2025,70012,Sainte-Martine,M,AR700,Beauharnois-Salaberry,NA,NA,16
-2024,2025,71033,Les Coteaux,M,AR710,Vaudreuil-Soulanges,NA,NA,16
-2024,2025,71083,Vaudreuil-Dorion,V,AR710,Vaudreuil-Soulanges,CM663,Communauté métropolitaine de Montréal,16
-2024,2025,71140,Pointe-Fortune,M,AR710,Vaudreuil-Soulanges,NA,NA,16
-2024,2025,73010,Sainte-Thérèse,V,AR730,Thérèse-De Blainville,CM663,Communauté métropolitaine de Montréal,15
-2024,2025,75040,Prévost,V,AR750,La Rivière-du-Nord,NA,NA,15
-2024,2025,76055,Grenville,VL,AR760,Argenteuil,NA,NA,15
-2024,2025,77055,Lac-des-Seize-Îles,M,AR770,Les Pays-d'en-Haut,NA,NA,15
-2024,2025,78050,Barkmere,V,AR780,Les Laurentides,NA,NA,15
-2024,2025,78115,La Conception,M,AR780,Les Laurentides,NA,NA,15
-2024,2025,79030,Nominingue,M,AR790,Antoine-Labelle,NA,NA,15
-2024,2025,79105,Lac-Saint-Paul,M,AR790,Antoine-Labelle,NA,NA,15
-2024,2025,80050,Thurso,V,AR800,Papineau,NA,NA,7
-2024,2025,80095,Lac-Simon,M,AR800,Papineau,NA,NA,7
-2024,2025,81017,Gatineau,V,NA,NA,NA,NA,7
-2024,2025,83015,Kazabazua,M,AR830,La Vallée-de-la-Gatineau,NA,NA,7
-2024,2025,83075,Egan-Sud,M,AR830,La Vallée-de-la-Gatineau,NA,NA,7
-2024,2025,84025,Bryson,M,AR840,Pontiac,NA,NA,7
-2024,2025,84070,Waltham,M,AR840,Pontiac,NA,NA,7
-2024,2025,85030,Duhamel-Ouest,M,AR850,Témiscamingue,NA,NA,8
-2024,2025,85085,Saint-Eugène-de-Guigues,M,AR850,Témiscamingue,NA,NA,8
-2024,2025,87020,Gallichan,M,AR870,Abitibi-Ouest,NA,NA,8
-2024,2025,87080,La Reine,M,AR870,Abitibi-Ouest,NA,NA,8
-2024,2025,88012,La Morandière-Rochebaucourt,M,AR880,Abitibi,NA,NA,8
-2024,2025,88060,Saint-Félix-de-Dalquier,M,AR880,Abitibi,NA,NA,8
-2024,2025,89015,Malartic,V,AR890,La Vallée-de-l'Or,NA,NA,8
-2024,2025,91020,Chambord,M,AR910,Le Domaine-du-Roy,NA,NA,2
-2024,2025,92022,Dolbeau-Mistassini,V,AR920,Maria-Chapdelaine,NA,NA,2
-2024,2025,93005,Desbiens,V,AR930,Lac-Saint-Jean-Est,NA,NA,2
-2024,2025,93060,Lamarche,M,AR930,Lac-Saint-Jean-Est,NA,NA,2
-2024,2025,94225,Saint-Félix-d'Otis,M,AR942,Le Fjord-du-Saguenay,NA,NA,2
-2024,2025,95005,Tadoussac,VL,AR950,La Haute-Côte-Nord,NA,NA,9
-2024,2025,96010,Godbout,VL,AR960,Manicouagan,NA,NA,9
-2024,2025,97035,Fermont,V,AR972,Caniapiscau,NA,NA,9
-2024,2025,98035,Baie-Johan-Beetz,M,AR981,Minganie,NA,NA,9
-2024,2025,99060,Eeyou Istchee Baie-James,GR,NA,NA,NA,NA,10
+annee_donnee,code_geographique,municipalite,region_administrative,population,classe_population
+2025,01023,Les Îles-de-la-Madeleine,Gaspésie–Îles-de-la-Madeleine,12521,10 000 à 24 999
+2025,03015,Petite-Vallée,Gaspésie–Îles-de-la-Madeleine,157,0 à 1 999
+2025,04047,Cap-Chat,Gaspésie–Îles-de-la-Madeleine,2547,2 000 à 9 999
+2025,05055,Saint-Siméon,Gaspésie–Îles-de-la-Madeleine,1251,0 à 1 999
+2025,06030,Pointe-à-la-Croix,Gaspésie–Îles-de-la-Madeleine,1283,0 à 1 999
+2025,07018,Causapscal,Bas-Saint-Laurent,2148,2 000 à 9 999
+2025,07080,Val-Brillant,Bas-Saint-Laurent,947,0 à 1 999
+2025,08023,Sainte-Félicité,Bas-Saint-Laurent,1079,0 à 1 999
+2025,09010,Saint-Charles-Garnier,Bas-Saint-Laurent,238,0 à 1 999
+2025,09060,Grand-Métis,Bas-Saint-Laurent,215,0 à 1 999
+2025,10030,Saint-Anaclet-de-Lessard,Bas-Saint-Laurent,3027,2 000 à 9 999
+2025,11025,Saint-Médard,Bas-Saint-Laurent,217,0 à 1 999
+2025,12015,Saint-Antonin,Bas-Saint-Laurent,4618,2 000 à 9 999
+2025,12080,Notre-Dame-du-Portage,Bas-Saint-Laurent,1336,0 à 1 999
+2025,13050,Lejeune,Bas-Saint-Laurent,241,0 à 1 999
+2025,13090,Saint-Honoré-de-Témiscouata,Bas-Saint-Laurent,801,0 à 1 999
+2025,14040,Saint-André-de-Kamouraska,Bas-Saint-Laurent,665,0 à 1 999
+2025,14090,Sainte-Anne-de-la-Pocatière,Bas-Saint-Laurent,1673,0 à 1 999
+2025,16013,Baie-Saint-Paul,Capitale-Nationale,7852,2 000 à 9 999
+2025,17025,Sainte-Félicité,Chaudière-Appalaches,369,0 à 1 999
+2025,18005,Saint-Just-de-Bretenières,Chaudière-Appalaches,647,0 à 1 999
+2025,18050,Montmagny,Chaudière-Appalaches,11203,10 000 à 24 999
+2025,19025,Saint-Malachie,Chaudière-Appalaches,1755,0 à 1 999
+2025,19075,Saint-Gervais,Chaudière-Appalaches,2213,2 000 à 9 999
+2025,20020,Saint-Laurent-de-l'Île-d'Orléans,Capitale-Nationale,1714,0 à 1 999
+2025,21040,L'Ange-Gardien,Capitale-Nationale,3999,2 000 à 9 999
+2025,22040,Lac-Beauport,Capitale-Nationale,8473,2 000 à 9 999
+2025,26022,Saint-Elzéar,Chaudière-Appalaches,2853,2 000 à 9 999
+2025,27028,Beauceville,Chaudière-Appalaches,6283,2 000 à 9 999
+2025,28015,Sainte-Aurélie,Chaudière-Appalaches,896,0 à 1 999
+2025,28065,Sainte-Sabine,Chaudière-Appalaches,369,0 à 1 999
+2025,29050,Saint-René,Chaudière-Appalaches,1003,0 à 1 999
+2025,30005,Saint-Augustin-de-Woburn,Estrie,679,0 à 1 999
+2025,30050,Sainte-Cécile-de-Whitton,Estrie,914,0 à 1 999
+2025,30110,Stratford,Estrie,1086,0 à 1 999
+2025,31056,Adstock,Chaudière-Appalaches,3170,2 000 à 9 999
+2025,31140,Saint-Jacques-de-Leeds,Chaudière-Appalaches,745,0 à 1 999
+2025,32080,Notre-Dame-de-Lourdes,Centre-du-Québec,836,0 à 1 999
+2025,33060,Laurier-Station,Chaudière-Appalaches,2759,2 000 à 9 999
+2025,33123,Leclercville,Chaudière-Appalaches,516,0 à 1 999
+2025,34065,Saint-Marc-des-Carrières,Capitale-Nationale,2922,2 000 à 9 999
+2025,34135,Rivière-à-Pierre,Capitale-Nationale,621,0 à 1 999
+2025,35055,Trois-Rives,Mauricie,449,0 à 1 999
+2025,37235,Notre-Dame-du-Mont-Carmel,Mauricie,6585,2 000 à 9 999
+2025,38035,Sainte-Françoise,Centre-du-Québec,500,0 à 1 999
+2025,39015,Notre-Dame-de-Ham,Centre-du-Québec,404,0 à 1 999
+2025,39090,Sainte-Élizabeth-de-Warwick,Centre-du-Québec,391,0 à 1 999
+2025,39170,Saint-Louis-de-Blandford,Centre-du-Québec,1078,0 à 1 999
+2025,41020,Chartierville,Estrie,325,0 à 1 999
+2025,41085,Lingwick,Estrie,477,0 à 1 999
+2025,42050,Sainte-Anne-de-la-Rochelle,Estrie,614,0 à 1 999
+2025,42098,Richmond,Estrie,3431,2 000 à 9 999
+2025,44037,Coaticook,Estrie,9068,2 000 à 9 999
+2025,45030,Potton,Estrie,2210,2 000 à 9 999
+2025,45093,Eastman,Estrie,2665,2 000 à 9 999
+2025,46030,Stanbridge Station,Estrie,284,0 à 1 999
+2025,46080,Cowansville,Estrie,16906,10 000 à 24 999
+2025,47025,Waterloo,Estrie,5560,2 000 à 9 999
+2025,48020,Sainte-Christine,Montérégie,827,0 à 1 999
+2025,49030,Saint-Lucien,Centre-du-Québec,1959,0 à 1 999
+2025,49105,Saint-Eugène,Centre-du-Québec,1177,0 à 1 999
+2025,50042,Saint-Léonard-d'Aston,Centre-du-Québec,2663,2 000 à 9 999
+2025,50113,Pierreville,Centre-du-Québec,2201,2 000 à 9 999
+2025,51045,Saint-Justin,Mauricie,955,0 à 1 999
+2025,52007,Lavaltrie,Lanaudière,15911,10 000 à 24 999
+2025,52070,Saint-Norbert,Lanaudière,1143,0 à 1 999
+2025,53020,Saint-Robert,Montérégie,1853,0 à 1 999
+2025,54017,Saint-Damase,Montérégie,2463,2 000 à 9 999
+2025,54095,Sainte-Hélène-de-Bagot,Montérégie,1878,0 à 1 999
+2025,55023,Saint-Césaire,Montérégie,6168,2 000 à 9 999
+2025,56023,Lacolle,Montérégie,2802,2 000 à 9 999
+2025,56105,Sainte-Brigide-d'Iberville,Montérégie,1528,0 à 1 999
+2025,57045,Saint-Mathieu-de-Beloeil,Montérégie,3031,2 000 à 9 999
+2025,58227,Longueuil,Montérégie,267524,100 000 et plus
+2025,60028,L'Assomption,Lanaudière,24867,10 000 à 24 999
+2025,61040,Saint-Ambroise-de-Kildare,Lanaudière,4554,2 000 à 9 999
+2025,62047,Chertsey,Lanaudière,5579,2 000 à 9 999
+2025,63005,Sainte-Marie-Salomé,Lanaudière,1282,0 à 1 999
+2025,64008,Terrebonne,Lanaudière,124919,100 000 et plus
+2025,66072,Mont-Royal,Montréal,22396,10 000 à 24 999
+2025,66142,Dollard-des-Ormeaux,Montréal,50699,25 000 à 99 999
+2025,67045,Mercier,Montérégie,15690,10 000 à 24 999
+2025,68040,Saint-Jacques-le-Mineur,Montérégie,1889,0 à 1 999
+2025,69037,Ormstown,Montérégie,4226,2 000 à 9 999
+2025,70012,Sainte-Martine,Montérégie,5862,2 000 à 9 999
+2025,71033,Les Coteaux,Montérégie,6108,2 000 à 9 999
+2025,71083,Vaudreuil-Dorion,Montérégie,46065,25 000 à 99 999
+2025,71140,Pointe-Fortune,Montérégie,602,0 à 1 999
+2025,73010,Sainte-Thérèse,Laurentides,27288,25 000 à 99 999
+2025,75040,Prévost,Laurentides,14198,10 000 à 24 999
+2025,76055,Grenville,Laurentides,1856,0 à 1 999
+2025,77055,Lac-des-Seize-Îles,Laurentides,210,0 à 1 999
+2025,78050,Barkmere,Laurentides,84,0 à 1 999
+2025,78115,La Conception,Laurentides,1688,0 à 1 999
+2025,79030,Nominingue,Laurentides,2245,2 000 à 9 999
+2025,79105,Lac-Saint-Paul,Laurentides,563,0 à 1 999
+2025,80050,Thurso,Outaouais,3494,2 000 à 9 999
+2025,80095,Lac-Simon,Outaouais,1152,0 à 1 999
+2025,81017,Gatineau,Outaouais,302616,100 000 et plus
+2025,83015,Kazabazua,Outaouais,1093,0 à 1 999
+2025,83075,Egan-Sud,Outaouais,536,0 à 1 999
+2025,84025,Bryson,Outaouais,663,0 à 1 999
+2025,84070,Waltham,Outaouais,394,0 à 1 999
+2025,85030,Duhamel-Ouest,Abitibi-Témiscamingue,941,0 à 1 999
+2025,85085,Saint-Eugène-de-Guigues,Abitibi-Témiscamingue,467,0 à 1 999
+2025,87020,Gallichan,Abitibi-Témiscamingue,499,0 à 1 999
+2025,87080,La Reine,Abitibi-Témiscamingue,301,0 à 1 999
+2025,88012,La Morandière-Rochebaucourt,Abitibi-Témiscamingue,342,0 à 1 999
+2025,88060,Saint-Félix-de-Dalquier,Abitibi-Témiscamingue,NA,NA
+2025,89015,Malartic,Abitibi-Témiscamingue,3489,2 000 à 9 999
+2025,91020,Chambord,Saguenay–Lac-Saint-Jean,1782,0 à 1 999
+2025,92022,Dolbeau-Mistassini,Saguenay–Lac-Saint-Jean,13746,10 000 à 24 999
+2025,93005,Desbiens,Saguenay–Lac-Saint-Jean,1034,0 à 1 999
+2025,93060,Lamarche,Saguenay–Lac-Saint-Jean,515,0 à 1 999
+2025,94225,Saint-Félix-d'Otis,Saguenay–Lac-Saint-Jean,1214,0 à 1 999
+2025,95005,Tadoussac,Côte-Nord,774,0 à 1 999
+2025,96010,Godbout,Côte-Nord,278,0 à 1 999
+2025,97035,Fermont,Côte-Nord,2154,2 000 à 9 999
+2025,98035,Baie-Johan-Beetz,Côte-Nord,78,0 à 1 999
+2025,99060,Eeyou Istchee Baie-James,Nord-du-Québec,1212,0 à 1 999

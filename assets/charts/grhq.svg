@@ -1,0 +1,62 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='576.00pt' height='360.00pt' viewBox='0 0 576.00 360.00'>
+<g class='svglite'>
+<defs>
+  <style type='text/css'><![CDATA[
+    .svglite line, .svglite polyline, .svglite polygon, .svglite path, .svglite rect, .svglite circle {
+      fill: none;
+      stroke: #000000;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      stroke-miterlimit: 10.00;
+    }
+    .svglite text {
+      white-space: pre;
+    }
+    .svglite g.glyphgroup path {
+      fill: inherit;
+      stroke: none;
+    }
+  ]]></style>
+</defs>
+<rect width='100%' height='100%' style='stroke: none; fill: #FFFFFF;'/>
+<defs>
+  <clipPath id='cpMC4wMHw1NzYuMDB8MC4wMHwzNjAuMDA='>
+    <rect x='0.00' y='0.00' width='576.00' height='360.00' />
+  </clipPath>
+</defs>
+<g clip-path='url(#cpMC4wMHw1NzYuMDB8MC4wMHwzNjAuMDA=)'>
+<rect x='0.00' y='0.00' width='576.00' height='360.00' style='stroke-width: 1.07; stroke: none; fill: #FFFFFF;' />
+</g>
+<defs>
+  <clipPath id='cpMTUxLjk2fDU3MC41MnwzNy43NHwzMTUuNjI='>
+    <rect x='151.96' y='37.74' width='418.56' height='277.89' />
+  </clipPath>
+</defs>
+<g clip-path='url(#cpMTUxLjk2fDU3MC41MnwzNy43NHwzMTUuNjI=)'>
+<polyline points='151.96,239.84 570.52,239.84 ' style='stroke-width: 1.07; stroke: #EBEBEB; stroke-linecap: butt;' />
+<polyline points='151.96,113.52 570.52,113.52 ' style='stroke-width: 1.07; stroke: #EBEBEB; stroke-linecap: butt;' />
+<polyline points='170.99,315.62 170.99,37.74 ' style='stroke-width: 1.07; stroke: #EBEBEB; stroke-linecap: butt;' />
+<polyline points='255.55,315.62 255.55,37.74 ' style='stroke-width: 1.07; stroke: #EBEBEB; stroke-linecap: butt;' />
+<polyline points='340.10,315.62 340.10,37.74 ' style='stroke-width: 1.07; stroke: #EBEBEB; stroke-linecap: butt;' />
+<polyline points='424.66,315.62 424.66,37.74 ' style='stroke-width: 1.07; stroke: #EBEBEB; stroke-linecap: butt;' />
+<polyline points='509.22,315.62 509.22,37.74 ' style='stroke-width: 1.07; stroke: #EBEBEB; stroke-linecap: butt;' />
+<rect x='170.99' y='195.63' width='295.95' height='88.42' style='stroke-width: 1.07; stroke: none; stroke-linecap: butt; stroke-linejoin: miter; fill: #185B83;' />
+<rect x='170.99' y='69.31' width='380.51' height='88.42' style='stroke-width: 1.07; stroke: none; stroke-linecap: butt; stroke-linejoin: miter; fill: #185B83;' />
+</g>
+<g clip-path='url(#cpMC4wMHw1NzYuMDB8MC4wMHwzNjAuMDA=)'>
+<text x='147.03' y='242.99' text-anchor='end' style='font-size: 8.80px;fill: #4D4D4D; font-family: "Arial";' textLength='125.61px' lengthAdjust='spacingAndGlyphs'>Partie de région hydrographique</text>
+<text x='147.03' y='116.67' text-anchor='end' style='font-size: 8.80px;fill: #4D4D4D; font-family: "Arial";' textLength='129.55px' lengthAdjust='spacingAndGlyphs'>Région hydrographique complète</text>
+<text x='170.99' y='326.85' text-anchor='middle' style='font-size: 8.80px;fill: #4D4D4D; font-family: "Arial";' textLength='4.89px' lengthAdjust='spacingAndGlyphs'>0</text>
+<text x='255.55' y='326.85' text-anchor='middle' style='font-size: 8.80px;fill: #4D4D4D; font-family: "Arial";' textLength='4.89px' lengthAdjust='spacingAndGlyphs'>2</text>
+<text x='340.10' y='326.85' text-anchor='middle' style='font-size: 8.80px;fill: #4D4D4D; font-family: "Arial";' textLength='4.89px' lengthAdjust='spacingAndGlyphs'>4</text>
+<text x='424.66' y='326.85' text-anchor='middle' style='font-size: 8.80px;fill: #4D4D4D; font-family: "Arial";' textLength='4.89px' lengthAdjust='spacingAndGlyphs'>6</text>
+<text x='509.22' y='326.85' text-anchor='middle' style='font-size: 8.80px;fill: #4D4D4D; font-family: "Arial";' textLength='4.89px' lengthAdjust='spacingAndGlyphs'>8</text>
+<text x='361.24' y='338.61' text-anchor='middle' style='font-size: 10.00px; font-family: "Arial";' textLength='153.42px' lengthAdjust='spacingAndGlyphs'>Blocs de téléchargement (nombre)</text>
+<text transform='translate(12.64,176.68) rotate(-90)' text-anchor='middle' style='font-size: 10.00px; font-family: "Arial";' textLength='89.53px' lengthAdjust='spacingAndGlyphs'>Unité du découpage</text>
+<text x='151.96' y='30.37' style='font-size: 9.00px; font-family: "Arial";' textLength='267.50px' lengthAdjust='spacingAndGlyphs'>Extrait consultable : 16 lignes avant retrait des valeurs manquantes</text>
+<text x='151.96' y='15.50' style='font-size: 14.00px;fill: #172033; font-family: "Arial";' textLength='260.59px' lengthAdjust='spacingAndGlyphs'>Composition de l’index de téléchargement</text>
+<text x='151.96' y='352.63' style='font-size: 9.00px; font-family: "Arial";' textLength='246.50px' lengthAdjust='spacingAndGlyphs'>0 ligne(s) avec une mesure manquante ou non finie exclue(s).</text>
+</g>
+</g>
+</svg>

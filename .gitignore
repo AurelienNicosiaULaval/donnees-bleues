@@ -20,3 +20,11 @@ docs/.quarto/
 **/*.quarto_ipynb
 .quarto/
 site_libs/
+
+data/validation/
+
+# Generated site is published as the validated CI artifact.
+/docs/
+
+# Local audit evidence is kept outside the published source.
+/output/

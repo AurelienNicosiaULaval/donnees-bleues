@@ -1,236 +1,64 @@
 ---
 title: "Portrait descriptif de la météo quotidienne à Québec"
-embed-resources: false
+embed-resources: true
 ---
-
 
 # Portrait descriptif de la météo quotidienne à Québec
 
-<!-- activity-teacher-brief:start -->
-::: {.activity-teacher-brief}
 
-## En classe, cette activité sert à...
+Comment décrire températures et précipitations quotidiennes?
 
-Cette activité sert à travailler les notions suivantes : séries temporelles, valeurs manquantes, visualisation, statistiques descriptives, communication prudente à partir d'une question située dans le contexte suivant : Météorologie québécoise. Elle demande aux étudiantes et étudiants de répondre à la question directrice suivante : Comment produire un portrait descriptif prudent de la météo quotidienne à Québec?
-
-::: {.activity-quick-facts}
-| Élément | Information |
-|---|---|
-| Durée | 2-3 heures |
-| Niveau | Introduction à intermédiaire |
-| Usage recommandé | Mini-projet guidé |
-| Préparation enseignant | Préparation requise : exécuter `Rscript datasets/meteo-quebec/preparation.R` depuis la racine, puis vérifier que `data/processed/meteo-quebec/meteo_quebec.csv` existe. |
-| Production attendue | Un court rapport reproductible avec contexte, tableau ou graphique, interprétation et limites. |
-| Données | `data/processed/meteo-quebec/meteo_quebec.csv` |
-:::
-
-:::
-<!-- activity-teacher-brief:end -->
+Durée : 2-3 heures. Niveau : Introduction à intermédiaire.
 
 ## Préparation enseignante
 
-- Préparation requise : exécuter `Rscript datasets/meteo-quebec/preparation.R` depuis la racine, puis vérifier que `data/processed/meteo-quebec/meteo_quebec.csv` existe.
-- Fichier préparé : `data/processed/meteo-quebec/meteo_quebec.csv`.
-- Script de préparation : `datasets/meteo-quebec/preparation.R`.
-- Point à surveiller : Exiger une section courte sur les valeurs manquantes et une limite explicite : une station ne représente pas tout le Québec.
+Télécharger la trousse ci-dessous. Extraire le ZIP, puis double-cliquer sur `Donnees-bleues.Rproj`. Avant la séance, ouvrir `installer-packages.R` et cliquer sur Source avec une connexion Internet.
 
-## Consignes
+Une fois les packages installés, les scripts utilisent les fichiers inclus et peuvent être exécutés hors ligne.
 
-1. Importer `meteo_quebec.csv` ou exécuter `datasets/meteo-quebec/preparation.R` si le fichier est absent.
-2. Identifier ce que représente une ligne du fichier.
-3. Produire un tableau ou un graphique adapté à la question directrice.
-4. Rédiger une interprétation courte qui distingue description et explication.
-5. Nommer au moins une limite méthodologique ou une information absente.
-
-## Résultat attendu
-
-Un court rapport reproductible avec contexte, tableau ou graphique, interprétation et limites. La production doit aussi contenir une phrase sur l'unité statistique et une phrase sur une limite de la source.
-
-## Déroulé suggéré
-
-1. Cadrer la source, la licence et l'unité statistique.
-2. Préparer ou importer les données.
-3. Produire un premier résumé descriptif.
-4. Construire la visualisation ou le tableau principal.
-5. Rédiger l'interprétation et les limites.
-
-## Limites à faire nommer
-
-- Exiger une section courte sur les valeurs manquantes et une limite explicite : une station ne représente pas tout le Québec.
-- Si une variable ou un dénominateur nécessaire n'est pas disponible dans les données, l'écrire explicitement plutôt que l'inférer.
-
+```{r}
+#| label: activity-classroom-resources
+#| echo: false
+#| results: asis
+source(if (file.exists("R/utils_activity_contract.R")) "R/utils_activity_contract.R" else "../../R/utils_activity_contract.R")
+render_activity_resources()
+```
 
 ## Contexte
 
-Ce mini-projet prolonge le laboratoire court. Il demande un portrait reproductible de la météo quotidienne observée à Québec, avec une attention explicite aux dates, aux valeurs manquantes et aux limites d'interprétation.
+Cette activité utilise la fiche [Météo quotidienne à Québec](fiche.qmd). Unité : Une journée à la station de Québec dans la version pédagogique du package UlavalSSD.
 
-## Objectifs d'apprentissage
+Source : [UlavalSSD::MeteoQuebec, construit avec weathercan à partir d'ECCC](https://climate.weather.gc.ca/historical_data/search_historic_data_e.html). Les dates de préparation, les fichiers et les conditions de réutilisation sont indiqués dans la trousse.
 
-- Construire un court rapport Quarto reproductible
-- Préparer et importer une table météorologique
-- Résumer les températures et les précipitations
-- Visualiser une série temporelle quotidienne
-- Comparer des distributions saisonnières
-- Documenter les valeurs manquantes
-- Distinguer analyse descriptive et conclusion climatique
+## Consignes
 
-## Données utilisées
+1. Ouvrir `activite-longue.R` dans le sous-dossier `datasets/meteo-quebec` du projet RStudio et cliquer sur Source. Les tableaux apparaissent dans Console et les graphiques dans Plots.
+2. Lire la série des températures depuis 2020 et les bilans de valeurs manquantes.
+3. Comparer les précipitations par saison en distinguant le zoom 0 à 30 mm des données utilisées dans les quartiles.
+4. Rédiger une réponse à la question en nommant l’unité observée et une limite de la source.
 
-Fiche : [Météo quotidienne à Québec](fiche.qmd)
+## Résultat attendu
 
-Source pédagogique : `UlavalSSD::MeteoQuebec`.
+Les tableaux et graphiques du script, accompagnés d’une interprétation de 6 à 8 lignes répondant à la question.
 
-Source primaire documentée : Environnement et Changement climatique Canada, via `weathercan`.
+## Limites à faire nommer
 
-Fichier préparé : `data/processed/meteo-quebec/meteo_quebec.csv`
+Les jours sans mesure ne sont pas des zéros. Une station et une période limitée ne suffisent pas à caractériser le climat de tout le Québec.
 
-## Métadonnées pédagogiques
+## Code complet
 
-| Champ | Information |
-|---|---|
-| Question directrice | Comment produire un portrait descriptif prudent de la météo quotidienne à Québec? |
-| Concepts | Séries temporelles; Valeurs manquantes; Visualisation; Statistiques descriptives |
-| Niveau | Introduction à intermédiaire |
-| Type | Projet ou tâche longue; Étude de cas |
-| Contexte | Météorologie québécoise |
-| Accroche | Un graphique météo est parlant, mais il doit rester statistiquement prudent |
-| Durée | 2-3 heures |
-| Matériel | fiche; code; table préparée; source officielle; notes enseignantes |
-| Math/stats avancées | non |
-
-## Mandat
-
-Produire un rapport Quarto de 3 à 5 pages qui décrit la météo quotidienne à la station Québec/Jean-Lesage dans la version pédagogique `UlavalSSD` 0.2.0. Le rapport doit contenir :
-
-1. une question d'analyse;
-2. un court dictionnaire des variables utilisées;
-3. un tableau de valeurs manquantes;
-4. un résumé descriptif par saison ou par année;
-5. deux visualisations complémentaires;
-6. une conclusion qui distingue météo descriptive et climat.
-
-## Étapes recommandées
-
-1. Exécuter `datasets/meteo-quebec/preparation.R`.
-2. Importer la table préparée.
-3. Vérifier la période couverte.
-4. Choisir deux variables principales, par exemple `mean_temp` et `total_precip`.
-5. Résumer les valeurs manquantes.
-6. Produire une visualisation temporelle.
-7. Produire une visualisation comparative par saison ou par mois.
-8. Rédiger les limites avant la conclusion.
-
-## Code de départ
-
-À exécuter depuis la racine du projet.
+Ce script complet est celui de la trousse. Il lit les fichiers locaux et affiche les résultats dans RStudio.
 
 ```{r}
-#| eval: false
-# Load libraries
-library(dplyr)
-library(ggplot2)
-library(readr)
-
-# Prepare data
-source("datasets/meteo-quebec/preparation.R")
-
-# Import prepared files
-meteo <- read_csv(
-  "data/processed/meteo-quebec/meteo_quebec.csv",
-  show_col_types = FALSE
-)
-
-valeurs_manquantes <- read_csv(
-  "data/processed/meteo-quebec/valeurs_manquantes_meteo_quebec.csv",
-  show_col_types = FALSE
-)
-
-resume_saisons <- read_csv(
-  "data/processed/meteo-quebec/resume_saisons_meteo_quebec.csv",
-  show_col_types = FALSE
-)
-
-# Key checks
-meteo |>
-  summarise(
-    lignes = n(),
-    premiere_date = min(date),
-    derniere_date = max(date),
-    moyenne_temperature = mean(mean_temp, na.rm = TRUE),
-    moyenne_precipitation = mean(total_precip, na.rm = TRUE)
-  )
-
-valeurs_manquantes |>
-  filter(n_missing > 0) |>
-  arrange(desc(n_missing))
+#| label: activity-code
+#| echo: false
+#| results: asis
+render_activity_code()
 ```
-
-## Visualisations suggérées
-
-```{r}
-#| eval: false
-# Temperature since 2020
-meteo |>
-  filter(annee >= 2020) |>
-  ggplot(aes(x = date, y = mean_temp)) +
-  geom_line(alpha = 0.7, linewidth = 0.3) +
-  labs(
-    x = "Date",
-    y = "Température moyenne quotidienne (°C)",
-    title = "Température quotidienne moyenne à Québec depuis 2020"
-  )
-
-# Seasonal precipitation distribution
-ggplot(meteo, aes(x = saison, y = total_precip)) +
-  geom_boxplot(outlier.alpha = 0.25) +
-  coord_cartesian(ylim = c(0, 30)) +
-  labs(
-    x = "Saison",
-    y = "Précipitations totales quotidiennes (mm)",
-    title = "Distribution saisonnière des précipitations quotidiennes"
-  )
-```
-
-## Questions à traiter dans le rapport
-
-1. Quelle période le jeu couvre-t-il?
-2. Quelles variables sont les plus complètes?
-3. Pourquoi `total_rain` et `total_snow` doivent-elles être analysées avec prudence?
-4. Que montre le graphique temporel?
-5. Que montre la comparaison saisonnière?
-6. Quelles conclusions seraient excessives avec une seule station?
-
-## Critères de réussite
-
-Un rapport solide :
-
-- utilise une variable `date` correcte;
-- cite la source pédagogique et la source primaire;
-- présente les valeurs manquantes avant les conclusions;
-- contient deux graphiques lisibles;
-- indique les unités des variables;
-- ne généralise pas à tout le Québec;
-- distingue météo quotidienne et climat.
-
-## Pistes de solution
-
-Une conclusion prudente peut prendre cette forme :
-
-> La station Québec/Jean-Lesage montre une forte saisonnalité des températures quotidiennes et des précipitations observables sur toute la période préparée. Ces résultats décrivent une station et une version pédagogique du jeu; ils ne suffisent pas, seuls, à établir une tendance climatique officielle.
-
-## Prolongements
-
-- Calculer le nombre de jours sous -20 °C par année.
-- Décrire les journées de précipitations extrêmes.
-- Comparer les résultats avant et après 2000.
-- Ajouter une source sur les normales climatiques.
-- Construire une courte capsule sur la différence entre météo, variabilité et climat.
 
 ```{r}
 #| label: activity-pedagogical-contract
 #| echo: false
 #| results: asis
-contract_source_path <- if (file.exists("R/utils_activity_contract.R")) "R/utils_activity_contract.R" else "../../R/utils_activity_contract.R"
-source(contract_source_path)
 render_activity_contract()
 ```

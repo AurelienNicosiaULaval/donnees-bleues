@@ -1,139 +1,64 @@
 ---
 title: "Mini-projet - Rapport BIXI sur un instantané GBFS"
-embed-resources: false
+embed-resources: true
 ---
-
 
 # Mini-projet - Rapport BIXI sur un instantané GBFS
 
-<!-- activity-teacher-brief:start -->
-::: {.activity-teacher-brief}
 
-## En classe, cette activité sert à...
+La disponibilité varie-t-elle entre groupes de capacité de stations?
 
-Cette activité sert à travailler les notions suivantes : Données et mesure, Statistique descriptive, Visualisation, Communication à partir d'une question située dans le contexte suivant : Mobilité urbaine. Elle demande aux étudiantes et étudiants de répondre à la question directrice suivante : Que peut-on conclure, et ne pas conclure, à partir d'un instantané BIXI?
-
-::: {.activity-quick-facts}
-| Élément | Information |
-|---|---|
-| Durée | 2-3 heures |
-| Niveau | Intermédiaire |
-| Usage recommandé | Mini-projet guidé |
-| Préparation enseignant | Vérifier que `data/processed/bixi/stations_bixi_snapshot.csv` est disponible; aucune collecte en direct n'est nécessaire pour lancer l'activité. |
-| Production attendue | Un court rapport reproductible avec contexte, tableau ou graphique, interprétation et limites. |
-| Données | `data/processed/bixi/stations_bixi_snapshot.csv` |
-:::
-
-:::
-<!-- activity-teacher-brief:end -->
-
-## Objectifs d'apprentissage
-
-- Travailler Données et mesure.
-- Travailler Statistique descriptive.
-- Travailler Visualisation.
-- Travailler Communication.
-- Nommer au moins une limite d'interprétation.
-
-## Données utilisées
-
-Source : BIXI Montréal / Données Québec. Licence : Attribution (CC-BY 4.0) selon les métadonnées CKAN vérifiées le 2026-06-21. Fichier principal pour l'activité : `data/processed/bixi/stations_bixi_snapshot.csv`
+Durée : 2-3 heures. Niveau : Intermédiaire.
 
 ## Préparation enseignante
 
-- Vérifier que `data/processed/bixi/stations_bixi_snapshot.csv` est disponible; aucune collecte en direct n'est nécessaire pour lancer l'activité.
-- Fichier préparé : `data/processed/bixi/stations_bixi_snapshot.csv`.
-- Script de préparation : `datasets/bixi/preparation.R`.
-- Point à surveiller : Exiger une section séparant variables fixes, variables instantanées et conclusions impossibles sans données temporelles.
+Télécharger la trousse ci-dessous. Extraire le ZIP, puis double-cliquer sur `Donnees-bleues.Rproj`. Avant la séance, ouvrir `installer-packages.R` et cliquer sur Source avec une connexion Internet.
 
-## Consignes
+Une fois les packages installés, les scripts utilisent les fichiers inclus et peuvent être exécutés hors ligne.
 
-1. Importer `stations_bixi_snapshot.csv` ou exécuter `datasets/bixi/preparation.R` si le fichier est absent.
-2. Identifier ce que représente une ligne du fichier.
-3. Produire un tableau ou un graphique adapté à la question directrice.
-4. Rédiger une interprétation courte qui distingue description et explication.
-5. Nommer au moins une limite méthodologique ou une information absente.
-
-## Résultat attendu
-
-Un court rapport reproductible avec contexte, tableau ou graphique, interprétation et limites. La production doit aussi contenir une phrase sur l'unité statistique et une phrase sur une limite de la source.
-
-## Questions
-
-1. Quelle est l'unité statistique utilisée dans cette activité?
-2. Quelle transformation ou agrégation est nécessaire avant de répondre à la question?
-3. Quelle information manque pour aller plus loin?
-4. Quelle conclusion serait trop forte avec ces seules données?
-5. Comment formuler une conclusion prudente à partir du résultat obtenu?
-
-## Déroulé suggéré
-
-1. Cadrer la source, la licence et l'unité statistique.
-2. Préparer ou importer les données.
-3. Produire un premier résumé descriptif.
-4. Construire la visualisation ou le tableau principal.
-5. Rédiger l'interprétation et les limites.
-
-## Limites à faire nommer
-
-- Exiger une section séparant variables fixes, variables instantanées et conclusions impossibles sans données temporelles.
-- Si une variable ou un dénominateur nécessaire n'est pas disponible dans les données, l'écrire explicitement plutôt que l'inférer.
-
+```{r}
+#| label: activity-classroom-resources
+#| echo: false
+#| results: asis
+source(if (file.exists("R/utils_activity_contract.R")) "R/utils_activity_contract.R" else "../../R/utils_activity_contract.R")
+render_activity_resources()
+```
 
 ## Contexte
 
-Cette activité combine importation JSON, jointure, statistique descriptive, visualisation et cartographie responsable. Le rapport attendu doit montrer ce qu'un instantané BIXI permet de dire, mais aussi ce qu'il ne permet pas de conclure.
+Cette activité utilise la fiche [État des stations BIXI](fiche.qmd). Unité : Une station BIXI dans un instantané de disponibilité.
 
-## Question directrice
+Source : [BIXI Montréal / Données Québec](https://www.donneesquebec.ca/recherche/dataset/vmtl-bixi-etat-des-stations). Les dates de préparation, les fichiers et les conditions de réutilisation sont indiqués dans la trousse.
 
-Que peut-on conclure, et ne pas conclure, à partir d'un instantané des stations BIXI?
+## Consignes
 
-## Livrables
+1. Ouvrir `activite-longue.R` dans le sous-dossier `datasets/bixi` du projet RStudio et cliquer sur Source. Les tableaux apparaissent dans Console et les graphiques dans Plots.
+2. Comparer les médianes d’occupation et les proportions sans vélo par groupe et statut.
+3. Examiner les boîtes à moustaches et l’étendue des heures des rapports.
+4. Rédiger une réponse à la question en nommant l’unité observée et une limite de la source.
 
-1. Un script reproductible qui exécute `datasets/bixi/preparation.R`.
-2. Un tableau des variables fixes et des variables instantanées.
-3. Un résumé des stations par groupe de capacité.
-4. Un histogramme du taux d'occupation.
-5. Une carte des stations avec coordonnées valides.
-6. Une section limites sur le temps réel, la demande et les coordonnées.
+## Résultat attendu
 
-## Étapes suggérées
+Les tableaux et graphiques du script, accompagnés d’une interprétation de 6 à 8 lignes répondant à la question.
 
-1. Importer la table préparée.
-2. Vérifier le nombre de lignes, le TTL et l'heure de l'instantané.
-3. Calculer les proportions de stations presque vides et presque pleines.
-4. Comparer les groupes de capacité.
-5. Filtrer `coordonnees_valides == TRUE` avant la carte.
-6. Décrire séparément les vélos classiques et électriques.
-7. Rédiger une conclusion qui distingue disponibilité, demande et service.
+## Limites à faire nommer
 
-## Critères d'évaluation suggérés
+Un instantané ne mesure ni la demande, ni les trajets, ni le rééquilibrage. Le statut opérationnel peut expliquer une disponibilité nulle.
 
-| Critère | Attendu |
-|---|---|
-| Reproductibilité | Le rapport exécute le script de préparation et importe la table préparée. |
-| Jointure | Le rôle de `station_id` est expliqué. |
-| Indicateurs | Les ratios utilisent des dénominateurs valides. |
-| Visualisations | Les graphiques sont lisibles et répondent à une question précise. |
-| Carte | Les coordonnées invalides sont exclues avant la visualisation. |
-| Limites | L'instantané n'est pas interprété comme une mesure de demande. |
+## Code complet
 
-## Pistes de solution
+Ce script complet est celui de la trousse. Il lit les fichiers locaux et affiche les résultats dans RStudio.
 
-Un rapport solide commence par l'horodatage du flux. Il présente ensuite les indicateurs de disponibilité et leur dénominateur. La carte doit être utilisée comme visualisation descriptive de points, pas comme preuve d'équité territoriale. Pour parler de demande, il faudrait collecter plusieurs instantanés ou obtenir des données de trajets.
-
-## Variantes possibles
-
-- Collecter trois instantanés dans la journée et comparer les changements.
-- Comparer les stations avec et sans vélos électriques disponibles.
-- Ajouter une couche géographique de quartiers documentée séparément.
-- Construire une note méthodologique pour un tableau de bord opérationnel.
+```{r}
+#| label: activity-code
+#| echo: false
+#| results: asis
+render_activity_code()
+```
 
 ```{r}
 #| label: activity-pedagogical-contract
 #| echo: false
 #| results: asis
-contract_source_path <- if (file.exists("R/utils_activity_contract.R")) "R/utils_activity_contract.R" else "../../R/utils_activity_contract.R"
-source(contract_source_path)
 render_activity_contract()
 ```

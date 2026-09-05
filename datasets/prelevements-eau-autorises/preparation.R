@@ -1,3 +1,4 @@
+source("R/utils_downloads.R")
 # Préparation : Registre des prélèvements d'eau autorisés
 # Source officielle : Données Québec, paquet CKAN d9564fe0-6d50-4f89-b12e-47a461e1f68e.
 
@@ -11,7 +12,7 @@ processed_dir <- "data/processed/prelevements-eau-autorises"
 dir.create(raw_dir, recursive = TRUE, showWarnings = FALSE)
 dir.create(processed_dir, recursive = TRUE, showWarnings = FALSE)
 
-access_date <- "2026-06-21"
+access_date <- as.character(Sys.Date())
 source_page <- "https://www.donneesquebec.ca/recherche/dataset/prelevements-eau"
 package_api <- "https://www.donneesquebec.ca/recherche/api/3/action/package_show?id=prelevements-eau"
 csv_url <- "https://www.donneesquebec.ca/recherche/dataset/d9564fe0-6d50-4f89-b12e-47a461e1f68e/resource/5c090292-a681-4413-9399-f17bcdf62753/download/prelevement_autorise_20250915.csv"
@@ -21,9 +22,9 @@ package_json_path <- file.path(raw_dir, "package_show_prelevements_eau_autorises
 csv_raw_path <- file.path(raw_dir, "prelevement_autorise_20250915.csv")
 metadata_pdf_path <- file.path(raw_dir, "md_prelevementseauautorises.pdf")
 
-download.file(package_api, package_json_path, mode = "wb", quiet = TRUE)
-download.file(csv_url, csv_raw_path, mode = "wb", quiet = TRUE)
-download.file(metadata_pdf_url, metadata_pdf_path, mode = "wb", quiet = TRUE)
+download_source(package_api, package_json_path, mode = "wb", quiet = TRUE)
+download_source(csv_url, csv_raw_path, mode = "wb", quiet = TRUE)
+download_source(metadata_pdf_url, metadata_pdf_path, mode = "wb", quiet = TRUE)
 
 package <- fromJSON(package_json_path)
 if (!isTRUE(package$success)) {
@@ -76,6 +77,8 @@ missing_summary <- prelevements |>
   ) |>
   arrange(desc(n_missing), variable)
 
+# Les plafonds de plusieurs sites peuvent être soumis à une limite commune.
+# Ne pas calculer de volume total autorisé en sommant les lignes du registre.
 summary_by_provenance <- prelevements |>
   group_by(provenance_eau) |>
   summarise(
@@ -83,13 +86,11 @@ summary_by_provenance <- prelevements |>
     n_documents = n_distinct(no_doc),
     n_intervenants = n_distinct(nom_intervenant),
     n_volume_manquant = sum(is.na(volume_autorise_l_j)),
-    volume_total_l_j = sum(volume_autorise_l_j, na.rm = TRUE),
-    volume_total_m3_j = sum(volume_autorise_m3_j, na.rm = TRUE),
     volume_median_m3_j = median(volume_autorise_m3_j, na.rm = TRUE),
     volume_max_m3_j = max(volume_autorise_m3_j, na.rm = TRUE),
     .groups = "drop"
   ) |>
-  arrange(desc(volume_total_m3_j))
+  arrange(desc(n_sites))
 
 top_sites <- prelevements |>
   filter(!is.na(volume_autorise_l_j)) |>
@@ -100,6 +101,8 @@ top_sites <- prelevements |>
     site_id,
     nom_intervenant,
     provenance_eau,
+    nombre_sites_document,
+    precision_volume,
     volume_autorise_l_j,
     volume_autorise_m3_j,
     longitude,
@@ -111,11 +114,9 @@ top_intervenants <- prelevements |>
   summarise(
     n_sites = n(),
     n_documents = n_distinct(no_doc),
-    volume_total_l_j = sum(volume_autorise_l_j, na.rm = TRUE),
-    volume_total_m3_j = sum(volume_autorise_m3_j, na.rm = TRUE),
     .groups = "drop"
   ) |>
-  arrange(desc(volume_total_m3_j)) |>
+  arrange(desc(n_sites)) |>
   slice_head(n = 20)
 
 dataset_summary <- tibble::tibble(
@@ -135,8 +136,6 @@ dataset_summary <- tibble::tibble(
     "n_sites_with_coordinates",
     "n_missing_volume",
     "n_with_precision_volume",
-    "volume_total_l_j",
-    "volume_total_m3_j",
     "volume_median_l_j",
     "volume_max_l_j"
   ),
@@ -156,8 +155,6 @@ dataset_summary <- tibble::tibble(
     as.character(sum(prelevements$has_coordinates)),
     as.character(sum(is.na(prelevements$volume_autorise_l_j))),
     as.character(sum(prelevements$has_precision_volume)),
-    as.character(sum(prelevements$volume_autorise_l_j, na.rm = TRUE)),
-    as.character(sum(prelevements$volume_autorise_m3_j, na.rm = TRUE)),
     as.character(median(prelevements$volume_autorise_l_j, na.rm = TRUE)),
     as.character(max(prelevements$volume_autorise_l_j, na.rm = TRUE))
   )
@@ -217,3 +214,5 @@ message("API CKAN : ", package_api)
 message("Fichier préparé : ", file.path(processed_dir, "prelevements_eau_autorises.csv"))
 message("Sites préparés : ", nrow(prelevements))
 message("Ressources CKAN documentées : ", nrow(resources))
+
+record_preparation("prelevements-eau-autorises")

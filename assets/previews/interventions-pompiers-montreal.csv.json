@@ -1,0 +1,26 @@
+{
+  "dataset_id": "interventions-pompiers-montreal",
+  "prepared_at_utc": "2026-09-05T11:04:55Z",
+  "prepared_file": "interventions_pompiers_montreal.csv",
+  "prepared_sha256": "0bef88e330437b548ed5d0ff22ea51775acd28ce544b57c171fd439862eab370",
+  "preview_sha256": "361f374e17c7692859f4894ca5bfbc0c63f949c27d151656e944c41db2aed4b7",
+  "rows": 120,
+  "columns": ["creation_date_time", "incident_type", "description_groupe", "caserne", "nom_ville", "nom_arrond", "division", "nombre_unites"],
+  "selection": "Au plus 120 positions régulièrement espacées dans l'ordre de la table préparée; sélection déterministe non aléatoire",
+  "source_name": "Données ouvertes de la Ville de Montréal / Service de sécurité incendie de Montréal",
+  "source_url": "https://donnees.montreal.ca/fr/dataset/interventions-service-securite-incendie-montreal",
+  "license": "Attribution (CC-BY 4.0)",
+  "license_url": "https://creativecommons.org/licenses/by/4.0/deed.fr",
+  "sources": [
+    {
+      "source_url": "https://donnees.montreal.ca/dataset/2fc8a2b9-1556-410e-a118-c46e97e9f19e/resource/71e86320-e35c-4b4c-878a-e52124294355/download/donneesouvertes-interventions-sim.csv",
+      "acquisition_kind": "download",
+      "acquired_at_utc": "2026-09-05T11:04:53Z",
+      "started_at_utc": "2026-09-05T11:04:49Z",
+      "file": "donneesouvertes-interventions-sim.csv",
+      "bytes": 29624412,
+      "sha256": "8b44dadf9bfba46d69f627d1abe725d3e2a043d9c202903dc1c65da71dc5a2cd",
+      "details": {}
+    }
+  ]
+}

@@ -1,3 +1,4 @@
+source("R/utils_downloads.R")
 # Préparation : Pyramides des âges au Canada et au Québec
 # Source officielle : Statistique Canada, tableau 17-10-0005-01.
 
@@ -11,7 +12,7 @@ processed_dir <- "data/processed/pyramides-ages"
 dir.create(raw_dir, recursive = TRUE, showWarnings = FALSE)
 dir.create(processed_dir, recursive = TRUE, showWarnings = FALSE)
 
-access_date <- "2026-06-21"
+access_date <- as.character(Sys.Date())
 table_id <- "17-10-0005-01"
 source_page <- "https://www150.statcan.gc.ca/t1/tbl1/fr/tv.action?pid=1710000501"
 catalogue_page <- "https://www150.statcan.gc.ca/n1/fr/catalogue/1710000501"
@@ -33,8 +34,15 @@ age_groups_0_14 <- age_groups[1:3]
 age_groups_15_64 <- age_groups[4:13]
 age_groups_65_plus <- age_groups[14:21]
 
-population_raw <- get_cansim(table_id)
-write_csv(population_raw, raw_path)
+if (identical(Sys.getenv("DB_OFFLINE"), "true")) {
+  download_source(source_page, raw_path)
+  population_raw <- read_csv(raw_path, show_col_types = FALSE)
+} else {
+  population_raw <- get_cansim(table_id, refresh = TRUE)
+  write_csv(population_raw, raw_path)
+  record_source(raw_path, source_page, kind = "cansim_export",
+                details = list(package = "cansim", version = as.character(packageVersion("cansim")), table_id = table_id))
+}
 
 required_columns <- c("REF_DATE", "GEO", "Gender", "Age group", "VALUE", "UOM")
 missing_columns <- setdiff(required_columns, names(population_raw))
@@ -256,3 +264,5 @@ message("Fichier préparé : ", latest_path)
 message("Lignes brutes : ", nrow(population_raw))
 message("Lignes préparées 2025 : ", nrow(population_pyramides))
 message("Dernière année disponible : ", latest_year)
+
+record_preparation("pyramides-ages")

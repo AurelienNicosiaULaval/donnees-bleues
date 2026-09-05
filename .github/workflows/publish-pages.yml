@@ -1,9 +1,8 @@
-name: Validate Quarto site
+name: Validate and publish Données bleues
 
 on:
   push:
-    branches:
-      - main
+    branches: [main]
   pull_request:
   workflow_dispatch:
 
@@ -11,55 +10,77 @@ permissions:
   contents: read
 
 concurrency:
-  group: quarto-validation-${{ github.ref }}
+  group: donnees-bleues-${{ github.ref }}
   cancel-in-progress: true
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
+  validate:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 45
+    env:
+      RENV_CONFIG_AUTO_SNAPSHOT: 'FALSE'
+      RENV_CONFIG_PAK_ENABLED: 'FALSE'
     steps:
-      - name: Check out repository
-        uses: actions/checkout@v4
-
+      - name: Check out source
+        uses: actions/checkout@v6
       - name: Set up R
         uses: r-lib/actions/setup-r@v2
         with:
+          r-version: '4.5.0'
           use-public-rspm: true
-
+      - name: Install system libraries
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libcurl4-openssl-dev libssl-dev libxml2-dev libgdal-dev libgeos-dev libproj-dev libudunits2-dev libfontconfig1-dev libfreetype6-dev libharfbuzz-dev libfribidi-dev libpng-dev libtiff-dev libjpeg-dev libmagick++-dev
+      - name: Restore locked R packages
+        uses: r-lib/actions/setup-renv@v2
       - name: Set up Quarto
         uses: quarto-dev/quarto-actions/setup@v2
-
-      - name: Install R dependencies
-        uses: r-lib/actions/setup-r-dependencies@v2
         with:
-          install-quarto: false
-          packages: |
-            any::cansim
-            any::curl
-            any::dplyr
-            any::ggplot2
-            any::httr2
-            any::janitor
-            any::jsonlite
-            any::knitr
-            any::lubridate
-            any::purrr
-            any::readr
-            any::readxl
-            any::rmarkdown
-            any::scales
-            any::sf
-            any::stringr
-            any::tibble
-            any::tidyr
-            any::xml2
-            any::yaml
-            any::sessioninfo
-
-      - name: Validate datasets and render site
+          version: '1.9.38'
+      - name: Verify environment and publication rules
         run: |
-          rm -rf docs
+          Rscript -e 'stopifnot(as.character(getRversion()) == "4.5.0"); renv::status(); for (f in list.files("tests", pattern="[.]R$", full.names=TRUE)) source(f)'
+          Rscript scripts/check_published_files.R
+          Rscript scripts/check_environment.R
           Rscript scripts/check_datasets.R
           Rscript scripts/check_public_previews.R
+      - name: Test the distributed activities without downloads
+        run: Rscript scripts/check_classroom_kits.R
+      - name: Test activities that require source acquisition
+        run: |
+          Rscript datasets/cohortes-diplomation/preparation.R
+          Rscript datasets/emploi-regional-quebec/preparation.R
+          Rscript scripts/check_source_activities.R
+      - name: Render a new site and verify the exact artifact
+        run: |
+          rm -rf docs
           Rscript scripts/render_site.R
+          Rscript scripts/check_site.R
           touch docs/.nojekyll
+      - name: Upload validated site for review
+        uses: actions/upload-artifact@v4
+        with:
+          name: validated-site
+          path: docs
+          retention-days: 7
+      - name: Upload validated Pages artifact
+        if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: docs
+
+  deploy:
+    if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+    needs: validate
+    runs-on: ubuntu-24.04
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Publish the validated artifact
+        id: deployment
+        uses: actions/deploy-pages@v4
