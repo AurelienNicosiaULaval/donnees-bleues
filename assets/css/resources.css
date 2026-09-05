@@ -51,3 +51,28 @@
  .resource-search-embedded .resource-filters label {font-size:.85rem; min-width:0;}
  .resource-search-embedded .resource-filters select {min-width:0; padding:.5rem .2rem;}
 }
+
+.bixi-page {width:100%;}
+.bixi-hero {display:grid; grid-template-columns:1.2fr 1fr; gap:clamp(1.5rem,4vw,4rem); align-items:center; padding:clamp(1.5rem,3vw,3rem); margin:1.5rem 0; background:#edf5f8; border:1px solid #d0e0e7; border-radius:18px;}
+.bixi-hero h1 {font-family:var(--db-serif); font-size:clamp(2.4rem,4.5vw,4.6rem); line-height:1.05; margin:.6rem 0 1.2rem;}
+.bixi-hero-copy > p {font-size:1.12rem; line-height:1.6;}
+.bixi-actions > p,.home-hero-actions > p {display:flex; flex-wrap:wrap; gap:.65rem;}
+.bixi-author {border-top:1px solid #c6dce6; margin-top:1.5rem; padding-top:1rem; font-size:.93rem;}
+.bixi-author p {margin:.4rem 0;}
+.bixi-photo img {width:100%; border-radius:12px;}
+.bixi-photo {font-size:.75rem; color:#456271;}
+.bixi-facts,.bixi-learning-grid {display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:1.2rem; margin:1.5rem 0 2.5rem;}
+.bixi-facts > div,.bixi-learning-card,.bixi-detail-panel {padding:1.5rem; background:#fff; border:1px solid #d0e0e7; border-radius:14px;}
+.bixi-facts > div > p:first-child {font-size:.8rem; color:#456271; margin-bottom:.4rem;}
+.bixi-facts > div > p:last-child {font-size:1.1rem; margin-bottom:0;}
+.bixi-page h2 {font-family:var(--db-serif); margin-top:0;}
+.bixi-learning-card h3 {font-size:1.35rem; margin-top:0;}
+.bixi-learning-card p {margin-bottom:0;}
+.bixi-details-grid {display:grid; grid-template-columns:1fr 1fr; gap:1.2rem; margin-block:2rem;}
+.bixi-related {padding:2rem; background:#edf5f8; border-radius:14px; margin:2rem 0;}
+@media(max-width:900px) {.bixi-hero {grid-template-columns:1fr;} .bixi-learning-grid,.bixi-facts {grid-template-columns:1fr; gap:.75rem;}}
+@media(max-width:650px) {.bixi-details-grid {grid-template-columns:1fr;} .bixi-actions > p,.home-hero-actions > p {flex-direction:column; align-items:stretch;} .bixi-actions .dataset-button,.home-hero-actions .dataset-button {text-align:center;} .bixi-hero {padding:1.2rem;} .bixi-related {padding:1.2rem;}}
+.founder-photo img {border-radius:14px;}
+.home-hero-actions > p {display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); width:min(100%,600px);}
+.home-hero-actions .dataset-button {text-align:center;}
+@media(max-width:650px) {.home-hero-actions > p {grid-template-columns:1fr;}}

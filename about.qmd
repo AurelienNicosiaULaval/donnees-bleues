@@ -15,9 +15,9 @@ Un projet pour rapprocher l’enseignement de la statistique, de R et de la scie
 
 ::: {.founder-card}
 ::: {.founder-photo}
-![Aurélien Nicosia, créateur de Données bleues](assets/aurelien-nicosia-github.jpg){width=200 height=200 fig-alt="Portrait d’Aurélien Nicosia, créateur et développeur de Données bleues"}
+![Aurélien Nicosia, créateur de Données bleues](assets/aurelien-nicosia-linkedin.png){width=200 height=200 fig-alt="Portrait d’Aurélien Nicosia, créateur et développeur de Données bleues"}
 
-[Photo du profil GitHub](https://github.com/AurelienNicosiaULaval)
+[Photo du profil LinkedIn](https://www.linkedin.com/in/aur%C3%A9lien-nicosia-6a52487b/)
 :::
 ::: {.founder-bio}
 ## Aurélien Nicosia

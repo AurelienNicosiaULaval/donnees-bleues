@@ -230,6 +230,8 @@ Données bleues transforme des jeux de données publics vérifiés en fiches, ac
 ::: {.home-hero-actions}
 [Explorer les données](catalogue.qmd){.dataset-button}
 [Préparer une séance](activites.qmd#preparer-un-cours){.dataset-button .secondary}
+[Lectures et documents](lectures.qmd){.dataset-button .secondary}
+[Explorer les applications](applications.qmd){.dataset-button .secondary}
 :::
 
 :::

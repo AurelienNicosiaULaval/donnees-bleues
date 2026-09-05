@@ -9,7 +9,7 @@ Les vignettes des jeux de données sont des versions recadrées et recompressée
 
 | Carte | Image source | Auteur ou organisme | Licence |
 |---|---|---|---|
-| État des stations BIXI | [Bixi bike sharing Montreal.jpg](https://commons.wikimedia.org/wiki/File:Bixi_bike_sharing_Montreal.jpg) | JasonVogel | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) |
+| État des stations BIXI et tutoriel BIXI | [Bixi bike sharing Montreal.jpg](https://commons.wikimedia.org/wiki/File:Bixi_bike_sharing_Montreal.jpg) | JasonVogel | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) |
 | Bibliothèques publiques du Québec | [Grande bibliotheque du Quebec-main hall.jpg](https://commons.wikimedia.org/wiki/File:Grande_bibliotheque_du_Quebec-main_hall.jpg) | Montrealais | [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/) |
 | Stations de qualité de l'air | [Smog Montréal.jpg](https://commons.wikimedia.org/wiki/File:Smog_Montr%C3%A9al.jpg) | DubyDub2009 | [CC BY 2.0](https://creativecommons.org/licenses/by/2.0/) |
 | Suivi des rivières et du fleuve | [Le fleuve Saint-Laurent.jpg](https://commons.wikimedia.org/wiki/File:Le_fleuve_Saint-Laurent.jpg) | abdallahh | [CC BY 2.0](https://creativecommons.org/licenses/by/2.0/) |
@@ -36,4 +36,4 @@ Les vignettes des jeux de données sont des versions recadrées et recompressée
 
 ## Portrait du créateur
 
-Le portrait d’Aurélien Nicosia utilisé dans la page « À propos » provient de son [profil GitHub](https://github.com/AurelienNicosiaULaval), à sa demande. Image récupérée le 5 septembre 2026 depuis [l’avatar du profil](https://avatars.githubusercontent.com/u/116816597?v=4). Ce référencement ne constitue pas une attribution d’une licence ouverte distincte à la photographie.
+Le portrait d’Aurélien Nicosia utilisé dans la page « À propos » provient de son [profil LinkedIn](https://www.linkedin.com/in/aur%C3%A9lien-nicosia-6a52487b/), à sa demande. Image récupérée le 5 septembre 2026. Ce référencement ne constitue pas une attribution d’une licence ouverte distincte à la photographie.

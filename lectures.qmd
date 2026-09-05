@@ -9,14 +9,7 @@ embed-resources: true
 ::: {.resource-hero}
 # Lectures et documents
 
-Notes de cours, articles, guides et autres lectures pour apprendre et enseigner la science des données. Chaque notice indique les auteurs, les thèmes et les cours documentés.
-
-[Proposer une ressource](contribuer.qmd)
+Aucun document publié pour le moment. Cette rubrique accueillera une nouvelle sélection de lectures.
 :::
 
-```{r}
-#| echo: false
-#| results: asis
-source("R/utils_resources.R")
-render_resource_cards("document")
-```
+[Proposer une lecture](contribuer.qmd){.dataset-button .secondary}

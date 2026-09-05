@@ -1,14 +1,109 @@
 ---
 title: "Tutoriel BIXI"
 toc: false
+body-classes: hub-page
+page-layout: full
 embed-resources: true
 ---
 
-# Tutoriel BIXI
+::: {.bixi-page}
+[Applications](../applications.qmd) / Tutoriel BIXI
 
-```{r}
-#| echo: false
-#| results: asis
-source("../R/utils_resources.R")
-render_resource_detail("tutoriel-bixi")
-```
+::: {.bixi-hero}
+::: {.bixi-hero-copy}
+::: {.resource-kind}
+MONTRÉAL · MOBILITÉ URBAINE · R
+:::
+
+# Explorer les trajets BIXI
+
+Un tutoriel interactif pour étudier les déplacements à vélo à Montréal, leurs variations dans le temps et leurs liens avec la météo.
+
+::: {.bixi-actions}
+[Ouvrir le tutoriel BIXI](https://aureliennicosia.shinyapps.io/TutorielBixi/){.dataset-button}
+[Consulter le code source](https://github.com/AurelienNicosiaULaval/Modele_etude_de_cas/blob/main/Exemples/Bixi/bixi.Rmd){.dataset-button .secondary}
+:::
+
+::: {.bixi-author}
+Créé par [Aurélien Nicosia](../about.qmd#aurélien-nicosia) · Université Laval
+
+Utilisé dans STT-4230 et STT-6230, Programmation pour la science des données.
+:::
+:::
+
+::: {.bixi-photo}
+![Une station BIXI à Montréal](../assets/cards/bixi.webp){fig-alt="Vélos BIXI alignés à une station dans une rue de Montréal"}
+
+Photo : [JasonVogel](https://commons.wikimedia.org/wiki/File:Bixi_bike_sharing_Montreal.jpg), [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/). Image recadrée.
+:::
+:::
+
+::: {.bixi-facts}
+::: {}
+Format
+
+Tutoriel learnr / Shiny
+:::
+::: {}
+Données étudiées
+
+Trajets de 2018, échantillonnés
+:::
+::: {}
+Sources croisées
+
+BIXI et météo de Montréal
+:::
+:::
+
+## Un parcours d’exploration en R
+
+Le tutoriel alterne explications, questions et exercices de code. Il accompagne l’importation, la manipulation et la visualisation des données avant de proposer des analyses et un devoir de prolongement.
+
+::: {.bixi-learning-grid}
+::: {.bixi-learning-card}
+### Importer et relier
+
+Lire les données de déplacements, comprendre les variables et relier les trajets aux stations et aux observations météorologiques.
+:::
+::: {.bixi-learning-card}
+### Explorer les rythmes
+
+Comparer les déplacements selon les heures, les jours et le statut d’abonnement ; repérer les périodes et les stations les plus utilisées.
+:::
+::: {.bixi-learning-card}
+### Visualiser et interpréter
+
+Construire des graphiques, explorer le lien entre fréquentation et température, puis représenter la répartition spatiale des déplacements.
+:::
+:::
+
+::: {.bixi-details-grid}
+::: {.bixi-detail-panel}
+## Dans les cours STT-4230 et STT-6230
+
+Aurélien Nicosia utilise ce tutoriel dans le cours Programmation pour la science des données à l’Université Laval.
+
+Les objectifs du tutoriel portent sur la prise en main de R, l’exploration et la manipulation des données, les jointures, l’analyse descriptive et la réalisation de graphiques.
+
+[Commencer le tutoriel](https://aureliennicosia.shinyapps.io/TutorielBixi/){.dataset-button}
+:::
+::: {.bixi-detail-panel}
+## Données et réutilisation
+
+La version décrite dans le code source utilise un échantillon des trajets BIXI de 2018, croisé avec des données météorologiques de Montréal. Il s’agit d’une étude historique, pas d’un suivi en temps réel.
+
+Le code permet d’examiner les traitements et les exercices. Consulter les conditions du dépôt et des sources avant de redistribuer le matériel.
+
+[Code et description des données](https://github.com/AurelienNicosiaULaval/Modele_etude_de_cas/blob/main/Exemples/Bixi/bixi.Rmd)
+:::
+:::
+
+::: {.bixi-related}
+## Une autre porte d’entrée sur BIXI
+
+La fiche de données du site porte sur un instantané de l’état des stations. Elle complète ce tutoriel sur les trajets, avec une unité statistique différente et ses propres activités pédagogiques.
+
+[Explorer la fiche de données BIXI](../datasets/bixi/fiche.qmd){.dataset-button .secondary}
+:::
+:::
