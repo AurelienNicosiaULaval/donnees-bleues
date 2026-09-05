@@ -1,134 +1,64 @@
 ---
-title: "Mini-projet - Rapport descriptif et éthique sur les actes criminels"
-embed-resources: false
+title: "Rapport descriptif et éthique sur les actes criminels"
+embed-resources: true
 ---
 
+# Rapport descriptif et éthique sur les actes criminels
 
-# Mini-projet - Rapport descriptif et éthique sur les actes criminels
 
-<!-- activity-teacher-brief:start -->
-::: {.activity-teacher-brief}
+Comment les actes enregistrés se répartissent-ils selon l’année et la catégorie?
 
-## En classe, cette activité sert à...
-
-Cette activité sert à travailler les notions suivantes : Éthique, Séries temporelles, Agrégation, Communication des limites à partir d'une question située dans le contexte suivant : Sécurité publique. Elle demande aux étudiantes et étudiants de répondre à la question directrice suivante : Comment construire un rapport descriptif responsable avec des données policières ouvertes?
-
-::: {.activity-quick-facts}
-| Élément | Information |
-|---|---|
-| Durée | 2-3 heures |
-| Niveau | Avancé |
-| Usage recommandé | Mini-projet guidé |
-| Préparation enseignant | Préparation requise : exécuter `Rscript datasets/actes-criminels-montreal/preparation.R` depuis la racine, puis vérifier que `data/processed/actes-criminels-montreal/actes_criminels_montreal.csv` existe. |
-| Production attendue | Un court rapport reproductible avec contexte, tableau ou graphique, interprétation et limites. |
-| Données | `data/processed/actes-criminels-montreal/actes_criminels_montreal.csv` |
-:::
-
-:::
-<!-- activity-teacher-brief:end -->
-
-## Objectifs d'apprentissage
-
-- Travailler Éthique.
-- Travailler Séries temporelles.
-- Travailler Agrégation.
-- Travailler Communication des limites.
-- Nommer au moins une limite d'interprétation.
-
-## Données utilisées
-
-Source : Données Québec / Ville de Montréal / SPVM. Licence : Attribution (CC-BY 4.0) selon les métadonnées CKAN vérifiées le 2026-06-21. Fichier principal pour l'activité : `data/processed/actes-criminels-montreal/actes_criminels_montreal.csv`
+Durée : 2-3 heures. Niveau : Avancé.
 
 ## Préparation enseignante
 
-- Préparation requise : exécuter `Rscript datasets/actes-criminels-montreal/preparation.R` depuis la racine, puis vérifier que `data/processed/actes-criminels-montreal/actes_criminels_montreal.csv` existe.
-- Fichier préparé : `data/processed/actes-criminels-montreal/actes_criminels_montreal.csv`.
-- Script de préparation : `datasets/actes-criminels-montreal/preparation.R`.
-- Point à surveiller : Exiger une section limites et interdire les conclusions sur les personnes ou communautés.
+Télécharger la trousse ci-dessous. Extraire le ZIP, puis double-cliquer sur `Donnees-bleues.Rproj`. Avant la séance, ouvrir `installer-packages.R` et cliquer sur Source avec une connexion Internet.
 
-## Consignes
-
-1. Importer `actes_criminels_montreal.csv` ou exécuter `datasets/actes-criminels-montreal/preparation.R` si le fichier est absent.
-2. Identifier ce que représente une ligne du fichier.
-3. Produire un tableau ou un graphique adapté à la question directrice.
-4. Rédiger une interprétation courte qui distingue description et explication.
-5. Nommer au moins une limite méthodologique ou une information absente.
-
-## Appui R minimal
+Une fois les packages installés, les scripts utilisent les fichiers inclus et peuvent être exécutés hors ligne.
 
 ```{r}
-#| eval: false
-library(dplyr)
-library(readr)
-
-if (!file.exists("data/processed/actes-criminels-montreal/actes_criminels_montreal.csv")) {
-  source("datasets/actes-criminels-montreal/preparation.R")
-}
-
-donnees <- read_csv(
-  "data/processed/actes-criminels-montreal/actes_criminels_montreal.csv",
-  show_col_types = FALSE
-)
-
-glimpse(donnees)
+#| label: activity-classroom-resources
+#| echo: false
+#| results: asis
+source(if (file.exists("R/utils_activity_contract.R")) "R/utils_activity_contract.R" else "../../R/utils_activity_contract.R")
+render_activity_resources()
 ```
-
-## Résultat attendu
-
-Un court rapport reproductible avec contexte, tableau ou graphique, interprétation et limites. La production doit aussi contenir une phrase sur l'unité statistique et une phrase sur une limite de la source.
-
-## Questions
-
-1. Quelle est l'unité statistique utilisée dans cette activité?
-2. Quelle transformation ou agrégation est nécessaire avant de répondre à la question?
-3. Quelle information manque pour aller plus loin?
-4. Quelle conclusion serait trop forte avec ces seules données?
-5. Comment formuler une conclusion prudente à partir du résultat obtenu?
-
-## Déroulé suggéré
-
-1. Cadrer la source, la licence et l'unité statistique.
-2. Préparer ou importer les données.
-3. Produire un premier résumé descriptif.
-4. Construire la visualisation ou le tableau principal.
-5. Rédiger l'interprétation et les limites.
-
-## Limites à faire nommer
-
-- Exiger une section limites et interdire les conclusions sur les personnes ou communautés.
-- Si une variable ou un dénominateur nécessaire n'est pas disponible dans les données, l'écrire explicitement plutôt que l'inférer.
-
 
 ## Contexte
 
-Cette activité combine préparation de données, agrégation temporelle et responsabilité analytique. Le produit attendu est un rapport descriptif prudent, pas un classement de quartiers ni une analyse causale.
+Cette activité utilise la fiche [Actes criminels enregistrés à Montréal](fiche.qmd). Unité : Un acte enregistré, catégorisé et daté.
 
-## Question directrice
+Source : [Données Québec / Ville de Montréal / SPVM](https://www.donneesquebec.ca/recherche/dataset/vmtl-actes-criminels). Les dates de préparation, les fichiers et les conditions de réutilisation sont indiqués dans la trousse.
 
-Comment construire un rapport descriptif responsable avec des données policières ouvertes?
+## Consignes
 
-## Livrables
+1. Ouvrir `activite-longue.R` dans le sous-dossier `datasets/actes-criminels-montreal` du projet RStudio et cliquer sur Source. Les tableaux apparaissent dans Console et les graphiques dans Plots.
+2. Comparer les nombres annuels par catégorie.
+3. Examiner les décomptes selon le quart de journée et signaler la période finale incomplète.
+4. Rédiger une réponse à la question en nommant l’unité observée et une limite de la source.
 
-1. Un script reproductible qui exécute `preparation.R`.
-2. Un dictionnaire court des variables utilisées.
-3. Une table par mois et catégorie.
-4. Une visualisation temporelle agrégée.
-5. Une section explicite sur la provenance, la licence et la mise en garde officielle.
-6. Une section éthique qui nomme les conclusions interdites ou non justifiées.
+## Résultat attendu
 
-## Critères d'évaluation suggérés
+Les tableaux et graphiques du script, accompagnés d’une interprétation de 6 à 8 lignes répondant à la question.
 
-- Exactitude de l'unité statistique.
-- Respect de la mise en garde officielle.
-- Traitement correct des années partielles.
-- Visualisation non stigmatisante.
-- Qualité de la section limites.
+## Limites à faire nommer
+
+La déclaration et l’enregistrement ne couvrent pas tous les crimes. Sans population exposée, les nombres ne sont pas des risques; la dernière année peut être incomplète.
+
+## Code complet
+
+Ce script complet est celui de la trousse. Il lit les fichiers locaux et affiche les résultats dans RStudio.
+
+```{r}
+#| label: activity-code
+#| echo: false
+#| results: asis
+render_activity_code()
+```
 
 ```{r}
 #| label: activity-pedagogical-contract
 #| echo: false
 #| results: asis
-contract_source_path <- if (file.exists("R/utils_activity_contract.R")) "R/utils_activity_contract.R" else "../../R/utils_activity_contract.R"
-source(contract_source_path)
 render_activity_contract()
 ```

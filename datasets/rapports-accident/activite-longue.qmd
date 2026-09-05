@@ -1,139 +1,64 @@
 ---
 title: "Mini-projet - Modéliser prudemment la gravité des accidents"
-embed-resources: false
+embed-resources: true
 ---
-
 
 # Mini-projet - Modéliser prudemment la gravité des accidents
 
-<!-- activity-teacher-brief:start -->
-::: {.activity-teacher-brief}
 
-## En classe, cette activité sert à...
+Comment la composition des accidents diffère-t-elle entre régions?
 
-Cette activité sert à travailler les notions suivantes : Nettoyage, Modélisation, Validation, Communication prudente à partir d'une question située dans le contexte suivant : Transport et sécurité routière. Elle demande aux étudiantes et étudiants de répondre à la question directrice suivante : Quels facteurs sont associés à la gravité des accidents, sans conclure trop vite à la causalité?
-
-::: {.activity-quick-facts}
-| Élément | Information |
-|---|---|
-| Durée | 2-3 heures |
-| Niveau | Intermédiaire |
-| Usage recommandé | Mini-projet guidé |
-| Préparation enseignant | Préparation requise : exécuter `Rscript datasets/rapports-accident/preparation.R` depuis la racine, puis vérifier que `data/processed/rapports-accident/rapports_accident_2022_prepares.csv` existe. |
-| Production attendue | Un court rapport reproductible avec contexte, tableau ou graphique, interprétation et limites. |
-| Données | `data/processed/rapports-accident/rapports_accident_2022_prepares.csv` |
-:::
-
-:::
-<!-- activity-teacher-brief:end -->
-
-## Objectifs d'apprentissage
-
-- Travailler Nettoyage.
-- Travailler Modélisation.
-- Travailler Validation.
-- Travailler Communication prudente.
-- Nommer au moins une limite d'interprétation.
-
-## Données utilisées
-
-Source : Données Québec / Société de l'assurance automobile du Québec. Licence : Attribution (CC-BY 4.0) selon les métadonnées CKAN vérifiées le 2026-06-21. Fichier principal pour l'activité : `data/processed/rapports-accident/rapports_accident_2022_prepares.csv`
+Durée : 2-3 heures. Niveau : Intermédiaire.
 
 ## Préparation enseignante
 
-- Préparation requise : exécuter `Rscript datasets/rapports-accident/preparation.R` depuis la racine, puis vérifier que `data/processed/rapports-accident/rapports_accident_2022_prepares.csv` existe.
-- Fichier préparé : `data/processed/rapports-accident/rapports_accident_2022_prepares.csv`.
-- Script de préparation : `datasets/rapports-accident/preparation.R`.
-- Point à surveiller : Exiger une section sur les dénominateurs d'exposition manquants et interdire les conclusions du type région plus dangereuse.
+Télécharger la trousse ci-dessous. Extraire le ZIP, puis double-cliquer sur `Donnees-bleues.Rproj`. Avant la séance, ouvrir `installer-packages.R` et cliquer sur Source avec une connexion Internet.
 
-## Consignes
+Une fois les packages installés, les scripts utilisent les fichiers inclus et peuvent être exécutés hors ligne.
 
-1. Importer `rapports_accident_2022_prepares.csv` ou exécuter `datasets/rapports-accident/preparation.R` si le fichier est absent.
-2. Identifier ce que représente une ligne du fichier.
-3. Produire un tableau ou un graphique adapté à la question directrice.
-4. Rédiger une interprétation courte qui distingue description et explication.
-5. Nommer au moins une limite méthodologique ou une information absente.
-
-## Résultat attendu
-
-Un court rapport reproductible avec contexte, tableau ou graphique, interprétation et limites. La production doit aussi contenir une phrase sur l'unité statistique et une phrase sur une limite de la source.
-
-## Questions
-
-1. Quelle est l'unité statistique utilisée dans cette activité?
-2. Quelle transformation ou agrégation est nécessaire avant de répondre à la question?
-3. Quelle information manque pour aller plus loin?
-4. Quelle conclusion serait trop forte avec ces seules données?
-5. Comment formuler une conclusion prudente à partir du résultat obtenu?
-
-## Déroulé suggéré
-
-1. Cadrer la source, la licence et l'unité statistique.
-2. Préparer ou importer les données.
-3. Produire un premier résumé descriptif.
-4. Construire la visualisation ou le tableau principal.
-5. Rédiger l'interprétation et les limites.
-
-## Limites à faire nommer
-
-- Exiger une section sur les dénominateurs d'exposition manquants et interdire les conclusions du type région plus dangereuse.
-- Si une variable ou un dénominateur nécessaire n'est pas disponible dans les données, l'écrire explicitement plutôt que l'inférer.
-
+```{r}
+#| label: activity-classroom-resources
+#| echo: false
+#| results: asis
+source(if (file.exists("R/utils_activity_contract.R")) "R/utils_activity_contract.R" else "../../R/utils_activity_contract.R")
+render_activity_resources()
+```
 
 ## Contexte
 
-Cette activité combine recodage, statistique descriptive, visualisation et modélisation exploratoire. Le rapport attendu doit distinguer clairement association statistique, fréquence de rapports et risque routier.
+Cette activité utilise la fiche [Rapports d'accident](fiche.qmd). Unité : Un accident routier déclaré dans les données 2022 préparées.
 
-## Question directrice
+Source : [Données Québec / Société de l'assurance automobile du Québec](https://www.donneesquebec.ca/recherche/dataset/rapports-d-accident). Les dates de préparation, les fichiers et les conditions de réutilisation sont indiqués dans la trousse.
 
-Quels facteurs sont associés à la gravité des accidents dans le fichier 2022, sans conclure trop vite à la causalité?
+## Consignes
 
-## Livrables
+1. Ouvrir `activite-longue.R` dans le sous-dossier `datasets/rapports-accident` du projet RStudio et cliquer sur Source. Les tableaux apparaissent dans Console et les graphiques dans Plots.
+2. Calculer les proportions de gravité à l’intérieur de chaque région.
+3. Comparer les barres à 100 % sans les interpréter comme un classement des risques routiers.
+4. Rédiger une réponse à la question en nommant l’unité observée et une limite de la source.
 
-1. Un script reproductible qui exécute `datasets/rapports-accident/preparation.R`.
-2. Un tableau de variables indiquant leur rôle statistique.
-3. Un résumé descriptif par gravité, mois, météo et région.
-4. Deux visualisations, dont au moins une proportion.
-5. Un modèle exploratoire pour `accident_avec_victime` ou `accident_mortel_ou_grave`.
-6. Une section limites sur les codes, les valeurs manquantes, l'exposition et la causalité.
+## Résultat attendu
 
-## Étapes suggérées
+Les tableaux et graphiques du script, accompagnés d’une interprétation de 6 à 8 lignes répondant à la question.
 
-1. Importer la table préparée.
-2. Vérifier les valeurs manquantes des variables explicatives retenues.
-3. Exclure ou regrouper les catégories rares avec justification.
-4. Construire un tableau descriptif avant le modèle.
-5. Ajuster un modèle simple, par exemple une régression logistique.
-6. Présenter les résultats comme des associations.
-7. Rédiger une conclusion qui nomme les données manquantes pour parler de risque.
+## Limites à faire nommer
 
-## Critères d'évaluation suggérés
+Sans dénominateur de trafic, les décomptes ne sont pas des risques. Les proportions portent sur les accidents enregistrés dans chaque groupe.
 
-| Critère | Attendu |
-|---|---|
-| Reproductibilité | Le rapport exécute le script de préparation et importe la table préparée. |
-| Recodage | Les codes de victimes, véhicules, météo et surface sont interprétés avec la documentation. |
-| Description | Les distributions sont présentées avant la modélisation. |
-| Modèle | La variable réponse est définie explicitement. |
-| Interprétation | Les coefficients ne sont pas présentés comme des effets causaux. |
-| Limites | L'absence de dénominateur d'exposition est clairement expliquée. |
+## Code complet
 
-## Pistes de solution
+Ce script complet est celui de la trousse. Il lit les fichiers locaux et affiche les résultats dans RStudio.
 
-Un rapport solide peut modéliser `accident_avec_victime` avec `mois`, `meteo`, `surface`, `eclairement` et `type_jour`, mais il doit filtrer ou documenter les valeurs manquantes. Les résultats doivent être lus comme des associations dans les rapports d'accident 2022, pas comme une mesure du danger réel des conditions météo ou des régions.
-
-## Variantes possibles
-
-- Limiter l'analyse aux accidents avec victime.
-- Étudier séparément les accidents impliquant un vélo.
-- Comparer deux régions en gardant une section sur les dénominateurs manquants.
-- Ajouter des données de population ou de circulation pour transformer la question.
+```{r}
+#| label: activity-code
+#| echo: false
+#| results: asis
+render_activity_code()
+```
 
 ```{r}
 #| label: activity-pedagogical-contract
 #| echo: false
 #| results: asis
-contract_source_path <- if (file.exists("R/utils_activity_contract.R")) "R/utils_activity_contract.R" else "../../R/utils_activity_contract.R"
-source(contract_source_path)
 render_activity_contract()
 ```

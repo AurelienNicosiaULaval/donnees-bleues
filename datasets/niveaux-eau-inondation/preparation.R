@@ -1,3 +1,4 @@
+source("R/utils_downloads.R")
 # Préparation : Niveaux d'eau lors d'une inondation
 # Source officielle : Données Québec, paquet CKAN 1935bceb-4045-436e-9c1b-3997b55752a8.
 
@@ -13,7 +14,7 @@ processed_dir <- "data/processed/niveaux-eau-inondation"
 dir.create(raw_dir, recursive = TRUE, showWarnings = FALSE)
 dir.create(processed_dir, recursive = TRUE, showWarnings = FALSE)
 
-access_date <- "2026-06-21"
+access_date <- as.character(Sys.Date())
 source_page <- "https://www.donneesquebec.ca/recherche/dataset/niveaux-deau-inondation-msp"
 package_api <- "https://www.donneesquebec.ca/recherche/api/3/action/package_show?id=niveaux-deau-inondation-msp"
 csv_url <- "https://geoegl.msp.gouv.qc.ca/apis/wss/historiquesc.fcgi?service=wfs&version=1.1.0&request=getfeature&typename=MSP_DELAISS_CRUE_PUBLIC_P&outputformat=csv"
@@ -21,8 +22,8 @@ csv_url <- "https://geoegl.msp.gouv.qc.ca/apis/wss/historiquesc.fcgi?service=wfs
 package_json_path <- file.path(raw_dir, "package_show_niveaux_eau_inondation.json")
 csv_raw_path <- file.path(raw_dir, "niveaux_eau_inondation.csv")
 
-download.file(package_api, package_json_path, mode = "wb", quiet = TRUE)
-download.file(csv_url, csv_raw_path, mode = "wb", quiet = TRUE)
+download_source(package_api, package_json_path, mode = "wb", quiet = TRUE)
+download_source(csv_url, csv_raw_path, mode = "wb", quiet = TRUE)
 
 package <- fromJSON(package_json_path)
 if (!isTRUE(package$success)) {
@@ -220,3 +221,5 @@ message("API CKAN : ", package_api)
 message("Fichier préparé : ", file.path(processed_dir, "niveaux_eau_inondation.csv"))
 message("Observations préparées : ", nrow(niveaux_eau))
 message("Ressources CKAN documentées : ", nrow(resources))
+
+record_preparation("niveaux-eau-inondation")

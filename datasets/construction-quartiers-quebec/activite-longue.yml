@@ -1,12 +1,14 @@
 id: construction-quartiers-quebec-forme-batie-long
 title: Portrait des permis et de la forme bâtie par quartier
-question: Comment relier activité administrative de construction et forme bâtie sans
-  surinterpréter les données?
+question: Quel lien descriptif observe-t-on entre densité bâtie et densité de permis?
 dataset_id: construction-quartiers-quebec
 dataset_title: Construction, bâtiments et quartiers à la Ville de Québec
 activity_url: datasets/construction-quartiers-quebec/activite-longue.qmd
 duration: 2-3 heures
 level: Intermédiaire à avancé
+level_ids:
+- intermediaire
+- avance
 activity_type:
 - Étude de cas
 - Projet ou tâche longue
@@ -16,49 +18,46 @@ concepts:
 - Agrégation
 - Visualisation
 - Communication
+concept_ids:
+- jointure-spatiale
+- agregation
+- visualisation
+- communication
 context: Aménagement du territoire
-hook: Ville, permis et quartiers
+hook: Les permis couvrent la période indiquée dans la table. La superficie du quartier, le parc bâti et l’activité
+  de permis ne mesurent pas la même chose.
 materials:
-- énoncé
-- code
-- données ouvertes
-- notes enseignantes
-advanced_math_stats: no
-teacher_notes: Exiger une section limites et faire distinguer les permis délivrés,
-  les travaux réels et la forme bâtie mesurée par empreinte au sol.
-status: prêt
+- Trousse ZIP et projet RStudio
+- Script R complet
+- CSV préparés et provenance
+advanced_math_stats: false
+teacher_notes: Les permis couvrent la période indiquée dans la table. La superficie du quartier, le parc bâti
+  et l’activité de permis ne mesurent pas la même chose.
+status: Documentation de source et ressources de classe fournies
 pedagogical_status: pret_a_enseigner
-teacher_preparation: Vérifier que `data/processed/construction-quartiers-quebec/quebec_construction_quartiers.csv`
-  est disponible; aucune collecte en direct n'est nécessaire pour lancer l'activité.
-expected_output: Un court rapport reproductible avec contexte, tableau ou graphique,
-  interprétation et limites.
-requires_prepared_data: yes
-requires_live_download: no
+teacher_preparation: Extraire la trousse, ouvrir le projet RStudio, installer les packages avant la séance
+  et lancer le script.
+expected_output: Les tableaux et graphiques du script, accompagnés d’une interprétation de 6 à 8 lignes répondant
+  à la question.
+requires_prepared_data: true
+requires_live_download: false
 recommended_use: Mini-projet guidé
-result_visible_in_page: yes
-
+result_visible_in_page: false
 learning_objectives:
-  - "Comprendre une jointure spatiale entre points, polygones de bâtiments et quartiers."
-  - "Comparer des quartiers avec des comptes, densités et ratios."
-  - "Visualiser plusieurs indicateurs descriptifs."
-  - "Identifier les informations absentes des sources."
-  - "Rédiger une interprétation prudente de données administratives."
-  - "`data/processed/construction-quartiers-quebec/documentation_sources.csv`;"
-  - "`data/processed/construction-quartiers-quebec/dictionnaire_variables.csv`;"
-  - "`data/processed/construction-quartiers-quebec/appariement_quartiers_resume.csv`."
-  - "Le rapport cite les trois sources officielles."
-  - "Les graphiques distinguent clairement comptes, densités et ratios."
-  - "Les variables dérivées sont définies."
-  - "Les limites sont explicites."
-  - "Aucune variable absente des sources n'est inventée."
-
+- Comparer nombres de permis, densités et parts de superficie bâtie.
+- Interpréter le nuage bâtiments par km² contre permis par km² sans causalité.
+- Formuler une limite qui découle de la source et de l’unité observée.
 prerequisites:
-  - "Vérifier le fichier ou le script de préparation annoncé avant la séance; adapter la mise en route au niveau indiqué."
-
+- Savoir ouvrir un projet RStudio et exécuter un script R.
+- Savoir lire un tableau groupé et un graphique descriptif; repérer les valeurs manquantes.
 success_criteria:
-  - "La production attendue est remise : Un court rapport reproductible avec contexte, tableau ou graphique, interprétation et limites."
-  - "Les résultats sont interprétés sans dépasser les limites de la source."
-
+- L’unité, la période ou la portée documentaire et les variables utilisées sont nommées.
+- Comparer nombres de permis, densités et parts de superficie bâtie.
+- Interpréter le nuage bâtiments par km² contre permis par km² sans causalité.
+- La conclusion répond à la question et explique au moins une limite précise.
 adaptations:
-  - "Fournir une table préparée ou réduire le nombre de variables pour une première utilisation."
-  - "Ajouter une comparaison, une justification méthodologique ou une discussion des limites pour approfondir."
+- Débuter avec le script exécuté par la personne enseignante, puis faire interpréter une seule sortie.
+- Pour approfondir, modifier une sélection ou un regroupement et justifier ce que cela change.
+script_file: datasets/construction-quartiers-quebec/activite-longue.R
+classroom_archive: assets/classroom/construction-quartiers-quebec.zip
+access_mode: frozen

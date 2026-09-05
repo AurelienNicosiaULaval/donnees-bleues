@@ -1,12 +1,13 @@
 id: transport-collectif-gtfs-court
 title: Cartographier les arrêts du RTC
-question: Que peut-on conclure, et que ne peut-on pas conclure, à partir d'une carte
-  des arrêts du RTC?
+question: Comment l’accessibilité des arrêts est-elle documentée?
 dataset_id: transport-collectif-gtfs
 dataset_title: Horaires, arrêts et parcours GTFS du RTC
 activity_url: datasets/transport-collectif-gtfs/activite-courte.qmd
 duration: 45-60 minutes
 level: Intermédiaire
+level_ids:
+- intermediaire
 activity_type:
 - Laboratoire
 - Exploration de données
@@ -15,41 +16,46 @@ concepts:
 - Données spatiales
 - Unité statistique
 - Valeurs codées
+concept_ids:
+- gtfs
+- donnees-spatiales
+- unite-statistique
+- valeurs-codees
 context: Mobilité et transport collectif
-hook: Une carte d'arrêts ne mesure pas l'achalandage
+hook: Le codage manquant de l’accessibilité n’est pas une déclaration d’inaccessibilité. L’offre planifiée
+  ne renseigne ni retards ni fréquentation.
 materials:
-- fiche
-- code
-- table préparée
-advanced_math_stats: no
-teacher_notes: Faire expliciter que le code d'accessibilité 0 signifie information
-  non disponible dans GTFS.
-status: source officielle vérifiée
+- Trousse ZIP et projet RStudio
+- Script R complet
+- CSV préparés et provenance
+advanced_math_stats: false
+teacher_notes: Le codage manquant de l’accessibilité n’est pas une déclaration d’inaccessibilité. L’offre planifiée
+  ne renseigne ni retards ni fréquentation.
+status: Documentation de source et ressources de classe fournies
 pedagogical_status: pret_a_enseigner
-teacher_preparation: 'Préparation requise : exécuter `Rscript datasets/transport-collectif-gtfs/preparation.R`
-  depuis la racine, puis vérifier que `data/processed/transport-collectif-gtfs/arrets_gtfs_rtc.csv`
-  existe.'
-expected_output: Une carte ou un graphique descriptif accompagné d'une phrase sur
-  l'unité statistique et les limites.
-requires_prepared_data: yes
-requires_live_download: yes
+teacher_preparation: Extraire la trousse, ouvrir le projet RStudio, installer les packages avant la séance
+  et lancer le script.
+expected_output: Les tableaux et graphiques du script, accompagnés d’une interprétation de 6 à 8 lignes répondant
+  à la question.
+requires_prepared_data: true
+requires_live_download: false
 recommended_use: Laboratoire guidé
-result_visible_in_page: yes
-
+result_visible_in_page: false
 learning_objectives:
-  - "Importer une table préparée à partir d'un ZIP officiel."
-  - "Identifier l'unité statistique d'une table GTFS."
-  - "Produire une carte simple des arrêts."
-  - "Lire correctement les codes d'accessibilité."
-  - "Rédiger une conclusion descriptive prudente."
-
+- Compter les arrêts selon le libellé du codage GTFS.
+- Comparer identifiants uniques et nombre d’informations absentes.
+- Formuler une limite qui découle de la source et de l’unité observée.
 prerequisites:
-  - "Vérifier le fichier ou le script de préparation annoncé avant la séance; adapter la mise en route au niveau indiqué."
-
+- Savoir ouvrir un projet RStudio et exécuter un script R.
+- Reconnaître une variable, un décompte et une proportion.
 success_criteria:
-  - "La production attendue est remise : Une carte ou un graphique descriptif accompagné d'une phrase sur l'unité statistique et les limites."
-  - "Les résultats sont interprétés sans dépasser les limites de la source."
-
+- L’unité, la période ou la portée documentaire et les variables utilisées sont nommées.
+- Compter les arrêts selon le libellé du codage GTFS.
+- Comparer identifiants uniques et nombre d’informations absentes.
+- La conclusion répond à la question et explique au moins une limite précise.
 adaptations:
-  - "Fournir une table préparée ou réduire le nombre de variables pour une première utilisation."
-  - "Ajouter une comparaison, une justification méthodologique ou une discussion des limites pour approfondir."
+- Débuter avec le script exécuté par la personne enseignante, puis faire interpréter une seule sortie.
+- Pour approfondir, modifier une sélection ou un regroupement et justifier ce que cela change.
+script_file: datasets/transport-collectif-gtfs/activite-courte.R
+classroom_archive: assets/classroom/transport-collectif-gtfs.zip
+access_mode: frozen

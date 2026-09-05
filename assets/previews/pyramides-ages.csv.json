@@ -1,0 +1,30 @@
+{
+  "dataset_id": "pyramides-ages",
+  "prepared_at_utc": "2026-09-05T11:05:02Z",
+  "prepared_file": "population_pyramides_quebec_canada_latest.csv",
+  "prepared_sha256": "12299dd681da2fc2296bd4c1fd5b2f24de4ff0e5636f8a53cf5db1a45c7b5bd1",
+  "preview_sha256": "12299dd681da2fc2296bd4c1fd5b2f24de4ff0e5636f8a53cf5db1a45c7b5bd1",
+  "rows": 84,
+  "columns": ["year", "geography", "gender", "age_group", "population", "population_plot", "proportion", "proportion_plot"],
+  "selection": "Au plus 120 positions régulièrement espacées dans l'ordre de la table préparée; sélection déterministe non aléatoire",
+  "source_name": "Statistique Canada",
+  "source_url": "https://www150.statcan.gc.ca/t1/tbl1/fr/tv.action?pid=1710000501",
+  "license": "Licence ouverte de Statistique Canada",
+  "license_url": "https://www.statcan.gc.ca/fr/reference/licence",
+  "sources": [
+    {
+      "source_url": "https://www150.statcan.gc.ca/t1/tbl1/fr/tv.action?pid=1710000501",
+      "acquisition_kind": "cansim_export",
+      "acquired_at_utc": "2026-09-05T11:05:01Z",
+      "started_at_utc": {},
+      "file": "statcan_17-10-0005-01.csv",
+      "bytes": 43137414,
+      "sha256": "4b1a3f7c54491f6152bf99066f4c3ec0c8610c7635698beace7241930a31915a",
+      "details": {
+        "package": "cansim",
+        "version": "0.4.4",
+        "table_id": "17-10-0005-01"
+      }
+    }
+  ]
+}

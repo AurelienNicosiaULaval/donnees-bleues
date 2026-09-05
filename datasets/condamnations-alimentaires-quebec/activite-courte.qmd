@@ -1,113 +1,64 @@
 ---
 title: "Laboratoire - Condamnations alimentaires"
-embed-resources: false
+embed-resources: true
 ---
-
 
 # Laboratoire - Condamnations alimentaires
 
-<!-- activity-teacher-brief:start -->
-::: {.activity-teacher-brief}
 
-## En classe, cette activité sert à...
+Que peut-on décrire à partir des condamnations alimentaires?
 
-Cette activité sert à travailler les notions suivantes : variables catégorielles, nettoyage de chaînes, tableaux de fréquences à partir d'une question située dans le contexte suivant : Santé publique et alimentation. Elle demande aux étudiantes et étudiants de répondre à la question directrice suivante : Quels types d'établissements apparaissent le plus souvent dans la version pédagogique, et que peut-on conclure sans dénominateur?
-
-::: {.activity-quick-facts}
-| Élément | Information |
-|---|---|
-| Durée | 60-90 minutes |
-| Niveau | Introduction à intermédiaire |
-| Usage recommandé | Laboratoire guidé |
-| Préparation enseignant | Préparation requise : exécuter `Rscript datasets/condamnations-alimentaires-quebec/preparation.R` depuis la racine, puis vérifier que `data/processed/condamnations-alimentaires-quebec/condamnations_alimentaires_quebec.csv` existe. |
-| Production attendue | Un tableau ou graphique descriptif accompagné de trois phrases d'interprétation prudente. |
-| Données | `data/processed/condamnations-alimentaires-quebec/condamnations_alimentaires_quebec.csv` |
-:::
-
-:::
-<!-- activity-teacher-brief:end -->
-
-## Données utilisées
-
-Source : Données Québec / MAPAQ; version pédagogique fixe dans UlavalSSD. Licence : Attribution (CC-BY 4.0) selon les métadonnées CKAN vérifiées le 2026-06-20; paquet UlavalSSD sous licence MIT. Fichier principal pour l'activité : `data/processed/condamnations-alimentaires-quebec/condamnations_alimentaires_quebec.csv`
+Durée : 60-90 minutes. Niveau : Introduction à intermédiaire.
 
 ## Préparation enseignante
 
-- Préparation requise : exécuter `Rscript datasets/condamnations-alimentaires-quebec/preparation.R` depuis la racine, puis vérifier que `data/processed/condamnations-alimentaires-quebec/condamnations_alimentaires_quebec.csv` existe.
-- Fichier préparé : `data/processed/condamnations-alimentaires-quebec/condamnations_alimentaires_quebec.csv`.
-- Script de préparation : `datasets/condamnations-alimentaires-quebec/preparation.R`.
-- Point à surveiller : Insister sur l'unité statistique, la conversion de l'amende et le fait que compter des condamnations ne donne pas un taux de risque.
+Télécharger la trousse ci-dessous. Extraire le ZIP, puis double-cliquer sur `Donnees-bleues.Rproj`. Avant la séance, ouvrir `installer-packages.R` et cliquer sur Source avec une connexion Internet.
 
-## Code R minimal
+Une fois les packages installés, les scripts utilisent les fichiers inclus et peuvent être exécutés hors ligne.
 
 ```{r}
-#| eval: false
-library(dplyr)
-library(readr)
-
-if (!file.exists("data/processed/condamnations-alimentaires-quebec/condamnations_alimentaires_quebec.csv")) {
-  source("datasets/condamnations-alimentaires-quebec/preparation.R")
-}
-
-donnees <- read_csv(
-  "data/processed/condamnations-alimentaires-quebec/condamnations_alimentaires_quebec.csv",
-  show_col_types = FALSE
-)
-
-glimpse(donnees)
+#| label: activity-classroom-resources
+#| echo: false
+#| results: asis
+source(if (file.exists("R/utils_activity_contract.R")) "R/utils_activity_contract.R" else "../../R/utils_activity_contract.R")
+render_activity_resources()
 ```
-
-## Résultat attendu
-
-Un tableau ou graphique descriptif accompagné de trois phrases d'interprétation prudente. La production doit aussi contenir une phrase sur l'unité statistique et une phrase sur une limite de la source.
-
-## Questions
-
-1. Quelle est l'unité statistique utilisée dans cette activité?
-2. Quelle transformation ou agrégation est nécessaire avant de répondre à la question?
-3. Quelle information manque pour aller plus loin?
-4. Quelle conclusion serait trop forte avec ces seules données?
-5. Comment formuler une conclusion prudente à partir du résultat obtenu?
-
-## Limites à faire nommer
-
-- Insister sur l'unité statistique, la conversion de l'amende et le fait que compter des condamnations ne donne pas un taux de risque.
-- Si une variable ou un dénominateur nécessaire n'est pas disponible dans les données, l'écrire explicitement plutôt que l'inférer.
-
 
 ## Contexte
 
-Ce laboratoire reprend le jeu `listecondamnation` de l'aventure 3 de STT-1100. Il sert à travailler les variables catégorielles, le nettoyage de montants et la communication prudente de résultats publics.
+Cette activité utilise la fiche [Condamnations des établissements alimentaires au Québec](fiche.qmd). Unité : Une condamnation de la version pédagogique préparée.
 
-## Objectifs d'apprentissage
-
-- Charger un jeu de données fourni par un package R.
-- Compter et ordonner les modalités d'une variable catégorielle.
-- Nettoyer une variable monétaire.
-- Formuler une conclusion descriptive prudente.
-
-## Question directrice
-
-Quels types d'établissements apparaissent le plus souvent dans la version pédagogique, et que peut-on conclure sans dénominateur?
+Source : [Données Québec / MAPAQ; version pédagogique fixe dans UlavalSSD](https://www.donneesquebec.ca/recherche/dataset/condamnations-des-etablissements-alimentaires-et-condamnations-concernant-le-bien-etre-des-anim). Les dates de préparation, les fichiers et les conditions de réutilisation sont indiqués dans la trousse.
 
 ## Consignes
 
-1. Charger `UlavalSSD` et afficher la structure de `listecondamnation`.
-2. Identifier l'unité statistique de la table.
-3. Produire un tableau de fréquences pour `Type_etablissement`.
-4. Nettoyer `Amende` pour obtenir une variable numérique.
-5. Calculer la médiane et le maximum des amendes.
-6. Rédiger une conclusion en expliquant ce que le tableau permet et ne permet pas de dire.
+1. Ouvrir `activite-courte.R` dans le sous-dossier `datasets/condamnations-alimentaires-quebec` du projet RStudio et cliquer sur Source. Les tableaux apparaissent dans Console et les graphiques dans Plots.
+2. Compter les condamnations par type d’établissement.
+3. Calculer la médiane et le maximum des amendes en dollars.
+4. Rédiger une réponse à la question en nommant l’unité observée et une limite de la source.
 
-## Pistes de solution
+## Résultat attendu
 
-Une bonne réponse présente les catégories principales et précise que l'unité statistique est une condamnation publiée. Une réponse excellente explique pourquoi il manque un dénominateur pour parler de risque par type d'établissement.
+Les tableaux et graphiques du script, accompagnés d’une interprétation de 6 à 8 lignes répondant à la question.
+
+## Limites à faire nommer
+
+Les établissements inspectés ne constituent pas un échantillon aléatoire. Les condamnations ne donnent pas le risque sanitaire de tous les établissements.
+
+## Code complet
+
+Ce script complet est celui de la trousse. Il lit les fichiers locaux et affiche les résultats dans RStudio.
+
+```{r}
+#| label: activity-code
+#| echo: false
+#| results: asis
+render_activity_code()
+```
 
 ```{r}
 #| label: activity-pedagogical-contract
 #| echo: false
 #| results: asis
-contract_source_path <- if (file.exists("R/utils_activity_contract.R")) "R/utils_activity_contract.R" else "../../R/utils_activity_contract.R"
-source(contract_source_path)
 render_activity_contract()
 ```

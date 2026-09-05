@@ -18,7 +18,9 @@ file_summary_file: "data/processed/ulaval-programmes-cours/resume_fichiers_ulava
 validation_summary_file: "data/processed/ulaval-programmes-cours/resume_controles_ulaval.csv"
 rights_summary_file: "data/processed/ulaval-programmes-cours/resume_droits_ulaval.csv"
 update_frequency: "Je ne sais pas."
-level: "Intermédiaire"
+level: Intermédiaire
+level_ids:
+- intermediaire
 organisme: "Université Laval"
 territoire: "Université Laval"
 taille_approximative: "1 659 lignes validées localement dans le manifeste privé, dont 1 375 lignes core"
@@ -48,14 +50,23 @@ tags:
   - "validation"
   - "importation"
 concepts:
-  - "importation contrôlée"
-  - "provenance"
-  - "validation"
-  - "droits de réutilisation"
-  - "documentation des limites"
-  - "clés uniques"
-  - "données privées"
-  - "communication prudente"
+- Importation contrôlée
+- Provenance
+- Validation
+- Droits de réutilisation
+- Documentation des limites
+- Clés uniques
+- Données privées
+- Communication prudente
+concept_ids:
+- importation-controlee
+- provenance
+- validation
+- droits-de-reutilisation
+- documentation-des-limites
+- cles-uniques
+- donnees-privees
+- communication-prudente
 zero_waste:
   contexte_quebecois: 3
   accessibilite_pedagogique: 2
@@ -71,3 +82,34 @@ status: "source privée locale validée; données non redistribuées publiquemen
 notes: "Compilation indépendante et non officielle. Les CSV privés et les PDF sources ne sont pas redistribués dans Données bleues. Les sorties publiques doivent rester méthodologiques ou agrégées tant que les droits de republication ne sont pas clarifiés."
 contributor_name: "Aurélien Nicosia"
 contributor_role: "Révision pédagogique et statistique"
+
+publication:
+  preview: false
+  reason: La source institutionnelle nécessite un accès privé; aucune autorisation de redistribution publique n’est
+    documentée.
+  reviewed_on: '2026-09-05'
+  license_url: https://www.bqp.ulaval.ca/fichiers/ressources/gestion/codes-programmes-actifs.pdf
+  classroom:
+    mode: documentation
+    reason: Documentation et synthèses publiques seulement; aucune donnée privée, géodatabase ni observation
+      de retard.
+    files:
+    - path: data/processed/ulaval-programmes-cours/resume_droits_ulaval.csv
+      columns:
+      - item
+      - statement
+    - path: data/processed/ulaval-programmes-cours/resume_fichiers_ulaval.csv
+      columns:
+      - dataset_id
+      - phase
+      - expected_rows
+      - observed_rows
+      - row_count_matches
+      - keys_unique
+      - protected_fields_present
+    - path: data/processed/ulaval-programmes-cours/resume_ulaval_programmes_cours.csv
+      columns:
+      - source_found
+      - validation_status
+      - n_core_expected_rows
+      - n_ges_expected_rows

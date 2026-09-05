@@ -1,68 +1,62 @@
 id: condamnations-alimentaires-quebec-long
 title: Mini-projet - Condamnations alimentaires
-question: Produire un court article reproductible sur les condamnations alimentaires
-  sans interprétation sensationnaliste.
+question: Comment décrire les amendes et les délais administratifs?
 dataset_id: condamnations-alimentaires-quebec
 dataset_title: Condamnations des établissements alimentaires au Québec
 activity_url: datasets/condamnations-alimentaires-quebec/activite-longue.qmd
 duration: 2-3 heures
 level: Introduction à intermédiaire
+level_ids:
+- introduction
+- intermediaire
 activity_type:
 - Projet ou tâche longue
 - Étude de cas
 concepts:
-- variables catégorielles
+- Variables catégorielles
+- Dates
+- Montants
+- Communication publique
+concept_ids:
+- variables-categorielles
 - dates
 - montants
-- communication publique
+- communication-publique
 context: Santé publique et alimentation
-hook: Journalisme de données
+hook: Les établissements inspectés ne constituent pas un échantillon aléatoire. Les condamnations ne donnent
+  pas le risque sanitaire de tous les établissements.
 materials:
-- fiche
-- code
-- source officielle
-- notes enseignantes
-advanced_math_stats: no
-teacher_notes: Demander une section sur les limites, surtout l'absence de dénominateur,
-  les délais administratifs et les précautions liées aux noms et adresses publics.
-status: source officielle vérifiée le 2026-06-20
+- Trousse ZIP et projet RStudio
+- Script R complet
+- CSV préparés et provenance
+advanced_math_stats: false
+teacher_notes: Les établissements inspectés ne constituent pas un échantillon aléatoire. Les condamnations
+  ne donnent pas le risque sanitaire de tous les établissements.
+status: Documentation de source et ressources de classe fournies
 pedagogical_status: pret_a_enseigner
-teacher_preparation: 'Préparation requise : exécuter `Rscript datasets/condamnations-alimentaires-quebec/preparation.R`
-  depuis la racine, puis vérifier que `data/processed/condamnations-alimentaires-quebec/condamnations_alimentaires_quebec.csv`
-  existe.'
-expected_output: Un court rapport reproductible avec contexte, tableau ou graphique,
-  interprétation et limites.
-requires_prepared_data: yes
-requires_live_download: no
+teacher_preparation: Extraire la trousse, ouvrir le projet RStudio, installer les packages avant la séance
+  et lancer le script.
+expected_output: Les tableaux et graphiques du script, accompagnés d’une interprétation de 6 à 8 lignes répondant
+  à la question.
+requires_prepared_data: true
+requires_live_download: false
 recommended_use: Mini-projet guidé
-result_visible_in_page: yes
-
+result_visible_in_page: false
 learning_objectives:
-  - "Travailler variables catégorielles."
-  - "Travailler dates."
-  - "Travailler montants."
-  - "Travailler communication publique."
-  - "Nommer au moins une limite d'interprétation."
-  - "Préparation requise : exécuter `Rscript datasets/condamnations-alimentaires-quebec/preparation.R` depuis la racine, puis vérifier que `data/processed/condamnations-alimentaires-quebec/condamnations_alimentaires_quebec.csv` existe."
-  - "Fichier préparé : `data/processed/condamnations-alimentaires-quebec/condamnations_alimentaires_quebec.csv`."
-  - "Script de préparation : `datasets/condamnations-alimentaires-quebec/preparation.R`."
-  - "Point à surveiller : Demander une section sur les limites, surtout l'absence de dénominateur, les délais administratifs et les précautions liées aux noms et adresses publics."
-  - "Demander une section sur les limites, surtout l'absence de dénominateur, les délais administratifs et les précautions liées aux noms et adresses publics."
-  - "Si une variable ou un dénominateur nécessaire n'est pas disponible dans les données, l'écrire explicitement plutôt que l'inférer."
-  - "Exactitude du nettoyage de `Amende`."
-  - "Qualité des tableaux de fréquences."
-  - "Lisibilité du graphique."
-  - "Prudence de l'interprétation."
-  - "Clarté de la note méthodologique."
-  - "Respect des précautions liées aux noms et adresses publics."
-
+- Comparer les effectifs, amendes médianes et délais médians par type.
+- Interpréter l’histogramme des jours entre l’infraction et le jugement.
+- Formuler une limite qui découle de la source et de l’unité observée.
 prerequisites:
-  - "Vérifier le fichier ou le script de préparation annoncé avant la séance; adapter la mise en route au niveau indiqué."
-
+- Savoir ouvrir un projet RStudio et exécuter un script R.
+- Savoir lire un tableau groupé et un graphique descriptif; repérer les valeurs manquantes.
 success_criteria:
-  - "La production attendue est remise : Un court rapport reproductible avec contexte, tableau ou graphique, interprétation et limites."
-  - "Les résultats sont interprétés sans dépasser les limites de la source."
-
+- L’unité, la période ou la portée documentaire et les variables utilisées sont nommées.
+- Comparer les effectifs, amendes médianes et délais médians par type.
+- Interpréter l’histogramme des jours entre l’infraction et le jugement.
+- La conclusion répond à la question et explique au moins une limite précise.
 adaptations:
-  - "Fournir une table préparée ou réduire le nombre de variables pour une première utilisation."
-  - "Ajouter une comparaison, une justification méthodologique ou une discussion des limites pour approfondir."
+- Débuter avec le script exécuté par la personne enseignante, puis faire interpréter une seule sortie.
+- Pour approfondir, modifier une sélection ou un regroupement et justifier ce que cela change.
+script_file: datasets/condamnations-alimentaires-quebec/activite-longue.R
+classroom_archive: assets/classroom/condamnations-alimentaires-quebec.zip
+access_mode: frozen

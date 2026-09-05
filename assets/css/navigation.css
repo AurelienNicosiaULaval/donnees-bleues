@@ -1,0 +1,235 @@
+/* Navigation commune à toutes les pages. */
+.navbar-toggler:focus,
+.navbar-toggler:focus-visible {
+  outline: 3px solid rgba(11, 87, 208, 0.55);
+  outline-offset: 3px;
+  box-shadow: none;
+}
+
+.navbar {
+  background: #ffffff !important;
+  border-bottom: 1px solid #e5e7eb;
+  box-shadow: none;
+  min-height: 58px;
+}
+
+.navbar .navbar-container {
+  max-width: 100%;
+  min-height: 58px;
+  padding-left: 1.6rem;
+  padding-right: 1.6rem;
+}
+
+.navbar-brand img,
+.navbar-logo {
+  height: 1.55rem;
+  max-height: 1.55rem;
+  width: auto;
+}
+
+.navbar-brand {
+  overflow: visible;
+  text-overflow: clip;
+}
+
+.navbar-title {
+  color: #0045a5;
+  font-size: 1.32rem;
+  font-weight: 800;
+  letter-spacing: 0;
+  max-width: none;
+  overflow: visible;
+  text-overflow: clip;
+  white-space: nowrap;
+}
+
+.navbar .nav-link {
+  color: #111827 !important;
+  font-size: 0.95rem;
+  font-weight: 600;
+  padding: 0.95rem 1.05rem 0.9rem;
+}
+
+.navbar .nav-link.active {
+  border-bottom: 3px solid #0b57d0;
+  color: #0045a5 !important;
+}
+
+.navbar .navbar-nav.ms-auto .nav-link {
+  align-items: center;
+  display: inline-flex;
+  gap: 0.4rem;
+  font-size: 0.82rem;
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+}
+
+.navbar .navbar-nav.ms-auto .nav-item:last-child .nav-link {
+  background: #0645ad;
+  border: 1px solid #0645ad;
+  border-radius: 4px;
+  color: #ffffff !important;
+  margin-left: 0.45rem;
+  min-height: 34px;
+  padding: 0.42rem 0.9rem;
+}
+
+.navbar .navbar-nav.ms-auto .nav-item:last-child .nav-link:hover,
+.navbar .navbar-nav.ms-auto .nav-item:last-child .nav-link:focus {
+  background: #003f9a;
+  border-color: #003f9a;
+}
+
+.quarto-search-button,
+.aa-DetachedSearchButton {
+  color: #0045a5 !important;
+}
+
+body:has(.catalogue-reference) .quarto-search-button,
+body:has(.catalogue-reference) .aa-DetachedSearchButton {
+  color: #0045a5 !important;
+}
+
+.navbar {
+  background: rgba(255, 253, 248, 0.96) !important;
+  border-bottom: 1px solid rgba(11, 31, 58, 0.12);
+  box-shadow: none;
+  min-height: 72px;
+}
+
+.navbar .navbar-container {
+  margin: 0 auto;
+  max-width: 1440px;
+  min-height: 72px;
+  padding-left: clamp(1rem, 3vw, 3rem);
+  padding-right: clamp(1rem, 3vw, 3rem);
+}
+
+.navbar-brand {
+  align-items: center;
+  color: var(--db-ink) !important;
+  font-family: var(--db-serif);
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.navbar-brand img,
+.navbar-logo {
+  height: 38px;
+  margin-right: 0.55rem;
+  width: 38px;
+}
+
+.navbar .nav-link {
+  color: var(--db-ink) !important;
+  font-size: 0.77rem;
+  font-weight: 760;
+  letter-spacing: 0.01em;
+  padding: 0.55rem 0.68rem;
+}
+
+.navbar .nav-link:hover,
+.navbar .nav-link:focus,
+.navbar .nav-link.active {
+  color: var(--db-blue) !important;
+}
+
+.navbar .nav-link.active {
+  border-bottom: 2px solid var(--db-blue);
+}
+
+.navbar .navbar-nav.ms-auto .nav-item:last-child .nav-link {
+  background: var(--db-blue);
+  border: 1px solid var(--db-blue);
+  border-radius: 999px;
+  color: #fff !important;
+  margin-left: 0.4rem;
+  padding: 0.38rem 0.7rem;
+}
+
+.navbar .navbar-nav.ms-auto .nav-item:last-child .nav-link:hover,
+.navbar .navbar-nav.ms-auto .nav-item:last-child .nav-link:focus {
+  background: var(--db-blue-dark);
+  border-color: var(--db-blue-dark);
+}
+
+.navbar-toggler {
+  border-color: rgba(23, 32, 51, 0.35);
+  color: var(--db-ink);
+}
+
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='%23172033' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
+}
+
+/* Trois emplacements distincts garantissent la place de la marque et des boutons. */
+@media (max-width: 991.98px) {
+  #quarto-header .navbar { padding-inline: 0; }
+  .navbar .navbar-container {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 44px 44px;
+    column-gap: 0.4rem;
+    padding-inline: clamp(0.5rem, 3vw, 1.2rem);
+  }
+  .navbar-brand-container {
+    grid-column: 1;
+    grid-row: 1;
+    align-items: center;
+    display: flex;
+    gap: 0.4rem;
+    margin: 0 !important;
+    max-width: 100%;
+    min-width: 0;
+    position: static !important;
+  }
+  .navbar-brand-container .navbar-brand { margin: 0; min-width: 0; }
+  .navbar-brand-container .navbar-title {
+    display: block;
+    font-size: clamp(1rem, 4.2vw, 1.3rem);
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .navbar-brand img, .navbar-logo { height: 28px; width: 28px; margin: 0; }
+  #quarto-search {
+    grid-column: 2;
+    grid-row: 1;
+    margin: 0 !important;
+    min-width: 44px;
+    position: static !important;
+  }
+  #quarto-search .aa-DetachedSearchButton { min-height: 44px; min-width: 44px; padding: 0; }
+  .navbar-toggler {
+    grid-column: 3;
+    grid-row: 1;
+    margin: 0;
+    min-height: 44px;
+    padding-inline: 0.4rem;
+    width: 44px;
+  }
+  .navbar-collapse { grid-column: 1 / -1; grid-row: 2; width: 100%; }
+  .quarto-navbar-tools:empty { display: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto !important; }
+}
+
+/* The first keyboard stop skips repeated navigation. */
+.skip-to-content {
+  position: fixed;
+  top: -10rem;
+  left: 1rem;
+  z-index: 10000;
+  padding: 0.75rem 1rem;
+  color: #fff;
+  background: #172033;
+  border-radius: 0.3rem;
+}
+.skip-to-content:focus { top: 0.5rem; color: #fff; }
+a:focus-visible, button:focus-visible, summary:focus-visible,
+input:focus-visible, select:focus-visible {
+  outline: 3px solid #16497a;
+  outline-offset: 3px;
+}
+#quarto-document-content { scroll-margin-top: 6rem; }

@@ -1,0 +1,36 @@
+{
+  "dataset_id": "bibliotheques-quebec",
+  "prepared_at_utc": "2026-09-05T11:04:22Z",
+  "prepared_file": "statistiques_bibliotheques_quebec_2024_selection.csv",
+  "prepared_sha256": "3a5211846ce1d886de509ac502d85120c9413e8f0f9f0f707e9890cb3b889a18",
+  "preview_sha256": "5bfcb48a488f324e2b8773291daff5a116110ffed77ac9f9b844c97051b8710a",
+  "rows": 120,
+  "columns": ["bibliotheque", "region_administrative", "population_desservie", "categorie_bibliotheque", "modalites_abonnement", "visites_total", "prets_total", "usagers_inscrits_total", "activites_total", "depenses_fonctionnement_total"],
+  "selection": "Au plus 120 positions régulièrement espacées dans l'ordre de la table préparée; sélection déterministe non aléatoire",
+  "source_name": "Bibliothèque et Archives nationales du Québec / Données Québec",
+  "source_url": "https://www.donneesquebec.ca/recherche/dataset/statistiques_des_bibliotheques_publiques_du_quebec",
+  "license": "Attribution (CC-BY 4.0) selon les métadonnées CKAN vérifiées le 2026-06-21",
+  "license_url": "https://creativecommons.org/licenses/by/4.0/deed.fr",
+  "sources": [
+    {
+      "source_url": "https://www.donneesquebec.ca/recherche/api/3/action/package_show?id=statistiques_des_bibliotheques_publiques_du_quebec",
+      "acquisition_kind": "download",
+      "acquired_at_utc": "2026-09-05T11:04:22Z",
+      "started_at_utc": "2026-09-05T11:04:21Z",
+      "file": "package_show_bibliotheques.json",
+      "bytes": 39439,
+      "sha256": "248705971d83d7fd0efee122be47f10610dc8af231f75e7e965fcca819a3d76b",
+      "details": {}
+    },
+    {
+      "source_url": "https://www.donneesquebec.ca/recherche/dataset/231a38a8-f28e-4bef-82ea-dc98a14c1b6f/resource/01183d3e-c79c-4d09-915c-f35ffe4dfda8/download/statistiques_bibliotheques_quebec_2024.csv",
+      "acquisition_kind": "download",
+      "acquired_at_utc": "2026-09-05T11:04:22Z",
+      "started_at_utc": "2026-09-05T11:04:22Z",
+      "file": "statistiques_bibliotheques_quebec_2024.csv",
+      "bytes": 209698,
+      "sha256": "6ab61bd68551445686aa0434f224e62aa96b2ba28724db2c6eb9f49020c3d390",
+      "details": {}
+    }
+  ]
+}

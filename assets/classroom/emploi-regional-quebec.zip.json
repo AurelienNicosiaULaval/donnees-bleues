@@ -1,0 +1,18 @@
+{
+  "dataset_id": "emploi-regional-quebec",
+  "title": "Emploi régional au Québec",
+  "mode": "source_required",
+  "prepared_at_utc": "2026-09-05T11:04:35Z",
+  "source_name": "Institut de la statistique du Québec / Statistique Canada, Enquête sur la population active",
+  "source_url": "https://statistique.quebec.ca/fr/document/population-active-emploi-et-chomage-regions-administratives-rmr-et-quebec",
+  "license_url": "https://statistique.quebec.ca/fr/institut/nous-joindre/droits-auteur-permission-reproduction",
+  "original_licenses": {
+    "code": "MIT",
+    "content": "CC-BY-4.0",
+    "notices": ["LICENSE", "LICENCE-CONTENUS.md"]
+  },
+  "selection": "Données ISQ non redistribuées. Acquisition personnelle depuis la source avant la séance, selon ses conditions.",
+  "tables": [],
+  "archive_sha256": "70f13499c431fa758a943f63dff84e7ffd42ecf8a3b2e48a1bafd7a1b16b8509",
+  "archive_bytes": 12024
+}

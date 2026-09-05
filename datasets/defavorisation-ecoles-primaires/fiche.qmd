@@ -4,6 +4,7 @@ page-layout: full
 toc: false
 execute:
   freeze: false
+embed-resources: true
 ---
 
 ```{r}
@@ -19,7 +20,7 @@ render_dataset_detail_header()
 
 Ce jeu est utilisé dans l'aventure 9 de STT-1100 pour travailler la prédiction, les biais algorithmiques et l'interprétation prudente des indicateurs éducatifs. Il est très pédagogique parce que les variables sont peu nombreuses, mais les enjeux statistiques, sociaux et éthiques sont réels.
 
-La question d'analyse centrale est volontairement délicate : peut-on prédire l'IMSE d'une école primaire à partir du SFR et du nombre d'élèves, et quelles limites faut-il communiquer avant toute utilisation?
+L’activité décrit l’association de l’IMSE avec le SFR et le nombre d’élèves au moyen d’une régression exploratoire. Elle n’évalue pas une performance prédictive et ne mesure pas un effet causal.
 
 Cette fiche doit être utilisée comme une étude de cas en statistique descriptive, modélisation exploratoire et communication responsable. Elle ne doit pas servir à produire un classement public simpliste des écoles.
 

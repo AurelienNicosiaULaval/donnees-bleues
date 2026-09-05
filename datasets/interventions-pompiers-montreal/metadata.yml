@@ -14,7 +14,10 @@ processed_file: "data/processed/interventions-pompiers-montreal/interventions_po
 n_rows: "Fichiers par période; ressource courante d'environ 18,6 Mo, ressource 2020 à 2024 d'environ 73,1 Mo et ressource 2015 à 2022 d'environ 114,5 Mo selon la page consultée le 2026-06-21"
 n_cols: "13 champs observés dans l'en-tête du CSV courant consulté le 2026-06-21"
 update_frequency: "Quotidienne; fiche descriptive modifiée le 2026-06-21 selon l'API CKAN consultée"
-level: "Introduction à intermédiaire"
+level: Introduction à intermédiaire
+level_ids:
+- introduction
+- intermediaire
 organisme: "Service de sécurité incendie de Montréal"
 territoire: "Agglomération de Montréal"
 taille_approximative: "Fichiers CSV par période; environ 18,6 Mo à 114,5 Mo pour les principales ressources listées"
@@ -47,15 +50,25 @@ tags:
   - "visualisation"
   - "modélisation"
 concepts:
-  - "nettoyage de données"
-  - "dates"
-  - "agrégation"
-  - "tableaux de fréquences"
-  - "visualisation"
-  - "cartes"
-  - "séries temporelles"
-  - "comparaison de groupes"
-  - "classification simple"
+- Nettoyage
+- Dates
+- Agrégation
+- Tableaux de fréquences
+- Visualisation
+- Cartographie
+- Séries temporelles
+- Comparaison de groupes
+- Classification simple
+concept_ids:
+- nettoyage
+- dates
+- agregation
+- tableaux-de-frequences
+- visualisation
+- cartographie
+- series-temporelles
+- comparaison-de-groupes
+- classification-simple
 zero_waste:
   contexte_quebecois: 3
   accessibilite_pedagogique: 3
@@ -69,3 +82,36 @@ zero_waste:
   reutilisabilite: 3
 status: "source vérifiée"
 notes: "Source, licence, dictionnaire de données et ressource CSV courante vérifiés sur le portail des données ouvertes de la Ville de Montréal. La localisation est obfusquée et les données peuvent évoluer dans le temps selon la description officielle."
+
+publication:
+  preview: true
+  reviewed_on: '2026-09-05'
+  license_url: https://creativecommons.org/licenses/by/4.0/deed.fr
+  preview_columns:
+  - creation_date_time
+  - incident_type
+  - description_groupe
+  - caserne
+  - nom_ville
+  - nom_arrond
+  - division
+  - nombre_unites
+  reason: Extrait pédagogique limité aux colonnes déclarées; attribution et conditions de la source conservées.
+  classroom:
+    mode: frozen
+    reason: Table de classe limitée aux colonnes déclarées, sans tirage supplémentaire de lignes. Attribution
+      et conditions tierces conservées.
+    files:
+    - path: data/processed/interventions-pompiers-montreal/interventions_pompiers_montreal.csv
+      columns:
+      - creation_date_time
+      - incident_type
+      - description_groupe
+      - nom_arrond
+      - nombre_unites
+chart:
+  type: count
+  x_variable: description_groupe
+  x_label: Interventions dans l’extrait (nombre)
+  y_label: Groupe d’intervention
+  title: Groupes d’interventions de l’extrait

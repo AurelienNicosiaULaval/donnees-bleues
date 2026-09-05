@@ -20,7 +20,10 @@ preview_note: "Extrait public de 120 résumés journaliers de PM2.5 à la statio
 contaminant_summary_file: "data/processed/qualite-air-horaire/resume_contaminants_2025.csv"
 station_summary_file: "data/processed/qualite-air-horaire/resume_stations_2025.csv"
 update_frequency: "Annuelle par ressource publiée; paquet CKAN modifié le 2026-06-19"
-level: "Introduction à intermédiaire"
+level: Introduction à intermédiaire
+level_ids:
+- introduction
+- intermediaire
 organisme: "MELCCFP / RSQAQ"
 territoire: "Québec"
 taille_approximative: "54 stations, 11 contaminants, 1 549 609 mesures non manquantes en 2025"
@@ -42,14 +45,23 @@ idees_mini_projets:
   - "Repérer les journées où les moyennes de PM2.5 sont les plus élevées et discuter les limites d'une analyse descriptive."
   - "Construire un tableau de bord exploratoire par station, contaminant et période."
 concepts:
-  - séries temporelles
-  - données horaires
-  - valeurs manquantes
-  - résumé journalier
-  - visualisation
-  - détection d'anomalies
-  - données environnementales
-  - communication prudente
+- Séries temporelles
+- Données horaires
+- Valeurs manquantes
+- Résumé journalier
+- Visualisation
+- Détection d'anomalies
+- Données environnementales
+- Communication prudente
+concept_ids:
+- series-temporelles
+- donnees-horaires
+- valeurs-manquantes
+- resume-journalier
+- visualisation
+- detection-d-anomalies
+- donnees-environnementales
+- communication-prudente
 tags:
   - qualité de l'air
   - RSQAQ
@@ -75,3 +87,76 @@ status: "source officielle vérifiée; CSV 2025 préparé localement"
 notes: "La fiche prépare un résumé journalier station-contaminant à partir des mesures horaires non manquantes. Les valeurs doivent être interprétées comme des mesures environnementales descriptives; elles ne suffisent pas à expliquer les causes des épisodes observés."
 contributor_name: "Aurélien Nicosia"
 contributor_role: "Révision pédagogique et statistique"
+
+publication:
+  preview: true
+  reviewed_on: '2026-09-05'
+  license_url: https://creativecommons.org/licenses/by/4.0/deed.fr
+  preview_columns:
+  - date
+  - station_id
+  - station_name
+  - contaminant
+  - n_heures_valides
+  - moyenne
+  - mediane
+  - p95
+  - maximum
+  - source_year
+  reason: Extrait pédagogique limité aux colonnes déclarées; attribution et conditions de la source conservées.
+  classroom:
+    mode: frozen
+    reason: Table de classe limitée aux colonnes déclarées, sans tirage supplémentaire de lignes. Attribution
+      et conditions tierces conservées.
+    files:
+    - path: data/processed/qualite-air-horaire/episodes_pm25_2025.csv
+      columns:
+      - source_year
+      - access_date
+      - date
+      - station_id
+      - station_name
+      - contaminant_source
+      - contaminant
+      - unite
+      - n_heures_valides
+      - moyenne
+      - mediane
+      - p95
+      - maximum
+    - path: data/processed/qualite-air-horaire/resume_contaminants_2025.csv
+      columns:
+      - contaminant_source
+      - contaminant
+      - unite
+      - n_mesures
+      - n_stations
+      - premiere_mesure
+      - derniere_mesure
+      - moyenne
+      - mediane
+      - p95
+      - maximum
+    - path: data/processed/qualite-air-horaire/resume_journalier_contaminants_2025.csv
+      columns:
+      - source_year
+      - access_date
+      - date
+      - station_id
+      - station_name
+      - contaminant_source
+      - contaminant
+      - unite
+      - n_heures_valides
+      - moyenne
+      - mediane
+      - p95
+      - maximum
+chart:
+  type: scatter
+  x_variable: date
+  y_variable: moyenne
+  x_kind: date
+  x_label: Date en 2025, station Radisson
+  y_label: Concentration moyenne de PM2,5 (µg/m³)
+  title: PM2,5 aux jours retenus à Radisson

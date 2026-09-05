@@ -1,145 +1,64 @@
 ---
 title: "Tendances de diplomation selon l'IMSE"
-embed-resources: false
+embed-resources: true
 ---
-
 
 # Tendances de diplomation selon l'IMSE
 
-<!-- activity-teacher-brief:start -->
-::: {.activity-teacher-brief}
 
-## En classe, cette activité sert à...
+Comment les taux et leur écart évoluent-ils entre cohortes?
 
-Cette activité sert à travailler les notions suivantes : Séries temporelles, Comparaison de groupes, Visualisation, Communication à partir d'une question située dans le contexte suivant : Éducation. Elle demande aux étudiantes et étudiants de répondre à la question directrice suivante : Comment l'écart de diplomation évolue-t-il, et quelles limites faut-il expliciter?
-
-::: {.activity-quick-facts}
-| Élément | Information |
-|---|---|
-| Durée | 2-3 heures |
-| Niveau | Introductif à intermédiaire |
-| Usage recommandé | Mini-projet guidé |
-| Préparation enseignant | Vérifier les droits de diffusion avant la séance; utiliser seulement les résumés publics et ne pas publier les lignes de données. |
-| Production attendue | Un court rapport reproductible avec contexte, tableau ou graphique, interprétation et limites. |
-| Données | `data/processed/cohortes-diplomation/ecart_diplomation_imse.csv` |
-:::
-
-:::
-<!-- activity-teacher-brief:end -->
+Durée : 2-3 heures. Niveau : Introduction à intermédiaire.
 
 ## Préparation enseignante
 
-- Vérifier les droits de diffusion avant la séance; utiliser seulement les résumés publics et ne pas publier les lignes de données.
-- Fichier préparé : `data/processed/cohortes-diplomation/ecart_diplomation_imse.csv`.
-- Script de préparation : `datasets/cohortes-diplomation/preparation.R`.
-- Point à surveiller : Demander une section explicite sur les limites d'un indicateur agrégé fondé sur le lieu de résidence, ainsi qu'un contrôle de cohérence entre les deux taux et l'écart publié.
+Télécharger la trousse ci-dessous. Extraire le ZIP, puis double-cliquer sur `Donnees-bleues.Rproj`. Avant la séance, ouvrir `installer-packages.R` et cliquer sur Source avec une connexion Internet.
 
-## Appui R minimal
+Consulter les conditions de l’ISQ, puis ouvrir `preparer-donnees.R` et cliquer sur Source avec Internet pour obtenir les CSV sur votre ordinateur. Les données ne sont pas incluses dans la trousse et ne doivent pas être redistribuées sans autorisation applicable.
 
 ```{r}
-#| eval: false
-library(dplyr)
-library(readr)
-
-if (!file.exists("data/processed/cohortes-diplomation/ecart_diplomation_imse.csv")) {
-  source("datasets/cohortes-diplomation/preparation.R")
-}
-
-donnees <- read_csv(
-  "data/processed/cohortes-diplomation/ecart_diplomation_imse.csv",
-  show_col_types = FALSE
-)
-
-glimpse(donnees)
+#| label: activity-classroom-resources
+#| echo: false
+#| results: asis
+source(if (file.exists("R/utils_activity_contract.R")) "R/utils_activity_contract.R" else "../../R/utils_activity_contract.R")
+render_activity_resources()
 ```
-
-## Résultat attendu
-
-Un court rapport reproductible avec contexte, tableau ou graphique, interprétation et limites. La production doit aussi contenir une phrase sur l'unité statistique et une phrase sur une limite de la source.
-
-## Déroulé suggéré
-
-1. Cadrer la source, la licence et l'unité statistique.
-2. Préparer ou importer les données.
-3. Produire un premier résumé descriptif.
-4. Construire la visualisation ou le tableau principal.
-5. Rédiger l'interprétation et les limites.
-
-## Critères d'évaluation
-
-- Exactitude de l'unité statistique et de la source.
-- Reproductibilité du traitement.
-- Lisibilité du tableau ou du graphique.
-- Interprétation prudente, sans causalité non justifiée.
-- Limites clairement visibles dans le livrable.
-
-## Limites à faire nommer
-
-- Demander une section explicite sur les limites d'un indicateur agrégé fondé sur le lieu de résidence, ainsi qu'un contrôle de cohérence entre les deux taux et l'écart publié.
-- Si une variable ou un dénominateur nécessaire n'est pas disponible dans les données, l'écrire explicitement plutôt que l'inférer.
-
 
 ## Contexte
 
-Cette activité demande de produire un mini-rapport sur l'évolution de l'écart de diplomation et de qualification entre les élèves associés aux déciles IMSE 1 et 10. Le travail vise autant la visualisation que la prudence d'interprétation.
+Cette activité utilise la fiche [Cohortes de diplomation](fiche.qmd). Unité : Une cohorte suivie jusqu’à une année scolaire de fin de suivi, avec deux taux de diplomation.
 
-## Objectifs d'apprentissage
-
-- Visualiser une tendance de taux.
-- Comparer deux groupes.
-- Interpréter un écart en points de pourcentage.
-- Communiquer les limites de données agrégées.
-
-## Données utilisées
-
-Fiche : [Cohortes de diplomation](fiche.qmd)
-
-Source : Institut de la statistique du Québec, indicateur "Écart de diplomation selon le milieu socio-économique".
-
-Conditions : la reproduction de l'information du site de l'ISQ est interdite sauf permission écrite. Le mini-rapport doit citer la page officielle et l'export utilisé.
-
-## Métadonnées pédagogiques
-
-| Champ | Information |
-|---|---|
-| Question directrice | Comment l'écart de diplomation évolue-t-il selon les cohortes suivies? |
-| Concepts | Séries temporelles; comparaison de groupes; visualisation; communication |
-| Niveau | Introductif à intermédiaire |
-| Type | Étude de cas; projet ou tâche longue |
-| Contexte | Éducation |
-| Accroche | Comparer les cohortes sans surinterpréter des taux agrégés |
-| Durée | 2-3 heures |
-| Matériel | énoncé; code; données; notes enseignantes |
-| Math/stats avancées | non |
+Source : [Institut de la statistique du Québec](https://statistique.quebec.ca/fr/produit/publication/indicateurs-progres-ecart-diplomation). Les dates de préparation, les fichiers et les conditions de réutilisation sont indiqués dans la trousse.
 
 ## Consignes
 
-1. Importer l'export XLSX officiel de l'ISQ.
-2. Nettoyer l'export en conservant seulement les lignes dont la première colonne est une année scolaire.
-3. Visualiser les deux taux dans un premier graphique.
-4. Visualiser l'écart en points de pourcentage dans un second graphique.
-5. Vérifier que l'écart publié correspond aux deux taux importés.
-6. Discuter les tendances observées et les limites d'interprétation.
+1. Ouvrir `activite-longue.R` dans le sous-dossier `datasets/cohortes-diplomation` du projet RStudio et cliquer sur Source. Les tableaux apparaissent dans Console et les graphiques dans Plots.
+2. Comparer les séries des deux taux de diplomation.
+3. Lire séparément la série des écarts en points de pourcentage.
+4. Rédiger une réponse à la question en nommant l’unité observée et une limite de la source.
 
-## Questions
+## Résultat attendu
 
-1. Les deux taux évoluent-ils de manière semblable?
-2. Les écarts sont-ils stables dans le temps?
-3. Quelle limite impose le fait de comparer seulement deux déciles extrêmes?
+Les tableaux et graphiques du script, accompagnés d’une interprétation de 6 à 8 lignes répondant à la question.
 
-## Pistes de solution
+## Limites à faire nommer
 
-Le mini-rapport devrait inclure deux graphiques, un tableau descriptif et une conclusion limitée aux tendances descriptives. Une section doit expliquer pourquoi l'indicateur ne mesure pas une situation familiale individuelle.
+Un écart entre groupes de milieux ne démontre pas un effet causal du milieu sur un individu. Les données ISQ doivent être obtenues depuis la source avant la séance.
 
-## Prolongement
+## Code complet
 
-Comparer la lecture du graphique des taux avec celle du graphique de l'écart, puis expliquer lequel est le plus clair pour communiquer l'évolution des inégalités.
+Ce script complet est celui de la trousse. Il lit les fichiers locaux et affiche les résultats dans RStudio.
+
+```{r}
+#| label: activity-code
+#| echo: false
+#| results: asis
+render_activity_code()
+```
 
 ```{r}
 #| label: activity-pedagogical-contract
 #| echo: false
 #| results: asis
-contract_source_path <- if (file.exists("R/utils_activity_contract.R")) "R/utils_activity_contract.R" else "../../R/utils_activity_contract.R"
-source(contract_source_path)
 render_activity_contract()
 ```

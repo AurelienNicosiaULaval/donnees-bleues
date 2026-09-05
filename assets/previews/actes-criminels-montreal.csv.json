@@ -1,0 +1,36 @@
+{
+  "dataset_id": "actes-criminels-montreal",
+  "prepared_at_utc": "2026-09-05T11:04:29Z",
+  "prepared_file": "actes_criminels_montreal.csv",
+  "prepared_sha256": "f1cc0b731cab16269f21d643d24867b650244ae0e6a545d8f8cb8aacf987cd7f",
+  "preview_sha256": "6387fe5e0bd6922ee8777d65cf6e95ded48146c6dbcae496b02d42388142b101",
+  "rows": 120,
+  "columns": ["categorie", "date", "annee", "mois", "quart", "pdq", "localisation_disponible", "access_date"],
+  "selection": "Au plus 120 positions régulièrement espacées dans l'ordre de la table préparée; sélection déterministe non aléatoire",
+  "source_name": "Données Québec / Ville de Montréal / SPVM",
+  "source_url": "https://www.donneesquebec.ca/recherche/dataset/vmtl-actes-criminels",
+  "license": "Attribution (CC-BY 4.0) selon les métadonnées CKAN vérifiées le 2026-06-21",
+  "license_url": "https://creativecommons.org/licenses/by/4.0/deed.fr",
+  "sources": [
+    {
+      "source_url": "https://donnees.montreal.ca/dataset/5829b5b0-ea6f-476f-be94-bc2b8797769a/resource/c6f482bf-bf0f-4960-8b2f-9982c211addd/download/actes-criminels.csv",
+      "acquisition_kind": "download",
+      "acquired_at_utc": "2026-09-05T11:04:27Z",
+      "started_at_utc": "2026-09-05T11:04:22Z",
+      "file": "actes-criminels.csv",
+      "bytes": 32404127,
+      "sha256": "f572d511ab2c537ceb96ece25fcbfbfc50fef86635fc0e0b2a64fbb3b5700ee3",
+      "details": {}
+    },
+    {
+      "source_url": "https://www.donneesquebec.ca/recherche/api/3/action/package_show?id=vmtl-actes-criminels",
+      "acquisition_kind": "download",
+      "acquired_at_utc": "2026-09-05T11:04:22Z",
+      "started_at_utc": "2026-09-05T11:04:21Z",
+      "file": "package_show_actes_criminels.json",
+      "bytes": 14914,
+      "sha256": "e935a4bb0edf50b05cd4527cd13fcf0e4b5e3c22074546e4bc64810c43c138a4",
+      "details": {}
+    }
+  ]
+}

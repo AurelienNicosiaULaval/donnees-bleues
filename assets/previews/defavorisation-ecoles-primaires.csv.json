@@ -1,0 +1,26 @@
+{
+  "dataset_id": "defavorisation-ecoles-primaires",
+  "prepared_at_utc": "2026-09-05T11:04:30Z",
+  "prepared_file": "defavorisation_ecoles_primaires.csv",
+  "prepared_sha256": "097afc59c3be59bce98280e25b8db88a6904e8d5227281ad20e84806d3b0698a",
+  "preview_sha256": "92efd5e21dc9ed5ee4ac0be65f5e74317ff1215f9ab79f989be42db48144c613",
+  "rows": 120,
+  "columns": ["Code_Cs", "Nom_Cs", "Code_Org", "Nom_Org", "IMSE", "Rang_Decile_IMSE", "SFR", "Rang_Decile_SFR", "Nbre_Eleves", "Diffusion"],
+  "selection": "Au plus 120 positions régulièrement espacées dans l'ordre de la table préparée; sélection déterministe non aléatoire",
+  "source_name": "Données Québec / Ministère de l'Éducation et Ministère de l'Enseignement supérieur",
+  "source_url": "https://www.donneesquebec.ca/recherche/dataset/indices-de-defavorisation/resource/6c5d4a5d-ba3b-40a6-b570-916f43ab622c",
+  "license": "Attribution (CC-BY 4.0) selon les métadonnées CKAN vérifiées le 2026-06-20",
+  "license_url": "https://creativecommons.org/licenses/by/4.0/deed.fr",
+  "sources": [
+    {
+      "source_url": "https://www.donneesquebec.ca/recherche/dataset/004de02c-19f1-4da0-9af8-33f893e41972/resource/6c5d4a5d-ba3b-40a6-b570-916f43ab622c/download/defav_ecole_prim_public.csv",
+      "acquisition_kind": "download",
+      "acquired_at_utc": "2026-09-05T11:04:30Z",
+      "started_at_utc": "2026-09-05T11:04:29Z",
+      "file": "defav_ecole_prim_public.csv",
+      "bytes": 306642,
+      "sha256": "41c15d9a4f05bb3a1e107ea51a61085c8ed92f25770964c58041e29eae6a8d8a",
+      "details": {}
+    }
+  ]
+}

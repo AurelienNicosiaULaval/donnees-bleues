@@ -14,10 +14,16 @@ n_rows:
 n_cols:
 update_frequency:
 level:
+level_ids:
+  - introduction
 concepts:
+  - Visualisation
+  - Nettoyage
+  - Statistiques descriptives
+concept_ids:
   - visualisation
   - nettoyage
-  - statistique descriptive
+  - statistiques-descriptives
 zero_waste:
   contexte_quebecois:
   accessibilite_pedagogique:
@@ -34,3 +40,27 @@ contributor_role:
 stt1100_contact: false
 status:
 notes:
+
+# Remplir ces décisions avant de produire une ressource publique.
+publication:
+  preview: false
+  reason:
+  reviewed_on:
+  license_url:
+  preview_columns: []
+  classroom:
+    mode: source_required
+    reason:
+    files: []
+# Pour une table redistribuable, déclarer chaque fichier et colonne :
+#    files:
+#      - path: data/processed/identifiant/table.csv
+#        columns: [identifiant, categorie, valeur]
+# Pour un aperçu, déclarer le type et les axes dans chart, par exemple :
+# chart:
+#   type: histogram
+#   x_variable: valeur
+#   x_label: Libellé et unité à vérifier
+#   y_label: Observations (nombre)
+#   title: Titre descriptif
+#   binwidth: 5

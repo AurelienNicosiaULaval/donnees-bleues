@@ -1,3 +1,4 @@
+source("R/utils_downloads.R")
 # Préparation : statistiques 2024 des bibliothèques publiques du Québec
 # Source officielle : Données Québec / Bibliothèque et Archives nationales du Québec,
 # paquet CKAN 231a38a8-f28e-4bef-82ea-dc98a14c1b6f.
@@ -47,7 +48,7 @@ processed_dir <- file.path(root, "data/processed/bibliotheques-quebec")
 dir.create(raw_dir, recursive = TRUE, showWarnings = FALSE)
 dir.create(processed_dir, recursive = TRUE, showWarnings = FALSE)
 
-access_date <- as.Date("2026-06-21")
+access_date <- Sys.Date()
 source_page <- "https://www.donneesquebec.ca/recherche/dataset/statistiques_des_bibliotheques_publiques_du_quebec"
 source_api <- "https://www.donneesquebec.ca/recherche/api/3/action/package_show?id=statistiques_des_bibliotheques_publiques_du_quebec"
 csv_url <- "https://www.donneesquebec.ca/recherche/dataset/231a38a8-f28e-4bef-82ea-dc98a14c1b6f/resource/01183d3e-c79c-4d09-915c-f35ffe4dfda8/download/statistiques_bibliotheques_quebec_2024.csv"
@@ -56,8 +57,8 @@ dictionary_url <- "https://www.donneesquebec.ca/recherche/dataset/231a38a8-f28e-
 package_json_path <- file.path(raw_dir, "package_show_bibliotheques.json")
 csv_raw_path <- file.path(raw_dir, "statistiques_bibliotheques_quebec_2024.csv")
 
-download.file(source_api, package_json_path, mode = "wb", quiet = TRUE)
-download.file(csv_url, csv_raw_path, mode = "wb", quiet = TRUE)
+download_source(source_api, package_json_path, mode = "wb", quiet = TRUE)
+download_source(csv_url, csv_raw_path, mode = "wb", quiet = TRUE)
 
 package <- fromJSON(package_json_path)
 if (!isTRUE(package$success)) {
@@ -271,3 +272,5 @@ write_csv(summary_by_category, file.path(processed_dir, "resume_categories_bibli
 write_csv(top_visites_ratio, file.path(processed_dir, "bibliotheques_top_visites_par_habitant_2024.csv"))
 write_csv(missing_summary, file.path(processed_dir, "valeurs_manquantes_bibliotheques_2024.csv"))
 write_csv(dataset_summary, file.path(processed_dir, "resume_bibliotheques_2024.csv"))
+
+record_preparation("bibliotheques-quebec")

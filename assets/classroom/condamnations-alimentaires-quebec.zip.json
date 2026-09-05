@@ -1,0 +1,26 @@
+{
+  "dataset_id": "condamnations-alimentaires-quebec",
+  "title": "Condamnations des établissements alimentaires au Québec",
+  "mode": "frozen",
+  "prepared_at_utc": "2026-09-05T11:04:28Z",
+  "source_name": "Données Québec / MAPAQ; version pédagogique fixe dans UlavalSSD",
+  "source_url": "https://www.donneesquebec.ca/recherche/dataset/condamnations-des-etablissements-alimentaires-et-condamnations-concernant-le-bien-etre-des-anim",
+  "license_url": "https://creativecommons.org/licenses/by/4.0/deed.fr",
+  "original_licenses": {
+    "code": "MIT",
+    "content": "CC-BY-4.0",
+    "notices": ["LICENSE", "LICENCE-CONTENUS.md"]
+  },
+  "selection": "Table de classe limitée aux colonnes déclarées, sans tirage supplémentaire de lignes. Attribution et conditions tierces conservées.",
+  "tables": [
+    {
+      "path": "data/processed/condamnations-alimentaires-quebec/condamnations_alimentaires_quebec.csv",
+      "rows": 1712,
+      "columns": ["Type_etablissement", "Date_infraction", "Date_jugement", "Date_publication", "amende_num", "delai_infraction_jugement_jours", "delai_jugement_publication_jours"],
+      "sha256": "7c373355365c912c057b9c333618f28763cdba9e7fb9dfb4869821e56d1ea853",
+      "prepared_table_sha256": "23281ef15f72d9ccd1b83fa17e45ddca62682829d0637c0d0209edbcaaa5c996"
+    }
+  ],
+  "archive_sha256": "59f6107b7b7fd0f0130be1433af552fed8727e0412bd5f638ba7b46b2e9933a6",
+  "archive_bytes": 23705
+}

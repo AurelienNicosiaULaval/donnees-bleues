@@ -22,7 +22,10 @@ dictionary_file: "data/processed/budgets-municipaux-quebec/dictionnaire_postes_p
 population_summary_file: "data/processed/budgets-municipaux-quebec/resume_classes_population_2025.csv"
 region_summary_file: "data/processed/budgets-municipaux-quebec/resume_regions_profil_financier_2025.csv"
 update_frequency: "Annuelle; paquet CKAN et ressources CSV 2024-2025 modifiés le 2026-06-19"
-level: "Introduction à intermédiaire"
+level: Introduction à intermédiaire
+level_ids:
+- introduction
+- intermediaire
 organisme: "MAMH"
 territoire: "Québec"
 taille_approximative: "1 105 lignes municipales; 14 indicateurs financiers municipaux; 215 ressources CKAN"
@@ -56,15 +59,25 @@ tags:
   - statistiques descriptives
   - visualisation
 concepts:
-  - importation CSV
-  - dictionnaire de variables
-  - pivot long
-  - classes de population
-  - ratios
-  - indices
-  - valeurs manquantes
-  - comparaison descriptive
-  - communication prudente
+- Importation CSV
+- Dictionnaire de variables
+- Pivot long
+- Classes de population
+- Ratios
+- Indices
+- Valeurs manquantes
+- Comparaison descriptive
+- Communication prudente
+concept_ids:
+- importation-csv
+- dictionnaire-de-variables
+- pivot-long
+- classes-de-population
+- ratios
+- indices
+- valeurs-manquantes
+- comparaison-descriptive
+- communication-prudente
 zero_waste:
   contexte_quebecois: 3
   accessibilite_pedagogique: 3
@@ -80,3 +93,101 @@ status: "source officielle vérifiée; CSV municipal 2024-2025 et dictionnaire d
 notes: "Le fichier préparé ici décrit le profil financier et des indicateurs de richesse foncière issus du sommaire du rôle d'évaluation foncière 2025. Il ne s'agit pas d'un budget municipal détaillé par postes de dépenses."
 contributor_name: "Aurélien Nicosia"
 contributor_role: "Révision pédagogique et statistique"
+
+publication:
+  preview: true
+  reviewed_on: '2026-09-05'
+  license_url: https://creativecommons.org/licenses/by/4.0/deed.fr
+  preview_columns:
+  - annee_donnee
+  - code_geographique
+  - municipalite
+  - region_administrative
+  - population
+  - classe_population
+  reason: Extrait pédagogique limité aux colonnes déclarées; attribution et conditions de la source conservées.
+  classroom:
+    mode: frozen
+    reason: Table de classe limitée aux colonnes déclarées, sans tirage supplémentaire de lignes. Attribution
+      et conditions tierces conservées.
+    files:
+    - path: data/processed/budgets-municipaux-quebec/dictionnaire_postes_profil_financier_2025.csv
+      columns:
+      - code_poste
+      - sujet
+      - facettes
+      - type_indicateur
+      - libelle_court
+      - est_comparatif
+    - path: data/processed/budgets-municipaux-quebec/profil_financier_municipalites_2025.csv
+      columns:
+      - annee_edition
+      - annee_donnee
+      - code_geographique
+      - municipalite
+      - designation_organisme
+      - code_mrc
+      - mrc
+      - code_communaute_metropolitaine
+      - communaute_metropolitaine
+      - code_region_administrative
+      - region_administrative
+      - type_organisme
+      - population
+      - code_classe_population
+      - classe_population
+      - FIALX01959
+      - FIALX01960
+      - FIALX01961
+      - FIALX01962
+      - FIALX01963
+      - FIALX01977
+      - FIALX02005
+      - FIALX02006
+      - FIALX02007
+      - FIALX02008
+      - FIALX02009
+      - FIALX02010
+      - FIALX02011
+      - FIALX02097
+      - source_csv_url
+      - access_date
+    - path: data/processed/budgets-municipaux-quebec/profil_financier_municipalites_long_2025.csv
+      columns:
+      - annee_edition
+      - annee_donnee
+      - code_geographique
+      - municipalite
+      - designation_organisme
+      - code_mrc
+      - mrc
+      - code_communaute_metropolitaine
+      - communaute_metropolitaine
+      - code_region_administrative
+      - region_administrative
+      - type_organisme
+      - population
+      - code_classe_population
+      - classe_population
+      - source_csv_url
+      - access_date
+      - code_poste
+      - valeur
+      - sujet
+      - facettes
+      - type_indicateur
+      - libelle_court
+      - est_comparatif
+    - path: data/processed/budgets-municipaux-quebec/valeurs_manquantes_profil_financier_2025.csv
+      columns:
+      - variable
+      - n_missing
+      - n_rows
+      - pct_missing
+chart:
+  type: histogram
+  x_variable: population
+  x_label: Population municipale (personnes)
+  y_label: Municipalités dans l’extrait (nombre)
+  title: Distribution des populations municipales
+  bins: 12

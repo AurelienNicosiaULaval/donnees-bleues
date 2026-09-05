@@ -1,0 +1,26 @@
+{
+  "dataset_id": "transport-collectif-gtfs",
+  "title": "Horaires, arrêts et parcours GTFS du RTC",
+  "mode": "frozen",
+  "prepared_at_utc": "2026-09-05T11:05:24Z",
+  "source_name": "Données Québec / Réseau de transport de la Capitale",
+  "source_url": "https://www.donneesquebec.ca/recherche/dataset/rtc-gtfs-arrets-et-les-parcours",
+  "license_url": "https://www.rtcquebec.ca/donnees-ouvertes",
+  "original_licenses": {
+    "code": "MIT",
+    "content": "CC-BY-4.0",
+    "notices": ["LICENSE", "LICENCE-CONTENUS.md"]
+  },
+  "selection": "Table de classe limitée aux colonnes déclarées, sans tirage supplémentaire de lignes. Attribution et conditions tierces conservées.",
+  "tables": [
+    {
+      "path": "data/processed/transport-collectif-gtfs/arrets_gtfs_rtc.csv",
+      "rows": 4323,
+      "columns": ["stop_id", "stop_name", "latitude", "longitude", "wheelchair_boarding", "wheelchair_boarding_label"],
+      "sha256": "4bc0c4596cd211497329729d68039c21f2ecd09e62038755005f9331a4dfa05b",
+      "prepared_table_sha256": "dcf5929aa4c69ba62446a1d392a07bf8cef65292a9d615aae9ee8b9799995f38"
+    }
+  ],
+  "archive_sha256": "74f7d4522c3ab61dc448e114ae606f6c6bdba52b27eaa6f450dcb96631d3e2ea",
+  "archive_bytes": 76000
+}

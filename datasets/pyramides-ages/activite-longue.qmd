@@ -1,198 +1,64 @@
 ---
 title: "Comparer la structure d'âge du Québec et du Canada"
-embed-resources: false
+embed-resources: true
 ---
-
 
 # Comparer la structure d'âge du Québec et du Canada
 
-<!-- activity-teacher-brief:start -->
-::: {.activity-teacher-brief}
 
-## En classe, cette activité sert à...
+Comment comparer les structures d’âge du Québec et du Canada?
 
-Cette activité sert à travailler les notions suivantes : Données ouvertes, Statistique descriptive, Visualisation, Comparaison temporelle, Communication à partir d'une question située dans le contexte suivant : Démographie. Elle demande aux étudiantes et étudiants de répondre à la question directrice suivante : Comment décrire l'évolution d'une structure démographique avec des données agrégées?
-
-::: {.activity-quick-facts}
-| Élément | Information |
-|---|---|
-| Durée | 2-3 heures |
-| Niveau | Intermédiaire |
-| Usage recommandé | Mini-projet guidé |
-| Préparation enseignant | Vérifier que `data/processed/pyramides-ages/population_pyramides_quebec_canada_latest.csv` est disponible; aucune collecte en direct n'est nécessaire pour lancer l'activité. |
-| Production attendue | Un court rapport reproductible avec contexte, tableau ou graphique, interprétation et limites. |
-| Données | `data/processed/pyramides-ages/population_pyramides_quebec_canada_latest.csv` |
-:::
-
-:::
-<!-- activity-teacher-brief:end -->
-
-## Contexte
-
-Cette activité utilise le jeu de données [Pyramides des âges au Canada et au Québec](fiche.qmd). Elle part d'une question de classe plutôt que d'une démonstration technique : Comment décrire l'évolution d'une structure démographique avec des données agrégées?
-
-## Objectifs d'apprentissage
-
-- Travailler Données ouvertes.
-- Travailler Statistique descriptive.
-- Travailler Visualisation.
-- Travailler Comparaison temporelle.
-- Nommer au moins une limite d'interprétation.
+Durée : 2-3 heures. Niveau : Intermédiaire.
 
 ## Préparation enseignante
 
-- Vérifier que `data/processed/pyramides-ages/population_pyramides_quebec_canada_latest.csv` est disponible; aucune collecte en direct n'est nécessaire pour lancer l'activité.
-- Fichier préparé : `data/processed/pyramides-ages/population_pyramides_quebec_canada_latest.csv`.
-- Script de préparation : `datasets/pyramides-ages/preparation.R`.
-- Point à surveiller : Demander de comparer en proportions et de séparer les résultats descriptifs des interprétations causales.
+Télécharger la trousse ci-dessous. Extraire le ZIP, puis double-cliquer sur `Donnees-bleues.Rproj`. Avant la séance, ouvrir `installer-packages.R` et cliquer sur Source avec une connexion Internet.
+
+Une fois les packages installés, les scripts utilisent les fichiers inclus et peuvent être exécutés hors ligne.
+
+```{r}
+#| label: activity-classroom-resources
+#| echo: false
+#| results: asis
+source(if (file.exists("R/utils_activity_contract.R")) "R/utils_activity_contract.R" else "../../R/utils_activity_contract.R")
+render_activity_resources()
+```
+
+## Contexte
+
+Cette activité utilise la fiche [Pyramides des âges au Canada et au Québec](fiche.qmd). Unité : Un groupe d’âge et de genre publié pour un territoire et une année.
+
+Source : [Statistique Canada](https://www150.statcan.gc.ca/t1/tbl1/fr/tv.action?pid=1710000501). Les dates de préparation, les fichiers et les conditions de réutilisation sont indiqués dans la trousse.
 
 ## Consignes
 
-1. Importer `population_pyramides_quebec_canada_latest.csv` ou exécuter `datasets/pyramides-ages/preparation.R` si le fichier est absent.
-2. Identifier ce que représente une ligne du fichier.
-3. Produire un tableau ou un graphique adapté à la question directrice.
-4. Rédiger une interprétation courte qui distingue description et explication.
-5. Nommer au moins une limite méthodologique ou une information absente.
+1. Ouvrir `activite-longue.R` dans le sous-dossier `datasets/pyramides-ages` du projet RStudio et cliquer sur Source. Les tableaux apparaissent dans Console et les graphiques dans Plots.
+2. Comparer les pyramides à échelle commune.
+3. Lire l’évolution de la part des 65 ans et plus sans confondre effectifs et proportions.
+4. Rédiger une réponse à la question en nommant l’unité observée et une limite de la source.
 
-## Déroulé suggéré
+## Résultat attendu
 
-1. Cadrer la source, la licence et l'unité statistique.
-2. Préparer ou importer les données.
-3. Produire un premier résumé descriptif.
-4. Construire la visualisation ou le tableau principal.
-5. Rédiger l'interprétation et les limites.
+Les tableaux et graphiques du script, accompagnés d’une interprétation de 6 à 8 lignes répondant à la question.
 
 ## Limites à faire nommer
 
-- Demander de comparer en proportions et de séparer les résultats descriptifs des interprétations causales.
-- Si une variable ou un dénominateur nécessaire n'est pas disponible dans les données, l'écrire explicitement plutôt que l'inférer.
+Les effectifs sont des estimations de population. Les signes servent à placer les côtés de la pyramide; les proportions de population sont positives.
 
+## Code complet
 
-## Mise en situation
-
-Un organisme de vulgarisation souhaite expliquer comment la structure d'âge du Québec se compare à celle du Canada. Votre mandat est de produire un court rapport reproductible à partir de la table StatCan `17-10-0005-01`.
-
-Le rapport doit séparer clairement trois choses : les effectifs, les proportions et les interprétations. Cette distinction est centrale, parce que le Canada et le Québec n'ont pas la même taille de population.
-
-## Livrable attendu
-
-Un rapport Quarto de 4 à 6 pages comprenant :
-
-- une brève description de la source;
-- deux pyramides des âges en proportions;
-- un tableau de la part des 65 ans et plus en 2001 et 2025;
-- une comparaison Canada-Québec;
-- une section de limites;
-- du code reproductible.
-
-## Données utilisées
-
-Source : Statistique Canada, tableau `17-10-0005-01`, Estimations de la population au 1er juillet, par âge et genre.
-
-Fichiers préparés :
-
-- `data/processed/pyramides-ages/population_pyramides_quebec_canada_latest.csv`;
-- `data/processed/pyramides-ages/population_pyramides_quebec_canada_2001_2025.csv`;
-- `data/processed/pyramides-ages/indicateurs_age_quebec_canada_2025.csv`;
-- `data/processed/pyramides-ages/evolution_65_plus_quebec_canada.csv`.
-
-## Étapes
-
-1. Exécuter `source("datasets/pyramides-ages/preparation.R")`.
-2. Importer les fichiers préparés.
-3. Vérifier les années, les géographies et les catégories de genre.
-4. Construire une pyramide pour le Québec et une pyramide pour le Canada en 2025.
-5. Calculer ou importer la part des 65 ans et plus en 2001 et 2025.
-6. Comparer les résultats en proportions.
-7. Rédiger une interprétation descriptive.
-8. Rédiger une section de limites.
-
-## Code de départ
+Ce script complet est celui de la trousse. Il lit les fichiers locaux et affiche les résultats dans RStudio.
 
 ```{r}
-#| eval: false
-# Load libraries
-library(dplyr)
-library(ggplot2)
-library(readr)
-library(scales)
-
-# Prepare official table
-source("datasets/pyramides-ages/preparation.R")
-
-# Import prepared files
-population_2025 <- read_csv(
-  "data/processed/pyramides-ages/population_pyramides_quebec_canada_latest.csv",
-  show_col_types = FALSE
-)
-
-evolution_65_plus <- read_csv(
-  "data/processed/pyramides-ages/evolution_65_plus_quebec_canada.csv",
-  show_col_types = FALSE
-)
-
-# Plot pyramids by geography
-ggplot(
-  population_2025,
-  aes(x = age_group, y = proportion_plot, fill = gender)
-) +
-  geom_col(width = 0.85) +
-  coord_flip() +
-  facet_wrap(vars(geography)) +
-  scale_y_continuous(labels = function(x) percent(abs(x), accuracy = 1)) +
-  labs(
-    title = "Pyramides des âges, 2025",
-    subtitle = "Canada et Québec, proportions de la population estimée au 1er juillet",
-    x = "Groupe d'âge",
-    y = "Part de la population",
-    fill = "Genre publié"
-  ) +
-  theme_minimal()
-
-# Compare the share aged 65 and over
-evolution_65_plus |>
-  mutate(pct_65_plus = percent(pct_65_plus, accuracy = 0.1))
+#| label: activity-code
+#| echo: false
+#| results: asis
+render_activity_code()
 ```
-
-## Questions d'analyse
-
-1. La population québécoise est-elle plus âgée que la population canadienne en 2025?
-2. La conclusion est-elle la même avec les effectifs et avec les proportions?
-3. Comment évolue la part des 65 ans et plus entre 2001 et 2025?
-4. Quels groupes d'âge structurent le plus la pyramide québécoise?
-5. Quelles données faudrait-il ajouter pour expliquer les causes du vieillissement démographique?
-
-## Critères d'évaluation
-
-| Critère | Attendu |
-|---|---|
-| Source | La table StatCan est citée avec son numéro et sa date d'accès. |
-| Reproductibilité | Le script prépare ou importe les fichiers générés localement. |
-| Filtrage | Les années, géographies, genres, unités et groupes d'âge sont explicites. |
-| Graphiques | Les pyramides sont en proportions et l'axe signé est expliqué. |
-| Indicateurs | La part des 65 ans et plus est définie et interprétée correctement. |
-| Interprétation | Les résultats sont descriptifs, sans conclusion causale non appuyée. |
-| Limites | Les limites des données agrégées sont formulées clairement. |
-
-## Résultats attendus
-
-Le rapport devrait montrer que la part des 65 ans et plus est plus élevée au Québec qu'au Canada en 2025 dans la table préparée. Il devrait aussi montrer que cette part a augmenté depuis 2001 dans les deux territoires.
-
-Les résultats doivent être présentés comme descriptifs. La table ne contient pas directement les composantes démographiques nécessaires pour expliquer les causes : naissances, décès, migrations ou changements méthodologiques.
-
-## Variantes possibles
-
-- Comparer le Québec avec une autre province.
-- Ajouter une troisième année.
-- Ajouter une animation temporelle.
-- Produire une version interactive avec Shiny.
-- Transformer le rapport en tutoriel learnr.
 
 ```{r}
 #| label: activity-pedagogical-contract
 #| echo: false
 #| results: asis
-contract_source_path <- if (file.exists("R/utils_activity_contract.R")) "R/utils_activity_contract.R" else "../../R/utils_activity_contract.R"
-source(contract_source_path)
 render_activity_contract()
 ```

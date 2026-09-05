@@ -1,121 +1,121 @@
 inventaire_type,arbre_id,arrondissement_code,arrondissement,emplacement,sigle,essence_latin,essence_fr,essence_ang,dhp
 H,106127,1,Ahuntsic - Cartierville,Parterre Gazonné,ABSI,Abies sibirica,Abies sibirica,Abies sibirica,5
-R,133268,1,Ahuntsic - Cartierville,Parterre Gazonné,GYDI,Gymnocladus dioicus,Chicot du Canada,Kentucky Coffeetree,5
-R,102924,1,Ahuntsic - Cartierville,Parterre Gazonné,FRPE,Fraxinus pennsylvanica,Frêne de Pennsylvanie,Red Ash,35
-R,134020,1,Ahuntsic - Cartierville,Parterre Gazonné,GLTRSK,Gleditsia triacanthos 'Skyline',Févier Skyline,Skyline Honey-Locust,21
-R,253464,1,Ahuntsic - Cartierville,Parterre Gazonné,GIBI,Ginkgo biloba,Ginkgo à feuilles bilobées,Maidenhair Tree,5
-R,192589,1,Ahuntsic - Cartierville,Terre-plein Gazonné,CEOC,Celtis occidentalis,Micocoulier occidental,Common Hackberry,25
-R,123434,1,Ahuntsic - Cartierville,TRottoir,ULPU,Ulmus pumila,Orme de Sibérie,Siberian Elm,68
-R,116613,1,Ahuntsic - Cartierville,Parterre Gazonné,PLACEX,Platanus x a. 'Morton Circle (Exclamation TM),Platane Exclamation,Exclamation London Planetree,5
-R,105100,1,Ahuntsic - Cartierville,Parterre Gazonné,TICO,Tilia cordata,Tilleul à petites feuilles,Littleleaf European Linden,43
-R,120994,1,Ahuntsic - Cartierville,Parterre Gazonné,ULXXPA,Ulmus x 'Patriots',Ulmus x Patriots,Ulmus x Patriots,5
-R,106306,1,Ahuntsic - Cartierville,Banquette Gazonnée,ACSA,Acer saccharinum,Érable argenté,Silver Maple,36
-H,19050,1,Ahuntsic - Cartierville,Parterre Gazonné,ACSA,Acer saccharinum,Érable argenté,Silver Maple,63
-R,108604,1,Ahuntsic - Cartierville,Parterre Gazonné,ACPLDE,Acer platanoides 'Deborah',Érable de Norvège Deborah,Deborah Norway Maple,26
-H,86197,1,Ahuntsic - Cartierville,Parterre Gazonné,ACSCTU,Acer saccharum 'Temple Upright',Érable à sucre Temple Upright,Temple Upright Sugar Maple,5
-R,755929,7,Côte-des-Neiges - Notre-Dame-de-Grâce,Parterre Gazonné,GYDI,Gymnocladus dioicus,Chicot du Canada,Kentucky Coffeetree,5
-R,465505,7,Côte-des-Neiges - Notre-Dame-de-Grâce,Parterre Gazonné,GLTRSH,Gleditsia triacanthos 'Shademaster',Févier Shademaster,Shademaster Honey-Locust,9
-R,168416,7,Côte-des-Neiges - Notre-Dame-de-Grâce,Parterre Gazonné,SYREIS,Syringa reticulata 'Ivory Silk',Lilas japonais Ivory Silk,Ivory Silk Japanese Tree Lilac,31
-R,302925,7,Côte-des-Neiges - Notre-Dame-de-Grâce,Parterre Gazonné,ULHOPI,Ulmus x hollandica 'Pioneer',Orme Pioneer,Pioneer Elm,9
-R,73866,7,Côte-des-Neiges - Notre-Dame-de-Grâce,PaRterre,MA,Malus,Pommier,Crab Apple,19
-R,81714,7,Côte-des-Neiges - Notre-Dame-de-Grâce,PaRterre,TICO,Tilia cordata,Tilleul à petites feuilles,Littleleaf European Linden,45
-H,29890,7,Côte-des-Neiges - Notre-Dame-de-Grâce,PArc,ACSA,Acer saccharinum,Érable argenté,Silver Maple,83.2
-R,80457,7,Côte-des-Neiges - Notre-Dame-de-Grâce,PaRterre,ACSA,Acer saccharinum,Érable argenté,Silver Maple,63
-R,65719,7,Côte-des-Neiges - Notre-Dame-de-Grâce,Parterre Gazonné,ACPL,Acer platanoides,Érable de Norvège,Norway Maple,78
-R,74663,7,Côte-des-Neiges - Notre-Dame-de-Grâce,PaRterre,ACTA,Acer tataricum,Érable de Tartarie,Tartarian Maple,28
-R,218336,24,Lachine,Parterre Gazonné,GLTRSU,Gleditsia triacanthos 'Sunburst',Févier Sunburst,Sunburst Honey-Locust,11
-R,220177,24,Lachine,Parterre Gazonné,TIAM,Tilia americana,Tilleul d'Amérique,Basswood,52
-R,219115,24,Lachine,Parterre Gazonné,ACPL,Acer platanoides,Érable de Norvège,Norway Maple,28
-R,376465,5,Le Plateau-Mont-Royal,Saillie Aménagée,GYDI,Gymnocladus dioicus,Chicot du Canada,Kentucky Coffeetree,5
-R,138744,5,Le Plateau-Mont-Royal,TRottoir,GLTRSH,Gleditsia triacanthos 'Shademaster',Févier Shademaster,Shademaster Honey-Locust,16
-R,163082,5,Le Plateau-Mont-Royal,Parterre Gazonné,AEGL,Aesculus glabra,Marronnier glabre,Ohio Buckeye,22
-H,163222,5,Le Plateau-Mont-Royal,Parterre Gazonné,OSVI,Ostrya virginiana,Ostryer de Virginie,American Hop-Hornbeam Ironwood,5
-R,5999,5,Le Plateau-Mont-Royal,TRottoir,ACFRAB,Acer x freemanii 'Autumn Blaze',Érable Autumn Blaze,Autumn Blaze Freeman Maple,5
-H,9093,5,Le Plateau-Mont-Royal,PArc,ACSA,Acer saccharinum,Érable argenté,Silver Maple,42
-R,2007,5,Le Plateau-Mont-Royal,Banquette aSphaltée,ACPLSU,Acer platanoides 'Summershade',Érable de Norvège Summershade,Summershade Norway Maple,28
-R,376205,8,Le Sud-Ouest,Parterre Gazonné,GYDI,Gymnocladus dioicus,Chicot du Canada,Kentucky Coffeetree,5
-R,65837,8,Le Sud-Ouest,Banquette Gazonnée,FRPE,Fraxinus pennsylvanica,Frêne de Pennsylvanie,Red Ash,52
-R,63796,8,Le Sud-Ouest,TRottoir,GLTRSK,Gleditsia triacanthos 'Skyline',Févier Skyline,Skyline Honey-Locust,8
-H,4308,8,Le Sud-Ouest,Parterre Gazonné,CEOC,Celtis occidentalis,Micocoulier occidental,Common Hackberry,5
-H,10537,8,Le Sud-Ouest,Parterre Gazonné,PODE,Populus deltoides,Peuplier deltoïde,Eastern Cottonwood,50
-H,3704,8,Le Sud-Ouest,Parterre Gazonné,TICO,Tilia cordata,Tilleul à petites feuilles,Littleleaf European Linden,31
-H,4551,8,Le Sud-Ouest,Parterre Gazonné,ACSA,Acer saccharinum,Érable argenté,Silver Maple,29
-R,67382,8,Le Sud-Ouest,TRottoir,ACPLSC,Acer platanoides 'Schwedleri',Érable de Norvège Schwedleri,Schwedleri Norway Maple,46
-R,644085,4,Mercier - Hochelaga-Maisonneuve,Saillie Drainante,ALGL,Alnus glutinosa,Aulne glutineux,European Black Alder,5
-R,267554,4,Mercier - Hochelaga-Maisonneuve,Saillie Aménagée,GYDI,Gymnocladus dioicus,Chicot du Canada,Kentucky Coffeetree,5
-R,49200,4,Mercier - Hochelaga-Maisonneuve,Parterre Gazonné,FRAM,Fraxinus americana,Frêne d'Amérique,White Ash,34
-R,10073,4,Mercier - Hochelaga-Maisonneuve,PaRterre,FRPEMS,Fraxinus pennsylvanica 'Marshall Seedless',Frêne de Pennsylvanie Marshall Seedless,Marshall Seedless Red Ash,15
-R,12941,4,Mercier - Hochelaga-Maisonneuve,Parterre Gazonné,GLTRIN,Gleditsia triacanthos var. inermis,Févier inerme d'Amérique,Thornless Honey-Locust,63
-H,143455,4,Mercier - Hochelaga-Maisonneuve,PArc,FASYPU,Fagus sylvatica 'Purpurea',Hêtre européen purpurea,Purpurea European Beech,5
-H,153788,4,Mercier - Hochelaga-Maisonneuve,PArc,JUNI,Juglans nigra,Noyer noir,Eastern Black Walnut,5
-R,188973,4,Mercier - Hochelaga-Maisonneuve,Parterre Gazonné,PHAMMA,Phellodendron amurensis 'Macho',Phellodendron de l'Amour Macho,Macho Amur Cork Tree,5
-R,38624,4,Mercier - Hochelaga-Maisonneuve,Parterre Gazonné,THOC,Thuja occidentalis,Thuya occidental,Eastern White Cedar,12
-R,148793,4,Mercier - Hochelaga-Maisonneuve,Parterre Gazonné,LITU,Liriodendron tulipifera,Tulipier de Virginie,Tulip Tree,5
-R,324049,4,Mercier - Hochelaga-Maisonneuve,Banquette avec cOpeaux,ACFRAB,Acer x freemanii 'Autumn Blaze',Érable Autumn Blaze,Autumn Blaze Freeman Maple,13
-R,47291,4,Mercier - Hochelaga-Maisonneuve,PaRterre,ACSA,Acer saccharinum,Érable argenté,Silver Maple,80
-R,47560,4,Mercier - Hochelaga-Maisonneuve,Parterre Gazonné,ACPL,Acer platanoides,Érable de Norvège,Norway Maple,66
-R,20978,4,Mercier - Hochelaga-Maisonneuve,Parterre aMénagé,ACSC,Acer saccharum,Érable à sucre,Sugar Maple,25
-H,35647,25,Pierrefonds - Roxboro,Parterre Gazonné,QURU,Quercus rubra,Chêne rouge,Red Oak,31
-R,661848,25,Pierrefonds - Roxboro,Parterre Gazonné,GIBIPS,Ginkgo biloba 'Princeton Sentry',Ginkgo à feuilles bilobées Princeton Sentry,Princeton Sentry Maidenhair Tree,5
-R,231724,25,Pierrefonds - Roxboro,Parterre Gazonné,PHAMMA,Phellodendron amurensis 'Macho',Phellodendron de l'Amour Macho,Macho Amur Cork Tree,5
-R,230040,25,Pierrefonds - Roxboro,Parterre Gazonné,RUTY,Rhus typhina,Vinaigrier,Staghorn Sumac,7
-H,103001,25,Pierrefonds - Roxboro,Parterre Gazonné,ACPL,Acer platanoides,Érable de Norvège,Norway Maple,30
-H,32447,25,Pierrefonds - Roxboro,Parterre Gazonné,ACSC,Acer saccharum,Érable à sucre,Sugar Maple,18
-R,153650,9,Rivière-des-Prairies - Pointe-aux-Trembles,Parterre Gazonné,PRVISC,Prunus virginiana 'Schubert',Cerisier de Virginie Schubert,Schubert's Chokecherry,23
-R,710823,9,Rivière-des-Prairies - Pointe-aux-Trembles,Parterre Gazonné,QURU,Quercus rubra,Chêne rouge,Red Oak,19
-H,117384,9,Rivière-des-Prairies - Pointe-aux-Trembles,Parterre Gazonné,GLTRSK,Gleditsia triacanthos 'Skyline',Févier Skyline,Skyline Honey-Locust,11
-R,258754,9,Rivière-des-Prairies - Pointe-aux-Trembles,Parterre Gazonné,GLTRST,Gleditsia triacanthos 'Street Keeper',Gleditsia triacanthos 'Street Keeper',Gleditsia triacanthos 'Street Keeper',10
-H,105163,9,Rivière-des-Prairies - Pointe-aux-Trembles,Parterre Gazonné,JU,Juglans,Noyer,"Walnut, Butternut",16
-R,143129,9,Rivière-des-Prairies - Pointe-aux-Trembles,PaRterre,POCA,Populus x canadensis,Peuplier de Caroline,Carolina Poplar,10
-H,137106,9,Rivière-des-Prairies - Pointe-aux-Trembles,Parterre Gazonné,MA,Malus,Pommier,Crab Apple,27
-R,37480,9,Rivière-des-Prairies - Pointe-aux-Trembles,PaRterre,TICO,Tilia cordata,Tilleul à petites feuilles,Littleleaf European Linden,120
-H,139406,9,Rivière-des-Prairies - Pointe-aux-Trembles,Parterre Gazonné,AC,Acer,Érable,Maple,55
-R,34412,9,Rivière-des-Prairies - Pointe-aux-Trembles,Parterre Gazonné,ACSA,Acer saccharinum,Érable argenté,Silver Maple,118
-R,49256,9,Rivière-des-Prairies - Pointe-aux-Trembles,Parterre avec Bordure,ACPL,Acer platanoides,Érable de Norvège,Norway Maple,35
-H,145863,9,Rivière-des-Prairies - Pointe-aux-Trembles,Parterre Gazonné,ACNE,Acer negundo,Érable à Giguère,Manitoba Maple,23
-H,99349,3,Rosemont - La Petite-Patrie,Parterre Gazonné,ALGLIM,Alnus glutinosa 'Imperialis',Aulne glutineux Imperialis,Imperialis European Black Alder,5
-R,135026,3,Rosemont - La Petite-Patrie,Parterre Gazonné,QURU,Quercus rubra,Chêne rouge,Red Oak,5
-R,88855,3,Rosemont - La Petite-Patrie,TRottoir,FRPE,Fraxinus pennsylvanica,Frêne de Pennsylvanie,Red Ash,32
-R,92064,3,Rosemont - La Petite-Patrie,TRottoir,GLTRNA,Gleditsia triacanthos 'Northern Acclaim',Févier 'Northern Acclaim',Northern Acclaim Honey-Locust,5
-R,710886,3,Rosemont - La Petite-Patrie,Parterre Gazonné,GLTRIN,Gleditsia triacanthos var. inermis,Févier inerme d'Amérique,Thornless Honey-Locust,21
-R,26978,3,Rosemont - La Petite-Patrie,PaRterre,CEOC,Celtis occidentalis,Micocoulier occidental,Common Hackberry,43
-R,12611,3,Rosemont - La Petite-Patrie,PaRterre,ULPU,Ulmus pumila,Orme de Sibérie,Siberian Elm,47
-R,99621,3,Rosemont - La Petite-Patrie,TRottoir,PYUSPG,Pyrus ussuriensis 'Prairie Gem',Poirier de Mandchourie Prairie Gem,Prairie Gem Ussurian Pear,5
-R,28091,3,Rosemont - La Petite-Patrie,PaRterre,TICO,Tilia cordata,Tilleul à petites feuilles,Littleleaf European Linden,72
-H,72487,3,Rosemont - La Petite-Patrie,PArc,PIPU,Picea pungens,Épinette du Colorado,Colorado Spruce,17
-R,30177,3,Rosemont - La Petite-Patrie,Banquette aSphaltée,ACSA,Acer saccharinum,Érable argenté,Silver Maple,62
-R,135701,3,Rosemont - La Petite-Patrie,TRottoir,ACPL,Acer platanoides,Érable de Norvège,Norway Maple,20
-R,89342,3,Rosemont - La Petite-Patrie,PaRterre,ACPLEQ,Acer platanoides 'Emerald Queen',Érable de Norvège Emerald Queen,Emerald Queen Norway Maple,33
-H,101549,12,Saint-Léonard,Parterre Gazonné,BEAL,Betula alleghaniensis,Bouleau jaune,Yellow Birch,5
-R,260236,12,Saint-Léonard,Parterre Gazonné,FRPE,Fraxinus pennsylvanica,Frêne de Pennsylvanie,Red Ash,38
-R,738988,12,Saint-Léonard,Parterre Gazonné,GIBIMA,Ginkgo biloba mâle,Ginkgo biloba mâle,Ginkgo biloba mâle,5
-H,161375,12,Saint-Léonard,Parterre Gazonné,CEOC,Celtis occidentalis,Micocoulier occidental,Common Hackberry,5
-H,106803,12,Saint-Léonard,Parterre Gazonné,PN,Pinus,Pin,Pine,37
-H,102022,12,Saint-Léonard,Parterre Gazonné,TICOGR,Tilia cordata 'Greenspire',Tilleul à petites feuilles Greenspire,Greenspire Littleleaf Linden,5
-H,108756,12,Saint-Léonard,Parterre Gazonné,ACPL,Acer platanoides,Érable de Norvège,Norway Maple,45
-R,203641,12,Saint-Léonard,Parterre Gazonné,ACPLCK,Acer platanoides 'Crimson King',Érable de Norvège Crimson King,Crimson King Norway Maple,31
-H,111291,12,Saint-Léonard,Parterre Gazonné,ACSP,Acer spicatum,Érable à épis,Mountain Maple,47
-H,81221,16,Verdun,Parterre Gazonné,FRAM,Fraxinus americana,Frêne d'Amérique,White Ash,64
-H,135825,16,Verdun,Parterre Gazonné,FAGR,Fagus grandifolia,Hêtre à grandes feuilles,American Beech,5
-H,81722,16,Verdun,Parterre Gazonné,POBA,Populus balsamifera,Peuplier baumier,Balsam Poplar,21
-H,82544,16,Verdun,PArc,THOC,Thuja occidentalis,Thuya occidental,Eastern White Cedar,13
-H,161758,16,Verdun,Parterre avec Copeaux,ACFRAB,Acer x freemanii 'Autumn Blaze',Érable Autumn Blaze,Autumn Blaze Freeman Maple,5
-R,245891,16,Verdun,Parterre Gazonné,ACPL,Acer platanoides,Érable de Norvège,Norway Maple,63
-H,164900,6,Ville-Marie,Parterre Gazonné,AMCA,Amelanchier canadensis,Amélanchier du Canada,Downy Serviceberry,5
-H,79732,6,Ville-Marie,Parterre Gazonné,GYDI,Gymnocladus dioicus,Chicot du Canada,Kentucky Coffeetree,5
-R,8771,6,Ville-Marie,TRottoir,GLTRSH,Gleditsia triacanthos 'Shademaster',Févier Shademaster,Shademaster Honey-Locust,5
-H,88094,6,Ville-Marie,Parterre Gazonné,GLTRIN,Gleditsia triacanthos var. inermis,Févier inerme d'Amérique,Thornless Honey-Locust,27
-R,194260,6,Ville-Marie,TRottoir,ULXXMO,Ulmus x 'Morton' (Accolade TM),Orme Morton (Accolade TM),Morton (Accolade TM) Elm,5
-H,127074,6,Ville-Marie,Parterre Gazonné,PNNIAU,Pinus nigra 'Austriaca',Pin noir d'Autriche,Austrian Pine,30
-R,243069,6,Ville-Marie,Fond de Trottoir,ACFRAB,Acer x freemanii 'Autumn Blaze',Érable Autumn Blaze,Autumn Blaze Freeman Maple,5
-R,22749,6,Ville-Marie,TRottoir,ACPLEQ,Acer platanoides 'Emerald Queen',Érable de Norvège Emerald Queen,Emerald Queen Norway Maple,8
-H,59028,2,Villeray-Saint-Michel - Parc-Extension,PArc,CACA,Carpinus caroliniana,Charme de Caroline,Blue-beech,5
-R,110700,2,Villeray-Saint-Michel - Parc-Extension,TRottoir,FRPE,Fraxinus pennsylvanica,Frêne de Pennsylvanie,Red Ash,55
-R,242656,2,Villeray-Saint-Michel - Parc-Extension,Banquette aSphaltée,GLTRSK,Gleditsia triacanthos 'Skyline',Févier Skyline,Skyline Honey-Locust,21
-H,60088,2,Villeray-Saint-Michel - Parc-Extension,PArc,SYREIS,Syringa reticulata 'Ivory Silk',Lilas japonais Ivory Silk,Ivory Silk Japanese Tree Lilac,16
-H,118298,2,Villeray-Saint-Michel - Parc-Extension,Parterre Gazonné,ULAMBR,Ulmus americana 'Brandon',Orme d'Amérique Brandon,Brandon White Elm,5
-R,233769,2,Villeray-Saint-Michel - Parc-Extension,Parterre Gazonné,MAXXCE,Malus x Centurion®,Pommetier Centurion®,Centurion® Crab Apple,5
-H,71125,2,Villeray-Saint-Michel - Parc-Extension,PArc,TICO,Tilia cordata,Tilleul à petites feuilles,Littleleaf European Linden,23
-R,112500,2,Villeray-Saint-Michel - Parc-Extension,Parterre Gazonné,ACSA,Acer saccharinum,Érable argenté,Silver Maple,65
-R,141091,2,Villeray-Saint-Michel - Parc-Extension,TRottoir,ACPL,Acer platanoides,Érable de Norvège,Norway Maple,19
+R,135875,1,Ahuntsic - Cartierville,Parterre Gazonné,GYDI,Gymnocladus dioicus,Chicot du Canada,Kentucky Coffeetree,5
+R,104018,1,Ahuntsic - Cartierville,Parterre Gazonné,FRPE,Fraxinus pennsylvanica,Frêne de Pennsylvanie,Red Ash,47
+R,135404,1,Ahuntsic - Cartierville,Parterre Gazonné,GLTRSK,Gleditsia triacanthos 'Skyline',Févier Skyline,Skyline Honey-Locust,34
+R,283006,1,Ahuntsic - Cartierville,Parterre Gazonné,GIBI,Ginkgo biloba,Ginkgo à feuilles bilobées,Maidenhair Tree,5
+R,192657,1,Ahuntsic - Cartierville,PArc,CEOC,Celtis occidentalis,Micocoulier occidental,Common Hackberry,24
+R,133884,1,Ahuntsic - Cartierville,Parterre Gazonné,ULPU,Ulmus pumila,Orme de Sibérie,Siberian Elm,70
+R,121788,1,Ahuntsic - Cartierville,Parterre Gazonné,PLOC,Platanus occidentalis,Platane occidental,Eastern Sycamore,5
+R,105436,1,Ahuntsic - Cartierville,Parterre Gazonné,TICO,Tilia cordata,Tilleul à petites feuilles,Littleleaf European Linden,48
+H,54039,1,Ahuntsic - Cartierville,Parterre Gazonné,AEXXAS,Aesculus x arnoldiana Autumn Splendor,maronnier Autumn Splendor,Autumn Splendor Buckeye,5
+R,107047,1,Ahuntsic - Cartierville,Parterre Gazonné,ACSA,Acer saccharinum,Érable argenté,Silver Maple,76
+R,193885,1,Ahuntsic - Cartierville,Terre-plein Gazonné,ACSA,Acer saccharinum,Érable argenté,Silver Maple,19
+R,126771,1,Ahuntsic - Cartierville,Parterre aMénagé,ACPLDE,Acer platanoides 'Deborah',Érable de Norvège Deborah,Deborah Norway Maple,23
+R,77381,7,Côte-des-Neiges - Notre-Dame-de-Grâce,Parterre Gazonné,ACMIMO,Acer miyabei 'Morton' (State Street TM),Acer miyabei Morton (State Street),Acer miyabei Morton (State Street),27
+R,754006,7,Côte-des-Neiges - Notre-Dame-de-Grâce,Parterre Gazonné,GYDIES,Gymnocladus dioicus 'Espresso',Chicot du Canada 'Espresso',Kentucky Coffeetree 'Espresso',5
+R,79138,7,Côte-des-Neiges - Notre-Dame-de-Grâce,Parterre Gazonné,GLTRSH,Gleditsia triacanthos 'Shademaster',Févier Shademaster,Shademaster Honey-Locust,5
+R,54144,7,Côte-des-Neiges - Notre-Dame-de-Grâce,PaRterre,SYREIS,Syringa reticulata 'Ivory Silk',Lilas japonais Ivory Silk,Ivory Silk Japanese Tree Lilac,8
+H,17149,7,Côte-des-Neiges - Notre-Dame-de-Grâce,PArc,ULAM,Ulmus americana,Orme d'Amérique,White Elm,45
+R,58337,7,Côte-des-Neiges - Notre-Dame-de-Grâce,PaRterre,QUEL,Quercus ellipsoidalis,Quercus ellipsoidalis,Quercus ellipsoidalis,5
+R,84241,7,Côte-des-Neiges - Notre-Dame-de-Grâce,Parterre Gazonné,TICO,Tilia cordata,Tilleul à petites feuilles,Littleleaf European Linden,54
+R,52561,7,Côte-des-Neiges - Notre-Dame-de-Grâce,PaRterre,ACSA,Acer saccharinum,Érable argenté,Silver Maple,91
+R,81555,7,Côte-des-Neiges - Notre-Dame-de-Grâce,PaRterre,ACSA,Acer saccharinum,Érable argenté,Silver Maple,104
+R,73951,7,Côte-des-Neiges - Notre-Dame-de-Grâce,Parterre Gazonné,ACPL,Acer platanoides,Érable de Norvège,Norway Maple,57
+H,28857,7,Côte-des-Neiges - Notre-Dame-de-Grâce,PArc,ACRU,Acer rubrum,Érable rouge,Red Maple,24
+R,215300,24,Lachine,Parterre Gazonné,SYREIS,Syringa reticulata 'Ivory Silk',Lilas japonais Ivory Silk,Ivory Silk Japanese Tree Lilac,9
+R,219623,24,Lachine,Parterre Gazonné,TICO,Tilia cordata,Tilleul à petites feuilles,Littleleaf European Linden,17
+R,220079,24,Lachine,Parterre Gazonné,ACPL,Acer platanoides,Érable de Norvège,Norway Maple,62
+R,6962,5,Le Plateau-Mont-Royal,TRottoir,GYDI,Gymnocladus dioicus,Chicot du Canada,Kentucky Coffeetree,12
+R,140161,5,Le Plateau-Mont-Royal,TRottoir,GLTRSK,Gleditsia triacanthos 'Skyline',Févier Skyline,Skyline Honey-Locust,14
+H,16242,5,Le Plateau-Mont-Royal,Parterre Gazonné,CEOC,Celtis occidentalis,Micocoulier occidental,Common Hackberry,9
+R,539565,5,Le Plateau-Mont-Royal,Saillie Aménagée,PHAM,Phellodendron amurensis,Phellodendron de l'Amour,Amur Cork tree,21
+H,14235,5,Le Plateau-Mont-Royal,Parterre Gazonné,ACSA,Acer saccharinum,Érable argenté,Silver Maple,45
+R,2517,5,Le Plateau-Mont-Royal,TRottoir,ACSAPY,Acer saccharinum 'Pyramidalis',Érable argenté Pyramidal,Pyramidale Silver Maple,27
+R,51006,5,Le Plateau-Mont-Royal,TRottoir,ACPLCO,Acer platanoides 'Columnare',Érable de Norvège colonnaire,Columnare Norway Maple,27
+R,66705,8,Le Sud-Ouest,TRottoir,GYDI,Gymnocladus dioicus,Chicot du Canada,Kentucky Coffeetree,5
+R,68964,8,Le Sud-Ouest,TRottoir,FRPE,Fraxinus pennsylvanica,Frêne de Pennsylvanie,Red Ash,26
+R,139801,8,Le Sud-Ouest,TRottoir,GLTRSP,Gleditsia triacanthos 'Spectrum',Févier Spectrum,Spectrum Honey-Locust,4
+R,73571,8,Le Sud-Ouest,TRottoir,CEOC,Celtis occidentalis,Micocoulier occidental,Common Hackberry,16
+H,10771,8,Le Sud-Ouest,Parterre Gazonné,POTR,Populus tremuloides,Peuplier faux-tremble,Trembling Aspen,38
+R,62623,8,Le Sud-Ouest,PaRterre,TICO,Tilia cordata,Tilleul à petites feuilles,Littleleaf European Linden,42
+R,55758,8,Le Sud-Ouest,PaRterre,ACSA,Acer saccharinum,Érable argenté,Silver Maple,61
+R,158380,8,Le Sud-Ouest,PaRterre,ACPLCO,Acer platanoides 'Columnare',Érable de Norvège colonnaire,Columnare Norway Maple,10
+H,163371,4,Mercier - Hochelaga-Maisonneuve,Parterre Gazonné,BEAL,Betula alleghaniensis,Bouleau jaune,Yellow Birch,1
+R,51682,4,Mercier - Hochelaga-Maisonneuve,TRottoir,GYDI,Gymnocladus dioicus,Chicot du Canada,Kentucky Coffeetree,5
+H,100453,4,Mercier - Hochelaga-Maisonneuve,Parterre Gazonné,FRPE,Fraxinus pennsylvanica,Frêne de Pennsylvanie,Red Ash,20
+R,25132,4,Mercier - Hochelaga-Maisonneuve,TRottoir,FRPEMS,Fraxinus pennsylvanica 'Marshall Seedless',Frêne de Pennsylvanie Marshall Seedless,Marshall Seedless Red Ash,38
+H,147603,4,Mercier - Hochelaga-Maisonneuve,PArc,GLTRIN,Gleditsia triacanthos var. inermis,Févier inerme d'Amérique,Thornless Honey-Locust,17
+R,584325,4,Mercier - Hochelaga-Maisonneuve,Parterre Gazonné,SYRE,Syringa reticulata,Lilas japonais,Japanese Tree Lilac,14
+R,560047,4,Mercier - Hochelaga-Maisonneuve,Parterre Gazonné,NYSY,Nyssa sylvatica,Nyssa sylvatica,Nyssa sylvatica,5
+H,131617,4,Mercier - Hochelaga-Maisonneuve,PArc,PNST,Pinus strobus,Pin blanc,Eastern White Pine,5
+R,636765,4,Mercier - Hochelaga-Maisonneuve,TRottoir,TITO,Tilia tomentosa,Tilleul argenté,Silver Linden,5
+R,479165,4,Mercier - Hochelaga-Maisonneuve,Parterre bÉtonné,LITU,Liriodendron tulipifera,Tulipier de Virginie,Tulip Tree,6
+H,95546,4,Mercier - Hochelaga-Maisonneuve,PArc,ACFRAB,Acer x freemanii 'Autumn Blaze',Érable Autumn Blaze,Autumn Blaze Freeman Maple,12
+H,51968,4,Mercier - Hochelaga-Maisonneuve,PArc,ACSA,Acer saccharinum,Érable argenté,Silver Maple,24
+R,51789,4,Mercier - Hochelaga-Maisonneuve,Saillie Aménagée,ACPL,Acer platanoides,Érable de Norvège,Norway Maple,31
+R,48148,4,Mercier - Hochelaga-Maisonneuve,PaRterre,ACSC,Acer saccharum,Érable à sucre,Sugar Maple,48
+H,102906,25,Pierrefonds - Roxboro,Parterre Gazonné,QUMA,Quercus macrocarpa,Chêne à gros fruits,Bur Oak,50
+R,228810,25,Pierrefonds - Roxboro,Parterre Gazonné,SYRE,Syringa reticulata,Lilas japonais,Japanese Tree Lilac,4
+H,141811,25,Pierrefonds - Roxboro,Parterre Gazonné,PNST,Pinus strobus,Pin blanc,Eastern White Pine,16
+R,226347,25,Pierrefonds - Roxboro,Parterre Gazonné,PIGL,Picea glauca,Épinette blanche,White Spruce,25
+R,229394,25,Pierrefonds - Roxboro,Parterre Gazonné,ACPL,Acer platanoides,Érable de Norvège,Norway Maple,28
+H,34489,25,Pierrefonds - Roxboro,Parterre Gazonné,ACSC,Acer saccharum,Érable à sucre,Sugar Maple,26
+H,166284,9,Rivière-des-Prairies - Pointe-aux-Trembles,Parterre Gazonné,CACA,Carpinus caroliniana,Charme de Caroline,Blue-beech,5
+H,147079,9,Rivière-des-Prairies - Pointe-aux-Trembles,Parterre Gazonné,QUMA,Quercus macrocarpa,Chêne à gros fruits,Bur Oak,1
+R,158096,9,Rivière-des-Prairies - Pointe-aux-Trembles,Terre-Plein,GLTRSK,Gleditsia triacanthos 'Skyline',Févier Skyline,Skyline Honey-Locust,5
+R,709776,9,Rivière-des-Prairies - Pointe-aux-Trembles,Parterre Gazonné,SY,Syringa,Lilas,Lilac,12
+H,52358,9,Rivière-des-Prairies - Pointe-aux-Trembles,Parterre Gazonné,JUNI,Juglans nigra,Noyer noir,Eastern Black Walnut,24
+H,145468,9,Rivière-des-Prairies - Pointe-aux-Trembles,Parterre Gazonné,PODE,Populus deltoides,Peuplier deltoïde,Eastern Cottonwood,80
+R,42453,9,Rivière-des-Prairies - Pointe-aux-Trembles,PaRterre,MA,Malus,Pommier,Crab Apple,13
+R,46093,9,Rivière-des-Prairies - Pointe-aux-Trembles,PaRterre,TICO,Tilia cordata,Tilleul à petites feuilles,Littleleaf European Linden,16
+R,234827,9,Rivière-des-Prairies - Pointe-aux-Trembles,Terre-plein Gazonné,ACFRAB,Acer x freemanii 'Autumn Blaze',Érable Autumn Blaze,Autumn Blaze Freeman Maple,5
+H,39700,9,Rivière-des-Prairies - Pointe-aux-Trembles,Parterre Gazonné,ACSA,Acer saccharinum,Érable argenté,Silver Maple,90
+R,50636,9,Rivière-des-Prairies - Pointe-aux-Trembles,PaRterre,ACPL,Acer platanoides,Érable de Norvège,Norway Maple,54
+H,150891,9,Rivière-des-Prairies - Pointe-aux-Trembles,Parterre Gazonné,ACNE,Acer negundo,Érable à Giguère,Manitoba Maple,24
+H,151964,3,Rosemont - La Petite-Patrie,PArc,BENIHT,Betula nigra 'Heritage' tiges multiples,Bouleau noir Heritage tiges multiples,Heritage multi-stem Black Birch,5
+H,75914,3,Rosemont - La Petite-Patrie,PArc,QURU,Quercus rubra,Chêne rouge,Red Oak,66
+R,91355,3,Rosemont - La Petite-Patrie,TRottoir,FRPE,Fraxinus pennsylvanica,Frêne de Pennsylvanie,Red Ash,35
+R,26534,3,Rosemont - La Petite-Patrie,PaRterre,GLTRSH,Gleditsia triacanthos 'Shademaster',Févier Shademaster,Shademaster Honey-Locust,5
+R,96763,3,Rosemont - La Petite-Patrie,Parterre Gazonné,GLTRIN,Gleditsia triacanthos var. inermis,Févier inerme d'Amérique,Thornless Honey-Locust,48
+R,93497,3,Rosemont - La Petite-Patrie,TRottoir,CEOC,Celtis occidentalis,Micocoulier occidental,Common Hackberry,12
+R,88193,3,Rosemont - La Petite-Patrie,PaRterre,ULPU,Ulmus pumila,Orme de Sibérie,Siberian Elm,68
+R,100024,3,Rosemont - La Petite-Patrie,Parterre Gazonné,MAXXRB,Malus x 'Robinson',Pommetier Robinson,Robinson Crab Apple,5
+H,77868,3,Rosemont - La Petite-Patrie,PArc,TICO,Tilia cordata,Tilleul à petites feuilles,Littleleaf European Linden,24
+H,75116,3,Rosemont - La Petite-Patrie,PArc,PIPU,Picea pungens,Épinette du Colorado,Colorado Spruce,34
+H,76269,3,Rosemont - La Petite-Patrie,PArc,ACSA,Acer saccharinum,Érable argenté,Silver Maple,20
+R,194791,3,Rosemont - La Petite-Patrie,Parterre Gazonné,ACPL,Acer platanoides,Érable de Norvège,Norway Maple,22
+R,89338,3,Rosemont - La Petite-Patrie,PaRterre,ACPLRR,Acer platanoides 'Royal Red',Érable de Norvège Royal Red,Royal Red Norway Maple,5
+H,38879,12,Saint-Léonard,Parterre Gazonné,CTSP,Catalpa speciosa,Catalpa de l'Ouest,Western Catalpa,5
+R,199438,12,Saint-Léonard,Parterre Gazonné,GLTRNA,Gleditsia triacanthos 'Northern Acclaim',Févier 'Northern Acclaim',Northern Acclaim Honey-Locust,18
+R,205088,12,Saint-Léonard,Parterre Gazonné,GIBI,Ginkgo biloba,Ginkgo à feuilles bilobées,Maidenhair Tree,45
+R,203872,12,Saint-Léonard,Parterre Gazonné,CEOC,Celtis occidentalis,Micocoulier occidental,Common Hackberry,46
+H,54224,12,Saint-Léonard,Parterre Gazonné,PNST,Pinus strobus,Pin blanc,Eastern White Pine,9
+R,516465,12,Saint-Léonard,Parterre Gazonné,LITU,Liriodendron tulipifera,Tulipier de Virginie,Tulip Tree,5
+H,111259,12,Saint-Léonard,Parterre Gazonné,ACPL,Acer platanoides,Érable de Norvège,Norway Maple,43
+R,274312,12,Saint-Léonard,Parterre Gazonné,ACPLDE,Acer platanoides 'Deborah',Érable de Norvège Deborah,Deborah Norway Maple,44
+H,90228,12,Saint-Léonard,Parterre Gazonné,ACRURE,Acer rubrum 'Frank Jr.. (Redpointe TM),érable rouge Redpointe,Redpointe Maple,8
+H,164258,16,Verdun,Parterre Gazonné,FRPE,Fraxinus pennsylvanica,Frêne de Pennsylvanie,Red Ash,21
+H,54980,16,Verdun,PArc,SYRE,Syringa reticulata,Lilas japonais,Japanese Tree Lilac,8
+R,243574,16,Verdun,Terre-plein Gazonné,PODE,Populus deltoides,Peuplier deltoïde,Eastern Cottonwood,48.8
+H,159257,16,Verdun,Parterre Gazonné,TIAM,Tilia americana,Tilleul d'Amérique,Basswood,5
+H,135484,16,Verdun,Parterre Gazonné,ACSA,Acer saccharinum,Érable argenté,Silver Maple,5
+H,55146,16,Verdun,PArc,ACPL,Acer platanoides,Érable de Norvège,Norway Maple,46.4
+H,104143,6,Ville-Marie,Parterre Gazonné,CRCO,Carya cordiformis,Caryer cordiforme,Bitternut Hickory,5
+R,248753,6,Ville-Marie,Parterre Gazonné,QUROFA,Quercus robur 'Fastigiata',Chêne anglais fastigié,Fastigiate English Oak,5
+R,139380,6,Ville-Marie,TRottoir,GLTRSK,Gleditsia triacanthos 'Skyline',Févier Skyline,Skyline Honey-Locust,10.6
+R,268696,6,Ville-Marie,Parterre Gazonné,GIBI,Ginkgo biloba,Ginkgo à feuilles bilobées,Maidenhair Tree,5
+R,287626,6,Ville-Marie,TRottoir,ULXXMO,Ulmus x 'Morton' (Accolade TM),Orme Morton (Accolade TM),Morton (Accolade TM) Elm,5
+H,89794,6,Ville-Marie,Parterre Gazonné,PNNIAU,Pinus nigra 'Austriaca',Pin noir d'Autriche,Austrian Pine,33
+H,102135,6,Ville-Marie,PArc,ACSA,Acer saccharinum,Érable argenté,Silver Maple,85
+H,122556,6,Ville-Marie,Parterre Gazonné,ACGI,Acer ginnala,Érable de l'Armour,Armur Maple,5
+R,125015,2,Villeray-Saint-Michel - Parc-Extension,TRottoir,GYDI,Gymnocladus dioicus,Chicot du Canada,Kentucky Coffeetree,5
+R,115827,2,Villeray-Saint-Michel - Parc-Extension,TRottoir,FRPE,Fraxinus pennsylvanica,Frêne de Pennsylvanie,Red Ash,41
+R,577645,2,Villeray-Saint-Michel - Parc-Extension,TRottoir,GLTRSK,Gleditsia triacanthos 'Skyline',Févier Skyline,Skyline Honey-Locust,5
+R,484505,2,Villeray-Saint-Michel - Parc-Extension,TRottoir,MCAM,Maackia amurensis,Maackia de l'Amur,Amur Maackia,8
+R,117101,2,Villeray-Saint-Michel - Parc-Extension,Parterre Gazonné,ULPU,Ulmus pumila,Orme de Sibérie,Siberian Elm,81
+R,155476,2,Villeray-Saint-Michel - Parc-Extension,TRottoir,MAXXIM,Malus x 'Indian Magic',Pommetier Indian Magic,Indian Magic Crab Apple,6
+R,89874,2,Villeray-Saint-Michel - Parc-Extension,Parterre Gazonné,TICO,Tilia cordata,Tilleul à petites feuilles,Littleleaf European Linden,69
+R,113058,2,Villeray-Saint-Michel - Parc-Extension,Parterre Gazonné,ACSA,Acer saccharinum,Érable argenté,Silver Maple,35
+R,158614,2,Villeray-Saint-Michel - Parc-Extension,PArc,ACPL,Acer platanoides,Érable de Norvège,Norway Maple,39
 R,640545,2,Villeray-Saint-Michel - Parc-Extension,Parterre Gazonné,ACRURE,Acer rubrum 'Frank Jr.. (Redpointe TM),érable rouge Redpointe,Redpointe Maple,5

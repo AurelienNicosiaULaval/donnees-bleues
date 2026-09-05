@@ -1,0 +1,47 @@
+{
+  "dataset_id": "qualite-air",
+  "title": "Stations du réseau de qualité de l'air du Québec",
+  "mode": "frozen",
+  "prepared_at_utc": "2026-09-05T11:04:59Z",
+  "source_name": "Données Québec / MELCCFP / RSQAQ",
+  "source_url": "https://www.donneesquebec.ca/recherche/dataset/rsqaq-stations",
+  "license_url": "https://creativecommons.org/licenses/by/4.0/deed.fr",
+  "original_licenses": {
+    "code": "MIT",
+    "content": "CC-BY-4.0",
+    "notices": ["LICENSE", "LICENCE-CONTENUS.md"]
+  },
+  "selection": "Table de classe limitée aux colonnes déclarées, sans tirage supplémentaire de lignes. Attribution et conditions tierces conservées.",
+  "tables": [
+    {
+      "path": "data/processed/qualite-air/resume_decennies_ouverture_rsqaq_stations.csv",
+      "rows": 6,
+      "columns": ["decennie_ouverture", "n_stations"],
+      "sha256": "b05123cc8cc34bb3799894d1f186b011e141d954673f43ce018810b787b948d4",
+      "prepared_table_sha256": "b05123cc8cc34bb3799894d1f186b011e141d954673f43ce018810b787b948d4"
+    },
+    {
+      "path": "data/processed/qualite-air/resume_regions_rsqaq_stations.csv",
+      "rows": 16,
+      "columns": ["region_code", "region_administrative", "n_stations", "n_sans_date_fermeture", "n_fermees", "n_types_milieu", "premiere_ouverture", "derniere_ouverture"],
+      "sha256": "91edd99031b67b30a46c9367f816e02210d5cbe147a3f4624b83d5bdd5a9f7e7",
+      "prepared_table_sha256": "91edd99031b67b30a46c9367f816e02210d5cbe147a3f4624b83d5bdd5a9f7e7"
+    },
+    {
+      "path": "data/processed/qualite-air/rsqaq_stations.csv",
+      "rows": 245,
+      "columns": ["station_id", "station_name", "region_code", "region_administrative", "type_milieu", "date_ouverture", "date_fermeture", "latitude", "longitude", "annee_ouverture", "annee_fermeture", "decennie_ouverture", "station_sans_date_fermeture"],
+      "sha256": "25a2457164e5ea8cd8ebbe553b1215d19449809aeabdcf4a1046f2f81fa61989",
+      "prepared_table_sha256": "5f5b00ca4e5e4291eb1e8f05d135c906c651c12905982a936e15161e52bfc17b"
+    },
+    {
+      "path": "data/processed/qualite-air/valeurs_manquantes_rsqaq_stations.csv",
+      "rows": 20,
+      "columns": ["variable", "n_missing", "n_rows", "pct_missing"],
+      "sha256": "7e869181ebd7285ff1e41128ace24946e82b6721b34f1f5a5f86648b22174c51",
+      "prepared_table_sha256": "7e869181ebd7285ff1e41128ace24946e82b6721b34f1f5a5f86648b22174c51"
+    }
+  ],
+  "archive_sha256": "bc2b579cd90cb17ed44b6024223b1554f8518940847030c1e516e0e8a3b1ccd3",
+  "archive_bytes": 17249
+}

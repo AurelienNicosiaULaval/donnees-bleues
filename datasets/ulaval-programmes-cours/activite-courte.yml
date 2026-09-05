@@ -1,12 +1,13 @@
 id: ulaval-validation-import-court
-title: Laboratoire - Valider un import institutionnel privé
-question: Comment vérifier qu'un import institutionnel privé conserve les valeurs,
-  les clés et la provenance sans publier les lignes?
+title: Lire les contrôles d’un manifeste institutionnel
+question: Quels contrôles prévoit le manifeste des données institutionnelles?
 dataset_id: ulaval-programmes-cours
 dataset_title: Programmes et cours institutionnels ULaval
 activity_url: datasets/ulaval-programmes-cours/activite-courte.qmd
 duration: 30-45 minutes
 level: Intermédiaire
+level_ids:
+- intermediaire
 activity_type:
 - Exercice
 - Validation de données
@@ -15,40 +16,45 @@ concepts:
 - Provenance
 - Validation
 - Droits de réutilisation
+concept_ids:
+- importation-controlee
+- provenance
+- validation
+- droits-de-reutilisation
 context: Éducation supérieure
-hook: Une validation réussie ne donne pas automatiquement un droit de publication.
+hook: Les données privées ne sont pas distribuées. Les nombres attendus sont des références de manifeste; les
+  valeurs observées absentes restent inconnues.
 materials:
-- fiche vérifiée
-- script de préparation
-- résumés publics
-advanced_math_stats: no
-teacher_notes: Ne pas publier les lignes de données. L'activité porte sur les contrôles
-  et les limites de diffusion.
-status: source privée locale validée
+- Trousse ZIP et projet RStudio
+- Script R complet
+- Documentation publique
+advanced_math_stats: false
+teacher_notes: Les données privées ne sont pas distribuées. Les nombres attendus sont des références de manifeste;
+  les valeurs observées absentes restent inconnues.
+status: Documentation de source et ressources de classe fournies
 pedagogical_status: pret_a_enseigner
-teacher_preparation: Vérifier les droits de diffusion avant la séance; utiliser seulement
-  les résumés publics et ne pas publier les lignes de données.
-expected_output: Un tableau ou graphique descriptif accompagné de trois phrases d'interprétation
-  prudente.
-requires_prepared_data: yes
-requires_live_download: no
+teacher_preparation: Extraire la trousse, ouvrir le projet RStudio, installer les packages avant la séance
+  et lancer le script.
+expected_output: Un tableau de contrôle et une note de décision répondant à la question.
+requires_prepared_data: true
+requires_live_download: false
 recommended_use: Audit de source
-result_visible_in_page: yes
-
+result_visible_in_page: false
 learning_objectives:
-  - "Lire un résumé de validation sans accéder aux lignes privées."
-  - "Identifier les fichiers attendus et les lignes observées."
-  - "Vérifier la présence des clés et des champs de provenance."
-  - "Expliquer pourquoi les PDF et CSV sources ne sont pas redistribués."
-  - "Distinguer validation locale et autorisation de publication."
-
+- Lire les lignes attendues, observées et les contrôles de clés de la phase principale.
+- Distinguer un contrôle prévu d’un contrôle effectivement exécuté sur des fichiers disponibles.
+- Formuler une limite qui découle de la source et de l’unité observée.
 prerequisites:
-  - "Vérifier le fichier ou le script de préparation annoncé avant la séance; adapter la mise en route au niveau indiqué."
-
+- Savoir ouvrir un projet RStudio et exécuter un script R.
+- Reconnaître une variable, un décompte et une proportion.
 success_criteria:
-  - "La production attendue est remise : Un tableau ou graphique descriptif accompagné de trois phrases d'interprétation prudente."
-  - "Les résultats sont interprétés sans dépasser les limites de la source."
-
+- L’unité, la période ou la portée documentaire et les variables utilisées sont nommées.
+- Lire les lignes attendues, observées et les contrôles de clés de la phase principale.
+- Distinguer un contrôle prévu d’un contrôle effectivement exécuté sur des fichiers disponibles.
+- La conclusion répond à la question et explique au moins une limite précise.
 adaptations:
-  - "Fournir une table préparée ou réduire le nombre de variables pour une première utilisation."
-  - "Ajouter une comparaison, une justification méthodologique ou une discussion des limites pour approfondir."
+- Lire les tableaux ensemble sans programmer.
+- Pour approfondir, rédiger un protocole de collecte et ses contrôles avant toute acquisition.
+script_file: datasets/ulaval-programmes-cours/activite-courte.R
+classroom_archive: assets/classroom/ulaval-programmes-cours.zip
+access_mode: documentation

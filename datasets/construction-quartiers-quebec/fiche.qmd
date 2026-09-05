@@ -1,6 +1,6 @@
 ---
 title: "Construction, bâtiments et quartiers à la Ville de Québec"
-embed-resources: false
+embed-resources: true
 page-layout: full
 toc: false
 execute:

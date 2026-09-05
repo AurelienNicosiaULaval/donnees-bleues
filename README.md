@@ -1,253 +1,86 @@
 # Données bleues
 
-Données bleues est une plateforme pédagogique ouverte qui valorise des jeux de données québécois pour l'enseignement de la statistique, de la programmation R et de la science des données. La version publique de référence est la version 0.1.0, publiée le 23 août 2026.
+Données bleues rassemble des sources québécoises et canadiennes pour enseigner la statistique, R et la science des données. Le [site public](https://aureliennicosiaulaval.github.io/donnees-bleues/) présente les fiches, les activités et leurs limites d’interprétation.
 
-Le message éditorial du projet est le suivant : un jeu de données n'est pas seulement une table. C'est un territoire d'apprentissage.
+## Utiliser une activité en classe
 
-## Objectifs
+1. Choisir une activité dans [Planifier](https://aureliennicosiaulaval.github.io/donnees-bleues/activites.html).
+2. Télécharger sa trousse ZIP et l’extraire entièrement.
+3. Ouvrir `Donnees-bleues.Rproj` dans RStudio.
+4. Avant la séance, ouvrir `installer-packages.R` et cliquer sur Source avec Internet.
+5. Ouvrir le script de l’activité dans le dossier `datasets` et cliquer sur Source.
 
-- Rassembler des jeux de données québécois vérifiés.
-- Fournir des fiches pédagogiques prêtes à utiliser.
-- Proposer des activités courtes et longues.
-- Documenter les sources, licences et limites.
-- Favoriser des workflows reproductibles avec R et Quarto.
-- Préparer une architecture compatible avec une future application Shiny ou un package R.
+Les fichiers inclus permettent de travailler hors ligne après installation des packages. Deux sources ISQ demandent une acquisition préalable avec le script fourni; leurs données ne sont pas redistribuées. Les trousses GRHQ, STM et ULaval portent sur la documentation et les protocoles : elles ne fournissent respectivement ni géodatabase, ni retards observés, ni données institutionnelles privées.
 
-## Dans l’écosystème de recherche et d’enseignement
+Chaque archive contient les versions de packages testées, la source, les dates de préparation et d’acquisition, les colonnes retenues et les empreintes SHA-256. Les consignes détaillées, objectifs et critères de réussite restent sur la page de l’activité.
 
-Ce dépôt fait partie de l’écosystème ouvert d’Aurélien Nicosia en statistique computationnelle, logiciels scientifiques en R, science des données reproductible et pédagogie statistique.
+## Réutilisation et citation
 
-* Research Lab : [https://aureliennicosiaulaval.github.io/web_site/research-lab.html](https://aureliennicosiaulaval.github.io/web_site/research-lab.html)
-* Profil GitHub : [https://github.com/AurelienNicosiaULaval](https://github.com/AurelienNicosiaULaval)
-* Projets reliés : [`STT-1100_notes_de_cours`](https://github.com/AurelienNicosiaULaval/STT-1100_notes_de_cours), [`UlavalSSD`](https://github.com/AurelienNicosiaULaval/UlavalSSD), [`tutorizeR`](https://github.com/AurelienNicosiaULaval/tutorizeR)
+Les textes, fiches et activités originales sont sous [Creative Commons Attribution 4.0 International](LICENCE-CONTENUS.md). Le code original est sous [licence MIT](LICENSE). Ces licences permettent le partage et l’adaptation dans les conditions indiquées dans les notices, également incluses dans chaque trousse.
 
-## Structure du dépôt
+Les conditions des producteurs tiers restent applicables. Les liens figurent dans les fiches et dans chaque trousse; conserver l’attribution et mentionner les transformations. Une licence de données ne s’étend pas automatiquement aux textes, au code ou aux images du site. Les images possèdent leurs propres [crédits](https://aureliennicosiaulaval.github.io/donnees-bleues/credits-images.html).
 
-```text
-.
-├── README.md
-├── _quarto.yml
-├── index.qmd
-├── about.qmd
-├── activites.qmd
-├── catalogue.qmd
-├── contribuer.qmd
-├── retours-classe.qmd
-├── sequences.qmd
-├── references.qmd
-├── zero-waste.qmd
-├── styles.css
-├── .github/
-├── R/
-├── scripts/
-├── datasets/
-├── activities/
-├── templates/
-├── data/
-├── app/
-└── docs/
-```
+La référence bibliographique figure dans [CITATION.cff](CITATION.cff). Les [livraisons GitHub](https://github.com/AurelienNicosiaULaval/donnees-bleues/releases) permettent de retrouver une version figée. Pour citer un résultat de classe, ajouter la version de la trousse et sa date de préparation.
 
-## Jeux de données inclus
+## Restaurer l’environnement de développement
 
-Le catalogue public est la source à jour pour l'inventaire des jeux de données et des activités pédagogiques :
-
-- Catalogue public : [https://aureliennicosiaulaval.github.io/donnees-bleues/catalogue.html](https://aureliennicosiaulaval.github.io/donnees-bleues/catalogue.html)
-- Catalogue généré : [`data/metadata/catalogue.csv`](data/metadata/catalogue.csv)
-- Catalogue des activités : [`data/metadata/catalogue_activites.csv`](data/metadata/catalogue_activites.csv)
-
-Ces catalogues remplacent la liste statique du README et doivent être considérés comme les inventaires de référence.
-
-## Citer la plateforme
-
-Les métadonnées de citation de la version 0.1.0 se trouvent dans [`CITATION.cff`](CITATION.cff). La version figée est accessible dans la [livraison GitHub v0.1.0](https://github.com/AurelienNicosiaULaval/donnees-bleues/releases/tag/v0.1.0).
-
-## Attribution et réutilisation
-
-Chaque jeu de données est documenté avec sa source originale, son URL, sa licence ou ses conditions de réutilisation lorsqu'elles sont disponibles, sa date d'accès et des notes de prudence.
-
-La plateforme Données bleues vise à faciliter l'enseignement de la statistique et de la science des données à partir de données québécoises ouvertes ou publiquement accessibles. Elle ne remplace pas les sources originales.
-
-Pour réutiliser un jeu de données, il faut toujours consulter la fiche correspondante et respecter les conditions de la source originale.
-
-## Installation minimale
-
-Installer Quarto et R. Les packages R utilisés par le MVP sont :
-
-```r
-install.packages(c(
-  "cansim",
-  "dplyr",
-  "ggplot2",
-  "httr2",
-  "janitor",
-  "jsonlite",
-  "knitr",
-  "lubridate",
-  "purrr",
-  "readr",
-  "sf",
-  "stringr",
-  "tidyr",
-  "xml2",
-  "yaml"
-))
-```
-
-## Construire le catalogue
-
-Le catalogue des jeux de données est généré à partir des fichiers `metadata.yml`.
+Le site utilise R 4.5.0 et Quarto 1.9.38. Les packages sont verrouillés dans `renv.lock`, y compris le commit du package UlavalSSD. Installer ces versions de R et Quarto, puis cloner le dépôt par SSH :
 
 ```bash
-Rscript scripts/build_catalogue.R
+git clone git@github.com:AurelienNicosiaULaval/donnees-bleues.git
+cd donnees-bleues
+Rscript -e 'renv::restore(prompt = FALSE)'
 ```
 
-Cette commande produit :
+Sur Linux, les packages spatiaux et graphiques demandent les bibliothèques système indiquées dans le workflow `.github/workflows/publish-pages.yml`. La restauration utilise Internet; les analyses des trousses fournies sont ensuite testées sans téléchargement.
 
-```text
-data/metadata/catalogue.csv
-data/metadata/catalogue.rds
-```
+## Valider et rendre le site
 
-Elle vérifie aussi qu'une vraie vignette existe dans `assets/cards/` pour chaque jeu de données. Les vignettes Wikimedia Commons sont déclarées et générées par `scripts/generate_card_images.R`.
-
-Le catalogue des activités est généré à partir des fichiers `activite-*.yml`.
+Depuis la racine du dépôt :
 
 ```bash
-Rscript scripts/build_activity_catalogue.R
-```
-
-Cette commande produit :
-
-```text
-data/metadata/catalogue_activites.csv
-data/metadata/catalogue_activites.rds
-```
-
-## Vérifier les fiches
-
-```bash
+Rscript -e 'for (f in list.files("tests", pattern = "[.]R$", full.names = TRUE)) source(f)'
 Rscript scripts/check_datasets.R
-```
-
-La vérification contrôle la présence des fichiers obligatoires, les champs des métadonnées, les scores zero waste dataset, les chemins documentés et le contrat pédagogique des activités.
-
-## Contrat pédagogique des activités
-
-Chaque fichier `activite-*.yml` doit déclarer des objectifs d'apprentissage, des prérequis, la préparation enseignante, une production attendue, des critères de réussite, des adaptations possibles et un statut pédagogique distinct du statut de la source.
-
-Le statut pédagogique décrit le degré de préparation de l'activité. Il ne constitue pas une preuve d'efficacité pédagogique. Le site affiche le contrat sur chaque page d'activité et propose une [fiche de retour après usage](templates/retour-classe-template.md) pour documenter les essais sans données personnelles.
-
-## Préparer les données
-
-Les scripts de préparation peuvent être lancés depuis la racine du projet :
-
-```bash
-Rscript datasets/bixi/preparation.R
-Rscript datasets/bibliotheques-quebec/preparation.R
-Rscript datasets/construction-quartiers-quebec/preparation.R
-Rscript datasets/pyramides-ages/preparation.R
-Rscript datasets/qualite-air/preparation.R
-```
-
-Les fichiers téléchargés ou préparés sont écrits dans `data/raw/` et `data/processed/`. Ces dossiers sont ignorés par Git, sauf les fichiers `.gitkeep`.
-
-## Données institutionnelles ULaval
-
-L'intégration ULaval utilise comme source canonique le dépôt privé :
-
-```text
-git@github.com:AurelienNicosiaULaval/donnees-ulaval-institutionnelles.git
-```
-
-Les CSV institutionnels et les PDF sources ne sont pas versionnés dans Données bleues. Cloner la source privée dans un dossier ignoré :
-
-```bash
-mkdir -p .private
-git clone git@github.com:AurelienNicosiaULaval/donnees-ulaval-institutionnelles.git .private/donnees-ulaval-institutionnelles
-```
-
-Valider l'intégration depuis la source privée :
-
-```bash
-Rscript scripts/validate_ulaval_integration.R --phase=core,ges
-```
-
-Importer localement les trois fichiers prioritaires, sans les publier :
-
-```bash
-Rscript scripts/import_ulaval_institutional_data.R --phase=core
-```
-
-Les copies locales sont écrites dans `data/processed/ulaval/`, qui est ignoré par Git. Cette intégration est une compilation indépendante et non officielle; elle n'est pas un produit officiel ou approuvé par l'Université Laval. Aucune licence ouverte explicite n'a été identifiée pour les données sources dans le paquet consulté le 2026-06-19.
-
-## Rendre le site
-
-```bash
-quarto render
-```
-
-ou :
-
-```bash
+Rscript scripts/check_public_previews.R
+Rscript scripts/check_classroom_kits.R
 Rscript scripts/render_site.R
+Rscript scripts/check_site.R
 ```
 
-Le site généré est placé dans `docs/`.
+`render_site.R` reconstruit les catalogues, rend les pages et finalise leurs titres. Utiliser ce script pour une livraison complète. Le résultat se trouve dans `docs/`. `check_site.R` vérifie la structure HTML, les liens, les ancres et les téléchargements de cet artefact.
 
-## Publication GitHub Pages
-
-Le workflow `.github/workflows/publish-pages.yml` valide les métadonnées, rend le site depuis un clone GitHub propre et déploie l'artefact Pages après chaque poussée sur `main`. Dans les paramètres GitHub Pages du dépôt, sélectionner la source « GitHub Actions ».
-
-## Ajouter un jeu de données
-
-1. Créer un dossier dans `datasets/`.
-2. Copier les modèles depuis `templates/`.
-3. Remplir `metadata.yml`.
-4. Rédiger `fiche.qmd`.
-5. Ajouter `activite-courte.qmd` et `activite-longue.qmd`.
-6. Ajouter `activite-courte.yml` et `activite-longue.yml`.
-7. Écrire `preparation.R`.
-8. Exécuter :
+`check_classroom_kits.R` extrait les ZIP dans des dossiers temporaires, vérifie les empreintes et les colonnes, puis exécute séparément les analyses fournies. Pour les quatre analyses ISQ, la commande suivante extrait leurs trousses, exécute le script d’acquisition fourni, puis teste les analyses hors ligne :
 
 ```bash
-Rscript scripts/check_datasets.R
-Rscript scripts/build_catalogue.R
-Rscript scripts/build_activity_catalogue.R
-quarto render
+Rscript scripts/check_source_activities.R --acquire
 ```
 
-## Statut du MVP
+Le rendu des pages affiche le code sans exécuter les analyses. Le succès du rendu ne remplace donc pas ces tests. Les journaux et figures de contrôle sont dans `data/validation/`, ignoré par Git.
 
-Le MVP contient :
+## Actualiser une source et ses ressources de classe
 
-- un site Quarto publiable depuis `docs/`;
-- une identité éditoriale en français;
-- un catalogue généré qui présente l'inventaire à jour des jeux de données et des activités pédagogiques;
-- des fiches de jeux de données québécois ou canadiens avec un usage québécois explicite;
-- un catalogue d'activités indexé par question, niveau, type, concept, contexte et accroche;
-- trois modules transversaux;
-- des scripts R de préparation;
-- des fonctions utilitaires CKAN, catalogue et zero waste dataset;
-- des modèles réutilisables;
-- une documentation de publication.
+Les téléchargements et tables complètes restent dans `data/raw/` et `data/processed/`, ignorés par Git. Les imports créent des reçus de provenance; la date d’acquisition, la date de préparation et la période d’observation sont distinctes.
 
-## Éléments à compléter manuellement
+```bash
+Rscript scripts/prepare_datasets.R bixi
+Rscript scripts/build_public_previews.R
+Rscript scripts/build_preview_charts.R
+Rscript scripts/build_classroom_kits.R
+Rscript scripts/check_classroom_kits.R
+```
 
-- Tester les activités avec un groupe étudiant.
-- Ajouter des corrigés enseignants si nécessaire.
-- Vérifier périodiquement les URL et les licences.
-- Décider si un fichier `renv.lock` est nécessaire.
+Les générateurs de ressources parcourent tous les jeux : préparer les autres jeux manquants avec `Rscript scripts/prepare_datasets.R --all` avant une reconstruction complète. Une réexécution avec `DB_OFFLINE=true` réutilise uniquement les fichiers sources dont l’empreinte et l’URL correspondent au reçu enregistré.
 
-## Prochaines étapes possibles
+Chaque `metadata.yml` déclare explicitement l’autorisation de publication, les fichiers et colonnes de classe, les colonnes d’aperçu et le graphique. Une colonne nouvelle n’entre pas automatiquement dans une archive. Réexaminer les conditions de la source avant de changer ces listes. Les données privées ULaval restent hors du dépôt et des archives publiques.
 
-- Ajouter 10 jeux de données.
-- Créer une application Shiny de filtrage.
-- Créer un package R `donneesbleues`.
-- Ajouter des badges de niveau.
-- Ajouter une interface de contribution.
-- Ajouter des corrigés enseignants.
-- Ajouter des activités Quarto ou learnr.
-- Ajouter un filtre interactif pour chercher une activité par concept, niveau, durée ou accroche.
-- Ajouter une version anglaise éventuellement.
-- Ajouter une API ou un script de moissonnage Données Québec.
+## Contribuer
+
+Les [modèles](templates/) définissent la structure d’une fiche, d’une activité et de leurs métadonnées. Une contribution doit fournir un script de préparation, deux scripts d’activité exécutables et leurs ressources de lancement. Les concepts et niveaux viennent de `data/metadata/taxonomie.yml`; ajouter un alias à une notion existante plutôt qu’un doublon de casse ou d’accent.
+
+La disponibilité technique d’une trousse n’établit pas son efficacité pédagogique. La [fiche de retour de classe](templates/retour-classe-template.md) permet de documenter les usages et difficultés sans données personnelles étudiantes.
+
+## Publication
+
+Le workflow valide l’environnement, les règles de publication, les trousses et les analyses, puis construit et vérifie un site neuf. Le déploiement sur `main` dépend du succès de cette validation et utilise son artefact exact. Les demandes de fusion produisent un artefact de consultation sans déploiement.
+
+Dans les paramètres Pages du dépôt, la source doit être GitHub Actions. Après une livraison, vérifier le workflow terminé et les pages et téléchargements publics. Un simple changement dans le dossier `docs/` ne constitue pas une preuve de publication validée.

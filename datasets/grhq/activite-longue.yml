@@ -1,12 +1,14 @@
 id: grhq-jointure-long
 title: Préparer une analyse spatiale avec la GRHQ
-question: Comment préparer une analyse spatiale avec la GRHQ sans télécharger inutilement
-  tout le Québec?
+question: Quelles ressources préparer avant une analyse spatiale GRHQ?
 dataset_id: grhq
 dataset_title: Géobase du réseau hydrographique du Québec
 activity_url: datasets/grhq/activite-longue.qmd
 duration: 2-3 heures
 level: Intermédiaire à avancé
+level_ids:
+- intermediaire
+- avance
 activity_type:
 - Projet ou tâche longue
 - Étude de cas
@@ -16,55 +18,46 @@ concepts:
 - sf
 - Jointure spatiale
 - Limites computationnelles
+concept_ids:
+- index-spatial
+- fgdb
+- sf
+- jointure-spatiale
+- limites-computationnelles
 context: Hydrographie
-hook: Un bon projet spatial commence par un bon périmètre
+hook: L’archive fournit l’index et la documentation. Aucune géodatabase n’est incluse et aucune analyse de
+  géométrie n’est réalisée par ces scripts.
 materials:
-- énoncé
-- code
-- index préparé
-- notes enseignantes
-advanced_math_stats: no
-teacher_notes: Limiter l'analyse à une unité GRHQ. Exiger une distinction explicite
-  entre index de téléchargement, WMS de visualisation et FGDB analysable.
-status: source officielle vérifiée
+- Trousse ZIP et projet RStudio
+- Script R complet
+- Documentation publique
+advanced_math_stats: false
+teacher_notes: L’archive fournit l’index et la documentation. Aucune géodatabase n’est incluse et aucune analyse
+  de géométrie n’est réalisée par ces scripts.
+status: Documentation de source et ressources de classe fournies
 pedagogical_status: pret_a_enseigner
-teacher_preparation: 'Préparation requise : exécuter `Rscript datasets/grhq/preparation.R`
-  depuis la racine, puis vérifier que `data/processed/grhq/grhq_index_telechargement.csv`
-  existe.'
-expected_output: Un court rapport reproductible avec contexte, tableau ou graphique,
-  interprétation et limites.
-requires_prepared_data: yes
-requires_live_download: yes
+teacher_preparation: Extraire la trousse, ouvrir le projet RStudio, installer les packages avant la séance
+  et lancer le script.
+expected_output: Un tableau de contrôle et une note de décision répondant à la question.
+requires_prepared_data: true
+requires_live_download: false
 recommended_use: Mini-projet guidé
-result_visible_in_page: yes
-
+result_visible_in_page: false
 learning_objectives:
-  - "Utiliser un index officiel pour limiter un téléchargement spatial"
-  - "Documenter une ressource FGDB avant son importation"
-  - "Préparer une lecture avec `sf`"
-  - "Distinguer visualisation WMS et données analysables"
-  - "Concevoir une jointure spatiale avec un autre jeu environnemental"
-  - "Communiquer les limites d'un référentiel spatial"
-  - "ne télécharge pas tout le référentiel sans justification;"
-  - "distingue index, WMS et FGDB;"
-  - "indique clairement ce que représente une ligne de l'index;"
-  - "propose un code de lecture spatial réaliste;"
-  - "formule une question d'analyse compatible avec les données;"
-  - "cite la source et la licence;"
-  - "documente les limites de taille, de projection et de précision."
-  - "Comparer le rendu WMS simple et détaillé."
-  - "Lire une couche FGDB avec `sf`."
-  - "Joindre des stations de qualité de l'eau à une unité GRHQ."
-  - "Simplifier une géométrie pour une carte web."
-  - "Discuter la différence entre données de référence et données d'observation."
-
+- Identifier le bloc 08, son type et son URL officielle.
+- Inventorier les formats documentés et rédiger les étapes d’une acquisition ultérieure de géodatabase.
+- Formuler une limite qui découle de la source et de l’unité observée.
 prerequisites:
-  - "Vérifier le fichier ou le script de préparation annoncé avant la séance; adapter la mise en route au niveau indiqué."
-
+- Savoir ouvrir un projet RStudio et exécuter un script R.
+- Savoir lire un tableau groupé et un graphique descriptif; repérer les valeurs manquantes.
 success_criteria:
-  - "La production attendue est remise : Un court rapport reproductible avec contexte, tableau ou graphique, interprétation et limites."
-  - "Les résultats sont interprétés sans dépasser les limites de la source."
-
+- L’unité, la période ou la portée documentaire et les variables utilisées sont nommées.
+- Identifier le bloc 08, son type et son URL officielle.
+- Inventorier les formats documentés et rédiger les étapes d’une acquisition ultérieure de géodatabase.
+- La conclusion répond à la question et explique au moins une limite précise.
 adaptations:
-  - "Fournir une table préparée ou réduire le nombre de variables pour une première utilisation."
-  - "Ajouter une comparaison, une justification méthodologique ou une discussion des limites pour approfondir."
+- Lire les tableaux ensemble sans programmer.
+- Pour approfondir, rédiger un protocole de collecte et ses contrôles avant toute acquisition.
+script_file: datasets/grhq/activite-longue.R
+classroom_archive: assets/classroom/grhq.zip
+access_mode: documentation

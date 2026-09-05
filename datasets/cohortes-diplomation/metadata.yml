@@ -14,7 +14,9 @@ format: "XLSX téléchargeable depuis l'export du graphique ISQ"
 n_rows: "13 années scolaires de fin de suivi dans la table préparée; 30 lignes dans l'export XLSX incluant titres, notes et source"
 n_cols: "5 colonnes dans la table préparée; 4 colonnes de données dans l'export XLSX"
 update_frequency: "Annuelle"
-level: "Introduction"
+level: Introduction
+level_ids:
+- introduction
 processed_file: "data/processed/cohortes-diplomation/ecart_diplomation_imse.csv"
 embed_processed_preview: false
 organisme: "Institut de la statistique du Québec"
@@ -39,14 +41,23 @@ tags:
   - séries temporelles
   - statistiques descriptives
 concepts:
-  - éducation
-  - Québec
-  - données publiques
-  - visualisation
-  - séries temporelles
-  - statistiques descriptives
-  - politiques publiques
-  - comparaison de groupes
+- Éducation
+- Québec
+- Données publiques
+- Visualisation
+- Séries temporelles
+- Statistiques descriptives
+- Politiques publiques
+- Comparaison de groupes
+concept_ids:
+- education
+- quebec
+- donnees-publiques
+- visualisation
+- series-temporelles
+- statistiques-descriptives
+- politiques-publiques
+- comparaison-de-groupes
 zero_waste:
   contexte_quebecois: 3
   accessibilite_pedagogique: 3
@@ -62,3 +73,14 @@ contributor_name: "Aurélien Nicosia"
 contributor_role: "Révision pédagogique et statistique"
 status: "source officielle vérifiée; export XLSX préparé localement"
 notes: "Page ISQ, droits de reproduction et export XLSX consultés le 2026-06-20. La table préparée couvre 2011-2012 à 2023-2024 et l'écart entre les déciles IMSE 1 et 10; elle ne contient pas les découpages par sexe, réseau ou région."
+
+publication:
+  preview: false
+  reason: Les conditions ISQ exigent une permission écrite pour la reproduction.
+  reviewed_on: '2026-09-05'
+  license_url: https://statistique.quebec.ca/fr/institut/nous-joindre/droits-auteur-permission-reproduction
+  classroom:
+    mode: source_required
+    reason: Données ISQ non redistribuées. Acquisition personnelle depuis la source avant la séance, selon
+      ses conditions.
+    files: []

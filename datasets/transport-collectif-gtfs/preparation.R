@@ -1,3 +1,4 @@
+source("R/utils_downloads.R")
 # Préparation : GTFS du Réseau de transport de la Capitale
 # Source officielle : Données Québec, paquet CKAN a6ad0f52-9699-43ed-9907-791472badc19.
 
@@ -58,7 +59,7 @@ processed_dir <- file.path(root, "data/processed/transport-collectif-gtfs")
 dir.create(raw_dir, recursive = TRUE, showWarnings = FALSE)
 dir.create(processed_dir, recursive = TRUE, showWarnings = FALSE)
 
-access_date <- as.Date("2026-06-21")
+access_date <- Sys.Date()
 source_page <- "https://www.donneesquebec.ca/recherche/dataset/rtc-gtfs-arrets-et-les-parcours"
 source_api <- "https://www.donneesquebec.ca/recherche/api/3/action/package_show?id=rtc-gtfs-arrets-et-les-parcours"
 source_rtc_page <- "https://www.rtcquebec.ca/donnees-ouvertes"
@@ -68,8 +69,8 @@ package_json_path <- file.path(raw_dir, "package_show_rtc_gtfs.json")
 zip_path <- file.path(raw_dir, "googletransit.zip")
 unzip_dir <- file.path(raw_dir, "googletransit")
 
-download.file(source_api, package_json_path, mode = "wb", quiet = TRUE)
-download.file(gtfs_zip_url, zip_path, mode = "wb", quiet = TRUE)
+download_source(source_api, package_json_path, mode = "wb", quiet = TRUE)
+download_source(gtfs_zip_url, zip_path, mode = "wb", quiet = TRUE)
 
 package <- fromJSON(package_json_path)
 if (!isTRUE(package$success)) {
@@ -369,3 +370,5 @@ write_csv(accessibility_summary, file.path(processed_dir, "resume_accessibilite_
 write_csv(service_summary, file.path(processed_dir, "resume_services_gtfs_rtc.csv"))
 write_csv(missing_summary, file.path(processed_dir, "valeurs_manquantes_gtfs_rtc.csv"))
 write_csv(dataset_summary, file.path(processed_dir, "resume_gtfs_rtc.csv"))
+
+record_preparation("transport-collectif-gtfs")

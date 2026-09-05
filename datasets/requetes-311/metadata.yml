@@ -21,7 +21,10 @@ arrondissement_summary_file: "data/processed/requetes-311/resume_arrondissements
 status_summary_file: "data/processed/requetes-311/resume_statuts_echantillon.csv"
 missing_summary_file: "data/processed/requetes-311/valeurs_manquantes_echantillon.csv"
 update_frequency: "Mise à jour fréquente; ressource récente modifiée le 2026-06-20 selon CKAN"
-level: "Introduction à intermédiaire"
+level: Introduction à intermédiaire
+level_ids:
+- introduction
+- intermediaire
 organisme: "Ville de Montréal"
 territoire: "Montréal"
 taille_approximative: "Ressource récente de 775 950 225 octets selon CKAN; 1 621 847 lignes non-Information détectées par lecture en flux"
@@ -56,14 +59,23 @@ tags:
   - "spatial"
   - "communication prudente"
 concepts:
-  - "données administratives"
-  - "échantillonnage"
-  - "catégories"
-  - "séries temporelles"
-  - "coordonnées"
-  - "valeurs manquantes"
-  - "biais de déclaration"
-  - "visualisation"
+- Données administratives
+- Échantillonnage
+- Catégories
+- Séries temporelles
+- Coordonnées
+- Valeurs manquantes
+- Biais de déclaration
+- Visualisation
+concept_ids:
+- donnees-administratives
+- echantillonnage
+- categories
+- series-temporelles
+- coordonnees
+- valeurs-manquantes
+- biais-de-declaration
+- visualisation
 zero_waste:
   contexte_quebecois: 3
   accessibilite_pedagogique: 3
@@ -79,3 +91,38 @@ status: "source officielle vérifiée; échantillon pédagogique non-Information
 notes: "La ressource complète est volumineuse. Le script prépare un échantillon réservoir déterministe de 100 000 lignes non-Information, seed 311, après lecture en flux de la ressource récente."
 contributor_name: "Aurélien Nicosia"
 contributor_role: "Révision pédagogique et statistique"
+
+publication:
+  preview: true
+  reviewed_on: '2026-09-05'
+  license_url: https://creativecommons.org/licenses/by/4.0/deed.fr
+  preview_columns:
+  - id_unique
+  - nature
+  - activite
+  - type_lieu_intervention
+  - arrondissement
+  - arrondissement_geo
+  - date_creation
+  - annee_creation
+  - mois_creation
+  - provenance_originale
+  reason: Extrait pédagogique limité aux colonnes déclarées; attribution et conditions de la source conservées.
+  classroom:
+    mode: frozen
+    reason: Table de classe limitée aux colonnes déclarées, sans tirage supplémentaire de lignes. Attribution
+      et conditions tierces conservées.
+    files:
+    - path: data/processed/requetes-311/requetes_311_non_information_echantillon.csv
+      columns:
+      - nature
+      - activite
+      - arrondissement
+      - date_creation
+      - delai_statut_jours
+chart:
+  type: count
+  x_variable: nature
+  x_label: Demandes dans l’extrait (nombre)
+  y_label: Nature de la demande
+  title: Demandes autres que les demandes d’information

@@ -2,6 +2,7 @@
 title: "Planifier une séance"
 toc: false
 page-layout: full
+embed-resources: true
 ---
 
 ```{r}
@@ -98,7 +99,7 @@ Activités indexées
 `r n_activities`
 :::
 
-`r n_short` courtes, `r n_lab` laboratoires, `r n_long` longues, `r n_ready` prêtes à enseigner.
+`r n_short` courtes, `r n_lab` laboratoires, `r n_long` longues, `r n_ready` avec fichiers inclus.
 :::
 
 :::
@@ -174,8 +175,8 @@ status_label <- function(value) {
   value <- str_squish(as.character(value))
   value[is.na(value) | value == ""] <- "Je ne sais pas."
   case_when(
-    value == "pret_a_enseigner" ~ "Prête à enseigner",
-    value == "a_consolider" ~ "À préparer",
+    value == "pret_a_enseigner" ~ "Fichiers inclus",
+    value == "a_consolider" ~ "Acquisition préalable",
     value == "ebauche" ~ "Ébauche",
     TRUE ~ value
   )
@@ -242,7 +243,7 @@ prep_label <- function(requires_prepared_data, requires_live_download) {
   requires_live_download <- isTRUE(requires_live_download)
   case_when(
     requires_prepared_data && requires_live_download ~ "Script de préparation à exécuter",
-    requires_prepared_data ~ "Données préparées à vérifier",
+    requires_prepared_data ~ "Fichiers inclus dans la trousse",
     requires_live_download ~ "Téléchargement source possible",
     TRUE ~ "Préparation légère"
   )
@@ -275,7 +276,7 @@ if (file.exists(activity_catalogue_path)) {
   cat(format_quick_button("Introductif", 'data-quick-level="Introductif"'), "\n", sep = "")
   cat(format_quick_button("Intermédiaire", 'data-quick-level="Intermédiaire"'), "\n", sep = "")
   cat(format_quick_button("Visualisation", 'data-quick-concept="Visualisation"'), "\n", sep = "")
-  cat(format_quick_button("Prêtes à enseigner", 'data-quick-status="Prête à enseigner"'), "\n", sep = "")
+  cat(format_quick_button("Fichiers inclus", 'data-quick-status="Fichiers inclus"'), "\n", sep = "")
   cat('</div>\n')
   cat('</div>\n')
 
@@ -323,6 +324,7 @@ if (file.exists(activity_catalogue_path)) {
       row$level,
       row$activity_type,
       row$concepts,
+      row$search_aliases,
       row$context,
       row$hook,
       row$materials,
@@ -428,7 +430,7 @@ if (file.exists(activity_catalogue_path)) {
   cat('  const matchesTokens = function (selected, value) {\n')
   cat('    if (selected.length === 0) return true;\n')
   cat('    const tokens = (value || "").split("||");\n')
-  cat('    return selected.some(function (item) { return tokens.includes(item); });\n')
+  cat('    return selected.some(function (item) { return tokens.map(normalize).includes(normalize(item)); });\n')
   cat('  };\n')
   cat('  const filtersAreActive = function () {\n')
   cat('    return Boolean(searchInput.value) || ["duration", "level", "concept", "context", "status", "use", "material"].some(function (name) { return checked(name).length > 0; });\n')

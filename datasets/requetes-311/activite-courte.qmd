@@ -1,95 +1,64 @@
 ---
 title: "Laboratoire - Catégories de requêtes 311 par arrondissement"
-embed-resources: false
+embed-resources: true
 ---
-
 
 # Laboratoire - Catégories de requêtes 311 par arrondissement
 
-<!-- activity-teacher-brief:start -->
-::: {.activity-teacher-brief}
 
-## En classe, cette activité sert à...
+Quelles activités sont fréquentes dans l’échantillon de demandes 311?
 
-Cette activité sert à travailler les notions suivantes : Comptage, Catégories, Visualisation à partir d'une question située dans le contexte suivant : Services municipaux. Elle demande aux étudiantes et étudiants de répondre à la question directrice suivante : Quelles catégories de demandes dominent dans un arrondissement?
-
-::: {.activity-quick-facts}
-| Élément | Information |
-|---|---|
-| Durée | 30-45 minutes |
-| Niveau | Introductif |
-| Usage recommandé | Exercice guidé |
-| Préparation enseignant | Préparation requise : exécuter `Rscript datasets/requetes-311/preparation.R` depuis la racine, puis vérifier que `data/processed/requetes-311/requetes_311_non_information_echantillon.csv` existe. |
-| Production attendue | Un tableau ou graphique descriptif accompagné de trois phrases d'interprétation prudente. |
-| Données | `data/processed/requetes-311/requetes_311_non_information_echantillon.csv` |
-:::
-
-:::
-<!-- activity-teacher-brief:end -->
-
-## Données utilisées
-
-Source : Données Québec / Ville de Montréal. Licence : Attribution (CC-BY 4.0) selon les métadonnées CKAN vérifiées le 2026-06-21. Fichier principal pour l'activité : `data/processed/requetes-311/requetes_311_non_information_echantillon.csv`
+Durée : 30-45 minutes. Niveau : Introduction.
 
 ## Préparation enseignante
 
-- Préparation requise : exécuter `Rscript datasets/requetes-311/preparation.R` depuis la racine, puis vérifier que `data/processed/requetes-311/requetes_311_non_information_echantillon.csv` existe.
-- Fichier préparé : `data/processed/requetes-311/requetes_311_non_information_echantillon.csv`.
-- Script de préparation : `datasets/requetes-311/preparation.R`.
-- Point à surveiller : Faire expliciter que l'échantillon exclut les lignes Information et que les volumes dépendent des pratiques de signalement.
+Télécharger la trousse ci-dessous. Extraire le ZIP, puis double-cliquer sur `Donnees-bleues.Rproj`. Avant la séance, ouvrir `installer-packages.R` et cliquer sur Source avec une connexion Internet.
 
-## Limites à faire nommer
+Une fois les packages installés, les scripts utilisent les fichiers inclus et peuvent être exécutés hors ligne.
 
-- Faire expliciter que l'échantillon exclut les lignes Information et que les volumes dépendent des pratiques de signalement.
-- Si une variable ou un dénominateur nécessaire n'est pas disponible dans les données, l'écrire explicitement plutôt que l'inférer.
-
+```{r}
+#| label: activity-classroom-resources
+#| echo: false
+#| results: asis
+source(if (file.exists("R/utils_activity_contract.R")) "R/utils_activity_contract.R" else "../../R/utils_activity_contract.R")
+render_activity_resources()
+```
 
 ## Contexte
 
-Cette activité utilise la fiche [Demandes de services citoyennes 311 à Montréal](fiche.qmd). L'objectif est de résumer les catégories de demandes dans un arrondissement, sans confondre volume de demandes et intensité réelle des problèmes.
+Cette activité utilise la fiche [Demandes de services citoyennes 311 à Montréal](fiche.qmd). Unité : Une demande du tirage conservé parmi les demandes autres que Information.
 
-## Objectifs d'apprentissage
-
-- Importer une table préparée à partir d'une source officielle.
-- Filtrer un arrondissement.
-- Compter les catégories d'une variable textuelle.
-- Produire un graphique à barres lisible.
-- Formuler une limite liée aux biais de déclaration.
-
-## Question directrice
-
-Quelles catégories de demandes dominent dans un arrondissement?
+Source : [Données Québec / Ville de Montréal](https://www.donneesquebec.ca/recherche/dataset/vmtl-requete-311). Les dates de préparation, les fichiers et les conditions de réutilisation sont indiqués dans la trousse.
 
 ## Consignes
 
-1. Exécuter `datasets/requetes-311/preparation.R`.
-2. Importer `data/processed/requetes-311/requetes_311_non_information_echantillon.csv`.
-3. Choisir un arrondissement avec au moins 3 000 demandes dans l'échantillon.
-4. Compter les 10 activités les plus fréquentes.
-5. Produire un graphique à barres horizontal.
-6. Rédiger une conclusion de 6 à 8 lignes.
+1. Ouvrir `activite-courte.R` dans le sous-dossier `datasets/requetes-311` du projet RStudio et cliquer sur Source. Les tableaux apparaissent dans Console et les graphiques dans Plots.
+2. Compter les demandes par activité et par nature.
+3. Comparer les dix activités les plus présentes en conservant la mention d’échantillon.
+4. Rédiger une réponse à la question en nommant l’unité observée et une limite de la source.
 
-## Résultats attendus
+## Résultat attendu
 
-Le script prépare un échantillon réservoir déterministe de 100 000 lignes non-Information. Il vérifie aussi que la ressource récente contient 2 999 332 lignes au moment de l'accès, dont 1 621 847 lignes non-Information.
+Les tableaux et graphiques du script, accompagnés d’une interprétation de 6 à 8 lignes répondant à la question.
 
-## Questions
+## Limites à faire nommer
 
-1. Quelle est l'unité statistique?
-2. Pourquoi les lignes `Information` sont-elles exclues de l'échantillon préparé?
-3. Quelle activité domine dans l'arrondissement choisi?
-4. Une fréquence élevée signifie-t-elle nécessairement plus de problèmes?
-5. Quels biais de déclaration peuvent affecter les comparaisons?
+Il s’agit d’un échantillon de demandes, pas d’un recensement des problèmes. Un délai de changement de statut n’est pas nécessairement un délai de résolution.
 
-## Pistes de solution
+## Code complet
 
-Une bonne réponse présente un graphique clair et nomme l'activité dominante. Une meilleure réponse ajoute que le volume observé dépend aussi de l'accès au 311, du canal de provenance, de la propension à signaler et de la taille de l'arrondissement.
+Ce script complet est celui de la trousse. Il lit les fichiers locaux et affiche les résultats dans RStudio.
+
+```{r}
+#| label: activity-code
+#| echo: false
+#| results: asis
+render_activity_code()
+```
 
 ```{r}
 #| label: activity-pedagogical-contract
 #| echo: false
 #| results: asis
-contract_source_path <- if (file.exists("R/utils_activity_contract.R")) "R/utils_activity_contract.R" else "../../R/utils_activity_contract.R"
-source(contract_source_path)
 render_activity_contract()
 ```

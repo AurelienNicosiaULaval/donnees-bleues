@@ -1,114 +1,64 @@
 ---
-title: "Laboratoire - Cartographier les arrêts du RTC"
-embed-resources: false
+title: "Cartographier les arrêts du RTC"
+embed-resources: true
 ---
 
+# Cartographier les arrêts du RTC
 
-# Laboratoire - Cartographier les arrêts du RTC
 
-<!-- activity-teacher-brief:start -->
-::: {.activity-teacher-brief}
+Comment l’accessibilité des arrêts est-elle documentée?
 
-## En classe, cette activité sert à...
-
-Cette activité sert à travailler les notions suivantes : GTFS, Données spatiales, Unité statistique, Valeurs codées à partir d'une question située dans le contexte suivant : Mobilité et transport collectif. Elle demande aux étudiantes et étudiants de répondre à la question directrice suivante : Que peut-on conclure, et que ne peut-on pas conclure, à partir d'une carte des arrêts du RTC?
-
-::: {.activity-quick-facts}
-| Élément | Information |
-|---|---|
-| Durée | 45-60 minutes |
-| Niveau | Intermédiaire |
-| Usage recommandé | Laboratoire guidé |
-| Préparation enseignant | Préparation requise : exécuter `Rscript datasets/transport-collectif-gtfs/preparation.R` depuis la racine, puis vérifier que `data/processed/transport-collectif-gtfs/arrets_gtfs_rtc.csv` existe. |
-| Production attendue | Une carte ou un graphique descriptif accompagné d'une phrase sur l'unité statistique et les limites. |
-| Données | `data/processed/transport-collectif-gtfs/arrets_gtfs_rtc.csv` |
-:::
-
-:::
-<!-- activity-teacher-brief:end -->
-
-## Données utilisées
-
-Source : Données Québec / Réseau de transport de la Capitale. Licence : Attribution (CC-BY 4.0) selon les métadonnées CKAN; conditions RTC à respecter pour la provenance et la date de mise à jour. Fichier principal pour l'activité : `data/processed/transport-collectif-gtfs/arrets_gtfs_rtc.csv`
+Durée : 45-60 minutes. Niveau : Intermédiaire.
 
 ## Préparation enseignante
 
-- Préparation requise : exécuter `Rscript datasets/transport-collectif-gtfs/preparation.R` depuis la racine, puis vérifier que `data/processed/transport-collectif-gtfs/arrets_gtfs_rtc.csv` existe.
-- Fichier préparé : `data/processed/transport-collectif-gtfs/arrets_gtfs_rtc.csv`.
-- Script de préparation : `datasets/transport-collectif-gtfs/preparation.R`.
-- Point à surveiller : Faire expliciter que le code d'accessibilité 0 signifie information non disponible dans GTFS.
+Télécharger la trousse ci-dessous. Extraire le ZIP, puis double-cliquer sur `Donnees-bleues.Rproj`. Avant la séance, ouvrir `installer-packages.R` et cliquer sur Source avec une connexion Internet.
 
-## Code R minimal
+Une fois les packages installés, les scripts utilisent les fichiers inclus et peuvent être exécutés hors ligne.
 
 ```{r}
-#| eval: false
-library(dplyr)
-library(readr)
-
-if (!file.exists("data/processed/transport-collectif-gtfs/arrets_gtfs_rtc.csv")) {
-  source("datasets/transport-collectif-gtfs/preparation.R")
-}
-
-donnees <- read_csv(
-  "data/processed/transport-collectif-gtfs/arrets_gtfs_rtc.csv",
-  show_col_types = FALSE
-)
-
-glimpse(donnees)
+#| label: activity-classroom-resources
+#| echo: false
+#| results: asis
+source(if (file.exists("R/utils_activity_contract.R")) "R/utils_activity_contract.R" else "../../R/utils_activity_contract.R")
+render_activity_resources()
 ```
-
-## Résultat attendu
-
-Une carte ou un graphique descriptif accompagné d'une phrase sur l'unité statistique et les limites. La production doit aussi contenir une phrase sur l'unité statistique et une phrase sur une limite de la source.
-
-## Questions
-
-1. Quelle est l'unité statistique utilisée dans cette activité?
-2. Quelle transformation ou agrégation est nécessaire avant de répondre à la question?
-3. Quelle information manque pour aller plus loin?
-4. Quelle conclusion serait trop forte avec ces seules données?
-5. Comment formuler une conclusion prudente à partir du résultat obtenu?
-
-## Limites à faire nommer
-
-- Faire expliciter que le code d'accessibilité 0 signifie information non disponible dans GTFS.
-- Si une variable ou un dénominateur nécessaire n'est pas disponible dans les données, l'écrire explicitement plutôt que l'inférer.
-
 
 ## Contexte
 
-Ce laboratoire utilise la fiche [Horaires, arrêts et parcours GTFS du RTC](fiche.qmd). L'objectif est de travailler avec un vrai flux GTFS sans confondre les unités : un arrêt n'est pas un trajet, un trajet n'est pas un usager, et une carte d'arrêts n'est pas une carte de demande.
+Cette activité utilise la fiche [Horaires, arrêts et parcours GTFS du RTC](fiche.qmd). Unité : Un arrêt du flux GTFS planifié du RTC.
 
-## Objectifs d'apprentissage
-
-- Importer une table préparée à partir d'un ZIP officiel.
-- Identifier l'unité statistique d'une table GTFS.
-- Produire une carte simple des arrêts.
-- Lire correctement les codes d'accessibilité.
-- Rédiger une conclusion descriptive prudente.
-
-## Question directrice
-
-Que peut-on conclure, et que ne peut-on pas conclure, à partir d'une carte des arrêts du RTC?
+Source : [Données Québec / Réseau de transport de la Capitale](https://www.donneesquebec.ca/recherche/dataset/rtc-gtfs-arrets-et-les-parcours). Les dates de préparation, les fichiers et les conditions de réutilisation sont indiqués dans la trousse.
 
 ## Consignes
 
-1. Exécuter `datasets/transport-collectif-gtfs/preparation.R`.
-2. Importer `data/processed/transport-collectif-gtfs/arrets_gtfs_rtc.csv`.
-3. Vérifier les variables `stop_id`, `stop_name`, `latitude`, `longitude` et `wheelchair_boarding_label`.
-4. Produire une carte de points avec `ggplot2`.
-5. Compter les arrêts selon le code d'accessibilité préparé.
-6. Rédiger une conclusion de 5 à 8 lignes en nommant au moins deux limites.
+1. Ouvrir `activite-courte.R` dans le sous-dossier `datasets/transport-collectif-gtfs` du projet RStudio et cliquer sur Source. Les tableaux apparaissent dans Console et les graphiques dans Plots.
+2. Compter les arrêts selon le libellé du codage GTFS.
+3. Comparer identifiants uniques et nombre d’informations absentes.
+4. Rédiger une réponse à la question en nommant l’unité observée et une limite de la source.
 
-## Pistes de solution
+## Résultat attendu
 
-Une bonne réponse décrit la couverture spatiale observée et explique que les arrêts ne mesurent pas l'achalandage. Une réponse excellente distingue aussi information manquante et absence d'accessibilité dans le codage GTFS.
+Les tableaux et graphiques du script, accompagnés d’une interprétation de 6 à 8 lignes répondant à la question.
+
+## Limites à faire nommer
+
+Le codage manquant de l’accessibilité n’est pas une déclaration d’inaccessibilité. L’offre planifiée ne renseigne ni retards ni fréquentation.
+
+## Code complet
+
+Ce script complet est celui de la trousse. Il lit les fichiers locaux et affiche les résultats dans RStudio.
+
+```{r}
+#| label: activity-code
+#| echo: false
+#| results: asis
+render_activity_code()
+```
 
 ```{r}
 #| label: activity-pedagogical-contract
 #| echo: false
 #| results: asis
-contract_source_path <- if (file.exists("R/utils_activity_contract.R")) "R/utils_activity_contract.R" else "../../R/utils_activity_contract.R"
-source(contract_source_path)
 render_activity_contract()
 ```

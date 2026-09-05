@@ -1,0 +1,26 @@
+{
+  "dataset_id": "bixi",
+  "title": "État des stations BIXI",
+  "mode": "frozen",
+  "prepared_at_utc": "2026-09-05T11:04:24Z",
+  "source_name": "BIXI Montréal / Données Québec",
+  "source_url": "https://www.donneesquebec.ca/recherche/dataset/vmtl-bixi-etat-des-stations",
+  "license_url": "https://creativecommons.org/licenses/by/4.0/deed.fr",
+  "original_licenses": {
+    "code": "MIT",
+    "content": "CC-BY-4.0",
+    "notices": ["LICENSE", "LICENCE-CONTENUS.md"]
+  },
+  "selection": "Table de classe limitée aux colonnes déclarées, sans tirage supplémentaire de lignes. Attribution et conditions tierces conservées.",
+  "tables": [
+    {
+      "path": "data/processed/bixi/stations_bixi_snapshot.csv",
+      "rows": 1113,
+      "columns": ["station_id", "name", "capacity", "groupe_capacite", "num_bikes_available", "num_docks_available", "taux_occupation", "etat_operationnel", "last_reported_datetime", "snapshot_downloaded_at"],
+      "sha256": "4f4559fc722605af5819adcc0c4fd5465faec36d84ec9bc0a9c168cd071712c6",
+      "prepared_table_sha256": "574d388144c812400cf740be498c7e20e4fd2189e8fecfe52c1b0be2bc84ecdf"
+    }
+  ],
+  "archive_sha256": "85c071a6a6a5b2ab48204786c47eb2b002ad47fb3bd53cb1379d385200981265",
+  "archive_bytes": 36441
+}

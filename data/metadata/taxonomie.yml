@@ -1,0 +1,669 @@
+levels:
+- id: introduction
+  label: Introduction
+  aliases:
+  - Introductif
+  - Initiation
+- id: intermediaire
+  label: Intermédiaire
+  aliases: []
+- id: avance
+  label: Avancé
+  aliases: []
+concepts:
+- id: agregation
+  label: Agrégation
+  aliases:
+  - Agrégation
+  - agrégation
+- id: agregation-par-quartier
+  label: Agrégation par quartier
+  aliases:
+  - agrégation par quartier
+- id: analyse-exploratoire
+  label: Analyse exploratoire
+  aliases:
+  - analyse exploratoire
+- id: arbres
+  label: Arbres
+  aliases:
+  - arbres
+- id: biais-algorithmiques
+  label: Biais algorithmiques
+  aliases:
+  - biais algorithmiques
+- id: biais-de-declaration
+  label: Biais de déclaration
+  aliases:
+  - Biais de déclaration
+  - biais de déclaration
+- id: carte-de-points
+  label: Carte de points
+  aliases:
+  - Carte de points
+  - carte de points
+- id: cartographie
+  label: Cartographie
+  aliases:
+  - Carte
+  - Cartographie
+  - cartes
+  - cartographie
+- id: cartographie-responsable
+  label: Cartographie responsable
+  aliases:
+  - cartographie responsable
+- id: categories
+  label: Catégories
+  aliases:
+  - Catégories
+  - catégories
+- id: classes-de-population
+  label: Classes de population
+  aliases:
+  - Classes de population
+  - classes de population
+- id: classification-simple
+  label: Classification simple
+  aliases:
+  - classification simple
+- id: cles-de-jointure
+  label: Clés de jointure
+  aliases:
+  - clés de jointure
+- id: cles-uniques
+  label: Clés uniques
+  aliases:
+  - clés uniques
+- id: codes-categoriels
+  label: Codes catégoriels
+  aliases:
+  - codes catégoriels
+- id: communication
+  label: Communication
+  aliases:
+  - Communication
+  - communication
+- id: communication-des-limites
+  label: Communication des limites
+  aliases:
+  - Communication des limites
+  - communication des limites
+- id: communication-du-risque
+  label: Communication du risque
+  aliases:
+  - Communication du risque
+  - communication du risque
+- id: communication-prudente
+  label: Communication prudente
+  aliases:
+  - Communication prudente
+  - communication prudente
+- id: communication-publique
+  label: Communication publique
+  aliases:
+  - communication publique
+- id: comparaison-de-groupes
+  label: Comparaison de groupes
+  aliases:
+  - Comparaison de groupes
+  - comparaison de groupes
+- id: comparaison-descriptive
+  label: Comparaison descriptive
+  aliases:
+  - Comparaison descriptive
+  - comparaison descriptive
+- id: comparaison-regionale
+  label: Comparaison régionale
+  aliases:
+  - comparaison régionale
+- id: comparaison-temporelle
+  label: Comparaison temporelle
+  aliases:
+  - Comparaison temporelle
+  - comparaison temporelle
+- id: comptage
+  label: Comptage
+  aliases:
+  - Comptage
+  - comptage
+- id: conversion-numerique
+  label: Conversion numérique
+  aliases:
+  - conversion numérique
+- id: coordonnees
+  label: Coordonnées
+  aliases:
+  - coordonnées
+- id: coordonnees-invalides
+  label: Coordonnées invalides
+  aliases:
+  - coordonnées invalides
+- id: couverture-de-service
+  label: Couverture de service
+  aliases:
+  - couverture de service
+- id: couverture-territoriale
+  label: Couverture territoriale
+  aliases:
+  - Couverture territoriale
+  - couverture territoriale
+- id: dates
+  label: Dates
+  aliases:
+  - Dates
+  - dates
+- id: dates-aberrantes
+  label: Dates aberrantes
+  aliases:
+  - dates aberrantes
+- id: densite
+  label: Densité
+  aliases:
+  - Densité
+  - densité
+- id: dictionnaire-de-variables
+  label: Dictionnaire de variables
+  aliases:
+  - Dictionnaire de variables
+  - dictionnaire de variables
+- id: diffusion-partielle
+  label: Diffusion partielle
+  aliases:
+  - diffusion partielle
+- id: documentation-des-limites
+  label: Documentation des limites
+  aliases:
+  - documentation des limites
+- id: donnees-administratives
+  label: Données administratives
+  aliases:
+  - données administratives
+- id: donnees-d-enquete
+  label: Données d'enquête
+  aliases:
+  - données d'enquête
+- id: donnees-environnementales
+  label: Données environnementales
+  aliases:
+  - données environnementales
+- id: donnees-et-mesure
+  label: Données et mesure
+  aliases:
+  - Données et mesure
+  - données et mesure
+- id: donnees-horaires
+  label: Données horaires
+  aliases:
+  - données horaires
+- id: donnees-meteorologiques
+  label: Données météorologiques
+  aliases:
+  - données météorologiques
+- id: donnees-ouvertes
+  label: Données ouvertes
+  aliases:
+  - Données ouvertes
+  - données ouvertes
+- id: donnees-ouvertes-municipales
+  label: Données ouvertes municipales
+  aliases:
+  - données ouvertes municipales
+- id: donnees-privees
+  label: Données privées
+  aliases:
+  - données privées
+- id: donnees-publiques
+  label: Données publiques
+  aliases:
+  - données publiques
+- id: donnees-relationnelles
+  label: Données relationnelles
+  aliases:
+  - Données relationnelles
+  - données relationnelles
+- id: donnees-sensibles
+  label: Données sensibles
+  aliases:
+  - Données sensibles
+  - données sensibles
+- id: donnees-spatiales
+  label: Données spatiales
+  aliases:
+  - Données spatiales
+  - données spatiales
+- id: donnees-spatiales-simples
+  label: Données spatiales simples
+  aliases:
+  - données spatiales simples
+- id: double-comptage
+  label: Double comptage
+  aliases:
+  - double comptage
+- id: droits-de-reutilisation
+  label: Droits de réutilisation
+  aliases:
+  - Droits de réutilisation
+  - droits de réutilisation
+- id: detection-d-anomalies
+  label: Détection d'anomalies
+  aliases:
+  - détection d'anomalies
+- id: eau
+  label: Eau
+  aliases:
+  - eau
+- id: environnement-urbain
+  label: Environnement urbain
+  aliases:
+  - environnement urbain
+- id: fgdb
+  label: FGDB
+  aliases:
+  - FGDB
+  - fgdb
+- id: filtrage
+  label: Filtrage
+  aliases:
+  - Filtrage
+  - filtrage
+- id: flux-gbfs
+  label: Flux GBFS
+  aliases:
+  - flux GBFS
+  - flux gbfs
+- id: flux-temps-reel
+  label: Flux temps réel
+  aliases:
+  - flux temps réel
+- id: format-long
+  label: Format long
+  aliases:
+  - Format long
+  - format long
+- id: formats-normalises
+  label: Formats normalisés
+  aliases:
+  - formats normalisés
+- id: groupes-d-age
+  label: Groupes d'âge
+  aliases:
+  - groupes d'âge
+- id: gtfs
+  label: GTFS
+  aliases:
+  - GTFS
+  - gtfs
+- id: geolocalisation
+  label: Géolocalisation
+  aliases:
+  - géolocalisation
+- id: hydrographie
+  label: Hydrographie
+  aliases:
+  - hydrographie
+- id: importation-controlee
+  label: Importation contrôlée
+  aliases:
+  - Importation contrôlée
+  - importation contrôlée
+- id: importation-csv
+  label: Importation CSV
+  aliases:
+  - importation CSV
+  - importation csv
+- id: importation-d-un-zip
+  label: Importation d'un ZIP
+  aliases:
+  - importation d'un ZIP
+  - importation d'un zip
+- id: importation-de-donnees-ouvertes
+  label: Importation de données ouvertes
+  aliases:
+  - importation de données ouvertes
+- id: importation-json
+  label: Importation JSON
+  aliases:
+  - importation JSON
+  - importation json
+- id: index-de-telechargement
+  label: Index de téléchargement
+  aliases:
+  - Index de téléchargement
+  - index de téléchargement
+- id: index-spatial
+  label: Index spatial
+  aliases:
+  - Index spatial
+  - index spatial
+- id: indicateurs-administratifs
+  label: Indicateurs administratifs
+  aliases:
+  - indicateurs administratifs
+- id: indicateurs-operationnels
+  label: Indicateurs opérationnels
+  aliases:
+  - indicateurs opérationnels
+- id: indicateurs-socioeconomiques
+  label: Indicateurs socioéconomiques
+  aliases:
+  - indicateurs socioéconomiques
+- id: indices
+  label: Indices
+  aliases:
+  - Indices
+  - indices
+- id: interpretation-demographique
+  label: Interprétation démographique
+  aliases:
+  - interprétation démographique
+- id: interpretation-prudente
+  label: Interprétation prudente
+  aliases:
+  - Interprétation prudente
+  - interprétation prudente
+- id: jointure
+  label: Jointure
+  aliases:
+  - Jointure
+  - Jointures
+  - jointure
+  - jointures
+- id: jointure-gtfs
+  label: Jointure GTFS
+  aliases:
+  - jointure GTFS
+  - jointure gtfs
+- id: jointure-spatiale
+  label: Jointure spatiale
+  aliases:
+  - Jointure spatiale
+  - jointure spatiale
+- id: limites-computationnelles
+  label: Limites computationnelles
+  aliases:
+  - Limites computationnelles
+  - limites computationnelles
+- id: limites-d-exposition
+  label: Limites d'exposition
+  aliases:
+  - limites d'exposition
+- id: limites-d-interpretation
+  label: Limites d'interprétation
+  aliases:
+  - Limites d'interprétation
+  - limites d'interprétation
+- id: limites-d-un-instantane
+  label: Limites d'un instantané
+  aliases:
+  - limites d'un instantané
+- id: limites-des-donnees-administratives
+  label: Limites des données administratives
+  aliases:
+  - limites des données administratives
+- id: modelisation
+  label: Modélisation
+  aliases:
+  - Modélisation
+  - modélisation
+- id: modelisation-categorielle
+  label: Modélisation catégorielle
+  aliases:
+  - modélisation catégorielle
+- id: modelisation-et-relations
+  label: Modélisation et relations
+  aliases:
+  - Modélisation et relations
+  - modélisation et relations
+- id: montants
+  label: Montants
+  aliases:
+  - montants
+- id: multi-ressources
+  label: Multi-ressources
+  aliases:
+  - multi-ressources
+- id: mediane
+  label: Médiane
+  aliases:
+  - Médiane
+  - médiane
+- id: metadonnees
+  label: Métadonnées
+  aliases:
+  - Métadonnées
+  - métadonnées
+- id: nettoyage
+  label: Nettoyage
+  aliases:
+  - Nettoyage
+  - nettoyage
+  - nettoyage de données
+- id: nettoyage-de-chaines
+  label: Nettoyage de chaînes
+  aliases:
+  - nettoyage de chaînes
+- id: nettoyage-de-donnees-excel
+  label: Nettoyage de données Excel
+  aliases:
+  - nettoyage de données Excel
+  - nettoyage de données excel
+- id: nettoyage-de-noms-de-variables
+  label: Nettoyage de noms de variables
+  aliases:
+  - nettoyage de noms de variables
+- id: pivot-long
+  label: Pivot long
+  aliases:
+  - pivot long
+- id: politiques-publiques
+  label: Politiques publiques
+  aliases:
+  - politiques publiques
+- id: proportions
+  label: Proportions
+  aliases:
+  - Proportions
+  - proportions
+- id: provenance
+  label: Provenance
+  aliases:
+  - Provenance
+  - provenance
+- id: precision-de-mesure
+  label: Précision de mesure
+  aliases:
+  - Précision de mesure
+  - précision de mesure
+- id: prediction
+  label: Prédiction
+  aliases:
+  - prédiction
+- id: pyramide-des-ages
+  label: Pyramide des âges
+  aliases:
+  - pyramide des âges
+- id: qualite-de-service
+  label: Qualité de service
+  aliases:
+  - qualité de service
+- id: qualite-des-donnees
+  label: Qualité des données
+  aliases:
+  - Qualité des données
+  - qualité des données
+- id: qualite-des-estimations
+  label: Qualité des estimations
+  aliases:
+  - qualité des estimations
+- id: qualite-des-metadonnees
+  label: Qualité des métadonnées
+  aliases:
+  - qualité des métadonnées
+- id: quebec
+  label: Québec
+  aliases:
+  - Québec
+  - québec
+- id: rapport-reproductible
+  label: Rapport reproductible
+  aliases:
+  - Rapport reproductible
+  - rapport reproductible
+- id: ratios
+  label: Ratios
+  aliases:
+  - Ratios
+  - ratios
+- id: reproductibilite
+  label: Reproductibilité
+  aliases:
+  - Reproductibilité
+  - reproductibilité
+- id: regression-lineaire
+  label: Régression linéaire
+  aliases:
+  - régression linéaire
+- id: reseau-scolaire
+  label: Réseau scolaire
+  aliases:
+  - réseau scolaire
+- id: residus
+  label: Résidus
+  aliases:
+  - résidus
+- id: resume-journalier
+  label: Résumé journalier
+  aliases:
+  - résumé journalier
+- id: saisonnalite
+  label: Saisonnalité
+  aliases:
+  - saisonnalité
+- id: sf
+  label: sf
+  aliases:
+  - sf
+- id: statistiques-descriptives
+  label: Statistiques descriptives
+  aliases:
+  - Statistique descriptive
+  - statistique descriptive
+  - statistiques descriptives
+- id: statut-prepare
+  label: Statut préparé
+  aliases:
+  - statut préparé
+- id: superficies
+  label: Superficies
+  aliases:
+  - superficies
+- id: series-temporelles
+  label: Séries temporelles
+  aliases:
+  - Séries temporelles
+  - séries temporelles
+- id: series-temporelles-agregees
+  label: Séries temporelles agrégées
+  aliases:
+  - Séries temporelles agrégées
+  - séries temporelles agrégées
+- id: tableaux-croises
+  label: Tableaux croisés
+  aliases:
+  - Tableaux croisés
+  - tableaux croisés
+- id: tableaux-de-frequences
+  label: Tableaux de fréquences
+  aliases:
+  - Tableaux de fréquences
+  - tableaux de fréquences
+- id: taux
+  label: Taux
+  aliases:
+  - Taux
+  - taux
+- id: unite-statistique
+  label: Unité statistique
+  aliases:
+  - Unité statistique
+  - unité statistique
+- id: unites-de-mesure
+  label: Unités de mesure
+  aliases:
+  - Unités de mesure
+  - unités de mesure
+- id: valeurs-codees
+  label: Valeurs codées
+  aliases:
+  - Valeurs codées
+  - valeurs codées
+- id: valeurs-extremes
+  label: Valeurs extrêmes
+  aliases:
+  - Valeurs extrêmes
+  - valeurs extrêmes
+- id: valeurs-manquantes
+  label: Valeurs manquantes
+  aliases:
+  - Données manquantes
+  - Valeurs manquantes
+  - données manquantes
+  - valeurs manquantes
+- id: validation
+  label: Validation
+  aliases:
+  - Validation
+  - validation
+- id: validation-entrainement-test
+  label: Validation entraînement-test
+  aliases:
+  - validation entraînement-test
+- id: variables-categorielles
+  label: Variables catégorielles
+  aliases:
+  - Variables catégorielles
+  - variables catégorielles
+- id: variables-derivees
+  label: Variables dérivées
+  aliases:
+  - variables dérivées
+- id: variables-numeriques
+  label: Variables numériques
+  aliases:
+  - variables numériques
+- id: visualisation
+  label: Visualisation
+  aliases:
+  - Visualisation
+  - visualisation
+- id: visualisation-spatiale
+  label: Visualisation spatiale
+  aliases:
+  - visualisation spatiale
+- id: volume-autorise
+  label: Volume autorisé
+  aliases:
+  - Volume autorisé
+  - volume autorisé
+- id: echantillonnage
+  label: Échantillonnage
+  aliases:
+  - échantillonnage
+- id: echantillonnage-temporel
+  label: Échantillonnage temporel
+  aliases:
+  - échantillonnage temporel
+- id: education
+  label: Éducation
+  aliases:
+  - éducation
+- id: ethique
+  label: Éthique
+  aliases:
+  - Éthique
+  - éthique
+- id: evenement-extreme
+  label: Événement extrême
+  aliases:
+  - événement extrême

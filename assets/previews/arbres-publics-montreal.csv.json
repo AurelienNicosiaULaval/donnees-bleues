@@ -1,0 +1,36 @@
+{
+  "dataset_id": "arbres-publics-montreal",
+  "prepared_at_utc": "2026-09-05T11:04:57Z",
+  "prepared_file": "arbres_publics_montreal.csv",
+  "prepared_sha256": "b4c617eda654ef9aaeeb9d0c39bf7a776265a987f37a00b05b87aa06a654ac43",
+  "preview_sha256": "4601a6a681df6c15798c3d16263be57e031c8836d7d8083df0da9cdd480b262f",
+  "rows": 120,
+  "columns": ["inventaire_type", "arbre_id", "arrondissement_code", "arrondissement", "emplacement", "sigle", "essence_latin", "essence_fr", "essence_ang", "dhp"],
+  "selection": "Au plus 120 positions régulièrement espacées dans l'ordre de la table préparée; sélection déterministe non aléatoire",
+  "source_name": "Données Québec / Ville de Montréal",
+  "source_url": "https://www.donneesquebec.ca/recherche/dataset/vmtl-arbres",
+  "license": "Attribution (CC-BY 4.0) selon les métadonnées CKAN vérifiées le 2026-06-21",
+  "license_url": "https://creativecommons.org/licenses/by/4.0/deed.fr",
+  "sources": [
+    {
+      "source_url": "https://donnees.montreal.ca/dataset/b89fd27d-4b49-461b-8e54-fa2b34a628c4/resource/64e28fe6-ef37-437a-972d-d1d3f1f7d891/download/arbres-publics.csv",
+      "acquisition_kind": "download",
+      "acquired_at_utc": "2026-09-05T11:04:50Z",
+      "started_at_utc": "2026-09-05T11:04:22Z",
+      "file": "arbres-publics.csv",
+      "bytes": 135483669,
+      "sha256": "1a04fb0a81b6900438cfd89618e00298504a217a6323e6640ef99c863224b1c6",
+      "details": {}
+    },
+    {
+      "source_url": "https://www.donneesquebec.ca/recherche/api/3/action/package_show?id=vmtl-arbres",
+      "acquisition_kind": "download",
+      "acquired_at_utc": "2026-09-05T11:04:22Z",
+      "started_at_utc": "2026-09-05T11:04:21Z",
+      "file": "package_show_arbres_publics.json",
+      "bytes": 23629,
+      "sha256": "013221614b8fa6cfc5172324450278afbad5d3280461a150dc9893b8886fa613",
+      "details": {}
+    }
+  ]
+}

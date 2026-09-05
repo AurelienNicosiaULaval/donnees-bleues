@@ -1,195 +1,64 @@
 ---
-title: "Stations RSQAQ - couverture territoriale et temporelle"
-embed-resources: false
+title: "Couverture territoriale et temporelle des stations RSQAQ"
+embed-resources: true
 ---
 
+# Couverture territoriale et temporelle des stations RSQAQ
 
-# Stations RSQAQ - couverture territoriale et temporelle
 
-<!-- activity-teacher-brief:start -->
-::: {.activity-teacher-brief}
+Comment décrire la répartition du réseau de stations?
 
-## En classe, cette activité sert à...
-
-Cette activité sert à travailler les notions suivantes : Données et mesure, Dates, Carte de points, Couverture territoriale, Communication prudente à partir d'une question située dans le contexte suivant : Environnement. Elle demande aux étudiantes et étudiants de répondre à la question directrice suivante : Que révèle un répertoire de stations sur la mesure environnementale, et que ne révèle-t-il pas?
-
-::: {.activity-quick-facts}
-| Élément | Information |
-|---|---|
-| Durée | 2-3 heures |
-| Niveau | Introduction à intermédiaire |
-| Usage recommandé | Mini-projet guidé |
-| Préparation enseignant | Vérifier que `data/processed/qualite-air/rsqaq_stations.csv` est disponible; aucune collecte en direct n'est nécessaire pour lancer l'activité. |
-| Production attendue | Un court rapport reproductible avec contexte, tableau ou graphique, interprétation et limites. |
-| Données | `data/processed/qualite-air/rsqaq_stations.csv` |
-:::
-
-:::
-<!-- activity-teacher-brief:end -->
-
-## Contexte
-
-Cette activité utilise le jeu de données [Stations du réseau de qualité de l'air du Québec](fiche.qmd). Elle part d'une question de classe plutôt que d'une démonstration technique : Que révèle un répertoire de stations sur la mesure environnementale, et que ne révèle-t-il pas?
-
-## Objectifs d'apprentissage
-
-- Travailler Données et mesure.
-- Travailler Dates.
-- Travailler Carte de points.
-- Travailler Couverture territoriale.
-- Nommer au moins une limite d'interprétation.
+Durée : 2-3 heures. Niveau : Introduction à intermédiaire.
 
 ## Préparation enseignante
 
-- Vérifier que `data/processed/qualite-air/rsqaq_stations.csv` est disponible; aucune collecte en direct n'est nécessaire pour lancer l'activité.
-- Fichier préparé : `data/processed/qualite-air/rsqaq_stations.csv`.
-- Script de préparation : `datasets/qualite-air/preparation.R`.
-- Point à surveiller : Exiger une section qui distingue répertoire de stations, mesures horaires, contaminants et qualité de l'air.
+Télécharger la trousse ci-dessous. Extraire le ZIP, puis double-cliquer sur `Donnees-bleues.Rproj`. Avant la séance, ouvrir `installer-packages.R` et cliquer sur Source avec une connexion Internet.
+
+Une fois les packages installés, les scripts utilisent les fichiers inclus et peuvent être exécutés hors ligne.
+
+```{r}
+#| label: activity-classroom-resources
+#| echo: false
+#| results: asis
+source(if (file.exists("R/utils_activity_contract.R")) "R/utils_activity_contract.R" else "../../R/utils_activity_contract.R")
+render_activity_resources()
+```
+
+## Contexte
+
+Cette activité utilise la fiche [Stations du réseau de qualité de l'air du Québec](fiche.qmd). Unité : Une station du répertoire du réseau québécois de surveillance de la qualité de l’air.
+
+Source : [Données Québec / MELCCFP / RSQAQ](https://www.donneesquebec.ca/recherche/dataset/rsqaq-stations). Les dates de préparation, les fichiers et les conditions de réutilisation sont indiqués dans la trousse.
 
 ## Consignes
 
-1. Importer `rsqaq_stations.csv` ou exécuter `datasets/qualite-air/preparation.R` si le fichier est absent.
-2. Identifier ce que représente une ligne du fichier.
-3. Produire un tableau ou un graphique adapté à la question directrice.
-4. Rédiger une interprétation courte qui distingue description et explication.
-5. Nommer au moins une limite méthodologique ou une information absente.
+1. Ouvrir `activite-longue.R` dans le sous-dossier `datasets/qualite-air` du projet RStudio et cliquer sur Source. Les tableaux apparaissent dans Console et les graphiques dans Plots.
+2. Comparer les régions et les décennies d’ouverture.
+3. Lire la carte des stations sans la présenter comme une carte de pollution.
+4. Rédiger une réponse à la question en nommant l’unité observée et une limite de la source.
 
 ## Résultat attendu
 
-Un court rapport reproductible avec contexte, tableau ou graphique, interprétation et limites. La production doit aussi contenir une phrase sur l'unité statistique et une phrase sur une limite de la source.
-
-## Déroulé suggéré
-
-1. Cadrer la source, la licence et l'unité statistique.
-2. Préparer ou importer les données.
-3. Produire un premier résumé descriptif.
-4. Construire la visualisation ou le tableau principal.
-5. Rédiger l'interprétation et les limites.
+Les tableaux et graphiques du script, accompagnés d’une interprétation de 6 à 8 lignes répondant à la question.
 
 ## Limites à faire nommer
 
-- Exiger une section qui distingue répertoire de stations, mesures horaires, contaminants et qualité de l'air.
-- Si une variable ou un dénominateur nécessaire n'est pas disponible dans les données, l'écrire explicitement plutôt que l'inférer.
+Un répertoire de stations ne contient pas de concentrations. L’absence de date de fermeture ne certifie pas un fonctionnement actuel.
 
+## Code complet
 
-## Mise en situation professionnelle
-
-Une équipe souhaite présenter le réseau de stations environnementales à des étudiantes et étudiants. Vous devez produire un rapport descriptif qui montre la couverture territoriale et temporelle du répertoire, tout en évitant de conclure sur la qualité de l'air.
-
-## Question directrice
-
-Que révèle un répertoire de stations sur la mesure environnementale, et que ne révèle-t-il pas?
-
-## Données à utiliser
-
-- `data/processed/qualite-air/rsqaq_stations.csv`
-- `data/processed/qualite-air/resume_regions_rsqaq_stations.csv`
-- `data/processed/qualite-air/resume_decennies_ouverture_rsqaq_stations.csv`
-- `data/processed/qualite-air/valeurs_manquantes_rsqaq_stations.csv`
-
-Si les fichiers ne sont pas présents, exécuter depuis la racine du projet :
-
-```r
-source("datasets/qualite-air/preparation.R")
-```
-
-## Code de départ
+Ce script complet est celui de la trousse. Il lit les fichiers locaux et affiche les résultats dans RStudio.
 
 ```{r}
-#| eval: false
-# Load libraries
-library(dplyr)
-library(ggplot2)
-library(readr)
-
-# Import prepared files
-stations <- read_csv(
-  "data/processed/qualite-air/rsqaq_stations.csv",
-  show_col_types = FALSE
-)
-
-resume_regions <- read_csv(
-  "data/processed/qualite-air/resume_regions_rsqaq_stations.csv",
-  show_col_types = FALSE
-)
-
-resume_decennies <- read_csv(
-  "data/processed/qualite-air/resume_decennies_ouverture_rsqaq_stations.csv",
-  show_col_types = FALSE
-)
-
-valeurs_manquantes <- read_csv(
-  "data/processed/qualite-air/valeurs_manquantes_rsqaq_stations.csv",
-  show_col_types = FALSE
-)
-
-# Regions with the most stations without a closing date
-resume_regions |>
-  arrange(desc(n_sans_date_fermeture), desc(n_stations)) |>
-  select(region_administrative, n_stations, n_sans_date_fermeture, n_fermees) |>
-  head(10)
-
-# Openings by decade
-ggplot(resume_decennies, aes(x = decennie_ouverture, y = n_stations)) +
-  geom_col(fill = "#325EA8") +
-  labs(
-    x = "Décennie d'ouverture",
-    y = "Nombre de stations",
-    title = "Ouvertures de stations RSQAQ par décennie"
-  )
-
-# Simple point map
-ggplot(stations, aes(x = longitude, y = latitude, color = station_sans_date_fermeture)) +
-  geom_point(alpha = 0.75) +
-  coord_fixed() +
-  labs(
-    x = "Longitude",
-    y = "Latitude",
-    color = "Sans date de fermeture",
-    title = "Localisation des stations RSQAQ publiées",
-    subtitle = "Carte de stations, pas carte de pollution"
-  )
+#| label: activity-code
+#| echo: false
+#| results: asis
+render_activity_code()
 ```
-
-## Livrable attendu
-
-Un court rapport Quarto de 3 à 5 pages contenant :
-
-1. une description de la source, de la licence et de l'unité statistique;
-2. un tableau des valeurs manquantes;
-3. un résumé par région administrative;
-4. une visualisation temporelle des ouvertures;
-5. une carte simple des stations;
-6. une section sur ce que la source ne permet pas de conclure.
-
-## Critères d'évaluation
-
-| Critère | Attendu |
-|---|---|
-| Source | La page Données Québec et la licence sont citées |
-| Unité statistique | La station est clairement identifiée |
-| Dates | La règle de statut préparé est explicite |
-| Graphiques | Les graphiques sont lisibles et reliés à une question |
-| Carte | La carte est décrite comme une carte de stations |
-| Limites | Le rapport distingue stations et mesures de pollution |
-
-## Questions d'analyse
-
-1. Comment le réseau de stations a-t-il évolué dans le temps?
-2. Quels types de milieux sont les plus fréquents?
-3. Quelles régions ont le plus de stations sans date de fermeture?
-4. Que change l'exclusion des stations de l'île de Montréal?
-5. Quelles données faudrait-il joindre pour analyser les niveaux de pollution?
-
-## Mise en garde à intégrer
-
-Le rapport doit éviter toute conclusion sur la qualité de l'air. Il peut conclure sur la structure du répertoire de stations, sur les dates disponibles et sur les limites de couverture.
 
 ```{r}
 #| label: activity-pedagogical-contract
 #| echo: false
 #| results: asis
-contract_source_path <- if (file.exists("R/utils_activity_contract.R")) "R/utils_activity_contract.R" else "../../R/utils_activity_contract.R"
-source(contract_source_path)
 render_activity_contract()
 ```

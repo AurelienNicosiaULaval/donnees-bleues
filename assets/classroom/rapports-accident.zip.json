@@ -1,0 +1,26 @@
+{
+  "dataset_id": "rapports-accident",
+  "title": "Rapports d'accident",
+  "mode": "frozen",
+  "prepared_at_utc": "2026-09-05T11:05:07Z",
+  "source_name": "Données Québec / Société de l'assurance automobile du Québec",
+  "source_url": "https://www.donneesquebec.ca/recherche/dataset/rapports-d-accident",
+  "license_url": "https://creativecommons.org/licenses/by/4.0/deed.fr",
+  "original_licenses": {
+    "code": "MIT",
+    "content": "CC-BY-4.0",
+    "notices": ["LICENSE", "LICENCE-CONTENUS.md"]
+  },
+  "selection": "Table de classe limitée aux colonnes déclarées, sans tirage supplémentaire de lignes. Attribution et conditions tierces conservées.",
+  "tables": [
+    {
+      "path": "data/processed/rapports-accident/rapports_accident_2022_prepares.csv",
+      "rows": 108186,
+      "columns": ["annee", "gravite", "region_nom"],
+      "sha256": "07e3d97fb28d89c2055604a237c991320c256211187bb4e9434c91edce64b987",
+      "prepared_table_sha256": "4c318439a9768fe541070dec2f9fdf2687074f18e2417a8ae9d2ce1eb0415570"
+    }
+  ],
+  "archive_sha256": "6ae30440a52d1d5556b60a7332de710ce0052084ccaa7b34fac767c88cb541b2",
+  "archive_bytes": 84450
+}

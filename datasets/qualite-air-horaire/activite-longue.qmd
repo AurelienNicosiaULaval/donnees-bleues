@@ -1,202 +1,64 @@
 ---
 title: "Tableau de bord exploratoire de la qualité de l'air"
-embed-resources: false
+embed-resources: true
 ---
-
 
 # Tableau de bord exploratoire de la qualité de l'air
 
-<!-- activity-teacher-brief:start -->
-::: {.activity-teacher-brief}
 
-## En classe, cette activité sert à...
+Que change la couverture des mesures dans l’analyse exploratoire de l’air?
 
-Cette activité sert à travailler les notions suivantes : séries temporelles, valeurs manquantes, résumé journalier, visualisation, données environnementales à partir d'une question située dans le contexte suivant : Environnement. Elle demande aux étudiantes et étudiants de répondre à la question directrice suivante : Comment construire un portrait exploratoire des contaminants atmosphériques sans surinterpréter les épisodes?
-
-::: {.activity-quick-facts}
-| Élément | Information |
-|---|---|
-| Durée | 2-3 heures |
-| Niveau | Introduction à intermédiaire |
-| Usage recommandé | Mini-projet guidé |
-| Préparation enseignant | Préparation requise : exécuter `Rscript datasets/qualite-air-horaire/preparation.R` depuis la racine, puis vérifier que `data/processed/qualite-air-horaire/resume_journalier_contaminants_2025.csv` existe. |
-| Production attendue | Un court rapport reproductible avec contexte, tableau ou graphique, interprétation et limites. |
-| Données | `data/processed/qualite-air-horaire/resume_journalier_contaminants_2025.csv` |
-:::
-
-:::
-<!-- activity-teacher-brief:end -->
-
-## Contexte
-
-Cette activité utilise le jeu de données [Qualité de l'air au Québec](fiche.qmd). Elle part d'une question de classe plutôt que d'une démonstration technique : Comment construire un portrait exploratoire des contaminants atmosphériques sans surinterpréter les épisodes?
-
-## Objectifs d'apprentissage
-
-- Travailler séries temporelles.
-- Travailler valeurs manquantes.
-- Travailler résumé journalier.
-- Travailler visualisation.
-- Nommer au moins une limite d'interprétation.
+Durée : 2-3 heures. Niveau : Introduction à intermédiaire.
 
 ## Préparation enseignante
 
-- Préparation requise : exécuter `Rscript datasets/qualite-air-horaire/preparation.R` depuis la racine, puis vérifier que `data/processed/qualite-air-horaire/resume_journalier_contaminants_2025.csv` existe.
-- Fichier préparé : `data/processed/qualite-air-horaire/resume_journalier_contaminants_2025.csv`.
-- Script de préparation : `datasets/qualite-air-horaire/preparation.R`.
-- Point à surveiller : Demander une section qui distingue observation élevée, hypothèse explicative et preuve causale.
+Télécharger la trousse ci-dessous. Extraire le ZIP, puis double-cliquer sur `Donnees-bleues.Rproj`. Avant la séance, ouvrir `installer-packages.R` et cliquer sur Source avec une connexion Internet.
+
+Une fois les packages installés, les scripts utilisent les fichiers inclus et peuvent être exécutés hors ligne.
+
+```{r}
+#| label: activity-classroom-resources
+#| echo: false
+#| results: asis
+source(if (file.exists("R/utils_activity_contract.R")) "R/utils_activity_contract.R" else "../../R/utils_activity_contract.R")
+render_activity_resources()
+```
+
+## Contexte
+
+Cette activité utilise la fiche [Qualité de l'air au Québec](fiche.qmd). Unité : Un résumé journalier par station et contaminant, calculé à partir de valeurs horaires de 2025.
+
+Source : [Données Québec / MELCCFP / RSQAQ](https://www.donneesquebec.ca/recherche/dataset/rsqaq-donnees-horaires-continues). Les dates de préparation, les fichiers et les conditions de réutilisation sont indiqués dans la trousse.
 
 ## Consignes
 
-1. Importer `resume_journalier_contaminants_2025.csv` ou exécuter `datasets/qualite-air-horaire/preparation.R` si le fichier est absent.
-2. Identifier ce que représente une ligne du fichier.
-3. Produire un tableau ou un graphique adapté à la question directrice.
-4. Rédiger une interprétation courte qui distingue description et explication.
-5. Nommer au moins une limite méthodologique ou une information absente.
+1. Ouvrir `activite-longue.R` dans le sous-dossier `datasets/qualite-air-horaire` du projet RStudio et cliquer sur Source. Les tableaux apparaissent dans Console et les graphiques dans Plots.
+2. Comparer les nombres de mesures et de stations entre contaminants sans mélanger leurs valeurs.
+3. Examiner les séries PM2.5 et les résumés des journées élevées, avec leur nombre d’heures valides.
+4. Rédiger une réponse à la question en nommant l’unité observée et une limite de la source.
 
-## Déroulé suggéré
+## Résultat attendu
 
-1. Cadrer la source, la licence et l'unité statistique.
-2. Préparer ou importer les données.
-3. Produire un premier résumé descriptif.
-4. Construire la visualisation ou le tableau principal.
-5. Rédiger l'interprétation et les limites.
+Les tableaux et graphiques du script, accompagnés d’une interprétation de 6 à 8 lignes répondant à la question.
 
 ## Limites à faire nommer
 
-- Demander une section qui distingue observation élevée, hypothèse explicative et preuve causale.
-- Si une variable ou un dénominateur nécessaire n'est pas disponible dans les données, l'écrire explicitement plutôt que l'inférer.
+Les PM2,5-T640 sont exprimées en µg/m³. Les jours sont regroupés en HNE (UTC-5 fixe) à partir de la fin des intervalles horaires, avec au moins 18 heures valides. Ce filtre pédagogique ne constitue pas une évaluation réglementaire ou sanitaire.
 
+## Code complet
 
-## Mise en situation
-
-Une équipe de communication scientifique veut produire un portrait exploratoire de la qualité de l'air au Québec à partir des mesures horaires continues du RSQAQ. Votre mandat est de construire un petit tableau de bord ou rapport reproductible pour l'année 2025.
-
-Le livrable doit rester descriptif. Il peut repérer des journées et des stations intéressantes, mais il ne doit pas attribuer automatiquement une cause aux valeurs élevées.
-
-## Livrable attendu
-
-Un rapport Quarto ou un prototype de tableau de bord comprenant :
-
-- une courte description de la source;
-- une section sur les valeurs manquantes;
-- un graphique temporel pour PM2.5;
-- un graphique ou tableau comparant plusieurs contaminants;
-- une sélection d'une station ou d'une période;
-- une section de limites;
-- le code reproductible.
-
-## Données utilisées
-
-Source : Données Québec / MELCCFP / RSQAQ, `RSQAQ - Données horaires continues`, ressource CSV 2025.
-
-Fichiers préparés :
-
-- `data/processed/qualite-air-horaire/resume_journalier_contaminants_2025.csv`;
-- `data/processed/qualite-air-horaire/resume_contaminants_2025.csv`;
-- `data/processed/qualite-air-horaire/resume_stations_2025.csv`;
-- `data/processed/qualite-air-horaire/episodes_pm25_2025.csv`;
-- `data/processed/qualite-air-horaire/valeurs_manquantes_contaminants_2025.csv`.
-
-## Étapes
-
-1. Exécuter `source("datasets/qualite-air-horaire/preparation.R")`.
-2. Importer les fichiers préparés.
-3. Présenter les dimensions : stations, contaminants, mesures non manquantes.
-4. Choisir un contaminant principal, par exemple PM2.5.
-5. Définir un seuil minimal d'heures valides.
-6. Visualiser les moyennes journalières par station.
-7. Identifier quelques journées élevées.
-8. Comparer la couverture des contaminants.
-9. Rédiger une section de limites et de prudence.
-
-## Code de départ
+Ce script complet est celui de la trousse. Il lit les fichiers locaux et affiche les résultats dans RStudio.
 
 ```{r}
-#| eval: false
-# Load libraries
-library(dplyr)
-library(ggplot2)
-library(readr)
-
-# Prepare official data
-source("datasets/qualite-air-horaire/preparation.R")
-
-# Import prepared files
-air_jour <- read_csv(
-  "data/processed/qualite-air-horaire/resume_journalier_contaminants_2025.csv",
-  show_col_types = FALSE
-)
-
-resume_contaminants <- read_csv(
-  "data/processed/qualite-air-horaire/resume_contaminants_2025.csv",
-  show_col_types = FALSE
-)
-
-episodes_pm25 <- read_csv(
-  "data/processed/qualite-air-horaire/episodes_pm25_2025.csv",
-  show_col_types = FALSE
-)
-
-# Coverage by contaminant
-resume_contaminants |>
-  arrange(desc(n_mesures)) |>
-  select(contaminant_source, n_mesures, n_stations, moyenne, p95, maximum)
-
-# PM2.5 exploratory time series
-pm25 <- air_jour |>
-  filter(contaminant_source == "PM2.5-T640", n_heures_valides >= 18)
-
-ggplot(pm25, aes(x = date, y = moyenne, group = station_id)) +
-  geom_line(alpha = 0.25, linewidth = 0.3) +
-  labs(
-    title = "Moyennes journalières de PM2.5 par station, 2025",
-    x = "Date",
-    y = "Moyenne journalière des valeurs publiées"
-  ) +
-  theme_minimal()
-
-# Highest daily PM2.5 summaries
-episodes_pm25 |>
-  select(date, station_name, n_heures_valides, moyenne, maximum, p95) |>
-  slice_head(n = 10)
+#| label: activity-code
+#| echo: false
+#| results: asis
+render_activity_code()
 ```
-
-## Questions d'analyse
-
-1. Quels contaminants ont la meilleure couverture en 2025?
-2. Quelles stations apparaissent dans les journées PM2.5 les plus élevées?
-3. Les journées élevées sont-elles concentrées dans quelques périodes?
-4. Comment les résultats changent-ils si le seuil d'heures valides change?
-5. Quelles données externes seraient nécessaires pour expliquer les épisodes?
-
-## Critères d'évaluation
-
-| Critère | Attendu |
-|---|---|
-| Source | Le paquet CKAN et la ressource 2025 sont cités. |
-| Reproductibilité | Le script de préparation est exécuté ou appelé. |
-| Couverture | Les valeurs manquantes et heures valides sont discutées. |
-| Graphiques | Les graphiques sont lisibles et ne mélangent pas les unités sans justification. |
-| Interprétation | Les conclusions restent descriptives. |
-| Limites | Les causes possibles ne sont pas affirmées sans données externes. |
-
-## Résultats attendus
-
-Un bon rapport montre que PM2.5 et O3 sont les contaminants les plus couverts dans la ressource 2025, puis utilise PM2.5 comme exemple principal. Le rapport doit expliquer pourquoi les valeurs élevées sont des signaux à explorer plutôt que des preuves causales.
-
-## Variantes possibles
-
-- Construire un tableau de bord Shiny avec choix de station et contaminant.
-- Ajouter une carte si des coordonnées de stations sont jointes à partir d'une autre source.
-- Comparer PM2.5 et O3 dans deux graphiques séparés.
-- Créer une note de communication publique sur une journée élevée.
 
 ```{r}
 #| label: activity-pedagogical-contract
 #| echo: false
 #| results: asis
-contract_source_path <- if (file.exists("R/utils_activity_contract.R")) "R/utils_activity_contract.R" else "../../R/utils_activity_contract.R"
-source(contract_source_path)
 render_activity_contract()
 ```

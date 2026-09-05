@@ -1,54 +1,61 @@
 id: qualite-eau-phosphore-court
 title: Laboratoire - Phosphore total par station
-question: Comment décrire l'évolution du phosphore total médian dans une station de
-  suivi?
+question: Comment évolue le phosphore médian à une station suffisamment documentée?
 dataset_id: suivi-rivieres-fleuve
 dataset_title: Suivi de la qualité de l'eau du fleuve et des rivières
 activity_url: datasets/suivi-rivieres-fleuve/activite-courte.qmd
 duration: 30-45 minutes
-level: Introductif
+level: Introduction
+level_ids:
+- introduction
 activity_type:
 - Exercice
 - Exploration de données
 concepts:
 - Séries temporelles agrégées
-- Statistique descriptive
+- Statistiques descriptives
 - Visualisation
 - Unités de mesure
+concept_ids:
+- series-temporelles-agregees
+- statistiques-descriptives
+- visualisation
+- unites-de-mesure
 context: Qualité de l'eau
-hook: Un point sur le graphique n'est pas une mesure brute, mais un indicateur agrégé.
+hook: La couverture des stations et périodes de suivi varie. Une évolution de médianes ne suffit pas à attribuer
+  une cause à un changement de qualité de l’eau.
 materials:
-- fiche vérifiée
-- script de préparation
-- table préparée
-- résumés R
-advanced_math_stats: no
-teacher_notes: Faire expliciter l'unité statistique et l'unité mg/l dans la conclusion.
-status: source officielle vérifiée
+- Trousse ZIP et projet RStudio
+- Script R complet
+- CSV préparés et provenance
+advanced_math_stats: false
+teacher_notes: La couverture des stations et périodes de suivi varie. Une évolution de médianes ne suffit pas
+  à attribuer une cause à un changement de qualité de l’eau.
+status: Documentation de source et ressources de classe fournies
 pedagogical_status: pret_a_enseigner
-teacher_preparation: Vérifier que `data/processed/suivi-rivieres-fleuve/stations_qualite_eau_aires.csv`
-  est disponible; aucune collecte en direct n'est nécessaire pour lancer l'activité.
-expected_output: Un tableau ou graphique descriptif accompagné de trois phrases d'interprétation
-  prudente.
-requires_prepared_data: yes
-requires_live_download: no
+teacher_preparation: Extraire la trousse, ouvrir le projet RStudio, installer les packages avant la séance
+  et lancer le script.
+expected_output: Les tableaux et graphiques du script, accompagnés d’une interprétation de 6 à 8 lignes répondant
+  à la question.
+requires_prepared_data: true
+requires_live_download: false
 recommended_use: Exercice guidé
-result_visible_in_page: yes
-
+result_visible_in_page: false
 learning_objectives:
-  - "Importer une table préparée à partir d'un ZIP officiel."
-  - "Identifier l'unité statistique d'une observation environnementale agrégée."
-  - "Choisir une station avec suffisamment d'années d'observation."
-  - "Produire un graphique temporel lisible."
-  - "Formuler une conclusion prudente."
-
+- Choisir une station possédant au moins vingt années avec phosphore renseigné.
+- Lire la série des médianes en mg/l et annoncer la période de suivi.
+- Formuler une limite qui découle de la source et de l’unité observée.
 prerequisites:
-  - "Vérifier le fichier ou le script de préparation annoncé avant la séance; adapter la mise en route au niveau indiqué."
-
+- Savoir ouvrir un projet RStudio et exécuter un script R.
+- Reconnaître une variable, un décompte et une proportion.
 success_criteria:
-  - "La production attendue est remise : Un tableau ou graphique descriptif accompagné de trois phrases d'interprétation prudente."
-  - "Les résultats sont interprétés sans dépasser les limites de la source."
-
+- L’unité, la période ou la portée documentaire et les variables utilisées sont nommées.
+- Choisir une station possédant au moins vingt années avec phosphore renseigné.
+- Lire la série des médianes en mg/l et annoncer la période de suivi.
+- La conclusion répond à la question et explique au moins une limite précise.
 adaptations:
-  - "Fournir une table préparée ou réduire le nombre de variables pour une première utilisation."
-  - "Ajouter une comparaison, une justification méthodologique ou une discussion des limites pour approfondir."
+- Débuter avec le script exécuté par la personne enseignante, puis faire interpréter une seule sortie.
+- Pour approfondir, modifier une sélection ou un regroupement et justifier ce que cela change.
+script_file: datasets/suivi-rivieres-fleuve/activite-courte.R
+classroom_archive: assets/classroom/suivi-rivieres-fleuve.zip
+access_mode: frozen

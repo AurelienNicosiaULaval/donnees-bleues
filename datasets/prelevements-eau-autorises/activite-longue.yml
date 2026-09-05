@@ -1,12 +1,13 @@
 id: prelevements-eau-territoires-long
 title: Portrait spatial des prélèvements d'eau autorisés
-question: Comment décrire les volumes et la localisation des prélèvements d'eau autorisés
-  sans les confondre avec des volumes réels?
+question: Comment documenter et cartographier les sites de prélèvement?
 dataset_id: prelevements-eau-autorises
 dataset_title: Registre des prélèvements d'eau autorisés
 activity_url: datasets/prelevements-eau-autorises/activite-longue.qmd
 duration: 2-3 heures
 level: Intermédiaire
+level_ids:
+- intermediaire
 activity_type:
 - Étude de cas
 - Projet ou tâche longue
@@ -16,54 +17,46 @@ concepts:
 - Données spatiales
 - Valeurs extrêmes
 - Communication prudente
+concept_ids:
+- agregation
+- donnees-spatiales
+- valeurs-extremes
+- communication-prudente
 context: Prélèvements d'eau
-hook: Les plus grands sites peuvent dominer toute la lecture du jeu
+hook: Les plafonds de plusieurs sites peuvent être soumis à une limite commune. Leur somme ne constitue pas
+  un total autorisé; les volumes réellement prélevés ne sont pas observés.
 materials:
-- énoncé
-- code
-- table préparée
-- notes enseignantes
-advanced_math_stats: no
-teacher_notes: 'Demander une section explicite sur l''absence de volumes réellement
-  prélevés et sur la mise en garde officielle : la donnée n''a aucune valeur légale.'
-status: source officielle vérifiée
+- Trousse ZIP et projet RStudio
+- Script R complet
+- CSV préparés et provenance
+advanced_math_stats: false
+teacher_notes: Les plafonds de plusieurs sites peuvent être soumis à une limite commune. Leur somme ne constitue
+  pas un total autorisé; les volumes réellement prélevés ne sont pas observés.
+status: Documentation de source et ressources de classe fournies
 pedagogical_status: pret_a_enseigner
-teacher_preparation: Vérifier que `data/processed/prelevements-eau-autorises/prelevements_eau_autorises.csv`
-  est disponible; aucune collecte en direct n'est nécessaire pour lancer l'activité.
-expected_output: Un court rapport reproductible avec contexte, tableau ou graphique,
-  interprétation et limites.
-requires_prepared_data: yes
-requires_live_download: no
+teacher_preparation: Extraire la trousse, ouvrir le projet RStudio, installer les packages avant la séance
+  et lancer le script.
+expected_output: Les tableaux et graphiques du script, accompagnés d’une interprétation de 6 à 8 lignes répondant
+  à la question.
+requires_prepared_data: true
+requires_live_download: false
 recommended_use: Mini-projet guidé
-result_visible_in_page: yes
-
+result_visible_in_page: false
 learning_objectives:
-  - "Préparer une ressource officielle"
-  - "Construire des agrégations par catégorie"
-  - "Décrire des valeurs extrêmes"
-  - "Produire une carte de points"
-  - "Documenter les valeurs manquantes"
-  - "Communiquer les limites d'une donnée administrative"
-  - "définit clairement le site de prélèvement autorisé;"
-  - "convertit les volumes en mètres cubes par jour;"
-  - "distingue nombre de sites et volume total;"
-  - "montre les principaux sites ou intervenants;"
-  - "inclut une carte lisible;"
-  - "cite la mise en garde officielle sur l'absence de valeur légale;"
-  - "ne parle pas de volume réellement prélevé."
-  - "Comparer les résultats avec et sans les dix plus grands sites."
-  - "Produire une carte avec une taille de point proportionnelle au logarithme du volume."
-  - "Joindre les sites à des bassins versants."
-  - "Comparer les intervenants multi-sites."
-  - "Rédiger une note publique sur la portée administrative du registre."
-
+- Compter les sites et documents; examiner les plafonds élevés avec leurs conditions.
+- Cartographier les sites par provenance en distinguant autorisation et prélèvement réalisé.
+- Formuler une limite qui découle de la source et de l’unité observée.
 prerequisites:
-  - "Vérifier le fichier ou le script de préparation annoncé avant la séance; adapter la mise en route au niveau indiqué."
-
+- Savoir ouvrir un projet RStudio et exécuter un script R.
+- Savoir lire un tableau groupé et un graphique descriptif; repérer les valeurs manquantes.
 success_criteria:
-  - "La production attendue est remise : Un court rapport reproductible avec contexte, tableau ou graphique, interprétation et limites."
-  - "Les résultats sont interprétés sans dépasser les limites de la source."
-
+- L’unité, la période ou la portée documentaire et les variables utilisées sont nommées.
+- Compter les sites et documents; examiner les plafonds élevés avec leurs conditions.
+- Cartographier les sites par provenance en distinguant autorisation et prélèvement réalisé.
+- La conclusion répond à la question et explique au moins une limite précise.
 adaptations:
-  - "Fournir une table préparée ou réduire le nombre de variables pour une première utilisation."
-  - "Ajouter une comparaison, une justification méthodologique ou une discussion des limites pour approfondir."
+- Débuter avec le script exécuté par la personne enseignante, puis faire interpréter une seule sortie.
+- Pour approfondir, modifier une sélection ou un regroupement et justifier ce que cela change.
+script_file: datasets/prelevements-eau-autorises/activite-longue.R
+classroom_archive: assets/classroom/prelevements-eau-autorises.zip
+access_mode: frozen

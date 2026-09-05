@@ -4,13 +4,22 @@ question:
 dataset_id:
 dataset_title:
 activity_url:
+script_file:
+classroom_archive:
+# frozen, documentation ou source_required, selon la politique de la fiche
+access_mode:
 duration:
 level:
+level_ids:
+  - introduction
 activity_type:
   - "Exercice"
 concepts:
   - "Données et mesure"
-  - "Statistique descriptive"
+  - "Statistiques descriptives"
+concept_ids:
+  - donnees-et-mesure
+  - statistiques-descriptives
 context:
 hook:
 materials:
@@ -19,7 +28,7 @@ materials:
   - "données"
 advanced_math_stats: false
 teacher_notes:
-pedagogical_status: "pret_a_enseigner"
+pedagogical_status: "ebauche"
 teacher_preparation:
 expected_output:
 learning_objectives:
@@ -33,5 +42,5 @@ adaptations:
 requires_prepared_data: true
 requires_live_download: false
 recommended_use:
-result_visible_in_page: true
+result_visible_in_page: false
 status:

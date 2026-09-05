@@ -19,7 +19,9 @@ processed_file: "data/processed/meteo-quebec/meteo_quebec.csv"
 missing_summary_file: "data/processed/meteo-quebec/valeurs_manquantes_meteo_quebec.csv"
 season_summary_file: "data/processed/meteo-quebec/resume_saisons_meteo_quebec.csv"
 update_frequency: "Jeu pédagogique gelé dans UlavalSSD 0.2.0; source ECCC mise à jour régulièrement"
-level: "Introduction"
+level: Introduction
+level_ids:
+- introduction
 organisme: "Environnement et Changement climatique Canada; adaptation pédagogique dans UlavalSSD"
 territoire: "Québec/Jean-Lesage"
 taille_approximative: "20 111 observations quotidiennes, de 1970-01-01 à 2025-01-22"
@@ -48,14 +50,23 @@ tags:
   - "visualisation"
   - "valeurs manquantes"
 concepts:
-  - "séries temporelles"
-  - "variables numériques"
-  - "valeurs manquantes"
-  - "statistiques descriptives"
-  - "visualisation"
-  - "saisonnalité"
-  - "données météorologiques"
-  - "communication prudente"
+- Séries temporelles
+- Variables numériques
+- Valeurs manquantes
+- Statistiques descriptives
+- Visualisation
+- Saisonnalité
+- Données météorologiques
+- Communication prudente
+concept_ids:
+- series-temporelles
+- variables-numeriques
+- valeurs-manquantes
+- statistiques-descriptives
+- visualisation
+- saisonnalite
+- donnees-meteorologiques
+- communication-prudente
 zero_waste:
   contexte_quebecois: 3
   accessibilite_pedagogique: 3
@@ -72,3 +83,63 @@ contributor_role: "Révision pédagogique et statistique"
 stt1100_contact: true
 status: "source pédagogique vérifiée dans UlavalSSD 0.2.0; préparation locale reproductible"
 notes: "Jeu utilisé dans STT-1100. Ne pas extrapoler à tout le Québec : il s'agit d'une station. Les variables total_rain, total_snow et snow_grnd contiennent beaucoup de valeurs manquantes."
+
+publication:
+  preview: true
+  reviewed_on: '2026-09-05'
+  license_url: https://climat.meteo.gc.ca/prods_servs/attachment1_f.html
+  preview_columns:
+  - source_dataset
+  - station_label
+  - date
+  - annee
+  - mois_num
+  - mois
+  - jour
+  - saison
+  - max_temp
+  - mean_temp
+  reason: Extrait pédagogique limité aux colonnes déclarées; attribution et conditions de la source conservées.
+  classroom:
+    mode: frozen
+    reason: Table de classe limitée aux colonnes déclarées, sans tirage supplémentaire de lignes. Attribution
+      et conditions tierces conservées.
+    files:
+    - path: data/processed/meteo-quebec/meteo_quebec.csv
+      columns:
+      - source_dataset
+      - station_label
+      - date
+      - annee
+      - mois_num
+      - mois
+      - jour
+      - saison
+      - max_temp
+      - mean_temp
+      - min_temp
+      - total_precip
+      - total_rain
+      - total_snow
+      - snow_grnd
+    - path: data/processed/meteo-quebec/resume_saisons_meteo_quebec.csv
+      columns:
+      - saison
+      - 'n'
+      - mean_temp_moyenne
+      - ecart_type_temperature
+      - precipitation_moyenne
+    - path: data/processed/meteo-quebec/valeurs_manquantes_meteo_quebec.csv
+      columns:
+      - variable
+      - n_missing
+      - n_rows
+      - pct_missing
+chart:
+  type: scatter
+  x_variable: date
+  y_variable: mean_temp
+  x_kind: date
+  x_label: Date de l’observation
+  y_label: Température moyenne quotidienne (°C)
+  title: Températures aux dates retenues

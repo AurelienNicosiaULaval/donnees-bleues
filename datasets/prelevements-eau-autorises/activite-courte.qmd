@@ -1,160 +1,64 @@
 ---
 title: "Volumes autorisés par provenance de l'eau"
-embed-resources: false
+embed-resources: true
 ---
-
 
 # Volumes autorisés par provenance de l'eau
 
-<!-- activity-teacher-brief:start -->
-::: {.activity-teacher-brief}
 
-## En classe, cette activité sert à...
+Comment décrire les plafonds par site selon la provenance de l’eau?
 
-Cette activité sert à travailler les notions suivantes : Agrégation, Volume autorisé, Valeurs extrêmes, Visualisation à partir d'une question située dans le contexte suivant : Prélèvements d'eau. Elle demande aux étudiantes et étudiants de répondre à la question directrice suivante : Quels types de provenance représentent les plus grands volumes autorisés?
-
-::: {.activity-quick-facts}
-| Élément | Information |
-|---|---|
-| Durée | 30-45 minutes |
-| Niveau | Intermédiaire |
-| Usage recommandé | Exercice guidé |
-| Préparation enseignant | Vérifier que `data/processed/prelevements-eau-autorises/prelevements_eau_autorises.csv` est disponible; aucune collecte en direct n'est nécessaire pour lancer l'activité. |
-| Production attendue | Un tableau ou graphique descriptif accompagné de trois phrases d'interprétation prudente. |
-| Données | `data/processed/prelevements-eau-autorises/prelevements_eau_autorises.csv` |
-:::
-
-:::
-<!-- activity-teacher-brief:end -->
+Durée : 30-45 minutes. Niveau : Intermédiaire.
 
 ## Préparation enseignante
 
-- Vérifier que `data/processed/prelevements-eau-autorises/prelevements_eau_autorises.csv` est disponible; aucune collecte en direct n'est nécessaire pour lancer l'activité.
-- Fichier préparé : `data/processed/prelevements-eau-autorises/prelevements_eau_autorises.csv`.
-- Script de préparation : `datasets/prelevements-eau-autorises/preparation.R`.
-- Point à surveiller : Insister sur la distinction entre volume maximal autorisé et volume réellement prélevé. Faire comparer nombre de sites et volume total.
+Télécharger la trousse ci-dessous. Extraire le ZIP, puis double-cliquer sur `Donnees-bleues.Rproj`. Avant la séance, ouvrir `installer-packages.R` et cliquer sur Source avec une connexion Internet.
 
-## Résultat attendu
+Une fois les packages installés, les scripts utilisent les fichiers inclus et peuvent être exécutés hors ligne.
 
-Un tableau ou graphique descriptif accompagné de trois phrases d'interprétation prudente. La production doit aussi contenir une phrase sur l'unité statistique et une phrase sur une limite de la source.
-
-## Limites à faire nommer
-
-- Insister sur la distinction entre volume maximal autorisé et volume réellement prélevé. Faire comparer nombre de sites et volume total.
-- Si une variable ou un dénominateur nécessaire n'est pas disponible dans les données, l'écrire explicitement plutôt que l'inférer.
-
+```{r}
+#| label: activity-classroom-resources
+#| echo: false
+#| results: asis
+source(if (file.exists("R/utils_activity_contract.R")) "R/utils_activity_contract.R" else "../../R/utils_activity_contract.R")
+render_activity_resources()
+```
 
 ## Contexte
 
-Cette activité utilise le registre des prélèvements d'eau autorisés pour comparer des volumes maximaux autorisés selon la provenance de l'eau. Le point central est d'éviter une interprétation trop forte : un volume autorisé n'est pas un volume réellement prélevé.
+Cette activité utilise la fiche [Registre des prélèvements d'eau autorisés](fiche.qmd). Unité : Un site de prélèvement autorisé, avec un plafond inscrit et ses éventuelles conditions communes.
 
-## Objectifs d'apprentissage
-
-- Préparer une ressource CSV officielle
-- Convertir des litres par jour en mètres cubes par jour
-- Agréger un volume par catégorie
-- Comparer nombre de sites et volume total
-- Communiquer une limite administrative
-
-## Données utilisées
-
-Fiche : [Registre des prélèvements d'eau autorisés](fiche.qmd)
-
-Source : Données Québec / MELCCFP.
-
-Licence : Attribution (CC-BY 4.0), selon les métadonnées CKAN consultées le 2026-06-21.
-
-Fichier préparé : `data/processed/prelevements-eau-autorises/prelevements_eau_autorises.csv`
-
-## Métadonnées pédagogiques
-
-| Champ | Information |
-|---|---|
-| Question directrice | Quels types de provenance représentent les plus grands volumes autorisés? |
-| Concepts | Agrégation; Volume autorisé; Valeurs extrêmes; Visualisation |
-| Niveau | Intermédiaire |
-| Type | Exercice; Exploration de données |
-| Contexte | Prélèvements d'eau |
-| Accroche | Beaucoup de sites ne signifie pas nécessairement le plus grand volume autorisé |
-| Durée | 30-45 minutes |
-| Matériel | énoncé; code; table préparée |
-| Math/stats avancées | non |
+Source : [Données Québec / Ministère de l'Environnement, de la Lutte contre les changements climatiques, de la Faune et des Parcs](https://www.donneesquebec.ca/recherche/dataset/prelevements-eau). Les dates de préparation, les fichiers et les conditions de réutilisation sont indiqués dans la trousse.
 
 ## Consignes
 
-1. Exécuter `datasets/prelevements-eau-autorises/preparation.R`.
-2. Importer la table préparée.
-3. Compter les sites par `provenance_eau`.
-4. Calculer le volume total autorisé par `provenance_eau`.
-5. Produire un graphique en barres du volume total.
-6. Écrire une phrase qui distingue volume autorisé et volume réel.
+1. Ouvrir `activite-courte.R` dans le sous-dossier `datasets/prelevements-eau-autorises` du projet RStudio et cliquer sur Source. Les tableaux apparaissent dans Console et les graphiques dans Plots.
+2. Compter les sites et calculer la médiane des plafonds inscrits par provenance.
+3. Interpréter les médianes en m³/j sans additionner les plafonds en un total.
+4. Rédiger une réponse à la question en nommant l’unité observée et une limite de la source.
 
-## Code de départ
+## Résultat attendu
 
-À exécuter depuis la racine du projet.
+Les tableaux et graphiques du script, accompagnés d’une interprétation de 6 à 8 lignes répondant à la question.
+
+## Limites à faire nommer
+
+Les plafonds de plusieurs sites peuvent être soumis à une limite commune. Leur somme ne constitue pas un total autorisé; les volumes réellement prélevés ne sont pas observés.
+
+## Code complet
+
+Ce script complet est celui de la trousse. Il lit les fichiers locaux et affiche les résultats dans RStudio.
 
 ```{r}
-#| eval: false
-# Load libraries
-library(dplyr)
-library(ggplot2)
-library(readr)
-
-# Prepare official CSV
-source("datasets/prelevements-eau-autorises/preparation.R")
-
-# Import prepared data
-prelevements <- read_csv(
-  "data/processed/prelevements-eau-autorises/prelevements_eau_autorises.csv",
-  show_col_types = FALSE
-)
-
-# Aggregate by provenance
-resume_provenance <- prelevements |>
-  group_by(provenance_eau) |>
-  summarise(
-    sites = n(),
-    volume_total_m3_j = sum(volume_autorise_m3_j, na.rm = TRUE),
-    volume_median_m3_j = median(volume_autorise_m3_j, na.rm = TRUE),
-    .groups = "drop"
-  ) |>
-  arrange(desc(volume_total_m3_j))
-
-resume_provenance
-
-# Plot authorized volumes
-ggplot(resume_provenance, aes(x = reorder(provenance_eau, volume_total_m3_j), y = volume_total_m3_j)) +
-  geom_col(fill = "#325EA8") +
-  coord_flip() +
-  labs(
-    x = "Provenance de l'eau",
-    y = "Volume maximal autorisé total (m3/j)",
-    title = "Volumes autorisés par provenance de l'eau",
-    subtitle = "Les volumes ne sont pas des volumes réellement prélevés"
-  )
+#| label: activity-code
+#| echo: false
+#| results: asis
+render_activity_code()
 ```
-
-## Questions
-
-1. Quelle provenance compte le plus de sites?
-2. Quelle provenance représente le plus grand volume total autorisé?
-3. Pourquoi ces deux réponses peuvent-elles être différentes?
-4. Combien de sites ont un volume manquant?
-5. Pourquoi ne peut-on pas interpréter ces volumes comme une consommation réelle d'eau?
-
-## Pistes de solution
-
-Dans la version préparée, les sites souterrains sont les plus nombreux, mais le volume total autorisé est plus élevé pour les prélèvements de surface. Une bonne réponse mentionne explicitement que les volumes sont des maxima autorisés.
-
-## Prolongement
-
-Refaire le graphique après avoir retiré les dix sites ayant les plus grands volumes autorisés, puis comparer la conclusion descriptive.
 
 ```{r}
 #| label: activity-pedagogical-contract
 #| echo: false
 #| results: asis
-contract_source_path <- if (file.exists("R/utils_activity_contract.R")) "R/utils_activity_contract.R" else "../../R/utils_activity_contract.R"
-source(contract_source_path)
 render_activity_contract()
 ```

@@ -9,8 +9,10 @@ required_files <- c(
   "fiche.qmd",
   "activite-courte.qmd",
   "activite-courte.yml",
+  "activite-courte.R",
   "activite-longue.qmd",
   "activite-longue.yml",
+  "activite-longue.R",
   "preparation.R",
   "metadata.yml"
 )
@@ -55,6 +57,7 @@ validate_card_images(catalogue)
 
 catalogue_activites <- build_activity_catalogue("datasets")
 validate_activity_catalogue(catalogue_activites)
+validate_activity_resources(catalogue_activites)
 validate_activity_pages(catalogue_activites)
 validate_activity_contract_renderers(catalogue_activites)
 validate_documented_paths()

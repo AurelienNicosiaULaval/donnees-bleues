@@ -1,0 +1,33 @@
+{
+  "dataset_id": "pyramides-ages",
+  "title": "Pyramides des âges au Canada et au Québec",
+  "mode": "frozen",
+  "prepared_at_utc": "2026-09-05T11:05:02Z",
+  "source_name": "Statistique Canada",
+  "source_url": "https://www150.statcan.gc.ca/t1/tbl1/fr/tv.action?pid=1710000501",
+  "license_url": "https://www.statcan.gc.ca/fr/reference/licence",
+  "original_licenses": {
+    "code": "MIT",
+    "content": "CC-BY-4.0",
+    "notices": ["LICENSE", "LICENCE-CONTENUS.md"]
+  },
+  "selection": "Table de classe limitée aux colonnes déclarées, sans tirage supplémentaire de lignes. Attribution et conditions tierces conservées.",
+  "tables": [
+    {
+      "path": "data/processed/pyramides-ages/evolution_65_plus_quebec_canada.csv",
+      "rows": 4,
+      "columns": ["year", "geography", "population_total", "population_65_plus", "pct_65_plus"],
+      "sha256": "a889c61f49d5a35a9f42eadf4a16a97bc676a745dcc4603355f491f9cc05d90b",
+      "prepared_table_sha256": "a889c61f49d5a35a9f42eadf4a16a97bc676a745dcc4603355f491f9cc05d90b"
+    },
+    {
+      "path": "data/processed/pyramides-ages/population_pyramides_quebec_canada_latest.csv",
+      "rows": 84,
+      "columns": ["year", "geography", "gender", "age_group", "population", "population_plot", "proportion", "proportion_plot"],
+      "sha256": "12299dd681da2fc2296bd4c1fd5b2f24de4ff0e5636f8a53cf5db1a45c7b5bd1",
+      "prepared_table_sha256": "12299dd681da2fc2296bd4c1fd5b2f24de4ff0e5636f8a53cf5db1a45c7b5bd1"
+    }
+  ],
+  "archive_sha256": "a2b53435915f9182d6e8a6726f4de5f8590a9f51a3881552a506bc3964dfa630",
+  "archive_bytes": 9501
+}

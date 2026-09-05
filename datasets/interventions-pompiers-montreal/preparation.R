@@ -1,3 +1,4 @@
+source("R/utils_downloads.R")
 # Préparer le jeu de données : Interventions des pompiers de Montréal.
 
 library(dplyr)
@@ -15,7 +16,7 @@ current_csv_url <- "https://donnees.montreal.ca/dataset/2fc8a2b9-1556-410e-a118-
 raw_path <- file.path(raw_dir, "donneesouvertes-interventions-sim.csv")
 processed_path <- file.path(processed_dir, "interventions_pompiers_montreal.csv")
 
-download.file(current_csv_url, raw_path, mode = "wb", quiet = TRUE)
+download_source(current_csv_url, raw_path, mode = "wb", quiet = TRUE)
 
 interventions <- read_csv(raw_path, show_col_types = FALSE) |>
   transmute(
@@ -39,3 +40,5 @@ write_csv(interventions, processed_path)
 message("Source : ", official_source_url)
 message("Fichier préparé : ", processed_path)
 message("Interventions préparées : ", nrow(interventions))
+
+record_preparation("interventions-pompiers-montreal")

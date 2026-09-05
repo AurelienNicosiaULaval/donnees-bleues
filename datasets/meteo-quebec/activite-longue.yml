@@ -1,72 +1,64 @@
 id: meteo-quebec-long
 title: Portrait descriptif de la météo quotidienne à Québec
-question: Comment produire un portrait descriptif prudent de la météo quotidienne
-  à Québec?
+question: Comment décrire températures et précipitations quotidiennes?
 dataset_id: meteo-quebec
 dataset_title: Météo quotidienne à Québec
 activity_url: datasets/meteo-quebec/activite-longue.qmd
 duration: 2-3 heures
 level: Introduction à intermédiaire
+level_ids:
+- introduction
+- intermediaire
 activity_type:
 - Projet ou tâche longue
 - Étude de cas
 concepts:
-- séries temporelles
-- valeurs manquantes
+- Séries temporelles
+- Valeurs manquantes
+- Visualisation
+- Statistiques descriptives
+- Communication prudente
+concept_ids:
+- series-temporelles
+- valeurs-manquantes
 - visualisation
-- statistiques descriptives
-- communication prudente
+- statistiques-descriptives
+- communication-prudente
 context: Météorologie québécoise
-hook: Un graphique météo est parlant, mais il doit rester statistiquement prudent
+hook: Les jours sans mesure ne sont pas des zéros. Une station et une période limitée ne suffisent pas à caractériser
+  le climat de tout le Québec.
 materials:
-- fiche
-- code
-- table préparée
-- source officielle
-- notes enseignantes
-advanced_math_stats: no
-teacher_notes: 'Exiger une section courte sur les valeurs manquantes et une limite
-  explicite : une station ne représente pas tout le Québec.'
-status: source officielle vérifiée
+- Trousse ZIP et projet RStudio
+- Script R complet
+- CSV préparés et provenance
+advanced_math_stats: false
+teacher_notes: Les jours sans mesure ne sont pas des zéros. Une station et une période limitée ne suffisent
+  pas à caractériser le climat de tout le Québec.
+status: Documentation de source et ressources de classe fournies
 pedagogical_status: pret_a_enseigner
-teacher_preparation: 'Préparation requise : exécuter `Rscript datasets/meteo-quebec/preparation.R`
-  depuis la racine, puis vérifier que `data/processed/meteo-quebec/meteo_quebec.csv`
-  existe.'
-expected_output: Un court rapport reproductible avec contexte, tableau ou graphique,
-  interprétation et limites.
-requires_prepared_data: yes
-requires_live_download: no
+teacher_preparation: Extraire la trousse, ouvrir le projet RStudio, installer les packages avant la séance
+  et lancer le script.
+expected_output: Les tableaux et graphiques du script, accompagnés d’une interprétation de 6 à 8 lignes répondant
+  à la question.
+requires_prepared_data: true
+requires_live_download: false
 recommended_use: Mini-projet guidé
-result_visible_in_page: yes
-
+result_visible_in_page: false
 learning_objectives:
-  - "Construire un court rapport Quarto reproductible"
-  - "Préparer et importer une table météorologique"
-  - "Résumer les températures et les précipitations"
-  - "Visualiser une série temporelle quotidienne"
-  - "Comparer des distributions saisonnières"
-  - "Documenter les valeurs manquantes"
-  - "Distinguer analyse descriptive et conclusion climatique"
-  - "utilise une variable `date` correcte;"
-  - "cite la source pédagogique et la source primaire;"
-  - "présente les valeurs manquantes avant les conclusions;"
-  - "contient deux graphiques lisibles;"
-  - "indique les unités des variables;"
-  - "ne généralise pas à tout le Québec;"
-  - "distingue météo quotidienne et climat."
-  - "Calculer le nombre de jours sous -20 °C par année."
-  - "Décrire les journées de précipitations extrêmes."
-  - "Comparer les résultats avant et après 2000."
-  - "Ajouter une source sur les normales climatiques."
-  - "Construire une courte capsule sur la différence entre météo, variabilité et climat."
-
+- Lire la série des températures depuis 2020 et les bilans de valeurs manquantes.
+- Comparer les précipitations par saison en distinguant le zoom 0 à 30 mm des données utilisées dans les quartiles.
+- Formuler une limite qui découle de la source et de l’unité observée.
 prerequisites:
-  - "Vérifier le fichier ou le script de préparation annoncé avant la séance; adapter la mise en route au niveau indiqué."
-
+- Savoir ouvrir un projet RStudio et exécuter un script R.
+- Savoir lire un tableau groupé et un graphique descriptif; repérer les valeurs manquantes.
 success_criteria:
-  - "La production attendue est remise : Un court rapport reproductible avec contexte, tableau ou graphique, interprétation et limites."
-  - "Les résultats sont interprétés sans dépasser les limites de la source."
-
+- L’unité, la période ou la portée documentaire et les variables utilisées sont nommées.
+- Lire la série des températures depuis 2020 et les bilans de valeurs manquantes.
+- Comparer les précipitations par saison en distinguant le zoom 0 à 30 mm des données utilisées dans les quartiles.
+- La conclusion répond à la question et explique au moins une limite précise.
 adaptations:
-  - "Fournir une table préparée ou réduire le nombre de variables pour une première utilisation."
-  - "Ajouter une comparaison, une justification méthodologique ou une discussion des limites pour approfondir."
+- Débuter avec le script exécuté par la personne enseignante, puis faire interpréter une seule sortie.
+- Pour approfondir, modifier une sélection ou un regroupement et justifier ce que cela change.
+script_file: datasets/meteo-quebec/activite-longue.R
+classroom_archive: assets/classroom/meteo-quebec.zip
+access_mode: frozen

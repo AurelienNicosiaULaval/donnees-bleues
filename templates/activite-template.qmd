@@ -1,114 +1,57 @@
 ---
-title: "Titre de l'activité"
+title: "Titre de l’activité à renseigner"
 embed-resources: true
 ---
 
-# Titre de l'activité
+# Titre de l’activité à renseigner
 
-<!-- activity-teacher-brief:start -->
-::: {.activity-teacher-brief}
-
-## En classe, cette activité sert à...
-
-Formuler en deux ou trois phrases ce que l'activité permet de faire en classe.
-Nommer la question, le geste statistique et la limite principale.
-
-::: {.activity-quick-facts}
-| Élément | À préciser |
-|---|---|
-| Durée | 30-45 minutes ou 2-3 heures |
-| Niveau | Introductif, intermédiaire ou avancé |
-| Usage recommandé | Laboratoire, discussion, devoir ou mini-projet |
-| Préparation enseignant | Fichier à préparer ou source à ouvrir |
-| Production attendue | Tableau, graphique, court texte, protocole ou mini-rapport |
-| Données | Chemin exact du fichier ou `Je ne sais pas.` |
-:::
-
-:::
-<!-- activity-teacher-brief:end -->
-
-## Contexte
-
-Décrire brièvement la situation et le contexte de données.
-
-## Objectifs d'apprentissage
-
-- Objectif 1.
-- Objectif 2.
-- Objectif 3.
-
-## Prérequis
-
-- Prérequis à compléter ou indiquer explicitement qu'aucun prérequis additionnel n'est déclaré.
-
-## Données utilisées
-
-Indiquer la source vérifiée, la licence, le lien vers la fiche et le chemin du fichier utilisé.
-Si le fichier n'est pas disponible dans le dépôt, écrire `Je ne sais pas.` et préciser la préparation requise.
+Indiquer ici la question directrice, la durée et le niveau canonique.
 
 ## Préparation enseignante
 
-- Vérifier que le fichier préparé est disponible avant la séance.
-- Exécuter le script `preparation.R` seulement si nécessaire.
-- Prévoir une phrase de prudence sur les limites de la source.
+Décrire le parcours : télécharger la trousse, extraire le ZIP, ouvrir le projet RStudio, installer les packages avant la séance, puis cliquer sur Source dans le script. Nommer toute acquisition préalable et ses conditions.
+
+```{r}
+#| label: activity-classroom-resources
+#| echo: false
+#| results: asis
+source(if (file.exists("R/utils_activity_contract.R")) "R/utils_activity_contract.R" else "../../R/utils_activity_contract.R")
+render_activity_resources()
+```
+
+## Contexte
+
+Nommer la source, l’unité statistique et la période d’observation. Relier la fiche du jeu.
 
 ## Consignes
 
-1. Importer les données.
-2. Examiner la structure.
-3. Produire un résumé.
-4. Produire une visualisation ou un tableau.
-5. Interpréter les résultats avec prudence.
-
-## Code R minimal
-
-```{r}
-#| eval: false
-library(dplyr)
-library(readr)
-
-donnees <- read_csv("chemin/vers/le/fichier.csv", show_col_types = FALSE)
-glimpse(donnees)
-```
+1. Ouvrir le script R annoncé et cliquer sur Source.
+2. Indiquer un calcul effectivement fourni dans le script.
+3. Indiquer la comparaison ou la visualisation attendue.
+4. Répondre à la question avec une limite précise de la source.
 
 ## Résultat attendu
 
-Décrire la production attendue et le critère minimal de réussite.
-
-## Critères de réussite
-
-- La production répond à la question directrice avec les données annoncées.
-- Les résultats sont interprétés sans dépasser les limites de la source.
-
-## Adaptations possibles
-
-- Préciser une adaptation pour une première utilisation.
-- Préciser une adaptation pour approfondir l'activité.
-
-## Questions
-
-1. Quelle est l'unité statistique?
-2. Quelle transformation est nécessaire avant l'interprétation?
-3. Quelle conclusion serait trop forte avec ces seules données?
+Décrire les sorties du script et la production à remettre.
 
 ## Limites à faire nommer
 
-- Limite 1.
-- Limite 2.
+Nommer les limites propres à la source, aux unités, aux dénominateurs et aux valeurs manquantes.
 
-## Pistes de solution
+## Code complet
 
-Décrire les résultats attendus sans imposer une seule réponse.
+Le script R associé doit être complet, lire des fichiers locaux et afficher ses tableaux et graphiques avec `print()`. Les tests des archives exécutent l’analyse séparément du rendu.
 
-## Prolongement
-
-Proposer une extension réaliste.
+```{r}
+#| label: activity-code
+#| echo: false
+#| results: asis
+render_activity_code()
+```
 
 ```{r}
 #| label: activity-pedagogical-contract
 #| echo: false
 #| results: asis
-contract_source_path <- if (file.exists("R/utils_activity_contract.R")) "R/utils_activity_contract.R" else "../../R/utils_activity_contract.R"
-source(contract_source_path)
 render_activity_contract()
 ```

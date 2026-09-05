@@ -1,0 +1,36 @@
+{
+  "dataset_id": "niveaux-eau-inondation",
+  "prepared_at_utc": "2026-09-05T11:04:57Z",
+  "prepared_file": "niveaux_eau_inondation.csv",
+  "prepared_sha256": "024910a9fb4207b2e26dfe444be72077462c9dd55e09f374a32c36a6917f2ace",
+  "preview_sha256": "ce02bed423492d9961dbc2c88fabdfc776439d2fad124195130f1ff26beec9c1",
+  "rows": 120,
+  "columns": ["id_msp", "date_obs", "annee_obs", "type_obs", "type_observation"],
+  "selection": "Au plus 120 positions régulièrement espacées dans l'ordre de la table préparée; sélection déterministe non aléatoire",
+  "source_name": "Données Québec / Ministère de la Sécurité intérieure",
+  "source_url": "https://www.donneesquebec.ca/recherche/dataset/niveaux-deau-inondation-msp",
+  "license": "Attribution (CC-BY 4.0) selon les métadonnées CKAN vérifiées le 2026-06-21",
+  "license_url": "https://creativecommons.org/licenses/by/4.0/deed.fr",
+  "sources": [
+    {
+      "source_url": "https://geoegl.msp.gouv.qc.ca/apis/wss/historiquesc.fcgi?service=wfs&version=1.1.0&request=getfeature&typename=MSP_DELAISS_CRUE_PUBLIC_P&outputformat=csv",
+      "acquisition_kind": "download",
+      "acquired_at_utc": "2026-09-05T11:04:57Z",
+      "started_at_utc": "2026-09-05T11:04:56Z",
+      "file": "niveaux_eau_inondation.csv",
+      "bytes": 439082,
+      "sha256": "8c7dd7a79d32dc1813b8944d08eaafefd786159df0533e9407a0675b07e16923",
+      "details": {}
+    },
+    {
+      "source_url": "https://www.donneesquebec.ca/recherche/api/3/action/package_show?id=niveaux-deau-inondation-msp",
+      "acquisition_kind": "download",
+      "acquired_at_utc": "2026-09-05T11:04:56Z",
+      "started_at_utc": "2026-09-05T11:04:56Z",
+      "file": "package_show_niveaux_eau_inondation.json",
+      "bytes": 19633,
+      "sha256": "f0f2b25f4fd6f430e6b73a92fe37b0744896831ca92f82cfaff1a28750fd0c2e",
+      "details": {}
+    }
+  ]
+}

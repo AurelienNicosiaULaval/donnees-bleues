@@ -1,0 +1,15 @@
+source("R/utils_downloads.R")
+# Fichier synthétique, sans connexion réseau.
+path <- tempfile(fileext = ".csv")
+writeLines(c("x", "1", "2"), path)
+url <- "https://example.invalid/source-test.csv"
+record_source(path, url)
+previous <- Sys.getenv("DB_OFFLINE", unset = NA_character_)
+Sys.setenv(DB_OFFLINE = "true")
+download_source(url, path)
+writeLines(c("x", "99"), path)
+error <- tryCatch({download_source(url, path); NA_character_}, error = conditionMessage)
+stopifnot(!is.na(error), grepl("diffère du manifeste", error))
+if (is.na(previous)) Sys.unsetenv("DB_OFFLINE") else Sys.setenv(DB_OFFLINE = previous)
+unlink(c(path, paste0(path, ".source.json")))
+message("Provenance : réutilisation hors ligne vérifiée et altération du fichier détectée.")

@@ -1,0 +1,36 @@
+{
+  "dataset_id": "suivi-rivieres-fleuve",
+  "prepared_at_utc": "2026-09-05T11:05:12Z",
+  "prepared_file": "stations_qualite_eau_aires.csv",
+  "prepared_sha256": "5fa2874f5c7b1387ea29e8aae6d29bd2962876d09e0cb72fdcedd04730dcdaf6",
+  "preview_sha256": "b45da3bf17fd5b90316d8aac8a6aa3436d32cfc87fe52792d1924cba9400501f",
+  "rows": 120,
+  "columns": ["no_bqma", "hydronyme", "description", "type_station", "type_suivi", "annee", "n_echant", "iqbp_med", "ptot_med_mgl", "ntot_med_mgl"],
+  "selection": "Au plus 120 positions régulièrement espacées dans l'ordre de la table préparée; sélection déterministe non aléatoire",
+  "source_name": "Données Québec / MELCCFP",
+  "source_url": "https://www.donneesquebec.ca/recherche/dataset/suivi-physicochimique-des-rivieres-et-du-fleuve",
+  "license": "Attribution (CC-BY 4.0) selon les métadonnées CKAN vérifiées le 2026-06-21",
+  "license_url": "https://creativecommons.org/licenses/by/4.0/deed.fr",
+  "sources": [
+    {
+      "source_url": "https://stqc380donopppdtce01.blob.core.windows.net/donnees-ouvertes/IQBP/DQ/IQBP_csv.zip",
+      "acquisition_kind": "download",
+      "acquired_at_utc": "2026-09-05T11:05:11Z",
+      "started_at_utc": "2026-09-05T11:05:11Z",
+      "file": "IQBP_csv.zip",
+      "bytes": 1042035,
+      "sha256": "6aace893e2be49b0e65a3c009fc737b7877ca5d5dfb29a12701032151d8d89b2",
+      "details": {}
+    },
+    {
+      "source_url": "https://www.donneesquebec.ca/recherche/api/3/action/package_show?id=suivi-physicochimique-des-rivieres-et-du-fleuve",
+      "acquisition_kind": "download",
+      "acquired_at_utc": "2026-09-05T11:05:11Z",
+      "started_at_utc": "2026-09-05T11:05:10Z",
+      "file": "package_show.json",
+      "bytes": 18607,
+      "sha256": "55495dc44999c27f5de4533d30ea8bc97b6c1a52af0731a75dfcfb075d0bde32",
+      "details": {}
+    }
+  ]
+}

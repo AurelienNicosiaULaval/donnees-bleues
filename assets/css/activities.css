@@ -1,0 +1,15 @@
+.activity-download {
+  margin: 1.25rem 0;
+  padding: 1.1rem;
+  border: 1px solid #ccd4df;
+  border-radius: 0.65rem;
+  background: #f7f9fc;
+}
+.activity-download .btn {
+  max-width: 100%;
+  white-space: normal;
+  text-align: left;
+}
+.activity-download p:last-child { margin-bottom: 0; }
+.activity-download summary { cursor: pointer; color: #344054; }
+.activity-download code { overflow-wrap: anywhere; }

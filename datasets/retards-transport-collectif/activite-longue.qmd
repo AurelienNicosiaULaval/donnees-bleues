@@ -1,177 +1,64 @@
 ---
-title: "Mini-projet - Concevoir un protocole d'archivage GTFS-realtime"
-embed-resources: false
+title: "Préparer un protocole d’archivage GTFS Realtime"
+embed-resources: true
 ---
 
+# Préparer un protocole d’archivage GTFS Realtime
 
-# Mini-projet - Concevoir un protocole d'archivage GTFS-realtime
 
-<!-- activity-teacher-brief:start -->
-::: {.activity-teacher-brief}
+Quel protocole faut-il préparer avant de mesurer des retards?
 
-## En classe, cette activité sert à...
-
-Cette activité sert à travailler les notions suivantes : flux temps réel, séries temporelles, échantillonnage temporel, données manquantes, qualité de service à partir d'une question située dans le contexte suivant : Mobilité et performance de service. Elle demande aux étudiantes et étudiants de répondre à la question directrice suivante : Comment archiver un flux GTFS-realtime pour produire une table de ponctualité utilisable en statistique descriptive?
-
-::: {.activity-quick-facts}
-| Élément | Information |
-|---|---|
-| Durée | 2-3 heures |
-| Niveau | Intermédiaire |
-| Usage recommandé | Audit de source |
-| Préparation enseignant | Vérifier que `data/processed/retards-transport-collectif/resume_retards_transport.csv` est disponible; aucune collecte en direct n'est nécessaire pour lancer l'activité. |
-| Production attendue | Un protocole ou une note d'audit qui distingue ce qui est vérifié, ce qui manque et ce qui ne peut pas encore être mesuré. |
-| Données | `data/processed/retards-transport-collectif/resume_retards_transport.csv` |
-:::
-
-:::
-<!-- activity-teacher-brief:end -->
-
-## Objectifs d'apprentissage
-
-- Travailler flux temps réel.
-- Travailler séries temporelles.
-- Travailler échantillonnage temporel.
-- Travailler données manquantes.
-- Nommer au moins une limite d'interprétation.
-
-## Données utilisées
-
-Source : Société de transport de Montréal / Données Québec. Licence : Attribution (CC-BY 4.0) selon les métadonnées CKAN vérifiées le 2026-06-21. Fichier principal pour l'activité : `data/processed/retards-transport-collectif/resume_retards_transport.csv`
+Durée : 2-3 heures. Niveau : Intermédiaire.
 
 ## Préparation enseignante
 
-- Vérifier que `data/processed/retards-transport-collectif/resume_retards_transport.csv` est disponible; aucune collecte en direct n'est nécessaire pour lancer l'activité.
-- Fichier préparé : `data/processed/retards-transport-collectif/resume_retards_transport.csv`.
-- Script de préparation : `datasets/retards-transport-collectif/preparation.R`.
-- Point à surveiller : Évaluer la qualité du protocole et la prudence statistique plutôt que la capacité à accéder au flux en direct.
+Télécharger la trousse ci-dessous. Extraire le ZIP, puis double-cliquer sur `Donnees-bleues.Rproj`. Avant la séance, ouvrir `installer-packages.R` et cliquer sur Source avec une connexion Internet.
 
-## Consignes
+Une fois les packages installés, les scripts utilisent les fichiers inclus et peuvent être exécutés hors ligne.
 
-1. Importer `resume_retards_transport.csv` ou exécuter `datasets/retards-transport-collectif/preparation.R` si le fichier est absent.
-2. Identifier ce que représente une ligne du fichier.
-3. Produire un tableau ou un graphique adapté à la question directrice.
-4. Rédiger une interprétation courte qui distingue description et explication.
-5. Nommer au moins une limite méthodologique ou une information absente.
-
-## Résultat attendu
-
-Un protocole ou une note d'audit qui distingue ce qui est vérifié, ce qui manque et ce qui ne peut pas encore être mesuré. La production doit aussi contenir une phrase sur l'unité statistique et une phrase sur une limite de la source.
-
-## Questions
-
-1. Quelle est l'unité statistique utilisée dans cette activité?
-2. Quelle transformation ou agrégation est nécessaire avant de répondre à la question?
-3. Quelle information manque pour aller plus loin?
-4. Quelle conclusion serait trop forte avec ces seules données?
-5. Comment formuler une conclusion prudente à partir du résultat obtenu?
-
-## Déroulé suggéré
-
-1. Cadrer la source, la licence et l'unité statistique.
-2. Préparer ou importer les données.
-3. Produire un premier résumé descriptif.
-4. Construire la visualisation ou le tableau principal.
-5. Rédiger l'interprétation et les limites.
-
-## Limites à faire nommer
-
-- Évaluer la qualité du protocole et la prudence statistique plutôt que la capacité à accéder au flux en direct.
-- Si une variable ou un dénominateur nécessaire n'est pas disponible dans les données, l'écrire explicitement plutôt que l'inférer.
-
+```{r}
+#| label: activity-classroom-resources
+#| echo: false
+#| results: asis
+source(if (file.exists("R/utils_activity_contract.R")) "R/utils_activity_contract.R" else "../../R/utils_activity_contract.R")
+render_activity_resources()
+```
 
 ## Contexte
 
-Cette activité prolonge le laboratoire court. Les étudiants et étudiantes doivent concevoir le plan qui transformerait un flux temps réel STM en jeu de données exploitable pour étudier la ponctualité. Le livrable principal est un protocole reproductible, pas une conclusion prématurée sur les retards.
+Cette activité utilise la fiche [Flux temps réel STM et ponctualité des bus](fiche.qmd). Unité : Une ressource documentaire, un champ GTFS Realtime ou une étape de protocole.
 
-## Question directrice
+Source : [Société de transport de Montréal / Données Québec](https://www.donneesquebec.ca/recherche/dataset/vmtl-stm-bus-temps-reel-gtfs-realtime). Les dates de préparation, les fichiers et les conditions de réutilisation sont indiqués dans la trousse.
 
-Comment archiver un flux GTFS-realtime pour produire une table de ponctualité utilisable en statistique descriptive?
+## Consignes
 
-## Livrables
+1. Ouvrir `activite-longue.R` dans le sous-dossier `datasets/retards-transport-collectif` du projet RStudio et cliquer sur Source. Les tableaux apparaissent dans Console et les graphiques dans Plots.
+2. Classer les champs documentés selon leur message GTFS Realtime.
+3. Examiner les étapes d’archivage et leurs points de contrôle.
+4. Rédiger une réponse à la question en nommant l’unité observée et une limite de la source.
 
-1. Une courte description de la source officielle et du mode d'accès.
-2. Une unité statistique choisie et justifiée.
-3. Un dictionnaire de 8 à 12 variables, en séparant variables brutes, variables ajoutées à la collecte et variables dérivées.
-4. Un protocole de collecte : fréquence, durée, fuseau horaire, stockage et contrôle des erreurs.
-5. Une stratégie de validation : doublons, trous temporels, messages sans délai, positions manquantes.
-6. Deux graphiques prévus, avec les variables nécessaires pour les produire.
-7. Un paragraphe sur les limites et les risques d'interprétation.
+## Résultat attendu
 
-## Structure suggérée
+Un tableau de contrôle et une note de décision répondant à la question.
 
-### 1. Accès et provenance
+## Limites à faire nommer
 
-Nommer la page Données Québec, le portail développeur STM, la licence et la date d'accès.
+Aucune série de retards observés n’est fournie. Une analyse de ponctualité demanderait un accès au flux et un archivage préalable.
 
-### 2. Unité statistique
+## Code complet
 
-Choisir une unité parmi :
-
-- une position de véhicule à un instant donné;
-- une mise à jour de trajet;
-- une mise à jour de passage à un arrêt;
-- une alerte de service.
-
-Expliquer pourquoi ce choix convient à la question de ponctualité.
-
-### 3. Variables
-
-Inclure au minimum :
-
-- `collection_time`;
-- `message_type`;
-- `route_id`;
-- `trip_id` ou `vehicle_id`;
-- `stop_id`, si l'unité est liée aux arrêts;
-- `delay_seconds`, si le champ est présent;
-- `retard_minutes`, comme variable dérivée;
-- un indicateur de données manquantes ou de message incomplet.
-
-### 4. Validation statistique
-
-Le protocole doit montrer comment vérifier que les comparaisons par ligne sont défendables. Par exemple, il faut rapporter le nombre d'observations par ligne, la période couverte, les trous de collecte et la proportion de messages avec délai disponible.
-
-## Appui R minimal
+Ce script complet est celui de la trousse. Il lit les fichiers locaux et affiche les résultats dans RStudio.
 
 ```{r}
-#| eval: false
-library(dplyr)
-library(readr)
-
-source("datasets/retards-transport-collectif/preparation.R")
-
-variables <- read_csv(
-  "data/processed/retards-transport-collectif/variables_gtfs_realtime_retards_transport.csv",
-  show_col_types = FALSE
-)
-
-protocole <- read_csv(
-  "data/processed/retards-transport-collectif/protocole_archivage_retards_transport.csv",
-  show_col_types = FALSE
-)
-
-variables |>
-  count(message_type, sort = TRUE)
-
-protocole |>
-  select(step, action, point_de_controle)
+#| label: activity-code
+#| echo: false
+#| results: asis
+render_activity_code()
 ```
-
-## Critères d'évaluation suggérés
-
-- Exactitude de la description de la source.
-- Cohérence entre la question, l'unité statistique et les variables.
-- Reproductibilité du protocole.
-- Gestion explicite des données manquantes et des erreurs de collecte.
-- Prudence de l'interprétation statistique.
-- Qualité de la communication écrite.
 
 ```{r}
 #| label: activity-pedagogical-contract
 #| echo: false
 #| results: asis
-contract_source_path <- if (file.exists("R/utils_activity_contract.R")) "R/utils_activity_contract.R" else "../../R/utils_activity_contract.R"
-source(contract_source_path)
 render_activity_contract()
 ```

@@ -1,0 +1,65 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='576.00pt' height='360.00pt' viewBox='0 0 576.00 360.00'>
+<g class='svglite'>
+<defs>
+  <style type='text/css'><![CDATA[
+    .svglite line, .svglite polyline, .svglite polygon, .svglite path, .svglite rect, .svglite circle {
+      fill: none;
+      stroke: #000000;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      stroke-miterlimit: 10.00;
+    }
+    .svglite text {
+      white-space: pre;
+    }
+    .svglite g.glyphgroup path {
+      fill: inherit;
+      stroke: none;
+    }
+  ]]></style>
+</defs>
+<rect width='100%' height='100%' style='stroke: none; fill: #FFFFFF;'/>
+<defs>
+  <clipPath id='cpMC4wMHw1NzYuMDB8MC4wMHwzNjAuMDA='>
+    <rect x='0.00' y='0.00' width='576.00' height='360.00' />
+  </clipPath>
+</defs>
+<g clip-path='url(#cpMC4wMHw1NzYuMDB8MC4wMHwzNjAuMDA=)'>
+<rect x='0.00' y='0.00' width='576.00' height='360.00' style='stroke-width: 1.07; stroke: none; fill: #FFFFFF;' />
+</g>
+<defs>
+  <clipPath id='cpMTA4LjQ4fDU3MC41MnwzNy43NHwzMTUuNjI='>
+    <rect x='108.48' y='37.74' width='462.04' height='277.89' />
+  </clipPath>
+</defs>
+<g clip-path='url(#cpMTA4LjQ4fDU3MC41MnwzNy43NHwzMTUuNjI=)'>
+<polyline points='108.48,263.52 570.52,263.52 ' style='stroke-width: 1.07; stroke: #EBEBEB; stroke-linecap: butt;' />
+<polyline points='108.48,176.68 570.52,176.68 ' style='stroke-width: 1.07; stroke: #EBEBEB; stroke-linecap: butt;' />
+<polyline points='108.48,89.84 570.52,89.84 ' style='stroke-width: 1.07; stroke: #EBEBEB; stroke-linecap: butt;' />
+<polyline points='129.48,315.62 129.48,37.74 ' style='stroke-width: 1.07; stroke: #EBEBEB; stroke-linecap: butt;' />
+<polyline points='217.91,315.62 217.91,37.74 ' style='stroke-width: 1.07; stroke: #EBEBEB; stroke-linecap: butt;' />
+<polyline points='306.34,315.62 306.34,37.74 ' style='stroke-width: 1.07; stroke: #EBEBEB; stroke-linecap: butt;' />
+<polyline points='394.77,315.62 394.77,37.74 ' style='stroke-width: 1.07; stroke: #EBEBEB; stroke-linecap: butt;' />
+<polyline points='483.20,315.62 483.20,37.74 ' style='stroke-width: 1.07; stroke: #EBEBEB; stroke-linecap: butt;' />
+<rect x='129.48' y='233.13' width='4.42' height='60.79' style='stroke-width: 1.07; stroke: none; stroke-linecap: butt; stroke-linejoin: miter; fill: #185B83;' />
+<rect x='129.48' y='59.45' width='420.04' height='60.79' style='stroke-width: 1.07; stroke: none; stroke-linecap: butt; stroke-linejoin: miter; fill: #185B83;' />
+<rect x='129.48' y='146.29' width='106.11' height='60.79' style='stroke-width: 1.07; stroke: none; stroke-linecap: butt; stroke-linejoin: miter; fill: #185B83;' />
+</g>
+<g clip-path='url(#cpMC4wMHw1NzYuMDB8MC4wMHwzNjAuMDA=)'>
+<text x='103.55' y='266.67' text-anchor='end' style='font-size: 8.80px;fill: #4D4D4D; font-family: "Arial";' textLength='86.06px' lengthAdjust='spacingAndGlyphs'>Activités de dénoyage</text>
+<text x='103.55' y='179.83' text-anchor='end' style='font-size: 8.80px;fill: #4D4D4D; font-family: "Arial";' textLength='30.31px' lengthAdjust='spacingAndGlyphs'>Surface</text>
+<text x='103.55' y='92.99' text-anchor='end' style='font-size: 8.80px;fill: #4D4D4D; font-family: "Arial";' textLength='45.45px' lengthAdjust='spacingAndGlyphs'>Souterraine</text>
+<text x='129.48' y='326.85' text-anchor='middle' style='font-size: 8.80px;fill: #4D4D4D; font-family: "Arial";' textLength='4.89px' lengthAdjust='spacingAndGlyphs'>0</text>
+<text x='217.91' y='326.85' text-anchor='middle' style='font-size: 8.80px;fill: #4D4D4D; font-family: "Arial";' textLength='9.78px' lengthAdjust='spacingAndGlyphs'>20</text>
+<text x='306.34' y='326.85' text-anchor='middle' style='font-size: 8.80px;fill: #4D4D4D; font-family: "Arial";' textLength='9.78px' lengthAdjust='spacingAndGlyphs'>40</text>
+<text x='394.77' y='326.85' text-anchor='middle' style='font-size: 8.80px;fill: #4D4D4D; font-family: "Arial";' textLength='9.78px' lengthAdjust='spacingAndGlyphs'>60</text>
+<text x='483.20' y='326.85' text-anchor='middle' style='font-size: 8.80px;fill: #4D4D4D; font-family: "Arial";' textLength='9.78px' lengthAdjust='spacingAndGlyphs'>80</text>
+<text x='339.50' y='338.61' text-anchor='middle' style='font-size: 10.00px; font-family: "Arial";' textLength='124.50px' lengthAdjust='spacingAndGlyphs'>Sites dans l’extrait (nombre)</text>
+<text transform='translate(12.64,176.68) rotate(-90)' text-anchor='middle' style='font-size: 10.00px; font-family: "Arial";' textLength='91.19px' lengthAdjust='spacingAndGlyphs'>Provenance de l’eau</text>
+<text x='108.48' y='30.37' style='font-size: 9.00px; font-family: "Arial";' textLength='272.50px' lengthAdjust='spacingAndGlyphs'>Extrait consultable : 120 lignes avant retrait des valeurs manquantes</text>
+<text x='108.48' y='15.50' style='font-size: 14.00px;fill: #172033; font-family: "Arial";' textLength='254.39px' lengthAdjust='spacingAndGlyphs'>Provenance de l’eau des sites de l’extrait</text>
+<text x='108.48' y='352.63' style='font-size: 9.00px; font-family: "Arial";' textLength='246.50px' lengthAdjust='spacingAndGlyphs'>0 ligne(s) avec une mesure manquante ou non finie exclue(s).</text>
+</g>
+</g>
+</svg>

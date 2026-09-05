@@ -1,3 +1,4 @@
+source("R/utils_downloads.R")
 # Préparation : arbres publics sur le territoire de Montréal
 # Source officielle : Données Québec / Ville de Montréal, paquet CKAN b89fd27d-4b49-461b-8e54-fa2b34a628c4.
 
@@ -38,7 +39,7 @@ processed_dir <- file.path(root, "data/processed/arbres-publics-montreal")
 dir.create(raw_dir, recursive = TRUE, showWarnings = FALSE)
 dir.create(processed_dir, recursive = TRUE, showWarnings = FALSE)
 
-access_date <- as.Date("2026-06-21")
+access_date <- Sys.Date()
 source_page <- "https://www.donneesquebec.ca/recherche/dataset/vmtl-arbres"
 source_api <- "https://www.donneesquebec.ca/recherche/api/3/action/package_show?id=vmtl-arbres"
 source_montreal_page <- "https://donnees.montreal.ca/dataset/arbres"
@@ -49,8 +50,8 @@ dictionary_url <- "https://donnees.montreal.ca/dataset/b89fd27d-4b49-461b-8e54-f
 package_json_path <- file.path(raw_dir, "package_show_arbres_publics.json")
 csv_raw_path <- file.path(raw_dir, "arbres-publics.csv")
 
-download.file(source_api, package_json_path, mode = "wb", quiet = TRUE)
-download.file(csv_url, csv_raw_path, mode = "wb", quiet = TRUE)
+download_source(source_api, package_json_path, mode = "wb", quiet = TRUE)
+download_source(csv_url, csv_raw_path, mode = "wb", quiet = TRUE)
 
 package <- fromJSON(package_json_path)
 if (!isTRUE(package$success)) {
@@ -271,3 +272,5 @@ write_csv(summary_by_emplacement, file.path(processed_dir, "resume_emplacements_
 write_csv(missing_summary, file.path(processed_dir, "valeurs_manquantes_arbres_publics.csv"))
 write_csv(date_quality, file.path(processed_dir, "qualite_dates_arbres_publics.csv"))
 write_csv(dataset_summary, file.path(processed_dir, "resume_arbres_publics.csv"))
+
+record_preparation("arbres-publics-montreal")

@@ -1,120 +1,64 @@
 ---
 title: "Mini-projet - Emploi régional"
-embed-resources: false
+embed-resources: true
 ---
-
 
 # Mini-projet - Emploi régional
 
-<!-- activity-teacher-brief:start -->
-::: {.activity-teacher-brief}
 
-## En classe, cette activité sert à...
+Comment les taux d’emploi et de chômage évoluent-ils au Québec?
 
-Cette activité sert à travailler les notions suivantes : séries temporelles, comparaison de groupes, données d'enquête, qualité des estimations, analyse exploratoire, statistiques descriptives, indicateurs socioéconomiques à partir d'une question située dans le contexte suivant : Marché du travail. Elle demande aux étudiantes et étudiants de répondre à la question directrice suivante : Comment la dynamique du marché du travail diffère-t-elle entre deux régions administratives et l'ensemble du Québec de 2011 à 2026?
-
-::: {.activity-quick-facts}
-| Élément | Information |
-|---|---|
-| Durée | 2-3 heures |
-| Niveau | Introduction à intermédiaire |
-| Usage recommandé | Mini-projet guidé |
-| Préparation enseignant | Préparation requise : exécuter `Rscript datasets/emploi-regional-quebec/preparation.R` depuis la racine, puis vérifier que `data/processed/emploi-regional-quebec/emploi_regional_quebec.csv` existe. |
-| Production attendue | Un court rapport reproductible avec contexte, tableau ou graphique, interprétation et limites. |
-| Données | `data/processed/emploi-regional-quebec/emploi_regional_quebec.csv` |
-:::
-
-:::
-<!-- activity-teacher-brief:end -->
-
-## Objectifs d'apprentissage
-
-- Travailler séries temporelles.
-- Travailler comparaison de groupes.
-- Travailler données d'enquête.
-- Travailler qualité des estimations.
-- Nommer au moins une limite d'interprétation.
-
-## Données utilisées
-
-Source : Institut de la statistique du Québec / Statistique Canada, Enquête sur la population active. Licence : Reproduction de l'information du site de l'Institut de la statistique du Québec interdite sauf permission écrite.. Fichier principal pour l'activité : `data/processed/emploi-regional-quebec/emploi_regional_quebec.csv`
+Durée : 2-3 heures. Niveau : Introduction à intermédiaire.
 
 ## Préparation enseignante
 
-- Préparation requise : exécuter `Rscript datasets/emploi-regional-quebec/preparation.R` depuis la racine, puis vérifier que `data/processed/emploi-regional-quebec/emploi_regional_quebec.csv` existe.
-- Fichier préparé : `data/processed/emploi-regional-quebec/emploi_regional_quebec.csv`.
-- Script de préparation : `datasets/emploi-regional-quebec/preparation.R`.
-- Point à surveiller : Demander un court paragraphe sur les limites de l'EPA, les moyennes mobiles sur trois mois et les codes `F` et `*`.
+Télécharger la trousse ci-dessous. Extraire le ZIP, puis double-cliquer sur `Donnees-bleues.Rproj`. Avant la séance, ouvrir `installer-packages.R` et cliquer sur Source avec une connexion Internet.
 
-## Consignes
+Consulter les conditions de l’ISQ, puis ouvrir `preparer-donnees.R` et cliquer sur Source avec Internet pour obtenir les CSV sur votre ordinateur. Les données ne sont pas incluses dans la trousse et ne doivent pas être redistribuées sans autorisation applicable.
 
-1. Importer `emploi_regional_quebec.csv` ou exécuter `datasets/emploi-regional-quebec/preparation.R` si le fichier est absent.
-2. Identifier ce que représente une ligne du fichier.
-3. Produire un tableau ou un graphique adapté à la question directrice.
-4. Rédiger une interprétation courte qui distingue description et explication.
-5. Nommer au moins une limite méthodologique ou une information absente.
-
-## Résultat attendu
-
-Un court rapport reproductible avec contexte, tableau ou graphique, interprétation et limites. La production doit aussi contenir une phrase sur l'unité statistique et une phrase sur une limite de la source.
-
-## Questions
-
-1. Quelle est l'unité statistique utilisée dans cette activité?
-2. Quelle transformation ou agrégation est nécessaire avant de répondre à la question?
-3. Quelle information manque pour aller plus loin?
-4. Quelle conclusion serait trop forte avec ces seules données?
-5. Comment formuler une conclusion prudente à partir du résultat obtenu?
-
-## Déroulé suggéré
-
-1. Cadrer la source, la licence et l'unité statistique.
-2. Préparer ou importer les données.
-3. Produire un premier résumé descriptif.
-4. Construire la visualisation ou le tableau principal.
-5. Rédiger l'interprétation et les limites.
-
-## Limites à faire nommer
-
-- Demander un court paragraphe sur les limites de l'EPA, les moyennes mobiles sur trois mois et les codes `F` et `*`.
-- Si une variable ou un dénominateur nécessaire n'est pas disponible dans les données, l'écrire explicitement plutôt que l'inférer.
-
+```{r}
+#| label: activity-classroom-resources
+#| echo: false
+#| results: asis
+source(if (file.exists("R/utils_activity_contract.R")) "R/utils_activity_contract.R" else "../../R/utils_activity_contract.R")
+render_activity_resources()
+```
 
 ## Contexte
 
-Ce mini-projet prolonge le laboratoire court en demandant une préparation reproductible, plusieurs indicateurs et une interprétation plus structurée. Le but n'est pas de trouver une cause unique aux différences régionales, mais de produire une comparaison descriptive honnête à partir d'une source officielle.
+Cette activité utilise la fiche [Emploi régional au Québec](fiche.qmd). Unité : Un indicateur mensuel pour un territoire, avec son unité et son indicateur de qualité.
 
-## Question directrice
+Source : [Institut de la statistique du Québec / Statistique Canada, Enquête sur la population active](https://statistique.quebec.ca/fr/document/population-active-emploi-et-chomage-regions-administratives-rmr-et-quebec). Les dates de préparation, les fichiers et les conditions de réutilisation sont indiqués dans la trousse.
 
-Comment la dynamique du marché du travail diffère-t-elle entre deux régions administratives et l'ensemble du Québec de 2011 à 2026?
+## Consignes
 
-## Tâche
+1. Ouvrir `activite-longue.R` dans le sous-dossier `datasets/emploi-regional-quebec` du projet RStudio et cliquer sur Source. Les tableaux apparaissent dans Console et les graphiques dans Plots.
+2. Comparer les séries temporelles des deux indicateurs dans les territoires retenus par le script.
+3. Distinguer une variation observée d’une explication causale.
+4. Rédiger une réponse à la question en nommant l’unité observée et une limite de la source.
 
-Choisir deux régions administratives, puis les comparer avec l'ensemble du Québec. Utiliser au moins trois indicateurs parmi `Emploi`, `Chômage`, `Taux d'emploi`, `Taux de chômage`, `Population active`, `Emploi à temps plein` et `Emploi à temps partiel`.
+## Résultat attendu
 
-## Livrables
+Les tableaux et graphiques du script, accompagnés d’une interprétation de 6 à 8 lignes répondant à la question.
 
-1. Le fichier préparé dans `data/processed/emploi-regional-quebec/emploi_regional_quebec.csv`.
-2. Un court dictionnaire des variables utilisées.
-3. Un tableau de synthèse pour la dernière période disponible.
-4. Deux visualisations complémentaires, par exemple une série temporelle et une heatmap territoire x mois.
-5. Un paragraphe sur la provenance, les conditions de reproduction et les limites de l'Enquête sur la population active.
-6. Une conclusion pédagogique adaptée à un public de première année.
+## Limites à faire nommer
 
-## Critères d'évaluation suggérés
+Il s’agit d’estimations d’enquête. Les unités, indicateurs de qualité et territoires doivent être conservés; les écarts ne prouvent pas une cause économique.
 
-- Reproductibilité du traitement.
-- Qualité des noms de variables.
-- Pertinence des territoires et indicateurs retenus.
-- Lisibilité des graphiques.
-- Conservation et interprétation des codes de qualité.
-- Prudence de l'interprétation.
+## Code complet
+
+Ce script complet est celui de la trousse. Il lit les fichiers locaux et affiche les résultats dans RStudio.
+
+```{r}
+#| label: activity-code
+#| echo: false
+#| results: asis
+render_activity_code()
+```
 
 ```{r}
 #| label: activity-pedagogical-contract
 #| echo: false
 #| results: asis
-contract_source_path <- if (file.exists("R/utils_activity_contract.R")) "R/utils_activity_contract.R" else "../../R/utils_activity_contract.R"
-source(contract_source_path)
 render_activity_contract()
 ```

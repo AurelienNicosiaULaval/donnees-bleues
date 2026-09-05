@@ -1,3 +1,4 @@
+source("R/utils_downloads.R")
 # Préparation : Établissements scolaires du Québec
 # Source officielle : https://www.donneesquebec.ca/recherche/dataset/localisation-des-etablissements-d-enseignement-du-reseau-scolaire-au-quebec
 
@@ -16,7 +17,7 @@ source_url <- "https://www.donneesquebec.ca/recherche/dataset/2d3b5cf8-b347-49c7
 raw_path <- file.path(raw_dir, "pps_public_ecole.csv")
 processed_path <- file.path(processed_dir, "ecoles_publiques_quebec.csv")
 
-download.file(source_url, raw_path, mode = "wb", quiet = TRUE)
+download_source(source_url, raw_path, mode = "wb", quiet = TRUE)
 
 expected_columns <- c(
   "DT_MAJ_GDUNO",
@@ -128,3 +129,5 @@ message("Colonnes : ", ncol(ecoles))
 message("Organismes distincts : ", n_distinct(ecoles$CD_ORGNS))
 message("Immeubles distincts : ", n_distinct(ecoles$CD_IMM))
 message("Régions administratives : ", n_distinct(ecoles$region_administrative))
+
+record_preparation("ecoles-quebec")

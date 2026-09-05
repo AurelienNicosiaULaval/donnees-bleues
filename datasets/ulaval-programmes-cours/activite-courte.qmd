@@ -1,121 +1,64 @@
 ---
-title: "Laboratoire - Valider un import institutionnel privé"
-embed-resources: false
+title: "Lire les contrôles d’un manifeste institutionnel"
+embed-resources: true
 ---
 
+# Lire les contrôles d’un manifeste institutionnel
 
-# Laboratoire - Valider un import institutionnel privé
 
-<!-- activity-teacher-brief:start -->
-::: {.activity-teacher-brief}
+Quels contrôles prévoit le manifeste des données institutionnelles?
 
-## En classe, cette activité sert à...
-
-Cette activité sert à travailler les notions suivantes : Importation contrôlée, Provenance, Validation, Droits de réutilisation à partir d'une question située dans le contexte suivant : Éducation supérieure. Elle demande aux étudiantes et étudiants de répondre à la question directrice suivante : Comment vérifier qu'un import institutionnel privé conserve les valeurs, les clés et la provenance sans publier les lignes?
-
-::: {.activity-quick-facts}
-| Élément | Information |
-|---|---|
-| Durée | 30-45 minutes |
-| Niveau | Intermédiaire |
-| Usage recommandé | Audit de source |
-| Préparation enseignant | Vérifier les droits de diffusion avant la séance; utiliser seulement les résumés publics et ne pas publier les lignes de données. |
-| Production attendue | Un tableau ou graphique descriptif accompagné de trois phrases d'interprétation prudente. |
-| Données | `data/processed/ulaval-programmes-cours/resume_ulaval_programmes_cours.csv` |
-:::
-
-:::
-<!-- activity-teacher-brief:end -->
-
-## Données utilisées
-
-Source : Université Laval, Bureau de la qualité des programmes. Licence : Aucune licence ouverte explicite identifiée pour les données sources; réutilisation publique à valider auprès de l'Université Laval ou par avis juridique.. Fichier principal pour l'activité : `data/processed/ulaval-programmes-cours/resume_ulaval_programmes_cours.csv`
+Durée : 30-45 minutes. Niveau : Intermédiaire.
 
 ## Préparation enseignante
 
-- Vérifier les droits de diffusion avant la séance; utiliser seulement les résumés publics et ne pas publier les lignes de données.
-- Fichier préparé : `data/processed/ulaval-programmes-cours/resume_ulaval_programmes_cours.csv`.
-- Script de préparation : `datasets/ulaval-programmes-cours/preparation.R`.
-- Point à surveiller : Ne pas publier les lignes de données. L'activité porte sur les contrôles et les limites de diffusion.
+Télécharger la trousse ci-dessous. Extraire le ZIP, puis double-cliquer sur `Donnees-bleues.Rproj`. Avant la séance, ouvrir `installer-packages.R` et cliquer sur Source avec une connexion Internet.
 
-## Résultat attendu
+Une fois les packages installés, les scripts utilisent les fichiers inclus et peuvent être exécutés hors ligne.
 
-Un tableau ou graphique descriptif accompagné de trois phrases d'interprétation prudente. La production doit aussi contenir une phrase sur l'unité statistique et une phrase sur une limite de la source.
-
-## Questions
-
-1. Quelle est l'unité statistique utilisée dans cette activité?
-2. Quelle transformation ou agrégation est nécessaire avant de répondre à la question?
-3. Quelle information manque pour aller plus loin?
-4. Quelle conclusion serait trop forte avec ces seules données?
-5. Comment formuler une conclusion prudente à partir du résultat obtenu?
-
-## Limites à faire nommer
-
-- Ne pas publier les lignes de données. L'activité porte sur les contrôles et les limites de diffusion.
-- Si une variable ou un dénominateur nécessaire n'est pas disponible dans les données, l'écrire explicitement plutôt que l'inférer.
-
+```{r}
+#| label: activity-classroom-resources
+#| echo: false
+#| results: asis
+source(if (file.exists("R/utils_activity_contract.R")) "R/utils_activity_contract.R" else "../../R/utils_activity_contract.R")
+render_activity_resources()
+```
 
 ## Contexte
 
-Cette activité utilise la fiche [Programmes et cours institutionnels ULaval](fiche.qmd). L'objectif n'est pas de publier les lignes de données. L'objectif est de vérifier qu'un import local conserve les valeurs, les clés et la provenance tout en respectant les contraintes de droits.
+Cette activité utilise la fiche [Programmes et cours institutionnels ULaval](fiche.qmd). Unité : Un élément du manifeste public décrivant une intégration institutionnelle prévue.
 
-## Objectifs d'apprentissage
-
-- Lire un résumé de validation sans accéder aux lignes privées.
-- Identifier les fichiers attendus et les lignes observées.
-- Vérifier la présence des clés et des champs de provenance.
-- Expliquer pourquoi les PDF et CSV sources ne sont pas redistribués.
-- Distinguer validation locale et autorisation de publication.
-
-## Question directrice
-
-Comment vérifier qu'un import institutionnel privé conserve les valeurs, les clés et la provenance sans publier les lignes?
+Source : [Université Laval, Bureau de la qualité des programmes](https://www.bqp.ulaval.ca/fichiers/ressources/gestion/codes-programmes-actifs.pdf). Les dates de préparation, les fichiers et les conditions de réutilisation sont indiqués dans la trousse.
 
 ## Consignes
 
-1. Exécuter `datasets/ulaval-programmes-cours/preparation.R`.
-2. Importer `resume_ulaval_programmes_cours.csv`, `resume_fichiers_ulaval.csv` et `resume_controles_ulaval.csv`.
-3. Vérifier que les trois fichiers core ont le nombre de lignes attendu.
-4. Vérifier que les clés sont uniques.
-5. Vérifier que les champs de provenance sont présents.
-6. Rédiger une conclusion de 6 à 8 lignes sur ce qui est validé et ce qui ne donne pas une autorisation de publication.
+1. Ouvrir `activite-courte.R` dans le sous-dossier `datasets/ulaval-programmes-cours` du projet RStudio et cliquer sur Source. Les tableaux apparaissent dans Console et les graphiques dans Plots.
+2. Lire les lignes attendues, observées et les contrôles de clés de la phase principale.
+3. Distinguer un contrôle prévu d’un contrôle effectivement exécuté sur des fichiers disponibles.
+4. Rédiger une réponse à la question en nommant l’unité observée et une limite de la source.
 
-## Appui R minimal
+## Résultat attendu
+
+Un tableau de contrôle et une note de décision répondant à la question.
+
+## Limites à faire nommer
+
+Les données privées ne sont pas distribuées. Les nombres attendus sont des références de manifeste; les valeurs observées absentes restent inconnues.
+
+## Code complet
+
+Ce script complet est celui de la trousse. Il lit les fichiers locaux et affiche les résultats dans RStudio.
 
 ```{r}
-#| eval: false
-library(dplyr)
-library(readr)
-
-source("datasets/ulaval-programmes-cours/preparation.R")
-
-fichiers <- read_csv(
-  "data/processed/ulaval-programmes-cours/resume_fichiers_ulaval.csv",
-  show_col_types = FALSE
-)
-
-fichiers |>
-  filter(phase == "core") |>
-  select(
-    dataset_id,
-    expected_rows,
-    observed_rows,
-    row_count_matches,
-    keys_unique,
-    protected_fields_present
-  )
+#| label: activity-code
+#| echo: false
+#| results: asis
+render_activity_code()
 ```
-
-## Pistes de solution
-
-Une bonne réponse indique que la validation porte sur les comptes, les clés et la provenance. Elle précise aussi que les lignes privées et les PDF sources ne doivent pas être publiés dans Données bleues.
 
 ```{r}
 #| label: activity-pedagogical-contract
 #| echo: false
 #| results: asis
-contract_source_path <- if (file.exists("R/utils_activity_contract.R")) "R/utils_activity_contract.R" else "../../R/utils_activity_contract.R"
-source(contract_source_path)
 render_activity_contract()
 ```

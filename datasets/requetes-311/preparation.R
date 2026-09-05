@@ -1,3 +1,4 @@
+source("R/utils_downloads.R")
 # Préparation : demandes de services citoyennes 311 à Montréal.
 # Source officielle : Données Québec / Ville de Montréal,
 # paquet CKAN 5866f832-676d-4b07-be6a-e99c21eb17e4.
@@ -33,6 +34,12 @@ parse_flag <- function(x) {
 }
 
 stream_sample_non_information <- function(csv_url, sample_path, stream_summary_path, sample_size = 100000L, seed = 311L) {
+  if (identical(Sys.getenv("DB_OFFLINE"), "true")) {
+    download_source(csv_url, sample_path)
+    download_source(csv_url, stream_summary_path)
+    return(invisible(NULL))
+  }
+  acquisition_started <- source_timestamp()
   python <- Sys.which("python3")
   if (identical(python, "")) {
     stop("python3 est requis pour échantillonner le gros CSV 311 en flux.", call. = FALSE)
@@ -114,6 +121,13 @@ stream_sample_non_information <- function(csv_url, sample_path, stream_summary_p
   if (!identical(result, 0L)) {
     stop("L'échantillonnage en flux du CSV 311 a échoué.", call. = FALSE)
   }
+  for (path in c(sample_path, stream_summary_path)) {
+    record_source(path, csv_url, kind = "stream_reservoir_sample",
+                  started_at = acquisition_started,
+                  details = list(seed = seed, sample_size = sample_size,
+                    selection = "NATURE différente de Information; échantillonnage réservoir uniforme",
+                    hash_scope = "Fichier dérivé conservé; CSV source complet non conservé"))
+  }
 }
 
 root <- find_project_root()
@@ -122,7 +136,7 @@ processed_dir <- file.path(root, "data/processed/requetes-311")
 dir.create(raw_dir, recursive = TRUE, showWarnings = FALSE)
 dir.create(processed_dir, recursive = TRUE, showWarnings = FALSE)
 
-access_date <- as.Date("2026-06-21")
+access_date <- Sys.Date()
 source_page <- "https://www.donneesquebec.ca/recherche/dataset/vmtl-requete-311"
 source_api <- "https://www.donneesquebec.ca/recherche/api/3/action/package_show?id=vmtl-requete-311"
 
@@ -130,7 +144,7 @@ package_json_path <- file.path(raw_dir, "package_show_requetes_311.json")
 sample_raw_path <- file.path(raw_dir, "requetes311_non_information_reservoir_100000.csv")
 stream_summary_raw_path <- file.path(raw_dir, "requetes311_stream_summary.csv")
 
-download.file(source_api, package_json_path, mode = "wb", quiet = TRUE)
+download_source(source_api, package_json_path, mode = "wb", quiet = TRUE)
 package <- fromJSON(package_json_path, flatten = TRUE)
 if (!isTRUE(package$success)) {
   stop("L'API CKAN n'a pas retourné success = TRUE.", call. = FALSE)
@@ -385,3 +399,5 @@ write_csv(summary_by_year, file.path(processed_dir, "resume_annees_echantillon.c
 write_csv(summary_by_month, file.path(processed_dir, "resume_mois_echantillon.csv"))
 write_csv(missing_summary, file.path(processed_dir, "valeurs_manquantes_echantillon.csv"))
 write_csv(dataset_summary, file.path(processed_dir, "resume_requetes_311_echantillon.csv"))
+
+record_preparation("requetes-311")

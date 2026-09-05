@@ -1,0 +1,37 @@
+Package: donneesbleues
+Title: Ressources pedagogiques pour les donnees du Quebec
+Version: 0.2.0
+Authors@R: person("Aurélien", "Nicosia", role = c("aut", "cre"))
+Description: Sources, preparations et activites reproductibles pour enseigner la statistique et R avec des donnees quebecoises.
+License: MIT + file LICENSE
+Encoding: UTF-8
+Depends: R (>= 4.5.0)
+Imports:
+    cansim,
+    curl,
+    digest,
+    dplyr,
+    ggplot2,
+    httr2,
+    janitor,
+    jsonlite,
+    knitr,
+    lubridate,
+    magick,
+    purrr,
+    readr,
+    readxl,
+    renv,
+    rmarkdown,
+    scales,
+    sessioninfo,
+    sf,
+    stringr,
+    svglite,
+    tibble,
+    tidyr,
+    UlavalSSD,
+    xml2,
+    yaml,
+    zip
+Remotes: AurelienNicosiaULaval/UlavalSSD@0b79f4c985ef87a32bdb5b83f193ae5f5ea6d640

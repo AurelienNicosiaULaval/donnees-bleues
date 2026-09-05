@@ -1,3 +1,4 @@
+source("R/utils_downloads.R")
 # Préparation : Localisation des établissements d'enseignement au Québec
 # Source officielle : Données Québec, paquet CKAN 2d3b5cf8-b347-49c7-ad3b-bd6a9c15e443.
 
@@ -6,6 +7,7 @@ library(purrr)
 library(readr)
 library(stringr)
 library(tidyr)
+source("R/utils_data_checks.R")
 
 raw_dir <- "data/raw/etablissements-enseignement"
 processed_dir <- "data/processed/etablissements-enseignement"
@@ -16,7 +18,7 @@ source_page <- "https://www.donneesquebec.ca/recherche/dataset/localisation-des-
 package_api <- "https://www.donneesquebec.ca/recherche/api/3/action/package_show?id=localisation-des-etablissements-d-enseignement-du-reseau-scolaire-au-quebec"
 
 resources <- tibble::tribble(
-  ~source_resource, ~resource_label, ~network_category, ~unit_kind, ~expected_rows, ~file_name, ~url,
+  ~source_resource, ~resource_label, ~network_category, ~unit_kind, ~reference_rows_2026_06_21, ~file_name, ~url,
   "collegial", "Établissements collégiaux", "Collégial", "Établissement", 330L, "es_collegial.csv", "https://www.donneesquebec.ca/recherche/dataset/2d3b5cf8-b347-49c7-ad3b-bd6a9c15e443/resource/13aa95e2-22a3-4f20-878a-47dbf3480338/download/es_collegial.csv",
   "universitaire", "Établissements universitaires", "Universitaire", "Établissement", 24L, "es_universitaire.csv", "https://www.donneesquebec.ca/recherche/dataset/2d3b5cf8-b347-49c7-ad3b-bd6a9c15e443/resource/fc341512-12f8-431d-9225-d6b0c09c05cd/download/es_universitaire.csv",
   "gouvernemental", "Établissements gouvernementaux", "Gouvernemental", "Établissement", 39L, "pps_gouvernemental.csv", "https://www.donneesquebec.ca/recherche/dataset/2d3b5cf8-b347-49c7-ad3b-bd6a9c15e443/resource/881849c6-9cde-46e5-a3b4-ea131e603962/download/pps_gouvernemental.csv",
@@ -30,7 +32,7 @@ resources <- tibble::tribble(
 
 download_one <- function(url, file_name) {
   path <- file.path(raw_dir, file_name)
-  download.file(url, path, mode = "wb", quiet = TRUE)
+  download_source(url, path, mode = "wb", quiet = TRUE)
   path
 }
 
@@ -56,6 +58,23 @@ standardize_one <- function(raw_path, source_resource, resource_label, network_c
     na = c("", "NA", "N/A"),
     show_col_types = FALSE
   )
+
+  # Une nouvelle livraison peut ajouter des établissements. Les identifiants,
+  # les noms et les coordonnées restent le contrat de structure de chaque CSV.
+  key <- switch(source_resource,
+    public_ecole = c("CD_ORGNS", "CD_IMM"),
+    public_immeuble = "CD_IMM",
+    "CD_ORGNS"
+  )
+  validate_unique_key(data, key, source_resource)
+  required_groups <- list(
+    c("NOM_OFFCL_ORGNS", "NOM_OFFCL", "NOM_IMM", "NOM_OFFCL_IMM"),
+    c("COORD_X_LL84_IMM", "COORD_X_LL84"),
+    c("COORD_Y_LL84_IMM", "COORD_Y_LL84")
+  )
+  if (any(!vapply(required_groups, function(x) any(x %in% names(data)), logical(1)))) {
+    stop("Schéma source incomplet : ", source_resource, call. = FALSE)
+  }
 
   nom_organisme <- value_from(data, c("NOM_OFFCL_ORGNS", "NOM_OFFCL"))
   nom_immeuble <- value_from(data, c("NOM_IMM", "NOM_OFFCL_IMM"))
@@ -105,16 +124,19 @@ etablissements <- pmap_dfr(
 
 resource_summary <- etablissements |>
   count(source_resource, resource_label, network_category, unit_kind, name = "n_lignes") |>
-  left_join(resources |> select(source_resource, expected_rows), by = "source_resource") |>
-  mutate(matches_expected_rows = n_lignes == expected_rows) |>
+  left_join(resources |> select(source_resource, reference_rows_2026_06_21), by = "source_resource") |>
+  mutate(ecart_depuis_reference = n_lignes - reference_rows_2026_06_21) |>
   arrange(source_resource)
 
+validate_unique_key(etablissements, c("source_resource", "source_row"), "établissements harmonisés")
 stopifnot(
-  nrow(etablissements) == 14067,
-  n_distinct(etablissements$source_resource) == 9,
-  all(resource_summary$matches_expected_rows),
-  sum(etablissements$has_coordinates) == 14067,
-  sum(etablissements$has_region) == 6220
+  setequal(etablissements$source_resource, resources$source_resource),
+  all(!is.na(etablissements$nom) & nzchar(etablissements$nom)),
+  all(is.na(etablissements$longitude) == is.na(etablissements$latitude)),
+  all(etablissements$longitude >= -80 & etablissements$longitude <= -57, na.rm = TRUE),
+  all(etablissements$latitude >= 44 & etablissements$latitude <= 63, na.rm = TRUE),
+  any(etablissements$has_coordinates),
+  sum(resource_summary$n_lignes) == nrow(etablissements)
 )
 
 write_csv(
@@ -131,3 +153,5 @@ message("Source : ", source_page)
 message("API CKAN : ", package_api)
 message("Ressources CSV préparées : ", n_distinct(etablissements$source_resource))
 message("Fichier préparé : ", file.path(processed_dir, "etablissements_enseignement_quebec.csv"))
+
+record_preparation("etablissements-enseignement")

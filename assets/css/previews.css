@@ -1,0 +1,13 @@
+/* Figures et provenance des extraits publics. */
+.dataset-chart-figure { margin: 0; }
+.dataset-chart-figure .dataset-r-chart { height: auto; max-height: none; width: 100%; }
+.dataset-chart-figure figcaption { color: #38475f; font-size: 0.85rem; line-height: 1.5; }
+.dataset-preview-chart { overflow-x: auto; }
+.dataset-chart-figure { min-width: min(100%, 440px); }
+.dataset-provenance { color: #38475f; font-size: 0.86rem; line-height: 1.5; }
+.dataset-reference-note {
+  padding: 0.9rem 1rem;
+  border-left: 3px solid #52677e;
+  background: #f4f6f9;
+  color: #26364a;
+}

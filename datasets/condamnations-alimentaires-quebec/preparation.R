@@ -1,3 +1,4 @@
+source("R/utils_downloads.R")
 # Préparation : Condamnations des établissements alimentaires au Québec
 # Source officielle : Données Québec / MAPAQ
 # Source pédagogique : UlavalSSD::listecondamnation
@@ -60,3 +61,11 @@ message("Version UlavalSSD : ", as.character(packageVersion("UlavalSSD")))
 message("Lignes préparées : ", nrow(condamnations))
 message("Colonnes préparées : ", ncol(condamnations))
 message("Fichier préparé : ", processed_path)
+
+raw_package_path <- "data/raw/condamnations-alimentaires-quebec/UlavalSSD_listecondamnation.csv"
+dir.create(dirname(raw_package_path), recursive = TRUE, showWarnings = FALSE)
+write_csv(listecondamnation, raw_package_path)
+record_source(raw_package_path, "https://github.com/AurelienNicosiaULaval/UlavalSSD/tree/0b79f4c985ef87a32bdb5b83f193ae5f5ea6d640",
+              kind = "package_export", details = list(package = "UlavalSSD", version = as.character(packageVersion("UlavalSSD")), dataset = "listecondamnation"))
+
+record_preparation("condamnations-alimentaires-quebec")

@@ -1,81 +1,67 @@
 id: qualite-air-dashboard-long
 title: Tableau de bord exploratoire de la qualité de l'air
-question: Comment construire un portrait exploratoire des contaminants atmosphériques
-  sans surinterpréter les épisodes?
+question: Que change la couverture des mesures dans l’analyse exploratoire de l’air?
 dataset_id: qualite-air-horaire
 dataset_title: Qualité de l'air au Québec
 activity_url: datasets/qualite-air-horaire/activite-longue.qmd
 duration: 2-3 heures
 level: Introduction à intermédiaire
+level_ids:
+- introduction
+- intermediaire
 activity_type:
 - Projet ou tâche longue
 - Étude de cas
 - Exploration de données
 concepts:
-- séries temporelles
-- valeurs manquantes
-- résumé journalier
+- Séries temporelles
+- Valeurs manquantes
+- Résumé journalier
+- Visualisation
+- Données environnementales
+concept_ids:
+- series-temporelles
+- valeurs-manquantes
+- resume-journalier
 - visualisation
-- données environnementales
+- donnees-environnementales
 context: Environnement
-hook: Analyse territoriale québécoise
+hook: Les PM2,5-T640 sont exprimées en µg/m³. Les jours sont regroupés en HNE (UTC-5 fixe) à partir de la fin
+  des intervalles horaires, avec au moins 18 heures valides. Ce filtre pédagogique ne constitue pas une évaluation
+  réglementaire ou sanitaire.
 materials:
-- fiche
-- code
-- données préparées
-- source officielle
-- notes enseignantes
-advanced_math_stats: no
-teacher_notes: Demander une section qui distingue observation élevée, hypothèse explicative
-  et preuve causale.
-status: source officielle vérifiée
+- Trousse ZIP et projet RStudio
+- Script R complet
+- CSV préparés et provenance
+advanced_math_stats: false
+teacher_notes: Les PM2,5-T640 sont exprimées en µg/m³. Les jours sont regroupés en HNE (UTC-5 fixe) à partir
+  de la fin des intervalles horaires, avec au moins 18 heures valides. Ce filtre pédagogique ne constitue pas
+  une évaluation réglementaire ou sanitaire.
+status: Documentation de source et ressources de classe fournies
 pedagogical_status: pret_a_enseigner
-teacher_preparation: 'Préparation requise : exécuter `Rscript datasets/qualite-air-horaire/preparation.R`
-  depuis la racine, puis vérifier que `data/processed/qualite-air-horaire/resume_journalier_contaminants_2025.csv`
-  existe.'
-expected_output: Un court rapport reproductible avec contexte, tableau ou graphique,
-  interprétation et limites.
-requires_prepared_data: yes
-requires_live_download: yes
+teacher_preparation: Extraire la trousse, ouvrir le projet RStudio, installer les packages avant la séance
+  et lancer le script.
+expected_output: Les tableaux et graphiques du script, accompagnés d’une interprétation de 6 à 8 lignes répondant
+  à la question.
+requires_prepared_data: true
+requires_live_download: false
 recommended_use: Mini-projet guidé
-result_visible_in_page: yes
-
+result_visible_in_page: false
 learning_objectives:
-  - "Travailler séries temporelles."
-  - "Travailler valeurs manquantes."
-  - "Travailler résumé journalier."
-  - "Travailler visualisation."
-  - "Nommer au moins une limite d'interprétation."
-  - "Préparation requise : exécuter `Rscript datasets/qualite-air-horaire/preparation.R` depuis la racine, puis vérifier que `data/processed/qualite-air-horaire/resume_journalier_contaminants_2025.csv` existe."
-  - "Fichier préparé : `data/processed/qualite-air-horaire/resume_journalier_contaminants_2025.csv`."
-  - "Script de préparation : `datasets/qualite-air-horaire/preparation.R`."
-  - "Point à surveiller : Demander une section qui distingue observation élevée, hypothèse explicative et preuve causale."
-  - "Demander une section qui distingue observation élevée, hypothèse explicative et preuve causale."
-  - "Si une variable ou un dénominateur nécessaire n'est pas disponible dans les données, l'écrire explicitement plutôt que l'inférer."
-  - "une courte description de la source;"
-  - "une section sur les valeurs manquantes;"
-  - "un graphique temporel pour PM2.5;"
-  - "un graphique ou tableau comparant plusieurs contaminants;"
-  - "une sélection d'une station ou d'une période;"
-  - "une section de limites;"
-  - "le code reproductible."
-  - "`data/processed/qualite-air-horaire/resume_journalier_contaminants_2025.csv`;"
-  - "`data/processed/qualite-air-horaire/resume_contaminants_2025.csv`;"
-  - "`data/processed/qualite-air-horaire/resume_stations_2025.csv`;"
-  - "`data/processed/qualite-air-horaire/episodes_pm25_2025.csv`;"
-  - "`data/processed/qualite-air-horaire/valeurs_manquantes_contaminants_2025.csv`."
-  - "Construire un tableau de bord Shiny avec choix de station et contaminant."
-  - "Ajouter une carte si des coordonnées de stations sont jointes à partir d'une autre source."
-  - "Comparer PM2.5 et O3 dans deux graphiques séparés."
-  - "Créer une note de communication publique sur une journée élevée."
-
+- Comparer les nombres de mesures et de stations entre contaminants sans mélanger leurs valeurs.
+- Examiner les séries PM2.5 et les résumés des journées élevées, avec leur nombre d’heures valides.
+- Formuler une limite qui découle de la source et de l’unité observée.
 prerequisites:
-  - "Vérifier le fichier ou le script de préparation annoncé avant la séance; adapter la mise en route au niveau indiqué."
-
+- Savoir ouvrir un projet RStudio et exécuter un script R.
+- Savoir lire un tableau groupé et un graphique descriptif; repérer les valeurs manquantes.
 success_criteria:
-  - "La production attendue est remise : Un court rapport reproductible avec contexte, tableau ou graphique, interprétation et limites."
-  - "Les résultats sont interprétés sans dépasser les limites de la source."
-
+- L’unité, la période ou la portée documentaire et les variables utilisées sont nommées.
+- Comparer les nombres de mesures et de stations entre contaminants sans mélanger leurs valeurs.
+- Examiner les séries PM2.5 et les résumés des journées élevées, avec leur nombre d’heures valides.
+- La conclusion répond à la question et explique au moins une limite précise.
 adaptations:
-  - "Fournir une table préparée ou réduire le nombre de variables pour une première utilisation."
-  - "Ajouter une comparaison, une justification méthodologique ou une discussion des limites pour approfondir."
+- Débuter avec le script exécuté par la personne enseignante, puis faire interpréter une seule sortie.
+- Pour approfondir, modifier une sélection ou un regroupement et justifier ce que cela change.
+script_file: datasets/qualite-air-horaire/activite-longue.R
+classroom_archive: assets/classroom/qualite-air-horaire.zip
+access_mode: frozen

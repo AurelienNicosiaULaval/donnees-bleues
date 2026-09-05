@@ -1,236 +1,64 @@
 ---
 title: "Mini-rapport sur les niveaux d'eau d'inondation"
-embed-resources: false
+embed-resources: true
 ---
-
 
 # Mini-rapport sur les niveaux d'eau d'inondation
 
-<!-- activity-teacher-brief:start -->
-::: {.activity-teacher-brief}
 
-## En classe, cette activité sert à...
+Comment les marqueurs et leur documentation varient-ils selon l’année?
 
-Cette activité sert à travailler les notions suivantes : Données spatiales, Valeurs manquantes, Précision de mesure, Communication du risque à partir d'une question située dans le contexte suivant : Inondations et sécurité civile. Elle demande aux étudiantes et étudiants de répondre à la question directrice suivante : Comment résumer des observations ponctuelles d'inondation sans surinterpréter la carte?
-
-::: {.activity-quick-facts}
-| Élément | Information |
-|---|---|
-| Durée | 2-3 heures |
-| Niveau | Intermédiaire |
-| Usage recommandé | Mini-projet guidé |
-| Préparation enseignant | Préparation requise : exécuter `Rscript datasets/niveaux-eau-inondation/preparation.R` depuis la racine, puis vérifier que `data/processed/niveaux-eau-inondation/niveaux_eau_inondation.csv` existe. |
-| Production attendue | Un court rapport reproductible avec contexte, tableau ou graphique, interprétation et limites. |
-| Données | `data/processed/niveaux-eau-inondation/niveaux_eau_inondation.csv` |
-:::
-
-:::
-<!-- activity-teacher-brief:end -->
+Durée : 2-3 heures. Niveau : Intermédiaire.
 
 ## Préparation enseignante
 
-- Préparation requise : exécuter `Rscript datasets/niveaux-eau-inondation/preparation.R` depuis la racine, puis vérifier que `data/processed/niveaux-eau-inondation/niveaux_eau_inondation.csv` existe.
-- Fichier préparé : `data/processed/niveaux-eau-inondation/niveaux_eau_inondation.csv`.
-- Script de préparation : `datasets/niveaux-eau-inondation/preparation.R`.
-- Point à surveiller : Faire distinguer marqueur ponctuel, événement d'inondation, niveau maximal et zone inondée.
+Télécharger la trousse ci-dessous. Extraire le ZIP, puis double-cliquer sur `Donnees-bleues.Rproj`. Avant la séance, ouvrir `installer-packages.R` et cliquer sur Source avec une connexion Internet.
 
-## Consignes
+Une fois les packages installés, les scripts utilisent les fichiers inclus et peuvent être exécutés hors ligne.
 
-1. Importer `niveaux_eau_inondation.csv` ou exécuter `datasets/niveaux-eau-inondation/preparation.R` si le fichier est absent.
-2. Identifier ce que représente une ligne du fichier.
-3. Produire un tableau ou un graphique adapté à la question directrice.
-4. Rédiger une interprétation courte qui distingue description et explication.
-5. Nommer au moins une limite méthodologique ou une information absente.
-
-## Résultat attendu
-
-Un court rapport reproductible avec contexte, tableau ou graphique, interprétation et limites. La production doit aussi contenir une phrase sur l'unité statistique et une phrase sur une limite de la source.
-
-## Déroulé suggéré
-
-1. Cadrer la source, la licence et l'unité statistique.
-2. Préparer ou importer les données.
-3. Produire un premier résumé descriptif.
-4. Construire la visualisation ou le tableau principal.
-5. Rédiger l'interprétation et les limites.
-
-## Limites à faire nommer
-
-- Faire distinguer marqueur ponctuel, événement d'inondation, niveau maximal et zone inondée.
-- Si une variable ou un dénominateur nécessaire n'est pas disponible dans les données, l'écrire explicitement plutôt que l'inférer.
-
+```{r}
+#| label: activity-classroom-resources
+#| echo: false
+#| results: asis
+source(if (file.exists("R/utils_activity_contract.R")) "R/utils_activity_contract.R" else "../../R/utils_activity_contract.R")
+render_activity_resources()
+```
 
 ## Contexte
 
-Cette activité transforme des observations ponctuelles de sécurité civile en rapport descriptif reproductible. Elle met l'accent sur la prudence : une carte de marqueurs de niveau d'eau n'est pas une carte d'étendue inondée.
+Cette activité utilise la fiche [Niveaux d'eau lors d'une inondation](fiche.qmd). Unité : Un marqueur de niveau d’eau observé lors d’une inondation.
 
-## Objectifs d'apprentissage
+Source : [Données Québec / Ministère de la Sécurité intérieure](https://www.donneesquebec.ca/recherche/dataset/niveaux-deau-inondation-msp). Les dates de préparation, les fichiers et les conditions de réutilisation sont indiqués dans la trousse.
 
-- Préparer une ressource CSV officielle
-- Produire un résumé par année et type d'observation
-- Décrire les valeurs manquantes
-- Cartographier des observations ponctuelles
-- Interpréter la précision horizontale et verticale
-- Rédiger une note de communication du risque
+## Consignes
 
-## Données utilisées
+1. Ouvrir `activite-longue.R` dans le sous-dossier `datasets/niveaux-eau-inondation` du projet RStudio et cliquer sur Source. Les tableaux apparaissent dans Console et les graphiques dans Plots.
+2. Examiner dates, altitudes, types et valeurs manquantes.
+3. Comparer les cartes par année en séparant couverture des relevés et fréquence des inondations.
+4. Rédiger une réponse à la question en nommant l’unité observée et une limite de la source.
 
-Fiche : [Niveaux d'eau lors d'une inondation](fiche.qmd)
+## Résultat attendu
 
-Source : Données Québec / Ministère de la Sécurité intérieure.
+Les tableaux et graphiques du script, accompagnés d’une interprétation de 6 à 8 lignes répondant à la question.
 
-Licence : Attribution (CC-BY 4.0), selon les métadonnées CKAN consultées le 2026-06-21.
+## Limites à faire nommer
 
-Fichier préparé : `data/processed/niveaux-eau-inondation/niveaux_eau_inondation.csv`
+La carte montre des marqueurs, pas des zones inondées. La couverture de relevé ne permet pas de comparer directement la fréquence annuelle des inondations.
 
-## Métadonnées pédagogiques
+## Code complet
 
-| Champ | Information |
-|---|---|
-| Question directrice | Comment résumer des observations ponctuelles d'inondation sans surinterpréter la carte? |
-| Concepts | Données spatiales; Valeurs manquantes; Précision de mesure; Communication du risque |
-| Niveau | Intermédiaire |
-| Type | Étude de cas; Projet ou tâche longue |
-| Contexte | Inondations et sécurité civile |
-| Accroche | Les points sont précis, mais leur interprétation demande du contexte |
-| Durée | 2-3 heures |
-| Matériel | énoncé; code; table préparée; notes enseignantes |
-| Math/stats avancées | non |
-
-## Mandat
-
-Produire un court rapport de 2 à 4 pages qui décrit les observations de niveaux d'eau lors d'inondations. Le rapport doit contenir :
-
-1. une définition de l'unité statistique;
-2. un tableau par année;
-3. un tableau par type `MAX` et `ACT`;
-4. une carte;
-5. une section sur les valeurs manquantes;
-6. une section sur la précision de mesure;
-7. une conclusion de communication du risque.
-
-## Étapes recommandées
-
-1. Exécuter `datasets/niveaux-eau-inondation/preparation.R`.
-2. Importer la table préparée.
-3. Importer les résumés préparés si utile.
-4. Décrire la période couverte.
-5. Comparer `MAX` et `ACT`.
-6. Produire une carte des points.
-7. Rédiger les limites avant la conclusion.
-
-## Code de départ
-
-À exécuter depuis la racine du projet.
+Ce script complet est celui de la trousse. Il lit les fichiers locaux et affiche les résultats dans RStudio.
 
 ```{r}
-#| eval: false
-# Load libraries
-library(dplyr)
-library(ggplot2)
-library(readr)
-
-# Prepare official CSV
-source("datasets/niveaux-eau-inondation/preparation.R")
-
-# Import prepared files
-niveaux <- read_csv(
-  "data/processed/niveaux-eau-inondation/niveaux_eau_inondation.csv",
-  show_col_types = FALSE
-)
-
-valeurs_manquantes <- read_csv(
-  "data/processed/niveaux-eau-inondation/valeurs_manquantes_niveaux_eau_inondation.csv",
-  show_col_types = FALSE
-)
-
-resume_annee <- read_csv(
-  "data/processed/niveaux-eau-inondation/resume_annee_niveaux_eau_inondation.csv",
-  show_col_types = FALSE
-)
-
-resume_type <- read_csv(
-  "data/processed/niveaux-eau-inondation/resume_type_niveaux_eau_inondation.csv",
-  show_col_types = FALSE
-)
-
-# Basic checks
-niveaux |>
-  summarise(
-    lignes = n(),
-    premiere_date = min(date_obs),
-    derniere_date = max(date_obs),
-    altitude_min = min(alt_m_cgvd),
-    altitude_max = max(alt_m_cgvd)
-  )
-
-# Observation types
-resume_type
-
-# Missing values
-valeurs_manquantes |>
-  filter(n_missing > 0) |>
-  arrange(desc(n_missing))
+#| label: activity-code
+#| echo: false
+#| results: asis
+render_activity_code()
 ```
-
-## Visualisation suggérée
-
-```{r}
-#| eval: false
-ggplot(niveaux, aes(x = long_wgs84, y = lat_wgs84, color = type_obs)) +
-  geom_point(alpha = 0.65, size = 1.2) +
-  coord_quickmap() +
-  facet_wrap(~ annee_obs) +
-  labs(
-    x = "Longitude",
-    y = "Latitude",
-    color = "Type",
-    title = "Marqueurs de niveaux d'eau par année d'observation",
-    subtitle = "Les facettes ne doivent pas être interprétées comme une fréquence annuelle des inondations"
-  )
-```
-
-## Questions à traiter
-
-1. Quelle est l'unité statistique?
-2. Quelle période est couverte?
-3. Quelle proportion des observations est de type `MAX`?
-4. Quelles variables contiennent le plus de valeurs manquantes?
-5. Quelles informations décrivent la précision de mesure?
-6. Quelles conclusions seraient trop fortes avec ces données?
-
-## Critères de réussite
-
-Un bon rapport :
-
-- définit clairement un marqueur ponctuel;
-- ne confond pas un point avec une zone inondée;
-- distingue `MAX` et `ACT`;
-- présente une carte lisible;
-- documente les valeurs manquantes;
-- mentionne la précision horizontale et verticale;
-- cite la source et la licence;
-- formule une conclusion prudente.
-
-## Pistes de solution
-
-Une conclusion prudente peut prendre cette forme :
-
-> Les données localisent des marqueurs de niveaux d'eau documentés lors d'inondations depuis 2017. Elles permettent de cartographier les observations et de comparer les types `MAX` et `ACT`, mais elles ne mesurent pas l'étendue complète des inondations ni la fréquence annuelle des événements.
-
-## Prolongements
-
-- Lire le GeoJSON officiel avec `sf`.
-- Joindre les points à des bassins versants.
-- Comparer les altitudes par type d'observation.
-- Produire une carte interactive avec les liens de rapport.
-- Rédiger une note destinée au public sur les limites d'une carte de points.
 
 ```{r}
 #| label: activity-pedagogical-contract
 #| echo: false
 #| results: asis
-contract_source_path <- if (file.exists("R/utils_activity_contract.R")) "R/utils_activity_contract.R" else "../../R/utils_activity_contract.R"
-source(contract_source_path)
 render_activity_contract()
 ```

@@ -1,0 +1,26 @@
+{
+  "dataset_id": "defavorisation-ecoles-primaires",
+  "title": "Indices de défavorisation des écoles primaires du Québec",
+  "mode": "frozen",
+  "prepared_at_utc": "2026-09-05T11:04:30Z",
+  "source_name": "Données Québec / Ministère de l'Éducation et Ministère de l'Enseignement supérieur",
+  "source_url": "https://www.donneesquebec.ca/recherche/dataset/indices-de-defavorisation/resource/6c5d4a5d-ba3b-40a6-b570-916f43ab622c",
+  "license_url": "https://creativecommons.org/licenses/by/4.0/deed.fr",
+  "original_licenses": {
+    "code": "MIT",
+    "content": "CC-BY-4.0",
+    "notices": ["LICENSE", "LICENCE-CONTENUS.md"]
+  },
+  "selection": "Table de classe limitée aux colonnes déclarées, sans tirage supplémentaire de lignes. Attribution et conditions tierces conservées.",
+  "tables": [
+    {
+      "path": "data/processed/defavorisation-ecoles-primaires/defavorisation_ecoles_primaires.csv",
+      "rows": 1963,
+      "columns": ["Code_Org", "Nom_Org", "IMSE", "Rang_Decile_IMSE", "SFR", "Rang_Decile_SFR", "Nbre_Eleves", "Diffusion", "Annee_Scol", "groupe_imse"],
+      "sha256": "3289222f88065b4cdf86df23e45bc5b9650ffbd24c97658d13b09907b3a122bf",
+      "prepared_table_sha256": "097afc59c3be59bce98280e25b8db88a6904e8d5227281ad20e84806d3b0698a"
+    }
+  ],
+  "archive_sha256": "30e50f99f043830751f111fc1fb13f0d4acbc9dd595570e3c2b2c9ff5f693c30",
+  "archive_bytes": 77574
+}

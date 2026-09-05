@@ -168,8 +168,8 @@ dataset_activity_status_label <- function(item) {
   status <- dataset_squish(item$pedagogical_status, "")
   switch(
     status,
-    pret_a_enseigner = "Prête à enseigner",
-    a_consolider = "À préparer",
+    pret_a_enseigner = "Fichiers inclus",
+    a_consolider = "Acquisition préalable",
     ebauche = "Ébauche",
     ""
   )
@@ -240,14 +240,7 @@ dataset_contributor_badge <- function(metadata) {
 }
 
 dataset_processed_csv <- function(metadata, ctx) {
-  license <- tolower(dataset_squish(metadata$license, ""))
-  license_blocks_preview <- grepl(
-    "reproduction.*interdite|aucune licence ouverte|réutilisation publique à valider",
-    license
-  )
-  if (identical(metadata$embed_processed_preview, FALSE) && license_blocks_preview) {
-    return(NA_character_)
-  }
+  if (!isTRUE(metadata$publication$preview)) return(NA_character_)
 
   id <- dataset_squish(metadata$id, basename(ctx$dataset_dir))
   preview_declared <- dataset_squish(
@@ -321,14 +314,14 @@ dataset_preview_table <- function(
     label <- dataset_html_escape(names(visible)[[j]])
     if (interactive) {
       paste0(
-        '<th><button type="button" class="dataset-sort-button" data-dataset-sort="',
+        '<th scope="col" aria-sort="none"><button type="button" class="dataset-sort-button" data-dataset-sort="',
         j - 1L,
         '">',
         label,
         '<span aria-hidden="true"></span></button></th>'
       )
     } else {
-      paste0("<th>", label, "</th>")
+      paste0('<th scope="col">', label, '</th>')
     }
   }, character(1)), collapse = "")
 
@@ -368,7 +361,7 @@ dataset_preview_table <- function(
   }
 
   table_html <- paste0(
-    '<div class="dataset-result-table-wrap"><table class="dataset-result-table">',
+    '<div class="dataset-result-table-wrap" tabindex="0" role="region" aria-label="Tableau de données, défilement horizontal"><table class="dataset-result-table">',
     '<thead><tr>', header, '</tr></thead>',
     '<tbody>', paste(rows, collapse = ""), '</tbody>',
     '</table></div>',
@@ -391,12 +384,12 @@ dataset_preview_table <- function(
     '<option value="50">50</option>',
     '<option value="100">100</option>',
     '</select></label>',
-    '<span class="dataset-datatable-count" data-dataset-count></span>',
+    '<span class="dataset-datatable-count" data-dataset-count role="status" aria-live="polite"></span>',
     '</div>',
     table_html,
     '<div class="dataset-datatable-pager">',
     '<button type="button" data-dataset-prev>Précédent</button>',
-    '<span data-dataset-page></span>',
+    '<span data-dataset-page aria-live="polite"></span>',
     '<button type="button" data-dataset-next>Suivant</button>',
     '</div>',
     '</div>'
@@ -412,7 +405,7 @@ dataset_result_stats <- function(data, metadata, csv_path, root) {
     source_label <- if (is.na(csv_path)) "Métadonnées" else basename(csv_path)
     stats <- list(
       "Lignes dans l'aperçu" = format(nrow(data), big.mark = " ", scientific = FALSE),
-      "Lignes déclarées" = dataset_squish(metadata$n_rows),
+      "Lignes de la référence documentaire" = dataset_squish(metadata$n_rows),
       "Colonnes dans le CSV" = format(ncol(data), big.mark = " ", scientific = FALSE),
       "Variables num." = n_num,
       "Valeurs manquantes" = paste0(round(missing_pct, 1), " %"),
@@ -420,8 +413,8 @@ dataset_result_stats <- function(data, metadata, csv_path, root) {
     )
   } else {
     stats <- list(
-      "Lignes déclarées" = dataset_squish(metadata$n_rows),
-      "Colonnes déclarées" = dataset_squish(metadata$n_cols),
+      "Lignes de la référence documentaire" = dataset_squish(metadata$n_rows),
+      "Colonnes de la référence documentaire" = dataset_squish(metadata$n_cols),
       "Format" = dataset_squish(metadata$format),
       "Aperçu" = "Métadonnées"
     )
@@ -435,77 +428,17 @@ dataset_result_stats <- function(data, metadata, csv_path, root) {
   }, character(1)), collapse = "")
 }
 
-dataset_chart_svg <- function(data, metadata) {
-  if (is.null(data) || nrow(data) == 0L || ncol(data) == 0L) {
-    return("")
-  }
-
-  data <- as.data.frame(data)
-  numeric_columns <- names(data)[vapply(data, is.numeric, logical(1))]
-  numeric_columns <- numeric_columns[!grepl("latitude|longitude|^id$|code", numeric_columns, ignore.case = TRUE)]
-  if (length(numeric_columns) == 0L) {
-    type_counts <- table(vapply(data, dataset_type_label, character(1)))
-    labels <- names(type_counts)
-    max_value <- max(type_counts)
-    bars <- paste(vapply(seq_along(type_counts), function(i) {
-      width <- 20 + (as.numeric(type_counts[[i]]) / max_value) * 210
-      y <- 30 + (i - 1) * 36
-      paste0(
-        '<text x="0" y="', y + 14, '" class="dataset-svg-label">', dataset_html_escape(labels[[i]]), '</text>',
-        '<rect x="72" y="', y, '" width="', width, '" height="18" rx="4" class="dataset-svg-bar"></rect>',
-        '<text x="', 82 + width, '" y="', y + 14, '" class="dataset-svg-value">', type_counts[[i]], '</text>'
-      )
-    }, character(1)), collapse = "")
-    return(paste0('<svg class="dataset-r-chart" viewBox="0 0 320 190" role="img" aria-label="Types de variables">', bars, '</svg>'))
-  }
-
-  preferred <- grep("moyenne|mediane|p95|maximum|ecart|taux|volume|population|nombre|^nb_|total|valeur|ratio|proportion|pourcentage|capacity|available|docks|amende", numeric_columns, ignore.case = TRUE, value = TRUE)
-  fallback_numeric <- numeric_columns[!grepl("(^|_)(id|code|year|annee|mois|jour|rang|decile|source_row)($|_)", numeric_columns, ignore.case = TRUE)]
-  y_col <- if (length(preferred) > 0L) {
-    preferred[[1]]
-  } else if (length(fallback_numeric) > 0L) {
-    fallback_numeric[[1]]
-  } else {
-    numeric_columns[[1]]
-  }
-  y <- suppressWarnings(as.numeric(data[[y_col]]))
-  keep <- which(!is.na(y))
-  if (length(keep) < 2L) {
-    return('<p class="dataset-empty-result">Pas assez de valeurs numériques pour tracer un aperçu.</p>')
-  }
-
-  keep <- tail(keep, min(length(keep), 40L))
-  y <- y[keep]
-  date_columns <- names(data)[tolower(names(data)) %in% c("date", "date_heure", "dateheure")]
-  dates <- if (length(date_columns) > 0L) suppressWarnings(as.Date(data[[date_columns[[1]]]][keep])) else rep(as.Date(NA), length(keep))
-  use_dates <- sum(!is.na(dates)) >= 2L
-  x <- if (use_dates) as.numeric(dates) else seq_along(y)
-  y_range <- range(y, na.rm = TRUE)
-  if (diff(y_range) == 0) {
-    y_range <- y_range + c(-0.5, 0.5)
-  }
-
-  x_svg <- 34 + (x - min(x)) / max(1, diff(range(x))) * 248
-  y_svg <- 158 - (y - y_range[[1]]) / diff(y_range) * 112
-  points <- paste(round(x_svg, 1), round(y_svg, 1), sep = ",", collapse = " ")
-  left_x_label <- if (use_dates) format(min(dates, na.rm = TRUE), "%d %b") else "1"
-  right_x_label <- if (use_dates) format(max(dates, na.rm = TRUE), "%d %b") else as.character(length(x))
-
-  paste0(
-    '<svg class="dataset-r-chart" viewBox="0 0 320 210" role="img" aria-label="Aperçu numérique généré par R">',
-    '<line x1="34" y1="158" x2="292" y2="158" class="dataset-svg-axis"></line>',
-    '<line x1="34" y1="36" x2="34" y2="158" class="dataset-svg-axis"></line>',
-    '<polyline points="', points, '" class="dataset-svg-line"></polyline>',
-    paste(vapply(seq_along(x_svg), function(i) {
-      paste0('<circle cx="', round(x_svg[[i]], 1), '" cy="', round(y_svg[[i]], 1), '" r="3.2" class="dataset-svg-point"></circle>')
-    }, character(1)), collapse = ""),
-    '<text x="34" y="24" class="dataset-svg-title">', dataset_html_escape(y_col), '</text>',
-    '<text x="34" y="186" class="dataset-svg-label">', dataset_html_escape(format(round(y_range[[1]], 2), trim = TRUE)), '</text>',
-    '<text x="230" y="186" class="dataset-svg-label">', dataset_html_escape(format(round(y_range[[2]], 2), trim = TRUE)), '</text>',
-    '<text x="34" y="202" class="dataset-svg-label">', dataset_html_escape(left_x_label), '</text>',
-    '<text x="250" y="202" class="dataset-svg-label">', dataset_html_escape(right_x_label), '</text>',
-    '</svg>'
-  )
+dataset_chart_svg <- function(data, metadata, ctx) {
+  if (!isTRUE(metadata$publication$preview)) return("")
+  chart_path <- file.path("assets/charts", paste0(metadata$id, ".svg"))
+  if (!file.exists(file.path(ctx$root, chart_path))) stop("Graphique déclaré absent : ", metadata$id, call. = FALSE)
+  relative_path <- paste(ctx$relative_root, chart_path, sep = "/")
+  # La description des axes et la table de données restent accessibles sans l'image.
+  description <- paste(metadata$chart$title, metadata$chart$x_label, metadata$chart$y_label, sep = ". ")
+  paste0('<figure class="dataset-chart-figure"><img class="dataset-r-chart" src="',
+    dataset_html_escape(relative_path), '" alt="', dataset_html_escape(description),
+    '" loading="lazy"><figcaption>', dataset_html_escape(description),
+    '. Voir la sélection des lignes et la table consultable de cet extrait.</figcaption></figure>')
 }
 
 dataset_r_code <- function(metadata, ctx, csv_path) {
@@ -605,6 +538,7 @@ dataset_datatable_script <- function() {
     "        var indicator = button.querySelector('span');",
     "        if (!indicator) return;",
     "        var col = Number(button.dataset.datasetSort);",
+    "        button.closest('th').setAttribute('aria-sort', col === state.sortCol ? (state.sortDir === 1 ? 'ascending' : 'descending') : 'none');",
     "        indicator.textContent = col === state.sortCol ? (state.sortDir === 1 ? ' ↑' : ' ↓') : '';",
     "      });",
     "    }",
@@ -790,7 +724,7 @@ render_dataset_detail_header <- function() {
     '<div class="dataset-source-strip">',
     '<span>Source : ', source_html, '</span>',
     '<span>Licence : ', dataset_html_escape(dataset_squish(metadata$license)), '</span>',
-    '<span>Téléchargé : ', dataset_html_escape(dataset_squish(metadata$access_date)), '</span>',
+    '<span>Documentation initiale : ', dataset_html_escape(dataset_squish(metadata$access_date)), '</span>',
     '</div>'
   )
   project_items <- paste(vapply(head(projects, 3L), function(item) {
@@ -827,12 +761,20 @@ render_dataset_detail_header <- function() {
     dataset_preview_unavailable(metadata)
   }
   data_note <- dataset_preview_note(metadata, csv_path, ctx$root)
+  if (!is.na(csv_path) && file.exists(paste0(csv_path, ".json"))) {
+    provenance <- jsonlite::read_json(paste0(csv_path, ".json"))
+    receipt_url <- paste(ctx$relative_root, dataset_relative_path(paste0(csv_path, ".json"), ctx$root), sep = "/")
+    data_note <- paste0(data_note, ' Préparation : ', dataset_html_escape(provenance$prepared_at_utc),
+      '. ', dataset_html_escape(provenance$selection),
+      '. <a href="', dataset_html_escape(receipt_url), '">Provenance et empreintes</a>. ',
+      '<a href="', dataset_html_escape(metadata$publication$license_url), '">Conditions de réutilisation</a>.')
+  }
   preview_chart <- if (is.null(preview)) {
     ""
   } else {
     paste0(
       '<div class="dataset-preview-chart"><span class="dataset-panel-label">Aperçu graphique</span>',
-      dataset_chart_svg(preview, metadata),
+      dataset_chart_svg(preview, metadata, ctx),
       "</div>"
     )
   }
@@ -853,7 +795,7 @@ render_dataset_detail_header <- function() {
     '</div>\n',
     '</div>\n',
     '<aside class="dataset-featured-activity">\n',
-    '<span class="dataset-panel-label">Activité prête à lancer</span>\n',
+    '<span class="dataset-panel-label">Activité proposée</span>\n',
     '<h2>', dataset_html_escape(featured_title), '</h2>\n',
     '<p>', dataset_html_escape(featured_question), '</p>\n',
     '<div class="dataset-featured-meta"><span>', dataset_html_escape(featured_duration), '</span><span>', dataset_html_escape(featured_level), '</span><span>', dataset_html_escape(dataset_squish(featured_status, "Préparation à vérifier")), '</span></div>\n',
@@ -875,6 +817,8 @@ render_dataset_detail_header <- function() {
     '<details class="dataset-doc-panel" id="documentation">\n',
     '<summary><span>Documentation complète</span><strong>Sources, variables, code R minimal, méthode et limites</strong></summary>\n',
     '<div class="dataset-detail-content">\n',
+    '<p class="dataset-reference-note">Documentation initiale : ', dataset_html_escape(dataset_squish(metadata$access_date)),
+    '. Les résultats datés ci-dessous décrivent des versions de référence de la source. Pour lancer une activité, utiliser les fichiers et la provenance de sa trousse; les effectifs et les colonnes peuvent avoir changé. Les tableaux explicitement calculés depuis la trousse décrivent cette version.</p>\n',
     sep = ""
   )
 

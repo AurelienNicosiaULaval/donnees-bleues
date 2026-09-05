@@ -1,0 +1,26 @@
+{
+  "dataset_id": "retards-transport-collectif",
+  "prepared_at_utc": "2026-09-05T11:05:10Z",
+  "prepared_file": "variables_gtfs_realtime_retards_transport.csv",
+  "prepared_sha256": "5acafb9153ca791b93d7ea9bf2e70010f849f6ee72857d63b6e60ab7442e7f00",
+  "preview_sha256": "5acafb9153ca791b93d7ea9bf2e70010f849f6ee72857d63b6e60ab7442e7f00",
+  "rows": 10,
+  "columns": ["message_type", "field_pedagogique", "role_statistique", "status"],
+  "selection": "Au plus 120 positions régulièrement espacées dans l'ordre de la table préparée; sélection déterministe non aléatoire",
+  "source_name": "Société de transport de Montréal / Données Québec",
+  "source_url": "https://www.donneesquebec.ca/recherche/dataset/vmtl-stm-bus-temps-reel-gtfs-realtime",
+  "license": "Attribution (CC-BY 4.0) selon les métadonnées CKAN vérifiées le 2026-06-21",
+  "license_url": "https://creativecommons.org/licenses/by/4.0/deed.fr",
+  "sources": [
+    {
+      "source_url": "https://www.donneesquebec.ca/recherche/api/3/action/package_show?id=vmtl-stm-bus-temps-reel-gtfs-realtime",
+      "acquisition_kind": "download",
+      "acquired_at_utc": "2026-09-05T11:05:10Z",
+      "started_at_utc": "2026-09-05T11:05:10Z",
+      "file": "package_show.json",
+      "bytes": 7345,
+      "sha256": "99e3d59c7c01cc33d389f27a9b17323df37f4de7e235906042a6f6e4ce825bc6",
+      "details": {}
+    }
+  ]
+}

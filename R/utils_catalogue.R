@@ -1,3 +1,4 @@
+source(if (file.exists("R/utils_taxonomy.R")) "R/utils_taxonomy.R" else "../../R/utils_taxonomy.R")
 `%||%` <- function(x, y) {
   if (is.null(x) || length(x) == 0L || all(is.na(x))) y else x
 }
@@ -47,6 +48,7 @@ collapse_metadata_field <- function(x) {
 }
 
 metadata_row <- function(metadata, dataset_dir) {
+  validate_taxonomy_metadata(metadata)
   concepts <- collapse_metadata_field(metadata$concepts)
   variables_principales <- collapse_metadata_field(metadata$variables_principales)
   idees_mini_projets <- collapse_metadata_field(metadata$idees_mini_projets)
@@ -83,6 +85,9 @@ metadata_row <- function(metadata, dataset_dir) {
     update_frequency = metadata$update_frequency %||% NA_character_,
     level = metadata$level %||% NA_character_,
     concepts = concepts,
+    concept_ids = collapse_metadata_field(metadata$concept_ids),
+    level_ids = collapse_metadata_field(metadata$level_ids),
+    search_aliases = taxonomy_search_aliases(metadata$concept_ids),
     variables_principales = variables_principales,
     idees_mini_projets = idees_mini_projets,
     zero_waste_score = metadata_zero_waste_score(metadata),

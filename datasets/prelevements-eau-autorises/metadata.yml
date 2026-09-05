@@ -20,7 +20,9 @@ processed_file: "data/processed/prelevements-eau-autorises/prelevements_eau_auto
 missing_summary_file: "data/processed/prelevements-eau-autorises/valeurs_manquantes_prelevements_eau_autorises.csv"
 provenance_summary_file: "data/processed/prelevements-eau-autorises/resume_provenance_prelevements_eau_autorises.csv"
 update_frequency: "Annuelle selon le miroir ouvert.canada.ca et le PDF de métadonnées; version source 2025-09-15"
-level: "Intermédiaire"
+level: Intermédiaire
+level_ids:
+- intermediaire
 organisme: "MELCCFP"
 territoire: "Québec"
 taille_approximative: "1 777 sites; 1 021 documents; 827 intervenants"
@@ -37,7 +39,7 @@ variables_principales:
   - longitude
   - latitude
 idees_mini_projets:
-  - "Comparer le nombre de sites et le volume autorisé total par provenance de l'eau."
+  - "Comparer les nombres de sites et les médianes des plafonds inscrits par provenance de l'eau."
   - "Cartographier les sites de prélèvement autorisés sans les confondre avec des volumes réellement prélevés."
   - "Évaluer l'influence des plus grands sites sur les graphiques de volumes."
 tags:
@@ -50,14 +52,23 @@ tags:
   - spatial
   - données administratives
 concepts:
-  - eau
-  - volume autorisé
-  - données administratives
-  - agrégation
-  - valeurs extrêmes
-  - cartographie
-  - unités de mesure
-  - communication prudente
+- Eau
+- Volume autorisé
+- Données administratives
+- Agrégation
+- Valeurs extrêmes
+- Cartographie
+- Unités de mesure
+- Communication prudente
+concept_ids:
+- eau
+- volume-autorise
+- donnees-administratives
+- agregation
+- valeurs-extremes
+- cartographie
+- unites-de-mesure
+- communication-prudente
 zero_waste:
   contexte_quebecois: 3
   accessibilite_pedagogique: 3
@@ -73,3 +84,68 @@ status: "source officielle vérifiée; CSV 2025-09-15 préparé localement"
 notes: "Le champ vol_aut représente un volume maximal autorisé en litres par jour, pas un volume réellement prélevé. Le PDF de métadonnées indique que la donnée n'a aucune valeur légale."
 contributor_name: "Aurélien Nicosia"
 contributor_role: "Révision pédagogique et statistique"
+
+publication:
+  preview: true
+  reviewed_on: '2026-09-05'
+  license_url: https://creativecommons.org/licenses/by/4.0/deed.fr
+  preview_columns:
+  - no_doc
+  - site_id
+  - nombre_sites_document
+  - volume_autorise_l_j
+  - volume_autorise_m3_j
+  - precision_volume
+  - provenance_eau
+  - has_volume
+  - has_precision_volume
+  - source_version
+  reason: Extrait pédagogique limité aux colonnes déclarées; attribution et conditions de la source conservées.
+  classroom:
+    mode: frozen
+    reason: Table de classe limitée aux colonnes déclarées, sans tirage supplémentaire de lignes. Attribution
+      et conditions tierces conservées.
+    files:
+    - path: data/processed/prelevements-eau-autorises/prelevements_eau_autorises.csv
+      columns:
+      - no_doc
+      - site_id
+      - nombre_sites_document
+      - volume_autorise_l_j
+      - volume_autorise_m3_j
+      - precision_volume
+      - provenance_eau
+      - longitude
+      - latitude
+    - path: data/processed/prelevements-eau-autorises/principaux_sites_prelevements_eau_autorises.csv
+      columns:
+      - no_doc
+      - site_id
+      - provenance_eau
+      - nombre_sites_document
+      - precision_volume
+      - volume_autorise_l_j
+      - volume_autorise_m3_j
+      - longitude
+      - latitude
+    - path: data/processed/prelevements-eau-autorises/resume_provenance_prelevements_eau_autorises.csv
+      columns:
+      - provenance_eau
+      - n_sites
+      - n_documents
+      - n_intervenants
+      - n_volume_manquant
+      - volume_median_m3_j
+      - volume_max_m3_j
+    - path: data/processed/prelevements-eau-autorises/valeurs_manquantes_prelevements_eau_autorises.csv
+      columns:
+      - variable
+      - n_missing
+      - n_rows
+      - pct_missing
+chart:
+  type: count
+  x_variable: provenance_eau
+  x_label: Sites dans l’extrait (nombre)
+  y_label: Provenance de l’eau
+  title: Provenance de l’eau des sites de l’extrait

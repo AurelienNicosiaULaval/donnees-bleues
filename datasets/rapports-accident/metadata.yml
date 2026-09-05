@@ -22,7 +22,9 @@ region_summary_file: "data/processed/rapports-accident/resume_regions_2022.csv"
 weather_summary_file: "data/processed/rapports-accident/resume_meteo_2022.csv"
 missing_summary_file: "data/processed/rapports-accident/valeurs_manquantes_2022.csv"
 update_frequency: "Ressources annuelles 2011 à 2022; paquet CKAN modifié le 2023-12-19"
-level: "Intermédiaire"
+level: Intermédiaire
+level_ids:
+- intermediaire
 organisme: "Société de l'assurance automobile du Québec"
 territoire: "Québec"
 taille_approximative: "108 186 rapports en 2022; 22 498 accidents avec victime; 1 397 accidents mortels ou graves"
@@ -58,14 +60,23 @@ tags:
   - "visualisation"
   - "modélisation prudente"
 concepts:
-  - "données administratives"
-  - "unité statistique"
-  - "codes catégoriels"
-  - "tableaux croisés"
-  - "séries temporelles"
-  - "statistique descriptive"
-  - "modélisation catégorielle"
-  - "limites d'exposition"
+- Données administratives
+- Unité statistique
+- Codes catégoriels
+- Tableaux croisés
+- Séries temporelles
+- Statistiques descriptives
+- Modélisation catégorielle
+- Limites d'exposition
+concept_ids:
+- donnees-administratives
+- unite-statistique
+- codes-categoriels
+- tableaux-croises
+- series-temporelles
+- statistiques-descriptives
+- modelisation-categorielle
+- limites-d-exposition
 zero_waste:
   contexte_quebecois: 3
   accessibilite_pedagogique: 2
@@ -81,3 +92,36 @@ status: "source officielle vérifiée; CSV 2022 préparé localement avec docume
 notes: "Les données proviennent de rapports policiers et ont été révisées pour respecter la loi 25 selon la description officielle. Les variables de victimes et de véhicules utilisent le code 9 pour trois ou plus et ne doivent pas être additionnées comme des dénombrements exacts."
 contributor_name: "Aurélien Nicosia"
 contributor_role: "Révision pédagogique et statistique"
+
+publication:
+  preview: true
+  reviewed_on: '2026-09-05'
+  license_url: https://creativecommons.org/licenses/by/4.0/deed.fr
+  preview_columns:
+  - annee
+  - identifiant_accident
+  - mois_code
+  - mois
+  - plage_horaire
+  - jour_semaine_code
+  - type_jour
+  - gravite
+  - accident_avec_victime
+  - accident_mortel_ou_grave
+  reason: Extrait pédagogique limité aux colonnes déclarées; attribution et conditions de la source conservées.
+  classroom:
+    mode: frozen
+    reason: Table de classe limitée aux colonnes déclarées, sans tirage supplémentaire de lignes. Attribution
+      et conditions tierces conservées.
+    files:
+    - path: data/processed/rapports-accident/rapports_accident_2022_prepares.csv
+      columns:
+      - annee
+      - gravite
+      - region_nom
+chart:
+  type: count
+  x_variable: gravite
+  x_label: Accidents dans l’extrait (nombre)
+  y_label: Gravité déclarée
+  title: Gravité des accidents de l’extrait

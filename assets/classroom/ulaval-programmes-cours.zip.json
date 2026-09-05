@@ -1,0 +1,40 @@
+{
+  "dataset_id": "ulaval-programmes-cours",
+  "title": "Programmes et cours institutionnels ULaval",
+  "mode": "documentation",
+  "prepared_at_utc": "2026-09-05T11:05:24Z",
+  "source_name": "Université Laval, Bureau de la qualité des programmes",
+  "source_url": "https://www.bqp.ulaval.ca/fichiers/ressources/gestion/codes-programmes-actifs.pdf",
+  "license_url": "https://www.bqp.ulaval.ca/fichiers/ressources/gestion/codes-programmes-actifs.pdf",
+  "original_licenses": {
+    "code": "MIT",
+    "content": "CC-BY-4.0",
+    "notices": ["LICENSE", "LICENCE-CONTENUS.md"]
+  },
+  "selection": "Documentation et synthèses publiques seulement; aucune donnée privée, géodatabase ni observation de retard.",
+  "tables": [
+    {
+      "path": "data/processed/ulaval-programmes-cours/resume_droits_ulaval.csv",
+      "rows": 7,
+      "columns": ["item", "statement"],
+      "sha256": "5130a67a87f7863fb14f305cf58f9c28c03a56073dbff8e09b447df58e39414b",
+      "prepared_table_sha256": "5130a67a87f7863fb14f305cf58f9c28c03a56073dbff8e09b447df58e39414b"
+    },
+    {
+      "path": "data/processed/ulaval-programmes-cours/resume_fichiers_ulaval.csv",
+      "rows": 7,
+      "columns": ["dataset_id", "phase", "expected_rows", "observed_rows", "row_count_matches", "keys_unique", "protected_fields_present"],
+      "sha256": "252d11197ad74fb2449dc10a050256432d4ca4683ce0536f7074d2d97917af30",
+      "prepared_table_sha256": "5a3e99fd9a7a10859b3b1fe89047b1e95b5834db86f65735b0c97ee65437ba34"
+    },
+    {
+      "path": "data/processed/ulaval-programmes-cours/resume_ulaval_programmes_cours.csv",
+      "rows": 1,
+      "columns": ["source_found", "validation_status", "n_core_expected_rows", "n_ges_expected_rows"],
+      "sha256": "9c421e5b6d891d6da076ad55a5a101de676eacd739f087cebbd5875c1e6dea5e",
+      "prepared_table_sha256": "f365e16313a5a9bfba6b048513670d2235aaff8f9ca2ed53155086ddb8776022"
+    }
+  ],
+  "archive_sha256": "db54ae40c1e25a9a2ea11847802a6ec1f18c23ee1fcc89336fa8ab9d4fa7bbb9",
+  "archive_bytes": 7584
+}

@@ -1,155 +1,64 @@
 ---
-title: "Construction et quartiers - activité longue"
-embed-resources: false
+title: "Portrait des permis et de la forme bâtie par quartier"
+embed-resources: true
 ---
 
+# Portrait des permis et de la forme bâtie par quartier
 
-# Construction et quartiers - activité longue
 
-<!-- activity-teacher-brief:start -->
-::: {.activity-teacher-brief}
+Quel lien descriptif observe-t-on entre densité bâtie et densité de permis?
 
-## En classe, cette activité sert à...
-
-Cette activité sert à travailler les notions suivantes : Jointure spatiale, Agrégation, Visualisation, Communication à partir d'une question située dans le contexte suivant : Aménagement du territoire. Elle demande aux étudiantes et étudiants de répondre à la question directrice suivante : Comment relier activité administrative de construction et forme bâtie sans surinterpréter les données?
-
-::: {.activity-quick-facts}
-| Élément | Information |
-|---|---|
-| Durée | 2-3 heures |
-| Niveau | Intermédiaire à avancé |
-| Usage recommandé | Mini-projet guidé |
-| Préparation enseignant | Vérifier que `data/processed/construction-quartiers-quebec/quebec_construction_quartiers.csv` est disponible; aucune collecte en direct n'est nécessaire pour lancer l'activité. |
-| Production attendue | Un court rapport reproductible avec contexte, tableau ou graphique, interprétation et limites. |
-| Données | `data/processed/construction-quartiers-quebec/quebec_construction_quartiers.csv` |
-:::
-
-:::
-<!-- activity-teacher-brief:end -->
+Durée : 2-3 heures. Niveau : Intermédiaire à avancé.
 
 ## Préparation enseignante
 
-- Vérifier que `data/processed/construction-quartiers-quebec/quebec_construction_quartiers.csv` est disponible; aucune collecte en direct n'est nécessaire pour lancer l'activité.
-- Fichier préparé : `data/processed/construction-quartiers-quebec/quebec_construction_quartiers.csv`.
-- Script de préparation : `datasets/construction-quartiers-quebec/preparation.R`.
-- Point à surveiller : Exiger une section limites et faire distinguer les permis délivrés, les travaux réels et la forme bâtie mesurée par empreinte au sol.
+Télécharger la trousse ci-dessous. Extraire le ZIP, puis double-cliquer sur `Donnees-bleues.Rproj`. Avant la séance, ouvrir `installer-packages.R` et cliquer sur Source avec une connexion Internet.
 
-## Consignes
+Une fois les packages installés, les scripts utilisent les fichiers inclus et peuvent être exécutés hors ligne.
 
-1. Importer `quebec_construction_quartiers.csv` ou exécuter `datasets/construction-quartiers-quebec/preparation.R` si le fichier est absent.
-2. Identifier ce que représente une ligne du fichier.
-3. Produire un tableau ou un graphique adapté à la question directrice.
-4. Rédiger une interprétation courte qui distingue description et explication.
-5. Nommer au moins une limite méthodologique ou une information absente.
-
-## Résultat attendu
-
-Un court rapport reproductible avec contexte, tableau ou graphique, interprétation et limites. La production doit aussi contenir une phrase sur l'unité statistique et une phrase sur une limite de la source.
-
-## Déroulé suggéré
-
-1. Cadrer la source, la licence et l'unité statistique.
-2. Préparer ou importer les données.
-3. Produire un premier résumé descriptif.
-4. Construire la visualisation ou le tableau principal.
-5. Rédiger l'interprétation et les limites.
-
-## Limites à faire nommer
-
-- Exiger une section limites et faire distinguer les permis délivrés, les travaux réels et la forme bâtie mesurée par empreinte au sol.
-- Si une variable ou un dénominateur nécessaire n'est pas disponible dans les données, l'écrire explicitement plutôt que l'inférer.
-
+```{r}
+#| label: activity-classroom-resources
+#| echo: false
+#| results: asis
+source(if (file.exists("R/utils_activity_contract.R")) "R/utils_activity_contract.R" else "../../R/utils_activity_contract.R")
+render_activity_resources()
+```
 
 ## Contexte
 
-Cette activité propose un mini-rapport sur l'activité de permis et la forme bâtie dans les quartiers de la Ville de Québec. Le fichier utilisé est un agrégat construit à partir de trois sources officielles : permis délivrés, empreintes de bâtiments et quartiers.
+Cette activité utilise la fiche [Construction, bâtiments et quartiers à la Ville de Québec](fiche.qmd). Unité : Un quartier de Québec, avec des agrégats spatiaux de permis et de bâtiments.
 
-## Objectifs d'apprentissage
+Source : [Ville de Québec, Données Québec](https://www.donneesquebec.ca/recherche/dataset/permis-delivres-ville-de-quebec). Les dates de préparation, les fichiers et les conditions de réutilisation sont indiqués dans la trousse.
 
-- Comprendre une jointure spatiale entre points, polygones de bâtiments et quartiers.
-- Comparer des quartiers avec des comptes, densités et ratios.
-- Visualiser plusieurs indicateurs descriptifs.
-- Identifier les informations absentes des sources.
-- Rédiger une interprétation prudente de données administratives.
+## Consignes
 
-## Données utilisées
+1. Ouvrir `activite-longue.R` dans le sous-dossier `datasets/construction-quartiers-quebec` du projet RStudio et cliquer sur Source. Les tableaux apparaissent dans Console et les graphiques dans Plots.
+2. Comparer nombres de permis, densités et parts de superficie bâtie.
+3. Interpréter le nuage bâtiments par km² contre permis par km² sans causalité.
+4. Rédiger une réponse à la question en nommant l’unité observée et une limite de la source.
 
-Source : Ville de Québec, Données Québec, jeux `Permis délivrés à la Ville de Québec`, `Empreintes des bâtiments` et `Quartiers`, sous licence Attribution (CC-BY 4.0). Fiche : [Construction, bâtiments et quartiers à la Ville de Québec](fiche.qmd).
+## Résultat attendu
 
-Fichier principal : `data/processed/construction-quartiers-quebec/quebec_construction_quartiers.csv`.
+Les tableaux et graphiques du script, accompagnés d’une interprétation de 6 à 8 lignes répondant à la question.
 
-Fichiers utiles de documentation :
+## Limites à faire nommer
 
-- `data/processed/construction-quartiers-quebec/documentation_sources.csv`;
-- `data/processed/construction-quartiers-quebec/dictionnaire_variables.csv`;
-- `data/processed/construction-quartiers-quebec/appariement_quartiers_resume.csv`.
+Les permis couvrent la période indiquée dans la table. La superficie du quartier, le parc bâti et l’activité de permis ne mesurent pas la même chose.
 
-## Travail demandé
+## Code complet
 
-Produire un rapport court qui répond à la question suivante :
-
-Quels quartiers présentent une forte activité de permis et quelles caractéristiques de forme bâtie peut-on décrire avec les empreintes disponibles?
-
-Le rapport doit contenir :
-
-1. un tableau des dix quartiers avec le plus grand `nombre_permis`;
-2. un graphique des dix quartiers avec la plus forte valeur de `permis_par_km2`;
-3. un graphique ou tableau sur `part_superficie_batie`;
-4. une comparaison entre `permis_par_km2` et `batiments_par_km2`;
-5. une section limites qui indique clairement les informations non disponibles.
-
-## Code de départ
+Ce script complet est celui de la trousse. Il lit les fichiers locaux et affiche les résultats dans RStudio.
 
 ```{r}
-#| eval: false
-library(dplyr)
-library(ggplot2)
-library(readr)
-
-construction_quartiers <- read_csv(
-  "data/processed/construction-quartiers-quebec/quebec_construction_quartiers.csv",
-  show_col_types = FALSE
-)
-
-construction_quartiers |>
-  arrange(desc(nombre_permis)) |>
-  select(nom_quartier, nombre_permis, permis_par_km2, nombre_batiments, part_superficie_batie) |>
-  slice_head(n = 10)
-
-ggplot(
-  construction_quartiers,
-  aes(x = batiments_par_km2, y = permis_par_km2, label = nom_quartier)
-) +
-  geom_point(color = "#325EA8", size = 2.4, alpha = 0.8) +
-  labs(
-    x = "Bâtiments par km²",
-    y = "Permis par km²",
-    title = "Permis et densité de bâtiments par quartier"
-  ) +
-  theme_minimal()
+#| label: activity-code
+#| echo: false
+#| results: asis
+render_activity_code()
 ```
-
-## Questions d'interprétation
-
-1. Les quartiers avec le plus de permis sont-ils aussi ceux avec la plus forte densité de permis?
-2. Les quartiers avec une forte part de superficie bâtie ont-ils aussi une forte densité de bâtiments?
-3. Quels résultats changeraient si l'on disposait de la population des quartiers?
-4. Pourquoi faut-il éviter d'interpréter les permis comme des travaux réalisés?
-5. Quels objets sources ne sont pas appariés aux quartiers officiels?
-
-## Critères de réussite
-
-- Le rapport cite les trois sources officielles.
-- Les graphiques distinguent clairement comptes, densités et ratios.
-- Les variables dérivées sont définies.
-- Les limites sont explicites.
-- Aucune variable absente des sources n'est inventée.
 
 ```{r}
 #| label: activity-pedagogical-contract
 #| echo: false
 #| results: asis
-contract_source_path <- if (file.exists("R/utils_activity_contract.R")) "R/utils_activity_contract.R" else "../../R/utils_activity_contract.R"
-source(contract_source_path)
 render_activity_contract()
 ```

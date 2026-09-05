@@ -1,3 +1,4 @@
+source("R/utils_downloads.R")
 # Préparation : Emploi régional au Québec
 # Source officielle : Institut de la statistique du Québec, tableau 916.
 
@@ -7,6 +8,7 @@ library(readr)
 library(readxl)
 library(stringr)
 library(tidyr)
+source("R/utils_data_checks.R")
 
 raw_dir <- "data/raw/emploi-regional-quebec"
 processed_dir <- "data/processed/emploi-regional-quebec"
@@ -20,7 +22,7 @@ source_file <- "https://statistique.quebec.ca/docs-ken/multimedia/Fichier_comple
 raw_path <- file.path(raw_dir, "Fichier_complet_916.xlsx")
 processed_path <- file.path(processed_dir, "emploi_regional_quebec.csv")
 
-download.file(source_file, raw_path, mode = "wb", quiet = TRUE)
+download_source(source_file, raw_path, mode = "wb", quiet = TRUE)
 
 month_levels <- c(
   "Janvier" = 1,
@@ -124,11 +126,12 @@ emploi_regional <- map_dfr(
 ) |>
   arrange(indicateur, territoire, date)
 
-stopifnot(
-  nrow(emploi_regional) == 25160,
-  n_distinct(emploi_regional$indicateur) == 8,
-  n_distinct(emploi_regional$territoire) == 17,
-  n_distinct(emploi_regional$date) == 185
+# Le nombre de mois évolue. Les dimensions historiques ne sont pas un schéma.
+# Les en-têtes et unités de la source sont contrôlés avant de publier la table.
+validate_monthly_panel(
+  emploi_regional,
+  expected_indicators = employment_schema()$indicators,
+  expected_territories = employment_schema()$territories
 )
 
 write_csv(emploi_regional, processed_path)
@@ -137,3 +140,5 @@ message("Source : ", source_page)
 message("Tableau retenu : ", source_table)
 message("Fichier brut : ", raw_path)
 message("Fichier préparé : ", processed_path)
+
+record_preparation("emploi-regional-quebec")

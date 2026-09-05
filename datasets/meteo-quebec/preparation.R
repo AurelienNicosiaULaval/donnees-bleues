@@ -1,3 +1,4 @@
+source("R/utils_downloads.R")
 # Préparation : Météo quotidienne à Québec
 # Source pédagogique : UlavalSSD::MeteoQuebec 0.2.0
 # Source primaire documentée : Environnement et Changement climatique Canada via weathercan
@@ -13,7 +14,7 @@ dir.create(processed_dir, recursive = TRUE, showWarnings = FALSE)
 
 source_dataset <- "UlavalSSD::MeteoQuebec"
 source_primary <- "Environnement et Changement climatique Canada via weathercan"
-access_date <- "2026-06-21"
+access_date <- as.character(Sys.Date())
 
 meteo_quebec <- MeteoQuebec |>
   transmute(
@@ -135,3 +136,11 @@ message("Source pédagogique : ", source_dataset)
 message("Source primaire : ", source_primary)
 message("Fichier préparé : ", file.path(processed_dir, "meteo_quebec.csv"))
 message("Observations quotidiennes : ", nrow(meteo_quebec))
+
+raw_package_path <- "data/raw/meteo-quebec/UlavalSSD_MeteoQuebec.csv"
+dir.create(dirname(raw_package_path), recursive = TRUE, showWarnings = FALSE)
+write_csv(MeteoQuebec, raw_package_path)
+record_source(raw_package_path, "https://github.com/AurelienNicosiaULaval/UlavalSSD/tree/0b79f4c985ef87a32bdb5b83f193ae5f5ea6d640",
+              kind = "package_export", details = list(package = "UlavalSSD", version = as.character(packageVersion("UlavalSSD")), dataset = "MeteoQuebec"))
+
+record_preparation("meteo-quebec")

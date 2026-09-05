@@ -1,12 +1,14 @@
 id: rsqaq-couverture-stations-long
 title: Couverture territoriale et temporelle des stations RSQAQ
-question: Que révèle un répertoire de stations sur la mesure environnementale, et
-  que ne révèle-t-il pas?
+question: Comment décrire la répartition du réseau de stations?
 dataset_id: qualite-air
 dataset_title: Stations du réseau de qualité de l'air du Québec
 activity_url: datasets/qualite-air/activite-longue.qmd
 duration: 2-3 heures
 level: Introduction à intermédiaire
+level_ids:
+- introduction
+- intermediaire
 activity_type:
 - Étude de cas
 - Projet ou tâche longue
@@ -17,51 +19,47 @@ concepts:
 - Carte de points
 - Couverture territoriale
 - Communication prudente
+concept_ids:
+- donnees-et-mesure
+- dates
+- carte-de-points
+- couverture-territoriale
+- communication-prudente
 context: Environnement
-hook: Une carte de stations n'est pas une carte de qualité de l'air
+hook: Un répertoire de stations ne contient pas de concentrations. L’absence de date de fermeture ne certifie
+  pas un fonctionnement actuel.
 materials:
-- énoncé
-- code
-- table préparée
-- notes enseignantes
-advanced_math_stats: no
-teacher_notes: Exiger une section qui distingue répertoire de stations, mesures horaires,
-  contaminants et qualité de l'air.
-status: source officielle vérifiée
+- Trousse ZIP et projet RStudio
+- Script R complet
+- CSV préparés et provenance
+advanced_math_stats: false
+teacher_notes: Un répertoire de stations ne contient pas de concentrations. L’absence de date de fermeture
+  ne certifie pas un fonctionnement actuel.
+status: Documentation de source et ressources de classe fournies
 pedagogical_status: pret_a_enseigner
-teacher_preparation: Vérifier que `data/processed/qualite-air/rsqaq_stations.csv`
-  est disponible; aucune collecte en direct n'est nécessaire pour lancer l'activité.
-expected_output: Un court rapport reproductible avec contexte, tableau ou graphique,
-  interprétation et limites.
-requires_prepared_data: yes
-requires_live_download: no
+teacher_preparation: Extraire la trousse, ouvrir le projet RStudio, installer les packages avant la séance
+  et lancer le script.
+expected_output: Les tableaux et graphiques du script, accompagnés d’une interprétation de 6 à 8 lignes répondant
+  à la question.
+requires_prepared_data: true
+requires_live_download: false
 recommended_use: Mini-projet guidé
-result_visible_in_page: yes
-
+result_visible_in_page: false
 learning_objectives:
-  - "Travailler Données et mesure."
-  - "Travailler Dates."
-  - "Travailler Carte de points."
-  - "Travailler Couverture territoriale."
-  - "Nommer au moins une limite d'interprétation."
-  - "Vérifier que `data/processed/qualite-air/rsqaq_stations.csv` est disponible; aucune collecte en direct n'est nécessaire pour lancer l'activité."
-  - "Fichier préparé : `data/processed/qualite-air/rsqaq_stations.csv`."
-  - "Script de préparation : `datasets/qualite-air/preparation.R`."
-  - "Point à surveiller : Exiger une section qui distingue répertoire de stations, mesures horaires, contaminants et qualité de l'air."
-  - "Exiger une section qui distingue répertoire de stations, mesures horaires, contaminants et qualité de l'air."
-  - "Si une variable ou un dénominateur nécessaire n'est pas disponible dans les données, l'écrire explicitement plutôt que l'inférer."
-  - "`data/processed/qualite-air/rsqaq_stations.csv`"
-  - "`data/processed/qualite-air/resume_regions_rsqaq_stations.csv`"
-  - "`data/processed/qualite-air/resume_decennies_ouverture_rsqaq_stations.csv`"
-  - "`data/processed/qualite-air/valeurs_manquantes_rsqaq_stations.csv`"
-
+- Comparer les régions et les décennies d’ouverture.
+- Lire la carte des stations sans la présenter comme une carte de pollution.
+- Formuler une limite qui découle de la source et de l’unité observée.
 prerequisites:
-  - "Vérifier le fichier ou le script de préparation annoncé avant la séance; adapter la mise en route au niveau indiqué."
-
+- Savoir ouvrir un projet RStudio et exécuter un script R.
+- Savoir lire un tableau groupé et un graphique descriptif; repérer les valeurs manquantes.
 success_criteria:
-  - "La production attendue est remise : Un court rapport reproductible avec contexte, tableau ou graphique, interprétation et limites."
-  - "Les résultats sont interprétés sans dépasser les limites de la source."
-
+- L’unité, la période ou la portée documentaire et les variables utilisées sont nommées.
+- Comparer les régions et les décennies d’ouverture.
+- Lire la carte des stations sans la présenter comme une carte de pollution.
+- La conclusion répond à la question et explique au moins une limite précise.
 adaptations:
-  - "Fournir une table préparée ou réduire le nombre de variables pour une première utilisation."
-  - "Ajouter une comparaison, une justification méthodologique ou une discussion des limites pour approfondir."
+- Débuter avec le script exécuté par la personne enseignante, puis faire interpréter une seule sortie.
+- Pour approfondir, modifier une sélection ou un regroupement et justifier ce que cela change.
+script_file: datasets/qualite-air/activite-longue.R
+classroom_archive: assets/classroom/qualite-air.zip
+access_mode: frozen

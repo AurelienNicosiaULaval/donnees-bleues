@@ -1,0 +1,14 @@
+<script id="db-skip-link-script">
+// Keep keyboard focus on the content when Quarto handles internal anchor links.
+document.addEventListener('DOMContentLoaded', function () {
+  const link = document.querySelector('.skip-to-content');
+  const content = document.getElementById('quarto-document-content');
+  if (!link || !content) return;
+  link.addEventListener('click', function (event) {
+    event.preventDefault();
+    event.stopPropagation();
+    content.focus({ preventScroll: true });
+    content.scrollIntoView({ block: 'start' });
+  });
+});
+</script>

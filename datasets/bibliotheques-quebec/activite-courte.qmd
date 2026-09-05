@@ -1,95 +1,64 @@
 ---
 title: "Laboratoire - Visites par habitant dans les bibliothèques"
-embed-resources: false
+embed-resources: true
 ---
-
 
 # Laboratoire - Visites par habitant dans les bibliothèques
 
-<!-- activity-teacher-brief:start -->
-::: {.activity-teacher-brief}
 
-## En classe, cette activité sert à...
+Comment comparer les visites de bibliothèques de tailles différentes?
 
-Cette activité sert à travailler les notions suivantes : Données et mesure, Statistique descriptive, Visualisation à partir d'une question située dans le contexte suivant : Culture et services publics. Elle demande aux étudiantes et étudiants de répondre à la question directrice suivante : Pourquoi les visites totales ne suffisent-elles pas pour comparer des bibliothèques?
-
-::: {.activity-quick-facts}
-| Élément | Information |
-|---|---|
-| Durée | 30-45 minutes |
-| Niveau | Introductif |
-| Usage recommandé | Exercice guidé |
-| Préparation enseignant | Vérifier que `data/processed/bibliotheques-quebec/statistiques_bibliotheques_quebec_2024_selection.csv` est disponible; aucune collecte en direct n'est nécessaire pour lancer l'activité. |
-| Production attendue | Un tableau ou graphique descriptif accompagné de trois phrases d'interprétation prudente. |
-| Données | `data/processed/bibliotheques-quebec/statistiques_bibliotheques_quebec_2024_selection.csv` |
-:::
-
-:::
-<!-- activity-teacher-brief:end -->
-
-## Données utilisées
-
-Source : Bibliothèque et Archives nationales du Québec / Données Québec. Licence : Attribution (CC-BY 4.0) selon les métadonnées CKAN vérifiées le 2026-06-21. Fichier principal pour l'activité : `data/processed/bibliotheques-quebec/statistiques_bibliotheques_quebec_2024_selection.csv`
+Durée : 30-45 minutes. Niveau : Introduction.
 
 ## Préparation enseignante
 
-- Vérifier que `data/processed/bibliotheques-quebec/statistiques_bibliotheques_quebec_2024_selection.csv` est disponible; aucune collecte en direct n'est nécessaire pour lancer l'activité.
-- Fichier préparé : `data/processed/bibliotheques-quebec/statistiques_bibliotheques_quebec_2024_selection.csv`.
-- Script de préparation : `datasets/bibliotheques-quebec/preparation.R`.
-- Point à surveiller : Faire distinguer visites totales, population desservie et visites par habitant. Insister sur la ligne sans population et sur les interprétations non causales.
+Télécharger la trousse ci-dessous. Extraire le ZIP, puis double-cliquer sur `Donnees-bleues.Rproj`. Avant la séance, ouvrir `installer-packages.R` et cliquer sur Source avec une connexion Internet.
 
-## Limites à faire nommer
+Une fois les packages installés, les scripts utilisent les fichiers inclus et peuvent être exécutés hors ligne.
 
-- Faire distinguer visites totales, population desservie et visites par habitant. Insister sur la ligne sans population et sur les interprétations non causales.
-- Si une variable ou un dénominateur nécessaire n'est pas disponible dans les données, l'écrire explicitement plutôt que l'inférer.
-
+```{r}
+#| label: activity-classroom-resources
+#| echo: false
+#| results: asis
+source(if (file.exists("R/utils_activity_contract.R")) "R/utils_activity_contract.R" else "../../R/utils_activity_contract.R")
+render_activity_resources()
+```
 
 ## Contexte
 
-Cette activité utilise la fiche [Statistiques des bibliothèques publiques du Québec](fiche.qmd). L'objectif est de passer d'un volume brut, les visites totales, à un indicateur comparable, les visites par habitant.
+Cette activité utilise la fiche [Statistiques des bibliothèques publiques du Québec](fiche.qmd). Unité : Une bibliothèque déclarante dans la sélection préparée des données 2024.
 
-## Objectifs d'apprentissage
-
-- Importer une table préparée à partir d'une source officielle.
-- Distinguer un volume brut d'un ratio.
-- Repérer les valeurs manquantes qui empêchent un calcul.
-- Produire un histogramme et un tableau des valeurs élevées.
-- Formuler une interprétation prudente d'un indicateur administratif.
-
-## Question directrice
-
-Pourquoi les visites totales ne suffisent-elles pas pour comparer les bibliothèques publiques?
+Source : [Bibliothèque et Archives nationales du Québec / Données Québec](https://www.donneesquebec.ca/recherche/dataset/statistiques_des_bibliotheques_publiques_du_quebec). Les dates de préparation, les fichiers et les conditions de réutilisation sont indiqués dans la trousse.
 
 ## Consignes
 
-1. Exécuter `datasets/bibliotheques-quebec/preparation.R`.
-2. Importer `data/processed/bibliotheques-quebec/statistiques_bibliotheques_quebec_2024_selection.csv`.
-3. Garder les lignes où `population_desservie` est disponible et positive.
-4. Visualiser la distribution de `visites_par_habitant`.
-5. Afficher les 8 bibliothèques avec le plus de visites par habitant.
-6. Rédiger une interprétation de 6 à 8 lignes.
+1. Ouvrir `activite-courte.R` dans le sous-dossier `datasets/bibliotheques-quebec` du projet RStudio et cliquer sur Source. Les tableaux apparaissent dans Console et les graphiques dans Plots.
+2. Recalculer les visites par personne avec une population desservie positive.
+3. Comparer l’histogramme et les huit ratios les plus élevés.
+4. Rédiger une réponse à la question en nommant l’unité observée et une limite de la source.
 
-## Résultats attendus
+## Résultat attendu
 
-Le script de préparation vérifie 188 lignes, 262 colonnes sources et 19 ressources CKAN. La table préparée contient 16 colonnes. Une ligne n'a pas de population desservie et doit être exclue des ratios.
+Les tableaux et graphiques du script, accompagnés d’une interprétation de 6 à 8 lignes répondant à la question.
 
-## Questions
+## Limites à faire nommer
 
-1. Quelle différence y a-t-il entre `visites_total` et `visites_par_habitant`?
-2. Pourquoi une bibliothèque avec beaucoup de visites totales n'est-elle pas nécessairement la plus fréquentée relativement à sa population?
-3. Quelles bibliothèques ont les ratios les plus élevés?
-4. Quelles explications non causales peuvent produire un ratio très élevé?
-5. Quelle limite doit être mentionnée avant de comparer deux régions?
+Les territoires desservis, missions et modalités de comptage diffèrent. Un ratio élevé ne prouve pas une meilleure qualité de service.
 
-## Pistes de solution
+## Code complet
 
-Une réponse minimale calcule le ratio et produit l'histogramme. Une meilleure réponse signale que certaines bibliothèques peuvent desservir des personnes au-delà de la population résidente, et que les ratios élevés doivent être documentés plutôt qu'interprétés automatiquement comme une performance supérieure.
+Ce script complet est celui de la trousse. Il lit les fichiers locaux et affiche les résultats dans RStudio.
+
+```{r}
+#| label: activity-code
+#| echo: false
+#| results: asis
+render_activity_code()
+```
 
 ```{r}
 #| label: activity-pedagogical-contract
 #| echo: false
 #| results: asis
-contract_source_path <- if (file.exists("R/utils_activity_contract.R")) "R/utils_activity_contract.R" else "../../R/utils_activity_contract.R"
-source(contract_source_path)
 render_activity_contract()
 ```

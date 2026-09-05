@@ -1,12 +1,13 @@
 id: qualite-eau-bassins-long
 title: Mini-projet - Bassins versants et qualité de l'eau
-question: Comment comparer des stations ou des bassins versants sans confondre couverture
-  du suivi, indicateurs agrégés et causalité environnementale?
+question: Comment comparer les stations du bassin Richelieu?
 dataset_id: suivi-rivieres-fleuve
 dataset_title: Suivi de la qualité de l'eau du fleuve et des rivières
 activity_url: datasets/suivi-rivieres-fleuve/activite-longue.qmd
 duration: 2-3 heures
 level: Intermédiaire
+level_ids:
+- intermediaire
 activity_type:
 - Étude de cas
 - Projet ou tâche longue
@@ -17,60 +18,47 @@ concepts:
 - Données spatiales
 - Jointure
 - Communication prudente
+concept_ids:
+- series-temporelles-agregees
+- visualisation
+- donnees-spatiales
+- jointure
+- communication-prudente
 context: Qualité de l'eau
-hook: Comparer des bassins exige de distinguer couverture de suivi et état environnemental.
+hook: La couverture des stations et périodes de suivi varie. Une évolution de médianes ne suffit pas à attribuer
+  une cause à un changement de qualité de l’eau.
 materials:
-- fiche vérifiée
-- script de préparation
-- table préparée
-- résumés R
-- notes enseignantes
-advanced_math_stats: no
-teacher_notes: 'Exiger une section séparée sur les limites: période, unité statistique,
-  valeurs manquantes et causalité.'
-status: source officielle vérifiée
+- Trousse ZIP et projet RStudio
+- Script R complet
+- CSV préparés et provenance
+advanced_math_stats: false
+teacher_notes: La couverture des stations et périodes de suivi varie. Une évolution de médianes ne suffit pas
+  à attribuer une cause à un changement de qualité de l’eau.
+status: Documentation de source et ressources de classe fournies
 pedagogical_status: pret_a_enseigner
-teacher_preparation: Vérifier que `data/processed/suivi-rivieres-fleuve/stations_qualite_eau_aires.csv`
-  est disponible; aucune collecte en direct n'est nécessaire pour lancer l'activité.
-expected_output: Un court rapport reproductible avec contexte, tableau ou graphique,
-  interprétation et limites.
-requires_prepared_data: yes
-requires_live_download: no
+teacher_preparation: Extraire la trousse, ouvrir le projet RStudio, installer les packages avant la séance
+  et lancer le script.
+expected_output: Les tableaux et graphiques du script, accompagnés d’une interprétation de 6 à 8 lignes répondant
+  à la question.
+requires_prepared_data: true
+requires_live_download: false
 recommended_use: Mini-projet guidé
-result_visible_in_page: yes
-
+result_visible_in_page: false
 learning_objectives:
-  - "Travailler Séries temporelles agrégées."
-  - "Travailler Visualisation."
-  - "Travailler Données spatiales."
-  - "Travailler Jointure."
-  - "Nommer au moins une limite d'interprétation."
-  - "Vérifier que `data/processed/suivi-rivieres-fleuve/stations_qualite_eau_aires.csv` est disponible; aucune collecte en direct n'est nécessaire pour lancer l'activité."
-  - "Fichier préparé : `data/processed/suivi-rivieres-fleuve/stations_qualite_eau_aires.csv`."
-  - "Script de préparation : `datasets/suivi-rivieres-fleuve/preparation.R`."
-  - "Point à surveiller : Exiger une section séparée sur les limites: période, unité statistique, valeurs manquantes et causalité."
-  - "Exiger une section séparée sur les limites: période, unité statistique, valeurs manquantes et causalité."
-  - "Si une variable ou un dénominateur nécessaire n'est pas disponible dans les données, l'écrire explicitement plutôt que l'inférer."
-  - "`ptot_med_mgl`;"
-  - "`ntot_med_mgl`;"
-  - "`nox_med_mgl`;"
-  - "`chla_med_ugl`;"
-  - "`cf_med_ufc`;"
-  - "`iqbp_med`."
-  - "Exactitude de la description de la source et de l'unité statistique."
-  - "Qualité du choix des stations ou bassins."
-  - "Respect des unités et des valeurs manquantes."
-  - "Lisibilité des graphiques."
-  - "Prudence de la conclusion environnementale."
-  - "Reproductibilité du code."
-
+- Sélectionner le bassin et comparer les séries de phosphore par station.
+- Examiner coordonnées et part agricole en distinguant association territoriale et causalité.
+- Formuler une limite qui découle de la source et de l’unité observée.
 prerequisites:
-  - "Vérifier le fichier ou le script de préparation annoncé avant la séance; adapter la mise en route au niveau indiqué."
-
+- Savoir ouvrir un projet RStudio et exécuter un script R.
+- Savoir lire un tableau groupé et un graphique descriptif; repérer les valeurs manquantes.
 success_criteria:
-  - "La production attendue est remise : Un court rapport reproductible avec contexte, tableau ou graphique, interprétation et limites."
-  - "Les résultats sont interprétés sans dépasser les limites de la source."
-
+- L’unité, la période ou la portée documentaire et les variables utilisées sont nommées.
+- Sélectionner le bassin et comparer les séries de phosphore par station.
+- Examiner coordonnées et part agricole en distinguant association territoriale et causalité.
+- La conclusion répond à la question et explique au moins une limite précise.
 adaptations:
-  - "Fournir une table préparée ou réduire le nombre de variables pour une première utilisation."
-  - "Ajouter une comparaison, une justification méthodologique ou une discussion des limites pour approfondir."
+- Débuter avec le script exécuté par la personne enseignante, puis faire interpréter une seule sortie.
+- Pour approfondir, modifier une sélection ou un regroupement et justifier ce que cela change.
+script_file: datasets/suivi-rivieres-fleuve/activite-longue.R
+classroom_archive: assets/classroom/suivi-rivieres-fleuve.zip
+access_mode: frozen

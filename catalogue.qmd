@@ -2,6 +2,7 @@
 title: "Explorer les données"
 toc: false
 page-layout: full
+embed-resources: true
 ---
 
 ```{r}
@@ -253,7 +254,7 @@ if (file.exists(catalogue_path)) {
   cat('<button class="catalogue-filters-close" type="button" data-close-mobile-filters>Fermer les filtres</button>\n')
   cat('</div>\n')
 
-  cat('<main class="catalogue-results">\n')
+  cat('<section class="catalogue-results" aria-label="Résultats du catalogue">\n')
   cat('<div class="catalogue-results-bar">\n')
   cat('<p class="catalogue-count" data-result-count aria-live="polite">', nrow(catalogue), ' jeux de données</p>\n', sep = "")
   cat('<label class="catalogue-sort">Trier par <select id="dataset-sort"><option value="relevance">Pertinence</option><option value="title">Titre</option><option value="score">Réutilisation pédagogique</option></select></label>\n')
@@ -295,6 +296,7 @@ if (file.exists(catalogue_path)) {
       row$level,
       row$license,
       row$concepts,
+      row$search_aliases,
       row$idees_mini_projets,
       row$activity_question,
       row$status,
@@ -353,7 +355,7 @@ if (file.exists(catalogue_path)) {
 
   cat("</div>\n")
   cat('<p class="catalogue-empty" data-empty-catalogue hidden>Aucune fiche ne correspond aux filtres actuels.</p>\n')
-  cat('</main>\n')
+  cat('</section>\n')
   cat("</div>\n")
   cat("</section>\n")
   cat('<script>\n')
@@ -387,7 +389,7 @@ if (file.exists(catalogue_path)) {
   cat('  const matchesTokens = function (selected, value) {\n')
   cat('    if (selected.length === 0) return true;\n')
   cat('    const tokens = (value || "").split("||");\n')
-  cat('    return selected.some(function (item) { return tokens.includes(item); });\n')
+  cat('    return selected.some(function (item) { return tokens.map(normalize).includes(normalize(item)); });\n')
   cat('  };\n')
   cat('  const sortCards = function () {\n')
   cat('    const mode = sortSelect ? sortSelect.value : "relevance";\n')

@@ -2,6 +2,7 @@
 title: "Méthode : données zéro déchet"
 toc: false
 page-layout: full
+embed-resources: true
 ---
 
 ::: {.zero-waste-page}

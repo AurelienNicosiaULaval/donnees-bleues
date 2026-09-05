@@ -1,0 +1,30 @@
+{
+  "dataset_id": "meteo-quebec",
+  "prepared_at_utc": "2026-09-05T11:04:55Z",
+  "prepared_file": "meteo_quebec.csv",
+  "prepared_sha256": "11348fb37f75f83727598e6648d1a9c6f70d1a06dd29d5c48e3b23e4b2abe18a",
+  "preview_sha256": "e2d73069b02ad2cef2a202938bfa7ca7a5c2fad343d08db44e5d58d3f180ded5",
+  "rows": 120,
+  "columns": ["source_dataset", "station_label", "date", "annee", "mois_num", "mois", "jour", "saison", "max_temp", "mean_temp"],
+  "selection": "Au plus 120 positions régulièrement espacées dans l'ordre de la table préparée; sélection déterministe non aléatoire",
+  "source_name": "UlavalSSD::MeteoQuebec, construit avec weathercan à partir d'ECCC",
+  "source_url": "https://climate.weather.gc.ca/historical_data/search_historic_data_e.html",
+  "license": "Données ECCC soumises à l'entente de licence d'ECCC; paquet UlavalSSD sous licence MIT",
+  "license_url": "https://climat.meteo.gc.ca/prods_servs/attachment1_f.html",
+  "sources": [
+    {
+      "source_url": "https://github.com/AurelienNicosiaULaval/UlavalSSD/tree/0b79f4c985ef87a32bdb5b83f193ae5f5ea6d640",
+      "acquisition_kind": "package_export",
+      "acquired_at_utc": "2026-09-05T11:04:55Z",
+      "started_at_utc": {},
+      "file": "UlavalSSD_MeteoQuebec.csv",
+      "bytes": 836841,
+      "sha256": "b031b644a1a7be1a131bed565db88daed01e678940a3763818ef62ec9a59de45",
+      "details": {
+        "package": "UlavalSSD",
+        "version": "0.2.0",
+        "dataset": "MeteoQuebec"
+      }
+    }
+  ]
+}

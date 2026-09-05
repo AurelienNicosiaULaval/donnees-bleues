@@ -1,0 +1,69 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='576.00pt' height='360.00pt' viewBox='0 0 576.00 360.00'>
+<g class='svglite'>
+<defs>
+  <style type='text/css'><![CDATA[
+    .svglite line, .svglite polyline, .svglite polygon, .svglite path, .svglite rect, .svglite circle {
+      fill: none;
+      stroke: #000000;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      stroke-miterlimit: 10.00;
+    }
+    .svglite text {
+      white-space: pre;
+    }
+    .svglite g.glyphgroup path {
+      fill: inherit;
+      stroke: none;
+    }
+  ]]></style>
+</defs>
+<rect width='100%' height='100%' style='stroke: none; fill: #FFFFFF;'/>
+<defs>
+  <clipPath id='cpMC4wMHw1NzYuMDB8MC4wMHwzNjAuMDA='>
+    <rect x='0.00' y='0.00' width='576.00' height='360.00' />
+  </clipPath>
+</defs>
+<g clip-path='url(#cpMC4wMHw1NzYuMDB8MC4wMHwzNjAuMDA=)'>
+<rect x='0.00' y='0.00' width='576.00' height='360.00' style='stroke-width: 1.07; stroke: none; fill: #FFFFFF;' />
+</g>
+<defs>
+  <clipPath id='cpMTQ3LjU0fDU3MC41MnwzNy43NHwzMTUuNjI='>
+    <rect x='147.54' y='37.74' width='422.98' height='277.89' />
+  </clipPath>
+</defs>
+<g clip-path='url(#cpMTQ3LjU0fDU3MC41MnwzNy43NHwzMTUuNjI=)'>
+<polyline points='147.54,283.56 570.52,283.56 ' style='stroke-width: 1.07; stroke: #EBEBEB; stroke-linecap: butt;' />
+<polyline points='147.54,230.12 570.52,230.12 ' style='stroke-width: 1.07; stroke: #EBEBEB; stroke-linecap: butt;' />
+<polyline points='147.54,176.68 570.52,176.68 ' style='stroke-width: 1.07; stroke: #EBEBEB; stroke-linecap: butt;' />
+<polyline points='147.54,123.24 570.52,123.24 ' style='stroke-width: 1.07; stroke: #EBEBEB; stroke-linecap: butt;' />
+<polyline points='147.54,69.80 570.52,69.80 ' style='stroke-width: 1.07; stroke: #EBEBEB; stroke-linecap: butt;' />
+<polyline points='166.77,315.62 166.77,37.74 ' style='stroke-width: 1.07; stroke: #EBEBEB; stroke-linecap: butt;' />
+<polyline points='279.86,315.62 279.86,37.74 ' style='stroke-width: 1.07; stroke: #EBEBEB; stroke-linecap: butt;' />
+<polyline points='392.96,315.62 392.96,37.74 ' style='stroke-width: 1.07; stroke: #EBEBEB; stroke-linecap: butt;' />
+<polyline points='506.06,315.62 506.06,37.74 ' style='stroke-width: 1.07; stroke: #EBEBEB; stroke-linecap: butt;' />
+<rect x='166.77' y='157.98' width='271.43' height='37.41' style='stroke-width: 1.07; stroke: none; stroke-linecap: butt; stroke-linejoin: miter; fill: #185B83;' />
+<rect x='166.77' y='104.54' width='373.22' height='37.41' style='stroke-width: 1.07; stroke: none; stroke-linecap: butt; stroke-linejoin: miter; fill: #185B83;' />
+<rect x='166.77' y='51.10' width='384.53' height='37.41' style='stroke-width: 1.07; stroke: none; stroke-linecap: butt; stroke-linejoin: miter; fill: #185B83;' />
+<rect x='166.77' y='211.42' width='260.12' height='37.41' style='stroke-width: 1.07; stroke: none; stroke-linecap: butt; stroke-linejoin: miter; fill: #185B83;' />
+<rect x='166.77' y='264.85' width='67.86' height='37.41' style='stroke-width: 1.07; stroke: none; stroke-linecap: butt; stroke-linejoin: miter; fill: #185B83;' />
+</g>
+<g clip-path='url(#cpMC4wMHw1NzYuMDB8MC4wMHwzNjAuMDA=)'>
+<text x='142.61' y='286.71' text-anchor='end' style='font-size: 8.80px;fill: #4D4D4D; font-family: "Arial";' textLength='51.34px' lengthAdjust='spacingAndGlyphs'>Vols qualifiés</text>
+<text x='142.61' y='233.27' text-anchor='end' style='font-size: 8.80px;fill: #4D4D4D; font-family: "Arial";' textLength='96.30px' lengthAdjust='spacingAndGlyphs'>Vol de véhicule à moteur</text>
+<text x='142.61' y='179.83' text-anchor='end' style='font-size: 8.80px;fill: #4D4D4D; font-family: "Arial";' textLength='45.94px' lengthAdjust='spacingAndGlyphs'>Introduction</text>
+<text x='142.61' y='126.39' text-anchor='end' style='font-size: 8.80px;fill: #4D4D4D; font-family: "Arial";' textLength='23.94px' lengthAdjust='spacingAndGlyphs'>Méfait</text>
+<text x='142.61' y='72.95' text-anchor='end' style='font-size: 8.80px;fill: #4D4D4D; font-family: "Arial";' textLength='125.12px' lengthAdjust='spacingAndGlyphs'>Vol dans / sur véhicule à moteur</text>
+<text x='166.77' y='326.85' text-anchor='middle' style='font-size: 8.80px;fill: #4D4D4D; font-family: "Arial";' textLength='4.89px' lengthAdjust='spacingAndGlyphs'>0</text>
+<text x='279.86' y='326.85' text-anchor='middle' style='font-size: 8.80px;fill: #4D4D4D; font-family: "Arial";' textLength='9.78px' lengthAdjust='spacingAndGlyphs'>10</text>
+<text x='392.96' y='326.85' text-anchor='middle' style='font-size: 8.80px;fill: #4D4D4D; font-family: "Arial";' textLength='9.78px' lengthAdjust='spacingAndGlyphs'>20</text>
+<text x='506.06' y='326.85' text-anchor='middle' style='font-size: 8.80px;fill: #4D4D4D; font-family: "Arial";' textLength='9.78px' lengthAdjust='spacingAndGlyphs'>30</text>
+<text x='359.03' y='338.61' text-anchor='middle' style='font-size: 10.00px; font-family: "Arial";' textLength='127.28px' lengthAdjust='spacingAndGlyphs'>Actes dans l’extrait (nombre)</text>
+<text transform='translate(12.64,176.68) rotate(-90)' text-anchor='middle' style='font-size: 10.00px; font-family: "Arial";' textLength='43.36px' lengthAdjust='spacingAndGlyphs'>Catégorie</text>
+<text x='147.54' y='30.37' style='font-size: 9.00px; font-family: "Arial";' textLength='272.50px' lengthAdjust='spacingAndGlyphs'>Extrait consultable : 120 lignes avant retrait des valeurs manquantes</text>
+<text x='147.54' y='15.50' style='font-size: 14.00px;fill: #172033; font-family: "Arial";' textLength='199.14px' lengthAdjust='spacingAndGlyphs'>Catégories des actes de l’extrait</text>
+<text x='147.54' y='352.63' style='font-size: 9.00px; font-family: "Arial";' textLength='246.50px' lengthAdjust='spacingAndGlyphs'>0 ligne(s) avec une mesure manquante ou non finie exclue(s).</text>
+</g>
+</g>
+</svg>

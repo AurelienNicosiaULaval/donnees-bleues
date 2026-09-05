@@ -52,6 +52,7 @@ saveRDS(catalogue, "data/metadata/catalogue.rds")
 
 catalogue_activites <- build_activity_catalogue("datasets")
 validate_activity_catalogue(catalogue_activites)
+validate_activity_resources(catalogue_activites)
 validate_activity_contract_renderers(catalogue_activites)
 validate_documented_paths()
 write_activity_catalogue(catalogue_activites, "data/metadata/catalogue_activites.csv")

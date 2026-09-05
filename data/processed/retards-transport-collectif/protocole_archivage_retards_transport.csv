@@ -1,8 +1,0 @@
-step,action,point_de_controle
-1,Créer un compte sur le portail développeur STM et obtenir une clé API.,"Ne jamais publier la clé API dans Git, Quarto ou les fichiers remis aux étudiants."
-2,Collecter des instantanés à intervalle fixe pendant une période définie.,Ajouter collection_time à chaque collecte; documenter le fuseau horaire.
-3,Parser les messages Protocol Buffers du flux GTFS-realtime.,"Conserver le type de message: TripUpdate, VehiclePosition ou Alert."
-4,Joindre les identifiants au GTFS statique de la STM lorsque l'analyse exige les noms de lignes ou d'arrêts.,Vérifier que la période du GTFS statique correspond à la période des instantanés.
-5,Calculer retard_minutes seulement à partir d'un champ de délai effectivement présent.,Documenter la formule et les observations exclues.
-6,"Résumer les retards par ligne, par période et par sens de déplacement.",Toujours rapporter le nombre d'observations par groupe.
-7,Présenter les limites avant d'interpréter la ponctualité.,"Distinguer couverture du flux, fréquence de collecte, données manquantes et performance réelle."

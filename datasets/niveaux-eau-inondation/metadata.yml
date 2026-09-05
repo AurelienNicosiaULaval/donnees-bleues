@@ -19,7 +19,10 @@ processed_file: "data/processed/niveaux-eau-inondation/niveaux_eau_inondation.cs
 missing_summary_file: "data/processed/niveaux-eau-inondation/valeurs_manquantes_niveaux_eau_inondation.csv"
 year_summary_file: "data/processed/niveaux-eau-inondation/resume_annee_niveaux_eau_inondation.csv"
 update_frequency: "Annuelle selon le miroir ouvert.canada.ca; paquet CKAN modifié le 3 juin 2026"
-level: "Introduction à intermédiaire"
+level: Introduction à intermédiaire
+level_ids:
+- introduction
+- intermediaire
 organisme: "Ministère de la Sécurité intérieure"
 territoire: "Québec"
 taille_approximative: "1 500 observations ponctuelles, version source 2026-05-12"
@@ -51,14 +54,23 @@ tags:
   - "risques"
   - "sécurité civile"
 concepts:
-  - "données spatiales"
-  - "événement extrême"
-  - "valeurs manquantes"
-  - "précision de mesure"
-  - "statistiques descriptives"
-  - "cartographie"
-  - "communication du risque"
-  - "éthique"
+- Données spatiales
+- Événement extrême
+- Valeurs manquantes
+- Précision de mesure
+- Statistiques descriptives
+- Cartographie
+- Communication du risque
+- Éthique
+concept_ids:
+- donnees-spatiales
+- evenement-extreme
+- valeurs-manquantes
+- precision-de-mesure
+- statistiques-descriptives
+- cartographie
+- communication-du-risque
+- ethique
 zero_waste:
   contexte_quebecois: 3
   accessibilite_pedagogique: 3
@@ -74,3 +86,60 @@ status: "source officielle vérifiée; CSV WFS préparé localement"
 notes: "Les points représentent des marqueurs de niveau d'eau, pas l'étendue d'une inondation. Les conclusions doivent tenir compte du type d'observation, de la précision et du contexte de collecte."
 contributor_name: "Aurélien Nicosia"
 contributor_role: "Révision pédagogique et statistique"
+
+publication:
+  preview: true
+  reviewed_on: '2026-09-05'
+  license_url: https://creativecommons.org/licenses/by/4.0/deed.fr
+  preview_columns:
+  - id_msp
+  - date_obs
+  - annee_obs
+  - type_obs
+  - type_observation
+  reason: Extrait pédagogique limité aux colonnes déclarées; attribution et conditions de la source conservées.
+  classroom:
+    mode: frozen
+    reason: Table de classe limitée aux colonnes déclarées, sans tirage supplémentaire de lignes. Attribution
+      et conditions tierces conservées.
+    files:
+    - path: data/processed/niveaux-eau-inondation/niveaux_eau_inondation.csv
+      columns:
+      - id_msp
+      - date_obs
+      - annee_obs
+      - type_obs
+      - type_observation
+      - long_wgs84
+      - lat_wgs84
+      - alt_m_cgvd
+      - err_xy_cm
+      - err_z_cm
+      - has_coordinates
+    - path: data/processed/niveaux-eau-inondation/resume_annee_niveaux_eau_inondation.csv
+      columns:
+      - annee_obs
+      - type_obs
+      - n_observations
+    - path: data/processed/niveaux-eau-inondation/resume_type_niveaux_eau_inondation.csv
+      columns:
+      - type_obs
+      - type_observation
+      - n_observations
+      - altitude_min
+      - altitude_mediane
+      - altitude_max
+      - erreur_xy_mediane_cm
+      - erreur_z_mediane_cm
+    - path: data/processed/niveaux-eau-inondation/valeurs_manquantes_niveaux_eau_inondation.csv
+      columns:
+      - variable
+      - n_missing
+      - n_rows
+      - pct_missing
+chart:
+  type: count
+  x_variable: type_observation
+  x_label: Observations dans l’extrait (nombre)
+  y_label: Type de niveau observé
+  title: Types d’observations de niveau d’eau

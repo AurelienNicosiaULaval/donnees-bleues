@@ -1,3 +1,4 @@
+source("R/utils_downloads.R")
 # Préparation : Indices de défavorisation des écoles primaires du Québec
 # Source officielle : Données Québec / Ministère de l'Éducation
 
@@ -16,7 +17,7 @@ source_url <- "https://www.donneesquebec.ca/recherche/dataset/004de02c-19f1-4da0
 raw_path <- file.path(raw_dir, "defav_ecole_prim_public.csv")
 processed_path <- file.path(processed_dir, "defavorisation_ecoles_primaires.csv")
 
-download.file(source_url, raw_path, mode = "wb", quiet = TRUE)
+download_source(source_url, raw_path, mode = "wb", quiet = TRUE)
 
 expected_columns <- c(
   "Code_Cs",
@@ -78,3 +79,5 @@ message("Lignes : ", nrow(ecoles))
 message("Colonnes : ", ncol(ecoles))
 message("Lignes diffusées : ", sum(ecoles$diffusion_indices))
 message("Lignes non diffusées : ", sum(!ecoles$diffusion_indices))
+
+record_preparation("defavorisation-ecoles-primaires")

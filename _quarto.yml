@@ -3,11 +3,17 @@ project:
   output-dir: docs
   resources:
     - CITATION.cff
+    - LICENSE
+    - LICENCE-CONTENUS.md
     - favicon.svg
     - assets/logo-donnees-bleues.svg
     - assets/logo-donnees-bleues-horizontal.svg
     - assets/illustrations/*.svg
     - assets/previews/*.csv
+    - assets/previews/*.json
+    - assets/charts/*.svg
+    - assets/classroom/*.zip
+    - assets/classroom/*.json
     - assets/cards/*.webp
     - assets/cards/*.png
     - assets/cards/*.jpg
@@ -64,7 +70,7 @@ website:
       - text: "Contribuer"
         href: contribuer.qmd
   page-footer:
-    left: "Données bleues · version 0.1.0 · 23 août 2026"
+    left: "Données bleues · version 0.2.0 · septembre 2026"
     right: "Des données publiques à enseigner, avec contexte."
 
 lang: fr
@@ -72,8 +78,13 @@ lang: fr
 format:
   html:
     theme: default
-    css: styles.css
-    embed-resources: false
+    css:
+      - styles.css
+      - assets/css/navigation.css
+      - assets/css/previews.css
+      - assets/css/activities.css
+    include-before-body: assets/skip-link.html
+    embed-resources: true
     toc: true
     toc-depth: 3
     code-copy: true

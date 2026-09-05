@@ -1,3 +1,4 @@
+source("R/utils_downloads.R")
 # Préparer les permis, bâtiments et quartiers de la Ville de Québec.
 
 library(dplyr)
@@ -34,7 +35,12 @@ resources <- tibble::tribble(
 )
 
 get_resource_record <- function(source_id, package_id, resource_id, raw_file, processed_file) {
-  package <- ckan_package_show(package_id)
+  response_path <- file.path(metadata_dir, paste0(package_id, "-response.json"))
+  package_url <- paste0("https://www.donneesquebec.ca/recherche/api/3/action/package_show?id=", package_id)
+  download_source(package_url, response_path)
+  response <- jsonlite::fromJSON(response_path)
+  if (!isTRUE(response$success)) stop("Réponse CKAN invalide : ", package_id, call. = FALSE)
+  package <- response$result
   resource <- package$resources |>
     filter(.data$id == resource_id)
 
@@ -75,7 +81,7 @@ get_resource_record <- function(source_id, package_id, resource_id, raw_file, pr
 resource_records <- pmap_dfr(resources, get_resource_record)
 
 download_resource <- function(url, destination) {
-  download.file(url, destination, mode = "wb", quiet = TRUE)
+  download_source(url, destination, mode = "wb", quiet = TRUE)
   destination
 }
 
@@ -344,3 +350,5 @@ write_csv(dictionnaire_variables, file.path(processed_dir, "dictionnaire_variabl
 message("Fichiers bruts : ", raw_dir)
 message("Fichiers préparés : ", processed_dir)
 message("Agrégat par quartier : ", aggregate_path)
+
+record_preparation("construction-quartiers-quebec")

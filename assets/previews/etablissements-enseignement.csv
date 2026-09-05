@@ -1,121 +1,121 @@
-source_resource,resource_label,network_category,unit_kind,source_row,date_maj_source,code_organisme,code_immeuble,code_css,nom
-collegial,Établissements collégiaux,Collégial,Établissement,1,NA,020510,NA,NA,Conservatoire de musique de Rimouski
-collegial,Établissements collégiaux,Collégial,Établissement,119,NA,693703,NA,NA,Institut Trebas Québec inc.
-collegial,Établissements collégiaux,Collégial,Établissement,237,NA,915090,NA,NA,CÉRSÉ - Centre d'études en responsabilité sociale et écocitoyenneté
-gouvernemental,Établissements gouvernementaux,Gouvernemental,Établissement,25,NA,036600,NA,NA,Kateri School
-prive_etablissement,Établissements privés,Privé,Établissement,104,NA,244500,NA,NA,École Marie-Clarac
-prive_etablissement,Établissements privés,Privé,Établissement,222,NA,605500,NA,NA,École Montessori Magog
-prive_installation,Installations privées,Privé,Installation,89,NA,127501,NA,NA,"Collège Notre-Dame-de-l'Assomption, campus français"
-prive_installation,Installations privées,Privé,Installation,207,NA,349501,NA,NA,Externat Mont-Jésus-Marie
-prive_installation,Installations privées,Privé,Installation,325,NA,625502,NA,NA,École Trilingue Vision St-Jean
-public_ecole,Écoles publiques,Public,Lien école-immeuble,84,NA,712002,712039,712000,École de l'Estran
-public_ecole,Écoles publiques,Public,Lien école-immeuble,202,NA,714003,714084,714000,École des Vieux-Moulins et Saint-Modeste
-public_ecole,Écoles publiques,Public,Lien école-immeuble,320,NA,721085,721069,721000,École secondaire des Grandes-Rivières
-public_ecole,Écoles publiques,Public,Lien école-immeuble,438,NA,722461,723073,722000,Centre de formation professionnelle Alma
-public_ecole,Écoles publiques,Public,Lien école-immeuble,556,NA,731003,731018,731000,École Les Marées montantes
-public_ecole,Écoles publiques,Public,Lien école-immeuble,674,NA,732476,732075,732000,École hôtelière de la Capitale
-public_ecole,Écoles publiques,Public,Lien école-immeuble,792,NA,734065,734065,734000,École Le Sommet
-public_ecole,Écoles publiques,Public,Lien école-immeuble,910,NA,741155,741046,741000,École intégrée des Forges
-public_ecole,Écoles publiques,Public,Lien école-immeuble,1028,NA,742352,742121,742000,Centre d'éducation des adultes du Saint-Maurice
-public_ecole,Écoles publiques,Public,Lien école-immeuble,1146,NA,742461,742063,742000,École forestière de La Tuque - Formation professionnelle
-public_ecole,Écoles publiques,Public,Lien école-immeuble,1264,NA,752021,752135,752000,École Notre-Dame-du-Rosaire
-public_ecole,Écoles publiques,Public,Lien école-immeuble,1382,NA,759013,759142,759000,École Upichinaausiun Chiskutimatukimikw School
-public_ecole,Écoles publiques,Public,Lien école-immeuble,1500,NA,761477,761027,761000,Centre de formation des Métiers de l'Acier
-public_ecole,Écoles publiques,Public,Lien école-immeuble,1618,NA,762122,762090,762000,École Barclay
-public_ecole,Écoles publiques,Public,Lien école-immeuble,1736,NA,762315,762200,762000,Centre Marie-Médiatrice
-public_ecole,Écoles publiques,Public,Lien école-immeuble,1854,NA,763203,763144,763000,École Gentilly
-public_ecole,Écoles publiques,Public,Lien école-immeuble,1972,NA,769102,769738,769000,École Ikaarvik
-public_ecole,Écoles publiques,Public,Lien école-immeuble,2090,NA,772302,772022,772000,Centre d'éducation des adultes des Portages-de-l'Outaouais
-public_ecole,Écoles publiques,Public,Lien école-immeuble,2208,NA,782007,782007,782000,École Notre-Dame-de-Protection
-public_ecole,Écoles publiques,Public,Lien école-immeuble,2326,NA,784014,784850,784000,École Saint-Isidore
-public_ecole,Écoles publiques,Public,Lien école-immeuble,2444,NA,792047,792047,792000,École Jean-du-Nord / Manikoutai
-public_ecole,Écoles publiques,Public,Lien école-immeuble,2562,NA,812407,812001,812000,Centre de formation professionnelle de La Haute-Gaspésie
-public_ecole,Écoles publiques,Public,Lien école-immeuble,2680,NA,821247,821047,821000,École secondaire Louis-Jacques-Casault
-public_ecole,Écoles publiques,Public,Lien école-immeuble,2798,NA,823043,823043,823000,École des Sommets
-public_ecole,Écoles publiques,Public,Lien école-immeuble,2916,NA,823361,823084,823000,Centre d'éducation des adultes Monseigneur-Beaudoin-Les Sources
-public_ecole,Écoles publiques,Public,Lien école-immeuble,3034,NA,824217,824113,824000,"École secondaire Champagnat, Guillaume-Couture"
-public_ecole,Écoles publiques,Public,Lien école-immeuble,3152,NA,831102,831018,831000,École Curé-Antoine-Labelle
-public_ecole,Écoles publiques,Public,Lien école-immeuble,3270,NA,831460,831018,831000,Centre de formation horticole de Laval
-public_ecole,Écoles publiques,Public,Lien école-immeuble,3388,NA,841301,841812,841000,Centre la Croisée
-public_ecole,Écoles publiques,Public,Lien école-immeuble,3506,NA,842401,842097,842000,Centre multiservice des Samares
-public_ecole,Écoles publiques,Public,Lien école-immeuble,3624,NA,851306,851834,851000,Centre de formation continue des Patriotes
-public_ecole,Écoles publiques,Public,Lien école-immeuble,3742,NA,852401,852805,852000,Centre de formation du transport routier de Saint-Jérôme
-public_ecole,Écoles publiques,Public,Lien école-immeuble,3860,NA,861007,861035,861000,École secondaire Fernand-Lefebvre - Pavillon Tournesol
-public_ecole,Écoles publiques,Public,Lien école-immeuble,3978,NA,863035,863034,863000,École de Ramezay
-public_ecole,Écoles publiques,Public,Lien école-immeuble,4096,NA,864278,864078,864000,École Gérard-Filion
-public_ecole,Écoles publiques,Public,Lien école-immeuble,4214,NA,865210,865064,865000,École Jacques-Rocheleau-Saint-Basile
-public_ecole,Écoles publiques,Public,Lien école-immeuble,4332,NA,865435,865102,865000,Centre de formation professionnelle des Patriotes
-public_ecole,Écoles publiques,Public,Lien école-immeuble,4450,NA,867065,867028,867000,École  Pierre-Bédard
-public_ecole,Écoles publiques,Public,Lien école-immeuble,4568,NA,868028,868038,868000,École Edgar-Hébert
-public_ecole,Écoles publiques,Public,Lien école-immeuble,4686,NA,871025,871005,871000,École l'Oasis
-public_ecole,Écoles publiques,Public,Lien école-immeuble,4804,NA,873008,873019,873000,École Saint-Félix-de-Kingsey
-public_ecole,Écoles publiques,Public,Lien école-immeuble,4922,NA,882009,882852,882000,École secondaire Evergreen
-public_ecole,Écoles publiques,Public,Lien école-immeuble,5040,NA,883402,883022,883000,Centre de Formation  professionnelle de Lennoxville
-public_ecole,Écoles publiques,Public,Lien école-immeuble,5158,NA,884452,884016,884000,Centre d'expertise en Transport - ACCESS (CET-A)
-public_ecole,Écoles publiques,Public,Lien école-immeuble,5276,NA,887026,887068,887000,École Nesbitt
-public_ecole,Écoles publiques,Public,Lien école-immeuble,5394,NA,888080,888012,888000,École primaire Clearpoint
-public_immeuble,Immeubles publics,Public,Immeuble,54,NA,NA,689085,689000,"Résidence 08A5,A6,A7"
-public_immeuble,Immeubles publics,Public,Immeuble,172,NA,NA,713011,713000,"Oiseau Chanteur, de l'"
-public_immeuble,Immeubles publics,Public,Immeuble,290,NA,NA,721006,721000,Saint-Louis-de-Gonzague
-public_immeuble,Immeubles publics,Public,Immeuble,408,NA,NA,723026,723000,Notre-Dame
-public_immeuble,Immeubles publics,Public,Immeuble,526,NA,NA,732003,732000,Sans-Frontière
-public_immeuble,Immeubles publics,Public,Immeuble,643,NA,NA,733074,733000,Pavillon Gilles-Vigneault
-public_immeuble,Immeubles publics,Public,Immeuble,761,NA,NA,735028,735000,Marie-du-Saint-Sacrement
-public_immeuble,Immeubles publics,Public,Immeuble,879,NA,NA,742053,742000,Jacques-Buteux
-public_immeuble,Immeubles publics,Public,Immeuble,997,NA,NA,752204,752000,"Le Ber, pavillon"
-public_immeuble,Immeubles publics,Public,Immeuble,1115,NA,NA,759062,759000,Bungalow
-public_immeuble,Immeubles publics,Public,Immeuble,1233,NA,NA,759515,759000,Jumelé
-public_immeuble,Immeubles publics,Public,Immeuble,1351,NA,NA,761007,761000,Pie-XII
-public_immeuble,Immeubles publics,Public,Immeuble,1469,NA,NA,762046,762000,Saint-Léon-de-Westmount
-public_immeuble,Immeubles publics,Public,Immeuble,1587,NA,NA,762209,762000,Boucher-De La Bruère
-public_immeuble,Immeubles publics,Public,Immeuble,1705,NA,NA,762827,762000,"Sophie-Barat, annexe temporaire"
-public_immeuble,Immeubles publics,Public,Immeuble,1823,NA,NA,763104,763000,Enfants-du-Monde
-public_immeuble,Immeubles publics,Public,Immeuble,1941,NA,NA,769152,769000,Duplex
-public_immeuble,Immeubles publics,Public,Immeuble,2059,NA,NA,769518,769000,Quadruplex
-public_immeuble,Immeubles publics,Public,Immeuble,2177,NA,NA,771089,771000,"Odyssée (édifice Jean XXIII), de l'"
-public_immeuble,Immeubles publics,Public,Immeuble,2295,NA,NA,774004,774000,"Sainte-Anne, no 1"
-public_immeuble,Immeubles publics,Public,Immeuble,2413,NA,NA,783807,783000,La Passerelle (Saint-Félix-de-Dalquier)
-public_immeuble,Immeubles publics,Public,Immeuble,2531,NA,NA,792070,792000,"Maison (21, rue Brouage)"
-public_immeuble,Immeubles publics,Public,Immeuble,2649,NA,NA,813019,813000,Polyvalente Paspébiac et La Source
-public_immeuble,Immeubles publics,Public,Immeuble,2767,NA,NA,823009,823000,Sainte-Famille
-public_immeuble,Immeubles publics,Public,Immeuble,2885,NA,NA,824027,824000,Charles-Rodrigue
-public_immeuble,Immeubles publics,Public,Immeuble,3003,NA,NA,831067,831000,"Boisé, du"
-public_immeuble,Immeubles publics,Public,Immeuble,3121,NA,NA,841106,841000,Saint-Joachim
-public_immeuble,Immeubles publics,Public,Immeuble,3239,NA,NA,842095,842000,"Récolte, de la"
-public_immeuble,Immeubles publics,Public,Immeuble,3357,NA,NA,851087,851000,"Perséides, des"
-public_immeuble,Immeubles publics,Public,Immeuble,3475,NA,NA,852808,852000,Local satellite CFTR (Joliette)
-public_immeuble,Immeubles publics,Public,Immeuble,3593,NA,NA,854058,854000,"Sacré-Coeur (Ferme-Neuve), du"
-public_immeuble,Immeubles publics,Public,Immeuble,3711,NA,NA,863025,863000,"Capitaine-Luc-Fortin, Édifice Henryville"
-public_immeuble,Immeubles publics,Public,Immeuble,3829,NA,NA,864086,864000,"Greenfield Park, du vieux"
-public_immeuble,Immeubles publics,Public,Immeuble,3947,NA,NA,866019,866000,Sainte-Famille
-public_immeuble,Immeubles publics,Public,Immeuble,4065,NA,NA,868011,868000,Omer-Séguin
-public_immeuble,Immeubles publics,Public,Immeuble,4183,NA,NA,871029,871000,"Jeunesse, la"
-public_immeuble,Immeubles publics,Public,Immeuble,4301,NA,NA,873044,873000,Jean-Raimbault
-public_immeuble,Immeubles publics,Public,Immeuble,4419,NA,NA,883950,883000,Terrain - Lot 1 140 816 - Stationnement
-public_immeuble,Immeubles publics,Public,Immeuble,4537,NA,NA,886004,886000,Namur
-public_immeuble,Immeubles publics,Public,Immeuble,4655,NA,NA,887962,887000,Terrains vacants - Lots 5 035 931 et 5 035 932
-ssocial_cs,Sièges sociaux CSS et CS,Public,Siège social CSS ou CS,42,NA,822000,NA,NA,Centre de services scolaire des Appalaches
-ssocial_org,Sièges sociaux organismes,Public,Siège social organisme,88,NA,713009,NA,NA,École de Saint-Jean-de-Dieu
-ssocial_org,Sièges sociaux organismes,Public,Siège social organisme,206,NA,724014,NA,NA,École polyvalente Jonquière
-ssocial_org,Sièges sociaux organismes,Public,Siège social organisme,324,NA,733390,NA,NA,Centre d'éducation des adultes Le Phénix
-ssocial_org,Sièges sociaux organismes,Public,Siège social organisme,442,NA,741403,NA,NA,Centre de formation professionnelle Qualitech
-ssocial_org,Sièges sociaux organismes,Public,Siège social organisme,560,NA,752155,NA,NA,École Le Monarque
-ssocial_org,Sièges sociaux organismes,Public,Siège social organisme,678,NA,761370,NA,NA,Centre d'éducation aux adultes Daniel-Johnson
-ssocial_org,Sièges sociaux organismes,Public,Siège social organisme,796,NA,762149,NA,NA,École Saint-Pascal-Baylon
-ssocial_org,Sièges sociaux organismes,Public,Siège social organisme,914,NA,763109,NA,NA,École Martin-Bélanger
-ssocial_org,Sièges sociaux organismes,Public,Siège social organisme,1032,NA,771052,NA,NA,École des Belles-Rives
-ssocial_org,Sièges sociaux organismes,Public,Siège social organisme,1150,NA,783020,NA,NA,École Notre-Dame-de-Fatima
-ssocial_org,Sièges sociaux organismes,Public,Siège social organisme,1268,NA,812021,NA,NA,École des Prospecteurs
-ssocial_org,Sièges sociaux organismes,Public,Siège social organisme,1386,NA,822045,NA,NA,Polyvalente de Thetford Mines
-ssocial_org,Sièges sociaux organismes,Public,Siège social organisme,1504,NA,831009,NA,NA,École Des Cèdres
-ssocial_org,Sièges sociaux organismes,Public,Siège social organisme,1622,NA,841049,NA,NA,École au Point-du-Jour
-ssocial_org,Sièges sociaux organismes,Public,Siège social organisme,1740,NA,851171,NA,NA,École secondaire Jean-Jacques-Rousseau
-ssocial_org,Sièges sociaux organismes,Public,Siège social organisme,1858,NA,852049,NA,NA,École de l'Étincelle
-ssocial_org,Sièges sociaux organismes,Public,Siège social organisme,1976,NA,863022,NA,NA,École Hamel
-ssocial_org,Sièges sociaux organismes,Public,Siège social organisme,2094,NA,865107,NA,NA,École Le Tournesol
-ssocial_org,Sièges sociaux organismes,Public,Siège social organisme,2212,NA,867007,NA,NA,École de la Magdeleine
-ssocial_org,Sièges sociaux organismes,Public,Siège social organisme,2330,NA,869053,NA,NA,École secondaire des Échos
-ssocial_org,Sièges sociaux organismes,Public,Siège social organisme,2448,NA,881004,NA,NA,École primaire Holland
-ssocial_org,Sièges sociaux organismes,Public,Siège social organisme,2566,NA,885168,NA,NA,École primaire Saint-Jude
-ssocial_org,Sièges sociaux organismes,Public,Siège social organisme,2684,NA,887254,NA,NA,Hôpital de Montréal pour enfants
-universitaire,Établissements universitaires,Universitaire,Établissement,24,NA,989000,NA,NA,Collège militaire royal de Saint-Jean
+source_resource,resource_label,unit_kind,nom,municipalite,region_administrative,has_region
+collegial,Établissements collégiaux,Établissement,Conservatoire de musique de Rimouski,Rimouski,Bas-Saint-Laurent,TRUE
+collegial,Établissements collégiaux,Établissement,Passport Hélico,Mascouche,Lanaudière,TRUE
+collegial,Établissements collégiaux,Établissement,Cégep à distance international,Montréal,Montréal,TRUE
+gouvernemental,Établissements gouvernementaux,Établissement,École Pakua Shipu,Saint-Augustin,Côte-Nord,TRUE
+prive_etablissement,Établissements privés,Établissement,École Marie Gibeau,Longueuil,NA,FALSE
+prive_etablissement,Établissements privés,Établissement,Centre académique de l'Outaouais,Gatineau,NA,FALSE
+prive_installation,Installations privées,Installation,Collège Mont-Saint-Louis,Montréal,Montréal,TRUE
+prive_installation,Installations privées,Installation,Éducation Plus,Montréal,Montréal,TRUE
+prive_installation,Installations privées,Installation,École trilingue Vision Beauce,Sainte-Marie,Chaudière-Appalaches,TRUE
+public_ecole,Écoles publiques,Lien école-immeuble,École de l'Aquarelle,Rimouski,Bas-Saint-Laurent,TRUE
+public_ecole,Écoles publiques,Lien école-immeuble,Centre de formation professionnelle du Grand-Fjord,Saguenay,Saguenay–Lac-Saint-Jean,TRUE
+public_ecole,Écoles publiques,Lien école-immeuble,Centre d'éducation des adultes Saint-Bernard,Blanc-Sablon,Côte-Nord,TRUE
+public_ecole,Écoles publiques,Lien école-immeuble,École La Croisée,Rivière-du-Loup,Bas-Saint-Laurent,TRUE
+public_ecole,Écoles publiques,Lien école-immeuble,Centre d'éducation des adultes L'Envol--Le Retour,Roberval,Saguenay–Lac-Saint-Jean,TRUE
+public_ecole,Écoles publiques,Lien école-immeuble,École polyvalente Jonquière,Saguenay,Saguenay–Lac-Saint-Jean,TRUE
+public_ecole,Écoles publiques,Lien école-immeuble,École secondaire Vanier,Québec,Capitale-Nationale,TRUE
+public_ecole,Écoles publiques,Lien école-immeuble,École Caps-des-Neiges,Saint-Ferréol-les-Neiges,Capitale-Nationale,TRUE
+public_ecole,Écoles publiques,Lien école-immeuble,École alternative Freinet de Trois-Rivières,Trois-Rivières,Mauricie,TRUE
+public_ecole,Écoles publiques,Lien école-immeuble,Centre d'éducation des adultes du Saint-Maurice,Shawinigan,Mauricie,TRUE
+public_ecole,Écoles publiques,Lien école-immeuble,Carrefour Formation Mauricie formation professionnelle,Shawinigan,Mauricie,TRUE
+public_ecole,Écoles publiques,Lien école-immeuble,Centre d'éducation des adultes de la Commission scolaire des Hauts-Cantons,Stornoway,Estrie,TRUE
+public_ecole,Écoles publiques,Lien école-immeuble,École Saint-Laurent,Lawrenceville,Estrie,TRUE
+public_ecole,Écoles publiques,Lien école-immeuble,École secondaire Amos,Montréal,Montréal,TRUE
+public_ecole,Écoles publiques,Lien école-immeuble,École Saint-Gérard,Montréal,Montréal,TRUE
+public_ecole,Écoles publiques,Lien école-immeuble,École internationale de Montréal,Westmount,Montréal,TRUE
+public_ecole,Écoles publiques,Lien école-immeuble,Nouvelle école primaire Lachine,Montréal,Montréal,TRUE
+public_ecole,Écoles publiques,Lien école-immeuble,École Arsaniq,Kangiqsujuaq,Nord-du-Québec,TRUE
+public_ecole,Écoles publiques,Lien école-immeuble,École secondaire de l'Île,Gatineau,Outaouais,TRUE
+public_ecole,Écoles publiques,Lien école-immeuble,École Cléricy - Mont-Brun,Rouyn-Noranda,Abitibi-Témiscamingue,TRUE
+public_ecole,Écoles publiques,Lien école-immeuble,École Saint-Isidore,Val-d'Or,Abitibi-Témiscamingue,TRUE
+public_ecole,Écoles publiques,Lien école-immeuble,École Jean-du-Nord / Manikoutai,Sept-Îles,Côte-Nord,TRUE
+public_ecole,Écoles publiques,Lien école-immeuble,Centre de formation professionnelle L'Envol,Carleton-sur-Mer,Gaspésie–Îles-de-la-Madeleine,TRUE
+public_ecole,Écoles publiques,Lien école-immeuble,Polyvalente de Thetford Mines,Thetford Mines,Chaudière-Appalaches,TRUE
+public_ecole,Écoles publiques,Lien école-immeuble,Centre d'éducation des adultes de Saint-Prosper et de Sainte-Justine,Saint-Victor,Chaudière-Appalaches,TRUE
+public_ecole,Écoles publiques,Lien école-immeuble,École Sainte-Hélène,Lévis,Chaudière-Appalaches,TRUE
+public_ecole,Écoles publiques,Lien école-immeuble,École Val-des-Arbres,Laval,Laval,TRUE
+public_ecole,Écoles publiques,Lien école-immeuble,École des métiers spécialisés de Laval (EMS de Laval),Laval,Laval,TRUE
+public_ecole,Écoles publiques,Lien école-immeuble,École Bernard-Corbin,Terrebonne,Lanaudière,TRUE
+public_ecole,Écoles publiques,Lien école-immeuble,Centre multiservice des Samares,Mascouche,Lanaudière,TRUE
+public_ecole,Écoles publiques,Lien école-immeuble,Centre multiservice de Sainte-Thérèse,Mirabel,Laurentides,TRUE
+public_ecole,Écoles publiques,Lien école-immeuble,Centre d'études professionnelles,Saint-Jérôme,Laurentides,TRUE
+public_ecole,Écoles publiques,Lien école-immeuble,Centre de formation professionnelle de Mont-Laurier,La Macaza,Laurentides,TRUE
+public_ecole,Écoles publiques,Lien école-immeuble,École de Ramezay,Marieville,Montérégie,TRUE
+public_ecole,Écoles publiques,Lien école-immeuble,École Jacques-Rousseau,Longueuil,Montérégie,TRUE
+public_ecole,Écoles publiques,Lien école-immeuble,École Jacques-Rocheleau-Saint-Basile,Saint-Basile-le-Grand,Montérégie,TRUE
+public_ecole,Écoles publiques,Lien école-immeuble,École de l'Assomption,Granby,Estrie,TRUE
+public_ecole,Écoles publiques,Lien école-immeuble,École Saint-Michel-Archange,Saint-Michel,Montérégie,TRUE
+public_ecole,Écoles publiques,Lien école-immeuble,École Sainte-Martine,Sainte-Martine,Montérégie,TRUE
+public_ecole,Écoles publiques,Lien école-immeuble,Centre d'éducation des adultes de la Riveraine,Nicolet,Centre-du-Québec,TRUE
+public_ecole,Écoles publiques,Lien école-immeuble,École Saint-Pie X,Drummondville,Centre-du-Québec,TRUE
+public_ecole,Écoles publiques,Lien école-immeuble,École Saint-Joseph-Saint-Patrick,Gaspé,Gaspésie–Îles-de-la-Madeleine,TRUE
+public_ecole,Écoles publiques,Lien école-immeuble,École Royal Charles,Longueuil,Montérégie,TRUE
+public_ecole,Écoles publiques,Lien école-immeuble,Centre de la Nature et des Sciences d'Arundel,Arundel,Laurentides,TRUE
+public_ecole,Écoles publiques,Lien école-immeuble,École Willingdon,Montréal,Montréal,TRUE
+public_ecole,Écoles publiques,Lien école-immeuble,Centre d'éducation des adultes Place Cartier,Dorval,Montréal,TRUE
+public_immeuble,Immeubles publics,Immeuble,Caron,Amqui,NA,FALSE
+public_immeuble,Immeubles publics,Immeuble,Secondaire Kénogami,Saguenay,NA,FALSE
+public_immeuble,Immeubles publics,Immeuble,"Envolée, l'",Frampton,NA,FALSE
+public_immeuble,Immeubles publics,Immeuble,Saint-Louis (Saint-Joseph),Saint-Joseph-de-Kamouraska,NA,FALSE
+public_immeuble,Immeubles publics,Immeuble,Saint-Thomas,Montmagny,NA,FALSE
+public_immeuble,Immeubles publics,Immeuble,"Campanile, du",Québec,NA,FALSE
+public_immeuble,Immeubles publics,Immeuble,"Sports, des",Trois-Rivières,NA,FALSE
+public_immeuble,Immeubles publics,Immeuble,Claude-Lafortune,Longueuil,NA,FALSE
+public_immeuble,Immeubles publics,Immeuble,"Monarques, des",Longueuil,NA,FALSE
+public_immeuble,Immeubles publics,Immeuble,Jean-Moreau,Sainte-Sophie,NA,FALSE
+public_immeuble,Immeubles publics,Immeuble,Saint-Eugène,Saint-Jean-sur-Richelieu,NA,FALSE
+public_immeuble,Immeubles publics,Immeuble,Pavillon Sainte-Marie,Val-David,NA,FALSE
+public_immeuble,Immeubles publics,Immeuble,Pavillon Saint-Benoît,Granby,NA,FALSE
+public_immeuble,Immeubles publics,Immeuble,Sainte-Martine,Sainte-Martine,NA,FALSE
+public_immeuble,Immeubles publics,Immeuble,"Boisé, du",Gatineau,NA,FALSE
+public_immeuble,Immeubles publics,Immeuble,Lambert-Closse,Montréal,NA,FALSE
+public_immeuble,Immeubles publics,Immeuble,Shawinigan,Shawinigan,NA,FALSE
+public_immeuble,Immeubles publics,Immeuble,Joseph-François-Perrault,Québec,NA,FALSE
+public_immeuble,Immeubles publics,Immeuble,Hampstead,Hampstead,NA,FALSE
+public_immeuble,Immeubles publics,Immeuble,Saint-Arsène,Montréal,NA,FALSE
+public_immeuble,Immeubles publics,Immeuble,Charles-Lemoyne,Montréal,NA,FALSE
+public_immeuble,Immeubles publics,Immeuble,Marie-Guyart,Matane,NA,FALSE
+public_immeuble,Immeubles publics,Immeuble,Saint-Bernard,Saint-Bernard-de-Lacolle,NA,FALSE
+public_immeuble,Immeubles publics,Immeuble,"Iguarsivik, secondaire",Puvirnituq,NA,FALSE
+public_immeuble,Immeubles publics,Immeuble,"Clé-des-Champs, de la",Mirabel,NA,FALSE
+public_immeuble,Immeubles publics,Immeuble,Immeuble Brouillette,Saint-Hyacinthe,NA,FALSE
+public_immeuble,Immeubles publics,Immeuble,C.J.O.-Maison de l'Apprenti,Gatineau,NA,FALSE
+public_immeuble,Immeubles publics,Immeuble,Établissement de Roberval,Roberval,NA,FALSE
+public_immeuble,Immeubles publics,Immeuble,"Altitude, de l'",Montréal,NA,FALSE
+public_immeuble,Immeubles publics,Immeuble,"Beau-Séjour, édifice Sud",Montréal,NA,FALSE
+public_immeuble,Immeubles publics,Immeuble,Saint-Gabriel,Yamaska,NA,FALSE
+public_immeuble,Immeubles publics,Immeuble,Résidence Mansonville,Potton,NA,FALSE
+public_immeuble,Immeubles publics,Immeuble,"Le 4251, rue Saint-Urbain",Montréal,NA,FALSE
+public_immeuble,Immeubles publics,Immeuble,Jumelé,Waswanipi,NA,FALSE
+public_immeuble,Immeubles publics,Immeuble,Maison en rangée,Oujé-Bougoumou,NA,FALSE
+public_immeuble,Immeubles publics,Immeuble,Duplex,Oujé-Bougoumou,NA,FALSE
+public_immeuble,Immeubles publics,Immeuble,Résidence,Quaqtaq,NA,FALSE
+public_immeuble,Immeubles publics,Immeuble,Terrains vacants - Lots 2 438 790 et 2 440 711,Terrebonne,NA,FALSE
+public_immeuble,Immeubles publics,Immeuble,Duplex - 435,Salluit,NA,FALSE
+public_immeuble,Immeubles publics,Immeuble,Locaux modulaires - Jaanimaarik,Kuujjuaq,NA,FALSE
+ssocial_cs,Sièges sociaux CSS et CS,Siège social CSS ou CS,Centre de services scolaire des Hautes-Rivières,Saint-Jean-sur-Richelieu,NA,FALSE
+ssocial_org,Sièges sociaux organismes,Siège social organisme,Centre de formation professionnelle du Fleuve-et-des-Lacs,Témiscouata-sur-le-Lac,NA,FALSE
+ssocial_org,Sièges sociaux organismes,Siège social organisme,École de la Mosaïque,Saguenay,NA,FALSE
+ssocial_org,Sièges sociaux organismes,Siège social organisme,École des Cimes,Québec,NA,FALSE
+ssocial_org,Sièges sociaux organismes,Siège social organisme,École Dominique-Savio,Shawinigan,NA,FALSE
+ssocial_org,Sièges sociaux organismes,Siège social organisme,École secondaire de l'Escale,Val-des-Sources,NA,FALSE
+ssocial_org,Sièges sociaux organismes,Siège social organisme,Centre d'éducation aux adultes Anjou,Montréal,NA,FALSE
+ssocial_org,Sièges sociaux organismes,Siège social organisme,École des Nations,Montréal,NA,FALSE
+ssocial_org,Sièges sociaux organismes,Siège social organisme,École Notre-Dame-de-la-Paix,Montréal,NA,FALSE
+ssocial_org,Sièges sociaux organismes,Siège social organisme,École des Belles-Rives,Gatineau,NA,FALSE
+ssocial_org,Sièges sociaux organismes,Siège social organisme,École secondaire d'Amos,Amos,NA,FALSE
+ssocial_org,Sièges sociaux organismes,Siège social organisme,École Notre-Dame,Cloridorme,NA,FALSE
+ssocial_org,Sièges sociaux organismes,Siège social organisme,Centre d'éducation des adultes l'Escale,Thetford Mines,NA,FALSE
+ssocial_org,Sièges sociaux organismes,Siège social organisme,École Pépin,Laval,NA,FALSE
+ssocial_org,Sièges sociaux organismes,Siège social organisme,École la Majuscule,Repentigny,NA,FALSE
+ssocial_org,Sièges sociaux organismes,Siège social organisme,École secondaire du Harfang,Sainte-Anne-des-Plaines,NA,FALSE
+ssocial_org,Sièges sociaux organismes,Siège social organisme,École Saint-André,Saint-André-d'Argenteuil,NA,FALSE
+ssocial_org,Sièges sociaux organismes,Siège social organisme,École Hamel,Saint-Jean-sur-Richelieu,NA,FALSE
+ssocial_org,Sièges sociaux organismes,Siège social organisme,École secondaire Polybel,Beloeil,NA,FALSE
+ssocial_org,Sièges sociaux organismes,Siège social organisme,École Saint-François-Xavier,La Prairie,NA,FALSE
+ssocial_org,Sièges sociaux organismes,Siège social organisme,École secondaire des Échos,Vaudreuil-Dorion,NA,FALSE
+ssocial_org,Sièges sociaux organismes,Siège social organisme,École primaire Holland,Québec,NA,FALSE
+ssocial_org,Sièges sociaux organismes,Siège social organisme,École primaire Souvenir,Laval,NA,FALSE
+ssocial_org,Sièges sociaux organismes,Siège social organisme,Hôpital de Montréal pour enfants,Montréal,NA,FALSE
+universitaire,Établissements universitaires,Établissement,Collège militaire royal de Saint-Jean,Saint-Jean-sur-Richelieu,Montérégie,TRUE

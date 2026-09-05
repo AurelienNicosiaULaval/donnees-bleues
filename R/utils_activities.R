@@ -1,3 +1,4 @@
+source(if (file.exists("R/utils_taxonomy.R")) "R/utils_taxonomy.R" else "../../R/utils_taxonomy.R")
 `%||%` <- function(x, y) {
   if (is.null(x) || length(x) == 0L || all(is.na(x))) y else x
 }
@@ -10,6 +11,9 @@ required_activity_fields <- function() {
     "dataset_id",
     "dataset_title",
     "activity_url",
+    "script_file",
+    "classroom_archive",
+    "access_mode",
     "duration",
     "level",
     "activity_type",
@@ -72,6 +76,7 @@ collapse_activity_field <- function(x) {
 }
 
 activity_metadata_row <- function(metadata, metadata_path) {
+  validate_taxonomy_metadata(metadata)
   missing_fields <- setdiff(required_activity_fields(), names(metadata))
   if (length(missing_fields) > 0L) {
     stop(
@@ -90,10 +95,16 @@ activity_metadata_row <- function(metadata, metadata_path) {
     dataset_id = metadata$dataset_id,
     dataset_title = metadata$dataset_title,
     activity_url = metadata$activity_url,
+    script_file = metadata$script_file,
+    classroom_archive = metadata$classroom_archive,
+    access_mode = metadata$access_mode,
     duration = metadata$duration,
     level = metadata$level,
     activity_type = collapse_activity_field(metadata$activity_type),
     concepts = collapse_activity_field(metadata$concepts),
+    concept_ids = collapse_activity_field(metadata$concept_ids),
+    level_ids = collapse_activity_field(metadata$level_ids),
+    search_aliases = taxonomy_search_aliases(metadata$concept_ids),
     context = metadata$context,
     hook = metadata$hook,
     materials = collapse_activity_field(metadata$materials),
@@ -298,5 +309,26 @@ validate_activity_contract_renderers <- function(catalogue, root = ".") {
     )
   }
 
+  invisible(TRUE)
+}
+
+validate_activity_resources <- function(catalogue) {
+  source('R/utils_classroom.R')
+  for (i in seq_len(nrow(catalogue))) {
+    item <- catalogue[i, ]
+    if (!file.exists(item$script_file) || !file.exists(item$classroom_archive)) {
+      stop('Ressource de lancement absente : ', item$id, call. = FALSE)
+    }
+    if (!item$access_mode %in% c('frozen', 'documentation', 'source_required') ||
+        item$requires_live_download != (item$access_mode == 'source_required')) {
+      stop('Mode d’accès incohérent : ', item$id, call. = FALSE)
+    }
+    if (item$pedagogical_status == 'pret_a_enseigner' && item$access_mode == 'source_required') {
+      stop('Acquisition préalable masquée par le statut : ', item$id, call. = FALSE)
+    }
+    parse(item$script_file)
+    metadata <- yaml::read_yaml(file.path('datasets', item$dataset_id, 'metadata.yml'))
+    if (classroom_policy(metadata)$mode != item$access_mode) stop('Politiques divergentes : ', item$id)
+  }
   invisible(TRUE)
 }

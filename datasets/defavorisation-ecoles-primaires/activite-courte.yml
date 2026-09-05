@@ -1,55 +1,62 @@
 id: defavorisation-ecoles-primaires-court
 title: Laboratoire - Diffusion et indices de défavorisation
-question: Quels liens observe-t-on entre IMSE, SFR et nombre d'élèves parmi les écoles
-  dont les indices sont diffusés?
+question: Comment les indices IMSE et SFR sont-ils associés?
 dataset_id: defavorisation-ecoles-primaires
 dataset_title: Indices de défavorisation des écoles primaires du Québec
 activity_url: datasets/defavorisation-ecoles-primaires/activite-courte.qmd
 duration: 60-90 minutes
 level: Introduction à intermédiaire
+level_ids:
+- introduction
+- intermediaire
 activity_type:
 - Laboratoire d'introduction
 - Exploration de données
 concepts:
-- variables numériques
-- régression linéaire
-- valeurs manquantes
-- diffusion partielle
+- Variables numériques
+- Régression linéaire
+- Valeurs manquantes
+- Diffusion partielle
+concept_ids:
+- variables-numeriques
+- regression-lineaire
+- valeurs-manquantes
+- diffusion-partielle
 context: Éducation et équité
-hook: Prédiction responsable
+hook: Les indices caractérisent un milieu scolaire, pas chaque élève. Les valeurs masquées par la source restent
+  exclues; la régression décrit une association dans ces données.
 materials:
-- fiche
-- code
-- source officielle
-advanced_math_stats: no
-teacher_notes: Faire discuter la variable Diffusion avant toute analyse numérique;
-  les lignes non diffusées ne sont pas de simples valeurs manquantes.
-status: source officielle vérifiée le 2026-06-20
+- Trousse ZIP et projet RStudio
+- Script R complet
+- CSV préparés et provenance
+advanced_math_stats: false
+teacher_notes: Les indices caractérisent un milieu scolaire, pas chaque élève. Les valeurs masquées par la
+  source restent exclues; la régression décrit une association dans ces données.
+status: Documentation de source et ressources de classe fournies
 pedagogical_status: pret_a_enseigner
-teacher_preparation: 'Préparation requise : exécuter `Rscript datasets/defavorisation-ecoles-primaires/preparation.R`
-  depuis la racine, puis vérifier que `data/processed/defavorisation-ecoles-primaires/defavorisation_ecoles_primaires.csv`
-  existe.'
-expected_output: Un tableau ou graphique descriptif accompagné de trois phrases d'interprétation
-  prudente.
-requires_prepared_data: yes
-requires_live_download: yes
+teacher_preparation: Extraire la trousse, ouvrir le projet RStudio, installer les packages avant la séance
+  et lancer le script.
+expected_output: Les tableaux et graphiques du script, accompagnés d’une interprétation de 6 à 8 lignes répondant
+  à la question.
+requires_prepared_data: true
+requires_live_download: false
 recommended_use: Laboratoire guidé
-result_visible_in_page: yes
-
+result_visible_in_page: false
 learning_objectives:
-  - "Importer un fichier CSV officiel."
-  - "Identifier les lignes diffusées et non diffusées."
-  - "Explorer des relations entre variables numériques."
-  - "Interpréter une corrélation avec prudence."
-  - "Expliquer pourquoi une valeur non diffusée n'est pas une simple valeur manquante."
-
+- Conserver seulement les indices diffusés et calculer leur corrélation.
+- Lire le nuage des deux indices et vérifier les observations disponibles.
+- Formuler une limite qui découle de la source et de l’unité observée.
 prerequisites:
-  - "Vérifier le fichier ou le script de préparation annoncé avant la séance; adapter la mise en route au niveau indiqué."
-
+- Savoir ouvrir un projet RStudio et exécuter un script R.
+- Reconnaître une variable, un décompte et une proportion.
 success_criteria:
-  - "La production attendue est remise : Un tableau ou graphique descriptif accompagné de trois phrases d'interprétation prudente."
-  - "Les résultats sont interprétés sans dépasser les limites de la source."
-
+- L’unité, la période ou la portée documentaire et les variables utilisées sont nommées.
+- Conserver seulement les indices diffusés et calculer leur corrélation.
+- Lire le nuage des deux indices et vérifier les observations disponibles.
+- La conclusion répond à la question et explique au moins une limite précise.
 adaptations:
-  - "Fournir une table préparée ou réduire le nombre de variables pour une première utilisation."
-  - "Ajouter une comparaison, une justification méthodologique ou une discussion des limites pour approfondir."
+- Débuter avec le script exécuté par la personne enseignante, puis faire interpréter une seule sortie.
+- Pour approfondir, modifier une sélection ou un regroupement et justifier ce que cela change.
+script_file: datasets/defavorisation-ecoles-primaires/activite-courte.R
+classroom_archive: assets/classroom/defavorisation-ecoles-primaires.zip
+access_mode: frozen
