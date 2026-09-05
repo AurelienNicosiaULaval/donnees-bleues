@@ -8,6 +8,8 @@ embed-resources: true
 
 # Proposer une ressource
 
+Pour toute question, écrivez à [info@donneesbleues.ca](mailto:info@donneesbleues.ca).
+
 Un jeu de données, une activité, un article, un billet, des notes de cours ou une application : partagez un lien et quelques mots sur son intérêt pour enseigner la science des données au Québec. Aucun compte GitHub n’est nécessaire.
 
 [Voir les contributeurs du projet](about.qmd#contributeurs).
