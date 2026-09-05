@@ -6,6 +6,11 @@
   "source_name": "Données Québec / MELCCFP",
   "source_url": "https://www.donneesquebec.ca/recherche/dataset/suivi-physicochimique-des-rivieres-et-du-fleuve",
   "license_url": "https://creativecommons.org/licenses/by/4.0/deed.fr",
+  "original_licenses": {
+    "code": "MIT",
+    "content": "CC-BY-4.0",
+    "notices": ["LICENSE", "LICENCE-CONTENUS.md"]
+  },
   "selection": "Table de classe limitée aux colonnes déclarées, sans tirage supplémentaire de lignes. Attribution et conditions tierces conservées.",
   "tables": [
     {
@@ -16,6 +21,6 @@
       "prepared_table_sha256": "5fa2874f5c7b1387ea29e8aae6d29bd2962876d09e0cb72fdcedd04730dcdaf6"
     }
   ],
-  "archive_sha256": "231da0d7a9c39267a8737b2e0d234f5ea436522c14a267d3dfa71959051669de",
-  "archive_bytes": 201175
+  "archive_sha256": "2ca1667932a408ce5cc120c674a934970a0e3914934c4a527edd66a13496ad45",
+  "archive_bytes": 202910
 }

@@ -3,6 +3,8 @@ project:
   output-dir: docs
   resources:
     - CITATION.cff
+    - LICENSE
+    - LICENCE-CONTENUS.md
     - favicon.svg
     - assets/logo-donnees-bleues.svg
     - assets/logo-donnees-bleues-horizontal.svg

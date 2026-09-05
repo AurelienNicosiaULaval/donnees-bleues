@@ -6,6 +6,11 @@
   "source_name": "Données Québec / Réseau de transport de la Capitale",
   "source_url": "https://www.donneesquebec.ca/recherche/dataset/rtc-gtfs-arrets-et-les-parcours",
   "license_url": "https://www.rtcquebec.ca/donnees-ouvertes",
+  "original_licenses": {
+    "code": "MIT",
+    "content": "CC-BY-4.0",
+    "notices": ["LICENSE", "LICENCE-CONTENUS.md"]
+  },
   "selection": "Table de classe limitée aux colonnes déclarées, sans tirage supplémentaire de lignes. Attribution et conditions tierces conservées.",
   "tables": [
     {
@@ -16,6 +21,6 @@
       "prepared_table_sha256": "dcf5929aa4c69ba62446a1d392a07bf8cef65292a9d615aae9ee8b9799995f38"
     }
   ],
-  "archive_sha256": "9373e98807dffd80bc1ec2d246b922fd4d887e51e9332494bb943febd8a0c3ad",
-  "archive_bytes": 74257
+  "archive_sha256": "74f7d4522c3ab61dc448e114ae606f6c6bdba52b27eaa6f450dcb96631d3e2ea",
+  "archive_bytes": 76000
 }

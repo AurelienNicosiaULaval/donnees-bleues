@@ -6,6 +6,11 @@
   "source_name": "Statistique Canada",
   "source_url": "https://www150.statcan.gc.ca/t1/tbl1/fr/tv.action?pid=1710000501",
   "license_url": "https://www.statcan.gc.ca/fr/reference/licence",
+  "original_licenses": {
+    "code": "MIT",
+    "content": "CC-BY-4.0",
+    "notices": ["LICENSE", "LICENCE-CONTENUS.md"]
+  },
   "selection": "Table de classe limitée aux colonnes déclarées, sans tirage supplémentaire de lignes. Attribution et conditions tierces conservées.",
   "tables": [
     {
@@ -23,6 +28,6 @@
       "prepared_table_sha256": "12299dd681da2fc2296bd4c1fd5b2f24de4ff0e5636f8a53cf5db1a45c7b5bd1"
     }
   ],
-  "archive_sha256": "76af5ac78efee5b9be7a9d973702f0bd309d61f46ed04313f6a653e44b94da19",
-  "archive_bytes": 7759
+  "archive_sha256": "a2b53435915f9182d6e8a6726f4de5f8590a9f51a3881552a506bc3964dfa630",
+  "archive_bytes": 9501
 }

@@ -161,6 +161,20 @@ La rigueur commence aussi par des limites claires.
 :::
 :::
 
+::: {.about-section .about-licences}
+::: {.about-section-heading}
+## Licences et réutilisation
+
+Les textes, fiches et activités originales de Données bleues sont sous [Creative Commons Attribution 4.0 International (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/deed.fr). Vous pouvez les partager et les adapter, y compris à des fins commerciales, en attribuant le contenu à ses auteurs, en fournissant un lien vers la licence et en indiquant vos modifications.
+
+Le code original est sous [licence MIT](https://github.com/AurelienNicosiaULaval/donnees-bleues/blob/main/LICENSE). Les notices de licence accompagnent chaque trousse téléchargée.
+
+Attribution suggérée : Données bleues, Aurélien Nicosia et les personnes contributrices identifiées, version utilisée, https://aureliennicosiaulaval.github.io/donnees-bleues/.
+
+Les données et autres contenus de tiers conservent les licences ou conditions de leurs producteurs. Consulter les sources des fiches et les [crédits des images](credits-images.qmd).
+:::
+:::
+
 ::: {.about-section .about-version}
 ::: {.about-section-heading}
 ## Version et citation

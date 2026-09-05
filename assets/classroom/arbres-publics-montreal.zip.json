@@ -6,6 +6,11 @@
   "source_name": "Données Québec / Ville de Montréal",
   "source_url": "https://www.donneesquebec.ca/recherche/dataset/vmtl-arbres",
   "license_url": "https://creativecommons.org/licenses/by/4.0/deed.fr",
+  "original_licenses": {
+    "code": "MIT",
+    "content": "CC-BY-4.0",
+    "notices": ["LICENSE", "LICENCE-CONTENUS.md"]
+  },
   "selection": "Table de classe limitée aux colonnes déclarées, sans tirage supplémentaire de lignes. Attribution et conditions tierces conservées.",
   "tables": [
     {
@@ -16,6 +21,6 @@
       "prepared_table_sha256": "b4c617eda654ef9aaeeb9d0c39bf7a776265a987f37a00b05b87aa06a654ac43"
     }
   ],
-  "archive_sha256": "389226520e5fd06d9bcd19a3e982cbc0e626e0ebe6ed6a86ac48927624e7be9a",
-  "archive_bytes": 566283
+  "archive_sha256": "4740b104c4cc6d6de5ca5e075f16e661199a4d1a11ebf1016de6820df43fa9bd",
+  "archive_bytes": 568020
 }

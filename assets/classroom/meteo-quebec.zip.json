@@ -6,6 +6,11 @@
   "source_name": "UlavalSSD::MeteoQuebec, construit avec weathercan à partir d'ECCC",
   "source_url": "https://climate.weather.gc.ca/historical_data/search_historic_data_e.html",
   "license_url": "https://climat.meteo.gc.ca/prods_servs/attachment1_f.html",
+  "original_licenses": {
+    "code": "MIT",
+    "content": "CC-BY-4.0",
+    "notices": ["LICENSE", "LICENCE-CONTENUS.md"]
+  },
   "selection": "Table de classe limitée aux colonnes déclarées, sans tirage supplémentaire de lignes. Attribution et conditions tierces conservées.",
   "tables": [
     {
@@ -30,6 +35,6 @@
       "prepared_table_sha256": "04987d02f62f7630fe00f9a51d9b3b14a7e4dda9d27aa3cc244629751bd5e66f"
     }
   ],
-  "archive_sha256": "7d4fc37c503c9a0346c5dbcd9e8d26c14606badcd2c5b47b71af783bc49e26db",
-  "archive_bytes": 286592
+  "archive_sha256": "ee33d35fba61651fe1ee13e4b6efab824e3e8faaa1618193ededd1c2717fdb57",
+  "archive_bytes": 288320
 }

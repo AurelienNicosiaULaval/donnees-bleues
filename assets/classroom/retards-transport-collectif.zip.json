@@ -6,6 +6,11 @@
   "source_name": "Société de transport de Montréal / Données Québec",
   "source_url": "https://www.donneesquebec.ca/recherche/dataset/vmtl-stm-bus-temps-reel-gtfs-realtime",
   "license_url": "https://creativecommons.org/licenses/by/4.0/deed.fr",
+  "original_licenses": {
+    "code": "MIT",
+    "content": "CC-BY-4.0",
+    "notices": ["LICENSE", "LICENCE-CONTENUS.md"]
+  },
   "selection": "Documentation et synthèses publiques seulement; aucune donnée privée, géodatabase ni observation de retard.",
   "tables": [
     {
@@ -30,6 +35,6 @@
       "prepared_table_sha256": "5acafb9153ca791b93d7ea9bf2e70010f849f6ee72857d63b6e60ab7442e7f00"
     }
   ],
-  "archive_sha256": "04aa1596d802c57d1dd69193b0541eea8e186eeb9f25ed8f03d9ed374f0e835d",
-  "archive_bytes": 7199
+  "archive_sha256": "77f80b5decc19ef0eec0436528500f7048333a8c3d01342e80e0f3ecd6b35a4e",
+  "archive_bytes": 8937
 }

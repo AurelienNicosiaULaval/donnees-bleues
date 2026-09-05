@@ -6,6 +6,11 @@
   "source_name": "Données Québec / Ministère de l'Environnement, de la Lutte contre les changements climatiques, de la Faune et des Parcs",
   "source_url": "https://www.donneesquebec.ca/recherche/dataset/prelevements-eau",
   "license_url": "https://creativecommons.org/licenses/by/4.0/deed.fr",
+  "original_licenses": {
+    "code": "MIT",
+    "content": "CC-BY-4.0",
+    "notices": ["LICENSE", "LICENCE-CONTENUS.md"]
+  },
   "selection": "Table de classe limitée aux colonnes déclarées, sans tirage supplémentaire de lignes. Attribution et conditions tierces conservées.",
   "tables": [
     {
@@ -37,6 +42,6 @@
       "prepared_table_sha256": "7c3879668ef4b5ae4bc147c035c08583e2486a67cc51e8306e0cc2d147e06455"
     }
   ],
-  "archive_sha256": "46f638d2fc0e8e927759b5244004a70c5306b274d78f3c4c4562baa96aa99f84",
-  "archive_bytes": 48272
+  "archive_sha256": "522327e582690009e5f482f094478e1f83f3a5261d1e0326a00e11d8cf5ac2ff",
+  "archive_bytes": 50015
 }

@@ -6,6 +6,11 @@
   "source_name": "Données Québec / MAPAQ; version pédagogique fixe dans UlavalSSD",
   "source_url": "https://www.donneesquebec.ca/recherche/dataset/condamnations-des-etablissements-alimentaires-et-condamnations-concernant-le-bien-etre-des-anim",
   "license_url": "https://creativecommons.org/licenses/by/4.0/deed.fr",
+  "original_licenses": {
+    "code": "MIT",
+    "content": "CC-BY-4.0",
+    "notices": ["LICENSE", "LICENCE-CONTENUS.md"]
+  },
   "selection": "Table de classe limitée aux colonnes déclarées, sans tirage supplémentaire de lignes. Attribution et conditions tierces conservées.",
   "tables": [
     {
@@ -16,6 +21,6 @@
       "prepared_table_sha256": "23281ef15f72d9ccd1b83fa17e45ddca62682829d0637c0d0209edbcaaa5c996"
     }
   ],
-  "archive_sha256": "62dda28a96ac0f5733c766ca6a988ae8ec26af38ff75c368cf39f2642d2b1ebb",
-  "archive_bytes": 21968
+  "archive_sha256": "59f6107b7b7fd0f0130be1433af552fed8727e0412bd5f638ba7b46b2e9933a6",
+  "archive_bytes": 23705
 }

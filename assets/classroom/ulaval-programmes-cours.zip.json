@@ -6,6 +6,11 @@
   "source_name": "Université Laval, Bureau de la qualité des programmes",
   "source_url": "https://www.bqp.ulaval.ca/fichiers/ressources/gestion/codes-programmes-actifs.pdf",
   "license_url": "https://www.bqp.ulaval.ca/fichiers/ressources/gestion/codes-programmes-actifs.pdf",
+  "original_licenses": {
+    "code": "MIT",
+    "content": "CC-BY-4.0",
+    "notices": ["LICENSE", "LICENCE-CONTENUS.md"]
+  },
   "selection": "Documentation et synthèses publiques seulement; aucune donnée privée, géodatabase ni observation de retard.",
   "tables": [
     {
@@ -30,6 +35,6 @@
       "prepared_table_sha256": "f365e16313a5a9bfba6b048513670d2235aaff8f9ca2ed53155086ddb8776022"
     }
   ],
-  "archive_sha256": "2b8c0bd5d133cf7f94e271db31ec4459c8eb91ee1011e76f3f61347fe2261c23",
-  "archive_bytes": 5841
+  "archive_sha256": "db54ae40c1e25a9a2ea11847802a6ec1f18c23ee1fcc89336fa8ab9d4fa7bbb9",
+  "archive_bytes": 7584
 }

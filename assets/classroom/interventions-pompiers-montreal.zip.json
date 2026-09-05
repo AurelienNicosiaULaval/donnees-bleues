@@ -6,6 +6,11 @@
   "source_name": "Données ouvertes de la Ville de Montréal / Service de sécurité incendie de Montréal",
   "source_url": "https://donnees.montreal.ca/fr/dataset/interventions-service-securite-incendie-montreal",
   "license_url": "https://creativecommons.org/licenses/by/4.0/deed.fr",
+  "original_licenses": {
+    "code": "MIT",
+    "content": "CC-BY-4.0",
+    "notices": ["LICENSE", "LICENCE-CONTENUS.md"]
+  },
   "selection": "Table de classe limitée aux colonnes déclarées, sans tirage supplémentaire de lignes. Attribution et conditions tierces conservées.",
   "tables": [
     {
@@ -16,6 +21,6 @@
       "prepared_table_sha256": "0bef88e330437b548ed5d0ff22ea51775acd28ce544b57c171fd439862eab370"
     }
   ],
-  "archive_sha256": "21e1885f7ba32277a06640c08e1e54cc4f98d8d9c95ed25596acc767c7e53ef1",
-  "archive_bytes": 1560047
+  "archive_sha256": "c6a3b95cccb552a512b5da5534081ece199f8a025f933e05ab2d80400c7752b3",
+  "archive_bytes": 1561783
 }

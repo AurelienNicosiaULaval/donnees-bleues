@@ -16,6 +16,8 @@ Chaque archive contient les versions de packages testées, la source, les dates 
 
 ## Réutilisation et citation
 
+Les textes, fiches et activités originales sont sous [Creative Commons Attribution 4.0 International](LICENCE-CONTENUS.md). Le code original est sous [licence MIT](LICENSE). Ces licences permettent le partage et l’adaptation dans les conditions indiquées dans les notices, également incluses dans chaque trousse.
+
 Les conditions des producteurs tiers restent applicables. Les liens figurent dans les fiches et dans chaque trousse; conserver l’attribution et mentionner les transformations. Une licence de données ne s’étend pas automatiquement aux textes, au code ou aux images du site. Les images possèdent leurs propres [crédits](https://aureliennicosiaulaval.github.io/donnees-bleues/credits-images.html).
 
 La référence bibliographique figure dans [CITATION.cff](CITATION.cff). Les [livraisons GitHub](https://github.com/AurelienNicosiaULaval/donnees-bleues/releases) permettent de retrouver une version figée. Pour citer un résultat de classe, ajouter la version de la trousse et sa date de préparation.

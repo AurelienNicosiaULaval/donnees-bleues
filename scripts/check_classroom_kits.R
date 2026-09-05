@@ -16,6 +16,12 @@ for (path in paths) {
   stage <- tempfile(paste0('classroom-', id, '-'))
   dir.create(stage)
   utils::unzip(archive, exdir = stage)
+  for (notice in c('LICENSE', 'LICENCE-CONTENUS.md')) {
+    if (!notice %in% entries ||
+        classroom_sha(notice) != classroom_sha(file.path(stage, notice))) {
+      stop('Licence absente ou périmée dans la trousse : ', id, ' / ', notice)
+    }
+  }
   expected_files <- readLines(file.path(stage, 'SHA256SUMS'))
   for (line in expected_files) {
     hash <- substr(line, 1, 64); file <- substring(line, 67)

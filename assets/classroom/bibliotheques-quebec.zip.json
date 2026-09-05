@@ -6,6 +6,11 @@
   "source_name": "Bibliothèque et Archives nationales du Québec / Données Québec",
   "source_url": "https://www.donneesquebec.ca/recherche/dataset/statistiques_des_bibliotheques_publiques_du_quebec",
   "license_url": "https://creativecommons.org/licenses/by/4.0/deed.fr",
+  "original_licenses": {
+    "code": "MIT",
+    "content": "CC-BY-4.0",
+    "notices": ["LICENSE", "LICENCE-CONTENUS.md"]
+  },
   "selection": "Table de classe limitée aux colonnes déclarées, sans tirage supplémentaire de lignes. Attribution et conditions tierces conservées.",
   "tables": [
     {
@@ -16,6 +21,6 @@
       "prepared_table_sha256": "3a5211846ce1d886de509ac502d85120c9413e8f0f9f0f707e9890cb3b889a18"
     }
   ],
-  "archive_sha256": "e67d8222afefaed724886dfba52af42f23a784e15fd94b24cf847f195f8d3919",
-  "archive_bytes": 13470
+  "archive_sha256": "214acdbb65dcb0be6d98c2bee3765ac8a62412369f2b23652e0e9c992645ab59",
+  "archive_bytes": 15210
 }

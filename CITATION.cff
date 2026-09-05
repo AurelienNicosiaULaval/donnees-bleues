@@ -10,6 +10,8 @@ authors:
   - family-names: "Nicosia"
     given-names: "Aurélien"
 version: 0.2.0
+date-released: 2026-09-05
+license: MIT
 repository-code: "https://github.com/AurelienNicosiaULaval/donnees-bleues"
 url: "https://aureliennicosiaulaval.github.io/donnees-bleues/"
 keywords:

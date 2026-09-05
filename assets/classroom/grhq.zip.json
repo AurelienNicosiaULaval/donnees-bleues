@@ -6,6 +6,11 @@
   "source_name": "Données Québec / Ministère des Ressources naturelles et des Forêts",
   "source_url": "https://www.donneesquebec.ca/recherche/dataset/grhq",
   "license_url": "https://creativecommons.org/licenses/by/4.0/deed.fr",
+  "original_licenses": {
+    "code": "MIT",
+    "content": "CC-BY-4.0",
+    "notices": ["LICENSE", "LICENCE-CONTENUS.md"]
+  },
   "selection": "Documentation et synthèses publiques seulement; aucune donnée privée, géodatabase ni observation de retard.",
   "tables": [
     {
@@ -23,6 +28,6 @@
       "prepared_table_sha256": "a01e8bc31784ebf4839efeed3ce7bff01ca6d4bf2dcd3653aacc9f2260270838"
     }
   ],
-  "archive_sha256": "a09f16a2fe35842a570927ef221909900b1d037463a0afc6d1d0fa70bb1be4bc",
-  "archive_bytes": 6446
+  "archive_sha256": "282ccda42ec9156396f0ccaab2f58f2b61fc2fda38e4a63b63649fdf586d3cd7",
+  "archive_bytes": 8185
 }

@@ -56,7 +56,7 @@ build_classroom_kit <- function(metadata, output_dir = 'assets/classroom') {
     dir.create(dirname(dest), recursive = TRUE, showWarnings = FALSE)
     if (!file.copy(path, dest, overwrite = TRUE)) stop('Copie impossible : ', path)
   }
-  for (path in scripts) copy(path)
+  for (path in c(scripts, 'LICENSE', 'LICENCE-CONTENUS.md')) copy(path)
   source_paths <- scripts
   if (policy$mode == 'source_required') {
     source_paths <- c(source_paths, file.path('datasets', id, 'preparation.R'),
@@ -102,6 +102,8 @@ build_classroom_kit <- function(metadata, output_dir = 'assets/classroom') {
   manifest <- list(dataset_id = id, title = metadata$title, mode = policy$mode,
     prepared_at_utc = prep_manifest$prepared_at_utc, source_name = metadata$source_name,
     source_url = metadata$source_url, license_url = metadata$publication$license_url,
+    original_licenses = list(code = 'MIT', content = 'CC-BY-4.0',
+      notices = c('LICENSE', 'LICENCE-CONTENUS.md')),
     selection = policy$reason, r_version_tested = '4.5.0',
     packages_tested = setNames(lapply(packages, function(p) as.character(utils::packageVersion(p))), packages),
     sources = sources, tables = tables)
@@ -126,7 +128,7 @@ build_classroom_kit <- function(metadata, output_dir = 'assets/classroom') {
     if (id == 'meteo-quebec') 'Données climatiques : Environnement et Changement climatique Canada. Données gratuites; consulter les conditions ECCC ci-dessus. Leur utilisation vaut acceptation de ces conditions. Transmettre ces conditions à toute personne recevant les données.',
     if (id == 'transport-collectif-gtfs') paste0('Données ouvertes du Réseau de transport de la Capitale (RTC). Instantané préparé le ', prep_manifest$prepared_at_utc, '. Les dates des téléchargements figurent dans provenance.json.'),
     if (id == 'qualite-air-horaire') 'RSQAQ : heures publiées en HNE (UTC-5 fixe), à la fin de l’intervalle. Les résumés portent sur le jour HNE du début de cet intervalle. Seuls les jours de 2025 sont retenus; la fin du fichier annuel peut donner une couverture partielle du dernier jour. Les PM2,5-T640 sont en µg/m³.',
-    '', 'Les licences des producteurs tiers s’appliquent à leurs données. Voir la page À propos du site pour les conditions propres aux textes et au code de Données bleues.', '',
+    '', 'Le code original de Données bleues est sous licence MIT (voir LICENSE). Les textes et activités originales sont sous CC BY 4.0 (voir LICENCE-CONTENUS.md). Les données et autres contenus de tiers conservent les conditions de leurs producteurs indiquées ci-dessus.', '',
     '## Vérification', '', 'provenance.json décrit les tables, colonnes, versions testées et sources. SHA256SUMS donne l’empreinte des fichiers contenus dans cette trousse.')
   writeLines(lines, file.path(stage, 'LISEZ-MOI.md'), useBytes = TRUE)
   files <- sort(list.files(stage, recursive = TRUE, all.files = TRUE, full.names = FALSE))
@@ -139,7 +141,7 @@ build_classroom_kit <- function(metadata, output_dir = 'assets/classroom') {
   archive <- file.path(normalizePath(output_dir), paste0(id, '.zip'))
   if (file.exists(archive)) unlink(archive)
   zip::zip(archive, files = files, root = stage, include_directories = FALSE, mode = "mirror")
-  receipt <- c(manifest[c('dataset_id', 'title', 'mode', 'prepared_at_utc', 'source_name', 'source_url', 'license_url', 'selection', 'tables')],
+  receipt <- c(manifest[c('dataset_id', 'title', 'mode', 'prepared_at_utc', 'source_name', 'source_url', 'license_url', 'original_licenses', 'selection', 'tables')],
     list(archive_sha256 = classroom_sha(archive), archive_bytes = unname(file.info(archive)$size)))
   jsonlite::write_json(receipt, paste0(archive, '.json'), auto_unbox = TRUE, pretty = TRUE)
   invisible(receipt)

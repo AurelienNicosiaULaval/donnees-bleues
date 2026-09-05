@@ -6,6 +6,11 @@
   "source_name": "Données Québec / Ministère de l'Éducation et Ministère de l'Enseignement supérieur",
   "source_url": "https://www.donneesquebec.ca/recherche/dataset/localisation-des-etablissements-d-enseignement-du-reseau-scolaire-au-quebec",
   "license_url": "https://creativecommons.org/licenses/by/4.0/deed.fr",
+  "original_licenses": {
+    "code": "MIT",
+    "content": "CC-BY-4.0",
+    "notices": ["LICENSE", "LICENCE-CONTENUS.md"]
+  },
   "selection": "Table de classe limitée aux colonnes déclarées, sans tirage supplémentaire de lignes. Attribution et conditions tierces conservées.",
   "tables": [
     {
@@ -16,6 +21,6 @@
       "prepared_table_sha256": "e14343f759c96cfda097db43bfaec4c1a8a6d0607fa3b76ae61250d0f6308ae7"
     }
   ],
-  "archive_sha256": "9eaef811215e448617934c412f1860267876ac5b83487d5ec9e65915f7672e80",
-  "archive_bytes": 82059
+  "archive_sha256": "669fab617e3e524d07888b98093198bab9328f0c9abadcb4dcd66d95e88930c9",
+  "archive_bytes": 83790
 }

@@ -6,6 +6,11 @@
   "source_name": "BIXI Montréal / Données Québec",
   "source_url": "https://www.donneesquebec.ca/recherche/dataset/vmtl-bixi-etat-des-stations",
   "license_url": "https://creativecommons.org/licenses/by/4.0/deed.fr",
+  "original_licenses": {
+    "code": "MIT",
+    "content": "CC-BY-4.0",
+    "notices": ["LICENSE", "LICENCE-CONTENUS.md"]
+  },
   "selection": "Table de classe limitée aux colonnes déclarées, sans tirage supplémentaire de lignes. Attribution et conditions tierces conservées.",
   "tables": [
     {
@@ -16,6 +21,6 @@
       "prepared_table_sha256": "574d388144c812400cf740be498c7e20e4fd2189e8fecfe52c1b0be2bc84ecdf"
     }
   ],
-  "archive_sha256": "4d6efc6945361fd3cc4714d26abb62acc70c24cd8be89de78a1e7c077be6ceda",
-  "archive_bytes": 34704
+  "archive_sha256": "85c071a6a6a5b2ab48204786c47eb2b002ad47fb3bd53cb1379d385200981265",
+  "archive_bytes": 36441
 }

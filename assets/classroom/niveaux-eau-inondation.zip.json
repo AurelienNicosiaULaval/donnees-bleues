@@ -6,6 +6,11 @@
   "source_name": "Données Québec / Ministère de la Sécurité intérieure",
   "source_url": "https://www.donneesquebec.ca/recherche/dataset/niveaux-deau-inondation-msp",
   "license_url": "https://creativecommons.org/licenses/by/4.0/deed.fr",
+  "original_licenses": {
+    "code": "MIT",
+    "content": "CC-BY-4.0",
+    "notices": ["LICENSE", "LICENCE-CONTENUS.md"]
+  },
   "selection": "Table de classe limitée aux colonnes déclarées, sans tirage supplémentaire de lignes. Attribution et conditions tierces conservées.",
   "tables": [
     {
@@ -37,6 +42,6 @@
       "prepared_table_sha256": "7e0a914662ec85b1923aefb5f746945ef4ca3b6fceb07c4c9a93fb78450e81bf"
     }
   ],
-  "archive_sha256": "15df014a258fe027594afc7808cd055cbb78b5b1900e7ef349734ece062e20d7",
-  "archive_bytes": 39406
+  "archive_sha256": "d8671890698d9081240c1d4a4be8c88c9284d51b71f2a2c93b69a9399f4d8a5b",
+  "archive_bytes": 41142
 }
