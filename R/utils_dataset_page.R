@@ -218,10 +218,6 @@ dataset_activity_cards <- function(metadata, ctx) {
 }
 
 dataset_contributor_badge <- function(metadata) {
-  if (!dataset_flag_true(metadata$stt1100_contact)) {
-    return("")
-  }
-
   name <- dataset_squish(metadata$contributor_name, "")
   if (name == "") {
     return("")
@@ -232,9 +228,10 @@ dataset_contributor_badge <- function(metadata) {
 
   paste0(
     '<div class="dataset-contributor-badge">',
-    '<span>Personne à contacter</span>',
+    '<span>Contribution à la fiche</span>',
     "<strong>", dataset_html_escape(name), "</strong>",
     role_html,
+    paste0("<small>Cours : ", dataset_html_escape(if (length(metadata$courses)) paste(unlist(metadata$courses), collapse = "; ") else "usage non documenté"), "</small>"),
     "</div>"
   )
 }

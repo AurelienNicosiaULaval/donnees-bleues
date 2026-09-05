@@ -1,0 +1,14 @@
+---
+title: "Connecter GitHub à RStudio avec SSH"
+toc: false
+embed-resources: true
+---
+
+# Connecter GitHub à RStudio avec SSH
+
+```{r}
+#| echo: false
+#| results: asis
+source("../R/utils_resources.R")
+render_resource_detail("ssh-rstudio")
+```

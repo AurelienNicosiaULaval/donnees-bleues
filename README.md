@@ -84,3 +84,13 @@ La disponibilité technique d’une trousse n’établit pas son efficacité pé
 Le workflow valide l’environnement, les règles de publication, les trousses et les analyses, puis construit et vérifie un site neuf. Le déploiement sur `main` dépend du succès de cette validation et utilise son artefact exact. Les demandes de fusion produisent un artefact de consultation sans déploiement.
 
 Dans les paramètres Pages du dépôt, la source doit être GitHub Actions. Après une livraison, vérifier le workflow terminé et les pages et téléchargements publics. Un simple changement dans le dossier `docs/` ne constitue pas une preuve de publication validée.
+
+## Documents, applications et recherche commune
+
+`ressources.qmd` rassemble les données, activités et notices de `data/metadata/ressources.yml`. Les documents (articles, billets, journaux, notes, PDF) et applications (Shiny, learnr, applets) utilisent le modèle `templates/ressource-template.yml`. Ils doivent présenter un lien vérifiable avec l’enseignement de la science des données au Québec.
+
+Chaque notice sépare auteur ou organisme source, contribution au répertoire et cours d’utilisation. Un cours est une utilisation documentée, pas une suggestion : renseigner `courses` et conserver sa preuve dans `course_evidence`. Les fiches et activités existantes acceptent aussi une liste `courses` dans leur fichier YAML. Sans preuve, la page indique « usage non documenté ».
+
+Les liens externes n’accordent aucun droit supplémentaire de redistribution. Les ressources restent hébergées à leur source. Pour une nouvelle notice, créer une page dans `resources/` qui appelle `render_resource_detail()`; le rendu complet l’inclut dans la recherche générale. Lancer `Rscript tests/test_resources.R`, puis `Rscript scripts/render_site.R` et `Rscript scripts/check_site.R`.
+
+Le formulaire de contribution fonctionne avec un brouillon courriel sans compte GitHub. L’envoi direct est préparé dans `server/`, avec activation distincte de l’hébergement et du SMTP. Voir `server/README.md`.

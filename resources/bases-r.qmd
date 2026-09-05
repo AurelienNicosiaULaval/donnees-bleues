@@ -1,0 +1,14 @@
+---
+title: "Mise à niveau des bases de R"
+toc: false
+embed-resources: true
+---
+
+# Mise à niveau des bases de R
+
+```{r}
+#| echo: false
+#| results: asis
+source("../R/utils_resources.R")
+render_resource_detail("bases-r")
+```

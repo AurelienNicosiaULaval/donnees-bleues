@@ -21,6 +21,8 @@ project:
   render:
     - "index.qmd"
     - "catalogue.qmd"
+    - "ressources.qmd"
+    - "resources/*.qmd"
     - "zero-waste.qmd"
     - "activites.qmd"
     - "about.qmd"
@@ -51,7 +53,7 @@ website:
       - text: "Accueil"
         href: index.qmd
       - text: "Explorer"
-        href: catalogue.qmd
+        href: ressources.qmd
       - text: "Planifier"
         href: activites.qmd
       - text: "Séquences"
@@ -83,6 +85,7 @@ format:
       - assets/css/navigation.css
       - assets/css/previews.css
       - assets/css/activities.css
+      - assets/css/resources.css
     include-before-body: assets/skip-link.html
     embed-resources: true
     toc: true

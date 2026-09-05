@@ -1,0 +1,14 @@
+---
+title: "Régression linéaire : notes MQT-2101"
+toc: false
+embed-resources: true
+---
+
+# Régression linéaire : notes MQT-2101
+
+```{r}
+#| echo: false
+#| results: asis
+source("../R/utils_resources.R")
+render_resource_detail("regression-mqt")
+```

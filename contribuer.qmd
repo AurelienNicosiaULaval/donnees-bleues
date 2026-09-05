@@ -5,12 +5,72 @@ page-layout: full
 embed-resources: true
 ---
 
+# Proposer une ressource
+
+Un jeu de données, une activité, un article, un billet, des notes de cours ou une application : partagez un lien et quelques mots sur son intérêt pour enseigner la science des données au Québec. Aucun compte GitHub n’est nécessaire.
+
+Votre proposition sera examinée avant publication. Les champs marqués d’un astérisque sont obligatoires.
+
+```{r}
+#| echo: false
+#| results: asis
+library(htmltools)
+endpoint <- Sys.getenv("CONTRIBUTION_ENDPOINT", "")
+if (nzchar(endpoint) && !grepl("^https://", endpoint)) stop("CONTRIBUTION_ENDPOINT doit utiliser HTTPS")
+recipient <- Sys.getenv("CONTRIBUTION_EMAIL", "aurelien.nicosia@mat.ulaval.ca")
+if (!grepl("^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+[.][A-Za-z]{2,}$", recipient)) stop("Adresse de contribution invalide")
+cat('<form id="contribution-form" class="contribution-form" data-recipient="', htmlEscape(recipient, attribute = TRUE), '" data-endpoint="', htmlEscape(endpoint, attribute = TRUE), '">', sep = '')
+```
+
+```{=html}
+<label>Votre nom *<input name="name" required maxlength="120" autocomplete="name"></label>
+<label>Votre courriel *<input name="email" type="email" required maxlength="254" autocomplete="email"></label>
+<label>Type de ressource *<select name="type" required><option value="">Choisir un type</option><option>Données</option><option>Activité pédagogique</option><option>Document</option><option>Application ou tutoriel</option><option>Correction ou collaboration</option></select></label>
+<label>Titre *<input name="title" required maxlength="180"></label>
+<label>Lien vers la ressource<input name="url" type="url" maxlength="2000" placeholder="https://…"></label>
+<label>Auteur, autrice ou organisme producteur<input name="author" maxlength="240"></label>
+<label>Thèmes<input name="themes" maxlength="240" placeholder="Mobilité, environnement, éducation…"></label>
+<label>Cours où la ressource est utilisée<input name="courses" maxlength="400" placeholder="Sigle, titre, établissement et lien vers le cours"></label>
+<label>Description et intérêt pédagogique *<textarea name="message" required maxlength="4000" rows="5"></textarea></label>
+<div class="honeypot" aria-hidden="true"><label>Site de contact<input name="website" tabindex="-1" autocomplete="off"></label></div>
+<label class="consent"><input name="consent" type="checkbox" required value="yes">J’accepte que mon nom et mon courriel servent à traiter cette proposition et à me répondre. Mon courriel ne sera pas publié.</label>
+<p>Ne joignez aucune donnée personnelle d’étudiant. Proposez des liens vers les documents plutôt que des pièces jointes.</p>
+<button type="submit">Préparer ma proposition</button>
+<p id="contribution-status" role="status" aria-live="polite">Vous pourrez relire votre proposition avant de l’envoyer.</p>
+</form>
+<section id="contribution-draft" hidden>
+<h2>Votre proposition</h2>
+<label for="contribution-output">Texte à conserver ou à envoyer</label>
+<textarea id="contribution-output" rows="12" readonly style="width:100%"></textarea>
+<p><a id="contribution-email" class="dataset-button" hidden>Ouvrir ma messagerie</a> <button id="contribution-copy" type="button">Copier la proposition</button></p>
+</section>
+<noscript>Vous pouvez envoyer votre proposition à <a href="mailto:aurelien.nicosia@mat.ulaval.ca">Aurélien Nicosia</a> en indiquant le titre, le lien, l’auteur et les cours concernés.</noscript>
+<script src="assets/js/contribute.js"></script>
+```
+
+```{r}
+#| echo: false
+#| results: asis
+if (nzchar(endpoint)) {
+  cat("Votre nom, votre courriel et votre proposition seront transmis au service de réception puis conservés dans la boîte de l’équipe pour traiter votre demande. Votre courriel ne sera pas publié.")
+} else {
+  cat("Le formulaire prépare un courriel à Aurélien Nicosia. Les informations restent dans cette page jusqu’à votre envoi depuis votre messagerie.")
+}
+```
+
+## Contribuer au code
+
+Les contributions techniques passent par le [dépôt GitHub](https://github.com/AurelienNicosiaULaval/donnees-bleues). Les indications détaillées ci-dessous servent à préparer une contribution au dépôt.
+
+<details>
+<summary>Guide pour les contributions techniques</summary>
+
 ::: {.contrib-page}
 
 ::: {.contrib-hero}
 ::: {.contrib-hero-copy}
 
-# Contribuer
+## Guide technique
 
 ::: {.contrib-lede}
 Contribuer à Données bleues, c'est améliorer une ressource pédagogique ouverte : ajouter une source vérifiée, documenter une limite, proposer une activité, corriger un script ou rendre une fiche plus utile en classe.
@@ -250,3 +310,5 @@ Même une petite correction est utile si elle améliore la provenance, la clart�
 :::
 
 :::
+
+</details>

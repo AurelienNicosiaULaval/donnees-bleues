@@ -26,6 +26,7 @@ site_inputs <- function() {
   root_pages <- c(
     "index.qmd",
     "catalogue.qmd",
+    "ressources.qmd",
     "zero-waste.qmd",
     "activites.qmd",
     "about.qmd",
@@ -38,6 +39,7 @@ site_inputs <- function() {
   )
 
   nested_pages <- c(
+    list.files("resources", pattern = "[.]qmd$", recursive = TRUE, full.names = TRUE),
     list.files("activities", pattern = "[.]qmd$", recursive = TRUE, full.names = TRUE),
     list.files("datasets", pattern = "[.]qmd$", recursive = TRUE, full.names = TRUE)
   )

@@ -86,6 +86,26 @@ contextes d'enseignement
 
 ::: {.about-section .about-problem}
 ::: {.about-section-heading}
+::: {.founder-card}
+::: {.founder-photo}
+![Aurélien Nicosia, créateur de Données bleues](assets/aurelien-nicosia-github.jpg){width=200 height=200 fig-alt="Portrait d’Aurélien Nicosia, créateur et développeur de Données bleues"}
+
+[Photo du profil GitHub](https://github.com/AurelienNicosiaULaval)
+:::
+::: {.founder-bio}
+## Aurélien Nicosia
+
+Créateur et développeur de Données bleues
+
+Données bleues a été conçue et développée par Aurélien Nicosia, chargé d’enseignement en mathématiques et statistique à l’Université Laval. Il assure le développement de la plateforme et la conception de ses ressources pédagogiques originales. Les organismes producteurs des données et les personnes qui contribuent aux ressources sont identifiés dans leurs notices respectives.
+
+[Profil GitHub](https://github.com/AurelienNicosiaULaval) · [Site personnel](https://aureliennicosiaulaval.github.io/web_site/) · [ORCID](https://orcid.org/0000-0002-0974-9988) · [LinkedIn](https://www.linkedin.com/in/aur%C3%A9lien-nicosia-6a52487b/)
+
+[Code de la plateforme](https://github.com/AurelienNicosiaULaval/donnees-bleues) · [Proposer une ressource](contribuer.qmd)
+
+:::
+:::
+
 ## Pourquoi Données bleues existe
 
 Données bleues aide à passer d’une source québécoise à une activité de cours. Les fiches rendent visibles les choix de préparation et les limites qui influencent l’interprétation.

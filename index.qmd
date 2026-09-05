@@ -227,7 +227,7 @@ Données bleues transforme des jeux de données publics vérifiés en fiches, ac
 :::
 
 ::: {.home-hero-actions}
-[Explorer les données](catalogue.qmd){.dataset-button}
+[Explorer les données](ressources.qmd){.dataset-button}
 [Préparer une séance](activites.qmd#preparer-un-cours){.dataset-button .secondary}
 :::
 
@@ -261,7 +261,7 @@ Trouver une activité adaptée au temps disponible, au niveau et à la productio
 
 Entrer dans une fiche, vérifier ce que représente une ligne, puis comparer avec prudence.
 
-[Explorer les fiches](catalogue.qmd)
+[Explorer les fiches](ressources.qmd)
 :::
 
 ::: {.home-intent-card}
@@ -269,7 +269,7 @@ Entrer dans une fiche, vérifier ce que représente une ligne, puis comparer ave
 
 Choisir une source qui permet de produire un graphique ou une carte vraiment interprétable.
 
-[Voir le catalogue](catalogue.qmd)
+[Voir le catalogue](ressources.qmd)
 :::
 
 ::: {.home-intent-card}

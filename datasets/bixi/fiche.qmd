@@ -265,3 +265,7 @@ render_dataset_minimal_result()
 #| results: asis
 render_dataset_detail_footer()
 ```
+
+## Tutoriel interactif complémentaire
+
+[Explorer le tutoriel BIXI d’Aurélien Nicosia](../../resources/tutoriel-bixi.qmd), avec un lien vers le code source. Ce tutoriel porte sur les trajets; la présente fiche porte sur l’état des stations.

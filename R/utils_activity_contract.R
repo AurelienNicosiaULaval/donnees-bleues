@@ -60,6 +60,11 @@ activity_contract_metadata <- function() {
 
 render_activity_contract <- function() {
   metadata <- activity_contract_metadata()
+  input <- normalizePath(knitr::current_input(dir = TRUE), mustWork = TRUE)
+  dataset <- yaml::read_yaml(file.path(dirname(input), "metadata.yml"))
+  cat('<p class="resource-attribution">Contribution pédagogique : ',
+      activity_contract_html_escape(dataset$contributor_name %||% "Non renseignée"),
+      '. Cours : ', activity_contract_html_escape(if (length(metadata$courses)) paste(unlist(metadata$courses), collapse = '; ') else 'usage non documenté'), '</p>', sep = "")
   title_id <- paste0("activity-contract-", activity_contract_html_escape(metadata$id %||% "details"))
   fields <- list(
     "Objectifs d'apprentissage" = activity_contract_list(metadata$learning_objectives),

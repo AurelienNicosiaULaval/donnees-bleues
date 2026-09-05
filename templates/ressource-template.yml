@@ -1,0 +1,19 @@
+# À ajouter comme entrée de data/metadata/ressources.yml.
+# Créer aussi resources/<id>.qmd avec render_resource_detail("<id>").
+id: identifiant-unique
+type: document # document ou application
+title: Titre de la ressource
+format: Article # PDF, billet, revue, notes, Shiny, learnr, applet…
+description: Intérêt pour la science des données au Québec
+themes: [Thème]
+concepts: [Concept]
+authors: [Auteur ou organisme vérifié]
+contributor: Personne qui propose la notice
+url: https://exemple.ca/ressource
+evidence_url: https://exemple.ca/provenance
+# code_url: https://github.com/auteur/depot
+courses: [] # Sigles, titres et établissement, uniquement si usage documenté
+# course_evidence: URL de preuve ou confirmation datée de la personne enseignante
+related_datasets: [] # Identifiants de jeux existants, p. ex. bixi
+license: Conditions vérifiées ou mention explicite de leur absence
+note: Limites ou précautions utiles

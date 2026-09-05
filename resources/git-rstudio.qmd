@@ -1,0 +1,14 @@
+---
+title: "Cloner un projet GitHub dans RStudio"
+toc: false
+embed-resources: true
+---
+
+# Cloner un projet GitHub dans RStudio
+
+```{r}
+#| echo: false
+#| results: asis
+source("../R/utils_resources.R")
+render_resource_detail("git-rstudio")
+```

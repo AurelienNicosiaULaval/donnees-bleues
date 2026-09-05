@@ -45,6 +45,8 @@ jobs:
           Rscript scripts/check_environment.R
           Rscript scripts/check_datasets.R
           Rscript scripts/check_public_previews.R
+      - name: Test contribution validation without sending email
+        run: python3 -m unittest discover -s server -p 'test_*.py'
       - name: Test the distributed activities without downloads
         run: Rscript scripts/check_classroom_kits.R
       - name: Test activities that require source acquisition

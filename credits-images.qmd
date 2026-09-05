@@ -33,3 +33,7 @@ Les vignettes des jeux de données sont des versions recadrées et recompressée
 | Météo quotidienne à Québec | [YQB terminal interior.jpg](https://commons.wikimedia.org/wiki/File:YQB_terminal_interior.jpg) | Quintin Soloviev | [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) |
 | Condamnations des établissements alimentaires au Québec | [Food at WIkimanian 2017 02.jpg](https://commons.wikimedia.org/wiki/File:Food_at_WIkimanian_2017_02.jpg) | Camelia.boban | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) |
 | Indices de défavorisation des écoles primaires du Québec | [École primaire Courval - Neuville.JPG](https://commons.wikimedia.org/wiki/File:%C3%89cole_primaire_Courval_-_Neuville.JPG) | Sylvainbrousseau | [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/) |
+
+## Portrait du créateur
+
+Le portrait d’Aurélien Nicosia utilisé dans la page « À propos » provient de son [profil GitHub](https://github.com/AurelienNicosiaULaval), à sa demande. Image récupérée le 5 septembre 2026 depuis [l’avatar du profil](https://avatars.githubusercontent.com/u/116816597?v=4). Ce référencement ne constitue pas une attribution d’une licence ouverte distincte à la photographie.
