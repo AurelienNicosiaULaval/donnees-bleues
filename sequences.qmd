@@ -1,6 +1,7 @@
 ---
 title: "Séquences pédagogiques"
 toc: false
+body-classes: hub-page
 page-layout: full
 format:
   html:

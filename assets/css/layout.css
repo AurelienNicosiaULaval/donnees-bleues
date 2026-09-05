@@ -1,0 +1,43 @@
+/* Une seule largeur pour les pages principales, indépendamment de leur contenu. */
+body.hub-page #quarto-content {
+  display:block;
+  width:calc(100% - clamp(2rem, 6vw, 6rem));
+  max-width:1600px;
+  margin-inline:auto;
+  padding-inline:0;
+}
+body.hub-page main.content {
+  box-sizing:border-box;
+  width:100%;
+  max-width:none;
+  margin:1.5rem 0 3rem;
+  padding:0;
+  border:0;
+  background:transparent;
+}
+body.hub-page :is(.home-page,.catalogue-page,.activities-page,.about-page,.contrib-page,.zero-waste-page) {
+  width:100%;
+  max-width:none;
+  margin-inline:0;
+  padding-inline:0;
+}
+body.hub-page :is(.home-section,.home-stat-strip,.home-final,.act-section,.act-summary-strip,.act-catalogue,.zw-section,.about-section,.contrib-section) {
+  width:100%;
+  max-width:none;
+  margin-inline:0;
+}
+body.hub-page :is(.home-hero,.act-hero,.zw-hero,.contrib-hero) {
+  padding-inline:clamp(1rem,3vw,3rem);
+}
+body.hub-page .resource-hero {max-width:none;}
+body.hub-page .resource-hero > p {max-width:85ch;}
+body.hub-page .about-page > section {margin-block:2rem;}
+body.hub-page .about-page > section > p {max-width:95ch;}
+body.hub-page .founder-card {width:100%; box-sizing:border-box;}
+body.hub-page.resource-search-embedded #quarto-content {width:calc(100% - 2rem);}
+@media(max-width:600px) {
+ body.hub-page main.content {margin-top:1rem;}
+ body.hub-page :is(.home-hero,.act-hero,.zw-hero,.contrib-hero) {padding-inline:1rem;}
+}
+body.hub-page .resource-hero h1 {font-family:var(--db-serif); line-height:1.08;}
+body.hub-page .about-page {background:transparent;}

@@ -1,0 +1,22 @@
+---
+title: "Lectures et documents"
+toc: false
+body-classes: hub-page
+page-layout: full
+embed-resources: true
+---
+
+::: {.resource-hero}
+# Lectures et documents
+
+Notes de cours, articles, guides et autres lectures pour apprendre et enseigner la science des données. Chaque notice indique les auteurs, les thèmes et les cours documentés.
+
+[Proposer une ressource](contribuer.qmd)
+:::
+
+```{r}
+#| echo: false
+#| results: asis
+source("R/utils_resources.R")
+render_resource_cards("document")
+```

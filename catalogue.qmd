@@ -1,11 +1,10 @@
 ---
 title: "Explorer les données"
 toc: false
+body-classes: hub-page
 page-layout: full
 embed-resources: true
 ---
-
-[Chercher aussi parmi les activités, documents et applications](ressources.qmd)
 
 ```{r}
 #| label: catalogue-table

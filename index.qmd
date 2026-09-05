@@ -2,6 +2,7 @@
 title: "Données bleues"
 subtitle: "Des données québécoises pour enseigner la statistique et la science des données"
 toc: false
+body-classes: hub-page
 page-layout: full
 embed-resources: true
 ---
@@ -227,7 +228,7 @@ Données bleues transforme des jeux de données publics vérifiés en fiches, ac
 :::
 
 ::: {.home-hero-actions}
-[Explorer les données](ressources.qmd){.dataset-button}
+[Explorer les données](catalogue.qmd){.dataset-button}
 [Préparer une séance](activites.qmd#preparer-un-cours){.dataset-button .secondary}
 :::
 
@@ -261,7 +262,7 @@ Trouver une activité adaptée au temps disponible, au niveau et à la productio
 
 Entrer dans une fiche, vérifier ce que représente une ligne, puis comparer avec prudence.
 
-[Explorer les fiches](ressources.qmd)
+[Explorer les fiches](catalogue.qmd)
 :::
 
 ::: {.home-intent-card}
@@ -269,7 +270,7 @@ Entrer dans une fiche, vérifier ce que représente une ligne, puis comparer ave
 
 Choisir une source qui permet de produire un graphique ou une carte vraiment interprétable.
 
-[Voir le catalogue](ressources.qmd)
+[Voir le catalogue](catalogue.qmd)
 :::
 
 ::: {.home-intent-card}

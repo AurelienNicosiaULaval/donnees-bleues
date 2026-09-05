@@ -22,6 +22,9 @@ project:
     - "index.qmd"
     - "catalogue.qmd"
     - "ressources.qmd"
+    - "lectures.qmd"
+    - "applications.qmd"
+    - "guide.qmd"
     - "resources/*.qmd"
     - "zero-waste.qmd"
     - "activites.qmd"
@@ -42,9 +45,11 @@ website:
   site-url: "https://donneesbleues.ca/"
   repo-url: "https://github.com/AurelienNicosiaULaval/donnees-bleues"
   repo-actions: [source, issue]
+  search: false
   open-graph: true
   favicon: favicon.svg
   navbar:
+    collapse-below: xl
     logo: assets/logo-donnees-bleues.svg
     logo-alt: "Logo Données bleues"
     background: "#ffffff"
@@ -52,23 +57,22 @@ website:
     left:
       - text: "Accueil"
         href: index.qmd
-      - text: "Explorer"
-        href: ressources.qmd
+      - text: "Données"
+        href: catalogue.qmd
       - text: "Planifier"
         href: activites.qmd
-      - text: "Séquences"
-        href: sequences.qmd
-      - text: "Méthode"
-        href: zero-waste.qmd
+      - text: "Lectures et documents"
+        href: lectures.qmd
+      - text: "Applications"
+        href: applications.qmd
+      - text: "Guide du site"
+        href: guide.qmd
       - text: "À propos"
         href: about.qmd
     right:
-      - icon: book
-        text: "Documentation"
-        href: references.qmd
-      - icon: github
-        text: "GitHub"
-        href: https://github.com/AurelienNicosiaULaval/donnees-bleues
+      - icon: search
+        text: "Rechercher"
+        href: ressources.qmd
       - text: "Contribuer"
         href: contribuer.qmd
   page-footer:
@@ -86,7 +90,9 @@ format:
       - assets/css/previews.css
       - assets/css/activities.css
       - assets/css/resources.css
+      - assets/css/layout.css
     include-before-body: assets/skip-link.html
+    include-after-body: assets/resource-search.html
     embed-resources: true
     toc: true
     toc-depth: 3

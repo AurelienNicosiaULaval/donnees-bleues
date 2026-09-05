@@ -52,8 +52,9 @@ resource_catalogue <- function(root = ".") {
   }))
 }
 resource_labels <- c(donnees = "Données", activite = "Activités", document = "Documents", application = "Applications")
-render_resource_cards <- function() {
+render_resource_cards <- function(type = NULL) {
   items <- resource_catalogue()
+  if (!is.null(type)) items <- Filter(function(x) x$type %in% type, items)
   cat('<div class="resource-grid" id="resource-results">')
   for (x in items) {
     courses <- resource_text(x$courses, "Usage en cours non documenté")
@@ -89,5 +90,7 @@ render_resource_detail <- function(id, root = "..") {
     stopifnot(grepl("^[a-z0-9-]+$", dataset), file.exists(file.path(root, "datasets", dataset, "metadata.yml")))
     cat('<p><a href="../datasets/', dataset, '/fiche.html">Consulter la fiche de données associée</a></p>', sep = '')
   }
-  cat('<p><a href="', resource_url(x$evidence_url), '">Source de la notice</a> · <a href="../ressources.html">Toutes les ressources</a></p>', sep = '')
+  cat('<p><a href="', resource_url(x$evidence_url), '">Source de la notice</a> · <a href="../',
+      if (x$type == "application") "applications.html" else "lectures.html",
+      '">', if (x$type == "application") "Toutes les applications" else "Toutes les lectures et documents", '</a></p>', sep = '')
 }

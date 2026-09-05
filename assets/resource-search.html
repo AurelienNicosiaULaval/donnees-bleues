@@ -1,0 +1,57 @@
+<script>
+// La recherche commune est chargée seulement à l’ouverture de la loupe.
+document.addEventListener('DOMContentLoaded', () => {
+  const embedded = window.self !== window.top && new URLSearchParams(location.search).has('embed');
+  if (embedded) {
+    document.body.classList.add('resource-search-embedded');
+    document.querySelectorAll('main a').forEach(link => { link.target = '_top'; });
+    document.addEventListener('keydown', event => {
+      if (event.key === 'Escape') window.parent.document.getElementById('resource-search-dialog').close();
+    });
+    return;
+  }
+  const link = document.querySelector('.navbar a[href$="ressources.html"]');
+  if (!link) return;
+  const destination = new URL(link.href);
+  destination.searchParams.set('embed', '1');
+  const button = document.createElement('button');
+  button.type = 'button';
+  button.id = 'quarto-search';
+  button.className = 'resource-search-trigger';
+  button.setAttribute('aria-label', 'Rechercher dans toutes les ressources');
+  button.title = 'Rechercher dans toutes les ressources';
+  button.setAttribute('aria-haspopup', 'dialog');
+  button.innerHTML = '<i class="bi bi-search" aria-hidden="true"></i>';
+  const container = document.querySelector('.navbar-container');
+  container.insertBefore(button, container.querySelector('.navbar-toggler'));
+  link.closest('li').remove();
+  const dialog = document.createElement('dialog');
+  dialog.id = 'resource-search-dialog';
+  dialog.setAttribute('aria-label', 'Rechercher dans les ressources');
+  const close = document.createElement('button');
+  close.type = 'button';
+  close.className = 'resource-search-close';
+  close.textContent = 'Fermer la recherche';
+  close.addEventListener('click', () => dialog.close());
+  dialog.append(close);
+  let frame;
+  button.addEventListener('click', () => {
+    if (!frame) {
+      frame = document.createElement('iframe');
+      frame.title = 'Recherche de données, activités, lectures et applications';
+      frame.src = destination.href;
+      frame.addEventListener('load', () => frame.contentDocument.getElementById('resource-query')?.focus());
+      dialog.append(frame);
+    }
+    dialog.showModal();
+    document.body.classList.add('resource-search-open');
+    frame.contentDocument?.getElementById('resource-query')?.focus();
+  });
+  dialog.addEventListener('close', () => {
+    document.body.classList.remove('resource-search-open');
+    button.focus();
+  });
+  dialog.addEventListener('click', event => { if (event.target === dialog) dialog.close(); });
+  document.body.append(dialog);
+});
+</script>

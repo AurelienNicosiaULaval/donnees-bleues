@@ -1,6 +1,7 @@
 ---
 title: "Méthode : données zéro déchet"
 toc: false
+body-classes: hub-page
 page-layout: full
 embed-resources: true
 ---

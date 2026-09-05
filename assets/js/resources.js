@@ -22,6 +22,7 @@
     document.getElementById('resource-count').textContent = `${count} ressource${count === 1 ? '' : 's'} sur ${cards.length}`;
     document.getElementById('resource-empty').hidden = count !== 0;
     const params = new URLSearchParams();
+    if (new URLSearchParams(location.search).has("embed")) params.set("embed", "1");
     for (const [key, field] of Object.entries(fields)) if (field.value) params.set(key, field.value);
     history.replaceState(null, '', location.pathname + (params.size ? '?' + params : '') + location.hash);
   }

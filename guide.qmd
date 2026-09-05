@@ -1,0 +1,59 @@
+---
+title: "Guide du site"
+toc: false
+body-classes: hub-page
+page-layout: full
+embed-resources: true
+---
+
+::: {.resource-hero}
+# Utiliser Données bleues
+
+Comprendre le fonctionnement du site, construire un parcours pédagogique et réutiliser les ressources avec leurs sources et leurs limites.
+:::
+
+::: {.act-module-grid}
+::: {.act-module-card}
+## [Séquences pédagogiques](sequences.qmd)
+
+Trois parcours adaptables pour enchaîner les apprentissages : lire et décrire, visualiser pour comparer, puis préparer, analyser et communiquer.
+:::
+::: {.act-module-card}
+## [Méthode](zero-waste.qmd)
+
+Le cadre « données zéro déchet » aide à choisir des sources qui servent plusieurs apprentissages. Sa grille est un outil de conception pédagogique, pas une mesure scientifique validée.
+:::
+::: {.act-module-card}
+## [Références et documentation](references.qmd)
+
+Les repères documentaires et les sources qui accompagnent la conception et l’utilisation des ressources.
+:::
+:::
+
+## Trouver une ressource
+
+Les pages [Données](catalogue.qmd), [Planifier](activites.qmd), [Lectures et documents](lectures.qmd) et [Applications](applications.qmd) donnent accès aux différents types de ressources. La loupe en haut de page ouvre une recherche commune par mots-clés, type, thème, auteur et cours.
+
+## Comprendre les fiches
+
+Chaque fiche de données indique sa source officielle, son unité statistique, ses variables principales et ses limites d’interprétation. Les activités associées précisent comment passer de la source à une séance, un laboratoire ou un projet.
+
+Une fiche ne garantit pas qu’une source est complète ou sans ambiguïté. Les séquences doivent être adaptées au groupe réel ; leur disponibilité ne constitue pas une validation en classe.
+
+[Partager un retour d’usage](retours-classe.qmd)
+
+## Licences et réutilisation
+
+Les textes, fiches et activités originales de Données bleues sont sous [Creative Commons Attribution 4.0 International (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/deed.fr). Vous pouvez les partager et les adapter, y compris à des fins commerciales, en attribuant le contenu à ses auteurs, en fournissant un lien vers la licence et en indiquant vos modifications.
+
+Le code original est sous [licence MIT](https://github.com/AurelienNicosiaULaval/donnees-bleues/blob/main/LICENSE). Les notices de licence accompagnent chaque trousse téléchargée.
+
+Attribution suggérée : Données bleues, Aurélien Nicosia et les personnes contributrices identifiées, version utilisée, https://donneesbleues.ca/.
+
+Les données et autres contenus de tiers conservent les licences ou conditions de leurs producteurs. Consulter les sources des fiches et les [crédits des images](credits-images.qmd).
+
+## Version et citation
+
+Cette édition porte le numéro 0.2.0. Elle réunit 26 fiches, 52 activités, trois séquences et trois modules transversaux. Chaque activité fournit une trousse de lancement. La disponibilité des ressources et les vérifications techniques ne constituent pas une preuve d’efficacité pédagogique.
+
+Les métadonnées de citation se trouvent dans [`CITATION.cff`](CITATION.cff). Les [livraisons GitHub](https://github.com/AurelienNicosiaULaval/donnees-bleues/releases) donnent accès aux versions figées. Les données des trousses portent leurs propres dates de préparation et d’acquisition.

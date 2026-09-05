@@ -1,91 +1,18 @@
 ---
 title: "À propos"
 toc: false
+body-classes: hub-page
 page-layout: full
 embed-resources: true
 ---
 
-```{r}
-#| label: about-page-data
-#| include: false
-library(dplyr)
-library(readr)
-library(stringr)
-
-catalogue_path <- "data/metadata/catalogue.csv"
-activity_catalogue_path <- "data/metadata/catalogue_activites.csv"
-
-catalogue <- if (file.exists(catalogue_path)) {
-  read_csv(catalogue_path, show_col_types = FALSE)
-} else {
-  tibble::tibble()
-}
-
-activities <- if (file.exists(activity_catalogue_path)) {
-  read_csv(activity_catalogue_path, show_col_types = FALSE)
-} else {
-  tibble::tibble()
-}
-
-n_datasets <- nrow(catalogue)
-n_themes <- if (n_datasets > 0) length(unique(catalogue$theme)) else 0
-n_activities <- nrow(activities)
-n_contexts <- if (n_activities > 0) length(unique(activities$context)) else 0
-```
-
 ::: {.about-page}
-
-::: {.about-hero}
-::: {.about-hero-copy}
-
+::: {.resource-hero}
 # À propos de Données bleues
 
-::: {.about-lede}
-Données bleues est un répertoire pédagogique pour enseigner la statistique, la programmation R et la science des données à partir de données québécoises, documentées et réutilisables.
+Un projet pour rapprocher l’enseignement de la statistique, de R et de la science des données des réalités québécoises.
 :::
 
-::: {.about-hero-actions}
-[Explorer le catalogue](catalogue.qmd){.dataset-button}
-[Voir les activités](activites.qmd){.dataset-button .secondary}
-:::
-
-:::
-
-::: {.about-problem-panel}
-## Le point de départ
-
-Le projet propose des exemples liés aux institutions, aux territoires et aux enjeux publics du Québec. Chaque activité relie une question statistique à une source dont les catégories, les unités et les conditions d’utilisation sont explicites.
-:::
-:::
-
-::: {.about-stat-strip}
-::: {.about-stat}
-`r n_datasets`
-
-fiches de jeux de données
-:::
-
-::: {.about-stat}
-`r n_themes`
-
-thèmes pédagogiques
-:::
-
-::: {.about-stat}
-`r n_activities`
-
-activités indexées
-:::
-
-::: {.about-stat}
-`r n_contexts`
-
-contextes d'enseignement
-:::
-:::
-
-::: {.about-section .about-problem}
-::: {.about-section-heading}
 ::: {.founder-card}
 ::: {.founder-photo}
 ![Aurélien Nicosia, créateur de Données bleues](assets/aurelien-nicosia-github.jpg){width=200 height=200 fig-alt="Portrait d’Aurélien Nicosia, créateur et développeur de Données bleues"}
@@ -106,116 +33,29 @@ Données bleues a été conçue et développée par Aurélien Nicosia, chargé d
 :::
 :::
 
-## Pourquoi Données bleues existe
 
-Données bleues aide à passer d’une source québécoise à une activité de cours. Les fiches rendent visibles les choix de préparation et les limites qui influencent l’interprétation.
-:::
+## L’idée du site
 
-::: {.about-emphasis}
-Un bon jeu de données pour enseigner doit être compréhensible, vérifiable, documenté, transformable et suffisamment riche pour soutenir plusieurs apprentissages.
-:::
-:::
+Données bleues est née d’une intention pédagogique : partir de questions et de sources proches de la classe pour apprendre à analyser des données. Les institutions, les territoires et les enjeux publics du Québec offrent des contextes pour donner du sens aux méthodes statistiques.
 
-::: {.about-section .about-answer}
-::: {.about-section-heading}
-## Ce que chaque fiche rend visible
+La plateforme réunit des données, des activités pédagogiques, des lectures et des applications. Ces ressources se complètent : une même question peut conduire à explorer une source, lire un document, essayer un tutoriel et préparer une séance.
 
-Une fiche ne s'arrête pas à un lien vers un fichier. Elle expose la provenance, la structure, les limites, les usages possibles et les activités associées.
-:::
+## Notre mission
 
-::: {.about-principles}
-::: {.about-principle}
-### Contextualiser
+Faciliter l’accès à des ressources contextualisées, documentées et réutilisables pour enseigner et apprendre la science des données. Rendre visibles leurs auteurs, leurs sources et leurs limites fait partie de cette mission.
 
-Relier les apprentissages à des réalités québécoises : environnement, mobilité, éducation, démographie, services publics, territoire et données institutionnelles.
-:::
+Le projet vise un répertoire durable, enrichi par les contributions et les retours d’usage. Les contenus de tiers restent attribués à leurs producteurs ; les usages dans des cours sont indiqués lorsqu’ils sont documentés.
 
-::: {.about-principle}
-### Documenter
+## À qui s’adresse Données bleues ?
 
-Rendre visibles la source, la licence, l'organisme producteur, les variables clés, les restrictions et les limites d'interprétation.
-:::
+Aux enseignantes et enseignants, aux étudiantes et étudiants, ainsi qu’aux équipes qui préparent des cours de statistique, de programmation R ou de science des données.
 
-::: {.about-principle}
-### Réutiliser
+## Participer au projet
 
-Éviter les jeux de données utilisés une seule fois puis oubliés. Une même source peut soutenir l'importation, le nettoyage, la visualisation, la modélisation et la communication.
-:::
+Une source à faire découvrir, une lecture utile, une application ou une activité à partager ? Le formulaire permet de proposer une contribution et d’en préciser les auteurs et les usages pédagogiques.
 
-::: {.about-principle}
-### Enseigner
+[Proposer une ressource](contribuer.qmd){.dataset-button}
 
-Fournir des activités courtes et longues pour passer rapidement d'une source à une discussion, un laboratoire, un mini-rapport ou un projet.
-:::
-:::
-:::
-
-::: {.about-section .about-method}
-::: {.about-section-heading}
-## Structure minimale d'une fiche
-
-Chaque fiche réunit quatre éléments : source officielle, unité statistique, variables principales et limites d'interprétation. Les activités associées indiquent comment passer de la source à une séance, un laboratoire ou un projet.
-:::
-:::
-
-::: {.about-section .about-audience}
-::: {.about-section-heading}
-## Pour qui?
-
-Données bleues s'adresse aux personnes qui veulent enseigner avec des données réelles sans perdre la rigueur documentaire et reproductible : enseignantes et enseignants, étudiantes et étudiants, responsables de cours et équipes qui préparent du matériel pédagogique.
-:::
-:::
-
-::: {.about-section .about-limits}
-::: {.about-section-heading}
-## Ce que le projet ne prétend pas faire
-
-La rigueur commence aussi par des limites claires.
-:::
-
-::: {.about-limit-list}
-- Données bleues ne prétend pas que les données québécoises sont toujours préférables aux autres jeux de données.
-- Le projet ne remplace pas les exemples classiques lorsqu'ils sont bien adaptés à une notion précise.
-- Une fiche ne garantit pas qu'une source est parfaite, complète ou sans ambiguïté.
-- Si une information n'est pas vérifiée, elle doit rester absente ou être signalée clairement.
-:::
-:::
-
-::: {.about-section .about-licences}
-::: {.about-section-heading}
-## Licences et réutilisation
-
-Les textes, fiches et activités originales de Données bleues sont sous [Creative Commons Attribution 4.0 International (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/deed.fr). Vous pouvez les partager et les adapter, y compris à des fins commerciales, en attribuant le contenu à ses auteurs, en fournissant un lien vers la licence et en indiquant vos modifications.
-
-Le code original est sous [licence MIT](https://github.com/AurelienNicosiaULaval/donnees-bleues/blob/main/LICENSE). Les notices de licence accompagnent chaque trousse téléchargée.
-
-Attribution suggérée : Données bleues, Aurélien Nicosia et les personnes contributrices identifiées, version utilisée, https://aureliennicosiaulaval.github.io/donnees-bleues/.
-
-Les données et autres contenus de tiers conservent les licences ou conditions de leurs producteurs. Consulter les sources des fiches et les [crédits des images](credits-images.qmd).
-:::
-:::
-
-::: {.about-section .about-version}
-::: {.about-section-heading}
-## Version et citation
-
-Cette édition porte le numéro 0.2.0. Elle réunit 26 fiches, 52 activités, trois séquences et trois modules transversaux. Chaque activité fournit une trousse de lancement. La disponibilité des ressources et les vérifications techniques ne constituent pas une preuve d’efficacité pédagogique.
-
-Les métadonnées de citation se trouvent dans [`CITATION.cff`](CITATION.cff). Les [livraisons GitHub](https://github.com/AurelienNicosiaULaval/donnees-bleues/releases) donnent accès aux versions figées. Les données des trousses portent leurs propres dates de préparation et d’acquisition.
-:::
-:::
-
-::: {.about-final}
-::: {.about-final-copy}
-## Un répertoire documenté et réutilisable
-
-L'objectif est de construire un répertoire durable : des sources vérifiées, des scripts reproductibles, des activités réalistes et des limites visibles. Le projet avance par ajouts prudents, révisions documentaires et retours d'usage lorsqu'ils existent.
-:::
-
-::: {.about-final-actions}
-[Consulter les références](references.qmd){.dataset-button .secondary}
-[Contribuer](contribuer.qmd){.dataset-button}
-:::
-:::
+[Consulter le guide du site](guide.qmd) · [Licences et réutilisation](guide.qmd#licences-et-réutilisation){#licences-et-réutilisation} · [Version et citation](guide.qmd#version-et-citation){#version-et-citation}
 
 :::

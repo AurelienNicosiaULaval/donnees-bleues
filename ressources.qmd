@@ -1,12 +1,13 @@
 ---
-title: "Explorer les ressources"
+title: "Rechercher dans les ressources"
 toc: false
+body-classes: hub-page
 page-layout: full
 embed-resources: true
 ---
 
 ::: {.resource-hero}
-# Une question, plusieurs façons d’apprendre
+# Rechercher dans les ressources
 
 Données québécoises, activités, documents et applications : trouvez une ressource par thème, auteur ou cours.
 

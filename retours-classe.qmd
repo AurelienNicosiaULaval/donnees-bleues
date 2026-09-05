@@ -1,6 +1,7 @@
 ---
 title: "Retour après usage en classe"
 toc: false
+body-classes: hub-page
 page-layout: full
 format:
   html:

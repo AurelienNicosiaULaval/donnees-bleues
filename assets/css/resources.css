@@ -27,3 +27,27 @@
 .founder-photo {font-size:.8rem; text-align:center;}
 .founder-bio h2 {margin-top:0;}
 @media(max-width:650px) {.founder-card {grid-template-columns:1fr; padding:1.2rem;} .founder-photo {text-align:left;}}
+
+/* La loupe reste accessible à côté du menu, y compris sur téléphone. */
+.resource-search-trigger {border:0; background:transparent; color:#123e58; min-width:44px; min-height:44px; font-size:1.2rem; cursor:pointer; order:3;}
+.resource-search-open {overflow:hidden;}
+#resource-search-dialog {width:min(1200px,96vw); height:92dvh; max-width:96vw; max-height:96dvh; border:1px solid #d0e0e7; border-radius:16px; padding:0; background:#fff; overflow:hidden;}
+#resource-search-dialog[open] {display:flex; flex-direction:column;}
+#resource-search-dialog::backdrop {background:rgba(15,35,50,.6);}
+.resource-search-close {align-self:flex-end; flex:none; margin:.6rem 1rem; padding:.5rem .8rem; border:1px solid #829eab; border-radius:6px; background:#fff; color:#123e58; cursor:pointer;}
+#resource-search-dialog iframe {width:100%; flex:1; min-height:0; border:0;}
+.resource-search-embedded #quarto-header,.resource-search-embedded footer,.resource-search-embedded .skip-to-content {display:none!important;}
+.resource-search-embedded {padding-top:0!important;}
+.resource-search-embedded #quarto-content {padding-top:0!important;}
+.resource-search-embedded main {margin-top:0!important;}
+.resource-search-embedded .resource-hero h1 {font-size:2rem;}
+@media (min-width:1200px) {.navbar .navbar-container {padding-inline:1rem;} .navbar .nav-link {padding-inline:.45rem;} .navbar-title {font-size:1.15rem;} .navbar-collapse {order:2;} }
+.resource-search-embedded .resource-hero {margin:.6rem 0;}
+.resource-search-embedded .resource-hero > p {display:none;}
+@media(max-width:600px) {
+ .resource-search-embedded .resource-hero h1 {font-size:1.45rem;}
+ .resource-search-embedded .resource-filters {grid-template-columns:repeat(2,minmax(0,1fr)); padding:.8rem; gap:.65rem; margin:.8rem 0;}
+ .resource-search-embedded .resource-filters label:first-child {grid-column:1 / -1;}
+ .resource-search-embedded .resource-filters label {font-size:.85rem; min-width:0;}
+ .resource-search-embedded .resource-filters select {min-width:0; padding:.5rem .2rem;}
+}

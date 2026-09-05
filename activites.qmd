@@ -1,6 +1,7 @@
 ---
 title: "Planifier une séance"
 toc: false
+body-classes: hub-page
 page-layout: full
 embed-resources: true
 ---

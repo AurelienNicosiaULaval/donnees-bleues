@@ -1,0 +1,22 @@
+---
+title: "Applications"
+toc: false
+body-classes: hub-page
+page-layout: full
+embed-resources: true
+---
+
+::: {.resource-hero}
+# Applications
+
+Tutoriels interactifs, applications Shiny et outils pédagogiques : explorez les ressources, leurs auteurs et leurs usages en cours.
+
+[Proposer une ressource](contribuer.qmd)
+:::
+
+```{r}
+#| echo: false
+#| results: asis
+source("R/utils_resources.R")
+render_resource_cards("application")
+```
