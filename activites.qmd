@@ -12,6 +12,7 @@ embed-resources: true
 library(dplyr)
 library(readr)
 library(stringr)
+source("R/utils_resource_identity.R")
 
 activity_catalogue_path <- "data/metadata/catalogue_activites.csv"
 
@@ -364,6 +365,7 @@ if (file.exists(activity_catalogue_path)) {
       sep = ""
     )
 
+    cat(resource_type_badge("activite"))
     cat('<div class="act-card-meta">\n')
     cat('<span>', html_escape(clean_value(row$duration)), '</span>\n', sep = "")
     cat('<span>', html_escape(clean_value(row$level)), '</span>\n', sep = "")
@@ -371,6 +373,7 @@ if (file.exists(activity_catalogue_path)) {
     cat('</div>\n')
     cat('<h3><a href="', html_escape(activity_html), '">', html_escape(row$title), '</a></h3>\n', sep = "")
     cat('<p class="act-card-question">', html_escape(row$question), '</p>\n', sep = "")
+    cat(resource_dates_html(row, compact = TRUE))
     cat('<div class="act-card-summary">\n')
     cat('<p><span>Jeu de données</span>', html_escape(row$dataset_title), '</p>\n', sep = "")
     cat('<p><span>À produire</span>', html_escape(expected_output), '</p>\n', sep = "")

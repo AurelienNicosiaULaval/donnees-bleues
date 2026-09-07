@@ -1,14 +1,13 @@
 ---
 title: "Arbres du Québec : quatre espèces forestières"
 page-layout: full
-body-classes: hub-page arbres-page
-css: arbres.css
 toc: false
 embed-resources: true
 execute:
   freeze: false
   warning: false
   message: false
+body-classes: hub-page resource-page dataset-resource
 ---
 
 ```{r}

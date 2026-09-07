@@ -160,3 +160,5 @@ chart:
   x_label: Date en 2025, station Radisson
   y_label: Concentration moyenne de PM2,5 (µg/m³)
   title: PM2,5 aux jours retenus à Radisson
+date_added: "2026-06-19"
+date_updated: "2026-09-05"

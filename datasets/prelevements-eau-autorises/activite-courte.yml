@@ -59,3 +59,5 @@ adaptations:
 script_file: datasets/prelevements-eau-autorises/activite-courte.R
 classroom_archive: assets/classroom/prelevements-eau-autorises.zip
 access_mode: frozen
+date_added: "2026-06-18"
+date_updated: "2026-09-05"

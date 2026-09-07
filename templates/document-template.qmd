@@ -1,0 +1,36 @@
+---
+title: "Titre du document"
+page-layout: full
+body-classes: hub-page resource-page document-resource
+toc: false
+embed-resources: true
+---
+
+[Retour au catalogue](../lectures.qmd)
+
+::: {.resource-hero .resource-detail-header}
+```{r}
+#| echo: false
+#| results: asis
+source(if (file.exists("R/utils_resources.R")) "R/utils_resources.R" else "../R/utils_resources.R")
+render_resource_notice_identity("identifiant-unique")
+```
+
+# Titre du document
+
+Présenter la question statistique illustrée avec des données québécoises.
+
+[Lire le document](https://exemple.ca/ressource){.dataset-button}
+:::
+
+## Le parcours pédagogique
+
+Décrire les concepts, les préalables et la démarche proposée.
+
+## Résultats et limites
+
+Expliquer ce que la ressource permet de comprendre et les limites d’interprétation.
+
+## Auteur, sources et réutilisation
+
+Nommer l’auteur, la contribution au répertoire et les conditions de réutilisation. Indiquer seulement les usages en cours documentés. Relier les sources et, lorsqu’il existe, le code.

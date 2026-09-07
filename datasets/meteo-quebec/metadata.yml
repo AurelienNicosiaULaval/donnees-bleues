@@ -143,3 +143,5 @@ chart:
   x_label: Date de l’observation
   y_label: Température moyenne quotidienne (°C)
   title: Températures aux dates retenues
+date_added: "2026-06-20"
+date_updated: "2026-09-05"

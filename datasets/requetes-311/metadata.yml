@@ -126,3 +126,5 @@ chart:
   x_label: Demandes dans l’extrait (nombre)
   y_label: Nature de la demande
   title: Demandes autres que les demandes d’information
+date_added: "2026-06-18"
+date_updated: "2026-09-05"

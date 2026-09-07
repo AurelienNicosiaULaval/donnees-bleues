@@ -91,6 +91,7 @@ format:
       - assets/css/activities.css
       - assets/css/resources.css
       - assets/css/layout.css
+      - assets/css/resource-identity.css
     include-before-body: assets/skip-link.html
     include-after-body: assets/resource-search.html
     embed-resources: true

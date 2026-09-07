@@ -13,6 +13,7 @@ embed-resources: true
 library(dplyr)
 library(readr)
 library(stringr)
+source("R/utils_resource_identity.R")
 
 catalogue_path <- "data/metadata/catalogue.csv"
 activity_catalogue_path <- "data/metadata/catalogue_activites.csv"
@@ -337,8 +338,10 @@ if (file.exists(catalogue_path)) {
     )
 
     cat('<div class="dataset-card-body">\n')
+    cat(resource_type_badge("donnees"))
     cat('<h3><a href="', html_escape(fiche_html), '">', html_escape(row$title), "</a></h3>\n", sep = "")
     cat('<p class="dataset-source">', html_escape(source_line), "</p>\n", sep = "")
+    cat(resource_dates_html(row, compact = TRUE))
     cat('<div class="dataset-facts">\n')
     cat('<span><i class="bi bi-mortarboard" aria-hidden="true"></i>', html_escape(clean_value(row$level)), '</span>\n', sep = "")
     cat('<span><i class="bi bi-geo-alt" aria-hidden="true"></i>', html_escape(clean_value(row$geography)), '</span>\n', sep = "")

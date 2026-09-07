@@ -1,14 +1,18 @@
 ---
 title: "Types de milieu et statut préparé des stations"
 embed-resources: true
+body-classes: hub-page resource-page activity-resource
+page-layout: full
+toc: false
 ---
 
-# Types de milieu et statut préparé des stations
-
-
-Quels types de stations figurent dans le répertoire?
-
-Durée : 30-45 minutes. Niveau : Introduction.
+```{r}
+#| label: activity-resource-header
+#| echo: false
+#| results: asis
+source(if (file.exists("R/utils_activity_contract.R")) "R/utils_activity_contract.R" else "../../R/utils_activity_contract.R")
+render_activity_header()
+```
 
 ## Préparation enseignante
 

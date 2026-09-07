@@ -1,14 +1,18 @@
 ---
 title: "Couverture territoriale et temporelle des stations RSQAQ"
 embed-resources: true
+body-classes: hub-page resource-page activity-resource
+page-layout: full
+toc: false
 ---
 
-# Couverture territoriale et temporelle des stations RSQAQ
-
-
-Comment décrire la répartition du réseau de stations?
-
-Durée : 2-3 heures. Niveau : Introduction à intermédiaire.
+```{r}
+#| label: activity-resource-header
+#| echo: false
+#| results: asis
+source(if (file.exists("R/utils_activity_contract.R")) "R/utils_activity_contract.R" else "../../R/utils_activity_contract.R")
+render_activity_header()
+```
 
 ## Préparation enseignante
 

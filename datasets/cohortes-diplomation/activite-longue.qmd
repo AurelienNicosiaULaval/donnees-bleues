@@ -1,14 +1,18 @@
 ---
 title: "Tendances de diplomation selon l'IMSE"
 embed-resources: true
+body-classes: hub-page resource-page activity-resource
+page-layout: full
+toc: false
 ---
 
-# Tendances de diplomation selon l'IMSE
-
-
-Comment les taux et leur écart évoluent-ils entre cohortes?
-
-Durée : 2-3 heures. Niveau : Introduction à intermédiaire.
+```{r}
+#| label: activity-resource-header
+#| echo: false
+#| results: asis
+source(if (file.exists("R/utils_activity_contract.R")) "R/utils_activity_contract.R" else "../../R/utils_activity_contract.R")
+render_activity_header()
+```
 
 ## Préparation enseignante
 

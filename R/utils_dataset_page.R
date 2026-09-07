@@ -1,3 +1,4 @@
+source(if (file.exists("R/utils_resource_identity.R")) "R/utils_resource_identity.R" else "../../R/utils_resource_identity.R")
 `%||%` <- function(x, y) {
   if (is.null(x) || length(x) == 0L || all(is.na(x))) y else x
 }
@@ -202,6 +203,7 @@ dataset_activity_cards <- function(metadata, ctx) {
 
     paste0(
       '<', tag, ' class="dataset-activity-card"', href_attr, '>',
+      resource_type_badge("activite"),
       '<div class="dataset-activity-meta"><span>', dataset_html_escape(dataset_squish(item$duration, "Activité")), '</span>',
       '<span>', dataset_html_escape(dataset_squish(item$level, dataset_squish(metadata$level))), '</span>',
       status_html,
@@ -209,7 +211,7 @@ dataset_activity_cards <- function(metadata, ctx) {
       '<strong>', dataset_html_escape(dataset_squish(item$title, "Activité pédagogique")), '</strong>',
       '<p>', dataset_html_escape(dataset_squish(item$question, "Question à préciser.")), '</p>',
       '<div class="dataset-activity-chips">', activity_type, '</div>',
-      output_html,
+      output_html, resource_dates_html(item, compact = TRUE),
       '</', tag, '>'
     )
   }, character(1))
@@ -788,9 +790,10 @@ render_dataset_detail_header <- function() {
   cat(
     '<section class="dataset-detail-page">\n',
     '<section class="dataset-teacher-hero">\n',
-    '<div class="dataset-hero-copy">\n',
+    '<div class="dataset-hero-copy resource-detail-header">\n',
     '<nav class="dataset-breadcrumb"><a href="', ctx$relative_root, '/catalogue.html">Catalogue</a><span>/</span><span>',
     dataset_html_escape(dataset_squish(metadata$theme)), '</span></nav>\n',
+    resource_identity_html(metadata, "donnees"),
     '<h1>', dataset_html_escape(dataset_squish(metadata$title, "Jeu de données")), '</h1>\n',
     summary_html,
     '<p class="dataset-teacher-question">', dataset_html_escape(featured_question), '</p>\n',

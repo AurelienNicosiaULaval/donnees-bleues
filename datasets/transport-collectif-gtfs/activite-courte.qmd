@@ -1,14 +1,18 @@
 ---
 title: "Cartographier les arrêts du RTC"
 embed-resources: true
+body-classes: hub-page resource-page activity-resource
+page-layout: full
+toc: false
 ---
 
-# Cartographier les arrêts du RTC
-
-
-Comment l’accessibilité des arrêts est-elle documentée?
-
-Durée : 45-60 minutes. Niveau : Intermédiaire.
+```{r}
+#| label: activity-resource-header
+#| echo: false
+#| results: asis
+source(if (file.exists("R/utils_activity_contract.R")) "R/utils_activity_contract.R" else "../../R/utils_activity_contract.R")
+render_activity_header()
+```
 
 ## Préparation enseignante
 

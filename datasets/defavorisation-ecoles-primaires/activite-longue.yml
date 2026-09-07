@@ -64,3 +64,5 @@ adaptations:
 script_file: datasets/defavorisation-ecoles-primaires/activite-longue.R
 classroom_archive: assets/classroom/defavorisation-ecoles-primaires.zip
 access_mode: frozen
+date_added: "2026-06-20"
+date_updated: "2026-09-05"

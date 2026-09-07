@@ -2,6 +2,7 @@
 library(readr)
 library(yaml)
 library(htmltools)
+source(if (file.exists("R/utils_resource_identity.R")) "R/utils_resource_identity.R" else "../R/utils_resource_identity.R")
 
 resource_text <- function(x, fallback = "Non renseigné") {
   x <- as.character(unlist(x, use.names = FALSE))
@@ -18,6 +19,7 @@ resource_extra <- function(root = ".") {
   ids <- vapply(items, function(x) x$id, character(1))
   stopifnot(!anyDuplicated(ids), all(grepl("^[a-z0-9-]+$", ids)))
   for (x in items) {
+    validate_resource_dates(x)
     stopifnot(x$type %in% c("document", "application"), length(x$authors) > 0,
               length(x$themes) > 0, nzchar(x$title), nzchar(x$description))
     resource_url(x$url)
@@ -35,6 +37,7 @@ resource_catalogue <- function(root = ".") {
     description = paste(d$unit[i], d$geography[i], sep = ". "),
     themes = d$theme[i], concepts = paste(d$concepts[i], d$search_aliases[i]),
     authors = d$source_name[i], author_label = "Source des données", contributor = d$contributor_name[i],
+    date_added = dataset_metadata[[i]]$date_added, date_updated = dataset_metadata[[i]]$date_updated,
     courses = dataset_metadata[[i]]$courses, url = sub("[.]qmd$", ".html", d$fiche[i])))
   result <- c(result, lapply(seq_len(nrow(a)), function(i) {
     j <- match(a$dataset_id[i], d$id)
@@ -43,6 +46,7 @@ resource_catalogue <- function(root = ".") {
     list(id = a$id[i], type = "activite", title = a$title[i], description = a$question[i],
       themes = d$theme[j], concepts = paste(a$concepts[i], a$search_aliases[i]),
       authors = d$contributor_name[j], author_label = "Contribution pédagogique",
+      date_added = activity_metadata$date_added, date_updated = activity_metadata$date_updated,
       contributor = d$contributor_name[j], courses = activity_metadata$courses,
       url = sub("[.]qmd$", ".html", a$activity_url[i]))
   }))
@@ -62,20 +66,21 @@ render_resource_cards <- function(type = NULL) {
     cat('<article class="resource-card" data-type="', x$type, '" data-theme="', resource_escape(x$themes),
       '" data-author="', resource_escape(x$authors), '" data-course="', resource_escape(x$courses),
       '" data-search="', resource_escape(search), '">',
-      '<p class="resource-kind">', resource_labels[x$type], ' · ', resource_escape(x$themes), '</p>',
+      resource_type_badge(x$type),
+      '<p class="resource-kind">', resource_escape(x$themes), '</p>',
       '<h2><a href="', resource_escape(x$url), '">', resource_escape(x$title), '</a></h2>',
       '<p>', resource_escape(x$description), '</p><dl><dt>',
       if (is.null(x$author_label)) 'Auteur ou autrice' else x$author_label,
       '</dt><dd>', resource_escape(x$authors), '</dd><dt>Contribution au répertoire</dt><dd>',
       resource_escape(x$contributor), '</dd><dt>Cours</dt><dd>', resource_escape(courses),
-      '</dd></dl></article>', sep = '')
+      '</dd></dl>', resource_dates_html(x, compact = TRUE), '</article>', sep = '')
   }
   cat('</div>')
 }
 render_resource_detail <- function(id, root = "..") {
   items <- resource_extra(root)
   x <- items[[match(id, vapply(items, function(x) x$id, character(1)))]]
-  cat('<p class="resource-kind">', resource_labels[x$type], ' · ', resource_escape(x$format), '</p>',
+  cat(resource_identity_html(x, x$type), '<p class="resource-kind">', resource_labels[x$type], ' · ', resource_escape(x$format), '</p>',
     '<p class="resource-intro">', resource_escape(x$description), '</p><dl class="resource-attribution">',
     '<dt>Auteur ou autrice</dt><dd>', resource_escape(x$authors), '</dd>',
     '<dt>Contribution au répertoire</dt><dd>', resource_escape(x$contributor), '</dd>',
@@ -93,4 +98,13 @@ render_resource_detail <- function(id, root = "..") {
   cat('<p><a href="', resource_url(x$evidence_url), '">Source de la notice</a> · <a href="../',
       if (x$type == "application") "applications.html" else "lectures.html",
       '">', if (x$type == "application") "Toutes les applications" else "Toutes les lectures et documents", '</a></p>', sep = '')
+}
+
+# Shared masthead for authored document and application notices.
+render_resource_notice_identity <- function(id, root = if (file.exists("data/metadata/ressources.yml")) "." else "..") {
+  items <- resource_extra(root)
+  index <- match(id, vapply(items, function(x) x$id, character(1)))
+  if (is.na(index)) stop("Notice inconnue : ", id, call. = FALSE)
+  item <- items[[index]]
+  cat(resource_identity_html(item, item$type))
 }

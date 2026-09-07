@@ -1,3 +1,4 @@
+source(if (file.exists("R/utils_resource_identity.R")) "R/utils_resource_identity.R" else "../../R/utils_resource_identity.R")
 `%||%` <- function(x, y) {
   if (is.null(x) || length(x) == 0L || all(is.na(x))) y else x
 }
@@ -56,6 +57,23 @@ activity_contract_metadata <- function() {
   }
 
   yaml::read_yaml(metadata_path)
+}
+
+render_activity_header <- function() {
+  metadata <- activity_contract_metadata()
+  input <- normalizePath(knitr::current_input(dir = TRUE), mustWork = TRUE)
+  dataset <- yaml::read_yaml(file.path(dirname(input), "metadata.yml"))
+  escape <- activity_contract_html_escape
+  courses <- if (length(metadata$courses)) paste(unlist(metadata$courses), collapse = "; ") else "usage non documenté"
+  cat('<header class="activity-resource-hero resource-detail-header">',
+    '<nav class="dataset-breadcrumb" aria-label="Fil d’Ariane"><a href="../../activites.html">Planifier</a><span>/</span><a href="fiche.html">',
+    escape(metadata$dataset_title), '</a></nav>',
+    resource_identity_html(metadata, "activite"),
+    '<h1>', escape(metadata$title), '</h1>',
+    '<p class="resource-intro">', escape(metadata$question), '</p>',
+    '<p class="activity-resource-meta">Durée : ', escape(metadata$duration), '. Niveau : ', escape(metadata$level), '.</p>',
+    '<p class="activity-resource-author">Contribution pédagogique : ', escape(dataset$contributor_name %||% "Non renseignée"),
+    '. Cours : ', escape(courses), '.</p></header>', sep = "")
 }
 
 render_activity_contract <- function() {

@@ -5,6 +5,7 @@ page-layout: full
 toc: false
 execute:
   freeze: false
+body-classes: hub-page resource-page dataset-resource
 ---
 
 ```{r}

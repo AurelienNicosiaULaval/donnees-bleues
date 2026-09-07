@@ -113,3 +113,5 @@ publication:
       - validation_status
       - n_core_expected_rows
       - n_ges_expected_rows
+date_added: "2026-06-19"
+date_updated: "2026-09-05"

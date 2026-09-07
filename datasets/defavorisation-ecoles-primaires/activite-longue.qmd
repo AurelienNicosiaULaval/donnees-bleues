@@ -1,14 +1,18 @@
 ---
 title: "Mini-projet - Défavorisation des écoles"
 embed-resources: true
+body-classes: hub-page resource-page activity-resource
+page-layout: full
+toc: false
 ---
 
-# Mini-projet - Défavorisation des écoles
-
-
-Que décrit une régression exploratoire de l’IMSE?
-
-Durée : 2-3 heures. Niveau : Introduction à intermédiaire.
+```{r}
+#| label: activity-resource-header
+#| echo: false
+#| results: asis
+source(if (file.exists("R/utils_activity_contract.R")) "R/utils_activity_contract.R" else "../../R/utils_activity_contract.R")
+render_activity_header()
+```
 
 ## Préparation enseignante
 

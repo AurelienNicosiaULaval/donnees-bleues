@@ -44,6 +44,19 @@ for (source in list.files('assets/classroom', pattern = '[.]zip([.]json)?$', ful
     errors <- c(errors, paste('Archive rendue différente :', source))
   }
 }
+# Check the rendered identity on every canonical resource page.
+source('R/utils_resources.R')
+for (item in resource_catalogue()) {
+  page <- file.path(root, item$url)
+  doc <- documents[[page]]
+  identity <- xml2::xml_find_all(doc, paste0('//*[@data-resource-type="', item$type, '"]'))
+  dates <- xml2::xml_attr(xml2::xml_find_all(identity, './/time'), 'datetime')
+  title <- xml2::xml_find_all(doc, '//*[contains(concat(" ", normalize-space(@class), " "), " resource-detail-header ")]//h1')
+  if (length(identity) != 1L || length(title) != 1L ||
+      !identical(dates, c(item$date_added, item$date_updated))) {
+    errors <- c(errors, paste(item$url, 'en-tête ou dates de ressource incohérents.'))
+  }
+}
 if (length(errors)) stop(paste(unique(errors), collapse = '\n'), call. = FALSE)
 source('scripts/check_demonstrations.R', local = TRUE)
 cat(length(pages), 'pages : titres, structure, attributs alt, liens, ancres et téléchargements vérifiés.\n')

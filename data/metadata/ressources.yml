@@ -1,4 +1,6 @@
 - id: tutoriel-bixi
+  date_added: "2026-09-05"
+  date_updated: "2026-09-05"
   type: application
   title: Tutoriel BIXI
   format: Tutoriel learnr / Shiny
@@ -27,6 +29,8 @@
     avec des unités statistiques différentes.'
 
 - id: modelisation-surmortalite-quebec
+  date_added: "2026-09-05"
+  date_updated: "2026-09-05"
   type: document
   title: Modéliser la surmortalité au Québec
   format: Document méthodologique · ISQ
@@ -55,6 +59,8 @@
   note: Document méthodologique de niveau avancé, mis à jour le 2 avril 2026. La ressource est référencée sans être reproduite.
 
 - id: demonstration-ilots-chaleur
+  date_added: "2026-09-07"
+  date_updated: "2026-09-07"
   type: document
   title: 'Îlots de chaleur : comprendre k-means'
   format: Démonstration pédagogique · Quarto et R
@@ -72,6 +78,8 @@
   note: Nouvelle classification locale sur un extrait du produit cartographique. La forêt aléatoire de production et les classes officielles ne sont pas reproduites.
 
 - id: demonstration-acp-quebec
+  date_added: "2026-09-07"
+  date_updated: "2026-09-07"
   type: document
   title: 'Municipalités québécoises : comprendre une ACP'
   format: Démonstration pédagogique · Quarto et R
@@ -89,6 +97,8 @@
   note: Adaptation pédagogique inspirée de Pampalon et collaborateurs (2014), avec de nouvelles données et une autre échelle territoriale. Les scores ne sont pas l’indice officiel de défavorisation.
 
 - id: demonstration-crues-saint-charles
+  date_added: "2026-09-07"
+  date_updated: "2026-09-07"
   type: document
   title: 'Crues de la Saint-Charles : comprendre une période de retour'
   format: Démonstration pédagogique · Quarto et R

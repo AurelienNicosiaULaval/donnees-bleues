@@ -61,3 +61,5 @@ adaptations:
 script_file: datasets/transport-collectif-gtfs/activite-longue.R
 classroom_archive: assets/classroom/transport-collectif-gtfs.zip
 access_mode: frozen
+date_added: "2026-06-19"
+date_updated: "2026-09-05"

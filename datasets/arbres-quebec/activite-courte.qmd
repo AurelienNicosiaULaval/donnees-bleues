@@ -2,21 +2,24 @@
 title: "Explorer 200 arbres du Québec"
 author: "Aurélien Nicosia"
 page-layout: full
-body-classes: hub-page arbres-page
-css: arbres.css
 toc: false
 embed-resources: true
 execute:
   freeze: false
   warning: false
   message: false
+body-classes: hub-page resource-page activity-resource
 ---
 
-# Explorer 200 arbres du Québec
+```{r}
+#| label: activity-resource-header
+#| echo: false
+#| results: asis
+source(if (file.exists("R/utils_activity_contract.R")) "R/utils_activity_contract.R" else "../../R/utils_activity_contract.R")
+render_activity_header()
+```
 
-Comment le diamètre et la hauteur varient-ils entre les quatre espèces de cet échantillon ?
-
-Durée proposée : 45 à 60 minutes. Niveau : introduction. Activité adaptée des [premiers pas de la version 1.0.0 d’Arbres du Québec](https://github.com/AurelienNicosiaULaval/arbres_quebec/blob/v1.0.0/docs/premiers_pas.qmd), par Aurélien Nicosia. Le script est exécuté techniquement ; l’activité n’a pas été testée en classe.
+Activité adaptée des [premiers pas de la version 1.0.0 d’Arbres du Québec](https://github.com/AurelienNicosiaULaval/arbres_quebec/blob/v1.0.0/docs/premiers_pas.qmd), par Aurélien Nicosia. Le script est exécuté techniquement ; l’activité n’a pas été testée en classe.
 
 ## Préparation enseignante
 

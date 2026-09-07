@@ -1,14 +1,22 @@
 ---
 title: "Îlots de chaleur : comprendre k-means"
 toc: false
-body-classes: hub-page
 page-layout: full
 embed-resources: true
+body-classes: hub-page resource-page document-resource
 ---
 
 [Lectures et documents](../lectures.qmd) / Climat et territoire
 
-::: {.resource-hero}
+::: {.resource-hero .resource-detail-header}
+```{r}
+#| label: resource-notice-identity
+#| echo: false
+#| results: asis
+source(if (file.exists("R/utils_resources.R")) "R/utils_resources.R" else "../R/utils_resources.R")
+render_resource_notice_identity("demonstration-ilots-chaleur")
+```
+
 # Îlots de chaleur : comprendre k-means
 
 Comment des températures continues deviennent-elles des classes sur une carte ? Cette démonstration refait le classement sur 9 806 pixels du produit cartographique INSPQ / CERFO, autour de Québec.

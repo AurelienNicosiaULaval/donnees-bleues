@@ -1,14 +1,18 @@
 ---
 title: "Laboratoire - Écoles Québec"
 embed-resources: true
+body-classes: hub-page resource-page activity-resource
+page-layout: full
+toc: false
 ---
 
-# Laboratoire - Écoles Québec
-
-
-Combien observe-t-on de liens, d’organismes et d’immeubles scolaires?
-
-Durée : 60-90 minutes. Niveau : Introduction à intermédiaire.
+```{r}
+#| label: activity-resource-header
+#| echo: false
+#| results: asis
+source(if (file.exists("R/utils_activity_contract.R")) "R/utils_activity_contract.R" else "../../R/utils_activity_contract.R")
+render_activity_header()
+```
 
 ## Préparation enseignante
 

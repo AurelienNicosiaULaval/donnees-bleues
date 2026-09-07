@@ -1,14 +1,18 @@
 ---
 title: "Préparer une analyse spatiale avec la GRHQ"
 embed-resources: true
+body-classes: hub-page resource-page activity-resource
+page-layout: full
+toc: false
 ---
 
-# Préparer une analyse spatiale avec la GRHQ
-
-
-Quelles ressources préparer avant une analyse spatiale GRHQ?
-
-Durée : 2-3 heures. Niveau : Intermédiaire à avancé.
+```{r}
+#| label: activity-resource-header
+#| echo: false
+#| results: asis
+source(if (file.exists("R/utils_activity_contract.R")) "R/utils_activity_contract.R" else "../../R/utils_activity_contract.R")
+render_activity_header()
+```
 
 ## Préparation enseignante
 

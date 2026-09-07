@@ -62,3 +62,5 @@ adaptations:
 script_file: datasets/cohortes-diplomation/activite-longue.R
 classroom_archive: assets/classroom/cohortes-diplomation.zip
 access_mode: source_required
+date_added: "2026-06-18"
+date_updated: "2026-09-05"

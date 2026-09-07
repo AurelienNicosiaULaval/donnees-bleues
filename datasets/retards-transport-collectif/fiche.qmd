@@ -5,6 +5,7 @@ toc: false
 execute:
   freeze: false
 embed-resources: true
+body-classes: hub-page resource-page dataset-resource
 ---
 
 ```{r}

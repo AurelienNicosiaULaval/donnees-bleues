@@ -138,3 +138,5 @@ chart:
   title: Composition du dictionnaire GTFS-realtime
 preview_note: Dictionnaire de champs attendus et dérivés, sans observation de retard. La lecture du flux STM exige
   un accès au portail développeur.
+date_added: "2026-06-19"
+date_updated: "2026-09-05"

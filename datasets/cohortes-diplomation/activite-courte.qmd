@@ -1,14 +1,18 @@
 ---
 title: "Comparer des taux de diplomation selon l'IMSE"
 embed-resources: true
+body-classes: hub-page resource-page activity-resource
+page-layout: full
+toc: false
 ---
 
-# Comparer des taux de diplomation selon l'IMSE
-
-
-Quel écart de diplomation observe-t-on entre les déciles IMSE extrêmes?
-
-Durée : 30-45 minutes. Niveau : Introduction.
+```{r}
+#| label: activity-resource-header
+#| echo: false
+#| results: asis
+source(if (file.exists("R/utils_activity_contract.R")) "R/utils_activity_contract.R" else "../../R/utils_activity_contract.R")
+render_activity_header()
+```
 
 ## Préparation enseignante
 

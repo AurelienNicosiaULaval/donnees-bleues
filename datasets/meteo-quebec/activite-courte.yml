@@ -59,3 +59,5 @@ adaptations:
 script_file: datasets/meteo-quebec/activite-courte.R
 classroom_archive: assets/classroom/meteo-quebec.zip
 access_mode: frozen
+date_added: "2026-06-20"
+date_updated: "2026-09-05"

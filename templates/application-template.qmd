@@ -1,0 +1,36 @@
+---
+title: "Titre de l’application"
+page-layout: full
+body-classes: hub-page resource-page application-resource
+toc: false
+embed-resources: true
+---
+
+[Retour au catalogue](../applications.qmd)
+
+::: {.resource-hero .resource-detail-header}
+```{r}
+#| echo: false
+#| results: asis
+source(if (file.exists("R/utils_resources.R")) "R/utils_resources.R" else "../R/utils_resources.R")
+render_resource_notice_identity("identifiant-unique")
+```
+
+# Titre de l’application
+
+Présenter la question statistique illustrée avec des données québécoises.
+
+[Ouvrir l’application](https://exemple.ca/ressource){.dataset-button}
+:::
+
+## Le parcours pédagogique
+
+Décrire les concepts, les préalables et la démarche proposée.
+
+## Résultats et limites
+
+Expliquer ce que la ressource permet de comprendre et les limites d’interprétation.
+
+## Auteur, sources et réutilisation
+
+Nommer l’auteur, la contribution au répertoire et les conditions de réutilisation. Indiquer seulement les usages en cours documentés. Relier les sources et, lorsqu’il existe, le code.

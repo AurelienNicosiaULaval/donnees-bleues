@@ -44,3 +44,8 @@ requires_live_download: false
 recommended_use:
 result_visible_in_page: false
 status:
+
+# Dates de la fiche dans le répertoire, distinctes de la période des données.
+# Renseigner la date réelle à l’ajout, puis conserver date_added.
+date_added: "2026-09-07"
+date_updated: "2026-09-07"

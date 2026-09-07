@@ -1,11 +1,18 @@
 ---
 title: "Titre de l’activité à renseigner"
 embed-resources: true
+body-classes: hub-page resource-page activity-resource
+page-layout: full
+toc: false
 ---
 
-# Titre de l’activité à renseigner
-
-Indiquer ici la question directrice, la durée et le niveau canonique.
+```{r}
+#| label: activity-resource-header
+#| echo: false
+#| results: asis
+source(if (file.exists("R/utils_activity_contract.R")) "R/utils_activity_contract.R" else "../../R/utils_activity_contract.R")
+render_activity_header()
+```
 
 ## Préparation enseignante
 

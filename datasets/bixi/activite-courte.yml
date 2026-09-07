@@ -57,3 +57,5 @@ adaptations:
 script_file: datasets/bixi/activite-courte.R
 classroom_archive: assets/classroom/bixi.zip
 access_mode: frozen
+date_added: "2026-06-01"
+date_updated: "2026-09-05"

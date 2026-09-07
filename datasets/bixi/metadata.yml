@@ -132,3 +132,5 @@ chart:
   y_label: Stations dans l’extrait (nombre)
   title: Distribution des capacités
   binwidth: 5
+date_added: "2026-06-01"
+date_updated: "2026-09-05"

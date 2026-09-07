@@ -1,0 +1,107 @@
+/* Fiche et activité : garder toute la largeur utile sans la grille marginale Quarto. */
+body.resource-page main.content,
+body.resource-page main.content .page-columns {
+  display: block !important;
+}
+body.resource-page .dataset-detail-page {
+  width: 100%;
+  max-width: none;
+  padding: 0;
+  margin: 0;
+}
+body.resource-page :is(.dataset-teacher-hero, .dataset-teacher-plan, .dataset-r-lab,
+  .dataset-doc-panel, .dataset-activities-panel, .dataset-detail-content) {
+  width: 100%;
+  max-width: none;
+  margin-inline: 0;
+  box-sizing: border-box;
+}
+body.resource-page main.content .dataset-teacher-hero {
+  display: grid !important;
+  grid-template-columns: minmax(0, 1fr) minmax(260px, .4fr);
+  gap: 2rem;
+  padding: clamp(1rem, 3vw, 2.5rem);
+  border-radius: 14px;
+  background: #edf5f8;
+}
+body.resource-page .dataset-teacher-hero > * { grid-column: auto !important; }
+body.resource-page .dataset-hero-copy { min-width: 0; }
+body.resource-page .dataset-summary { font-size: 1.12rem; line-height: 1.65; }
+body.resource-page .dataset-featured-activity {
+  min-width: 0;
+  max-width: none;
+  align-self: start;
+  padding: 1.25rem;
+  border-left: 3px solid #2f8d47;
+}
+body.resource-page .dataset-featured-activity h2 { font-size: 1.55rem; line-height: 1.25; }
+body.resource-page .dataset-contributor-badge {
+  display: grid;
+  gap: .25rem;
+  margin-block: 1rem;
+  font-size: .9rem;
+}
+body.resource-page .dataset-contributor-badge strong { font-weight: 500; }
+body.resource-page .dataset-hero-actions { display: flex; flex-wrap: wrap; gap: .65rem; }
+body.resource-page .dataset-hero-actions a { white-space: normal; }
+body.resource-page main.content > h1 { font-family: var(--db-serif); }
+body.resource-page main.content > section { margin-block: 2rem; }
+body.resource-page .cell-output-display { overflow-x: auto; }
+body.resource-page .cell-output-display img { max-width: 100%; height: auto; }
+@media (max-width: 850px) {
+  body.resource-page main.content .dataset-teacher-hero { grid-template-columns: 1fr; gap: 1rem; }
+}
+@media (max-width: 600px) {
+  body.resource-page .dataset-hero-actions { flex-direction: column; }
+  body.resource-page .dataset-hero-actions a { text-align: center; }
+}
+
+/* Type is always conveyed by its label and icon as well as its colour. */
+body .resource-badge {
+  display: inline-flex; align-items: center; gap: .4rem;
+  width: fit-content; max-width: 100%; padding: .35rem .7rem;
+  border: 1px solid currentColor; border-radius: 999px;
+  font-family: var(--bs-body-font-family); font-size: .8rem; font-weight: 600;
+  line-height: 1.35; letter-spacing: 0; text-transform: none; white-space: nowrap;
+  margin: 0; box-shadow: none;
+}
+body .resource-badge > span {font: inherit; color: inherit; margin: 0; padding: 0; letter-spacing: 0; text-transform: none;}
+body .resource-badge > svg {flex: none; width: 18px; height: 18px; margin: 0;}
+body .resource-badge--donnees {color: #15516e; background: #e8f4fc;}
+body .resource-badge--activite {color: #27603f; background: #eaf6ed;}
+body .resource-badge--document {color: #74451b; background: #fff2df;}
+body .resource-badge--application {color: #614082; background: #f3edfc;}
+body .resource-identity {display: flex; flex-wrap: wrap; align-items: center; gap: .8rem 1.5rem; margin: 1rem 0;}
+body dl.resource-dates {display: flex; flex-wrap: wrap; gap: .4rem 1.25rem; font-size: .8rem; color: #425461; margin: 0; padding: 0; border: 0; background: none;}
+body dl.resource-dates > div {display: flex; flex-wrap: wrap; align-items: baseline; gap: .25rem .4rem; margin: 0; padding: 0; border: 0; background: none;}
+body dl.resource-dates dt {font: inherit; font-weight: 500; color: inherit; margin: 0; padding: 0;}
+body dl.resource-dates dd {font: inherit; color: inherit; margin: 0; padding: 0;}
+body dl.resource-dates time {white-space: nowrap;}
+body dl.resource-dates--compact {gap: .3rem .8rem; border-top: 1px solid #d9e3e8; padding-top: .75rem; margin: .85rem 0;}
+body :is(.dataset-card-body,.act-card,.home-dataset-card-body,.dataset-activity-card) > .resource-badge {margin-bottom: .6rem;}
+body .resource-card > .resource-kind {margin-block: .65rem .3rem;}
+body .resource-card > dl.resource-dates--compact {margin-bottom: 0;}
+body.resource-page :is(.resource-hero,.activity-resource-hero) {
+  width: 100%; max-width: none; box-sizing: border-box;
+  background: #edf5f8; padding: clamp(1rem, 3vw, 2.5rem);
+  border: 1px solid #d0e0e7; border-radius: 14px; margin: 1.5rem 0 2rem;
+}
+body.resource-page :is(.resource-hero,.activity-resource-hero,.dataset-hero-copy) h1 {
+  font-family: var(--db-serif); font-size: clamp(2rem, 3.5vw, 3.4rem); line-height: 1.15; margin: 1rem 0;
+}
+body.activity-resource .resource-intro {font-size: 1.15rem; line-height: 1.65;}
+body.activity-resource :is(.activity-resource-meta,.activity-resource-author) {font-size: .95rem; margin: .6rem 0;}
+body.resource-page .dataset-breadcrumb {display: flex; flex-wrap: wrap; gap: .5rem;}
+body.resource-page main.content > .level2 {padding: clamp(1rem, 2vw, 2rem); background: #fff; border: 1px solid #d0e0e7; border-radius: 14px;}
+body.resource-page :is(.cell,.cell-output-display,pre,.sourceCode) {min-width: 0; max-width: 100%;}
+@media (max-width: 600px) {
+  body .resource-identity {align-items: flex-start; gap: .65rem; flex-direction: column;}
+  body dl.resource-dates {gap: .35rem .8rem;}
+  body.resource-page main.content > .level2 {padding: 1rem;}
+}
+
+body.resource-page .resource-hero > p:has(.dataset-button) {display: flex; flex-wrap: wrap; gap: .65rem;}
+@media (max-width: 600px) {
+  body.resource-page .resource-hero > p:has(.dataset-button) {flex-direction: column;}
+  body.resource-page .resource-hero .dataset-button {text-align: center;}
+}

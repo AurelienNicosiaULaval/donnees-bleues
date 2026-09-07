@@ -1,3 +1,4 @@
+source(if (file.exists("R/utils_resource_identity.R")) "R/utils_resource_identity.R" else "../../R/utils_resource_identity.R")
 source(if (file.exists("R/utils_taxonomy.R")) "R/utils_taxonomy.R" else "../../R/utils_taxonomy.R")
 `%||%` <- function(x, y) {
   if (is.null(x) || length(x) == 0L || all(is.na(x))) y else x
@@ -48,6 +49,7 @@ collapse_metadata_field <- function(x) {
 }
 
 metadata_row <- function(metadata, dataset_dir) {
+  validate_resource_dates(metadata)
   validate_taxonomy_metadata(metadata)
   concepts <- collapse_metadata_field(metadata$concepts)
   variables_principales <- collapse_metadata_field(metadata$variables_principales)
@@ -69,6 +71,8 @@ metadata_row <- function(metadata, dataset_dir) {
 
   data.frame(
     id = metadata$id %||% basename(dataset_dir),
+    date_added = metadata$date_added,
+    date_updated = metadata$date_updated,
     title = metadata$title %||% NA_character_,
     short_title = metadata$short_title %||% NA_character_,
     theme = metadata$theme %||% NA_character_,

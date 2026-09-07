@@ -1,14 +1,18 @@
 ---
 title: "Laboratoire - Condamnations alimentaires"
 embed-resources: true
+body-classes: hub-page resource-page activity-resource
+page-layout: full
+toc: false
 ---
 
-# Laboratoire - Condamnations alimentaires
-
-
-Que peut-on décrire à partir des condamnations alimentaires?
-
-Durée : 60-90 minutes. Niveau : Introduction à intermédiaire.
+```{r}
+#| label: activity-resource-header
+#| echo: false
+#| results: asis
+source(if (file.exists("R/utils_activity_contract.R")) "R/utils_activity_contract.R" else "../../R/utils_activity_contract.R")
+render_activity_header()
+```
 
 ## Préparation enseignante
 

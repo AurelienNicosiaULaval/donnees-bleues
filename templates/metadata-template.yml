@@ -64,3 +64,8 @@ publication:
 #   y_label: Observations (nombre)
 #   title: Titre descriptif
 #   binwidth: 5
+
+# Dates de la fiche dans le répertoire, distinctes de la période des données.
+# Renseigner la date réelle à l’ajout, puis conserver date_added.
+date_added: "2026-09-07"
+date_updated: "2026-09-07"

@@ -1,5 +1,6 @@
 # À ajouter comme entrée de data/metadata/ressources.yml.
-# Créer aussi resources/<id>.qmd avec render_resource_detail("<id>").
+# Copier aussi templates/document-template.qmd ou application-template.qmd
+# vers resources/<id>.qmd et renseigner le même identifiant.
 id: identifiant-unique
 type: document # document ou application
 title: Titre de la ressource
@@ -17,3 +18,8 @@ courses: [] # Sigles, titres et établissement, uniquement si usage documenté
 related_datasets: [] # Identifiants de jeux existants, p. ex. bixi
 license: Conditions vérifiées ou mention explicite de leur absence
 note: Limites ou précautions utiles
+
+# Dates de la fiche dans le répertoire, distinctes de la période des données.
+# Renseigner la date réelle à l’ajout, puis conserver date_added.
+date_added: "2026-09-07"
+date_updated: "2026-09-07"

@@ -13,6 +13,7 @@ embed-resources: true
 library(dplyr)
 library(readr)
 library(stringr)
+source("R/utils_resource_identity.R")
 
 catalogue_path <- "data/metadata/catalogue.csv"
 activity_catalogue_path <- "data/metadata/catalogue_activites.csv"
@@ -96,10 +97,11 @@ render_featured_datasets <- function(data) {
     paste0(
       '<article class="home-dataset-card db-card">',
       '<img src="', home_escape(image), '" alt="Illustration de ', home_escape(row$short_title), '">',
-      '<div class="home-dataset-card-body">',
+      '<div class="home-dataset-card-body">', resource_type_badge("donnees"),
       '<span>', home_escape(row$theme), '</span>',
       '<h3>', home_escape(row$short_title), '</h3>',
       '<p>', home_escape(row$title), '</p>',
+      resource_dates_html(row, compact = TRUE),
       '<div class="home-dataset-card-meta">',
       '<strong>', home_escape(score), '</strong>',
       '<a href="', home_escape(href), '">Ouvrir la fiche</a>',
