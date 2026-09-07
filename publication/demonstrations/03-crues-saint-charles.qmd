@@ -1,0 +1,274 @@
+---
+title: "Une crue centennale avec 42 années de données"
+subtitle: "Rivière Saint-Charles : ajustement d’une loi, extrapolation et incertitude"
+author: "Aurélien Nicosia · Données bleues"
+date: 2026-09-05
+lang: fr
+embed-resources: true
+format:
+  html:
+    theme: cosmo
+    css: styles.css
+    toc: true
+    toc-title: "Dans cette démonstration"
+    number-sections: true
+    code-copy: true
+    code-tools: true
+    code-overflow: wrap
+    html-math-method: mathml
+    grid:
+      body-width: 1100px
+      margin-width: 230px
+execute:
+  echo: true
+  warning: false
+  message: false
+  fig-width: 10
+  fig-height: 5
+---
+
+## La question
+
+Comment peut-on estimer le débit d’une crue « centennale » lorsqu’on ne dispose que de 42 maxima annuels ? Nous allons refaire une partie de l’analyse hydrologique de la rivière Saint-Charles, puis examiner ce que l’ajustement permet réellement d’affirmer.
+
+Parcours proposé : 90 à 120 minutes. Préalables : moyenne, écart-type, quantile, bases de R. À la fin, vous pourrez ajuster une loi lognormale, traduire une période de retour en probabilité et distinguer une estimation ponctuelle de son incertitude.
+
+::: {.callout-note title="Ce qui est reproduit"}
+Les 42 débits proviennent du tableau des maxima annuels 1969 à 2010 de la station 050904, à l’annexe 3 du [rapport de Lavoie et Francoeur (CEHQ, 2011)](https://www.ville.quebec.qc.ca/citoyens/propriete/docs/zones_inondables/saint_charles_troncon5/rapport_cotes_crues_saintcharles_VQ20140620_troncon5.pdf), page imprimée 36. Nous retrouvons les paramètres et les quantiles du tableau 4 du rapport, puis ajoutons une comparaison d’estimateurs et un bootstrap pédagogique. Nous ne reproduisons pas la modélisation hydraulique ni les cotes d’inondation. Ces données historiques ne décrivent pas le risque actuel.
+:::
+
+## Lire les données et leur qualité
+
+Chaque ligne représente le maximum annuel du débit journalier, en mètres cubes par seconde. Il ne s’agit ni de toutes les journées de l’année, ni d’un maximum instantané. La date est celle du maximum retenu.
+
+```{r}
+# Bibliothèques et réglages utilisés dans ce document.
+library(readr)
+library(dplyr)
+library(tidyr)
+library(ggplot2)
+library(knitr)
+library(scales)
+
+theme_set(theme_minimal(base_size = 13))
+fmt <- function(x, digits = 1) {
+  formatC(x, format = "f", digits = digits, decimal.mark = ",")
+}
+crues <- read_csv(
+  "data/crues-saint-charles-1969-2010.csv",
+  col_types = cols(date = col_date(), debit_m3_s = col_double(),
+                   code_source = col_character())
+) |>
+  mutate(annee = as.integer(format(date, "%Y")))
+
+stopifnot(nrow(crues) == 42, !anyDuplicated(crues$annee),
+          identical(sort(crues$annee), 1969:2010),
+          all(is.finite(crues$debit_m3_s)), all(crues$debit_m3_s > 0))
+
+crues |>
+  summarise(Annees = n(), Minimum = min(debit_m3_s),
+            Mediane = median(debit_m3_s), Moyenne = mean(debit_m3_s),
+            Maximum = max(debit_m3_s)) |>
+  kable(digits = 1, caption = "Résumé des maxima annuels, en m³/s.")
+```
+
+Les codes du rapport sont conservés : E = estimé ; J = jaugeage ; M = manque de données ; P = préliminaire. Une cellule vide correspond à l’absence de code dans ce tableau. Un code ne justifie pas à lui seul de supprimer une année.
+
+```{r}
+#| fig-cap: "Maxima annuels de la station 050904. Les points orange portent un code de qualité dans le tableau source."
+#| fig-alt: "Série des 42 maxima annuels de 1969 à 2010, avec les observations signalées dans le rapport en orange."
+ggplot(crues, aes(annee, debit_m3_s)) +
+  geom_line(color = "#628a9a") +
+  geom_point(aes(color = !is.na(code_source)), size = 2.7) +
+  scale_color_manual(values = c("FALSE" = "#176986", "TRUE" = "#ce6534"),
+                     labels = c("Sans code", "Avec code"), name = NULL) +
+  labs(x = "Année", y = "Maximum du débit journalier (m³/s)") +
+  theme(legend.position = "bottom")
+```
+
+Avant tout calcul, cherchez une rupture, une tendance ou une valeur inhabituelle. Ce graphique ne suffit pas à établir la stationnarité ou l’indépendance. Les utiliser dans la suite constitue une hypothèse de travail.
+
+## Du débit à son logarithme
+
+Posons $Q>0$ le maximum annuel. Une loi lognormale signifie que $Y=\log(Q)$ suit une loi normale de moyenne $\mu$ et d’écart-type $\sigma$. L’asymétrie est autorisée sur l’échelle des débits, tandis que le modèle est symétrique sur l’échelle logarithmique.
+
+Pour un échantillon de taille $n$, le maximum de vraisemblance strict donne :
+
+$$
+\widehat\mu=\frac{1}{n}\sum_{i=1}^n\log Q_i,
+\qquad
+\widehat\sigma_{\mathrm{MV}}=
+\sqrt{\frac{1}{n}\sum_{i=1}^n(\log Q_i-\widehat\mu)^2}.
+$$
+
+La fonction `sd()` de R emploie plutôt le diviseur $n-1$. C’est cette convention qui retrouve ici le paramètre $\sigma$ affiché dans le rapport. Le diviseur $n-1$ corrige le biais de la variance des logarithmes, pas celui de son écart-type.
+
+```{r}
+q <- crues$debit_m3_s
+y <- log(q)
+n <- length(q)
+mu <- mean(y)
+sigma_mv <- sqrt(mean((y - mu)^2))
+sigma_n1 <- sd(y)
+
+tibble(
+  Parametre = c("Moyenne des logarithmes", "Écart-type, diviseur n",
+                "Écart-type, diviseur n - 1"),
+  Valeur = c(mu, sigma_mv, sigma_n1)
+) |> kable(digits = 5)
+```
+
+On obtient $\widehat\mu=$ `r fmt(mu, 4)` et, avec $n-1$, $s=$ `r fmt(sigma_n1, 4)`. L’annexe 3 porte la mention « MV », tout en affichant 4,1104 et 0,1863. Nous pouvons vérifier cette concordance numérique ; elle ne permet pas de connaître toutes les conventions internes du logiciel utilisé en 2011.
+
+```{r}
+#| fig-cap: "Comparer les logarithmes aux quantiles d’une loi normale. La droite utilise les paramètres estimés avec le diviseur n - 1."
+#| fig-alt: "Diagramme quantile-quantile normal des logarithmes des 42 débits."
+ggplot(tibble(log_debit = y), aes(sample = log_debit)) +
+  stat_qq(color = "#176986", size = 2.4) +
+  geom_abline(intercept = mu, slope = sigma_n1, color = "#ce6534") +
+  labs(x = "Quantile normal théorique", y = "Logarithme du débit")
+```
+
+Des points proches de la droite rendent le modèle plausible sur la plage observée. Ils ne garantissent pas l’exactitude de la queue au-delà des données. Les quelques plus fortes crues ont un poids particulier dans cette appréciation.
+
+## Retrouver les périodes de retour
+
+Une période de retour $T$ correspond à une probabilité annuelle de dépassement $1/T$. Le quantile associé vaut :
+
+$$q_T=F_Q^{-1}(1-1/T)=\exp\{\mu+\sigma\Phi^{-1}(1-1/T)\}.$$
+
+```{r}
+periodes <- c(2, 5, 10, 20, 50, 100)
+comparaison <- tibble(
+  periode_ans = periodes,
+  tableau_4_rapport = c(61.0, 71.3, 77.4, 82.8, 89.4, 94.1),
+  calcul_n1 = qlnorm(1 - 1 / periodes, meanlog = mu, sdlog = sigma_n1),
+  calcul_mv = qlnorm(1 - 1 / periodes, meanlog = mu, sdlog = sigma_mv)
+)
+comparaison |> kable(digits = 2,
+  col.names = c("T (ans)", "Rapport (m³/s)", "Calcul avec n - 1", "MV strict"))
+
+# Le tableau 4 donne un chiffre après la virgule.
+stopifnot(all(abs(comparaison$calcul_n1 -
+                    comparaison$tableau_4_rapport) < 0.051))
+```
+
+Le calcul avec $n-1$ retrouve les six valeurs du tableau 4 à leur précision publiée. Pour 20 ans, le tableau 4 indique 82,8 m³/s alors que l’annexe indique 82,9 m³/s : cette petite différence est présente dans le document source. La formule ci-dessus produit `r fmt(comparaison$calcul_n1[4], 2)` m³/s.
+
+La crue de 100 ans est estimée à `r fmt(comparaison$calcul_n1[6])` m³/s selon cette convention, contre `r fmt(comparaison$calcul_mv[6])` m³/s avec le MV strict. Une analyse reproductible doit préciser l’estimateur, pas seulement le nom de la loi.
+
+```{r}
+#| fig-cap: "La courbe ajuste une distribution puis prolonge son quantile vers les grandes périodes de retour. Les points utilisent les positions empiriques de Weibull."
+#| fig-alt: "Débits en fonction de la période de retour sur une échelle logarithmique, avec les observations et la courbe lognormale."
+empirique <- tibble(debit = sort(q), rang = seq_along(q)) |>
+  mutate(probabilite = rang / (n + 1), T = 1 / (1 - probabilite))
+grille <- tibble(T = exp(seq(log(1.05), log(200), length.out = 300))) |>
+  mutate(debit = qlnorm(1 - 1 / T, mu, sigma_n1))
+ggplot(grille, aes(T, debit)) +
+  geom_line(color = "#176986", linewidth = 1) +
+  geom_point(data = empirique, color = "#ce6534", size = 2.3) +
+  scale_x_log10(breaks = c(2, 5, 10, 20, 50, 100, 200)) +
+  labs(x = "Période de retour T (ans, échelle logarithmique)",
+       y = "Débit (m³/s)")
+```
+
+Le plus grand débit observé reçoit ici une position empirique correspondant à $n+1=$ `r n + 1` ans. Cela ne révèle pas sa véritable période de retour : c’est une règle de positionnement. L’estimation centennale dépend de la forme de la queue choisie.
+
+## Quelle incertitude sur le quantile ?
+
+Nous ajoutons un bootstrap paramétrique : simuler 42 maxima sous la loi ajustée, réestimer les paramètres, recalculer les quantiles et recommencer. La simulation ne crée pas de nouvelles observations historiques. Elle mesure la variabilité attendue des estimations si ce modèle était le bon.
+
+```{r}
+set.seed(4230)
+B <- 2000
+quantiles_boot <- replicate(B, {
+  echantillon <- rlnorm(n, meanlog = mu, sdlog = sigma_n1)
+  qlnorm(1 - 1 / periodes, meanlog = mean(log(echantillon)),
+         sdlog = sd(log(echantillon)))
+})
+incertitude <- comparaison |>
+  transmute(T = periode_ans, estimation = calcul_n1,
+            borne_inf = apply(quantiles_boot, 1, quantile, probs = 0.025),
+            borne_sup = apply(quantiles_boot, 1, quantile, probs = 0.975))
+incertitude |> kable(digits = 1,
+  caption = "Intervalles percentile à 95 % du bootstrap, en m³/s.")
+```
+
+```{r}
+#| fig-cap: "L’incertitude d’estimation augmente pour les périodes de retour éloignées. Les intervalles sont conditionnels au modèle lognormal et à l’hypothèse d’années indépendantes et stationnaires."
+#| fig-alt: "Quantiles estimés pour six périodes de retour et leurs intervalles bootstrap à 95 pour cent."
+ggplot(incertitude, aes(T, estimation)) +
+  geom_linerange(aes(ymin = borne_inf, ymax = borne_sup),
+                 color = "#78b4be", linewidth = 2) +
+  geom_point(color = "#176986", size = 3) +
+  scale_x_log10(breaks = periodes) +
+  labs(x = "Période de retour T (ans)", y = "Quantile estimé (m³/s)")
+```
+
+Pour 100 ans, l’intervalle calculé va de `r fmt(incertitude$borne_inf[6])` à `r fmt(incertitude$borne_sup[6])` m³/s. Il concerne le quantile inconnu, pas le débit de la prochaine crue. Il n’inclut ni l’incertitude sur le choix de loi, ni un changement du régime hydrologique. Cette méthode pédagogique est distincte de celle des intervalles de l’annexe ; nous n’en revendiquons pas la reproduction.
+
+## Deux vérifications de sensibilité
+
+### Changer la loi
+
+Comparons la loi normale à la loi lognormale par AIC, avec des estimateurs MV stricts dans les deux cas. Les log-vraisemblances sont évaluées sur les mêmes débits originaux. Il serait incorrect de comparer directement une vraisemblance normale sur les logarithmes à une vraisemblance normale sur les débits sans le jacobien.
+
+```{r}
+sigma_q_mv <- sqrt(mean((q - mean(q))^2))
+logv_normale <- sum(dnorm(q, mean(q), sigma_q_mv, log = TRUE))
+logv_lognormale <- sum(dlnorm(q, mu, sigma_mv, log = TRUE))
+modeles <- tibble(
+  Loi = c("Normale", "Lognormale"),
+  AIC = -2 * c(logv_normale, logv_lognormale) + 2 * 2,
+  Q100 = c(qnorm(0.99, mean(q), sigma_q_mv), qlnorm(0.99, mu, sigma_mv))
+) |>
+  mutate(delta_AIC = AIC - min(AIC))
+modeles |> kable(digits = 2)
+```
+
+Un AIC plus faible est préférable parmi les modèles comparés ; il ne constitue pas une validation absolue, surtout pour la queue de distribution. La normale peut aussi attribuer une probabilité à des débits négatifs. Deux lois seulement sont comparées ici, sans prétendre retrouver toute la sélection de lois du rapport.
+
+### Retirer les années accompagnées d’un code
+
+```{r}
+# Expérience de sensibilité, pas une recommandation de nettoyage.
+q_sans_code <- crues |> filter(is.na(code_source)) |> pull(debit_m3_s)
+tibble(
+  Echantillon = c("Toutes les années", "Années sans code seulement"),
+  n = c(length(q), length(q_sans_code)),
+  Q100 = c(qlnorm(0.99, mu, sigma_n1),
+           qlnorm(0.99, mean(log(q_sans_code)), sd(log(q_sans_code))))
+) |> kable(digits = 2)
+```
+
+Le changement combine une modification de la qualité retenue et une modification des années étudiées. Il ne mesure donc pas isolément un « effet de la qualité ». Le code J, par exemple, correspond à un jaugeage, pas à une valeur nécessairement erronée.
+
+## À vous de jouer
+
+1. Une crue centennale s’est produite cette année. Cela exclut-il une crue aussi importante l’an prochain ? Calculez aussi la probabilité d’au moins un dépassement en 30 ans.
+2. Remplacez `B <- 2000` par `B <- 5000`. La largeur de l’intervalle doit-elle être divisée par deux ?
+3. Que faudrait-il vérifier avant d’utiliser ces calculs pour une décision actuelle d’aménagement ?
+
+::: {.callout-tip collapse="true" title="Pistes de réponse"}
+Sous indépendance et stationnarité, la probabilité reste 1 % chaque année. Sur $m$ années, la probabilité d’au moins un dépassement est $1-(1-1/T)^m$.
+
+```{r}
+100 * (1 - (1 - 1 / 100)^30)
+```
+
+Cela représente environ `r fmt(100 * (1 - .99^30))` % sur 30 ans. Augmenter `B` réduit surtout le bruit de simulation du bootstrap. Cela n’augmente pas les 42 années observées et ne supprime pas l’incertitude d’échantillonnage.
+
+Une décision actuelle demanderait notamment des observations récentes, une évaluation des changements hydrologiques et des aménagements, d’autres modèles plausibles, puis une modélisation hydraulique adaptée au lieu. Une cote d’eau ne se déduit pas du débit par ce seul ajustement statistique.
+:::
+
+## Sources et reproductibilité
+
+- Lavoie, A. et Francoeur, J. (2011). [Révision des cotes de crues : rivière Saint-Charles, tronçon 5](https://www.ville.quebec.qc.ca/citoyens/propriete/docs/zones_inondables/saint_charles_troncon5/rapport_cotes_crues_saintcharles_VQ20140620_troncon5.pdf). CEHQ. Tableau 4 ; annexe 3, pages imprimées 36 et 39. Données transcrites, triées par date, codes préservés.
+- R Core Team, documentation de [`Lognormal`](https://stat.ethz.ch/R-manual/R-devel/library/stats/html/Lognormal.html), consultée le 5 septembre 2026.
+- Le fichier `data/crues-saint-charles-1969-2010.csv` est inclus. Le rapport intégral demeure accessible chez son diffuseur. Les analyses et les exercices ajoutés ici sont ceux de cette démonstration.
+
+::: {.callout-note collapse="true" title="Environnement de calcul"}
+```{r}
+sessionInfo()
+```
+:::

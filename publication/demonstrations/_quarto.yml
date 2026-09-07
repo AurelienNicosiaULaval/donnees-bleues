@@ -1,0 +1,12 @@
+project:
+  type: default
+  render:
+    - 01-ilots-chaleur.qmd
+    - 02-acp-quebec.qmd
+    - 03-crues-saint-charles.qmd
+format:
+  html:
+    include-before-body: _navigation.html
+execute:
+  freeze: false
+  cache: false

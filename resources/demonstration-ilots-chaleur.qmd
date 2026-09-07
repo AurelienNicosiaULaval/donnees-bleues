@@ -1,0 +1,43 @@
+---
+title: "Îlots de chaleur : comprendre k-means"
+toc: false
+body-classes: hub-page
+page-layout: full
+embed-resources: true
+---
+
+[Lectures et documents](../lectures.qmd) / Climat et territoire
+
+::: {.resource-hero}
+# Îlots de chaleur : comprendre k-means
+
+Comment des températures continues deviennent-elles des classes sur une carte ? Cette démonstration refait le classement sur 9 806 pixels du produit cartographique INSPQ / CERFO, autour de Québec.
+
+[Lire la démonstration](../demonstrations/01-ilots-chaleur.html){.dataset-button}
+[Télécharger les Quarto et les données](../demonstrations/donnees-bleues-trois-demonstrations.zip){.dataset-button .secondary download="donnees-bleues-trois-demonstrations.zip"}
+:::
+
+## Le parcours pédagogique
+
+Parcours proposé : 90 minutes. Préalables : moyenne, variance et bases de R.
+
+- Comprendre la variable étudiée et l’unité représentée par un pixel.
+- Ajuster k-means, ordonner les classes et interpréter leurs centres.
+- Comparer plusieurs nombres de groupes et changer le territoire retenu.
+- Vérifier la sensibilité du classement et répondre aux exercices corrigés.
+
+Le code R, les tableaux et les graphiques sont présentés avec leur interprétation. Le document est autonome ; les données nécessaires au calcul sont incluses dans le téléchargement.
+
+## Ce que l’analyse reprend
+
+Le point de départ est la cartographie des îlots de chaleur et de fraîcheur INSPQ / CERFO pour 2020-2022 et le rapport méthodologique de Budei et collaborateurs (2023). Le classement est recalculé sur un extrait local de valeurs prédites. La forêt aléatoire de production n’est pas réentraînée et les classes obtenues ne sont pas les classes officielles.
+
+Les valeurs sont des écarts de température de surface par rapport à un boisé à proximité. Elles ne mesurent ni la température de l’air ni la température ressentie.
+
+## Auteur, sources et réutilisation
+
+Démonstration et exercices : Aurélien Nicosia, Données bleues, 2026. Aucun usage dans un cours n’est documenté pour le moment.
+
+[Source Quarto](../demonstrations/01-ilots-chaleur.qmd){download="01-ilots-chaleur.qmd"} · [Provenance, transformations et licences](../demonstrations/PROVENANCE.md) · [Données et rapport d’origine](https://www.donneesquebec.ca/recherche/dataset/ilots-de-chaleur-fraicheur-urbains-et-ecarts-de-temperature-relatifs-2020-2022).
+
+Textes et figures originales sous CC BY 4.0 ; code sous MIT ; données INSPQ / CERFO sous CC BY 4.0. Pour recalculer la démonstration, télécharger le dossier complet, ouvrir le projet RStudio et suivre son fichier README.

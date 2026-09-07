@@ -53,3 +53,54 @@
   related_datasets: []
   license: Document externe de l’ISQ. Consulter les conditions de réutilisation de la source.
   note: Document méthodologique de niveau avancé, mis à jour le 2 avril 2026. La ressource est référencée sans être reproduite.
+
+- id: demonstration-ilots-chaleur
+  type: document
+  title: 'Îlots de chaleur : comprendre k-means'
+  format: Démonstration pédagogique · Quarto et R
+  description: Refaire un classement par k-means sur des écarts de température autour de Québec, puis examiner le rôle du nombre de classes et du territoire retenu.
+  themes: Climat et territoire
+  concepts: [Classification, k-means, Regroupement, Analyse exploratoire, R, Sensibilité]
+  authors: Aurélien Nicosia
+  contributor: Aurélien Nicosia
+  url: https://donneesbleues.ca/demonstrations/01-ilots-chaleur.html
+  code_url: https://github.com/AurelienNicosiaULaval/donnees-bleues/blob/main/publication/demonstrations/01-ilots-chaleur.qmd
+  evidence_url: https://www.donneesquebec.ca/recherche/dataset/ilots-de-chaleur-fraicheur-urbains-et-ecarts-de-temperature-relatifs-2020-2022
+  courses: []
+  related_datasets: []
+  license: 'Textes et figures originales : CC BY 4.0 ; code : MIT ; données INSPQ / CERFO : CC BY 4.0.'
+  note: Nouvelle classification locale sur un extrait du produit cartographique. La forêt aléatoire de production et les classes officielles ne sont pas reproduites.
+
+- id: demonstration-acp-quebec
+  type: document
+  title: 'Municipalités québécoises : comprendre une ACP'
+  format: Démonstration pédagogique · Quarto et R
+  description: Construire six indicateurs du recensement de 2021, réaliser une ACP et interpréter les axes et les choix de standardisation sur des municipalités québécoises.
+  themes: Population et territoire
+  concepts: [ACP, Analyse en composantes principales, Standardisation, Corrélation, Analyse multivariée, R]
+  authors: Aurélien Nicosia
+  contributor: Aurélien Nicosia
+  url: https://donneesbleues.ca/demonstrations/02-acp-quebec.html
+  code_url: https://github.com/AurelienNicosiaULaval/donnees-bleues/blob/main/publication/demonstrations/02-acp-quebec.qmd
+  evidence_url: https://doi.org/10.24095/hpcdp.34.1.03f
+  courses: []
+  related_datasets: []
+  license: 'Textes et figures originales : CC BY 4.0 ; code : MIT ; données : Licence ouverte de Statistique Canada.'
+  note: Adaptation pédagogique inspirée de Pampalon et collaborateurs (2014), avec de nouvelles données et une autre échelle territoriale. Les scores ne sont pas l’indice officiel de défavorisation.
+
+- id: demonstration-crues-saint-charles
+  type: document
+  title: 'Crues de la Saint-Charles : comprendre une période de retour'
+  format: Démonstration pédagogique · Quarto et R
+  description: Ajuster une loi lognormale à 42 maxima annuels de la rivière Saint-Charles et étudier les périodes de retour, l’extrapolation et l’incertitude par bootstrap.
+  themes: Eau et hydrologie
+  concepts: [Loi lognormale, Estimation, Quantile, Période de retour, Bootstrap, Incertitude, R]
+  authors: Aurélien Nicosia
+  contributor: Aurélien Nicosia
+  url: https://donneesbleues.ca/demonstrations/03-crues-saint-charles.html
+  code_url: https://github.com/AurelienNicosiaULaval/donnees-bleues/blob/main/publication/demonstrations/03-crues-saint-charles.qmd
+  evidence_url: https://www.ville.quebec.qc.ca/citoyens/propriete/docs/zones_inondables/saint_charles_troncon5/rapport_cotes_crues_saintcharles_VQ20140620_troncon5.pdf
+  courses: []
+  related_datasets: []
+  license: 'Textes et figures originales : CC BY 4.0 ; code : MIT. Faits numériques transcrits et attribués au rapport CEHQ ; le rapport complet n’est pas redistribué.'
+  note: Reproduction des quantiles historiques du rapport CEHQ de 2011, accompagnée de nouvelles analyses pédagogiques. Aucune estimation du risque actuel ni cote d’inondation n’est proposée.

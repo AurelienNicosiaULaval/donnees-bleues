@@ -1,0 +1,267 @@
+---
+title: "Quand une température devient une classe"
+subtitle: "Îlots de chaleur à Québec : comprendre le classement par k-means"
+author: "Aurélien Nicosia · Données bleues"
+date: 2026-09-05
+lang: fr
+embed-resources: true
+format:
+  html:
+    theme: cosmo
+    css: styles.css
+    toc: true
+    toc-title: "Dans cette démonstration"
+    number-sections: true
+    code-copy: true
+    code-tools: true
+    code-overflow: wrap
+    html-math-method: mathml
+    grid:
+      body-width: 1100px
+      margin-width: 230px
+execute:
+  echo: true
+  warning: false
+  message: false
+  fig-width: 10
+  fig-height: 5.5
+---
+
+## La question
+
+Une carte colorée en classes semble tracer des frontières évidentes entre des secteurs frais et chauds. Pourtant, les données de départ sont continues. Comment l’algorithme place-t-il ces frontières ? Les mêmes seuils apparaissent-ils si l’on change le nombre de classes ou le territoire étudié ?
+
+Nous allons extraire l’idée statistique du classement et la refaire avec des valeurs issues de la cartographie québécoise des écarts de température de surface de 2020 à 2022.
+
+Parcours proposé : 90 minutes. Préalables : moyenne, variance et bases de R. À la fin, vous pourrez expliquer l’objectif de k-means, ordonner ses classes, comparer plusieurs valeurs de $k$ et reconnaître la dépendance des seuils au territoire analysé.
+
+::: {.callout-note title="L’étape de l’analyse que nous refaisons"}
+Le [rapport CERFO de Budei et ses collègues (2023)](https://www.donneesquebec.ca/recherche/dataset/533d0db2-399b-47a6-b397-0e6101e9a3a6/resource/ef5f91cb-f6c9-48f4-ae06-bbfb3483e06e/download/rapport-metho-ilots-chaleur-fraicheur-2020-2022-inspq-cerfo_2023-01_21-0924.pdf) décrit une chaîne comprenant la prédiction des écarts de température et leur classement par k-means.
+
+Nous refaisons ici le classement sur un extrait autour de la ville de Québec. Les valeurs sont des prédictions du produit cartographique diffusé par l’INSPQ et réalisé par le CERFO. Nous ne réentraînons pas sa forêt aléatoire : les données originales d’apprentissage ne sont pas incluses. Nos classes locales ne sont pas les classes officielles, calculées sur des centres de population complets.
+:::
+
+## Que mesure-t-on ?
+
+La [fiche du jeu de données INSPQ](https://www.donneesquebec.ca/recherche/dataset/ilots-de-chaleur-fraicheur-urbains-et-ecarts-de-temperature-relatifs-2020-2022) définit l’écart comme la différence de température de surface en ville par rapport à un boisé à proximité. La grille diffusée a un pas de 15 m. Ce ne sont pas des températures de l’air ni des températures ressenties par des personnes.
+
+Pour rendre le calcul léger, le fichier fourni retient un pixel sur quatre dans chaque direction, dans une fenêtre demandée de longitude −71,28 à −71,20 et de latitude 46,78 à 46,84. Les valeurs manquantes sont exclues. Les centres retenus sont donc espacés de 60 m. Il s’agit d’un sous-échantillonnage systématique de pixels de 15 m, sans moyenne par bloc et sans création de mesures nouvelles.
+
+Les coordonnées sont exprimées en mètres dans le système NAD83 / Québec Lambert, EPSG:32198. Le script d’acquisition fourni permet de retrouver la fenêtre dans le raster source.
+
+```{r}
+library(readr)
+library(dplyr)
+library(tidyr)
+library(ggplot2)
+library(knitr)
+library(scales)
+
+theme_set(theme_minimal(base_size = 13))
+fmt <- function(x, digits = 1) {
+  formatC(x, format = "f", digits = digits, decimal.mark = ",")
+}
+chaleur <- read_csv("data/chaleur-quebec-2020-2022.csv",
+                    col_types = cols(.default = col_double()))
+stopifnot(nrow(chaleur) > 1000, !anyDuplicated(chaleur[c("x_m", "y_m")]),
+          all(is.finite(chaleur$ecart_c)), all(chaleur$ecart_c != -99999))
+
+chaleur |>
+  summarise(Pixels = n(), Minimum = min(ecart_c),
+            Mediane = median(ecart_c), Maximum = max(ecart_c)) |>
+  kable(digits = 2, caption = "Écarts de température de surface dans l’extrait (°C).")
+```
+
+Cet extrait contient `r nrow(chaleur)` valeurs. Le résultat décrit cette fenêtre et cet échantillonnage. Les pixels proches sont spatialement dépendants : leur nombre ne correspond pas à autant d’observations indépendantes pour une inférence statistique.
+
+```{r}
+#| fig-cap: "Écarts prédits dans l’extrait autour de Québec. Chaque carré affiche un pixel retenu, agrandi au pas de 60 m pour la lecture ; aucune moyenne à 60 m n’a été calculée. Les espaces sans valeur sont gris."
+#| fig-alt: "Carte continue des écarts de température de surface prédits dans une fenêtre autour de Québec, du plus faible au plus élevé."
+ggplot(chaleur, aes(x_m / 1000, y_m / 1000, fill = ecart_c)) +
+  geom_tile(width = .06, height = .06) +
+  scale_fill_viridis_c(option = "C", name = "Écart (°C)") +
+  coord_equal() +
+  labs(x = "Coordonnée est (km, Québec Lambert)",
+       y = "Coordonnée nord (km)") +
+  theme(panel.background = element_rect(fill = "#e9edef", color = NA),
+        panel.grid = element_blank())
+```
+
+Avant de classer, observez la continuité des valeurs. Les différences spatiales de couleur n’identifient pas à elles seules un mécanisme causal : nous n’avons pas introduit les variables d’occupation du sol dans cette démonstration.
+
+## Comprendre l’objectif de k-means
+
+Pour $k$ classes, on cherche à minimiser la somme des carrés des écarts aux centres de classe :
+
+$$W_k=\sum_{g=1}^{k}\sum_{i:c_i=g}(x_i-\mu_g)^2.$$
+
+Chaque $x_i$ est ici un écart de température, $c_i$ son groupe et $\mu_g$ la moyenne de ce groupe. L’algorithme alterne affectation au centre le plus proche et mise à jour des centres. Les coordonnées géographiques ne participent pas au calcul : deux pixels éloignés ayant la même valeur seront traités de la même manière.
+
+Nous commençons par trois classes. Plusieurs initialisations réduisent la dépendance à un mauvais point de départ, sans constituer une preuve d’optimum global.
+
+```{r}
+# Les numéros bruts de kmeans sont arbitraires. Cette fonction les ordonne
+# du plus petit au plus grand centre, ce qui rend les cartes interprétables.
+classer <- function(valeurs, k, graine = 4230) {
+  set.seed(graine)
+  modele <- kmeans(matrix(valeurs, ncol = 1), centers = k,
+                   nstart = 25, iter.max = 200)
+  ordre <- order(modele$centers[, 1])
+  list(modele = modele,
+       centres = as.numeric(modele$centers[ordre, 1]),
+       classe = match(modele$cluster, ordre))
+}
+
+k3 <- classer(chaleur$ecart_c, k = 3)
+chaleur <- chaleur |> mutate(classe3 = k3$classe)
+resume3 <- chaleur |>
+  group_by(classe3) |>
+  summarise(n = n(), minimum = min(ecart_c), centre = mean(ecart_c),
+            maximum = max(ecart_c), .groups = "drop")
+resume3 |> kable(digits = 2,
+  caption = "Trois classes calculées sur l’extrait. Les centres sont les moyennes de classe.")
+
+stopifnot(all(diff(k3$centres) > 0), sum(resume3$n) == nrow(chaleur))
+```
+
+En une dimension, la frontière entre deux centres consécutifs est leur milieu. Elle dépend des valeurs observées et de $k$. Les classes ne contiennent pas nécessairement le même nombre de pixels.
+
+```{r}
+#| fig-cap: "La distribution continue et les deux frontières du classement en trois groupes."
+#| fig-alt: "Histogramme des écarts de température, séparé par les deux seuils calculés entre les trois centres k-means."
+seuils3 <- (head(k3$centres, -1) + tail(k3$centres, -1)) / 2
+ggplot(chaleur, aes(ecart_c)) +
+  geom_histogram(bins = 45, fill = "#267b96", color = "white") +
+  geom_vline(xintercept = seuils3, linetype = "dashed", color = "#b45229") +
+  labs(x = "Écart de température de surface (°C)", y = "Nombre de pixels retenus")
+```
+
+```{r}
+#| fig-cap: "Trois groupes ordonnés selon leurs centres. Les mots faible, intermédiaire et élevé se rapportent uniquement aux valeurs de cet extrait."
+#| fig-alt: "Carte des trois groupes k-means dans le secteur étudié, classés du plus faible au plus grand écart de température."
+chaleur |>
+  mutate(groupe = factor(classe3, levels = 1:3,
+                         labels = c("1 · Faible", "2 · Intermédiaire", "3 · Élevé"))) |>
+  ggplot(aes(x_m / 1000, y_m / 1000, fill = groupe)) +
+  geom_tile(width = .06, height = .06) +
+  scale_fill_manual(values = c("#366c98", "#e1c886", "#ae422f"), name = "Classe locale") +
+  coord_equal() + labs(x = "Coordonnée est (km, Québec Lambert)",
+                       y = "Coordonnée nord (km)") +
+  theme(panel.background = element_rect(fill = "#e9edef", color = NA),
+        panel.grid = element_blank())
+```
+
+Nous avons créé une partition numérique, pas observé trois catégories naturelles. Une faible différence de part et d’autre d’un seuil peut produire un changement de couleur net sur la carte.
+
+## Pourquoi pas neuf classes ?
+
+Le produit officiel utilise neuf classes. Pour comprendre ce choix, calculons d’abord plusieurs partitions. La dispersion interne diminue lorsque l’on autorise davantage de groupes ; sa diminution ne suffit donc pas à choisir $k$.
+
+```{r}
+#| fig-cap: "Dispersion interne relative au classement à un seul groupe. Le graphique aide à apprécier le gain obtenu en ajoutant une classe."
+#| fig-alt: "Courbe de la dispersion interne pour un à dix groupes k-means."
+dispersion_totale <- sum((chaleur$ecart_c - mean(chaleur$ecart_c))^2)
+coude <- tibble(k = 1:10,
+  W = vapply(1:10, function(k) {
+    classer(chaleur$ecart_c, k)$modele$tot.withinss
+  }, numeric(1))) |>
+  mutate(fraction = W / dispersion_totale)
+ggplot(coude, aes(k, fraction)) +
+  geom_line(color = "#267b96") + geom_point(color = "#267b96", size = 2.7) +
+  scale_x_continuous(breaks = 1:10) +
+  scale_y_continuous(labels = label_percent()) +
+  labs(x = "Nombre de classes k", y = "Dispersion interne / dispersion totale")
+```
+
+La courbe du coude est un outil de discussion, pas une preuve qu’un nombre de classes est vrai. Il faut aussi considérer la lisibilité, l’objectif de la carte et la perte d’information induite par les seuils.
+
+```{r}
+#| fig-cap: "Neuf classes recalculées localement. Elles ne correspondent pas aux numéros des classes officielles de l’INSPQ."
+#| fig-alt: "Carte de neuf classes k-means ordonnées par écart de température croissant sur l’extrait."
+k9 <- classer(chaleur$ecart_c, k = 9)
+chaleur <- chaleur |> mutate(classe9 = k9$classe)
+ggplot(chaleur, aes(x_m / 1000, y_m / 1000, fill = factor(classe9))) +
+  geom_tile(width = .06, height = .06) +
+  scale_fill_viridis_d(option = "C", name = "Classe locale") +
+  coord_equal() + labs(x = "Coordonnée est (km, Québec Lambert)",
+                       y = "Coordonnée nord (km)") +
+  theme(panel.background = element_rect(fill = "#e9edef", color = NA),
+        panel.grid = element_blank())
+```
+
+Même avec neuf groupes, nous ne retrouvons pas nécessairement les seuils officiels : nous utilisons un secteur plus petit et un pixel sur seize. La fiche INSPQ précise que les intervalles officiels sont calculés par centre de population. Un numéro de classe n’a donc pas partout la même signification en degrés Celsius.
+
+## Le territoire déplace-t-il les seuils ?
+
+Refaisons le classement à trois groupes sur la moitié ouest de la fenêtre. Pour comparer équitablement les affectations, nous évaluons les deux partitions sur ces mêmes pixels de l’ouest.
+
+```{r}
+ouest <- chaleur |> filter(x_m <= mean(range(chaleur$x_m)))
+k3_ouest <- classer(ouest$ecart_c, k = 3)
+seuils_ouest <- (head(k3_ouest$centres, -1) + tail(k3_ouest$centres, -1)) / 2
+
+tibble(
+  Frontiere = c("Classe 1 vers classe 2", "Classe 2 vers classe 3"),
+  fenetre_complete = seuils3,
+  moitie_ouest = seuils_ouest
+) |> kable(digits = 2, caption = "Seuils de classement, en °C.")
+
+part_changee <- mean(ouest$classe3 != k3_ouest$classe)
+```
+
+Les seuils ont été recalculés avec un autre ensemble de valeurs. Dans la moitié ouest, `r fmt(100 * part_changee)` % des pixels changent de numéro de classe entre les deux calculs. Leur écart de température n’a pourtant pas changé. Le groupe décrit une position dans une distribution de référence.
+
+Vérifions également la sensibilité aux initialisations, sur la fenêtre complète :
+
+```{r}
+robustesse <- tibble(
+  graine = c(1, 10, 100, 4230),
+  W3 = vapply(graine, function(s) {
+    classer(chaleur$ecart_c, 3, graine = s)$modele$tot.withinss
+  }, numeric(1)))
+robustesse |> kable(digits = 3)
+```
+
+Des dispersions identiques ou très proches indiquent que ces essais convergent vers des solutions comparables pour ce jeu de données. Cela ne valide ni les prédictions de température en entrée, ni l’intérêt des classes pour une décision d’aménagement.
+
+## À vous de jouer
+
+1. Deux pixels séparés par plusieurs kilomètres possèdent le même écart de température. Peuvent-ils être affectés à des groupes différents par ce modèle ?
+2. Remplacez k-means par trois groupes de quantiles. Qu’impose cette autre méthode ?
+3. Ajoutez 2 °C à toutes les valeurs et refaites k-means avec la même graine. Les frontières numériques changent-elles ? Et les groupes ?
+4. La classe locale 9 permet-elle d’affirmer que la température de l’air y est dangereuse pour la santé ?
+
+::: {.callout-tip collapse="true" title="Pistes de réponse"}
+Les coordonnées n’entrent pas dans ce modèle. Deux valeurs identiques ont les mêmes distances aux centres et reçoivent la même affectation, à une éventuelle convention d’égalité près.
+
+Les terciles cherchent des groupes de tailles proches, alors que k-means minimise des distances au carré. Des égalités de valeurs aux seuils peuvent empêcher des effectifs exactement identiques.
+
+```{r}
+terciles <- quantile(chaleur$ecart_c, probs = c(0, 1/3, 2/3, 1))
+groupes_terciles <- cut(chaleur$ecart_c, breaks = terciles,
+                        include.lowest = TRUE, labels = FALSE)
+table(groupes_terciles)
+
+translation <- classer(chaleur$ecart_c + 2, 3)
+stopifnot(all(translation$classe == k3$classe),
+          max(abs(translation$centres - k3$centres - 2)) < 1e-6)
+```
+
+Ajouter la même constante translate les centres et les seuils sans modifier les distances entre observations. Les classes restent les mêmes dans ce calcul.
+
+Enfin, une classe d’écart de température de surface n’est ni une mesure de température de l’air ni un seuil clinique. Il faudrait d’autres observations, une validation et une définition adaptée à l’usage visé. La seule carte ne permet pas cette conclusion.
+:::
+
+## Sources et reproductibilité
+
+- Budei, B. C., Marchal, J., Nininahazwe, F., Genest, M.-A., Bour, B. et Varin, M. (2023). [Cartographie des îlots de chaleur et de fraîcheur dans le Québec urbain à l’aide d’imagerie satellitaire Landsat-8/9 (2020-2021-2022) et analyse de changement](https://www.donneesquebec.ca/recherche/dataset/533d0db2-399b-47a6-b397-0e6101e9a3a6/resource/ef5f91cb-f6c9-48f4-ae06-bbfb3483e06e/download/rapport-metho-ilots-chaleur-fraicheur-2020-2022-inspq-cerfo_2023-01_21-0924.pdf). CERFO, rapport 2023-01. Étape de classement, section 4.4.
+- INSPQ / CERFO. [Jeu de données 2020-2022](https://www.donneesquebec.ca/recherche/dataset/ilots-de-chaleur-fraicheur-urbains-et-ecarts-de-temperature-relatifs-2020-2022), raster `EcartTemperatureRelatif2022_Ecoumene2021.tif`, consulté le 5 septembre 2026. Licence CC BY 4.0 indiquée par Données Québec. Adaptation : découpage, sous-échantillonnage et nouvelles classifications.
+- R Core Team, documentation de [`kmeans`](https://stat.ethz.ch/R-manual/R-devel/library/stats/html/kmeans.html), consultée le 5 septembre 2026.
+
+Le fichier `data/chaleur-quebec-2020-2022.csv` est inclus. Les calculs n’exigent ni téléchargement du raster complet ni bibliothèque géospatiale. Le script `sources/reconstituer-extraits.R` documente séparément l’acquisition avec `sf` et GDAL.
+
+::: {.callout-note collapse="true" title="Environnement de calcul"}
+```{r}
+sessionInfo()
+```
+:::

@@ -75,6 +75,8 @@ Chaque `metadata.yml` déclare explicitement l’autorisation de publication, le
 
 ## Contribuer
 
+Les démonstrations autonomes sont conservées dans `publication/demonstrations/`. Le rendu du site les recalcule depuis leurs sources Quarto, vérifie les empreintes des données et construit leurs pages de lecture et l’archive téléchargeable. Le contrôle `scripts/check_demonstrations.R` vérifie les fichiers distribués. Les HTML et ZIP générés de ce dossier sont exclus du dépôt source.
+
 Les [modèles](templates/) définissent la structure d’une fiche, d’une activité et de leurs métadonnées. Une contribution doit fournir un script de préparation, au moins une activité déclarée avec sa page Quarto, ses métadonnées, son script exécutable et ses ressources de lancement. Les concepts et niveaux viennent de `data/metadata/taxonomie.yml`; ajouter un alias à une notion existante plutôt qu’un doublon de casse ou d’accent.
 
 La disponibilité technique d’une trousse n’établit pas son efficacité pédagogique. La [fiche de retour de classe](templates/retour-classe-template.md) permet de documenter les usages et difficultés sans données personnelles étudiantes.

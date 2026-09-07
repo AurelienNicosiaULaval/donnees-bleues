@@ -1,0 +1,5 @@
+fichier,octets,sha256
+data/chaleur-quebec-2020-2022.csv,377184,08d135b75a530d0529d12deb723bd063eaae77f4bb79f1e5bd32b30f8e379fcd
+data/crues-saint-charles-1969-2010.csv,790,1e428e8c989e1239d278870d6901a2bbc0c8353b62d00f1a8bd1fd039e3d0a02
+data/dictionnaire-recensement.csv,1329,8b527dd810ef284e7c3375e343c6632c175e4be0f8d015177a44d471b04da472
+data/recensement-quebec-2021-indicateurs.csv,235023,ee10669dfcfbe1d54fb60f10936143adb01ebeec95ea2849bbda008239440a61

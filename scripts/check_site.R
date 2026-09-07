@@ -45,4 +45,5 @@ for (source in list.files('assets/classroom', pattern = '[.]zip([.]json)?$', ful
   }
 }
 if (length(errors)) stop(paste(unique(errors), collapse = '\n'), call. = FALSE)
+source('scripts/check_demonstrations.R', local = TRUE)
 cat(length(pages), 'pages : titres, structure, attributs alt, liens, ancres et téléchargements vérifiés.\n')

@@ -1,0 +1,10 @@
+{
+  "title": "Îlots de chaleur/fraîcheur urbains, écarts de température et indice d’intensité d’îlots de chaleur urbains 2020-2022",
+  "name": "ilots-de-chaleur-fraicheur-urbains-et-ecarts-de-temperature-relatifs-2020-2022",
+  "id": "533d0db2-399b-47a6-b397-0e6101e9a3a6",
+  "metadata_modified": "2026-07-24T18:41:55.750326",
+  "license_title": "Attribution (CC-BY 4.0)",
+  "license_url": "https://www.donneesquebec.ca/licence/#cc-by",
+  "date_consultation": "2026-09-05",
+  "ressource_utilisee": "https://dq-prd-bucket1.s3.ca-central-1.amazonaws.com/inspq/EcartTemperatureRelatif2022_Ecoumene2021.tif"
+}

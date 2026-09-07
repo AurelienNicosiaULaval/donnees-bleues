@@ -68,4 +68,5 @@ for (input in site_inputs()) {
   run_quarto(c("render", input, "--execute", "--no-cache", "--no-clean"))
 }
 
+source("scripts/build_demonstrations.R", local = TRUE)
 postprocess_site_headings("docs")

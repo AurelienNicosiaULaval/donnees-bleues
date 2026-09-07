@@ -33,7 +33,9 @@ postprocess_site_headings <- function(output_dir = "docs") {
       -1L
     }
 
-    if (title_start[1] > 0L && title_end[1] > 0L) {
+    # Keep Quarto's title when it is the document's only h1 (standalone lessons).
+    has_body_title <- length(xml2::xml_find_all(xml2::read_html(html), "//h1")) > 1L
+    if (title_start[1] > 0L && title_end[1] > 0L && has_body_title) {
       before <- if (title_start[1] == 1L) "" else substr(html, 1L, title_start[1] - 1L)
       after_start <- title_start[1] + title_end[1] + nchar("</header>") - 1L
       after <- if (after_start >= nchar(html)) "" else substr(html, after_start + 1L, nchar(html))

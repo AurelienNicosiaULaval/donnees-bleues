@@ -1,0 +1,43 @@
+---
+title: "Crues de la Saint-Charles : comprendre une période de retour"
+toc: false
+body-classes: hub-page
+page-layout: full
+embed-resources: true
+---
+
+[Lectures et documents](../lectures.qmd) / Eau et hydrologie
+
+::: {.resource-hero}
+# Crues de la Saint-Charles : comprendre une période de retour
+
+Comment estimer une crue centennale avec 42 années de données ? Cette démonstration reprend les maxima annuels 1969-2010 de la station 050904 sur la rivière Saint-Charles et examine l’ajustement d’une loi lognormale.
+
+[Lire la démonstration](../demonstrations/03-crues-saint-charles.html){.dataset-button}
+[Télécharger les Quarto et les données](../demonstrations/donnees-bleues-trois-demonstrations.zip){.dataset-button .secondary download="donnees-bleues-trois-demonstrations.zip"}
+:::
+
+## Le parcours pédagogique
+
+Parcours proposé : 90 à 120 minutes. Préalables : moyenne, écart-type, quantile et bases de R.
+
+- Lire les maxima annuels du débit journalier et les codes de qualité.
+- Ajuster une loi lognormale et comparer les conventions d’estimation.
+- Relier un quantile, une probabilité de dépassement et une période de retour.
+- Examiner l’incertitude par bootstrap et les limites de l’extrapolation.
+
+Le code R, les résultats, les graphiques et les exercices corrigés accompagnent chaque étape. Les 42 observations sont fournies avec leur provenance.
+
+## Ce que l’analyse reproduit
+
+Les données sont transcrites de l’annexe 3 du rapport de Lavoie et Francoeur (CEHQ, 2011). Le calcul retrouve les six quantiles du tableau 4 à sa précision d’affichage, avec la convention de variance précisée dans le document. La comparaison avec le maximum de vraisemblance strict et le bootstrap sont des prolongements pédagogiques.
+
+L’analyse ne reproduit pas la modélisation hydraulique ni les cotes d’inondation. Ces données historiques ne constituent pas une estimation du risque actuel.
+
+## Auteur, sources et réutilisation
+
+Démonstration et exercices : Aurélien Nicosia, Données bleues, 2026. Aucun usage dans un cours n’est documenté pour le moment.
+
+[Source Quarto](../demonstrations/03-crues-saint-charles.qmd){download="03-crues-saint-charles.qmd"} · [Provenance, transformations et licences](../demonstrations/PROVENANCE.md) · [Rapport de Lavoie et Francoeur (2011)](https://www.ville.quebec.qc.ca/citoyens/propriete/docs/zones_inondables/saint_charles_troncon5/rapport_cotes_crues_saintcharles_VQ20140620_troncon5.pdf).
+
+Textes et figures originales sous CC BY 4.0 ; code sous MIT. Les faits numériques sont transcrits et attribués au rapport CEHQ, qui n’est pas redistribué. Pour recalculer la démonstration, télécharger le dossier complet et ouvrir le projet RStudio.

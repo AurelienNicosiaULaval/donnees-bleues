@@ -1,0 +1,318 @@
+---
+title: "Six indicateurs, combien de dimensions ?"
+subtitle: "Une ACP des municipalités québécoises à partir du recensement de 2021"
+author: "Aurélien Nicosia · Données bleues"
+date: 2026-09-05
+lang: fr
+embed-resources: true
+format:
+  html:
+    theme: cosmo
+    css: styles.css
+    toc: true
+    toc-title: "Dans cette démonstration"
+    number-sections: true
+    code-copy: true
+    code-tools: true
+    code-overflow: wrap
+    html-math-method: mathml
+    grid:
+      body-width: 1100px
+      margin-width: 230px
+execute:
+  echo: true
+  warning: false
+  message: false
+  fig-width: 10
+  fig-height: 5.5
+---
+
+## La question
+
+La scolarité, l’emploi, le revenu et la composition des ménages décrivent différentes facettes d’un territoire. Certaines de ces informations se recoupent-elles ? Peut-on les résumer sur un graphique à deux axes sans perdre de vue leur sens ?
+
+Nous allons construire six indicateurs à partir de données québécoises, réaliser une analyse en composantes principales (ACP), interpréter les axes obtenus et examiner deux choix qui modifient le résultat.
+
+Parcours proposé : 120 minutes. Préalables : corrélation, standardisation, manipulation de tableaux dans R. L’objectif est de comprendre ce qu’une ACP résume et ce qu’elle ne valide pas.
+
+::: {.callout-note title="Une adaptation pédagogique, avec de nouvelles données"}
+Le point de départ est l’article de [Pampalon, Hamel, Gamache, Simpson et Philibert (2014)](https://doi.org/10.24095/hpcdp.34.1.03f) sur la validation de l’indice québécois de défavorisation. Il combine six indicateurs et distingue deux dimensions.
+
+Ici, nous calculons une nouvelle ACP sur des subdivisions de recensement du Québec en 2021. L’article utilise notamment des aires de diffusion en 2006 et des indicateurs ajustés pour l’âge et le sexe. Notre exercice change l’année, l’unité géographique et certaines définitions ; il n’effectue pas ces ajustements. Les résultats produits ne sont donc pas l’indice officiel de défavorisation matérielle et sociale.
+:::
+
+## Comprendre les unités et les variables
+
+Une ligne du fichier fourni correspond à une subdivision de recensement (SDR), soit une municipalité ou un territoire considéré comme équivalent pour le recensement. L’analyse retient les SDR d’au moins 1 000 habitants. Ce seuil est un choix pédagogique pour limiter la place des très petites unités ; il ne constitue pas une garantie de précision.
+
+Les colonnes `c...` conservent les identifiants des caractéristiques du Profil du recensement. Le fichier `data/dictionnaire-recensement.csv` contient leurs libellés exacts.
+
+| Indicateur calculé | Définition retenue ici | Colonnes du profil |
+|:--|:--|:--|
+| Aucun diplôme (%) | Personnes de 15 ans et plus sans certificat, diplôme ou grade, parmi les 15 ans et plus des ménages privés | `100 × c1999 / c1998` |
+| Taux d’emploi (%) | Taux publié pour les 15 ans et plus dans les ménages privés | `c2229` |
+| Revenu moyen ($) | Revenu total moyen de 2020 parmi les bénéficiaires de revenu de 15 ans et plus dans les ménages privés | `c128` |
+| Personnes seules (%) | Personnes vivant seules parmi toutes les personnes des ménages privés, sans restriction aux 15 ans et plus | `100 × c97 / c89` |
+| Séparées, divorcées ou veuves (%) | Personnes de 15 ans et plus dans ces états matrimoniaux légaux, incluant celles vivant en union libre | `100 × (c63 + c64 + c65 + c68 + c69 + c70) / c58` |
+| Familles monoparentales (%) | Familles monoparentales parmi les familles de recensement dans les ménages privés | `100 × c86 / c78` |
+
+Le revenu se rapporte à 2020, même si le recensement est celui de 2021. Les dénominateurs ne sont pas interchangeables. Le profil combine des données intégrales et des estimations du questionnaire détaillé à 25 %. Les arrondissements et les règles de suppression sont conservés dans l’extrait.
+
+## Préparer les données sans inventer de valeurs
+
+```{r}
+library(readr)
+library(dplyr)
+library(tidyr)
+library(ggplot2)
+library(knitr)
+library(scales)
+
+theme_set(theme_minimal(base_size = 13))
+fmt <- function(x, digits = 1) {
+  formatC(x, format = "f", digits = digits, decimal.mark = ",")
+}
+
+# Lecture initiale en texte : les codes géographiques et les symboles sont préservés.
+brut <- read_csv("data/recensement-quebec-2021-indicateurs.csv",
+                 col_types = cols(.default = col_character()))
+stopifnot(!anyDuplicated(brut$code_sdr),
+          all(substr(brut$code_sdr, 1, 2) == "24"))
+
+# Les valeurs supprimées sont vides dans les colonnes de chiffres et deviennent NA.
+# Elles ne sont jamais remplacées par zéro.
+brut <- brut |>
+  mutate(across(matches("^c[0-9]+$"), as.numeric))
+
+indicateurs <- brut |>
+  transmute(code_sdr, nom_sdr, population = c1,
+    sans_diplome = 100 * c1999 / c1998,
+    emploi = c2229,
+    revenu = c128,
+    seul = 100 * c97 / c89,
+    separe = 100 * (c63 + c64 + c65 + c68 + c69 + c70) / c58,
+    monoparental = 100 * c86 / c78)
+
+variables <- c("sans_diplome", "emploi", "revenu", "seul", "separe", "monoparental")
+libelles <- c(sans_diplome = "Aucun diplôme (%)", emploi = "Taux d’emploi (%)",
+              revenu = "Revenu moyen ($)", seul = "Personnes seules (%)",
+              separe = "Séparées, divorcées ou veuves (%)",
+              monoparental = "Familles monoparentales (%)")
+
+admissibles <- indicateurs |> filter(population >= 1000)
+analyse <- admissibles |>
+  filter(if_all(all_of(variables), ~ is.finite(.x)))
+
+bilan <- tibble(
+  Etape = c("SDR présentes dans l’extrait", "SDR d’au moins 1 000 habitants",
+            "SDR avec les six indicateurs disponibles"),
+  Nombre = c(nrow(brut), nrow(admissibles), nrow(analyse)))
+bilan |> kable()
+
+X <- analyse |> select(all_of(variables)) |> as.data.frame()
+stopifnot(nrow(X) > ncol(X), all(vapply(X, sd, numeric(1)) > 0),
+          all(X$revenu > 0),
+          all(as.matrix(X[setdiff(variables, "revenu")]) >= 0),
+          all(as.matrix(X[setdiff(variables, "revenu")]) <= 100))
+```
+
+Nous retenons `r nrow(analyse)` SDR. Parmi les SDR dépassant le seuil, `r nrow(admissibles) - nrow(analyse)` sont écartées pour indicateur manquant ou non fini. Toutes les SDR retenues ont le même poids dans l’ACP : Montréal compte pour une ligne, tout comme une petite municipalité. Nous décrivons la variation entre territoires, pas la distribution des caractéristiques entre personnes.
+
+```{r}
+#| fig-cap: "Les distributions des six indicateurs. Chaque panneau possède sa propre échelle horizontale."
+#| fig-alt: "Six histogrammes montrent les distributions des indicateurs socioéconomiques dans les SDR québécoises retenues."
+analyse |>
+  pivot_longer(all_of(variables), names_to = "variable", values_to = "valeur") |>
+  ggplot(aes(valeur)) +
+  geom_histogram(bins = 25, fill = "#267b96", color = "white") +
+  facet_wrap(~ variable, scales = "free_x", ncol = 2,
+             labeller = as_labeller(libelles)) +
+  labs(x = NULL, y = "Nombre de SDR")
+```
+
+Repérez les queues et les valeurs éloignées. Une forte valeur de revenu peut être réelle et influente à la fois. Nous la conservons ; l’ACP n’est pas une méthode robuste aux observations extrêmes.
+
+## Repérer les redondances
+
+L’ACP cherche des combinaisons linéaires qui résument la variation. Avant de calculer les axes, regardons les corrélations.
+
+```{r}
+#| fig-cap: "Corrélations de Pearson entre les six indicateurs, sur les mêmes SDR."
+#| fig-alt: "Matrice colorée des corrélations de Pearson avec leurs valeurs numériques."
+R <- cor(X)
+corr_long <- as.data.frame(as.table(R))
+names(corr_long) <- c("variable_1", "variable_2", "correlation")
+ggplot(corr_long, aes(variable_1, variable_2, fill = correlation)) +
+  geom_tile(color = "white") +
+  geom_text(aes(label = sprintf("%.2f", correlation)), size = 3.5) +
+  scale_fill_gradient2(low = "#d89764", mid = "#fafafa", high = "#62a1b7",
+                       limits = c(-1, 1), name = "r") +
+  scale_x_discrete(labels = c("Diplôme", "Emploi", "Revenu", "Seules", "État civil", "Familles")) +
+  scale_y_discrete(labels = c("Diplôme", "Emploi", "Revenu", "Seules", "État civil", "Familles")) +
+  coord_equal() + labs(x = NULL, y = NULL) + theme(panel.grid = element_blank())
+```
+
+Les noms courts de la matrice suivent l’ordre des six indicateurs du tableau : « Diplôme » signifie ici absence de diplôme. Une corrélation décrit une association entre territoires. Elle ne démontre pas qu’une caractéristique cause l’autre et ne peut pas être transférée automatiquement aux individus.
+
+## Standardiser, puis calculer l’ACP
+
+Le revenu est exprimé en dollars et les cinq autres variables en pourcentages. Nous standardisons chaque colonne :
+
+$$z_{ij}=\frac{x_{ij}-\overline{x}_j}{s_j}.$$
+
+Chaque variable a alors une variance de 1. La première composante est la combinaison de ces colonnes dont la variance est maximale, avec un vecteur de coefficients de longueur 1. La deuxième maximise la variance restante sous la contrainte d’être orthogonale à la première.
+
+```{r}
+acp <- prcomp(X, center = TRUE, scale. = TRUE)
+
+# Le signe d’un axe est arbitraire. Nous choisissons CP1 positivement
+# corrélée à l’emploi et CP2 à l’indicateur d’état matrimonial,
+# uniquement pour stabiliser la présentation.
+if (cor(X$emploi, acp$x[, 1]) < 0) {
+  acp$x[, 1] <- -acp$x[, 1]
+  acp$rotation[, 1] <- -acp$rotation[, 1]
+}
+
+if (cor(X$separe, acp$x[, 2]) < 0) {
+  acp$x[, 2] <- -acp$x[, 2]
+  acp$rotation[, 2] <- -acp$rotation[, 2]
+}
+
+variance <- tibble(
+  composante = seq_along(acp$sdev),
+  valeur_propre = acp$sdev^2,
+  proportion = valeur_propre / sum(valeur_propre),
+  cumul = cumsum(proportion))
+variance |> kable(digits = 3)
+
+# Contrôles mathématiques de l’ACP standardisée.
+stopifnot(abs(sum(acp$sdev^2) - ncol(X)) < 1e-8,
+          max(abs(crossprod(acp$rotation) - diag(ncol(X)))) < 1e-8,
+          abs(cor(acp$x[, 1], acp$x[, 2])) < 1e-8)
+```
+
+```{r}
+#| fig-cap: "Part de variance résumée par chacune des six composantes."
+#| fig-alt: "Diagramme en barres des proportions de variance expliquée par les six composantes principales."
+ggplot(variance, aes(factor(composante), proportion)) +
+  geom_col(fill = "#267b96", width = .65) +
+  geom_text(aes(label = percent(proportion, accuracy = .1)), vjust = -.3) +
+  scale_y_continuous(labels = label_percent(), expand = expansion(mult = c(0, .12))) +
+  labs(x = "Composante principale", y = "Part de variance")
+```
+
+Les deux premiers axes résument `r fmt(100 * variance$cumul[2])` % de la variance standardisée entre SDR. Cette proportion décrit une compression de l’information. Elle n’est ni une proportion de personnes défavorisées, ni une mesure de validité d’un indice.
+
+## Interpréter les axes obtenus
+
+Les coefficients dans `rotation` définissent les combinaisons linéaires. Pour l’interprétation, affichons plutôt les corrélations entre chaque variable d’origine et les scores sur les axes. Ces deux objets sont liés, mais leurs valeurs ne sont pas identiques.
+
+```{r}
+#| fig-cap: "Corrélations des indicateurs avec les deux premières composantes."
+#| fig-alt: "Six barres de corrélation pour chaque axe principal permettent d’interpréter les composantes."
+liens <- cor(X, acp$x[, 1:2])
+liens_long <- as.data.frame(as.table(liens))
+names(liens_long) <- c("variable", "axe", "correlation")
+ggplot(liens_long, aes(correlation, variable)) +
+  geom_vline(xintercept = 0, color = "grey60") +
+  geom_col(fill = "#267b96", width = .65) +
+  facet_wrap(~ axe) +
+  scale_y_discrete(labels = libelles) +
+  scale_x_continuous(limits = c(-1, 1)) +
+  labs(x = "Corrélation avec la composante", y = NULL)
+```
+
+Avec le signe choisi, CP1 est positivement associée à l’emploi (r = `r fmt(liens['emploi', 1], 2)`) et au revenu (r = `r fmt(liens['revenu', 1], 2)`), et négativement aux personnes seules (r = `r fmt(liens['seul', 1], 2)`) et aux personnes séparées, divorcées ou veuves (r = `r fmt(liens['separe', 1], 2)`). Elle combine ainsi des aspects de l’emploi et de la composition des ménages.
+
+Nous ne la baptisons pas automatiquement « défavorisation matérielle ». Les axes trouvés ici dépendent du jeu de données et ne reprennent pas mécaniquement les deux dimensions de l’indice officiel. CP2 mérite sa propre lecture à partir du graphique.
+
+```{r}
+#| fig-cap: "Projection des SDR sur les deux premiers axes. La couleur représente le taux d’emploi d’origine ; chaque point a le même poids dans l’ACP."
+#| fig-alt: "Nuage des SDR québécoises projetées sur CP1 et CP2, coloré selon le taux d’emploi."
+scores <- analyse |>
+  mutate(CP1 = acp$x[, 1], CP2 = acp$x[, 2])
+ggplot(scores, aes(CP1, CP2, color = emploi)) +
+  geom_hline(yintercept = 0, color = "grey85") +
+  geom_vline(xintercept = 0, color = "grey85") +
+  geom_point(alpha = .65, size = 2) +
+  scale_color_viridis_c(option = "C", name = "Emploi (%)") +
+  coord_equal() +
+  labs(x = paste0("CP1 (", fmt(100 * variance$proportion[1]), " %)"),
+       y = paste0("CP2 (", fmt(100 * variance$proportion[2]), " %)"))
+```
+
+Deux points voisins dans ce plan ont des projections semblables. Ils peuvent toutefois différer sur les quatre dimensions omises. La couleur est une variable déjà utilisée par l’ACP : son alignement sur un axe n’est pas une validation indépendante.
+
+## Tester les choix de l’analyse
+
+### Que se passe-t-il sans standardisation ?
+
+```{r}
+acp_brute <- prcomp(X, center = TRUE, scale. = FALSE)
+tibble(
+  Methode = c("ACP standardisée", "ACP non standardisée"),
+  variance_CP1_pct = 100 * c(
+    acp$sdev[1]^2 / sum(acp$sdev^2),
+    acp_brute$sdev[1]^2 / sum(acp_brute$sdev^2)),
+  correlation_absolue_CP1_revenu = c(
+    abs(cor(acp$x[, 1], X$revenu)),
+    abs(cor(acp_brute$x[, 1], X$revenu)))
+) |> kable(digits = 3)
+```
+
+L’ACP non standardisée est presque entièrement dominée par l’échelle en dollars. Sa forte proportion de variance sur CP1 ne signifie pas qu’elle résume mieux les six concepts. On a changé la définition de la variation que l’on souhaite préserver.
+
+### Que se passe-t-il à partir de 5 000 habitants ?
+
+Recalculons l’ACP sur un autre ensemble de territoires, puis comparons les axes. Les corrélations ci-dessous sont calculées sur les seules SDR communes : celles d’au moins 5 000 habitants.
+
+```{r}
+grands <- analyse |> filter(population >= 5000)
+X_grands <- grands |> select(all_of(variables)) |> as.data.frame()
+acp_grands <- prcomp(X_grands, center = TRUE, scale. = TRUE)
+
+# Projection avec la moyenne et les écarts-types de l’ACP initiale.
+scores_reference <- predict(acp, newdata = X_grands)
+comparaison_axes <- abs(cor(scores_reference[, 1:2], acp_grands$x[, 1:2]))
+kable(comparaison_axes, digits = 3,
+      caption = paste("Corrélations absolues entre axes sur", nrow(grands), "SDR communes."))
+```
+
+Les signes des axes pouvant s’inverser, nous comparons les valeurs absolues. Un axe peut aussi changer d’ordre ou se réorienter : il faut lire toute la matrice, puis les indicateurs associés, avant de parler de stabilité. Changer la population de référence modifie les moyennes, les écarts-types et les corrélations utilisés dans le calcul.
+
+## À vous de jouer
+
+1. Décrivez CP2 en une phrase fondée sur ses corrélations. Que changerait l’inversion du signe de cet axe ?
+2. Remplacez les dollars par des milliers de dollars. Comparez l’ACP avec et sans standardisation.
+3. Expliquez pourquoi les 74 % environ de variance résumée sur deux axes ne valident pas un indice de défavorisation.
+4. Proposez une information extérieure au calcul qui pourrait contribuer à la validation d’un indice, puis nommez une limite de cette validation.
+
+::: {.callout-tip collapse="true" title="Pistes de réponse"}
+Avec l’orientation affichée, CP2 oppose notamment les indicateurs « aucun diplôme » et « familles monoparentales » aux personnes seules et aux états matrimoniaux séparé, divorcé ou veuf. Inverser le signe échange simplement les côtés du graphique ; les distances et les corrélations en valeur absolue restent les mêmes.
+
+Changer l’unité monétaire ne modifie pas l’ACP standardisée, à l’arrondi numérique et au signe des axes près. Sans standardisation, ce changement modifie le poids relatif du revenu.
+
+```{r}
+X_milliers <- X |> mutate(revenu = revenu / 1000)
+acp_milliers <- prcomp(X_milliers, scale. = TRUE)
+stopifnot(max(abs(acp$sdev - acp_milliers$sdev)) < 1e-8)
+```
+
+L’ACP maximise une variance, pas la correspondance avec un concept social. La pertinence des indicateurs, leur comparabilité, le choix du territoire et des liens avec des critères externes doivent être examinés séparément. Un indicateur de santé pourrait contribuer à cette démarche ; une association territoriale ne prouverait cependant ni une relation individuelle ni un effet causal. Il faudrait aussi éviter une validation circulaire et tenir compte de facteurs comme l’âge.
+:::
+
+## Sources et reproductibilité
+
+- Pampalon, R., Hamel, D., Gamache, P., Simpson, A. et Philibert, M. D. (2014). [Valider un indice de défavorisation en santé publique : un exercice complexe, illustré par l’indice québécois](https://doi.org/10.24095/hpcdp.34.1.03f). Maladies chroniques et blessures au Canada, 34(1).
+- Statistique Canada. [Profil du Recensement de la population de 2021, téléchargement complet](https://www12.statcan.gc.ca/census-recensement/2021/dp-pd/prof/details/download-telecharger.cfm?Lang=F), fichier des subdivisions de recensement du Québec `98-401-X2021020_Francais_CSV_data.csv`, consulté le 5 septembre 2026. Les identifiants et symboles de l’extrait sont conservés.
+- R Core Team, documentation de [`prcomp`](https://stat.ethz.ch/R-manual/R-devel/library/stats/html/prcomp.html), consultée le 5 septembre 2026.
+
+Adapté de Statistique Canada, Profil du Recensement de la population de 2021. Cela ne constitue pas une approbation de ce produit par Statistique Canada. Les données relèvent de la [Licence ouverte de Statistique Canada](https://www.statcan.gc.ca/fr/avis/licence-ouverte).
+
+L’extrait CSV et son dictionnaire sont inclus. Le script `sources/reconstituer-extraits.R` documente leur acquisition ; il n’est pas nécessaire pour refaire l’ACP à partir des fichiers fournis.
+
+::: {.callout-note collapse="true" title="Environnement de calcul"}
+```{r}
+sessionInfo()
+```
+:::

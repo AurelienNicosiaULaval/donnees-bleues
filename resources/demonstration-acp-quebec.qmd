@@ -1,0 +1,43 @@
+---
+title: "Municipalités québécoises : comprendre une ACP"
+toc: false
+body-classes: hub-page
+page-layout: full
+embed-resources: true
+---
+
+[Lectures et documents](../lectures.qmd) / Population et territoire
+
+::: {.resource-hero}
+# Municipalités québécoises : comprendre une ACP
+
+Six indicateurs décrivent-ils six dimensions différentes ? À partir du recensement de 2021, cette démonstration construit les variables puis réalise une analyse en composantes principales sur 661 subdivisions de recensement québécoises d’au moins 1 000 habitants.
+
+[Lire la démonstration](../demonstrations/02-acp-quebec.html){.dataset-button}
+[Télécharger les Quarto et les données](../demonstrations/donnees-bleues-trois-demonstrations.zip){.dataset-button .secondary download="donnees-bleues-trois-demonstrations.zip"}
+:::
+
+## Le parcours pédagogique
+
+Parcours proposé : 120 minutes. Préalables : corrélation, standardisation et manipulation de tableaux dans R.
+
+- Définir les six indicateurs et leurs dénominateurs.
+- Préparer les données du recensement en conservant les informations de qualité.
+- Standardiser les variables, calculer l’ACP et lire la variance expliquée.
+- Interpréter les axes et les positions des territoires, puis examiner la sensibilité aux choix d’analyse.
+
+Le document comprend le code R, les résultats recalculés, les graphiques, les questions pédagogiques et des pistes de réponse. Le téléchargement contient les données et leur dictionnaire.
+
+## Une adaptation à distinguer de l’indice officiel
+
+La démarche s’inspire de l’article de Pampalon et collaborateurs (2014) sur la validation de l’indice québécois de défavorisation. Elle utilise de nouvelles données de 2021, des subdivisions de recensement et des définitions explicites d’indicateurs. Elle ne calcule pas l’indice officiel de défavorisation matérielle et sociale.
+
+Les résultats décrivent des territoires. Ils n’établissent ni des caractéristiques individuelles ni des relations causales.
+
+## Auteur, sources et réutilisation
+
+Démonstration et exercices : Aurélien Nicosia, Données bleues, 2026. Aucun usage dans un cours n’est documenté pour le moment.
+
+[Source Quarto](../demonstrations/02-acp-quebec.qmd){download="02-acp-quebec.qmd"} · [Provenance, transformations et licences](../demonstrations/PROVENANCE.md) · [Article de Pampalon et collaborateurs (2014)](https://doi.org/10.24095/hpcdp.34.1.03f) · [Profil du Recensement de 2021](https://www12.statcan.gc.ca/census-recensement/2021/dp-pd/prof/details/download-telecharger.cfm?Lang=F).
+
+Textes et figures originales sous CC BY 4.0 ; code sous MIT ; données sous la Licence ouverte de Statistique Canada. L’adaptation ne constitue pas une approbation de ce produit par Statistique Canada. Pour recalculer la démonstration, télécharger le dossier complet et ouvrir le projet RStudio.

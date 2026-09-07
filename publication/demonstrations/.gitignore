@@ -1,0 +1,8 @@
+/.quarto/
+/*_files/
+/*.html
+!/_navigation.html
+/*.zip
+/data-reconstituees/
+
+**/*.quarto_ipynb
