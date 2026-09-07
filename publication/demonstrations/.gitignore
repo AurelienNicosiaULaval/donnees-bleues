@@ -4,5 +4,6 @@
 !/_navigation.html
 /*.zip
 /data-reconstituees/
+/ENVIRONNEMENT.txt
 
 **/*.quarto_ipynb

@@ -14,3 +14,5 @@ pre.sourceCode { border-left: 3px solid #91c9cf; }
 .demonstration-navigation a {color:#123e58; font-size:.95rem; text-decoration:underline; text-underline-offset:.15em;}
 .skip-to-content {position:absolute; left:-10000px; top:.5rem; z-index:10000; padding:.8rem 1rem; background:white; color:#123e58; border:2px solid currentColor;}
 .skip-to-content:focus {left:1rem;}
+/* Long file names should wrap within prose on small screens. */
+:not(pre) > code {white-space:normal; overflow-wrap:anywhere;}
