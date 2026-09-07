@@ -1,0 +1,33 @@
+{
+  "dataset_id": "vehicules-canada-2025",
+  "title": "Véhicules : consommation au Canada et parc québécois",
+  "mode": "frozen",
+  "prepared_at_utc": "2026-09-07T12:22:33Z",
+  "source_name": "Ressources naturelles Canada ; SAAQ ; sélection pédagogique par Aurélien Nicosia",
+  "source_url": "https://github.com/AurelienNicosiaULaval/vehicules-quebec/releases/tag/v1.0.0",
+  "license_url": "https://ouvert.canada.ca/fr/licence-du-gouvernement-ouvert-canada",
+  "original_licenses": {
+    "code": "MIT",
+    "content": "CC-BY-4.0",
+    "notices": ["LICENSE", "LICENCE-CONTENUS.md", "datasets/vehicules-canada-2025/DATA_LICENSES.md", "datasets/vehicules-canada-2025/LICENCE-SOURCE.md", "datasets/vehicules-canada-2025/DICTIONNAIRE.md"]
+  },
+  "selection": "Les 64 configurations et leurs 19 colonnes sont conservées. Le tableau SAAQ distinct conserve ses 152 groupes et 5 colonnes. Aucune nouvelle sélection, imputation ou jointure.",
+  "tables": [
+    {
+      "path": "data/processed/vehicules-canada-2025/vehicules_canada_2025.csv",
+      "rows": 64,
+      "columns": ["vehicle_id", "make", "model", "model_year", "vehicle_class", "vehicle_class_group", "engine_size_l", "cylinders", "transmission", "transmission_type", "fuel_type", "city_l_per_100km", "highway_l_per_100km", "combined_l_per_100km", "combined_mpg_imperial", "combined_mpg_us", "co2_g_per_km", "co2_rating", "smog_rating"],
+      "sha256": "170b7d662fe7ccf98ccf54c2a0e127648da36d0cb2d8554c5b7d39cefe238260",
+      "prepared_table_sha256": "170b7d662fe7ccf98ccf54c2a0e127648da36d0cb2d8554c5b7d39cefe238260"
+    },
+    {
+      "path": "data/processed/vehicules-canada-2025/parc_quebec_2022.csv",
+      "rows": 152,
+      "columns": ["saaq_snapshot_year", "region_qc", "saaq_fuel_code", "saaq_fuel_type", "number_registered_qc"],
+      "sha256": "b576ef8f9c1b3c9818d2f70fbc7a87e90a4f8343261521e88f8c60438a901108",
+      "prepared_table_sha256": "4fb91d7190b9c6c62d97c2d23168a1c318206a969bfe3d255bc0d1c42cf30dca"
+    }
+  ],
+  "archive_sha256": "82f6683c972bfedad51a84bef8ddaa4dcc543a2e5a9dda5ddabee622c3c942e5",
+  "archive_bytes": 17494
+}

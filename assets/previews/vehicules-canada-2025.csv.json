@@ -1,0 +1,66 @@
+{
+  "dataset_id": "vehicules-canada-2025",
+  "prepared_at_utc": "2026-09-07T12:22:33Z",
+  "prepared_file": "vehicules_canada_2025.csv",
+  "prepared_sha256": "170b7d662fe7ccf98ccf54c2a0e127648da36d0cb2d8554c5b7d39cefe238260",
+  "preview_sha256": "401677d3626c767cd9ce8cc6870c01711282c5a2138c14a014a91c1c95858c88",
+  "rows": 64,
+  "columns": ["make", "model", "vehicle_class_group", "engine_size_l", "cylinders", "transmission_type", "combined_l_per_100km", "co2_g_per_km"],
+  "selection": "Au plus 120 positions régulièrement espacées dans l'ordre de la table préparée; sélection déterministe non aléatoire",
+  "source_name": "Ressources naturelles Canada ; SAAQ ; sélection pédagogique par Aurélien Nicosia",
+  "source_url": "https://github.com/AurelienNicosiaULaval/vehicules-quebec/releases/tag/v1.0.0",
+  "license": "RNCan : Licence du gouvernement ouvert – Canada ; SAAQ : CC BY 4.0 ; code et activité source : MIT",
+  "license_url": "https://ouvert.canada.ca/fr/licence-du-gouvernement-ouvert-canada",
+  "sources": [
+    {
+      "source_url": "https://raw.githubusercontent.com/AurelienNicosiaULaval/vehicules-quebec/v1.0.0/data_clean/parc_quebec_2022_dictionary.csv",
+      "acquisition_kind": "download",
+      "acquired_at_utc": "2026-09-07T12:22:33Z",
+      "started_at_utc": "2026-09-07T12:22:33Z",
+      "file": "parc_quebec_2022_dictionary.csv",
+      "bytes": 640,
+      "sha256": "ee0044296e8b3c37c7a7cfd405e4a19b5d9a832482a3fb842fd11f359ff68a43",
+      "details": {}
+    },
+    {
+      "source_url": "https://raw.githubusercontent.com/AurelienNicosiaULaval/vehicules-quebec/v1.0.0/data_clean/parc_quebec_2022.csv",
+      "acquisition_kind": "download",
+      "acquired_at_utc": "2026-09-07T12:22:33Z",
+      "started_at_utc": "2026-09-07T12:22:32Z",
+      "file": "parc_quebec_2022.csv",
+      "bytes": 6351,
+      "sha256": "4fb91d7190b9c6c62d97c2d23168a1c318206a969bfe3d255bc0d1c42cf30dca",
+      "details": {}
+    },
+    {
+      "source_url": "https://raw.githubusercontent.com/AurelienNicosiaULaval/vehicules-quebec/v1.0.0/data_clean/vehicules_canada_2025_dictionary.csv",
+      "acquisition_kind": "download",
+      "acquired_at_utc": "2026-09-07T12:22:32Z",
+      "started_at_utc": "2026-09-07T12:22:32Z",
+      "file": "vehicules_canada_2025_dictionary.csv",
+      "bytes": 2027,
+      "sha256": "cff3ea74e974c740d5001ea12baf8a67d53ff80da92c6b6b83d8c72a76f0672d",
+      "details": {}
+    },
+    {
+      "source_url": "https://raw.githubusercontent.com/AurelienNicosiaULaval/vehicules-quebec/v1.0.0/data_clean/vehicules_canada_2025_provenance.csv",
+      "acquisition_kind": "download",
+      "acquired_at_utc": "2026-09-07T12:22:32Z",
+      "started_at_utc": "2026-09-07T12:22:32Z",
+      "file": "vehicules_canada_2025_provenance.csv",
+      "bytes": 15439,
+      "sha256": "cff55da4af08c5150ec61958b96d2e1835c614dff8378b54e7b09ccad3cbbdba",
+      "details": {}
+    },
+    {
+      "source_url": "https://raw.githubusercontent.com/AurelienNicosiaULaval/vehicules-quebec/v1.0.0/data_clean/vehicules_canada_2025.csv",
+      "acquisition_kind": "download",
+      "acquired_at_utc": "2026-09-07T12:22:32Z",
+      "started_at_utc": "2026-09-07T12:22:32Z",
+      "file": "vehicules_canada_2025.csv",
+      "bytes": 10238,
+      "sha256": "170b7d662fe7ccf98ccf54c2a0e127648da36d0cb2d8554c5b7d39cefe238260",
+      "details": {}
+    }
+  ]
+}

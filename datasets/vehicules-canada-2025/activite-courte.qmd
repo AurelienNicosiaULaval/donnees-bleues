@@ -1,0 +1,205 @@
+---
+title: "Explorer la consommation de 64 véhicules de 2025"
+author: "Aurélien Nicosia"
+page-layout: full
+toc: false
+embed-resources: true
+execute:
+  freeze: false
+  warning: false
+  message: false
+body-classes: hub-page resource-page activity-resource
+---
+
+```{r}
+#| echo: false
+#| results: asis
+source(if (file.exists("R/utils_activity_contract.R")) "R/utils_activity_contract.R" else "../../R/utils_activity_contract.R")
+render_activity_header()
+```
+
+Activité adaptée par Aurélien Nicosia de la [version 1.0.0 de Véhicules](https://github.com/AurelienNicosiaULaval/vehicules-quebec/releases/tag/v1.0.0). La durée de 60 à 90 minutes est indicative, hors prolongements. Le script est exécuté techniquement; l’activité n’a pas été testée en classe.
+
+## Préparation enseignante
+
+Télécharger la trousse, l’extraire entièrement et ouvrir `Donnees-bleues.Rproj`. Avant la séance, ouvrir `installer-packages.R` et cliquer sur Source avec Internet. Les deux CSV sont inclus; l’activité fonctionne ensuite hors ligne.
+
+```{r}
+#| echo: false
+#| results: asis
+render_activity_resources()
+```
+
+## Contexte
+
+La [fiche du jeu](fiche.qmd) présente les données et leurs limites. Le tableau principal contient 64 configurations canadiennes de l’année modèle 2025 et 19 variables complètes, issues des cotes de RNCan recueillies le 2 juillet 2026. Une ligne n’est ni un véhicule immatriculé ni une vente. La présence des configurations au Québec n’est pas confirmée.
+
+Le petit jeu contient des configurations à essence, éventuellement hybrides non rechargeables. Sa sélection vise la diversité des classes et des transmissions. Une seconde table décrit séparément des comptes SAAQ au 31 décembre 2022.
+
+## Consignes
+
+1. Dans la trousse, ouvrir `datasets/vehicules-canada-2025/activite-courte.R` et cliquer sur Source. Lire les tableaux dans Console et utiliser les flèches de Plots pour parcourir les graphiques. Les sorties sont aussi enregistrées dans `outputs/`.
+2. Vérifier l’unité d’observation, les 64 lignes et les unités de cylindrée et de consommation. Le script ajoute `classe`, une étiquette française dérivée des 19 colonnes sources.
+3. Comparer les médianes et les dispersions entre classes, puis décrire le nuage cylindrée-consommation.
+4. Répondre aux six exercices ci-dessous. Les sections sur la régression et la SAAQ sont facultatives.
+
+## Résultat attendu
+
+Remettre un tableau descriptif, deux graphiques et six réponses courtes avec les unités et une limite de portée. Les résultats ci-dessous sont recalculés à partir de la trousse distribuée.
+
+```{r}
+#| include: false
+library(knitr)
+executer_trousse_vehicules <- function() {
+  metadata <- activity_contract_metadata()
+  archive <- normalizePath(activity_project_path(metadata$classroom_archive))
+  stage <- tempfile("vehicules-activite-")
+  dir.create(stage)
+  utils::unzip(archive, exdir = stage)
+  ancien <- setwd(stage)
+  on.exit({ setwd(ancien); unlink(stage, recursive = TRUE) })
+  resultats <- new.env(parent = globalenv())
+  source(metadata$script_file, local = resultats)
+  resultats
+}
+resultats <- executer_trousse_vehicules()
+```
+
+### Comparer les classes
+
+```{r}
+#| echo: false
+kable(resultats$portrait, digits = 2,
+  col.names = c("Classe", "Effectif", "Moyenne", "Médiane", "Écart-type", "Minimum", "Maximum"))
+```
+
+Toutes les consommations de ce tableau sont en L/100 km. Une valeur plus faible correspond à moins de carburant pour la même distance. Les effectifs par classe ne sont pas des parts du parc canadien ou québécois.
+
+```{r}
+#| echo: false
+#| fig-width: 9
+#| fig-height: 5.5
+#| fig-alt: "Consommations combinées des 64 configurations représentées par des points et des boîtes à moustaches, dans cinq classes de véhicules."
+resultats$distribution_plot
+```
+
+Les points rendent visibles les petits effectifs. Un point au-delà d’une moustache ne prouve pas une erreur et ne doit pas être supprimé automatiquement.
+
+### Explorer une association
+
+```{r}
+#| echo: false
+#| fig-width: 9
+#| fig-height: 6
+#| fig-alt: "Nuage de la cylindrée en litres et de la consommation combinée en L/100 km pour 64 configurations canadiennes; la couleur indique la classe."
+resultats$scatter_plot
+```
+
+La corrélation globale est `r round(resultats$correlation_globale, 3)`. Les corrélations par classe portent sur des groupes plus petits. Une association globale ne signifie pas que chaque classe suit la même relation, ni qu’une hausse de cylindrée causerait à elle seule la différence de consommation.
+
+```{r}
+#| echo: false
+kable(resultats$correlations, digits = 3, col.names = c("Classe", "Effectif", "Corrélation"))
+```
+
+### Vérifier les unités
+
+RNCan publie des milles par gallon impérial. `combined_mpg_us` utilise le gallon américain et est calculé à partir de la consommation combinée. Le gallon américain est celui de `mtcars$mpg`. Une conversion n’ajoute pas une mesure indépendante.
+
+Utiliser cette conversion comme prédicteur de la consommation reviendrait à fournir une transformation de la réponse. Les consommations urbaine, routière et combinée sont aussi liées par construction; les émissions de CO2 sont liées au carburant et à sa consommation.
+
+Un écart mineur déjà présent dans la source est conservé pour le Ford Maverick Hybrid : 6,2 L/100 km publiés en combiné, contre 6,095 calculés à partir des cotes affichées ville-route et de la pondération 55/45. Sa cause n’est pas établie. Le rapport de la version source documente ce point.
+
+## Six exercices
+
+1. Quelle classe a la médiane la plus élevée dans ce petit jeu ? Donner sa valeur et l’unité.
+2. Dans chaque classe, calculer l’écart interquartile avec `IQR()` et identifier la dispersion la plus forte selon cet indicateur.
+3. Ajouter `facet_wrap(~ classe)` au nuage de points. Expliquer une différence entre la vue globale et les vues par classe.
+4. Vérifier que le produit `combined_mpg_us * combined_l_per_100km` est presque constant. Expliquer les très petits écarts.
+5. Peut-on conclure que les véhicules à boîte manuelle consomment moins à cause de leur transmission ? Distinguer comparaison descriptive et causalité.
+6. Une personne affirme que les 16 VUS représentent 25 % des véhicules au Québec. Identifier les erreurs concernant l’échantillonnage et la portée géographique.
+
+Point d’arrêt : avoir remis le tableau, les deux graphiques et les six réponses. Les prolongements suivants sont facultatifs.
+
+## Prolongement : régression et validation
+
+Le script ajuste `combined_l_per_100km ~ engine_size_l`. La réponse est une cote d’essai, pas une consommation mesurée pendant les déplacements d’un ménage.
+
+```{r}
+#| echo: false
+kable(resultats$coefficients, digits = 3, col.names = c("Terme", "Estimation"))
+```
+
+La pente décrit l’écart ajusté de consommation associé à un litre supplémentaire de cylindrée dans cet échantillon. La cylindrée nulle est hors du domaine observé; l’ordonnée à l’origine n’a pas ici d’interprétation physique.
+
+```{r}
+#| echo: false
+#| fig-width: 9
+#| fig-height: 4.5
+#| fig-alt: "Résidus du modèle linéaire en fonction des consommations ajustées, avec une ligne horizontale au résidu nul."
+resultats$residual_plot
+```
+
+La validation croisée retire successivement une configuration, ajuste le modèle sur les 63 autres et prédit la configuration retirée. La référence constante est la moyenne de ces mêmes 63 configurations d’apprentissage.
+
+```{r}
+#| echo: false
+kable(resultats$validation_modele, digits = 3, col.names = c("Modèle", "RMSE (L/100 km)"))
+```
+
+L’erreur mesure une évaluation interne au petit jeu. Des modèles de la même marque peuvent partager des caractéristiques. Généraliser à d’autres marques ou années demanderait une séparation adaptée et davantage de données. Ce résultat ne mesure pas une performance sur le parc québécois.
+
+## Prolongement Québec : compter dans la bonne table
+
+Le tableau SAAQ concerne les automobiles et camions légers de type `AU` et de classes `PAU`, `CAU` ou `RAU`, autorisés à circuler au 31 décembre 2022. Les autres usages sont exclus. Le script additionne `number_registered_qc` pour obtenir les comptes par carburant.
+
+```{r}
+#| echo: false
+kable(resultats$parc_carburant, col.names = c("Carburant déclaré", "Véhicules"),
+  format.args = list(big.mark = " ", scientific = FALSE))
+```
+
+Les 152 groupes région-carburant totalisent `r format(sum(resultats$parc_carburant$vehicules), big.mark = " ", scientific = FALSE)` véhicules dans ce périmètre. Compter les lignes serait compter des groupes. Les régions manquantes et modalités inhabituelles sont conservées telles que déclarées. On ne peut pas attribuer ces comptes aux configurations RNCan de 2025.
+
+## Corrigé commenté
+
+1. La médiane la plus élevée concerne les `r paste(resultats$classe_mediane$classe, collapse = ", ")`, à `r paste(resultats$classe_mediane$mediane, collapse = ", ")` L/100 km.
+2. Les écarts interquartiles ci-dessous décrivent la moitié centrale des observations. Leur classement peut différer de celui des écarts-types.
+
+```{r}
+#| echo: false
+kable(resultats$dispersion, digits = 2, col.names = c("Classe", "Écart interquartile (L/100 km)"))
+```
+
+3. Le facettage sépare les classes. Comparer leurs étendues en cylindrée et leurs dispersions avant d’interpréter les corrélations. Une réponse acceptable cite un élément visible et le groupe concerné.
+4. Le produit est voisin de 235,214583. Le mpg américain est calculé à partir de la consommation, puis arrondi à quatre décimales.
+5. Non : les modèles n’ont pas été affectés aléatoirement à une transmission. La classe, la motorisation et d’autres caractéristiques peuvent différer. Le code `AM` désigne une transmission manuelle automatisée, distincte de `M`.
+6. Le petit jeu est sélectionné pour sa diversité, sans pondération du parc. Ses lignes sont des configurations canadiennes dont la présence au Québec n’est pas confirmée. Leur proportion ne devient pas une proportion québécoise.
+
+## Limites à faire nommer
+
+- La sélection n’est pas un échantillon probabiliste du parc; la complétude découle des critères retenus.
+- Une seule année modèle est présente : ces 64 configurations ne permettent pas d’étudier une évolution historique.
+- Les cotes d’essai ne sont pas des mesures de conduite quotidienne au Québec; le CO2 est à l’échappement, sans cycle de vie.
+- Les conversions de consommation ne sont pas des mesures distinctes et une association ne prouve pas une causalité.
+- Les comptes SAAQ restent dans une autre table, une autre période et un périmètre explicite.
+
+## Code complet
+
+Ce code est celui de la trousse. Il affiche les tableaux et graphiques, enregistre les sorties dans `outputs/` et ne télécharge aucune donnée pendant l’activité.
+
+```{r}
+#| echo: false
+#| results: asis
+render_activity_code()
+```
+
+## Sources et attribution
+
+RNCan (2026), [Cotes de consommation de carburant](https://open.canada.ca/data/en/dataset/98f1a129-f628-4ce4-b24d-6f16bf24dd64), collecte du 2 juillet 2026, Licence du gouvernement ouvert – Canada; [explication des tableaux](https://ressources-naturelles.canada.ca/efficacite-energetique/efficacite-energetique-transports/vehicules-personnels/explication-tableaux). SAAQ (2023), [Véhicules en circulation](https://www.donneesquebec.ca/recherche/dataset/vehicules-en-circulation), portrait 2022, CC BY 4.0. Aurélien Nicosia (2026), [Véhicules, version 1.0.0](https://github.com/AurelienNicosiaULaval/vehicules-quebec/releases/tag/v1.0.0), activité source sous MIT. Voir aussi la [documentation de `mtcars`](https://stat.ethz.ch/R-manual/R-patched/library/datasets/html/mtcars.html). Les notices et le dictionnaire complet sont inclus dans la trousse.
+
+```{r}
+#| echo: false
+#| results: asis
+render_activity_contract()
+```

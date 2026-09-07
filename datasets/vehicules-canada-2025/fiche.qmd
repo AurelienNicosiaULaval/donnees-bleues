@@ -1,0 +1,90 @@
+---
+title: "Véhicules : consommation au Canada et parc québécois"
+page-layout: full
+toc: false
+embed-resources: true
+execute:
+  freeze: false
+  warning: false
+  message: false
+body-classes: hub-page resource-page dataset-resource
+---
+
+```{r}
+#| echo: false
+#| results: asis
+source(if (file.exists("R/utils_dataset_page.R")) "R/utils_dataset_page.R" else "../../R/utils_dataset_page.R")
+render_dataset_detail_header()
+```
+
+## Explorer la consommation avec un petit jeu documenté
+
+Ce jeu pédagogique contient 64 configurations de véhicules de l’année modèle 2025, avec 19 variables complètes. Il permet de comparer les distributions de consommation, d’explorer leur association avec la cylindrée et de reconnaître les conversions d’unités qui ne constituent pas de nouvelles mesures.
+
+Les cotes viennent de Ressources naturelles Canada (RNCan). Les configurations concernent le marché canadien; leur présence au Québec n’est pas confirmée. Un second tableau, issu de la SAAQ, décrit séparément une partie du parc québécois de 2022. Les deux tables ne sont pas jointes.
+
+Aurélien Nicosia a construit et vérifié la [version 1.0.0 du jeu dérivé](https://github.com/AurelienNicosiaULaval/vehicules-quebec/releases/tag/v1.0.0). Il s’agit d’une sélection et d’une préparation de données publiques, pas d’une nouvelle collecte.
+
+## Télécharger les données et commencer
+
+- [Les 64 configurations canadiennes, 19 variables (CSV)](https://raw.githubusercontent.com/AurelienNicosiaULaval/vehicules-quebec/v1.0.0/data_clean/vehicules_canada_2025.csv).
+- [Dictionnaire des configurations](https://raw.githubusercontent.com/AurelienNicosiaULaval/vehicules-quebec/v1.0.0/data_clean/vehicules_canada_2025_dictionary.csv) et [provenance de chaque ligne](https://raw.githubusercontent.com/AurelienNicosiaULaval/vehicules-quebec/v1.0.0/data_clean/vehicules_canada_2025_provenance.csv).
+- [Portrait SAAQ distinct : 152 groupes région-carburant (CSV)](https://raw.githubusercontent.com/AurelienNicosiaULaval/vehicules-quebec/v1.0.0/data_clean/parc_quebec_2022.csv) et [son dictionnaire](https://raw.githubusercontent.com/AurelienNicosiaULaval/vehicules-quebec/v1.0.0/data_clean/parc_quebec_2022_dictionary.csv).
+- [Activité Données bleues avec trousse RStudio, résultats et six exercices corrigés](activite-courte.qmd).
+- [Archive originale avec sources, Quarto et rapport de validation](https://github.com/AurelienNicosiaULaval/vehicules-quebec/releases/download/v1.0.0/vehicules-quebec-v1.0.0.zip).
+
+L’aperçu de cette fiche montre les 64 configurations et huit colonnes. La trousse de l’activité conserve les deux tables complètes dans des fichiers distincts.
+
+## Deux tables, deux unités d’observation
+
+| Table | Une ligne représente | Portée |
+|:--|:--|:--|
+| `vehicules_canada_2025.csv` | Une configuration RNCan de 2025 | 64 configurations canadiennes, une par marque et modèle nommé; 19 variables |
+| `parc_quebec_2022.csv` | Un groupe région administrative × carburant déclaré | 152 groupes, 5 variables et 5 507 330 véhicules dans le périmètre SAAQ retenu |
+
+Le fichier SAAQ porte sur les automobiles et camions légers de type `AU` et de classes `PAU`, `CAU` ou `RAU`, autorisés à circuler au 31 décembre 2022. Il ne décrit pas tout le parc québécois. Pour compter les véhicules, additionner `number_registered_qc`; compter les lignes donnerait le nombre de groupes. Les régions manquantes sont conservées.
+
+## Comment les 64 configurations ont été choisies
+
+La ressource RNCan de 2025 figée le 2 juillet 2026 contient 693 configurations. Les critères de complétude et de carburant retiennent 677 configurations à essence ordinaire ou super. Des hybrides non rechargeables peuvent en faire partie. Une configuration par marque et modèle nommé est choisie par une règle de hachage stable, laissant 591 modèles. Une sélection alternant les groupes classe × transmission retient ensuite 64 configurations.
+
+Le résultat comprend 19 automobiles, 16 VUS, 12 familiales, 9 camionnettes et 8 fourgonnettes. La règle vise la diversité pédagogique; elle ne fournit ni parts de marché ni pondérations du parc. Les véhicules électriques à batterie, hybrides rechargeables, diesel et E85 sont hors de ce petit jeu.
+
+## Variables et unités à distinguer
+
+| Variables | Sens | Précaution |
+|:--|:--|:--|
+| `engine_size_l`, `cylinders` | Cylindrée en litres et nombre de cylindres | Caractéristiques de la configuration sélectionnée |
+| `vehicle_class_group`, `transmission_type` | Classe et type de transmission décodés | Les classes ne sont pas équilibrées; manuelle et manuelle automatisée sont distinctes |
+| `city_l_per_100km`, `highway_l_per_100km`, `combined_l_per_100km` | Consommations d’essai en L/100 km | Les trois cotes sont liées; aucune ne décrit directement la conduite quotidienne au Québec |
+| `combined_mpg_imperial`, `combined_mpg_us` | Milles par gallon impérial publié et américain dérivé | Gallons différents; le mpg américain est calculé à partir de la cote combinée |
+| `co2_g_per_km`, `co2_rating`, `smog_rating` | Émissions et cotes publiées | CO2 à l’échappement, sans bilan du cycle de vie; les notes sont ordinales |
+| `vehicle_id`, `make`, `model`, `model_year` | Identité et année de la configuration | Conserver l’identifiant comme texte; toutes les années modèles valent 2025 |
+
+Un petit écart est conservé pour le Ford Maverick Hybrid : la cote combinée publiée vaut 6,2 L/100 km, alors que 55 % de 5,6 et 45 % de 6,7 donnent 6,095. L’écart de 0,105 dépasse légèrement la borne de 0,1 liée au simple arrondi des trois cotes au dixième. Sa cause n’est pas établie; aucune valeur n’est corrigée arbitrairement.
+
+```{r}
+#| echo: false
+#| results: asis
+render_dataset_minimal_result()
+```
+
+## Activité et prolongements
+
+L’activité [Explorer la consommation de 64 véhicules de 2025](activite-courte.qmd) propose des tableaux descriptifs, des boîtes avec les observations visibles, un nuage cylindrée-consommation et six exercices corrigés. Les prolongements portent sur une régression simple avec validation croisée et sur l’addition des comptes SAAQ.
+
+Ce jeu soutient plusieurs usages introductifs de données automobiles. Il ne remplace pas toutes les variables de `mtcars` : la masse, la puissance et le temps sur un quart de mille ne sont pas présents. La complétude des 19 colonnes résulte de la sélection, et plusieurs colonnes de consommation sont redondantes. Une corrélation ne démontre pas un effet causal.
+
+La grille de réutilisation du site est une appréciation éditoriale : l’accès, la documentation et l’exploration sont les points forts; le petit jeu complet offre peu de nettoyage et ne justifie pas une inférence sur le parc. Le script a été exécuté techniquement; aucun usage dans un cours ni essai en classe n’est documenté.
+
+## Sources, attributions et licences
+
+- RNCan (2026), [Cotes de consommation de carburant](https://open.canada.ca/data/en/dataset/98f1a129-f628-4ce4-b24d-6f16bf24dd64), ressource 2025 recueillie le 2 juillet 2026. Licence du gouvernement ouvert – Canada. Voir aussi l’[explication des tableaux](https://ressources-naturelles.canada.ca/efficacite-energetique/efficacite-energetique-transports/vehicules-personnels/explication-tableaux).
+- SAAQ (2023), [Véhicules en circulation](https://www.donneesquebec.ca/recherche/dataset/vehicules-en-circulation), portrait 2022, CC BY 4.0.
+- Aurélien Nicosia (2026), [Véhicules, version 1.0.0](https://github.com/AurelienNicosiaULaval/vehicules-quebec/releases/tag/v1.0.0), sélection, code et activité source sous MIT. Les [attributions et transformations](https://github.com/AurelienNicosiaULaval/vehicules-quebec/blob/v1.0.0/DATA_LICENSES.md) sont aussi reprises dans la trousse adaptée.
+
+```{r}
+#| echo: false
+#| results: asis
+render_dataset_detail_footer()
+```

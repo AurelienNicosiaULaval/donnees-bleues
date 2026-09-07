@@ -1,0 +1,48 @@
+id: vehicules-canada-2025-exploration
+title: Explorer la consommation de 64 véhicules de 2025
+question: Comment la consommation varie-t-elle entre classes de véhicules et avec la cylindrée dans ce petit jeu canadien ?
+dataset_id: vehicules-canada-2025
+dataset_title: 'Véhicules : consommation au Canada et parc québécois'
+activity_url: datasets/vehicules-canada-2025/activite-courte.qmd
+script_file: datasets/vehicules-canada-2025/activite-courte.R
+classroom_archive: assets/classroom/vehicules-canada-2025.zip
+access_mode: frozen
+duration: 60-90 minutes, hors prolongements facultatifs
+level: Introduction
+level_ids: [introduction, intermediaire]
+activity_type: [Laboratoire, Exploration de données]
+concepts: [Analyse exploratoire, Comparaison de groupes, Statistiques descriptives, Unités de mesure, Régression linéaire, Visualisation]
+concept_ids: [analyse-exploratoire, comparaison-de-groupes, statistiques-descriptives, unites-de-mesure, regression-lineaire, visualisation]
+context: Transport canadien et portrait administratif québécois
+hook: '64 configurations, cinq classes et deux unités de consommation : comparer les véhicules tout en distinguant échantillon pédagogique et parc automobile.'
+materials: [Trousse ZIP avec projet RStudio, Script R complet, Deux CSV et dictionnaire, Page avec résultats et six exercices corrigés]
+advanced_math_stats: false
+teacher_notes: 'Durée indicative et activité non testée en classe. La régression et sa validation croisée sont facultatives. Le tableau SAAQ est distinct : aucun compte québécois ne doit être attribué aux configurations canadiennes.'
+pedagogical_status: pret_a_enseigner
+teacher_preparation: 'Extraire la trousse, ouvrir Donnees-bleues.Rproj, lancer installer-packages.R avant la séance, puis exécuter datasets/vehicules-canada-2025/activite-courte.R. Les deux CSV sont inclus et l’activité fonctionne ensuite hors ligne.'
+expected_output: 'Un tableau descriptif, deux graphiques et six réponses courtes. Facultativement, un diagnostic de régression et des comptes SAAQ correctement additionnés.'
+learning_objectives:
+  - Importer les données et reconnaître une configuration comme unité d’observation.
+  - Comparer les médianes et les dispersions entre cinq classes de véhicules.
+  - Décrire une association sans la présenter comme un effet causal.
+  - Reconnaître la redondance entre une consommation et sa conversion d’unité.
+  - Distinguer les configurations canadiennes des comptes administratifs québécois.
+prerequisites:
+  - Ouvrir un projet RStudio et exécuter un script.
+  - Reconnaître une variable quantitative, une catégorie et une médiane.
+success_criteria:
+  - Le tableau décrit 64 configurations et cinq classes, sans valeur manquante dans les 19 variables sources.
+  - Les graphiques indiquent les litres de cylindrée et les L/100 km de consommation.
+  - Le produit de la consommation et du mpg américain est reconnu comme presque constant par construction.
+  - La conclusion ne transforme pas une proportion du petit jeu en proportion du parc québécois.
+adaptations:
+  - Montrer les résultats avec la personne enseignante et discuter les six exercices collectivement.
+  - Approfondir avec les corrélations par classe, les résidus et la validation croisée facultative.
+requires_prepared_data: true
+requires_live_download: false
+recommended_use: Exercice guidé
+result_visible_in_page: true
+status: 'Script exécuté ; sources et unités documentées ; efficacité en classe non évaluée'
+courses: []
+date_added: '2026-09-07'
+date_updated: '2026-09-07'

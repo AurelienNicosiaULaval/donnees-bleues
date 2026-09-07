@@ -1,0 +1,77 @@
+id: vehicules-canada-2025
+title: 'Véhicules : consommation au Canada et parc québécois'
+short_title: Véhicules 2025
+summary: '64 configurations canadiennes de 2025 et 19 variables complètes pour explorer la consommation. Un tableau SAAQ distinct décrit le parc québécois de 2022 dans un périmètre explicite.'
+download_url: https://raw.githubusercontent.com/AurelienNicosiaULaval/vehicules-quebec/v1.0.0/data_clean/vehicules_canada_2025.csv
+download_label: Télécharger les 64 configurations (CSV)
+preview_note: 'Les 64 configurations de la version 1.0.0, avec huit colonnes parmi les 19 du CSV complet. Cet aperçu décrit le marché canadien; la présence des configurations au Québec n’est pas confirmée.'
+theme: Transport et consommation énergétique
+source_name: 'Ressources naturelles Canada ; SAAQ ; sélection pédagogique par Aurélien Nicosia'
+source_url: https://github.com/AurelienNicosiaULaval/vehicules-quebec/releases/tag/v1.0.0
+license: 'RNCan : Licence du gouvernement ouvert – Canada ; SAAQ : CC BY 4.0 ; code et activité source : MIT'
+access_date: '2026-09-07'
+geography: 'Canada ; Québec pour le tableau SAAQ distinct'
+unit: 'Une configuration RNCan de 2025 ; séparément, un groupe région-carburant SAAQ en 2022'
+data_type: 'Tabulaire ; cotes d’essai, caractéristiques et catégories ; comptes administratifs séparés'
+format: CSV versionnés, dictionnaires et trousse RStudio
+n_rows: '64 configurations ; 152 groupes région-carburant dans le tableau SAAQ'
+n_cols: '19 variables dans le jeu principal ; 5 dans le tableau SAAQ'
+processed_file: data/processed/vehicules-canada-2025/vehicules_canada_2025.csv
+update_frequency: 'Version figée 1.0.0 ; RNCan recueilli le 2 juillet 2026 ; SAAQ au 31 décembre 2022'
+level: Introduction
+level_ids: [introduction, intermediaire]
+organisme: 'RNCan ; SAAQ ; Aurélien Nicosia pour le jeu dérivé'
+territoire: 'Canada ; Québec pour les comptes SAAQ'
+taille_approximative: '64 configurations et 19 variables complètes ; 152 comptes SAAQ distincts'
+niveau_pedagogique_recommande: Introduction, avec prolongement intermédiaire facultatif
+variables_principales: [vehicle_class_group, engine_size_l, cylinders, transmission_type, combined_l_per_100km, combined_mpg_us, co2_g_per_km, number_registered_qc]
+idees_mini_projets:
+  - Comparer la médiane et la dispersion de la consommation entre cinq classes.
+  - Explorer la relation entre cylindrée et consommation, globalement et par classe.
+  - Distinguer une proportion de configurations d’un effectif administratif du parc québécois.
+tags: [véhicules, automobile, Canada, Québec, RNCan, SAAQ, consommation, cylindrée, CO2, régression]
+concepts: [Analyse exploratoire, Comparaison de groupes, Statistiques descriptives, Unités de mesure, Régression linéaire, Visualisation]
+concept_ids: [analyse-exploratoire, comparaison-de-groupes, statistiques-descriptives, unites-de-mesure, regression-lineaire, visualisation]
+zero_waste:
+  contexte_quebecois: 2
+  accessibilite_pedagogique: 3
+  qualite_documentaire: 3
+  potentiel_nettoyage: 1
+  potentiel_visualisation: 3
+  potentiel_statistique_descriptive: 3
+  potentiel_inference: 1
+  potentiel_modelisation: 2
+  potentiel_ethique: 2
+  reutilisabilite: 3
+status: 'Version 1.0.0 vérifiée contre les sources ; activité exécutée techniquement, non testée en classe'
+notes: 'Sélection pour l’enseignement sans représentativité du parc. Aucune jointure RNCan–SAAQ ni présence québécoise confirmée. Les conversions de consommation ne sont pas des mesures indépendantes. Un petit écart ville-route présent dans la source est conservé.'
+contributor_name: Aurélien Nicosia
+contributor_role: Construction du jeu dérivé, de l’activité et de son adaptation à Données bleues
+courses: []
+date_added: '2026-09-07'
+date_updated: '2026-09-07'
+publication:
+  preview: true
+  reviewed_on: '2026-09-07'
+  license_url: https://ouvert.canada.ca/fr/licence-du-gouvernement-ouvert-canada
+  preview_columns: [make, model, vehicle_class_group, engine_size_l, cylinders, transmission_type, combined_l_per_100km, co2_g_per_km]
+  reason: 'Adaptation RNCan sous Licence du gouvernement ouvert – Canada. Les attributions et transformations sont documentées; le tableau SAAQ sous CC BY 4.0 est séparé.'
+  classroom:
+    mode: frozen
+    reason: 'Les 64 configurations et leurs 19 colonnes sont conservées. Le tableau SAAQ distinct conserve ses 152 groupes et 5 colonnes. Aucune nouvelle sélection, imputation ou jointure.'
+    notices:
+      - datasets/vehicules-canada-2025/DATA_LICENSES.md
+      - datasets/vehicules-canada-2025/LICENCE-SOURCE.md
+      - datasets/vehicules-canada-2025/DICTIONNAIRE.md
+    files:
+      - path: data/processed/vehicules-canada-2025/vehicules_canada_2025.csv
+        columns: [vehicle_id, make, model, model_year, vehicle_class, vehicle_class_group, engine_size_l, cylinders, transmission, transmission_type, fuel_type, city_l_per_100km, highway_l_per_100km, combined_l_per_100km, combined_mpg_imperial, combined_mpg_us, co2_g_per_km, co2_rating, smog_rating]
+      - path: data/processed/vehicules-canada-2025/parc_quebec_2022.csv
+        columns: [saaq_snapshot_year, region_qc, saaq_fuel_code, saaq_fuel_type, number_registered_qc]
+chart:
+  type: scatter
+  x_variable: engine_size_l
+  y_variable: combined_l_per_100km
+  x_label: Cylindrée (L)
+  y_label: Consommation combinée (L/100 km)
+  title: Cylindrée et consommation des 64 configurations canadiennes

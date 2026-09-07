@@ -1,0 +1,65 @@
+make,model,vehicle_class_group,engine_size_l,cylinders,transmission_type,combined_l_per_100km,co2_g_per_km
+Acura,ADX AWD,wagon,1.5,4,continuously_variable,8.5,199
+Acura,Integra Type S,passenger_car,2,4,manual,9.9,230
+Alfa Romeo,Stelvio AWD,suv,2,4,automatic,9.6,226
+Audi,A4 allroad 45 TFSI quattro,wagon,2,4,automated_manual,9.2,215
+Audi,RS 6 Avant GT,wagon,4,8,automatic_select_shift,14.3,336
+Audi,RS 6 Avant quattro performance,wagon,4,8,automatic_select_shift,14.3,336
+BMW,530i xDrive Sedan,passenger_car,2,4,automatic_select_shift,7.9,182
+BMW,X7 xDrive40i,suv,3,6,automatic_select_shift,10.7,247
+Chevrolet,Colorado 4WD,pickup,2.7,4,automatic,12.4,303
+Chevrolet,Silverado,pickup,2.7,4,automatic,12.5,292
+Chevrolet,Silverado 4WD,pickup,2.7,4,automatic,12.9,303
+Chevrolet,Tahoe 4WD,suv,5.3,8,automatic,14.4,337
+Chevrolet,Trailblazer,suv,1.2,3,continuously_variable,7.8,183
+Chevrolet,Trax,wagon,1.2,3,automatic,8.1,190
+Chrysler,Grand Caravan,van,3.6,6,automatic,10.6,249
+Chrysler,Pacifica,van,3.6,6,automatic,10.6,249
+Chrysler,Pacifica AWD,van,3.6,6,automatic,12,279
+Ford,Bronco 4WD,suv,2.3,4,manual,12.1,291
+Ford,Bronco Badlands 4WD,suv,2.3,4,manual,13.5,326
+Ford,Maverick Hybrid,pickup,2.5,4,continuously_variable,6.2,145
+Ford,Maverick Hybrid AWD,pickup,2.5,4,continuously_variable,6.3,148
+GMC,Terrain AWD,suv,1.5,4,automatic,9.3,219
+Genesis,G70 AWD,passenger_car,3.3,6,automatic_select_shift,12.7,298
+Honda,HR-V,wagon,2,4,continuously_variable,8.3,194
+Honda,Odyssey,van,3.5,6,automatic_select_shift,10.6,248
+Honda,Pilot AWD,suv,3.5,6,automatic_select_shift,11,258
+Honda,Ridgeline AWD,pickup,3.5,6,automatic_select_shift,11.5,271
+Hyundai,Elantra,passenger_car,2,4,continuously_variable,6.9,160
+Kia,Carnival,van,3.5,6,automatic_select_shift,11.1,260
+Kia,Carnival Hybrid,van,1.6,4,automated_manual,7.2,170
+Kia,Niro FE,suv,1.6,4,automated_manual,4.4,104
+Kia,Seltos,suv,2,4,continuously_variable,7.6,179
+Lexus,ES 250 AWD,passenger_car,2.5,4,automatic_select_shift,8.4,198
+MINI,John Cooper Works Countryman ALL4,suv,2,4,automated_manual,9.2,212
+Mazda,MX-5 (SIL),passenger_car,2,4,manual,8.1,189
+Mercedes-Benz,AMG GLA 35 4MATIC Coupe,wagon,2,4,automated_manual,9.8,230
+Mercedes-Benz,AMG GLB 35 4MATIC Coupe,wagon,2,4,automated_manual,10.3,242
+Mercedes-Benz,AMG GLC 43 4MATIC Coupe,wagon,2,4,automatic,11.4,269
+Mercedes-Benz,AMG GLC 43 4MATIC+ SUV,wagon,2,4,automatic,11.2,263
+Mercedes-Benz,AMG SL 43 4MATIC Roadster,passenger_car,2,4,automatic,10.7,249
+Mercedes-Benz,C 300 4MATIC Sedan,passenger_car,2,4,automatic,8.7,204
+Mercedes-Benz,CLE 300 4MATIC Coupe,passenger_car,2,4,automatic,8.6,201
+Mercedes-Benz,GLS 580 4MATIC SUV,suv,4,8,automatic,14.6,340
+Mercedes-Benz,S 500 4MATIC Sedan,passenger_car,3,6,automatic,9.6,226
+Nissan,Frontier 4WD PRO-4X,pickup,3.8,6,automatic_select_shift,13,306
+Nissan,Sentra SR,passenger_car,2,4,continuously_variable,6.9,161
+Porsche,718 Boxster S,passenger_car,2.5,4,automated_manual,10.9,255
+Porsche,718 Cayman,passenger_car,2,4,manual,10.9,254
+Porsche,718 Cayman GTS,passenger_car,4,6,automated_manual,11.1,260
+Porsche,718 Cayman S,passenger_car,2.5,4,manual,11.2,263
+Porsche,911 GT3,passenger_car,4,6,automated_manual,15.1,355
+Porsche,Cayenne Turbo GT Coupe,suv,4,8,automatic_select_shift,13.8,324
+Porsche,Macan T,suv,2,4,automated_manual,11,259
+Subaru,Impreza AWD,wagon,2.5,4,continuously_variable,8.2,191
+Subaru,Outback Wilderness AWD,suv,2.4,4,continuously_variable,10.1,235
+Toyota,Corolla (3-mode),passenger_car,2,4,continuously_variable,6.8,160
+Toyota,Crown AWD,passenger_car,2.4,4,automatic_select_shift,7.8,182
+Toyota,Highlander AWD,suv,2.4,4,automatic_select_shift,9.9,231
+Toyota,Sienna,van,2.5,4,continuously_variable,6.6,153
+Toyota,Sienna AWD,van,2.5,4,continuously_variable,6.8,158
+Toyota,Tacoma 4WD,pickup,2.4,4,manual,11.9,279
+Toyota,Tundra 4WD (3-mode)/TRD,pickup,3.4,6,automatic_select_shift,12.2,286
+Volkswagen,Golf R,passenger_car,2,4,automated_manual,9.3,217
+Volvo,V90 CC B6 AWD,wagon,2,4,automatic_select_shift,9.5,223
