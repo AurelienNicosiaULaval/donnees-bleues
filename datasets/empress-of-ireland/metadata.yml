@@ -1,0 +1,150 @@
+id: empress-of-ireland
+title: 'Empress of Ireland : classe, âge et survie'
+short_title: Empress of Ireland
+summary: 24 cellules décrivant 1 057 passagers du rapport final de 1914. Explorer les effectifs, les proportions
+  et la survie; un tableau distinct décrit les 420 membres d’équipage.
+download_url: https://raw.githubusercontent.com/AurelienNicosiaULaval/empress-of-ireland-data/v1.0.0/data_clean/empress_passengers.csv
+download_label: Télécharger les 24 cellules de passagers (CSV)
+preview_note: Les 24 cellules du tableau et cinq de ses sept variables. Une ligne représente un groupe classe ×
+  sexe × âge × survie; additionner frequency pour compter les 1 057 passagers.
+theme: Histoire maritime et données catégorielles
+source_name: Commission canadienne d’enquête (1914); transcription et activité par Aurélien Nicosia
+source_url: https://github.com/AurelienNicosiaULaval/empress-of-ireland-data/releases/tag/v1.0.0
+license: 'Tableaux dérivés : CC0; rapport historique : domaine public; code et activité source : MIT'
+access_date: '2026-09-07'
+geography: Saint-Laurent, Québec; naufrage du 29 mai 1914
+unit: Une cellule classe × sexe × catégorie d’âge × survie; séparément, un groupe d’équipage
+data_type: Effectifs historiques regroupés; données catégorielles
+format: CSV versionnés, dictionnaire et trousse RStudio
+n_rows: 24 cellules, 1 057 passagers; 6 groupes d’équipage, 420 personnes
+n_cols: 7 variables principales; 5 variables dans le tableau d’équipage
+processed_file: data/processed/empress-of-ireland/empress_passengers.csv
+update_frequency: Version figée 1.0.0; tableaux historiques de 1914 vérifiés le 7 septembre 2026
+level: Introduction
+level_ids:
+- introduction
+- intermediaire
+organisme: Commission canadienne d’enquête; Aurélien Nicosia pour le jeu dérivé
+territoire: Saint-Laurent, Québec
+taille_approximative: 24 cellules et 7 variables; 1 057 passagers
+niveau_pedagogique_recommande: Introduction, avec prolongement intermédiaire facultatif
+variables_principales:
+- class
+- sex
+- age_group
+- survived
+- frequency
+- crew_group
+idees_mini_projets:
+- Distinguer nombre de lignes et nombre de personnes.
+- Comparer les proportions de survie par classe avec leurs dénominateurs.
+- Ajuster un modèle binomial sur comptes et discuter sa portée descriptive.
+tags:
+- Empress of Ireland
+- Québec
+- Saint-Laurent
+- histoire
+- Titanic
+- survie
+- contingence
+- régression logistique
+concepts:
+- Analyse exploratoire
+- Tableaux de fréquences
+- Tableaux croisés
+- Proportions
+- Comparaison de groupes
+- Visualisation
+concept_ids:
+- analyse-exploratoire
+- tableaux-de-frequences
+- tableaux-croises
+- proportions
+- comparaison-de-groupes
+- visualisation
+zero_waste:
+  contexte_quebecois: 3
+  accessibilite_pedagogique: 3
+  qualite_documentaire: 3
+  potentiel_nettoyage: 1
+  potentiel_visualisation: 3
+  potentiel_statistique_descriptive: 3
+  potentiel_inference: 1
+  potentiel_modelisation: 2
+  potentiel_ethique: 3
+  reutilisabilite: 3
+status: Version 1.0.0 vérifiée contre le rapport numérisé; activité exécutée, non testée en classe
+notes: Les catégories historiques ne fournissent pas d’âge exact. L’équipage reste séparé. Les listes nominatives
+  sont incomplètes et exclues de la trousse; aucun décès individuel n’est imputé. Les comptes décrivent un événement
+  historique, sans preuve causale.
+contributor_name: Aurélien Nicosia
+contributor_role: Transcription, vérification, activité exploratoire et adaptation à Données bleues
+courses: []
+date_added: '2026-09-07'
+date_updated: '2026-09-07'
+publication:
+  preview: true
+  reviewed_on: '2026-09-07'
+  license_url: https://github.com/AurelienNicosiaULaval/empress-of-ireland-data/blob/v1.0.0/DATA_LICENSE.md
+  preview_columns:
+  - class
+  - sex
+  - age_group
+  - survived
+  - frequency
+  reason: Tableaux regroupés transcrits d’un rapport historique dans le domaine public selon la notice du scan;
+    jeu dérivé sous CC0. Aucune liste nominative distribuée.
+  classroom:
+    mode: frozen
+    reason: 'Quatre tables complètes et versionnées : 24 cellules passagers, leur forme en 12 groupes, 6 groupes
+      d’équipage et 4 comptes comparant les sources. Aucune expansion en personnes ni jointure nominative.'
+    notices:
+    - datasets/empress-of-ireland/DATA_LICENSE.md
+    - datasets/empress-of-ireland/LICENCE-SOURCE.md
+    - datasets/empress-of-ireland/DICTIONNAIRE.md
+    files:
+    - path: data/processed/empress-of-ireland/empress_passengers.csv
+      columns:
+      - class
+      - sex
+      - age_group
+      - survived
+      - frequency
+      - source_page
+      - derivation
+    - path: data/processed/empress-of-ireland/empress_passenger_groups.csv
+      columns:
+      - class
+      - sex
+      - age_group
+      - total
+      - survivors
+      - deaths
+      - source_page
+    - path: data/processed/empress-of-ireland/empress_crew_groups.csv
+      columns:
+      - crew_group
+      - total
+      - survivors
+      - deaths
+      - source_page
+    - path: data/processed/empress-of-ireland/empress_sources_comparison.csv
+      columns:
+      - source_id
+      - passenger_class
+      - listed_people
+      - marked_survivors
+      - unknown_status
+      - inquiry_people
+      - inquiry_survivors
+chart:
+  type: bars
+  x_variable: class
+  y_variable: frequency
+  filter:
+    sex: male
+    age_group: adult
+    survived: 1
+  x_label: Nombre de survivants
+  y_label: 'Classe (first : 1re; second : 2e; third : 3e)'
+  title: Survivants adultes de catégorie masculine, par classe

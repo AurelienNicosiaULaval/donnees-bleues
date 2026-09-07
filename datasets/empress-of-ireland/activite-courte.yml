@@ -1,0 +1,75 @@
+id: empress-of-ireland-exploration
+title: 'Empress of Ireland : compter les personnes derrière les tableaux'
+question: Comment comparer la survie selon la classe et les catégories historiques sans confondre lignes, personnes
+  et proportions ?
+dataset_id: empress-of-ireland
+dataset_title: 'Empress of Ireland : classe, âge et survie'
+activity_url: datasets/empress-of-ireland/activite-courte.qmd
+script_file: datasets/empress-of-ireland/activite-courte.R
+classroom_archive: assets/classroom/empress-of-ireland.zip
+access_mode: frozen
+duration: 60-90 minutes, hors prolongements facultatifs
+level: Introduction
+level_ids:
+- introduction
+- intermediaire
+activity_type:
+- Laboratoire
+- Exploration de données
+concepts:
+- Analyse exploratoire
+- Tableaux de fréquences
+- Tableaux croisés
+- Proportions
+- Comparaison de groupes
+- Visualisation
+concept_ids:
+- analyse-exploratoire
+- tableaux-de-frequences
+- tableaux-croises
+- proportions
+- comparaison-de-groupes
+- visualisation
+context: Naufrage de 1914 dans le Saint-Laurent et tableaux du rapport final
+hook: La troisième classe compte le plus de survivants; la première a la plus forte proportion. Les dénominateurs
+  expliquent cette différence.
+materials:
+- Trousse ZIP avec projet RStudio
+- Script R complet
+- Quatre CSV et dictionnaire
+- Page avec trois graphiques et six exercices corrigés
+advanced_math_stats: false
+teacher_notes: Durée indicative et activité non testée en classe. Régression binomiale et comparaison des sources
+  facultatives. Les catégories d’âge sont historiques; aucun seuil numérique ni statut individuel n’est inventé.
+pedagogical_status: pret_a_enseigner
+teacher_preparation: Extraire la trousse, ouvrir Donnees-bleues.Rproj, lancer installer-packages.R avant la séance,
+  puis exécuter datasets/empress-of-ireland/activite-courte.R. Les CSV sont inclus; l’activité fonctionne ensuite
+  hors ligne.
+expected_output: Un tableau de contingence, deux graphiques et six réponses courtes. Facultativement, un modèle
+  binomial descriptif et une comparaison des comptes des sources.
+learning_objectives:
+- Reconnaître une cellule de tableau comme unité de ligne et additionner ses effectifs.
+- Construire un tableau de contingence pondéré par les effectifs.
+- Comparer des proportions en explicitant leurs dénominateurs.
+- Distinguer un groupe vide, un groupe sans survivant et un statut individuel inconnu.
+- Interpréter une association sans en déduire un effet causal.
+prerequisites:
+- Ouvrir un projet RStudio et exécuter un script.
+- Reconnaître une variable catégorielle, un effectif et une proportion.
+success_criteria:
+- Les 24 cellules totalisent 1 057 passagers et 217 survivants.
+- Le tableau classe × survie additionne frequency au lieu de compter les lignes.
+- La conclusion distingue 133/717 en troisième classe et 36/87 en première classe.
+- Le groupe vide conserve une proportion indéfinie.
+- Aucun nom ni statut individuel n’est attribué à partir des comptes regroupés.
+adaptations:
+- Lire les résultats et discuter les exercices collectivement.
+- Approfondir avec le modèle binomial sur les 11 groupes non vides et la comparaison des sources.
+requires_prepared_data: true
+requires_live_download: false
+recommended_use: Exercice guidé
+result_visible_in_page: true
+status: Script exécuté; comptes vérifiés contre le rapport historique; efficacité en classe non évaluée
+courses: []
+date_added: '2026-09-07'
+date_updated: '2026-09-07'

@@ -1,0 +1,181 @@
+---
+title: "Empress of Ireland : compter les personnes derrière les tableaux"
+author: "Aurélien Nicosia"
+page-layout: full
+toc: false
+embed-resources: true
+execute:
+  freeze: false
+  warning: false
+  message: false
+body-classes: hub-page resource-page activity-resource
+---
+
+```{r}
+#| echo: false
+#| results: asis
+source(if (file.exists("R/utils_activity_contract.R")) "R/utils_activity_contract.R" else "../../R/utils_activity_contract.R")
+render_activity_header()
+```
+
+## Préparation enseignante
+
+Explorer la survie selon la classe et les catégories historiques d'âge et de sexe, en utilisant correctement des effectifs regroupés. Durée indicative : 60 à 90 minutes; le prolongement de régression est facultatif. L'activité est exécutée techniquement, mais n'a pas été testée en classe.
+
+1. Extraire entièrement la trousse et ouvrir `Donnees-bleues.Rproj` dans RStudio.
+2. Avant la séance, ouvrir `installer-packages.R` et cliquer sur Source avec Internet.
+3. Ouvrir `datasets/empress-of-ireland/activite-courte.R`, puis cliquer sur Source. Les CSV sont inclus; l'activité fonctionne ensuite hors ligne. Les tableaux apparaissent dans Console et les graphiques dans Plots. Les fichiers de sortie sont dans `outputs/`.
+
+```{r}
+#| echo: false
+#| results: asis
+render_activity_resources()
+```
+
+```{r}
+#| include: false
+library(knitr)
+library(readr)
+executer_trousse_empress <- function() {
+  metadata <- activity_contract_metadata()
+  archive <- normalizePath(activity_project_path(metadata$classroom_archive))
+  stage <- tempfile("empress-activite-")
+  dir.create(stage)
+  utils::unzip(archive, exdir = stage)
+  ancien <- setwd(stage)
+  on.exit({ setwd(ancien); unlink(stage, recursive = TRUE) })
+  resultats <- new.env(parent = globalenv())
+  invisible(capture.output(source(metadata$script_file, local = resultats)))
+  resultats
+}
+resultats <- executer_trousse_empress()
+```
+
+## Contexte et unité d’observation
+
+Le rapport final de la Commission d'enquête sur le naufrage de l'Empress of Ireland fournit des tableaux par classe, sexe et catégorie adulte/enfant. Nous reprenons leurs catégories, sans leur attribuer un seuil d'âge numérique non documenté. Le rapport concerne un événement historique dans le Saint-Laurent, le 29 mai 1914. Ses comptes ne décrivent pas un échantillon aléatoire de traversées.
+
+Le fichier principal a 24 lignes, soit les combinaisons de trois classes, deux sexes, deux catégories d'âge et deux statuts. La somme de `frequency` représente 1 057 passagers. Ce format est analogue au tableau `Titanic` de R, en se limitant ici aux passagers. L'équipage est décrit dans une autre table, selon les groupes effectivement fournis par la source.
+
+Les décès sont obtenus par différence entre le total et les survivants dans chaque groupe du rapport. Cette opération n'attribue aucun statut aux noms dont la survie reste inconnue dans les listes nominatives du musée.
+
+## Résultat attendu
+
+Remettre un tableau de contingence, les deux premiers graphiques et les six réponses. Les résultats ci-dessous sont recalculés à partir de la trousse distribuée.
+
+## Effectifs et proportions
+
+```{r}
+#| echo: false
+kable(resultats$portrait, digits = 3,
+  col.names = c("Classe", "Personnes", "Survivants", "Décès", "Proportion de survie"))
+```
+
+```{r}
+#| echo: false
+#| fig-width: 8
+#| fig-height: 5
+#| fig-alt: "Effectifs des survivants et des décès par classe parmi les 1 057 passagers du rapport final."
+resultats$graphique_effectifs
+```
+
+```{r}
+#| echo: false
+#| fig-width: 8
+#| fig-height: 5
+#| fig-alt: "Proportions de survivants par classe, avec numérateurs et dénominateurs affichés."
+resultats$graphique_proportions
+```
+
+La troisième classe compte le plus de survivants en nombre, alors que la première classe a la proportion de survie la plus élevée. Les dénominateurs expliquent cette différence. Ces comparaisons décrivent le rapport; elles ne prouvent pas un effet causal de la classe.
+
+## Comparer les groupes
+
+```{r}
+#| echo: false
+kable(resultats$strates, digits = 3, col.names = c("Classe", "Sexe", "Âge", "Personnes", "Survivants", "Décès", "Proportion de survie"))
+```
+
+```{r}
+#| echo: false
+#| fig-width: 8
+#| fig-height: 5
+#| fig-alt: "Proportions de survivants par classe et sexe, séparées entre adultes et enfants; la taille du point indique l'effectif du groupe. Le groupe des garçons de première classe est vide et omis du graphique."
+resultats$graphique_strates
+```
+
+Le groupe des garçons de première classe est vide dans le rapport : sa proportion est indéfinie. En revanche, les 11 garçons de deuxième classe forment un groupe non vide avec zéro survivant. Une cellule nulle et une proportion nulle n'ont donc pas toujours le même sens.
+
+## Consignes : six exercices
+
+1. Le fichier contient 24 lignes. Combien de personnes représente-t-il et quelle commande faut-il employer ?
+2. Quelle classe compte le plus de survivants ? Quelle classe présente la proportion de survie la plus élevée ? Donner les effectifs et les dénominateurs.
+3. Construire le tableau classe × survie avec `xtabs(frequency ~ classe + statut, data = passagers)`. Expliquer pourquoi `table(passagers$classe, passagers$statut)` donne une autre réponse.
+4. Calculer la proportion globale de survivants. Pourquoi la moyenne simple des trois proportions par classe donne-t-elle une autre valeur ?
+5. Comparer les garçons des première et deuxième classes. Dans quel cas la proportion de survie est-elle indéfinie ?
+6. Peut-on développer les effectifs en 1 057 lignes puis les joindre aux noms du musée ou en déduire un effet causal de la classe ? Justifier les deux réponses.
+
+Point d'arrêt : remettre un tableau de contingence, les deux premiers graphiques et six réponses courtes. Les sections suivantes sont facultatives.
+
+## Prolongement : modèle binomial sur les comptes
+
+Le code ajuste `glm(cbind(survivants, deces) ~ classe + sexe + age, family = binomial(), data = ...)` sur les 11 groupes non vides. Chaque groupe contribue avec son nombre de personnes. Une régression non pondérée sur les 24 lignes traiterait à tort les cellules comme autant de personnes.
+
+```{r}
+#| echo: false
+kable(resultats$coefficients, digits = 3, col.names = c("Terme", "Coefficient logit", "Rapport de cotes"))
+```
+
+Les références sont la première classe, la catégorie masculine et les adultes. Les rapports de cotes ne sont pas des rapports de probabilités. Le modèle suppose des effets additifs sur l'échelle logit et une structure binomiale conditionnelle. Il s'agit d'un résumé descriptif de cet événement. La convergence numérique et la concordance des comptes ajustés avec le total ne démontrent ni indépendance historique des personnes, ni performance prédictive sur un autre naufrage. Aucune validation prédictive externe n'est revendiquée.
+
+## Prolongement : comparer les sources
+
+```{r}
+#| echo: false
+kable(resultats$comparaison, col.names = c("Liste", "Classe/type", "Personnes listées", "Survivants marqués", "Statuts inconnus", "Personnes dans l'enquête", "Survivants dans l'enquête"))
+```
+
+Les listes nominatives NML ont 1 472 entrées et 453 survivants marqués après correction de l'astérisque placé dans le nom de George Joshua Metcalfe. Les 1 019 autres statuts restent inconnus dans ce corpus. L'écart avec le rapport final ne désigne pas automatiquement un ensemble de personnes manquantes : certaines classes dépassent les comptes de référence tandis que d'autres sont en dessous. Ces sources ne sont pas fusionnées par ajustement forcé des totaux.
+
+## Corrigé commenté
+
+1. `sum(passagers$frequency)` donne 1 057; `nrow(passagers)` donne 24 cellules.
+2. La troisième classe compte 133 survivants sur 717 personnes. La première classe présente la proportion la plus élevée : 36 sur 87, soit environ 41,4 %.
+3. `xtabs()` additionne les effectifs. `table()` compte les lignes du fichier et ne tient pas compte de `frequency`.
+4. La proportion globale est 217/1 057, soit environ 20,5 %. La moyenne simple par classe vaut environ 26,3 % et donne le même poids à des classes de tailles différentes.
+5. Première classe : 0/0 est indéfini. Deuxième classe : 0/11 vaut zéro. Le code préserve cette distinction.
+6. Une expansion mécanique ne produit ni noms, ni liens familiaux, ni âges exacts. Aucune correspondance individuelle n'est établie. Une association de survie selon la classe ne démontre pas une causalité.
+
+## Limites à faire nommer
+
+- Les comptes décrivent un événement historique; ils ne forment pas un échantillon aléatoire de traversées.
+- Les catégories adulte/enfant du rapport ne donnent pas d’âges exacts ni de seuil numérique établi ici.
+- L’équipage utilise une autre table et d’autres regroupements. La forme longue et la forme en 12 groupes représentent les mêmes passagers.
+- Une cellule vide n’est pas une personne sans renseignement. Les statuts inconnus des listes nominatives ne deviennent pas des décès.
+- Les associations et le modèle ajusté ne constituent ni une preuve causale ni une validation prédictive externe.
+
+## Code complet
+
+Le script affiche les résultats et enregistre les sorties dans `outputs/`. Il ne télécharge aucune donnée.
+
+```{r}
+#| echo: false
+#| results: asis
+render_activity_code()
+```
+
+## Sources et réutilisation
+
+Commission d'enquête (1914), rapport final, partie VI, questions 1 et 17, dans les documents de la session de 1915, no 21b, pages 608, 610 et 611. [Volume numérisé](https://archive.org/details/1915v50i16p21b_1120). Les trois pages sont dans la [trousse source 1.0.0](https://github.com/AurelienNicosiaULaval/empress-of-ireland-data/releases/tag/v1.0.0), sous `references/inquiry_tables_excerpt.pdf`, et consultables dans [cet extrait du rapport](https://raw.githubusercontent.com/AurelienNicosiaULaval/empress-of-ireland-data/v1.0.0/references/inquiry_tables_excerpt.pdf). Le document imprimé lui-même contient « 1,417 » à la page 610; les sous-totaux donnent 1 477. La valeur 36 de première classe a été vérifiée dans l'image, car l'OCR la lit erronément comme 30.
+
+National Museums Liverpool, listes des passagers et de l'équipage, compilées par Geoffrey E. Whitfield et Chris Stringer; copies locales documentées de 2026. Elles servent ici à une comparaison de comptes, sans redistribution des listes dans la trousse. Les URLs et empreintes sont dans le dépôt source.
+
+R Core Team, [documentation de `Titanic`](https://stat.ethz.ch/R-manual/R-patched/library/datasets/html/Titanic.html). Le rapprochement porte sur le format de tableau, sans supposer que les catégories historiques ou contextes sont parfaitement identiques.
+
+Le dictionnaire et les conditions de réutilisation sont inclus. Contribution pédagogique : Aurélien Nicosia, 2026.
+
+```{r}
+#| echo: false
+#| results: asis
+render_activity_contract()
+```

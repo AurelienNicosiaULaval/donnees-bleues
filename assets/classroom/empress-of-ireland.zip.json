@@ -1,0 +1,47 @@
+{
+  "dataset_id": "empress-of-ireland",
+  "title": "Empress of Ireland : classe, âge et survie",
+  "mode": "frozen",
+  "prepared_at_utc": "2026-09-07T14:22:25Z",
+  "source_name": "Commission canadienne d’enquête (1914); transcription et activité par Aurélien Nicosia",
+  "source_url": "https://github.com/AurelienNicosiaULaval/empress-of-ireland-data/releases/tag/v1.0.0",
+  "license_url": "https://github.com/AurelienNicosiaULaval/empress-of-ireland-data/blob/v1.0.0/DATA_LICENSE.md",
+  "original_licenses": {
+    "code": "MIT",
+    "content": "CC-BY-4.0",
+    "notices": ["LICENSE", "LICENCE-CONTENUS.md", "datasets/empress-of-ireland/DATA_LICENSE.md", "datasets/empress-of-ireland/LICENCE-SOURCE.md", "datasets/empress-of-ireland/DICTIONNAIRE.md"]
+  },
+  "selection": "Quatre tables complètes et versionnées : 24 cellules passagers, leur forme en 12 groupes, 6 groupes d’équipage et 4 comptes comparant les sources. Aucune expansion en personnes ni jointure nominative.",
+  "tables": [
+    {
+      "path": "data/processed/empress-of-ireland/empress_passengers.csv",
+      "rows": 24,
+      "columns": ["class", "sex", "age_group", "survived", "frequency", "source_page", "derivation"],
+      "sha256": "96ce103bc24af8366155330dca64525c35dadf38c70734b591d2ea75dfcb6437",
+      "prepared_table_sha256": "96ce103bc24af8366155330dca64525c35dadf38c70734b591d2ea75dfcb6437"
+    },
+    {
+      "path": "data/processed/empress-of-ireland/empress_passenger_groups.csv",
+      "rows": 12,
+      "columns": ["class", "sex", "age_group", "total", "survivors", "deaths", "source_page"],
+      "sha256": "3fb7b186d6f1b4b23e94f7bab4e1c45660acfc2860d14a4bbf537a28f07d0614",
+      "prepared_table_sha256": "3fb7b186d6f1b4b23e94f7bab4e1c45660acfc2860d14a4bbf537a28f07d0614"
+    },
+    {
+      "path": "data/processed/empress-of-ireland/empress_crew_groups.csv",
+      "rows": 6,
+      "columns": ["crew_group", "total", "survivors", "deaths", "source_page"],
+      "sha256": "dbfb3cd6c435a9e064dbdb252d3fe636bab291de9a3f577ca1982f5b1f482f1d",
+      "prepared_table_sha256": "dbfb3cd6c435a9e064dbdb252d3fe636bab291de9a3f577ca1982f5b1f482f1d"
+    },
+    {
+      "path": "data/processed/empress-of-ireland/empress_sources_comparison.csv",
+      "rows": 4,
+      "columns": ["source_id", "passenger_class", "listed_people", "marked_survivors", "unknown_status", "inquiry_people", "inquiry_survivors"],
+      "sha256": "5d4b0726d6435909d7fccb676a0b187871f377e0b7307a58dd5bd3e679769f19",
+      "prepared_table_sha256": "5d4b0726d6435909d7fccb676a0b187871f377e0b7307a58dd5bd3e679769f19"
+    }
+  ],
+  "archive_sha256": "719e0a6bec1558dae6c5b1d0108db33e1f6f6a7c41b6d40bcc6a29ca51ca87c3",
+  "archive_bytes": 13091
+}

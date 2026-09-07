@@ -1,0 +1,56 @@
+{
+  "dataset_id": "empress-of-ireland",
+  "prepared_at_utc": "2026-09-07T14:22:25Z",
+  "prepared_file": "empress_passengers.csv",
+  "prepared_sha256": "96ce103bc24af8366155330dca64525c35dadf38c70734b591d2ea75dfcb6437",
+  "preview_sha256": "53880bb77ceeec2696f9008de3cb93106f4544f933962e73f2f7216e40beabad",
+  "rows": 24,
+  "columns": ["class", "sex", "age_group", "survived", "frequency"],
+  "selection": "Au plus 120 positions régulièrement espacées dans l'ordre de la table préparée; sélection déterministe non aléatoire",
+  "source_name": "Commission canadienne d’enquête (1914); transcription et activité par Aurélien Nicosia",
+  "source_url": "https://github.com/AurelienNicosiaULaval/empress-of-ireland-data/releases/tag/v1.0.0",
+  "license": "Tableaux dérivés : CC0; rapport historique : domaine public; code et activité source : MIT",
+  "license_url": "https://github.com/AurelienNicosiaULaval/empress-of-ireland-data/blob/v1.0.0/DATA_LICENSE.md",
+  "sources": [
+    {
+      "source_url": "https://raw.githubusercontent.com/AurelienNicosiaULaval/empress-of-ireland-data/v1.0.0/data_clean/empress_crew_groups.csv",
+      "acquisition_kind": "download",
+      "acquired_at_utc": "2026-09-07T14:22:24Z",
+      "started_at_utc": "2026-09-07T14:22:24Z",
+      "file": "empress_crew_groups.csv",
+      "bytes": 224,
+      "sha256": "dbfb3cd6c435a9e064dbdb252d3fe636bab291de9a3f577ca1982f5b1f482f1d",
+      "details": {}
+    },
+    {
+      "source_url": "https://raw.githubusercontent.com/AurelienNicosiaULaval/empress-of-ireland-data/v1.0.0/data_clean/empress_passenger_groups.csv",
+      "acquisition_kind": "download",
+      "acquired_at_utc": "2026-09-07T14:22:24Z",
+      "started_at_utc": "2026-09-07T14:22:24Z",
+      "file": "empress_passenger_groups.csv",
+      "bytes": 428,
+      "sha256": "3fb7b186d6f1b4b23e94f7bab4e1c45660acfc2860d14a4bbf537a28f07d0614",
+      "details": {}
+    },
+    {
+      "source_url": "https://raw.githubusercontent.com/AurelienNicosiaULaval/empress-of-ireland-data/v1.0.0/data_clean/empress_passengers.csv",
+      "acquisition_kind": "download",
+      "acquired_at_utc": "2026-09-07T14:22:24Z",
+      "started_at_utc": "2026-09-07T14:22:24Z",
+      "file": "empress_passengers.csv",
+      "bytes": 1215,
+      "sha256": "96ce103bc24af8366155330dca64525c35dadf38c70734b591d2ea75dfcb6437",
+      "details": {}
+    },
+    {
+      "source_url": "https://raw.githubusercontent.com/AurelienNicosiaULaval/empress-of-ireland-data/v1.0.0/data_clean/empress_sources_comparison.csv",
+      "acquisition_kind": "download",
+      "acquired_at_utc": "2026-09-07T14:22:25Z",
+      "started_at_utc": "2026-09-07T14:22:24Z",
+      "file": "empress_sources_comparison.csv",
+      "bytes": 258,
+      "sha256": "5d4b0726d6435909d7fccb676a0b187871f377e0b7307a58dd5bd3e679769f19",
+      "details": {}
+    }
+  ]
+}

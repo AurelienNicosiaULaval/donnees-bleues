@@ -1,0 +1,90 @@
+---
+title: "Empress of Ireland : classe, âge et survie"
+page-layout: full
+toc: false
+embed-resources: true
+execute:
+  freeze: false
+  warning: false
+  message: false
+body-classes: hub-page resource-page dataset-resource
+---
+
+```{r}
+#| echo: false
+#| results: asis
+source(if (file.exists("R/utils_dataset_page.R")) "R/utils_dataset_page.R" else "../../R/utils_dataset_page.R")
+render_dataset_detail_header()
+```
+
+## Compter les personnes derrière les tableaux
+
+Le rapport final de la Commission d’enquête sur le naufrage de l’Empress of Ireland, survenu dans le Saint-Laurent le 29 mai 1914, fournit des effectifs par classe, sexe et catégorie adulte/enfant. Le jeu pédagogique reprend ces tableaux dans un format adapté à R : 24 cellules décrivent 1 057 passagers, dont 217 survivants selon ce rapport.
+
+Ce format rappelle le tableau `Titanic` fourni dans R. Il permet de travailler les tableaux de contingence, les proportions conditionnelles et, en prolongement, la régression binomiale sur comptes. Les catégories historiques et les circonstances des deux naufrages ne sont pas supposées identiques.
+
+Aurélien Nicosia a transcrit et vérifié la [version 1.0.0](https://github.com/AurelienNicosiaULaval/empress-of-ireland-data/releases/tag/v1.0.0) contre les images du rapport et ses marges de contrôle. Il s’agit de données historiques préparées pour l’enseignement, pas d’une nouvelle collecte ni d’une liste individuelle entièrement réconciliée.
+
+## Télécharger et commencer
+
+- [Tableau principal : 24 cellules et 7 variables (CSV)](https://raw.githubusercontent.com/AurelienNicosiaULaval/empress-of-ireland-data/v1.0.0/data_clean/empress_passengers.csv).
+- [Activité avec trousse RStudio, trois graphiques et six exercices corrigés](activite-courte.qmd).
+- [Dictionnaire des quatre tables](https://github.com/AurelienNicosiaULaval/empress-of-ireland-data/blob/v1.0.0/DICTIONNAIRE.md).
+- [Extrait de trois pages du rapport historique (PDF)](https://raw.githubusercontent.com/AurelienNicosiaULaval/empress-of-ireland-data/v1.0.0/references/inquiry_tables_excerpt.pdf).
+- [Trousse source avec activité autonome et fichiers de provenance](https://github.com/AurelienNicosiaULaval/empress-of-ireland-data/releases/download/v1.0.0/empress-of-ireland-classe-v1.0.0.zip).
+
+La trousse Données bleues contient les quatre CSV complets, le script, le dictionnaire et les notices. Les scans et les transcriptions de contrôle se trouvent dans la trousse source accessible séparément.
+
+## Quatre tables aux rôles explicites
+
+| Fichier | Une ligne représente | Contenu |
+|:--|:--|:--|
+| `empress_passengers.csv` | Une cellule classe × sexe × catégorie d’âge × survie | 24 cellules et 7 variables; 1 057 passagers |
+| `empress_passenger_groups.csv` | Un groupe classe × sexe × catégorie d’âge | Les mêmes passagers en 12 groupes, avec total, survivants et décès |
+| `empress_crew_groups.csv` | Un département ou groupe professionnel de l’équipage | 6 groupes et 420 personnes, dont 248 survivants selon le rapport |
+| `empress_sources_comparison.csv` | Une liste nominative NML comparée au rapport | 4 lignes de comptes, sans noms individuels |
+
+Les deux premières tables représentent les mêmes passagers : les additionner compterait ces personnes deux fois. Pour compter dans le format long, additionner `frequency`. L’équipage reste séparé parce que les pages examinées ne donnent pas son croisement complet sexe × âge.
+
+## Variables et zéros
+
+| Variable principale | Sens | Précaution |
+|:--|:--|:--|
+| `class` | Première, deuxième ou troisième classe | Catégorie du rapport historique |
+| `sex` | Catégories masculine et féminine inscrites dans le rapport | Ne pas inventer d’autre information individuelle |
+| `age_group` | Catégorie adulte ou enfant | Le seuil numérique n’est pas établi par les pages retenues |
+| `survived` | 1 : survivants; 0 : décès du groupe | Les décès sont calculés comme total moins survivants dans le tableau |
+| `frequency` | Effectif de la cellule | Une fréquence n’est pas une observation individuelle |
+| `source_page`, `derivation` | Page et origine du compte | Les transcriptions et vérifications sont documentées |
+
+Quatre cellules ont un effectif nul. Les deux cellules des garçons de première classe correspondent à un groupe vide : sa proportion de survie est indéfinie. Les garçons de deuxième classe sont 11, sans survivant indiqué dans ces tableaux complets : leur proportion vaut zéro. Ces deux situations doivent rester distinctes.
+
+```{r}
+#| echo: false
+#| results: asis
+render_dataset_minimal_result()
+```
+
+Le graphique ci-dessus montre un sous-groupe explicitement choisi dans le tableau : les survivants adultes de catégorie masculine. L’activité présente aussi les effectifs et proportions pour l’ensemble des passagers, puis les comparaisons par classe, sexe et catégorie d’âge.
+
+## Activité et portée statistique
+
+L’activité [Compter les personnes derrière les tableaux](activite-courte.qmd) demande un tableau de contingence, deux graphiques et six réponses courtes. Elle fait comparer les 133 survivants sur 717 passagers de troisième classe aux 36 sur 87 de première classe. Le classement selon les nombres diffère du classement selon les proportions.
+
+Le prolongement ajuste une régression binomiale sur les 11 groupes non vides. Le modèle résume les associations de ce tableau historique. Il ne démontre pas un effet causal ni une performance prédictive sur d’autres traversées. Le jeu décrit un seul événement, sans échantillonnage aléatoire de naufrages.
+
+La grille de réutilisation est une appréciation éditoriale : la documentation, les tableaux croisés et les proportions sont les principaux usages. Le petit jeu offre peu de nettoyage; l’inférence et la généralisation demandent des hypothèses supplémentaires. Le code est exécuté techniquement; l’efficacité de l’activité en classe n’a pas été évaluée.
+
+## Sources et limites historiques
+
+Commission d’enquête (1914), rapport final, partie VI, questions 1 et 17, documents de la session de 1915, no 21b, pages 608, 610 et 611. Le [volume numérisé](https://archive.org/details/1915v50i16p21b_1120) permet de vérifier les tableaux. Une coquille « 1,417 » apparaît à la page 610; les sous-totaux donnent 1 477. La valeur 36 des survivants de première classe a été vérifiée dans l’image, car l’OCR la lit comme 30. La [notice du scan](https://commons.wikimedia.org/wiki/File:Report_and_evidence_in_connection_with_the_Royal_Commission_appointed_to_investigate_the_disaster_of_the_Empress_of_Ireland_(IA_1915v50i16p21b_1120).pdf) indique le domaine public.
+
+Les listes nominatives du National Museums Liverpool, compilées par Geoffrey E. Whitfield et Chris Stringer, ont des comptes différents : 1 472 entrées et 453 survivants marqués après correction documentée d’un astérisque interne au nom de George Joshua Metcalfe. Les 1 019 autres statuts restent inconnus dans ce corpus. Les comptes du rapport ne servent pas à leur attribuer des décès ni à forcer une correspondance individuelle. Le [rapport de réconciliation](https://github.com/AurelienNicosiaULaval/empress-of-ireland-data/releases/download/v1.0.0/reconciliation.html) expose ces écarts et les 32 contrôles exécutés.
+
+Aurélien Nicosia (2026), [Empress of Ireland, version 1.0.0](https://github.com/AurelienNicosiaULaval/empress-of-ireland-data/releases/tag/v1.0.0). Tableaux dérivés sous CC0; code et activité source sous MIT. Les [conditions de réutilisation](https://github.com/AurelienNicosiaULaval/empress-of-ireland-data/blob/v1.0.0/DATA_LICENSE.md) distinguent les tableaux pédagogiques des listes nominatives exclues de la trousse. Voir aussi R Core Team, [documentation de `Titanic`](https://stat.ethz.ch/R-manual/R-patched/library/datasets/html/Titanic.html).
+
+```{r}
+#| echo: false
+#| results: asis
+render_dataset_detail_footer()
+```

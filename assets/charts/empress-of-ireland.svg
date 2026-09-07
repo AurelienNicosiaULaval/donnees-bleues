@@ -1,0 +1,66 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='576.00pt' height='360.00pt' viewBox='0 0 576.00 360.00'>
+<g class='svglite'>
+<defs>
+  <style type='text/css'><![CDATA[
+    .svglite line, .svglite polyline, .svglite polygon, .svglite path, .svglite rect, .svglite circle {
+      fill: none;
+      stroke: #000000;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      stroke-miterlimit: 10.00;
+    }
+    .svglite text {
+      white-space: pre;
+    }
+    .svglite g.glyphgroup path {
+      fill: inherit;
+      stroke: none;
+    }
+  ]]></style>
+</defs>
+<rect width='100%' height='100%' style='stroke: none; fill: #FFFFFF;'/>
+<defs>
+  <clipPath id='cpMC4wMHw1NzYuMDB8MC4wMHwzNjAuMDA='>
+    <rect x='0.00' y='0.00' width='576.00' height='360.00' />
+  </clipPath>
+</defs>
+<g clip-path='url(#cpMC4wMHw1NzYuMDB8MC4wMHwzNjAuMDA=)'>
+<rect x='0.000000000000064' y='0.00' width='576.00' height='360.00' style='stroke-width: 1.07; stroke: none; fill: #FFFFFF;' />
+</g>
+<defs>
+  <clipPath id='cpNTAuNzl8NTcwLjUyfDUyLjg2fDMxNS42Mg=='>
+    <rect x='50.79' y='52.86' width='519.73' height='262.77' />
+  </clipPath>
+</defs>
+<g clip-path='url(#cpNTAuNzl8NTcwLjUyfDUyLjg2fDMxNS42Mg==)'>
+<polyline points='50.79,266.35 570.52,266.35 ' style='stroke-width: 1.07; stroke: #EBEBEB; stroke-linecap: butt;' />
+<polyline points='50.79,184.24 570.52,184.24 ' style='stroke-width: 1.07; stroke: #EBEBEB; stroke-linecap: butt;' />
+<polyline points='50.79,102.12 570.52,102.12 ' style='stroke-width: 1.07; stroke: #EBEBEB; stroke-linecap: butt;' />
+<polyline points='74.42,315.62 74.42,52.86 ' style='stroke-width: 1.07; stroke: #EBEBEB; stroke-linecap: butt;' />
+<polyline points='197.67,315.62 197.67,52.86 ' style='stroke-width: 1.07; stroke: #EBEBEB; stroke-linecap: butt;' />
+<polyline points='320.93,315.62 320.93,52.86 ' style='stroke-width: 1.07; stroke: #EBEBEB; stroke-linecap: butt;' />
+<polyline points='444.18,315.62 444.18,52.86 ' style='stroke-width: 1.07; stroke: #EBEBEB; stroke-linecap: butt;' />
+<polyline points='567.44,315.62 567.44,52.86 ' style='stroke-width: 1.07; stroke: #EBEBEB; stroke-linecap: butt;' />
+<rect x='74.42' y='73.38' width='472.48' height='57.48' style='stroke-width: 1.07; stroke: none; stroke-linecap: butt; stroke-linejoin: miter; fill: #185B83;' />
+<rect x='74.42' y='155.50' width='135.58' height='57.48' style='stroke-width: 1.07; stroke: none; stroke-linecap: butt; stroke-linejoin: miter; fill: #185B83;' />
+<rect x='74.42' y='237.61' width='98.60' height='57.48' style='stroke-width: 1.07; stroke: none; stroke-linecap: butt; stroke-linejoin: miter; fill: #185B83;' />
+</g>
+<g clip-path='url(#cpMC4wMHw1NzYuMDB8MC4wMHwzNjAuMDA=)'>
+<text x='45.86' y='269.50' text-anchor='end' style='font-size: 8.80px;fill: #4D4D4D; font-family: "Arial";' textLength='14.16px' lengthAdjust='spacingAndGlyphs'>first</text>
+<text x='45.86' y='187.39' text-anchor='end' style='font-size: 8.80px;fill: #4D4D4D; font-family: "Arial";' textLength='28.38px' lengthAdjust='spacingAndGlyphs'>second</text>
+<text x='45.86' y='105.27' text-anchor='end' style='font-size: 8.80px;fill: #4D4D4D; font-family: "Arial";' textLength='17.09px' lengthAdjust='spacingAndGlyphs'>third</text>
+<text x='74.42' y='326.85' text-anchor='middle' style='font-size: 8.80px;fill: #4D4D4D; font-family: "Arial";' textLength='4.89px' lengthAdjust='spacingAndGlyphs'>0</text>
+<text x='197.67' y='326.85' text-anchor='middle' style='font-size: 8.80px;fill: #4D4D4D; font-family: "Arial";' textLength='9.78px' lengthAdjust='spacingAndGlyphs'>30</text>
+<text x='320.93' y='326.85' text-anchor='middle' style='font-size: 8.80px;fill: #4D4D4D; font-family: "Arial";' textLength='9.78px' lengthAdjust='spacingAndGlyphs'>60</text>
+<text x='444.18' y='326.85' text-anchor='middle' style='font-size: 8.80px;fill: #4D4D4D; font-family: "Arial";' textLength='9.78px' lengthAdjust='spacingAndGlyphs'>90</text>
+<text x='567.44' y='326.85' text-anchor='middle' style='font-size: 8.80px;fill: #4D4D4D; font-family: "Arial";' textLength='14.67px' lengthAdjust='spacingAndGlyphs'>120</text>
+<text x='310.66' y='338.61' text-anchor='middle' style='font-size: 10.00px; font-family: "Arial";' textLength='97.27px' lengthAdjust='spacingAndGlyphs'>Nombre de survivants</text>
+<text transform='translate(12.64,184.24) rotate(-90)' text-anchor='middle' style='font-size: 10.00px; font-family: "Arial";' textLength='180.67px' lengthAdjust='spacingAndGlyphs'>Classe (first : 1re; second : 2e; third : 3e)</text>
+<text x='50.79' y='45.49' style='font-size: 9.00px; font-family: "Arial";' textLength='262.50px' lengthAdjust='spacingAndGlyphs'>Extrait consultable : 3 lignes avant retrait des valeurs manquantes</text>
+<text x='50.79' y='15.50' style='font-size: 14.00px;fill: #172033; font-family: "Arial";' textLength='290.16px' lengthAdjust='spacingAndGlyphs'>Survivants adultes de catégorie masculine, par</text>
+<text x='50.79' y='30.62' style='font-size: 14.00px;fill: #172033; font-family: "Arial";' textLength='39.67px' lengthAdjust='spacingAndGlyphs'>classe</text>
+<text x='50.79' y='352.63' style='font-size: 9.00px; font-family: "Arial";' textLength='246.50px' lengthAdjust='spacingAndGlyphs'>0 ligne(s) avec une mesure manquante ou non finie exclue(s).</text>
+</g>
+</g>
+</svg>
