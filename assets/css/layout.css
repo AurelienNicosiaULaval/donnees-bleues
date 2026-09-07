@@ -41,3 +41,30 @@ body.hub-page.resource-search-embedded #quarto-content {width:calc(100% - 2rem);
 }
 body.hub-page .resource-hero h1 {font-family:var(--db-serif); line-height:1.08;}
 body.hub-page .about-page {background:transparent;}
+
+/* The home-page totals use the same four types as the resource catalogue. */
+body.hub-page .home-current-panel.home-resource-summary {display: block;}
+body.hub-page .home-resource-totals {
+  display: grid; grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1rem; margin-block: 1.5rem;
+}
+body.hub-page .home-resource-total {
+  display: flex; flex-direction: column; align-items: flex-start; gap: .75rem;
+  min-width: 0; padding: 1.25rem; border: 1px solid #d0e0e7;
+  border-radius: 14px; background: #fff; color: #172033; text-decoration: none;
+}
+body.hub-page .home-resource-total:hover {border-color: #15516e; background: #f4f9fc;}
+body.hub-page .home-resource-total:focus-visible {outline: 3px solid #15516e; outline-offset: 4px;}
+body.hub-page .home-resource-total-number {font-size: clamp(2.2rem, 4vw, 3.2rem); line-height: 1.1; font-variant-numeric: tabular-nums;}
+body.hub-page .home-resource-total-label {font-size: .95rem; line-height: 1.4;}
+body.hub-page .home-resource-summary .home-current-actions {justify-content: flex-start;}
+@media (max-width: 900px) {
+  body.hub-page .home-resource-totals {grid-template-columns: repeat(2, minmax(0, 1fr));}
+}
+@media (max-width: 480px) {
+  body.hub-page .home-resource-totals {gap: .75rem;}
+  body.hub-page .home-resource-total {padding: .75rem;}
+}
+@media (max-width: 380px) {
+  body.hub-page .home-resource-totals {grid-template-columns: 1fr;}
+}

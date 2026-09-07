@@ -13,7 +13,7 @@ embed-resources: true
 library(dplyr)
 library(readr)
 library(stringr)
-source("R/utils_resource_identity.R")
+source("R/utils_resources.R")
 
 catalogue_path <- "data/metadata/catalogue.csv"
 activity_catalogue_path <- "data/metadata/catalogue_activites.csv"
@@ -31,19 +31,9 @@ activities <- if (file.exists(activity_catalogue_path)) {
 }
 
 n_datasets <- nrow(catalogue)
-n_themes <- if (n_datasets > 0) length(unique(catalogue$theme)) else 0
-n_activities <- nrow(activities)
-n_contexts <- if (n_activities > 0) length(unique(activities$context)) else 0
-
-theme_list <- if (n_datasets > 0) {
-  catalogue |>
-    count(theme, sort = TRUE) |>
-    slice_head(n = 6) |>
-    pull(theme) |>
-    paste(collapse = ", ")
-} else {
-  "Je ne sais pas."
-}
+resource_type_ids <- c("donnees", "activite", "document", "application")
+resource_type_values <- vapply(resource_catalogue(), function(item) item$type, character(1))
+resource_counts <- vapply(resource_type_ids, function(type) sum(resource_type_values == type), integer(1))
 
 home_escape <- function(value) {
   value <- as.character(value)
@@ -325,16 +315,39 @@ cat(render_featured_datasets(featured_datasets))
 :::
 :::
 
-::: {.home-current-panel .db-provenance-panel}
+::: {.home-current-panel .db-provenance-panel .home-resource-summary}
 ::: {.home-current-copy}
 ::: {.home-label}
-Ce qui compte
+Dans Données bleues
 :::
 
-## `r n_datasets` fiches, `r n_activities` activités, un même niveau d'exigence.
+## Le répertoire en chiffres
 
-Chaque ressource garde sa source, son contexte, ses limites et son niveau de préparation. La base couvre `r n_themes` thèmes, dont `r theme_list`.
+`r sum(resource_counts)` ressources à explorer, réparties en quatre types.
 :::
+
+```{r}
+#| label: home-resource-totals
+#| echo: false
+#| results: asis
+resource_destinations <- c(donnees = "catalogue.html", activite = "activites.html",
+                           document = "lectures.html", application = "applications.html")
+resource_singular <- c(donnees = "jeu de données", activite = "activité pédagogique",
+                      document = "lecture ou document", application = "application")
+resource_plural <- c(donnees = "jeux de données", activite = "activités pédagogiques",
+                    document = "lectures et documents", application = "applications")
+cat('<div class="home-resource-totals">')
+for (type in resource_type_ids) {
+  count <- resource_counts[[type]]
+  label <- if (count == 1L) resource_singular[[type]] else resource_plural[[type]]
+  cat('<a class="home-resource-total" data-resource-total-type="', type,
+      '" href="', resource_destinations[[type]], '" aria-label="', count, ' ', home_escape(label), '">',
+      resource_type_badge(type),
+      '<span class="home-resource-total-number">', count, '</span>',
+      '<span class="home-resource-total-label">', home_escape(label), '</span></a>', sep = '')
+}
+cat('</div>')
+```
 
 ::: {.home-current-actions}
 [Consulter les références](references.qmd){.dataset-button .secondary}
