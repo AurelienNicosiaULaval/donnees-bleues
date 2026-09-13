@@ -127,4 +127,12 @@ chart:
   y_label: Nature de la demande
   title: Demandes autres que les demandes d’information
 date_added: "2026-06-18"
-date_updated: "2026-09-05"
+date_updated: "2026-09-13"
+
+summary: Demandes reçues par les services municipaux de Montréal, avec leur catégorie, leur date, leur statut et
+  leur arrondissement. La trousse utilise un échantillon préparé.
+
+observation_period: Du 1er janvier 2022 au 3 septembre 2026 dans l’échantillon de la trousse
+
+source_authors:
+- Ville de Montréal

@@ -17,14 +17,6 @@ source(source_path)
 render_dataset_detail_header()
 ```
 
-## Pourquoi ce jeu est intéressant
-
-Ce jeu de données permet de travailler une vraie série temporelle régionale : population active, emploi, chômage et taux associés, par mois, pour le Québec et les régions administratives. Il est utile pour apprendre à distinguer un nombre, un taux, une unité territoriale et une période d'observation.
-
-La fiche porte sur le fichier complet du tableau 916 de l'Institut de la statistique du Québec : `Caractéristiques du marché du travail, données mensuelles désaisonnalisées, régions administratives et ensemble du Québec`. Ce choix donne une activité reproductible, parce que le fichier XLSX officiel peut être téléchargé directement et transformé en table longue.
-
-Question d'analyse : comment comparer l'évolution du marché du travail entre régions sans surinterpréter des estimations issues d'une enquête?
-
 ## Ce qui a été vérifié
 
 | Élément vérifié | Résultat |
@@ -98,9 +90,9 @@ Le fichier officiel contient 185 mois, de janvier 2011 à mai 2026. Pour chaque 
 | Format préparé local | CSV ignoré par Git dans `data/processed/emploi-regional-quebec/` |
 | Niveau pédagogique recommandé | Introduction à intermédiaire |
 
-## Lecture statistique
+## Interprétation et contrôles
 
-Le fichier est excellent pour enseigner la différence entre un niveau et un taux. Par exemple, `Emploi` est exprimé en milliers de personnes, alors que `Taux d'emploi` est un pourcentage. Les deux décrivent le marché du travail, mais ils ne répondent pas à la même question.
+Les niveaux et les taux ont des unités différentes. Par exemple, `Emploi` est exprimé en milliers de personnes, alors que `Taux d'emploi` est un pourcentage. Les deux décrivent le marché du travail, mais ils ne répondent pas à la même question.
 
 Les comparaisons régionales doivent être prudentes. Les données viennent d'une enquête, pas d'un recensement administratif complet. La note officielle du tableau indique que les estimations régionales désaisonnalisées sont publiées sous forme de moyennes mobiles sur trois mois pour réduire les fluctuations irrégulières liées aux petits échantillons.
 
@@ -146,60 +138,6 @@ Les codes de qualité sont essentiels : `F` indique une estimation trop peu fiab
 | Québec | 5,7 % |
 
 Ces valeurs décrivent le mois de mai 2026 dans le tableau préparé. Elles ne démontrent pas une cause économique et ne doivent pas être comparées sans tenir compte de la précision des estimations.
-
-## Concepts enseignables
-
-- séries temporelles;
-- taux et niveaux;
-- données d'enquête;
-- qualité des estimations;
-- transformation large vers long;
-- statistiques descriptives;
-- visualisation comparative.
-
-## Visualisations suggérées
-
-- lignes temporelles du taux de chômage par région;
-- small multiples par territoire;
-- heatmap territoire x mois pour un indicateur;
-- graphique des variations mensuelles avec annotation des valeurs `F` et `*`;
-- comparaison entre `Emploi` et `Taux d'emploi` pour montrer la différence d'unité.
-
-## Score zéro déchet
-
-| Dimension | Score | Justification |
-|---|---:|---|
-| Contexte québécois | 3 | La source couvre le Québec et les régions administratives. |
-| Accessibilité pédagogique | 3 | Les indicateurs sont familiers et directement discutables en classe. |
-| Qualité documentaire | 3 | Le tableau fournit source, notes, date de mise à jour et fichier complet. |
-| Potentiel de nettoyage | 3 | Le XLSX exige une transformation large vers long et une gestion des codes de qualité. |
-| Potentiel de visualisation | 3 | Les séries régionales se prêtent bien aux lignes, facettes et heatmaps. |
-| Potentiel de statistique descriptive | 3 | Les comparaisons par mois, région et indicateur sont immédiates. |
-| Potentiel d'inférence | 1 | Les estimations d'enquête exigent des précautions et ne suffisent pas pour une inférence avancée. |
-| Potentiel de modélisation | 2 | Des modèles descriptifs de tendance sont possibles, mais la fiche ne fournit pas les plans d'échantillonnage. |
-| Potentiel de discussion éthique | 3 | Les indicateurs touchent à l'économie régionale et peuvent être surinterprétés publiquement. |
-| Réutilisabilité dans plusieurs cours | 3 | Le jeu sert pour importation Excel, séries temporelles, visualisation et communication statistique. |
-
-Total : 27 sur 30.
-
-## Activité courte
-
-En 60 à 90 minutes, demander aux personnes étudiantes de choisir un indicateur, de filtrer trois territoires, puis de produire un graphique temporel. Elles doivent expliquer l'unité de mesure et signaler si des valeurs `F` ou `*` apparaissent.
-
-## Activité longue
-
-En 2 à 3 heures, demander un mini-rapport reproductible qui compare deux régions et l'ensemble du Québec sur plusieurs indicateurs. Le rapport doit inclure une visualisation, un tableau de synthèse et un paragraphe méthodologique sur les limites de l'EPA.
-
-## Questions pédagogiques possibles
-
-1. Quelle est l'unité statistique de la table préparée?
-2. Pourquoi `Emploi` et `Taux d'emploi` ne doivent-ils pas être placés sur le même axe sans transformation?
-3. Que signifie l'unité `k`?
-4. Pourquoi une valeur `F` doit-elle rester visible dans l'analyse?
-5. Pourquoi une moyenne mobile sur trois mois change-t-elle l'interprétation des variations mensuelles?
-6. Quelle différence y a-t-il entre une comparaison descriptive et une conclusion causale?
-7. Pourquoi la région `Côte-Nord et Nord-du-Québec` doit-elle être traitée comme un territoire combiné?
-8. Quelle visualisation rend les trajectoires régionales comparables sans surcharger le graphique?
 
 ## Code R minimal
 
@@ -254,14 +192,6 @@ render_dataset_minimal_result()
 - Les variations d'un mois à l'autre peuvent refléter de l'incertitude d'échantillonnage.
 - Les données ne suffisent pas à expliquer les causes des différences régionales.
 - Le fichier préparé est une aide pédagogique locale; la reproduction de l'information de l'ISQ demande une permission écrite.
-
-## Extensions
-
-- Extension intro : transformer une feuille du XLSX officiel en table longue.
-- Extension visualisation : comparer trois régions par petites multiples.
-- Extension qualité : repérer et commenter toutes les valeurs `F` et `*`.
-- Extension statistique : lisser une série et comparer le résultat au tableau officiel.
-- Extension communication : rédiger une note qui distingue taux, niveau et incertitude.
 
 ```{r}
 #| label: dataset-detail-footer

@@ -1,6 +1,5 @@
 ---
 title: "Données bleues"
-subtitle: "Des données québécoises pour enseigner la statistique et la science des données"
 toc: false
 body-classes: hub-page
 page-layout: full
@@ -8,351 +7,61 @@ embed-resources: true
 ---
 
 ```{r}
-#| label: home-page-data
 #| include: false
-library(dplyr)
 library(readr)
-library(stringr)
+library(yaml)
+library(htmltools)
 source("R/utils_resources.R")
-
-catalogue_path <- "data/metadata/catalogue.csv"
-activity_catalogue_path <- "data/metadata/catalogue_activites.csv"
-
-catalogue <- if (file.exists(catalogue_path)) {
-  read_csv(catalogue_path, show_col_types = FALSE)
-} else {
-  tibble::tibble()
-}
-
-activities <- if (file.exists(activity_catalogue_path)) {
-  read_csv(activity_catalogue_path, show_col_types = FALSE)
-} else {
-  tibble::tibble()
-}
-
-n_datasets <- nrow(catalogue)
-resource_type_ids <- c("donnees", "activite", "document", "application")
-resource_type_values <- vapply(resource_catalogue(), function(item) item$type, character(1))
-resource_counts <- vapply(resource_type_ids, function(type) sum(resource_type_values == type), integer(1))
-
-home_escape <- function(value) {
-  value <- as.character(value)
-  value[is.na(value)] <- ""
-  value <- gsub("&", "&amp;", value, fixed = TRUE)
-  value <- gsub("<", "&lt;", value, fixed = TRUE)
-  value <- gsub(">", "&gt;", value, fixed = TRUE)
-  value <- gsub('"', "&quot;", value, fixed = TRUE)
-  value <- gsub("'", "&#39;", value, fixed = TRUE)
-  value
-}
-
-featured_ids <- c(
-  "bixi",
-  "qualite-air-horaire",
-  "budgets-municipaux-quebec"
-)
-
-featured_datasets <- if (n_datasets > 0) {
-  catalogue |>
-    filter(id %in% featured_ids) |>
-    mutate(feature_order = match(id, featured_ids)) |>
-    arrange(feature_order)
-} else {
-  tibble::tibble()
-}
-
-render_featured_datasets <- function(data) {
-  if (!is.data.frame(data) || nrow(data) == 0L) {
-    return('<p class="home-empty">Aucune fiche à mettre en avant pour le moment.</p>')
-  }
-
-  paste(vapply(seq_len(nrow(data)), function(i) {
-    row <- data[i, , drop = FALSE]
-    image_candidates <- file.path(
-      "assets",
-      "cards",
-      paste0(row$id, c(".webp", ".jpg", ".jpeg", ".png"))
-    )
-    image <- image_candidates[file.exists(image_candidates)][1]
-    if (length(image) == 0L || is.na(image)) {
-      image <- file.path("assets", "cards", "catalogue.png")
-    }
-    href <- str_replace(row$fiche, "[.]qmd$", ".html")
-    score <- if (!is.na(row$zero_waste_score)) {
-      paste0(row$zero_waste_score, " / 30")
-    } else {
-      "Je ne sais pas."
-    }
-
-    paste0(
-      '<article class="home-dataset-card db-card">',
-      '<img src="', home_escape(image), '" alt="Illustration de ', home_escape(row$short_title), '">',
-      '<div class="home-dataset-card-body">', resource_type_badge("donnees"),
-      '<span>', home_escape(row$theme), '</span>',
-      '<h3>', home_escape(row$short_title), '</h3>',
-      '<p>', home_escape(row$title), '</p>',
-      resource_dates_html(row, compact = TRUE),
-      '<div class="home-dataset-card-meta">',
-      '<strong>', home_escape(score), '</strong>',
-      '<a href="', home_escape(href), '">Ouvrir la fiche</a>',
-      '</div>',
-      '</div>',
-      '</article>'
-    )
-  }, character(1)), collapse = "\n")
-}
-
-activity_link <- function(activity) {
-  if (!is.data.frame(activity) || nrow(activity) == 0L) {
-    return(NULL)
-  }
-
-  href <- str_replace(activity$activity_url[[1]], "[.]qmd$", ".html")
-  title <- activity$title[[1]]
-  question <- activity$question[[1]]
-  list(
-    href = href,
-    title = title,
-    question = question
-  )
-}
-
-render_example_step <- function(number, label, title, text, href) {
-  paste0(
-    '<a class="home-example-step" href="', home_escape(href), '">',
-    '<span>', home_escape(number), '</span>',
-    '<strong>', home_escape(label), '</strong>',
-    '<em>', home_escape(title), '</em>',
-    '<small>', home_escape(text), '</small>',
-    '</a>'
-  )
-}
-
-render_home_example <- function(catalogue, activities, target_dataset_id = "bixi") {
-  if (!is.data.frame(catalogue) || nrow(catalogue) == 0L) {
-    return('<p class="home-empty">Aucun exemple complet disponible pour le moment.</p>')
-  }
-
-  dataset <- catalogue |>
-    filter(.data$id == target_dataset_id) |>
-    slice_head(n = 1)
-
-  if (nrow(dataset) == 0L) {
-    return('<p class="home-empty">Aucun exemple complet disponible pour le moment.</p>')
-  }
-
-  dataset_href <- str_replace(dataset$fiche[[1]], "[.]qmd$", ".html")
-
-  short_activity <- activities |>
-    filter(.data$dataset_id == target_dataset_id, .data$duration == "30-45 minutes") |>
-    slice_head(n = 1) |>
-    activity_link()
-
-  long_activity <- activities |>
-    filter(.data$dataset_id == target_dataset_id, .data$duration == "2-3 heures") |>
-    slice_head(n = 1) |>
-    activity_link()
-
-  short_step <- if (is.null(short_activity)) {
-    ""
-  } else {
-    render_example_step(
-      "02",
-      "Activité courte",
-      short_activity$title,
-      short_activity$question,
-      short_activity$href
-    )
-  }
-
-  long_step <- if (is.null(long_activity)) {
-    ""
-  } else {
-    render_example_step(
-      "03",
-      "Activité longue",
-      long_activity$title,
-      long_activity$question,
-      long_activity$href
-    )
-  }
-
-  paste0(
-    '<article class="home-example-card">',
-    '<div class="home-example-copy">',
-    '<span>Exemple en 2 minutes</span>',
-    '<h3>Partir de ', home_escape(dataset$short_title[[1]]), ' et arriver à une activité prête à adapter.</h3>',
-    '<p>Cette séquence montre le geste central du site : choisir une source, comprendre son contexte, puis la transformer en situation d’enseignement.</p>',
-    '</div>',
-    '<div class="home-example-steps">',
-    render_example_step(
-      "01",
-      "Fiche",
-      dataset$short_title[[1]],
-      "Source, unité statistique, variables, limites et résultats R.",
-      dataset_href
-    ),
-    short_step,
-    long_step,
-    '</div>',
-    '</article>'
-  )
-}
+source("R/utils_catalogue_ui.R")
+items <- resource_catalogue()
+counts <- table(factor(vapply(items, function(x) x$type, character(1)), levels=c('donnees','activite','document','application')))
+metadata <- editorial_dataset_metadata()
 ```
 
-::: {.home-page .db-page}
+::: {.home-page .home-editorial}
 
-::: {.home-hero .db-editorial-hero}
-::: {.home-hero-copy}
-
-::: {.home-kicker}
-Infrastructure pédagogique ouverte
-:::
-
-# Des données québécoises à enseigner.
+# Des données québécoises à enseigner
 
 ::: {.home-subtitle}
-Des ressources ancrées dans les réalités du Québec pour préparer des cours de statistique, de R et de science des données avec des sources, des limites et des contextes visibles.
-:::
-
-::: {.home-lede}
-Données bleues met les données québécoises au cœur de l’enseignement, avec des fiches, des activités et des séquences adaptables. Le point de départ n'est pas seulement une méthode : c'est une question située, une institution, un territoire et une manière prudente d'interpréter.
-:::
-
-::: {.home-hero-actions}
-[Explorer les données](catalogue.qmd){.dataset-button}
-[Préparer une séance](activites.qmd#preparer-un-cours){.dataset-button .secondary}
-[Lectures et documents](lectures.qmd){.dataset-button .secondary}
-[Explorer les applications](applications.qmd){.dataset-button .secondary}
-:::
-
-:::
-
-::: {.home-hero-art}
-<img src="assets/illustrations/hero-territory.svg" class="db-hero-illustration" alt="">
-:::
-:::
-
-::: {.home-intent-section}
-::: {.home-section-heading}
-::: {.home-label}
-Commencer par le geste à enseigner
-:::
-
-## Quatre portes d'entrée pour une prochaine séance.
-:::
-
-::: {.home-intent-grid}
-::: {.home-intent-card}
-### Préparer
-
-Trouver une activité adaptée au temps disponible, au niveau et à la production attendue.
-
-[Planifier un cours](activites.qmd#preparer-un-cours)
-:::
-
-::: {.home-intent-card}
-### Décrire
-
-Entrer dans une fiche, vérifier ce que représente une ligne, puis comparer avec prudence.
-
-[Explorer les fiches](catalogue.qmd)
-:::
-
-::: {.home-intent-card}
-### Visualiser
-
-Choisir une source qui permet de produire un graphique ou une carte vraiment interprétable.
-
-[Voir le catalogue](catalogue.qmd)
-:::
-
-::: {.home-intent-card}
-### Discuter les limites
-
-Rendre visibles la provenance, la licence, les choix de mesure et les conclusions impossibles.
-
-[Lire la méthode](zero-waste.qmd)
-:::
-:::
-:::
-
-::: {.home-section .home-example .db-plan-section}
-::: {.home-section-heading}
-::: {.home-label}
-Préparer une séance
-:::
-
-## Une source devient un parcours d'apprentissage.
-
-Choisir une donnée, comprendre ce qu'elle mesure, puis adapter une activité au groupe réel.
+Des jeux de données québécois, des activités, des documents et des applications pour enseigner la statistique, R et la science des données.
 :::
 
 ```{r}
 #| echo: false
 #| results: asis
-cat(render_home_example(catalogue, activities, "bixi"))
+links <- c(donnees='catalogue.html',activite='activites.html',document='lectures.html',application='applications.html')
+labels <- c(donnees='Jeux de données',activite='Activités',document='Lectures et documents',application='Applications')
+cat('<nav class="home-resource-links" aria-label="Types de ressources">')
+for (type in names(links)) cat('<a href="',links[type],'">',resource_type_badge(type),'<span>',labels[type],'</span><small>',as.integer(counts[type]),if(counts[type] == 1) ' ressource</small></a>' else ' ressources</small></a>',sep='')
+cat('</nav>')
 ```
+
+## Un exemple avec BIXI
+
+::: {.home-example-steps}
+[Fiche de données : état des stations](datasets/bixi/fiche.qmd){.home-example-step}
+[Activité : disponibilité des vélos dans un instantané](datasets/bixi/activite-courte.qmd){.home-example-step}
+[Application : trajets de 2018 et météo](resources/tutoriel-bixi.qmd){.home-example-step}
 :::
 
-::: {.home-section .home-featured}
-::: {.home-section-heading}
-::: {.home-label}
-À explorer maintenant
-:::
+## Quelques jeux de données
 
-## Des ressources ancrées dans des réalités proches de la classe.
-
-Mobilité, environnement et finances municipales, avec des sources documentées et des activités associées.
-:::
-
-::: {.home-dataset-grid}
 ```{r}
 #| echo: false
 #| results: asis
-cat(render_featured_datasets(featured_datasets))
-```
-:::
-:::
-
-::: {.home-current-panel .db-provenance-panel .home-resource-summary}
-::: {.home-current-copy}
-::: {.home-label}
-Dans Données bleues
-:::
-
-## Le répertoire en chiffres
-
-`r sum(resource_counts)` ressources à explorer, réparties en quatre types.
-:::
-
-```{r}
-#| label: home-resource-totals
-#| echo: false
-#| results: asis
-resource_destinations <- c(donnees = "catalogue.html", activite = "activites.html",
-                           document = "lectures.html", application = "applications.html")
-resource_singular <- c(donnees = "jeu de données", activite = "activité pédagogique",
-                      document = "lecture ou document", application = "application")
-resource_plural <- c(donnees = "jeux de données", activite = "activités pédagogiques",
-                    document = "lectures et documents", application = "applications")
-cat('<div class="home-resource-totals">')
-for (type in resource_type_ids) {
-  count <- resource_counts[[type]]
-  label <- if (count == 1L) resource_singular[[type]] else resource_plural[[type]]
-  cat('<a class="home-resource-total" data-resource-total-type="', type,
-      '" href="', resource_destinations[[type]], '" aria-label="', count, ' ', home_escape(label), '">',
-      resource_type_badge(type),
-      '<span class="home-resource-total-number">', count, '</span>',
-      '<span class="home-resource-total-label">', home_escape(label), '</span></a>', sep = '')
+cat('<div class="home-featured-grid">')
+for (id in c('arbres-quebec','bixi','empress-of-ireland')) {
+  item <- metadata[[id]]
+  candidates <- file.path('assets/cards',paste0(id,c('.webp','.jpg','.jpeg','.png')))
+  image <- candidates[file.exists(candidates)][1]
+  if (is.na(image)) image <- 'assets/cards/catalogue.png'
+  cat('<article class="home-dataset-card"><img src="',catalogue_escape(image),'" alt="" loading="lazy" width="640" height="360">',
+      '<h3><a href="datasets/',id,'/fiche.html">',catalogue_escape(item$title),'</a></h3>',
+      '<p>',catalogue_escape(item$summary),'</p></article>',sep='')
 }
 cat('</div>')
 ```
 
-::: {.home-current-actions}
-[Consulter les références](references.qmd){.dataset-button .secondary}
-[Comprendre le projet](about.qmd){.dataset-button}
-:::
-:::
+[Utiliser le site](guide.qmd) · [Proposer une ressource](contribuer.qmd)
 
 :::

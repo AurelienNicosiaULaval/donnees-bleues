@@ -17,14 +17,6 @@ source(source_path)
 render_dataset_detail_header()
 ```
 
-## Pourquoi ce jeu est intéressant
-
-Ce jeu de données décrit des accidents routiers rapportés par les policiers au Québec. Il contient des variables de temps, de gravité, de région, de météo, de surface, d'éclairage et de types d'usagers ou de véhicules impliqués.
-
-Il est utile en science des données parce qu'il combine un vrai fichier administratif volumineux, un dictionnaire PDF, des codes catégoriels à recoder et des limites d'interprétation importantes. Le jeu permet d'enseigner les tableaux croisés, les séries temporelles descriptives, les proportions et la modélisation prudente d'une variable binaire.
-
-Question d'analyse : comment la gravité observée varie-t-elle selon le mois, la région ou les conditions météo, sans confondre fréquence d'accidents et risque routier?
-
 ## Ce qui a été vérifié
 
 | Élément | Résultat vérifié |
@@ -195,9 +187,7 @@ Ces indicateurs signalent la présence d'au moins un type d'usager ou de véhicu
 
 Les valeurs manquantes touchent surtout des variables de contexte routier. Elles doivent être inspectées avant toute modélisation.
 
-## Lecture statistique
-
-Une analyse prudente suit cet ordre :
+## Interprétation et contrôles
 
 1. confirmer l'unité statistique, soit un rapport d'accident;
 2. consulter le PDF avant de recoder les codes;
@@ -208,42 +198,6 @@ Une analyse prudente suit cet ordre :
 7. documenter les exclusions avant toute comparaison régionale ou saisonnière.
 
 Les données sont excellentes pour enseigner la statistique descriptive et la communication responsable. Elles ne suffisent pas, seules, à conclure qu'une région, un mois ou une condition météo est plus dangereux.
-
-## Concepts enseignables
-
-- données administratives;
-- dictionnaire de variables;
-- codes catégoriels;
-- tableaux croisés;
-- proportions;
-- séries temporelles descriptives;
-- régression logistique exploratoire;
-- limites d'exposition et de causalité.
-
-## Score zéro déchet
-
-| Dimension | Score | Justification |
-|---|---:|---|
-| Contexte québécois | 3 | Source officielle québécoise sur la sécurité routière |
-| Accessibilité pédagogique | 2 | Sujet concret, mais codes nombreux et données sensibles |
-| Qualité documentaire | 3 | Page Données Québec, API CKAN et PDF officiel |
-| Potentiel de nettoyage | 3 | Recodage, valeurs manquantes et variables codées |
-| Potentiel de visualisation | 3 | Mois, régions, météo, gravité et tableaux croisés |
-| Potentiel de statistique descriptive | 3 | Fréquences et proportions directement enseignables |
-| Potentiel d'inférence | 2 | Possible avec prudence et dénominateurs complémentaires |
-| Potentiel de modélisation | 3 | Régression catégorielle exploratoire pertinente |
-| Potentiel éthique | 3 | Vie privée, sécurité publique et communication responsable |
-| Réutilisabilité | 3 | Utile en nettoyage, EDA, visualisation, modélisation et éthique |
-
-Total : 28 sur 30.
-
-## Activité courte
-
-En 30 à 45 minutes, produire un tableau de gravité par mois et expliquer pourquoi les résultats ne mesurent pas le risque routier.
-
-## Activité longue
-
-En 2 à 3 heures, produire un mini-rapport descriptif et un modèle exploratoire de gravité, avec une section explicite sur les limites d'exposition.
 
 ## Code R minimal
 
@@ -302,14 +256,6 @@ render_dataset_minimal_result()
 - Les comparaisons régionales ou mensuelles ne mesurent pas le risque sans population, circulation ou distance parcourue.
 - Toute modélisation de gravité doit être présentée comme exploratoire.
 - La source officielle indique une révision liée à la protection de la vie privée.
-
-## Extensions
-
-- Comparer les mois en séparant semaine et fin de semaine.
-- Étudier les accidents impliquant un vélo ou une victime piétonne.
-- Construire un tableau croisé météo par gravité.
-- Ajouter des données de population ou de circulation pour discuter des dénominateurs.
-- Ajuster une régression logistique exploratoire et présenter ses limites.
 
 ## Références utilisées
 

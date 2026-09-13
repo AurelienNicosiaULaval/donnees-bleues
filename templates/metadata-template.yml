@@ -1,6 +1,13 @@
 id:
 title:
 short_title:
+summary: # Contenu concret en une ou deux phrases.
+observation_period: # Période des observations, distincte de la date d’accès.
+source_authors: [] # Noms des producteurs seulement; les rôles vont dans les crédits.
+essential_limits: [] # Limites qui changent le comptage, l’analyse ou la réutilisation.
+# table_overview: # Si plusieurs tables, une entrée nommée par table : unité, période et dimensions vérifiées.
+# data_version: # Renseigner seulement si une version fixe existe.
+# reference_note: # Seulement si la documentation analyse une autre version.
 theme:
 source_name:
 source_url:
@@ -67,5 +74,5 @@ publication:
 
 # Dates de la fiche dans le répertoire, distinctes de la période des données.
 # Renseigner la date réelle à l’ajout, puis conserver date_added.
-date_added: "2026-09-07"
-date_updated: "2026-09-07"
+date_added: # Date réelle d’ajout, format YYYY-MM-DD
+date_updated: # Date réelle de modification, format YYYY-MM-DD

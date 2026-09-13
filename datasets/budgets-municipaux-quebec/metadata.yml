@@ -192,4 +192,12 @@ chart:
   title: Distribution des populations municipales
   bins: 12
 date_added: "2026-06-19"
-date_updated: "2026-09-05"
+date_updated: "2026-09-13"
+
+summary: Profil financier des municipalités locales et agglomérations, avec des indicateurs de richesse foncière
+  du rôle d’évaluation de 2025.
+
+observation_period: Profil 2024-2025; rôle d’évaluation 2025
+
+source_authors:
+- MAMH

@@ -61,4 +61,12 @@ publication:
       ses conditions.
     files: []
 date_added: "2026-06-19"
-date_updated: "2026-09-05"
+date_updated: "2026-09-13"
+
+summary: 'Indicateurs mensuels du marché du travail au Québec et dans les territoires régionaux : emploi, chômage
+  et taux associés.'
+
+observation_period: Janvier 2011 à mai 2026
+
+source_authors:
+- Institut de la statistique du Québec / Statistique Canada, Enquête sur la population active

@@ -116,4 +116,12 @@ chart:
   y_label: Groupe d’intervention
   title: Groupes d’interventions de l’extrait
 date_added: "2026-06-21"
-date_updated: "2026-09-05"
+date_updated: "2026-09-13"
+
+summary: Interventions consignées par le Service de sécurité incendie de Montréal, avec le type d’événement, la
+  date et une localisation approximative.
+
+observation_period: Du 1er janvier 2025 au 3 septembre 2026 dans la trousse
+
+source_authors:
+- Service de sécurité incendie de Montréal

@@ -22,7 +22,7 @@ render_resource_notice_identity("demonstration-crues-saint-charles")
 Comment estimer une crue centennale avec 42 années de données ? Cette démonstration reprend les maxima annuels 1969-2010 de la station 050904 sur la rivière Saint-Charles et examine l’ajustement d’une loi lognormale.
 
 [Lire la démonstration](../demonstrations/03-crues-saint-charles.html){.dataset-button}
-[Télécharger les Quarto et les données](../demonstrations/donnees-bleues-trois-demonstrations.zip){.dataset-button .secondary download="donnees-bleues-trois-demonstrations.zip"}
+[Télécharger les fichiers Quarto et les données (ZIP)](../demonstrations/donnees-bleues-trois-demonstrations.zip){.dataset-button .secondary download="donnees-bleues-trois-demonstrations.zip"}
 :::
 
 ## Le parcours pédagogique
@@ -46,6 +46,6 @@ L’analyse ne reproduit pas la modélisation hydraulique ni les cotes d’inond
 
 Démonstration et exercices : Aurélien Nicosia, Données bleues, 2026. Aucun usage dans un cours n’est documenté pour le moment.
 
-[Source Quarto](../demonstrations/03-crues-saint-charles.qmd){download="03-crues-saint-charles.qmd"} · [Provenance, transformations et licences](../demonstrations/PROVENANCE.md) · [Rapport de Lavoie et Francoeur (2011)](https://www.ville.quebec.qc.ca/citoyens/propriete/docs/zones_inondables/saint_charles_troncon5/rapport_cotes_crues_saintcharles_VQ20140620_troncon5.pdf).
+[Fichier source Quarto](../demonstrations/03-crues-saint-charles.qmd){download="03-crues-saint-charles.qmd"} · [Provenance, transformations et licences](../demonstrations/PROVENANCE.md) · [Rapport de Lavoie et Francoeur (2011)](https://www.ville.quebec.qc.ca/citoyens/propriete/docs/zones_inondables/saint_charles_troncon5/rapport_cotes_crues_saintcharles_VQ20140620_troncon5.pdf).
 
 Textes et figures originales sous CC BY 4.0 ; code sous MIT. Les faits numériques sont transcrits et attribués au rapport CEHQ, qui n’est pas redistribué. Pour recalculer la démonstration, télécharger le dossier complet et ouvrir le projet RStudio.

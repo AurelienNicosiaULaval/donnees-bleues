@@ -9,7 +9,7 @@ embed-resources: true
 ::: {.resource-hero}
 # Applications
 
-Tutoriels interactifs, applications Shiny et outils pédagogiques : explorez les ressources, leurs auteurs et leurs usages en cours.
+Des exercices interactifs à ouvrir dans le navigateur.
 
 [Proposer une ressource](contribuer.qmd)
 :::

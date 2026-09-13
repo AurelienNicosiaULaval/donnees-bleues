@@ -17,14 +17,6 @@ source(source_path)
 render_dataset_detail_header()
 ```
 
-## Pourquoi cette source est intéressante
-
-Cette fiche ne décrit pas un CSV historique de retards déjà prêt. Elle décrit une source temps réel de la Société de transport de Montréal : le flux GTFS-realtime publié dans Données Québec pour les horaires et le positionnement des bus.
-
-Elle est très utile pédagogiquement parce qu'elle force une distinction importante en science des données : une source opérationnelle temps réel n'est pas automatiquement un jeu de données statistique. Pour analyser la ponctualité, il faut d'abord archiver des instantanés, parser le flux, ajouter un horodatage de collecte, vérifier les champs disponibles, puis documenter les règles de calcul des retards.
-
-Question d'analyse : comment construire un protocole reproductible pour mesurer la ponctualité à partir d'un flux temps réel, sans confondre données disponibles et conclusions sur la qualité du service?
-
 ## Ce qui a été vérifié
 
 | Élément | Résultat vérifié |
@@ -113,47 +105,11 @@ Ce résultat est une limite, pas un échec. Pour un cours de science des donnée
 | 6 | Résumer les retards par ligne, période et sens de déplacement. | Rapporter le nombre d'observations. |
 | 7 | Présenter les limites avant toute conclusion. | Distinguer flux observé, fréquence de collecte et performance réelle. |
 
-## Lecture statistique
+## Interprétation et contrôles
 
 Une analyse solide doit commencer par la qualité du protocole de collecte. Par exemple, un intervalle de collecte aux 30 secondes et un intervalle aux 5 minutes ne produisent pas le même jeu de données. Les lignes très fréquentes peuvent produire davantage d'observations, et les pannes de collecte peuvent créer des trous temporels qui ressemblent à des changements de service.
 
 Les comparaisons entre lignes doivent donc inclure un dénominateur clair : nombre d'observations, nombre de trajets, nombre d'arrêts, période de la journée ou distance parcourue. Sans cela, une moyenne de retard peut être difficile à interpréter.
-
-## Concepts enseignables
-
-- flux temps réel;
-- métadonnées et conditions d'accès;
-- protocole d'archivage;
-- séries temporelles irrégulières;
-- jointures entre temps réel et GTFS statique;
-- données manquantes;
-- variables dérivées;
-- qualité de service et communication prudente.
-
-## Score zéro déchet
-
-| Dimension | Score | Justification |
-|---|---:|---|
-| Contexte québécois | 3 | Source STM officielle |
-| Accessibilité pédagogique | 1 | Accès développeur requis et absence de CSV historique |
-| Qualité documentaire | 2 | Métadonnées CKAN claires, mais flux à inspecter séparément |
-| Potentiel de nettoyage | 3 | Parsing, horodatage, jointures et validation |
-| Potentiel de visualisation | 2 | Fort potentiel après archivage, mais pas immédiat |
-| Potentiel de statistique descriptive | 2 | Résumés possibles après collecte |
-| Potentiel d'inférence | 1 | Forte dépendance au protocole d'échantillonnage temporel |
-| Potentiel de modélisation | 2 | Modélisation possible si historique stable |
-| Potentiel éthique | 3 | Discussion sur service public, surveillance et interprétation |
-| Réutilisabilité | 2 | Très utile en projet avancé, moins en introduction rapide |
-
-Total : 21 sur 30.
-
-## Activité courte
-
-En 45 à 60 minutes, demander aux étudiants et étudiantes de lire les métadonnées CKAN, d'identifier ce qui est vérifiable et ce qui ne l'est pas, puis de proposer l'unité statistique d'une future table de ponctualité.
-
-## Activité longue
-
-En 2 à 3 heures, concevoir un protocole d'archivage reproductible : fréquence de collecte, durée, variables extraites, critères d'exclusion, dictionnaire de variables, limites et graphiques prévus.
 
 ## Code R minimal
 

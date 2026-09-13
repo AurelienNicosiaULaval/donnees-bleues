@@ -112,4 +112,12 @@ chart:
   y_label: Réseau public
   title: Répartition des liens école-immeuble
 date_added: "2026-06-19"
-date_updated: "2026-09-05"
+date_updated: "2026-09-13"
+
+summary: Localisation des écoles publiques et de leurs immeubles scolaires au Québec, avec leurs identifiants et
+  les ordres d’enseignement.
+
+observation_period: Répertoire de la trousse préparée en septembre 2026
+
+source_authors:
+- Ministère de l'Éducation et Ministère de l'Enseignement supérieur

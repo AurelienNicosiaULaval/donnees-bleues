@@ -33,8 +33,8 @@ status: Documentation de source et ressources de classe fournies
 pedagogical_status: pret_a_enseigner
 teacher_preparation: Extraire la trousse, ouvrir le projet RStudio, installer les packages avant la séance
   et lancer le script.
-expected_output: Les tableaux et graphiques du script, accompagnés d’une interprétation de 6 à 8 lignes répondant
-  à la question.
+expected_output: Un histogramme du ratio vélos disponibles/capacité, la proportion de stations sous 25 % et le nombre
+  de stations sans vélo, avec la date de l’instantané.
 requires_prepared_data: true
 requires_live_download: false
 recommended_use: Exercice guidé
@@ -47,10 +47,9 @@ prerequisites:
 - Savoir ouvrir un projet RStudio et exécuter un script R.
 - Reconnaître une variable, un décompte et une proportion.
 success_criteria:
-- L’unité, la période ou la portée documentaire et les variables utilisées sont nommées.
-- Vérifier le ratio vélos disponibles/capacité pour les stations de capacité positive.
-- Calculer la proportion sous 25 %, repérer les stations sans vélo et lire l’histogramme.
-- La conclusion répond à la question et explique au moins une limite précise.
+- Le ratio est calculé seulement pour les stations de capacité positive.
+- La proportion sous 25 % utilise le même ensemble de stations admissibles.
+- La conclusion date l’instantané et ne l’assimile pas à une mesure de la demande.
 adaptations:
 - Débuter avec le script exécuté par la personne enseignante, puis faire interpréter une seule sortie.
 - Pour approfondir, modifier une sélection ou un regroupement et justifier ce que cela change.
@@ -58,4 +57,4 @@ script_file: datasets/bixi/activite-courte.R
 classroom_archive: assets/classroom/bixi.zip
 access_mode: frozen
 date_added: "2026-06-01"
-date_updated: "2026-09-05"
+date_updated: "2026-09-13"

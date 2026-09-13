@@ -150,4 +150,18 @@ chart:
   y_label: Provenance de l’eau
   title: Provenance de l’eau des sites de l’extrait
 date_added: "2026-06-18"
-date_updated: "2026-09-05"
+date_updated: "2026-09-13"
+
+summary: Registre de sites de prélèvement d’eau autorisés au Québec, avec la provenance de l’eau, le volume maximal
+  autorisé et les conditions documentées.
+
+observation_period: Autorisations actives depuis le cadre du 14 août 2014
+
+essential_limits:
+- 'Le volume inscrit est un maximum autorisé, pas un prélèvement mesuré. Plusieurs sites peuvent partager une condition
+  limitant leur prélèvement total : additionner leurs volumes ne reconstitue pas cette condition.'
+- L’absence de précision textuelle ne signifie pas absence de condition administrative. Le dictionnaire indique
+  que la donnée n’a aucune valeur légale.
+
+source_authors:
+- MELCCFP

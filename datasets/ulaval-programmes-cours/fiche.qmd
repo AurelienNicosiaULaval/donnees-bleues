@@ -17,14 +17,6 @@ source(source_path)
 render_dataset_detail_header()
 ```
 
-## Pourquoi ce jeu est intéressant
-
-Cette fiche documente une intégration pédagogique de données institutionnelles de l'Université Laval structurées dans un dépôt privé. Elle ne sert pas à redistribuer les lignes de données. Elle sert à enseigner comment valider un import sensible : vérifier les comptes, les clés, la provenance, les droits et les limites de publication.
-
-Le jeu est utile parce qu'il place les étudiants et étudiantes devant une situation fréquente en science des données appliquée : les données sont utiles, structurées et vérifiables localement, mais leur republication publique n'est pas automatiquement autorisée. C'est une bonne fiche pour enseigner la différence entre source officielle, compilation indépendante, validation reproductible et diffusion publique.
-
-Question d'analyse : comment produire une validation statistique et méthodologique utile sans publier des lignes privées ni laisser croire à une approbation officielle?
-
 ## Avertissement juridique et institutionnel
 
 Cette intégration est une compilation indépendante et non officielle. Elle n'est pas un produit officiel ou approuvé par l'Université Laval.
@@ -154,31 +146,6 @@ Cette fiche est moins un jeu de données à explorer publiquement qu'un cas d'é
 5. documenter les informations non vérifiées avec `Je ne sais pas.`;
 6. garder les PDF sources hors du dépôt public;
 7. éviter de transformer une valeur manquante ou non quantifiée en zéro.
-
-## Score zéro déchet
-
-| Dimension | Score | Justification |
-|---|---:|---|
-| Contexte québécois | 3 | Université Laval |
-| Accessibilité pédagogique | 2 | Concepts lisibles, mais droits restrictifs |
-| Qualité documentaire | 3 | Manifeste, sources, dictionnaire et validations |
-| Potentiel de nettoyage | 2 | Clés, types, provenance et valeurs manquantes |
-| Potentiel de visualisation | 2 | Résumés locaux possibles, non publiés comme lignes |
-| Potentiel de statistique descriptive | 2 | Dénombrements utiles mais portée limitée |
-| Potentiel d'inférence | 1 | Listes institutionnelles, pas un échantillon aléatoire |
-| Potentiel de modélisation | 1 | Modélisation non prioritaire |
-| Potentiel éthique | 3 | Droits, provenance et statut institutionnel |
-| Réutilisabilité | 1 | Réutilisation publique limitée par les droits |
-
-Total : 20 sur 30.
-
-## Activité courte
-
-En 30 à 45 minutes, lire les résumés de validation, identifier les clés de chaque fichier core et expliquer pourquoi les champs `source_id` et `page_source` doivent rester présents.
-
-## Activité longue
-
-En 2 à 3 heures, produire un rapport méthodologique local qui résume les contrôles, les droits et les limites sans publier les lignes des CSV privés.
 
 ## Code R minimal
 

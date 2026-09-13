@@ -30,6 +30,7 @@ site_inputs <- function() {
     "lectures.qmd",
     "applications.qmd",
     "guide.qmd",
+    "charte-editoriale.qmd",
     "zero-waste.qmd",
     "activites.qmd",
     "about.qmd",

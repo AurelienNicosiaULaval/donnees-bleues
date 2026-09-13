@@ -24,6 +24,11 @@ endpoint <- Sys.getenv("CONTRIBUTION_ENDPOINT", "")
 if (nzchar(endpoint) && !grepl("^https://", endpoint)) stop("CONTRIBUTION_ENDPOINT doit utiliser HTTPS")
 recipient <- Sys.getenv("CONTRIBUTION_EMAIL", "info@donneesbleues.ca")
 if (!grepl("^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+[.][A-Za-z]{2,}$", recipient)) stop("Adresse de contribution invalide")
+if (nzchar(endpoint)) {
+  cat('<p>Ce formulaire transmet votre proposition au service de réception. Votre nom et votre courriel servent à traiter votre demande; votre courriel ne sera pas publié.</p>')
+} else {
+  cat('<p>Ce formulaire prépare un courriel. Vous pourrez relire le texte, puis l’envoyer avec votre messagerie ou le copier. Aucun message n’est envoyé automatiquement.</p>')
+}
 cat('<form id="contribution-form" class="contribution-form" data-recipient="', htmlEscape(recipient, attribute = TRUE), '" data-endpoint="', htmlEscape(endpoint, attribute = TRUE), '">', sep = '')
 ```
 
@@ -36,7 +41,7 @@ cat('<form id="contribution-form" class="contribution-form" data-recipient="', h
 <label>Auteur, autrice ou organisme producteur<input name="author" maxlength="240"></label>
 <label>Thèmes<input name="themes" maxlength="240" placeholder="Mobilité, environnement, éducation…"></label>
 <label>Cours où la ressource est utilisée<input name="courses" maxlength="400" placeholder="Sigle, titre, établissement et lien vers le cours"></label>
-<label>Description et intérêt pédagogique *<textarea name="message" required maxlength="4000" rows="5"></textarea></label>
+<label>Description de la ressource et du travail proposé *<textarea name="message" required maxlength="4000" rows="5"></textarea></label>
 <div class="honeypot" aria-hidden="true"><label>Site de contact<input name="website" tabindex="-1" autocomplete="off"></label></div>
 <label class="consent"><input name="consent" type="checkbox" required value="yes">J’accepte que mon nom et mon courriel servent à traiter cette proposition et à me répondre. Mon courriel ne sera pas publié.</label>
 <p>Ne joignez aucune donnée personnelle d’étudiant. Proposez des liens vers les documents plutôt que des pièces jointes.</p>
@@ -53,267 +58,27 @@ cat('<form id="contribution-form" class="contribution-form" data-recipient="', h
 <script src="assets/js/contribute.js"></script>
 ```
 
-```{r}
-#| echo: false
-#| results: asis
-if (nzchar(endpoint)) {
-  cat("Votre nom, votre courriel et votre proposition seront transmis au service de réception puis conservés dans la boîte de l’équipe pour traiter votre demande. Votre courriel ne sera pas publié.")
-} else {
-  cat("Le formulaire prépare un courriel à info@donneesbleues.ca. Les informations restent dans cette page jusqu’à votre envoi depuis votre messagerie.")
-}
-```
 
 ## Contribuer au code
 
-Les contributions techniques passent par le [dépôt GitHub](https://github.com/AurelienNicosiaULaval/donnees-bleues). Les indications détaillées ci-dessous servent à préparer une contribution au dépôt.
-
 <details>
-<summary>Guide pour les contributions techniques</summary>
+<summary>Préparer une contribution technique</summary>
 
-::: {.contrib-page}
+### Parcours {#parcours}
 
-::: {.contrib-hero}
-::: {.contrib-hero-copy}
+1. Consulter la [charte éditoriale](charte-editoriale.qmd).
+2. Documenter la source, l’unité d’observation, la période, la licence et les limites qui changent l’utilisation des données.
+3. Copier les gabarits adaptés au type de ressource dans le [dépôt GitHub](https://github.com/AurelienNicosiaULaval/donnees-bleues/tree/main/templates).
+4. Préparer les fichiers, les scripts et leur provenance. Une activité indique ses prérequis, sa durée, la question et le travail demandé.
+5. Exécuter les vérifications et le rendu décrits dans le [README](https://github.com/AurelienNicosiaULaval/donnees-bleues#valider-et-rendre-le-site), puis vérifier les pages et les téléchargements.
 
-## Guide technique
+### Fichiers et gabarits {#fichiers}
 
-::: {.contrib-lede}
-Contribuer à Données bleues, c'est améliorer une ressource pédagogique ouverte : ajouter une source vérifiée, documenter une limite, proposer une activité, corriger un script ou rendre une fiche plus utile en classe.
-:::
+- Fiche de données : `templates/fiche-dataset-template.qmd` et `templates/metadata-template.yml`.
+- Activité : `templates/activite-template.qmd` et `templates/activite-metadata-template.yml`, avec son script et sa trousse.
+- Document ou application : les gabarits correspondants et `templates/ressource-template.yml`.
+- Usage en classe : `templates/retour-classe-template.md`.
 
-::: {.contrib-hero-actions}
-[Voir le parcours](#parcours){.dataset-button}
-[Consulter les templates](#fichiers){.dataset-button .secondary}
-:::
-
-:::
-
-::: {.contrib-hero-panel}
-## Principe central
-
-Une contribution doit améliorer au moins une de ces dimensions : qualité pédagogique, vérifiabilité, reproductibilité, clarté des limites ou réutilisation en enseignement.
-:::
-:::
-
-::: {.contrib-section .contrib-types}
-::: {.contrib-section-heading}
-## Quatre contributions utiles
-
-Le projet n'a pas seulement besoin de nouvelles données. Les meilleures contributions rendent les données plus enseignables.
-:::
-
-::: {.contrib-type-grid}
-::: {.contrib-type-card}
-### Proposer une source
-
-Identifier un jeu de données québécois ou canadien, vérifier sa provenance, sa licence et son intérêt pédagogique.
-:::
-
-::: {.contrib-type-card}
-### Améliorer une fiche
-
-Clarifier l'unité statistique, les variables, les limites, les usages possibles ou le score zéro déchet.
-:::
-
-::: {.contrib-type-card}
-### Ajouter une activité
-
-Transformer une source en discussion de 30-45 minutes, laboratoire, étude de cas ou projet long.
-:::
-
-::: {.contrib-type-card}
-### Corriger une faiblesse
-
-Réparer un script, actualiser une URL, préciser une licence, signaler une limite ou améliorer une vérification.
-:::
-:::
-:::
-
-::: {#parcours .contrib-section .contrib-path}
-::: {.contrib-section-heading}
-## Parcours recommandé
-
-Une contribution solide commence par la source, pas par la mise en page.
-:::
-
-::: {.contrib-step-list}
-::: {.contrib-step}
-### 1. Vérifier la source
-
-Repérer l'organisme producteur, l'URL officielle, la licence, la date d'accès, le format, l'unité statistique et les limites connues.
-:::
-
-::: {.contrib-step}
-### 2. Évaluer l'intérêt pédagogique
-
-Nommer ce que la source permet d'enseigner : importation, nettoyage, visualisation, statistique descriptive, inférence, modélisation, éthique ou communication.
-:::
-
-::: {.contrib-step}
-### 3. Créer la fiche et les métadonnées
-
-Copier les templates, créer un dossier dans `datasets/`, puis remplir les champs avec des informations vérifiées. Si une information manque, écrire : Je ne sais pas.
-:::
-
-::: {.contrib-step}
-### 4. Ajouter les activités
-
-Décrire une activité courte et une activité longue comme des objets pédagogiques autonomes : question, durée, niveau, concepts, contexte, matériel et notes enseignantes.
-:::
-
-::: {.contrib-step}
-### 5. Valider localement
-
-Exécuter les scripts de vérification avant de proposer la contribution. Une fiche ne doit pas prétendre qu'une donnée existe si le script ne peut pas la télécharger ou la préparer.
-:::
-:::
-:::
-
-::: {#fichiers .contrib-section .contrib-files}
-::: {.contrib-section-heading}
-## Fichiers attendus
-
-Une contribution complète suit la structure du dépôt afin que les catalogues et les pages puissent être régénérés.
-:::
-
-::: {.contrib-file-grid}
-::: {.contrib-file-card}
-### Dossier minimal
-
-```text
-datasets/nom-du-jeu/
-  fiche.qmd
-  metadata.yml
-  activite-courte.qmd
-  activite-courte.yml
-  activite-longue.qmd
-  activite-longue.yml
-  preparation.R
-```
-:::
-
-::: {.contrib-file-card}
-### Templates utiles
-
-- `templates/fiche-dataset-template.qmd`
-- `templates/metadata-template.yml`
-- `templates/activite-template.qmd`
-- `templates/activite-metadata-template.yml`
-- `templates/retour-classe-template.md`
-- `templates/zero-waste-score-template.yml`
-:::
-:::
-:::
-
-::: {.contrib-section .contrib-quality}
-::: {.contrib-section-heading}
-## Critères de qualité
-
-La contribution doit pouvoir être relue, exécutée et adaptée par une autre personne.
-:::
-
-::: {.contrib-quality-grid}
-::: {.contrib-quality-item}
-### Source
-
-URL officielle, organisme producteur, licence ou conditions de réutilisation, date d'accès et statut de la source.
-:::
-
-::: {.contrib-quality-item}
-### Pédagogie
-
-Question directrice, concepts visés, niveau, durée, contexte, accroche et limites d'interprétation.
-:::
-
-::: {.contrib-quality-item}
-### Reproductibilité
-
-Scripts R exécutables depuis la racine du projet, chemins relatifs, dépendances explicites et résultats vérifiables.
-:::
-
-::: {.contrib-quality-item}
-### Prudence
-
-Les conclusions doivent rester compatibles avec l'unité statistique, la couverture de la source et les droits de réutilisation.
-:::
-:::
-:::
-
-::: {.contrib-section .contrib-commands}
-::: {.contrib-section-heading}
-## Commandes de vérification
-
-Avant d'ouvrir une pull request, exécuter les vérifications locales.
-:::
-
-```bash
-Rscript scripts/check_datasets.R
-Rscript scripts/build_catalogue.R
-Rscript scripts/build_activity_catalogue.R
-quarto render
-```
-
-Si une commande échoue, corriger la source du problème avant de proposer la contribution.
-:::
-
-::: {.contrib-section .contrib-pr}
-::: {.contrib-section-heading}
-## Fournir une trousse exécutable
-
-Chaque activité fournit un script R complet, déclaré dans `script_file`, et une archive dans `classroom_archive`. Le mode `access_mode` distingue les données incluses, la documentation et l’acquisition préalable. Le script doit lire les fichiers locaux et afficher ses résultats avec `print()`.
-
-Dans les métadonnées du jeu, déclarer les fichiers et colonnes autorisés dans `publication.classroom`, puis produire et tester les trousses :
-
-```bash
-Rscript scripts/build_classroom_kits.R
-Rscript scripts/check_classroom_kits.R
-Rscript scripts/render_site.R
-Rscript scripts/check_site.R
-```
-
-Les générateurs parcourent tous les jeux et nécessitent leurs tables préparées. Les tests utilisent les archives extraites et interdisent les téléchargements pendant l’analyse. Pour modifier une liste de colonnes, vérifier les conditions de la source et les besoins de l’activité. Les concepts et niveaux doivent correspondre à la taxonomie canonique; les variantes orthographiques deviennent des alias.
-
-## Proposer la contribution
-
-Pour GitHub, utiliser de préférence une URL SSH.
-:::
-
-```bash
-git remote add origin git@github.com:utilisateur/donnees-bleues.git
-git checkout -b ajout-nouveau-dataset
-git add .
-git commit -m "Ajouter une fiche de jeu de données"
-git push -u origin ajout-nouveau-dataset
-```
-
-::: {.contrib-pr-note}
-La pull request devrait expliquer la source ajoutée, l'intérêt pédagogique, les fichiers touchés, les scripts exécutés et les limites encore présentes.
-:::
-
-::: {.contrib-section .contrib-quality}
-::: {.contrib-section-heading}
-## Retour après usage en classe
-
-Une activité documentée n'est pas automatiquement testée en classe. Après une mise en œuvre, consigner la durée réelle, les obstacles, les adaptations, les productions obtenues et la recommandation de réutilisation, sans publier de renseignement personnel ou de travail étudiant.
-:::
-
-[Consigner un retour d'usage](retours-classe.qmd){.dataset-button}
-:::
-:::
-
-::: {.contrib-final}
-::: {.contrib-final-copy}
-## Une bonne contribution rend le projet plus fiable
-
-Même une petite correction est utile si elle améliore la provenance, la clarté, la reproductibilité ou l'usage en classe.
-:::
-
-::: {.contrib-final-actions}
-[Lire le cadre zéro déchet](zero-waste.qmd){.dataset-button .secondary}
-[Explorer les activités](activites.qmd){.dataset-button}
-:::
-:::
-
-:::
+Conserver les attributions et les conditions des sources. Une ressource soumise à un accès préalable ou à une restriction de redistribution doit l’indiquer près de son accès. Ne pas inclure de données personnelles étudiantes.
 
 </details>

@@ -1,8 +1,6 @@
 id: empress-of-ireland
 title: 'Empress of Ireland : classe, âge et survie'
 short_title: Empress of Ireland
-summary: 24 cellules décrivant 1 057 passagers du rapport final de 1914. Explorer les effectifs, les proportions
-  et la survie; un tableau distinct décrit les 420 membres d’équipage.
 download_url: https://raw.githubusercontent.com/AurelienNicosiaULaval/empress-of-ireland-data/v1.0.0/data_clean/empress_passengers.csv
 download_label: Télécharger les 24 cellules de passagers (CSV)
 preview_note: Les 24 cellules du tableau et cinq de ses sept variables. Une ligne représente un groupe classe ×
@@ -81,7 +79,7 @@ contributor_name: Aurélien Nicosia
 contributor_role: Transcription, vérification, activité exploratoire et adaptation à Données bleues
 courses: []
 date_added: '2026-09-07'
-date_updated: '2026-09-07'
+date_updated: "2026-09-13"
 publication:
   preview: true
   reviewed_on: '2026-09-07'
@@ -148,3 +146,24 @@ chart:
   x_label: Nombre de survivants
   y_label: 'Classe (first : 1re; second : 2e; third : 3e)'
   title: Survivants adultes de catégorie masculine, par classe
+
+summary: Effectifs regroupés de passagers de l’Empress of Ireland selon la classe, le sexe, la catégorie d’âge et
+  la survie. L’équipage et les comparaisons de sources sont présentés séparément.
+
+observation_period: Naufrage du 29 mai 1914
+
+essential_limits:
+- Les 24 lignes de la table principale sont des cellules de fréquences représentant 1 057 passagers. Compter les
+  personnes avec frequency, pas avec le nombre de lignes.
+- La table de 12 groupes représente les mêmes passagers. Ne pas additionner ces deux tables; les 420 membres d’équipage
+  restent séparés.
+- L’âge correspond à une catégorie adulte/enfant. Un groupe d’effectif nul ne donne pas de proportion de survie
+  définie. Les sources historiques présentent des écarts documentés, sans imputation de décès individuels.
+
+source_authors:
+- Commission canadienne d’enquête
+
+data_version: 1.0.0
+table_overview:
+  Passagers: "Naufrage du 29 mai 1914 sur le Saint-Laurent. 24 cellules de fréquences et 7 variables représentent 1 057 passagers, dont 217 survivants."
+  Autres tables: "12 groupes décrivent ces mêmes passagers; 6 groupes décrivent séparément 420 membres d’équipage, dont 248 survivants. Une quatrième table compare les sources historiques."

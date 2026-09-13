@@ -17,12 +17,6 @@ source(source_path)
 render_dataset_detail_header()
 ```
 
-## Pourquoi ce jeu est intéressant
-
-Ce jeu est très fort pour enseigner la cartographie responsable. Les points sont concrets, liés à des inondations réelles, mais ils ne représentent pas une zone inondée complète. Une bonne analyse doit donc distinguer un marqueur ponctuel, un événement, un niveau maximal atteint et une observation faite lors d'une visite.
-
-Il permet aussi d'introduire des notions rarement visibles dans les jeux d'introduction : précision horizontale, précision verticale, altitude mesurée, provenance, valeurs manquantes et communication du risque.
-
 ## Ce qui a été vérifié
 
 | Élément | Résultat vérifié |
@@ -126,7 +120,7 @@ L'absence d'observations pour une année ne doit pas être interprétée comme a
 
 Les variables essentielles à une première carte, soit longitude, latitude, altitude, type d'observation et date, sont complètes dans la version préparée.
 
-## Lecture statistique
+## Interprétation et contrôles
 
 Le jeu est descriptif et spatial. Une analyse correcte commence par une question limitée :
 
@@ -137,42 +131,6 @@ Le jeu est descriptif et spatial. Une analyse correcte commence par une question
 5. éviter de présenter les points comme une délimitation de zone inondée.
 
 Les résultats sont utiles pour explorer où des niveaux d'eau ont été documentés. Ils ne suffisent pas à estimer la fréquence des inondations, la population exposée ou les dommages.
-
-## Concepts enseignables
-
-- données spatiales ponctuelles;
-- événement extrême;
-- précision de mesure;
-- valeurs manquantes;
-- variable catégorielle;
-- altitude et unités;
-- cartographie exploratoire;
-- communication responsable du risque.
-
-## Score zéro déchet
-
-| Dimension | Score | Justification |
-|---|---:|---|
-| Contexte québécois | 3 | Données officielles sur des inondations au Québec |
-| Accessibilité pédagogique | 3 | Points, dates, coordonnées et types faciles à comprendre |
-| Qualité documentaire | 3 | Métadonnées CKAN, WFS, CSV, GeoJSON et page interactive |
-| Potentiel de nettoyage | 3 | Extraction de rapports, dates, valeurs manquantes et précision |
-| Potentiel de visualisation | 3 | Cartographie naturelle des observations |
-| Potentiel de statistique descriptive | 2 | Comptages et résumés utiles, mais pas une enquête probabiliste |
-| Potentiel d'inférence | 1 | Non adapté à l'inférence sans protocole complémentaire |
-| Potentiel de modélisation | 2 | Possible après ajout de couches hydrologiques ou territoriales |
-| Potentiel éthique | 3 | Risque élevé de surinterprétation en sécurité civile |
-| Réutilisabilité | 3 | Pertinent avec hydrographie, inondations, cartographie et communication |
-
-Total : 26 sur 30.
-
-## Activité courte
-
-En 30 à 45 minutes, cartographier les marqueurs, colorer par type d'observation et écrire deux limites d'interprétation.
-
-## Activité longue
-
-En 2 à 3 heures, produire un mini-rapport avec carte, tableau par année, comparaison `MAX`/`ACT`, valeurs manquantes et note de communication du risque.
 
 ## Code R minimal
 
@@ -226,14 +184,6 @@ render_dataset_minimal_result()
 - Les années avec peu ou pas de points ne doivent pas être interprétées seules.
 - Les comparaisons entre événements exigent de vérifier les rapports et les méthodes de collecte.
 - Toute communication publique doit distinguer observation ponctuelle, niveau maximal, niveau observé et risque territorial.
-
-## Extensions
-
-- Lire le GeoJSON officiel avec `sf`.
-- Joindre les points à des régions administratives ou à des bassins versants.
-- Comparer les observations `MAX` et `ACT` par année.
-- Construire une carte interactive avec une fenêtre de contexte par rapport.
-- Rédiger une note de vulgarisation sur les limites d'une carte de points en sécurité civile.
 
 ## Références utilisées
 

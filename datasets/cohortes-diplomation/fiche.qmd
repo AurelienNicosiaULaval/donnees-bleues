@@ -17,12 +17,6 @@ source(source_path)
 render_dataset_detail_header()
 ```
 
-## Pourquoi ce jeu est intéressant
-
-Ce jeu de données permet d'étudier un indicateur public d'inégalités scolaires : l'écart entre le taux de diplomation et de qualification après sept ans des élèves associés au décile 1 de l'IMSE et celui des élèves associés au décile 10. Il est bien adapté à une première activité de statistique descriptive, parce qu'il combine des taux, un écart en points de pourcentage, une série temporelle courte et une question d'interprétation sociale.
-
-La fiche doit être utilisée comme une étude de cas descriptive. Les données ne décrivent pas des élèves individuels. Elles ne permettent pas non plus d'attribuer causalement un écart de diplomation au milieu socioéconomique. L'intérêt pédagogique vient précisément de cette tension : le jeu est simple à visualiser, mais demande une communication statistique prudente.
-
 ## Ce qui a été vérifié
 
 | Élément vérifié | Résultat |
@@ -86,7 +80,7 @@ La table préparée n'est pas une base de microdonnées. Elle contient 13 observ
 | Format préparé local | CSV ignoré par Git dans `data/processed/cohortes-diplomation/` |
 | Niveau pédagogique recommandé | Introduction |
 
-## Lecture statistique
+## Interprétation et contrôles
 
 La lecture statistique minimale consiste à comparer deux séries de taux, puis à analyser l'écart. La variable centrale est `ecart_points_pourcentage`, car elle résume la différence entre les deux déciles extrêmes.
 
@@ -95,42 +89,6 @@ Une bonne interprétation doit respecter trois contraintes :
 - ne pas confondre point de pourcentage et pourcentage relatif;
 - ne pas transformer un indicateur agrégé en diagnostic individuel;
 - ne pas tirer de conclusion causale à partir d'une série de 13 observations agrégées.
-
-## Score zéro déchet
-
-| Dimension | Score | Justification |
-|---|---:|---|
-| Contexte québécois | 3 | Le jeu porte sur l'éducation au Québec. |
-| Accessibilité pédagogique | 3 | Les variables principales sont simples : deux taux et un écart. |
-| Qualité documentaire | 3 | La page officielle fournit la définition, la méthode, les limites et la date de mise à jour. |
-| Potentiel de nettoyage | 2 | L'export contient des titres et notes à exclure, mais la table utile est courte. |
-| Potentiel de visualisation | 3 | Les deux taux et l'écart se visualisent directement. |
-| Potentiel de statistique descriptive | 3 | La comparaison de groupes est immédiate. |
-| Potentiel d'inférence | 1 | L'inférence est très limitée par le caractère agrégé et le faible nombre d'observations. |
-| Potentiel de modélisation | 1 | Une tendance peut être explorée, mais pas modélisée sérieusement sans contexte additionnel. |
-| Potentiel de discussion éthique | 3 | Le jeu soulève des enjeux d'équité, de territoire et de communication responsable. |
-| Réutilisabilité dans plusieurs cours | 3 | Le jeu peut servir en statistique descriptive, visualisation et communication. |
-
-Total : 25 sur 30.
-
-## Activité courte
-
-En 30 à 45 minutes, demander aux personnes étudiantes de lire trois années scolaires, de comparer les deux taux et de formuler une phrase descriptive sur l'écart. L'objectif n'est pas de produire un modèle, mais de distinguer correctement un taux, un écart en points de pourcentage et une conclusion prudente.
-
-## Activité longue
-
-En 2 à 3 heures, demander de produire un mini-rapport avec deux graphiques : un graphique des deux taux et un graphique de l'écart. Le rapport doit inclure une section explicite sur les limites de l'indicateur.
-
-## Questions pédagogiques possibles
-
-1. Quelle est la différence entre un taux agrégé et une observation individuelle?
-2. Pourquoi l'écart est-il exprimé en points de pourcentage?
-3. Quelle information est perdue quand on compare seulement deux déciles extrêmes?
-4. Pourquoi le lieu de résidence ne doit-il pas être confondu avec la situation familiale réelle?
-5. Quels graphiques conviennent à une série d'années scolaires?
-6. Que peut-on dire descriptivement de l'évolution de l'écart?
-7. Qu'est-ce qu'on ne peut pas conclure avec ces données?
-8. Comment rédiger une conclusion qui évite la causalité abusive?
 
 ## Code R minimal
 
@@ -236,13 +194,6 @@ render_dataset_minimal_result()
 - Les écarts observés ne suffisent pas à établir une cause.
 - La série préparée contient 13 observations, ce qui limite fortement toute modélisation.
 - La réutilisation du contenu ISQ doit respecter les conditions de reproduction applicables.
-
-## Extensions
-
-- Extension intro : comparer les deux taux pour trois années scolaires.
-- Extension visualisation : représenter l'écart en points de pourcentage.
-- Extension critique : comparer ce que montre un graphique des taux et ce que montre un graphique des écarts.
-- Extension communication : rédiger une note courte qui distingue résultat descriptif et explication causale.
 
 ```{r}
 #| label: dataset-detail-footer

@@ -22,7 +22,7 @@ render_resource_notice_identity("demonstration-ilots-chaleur")
 Comment des températures continues deviennent-elles des classes sur une carte ? Cette démonstration refait le classement sur 9 806 pixels du produit cartographique INSPQ / CERFO, autour de Québec.
 
 [Lire la démonstration](../demonstrations/01-ilots-chaleur.html){.dataset-button}
-[Télécharger les Quarto et les données](../demonstrations/donnees-bleues-trois-demonstrations.zip){.dataset-button .secondary download="donnees-bleues-trois-demonstrations.zip"}
+[Télécharger les fichiers Quarto et les données (ZIP)](../demonstrations/donnees-bleues-trois-demonstrations.zip){.dataset-button .secondary download="donnees-bleues-trois-demonstrations.zip"}
 :::
 
 ## Le parcours pédagogique
@@ -46,6 +46,6 @@ Les valeurs sont des écarts de température de surface par rapport à un boisé
 
 Démonstration et exercices : Aurélien Nicosia, Données bleues, 2026. Aucun usage dans un cours n’est documenté pour le moment.
 
-[Source Quarto](../demonstrations/01-ilots-chaleur.qmd){download="01-ilots-chaleur.qmd"} · [Provenance, transformations et licences](../demonstrations/PROVENANCE.md) · [Données et rapport d’origine](https://www.donneesquebec.ca/recherche/dataset/ilots-de-chaleur-fraicheur-urbains-et-ecarts-de-temperature-relatifs-2020-2022).
+[Fichier source Quarto](../demonstrations/01-ilots-chaleur.qmd){download="01-ilots-chaleur.qmd"} · [Provenance, transformations et licences](../demonstrations/PROVENANCE.md) · [Données et rapport d’origine](https://www.donneesquebec.ca/recherche/dataset/ilots-de-chaleur-fraicheur-urbains-et-ecarts-de-temperature-relatifs-2020-2022).
 
 Textes et figures originales sous CC BY 4.0 ; code sous MIT ; données INSPQ / CERFO sous CC BY 4.0. Pour recalculer la démonstration, télécharger le dossier complet, ouvrir le projet RStudio et suivre son fichier README.

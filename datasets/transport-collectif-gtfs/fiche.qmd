@@ -17,14 +17,6 @@ source(source_path)
 render_dataset_detail_header()
 ```
 
-## Pourquoi ce jeu est intéressant
-
-Ce jeu place les étudiants devant un vrai flux GTFS statique : un ZIP officiel qui contient plusieurs fichiers texte reliés entre eux par des clés. Il force à réfléchir à l'unité statistique avant de compter, cartographier ou joindre les tables.
-
-Le RTC publie des informations sur les arrêts, les horaires et les parcours en formats GTFS et shapefile. Le GTFS est utile en science des données parce qu'il combine structure relationnelle, coordonnées spatiales, calendriers de service, valeurs codées et gros volumes de lignes.
-
-Question d'analyse : comment décrire l'offre planifiée du RTC sans la confondre avec l'achalandage ou les retards?
-
 ## Ce qui a été vérifié
 
 | Élément | Résultat vérifié |
@@ -147,9 +139,7 @@ Cette table décrit l'offre planifiée dans le flux téléchargé. Elle ne mesur
 
 Point important pour les étudiants : un code 0 n'est pas une preuve de non-accessibilité. Il indique que l'information n'est pas disponible dans ce champ GTFS.
 
-## Lecture statistique
-
-Une analyse prudente suit cet ordre :
+## Interprétation et contrôles
 
 1. choisir le fichier GTFS qui correspond à la question;
 2. identifier l'unité statistique de ce fichier;
@@ -159,42 +149,6 @@ Une analyse prudente suit cet ordre :
 6. rapporter la date du ZIP utilisé, car le flux est vivant.
 
 Les données permettent de décrire une offre planifiée publiée. Elles ne permettent pas, seules, d'estimer l'achalandage, les retards, les temps d'attente réels ou l'équité d'accès au réseau.
-
-## Concepts enseignables
-
-- importation d'un ZIP officiel;
-- lecture de fichiers texte GTFS;
-- clés primaires et clés de jointure;
-- séparation entre tables de référence et tables volumineuses;
-- coordonnées spatiales simples;
-- valeurs codées et dictionnaire de variables;
-- résumés par parcours;
-- communication prudente des limites.
-
-## Score zéro déchet
-
-| Dimension | Score | Justification |
-|---|---:|---|
-| Contexte québécois | 3 | Flux officiel du RTC pour la région de Québec |
-| Accessibilité pédagogique | 2 | Structure riche mais relationnelle |
-| Qualité documentaire | 3 | Données Québec, page RTC et documentation GTFS |
-| Potentiel de nettoyage | 3 | Dates, codes, gros fichiers et jointures |
-| Potentiel de visualisation | 3 | Cartes d'arrêts, barres, schémas relationnels |
-| Potentiel de statistique descriptive | 3 | Résumés naturels par parcours, service et code |
-| Potentiel d'inférence | 1 | Non adapté seul à l'inférence sur la demande |
-| Potentiel de modélisation | 2 | Base utile pour graphes ou accessibilité, avec données complémentaires |
-| Potentiel éthique | 3 | Risque de surinterpréter couverture, accessibilité et équité |
-| Réutilisabilité | 3 | Utile en importation, données ouvertes, transport et visualisation |
-
-Total : 26 sur 30.
-
-## Activité courte
-
-En 45 à 60 minutes, cartographier les arrêts du RTC et expliquer ce que la carte permet et ne permet pas de conclure.
-
-## Activité longue
-
-En 2 à 3 heures, construire un mini-rapport sur l'offre planifiée par parcours, en reliant `routes.txt`, `trips.txt` et `calendar_dates.txt`, puis en discutant les limites.
 
 ## Code R minimal
 
@@ -255,14 +209,6 @@ render_dataset_minimal_result()
 - Les codes d'accessibilité doivent être lus selon la spécification GTFS; le code 0 signifie information non disponible.
 - Le flux peut changer. Une analyse reproductible doit archiver la date du ZIP utilisé.
 - Pour analyser les retards, il faut une source GTFS Realtime ou une archive de temps réel, pas seulement ce ZIP statique.
-
-## Extensions
-
-- Construire une carte des arrêts avec un fond de carte municipal.
-- Comparer les parcours selon le nombre de trajets planifiés.
-- Produire un schéma relationnel des fichiers GTFS.
-- Joindre les trajets aux dates de service pour comparer jours de semaine et fins de semaine.
-- Discuter ce qu'il faudrait ajouter pour étudier l'équité territoriale ou l'achalandage.
 
 ## Références utilisées
 

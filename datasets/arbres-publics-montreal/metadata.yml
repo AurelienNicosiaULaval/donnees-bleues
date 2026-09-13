@@ -121,4 +121,11 @@ chart:
   title: Distribution du diamètre
   bins: 12
 date_added: "2026-06-18"
-date_updated: "2026-09-05"
+date_updated: "2026-09-13"
+
+summary: 'Inventaire des arbres publics de Montréal : essences, mesures, arrondissement et localisation.'
+
+observation_period: Inventaire de la trousse préparée en septembre 2026; dates de mesure variables selon l’arbre
+
+source_authors:
+- Ville de Montréal

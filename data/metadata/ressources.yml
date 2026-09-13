@@ -1,11 +1,10 @@
 - id: tutoriel-bixi
   date_added: "2026-09-05"
-  date_updated: "2026-09-05"
+  date_updated: "2026-09-13"
   type: application
   title: Tutoriel BIXI
   format: Tutoriel learnr / Shiny
-  description: Explorer les trajets BIXI à Montréal avec un tutoriel interactif en
-    R.
+  description: Exercices en R sur un échantillon de trajets BIXI de 2018 et des données météorologiques à Montréal.
   themes: Mobilité urbaine
   concepts:
   - R
@@ -60,7 +59,7 @@
 
 - id: demonstration-ilots-chaleur
   date_added: "2026-09-07"
-  date_updated: "2026-09-07"
+  date_updated: "2026-09-13"
   type: document
   title: 'Îlots de chaleur : comprendre k-means'
   format: Démonstration pédagogique · Quarto et R
@@ -79,7 +78,7 @@
 
 - id: demonstration-acp-quebec
   date_added: "2026-09-07"
-  date_updated: "2026-09-07"
+  date_updated: "2026-09-13"
   type: document
   title: 'Municipalités québécoises : comprendre une ACP'
   format: Démonstration pédagogique · Quarto et R
@@ -98,7 +97,7 @@
 
 - id: demonstration-crues-saint-charles
   date_added: "2026-09-07"
-  date_updated: "2026-09-07"
+  date_updated: "2026-09-13"
   type: document
   title: 'Crues de la Saint-Charles : comprendre une période de retour'
   format: Démonstration pédagogique · Quarto et R

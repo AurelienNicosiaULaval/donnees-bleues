@@ -17,14 +17,6 @@ source(source_path)
 render_dataset_detail_header()
 ```
 
-## Pourquoi ce jeu est intéressant
-
-Ce jeu décrit l'infrastructure de mesure du Réseau de surveillance de la qualité de l'air du Québec. Il ne donne pas directement les concentrations de polluants. Cette distinction en fait une bonne fiche pédagogique : les étudiants doivent comprendre ce qu'une donnée représente avant de produire une carte ou un graphique.
-
-Le fichier permet de travailler l'importation d'un CSV officiel, les dates d'ouverture et de fermeture, les valeurs manquantes, les catégories de milieu, les coordonnées géographiques et les limites d'un répertoire de stations.
-
-Question d'analyse : comment décrire la couverture du réseau de stations sans la confondre avec la qualité de l'air mesurée?
-
 ## Ce qui a été vérifié
 
 | Élément | Résultat vérifié |
@@ -143,9 +135,7 @@ Le grand nombre de stations ouvertes dans les années 1970 reflète l'historique
 
 La date de fermeture manquante est utile, mais elle doit être formulée précisément. Dans cette fiche, elle devient `station_sans_date_fermeture`, une règle de préparation figée à la date d'accès.
 
-## Lecture statistique
-
-Une analyse prudente suit cet ordre :
+## Interprétation et contrôles
 
 1. vérifier que l'unité est la station;
 2. distinguer les métadonnées de stations des mesures de polluants;
@@ -155,42 +145,6 @@ Une analyse prudente suit cet ordre :
 6. joindre les mesures horaires seulement si la question porte sur les concentrations.
 
 Les données permettent de décrire le répertoire des stations du RSQAQ. Elles ne permettent pas, seules, de comparer la qualité de l'air entre régions ou municipalités.
-
-## Concepts enseignables
-
-- importation d'un CSV officiel;
-- conversion de dates;
-- valeurs manquantes;
-- statut préparé reproductible;
-- tableau de fréquences;
-- carte de points;
-- couverture territoriale;
-- distinction entre infrastructure de mesure et mesure environnementale.
-
-## Score zéro déchet
-
-| Dimension | Score | Justification |
-|---|---:|---|
-| Contexte québécois | 3 | Répertoire officiel du réseau québécois |
-| Accessibilité pédagogique | 3 | Unité statistique simple et variables concrètes |
-| Qualité documentaire | 3 | Page Données Québec, API CKAN et page ministérielle |
-| Potentiel de nettoyage | 3 | Dates, valeurs manquantes, régions et statut préparé |
-| Potentiel de visualisation | 3 | Cartes, barres et séries d'ouvertures |
-| Potentiel de statistique descriptive | 3 | Résumés naturels par région, type et statut |
-| Potentiel d'inférence | 1 | Non adapté à l'inférence sur la pollution |
-| Potentiel de modélisation | 1 | Modélisation limitée sans mesures de contaminants |
-| Potentiel éthique | 3 | Risques d'interprétation publique des cartes |
-| Réutilisabilité | 3 | Utile en données ouvertes, visualisation et méthodologie |
-
-Total : 26 sur 30.
-
-## Activité courte
-
-En 30 à 45 minutes, compter les stations par type de milieu et discuter la règle utilisée pour identifier les stations sans date de fermeture.
-
-## Activité longue
-
-En 2 à 3 heures, produire un court rapport sur la couverture territoriale et temporelle du réseau, avec une carte de points et une section explicite sur les limites.
 
 ## Code R minimal
 
@@ -250,14 +204,6 @@ render_dataset_minimal_result()
 - Une station fermée ne signifie pas nécessairement une absence de surveillance actuelle dans une région.
 - Une carte de points peut donner une fausse impression de couverture si elle n'est pas accompagnée d'une discussion méthodologique.
 - Pour analyser la qualité de l'air, il faut joindre des mesures de contaminants, par exemple les données horaires continues.
-
-## Extensions
-
-- Comparer les stations sans date de fermeture et les stations fermées par région.
-- Construire une visualisation des ouvertures par décennie.
-- Produire une carte simple avec `ggplot2`.
-- Joindre le résumé journalier de la fiche `qualite-air-horaire`.
-- Rédiger une note expliquant la différence entre réseau de mesure, station, contaminant et observation horaire.
 
 ## Références utilisées
 

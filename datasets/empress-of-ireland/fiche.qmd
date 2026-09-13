@@ -17,18 +17,8 @@ source(if (file.exists("R/utils_dataset_page.R")) "R/utils_dataset_page.R" else 
 render_dataset_detail_header()
 ```
 
-## Compter les personnes derrière les tableaux
+## Dictionnaires et documents de contrôle
 
-Le rapport final de la Commission d’enquête sur le naufrage de l’Empress of Ireland, survenu dans le Saint-Laurent le 29 mai 1914, fournit des effectifs par classe, sexe et catégorie adulte/enfant. Le jeu pédagogique reprend ces tableaux dans un format adapté à R : 24 cellules décrivent 1 057 passagers, dont 217 survivants selon ce rapport.
-
-Ce format rappelle le tableau `Titanic` fourni dans R. Il permet de travailler les tableaux de contingence, les proportions conditionnelles et, en prolongement, la régression binomiale sur comptes. Les catégories historiques et les circonstances des deux naufrages ne sont pas supposées identiques.
-
-Aurélien Nicosia a transcrit et vérifié la [version 1.0.0](https://github.com/AurelienNicosiaULaval/empress-of-ireland-data/releases/tag/v1.0.0) contre les images du rapport et ses marges de contrôle. Il s’agit de données historiques préparées pour l’enseignement, pas d’une nouvelle collecte ni d’une liste individuelle entièrement réconciliée.
-
-## Télécharger et commencer
-
-- [Tableau principal : 24 cellules et 7 variables (CSV)](https://raw.githubusercontent.com/AurelienNicosiaULaval/empress-of-ireland-data/v1.0.0/data_clean/empress_passengers.csv).
-- [Activité avec trousse RStudio, trois graphiques et six exercices corrigés](activite-courte.qmd).
 - [Dictionnaire des quatre tables](https://github.com/AurelienNicosiaULaval/empress-of-ireland-data/blob/v1.0.0/DICTIONNAIRE.md).
 - [Extrait de trois pages du rapport historique (PDF)](https://raw.githubusercontent.com/AurelienNicosiaULaval/empress-of-ireland-data/v1.0.0/references/inquiry_tables_excerpt.pdf).
 - [Trousse source avec activité autonome et fichiers de provenance](https://github.com/AurelienNicosiaULaval/empress-of-ireland-data/releases/download/v1.0.0/empress-of-ireland-classe-v1.0.0.zip).
@@ -65,15 +55,9 @@ Quatre cellules ont un effectif nul. Les deux cellules des garçons de première
 render_dataset_minimal_result()
 ```
 
-Le graphique ci-dessus montre un sous-groupe explicitement choisi dans le tableau : les survivants adultes de catégorie masculine. L’activité présente aussi les effectifs et proportions pour l’ensemble des passagers, puis les comparaisons par classe, sexe et catégorie d’âge.
+## Portée statistique
 
-## Activité et portée statistique
-
-L’activité [Compter les personnes derrière les tableaux](activite-courte.qmd) demande un tableau de contingence, deux graphiques et six réponses courtes. Elle fait comparer les 133 survivants sur 717 passagers de troisième classe aux 36 sur 87 de première classe. Le classement selon les nombres diffère du classement selon les proportions.
-
-Le prolongement ajuste une régression binomiale sur les 11 groupes non vides. Le modèle résume les associations de ce tableau historique. Il ne démontre pas un effet causal ni une performance prédictive sur d’autres traversées. Le jeu décrit un seul événement, sans échantillonnage aléatoire de naufrages.
-
-La grille de réutilisation est une appréciation éditoriale : la documentation, les tableaux croisés et les proportions sont les principaux usages. Le petit jeu offre peu de nettoyage; l’inférence et la généralisation demandent des hypothèses supplémentaires. Le code est exécuté techniquement; l’efficacité de l’activité en classe n’a pas été évaluée.
+Le prolongement de l’activité ajuste une régression binomiale sur les 11 groupes non vides. Le modèle résume les associations de ce tableau historique. Il ne démontre pas un effet causal ni une performance prédictive sur d’autres traversées. Le jeu décrit un seul événement, sans échantillonnage aléatoire de naufrages.
 
 ## Sources et limites historiques
 

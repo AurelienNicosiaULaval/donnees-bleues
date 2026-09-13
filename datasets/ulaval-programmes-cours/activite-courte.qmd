@@ -41,13 +41,17 @@ Source : [Université Laval, Bureau de la qualité des programmes](https://www.b
 3. Distinguer un contrôle prévu d’un contrôle effectivement exécuté sur des fichiers disponibles.
 4. Rédiger une réponse à la question en nommant l’unité observée et une limite de la source.
 
-## Résultat attendu
-
-Un tableau de contrôle et une note de décision répondant à la question.
 
 ## Limites à faire nommer
 
 Les données privées ne sont pas distribuées. Les nombres attendus sont des références de manifeste; les valeurs observées absentes restent inconnues.
+
+```{r}
+#| label: activity-pedagogical-contract
+#| echo: false
+#| results: asis
+render_activity_contract()
+```
 
 ## Code complet
 
@@ -58,11 +62,4 @@ Ce script complet est celui de la trousse. Il lit les fichiers locaux et affiche
 #| echo: false
 #| results: asis
 render_activity_code()
-```
-
-```{r}
-#| label: activity-pedagogical-contract
-#| echo: false
-#| results: asis
-render_activity_contract()
 ```

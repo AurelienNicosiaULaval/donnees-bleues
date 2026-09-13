@@ -114,4 +114,12 @@ publication:
       - n_core_expected_rows
       - n_ges_expected_rows
 date_added: "2026-06-19"
-date_updated: "2026-09-05"
+date_updated: "2026-09-13"
+
+summary: Documentation d’une compilation indépendante de programmes, cours et indicateurs de l’Université Laval.
+  Les données institutionnelles privées ne sont pas redistribuées.
+
+observation_period: Périodes distinctes selon les fichiers institutionnels, détaillées dans la documentation
+
+source_authors:
+- Université Laval

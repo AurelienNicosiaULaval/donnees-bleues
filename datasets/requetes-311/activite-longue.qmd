@@ -41,13 +41,17 @@ Source : [Données Québec / Ville de Montréal](https://www.donneesquebec.ca/re
 3. Comparer les délais médians de changement de statut par arrondissement et les effectifs de délais connus.
 4. Rédiger une réponse à la question en nommant l’unité observée et une limite de la source.
 
-## Résultat attendu
-
-Les tableaux et graphiques du script, accompagnés d’une interprétation de 6 à 8 lignes répondant à la question.
 
 ## Limites à faire nommer
 
 Il s’agit d’un échantillon de demandes, pas d’un recensement des problèmes. Un délai de changement de statut n’est pas nécessairement un délai de résolution.
+
+```{r}
+#| label: activity-pedagogical-contract
+#| echo: false
+#| results: asis
+render_activity_contract()
+```
 
 ## Code complet
 
@@ -58,11 +62,4 @@ Ce script complet est celui de la trousse. Il lit les fichiers locaux et affiche
 #| echo: false
 #| results: asis
 render_activity_code()
-```
-
-```{r}
-#| label: activity-pedagogical-contract
-#| echo: false
-#| results: asis
-render_activity_contract()
 ```

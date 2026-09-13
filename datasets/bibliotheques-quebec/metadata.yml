@@ -128,4 +128,12 @@ chart:
   y_label: Prêts en 2024 (nombre)
   title: Population desservie et prêts
 date_added: "2026-06-01"
-date_updated: "2026-09-05"
+date_updated: "2026-09-13"
+
+summary: Fréquentation, prêts, usagers inscrits, population desservie et dépenses des bibliothèques publiques québécoises
+  dans la ressource annuelle 2024.
+
+observation_period: '2024'
+
+source_authors:
+- Bibliothèque et Archives nationales du Québec

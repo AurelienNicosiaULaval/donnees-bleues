@@ -41,13 +41,17 @@ Source : [Données Québec / MELCCFP](https://www.donneesquebec.ca/recherche/dat
 3. Lire la série des médianes en mg/l et annoncer la période de suivi.
 4. Rédiger une réponse à la question en nommant l’unité observée et une limite de la source.
 
-## Résultat attendu
-
-Les tableaux et graphiques du script, accompagnés d’une interprétation de 6 à 8 lignes répondant à la question.
 
 ## Limites à faire nommer
 
 La couverture des stations et périodes de suivi varie. Une évolution de médianes ne suffit pas à attribuer une cause à un changement de qualité de l’eau.
+
+```{r}
+#| label: activity-pedagogical-contract
+#| echo: false
+#| results: asis
+render_activity_contract()
+```
 
 ## Code complet
 
@@ -58,11 +62,4 @@ Ce script complet est celui de la trousse. Il lit les fichiers locaux et affiche
 #| echo: false
 #| results: asis
 render_activity_code()
-```
-
-```{r}
-#| label: activity-pedagogical-contract
-#| echo: false
-#| results: asis
-render_activity_contract()
 ```

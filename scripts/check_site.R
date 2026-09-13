@@ -50,7 +50,7 @@ for (item in resource_catalogue()) {
   page <- file.path(root, item$url)
   doc <- documents[[page]]
   identity <- xml2::xml_find_all(doc, paste0('//*[@data-resource-type="', item$type, '"]'))
-  dates <- xml2::xml_attr(xml2::xml_find_all(identity, './/time'), 'datetime')
+  dates <- xml2::xml_attr(xml2::xml_find_all(doc, '//main//dl[contains(@class,"resource-dates")]//time'), 'datetime')
   title <- xml2::xml_find_all(doc, '//*[contains(concat(" ", normalize-space(@class), " "), " resource-detail-header ")]//h1')
   if (length(identity) != 1L || length(title) != 1L ||
       !identical(dates, c(item$date_added, item$date_updated))) {

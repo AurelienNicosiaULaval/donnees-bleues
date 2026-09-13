@@ -140,4 +140,12 @@ chart:
   title: Distribution de l’IQBP médian
   binwidth: 10
 date_added: "2026-06-18"
-date_updated: "2026-09-05"
+date_updated: "2026-09-13"
+
+summary: Statistiques de qualité de l’eau par station et année de fin de suivi, accompagnées d’informations sur
+  les aires de drainage.
+
+observation_period: Années de fin de suivi de 2000 à 2024
+
+source_authors:
+- Ministère de l'Environnement, de la Lutte contre les changements climatiques, de la Faune et des Parcs

@@ -36,8 +36,8 @@ status: Documentation de source et ressources de classe fournies
 pedagogical_status: pret_a_enseigner
 teacher_preparation: Extraire la trousse, ouvrir le projet RStudio, installer les packages avant la séance
   et lancer le script.
-expected_output: Les tableaux et graphiques du script, accompagnés d’une interprétation de 6 à 8 lignes répondant
-  à la question.
+expected_output: La corrélation et le nuage des deux indices diffusés, avec le nombre d’écoles retenues et la distinction
+  entre valeurs diffusées et non diffusées.
 requires_prepared_data: true
 requires_live_download: false
 recommended_use: Laboratoire guidé
@@ -61,4 +61,4 @@ script_file: datasets/defavorisation-ecoles-primaires/activite-courte.R
 classroom_archive: assets/classroom/defavorisation-ecoles-primaires.zip
 access_mode: frozen
 date_added: "2026-06-20"
-date_updated: "2026-09-05"
+date_updated: "2026-09-13"

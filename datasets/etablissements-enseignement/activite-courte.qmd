@@ -41,13 +41,17 @@ Source : [Données Québec / Ministère de l'Éducation et Ministère de l'Ensei
 3. Restreindre la carte à la ressource public_ecole, où un point représente un lien école-immeuble.
 4. Rédiger une réponse à la question en nommant l’unité observée et une limite de la source.
 
-## Résultat attendu
-
-Les tableaux et graphiques du script, accompagnés d’une interprétation de 6 à 8 lignes répondant à la question.
 
 ## Limites à faire nommer
 
 Additionner des ressources de niveaux différents ne donne pas un nombre d’établissements uniques. Une région manquante n’est pas une absence d’établissement.
+
+```{r}
+#| label: activity-pedagogical-contract
+#| echo: false
+#| results: asis
+render_activity_contract()
+```
 
 ## Code complet
 
@@ -58,11 +62,4 @@ Ce script complet est celui de la trousse. Il lit les fichiers locaux et affiche
 #| echo: false
 #| results: asis
 render_activity_code()
-```
-
-```{r}
-#| label: activity-pedagogical-contract
-#| echo: false
-#| results: asis
-render_activity_contract()
 ```

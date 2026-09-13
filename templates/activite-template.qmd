@@ -28,7 +28,10 @@ render_activity_resources()
 
 ## Contexte
 
-Nommer la source, l’unité statistique et la période d’observation. Relier la fiche du jeu.
+Nommer le fichier utilisé et relier sa fiche. Ne reprendre que les précisions nécessaires aux consignes.
+
+<!-- La question, la production attendue et les prérequis viennent du fichier YAML.
+Les consignes donnent les étapes; les critères décrivent comment vérifier le résultat. -->
 
 ## Consignes
 
@@ -37,13 +40,16 @@ Nommer la source, l’unité statistique et la période d’observation. Relier 
 3. Indiquer la comparaison ou la visualisation attendue.
 4. Répondre à la question avec une limite précise de la source.
 
-## Résultat attendu
-
-Décrire les sorties du script et la production à remettre.
-
 ## Limites à faire nommer
 
 Nommer les limites propres à la source, aux unités, aux dénominateurs et aux valeurs manquantes.
+
+```{r}
+#| label: activity-pedagogical-contract
+#| echo: false
+#| results: asis
+render_activity_contract()
+```
 
 ## Code complet
 
@@ -54,11 +60,4 @@ Le script R associé doit être complet, lire des fichiers locaux et afficher se
 #| echo: false
 #| results: asis
 render_activity_code()
-```
-
-```{r}
-#| label: activity-pedagogical-contract
-#| echo: false
-#| results: asis
-render_activity_contract()
 ```

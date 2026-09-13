@@ -17,12 +17,6 @@ source(source_path)
 render_dataset_detail_header()
 ```
 
-## Pourquoi ce jeu est intéressant
-
-Ce dossier réunit trois jeux officiels de la Ville de Québec : les permis délivrés, les empreintes de bâtiments et les quartiers. Il permet de travailler un cas réaliste d'intégration de données municipales, avec nettoyage de noms de variables, géométries, jointure spatiale et agrégation par quartier.
-
-Le fichier préparé `quebec_construction_quartiers.csv` donne une entrée pédagogique directe pour analyser l'activité administrative liée aux permis et certains aspects de la forme bâtie selon les quartiers.
-
 ## Sources
 
 | Jeu | Organisme producteur | URL | Licence | Date de téléchargement |
@@ -100,23 +94,6 @@ Le script `preparation.R` :
 7. écrit l'agrégat `quebec_construction_quartiers.csv`;
 8. écrit les fichiers de documentation locale.
 
-## Score zero waste dataset
-
-| Dimension | Score | Justification |
-|---|---:|---|
-| Contexte québécois | 3 | Les trois sources décrivent directement la Ville de Québec. |
-| Accessibilité pédagogique | 3 | Les permis, bâtiments et quartiers sont concrets pour des étudiantes et étudiants. |
-| Qualité documentaire | 3 | Les ressources Données Québec décrivent les principales variables et la licence. |
-| Potentiel de nettoyage | 3 | Les données demandent nettoyage de noms, dates, géométries et appariement. |
-| Potentiel de visualisation | 3 | Les quartiers se prêtent aux cartes et aux graphiques comparatifs. |
-| Potentiel de statistique descriptive | 3 | Les comptes, densités et ratios sont directement exploitables. |
-| Potentiel d'inférence | 1 | Les données sont administratives et descriptives; elles ne forment pas un échantillon probabiliste. |
-| Potentiel de modélisation | 2 | Des modèles exploratoires sont possibles, avec prudence sur la causalité et la couverture spatiale. |
-| Potentiel de discussion éthique | 2 | Les données portent sur le territoire urbain et peuvent soutenir une discussion sur l'interprétation des quartiers. |
-| Réutilisabilité dans plusieurs cours | 3 | Le dossier couvre nettoyage, données spatiales, agrégation, visualisation et communication. |
-
-Total : 26 sur 30.
-
 ## Code R minimal
 
 ```{r}
@@ -162,14 +139,6 @@ render_dataset_minimal_result()
 - Certains permis et bâtiments ne tombent dans aucun quartier officiel. Ils ne sont pas forcés dans un quartier.
 - Les superficies de bâtiments sont calculées à partir des géométries publiées; elles ne remplacent pas une mesure cadastrale ou architecturale officielle.
 - Les données décrivent des objets et événements administratifs; elles ne permettent pas d'établir des effets causaux sur le développement urbain.
-
-## Activité courte
-
-En 30 à 45 minutes, faire classer les quartiers selon le nombre de permis par kilomètre carré et produire un graphique des dix quartiers les plus élevés.
-
-## Activité longue
-
-En 2 à 3 heures, faire produire un court rapport qui compare l'activité de permis et la forme bâtie dans les quartiers, avec une section obligatoire sur les limites des données disponibles.
 
 ```{r}
 #| label: dataset-detail-footer

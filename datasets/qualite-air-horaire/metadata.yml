@@ -161,4 +161,11 @@ chart:
   y_label: Concentration moyenne de PM2,5 (µg/m³)
   title: PM2,5 aux jours retenus à Radisson
 date_added: "2026-06-19"
-date_updated: "2026-09-05"
+date_updated: "2026-09-13"
+
+summary: Mesures de contaminants du RSQAQ en 2025, avec des résumés journaliers préparés par station et contaminant.
+
+observation_period: '2025'
+
+source_authors:
+- MELCCFP / RSQAQ

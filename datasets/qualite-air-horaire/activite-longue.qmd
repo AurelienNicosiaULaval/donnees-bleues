@@ -41,13 +41,17 @@ Source : [Données Québec / MELCCFP / RSQAQ](https://www.donneesquebec.ca/reche
 3. Examiner les séries PM2.5 et les résumés des journées élevées, avec leur nombre d’heures valides.
 4. Rédiger une réponse à la question en nommant l’unité observée et une limite de la source.
 
-## Résultat attendu
-
-Les tableaux et graphiques du script, accompagnés d’une interprétation de 6 à 8 lignes répondant à la question.
 
 ## Limites à faire nommer
 
 Les PM2,5-T640 sont exprimées en µg/m³. Les jours sont regroupés en HNE (UTC-5 fixe) à partir de la fin des intervalles horaires, avec au moins 18 heures valides. Ce filtre pédagogique ne constitue pas une évaluation réglementaire ou sanitaire.
+
+```{r}
+#| label: activity-pedagogical-contract
+#| echo: false
+#| results: asis
+render_activity_contract()
+```
 
 ## Code complet
 
@@ -58,11 +62,4 @@ Ce script complet est celui de la trousse. Il lit les fichiers locaux et affiche
 #| echo: false
 #| results: asis
 render_activity_code()
-```
-
-```{r}
-#| label: activity-pedagogical-contract
-#| echo: false
-#| results: asis
-render_activity_contract()
 ```

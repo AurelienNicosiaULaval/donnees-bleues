@@ -120,4 +120,12 @@ chart:
   y_label: Catégorie
   title: Catégories des actes de l’extrait
 date_added: "2026-06-18"
-date_updated: "2026-09-05"
+date_updated: "2026-09-13"
+
+summary: Actes criminels consignés dans le jeu ouvert du SPVM, avec leur catégorie, leur date, leur quart et une
+  localisation partielle.
+
+observation_period: Du 1er janvier 2015 au 2 septembre 2026 dans la trousse; année 2026 partielle
+
+source_authors:
+- Ville de Montréal / SPVM

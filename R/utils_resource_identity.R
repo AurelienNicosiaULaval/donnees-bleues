@@ -50,8 +50,8 @@ resource_dates_html <- function(metadata, compact = FALSE) {
     '" aria-label="Dates de la fiche dans le répertoire">', paste(rows, collapse = ""), '</dl>')
 }
 
-resource_identity_html <- function(metadata, type) {
+resource_identity_html <- function(metadata, type, show_dates = TRUE) {
   paste0('<div class="resource-identity" data-resource-type="', type,
     '" data-resource-id="', resource_identity_escape(metadata$id), '">',
-    resource_type_badge(type), resource_dates_html(metadata), '</div>')
+    resource_type_badge(type), if (show_dates) resource_dates_html(metadata) else "", '</div>')
 }

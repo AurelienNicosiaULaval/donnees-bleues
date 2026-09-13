@@ -41,13 +41,17 @@ Source : [UlavalSSD::MeteoQuebec, construit avec weathercan à partir d'ECCC](ht
 3. Comparer les distributions de température moyenne quotidienne en degrés Celsius.
 4. Rédiger une réponse à la question en nommant l’unité observée et une limite de la source.
 
-## Résultat attendu
-
-Les tableaux et graphiques du script, accompagnés d’une interprétation de 6 à 8 lignes répondant à la question.
 
 ## Limites à faire nommer
 
 Les jours sans mesure ne sont pas des zéros. Une station et une période limitée ne suffisent pas à caractériser le climat de tout le Québec.
+
+```{r}
+#| label: activity-pedagogical-contract
+#| echo: false
+#| results: asis
+render_activity_contract()
+```
 
 ## Code complet
 
@@ -58,11 +62,4 @@ Ce script complet est celui de la trousse. Il lit les fichiers locaux et affiche
 #| echo: false
 #| results: asis
 render_activity_code()
-```
-
-```{r}
-#| label: activity-pedagogical-contract
-#| echo: false
-#| results: asis
-render_activity_contract()
 ```

@@ -1,7 +1,6 @@
 id: arbres-quebec
 title: 'Arbres du Québec : quatre espèces forestières'
 short_title: Arbres du Québec
-summary: '200 arbres mesurés au Québec, quatre espèces forestières et 21 variables. Un petit jeu pour explorer les diamètres, les hauteurs et les valeurs manquantes.'
 download_url: https://raw.githubusercontent.com/AurelienNicosiaULaval/arbres_quebec/v1.0.0/data_clean/arbres_quebec_small.csv
 download_label: 'Télécharger les 200 arbres (CSV)'
 preview_note: 'Aperçu de 120 arbres et de huit variables du jeu pédagogique dérivé, version 1.0.0. Le téléchargement complet contient 200 arbres et 21 variables.'
@@ -74,4 +73,22 @@ chart:
   y_label: Hauteur observée (m)
   title: Diamètre et hauteur dans l’extrait pédagogique
 date_added: "2026-09-05"
-date_updated: "2026-09-05"
+date_updated: "2026-09-13"
+
+summary: 200 arbres provenant de 200 placettes du Québec. Les mesures comprennent le diamètre, la hauteur observée
+  et l’âge lorsqu’il est disponible.
+
+observation_period: Relevés de 2015 à 2025
+
+essential_limits:
+- Les 50 arbres par espèce sont imposés par la sélection. Ils ne permettent pas d’estimer les proportions des espèces
+  au Québec; la représentativité provinciale des moyennes n’est pas établie.
+- L’âge manque pour 52 arbres, dont les 50 érables rouges. Supprimer ces lignes retirerait une espèce entière. L’âge
+  publié n’est pas nécessairement l’âge total de l’arbre.
+- La surface terrière est calculée à partir du diamètre et ne constitue pas une troisième mesure morphologique distincte.
+
+source_authors:
+- MRNF
+- VASCAN
+
+data_version: 1.0.0

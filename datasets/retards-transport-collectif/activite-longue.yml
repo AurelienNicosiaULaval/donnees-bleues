@@ -37,7 +37,8 @@ status: Documentation de source et ressources de classe fournies
 pedagogical_status: pret_a_enseigner
 teacher_preparation: Extraire la trousse, ouvrir le projet RStudio, installer les packages avant la séance
   et lancer le script.
-expected_output: Un tableau de contrôle et une note de décision répondant à la question.
+expected_output: Un classement des champs par message GTFS Realtime et un protocole d’archivage avec ses points
+  de contrôle.
 requires_prepared_data: true
 requires_live_download: false
 recommended_use: Audit de source
@@ -61,4 +62,4 @@ script_file: datasets/retards-transport-collectif/activite-longue.R
 classroom_archive: assets/classroom/retards-transport-collectif.zip
 access_mode: documentation
 date_added: "2026-06-19"
-date_updated: "2026-09-05"
+date_updated: "2026-09-13"

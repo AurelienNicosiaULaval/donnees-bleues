@@ -17,14 +17,6 @@ source(source_path)
 render_dataset_detail_header()
 ```
 
-## Pourquoi ce jeu est intéressant
-
-Ce jeu est utilisé dans l'aventure 9 de STT-1100 pour travailler la prédiction, les biais algorithmiques et l'interprétation prudente des indicateurs éducatifs. Il est très pédagogique parce que les variables sont peu nombreuses, mais les enjeux statistiques, sociaux et éthiques sont réels.
-
-L’activité décrit l’association de l’IMSE avec le SFR et le nombre d’élèves au moyen d’une régression exploratoire. Elle n’évalue pas une performance prédictive et ne mesure pas un effet causal.
-
-Cette fiche doit être utilisée comme une étude de cas en statistique descriptive, modélisation exploratoire et communication responsable. Elle ne doit pas servir à produire un classement public simpliste des écoles.
-
 ## Ce qui a été vérifié
 
 | Élément vérifié | Résultat |
@@ -104,7 +96,7 @@ Les lignes avec `Diffusion == "NON"` ne sont pas des observations numériques or
 | Format préparé local | CSV ignoré par Git dans `data/processed/defavorisation-ecoles-primaires/` |
 | Niveau pédagogique recommandé | Introduction à intermédiaire |
 
-## Lecture statistique
+## Interprétation et contrôles
 
 La première lecture doit séparer trois objets différents : les indices numériques, les rangs déciles et la variable de diffusion. Les rangs déciles donnent une position relative. Ils ne disent pas que deux écoles d'un même décile sont identiques, ni que l'écart entre deux déciles est constant.
 
@@ -146,52 +138,6 @@ Il est ajusté uniquement sur les 1 895 lignes diffusées.
 | Écart-type résiduel | 3,56 |
 
 Ce résultat montre une association positive entre `SFR` et `IMSE`, mais le modèle explique une fraction limitée de la variabilité. Il est donc utile pour enseigner la prédiction et les résidus, mais il ne suffit pas pour justifier une décision sur une école.
-
-## Score zéro déchet
-
-| Dimension | Score | Justification |
-|---|---:|---|
-| Contexte québécois | 3 | Le jeu porte sur les écoles primaires publiques du Québec. |
-| Accessibilité pédagogique | 3 | Les variables principales sont lisibles et directement utilisables en R. |
-| Qualité documentaire | 3 | Le portail expose la ressource, la licence, la fréquence et les définitions principales. |
-| Potentiel de nettoyage | 2 | Le nettoyage est limité, mais la variable `Diffusion` exige une décision d'analyse explicite. |
-| Potentiel de visualisation | 3 | Les déciles, les distributions et les relations entre indices se visualisent clairement. |
-| Potentiel de statistique descriptive | 3 | Les tableaux par décile et les résumés numériques sont immédiats. |
-| Potentiel d'inférence | 1 | L'inférence causale ou populationnelle est fortement limitée par la nature administrative des indicateurs. |
-| Potentiel de modélisation | 3 | Le jeu est utile pour introduire la régression et les limites d'un modèle prédictif simple. |
-| Potentiel de discussion éthique | 3 | Les indicateurs touchent des écoles nommées et exigent une communication responsable. |
-| Réutilisabilité dans plusieurs cours | 3 | Le jeu convient à STT-1100, visualisation, modélisation et éthique des données. |
-
-Total : 27 sur 30.
-
-## Concepts enseignables
-
-- variables numériques et catégorielles;
-- valeurs manquantes et diffusion partielle;
-- rangs déciles et comparaison relative;
-- régression linéaire simple;
-- prédiction et extrapolation;
-- biais algorithmiques;
-- communication responsable d'indicateurs sensibles.
-
-## Activité courte
-
-En 60 à 90 minutes, demander aux personnes étudiantes de lire le CSV, de distinguer les lignes diffusées et non diffusées, puis de produire un nuage de points `SFR` selon `IMSE`. La conclusion doit expliquer pourquoi les lignes non diffusées ne doivent pas être traitées comme de simples valeurs manquantes.
-
-## Activité longue
-
-En 2 à 3 heures, demander un mini-rapport reproductible avec un modèle linéaire, un graphique des résidus, une validation simple par séparation entraînement-test et une section éthique sur l'utilisation possible d'une prédiction dans un contexte scolaire.
-
-## Questions pédagogiques possibles
-
-1. Quelle est l'unité statistique de la table?
-2. Pourquoi faut-il filtrer `Diffusion == "OUI"` avant d'ajuster le modèle?
-3. Quelle différence y a-t-il entre `IMSE` et `Rang_Decile_IMSE`?
-4. Pourquoi un rang décile ne doit-il pas être traité comme une mesure continue ordinaire?
-5. Que signifie une corrélation positive entre `SFR` et `IMSE`?
-6. Pourquoi le coefficient de `Nbre_Eleves` ne doit-il pas être interprété causalement?
-7. Quelle information est perdue quand on regroupe seulement les déciles 8 à 10?
-8. Quelle phrase de conclusion serait statistiquement prudente et socialement responsable?
 
 ## Code R minimal
 
@@ -267,14 +213,6 @@ render_dataset_minimal_result()
 - Les noms d'écoles sont publics, mais il faut éviter une mise en évidence inutilement stigmatisante dans les travaux.
 - Les rangs déciles sont des positions relatives; ils ne sont pas des mesures à intervalles constants.
 - Les conclusions doivent séparer performance statistique, interprétation sociale et prudence éthique.
-
-## Extensions
-
-- Extension intro : décrire la distribution de `IMSE`, `SFR` et `Nbre_Eleves`.
-- Extension visualisation : comparer les distributions de `IMSE` par décile SFR.
-- Extension modélisation : comparer un modèle linéaire et un arbre de régression simple.
-- Extension validation : ajouter une séparation entraînement-test et calculer RMSE et MAE.
-- Extension communication scientifique : écrire une note sur les limites d'une décision automatisée dans un contexte scolaire.
 
 ```{r}
 #| label: dataset-detail-footer

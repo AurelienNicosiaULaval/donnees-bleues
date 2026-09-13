@@ -22,7 +22,7 @@ render_resource_notice_identity("demonstration-acp-quebec")
 Six indicateurs décrivent-ils six dimensions différentes ? À partir du recensement de 2021, cette démonstration construit les variables puis réalise une analyse en composantes principales sur 661 subdivisions de recensement québécoises d’au moins 1 000 habitants.
 
 [Lire la démonstration](../demonstrations/02-acp-quebec.html){.dataset-button}
-[Télécharger les Quarto et les données](../demonstrations/donnees-bleues-trois-demonstrations.zip){.dataset-button .secondary download="donnees-bleues-trois-demonstrations.zip"}
+[Télécharger les fichiers Quarto et les données (ZIP)](../demonstrations/donnees-bleues-trois-demonstrations.zip){.dataset-button .secondary download="donnees-bleues-trois-demonstrations.zip"}
 :::
 
 ## Le parcours pédagogique
@@ -46,6 +46,6 @@ Les résultats décrivent des territoires. Ils n’établissent ni des caractér
 
 Démonstration et exercices : Aurélien Nicosia, Données bleues, 2026. Aucun usage dans un cours n’est documenté pour le moment.
 
-[Source Quarto](../demonstrations/02-acp-quebec.qmd){download="02-acp-quebec.qmd"} · [Provenance, transformations et licences](../demonstrations/PROVENANCE.md) · [Article de Pampalon et collaborateurs (2014)](https://doi.org/10.24095/hpcdp.34.1.03f) · [Profil du Recensement de 2021](https://www12.statcan.gc.ca/census-recensement/2021/dp-pd/prof/details/download-telecharger.cfm?Lang=F).
+[Fichier source Quarto](../demonstrations/02-acp-quebec.qmd){download="02-acp-quebec.qmd"} · [Provenance, transformations et licences](../demonstrations/PROVENANCE.md) · [Article de Pampalon et collaborateurs (2014)](https://doi.org/10.24095/hpcdp.34.1.03f) · [Profil du Recensement de 2021](https://www12.statcan.gc.ca/census-recensement/2021/dp-pd/prof/details/download-telecharger.cfm?Lang=F).
 
 Textes et figures originales sous CC BY 4.0 ; code sous MIT ; données sous la Licence ouverte de Statistique Canada. L’adaptation ne constitue pas une approbation de ce produit par Statistique Canada. Pour recalculer la démonstration, télécharger le dossier complet et ouvrir le projet RStudio.

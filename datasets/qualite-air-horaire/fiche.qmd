@@ -17,12 +17,6 @@ source(source_path)
 render_dataset_detail_header()
 ```
 
-## Pourquoi ce jeu est intéressant
-
-Ce jeu met les étudiants devant une source environnementale québécoise réelle, volumineuse et imparfaite. Il est idéal pour enseigner les séries temporelles, les valeurs manquantes, les résumés journaliers et la visualisation prudente d'un phénomène environnemental.
-
-La fiche utilise la ressource officielle 2025 du RSQAQ. Le fichier brut contient des mesures horaires par station et par contaminant. La préparation locale produit un résumé journalier station-contaminant afin de garder les analyses rapides, reproductibles et adaptées à un laboratoire pédagogique.
-
 ## Ce qui a été vérifié
 
 | Élément | Résultat vérifié |
@@ -112,9 +106,7 @@ knitr::kable(air_episodes |> select(date, station_name, unite, n_heures_valides,
 
 Ces journées constituent des points de départ pour l’exploration. Les valeurs élevées ne suffisent pas à identifier une cause; leur interprétation nécessite le contexte et la validation instrumentale.
 
-## Lecture statistique
-
-Une analyse prudente suit cet ordre :
+## Interprétation et contrôles
 
 1. choisir une année et un contaminant;
 2. vérifier le nombre d'heures valides par jour;
@@ -124,44 +116,6 @@ Une analyse prudente suit cet ordre :
 6. distinguer valeur élevée, épisode environnemental et cause possible.
 
 Le résumé journalier est pratique pour l'enseignement, mais il masque les variations intra-journalières. Pour une question plus fine, il faut retourner aux mesures horaires.
-
-## Concepts enseignables
-
-- séries temporelles horaires;
-- valeurs manquantes;
-- données en format large;
-- pivot long;
-- résumé journalier;
-- 95e percentile;
-- comparaison entre stations;
-- détection d'épisodes;
-- communication prudente;
-- limites des données environnementales.
-
-## Score zéro déchet
-
-| Dimension | Score | Justification |
-|---|---:|---|
-| Contexte québécois | 3 | Données officielles de surveillance de la qualité de l'air au Québec |
-| Accessibilité pédagogique | 3 | Stations, dates et contaminants sont interprétables rapidement |
-| Qualité documentaire | 3 | Paquet CKAN, ressources annuelles, licence et producteur sont disponibles |
-| Potentiel de nettoyage | 3 | Format large, valeurs manquantes, stations et contaminants à harmoniser |
-| Potentiel de visualisation | 3 | Séries temporelles, calendriers, cartes et comparaisons par station |
-| Potentiel de statistique descriptive | 3 | Moyennes, médianes, percentiles et classements par jour |
-| Potentiel d'inférence | 1 | Non adapté à l'inférence sans protocole complémentaire |
-| Potentiel de modélisation | 2 | Modèles exploratoires possibles, mais dépendants du contexte externe |
-| Potentiel éthique | 3 | Santé publique, environnement et communication du risque |
-| Réutilisabilité | 3 | Utile en nettoyage, visualisation, séries temporelles et communication |
-
-Total : 27 sur 30.
-
-## Activité courte
-
-En 60 à 90 minutes, choisir le PM2.5 et repérer les journées les plus élevées en imposant un minimum d'heures valides. Les étudiants doivent expliquer pourquoi un classement descriptif ne suffit pas à conclure sur la cause.
-
-## Activité longue
-
-En 2 à 3 heures, construire un tableau de bord exploratoire par station, contaminant et période. Le livrable doit inclure les décisions de nettoyage, les valeurs manquantes, les graphiques et une section de limites.
 
 ## Code R minimal
 
@@ -218,14 +172,6 @@ render_dataset_minimal_result()
 - Une valeur élevée n'identifie pas automatiquement une cause.
 - Les comparaisons entre stations doivent tenir compte de la couverture horaire.
 - Les données sont descriptives; une analyse sanitaire ou réglementaire demanderait un cadre méthodologique plus spécialisé.
-
-## Extensions
-
-- Comparer les résultats avec un seuil minimal de 18, 20 ou 24 heures valides.
-- Produire un calendrier de chaleur pour une station.
-- Comparer PM2.5 et O3 sans les placer sur la même échelle.
-- Ajouter des données météo pour explorer les épisodes.
-- Préparer une note publique qui sépare observation, hypothèse et conclusion.
 
 ## Références utilisées
 

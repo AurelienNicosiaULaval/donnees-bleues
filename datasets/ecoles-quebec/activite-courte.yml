@@ -38,8 +38,8 @@ status: Documentation de source et ressources de classe fournies
 pedagogical_status: pret_a_enseigner
 teacher_preparation: Extraire la trousse, ouvrir le projet RStudio, installer les packages avant la séance
   et lancer le script.
-expected_output: Les tableaux et graphiques du script, accompagnés d’une interprétation de 6 à 8 lignes répondant
-  à la question.
+expected_output: Les nombres de liens, d’organismes et d’immeubles, globalement et par région, avec une carte des
+  immeubles sans répétition d’identifiants.
 requires_prepared_data: true
 requires_live_download: false
 recommended_use: Laboratoire guidé
@@ -63,4 +63,4 @@ script_file: datasets/ecoles-quebec/activite-courte.R
 classroom_archive: assets/classroom/ecoles-quebec.zip
 access_mode: frozen
 date_added: "2026-06-19"
-date_updated: "2026-09-05"
+date_updated: "2026-09-13"

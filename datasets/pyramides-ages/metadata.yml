@@ -133,4 +133,12 @@ chart:
   filter:
     geography: Quebec
 date_added: "2026-06-18"
-date_updated: "2026-09-05"
+date_updated: "2026-09-13"
+
+summary: Estimations de population au 1er juillet par territoire, genre et groupe d’âge, avec des tables préparées
+  pour comparer le Québec et le Canada.
+
+observation_period: Comparaisons de 2001 et 2025; population au 1er juillet
+
+source_authors:
+- Statistique Canada

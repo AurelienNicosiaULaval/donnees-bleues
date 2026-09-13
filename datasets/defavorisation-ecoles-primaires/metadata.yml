@@ -122,4 +122,11 @@ chart:
   title: Distribution de l’IMSE publié
   bins: 12
 date_added: "2026-06-20"
-date_updated: "2026-09-05"
+date_updated: "2026-09-13"
+
+summary: Indices de défavorisation des écoles primaires publiques du Québec pour l’année scolaire 2025-2026.
+
+observation_period: Année scolaire 2025-2026
+
+source_authors:
+- Ministère de l'Éducation et Ministère de l'Enseignement supérieur

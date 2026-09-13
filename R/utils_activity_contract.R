@@ -1,3 +1,4 @@
+source(if (file.exists("R/utils_editorial.R")) "R/utils_editorial.R" else "../../R/utils_editorial.R")
 source(if (file.exists("R/utils_resource_identity.R")) "R/utils_resource_identity.R" else "../../R/utils_resource_identity.R")
 `%||%` <- function(x, y) {
   if (is.null(x) || length(x) == 0L || all(is.na(x))) y else x
@@ -61,52 +62,40 @@ activity_contract_metadata <- function() {
 
 render_activity_header <- function() {
   metadata <- activity_contract_metadata()
-  input <- normalizePath(knitr::current_input(dir = TRUE), mustWork = TRUE)
-  dataset <- yaml::read_yaml(file.path(dirname(input), "metadata.yml"))
   escape <- activity_contract_html_escape
-  courses <- if (length(metadata$courses)) paste(unlist(metadata$courses), collapse = "; ") else "usage non documenté"
   cat('<header class="activity-resource-hero resource-detail-header">',
-    '<nav class="dataset-breadcrumb" aria-label="Fil d’Ariane"><a href="../../activites.html">Planifier</a><span>/</span><a href="fiche.html">',
-    escape(metadata$dataset_title), '</a></nav>',
-    resource_identity_html(metadata, "activite"),
+    '<nav class="dataset-breadcrumb" aria-label="Fil d’Ariane"><a href="../../activites.html">Activités</a><span>/</span><a href="fiche.html">',
+    escape(metadata$dataset_title), '</a></nav>', resource_identity_html(metadata, 'activite', show_dates = FALSE),
     '<h1>', escape(metadata$title), '</h1>',
     '<p class="resource-intro">', escape(metadata$question), '</p>',
-    '<p class="activity-resource-meta">Durée : ', escape(metadata$duration), '. Niveau : ', escape(metadata$level), '.</p>',
-    '<p class="activity-resource-author">Contribution pédagogique : ', escape(dataset$contributor_name %||% "Non renseignée"),
-    '. Cours : ', escape(courses), '.</p></header>', sep = "")
+    '<p class="activity-resource-meta">', escape(metadata$duration), ' · ', escape(metadata$level), '</p>',
+    '<p class="activity-output"><span>À produire :</span> ', escape(metadata$expected_output), '</p>',
+    '<p class="activity-prerequisites"><span>Prérequis :</span> ', escape(editorial_sentences(metadata$prerequisites)), '</p>',
+    '</header>', sep = '')
 }
 
 render_activity_contract <- function() {
   metadata <- activity_contract_metadata()
   input <- normalizePath(knitr::current_input(dir = TRUE), mustWork = TRUE)
-  dataset <- yaml::read_yaml(file.path(dirname(input), "metadata.yml"))
-  cat('<p class="resource-attribution">Contribution pédagogique : ',
-      activity_contract_html_escape(dataset$contributor_name %||% "Non renseignée"),
-      '. Cours : ', activity_contract_html_escape(if (length(metadata$courses)) paste(unlist(metadata$courses), collapse = '; ') else 'usage non documenté'), '</p>', sep = "")
-  title_id <- paste0("activity-contract-", activity_contract_html_escape(metadata$id %||% "details"))
-  fields <- list(
-    "Objectifs d'apprentissage" = activity_contract_list(metadata$learning_objectives),
-    "Prérequis" = activity_contract_list(metadata$prerequisites),
-    "Critères de réussite" = activity_contract_list(metadata$success_criteria),
-    "Adaptations possibles" = activity_contract_list(metadata$adaptations)
-  )
-
-  rows <- paste0(
-    "<div><dt>", activity_contract_html_escape(names(fields)), "</dt><dd>",
-    unname(fields), "</dd></div>", collapse = ""
-  )
-
-  cat(
-    '<section class="activity-contract" aria-labelledby="', title_id, '">',
-    '<p class="activity-contract-kicker">Fiche de mise en œuvre</p>',
-    '<h2 id="', title_id, '">Repères pédagogiques</h2>',
-    '<p>Les objectifs et critères ci-dessous permettent d’adapter la séance. La disponibilité des ressources ne constitue pas une validation de leur efficacité en classe.</p>',
-    '<dl>', rows, '</dl>',
-    '<p class="activity-contract-status">Ressources : ',
-    activity_contract_html_escape(activity_contract_status_label(metadata$pedagogical_status)),
-    '</p></section>',
-    sep = ""
-  )
+  dataset <- yaml::read_yaml(file.path(dirname(input), 'metadata.yml'))
+  source <- paste(readLines(input, warn = FALSE, encoding = 'UTF-8'), collapse = '\n')
+  # A task already stated in the instructions is not repeated as an objective
+  # or a criterion. Keep distinct criteria and adaptations from the metadata.
+  repeated <- function(value) grepl(value, source, fixed = TRUE)
+  objectives <- activity_contract_values(metadata$learning_objectives)
+  objectives <- objectives[!vapply(objectives, repeated, logical(1))]
+  objectives <- objectives[objectives != 'Formuler une limite qui découle de la source et de l’unité observée.']
+  criteria <- activity_contract_values(metadata$success_criteria)
+  criteria <- criteria[!vapply(criteria, repeated, logical(1))]
+  escape <- activity_contract_html_escape
+  cat('<section class="activity-contract"><h2>Vérifier le travail</h2>', activity_contract_list(criteria),
+      '<details><summary>Objectifs et adaptations</summary>', sep = '')
+  if (length(objectives)) cat('<h3>Objectifs</h3>', activity_contract_list(objectives), sep = '')
+  cat('<h3>Adaptations</h3>', activity_contract_list(metadata$adaptations), '</details>',
+      '<p>Statut documenté : ', escape(metadata$status), '.</p>',
+      '<div class="resource-record"><p>Contribution pédagogique : ', escape(dataset$contributor_name %||% 'Non documentée'),
+      '. ', escape(editorial_course_label(metadata$courses)), '.</p>', resource_dates_html(metadata, compact = TRUE),
+      '</div></section>', sep = '')
 }
 
 activity_project_path <- function(path) {
@@ -149,7 +138,8 @@ render_activity_resources <- function() {
 render_activity_code <- function() {
   metadata <- activity_contract_metadata()
   code <- readLines(activity_project_path(metadata$script_file), warn = FALSE, encoding = 'UTF-8')
-  cat('\n```r\n', paste(code, collapse = '\n'), '\n```\n', sep = '')
+  cat('\n<details class="activity-code-panel"><summary>Afficher le script R</summary>\n\n```r\n',
+      paste(code, collapse = '\n'), '\n```\n\n</details>\n', sep = '')
 }
 
 activity_preparation_date <- function(value) {

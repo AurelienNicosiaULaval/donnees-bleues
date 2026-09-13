@@ -150,4 +150,12 @@ chart:
   y_label: Milieu d’implantation
   title: Milieux des stations de l’extrait
 date_added: "2026-06-01"
-date_updated: "2026-09-05"
+date_updated: "2026-09-13"
+
+summary: 'Répertoire des stations de mesure de la qualité de l’air du RSQAQ : localisation, type de milieu et dates
+  d’ouverture ou de fermeture.'
+
+observation_period: Inventaire de stations de la trousse préparée en septembre 2026; dates d’ouverture et de fermeture variables
+
+source_authors:
+- MELCCFP

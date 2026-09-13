@@ -17,14 +17,6 @@ source(source_path)
 render_dataset_detail_header()
 ```
 
-## Pourquoi ce jeu est intéressant
-
-Ce jeu peut servir à enseigner la prudence avec les données de sécurité publique : catégories administratives, dates, quarts, postes de quartier, localisation partielle, agrégation et risques de surinterprétation.
-
-L'intérêt pédagogique n'est pas de produire un classement de quartiers. Il est plutôt de montrer qu'une analyse descriptive responsable commence par l'unité statistique, la source, la portée officielle, les valeurs manquantes et les limites éthiques.
-
-Question d'analyse : que peut-on décrire sans transformer ces données ouvertes en statistiques officielles de la criminalité?
-
 ## Ce qui a été vérifié
 
 | Élément | Résultat vérifié |
@@ -145,9 +137,7 @@ Il ne faut pas comparer 2026 aux années complètes sans restreindre les périod
 
 Les coordonnées manquantes rendent les cartes de points incomplètes. Même lorsque les coordonnées existent, une cartographie responsable doit privilégier l'agrégation.
 
-## Lecture statistique
-
-Une analyse prudente suit cet ordre :
+## Interprétation et contrôles
 
 1. rappeler que la source ne constitue pas les statistiques officielles du SPVM;
 2. définir l'unité comme un acte enregistré dans le fichier ouvert;
@@ -157,42 +147,6 @@ Une analyse prudente suit cet ordre :
 6. accompagner chaque résultat d'une limite sur la déclaration, l'enregistrement et la publication.
 
 Les données permettent de produire des descriptions agrégées. Elles ne permettent pas, seules, d'inférer le niveau réel de criminalité, de comparer la sécurité des quartiers ou d'attribuer des causes.
-
-## Concepts enseignables
-
-- données sensibles;
-- unité statistique;
-- catégories administratives;
-- agrégation temporelle;
-- valeurs manquantes;
-- visualisation responsable;
-- biais de déclaration;
-- communication des limites.
-
-## Score zéro déchet
-
-| Dimension | Score | Justification |
-|---|---:|---|
-| Contexte québécois | 3 | Source publique montréalaise |
-| Accessibilité pédagogique | 2 | Variables lisibles mais sujet sensible |
-| Qualité documentaire | 3 | Page Données Québec, API CKAN et mise en garde officielle |
-| Potentiel de nettoyage | 2 | Dates, noms, coordonnées et valeurs manquantes |
-| Potentiel de visualisation | 3 | Séries temporelles et cartes agrégées |
-| Potentiel de statistique descriptive | 2 | Résumés utiles, mais interprétation limitée |
-| Potentiel d'inférence | 1 | Non adapté seul à l'inférence causale ou territoriale |
-| Potentiel de modélisation | 1 | Modélisation à éviter sans cadre éthique et données complémentaires |
-| Potentiel éthique | 3 | Excellent cas pour discuter les risques de stigmatisation |
-| Réutilisabilité | 2 | Utile avec encadrement pédagogique strict |
-
-Total : 22 sur 30.
-
-## Activité courte
-
-En 30 à 45 minutes, produire un résumé par catégorie et rédiger une note sur les limites de la source.
-
-## Activité longue
-
-En 2 à 3 heures, produire un rapport descriptif par mois et catégorie, avec une visualisation agrégée et une section éthique au même niveau que les résultats.
 
 ## Code R minimal
 
@@ -250,13 +204,6 @@ render_dataset_minimal_result()
 - Les coordonnées sont manquantes pour 58 974 lignes dans le CSV téléchargé le 2026-06-21.
 - Une variation observée dans le fichier peut refléter des changements de déclaration, d'enregistrement, de publication ou de contexte.
 - Une comparaison territoriale exige un dénominateur, une période comparable, une géographie définie et une discussion éthique.
-
-## Extensions
-
-- Agréger par mois et catégorie, puis exclure les années partielles dans une comparaison annuelle.
-- Comparer les résultats ouverts avec le bilan mensuel officiel lorsque la question porte sur un portrait officiel.
-- Construire une carte en grille ou par zone agrégée, sans afficher les points individuels.
-- Rédiger une note méthodologique expliquant pourquoi un classement de quartiers serait trompeur.
 
 ## Références utilisées
 

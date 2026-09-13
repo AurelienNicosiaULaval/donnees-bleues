@@ -144,4 +144,12 @@ chart:
   y_label: Température moyenne quotidienne (°C)
   title: Températures aux dates retenues
 date_added: "2026-06-20"
-date_updated: "2026-09-05"
+date_updated: "2026-09-13"
+
+summary: Observations météorologiques quotidiennes de la station Québec/Jean-Lesage, dans la version fixe MeteoQuebec
+  d’UlavalSSD 0.2.0.
+
+observation_period: Du 1er janvier 1970 au 22 janvier 2025 dans la trousse
+
+source_authors:
+- Environnement et Changement climatique Canada

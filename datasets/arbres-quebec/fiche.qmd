@@ -17,28 +17,13 @@ source(if (file.exists("R/utils_dataset_page.R")) "R/utils_dataset_page.R" else 
 render_dataset_detail_header()
 ```
 
-## Un petit jeu pour commencer avec des données québécoises
+## Sélection des arbres
 
-Ce jeu pédagogique rassemble 200 arbres mesurés au Québec, soit 50 de chacune de quatre espèces : le bouleau à papier, l’épinette noire, l’érable rouge et le sapin baumier. Les 21 variables combinent deux mesures observées complètes, le diamètre et la hauteur, avec l’âge lorsqu’il est disponible, l’année du relevé, la région écologique et des identifiants de provenance.
+Les quatre espèces sont le bouleau à papier, l’épinette noire, l’érable rouge et le sapin baumier. Aurélien Nicosia a construit ce jeu dérivé à partir des placettes temporaires du cinquième inventaire écoforestier du MRNF; les noms scientifiques ont été vérifiés avec VASCAN. Ce jeu est distinct des [arbres publics de Montréal](../arbres-publics-montreal/fiche.qmd).
 
-Aurélien Nicosia a construit cet échantillon à partir des placettes temporaires du cinquième inventaire écoforestier du MRNF et a vérifié les noms avec VASCAN. Il s’agit d’un jeu dérivé pour l’enseignement, pas d’une nouvelle collecte. Il est distinct du jeu sur les [arbres publics de Montréal](../arbres-publics-montreal/fiche.qmd).
+Les fichiers MRNF ont été téléchargés le 25 juin 2026. La sélection conserve les diamètres et hauteurs observées positifs, retient un arbre par couple espèce-placette, puis tire 50 arbres pour chacune des quatre espèces. La règle et la graine sont conservées dans les données et documentées dans la [version 1.0.0](https://github.com/AurelienNicosiaULaval/arbres_quebec/releases/tag/v1.0.0). L’échantillon n’est pas équilibré par année.
 
-## Télécharger les données
-
-- [CSV complet : les 200 arbres et les 21 variables, version 1.0.0](https://raw.githubusercontent.com/AurelienNicosiaULaval/arbres_quebec/v1.0.0/data_clean/arbres_quebec_small.csv).
-- [Dictionnaire des variables](https://raw.githubusercontent.com/AurelienNicosiaULaval/arbres_quebec/v1.0.0/data_clean/arbres_quebec_small_dictionary.csv) et [provenance de chaque arbre](https://raw.githubusercontent.com/AurelienNicosiaULaval/arbres_quebec/v1.0.0/data_clean/arbres_quebec_small_provenance.csv).
-- [Archive originale : données, activité Quarto, HTML et scripts R](https://github.com/AurelienNicosiaULaval/arbres_quebec/releases/download/v1.0.0/arbres_quebec-v1.0.0.zip).
-- [Commencer l’activité dans Données bleues](activite-courte.qmd), avec sa trousse RStudio et ses résultats visibles.
-
-La version 1.0.0 est figée. L’aperçu interactif de cette fiche présente 120 lignes et une sélection de colonnes ; le téléchargement complet conserve les 200 observations.
-
-## Ce que représente une ligne
-
-Une ligne représente un arbre retenu dans une placette du MRNF, avec son relevé. Les 200 arbres proviennent de 200 placettes distinctes. Les relevés inclus vont de 2015 à 2025 ; les fichiers MRNF ont été téléchargés le 25 juin 2026.
-
-La sélection conserve des diamètres et des hauteurs observées positifs, retient un arbre par couple espèce-placette, puis tire 50 arbres pour chacune des quatre espèces choisies. La graine et la règle sont conservées dans les données et documentées dans la [version publiée](https://github.com/AurelienNicosiaULaval/arbres_quebec/releases/tag/v1.0.0).
-
-Les proportions égales résultent de cette construction. Elles ne décrivent pas les proportions des espèces dans les forêts québécoises. La représentativité provinciale des moyennes n’est pas établie non plus.
+[Dictionnaire des 21 variables](https://raw.githubusercontent.com/AurelienNicosiaULaval/arbres_quebec/v1.0.0/data_clean/arbres_quebec_small_dictionary.csv) · [Provenance de chaque arbre](https://raw.githubusercontent.com/AurelienNicosiaULaval/arbres_quebec/v1.0.0/data_clean/arbres_quebec_small_provenance.csv) · [Archive originale, activité et scripts](https://github.com/AurelienNicosiaULaval/arbres_quebec/releases/download/v1.0.0/arbres_quebec-v1.0.0.zip).
 
 ## Mesures et précautions
 
@@ -53,7 +38,7 @@ Les proportions égales résultent de cette construction. Elles ne décrivent pa
 | `survey_year` | Année du relevé | De 2015 à 2025 ; échantillon non équilibré par année |
 | `plot_id`, `tree_id`, `record_id` | Identifiants de provenance | À conserver comme du texte |
 
-Les âges manquent pour les 50 érables rouges et pour deux autres arbres. Les supprimer avant l’analyse retirerait donc une espèce entière. L’activité conserve ces valeurs manquantes et les rend visibles.
+L’activité conserve les âges manquants et montre leur répartition par espèce.
 
 ## Importer le fichier complet dans R
 
@@ -83,21 +68,13 @@ ggplot(arbres, aes(diameter_cm, height_m, colour = species)) +
 render_dataset_minimal_result()
 ```
 
-## Ce qu’on peut enseigner avec ce jeu
-
-L’importation, les types de variables, les effectifs, les moyennes et médianes, la comparaison de groupes et le nuage de points ont ici un contexte québécois concret. La répartition des âges manquants permet de montrer comment une suppression de lignes change la population étudiée.
-
-L’activité [Explorer 200 arbres du Québec](activite-courte.qmd) est une initiation. Son script a été exécuté techniquement ; elle n’a pas été testée en classe. Aucune performance de classification, équivalence à tous les usages d’`iris` ou efficacité pédagogique n’est établie.
-
-La grille de réutilisation du site est une appréciation éditoriale : l’accès, la documentation et la description sont les points forts ; l’inférence provinciale et la modélisation demandent des précautions supplémentaires.
-
 ## Sources, auteur et licences
 
 - Gouvernement du Québec, MRNF, Direction des inventaires forestiers (2018). [Placette-échantillon temporaire du cinquième inventaire](https://www.donneesquebec.ca/recherche/dataset/placettes-echantillons-temporaires-du-cinquieme-inventaire). Extraction du 25 juin 2026, CC BY 4.0.
 - Brouillet et collaborateurs (2010+). [VASCAN, version 37.16](https://data.canadensys.net/ipt/resource?r=vascan&v=37.16), publiée le 8 décembre 2025, CC0 1.0. La vérification documentaire des quatre espèces est décrite dans la source publiée.
 - Aurélien Nicosia (2026). [Arbres du Québec, version 1.0.0](https://github.com/AurelienNicosiaULaval/arbres_quebec/releases/tag/v1.0.0). Sélection, harmonisation et activité originale sous MIT ; données MRNF et adaptations sous CC BY 4.0. [Détail des attributions et transformations](https://github.com/AurelienNicosiaULaval/arbres_quebec/blob/v1.0.0/DATA_LICENSES.md).
 
-Les producteurs des données n’endossent pas les transformations ou l’activité. Aucun cours d’utilisation n’est actuellement documenté dans cette fiche.
+Les producteurs des données n’endossent pas les transformations ou l’activité.
 
 ```{r}
 #| echo: false

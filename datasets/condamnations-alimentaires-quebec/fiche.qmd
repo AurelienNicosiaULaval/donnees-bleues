@@ -17,12 +17,6 @@ source(source_path)
 render_dataset_detail_header()
 ```
 
-## Pourquoi ce jeu est intéressant
-
-Ce jeu place les personnes étudiantes dans une situation proche du journalisme de données : une liste publique de condamnations, des noms d'établissements, des descriptions textuelles, des dates, des montants d'amende et un besoin immédiat de prudence. Il est utile pour enseigner les tableaux de fréquences, le nettoyage de chaînes, la conversion de montants et la communication responsable de résultats publics.
-
-La fiche porte sur la version pédagogique `UlavalSSD::listecondamnation`, utilisée dans l'aventure 3 de STT-1100. Cette version est fixe, alors que la ressource officielle Données Québec est mise à jour régulièrement. Les deux doivent donc être distinguées dans toute analyse.
-
 ## Ce qui a été vérifié
 
 | Élément vérifié | Résultat |
@@ -89,7 +83,7 @@ L'unité statistique n'est pas un restaurant au sens général. C'est une condam
 | Format préparé local | CSV ignoré par Git dans `data/processed/condamnations-alimentaires-quebec/` |
 | Niveau pédagogique recommandé | Introduction à intermédiaire |
 
-## Lecture statistique
+## Interprétation et contrôles
 
 La première analyse doit être descriptive. Les questions solides portent sur la composition de la table : types d'établissements, montants d'amende, délais administratifs et catégories d'infraction.
 
@@ -114,42 +108,6 @@ Dans `UlavalSSD` 0.2.0, les quatre modalités observées de `Type_etablissement`
 | Lignes détectées à Montréal | 759 |
 | Délai médian entre infraction et jugement | 280 jours |
 | Délai médian entre jugement et publication | 3 jours |
-
-## Score zéro déchet
-
-| Dimension | Score | Justification |
-|---|---:|---|
-| Contexte québécois | 3 | Le jeu porte sur des condamnations publiques au Québec. |
-| Accessibilité pédagogique | 3 | Les variables principales sont lisibles et concrètes. |
-| Qualité documentaire | 3 | La ressource officielle expose la licence, la fréquence, le producteur et le CSV. |
-| Potentiel de nettoyage | 3 | Les montants, les dates, les textes et les catégories demandent un nettoyage utile. |
-| Potentiel de visualisation | 3 | Les fréquences, montants et délais se visualisent clairement. |
-| Potentiel de statistique descriptive | 3 | Les tableaux de fréquences et résumés numériques sont immédiats. |
-| Potentiel d'inférence | 1 | L'absence de dénominateur limite fortement toute inférence. |
-| Potentiel de modélisation | 1 | La modélisation serait fragile sans population de référence. |
-| Potentiel de discussion éthique | 3 | Les noms, adresses et interprétations publiques exigent une communication responsable. |
-| Réutilisabilité dans plusieurs cours | 3 | Le jeu convient à STT-1100, visualisation, nettoyage et communication. |
-
-Total : 26 sur 30.
-
-## Activité courte
-
-En 60 à 90 minutes, demander aux personnes étudiantes d'identifier l'unité statistique, de produire un tableau de fréquences de `Type_etablissement`, de convertir `Amende` en variable numérique et de rédiger une conclusion qui refuse explicitement l'interprétation en taux de risque.
-
-## Activité longue
-
-En 2 à 3 heures, demander un court article de données reproductible. Le texte doit inclure un tableau, un graphique, un nettoyage documenté de `Amende`, une comparaison de dates et une note de prudence sur les noms et adresses.
-
-## Questions pédagogiques possibles
-
-1. Quelle est l'unité statistique : établissement, infraction ou condamnation?
-2. Pourquoi un nombre de condamnations n'est-il pas un taux de risque?
-3. Quelle différence y a-t-il entre date d'infraction, date de jugement et date de publication?
-4. Pourquoi faut-il convertir `Amende` avant de calculer une médiane?
-5. Comment regrouper des catégories textuelles sans cacher une information importante?
-6. Quelles informations faut-il éviter de mettre en évidence inutilement dans une visualisation publique?
-7. Pourquoi la version `UlavalSSD` et le CSV officiel ne doivent-ils pas être mélangés?
-8. Quelle phrase de conclusion serait descriptive sans être sensationnaliste?
 
 ## Code R minimal
 
@@ -213,13 +171,6 @@ render_dataset_minimal_result()
 - Les noms, raisons sociales et adresses sont publics, mais doivent être traités avec retenue dans un contexte pédagogique.
 - Les catégories textuelles peuvent changer entre la version pédagogique et la ressource officielle.
 - Les délais entre infraction, jugement et publication sont administratifs; ils ne mesurent pas directement un risque sanitaire.
-
-## Extensions
-
-- Extension intro : produire un tableau de fréquences de `Type_etablissement`.
-- Extension nettoyage : convertir `Amende` et vérifier les montants extrêmes.
-- Extension dates : comparer les délais entre infraction, jugement et publication.
-- Extension communication : rédiger un court article qui distingue observation descriptive et interprétation abusive.
 
 ```{r}
 #| label: dataset-detail-footer

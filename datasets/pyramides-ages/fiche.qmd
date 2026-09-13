@@ -17,12 +17,6 @@ source(source_path)
 render_dataset_detail_header()
 ```
 
-## Pourquoi ce jeu est intéressant
-
-Ce jeu permet de relier une visualisation très connue, la pyramide des âges, à des gestes de science des données très concrets : importer une table officielle, filtrer les bonnes unités, choisir des groupes d'âge cohérents, calculer des proportions et distinguer une structure démographique d'un simple volume de population.
-
-La fiche est aussi utile pour enseigner une idée importante : une pyramide des âges n'est pas seulement un graphique. Elle force des décisions statistiques. Il faut choisir l'année, le territoire, les catégories de genre, les groupes d'âge et l'échelle, puis expliquer clairement ce que la visualisation ne permet pas de conclure.
-
 ## Ce qui a été vérifié
 
 | Élément | Résultat vérifié |
@@ -119,9 +113,7 @@ Cette table soutient une bonne discussion pédagogique : la population totale au
 
 Ce résultat est utile pour montrer qu'une pyramide des âges n'est pas toujours dominée par les jeunes groupes. Selon le territoire et l'année, la forme peut mettre en évidence des générations plus nombreuses à des âges intermédiaires ou avancés.
 
-## Lecture statistique
-
-Une analyse prudente suit cet ordre :
+## Interprétation et contrôles
 
 1. vérifier l'année, le territoire, le genre et l'unité;
 2. exclure `All ages`, les âges simples, l'âge moyen et l'âge médian avant de tracer une pyramide;
@@ -131,44 +123,6 @@ Une analyse prudente suit cet ordre :
 6. citer la table StatCan et la date d'accès.
 
 Les données permettent de décrire la structure d'âge estimée. Elles ne permettent pas, seules, d'expliquer les causes du vieillissement démographique. Pour cela, il faudrait ajouter des données sur les naissances, les décès, les migrations et les méthodes d'estimation.
-
-## Concepts enseignables
-
-- données ouvertes;
-- table longue;
-- filtrage;
-- groupes d'âge;
-- proportions;
-- visualisation bilatérale;
-- comparaison territoriale;
-- comparaison temporelle;
-- interprétation descriptive;
-- limites des données agrégées.
-
-## Score zéro déchet
-
-| Dimension | Score | Justification |
-|---|---:|---|
-| Contexte québécois | 3 | Le Québec est directement disponible et comparable au Canada. |
-| Accessibilité pédagogique | 3 | L'âge, le genre et la population sont intuitifs. |
-| Qualité documentaire | 3 | StatCan fournit la table, le DOI, la fréquence et les options de téléchargement. |
-| Potentiel de nettoyage | 3 | Il faut filtrer les unités, les groupes d'âge et les catégories pertinentes. |
-| Potentiel de visualisation | 3 | La pyramide des âges est un cas de visualisation très naturel. |
-| Potentiel de statistique descriptive | 3 | Les proportions, parts d'âge et comparaisons sont directement calculables. |
-| Potentiel d'inférence | 1 | La table ne fournit pas directement un plan d'échantillonnage ou des incertitudes. |
-| Potentiel de modélisation | 2 | Des tendances descriptives peuvent être modélisées avec prudence. |
-| Potentiel éthique | 3 | La fiche permet de discuter genre, vieillissement et politiques publiques. |
-| Réutilisabilité | 3 | Utile en introduction R, visualisation, démographie et communication statistique. |
-
-Total : 27 sur 30.
-
-## Activité courte
-
-En 30 à 45 minutes, construire la pyramide des âges du Québec en 2025. L'objectif principal est de faire comprendre que le graphique dépend d'un filtrage rigoureux et que les valeurs négatives sont une convention d'affichage.
-
-## Activité longue
-
-En 2 à 3 heures, comparer la structure d'âge du Québec et du Canada entre 2001 et 2025. Le livrable doit inclure des pyramides en proportions, la part des 65 ans et plus, et une section de limites.
 
 ## Code R minimal
 
@@ -228,14 +182,6 @@ render_dataset_minimal_result()
 - Les valeurs négatives dans une pyramide sont une convention graphique, pas des populations négatives.
 - Les comparaisons Canada-Québec doivent privilégier les proportions plutôt que les effectifs.
 - La table ne contient pas, à elle seule, les causes démographiques des changements observés.
-
-## Extensions
-
-- Construire la pyramide pour une autre province.
-- Comparer 2001, 2011 et 2025.
-- Ajouter un indicateur de dépendance démographique.
-- Produire une animation temporelle.
-- Transformer l'activité en mini-tableau de bord Quarto, Shiny ou learnr.
 
 ## Références utilisées
 

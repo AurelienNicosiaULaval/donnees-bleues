@@ -38,7 +38,8 @@ status: Documentation de source et ressources de classe fournies
 pedagogical_status: pret_a_enseigner
 teacher_preparation: Extraire la trousse, ouvrir le projet RStudio, installer les packages avant la séance
   et lancer le script.
-expected_output: Un tableau de contrôle et une note de décision répondant à la question.
+expected_output: Un bilan par phase de l’état de validation et des nombres attendus, avec une synthèse des droits
+  et les observations inconnues conservées comme manquantes.
 requires_prepared_data: true
 requires_live_download: false
 recommended_use: Mini-projet guidé
@@ -62,4 +63,4 @@ script_file: datasets/ulaval-programmes-cours/activite-longue.R
 classroom_archive: assets/classroom/ulaval-programmes-cours.zip
 access_mode: documentation
 date_added: "2026-06-19"
-date_updated: "2026-09-05"
+date_updated: "2026-09-13"

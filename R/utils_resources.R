@@ -1,3 +1,4 @@
+source(if (file.exists("R/utils_editorial.R")) "R/utils_editorial.R" else "../R/utils_editorial.R")
 # Catalogue commun : les métadonnées existantes restent la source de référence.
 library(readr)
 library(yaml)
@@ -34,9 +35,9 @@ resource_catalogue <- function(root = ".") {
   dataset_metadata <- lapply(d$id, function(id) read_yaml(file.path(root, "datasets", id, "metadata.yml")))
   result <- lapply(seq_len(nrow(d)), function(i) list(
     id = paste0("donnees-", d$id[i]), type = "donnees", title = d$title[i],
-    description = paste(d$unit[i], d$geography[i], sep = ". "),
+    description = dataset_metadata[[i]]$summary,
     themes = d$theme[i], concepts = paste(d$concepts[i], d$search_aliases[i]),
-    authors = d$source_name[i], author_label = "Source des données", contributor = d$contributor_name[i],
+    authors = editorial_sources(dataset_metadata[[i]]), author_label = "Source des données", contributor = d$contributor_name[i],
     date_added = dataset_metadata[[i]]$date_added, date_updated = dataset_metadata[[i]]$date_updated,
     courses = dataset_metadata[[i]]$courses, url = sub("[.]qmd$", ".html", d$fiche[i])))
   result <- c(result, lapply(seq_len(nrow(a)), function(i) {
@@ -61,19 +62,16 @@ render_resource_cards <- function(type = NULL) {
   if (!is.null(type)) items <- Filter(function(x) x$type %in% type, items)
   cat('<div class="resource-grid" id="resource-results">')
   for (x in items) {
-    courses <- resource_text(x$courses, "Usage en cours non documenté")
     search <- resource_text(c(x$title, x$description, x$themes, x$concepts, x$authors, x$contributor, x$courses))
     cat('<article class="resource-card" data-type="', x$type, '" data-theme="', resource_escape(x$themes),
       '" data-author="', resource_escape(x$authors), '" data-course="', resource_escape(x$courses),
-      '" data-search="', resource_escape(search), '">',
-      resource_type_badge(x$type),
-      '<p class="resource-kind">', resource_escape(x$themes), '</p>',
+      '" data-date-added="', x$date_added, '" data-date-updated="', x$date_updated,
+      '" data-search="', resource_escape(search), '">', resource_type_badge(x$type),
       '<h2><a href="', resource_escape(x$url), '">', resource_escape(x$title), '</a></h2>',
-      '<p>', resource_escape(x$description), '</p><dl><dt>',
-      if (is.null(x$author_label)) 'Auteur ou autrice' else x$author_label,
-      '</dt><dd>', resource_escape(x$authors), '</dd><dt>Contribution au répertoire</dt><dd>',
-      resource_escape(x$contributor), '</dd><dt>Cours</dt><dd>', resource_escape(courses),
-      '</dd></dl>', resource_dates_html(x, compact = TRUE), '</article>', sep = '')
+      '<p>', resource_escape(x$description), '</p>',
+      '<p class="resource-card-author">', resource_escape(x$authors), '</p>', sep = '')
+    if (length(x$courses)) cat('<p class="resource-card-courses">Utilisé dans ', resource_escape(editorial_course_label(x$courses)), '.</p>', sep = '')
+    cat('</article>')
   }
   cat('</div>')
 }
@@ -106,5 +104,7 @@ render_resource_notice_identity <- function(id, root = if (file.exists("data/met
   index <- match(id, vapply(items, function(x) x$id, character(1)))
   if (is.na(index)) stop("Notice inconnue : ", id, call. = FALSE)
   item <- items[[index]]
-  cat(resource_identity_html(item, item$type))
+  cat(resource_identity_html(item, item$type, show_dates = FALSE),
+      '<details class="resource-record-dates"><summary>Dates de la fiche</summary>',
+      resource_dates_html(item, compact = TRUE), '</details>')
 }

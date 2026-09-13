@@ -121,4 +121,12 @@ chart:
   y_label: Ressource source
   title: Composition de l’extrait multi-ressources
 date_added: "2026-06-18"
-date_updated: "2026-09-05"
+date_updated: "2026-09-13"
+
+summary: 'Neuf ressources de localisation du réseau scolaire québécois, réunissant plusieurs unités : établissements,
+  installations, immeubles et liens école-immeuble.'
+
+observation_period: Répertoire de la trousse préparée en septembre 2026
+
+source_authors:
+- Ministère de l'Éducation et Ministère de l'Enseignement supérieur

@@ -17,14 +17,6 @@ source(source_path)
 render_dataset_detail_header()
 ```
 
-## Pourquoi ce jeu est intéressant
-
-Ce jeu de données décrit le suivi de la qualité de l'eau dans des stations du Québec associées aux rivières et au fleuve Saint-Laurent. Il permet d'enseigner une idée très importante : les données environnementales publiées ne sont pas toujours des mesures brutes. Ici, les tables utilisées en classe contiennent surtout des statistiques agrégées par station et par année de fin de suivi.
-
-Le jeu est riche pédagogiquement parce qu'il combine des identifiants de stations, des années, des indicateurs physicochimiques et bactériologiques, des coordonnées et une table séparée d'aires de drainage. On peut donc travailler l'importation d'un ZIP, la sélection de variables, la visualisation temporelle, la cartographie et les limites d'une comparaison entre bassins versants.
-
-Question d'analyse : comment décrire l'évolution d'indicateurs de qualité de l'eau par station, sans confondre observation agrégée, mesure brute et explication causale?
-
 ## Ce qui a été vérifié
 
 | Élément | Résultat vérifié |
@@ -193,9 +185,7 @@ Ces variables donnent du contexte territorial. Elles ne suffisent pas à attribu
 
 Les coordonnées sont complètes dans la table préparée, mais les champs de bassin et certains indicateurs chimiques ne le sont pas.
 
-## Lecture statistique
-
-Une analyse prudente suit cet ordre :
+## Interprétation et contrôles
 
 1. préciser que l'unité est une station pour une année de fin de période;
 2. distinguer les indicateurs agrégés des mesures brutes;
@@ -206,42 +196,6 @@ Une analyse prudente suit cet ordre :
 7. éviter toute conclusion causale sans plan d'analyse et variables de contexte suffisantes.
 
 Le jeu est excellent pour enseigner que les données environnementales demandent autant de rigueur de définition que de code R.
-
-## Concepts enseignables
-
-- importation d'un ZIP officiel;
-- séries temporelles agrégées;
-- statistiques descriptives robustes;
-- variables environnementales et unités;
-- cartographie de stations;
-- jointure avec une table d'aires de drainage;
-- valeurs manquantes;
-- communication prudente sur la qualité de l'eau.
-
-## Score zéro déchet
-
-| Dimension | Score | Justification |
-|---|---:|---|
-| Contexte québécois | 3 | Suivi environnemental officiel au Québec |
-| Accessibilité pédagogique | 3 | Indicateurs concrets et table CSV légère |
-| Qualité documentaire | 3 | CKAN, ressources PDF et ressources spatiales |
-| Potentiel de nettoyage | 2 | Sélection, unités, jointures et valeurs manquantes |
-| Potentiel de visualisation | 3 | Séries temporelles, cartes et distributions |
-| Potentiel de statistique descriptive | 3 | Médianes, proportions, groupes et tendances |
-| Potentiel d'inférence | 2 | Possible avec prudence et plan d'analyse |
-| Potentiel de modélisation | 2 | Modèles exploratoires possibles après validation |
-| Potentiel éthique | 3 | Eau, territoire, politiques publiques et communication |
-| Réutilisabilité | 3 | Utile en importation, EDA, spatial et communication |
-
-Total : 27 sur 30.
-
-## Activité courte
-
-En 30 à 45 minutes, choisir une station suivie longtemps, tracer le phosphore total médian par année et écrire une limite sur la nature agrégée des données.
-
-## Activité longue
-
-En 2 à 3 heures, comparer plusieurs stations ou bassins, produire une carte, joindre les aires de drainage et rédiger une conclusion qui distingue description, hypothèse et causalité.
 
 ## Code R minimal
 

@@ -116,4 +116,12 @@ chart:
   title: Distribution des amendes
   bins: 12
 date_added: "2026-06-20"
-date_updated: "2026-09-05"
+date_updated: "2026-09-13"
+
+summary: 'Version pédagogique fixe des condamnations alimentaires publiées au Québec : catégories, descriptions,
+  dates et amendes.'
+
+observation_period: Infractions du 4 août 2018 au 29 novembre 2024; publications du 13 février 2023 au 10 février 2025
+
+source_authors:
+- Ministère de l'Agriculture, des Pêcheries et de l'Alimentation

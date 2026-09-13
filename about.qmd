@@ -10,7 +10,7 @@ embed-resources: true
 ::: {.resource-hero}
 # À propos de Données bleues
 
-Un projet pour rapprocher l’enseignement de la statistique, de R et de la science des données des réalités québécoises.
+Une plateforme destinée aux personnes qui enseignent ou étudient la statistique, R et la science des données.
 :::
 
 ::: {.founder-card}
@@ -22,9 +22,7 @@ Un projet pour rapprocher l’enseignement de la statistique, de R et de la scie
 ::: {.founder-bio}
 ## Aurélien Nicosia
 
-Créateur et développeur de Données bleues
-
-Données bleues a été conçue et développée par Aurélien Nicosia, chargé d’enseignement en mathématiques et statistique à l’Université Laval. Il assure le développement de la plateforme et la conception de ses ressources pédagogiques originales. Les organismes producteurs des données et les personnes qui contribuent aux ressources sont identifiés dans leurs notices respectives.
+Aurélien Nicosia, chargé d’enseignement en mathématiques et statistique à l’Université Laval, a créé la plateforme et ses ressources pédagogiques originales. Les producteurs des données et les auteurs des documents externes sont crédités dans chaque notice.
 
 [Profil GitHub](https://github.com/AurelienNicosiaULaval) · [Site personnel](https://aureliennicosiaulaval.github.io/web_site/) · [ORCID](https://orcid.org/0000-0002-0974-9988) · [LinkedIn](https://www.linkedin.com/in/aur%C3%A9lien-nicosia-6a52487b/)
 
@@ -34,25 +32,21 @@ Données bleues a été conçue et développée par Aurélien Nicosia, chargé d
 :::
 
 
-## L’idée du site
-
-Données bleues est née d’une intention pédagogique : partir de questions et de sources proches de la classe pour apprendre à analyser des données. Les institutions, les territoires et les enjeux publics du Québec offrent des contextes pour donner du sens aux méthodes statistiques.
-
-La plateforme réunit des données, des activités pédagogiques, des lectures et des applications. Ces ressources se complètent : une même question peut conduire à explorer une source, lire un document, essayer un tutoriel et préparer une séance.
-
-## Notre mission
-
-Mettre les données québécoises au cœur de l’enseignement et de l’apprentissage de la science des données. Faciliter leur exploration à travers des ressources contextualisées, documentées et réutilisables. Rendre visibles leurs auteurs, leurs sources et leurs limites fait partie de cette mission.
-
-Le projet vise un répertoire durable, enrichi par les contributions et les retours d’usage. Les contenus de tiers restent attribués à leurs producteurs ; les usages dans des cours sont indiqués lorsqu’ils sont documentés.
-
-## À qui s’adresse Données bleues ?
-
-Aux enseignantes et enseignants, aux étudiantes et étudiants, ainsi qu’aux équipes qui préparent des cours de statistique, de programmation R ou de science des données.
-
 ## Contributeurs {#contributeurs}
 
-Cette section présentera les personnes ayant contribué aux ressources du site, avec les liens vers leurs contributions.
+Les crédits ci-dessous proviennent des métadonnées des ressources. Ils distinguent la contribution au répertoire des organismes producteurs des données et des auteurs des documents externes.
+
+```{r}
+#| echo: false
+#| results: asis
+source("R/utils_resources.R")
+items <- resource_catalogue()
+contributors <- sort(unique(vapply(items, function(item) resource_text(item$contributor, ""), character(1))))
+for (name in contributors[nzchar(contributors)]) {
+  count <- sum(vapply(items, function(item) identical(resource_text(item$contributor, ""), name), logical(1)))
+  cat('<p><a href="ressources.html?query=',utils::URLencode(name,reserved=TRUE),'">',resource_escape(name),'</a> : contribution à ',count,' ressources. Les rôles détaillés figurent dans leurs notices.</p>',sep='')
+}
+```
 
 ## Nous contacter
 
@@ -60,7 +54,7 @@ Une question sur la plateforme, une ressource ou une collaboration ? Écrivez-no
 
 ## Participer au projet
 
-Une source à faire découvrir, une lecture utile, une application ou une activité à partager ? Le formulaire permet de proposer une contribution et d’en préciser les auteurs et les usages pédagogiques.
+Le formulaire accepte des données, activités, documents, applications et corrections, sans compte GitHub.
 
 [Proposer une ressource](contribuer.qmd){.dataset-button}
 

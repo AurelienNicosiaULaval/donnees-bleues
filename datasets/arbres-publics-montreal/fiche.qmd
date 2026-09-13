@@ -17,14 +17,6 @@ source(source_path)
 render_dataset_detail_header()
 ```
 
-## Pourquoi ce jeu est intéressant
-
-Ce jeu est très riche pour l'enseignement : il relie essences, mesures dendrométriques, arrondissement, emplacement, localisation et qualité des données. Il permet de travailler des questions concrètes de foresterie urbaine avec une vraie source municipale.
-
-Il est aussi utile parce qu'il contient des difficultés réalistes : gros fichier, plusieurs ressources, valeurs manquantes, dates aberrantes et mise en garde officielle sur la précision des localisations.
-
-Question d'analyse : quelles essences d'arbres publics dominent l'inventaire, et quelles limites faut-il vérifier avant de cartographier ou comparer les arrondissements?
-
 ## Ce qui a été vérifié
 
 | Élément | Résultat vérifié |
@@ -152,9 +144,7 @@ La règle de plausibilité utilisée dans `preparation.R` conserve les dates ent
 
 Les valeurs manquantes ne sont pas un défaut uniforme. Elles reflètent en partie la structure même du fichier, par exemple des variables pertinentes surtout pour certains types d'emplacement.
 
-## Lecture statistique
-
-Une analyse prudente suit cet ordre :
+## Interprétation et contrôles
 
 1. vérifier si la question porte sur les arbres de rue, les arbres hors rue, les parcs ou l'ensemble consolidé;
 2. inspecter les valeurs manquantes avant de comparer les arrondissements;
@@ -164,42 +154,6 @@ Une analyse prudente suit cet ordre :
 6. éviter de conclure sur le couvert arboré ou la biodiversité sans données complémentaires.
 
 Les données permettent de décrire un inventaire municipal riche. Elles ne suffisent pas, seules, à estimer la canopée, la santé des arbres ou l'équité environnementale.
-
-## Concepts enseignables
-
-- importation d'un gros CSV;
-- catégories et libellés;
-- valeurs manquantes;
-- dates aberrantes;
-- statistiques descriptives;
-- cartographie responsable;
-- qualité des données;
-- limites d'un inventaire administratif.
-
-## Score zéro déchet
-
-| Dimension | Score | Justification |
-|---|---:|---|
-| Contexte québécois | 3 | Inventaire municipal montréalais |
-| Accessibilité pédagogique | 3 | Variables concrètes et interprétables |
-| Qualité documentaire | 3 | Page Données Québec, API CKAN et dictionnaire PDF |
-| Potentiel de nettoyage | 3 | Dates, libellés, valeurs manquantes et coordonnées |
-| Potentiel de visualisation | 3 | Cartes, barres, boîtes à moustaches |
-| Potentiel de statistique descriptive | 3 | Résumés naturels par arrondissement et essence |
-| Potentiel d'inférence | 2 | Possible avec prudence et données complémentaires |
-| Potentiel de modélisation | 2 | Modélisation exploratoire possible mais encadrée |
-| Potentiel éthique | 2 | Risques liés à la représentation territoriale |
-| Réutilisabilité | 3 | Utile en importation, EDA, spatial et qualité des données |
-
-Total : 27 sur 30.
-
-## Activité courte
-
-En 30 à 45 minutes, compter les essences principales dans un arrondissement et nommer une limite de couverture.
-
-## Activité longue
-
-En 2 à 3 heures, produire une carte agrégée ou un échantillon cartographique, un tableau de valeurs manquantes et une analyse par arrondissement.
 
 ## Code R minimal
 
@@ -256,14 +210,6 @@ render_dataset_minimal_result()
 - Les dates de plantation sont manquantes pour 134 514 lignes.
 - Les dates préparées plausibles reposent sur une règle de nettoyage, pas sur une validation administrative indépendante.
 - Comparer les arrondissements exige de tenir compte de la superficie, de la densité, de la couverture d'inventaire et des arbres privés.
-
-## Extensions
-
-- Comparer les essences dominantes entre deux arrondissements.
-- Étudier les valeurs manquantes par type d'emplacement.
-- Construire un graphique du DHP par essence fréquente.
-- Produire une carte en échantillonnant les points ou en les agrégeant par grille.
-- Joindre des données de superficie ou de population pour construire un indicateur contextualisé.
 
 ## Références utilisées
 

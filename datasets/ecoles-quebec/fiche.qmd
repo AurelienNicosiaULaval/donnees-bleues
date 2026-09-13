@@ -17,14 +17,6 @@ source(source_path)
 render_dataset_detail_header()
 ```
 
-## Pourquoi ce jeu est intéressant
-
-Ce jeu de données place les personnes étudiantes devant une source québécoise réaliste : des écoles publiques, des immeubles scolaires, des coordonnées géographiques, des régions administratives et plusieurs décisions de comptage qui changent l'interprétation.
-
-La fiche porte sur la ressource CSV `Écoles publiques` du paquet Données Québec. Ce choix rend l'activité reproductible, parce que la ressource est directement lisible en R sans logiciel géomatique.
-
-Question d'analyse : comment cartographier les écoles publiques du Québec sans confondre une école, un immeuble et un lien école-immeuble?
-
 ## Ce qui a été vérifié
 
 | Élément vérifié | Résultat |
@@ -108,7 +100,7 @@ Ces nombres ne répondent pas à la même question. Une carte de points construi
 | Format préparé local | CSV ignoré par Git dans `data/processed/ecoles-quebec/` |
 | Niveau pédagogique recommandé | Introduction à intermédiaire |
 
-## Lecture statistique
+## Interprétation et contrôles
 
 La première décision d'analyse est le dénominateur. Si on compte les lignes, on compte des liens école-immeuble. Si on veut compter des écoles, il faut regrouper par `CD_ORGNS`. Si on veut compter des bâtiments, il faut regrouper par `CD_IMM`.
 
@@ -159,58 +151,6 @@ Ces indicateurs ne sont pas exclusifs. Une même ligne peut autoriser plusieurs 
 | Laurentides | 351 |
 
 Ces nombres sont des comptes de lignes. Ils ne doivent pas être interprétés comme des taux de desserte.
-
-## Concepts enseignables
-
-- géolocalisation;
-- cartographie;
-- jointures;
-- unité statistique;
-- regroupement et double comptage;
-- données publiques;
-
-## Visualisations suggérées
-
-- carte de points des immeubles scolaires;
-- facettes par type de réseau public;
-- tableau ou graphique des comptes par région administrative;
-- comparaison entre comptes de liens, organismes et immeubles.
-
-## Score zéro déchet
-
-| Dimension | Score | Justification |
-|---|---:|---|
-| Contexte québécois | 3 | La source couvre les écoles publiques du Québec. |
-| Accessibilité pédagogique | 3 | Le CSV est directement lisible en R et les variables sont concrètes. |
-| Qualité documentaire | 3 | La ressource fournit descriptions, coordonnées, licence et métadonnées CKAN. |
-| Potentiel de nettoyage | 2 | Le nettoyage est modéré, mais l'unité statistique exige une préparation explicite. |
-| Potentiel de visualisation | 3 | Les coordonnées permettent des cartes et des graphiques territoriaux. |
-| Potentiel de statistique descriptive | 3 | Les regroupements par région, ordre et réseau sont immédiats. |
-| Potentiel d'inférence | 1 | L'inférence est limitée sans données de population, distance ou capacité. |
-| Potentiel de modélisation | 2 | Le jeu peut soutenir une introduction aux regroupements spatiaux, mais pas une prédiction forte seul. |
-| Potentiel de discussion éthique | 3 | Les noms et adresses d'écoles sont publics, mais demandent une communication prudente. |
-| Réutilisabilité dans plusieurs cours | 3 | Le jeu convient à la cartographie, au nettoyage, aux jointures et à la communication. |
-
-Total : 26 sur 30.
-
-## Activité courte
-
-En 60 à 90 minutes, demander aux personnes étudiantes de distinguer un lien école-immeuble, un organisme et un immeuble. Elles doivent ensuite produire un graphique des comptes par région et une carte simple des coordonnées.
-
-## Activité longue
-
-En 2 à 3 heures, demander un mini-rapport reproductible avec une carte, deux regroupements territoriaux et une section qui explique pourquoi les comptes ne mesurent pas directement l'accès à l'école.
-
-## Questions pédagogiques possibles
-
-1. Quelle est l'unité statistique de la ressource `Écoles publiques`?
-2. Pourquoi le nombre de lignes est-il différent du nombre d'organismes scolaires?
-3. Pourquoi le nombre d'immeubles est-il différent du nombre d'écoles?
-4. Quelle variable faut-il utiliser pour compter les organismes?
-5. Quelle variable faut-il utiliser pour compter les immeubles?
-6. Pourquoi les comptes par région ne sont-ils pas des taux de desserte?
-7. Quelle information manque pour parler d'accès géographique à l'école?
-8. Comment présenter une carte sans surinterpréter les concentrations de points?
 
 ## Code R minimal
 
@@ -275,14 +215,6 @@ render_dataset_minimal_result()
 - Les coordonnées représentent les immeubles scolaires, pas les lieux de résidence des élèves.
 - Une carte de points peut donner une impression de densité qui dépend surtout de la population et de l'urbanisation.
 - Aucune conclusion causale ou normative ne doit être tirée sans données complémentaires.
-
-## Extensions
-
-- Extension intro : comparer le nombre de lignes, d'organismes et d'immeubles.
-- Extension visualisation : produire une carte de points par type de réseau public.
-- Extension jointure : joindre un tableau de population régionale et calculer un ratio descriptif.
-- Extension spatial : transformer les coordonnées en objet `sf` et projeter au Québec.
-- Extension communication : rédiger une note qui explique pourquoi une carte ne mesure pas directement l'accès scolaire.
 
 ```{r}
 #| label: dataset-detail-footer

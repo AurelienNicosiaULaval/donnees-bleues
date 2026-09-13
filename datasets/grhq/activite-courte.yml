@@ -35,7 +35,8 @@ status: Documentation de source et ressources de classe fournies
 pedagogical_status: pret_a_enseigner
 teacher_preparation: Extraire la trousse, ouvrir le projet RStudio, installer les packages avant la séance
   et lancer le script.
-expected_output: Un tableau de contrôle et une note de décision répondant à la question.
+expected_output: Un tableau des unités de téléchargement par type et l’identifiant, conservé comme texte, du bloc
+  08 avec son lien FGDB.
 requires_prepared_data: true
 requires_live_download: false
 recommended_use: Exercice guidé
@@ -59,4 +60,4 @@ script_file: datasets/grhq/activite-courte.R
 classroom_archive: assets/classroom/grhq.zip
 access_mode: documentation
 date_added: "2026-06-18"
-date_updated: "2026-09-05"
+date_updated: "2026-09-13"

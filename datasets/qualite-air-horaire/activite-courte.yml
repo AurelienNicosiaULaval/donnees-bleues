@@ -40,8 +40,8 @@ status: Documentation de source et ressources de classe fournies
 pedagogical_status: pret_a_enseigner
 teacher_preparation: Extraire la trousse, ouvrir le projet RStudio, installer les packages avant la séance
   et lancer le script.
-expected_output: Les tableaux et graphiques du script, accompagnés d’une interprétation de 6 à 8 lignes répondant
-  à la question.
+expected_output: Un résumé des PM2.5-T640 par station et des journées les plus élevées, limité aux jours ayant au
+  moins 18 heures valides.
 requires_prepared_data: true
 requires_live_download: false
 recommended_use: Laboratoire guidé
@@ -65,4 +65,4 @@ script_file: datasets/qualite-air-horaire/activite-courte.R
 classroom_archive: assets/classroom/qualite-air-horaire.zip
 access_mode: frozen
 date_added: "2026-06-19"
-date_updated: "2026-09-05"
+date_updated: "2026-09-13"

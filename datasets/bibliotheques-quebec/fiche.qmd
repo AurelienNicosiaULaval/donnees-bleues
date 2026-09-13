@@ -17,14 +17,6 @@ source(source_path)
 render_dataset_detail_header()
 ```
 
-## Pourquoi ce jeu est intéressant
-
-Ce jeu de données permet d'étudier les bibliothèques publiques québécoises comme un vrai cas de données administratives : fréquentation, prêts, usagers inscrits, population desservie, activités et dépenses de fonctionnement.
-
-Il est utile en science des données parce que le fichier source est large, que les noms de variables sont longs, que les nombres suivent une convention française et que plusieurs conclusions naïves changent dès qu'on rapporte les volumes à la population desservie.
-
-Question d'analyse : quelles différences observe-t-on entre bibliothèques ou régions quand on compare les visites, les prêts et les dépenses par habitant plutôt que les volumes bruts?
-
 ## Ce qui a été vérifié
 
 | Élément | Résultat vérifié |
@@ -149,9 +141,7 @@ Ces valeurs élevées doivent être interprétées avec prudence : elles peuvent
 
 La ligne sans population est conservée dans la table préparée, mais exclue automatiquement des ratios par habitant.
 
-## Lecture statistique
-
-Une analyse prudente suit cet ordre :
+## Interprétation et contrôles
 
 1. vérifier l'unité statistique et les champs déclarés;
 2. distinguer les volumes bruts des ratios;
@@ -162,42 +152,6 @@ Une analyse prudente suit cet ordre :
 7. éviter les conclusions causales sur la qualité des services.
 
 Les données sont excellentes pour enseigner la statistique descriptive, la préparation de données et la communication prudente d'indicateurs publics.
-
-## Concepts enseignables
-
-- importation CSV avec séparateur point-virgule;
-- conversion de nombres avec virgule décimale;
-- sélection de variables dans un fichier large;
-- ratios par habitant;
-- valeurs manquantes;
-- comparaison régionale;
-- visualisation de distributions asymétriques;
-- limites des données administratives.
-
-## Score zéro déchet
-
-| Dimension | Score | Justification |
-|---|---:|---|
-| Contexte québécois | 3 | Source officielle sur les bibliothèques publiques du Québec |
-| Accessibilité pédagogique | 3 | Sujet concret et interprétable par les étudiantes et étudiants |
-| Qualité documentaire | 3 | Page Données Québec, API CKAN et dictionnaire CSV |
-| Potentiel de nettoyage | 3 | Fichier large, noms longs, nombres français et valeurs manquantes |
-| Potentiel de visualisation | 3 | Histogrammes, barres régionales, nuages de points |
-| Potentiel de statistique descriptive | 3 | Volumes, ratios, médianes et comparaisons |
-| Potentiel d'inférence | 2 | Possible avec prudence, sans plan d'échantillonnage |
-| Potentiel de modélisation | 2 | Modèles exploratoires utiles, mais causalité non justifiée |
-| Potentiel éthique | 3 | Discussion sur l'accès aux services publics et les indicateurs |
-| Réutilisabilité | 3 | Utile en importation, EDA, communication et introduction à la modélisation |
-
-Total : 28 sur 30.
-
-## Activité courte
-
-En 30 à 45 minutes, calculer les visites par habitant, visualiser leur distribution et commenter deux limites de comparaison.
-
-## Activité longue
-
-En 2 à 3 heures, produire un portrait régional des bibliothèques publiques à partir des ratios de visites, prêts et dépenses par habitant.
 
 ## Code R minimal
 
@@ -247,14 +201,6 @@ render_dataset_minimal_result()
 - Les visites, les prêts et les dépenses ne doivent pas être comparés sans dénominateur.
 - Une ligne, Bibliothèque et Archives nationales du Québec, n'a pas de population desservie ni de région administrative dans la table préparée.
 - Les modèles statistiques doivent être présentés comme exploratoires, sauf si un plan d'analyse plus complet est défini.
-
-## Extensions
-
-- Comparer les distributions de visites par habitant entre régions.
-- Étudier les liens entre prêts par habitant et dépenses par habitant.
-- Produire une carte régionale si une géographie officielle est jointe séparément.
-- Construire un tableau de bord statique pour une note de service fictive.
-- Discuter les effets possibles d'une bibliothèque centrale sur les ratios.
 
 ## Références utilisées
 

@@ -1,0 +1,35 @@
+---
+title: "Charte éditoriale"
+toc: false
+embed-resources: true
+---
+
+# Rédiger une ressource
+
+Une fiche présente les données; une activité précise le travail à réaliser; le guide explique le fonctionnement du site. Écrire pour un collègue qui découvre la ressource.
+
+## Fiche de données
+
+- Décrire le contenu et l’unité d’observation dans des mots courants. Les concepts en badges ne deviennent pas un paragraphe de présentation.
+- Renseigner `summary`, `unit`, `geography`, `observation_period` et les conditions de la source. Distinguer la période des observations, la date d’acquisition, la version du fichier et la mise à jour de la fiche.
+- Indiquer les producteurs dans `source_authors`, et la préparation ou la contribution dans les champs de rôle correspondants. Ne pas mélanger ces rôles dans un libellé de filtre.
+- Placer dans `essential_limits` les précautions qui changent le comptage, les dénominateurs, l’interprétation ou la réutilisation. La méthode détaillée reste dans le corps de la fiche.
+- Préciser si la trousse contient les données, des scripts d’acquisition ou seulement de la documentation. Ne pas laisser une restriction déterminante dans un volet fermé.
+- Conserver les attributions, licences et usages en cours documentés. Si un renseignement manque, l’indiquer sans le remplacer par une promesse générale.
+
+## Activité
+
+- Poser une question précise et décrire une production : tableau, graphique, comparaison ou document à remettre.
+- Distinguer les consignes des critères : une consigne décrit une tâche; un critère permet de vérifier son résultat. Ne pas recopier la même phrase dans les objectifs, les consignes et les critères.
+- Donner les prérequis avant le script et signaler toute acquisition préalable.
+- Distinguer fichiers disponibles, exécution technique et essai en classe. Un usage dans un cours exige une preuve dans les métadonnées; il ne démontre pas à lui seul l’efficacité pédagogique.
+
+## Style et relecture
+
+Supprimer ou fusionner avant de reformuler. Retirer les phrases qui répètent le titre ou les métadonnées, les superlatifs et les bénéfices non démontrés. Éviter les slogans et les tirets cadratins.
+
+Utiliser les mêmes termes : jeu de données, fiche, activité, document, application et trousse ZIP. « Ressource » désigne l’ensemble de ces contenus. Nommer les logiciels et formats lorsqu’ils aident à choisir ou à utiliser la ressource.
+
+Avant de proposer une modification, vérifier les sources, les liens, les téléchargements et le rendu sur une fenêtre étroite. Corriger une répétition dans le modèle partagé lorsqu’il la produit sur plusieurs pages.
+
+[Guide du site](guide.qmd) · [Contribuer](contribuer.qmd)

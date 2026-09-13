@@ -1,7 +1,6 @@
 id: vehicules-canada-2025
 title: 'Véhicules : consommation au Canada et parc québécois'
 short_title: Véhicules 2025
-summary: '64 configurations canadiennes de 2025 et 19 variables complètes pour explorer la consommation. Un tableau SAAQ distinct décrit le parc québécois de 2022 dans un périmètre explicite.'
 download_url: https://raw.githubusercontent.com/AurelienNicosiaULaval/vehicules-quebec/v1.0.0/data_clean/vehicules_canada_2025.csv
 download_label: Télécharger les 64 configurations (CSV)
 preview_note: 'Les 64 configurations de la version 1.0.0, avec huit colonnes parmi les 19 du CSV complet. Cet aperçu décrit le marché canadien; la présence des configurations au Québec n’est pas confirmée.'
@@ -49,7 +48,7 @@ contributor_name: Aurélien Nicosia
 contributor_role: Construction du jeu dérivé, de l’activité et de son adaptation à Données bleues
 courses: []
 date_added: '2026-09-07'
-date_updated: '2026-09-07'
+date_updated: "2026-09-13"
 publication:
   preview: true
   reviewed_on: '2026-09-07'
@@ -75,3 +74,24 @@ chart:
   x_label: Cylindrée (L)
   y_label: Consommation combinée (L/100 km)
   title: Cylindrée et consommation des 64 configurations canadiennes
+
+summary: 64 configurations canadiennes de véhicules de 2025, avec 19 variables. Un tableau SAAQ distinct décrit
+  une partie du parc québécois au 31 décembre 2022.
+
+observation_period: Configurations 2025; parc SAAQ au 31 décembre 2022
+
+essential_limits:
+- Les configurations canadiennes et les groupes région-carburant de la SAAQ ont des unités différentes. Les deux
+  tables ne sont pas jointes; la présence de chaque configuration au Québec n’est pas confirmée.
+- La sélection des configurations ne représente pas les parts du marché. Les conversions de consommation ne sont
+  pas des mesures indépendantes.
+- Le tableau SAAQ porte sur les véhicules de promenade autorisés à circuler, de type AU et de classes PAU, CAU et RAU.
+
+source_authors:
+- Ressources naturelles Canada
+- SAAQ
+
+data_version: 1.0.0
+table_overview:
+  Configurations RNCan: "Canada, année-modèle 2025. Une ligne par configuration : 64 lignes et 19 variables."
+  Parc SAAQ: "Québec, 31 décembre 2022. Une ligne par groupe région-carburant : 152 lignes et 5 variables, pour 5 507 330 véhicules dans le périmètre retenu."

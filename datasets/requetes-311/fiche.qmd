@@ -17,14 +17,6 @@ source(source_path)
 render_dataset_detail_header()
 ```
 
-## Pourquoi ce jeu est intéressant
-
-Ce jeu de données décrit des demandes citoyennes soumises à la Ville de Montréal par le système 311, par courriel ou dans les Bureaux Accès Montréal. Il permet d'étudier des catégories de services municipaux très concrètes : déchets, voirie, éclairage, déneigement, espaces publics et suivi des demandes.
-
-Il est utile en science des données parce qu'il combine un fichier très volumineux, des dates, des catégories textuelles, des canaux de provenance, des statuts, des arrondissements et des coordonnées. Il oblige aussi à discuter ce que mesure un canal administratif : des demandes reçues, pas directement les besoins réels de la population.
-
-Question d'analyse : quelles catégories de demandes non-Information dominent dans un échantillon pédagogique du 311, et quelles limites faut-il mentionner avant de comparer les arrondissements?
-
 ## Ce qui a été vérifié
 
 | Élément | Résultat vérifié |
@@ -196,9 +188,7 @@ L'année 2026 est partielle au moment de l'accès. Les comparaisons annuelles do
 
 La couverture des coordonnées est élevée dans l'échantillon, mais les coordonnées ne suffisent pas à interpréter l'équité territoriale.
 
-## Lecture statistique
-
-Une analyse prudente suit cet ordre :
+## Interprétation et contrôles
 
 1. préciser que l'unité est une demande soumise;
 2. distinguer les lignes `Information` des requêtes, plaintes et commentaires;
@@ -209,42 +199,6 @@ Une analyse prudente suit cet ordre :
 7. interpréter les volumes comme des demandes observées, pas comme des besoins réels.
 
 Les données sont excellentes pour enseigner les catégories, les séries temporelles et la visualisation responsable d'un service public.
-
-## Concepts enseignables
-
-- données administratives;
-- échantillonnage reproductible;
-- variables catégorielles;
-- séries temporelles;
-- coordonnées et cartes de points;
-- valeurs manquantes;
-- biais de déclaration;
-- communication publique prudente.
-
-## Score zéro déchet
-
-| Dimension | Score | Justification |
-|---|---:|---|
-| Contexte québécois | 3 | Service municipal montréalais |
-| Accessibilité pédagogique | 3 | Sujet concret et très lisible |
-| Qualité documentaire | 2 | Source officielle et visualisation, mais méthodologie à consulter avec prudence |
-| Potentiel de nettoyage | 3 | Dates, catégories, coordonnées, canaux et statuts |
-| Potentiel de visualisation | 3 | Barres, séries mensuelles, cartes et tableaux |
-| Potentiel de statistique descriptive | 3 | Comptages et proportions directement exploitables |
-| Potentiel d'inférence | 2 | Possible seulement avec dénominateurs et plan d'analyse |
-| Potentiel de modélisation | 2 | Modèles descriptifs possibles sur catégories ou délais |
-| Potentiel éthique | 3 | Biais d'accès au service et interprétation publique |
-| Réutilisabilité | 3 | Utile en nettoyage, EDA, spatial, communication et séries temporelles |
-
-Total : 27 sur 30.
-
-## Activité courte
-
-En 30 à 45 minutes, choisir un arrondissement, compter les principales activités et rédiger une limite sur l'interprétation des volumes.
-
-## Activité longue
-
-En 2 à 3 heures, produire une analyse saisonnière de quelques activités, avec un graphique mensuel et une discussion sur l'échantillonnage et les biais de déclaration.
 
 ## Code R minimal
 
@@ -299,14 +253,6 @@ render_dataset_minimal_result()
 - Les arrondissements ne sont pas comparables sans population, superficie ou exposition au service.
 - Les canaux de provenance influencent fortement les volumes observés.
 - Les coordonnées ne garantissent pas une localisation parfaite de l'enjeu signalé.
-
-## Extensions
-
-- Comparer deux arrondissements avec une note sur les dénominateurs manquants.
-- Étudier les demandes liées aux déchets, à la voirie ou au déneigement.
-- Construire une série mensuelle pour une activité précise.
-- Produire une carte filtrée aux lignes avec coordonnées disponibles.
-- Ajouter des données de population pour construire un taux exploratoire.
 
 ## Références utilisées
 

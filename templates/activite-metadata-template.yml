@@ -30,13 +30,13 @@ advanced_math_stats: false
 teacher_notes:
 pedagogical_status: "ebauche"
 teacher_preparation:
-expected_output:
+expected_output: # Nommer le tableau, le graphique, le calcul ou le texte à produire.
 learning_objectives:
   - "Objectif observable à compléter"
 prerequisites:
   - "Prérequis à compléter"
 success_criteria:
-  - "Critère de réussite à compléter"
+  - "Décrire une condition vérifiable du résultat, sans recopier une consigne."
 adaptations:
   - "Adaptation à compléter"
 requires_prepared_data: true
@@ -47,5 +47,5 @@ status:
 
 # Dates de la fiche dans le répertoire, distinctes de la période des données.
 # Renseigner la date réelle à l’ajout, puis conserver date_added.
-date_added: "2026-09-07"
-date_updated: "2026-09-07"
+date_added: # Date réelle d’ajout, format YYYY-MM-DD
+date_updated: # Date réelle de modification, format YYYY-MM-DD

@@ -17,12 +17,6 @@ source(source_path)
 render_dataset_detail_header()
 ```
 
-## Pourquoi ce jeu est intéressant
-
-Ce jeu relie directement statistique descriptive, ressources hydriques et décision administrative. Les variables sont simples à manipuler, mais l'interprétation demande de la rigueur : le volume fourni est un volume maximal autorisé, pas un volume réellement prélevé.
-
-La fiche est donc utile pour enseigner trois gestes essentiels : convertir des unités, agréger par catégorie et communiquer une limite administrative sans l'enterrer à la fin du rapport.
-
 ## Ce qui a été vérifié
 
 | Élément | Résultat vérifié |
@@ -125,9 +119,7 @@ L'absence de précision textuelle ne veut pas dire absence de condition administ
 
 Ces valeurs justifient une discussion sur les valeurs extrêmes. Un graphique brut peut être dominé par quelques sites.
 
-## Lecture statistique
-
-Une analyse prudente suit cet ordre :
+## Interprétation et contrôles
 
 1. vérifier que l'unité est le site autorisé;
 2. convertir les litres par jour en mètres cubes par jour;
@@ -137,42 +129,6 @@ Une analyse prudente suit cet ordre :
 6. citer la mise en garde officielle sur la valeur légale des données.
 
 Les données permettent de décrire les autorisations actives présentes dans la source. Elles ne permettent pas, seules, de mesurer la pression réelle sur l'eau, l'utilisation annuelle ou l'impact hydrologique.
-
-## Concepts enseignables
-
-- volume maximal autorisé;
-- conversion d'unités;
-- données administratives;
-- agrégation par catégorie;
-- valeurs extrêmes;
-- carte de points;
-- biais d'interprétation;
-- communication prudente.
-
-## Score zéro déchet
-
-| Dimension | Score | Justification |
-|---|---:|---|
-| Contexte québécois | 3 | Données officielles sur les prélèvements d'eau au Québec |
-| Accessibilité pédagogique | 3 | Variables concrètes et graphiques directs |
-| Qualité documentaire | 3 | Page, CSV, PDF de métadonnées et formats spatiaux |
-| Potentiel de nettoyage | 3 | Volumes, unités, précisions, grands sites et noms |
-| Potentiel de visualisation | 3 | Barres, distributions, cartes et effets d'échelle |
-| Potentiel de statistique descriptive | 3 | Agrégations et comparaisons très naturelles |
-| Potentiel d'inférence | 1 | Non adapté à l'inférence sans protocole complémentaire |
-| Potentiel de modélisation | 2 | Modélisation descriptive possible avec données territoriales |
-| Potentiel éthique | 3 | Ressource hydrique, gouvernance et communication publique |
-| Réutilisabilité | 3 | Utile en visualisation, données ouvertes et politiques publiques |
-
-Total : 27 sur 30.
-
-## Activité courte
-
-En 30 à 45 minutes, comparer les volumes autorisés par provenance de l'eau, puis expliquer pourquoi ce ne sont pas des volumes réellement prélevés.
-
-## Activité longue
-
-En 2 à 3 heures, produire un portrait descriptif avec agrégations, carte, valeurs extrêmes, valeurs manquantes et limites administratives.
 
 ## Code R minimal
 
@@ -233,14 +189,6 @@ render_dataset_minimal_result()
 - Les autorisations antérieures au cadre décrit dans la source ne sont pas nécessairement incluses.
 - Les grands volumes dominent fortement plusieurs graphiques.
 - Les coordonnées peuvent provenir d'origines diverses selon le PDF de métadonnées.
-
-## Extensions
-
-- Comparer les résultats avec et sans les dix plus grands sites.
-- Produire une carte des sites avec une échelle logarithmique du volume.
-- Grouper par intervenant et discuter des documents multi-sites.
-- Joindre les sites à une région administrative ou un bassin versant.
-- Rédiger une note publique qui distingue volume autorisé, volume réel et valeur légale.
 
 ## Références utilisées
 

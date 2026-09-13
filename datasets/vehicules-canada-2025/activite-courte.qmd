@@ -43,9 +43,6 @@ Le petit jeu contient des configurations à essence, éventuellement hybrides no
 3. Comparer les médianes et les dispersions entre classes, puis décrire le nuage cylindrée-consommation.
 4. Répondre aux six exercices ci-dessous. Les sections sur la régression et la SAAQ sont facultatives.
 
-## Résultat attendu
-
-Remettre un tableau descriptif, deux graphiques et six réponses courtes avec les unités et une limite de portée. Les résultats ci-dessous sont recalculés à partir de la trousse distribuée.
 
 ```{r}
 #| include: false

@@ -41,13 +41,17 @@ Source : [Statistique Canada](https://www150.statcan.gc.ca/t1/tbl1/fr/tv.action?
 3. Lire l’évolution de la part des 65 ans et plus sans confondre effectifs et proportions.
 4. Rédiger une réponse à la question en nommant l’unité observée et une limite de la source.
 
-## Résultat attendu
-
-Les tableaux et graphiques du script, accompagnés d’une interprétation de 6 à 8 lignes répondant à la question.
 
 ## Limites à faire nommer
 
 Les effectifs sont des estimations de population. Les signes servent à placer les côtés de la pyramide; les proportions de population sont positives.
+
+```{r}
+#| label: activity-pedagogical-contract
+#| echo: false
+#| results: asis
+render_activity_contract()
+```
 
 ## Code complet
 
@@ -58,11 +62,4 @@ Ce script complet est celui de la trousse. Il lit les fichiers locaux et affiche
 #| echo: false
 #| results: asis
 render_activity_code()
-```
-
-```{r}
-#| label: activity-pedagogical-contract
-#| echo: false
-#| results: asis
-render_activity_contract()
 ```

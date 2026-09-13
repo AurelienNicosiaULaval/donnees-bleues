@@ -17,106 +17,27 @@ source(source_path)
 render_dataset_detail_header()
 ```
 
-## Pourquoi ce jeu est intéressant
+<!-- Le modèle affiche la description, les repères, le téléchargement, les limites
+et les activités depuis metadata.yml et les métadonnées des activités.
+Compléter ces champs sans les recopier dans le corps ci-dessous. -->
 
-Décrire le contexte pédagogique, québécois ou canadien, et préciser ce que ce jeu permet réellement d'enseigner en statistique ou en science des données.
+## Variables
 
-## Source
+| Variable | Définition et unité | Valeurs manquantes ou codage particulier |
+|---|---|---|
+| À renseigner | À vérifier dans le dictionnaire source | À documenter |
 
-| Champ | Information |
-|---|---|
-| Organisme producteur | Je ne sais pas. |
-| URL | Je ne sais pas. |
-| Licence | Je ne sais pas. |
-| Date d'accès | Je ne sais pas. |
-| Fréquence de mise à jour | Je ne sais pas. |
+## Préparation
 
-## Ce que représente une ligne
+Décrire les fichiers utilisés, les critères de sélection et les transformations effectivement appliquées. Relier le script reproductible et le dictionnaire des variables. Distinguer les versions si les résultats ci-dessous portent sur un autre fichier que celui offert au téléchargement.
 
-Décrire l'unité statistique avec précision. Indiquer si une ligne représente une personne, une station, une année, un territoire, un événement, une mesure ou une entité administrative.
+## Contrôles et limites détaillées
 
-## Variables principales
+Documenter les contrôles effectués, leurs résultats et les conséquences pour l’analyse. Les limites déterminantes doivent également figurer dans `essential_limits`, visible sans déplier cette documentation.
 
-| Variable | Type | Description | Exemple | Remarques pédagogiques |
-|---|---|---|---|---|
-| variable | type | description | exemple | remarque |
+## Références et attributions détaillées
 
-## Taille et structure
-
-| Élément | Information |
-|---|---|
-| Nombre de lignes | Je ne sais pas. |
-| Nombre de colonnes | Je ne sais pas. |
-| Structure | Je ne sais pas. |
-| Format | Je ne sais pas. |
-
-## Concepts enseignables
-
-- importation;
-- nettoyage;
-- visualisation;
-- statistique descriptive;
-- communication;
-- limites d'interprétation.
-
-## Score zéro déchet
-
-| Dimension | Score | Justification |
-|---|---:|---|
-| Contexte québécois | 0 | À compléter. |
-| Accessibilité pédagogique | 0 | À compléter. |
-| Qualité documentaire | 0 | À compléter. |
-| Potentiel de nettoyage | 0 | À compléter. |
-| Potentiel de visualisation | 0 | À compléter. |
-| Potentiel de statistique descriptive | 0 | À compléter. |
-| Potentiel d'inférence | 0 | À compléter. |
-| Potentiel de modélisation | 0 | À compléter. |
-| Potentiel de discussion éthique | 0 | À compléter. |
-| Réutilisabilité dans plusieurs cours | 0 | À compléter. |
-
-Total : 0 sur 30.
-
-## Activité courte
-
-Décrire une activité de 30 à 45 minutes.
-
-## Activité longue
-
-Décrire une activité de 2 à 3 heures.
-
-## Projet possible
-
-Décrire un projet de session possible.
-
-## Questions pédagogiques possibles
-
-1. Question à compléter.
-2. Question à compléter.
-3. Question à compléter.
-4. Question à compléter.
-5. Question à compléter.
-
-## Code R minimal
-
-```{r}
-#| eval: false
-library(readr)
-
-donnees <- read_csv("URL_SOURCE_VERIFIEE")
-
-str(donnees)
-```
-
-## Limites et précautions
-
-- À compléter.
-
-## Extensions
-
-- Extension intro : à compléter.
-- Extension intermédiaire : à compléter.
-- Extension avancée : à compléter.
-- Extension communication scientifique : à compléter.
+Nommer les producteurs, les auteurs de l’adaptation et leurs rôles. Relier les sources et préciser leurs licences respectives. Les crédits courts, les dates de la fiche et les usages documentés sont affichés automatiquement.
 
 ```{r}
 #| label: dataset-detail-footer

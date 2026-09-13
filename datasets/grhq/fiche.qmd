@@ -17,12 +17,6 @@ source(source_path)
 render_dataset_detail_header()
 ```
 
-## Pourquoi ce jeu est intéressant
-
-La GRHQ est un bon jeu pour enseigner une idée importante en données spatiales : avant de lire une couche géométrique, il faut comprendre l'index, le format, l'unité de téléchargement et la taille implicite des fichiers. La fiche ne transforme donc pas la GRHQ en simple CSV. Elle prépare l'index officiel qui sert à choisir une unité hydrographique, puis elle documente les ressources spatiales détaillées disponibles.
-
-Cette approche est adaptée à un cours de science des données parce qu'elle montre un vrai flux de travail : consulter les métadonnées, choisir un périmètre raisonnable, éviter de télécharger tout le Québec, puis seulement ensuite passer à `sf`, aux cartes et aux jointures spatiales.
-
 ## Ce qui a été vérifié
 
 | Élément | Résultat vérifié |
@@ -123,7 +117,7 @@ Cette distinction est essentielle. L'index sert à décider quoi télécharger. 
 | 10_2 | Région hydrographique 10, partie 2 | fractionnée |
 | 14 | Région hydrographique 14 | complète |
 
-## Lecture statistique
+## Interprétation et contrôles
 
 La GRHQ est un référentiel, pas un tableau d'observations indépendantes. Une bonne utilisation pédagogique suit cet ordre :
 
@@ -134,43 +128,6 @@ La GRHQ est un référentiel, pas un tableau d'observations indépendantes. Une 
 5. interpréter les résultats comme des objets géographiques, pas comme un échantillon statistique ordinaire.
 
 La page MRNF indique que le produit vectoriel est offert en FGDB, avec système de projection CCL, à une échelle de 1/20 000 à 1/50 000 et une précision de 4 à 10 m en planimétrie. Ces informations doivent être conservées dans toute analyse cartographique.
-
-## Concepts enseignables
-
-- index de téléchargement
-- métadonnées spatiales
-- unité de téléchargement
-- système de projection
-- données vectorielles
-- service WMS
-- lecture avec `sf`
-- jointure spatiale
-- limites computationnelles
-
-## Score zéro déchet
-
-| Dimension | Score | Justification |
-|---|---:|---|
-| Contexte québécois | 3 | Référentiel hydrographique officiel pour le Québec |
-| Accessibilité pédagogique | 2 | Très riche, mais technique et volumineux |
-| Qualité documentaire | 3 | Page MRNF, guide, index, WMS et métadonnées CKAN |
-| Potentiel de nettoyage | 3 | Choix de ressources, index, formats et couches à documenter |
-| Potentiel de visualisation | 3 | Cartographie hydrographique naturelle |
-| Potentiel de statistique descriptive | 2 | Résumés possibles après lecture de couches spatiales |
-| Potentiel d'inférence | 1 | Peu adapté à l'inférence sans question environnementale précise |
-| Potentiel de modélisation | 2 | Réseau hydrographique utile pour modèles spatiaux après préparation |
-| Potentiel éthique | 2 | Discussion sur territoire, ressources en eau et usages publics |
-| Réutilisabilité | 3 | Réutilisable avec qualité de l'eau, inondations et environnement |
-
-Total : 24 sur 30.
-
-## Activité courte
-
-En 30 à 45 minutes, lire l'index préparé, choisir une unité GRHQ et justifier ce choix sans télécharger tout le référentiel.
-
-## Activité longue
-
-En 2 à 3 heures, préparer un plan d'analyse spatiale : choisir une unité, documenter le format FGDB, lister les couches attendues et proposer une jointure avec un autre jeu environnemental.
 
 ## Code R minimal
 
@@ -218,14 +175,6 @@ render_dataset_minimal_result()
 - Une ligne de l'index n'est pas une entité hydrographique.
 - Les analyses de longueur, surface, densité ou connectivité exigent la lecture d'une couche spatiale détaillée.
 - Les résultats cartographiques doivent documenter la projection, l'échelle et les simplifications éventuelles.
-
-## Extensions
-
-- Lire une FGDB avec `sf::st_read()` après avoir choisi une unité.
-- Comparer le WMS simple et le WMS détaillé.
-- Joindre des stations de qualité de l'eau à une unité GRHQ.
-- Construire une carte des unités de téléchargement à partir du SHP de l'index.
-- Discuter la différence entre référentiel spatial et échantillon statistique.
 
 ## Références utilisées
 

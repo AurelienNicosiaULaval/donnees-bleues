@@ -125,4 +125,12 @@ chart:
   y_label: Information GTFS
   title: Accessibilité déclarée des arrêts
 date_added: "2026-06-19"
-date_updated: "2026-09-05"
+date_updated: "2026-09-13"
+
+summary: 'Offre planifiée du RTC : arrêts, parcours, trajets, horaires et dates de service dans des fichiers GTFS
+  reliés par des identifiants.'
+
+observation_period: Liste d’arrêts de la trousse préparée en septembre 2026; calendrier de service à vérifier dans le GTFS source
+
+source_authors:
+- RTC

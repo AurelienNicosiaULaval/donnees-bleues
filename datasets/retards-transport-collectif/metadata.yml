@@ -139,4 +139,12 @@ chart:
 preview_note: Dictionnaire de champs attendus et dérivés, sans observation de retard. La lecture du flux STM exige
   un accès au portail développeur.
 date_added: "2026-06-19"
-date_updated: "2026-09-05"
+date_updated: "2026-09-13"
+
+summary: Documentation du flux temps réel de la STM et protocole pour vérifier son accès et archiver des observations.
+  Aucune table historique de retards n’est fournie.
+
+observation_period: Flux temps réel; aucune série historique fournie
+
+source_authors:
+- Société de transport de Montréal

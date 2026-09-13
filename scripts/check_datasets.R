@@ -14,7 +14,7 @@ required_fields <- c(
   "id", "title", "short_title", "theme", "source_name", "source_url",
   "license", "access_date", "geography", "unit", "data_type", "format",
   "n_rows", "n_cols", "update_frequency", "level", "concepts",
-  "zero_waste", "status"
+  "zero_waste", "status", "summary", "observation_period", "source_authors"
 )
 
 dataset_dirs <- find_dataset_dirs("datasets")
@@ -39,6 +39,11 @@ for (dataset_dir in dataset_dirs) {
   }
 
   metadata <- read_dataset_metadata(dataset_dir)
+  for (field in c('summary', 'observation_period', 'source_authors')) {
+    if (!length(metadata[[field]]) || any(!nzchar(trimws(unlist(metadata[[field]]))))) {
+      errors <- c(errors, paste(dataset_dir, 'champ éditorial vide :', field))
+    }
+  }
   missing_fields <- required_fields[!required_fields %in% names(metadata)]
   if (length(missing_fields) > 0L) {
     errors <- c(errors, paste(dataset_dir, "champs metadata manquants :", paste(missing_fields, collapse = ", ")))

@@ -6,41 +6,31 @@ page-layout: full
 embed-resources: true
 ---
 
-::: {.resource-hero}
 # Utiliser Données bleues
-
-Comprendre le fonctionnement du site, construire un parcours pédagogique et réutiliser les ressources avec leurs sources et leurs limites.
-:::
-
-::: {.act-module-grid}
-::: {.act-module-card}
-## [Séquences pédagogiques](sequences.qmd)
-
-Trois parcours adaptables pour enchaîner les apprentissages : lire et décrire, visualiser pour comparer, puis préparer, analyser et communiquer.
-:::
-::: {.act-module-card}
-## [Méthode](zero-waste.qmd)
-
-Le cadre « données zéro déchet » aide à choisir des sources qui servent plusieurs apprentissages. Sa grille est un outil de conception pédagogique, pas une mesure scientifique validée.
-:::
-::: {.act-module-card}
-## [Références et documentation](references.qmd)
-
-Les repères documentaires et les sources qui accompagnent la conception et l’utilisation des ressources.
-:::
-:::
 
 ## Trouver une ressource
 
-Les pages [Données](catalogue.qmd), [Planifier](activites.qmd), [Lectures et documents](lectures.qmd) et [Applications](applications.qmd) donnent accès aux différents types de ressources. La loupe en haut de page ouvre une recherche commune par mots-clés, type, thème, auteur et cours.
+Les pages [Données](catalogue.qmd), [Activités](activites.qmd), [Lectures et documents](lectures.qmd) et [Applications](applications.qmd) donnent accès aux quatre types de ressources. La loupe ouvre leur recherche commune par mots-clés, type, thème, auteur ou source et cours d’utilisation documenté.
 
-## Comprendre les fiches
+Dans les catalogues, saisir un sujet ou ouvrir les filtres. Les résultats se mettent à jour dès qu’un choix change. Les filtres appliqués restent visibles et peuvent être retirés séparément.
 
-Chaque fiche de données indique sa source officielle, son unité statistique, ses variables principales et ses limites d’interprétation. Les activités associées précisent comment passer de la source à une séance, un laboratoire ou un projet.
+## Choisir et télécharger les données
 
-Une fiche ne garantit pas qu’une source est complète ou sans ambiguïté. Les séquences doivent être adaptées au groupe réel ; leur disponibilité ne constitue pas une validation en classe.
+En haut d’une fiche, vérifier ce que représente une ligne, le territoire, la période et la version proposée. Lire les précautions et les conditions de la source avant de télécharger.
 
-[Partager un retour d’usage](retours-classe.qmd)
+L’aperçu affiche une partie des lignes et des colonnes. Le téléchargement complet et les fichiers de provenance permettent de retrouver la version utilisée. Certaines trousses contiennent uniquement des scripts d’acquisition ou de la documentation : leur contenu est précisé près du bouton.
+
+## Préparer une activité
+
+1. Vérifier la durée, le niveau, les prérequis et le travail demandé.
+2. Télécharger la trousse ZIP et l’extraire entièrement.
+3. Ouvrir `Donnees-bleues.Rproj` dans RStudio.
+4. Avant la séance, ouvrir `installer-packages.R` et cliquer sur Source avec une connexion Internet.
+5. Ouvrir le script de l’activité et cliquer sur Source.
+
+Lorsque les données sont incluses, les analyses peuvent ensuite utiliser les fichiers locaux. Si une acquisition préalable est requise, suivre le script et les conditions indiqués sur l’activité. Une exécution technique et une utilisation en classe sont deux statuts distincts, documentés dans les notices.
+
+[Partager un retour d’utilisation](retours-classe.qmd)
 
 ## Licences et réutilisation
 
@@ -54,6 +44,14 @@ Les données et autres contenus de tiers conservent les licences ou conditions d
 
 ## Version et citation
 
-Cette édition porte le numéro 0.2.0. Elle réunit 26 fiches, 52 activités, trois séquences et trois modules transversaux. Chaque activité fournit une trousse de lancement. La disponibilité des ressources et les vérifications techniques ne constituent pas une preuve d’efficacité pédagogique.
+Cette édition porte le numéro 0.2.0. Les [catalogues](ressources.qmd) donnent l’inventaire actuel des ressources.
 
-Les métadonnées de citation se trouvent dans [`CITATION.cff`](CITATION.cff). Les [livraisons GitHub](https://github.com/AurelienNicosiaULaval/donnees-bleues/releases) donnent accès aux versions figées. Les données des trousses portent leurs propres dates de préparation et d’acquisition.
+Les métadonnées de citation se trouvent dans [`CITATION.cff`](CITATION.cff). Les [livraisons GitHub](https://github.com/AurelienNicosiaULaval/donnees-bleues/releases) donnent accès aux versions figées. La date des observations, celle de l’acquisition, celle de la trousse et celle de la fiche sont distinctes.
+
+## Organiser plusieurs séances
+
+- [Séquences pédagogiques](sequences.qmd) : enchaîner les activités de lecture, de visualisation et d’analyse.
+- [Modules transversaux](activites.qmd#modules-transversaux) : travailler des notions communes à plusieurs jeux.
+- [Méthode et grille de réutilisation](zero-waste.qmd) : consulter le cadre de conception et sa grille éditoriale, qui n’est pas une mesure scientifique validée.
+- [Références](references.qmd) : retrouver les références méthodologiques du projet.
+- [Charte éditoriale](charte-editoriale.qmd) : préparer une nouvelle fiche ou une activité.

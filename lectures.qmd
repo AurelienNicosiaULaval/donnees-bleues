@@ -9,7 +9,7 @@ embed-resources: true
 ::: {.resource-hero}
 # Lectures et documents
 
-Des ressources qui expliquent des concepts de statistique et de science des données à partir de données québécoises.
+Documents méthodologiques et démonstrations en R avec leurs données et fichiers Quarto.
 :::
 
 [Proposer une lecture](contribuer.qmd){.dataset-button .secondary}

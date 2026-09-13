@@ -126,4 +126,12 @@ chart:
   y_label: Gravité déclarée
   title: Gravité des accidents de l’extrait
 date_added: "2026-06-18"
-date_updated: "2026-09-05"
+date_updated: "2026-09-13"
+
+summary: 'Rapports policiers d’accidents routiers au Québec en 2022 : date, gravité, région, conditions et catégories
+  d’usagers ou de véhicules.'
+
+observation_period: '2022'
+
+source_authors:
+- Société de l'assurance automobile du Québec

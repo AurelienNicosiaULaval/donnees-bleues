@@ -17,20 +17,10 @@ source(if (file.exists("R/utils_dataset_page.R")) "R/utils_dataset_page.R" else 
 render_dataset_detail_header()
 ```
 
-## Explorer la consommation avec un petit jeu documenté
+## Fichiers complémentaires et dictionnaires
 
-Ce jeu pédagogique contient 64 configurations de véhicules de l’année modèle 2025, avec 19 variables complètes. Il permet de comparer les distributions de consommation, d’explorer leur association avec la cylindrée et de reconnaître les conversions d’unités qui ne constituent pas de nouvelles mesures.
-
-Les cotes viennent de Ressources naturelles Canada (RNCan). Les configurations concernent le marché canadien; leur présence au Québec n’est pas confirmée. Un second tableau, issu de la SAAQ, décrit séparément une partie du parc québécois de 2022. Les deux tables ne sont pas jointes.
-
-Aurélien Nicosia a construit et vérifié la [version 1.0.0 du jeu dérivé](https://github.com/AurelienNicosiaULaval/vehicules-quebec/releases/tag/v1.0.0). Il s’agit d’une sélection et d’une préparation de données publiques, pas d’une nouvelle collecte.
-
-## Télécharger les données et commencer
-
-- [Les 64 configurations canadiennes, 19 variables (CSV)](https://raw.githubusercontent.com/AurelienNicosiaULaval/vehicules-quebec/v1.0.0/data_clean/vehicules_canada_2025.csv).
 - [Dictionnaire des configurations](https://raw.githubusercontent.com/AurelienNicosiaULaval/vehicules-quebec/v1.0.0/data_clean/vehicules_canada_2025_dictionary.csv) et [provenance de chaque ligne](https://raw.githubusercontent.com/AurelienNicosiaULaval/vehicules-quebec/v1.0.0/data_clean/vehicules_canada_2025_provenance.csv).
 - [Portrait SAAQ distinct : 152 groupes région-carburant (CSV)](https://raw.githubusercontent.com/AurelienNicosiaULaval/vehicules-quebec/v1.0.0/data_clean/parc_quebec_2022.csv) et [son dictionnaire](https://raw.githubusercontent.com/AurelienNicosiaULaval/vehicules-quebec/v1.0.0/data_clean/parc_quebec_2022_dictionary.csv).
-- [Activité Données bleues avec trousse RStudio, résultats et six exercices corrigés](activite-courte.qmd).
 - [Archive originale avec sources, Quarto et rapport de validation](https://github.com/AurelienNicosiaULaval/vehicules-quebec/releases/download/v1.0.0/vehicules-quebec-v1.0.0.zip).
 
 L’aperçu de cette fiche montre les 64 configurations et huit colonnes. La trousse de l’activité conserve les deux tables complètes dans des fichiers distincts.
@@ -69,13 +59,9 @@ Un petit écart est conservé pour le Ford Maverick Hybrid : la cote combinée p
 render_dataset_minimal_result()
 ```
 
-## Activité et prolongements
+## Portée des analyses
 
-L’activité [Explorer la consommation de 64 véhicules de 2025](activite-courte.qmd) propose des tableaux descriptifs, des boîtes avec les observations visibles, un nuage cylindrée-consommation et six exercices corrigés. Les prolongements portent sur une régression simple avec validation croisée et sur l’addition des comptes SAAQ.
-
-Ce jeu soutient plusieurs usages introductifs de données automobiles. Il ne remplace pas toutes les variables de `mtcars` : la masse, la puissance et le temps sur un quart de mille ne sont pas présents. La complétude des 19 colonnes résulte de la sélection, et plusieurs colonnes de consommation sont redondantes. Une corrélation ne démontre pas un effet causal.
-
-La grille de réutilisation du site est une appréciation éditoriale : l’accès, la documentation et l’exploration sont les points forts; le petit jeu complet offre peu de nettoyage et ne justifie pas une inférence sur le parc. Le script a été exécuté techniquement; aucun usage dans un cours ni essai en classe n’est documenté.
+La masse, la puissance et le temps sur un quart de mille ne figurent pas dans ce jeu. La complétude des 19 colonnes résulte de la sélection. Les relations entre caractéristiques des véhicules et consommation sont descriptives; elles ne démontrent pas un effet causal.
 
 ## Sources, attributions et licences
 

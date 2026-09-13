@@ -27,7 +27,7 @@ rendered <- paste(capture.output(render_resource_cards()), collapse = "\n")
 cards <- xml2::xml_find_all(xml2::read_html(rendered), "//article")
 stopifnot(length(cards) == length(items))
 for (i in seq_along(items)) {
-  dates <- xml2::xml_attr(xml2::xml_find_all(cards[[i]], ".//time"), "datetime")
+  dates <- c(xml2::xml_attr(cards[[i]], "data-date-added"), xml2::xml_attr(cards[[i]], "data-date-updated"))
   stopifnot(identical(dates, c(items[[i]]$date_added, items[[i]]$date_updated)))
 }
 message(length(items), " ressources : dates valides, badges lisibles et recherche cohérente.")

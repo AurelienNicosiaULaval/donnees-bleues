@@ -125,4 +125,12 @@ chart:
   y_label: Unité du découpage
   title: Composition de l’index de téléchargement
 date_added: "2026-06-18"
-date_updated: "2026-09-05"
+date_updated: "2026-09-13"
+
+summary: Index de téléchargement de la Géobase du réseau hydrographique du Québec. Il permet de repérer une unité
+  et les ressources spatiales à télécharger.
+
+observation_period: La trousse fournit un index documentaire; vérifier le millésime du fichier géographique choisi à la source
+
+source_authors:
+- Ministère des Ressources naturelles et des Forêts

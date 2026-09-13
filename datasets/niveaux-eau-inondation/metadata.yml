@@ -144,4 +144,12 @@ chart:
   y_label: Type de niveau observé
   title: Types d’observations de niveau d’eau
 date_added: "2026-06-18"
-date_updated: "2026-09-05"
+date_updated: "2026-09-13"
+
+summary: Marqueurs ponctuels de niveaux d’eau observés lors d’inondations au Québec, avec leur localisation et le
+  contexte de l’observation.
+
+observation_period: Événements documentés depuis 2017
+
+source_authors:
+- Ministère de la Sécurité intérieure

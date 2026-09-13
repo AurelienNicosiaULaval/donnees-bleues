@@ -17,12 +17,6 @@ source(source_path)
 render_dataset_detail_header()
 ```
 
-## Pourquoi ce jeu est intéressant
-
-Ce jeu est très utile pour une première expérience de science des données en R. Les variables sont concrètes, les unités sont faciles à comprendre et les graphiques deviennent rapidement interprétables. Il permet d'introduire les dates, les séries temporelles, les valeurs manquantes, les statistiques descriptives et les limites d'une interprétation.
-
-La question pédagogique centrale est simple : que peut-on dire de la météo quotidienne observée à une station, et que ne peut-on pas conclure sans analyse climatique plus rigoureuse?
-
 ## Ce qui a été vérifié
 
 | Élément | Résultat vérifié |
@@ -107,7 +101,7 @@ Cette table est un excellent point d'entrée pour enseigner que les variables d'
 
 Dans cette version du jeu, le printemps présente la plus forte dispersion saisonnière de `mean_temp` selon l'écart-type descriptif.
 
-## Lecture statistique
+## Interprétation et contrôles
 
 Le jeu convient très bien à une première analyse descriptive :
 
@@ -118,42 +112,6 @@ Le jeu convient très bien à une première analyse descriptive :
 5. visualiser sans surinterpréter.
 
 Il faut toutefois éviter une erreur fréquente : transformer un graphique de météo quotidienne en conclusion climatique générale. Une analyse climatique demanderait un protocole explicite, une réflexion sur les stations, la continuité des mesures, les normales climatiques, les changements d'instrumentation et les incertitudes.
-
-## Concepts enseignables
-
-- création d'une variable date;
-- séries temporelles quotidiennes;
-- statistiques descriptives;
-- valeurs manquantes;
-- saisonnalité;
-- visualisation avec `ggplot2`;
-- différence entre météo et climat;
-- communication prudente.
-
-## Score zéro déchet
-
-| Dimension | Score | Justification |
-|---|---:|---|
-| Contexte québécois | 3 | Station météo située à Québec |
-| Accessibilité pédagogique | 3 | Variables familières et interprétables |
-| Qualité documentaire | 3 | Documentation locale, source ECCC et package `weathercan` |
-| Potentiel de nettoyage | 3 | Dates, saisons et valeurs manquantes |
-| Potentiel de visualisation | 3 | Séries temporelles, distributions et saisons |
-| Potentiel de statistique descriptive | 3 | Moyennes, écarts-types, extrêmes et regroupements |
-| Potentiel d'inférence | 2 | Possible, mais demande un protocole plus strict |
-| Potentiel de modélisation | 2 | Modélisation temporelle introductive possible |
-| Potentiel éthique | 2 | Discussion sur interprétation publique des données météo |
-| Réutilisabilité | 3 | Très réutilisable dans des laboratoires d'introduction |
-
-Total : 27 sur 30.
-
-## Activité courte
-
-En 45 à 60 minutes, construire une variable date, définir les saisons et répondre à la question : quelle saison présente la plus forte variabilité de température?
-
-## Activité longue
-
-En 2 à 3 heures, produire un portrait descriptif de la météo quotidienne à Québec avec au moins deux graphiques, une section sur les valeurs manquantes et une conclusion prudente.
 
 ## Code R minimal
 
@@ -214,14 +172,6 @@ render_dataset_minimal_result()
 - Les variables `total_rain`, `total_snow` et `snow_grnd` contiennent beaucoup de valeurs manquantes.
 - Une tendance visuelle ne suffit pas à établir une conclusion climatique.
 - Les analyses officielles devraient repartir de la source ECCC et documenter les stations, les périodes et les critères de qualité.
-
-## Extensions
-
-- Comparer les distributions de `mean_temp` par saison.
-- Calculer le nombre de jours sous -20 °C ou au-dessus de 25 °C par année.
-- Visualiser les précipitations extrêmes.
-- Comparer météo quotidienne et normales climatiques si une source supplémentaire est ajoutée.
-- Rédiger une courte note de communication scientifique sur la différence entre météo et climat.
 
 ## Références utilisées
 

@@ -138,4 +138,18 @@ chart:
   title: Dix quartiers comptant le plus de permis
   top_n: 10
 date_added: "2026-06-21"
-date_updated: "2026-09-05"
+date_updated: "2026-09-13"
+
+summary: Permis délivrés, empreintes de bâtiments et limites des quartiers de la ville de Québec, avec un tableau
+  agrégé par quartier.
+
+observation_period: Permis de 2020 à 2026; année 2026 partielle
+
+essential_limits:
+- Un permis délivré n’est pas la preuve que les travaux ont été réalisés. Les permis, bâtiments et quartiers ont
+  des unités différentes.
+- Les fichiers ne donnent pas la valeur ni la superficie des travaux. Les comptes par quartier ne mesurent pas directement
+  l’intensité ou les effets de la construction.
+
+source_authors:
+- Ville de Québec, Données Québec

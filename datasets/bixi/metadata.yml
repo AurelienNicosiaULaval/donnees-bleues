@@ -133,4 +133,20 @@ chart:
   title: Distribution des capacités
   binwidth: 5
 date_added: "2026-06-01"
-date_updated: "2026-09-05"
+date_updated: "2026-09-13"
+
+summary: 'État des stations BIXI à Montréal : capacité, vélos disponibles et statut opérationnel au moment de la
+  collecte.'
+
+observation_period: Instantané du 5 septembre 2026 à 11:04:24 UTC
+
+essential_limits:
+- La disponibilité décrit un instantané, pas la demande, les trajets ou le rééquilibrage du réseau.
+- Une disponibilité nulle peut s’expliquer par le statut opérationnel de la station. Pour un ratio, retenir uniquement
+  les capacités positives.
+
+source_authors:
+- BIXI Montréal
+
+reference_note: Les analyses de la documentation utilisent la version du 21 juin 2026 (1 084 lignes et 28 colonnes).
+  La trousse proposée ci-dessus contient l’instantané du 5 septembre 2026 (1 113 lignes et 10 colonnes).

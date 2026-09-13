@@ -59,9 +59,6 @@ Le fichier principal a 24 lignes, soit les combinaisons de trois classes, deux s
 
 Les décès sont obtenus par différence entre le total et les survivants dans chaque groupe du rapport. Cette opération n'attribue aucun statut aux noms dont la survie reste inconnue dans les listes nominatives du musée.
 
-## Résultat attendu
-
-Remettre un tableau de contingence, les deux premiers graphiques et les six réponses. Les résultats ci-dessous sont recalculés à partir de la trousse distribuée.
 
 ## Effectifs et proportions
 

@@ -17,14 +17,6 @@ source(source_path)
 render_dataset_detail_header()
 ```
 
-## Pourquoi ce jeu est intéressant
-
-Ce jeu est utile pour enseigner un réflexe central en science des données : lire la documentation avant d'analyser. Le titre courant parle souvent de finances municipales, mais le CSV préparé ici ne contient pas un budget détaillé par postes de dépenses. Il décrit plutôt le profil financier 2024-2025 des municipalités locales, avec des indicateurs issus du sommaire du rôle d'évaluation foncière 2025.
-
-La valeur pédagogique est forte parce que les étudiants doivent relier trois tables : les municipalités, les classes de population et le dictionnaire des postes `FIALX`. On peut donc travailler l'importation de données ouvertes, le passage au format long, les ratios, les valeurs manquantes et la communication prudente.
-
-Question d'analyse : comment les indicateurs de richesse foncière varient-ils selon la taille et la région des municipalités?
-
 ## Ce qui a été vérifié
 
 | Élément | Résultat vérifié |
@@ -144,9 +136,7 @@ Cette table est utile pour discuter du poids démographique. Une région peut co
 
 Les valeurs manquantes ne doivent pas être traitées automatiquement comme des zéros. Par exemple, l'absence de communauté métropolitaine indique surtout que la municipalité n'appartient pas à une communauté métropolitaine publiée dans cette colonne.
 
-## Lecture statistique
-
-Une analyse prudente suit cet ordre :
+## Interprétation et contrôles
 
 1. vérifier que l'unité est la municipalité ou l'agglomération publiée;
 2. lire le dictionnaire des postes avant de renommer les variables `FIALX`;
@@ -156,42 +146,6 @@ Une analyse prudente suit cet ordre :
 6. éviter de présenter les indices comme des mesures de performance municipale.
 
 Les données permettent de décrire des profils financiers publiés par le MAMH. Elles ne permettent pas, seules, d'expliquer pourquoi une municipalité a un profil foncier différent, ni d'évaluer la qualité de son administration.
-
-## Concepts enseignables
-
-- importation d'un CSV officiel;
-- documentation des variables avec un dictionnaire séparé;
-- passage du format large au format long;
-- regroupements par classe de population;
-- médianes et valeurs extrêmes;
-- comparaison descriptive;
-- valeurs manquantes;
-- interprétation prudente d'indices administratifs.
-
-## Score zéro déchet
-
-| Dimension | Score | Justification |
-|---|---:|---|
-| Contexte québécois | 3 | Données officielles sur les municipalités du Québec |
-| Accessibilité pédagogique | 3 | Variables territoriales simples et classes de population |
-| Qualité documentaire | 3 | Page officielle, API CKAN, CSV et dictionnaire des postes |
-| Potentiel de nettoyage | 3 | Codes, dictionnaire, format long, valeurs manquantes |
-| Potentiel de visualisation | 3 | Barres, boîtes à moustaches, facettes par région |
-| Potentiel de statistique descriptive | 3 | Comparaisons naturelles par classe et région |
-| Potentiel d'inférence | 1 | Inférence limitée sans plan complémentaire |
-| Potentiel de modélisation | 2 | Modélisation descriptive possible, mais prudence nécessaire |
-| Potentiel éthique | 3 | Communication publique sur des indicateurs municipaux |
-| Réutilisabilité | 3 | Utile en introduction, visualisation et données ouvertes |
-
-Total : 27 sur 30.
-
-## Activité courte
-
-En 45 à 60 minutes, comparer les profils fonciers par classe de population et expliquer pourquoi une médiane par groupe est plus lisible qu'une liste de 1 105 municipalités.
-
-## Activité longue
-
-En 2 à 3 heures, produire un portrait descriptif par classe de population et par région, avec table longue, dictionnaire des postes, valeurs manquantes et limites d'interprétation.
 
 ## Code R minimal
 
@@ -258,14 +212,6 @@ render_dataset_minimal_result()
 - Les classes de population simplifient fortement la structure municipale.
 - Les ratios et indices doivent être interprétés avec le dictionnaire officiel des postes.
 - Les comparaisons par région ou classe sont descriptives.
-
-## Extensions
-
-- Comparer les résultats avec et sans les municipalités de 100 000 habitants et plus.
-- Faire une table longue et produire une facette par indicateur.
-- Joindre une géographie régionale pour produire une carte agrégée.
-- Comparer le profil 2025 à une année antérieure en réutilisant le même script.
-- Rédiger une note méthodologique expliquant pourquoi le fichier ne mesure pas directement les dépenses.
 
 ## Références utilisées
 

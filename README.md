@@ -102,3 +102,7 @@ Utiliser les modèles Quarto du dossier `templates/` : les fiches de données ap
 Les liens externes n’accordent aucun droit supplémentaire de redistribution. Les ressources restent hébergées à leur source. Pour une nouvelle notice, copier le modèle de document ou d’application dans `resources/` ; le rendu complet l’inclut dans la recherche générale. Lancer `Rscript tests/test_resources.R`, puis `Rscript scripts/render_site.R` et `Rscript scripts/check_site.R`.
 
 Le formulaire de contribution fonctionne avec un brouillon courriel sans compte GitHub. L’envoi direct est préparé dans `server/`, avec activation distincte de l’hébergement et du SMTP. Voir `server/README.md`.
+
+## Rédiger une ressource
+
+La [charte éditoriale](charte-editoriale.qmd) précise le contenu des fiches et des activités. Les résumés, périodes, limites essentielles et producteurs sont renseignés dans `metadata.yml`. Les composants communs affichent les accès et les crédits; ne pas les recopier dans les textes.

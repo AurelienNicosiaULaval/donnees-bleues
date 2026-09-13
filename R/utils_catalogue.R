@@ -74,6 +74,8 @@ metadata_row <- function(metadata, dataset_dir) {
     date_added = metadata$date_added,
     date_updated = metadata$date_updated,
     title = metadata$title %||% NA_character_,
+    summary = metadata$summary %||% NA_character_,
+    observation_period = metadata$observation_period %||% NA_character_,
     short_title = metadata$short_title %||% NA_character_,
     theme = metadata$theme %||% NA_character_,
     source_name = metadata$source_name %||% NA_character_,

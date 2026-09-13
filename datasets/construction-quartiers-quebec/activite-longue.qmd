@@ -41,13 +41,17 @@ Source : [Ville de Québec, Données Québec](https://www.donneesquebec.ca/reche
 3. Interpréter le nuage bâtiments par km² contre permis par km² sans causalité.
 4. Rédiger une réponse à la question en nommant l’unité observée et une limite de la source.
 
-## Résultat attendu
-
-Les tableaux et graphiques du script, accompagnés d’une interprétation de 6 à 8 lignes répondant à la question.
 
 ## Limites à faire nommer
 
 Les permis couvrent la période indiquée dans la table. La superficie du quartier, le parc bâti et l’activité de permis ne mesurent pas la même chose.
+
+```{r}
+#| label: activity-pedagogical-contract
+#| echo: false
+#| results: asis
+render_activity_contract()
+```
 
 ## Code complet
 
@@ -58,11 +62,4 @@ Ce script complet est celui de la trousse. Il lit les fichiers locaux et affiche
 #| echo: false
 #| results: asis
 render_activity_code()
-```
-
-```{r}
-#| label: activity-pedagogical-contract
-#| echo: false
-#| results: asis
-render_activity_contract()
 ```

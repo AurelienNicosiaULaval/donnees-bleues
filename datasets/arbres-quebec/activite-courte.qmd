@@ -45,9 +45,6 @@ La source des mesures est le MRNF, jeu PET5 téléchargé le 25 juin 2026. Auré
 3. Comparer les moyennes de diamètre et de hauteur entre espèces dans cet échantillon. Examiner où se concentrent les âges manquants.
 4. Répondre aux quatre exercices ci-dessous, en distinguant l’échantillon construit pour l’enseignement de l’ensemble des arbres québécois.
 
-## Résultat attendu
-
-Un tableau descriptif par espèce, un nuage diamètre-hauteur et les réponses aux quatre exercices. Terminer par une limite précise d’interprétation.
 
 ```{r}
 #| include: false

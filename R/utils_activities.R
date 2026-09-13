@@ -251,6 +251,13 @@ validate_activity_pages <- function(catalogue) {
     section_present <- vapply(required_sections, function(pattern) {
       grepl(paste0("(?m)", pattern), content, perl = TRUE)
     }, logical(1))
+    # The compact header renders the expected output from the activity YAML.
+    # Accept it only when both that renderer and a nonempty output are present.
+    if (!section_present[['resultat']] && grepl('render_activity_header()', content, fixed = TRUE)) {
+      metadata <- read_activity_metadata(sub('[.]qmd$', '.yml', activity_path))
+      output <- collapse_activity_field(metadata$expected_output)
+      section_present[['resultat']] <- nzchar(trimws(output))
+    }
     missing_sections <- names(required_sections)[!section_present]
 
     if (length(missing_sections) > 0L) {
