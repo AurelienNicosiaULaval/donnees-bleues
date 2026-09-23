@@ -167,12 +167,12 @@ dataset_activity_href <- function(item) {
 }
 
 dataset_activity_status_label <- function(item) {
-  status <- dataset_squish(item$pedagogical_status, "")
+  access_mode <- dataset_squish(item$access_mode, "")
   switch(
-    status,
-    pret_a_enseigner = "Fichiers inclus",
-    a_consolider = "Acquisition préalable",
-    ebauche = "Ébauche",
+    access_mode,
+    frozen = "Fichiers inclus",
+    documentation = "Documentation incluse",
+    source_required = "Acquisition préalable",
     ""
   )
 }
@@ -753,7 +753,8 @@ render_dataset_detail_header <- function() {
   if (!is.null(preview)) {
     csv_path <- dataset_processed_csv(metadata, ctx)
     cat('<section class="dataset-r-lab" id="apercu-interactif"><h2>Aperçu des données</h2>',
-      '<p class="dataset-preview-caption">', nrow(preview), ' lignes affichées. Le fichier complet est accessible en haut de la fiche.</p>',
+      '<p class="dataset-preview-caption">', escape(dataset_squish(metadata$preview_caption,
+        paste0(nrow(preview), ' lignes affichées. Le fichier complet est accessible en haut de la fiche.'))), '</p>',
       '<details class="dataset-preview-method"><summary>Colonnes et sélection de l’aperçu</summary><p>',
       dataset_preview_note(metadata, csv_path, ctx$root), '</p></details>',
       '<p class="dataset-scroll-hint">Faire défiler le tableau horizontalement pour voir les autres colonnes.</p>',

@@ -7,7 +7,8 @@ local({
   original_context <- dataset_current_context
   on.exit(assign('dataset_current_context', original_context, envir = .GlobalEnv))
   for (id in c('bixi', 'arbres-quebec', 'vehicules-canada-2025',
-               'empress-of-ireland', 'retards-transport-collectif', 'ulaval-programmes-cours')) {
+               'empress-of-ireland', 'retards-transport-collectif', 'ulaval-programmes-cours',
+               'vols-montreal-trudeau')) {
     assign('dataset_current_context', function() list(root = '.',
       dataset_dir = file.path('datasets', id), relative_root = '../..'), envir = .GlobalEnv)
     html <- paste(capture.output({render_dataset_detail_header(); render_dataset_detail_footer()}), collapse = '\n')
@@ -27,6 +28,12 @@ local({
     stopifnot(identical(dates, c(meta$date_added, meta$date_updated)))
     if (id == 'bixi') stopifnot(grepl('1 113 lignes, 10 variables', xml_text(doc), fixed = TRUE))
     if (id == 'arbres-quebec') stopifnot(grepl('Version fixe 1.0.0', xml_text(doc), fixed = TRUE))
+    if (id == 'vols-montreal-trudeau') {
+      activity <- xml_find_first(doc, '//article[contains(@class,"dataset-activity-card")]')
+      stopifnot(grepl('Aperçu de 120 jours du calendrier quotidien', xml_text(doc), fixed = TRUE),
+                grepl('Fichiers inclus', xml_text(activity), fixed = TRUE),
+                !grepl('Acquisition préalable', xml_text(activity), fixed = TRUE))
+    }
   }
 })
 

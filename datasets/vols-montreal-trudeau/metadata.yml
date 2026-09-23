@@ -19,6 +19,8 @@ format: "RDS complet (48 colonnes) et trousse CSV à 11 colonnes, plus deux tabl
 n_rows: "491 786 trajectoires; 912 jours du calendrier; 1 460 liaisons identifiées"
 n_cols: "48 colonnes dans l'archive complète; 11 dans le CSV de classe"
 processed_file: "data/processed/vols-montreal-trudeau/trafic_quotidien_yul.csv"
+preview_caption: "Aperçu de 120 jours du calendrier quotidien. Le téléchargement complet en haut de la fiche contient 491 786 trajectoires, pas seulement ces journées."
+preview_note: "L'aperçu sélectionne 120 jours espacés parmi les 912 jours du calendrier; il montre des comptes d'événements de départ et d'arrivée observés. Le fichier RDS complet contient les trajectoires retenues et deux tables de synthèse."
 update_frequency: "Instantané fixe préparé le 23 septembre 2026; aucune mise à jour quotidienne"
 level: "Introduction à intermédiaire"
 level_ids:
