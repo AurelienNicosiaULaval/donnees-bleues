@@ -18,6 +18,9 @@ project:
     - assets/cards/*.png
     - assets/cards/*.jpg
     - templates/retour-classe-template.md
+    - datasets/vols-montreal-trudeau/DATA-LICENSE.md
+    - datasets/vols-montreal-trudeau/METHODE.md
+    - datasets/vols-montreal-trudeau/source/archives_vols.csv
   render:
     - "index.qmd"
     - "catalogue.qmd"

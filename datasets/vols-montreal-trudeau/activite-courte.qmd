@@ -1,0 +1,62 @@
+---
+title: "Que montrent vraiment les trajectoires observées à YUL ?"
+embed-resources: true
+body-classes: hub-page resource-page activity-resource
+page-layout: full
+toc: false
+---
+
+```{r}
+#| label: activity-resource-header
+#| echo: false
+#| results: asis
+source(if (file.exists("R/utils_activity_contract.R")) "R/utils_activity_contract.R" else "../../R/utils_activity_contract.R")
+render_activity_header()
+```
+
+## Préparation enseignante
+
+Télécharger la trousse ZIP, l'extraire entièrement et ouvrir `Donnees-bleues.Rproj`. Installer les packages avec `installer-packages.R` avant la séance. Le script de l'activité utilise ensuite les trois CSV inclus, sans nouvelle acquisition.
+
+```{r}
+#| label: activity-classroom-resources
+#| echo: false
+#| results: asis
+render_activity_resources()
+```
+
+## Contexte
+
+La [fiche YUL](fiche.qmd) présente une archive de trajectoires reconstituées à partir de signaux ADS-B. Une ligne de `vols_yul.csv` représente une trajectoire attribuée à CYUL. Une ligne de `trafic_quotidien_yul.csv` représente un jour du calendrier. Ces unités n'ont pas le même dénominateur.
+
+Les données viennent des [archives MrAirspace](https://github.com/MrAirspace/aircraft-flight-schedules). Elles ne constituent pas les horaires publiés par Aéroports de Montréal et ne permettent pas de mesurer les retards. La trousse contient l'attribution et la licence ODbL.
+
+## Consignes
+
+1. Exécuter `activite-courte.R` dans le projet RStudio extrait de la trousse.
+2. Expliquer pourquoi le total des départs et arrivées observés dépasse le nombre de trajectoires distinctes.
+3. Décrire la série mensuelle de 2025 en parlant d'observations dans l'archive, puis examiner les trois jours sans événement retenu.
+4. Lire le classement des destinations identifiées. Préciser ce qu'il exclut.
+5. Écrire une conclusion courte sur l'intérêt du jeu, avec deux limites qui changent l'interprétation.
+
+## Limites à faire nommer
+
+La couverture des récepteurs ADS-B varie et l'aéroport peut être attribué de façon incertaine. Un zéro dans cette archive ne prouve pas l'absence de mouvements réels. Les heures sont celles de trajectoires détectées, et non des heures de porte certifiées.
+
+```{r}
+#| label: activity-pedagogical-contract
+#| echo: false
+#| results: asis
+render_activity_contract()
+```
+
+## Code complet
+
+Le code ci-dessous est le même que celui de la trousse. Il lit les fichiers locaux et affiche les résultats dans RStudio.
+
+```{r}
+#| label: activity-code
+#| echo: false
+#| results: asis
+render_activity_code()
+```

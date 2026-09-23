@@ -1,0 +1,125 @@
+id: vols-montreal-trudeau
+title: "Trajectoires aériennes observées à Montréal-Trudeau (YUL)"
+short_title: "Vols observés à YUL"
+theme: "Transport aérien"
+summary: "491 786 trajectoires attribuées à Montréal-Trudeau entre janvier 2024 et juin 2026, avec un calendrier quotidien et des liaisons identifiées. Les observations ADS-B ne sont pas un décompte officiel des vols."
+observation_period: "Du 1er janvier 2024 au 30 juin 2026 inclus, en heure de Montréal"
+source_authors:
+  - Sebastiaan Menger (MrAirspace)
+source_name: "MrAirspace, archives de trajectoires issues d'ADSB.lol; adaptation YUL par Aurélien Nicosia"
+source_url: "https://github.com/MrAirspace/aircraft-flight-schedules"
+download_url: "https://raw.githubusercontent.com/AurelienNicosiaULaval/donnees-bleues/main/datasets/vols-montreal-trudeau/source/vols.rds"
+download_label: "Télécharger les 491 786 trajectoires (RDS)"
+license: "Trajectoires et tables dérivées : Open Database License 1.0 (ODbL); textes et code de la plateforme sous licences distinctes"
+access_date: "2026-09-23"
+geography: "Aéroport Montréal-Trudeau, Québec, code ICAO CYUL"
+unit: "Une trajectoire ADS-B reconstituée attribuée à CYUL; un mouvement réel peut être absent ou mal attribué"
+data_type: "Trajectoires observées et séries quotidiennes dérivées"
+format: "RDS complet (48 colonnes) et trousse CSV à 11 colonnes, plus deux tables de synthèse"
+n_rows: "491 786 trajectoires; 912 jours du calendrier; 1 460 liaisons identifiées"
+n_cols: "48 colonnes dans l'archive complète; 11 dans le CSV de classe"
+processed_file: "data/processed/vols-montreal-trudeau/trafic_quotidien_yul.csv"
+update_frequency: "Instantané fixe préparé le 23 septembre 2026; aucune mise à jour quotidienne"
+level: "Introduction à intermédiaire"
+level_ids:
+  - introduction
+  - intermediaire
+concepts:
+  - Séries temporelles
+  - Agrégation
+  - Visualisation
+  - Qualité des données
+  - Valeurs manquantes
+concept_ids:
+  - series-temporelles
+  - agregation
+  - visualisation
+  - qualite-des-donnees
+  - valeurs-manquantes
+variables_principales:
+  - date_yul
+  - sens
+  - origine_icao
+  - destination_icao
+  - heure_yul_utc
+  - n_evenements_observes
+  - n_observations
+idees_mini_projets:
+  - "Décrire le profil quotidien des observations et repérer les journées sans trajectoire retenue."
+  - "Comparer les liaisons identifiées sans les assimiler à un volume officiel de passagers."
+  - "Étudier la sensibilité des conclusions aux périodes de couverture ADS-B."
+zero_waste:
+  contexte_quebecois: 3
+  accessibilite_pedagogique: 2
+  qualite_documentaire: 3
+  potentiel_nettoyage: 3
+  potentiel_visualisation: 3
+  potentiel_statistique_descriptive: 3
+  potentiel_inference: 1
+  potentiel_modelisation: 1
+  potentiel_ethique: 3
+  reutilisabilite: 3
+contributor_name: "Aurélien Nicosia"
+contributor_role: "Extraction CYUL, contrôles, documentation et adaptation pédagogique"
+stt1100_contact: false
+status: "Instantané et scripts vérifiés; activité exécutée, non testée en classe"
+essential_limits:
+  - "La couverture des récepteurs ADS-B et l'attribution géographique à CYUL varient. Les nombres ne mesurent pas le trafic officiel de l'aéroport."
+  - "Les heures indiquent un début ou une fin de trajectoire détectée, sans horaire prévu ni heure de porte certifiée. Retards et annulations ne sont pas calculables."
+  - "Trois jours du calendrier n'ont aucun événement retenu. Cela ne prouve pas l'absence de vols réels; le premier trimestre 2024 comporte davantage d'attributions ambiguës."
+  - "Les vues des départs et arrivées peuvent compter deux fois une trajectoire qui part de YUL et y revient."
+  - "Cette fiche publique ne distribue pas les colonnes météo ECCC; la licence ODbL des trajectoires reste applicable."
+publication:
+  preview: true
+  reason: "Les trajectoires MrAirspace sont sous ODbL; publication d'un aperçu quotidien et d'une trousse de trois tables sans météo, avec attribution et limites."
+  reviewed_on: "2026-09-23"
+  license_url: "https://github.com/MrAirspace/aircraft-flight-schedules/blob/main/LICENSE-ODbL.txt"
+  preview_columns:
+    - date_locale
+    - n_departs_observes
+    - n_arrivees_observees
+    - n_evenements_observes
+  classroom:
+    mode: frozen
+    reason: "Toutes les trajectoires retenues avec 11 variables sélectionnées et deux tables de synthèse; aucune météo ni donnée de tiers ajoutée."
+    notices:
+      - datasets/vols-montreal-trudeau/DATA-LICENSE.md
+      - datasets/vols-montreal-trudeau/METHODE.md
+    files:
+      - path: data/processed/vols-montreal-trudeau/vols_yul.csv
+        columns:
+          - source_period
+          - date_yul
+          - heure_yul_utc
+          - sens
+          - origine_icao
+          - destination_icao
+          - compagnie_icao
+          - type_appareil
+          - duree_observee_min
+          - n_origine_candidats
+          - n_destination_candidats
+      - path: data/processed/vols-montreal-trudeau/trafic_quotidien_yul.csv
+        columns:
+          - date_locale
+          - n_departs_observes
+          - n_arrivees_observees
+          - n_evenements_observes
+      - path: data/processed/vols-montreal-trudeau/liaisons_yul.csv
+        columns:
+          - origine_icao
+          - destination_icao
+          - n_observations
+          - n_compagnies
+          - premiere_date
+          - derniere_date
+chart:
+  type: scatter
+  x_variable: date_locale
+  x_kind: date
+  y_variable: n_evenements_observes
+  x_label: "Jour à Montréal"
+  y_label: "Événements observés dans l'archive"
+  title: "Trajectoires observées à YUL au fil du temps"
+date_added: "2026-09-23"
+date_updated: "2026-09-23"

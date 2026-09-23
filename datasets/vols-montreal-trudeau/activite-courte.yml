@@ -1,0 +1,59 @@
+id: yul-trajectoires-exploration
+title: "Que montrent vraiment les trajectoires observées à YUL ?"
+question: "Comment décrire le rythme et les liaisons de l'archive YUL sans les confondre avec le trafic officiel ?"
+dataset_id: vols-montreal-trudeau
+dataset_title: "Trajectoires aériennes observées à Montréal-Trudeau (YUL)"
+activity_url: datasets/vols-montreal-trudeau/activite-courte.qmd
+script_file: datasets/vols-montreal-trudeau/activite-courte.R
+classroom_archive: assets/classroom/vols-montreal-trudeau.zip
+access_mode: frozen
+duration: "45-60 minutes"
+level: "Introduction à intermédiaire"
+level_ids:
+  - introduction
+  - intermediaire
+activity_type:
+  - Exploration de données
+  - Laboratoire
+concepts:
+  - Séries temporelles
+  - Agrégation
+  - Qualité des données
+  - Visualisation
+concept_ids:
+  - series-temporelles
+  - agregation
+  - qualite-des-donnees
+  - visualisation
+context: "Transport aérien à Montréal"
+hook: "Une journée sans trajectoire enregistrée signifie-t-elle que l'aéroport était fermé ?"
+materials:
+  - "Trousse ZIP et projet RStudio"
+  - "Trois CSV et leur provenance"
+  - "Script R complet"
+advanced_math_stats: false
+teacher_notes: "La somme des départs et arrivées dépasse le nombre de trajectoires distinctes de 2 566 parce que des trajets locaux à YUL apparaissent dans les deux vues. La couverture ADS-B et les règles d'attribution varient; ne pas calculer de retard ou de taux de couverture absolu."
+pedagogical_status: a_consolider
+teacher_preparation: "Extraire la trousse, installer les packages, exécuter le script et lire les limites de la fiche avant la séance."
+expected_output: "Un tableau distinguant trajectoires et événements, une série mensuelle 2025 des départs observés et une interprétation écrite de deux limites précises."
+learning_objectives:
+  - "Expliquer pourquoi trajectoires distinctes et événements de départ ou d'arrivée ont des dénominateurs différents."
+  - "Construire une moyenne quotidienne par mois sur une année entière."
+  - "Formuler une conclusion descriptive sans prétendre mesurer le trafic officiel."
+prerequisites:
+  - "Savoir importer un CSV et utiliser group_by(), summarise() et ggplot()."
+  - "Distinguer une valeur manquante d'un zéro observé."
+success_criteria:
+  - "Le tableau affiche 491 786 trajectoires et 494 352 événements, et explique l'écart de 2 566."
+  - "Le graphique utilise la moyenne quotidienne de 2025, avec un axe et une légende précisant la couverture non exhaustive."
+  - "La conclusion identifie deux limites, dont la couverture ADS-B ou l'attribution géographique à CYUL."
+adaptations:
+  - "Pour débuter, fournir le tableau de bilan et demander seulement son interprétation."
+  - "Pour approfondir, comparer les trimestres en conservant la variable source_period et documenter les changements de méthode."
+requires_prepared_data: true
+requires_live_download: false
+recommended_use: "Exploration guidée, à consolider avant une première séance"
+result_visible_in_page: false
+status: "Script exécuté et vérifié; activité non testée en classe"
+date_added: "2026-09-23"
+date_updated: "2026-09-23"

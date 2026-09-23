@@ -1,0 +1,40 @@
+{
+  "dataset_id": "vols-montreal-trudeau",
+  "title": "Trajectoires aériennes observées à Montréal-Trudeau (YUL)",
+  "mode": "frozen",
+  "prepared_at_utc": "2026-09-23T22:30:53Z",
+  "source_name": "MrAirspace, archives de trajectoires issues d'ADSB.lol; adaptation YUL par Aurélien Nicosia",
+  "source_url": "https://github.com/MrAirspace/aircraft-flight-schedules",
+  "license_url": "https://github.com/MrAirspace/aircraft-flight-schedules/blob/main/LICENSE-ODbL.txt",
+  "original_licenses": {
+    "code": "MIT",
+    "content": "CC-BY-4.0",
+    "notices": ["LICENSE", "LICENCE-CONTENUS.md", "datasets/vols-montreal-trudeau/DATA-LICENSE.md", "datasets/vols-montreal-trudeau/METHODE.md"]
+  },
+  "selection": "Toutes les trajectoires retenues avec 11 variables sélectionnées et deux tables de synthèse; aucune météo ni donnée de tiers ajoutée.",
+  "tables": [
+    {
+      "path": "data/processed/vols-montreal-trudeau/vols_yul.csv",
+      "rows": 491786,
+      "columns": ["source_period", "date_yul", "heure_yul_utc", "sens", "origine_icao", "destination_icao", "compagnie_icao", "type_appareil", "duree_observee_min", "n_origine_candidats", "n_destination_candidats"],
+      "sha256": "6fa1bda96a99243d50c93882e8f7ddafa69d23476acb3c2c42c0bbfd5bde0172",
+      "prepared_table_sha256": "494cd010c6ec42cd90301520dfad0b6fb2eb65f23f14b2ae31f84ecdd445a89b"
+    },
+    {
+      "path": "data/processed/vols-montreal-trudeau/trafic_quotidien_yul.csv",
+      "rows": 912,
+      "columns": ["date_locale", "n_departs_observes", "n_arrivees_observees", "n_evenements_observes"],
+      "sha256": "f0bb082b1c90f6b640f0951aa56bdfcd006ad7b134e73c19f354979c7e78e928",
+      "prepared_table_sha256": "f0bb082b1c90f6b640f0951aa56bdfcd006ad7b134e73c19f354979c7e78e928"
+    },
+    {
+      "path": "data/processed/vols-montreal-trudeau/liaisons_yul.csv",
+      "rows": 1460,
+      "columns": ["origine_icao", "destination_icao", "n_observations", "n_compagnies", "premiere_date", "derniere_date"],
+      "sha256": "55bf1de18806905ade06fb47b0db09024ad9dd5754eef7eb953672c83047727b",
+      "prepared_table_sha256": "55bf1de18806905ade06fb47b0db09024ad9dd5754eef7eb953672c83047727b"
+    }
+  ],
+  "archive_sha256": "89bd8c3251b563688d2ba94b0cf95c7b5846477ddc1b90d21040b4c528a591fd",
+  "archive_bytes": 6143601
+}

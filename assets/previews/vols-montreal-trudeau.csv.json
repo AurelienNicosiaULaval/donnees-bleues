@@ -1,0 +1,37 @@
+{
+  "dataset_id": "vols-montreal-trudeau",
+  "prepared_at_utc": "2026-09-23T22:30:53Z",
+  "prepared_file": "trafic_quotidien_yul.csv",
+  "prepared_sha256": "f0bb082b1c90f6b640f0951aa56bdfcd006ad7b134e73c19f354979c7e78e928",
+  "preview_sha256": "54acf20d38708428d1ced313691f104e98692b2b55cdee291b66ed3f527e1651",
+  "rows": 120,
+  "columns": ["date_locale", "n_departs_observes", "n_arrivees_observees", "n_evenements_observes"],
+  "selection": "Au plus 120 positions régulièrement espacées dans l'ordre de la table préparée; sélection déterministe non aléatoire",
+  "source_name": "MrAirspace, archives de trajectoires issues d'ADSB.lol; adaptation YUL par Aurélien Nicosia",
+  "source_url": "https://github.com/MrAirspace/aircraft-flight-schedules",
+  "license": "Trajectoires et tables dérivées : Open Database License 1.0 (ODbL); textes et code de la plateforme sous licences distinctes",
+  "license_url": "https://github.com/MrAirspace/aircraft-flight-schedules/blob/main/LICENSE-ODbL.txt",
+  "sources": [
+    {
+      "source_url": "https://github.com/MrAirspace/aircraft-flight-schedules/releases",
+      "acquisition_kind": "instantane_derive_archives_ADS-B",
+      "acquired_at_utc": "2026-09-23 10:55:36 UTC",
+      "local_file": "datasets/vols-montreal-trudeau/source/vols.rds",
+      "sha256": "31b416c7a3607d94bb14a8e80d9dfe556f364c23862ec3946ef5855e18337ff0"
+    },
+    {
+      "source_url": "https://github.com/MrAirspace/aircraft-flight-schedules/releases",
+      "acquisition_kind": "instantane_derive_archives_ADS-B",
+      "acquired_at_utc": "2026-09-23 10:55:36 UTC",
+      "local_file": "datasets/vols-montreal-trudeau/source/trafic_quotidien.rds",
+      "sha256": "5ddb1b4bf9c03f8c6aa4ad8a2cecccdedb48a44efb909bb741a2c3068b81db09"
+    },
+    {
+      "source_url": "https://github.com/MrAirspace/aircraft-flight-schedules/releases",
+      "acquisition_kind": "instantane_derive_archives_ADS-B",
+      "acquired_at_utc": "2026-09-23 10:55:36 UTC",
+      "local_file": "datasets/vols-montreal-trudeau/source/liaisons.rds",
+      "sha256": "415da71eeda18ae53330559fd4f8890b61cc4d94f3daf13ee4842f159df4a9ff"
+    }
+  ]
+}

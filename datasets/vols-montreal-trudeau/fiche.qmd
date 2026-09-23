@@ -1,0 +1,55 @@
+---
+title: "Trajectoires aériennes observées à Montréal-Trudeau (YUL)"
+page-layout: full
+toc: false
+execute:
+  freeze: false
+embed-resources: true
+body-classes: hub-page resource-page dataset-resource
+---
+
+```{r}
+#| label: dataset-detail-header
+#| echo: false
+#| results: asis
+source_path <- if (file.exists("R/utils_dataset_page.R")) "R/utils_dataset_page.R" else "../../R/utils_dataset_page.R"
+source(source_path)
+render_dataset_detail_header()
+```
+
+## Ce que contient l'archive
+
+Les [archives trimestrielles MrAirspace](https://github.com/MrAirspace/aircraft-flight-schedules) reconstruisent des trajectoires à partir de transmissions ADS-B. Nous avons extrait les lignes candidates à CYUL pour les dix trimestres de 2024 T1 à 2026 T2, écarté les chevauchements de trimestres et retenu les trajectoires attribuées de façon unique à YUL dans la période locale. La [méthode de sélection](METHODE.md) et les [empreintes des dix sources](source/archives_vols.csv) accompagnent l'instantané préparé. Le fichier RDS complet proposé au téléchargement contient 491 786 trajectoires et 48 variables; la trousse de classe conserve ces 491 786 lignes avec 11 variables, plus deux petites tables de synthèse.
+
+| Table de la trousse | Unité | Taille |
+|:--|:--|--:|
+| `vols_yul.csv` | Une trajectoire retenue | 491 786 lignes, 11 variables |
+| `trafic_quotidien_yul.csv` | Un jour à Montréal | 912 lignes, 4 variables |
+| `liaisons_yul.csv` | Une paire orientée origine et destination identifiées | 1 460 lignes, 6 variables |
+
+`date_yul` et `date_locale` utilisent le fuseau `America/Toronto`. `heure_yul_utc` est l'instant de l'événement observé à YUL, exprimé en UTC. `sens` distingue départ, arrivée et trajet local à YUL. `origine_icao` et `destination_icao` peuvent manquer quand la source ne donne pas de candidat unique. `n_origine_candidats` et `n_destination_candidats` permettent de voir cette incertitude. `n_evenements_observes` additionne les départs et arrivées observés dans une journée; il ne compte pas les trajectoires distinctes.
+
+Pour lire le RDS complet depuis la racine du dépôt après téléchargement, utiliser `readRDS("vols.rds")` avec son chemin local. Aucune donnée météo ECCC n'est incluse dans cette version publique.
+
+## Contrôles et interprétation
+
+Les 491 786 trajectoires ont un identifiant technique unique dans le RDS. La table quotidienne totalise 248 842 départs observés et 245 510 arrivées observées. Leur somme, 494 352 événements, dépasse le nombre de trajectoires de 2 566 : ce sont les trajets locaux qui figurent dans les deux vues. Ne pas additionner ces comptes pour annoncer un nombre de vols distincts.
+
+Trois jours n'ont aucun événement retenu : le 26 janvier 2024 et les 5 et 6 mai 2026. Le 26 janvier, des candidats existent dans les extraits, mais aucun n'a une attribution unique à CYUL dans la journée locale; les deux journées de mai n'ont pas de candidat CYUL dans les extraits. Cela indique des lacunes de l'archive, pas une fermeture de l'aéroport. Le premier trimestre 2024 compte davantage d'attributions ambiguës que les périodes suivantes. Les 16 876 identités ambiguës restent exclues de cette table principale.
+
+Les heures sont des débuts ou fins de trajectoire observés; une perte du signal peut les éloigner de l'aéroport. Les trajectoires ne contiennent ni horaire prévu comparable ni statut d'annulation. Les données ne permettent pas de calculer retards, annulations ou taux absolu de couverture. Les comptes quotidiens et les classements de liaisons décrivent uniquement les observations retenues. Un changement de la couverture ADS-B ou de l'algorithme peut contribuer aux variations temporelles.
+
+## Rapport avec les données de Québec (YQB)
+
+Le projet YQB conserve des captures des tableaux d'horaires et de statuts publiés par l'Aéroport de Québec, avec une collecte programmée plusieurs fois par jour. Cette fiche YUL est un instantané historique ADS-B fixe. Les unités, les périodes et les biais de couverture diffèrent. Une comparaison directe des nombres de vols des deux aéroports serait trompeuse.
+
+## Sources et droits
+
+MrAirspace, projet de Sebastiaan Menger, produit les archives trimestrielles à partir de données ADSB.lol. Les trajectoires et les tables dérivées sont soumises à l'[Open Database License 1.0](https://github.com/MrAirspace/aircraft-flight-schedules/blob/main/LICENSE-ODbL.txt). L'adaptation, la sélection CYUL et la documentation pédagogique sont réalisées par Aurélien Nicosia. Lire la [notice des données](DATA-LICENSE.md) avant de les redistribuer. Les conditions des données diffèrent de celles des textes et du code de Données bleues.
+
+```{r}
+#| label: dataset-detail-footer
+#| echo: false
+#| results: asis
+render_dataset_detail_footer()
+```
