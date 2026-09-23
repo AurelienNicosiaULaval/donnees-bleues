@@ -1,0 +1,81 @@
+---
+title: "Demande d’électricité au Québec et température"
+page-layout: full
+toc: false
+execute:
+  freeze: false
+embed-resources: true
+body-classes: hub-page resource-page dataset-resource
+---
+
+```{r}
+#| label: dataset-detail-header
+#| echo: false
+#| results: asis
+source_path <- if (file.exists("R/utils_dataset_page.R")) "R/utils_dataset_page.R" else "../../R/utils_dataset_page.R"
+source(source_path)
+render_dataset_detail_header()
+```
+
+## Variables
+
+Le CSV contient 19 colonnes. Les champs vides correspondent à des valeurs manquantes.
+
+| Variables | Définition et unité | Points à vérifier avant l’analyse |
+|---|---|---|
+| `heure_fin_utc` | Fin de l’intervalle horaire, en UTC | Clé temporelle unique dans la version vérifiée. |
+| `date_locale`, `annee`, `mois`, `heure_locale` | Calendrier du début de l’heure, selon le fuseau `America/Toronto` | `heure_locale` va de 0 à 23. Les changements d’heure compliquent les comparaisons en heure locale. |
+| `jour_semaine` | Jour de la semaine, de 1 pour lundi à 7 pour dimanche | Il décrit le début local de l’intervalle. |
+| `est_ferie`, `ferie` | Indicateur logique et nom du jour férié retenu par le script | Dates calendaires, sans report des congés. |
+| `demande_mw` | Demande moyenne pendant l’heure, en mégawatts | Les valeurs absentes ne doivent pas être remplacées par zéro. |
+| `source_demande` | Origine de la mesure : `historique` ou `temps_reel` | Distinguer les deux sources avant de comparer les périodes. |
+| `n_obs_15min` | Nombre de mesures utilisées pour une heure de la collecte récente | Quatre mesures correspondent à une heure complète; ce champ n’est pas renseigné pour l’historique. |
+| `temp_ponderee` | Moyenne pondérée des températures disponibles, en °C | Les poids sont renormalisés parmi les stations présentes. |
+| `n_stations` | Nombre de stations utilisées dans cette moyenne | De 1 à 6 lorsque la température pondérée est renseignée. |
+| `temp_montreal`, `temp_quebec`, `temp_gatineau`, `temp_sherbrooke`, `temp_trois_rivieres`, `temp_saguenay` | Températures horaires des six stations, en °C | La disponibilité diffère selon la station et l’heure. |
+
+## Préparation et accès
+
+Julien Miron rassemble l’historique de demande d’Hydro-Québec, les mesures récentes aux 15 minutes et les observations horaires d’ECCC. Son script agrège la demande récente par heure et conserve l’historique en priorité lorsque les deux sources se chevauchent. Il construit ensuite une grille horaire continue et y joint les températures et les variables de calendrier.
+
+La demande moyenne de l’heure qui se termine à un instant donné est associée à la température observée à cet instant. La température n’est donc pas une moyenne sur le même intervalle. Les poids des stations reposent sur des populations approximatives inscrites dans le fichier de configuration; cette moyenne ne décrit pas uniformément tout le territoire québécois.
+
+Le bouton de téléchargement ouvre une version fixe du fichier hébergé chez Julien. Pour les mises à jour, consulter son [dépôt Donnees-hydro](https://github.com/JulienMiron/Donnees-hydro), ses [scripts de préparation](https://github.com/JulienMiron/Donnees-hydro/tree/0b048c00002a57c968294a5e956792c4ec610e69/R) et la [liste des stations et des poids](https://github.com/JulienMiron/Donnees-hydro/blob/0b048c00002a57c968294a5e956792c4ec610e69/config/stations.csv).
+
+## Contrôles et limites détaillées
+
+La version examinée comporte 67 740 lignes et 19 colonnes. Les heures de fin vont du 1er janvier 2019 à 06 h UTC au 23 septembre 2026 à 17 h UTC, sans doublon de la clé `heure_fin_utc`.
+
+| Contrôle du fichier | Résultat |
+|---|---:|
+| Heures avec une demande renseignée | 52 618 |
+| Heures avec une température pondérée renseignée | 67 723 |
+| Heures avec les deux valeurs | 52 602 |
+| Heures issues de la collecte récente | 62 |
+| Heures récentes avec moins de quatre mesures aux 15 minutes | 1 |
+
+L’historique du CSV couvre 2019 à 2024, avec quelques valeurs manquantes. Il ne contient aucune demande pour 2025 et ne reprend qu’en septembre 2026. La description du dépôt mentionne encore un historique limité à 2023 : les résultats ci-dessus sont calculés sur le fichier proposé au téléchargement.
+
+La collecte récente convertit les heures locales d’Hydro-Québec selon le fuseau `America/Toronto`. Son comportement lors d’un changement d’heure reste un point à vérifier dans cette série récente. L’historique est importé depuis des horodatages UTC.
+
+Pour une analyse de la relation entre demande et température, examiner les données manquantes, l’heure et la saison avant d’ajuster un modèle. Deux heures successives ne constituent pas des observations indépendantes. Ces données permettent d’étudier des associations, sans isoler à elles seules un effet causal de la température.
+
+Les contrôles sont reproductibles avec le script [`verification.R`](https://github.com/AurelienNicosiaULaval/donnees-bleues/blob/main/datasets/hydro-quebec-temperature/verification.R). Ils portent sur la structure et la couverture du CSV, pas sur une certification des mesures par les producteurs.
+
+## Références et attributions détaillées
+
+[Julien Miron](https://github.com/JulienMiron), chargé d’enseignement à l’Université Laval, a préparé ce jeu et l’a proposé à Données bleues. Hydro-Québec produit les données de demande; Environnement et Changement climatique Canada produit les observations météorologiques.
+
+- [Dépôt de Julien Miron, version examinée](https://github.com/JulienMiron/Donnees-hydro/tree/0b048c00002a57c968294a5e956792c4ec610e69).
+- [Historique de la demande d’électricité d’Hydro-Québec](https://www.hydroquebec.com/documents-donnees/donnees-ouvertes/historique-demande-electricite-quebec/) et [portail de l’historique utilisé par le script](https://donnees.hydroquebec.com/explore/dataset/historique-demande-electricite-quebec/).
+- [Demande récente d’Hydro-Québec](https://www.hydroquebec.com/documents-donnees/donnees-ouvertes/demande-electricite-quebec/). Ces données sont sous [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/deed.fr).
+- [Observations climatiques horaires d’ECCC](https://api.weather.gc.ca/collections/climate-hourly?f=html) et [licence des services de données d’ECCC](https://eccc-msc.github.io/open-data/licence/readme_fr/). La fiche renvoie aux conditions publiées par le fournisseur; le dépôt mentionne pour sa part la Licence du gouvernement ouvert du Canada.
+
+Les licences de Données bleues ne remplacent pas celles des producteurs ni les conditions applicables au dépôt de Julien.
+
+```{r}
+#| label: dataset-detail-footer
+#| echo: false
+#| results: asis
+render_dataset_detail_footer()
+```

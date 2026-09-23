@@ -34,10 +34,14 @@ Les vignettes photographiques des jeux de données sont des versions recadrées 
 | Condamnations des établissements alimentaires au Québec | [Food at WIkimanian 2017 02.jpg](https://commons.wikimedia.org/wiki/File:Food_at_WIkimanian_2017_02.jpg) | Camelia.boban | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) |
 | Indices de défavorisation des écoles primaires du Québec | [École primaire Courval - Neuville.JPG](https://commons.wikimedia.org/wiki/File:%C3%89cole_primaire_Courval_-_Neuville.JPG) | Sylvainbrousseau | [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/) |
 
-## Portrait du créateur
+## Portraits
 
 Le portrait d’Aurélien Nicosia utilisé dans la page « À propos » provient de son [profil LinkedIn](https://www.linkedin.com/in/aur%C3%A9lien-nicosia-6a52487b/), à sa demande. Image récupérée le 5 septembre 2026. Ce référencement ne constitue pas une attribution d’une licence ouverte distincte à la photographie.
 
-## Vignette calculée à partir des données
+Le portrait de Julien Miron dans la section « Contributeurs » provient de son [profil LinkedIn](https://www.linkedin.com/in/julien-miron-183606388/), consulté le 23 septembre 2026. La photographie conserve ses propres conditions de réutilisation.
+
+## Vignettes calculées à partir des données
 
 La vignette « Arbres du Québec » est un nuage diamètre-hauteur calculé par Aurélien Nicosia à partir du jeu pédagogique [Arbres du Québec, version 1.0.0](https://github.com/AurelienNicosiaULaval/arbres_quebec/releases/tag/v1.0.0). Figure originale sous CC BY 4.0 ; mesures MRNF / PET5 sous CC BY 4.0 et taxonomie VASCAN sous CC0. La vignette est produite par le script `scripts/build_arbres_quebec_card.R`.
+
+La vignette « Demande d’électricité au Québec et température » représente les moyennes quotidiennes de 2024 pour les journées de 24 heures dont toutes les demandes et températures pondérées sont renseignées. Elle est calculée à partir du [jeu assemblé par Julien Miron](https://github.com/JulienMiron/Donnees-hydro/tree/0b048c00002a57c968294a5e956792c4ec610e69), avec le script `scripts/build_hydro_quebec_card.R`. Source de la demande : Hydro-Québec, sous [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/deed.fr). Source des températures : Environnement et Changement climatique Canada, sous la [licence des services de données d’ECCC](https://eccc-msc.github.io/open-data/licence/readme_fr/). Les moyennes quotidiennes sont calculées pour cette figure; elles ne figurent pas dans le CSV horaire.

@@ -36,15 +36,34 @@ Aurélien Nicosia, chargé d’enseignement en mathématiques et statistique à 
 
 Les crédits ci-dessous proviennent des métadonnées des ressources. Ils distinguent la contribution au répertoire des organismes producteurs des données et des auteurs des documents externes.
 
+::: {.founder-card #contributeur-julien-miron}
+::: {.founder-photo}
+<img src="assets/julien-miron-linkedin.jpg" width="200" height="200" alt="Portrait de Julien Miron, contributeur à Données bleues">
+
+[Photo du profil LinkedIn](https://www.linkedin.com/in/julien-miron-183606388/)
+:::
+::: {.founder-bio}
+### Julien Miron
+
+Julien Miron enseigne la statistique à l’Université Laval. Il a assemblé et proposé le jeu qui associe la demande horaire d’électricité d’Hydro-Québec aux températures observées par Environnement et Changement climatique Canada.
+
+[Consulter sa fiche de données](datasets/hydro-quebec-temperature/fiche.qmd) · [Ses contributions](ressources.html?query=Julien%20Miron)
+
+[Profil GitHub](https://github.com/JulienMiron) · [LinkedIn](https://www.linkedin.com/in/julien-miron-183606388/)
+:::
+:::
+
 ```{r}
 #| echo: false
 #| results: asis
 source("R/utils_resources.R")
 items <- resource_catalogue()
 contributors <- sort(unique(vapply(items, function(item) resource_text(item$contributor, ""), character(1))))
-for (name in contributors[nzchar(contributors)]) {
+# Julien est présenté dans l'encadré ci-dessus; les autres crédits restent automatiques.
+for (name in setdiff(contributors[nzchar(contributors)], "Julien Miron")) {
   count <- sum(vapply(items, function(item) identical(resource_text(item$contributor, ""), name), logical(1)))
-  cat('<p><a href="ressources.html?query=',utils::URLencode(name,reserved=TRUE),'">',resource_escape(name),'</a> : contribution à ',count,' ressources. Les rôles détaillés figurent dans leurs notices.</p>',sep='')
+  cat('<p><a href="ressources.html?query=',utils::URLencode(name,reserved=TRUE),'">',resource_escape(name),'</a> : contribution à ',count,
+      if (count == 1L) ' ressource. Le rôle détaillé figure dans sa notice.</p>' else ' ressources. Les rôles détaillés figurent dans leurs notices.</p>',sep='')
 }
 ```
 

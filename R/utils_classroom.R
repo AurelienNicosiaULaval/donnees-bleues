@@ -8,12 +8,21 @@ classroom_script_paths <- function(id, datasets_dir = 'datasets') {
 
 classroom_policy <- function(metadata) {
   policy <- metadata$publication$classroom
-  if (is.null(policy) || !policy$mode %in% c('frozen', 'documentation', 'source_required') ||
+  if (is.null(policy) || !policy$mode %in% c('frozen', 'documentation', 'source_required', 'external') ||
       is.null(policy$reason) || !nzchar(policy$reason)) {
     stop('Politique de trousse absente : ', metadata$id, call. = FALSE)
   }
   if (policy$mode == 'source_required' && length(policy$files)) {
     stop('Une source non redistribuable ne peut fournir des CSV de classe.', call. = FALSE)
+  }
+  # A referenced dataset stays at its source and does not imply a teaching kit.
+  if (policy$mode == 'external') {
+    urls <- c(metadata$source_url, metadata$download_url)
+    if (length(urls) != 2L || anyNA(urls) || any(!grepl('^https://[^/[:space:]]+', urls)) ||
+        !identical(metadata$publication$preview, FALSE) || length(policy$files)) {
+      stop('Une fiche externe exige deux liens HTTPS et ne peut fournir de données locales : ',
+           metadata$id, call. = FALSE)
+    }
   }
   paths <- vapply(policy$files, function(file) file$path, character(1))
   if (anyDuplicated(paths)) stop('Fichier de classe déclaré deux fois.', call. = FALSE)
@@ -39,6 +48,7 @@ classroom_sha <- function(path) digest::digest(file = path, algo = 'sha256')
 
 build_classroom_kit <- function(metadata, output_dir = 'assets/classroom') {
   policy <- classroom_policy(metadata)
+  if (policy$mode == 'external') stop('Une fiche externe ne fournit pas de trousse.', call. = FALSE)
   id <- metadata$id
   scripts <- classroom_script_paths(id)
   if (!all(file.exists(scripts))) stop('Scripts de classe absents : ', id, call. = FALSE)

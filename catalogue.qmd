@@ -30,13 +30,14 @@ for (i in seq_len(nrow(catalogue))) {
   candidates <- file.path('assets/cards', paste0(row$id, c('.webp','.jpg','.jpeg','.png')))
   image <- candidates[file.exists(candidates)][1]
   if (is.na(image)) image <- 'assets/cards/catalogue.png'
+  image_style <- if (identical(item$card_image_fit, 'contain')) ' style="object-fit: contain"' else ''
   attrs <- catalogue_attributes(c(title=row$title, theme=row$theme, level=row$level,
     concept=paste(catalogue_tokens(row$concepts),collapse='||'), license=unname(licences[i]),
     search=paste(row$title,row$short_title,item$summary,row$theme,row$source_name,row$geography,
-                 row$unit,row$concepts,row$search_aliases,row$license)))
+                 row$unit,row$concepts,row$search_aliases,row$license,row$contributor_name)))
   cat('<article class="dataset-card" data-catalogue-card', attrs, '>',
       '<a class="dataset-media" href="',catalogue_escape(href),'" aria-label="',catalogue_escape(row$title),'"><img src="',catalogue_escape(image),
-      '" alt="" loading="lazy" width="640" height="360"></a><div class="dataset-card-body">',
+      '" alt="" loading="lazy" width="640" height="360"',image_style,'></a><div class="dataset-card-body">',
       resource_type_badge('donnees'),
       '<h2><a href="',catalogue_escape(href),'">',catalogue_escape(row$title),'</a></h2>',
       '<p class="dataset-card-description">',catalogue_escape(item$summary),'</p>',

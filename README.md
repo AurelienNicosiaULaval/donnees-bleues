@@ -79,6 +79,8 @@ Les démonstrations autonomes sont conservées dans `publication/demonstrations/
 
 Les [modèles](templates/) définissent la structure d’une fiche, d’une activité et de leurs métadonnées. Une contribution doit fournir un script de préparation, au moins une activité déclarée avec sa page Quarto, ses métadonnées, son script exécutable et ses ressources de lancement. Les concepts et niveaux viennent de `data/metadata/taxonomie.yml`; ajouter un alias à une notion existante plutôt qu’un doublon de casse ou d’accent.
 
+Un jeu peut aussi être référencé avec ses fichiers hébergés chez la personne qui le propose, sans créer d’activité locale. Sa fiche et ses métadonnées déclarent alors `publication.classroom.mode: external`, `publication.preview: false`, une liste `files` vide et deux liens HTTPS : `source_url` pour le dépôt et `download_url` pour les données. Ce mode ne produit ni aperçu tabulaire ni trousse. Documenter la version examinée, les limites et les conditions des producteurs; créditer la personne dans `contributor_name` et décrire son rôle dans `contributor_role`. Le score pédagogique peut rester `null` tant qu’aucune activité n’a été préparée. La fiche Hydro-Québec illustre ce cas.
+
 La disponibilité technique d’une trousse n’établit pas son efficacité pédagogique. La [fiche de retour de classe](templates/retour-classe-template.md) permet de documenter les usages et difficultés sans données personnelles étudiantes.
 
 ## Publication

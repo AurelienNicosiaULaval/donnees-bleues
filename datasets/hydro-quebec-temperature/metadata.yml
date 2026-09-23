@@ -1,0 +1,77 @@
+id: hydro-quebec-temperature
+title: "Demande d’électricité au Québec et température"
+short_title: "Hydro-Québec et température"
+card_image_fit: contain
+summary: "Demande horaire d’électricité d’Hydro-Québec jumelée aux températures de six stations d’ECCC et à des variables de calendrier. Jeu assemblé et proposé par Julien Miron."
+observation_period: "Grille horaire du 1er janvier 2019 au 23 septembre 2026; demande disponible en 2019–2024 puis en septembre 2026, avec des lacunes"
+source_authors:
+  - Hydro-Québec
+  - Environnement et Changement climatique Canada
+theme: Environnement
+source_name: "Hydro-Québec et ECCC; assemblage par Julien Miron"
+source_url: "https://github.com/JulienMiron/Donnees-hydro"
+download_url: "https://raw.githubusercontent.com/JulienMiron/Donnees-hydro/0b048c00002a57c968294a5e956792c4ec610e69/data/demande_temperature_horaire.csv"
+download_label: "Télécharger la version vérifiée (CSV)"
+license: "Demande Hydro-Québec : CC BY-NC 4.0; températures ECCC : licence d’utilisation finale des services de données d’ECCC. Les conditions de chaque source restent applicables."
+access_date: "2026-09-23"
+geography: "Québec, hors réseaux autonomes pour la demande; six stations météorologiques"
+unit: "Une heure de la grille temporelle; la demande ou la température peuvent manquer"
+data_type: "Série temporelle horaire"
+format: "CSV, 19 colonnes"
+n_rows: "67 740 lignes dans la version vérifiée"
+n_cols: "19 colonnes"
+update_frequency: "Collecte automatisée dans le dépôt de Julien Miron; le téléchargement de cette fiche pointe vers la version examinée le 23 septembre 2026"
+level: Intermédiaire
+level_ids:
+  - intermediaire
+concepts:
+  - Séries temporelles
+  - Valeurs manquantes
+  - Visualisation
+  - Saisonnalité
+  - Agrégation
+concept_ids:
+  - series-temporelles
+  - valeurs-manquantes
+  - visualisation
+  - saisonnalite
+  - agregation
+variables_principales:
+  - heure_fin_utc
+  - demande_mw
+  - temp_ponderee
+  - n_stations
+  - source_demande
+  - n_obs_15min
+zero_waste: null
+contributor_name: Julien Miron
+contributor_role: "Collecte, assemblage et documentation du jeu de données; proposition au catalogue Données bleues"
+courses: []
+stt1100_contact: false
+status: "Fichier et scripts de préparation examinés; données hébergées dans le dépôt du contributeur"
+essential_limits:
+  - "La grille comporte 67 740 heures, mais seulement 52 618 valeurs de demande. Aucune demande n’est renseignée pour 2025; la collecte récente reprend en septembre 2026."
+  - "La demande est une puissance moyenne en MW. Elle ne représente ni une consommation en kWh ni une facture résidentielle."
+  - "La température pondérée résume les stations disponibles parmi six stations, avec des poids de population approximatifs. Leur nombre varie selon l’heure."
+  - "Les données de demande sont fournies à titre informatif par Hydro-Québec. Leur réutilisation commerciale n’est pas permise par la licence CC BY-NC 4.0."
+reference_note: "Les dimensions et les contrôles ci-dessous portent sur la version du 23 septembre 2026 proposée au téléchargement. Le dépôt du contributeur peut évoluer."
+publication:
+  preview: false
+  reason: "Référencement du fichier chez le contributeur, sans copie du CSV ni trousse sur Données bleues."
+  reviewed_on: "2026-09-23"
+  license_url: "https://github.com/JulienMiron/Donnees-hydro#licences"
+  preview_columns: []
+  classroom:
+    mode: external
+    reason: "Données et scripts accessibles dans le dépôt de Julien Miron; aucune activité locale associée."
+    files: []
+verification:
+  commit: "0b048c00002a57c968294a5e956792c4ec610e69"
+  sha256: "75e4805f75a6a42f258e90f9829d1ecfd40607e6280a5d97014890ea8198bd67"
+  rows: 67740
+  columns: 19
+  demand_present: 52618
+  temperature_present: 67723
+  complete_pairs: 52602
+date_added: "2026-09-23"
+date_updated: "2026-09-23"

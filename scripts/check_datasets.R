@@ -4,6 +4,7 @@ source("R/utils_activities.R")
 source("R/utils_ulaval.R")
 source("R/utils_card_images.R")
 source("R/utils_site_validation.R")
+source("R/utils_classroom.R")
 
 required_files <- c(
   "fiche.qmd",
@@ -26,11 +27,16 @@ if (length(dataset_dirs) == 0L) {
 errors <- character()
 
 for (dataset_dir in dataset_dirs) {
+  metadata <- read_dataset_metadata(dataset_dir)
+  external <- identical(classroom_policy(metadata)$mode, "external")
   activities <- list.files(dataset_dir, pattern = "^activite-.*[.]yml$")
-  if (!length(activities)) {
+  if (!external && !length(activities)) {
     errors <- c(errors, paste(dataset_dir, "aucune activité déclarée"))
   }
-  expected_files <- c(required_files, activities,
+  if (external && length(activities)) {
+    errors <- c(errors, paste(dataset_dir, "une fiche externe ne déclare pas d'activité locale"))
+  }
+  expected_files <- c(if (external) setdiff(required_files, "preparation.R") else required_files, activities,
     sub("[.]yml$", ".qmd", activities), sub("[.]yml$", ".R", activities))
   missing_files <- expected_files[!file.exists(file.path(dataset_dir, expected_files))]
   if (length(missing_files) > 0L) {
@@ -38,7 +44,6 @@ for (dataset_dir in dataset_dirs) {
     next
   }
 
-  metadata <- read_dataset_metadata(dataset_dir)
   for (field in c('summary', 'observation_period', 'source_authors')) {
     if (!length(metadata[[field]]) || any(!nzchar(trimws(unlist(metadata[[field]]))))) {
       errors <- c(errors, paste(dataset_dir, 'champ éditorial vide :', field))
@@ -49,7 +54,7 @@ for (dataset_dir in dataset_dirs) {
     errors <- c(errors, paste(dataset_dir, "champs metadata manquants :", paste(missing_fields, collapse = ", ")))
   }
 
-  tryCatch(
+  if (!external) tryCatch(
     validate_zero_waste_score(metadata$zero_waste),
     error = function(e) {
       errors <<- c(errors, paste(dataset_dir, "score zéro déchet invalide :", conditionMessage(e)))

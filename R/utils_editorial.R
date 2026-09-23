@@ -15,6 +15,9 @@ editorial_sentences <- function(value) {
 editorial_license <- function(value) {
   value <- editorial_text(value, "Conditions à consulter")
   if (grepl("Aucune licence ouverte", value, ignore.case = TRUE)) return("Réutilisation à valider")
+  if (grepl("ECCC", value, fixed = TRUE) && grepl("CC.?BY", value, ignore.case = TRUE)) {
+    return("Licences distinctes selon les fichiers")
+  }
   if (grepl("ECCC", value, fixed = TRUE)) return("Licence d’ECCC")
   if (grepl("MIT|CC0", value) && grepl(";", value, fixed = TRUE)) return("Licences distinctes selon les fichiers")
   if (grepl("CC.?BY.?NC.?SA", value, ignore.case = TRUE)) return("CC BY-NC-SA")

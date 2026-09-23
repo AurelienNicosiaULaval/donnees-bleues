@@ -9,6 +9,13 @@ for (path in paths) {
   metadata <- yaml::read_yaml(path); id <- metadata$id
   policy <- classroom_policy(metadata)
   archive <- file.path('assets/classroom', paste0(id, '.zip'))
+  if (policy$mode == 'external') {
+    if (any(file.exists(c(archive, paste0(archive, '.json'))))) {
+      stop('Une fiche externe ne doit pas distribuer de trousse : ', id)
+    }
+    cat(id, ': données accessibles chez le contributeur, sans trousse locale\n')
+    next
+  }
   receipt <- jsonlite::read_json(paste0(archive, '.json'))
   if (classroom_sha(archive) != receipt$archive_sha256) stop('Empreinte ZIP incorrecte : ', id)
   entries <- utils::unzip(archive, list = TRUE)$Name
