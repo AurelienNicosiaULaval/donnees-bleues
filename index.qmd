@@ -20,10 +20,18 @@ metadata <- editorial_dataset_metadata()
 
 ::: {.home-page .home-editorial}
 
+::: {.home-intro}
+::: {.home-intro-copy}
 # Des données québécoises à enseigner
 
 ::: {.home-subtitle}
 Des jeux de données québécois, des activités, des documents et des applications pour enseigner la statistique, R et la science des données.
+:::
+:::
+
+::: {.home-intro-art}
+<img src="assets/illustrations/hero-territory.svg" class="db-hero-illustration" alt="Illustration abstraite de territoires et de données en bleu">
+:::
 :::
 
 ```{r}

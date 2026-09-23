@@ -13,8 +13,13 @@ body.hub-page .resource-record p {max-width: 80ch; margin-block: .65rem;}
 body.hub-page .resource-record-dates {font-size: .85rem; margin-block: .5rem;}
 
 body.hub-page .home-editorial {padding-block: .5rem 1rem; background: transparent;}
-.home-editorial > h1 {max-width: 24ch; font-family: var(--db-serif); font-weight: 600; font-size: clamp(2.15rem, 4vw, 3.2rem); line-height: 1.12; margin: 1rem 0;}
+.home-editorial .home-intro {display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr); align-items: center; gap: clamp(1.5rem, 4vw, 4rem);}
+.home-editorial .home-intro-copy {min-width: 0;}
+.home-editorial .home-intro h1 {max-width: 24ch; font-family: var(--db-serif); font-weight: 600; font-size: clamp(2.15rem, 4vw, 3.2rem); line-height: 1.12; margin: 1rem 0;}
 .home-editorial .home-subtitle {max-width: 68ch; font-family: var(--bs-body-font-family); font-weight: 400; font-size: 1.12rem; line-height: 1.6;}
+.home-editorial .home-intro-art {min-width: 0;}
+.home-editorial .home-intro-art p {margin: 0;}
+.home-editorial .home-intro-art img {display: block; width: 100%; height: auto; border-radius: 12px;}
 .home-editorial .home-resource-links {display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); gap: 1rem; margin-block: 2rem;}
 .home-resource-links > a {display: flex; flex-direction: column; align-items: flex-start; gap: .65rem; padding: 1.2rem; color: #172033; text-decoration: none; border: 1px solid #cadce5; border-radius: 10px; background: #fff;}
 .home-resource-links > a:hover {background: #edf5f8; border-color: #15516e;}
@@ -31,6 +36,7 @@ body.hub-page .home-editorial {padding-block: .5rem 1rem; background: transparen
 
 .catalogue-editorial > header {margin-bottom: 1.5rem;}
 body.hub-page .catalogue-editorial {padding-top: .5rem;}
+body.hub-page .activities-page {background: transparent;}
 .catalogue-editorial > header h1 {font-family: var(--db-serif); font-size: clamp(2rem,3.5vw,3.1rem); line-height: 1.15; margin-block: 1rem;}
 .catalogue-controls {display: flex; flex-wrap: wrap; align-items: flex-end; gap: 1rem; padding: 1rem; background: #edf5f8; border-radius: 10px;}
 .catalogue-controls label {display: flex; flex-direction: column; gap: .35rem; font-size: .9rem;}
@@ -102,6 +108,10 @@ body .bixi-hero h1 {font-size: clamp(2rem,3.5vw,3.2rem);}
 @media(max-width: 1000px) {
   .home-editorial .home-resource-links,.catalogue-editorial :is(.dataset-grid,.act-grid) {grid-template-columns: repeat(2,minmax(0,1fr));}
   .catalogue-filter-fields {grid-template-columns: repeat(2,minmax(0,1fr));}
+}
+@media(max-width: 820px) {
+  .home-editorial .home-intro {grid-template-columns: minmax(0,1fr); gap: 1rem;}
+  .home-editorial .home-intro-art {max-width: 32rem;}
 }
 @media(max-width: 650px) {
   body.hub-page #quarto-content {width: calc(100% - 2rem);}

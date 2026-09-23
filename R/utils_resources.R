@@ -57,14 +57,19 @@ resource_catalogue <- function(root = ".") {
   }))
 }
 resource_labels <- c(donnees = "Données", activite = "Activités", document = "Documents", application = "Applications")
-render_resource_cards <- function(type = NULL) {
+render_resource_cards <- function(type = NULL, filterable = FALSE) {
   items <- resource_catalogue()
   if (!is.null(type)) items <- Filter(function(x) x$type %in% type, items)
-  cat('<div class="resource-grid" id="resource-results">')
+  cat('<div class="resource-grid" id="resource-results"',
+      if (filterable) ' data-catalogue-results' else '', '>')
   for (x in items) {
     search <- resource_text(c(x$title, x$description, x$themes, x$concepts, x$authors, x$contributor, x$courses))
-    cat('<article class="resource-card" data-type="', x$type, '" data-theme="', resource_escape(x$themes),
-      '" data-author="', resource_escape(x$authors), '" data-course="', resource_escape(x$courses),
+    themes <- if (filterable) paste(x$themes, collapse = '||') else x$themes
+    authors <- if (filterable) paste(x$authors, collapse = '||') else x$authors
+    cat('<article class="resource-card"', if (filterable) ' data-catalogue-card' else '',
+      ' data-title="', resource_escape(x$title), '" data-type="', x$type, '" data-theme="',
+      resource_escape(themes), '" data-author="', resource_escape(authors),
+      '" data-course="', resource_escape(x$courses),
       '" data-date-added="', x$date_added, '" data-date-updated="', x$date_updated,
       '" data-search="', resource_escape(search), '">', resource_type_badge(x$type),
       '<h2><a href="', resource_escape(x$url), '">', resource_escape(x$title), '</a></h2>',
@@ -74,6 +79,18 @@ render_resource_cards <- function(type = NULL) {
     cat('</article>')
   }
   cat('</div>')
+}
+
+render_resource_catalogue <- function(type) {
+  stopifnot(type %in% c("document", "application"))
+  items <- Filter(function(x) x$type == type, resource_extra())
+  values <- function(field) unlist(lapply(items, `[[`, field), use.names = FALSE)
+  cat('<section class="catalogue-editorial resource-catalogue" data-resource-catalogue="', type, '">', sep = '')
+  catalogue_controls(type, length(items), list(
+    list(name = 'theme', label = 'Thème', values = values('themes')),
+    list(name = 'author', label = 'Auteur ou source', values = values('authors'))))
+  render_resource_cards(type, filterable = TRUE)
+  cat('<p class="catalogue-empty" data-empty-catalogue hidden>Aucune ressource ne correspond aux filtres actuels.</p></section>')
 }
 render_resource_detail <- function(id, root = "..") {
   items <- resource_extra(root)

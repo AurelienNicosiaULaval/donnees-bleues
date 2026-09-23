@@ -1,4 +1,4 @@
-// Both catalogues use the same live filters, reset and empty-state behaviour.
+// All catalogues use the same live filters, reset and empty-state behaviour.
 document.querySelectorAll('[data-resource-catalogue]').forEach(root => {
   const query = root.querySelector('[data-query]');
   const filters = [...root.querySelectorAll('[data-filter]')];
@@ -20,9 +20,13 @@ document.querySelectorAll('[data-resource-catalogue]').forEach(root => {
       card.hidden = !matches;
       visible += Number(matches);
     });
-    const label = root.dataset.resourceCatalogue === 'donnees'
-      ? `jeu${visible > 1 ? 'x' : ''} de données`
-      : `activité${visible > 1 ? 's' : ''}`;
+    const labels = {
+      donnees: ['jeu de données', 'jeux de données'],
+      activite: ['activité', 'activités'],
+      document: ['document', 'documents'],
+      application: ['application', 'applications']
+    };
+    const label = labels[root.dataset.resourceCatalogue][visible === 1 ? 0 : 1];
     count.textContent = `${visible} ${label} sur ${cards.length}`;
     empty.hidden = visible !== 0;
     active.replaceChildren();

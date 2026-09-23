@@ -18,5 +18,8 @@ Des exercices interactifs à ouvrir dans le navigateur.
 #| echo: false
 #| results: asis
 source("R/utils_resources.R")
-render_resource_cards("application")
+source("R/utils_catalogue_ui.R")
+render_resource_catalogue("application")
 ```
+
+<script src="assets/js/catalogues.js"></script>
