@@ -20,7 +20,11 @@ verify_source_kit <- function(id) {
     status <- system2(file.path(R.home('bin'), 'Rscript'), c('--vanilla', '-e', shQuote(code)),
       stdout = file.path(output, 'acquisition.log'), stderr = file.path(output, 'acquisition.log'),
       env = library_env)
-    if (status != 0L) stop('Acquisition depuis la trousse en échec : ', id)
+    if (status != 0L) {
+      log_path <- file.path(output, 'acquisition.log')
+      if (file.exists(log_path)) cat(tail(readLines(log_path, warn = FALSE), 40L), sep = '\n')
+      stop('Acquisition depuis la trousse en échec : ', id)
+    }
   }
   for (script in classroom_script_paths(id)) {
     output <- file.path(root, 'data/validation/source-activities', id, tools::file_path_sans_ext(basename(script)))
