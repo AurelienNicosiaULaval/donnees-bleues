@@ -1,0 +1,281 @@
+[
+  {
+    "id": "actes-criminels-montreal",
+    "file": "actes-criminels-montreal.webp",
+    "width": 960,
+    "height": 540,
+    "bytes": 120764,
+    "sha256": "446c4e823904a8c67f027e86eaa2659193f9ae1ddb3f0ec35789eba70f7ba3c4",
+    "original_sha256": "ec1024ea7141c763ae68acfd6e8d9825546ad20401ce9b5bf0ec8e475aff3d6d"
+  },
+  {
+    "id": "arbres-publics-montreal",
+    "file": "arbres-publics-montreal.webp",
+    "width": 960,
+    "height": 540,
+    "bytes": 186826,
+    "sha256": "b8392adf8f96f868b097c73fd44a7125ea4cc034c315a4ee868675f0e11abd5d",
+    "original_sha256": "768714b52af7e7b2713dd7f7686cd636d0d44c45ca91a83e13707bf122f168c9"
+  },
+  {
+    "id": "arbres-quebec",
+    "file": "arbres-quebec.webp",
+    "width": 960,
+    "height": 540,
+    "bytes": 139918,
+    "sha256": "79f317ce4c63b64fd9f94bd1b1a8ec53f58929963101a39909c407893661f480",
+    "original_sha256": "346ed4dd80c93eed7b3febed9f2a04e88f5d10daf01ae5e7ff525c54b382c6a8"
+  },
+  {
+    "id": "bibliotheques-quebec",
+    "file": "bibliotheques-quebec.webp",
+    "width": 960,
+    "height": 540,
+    "bytes": 139768,
+    "sha256": "bc17961b9372a22dcfceef2a4b737068baf9310fc4b8cfb795a3f414a93de711",
+    "original_sha256": "1fb2795cd316d29d2e1e754845c6f4eda96ea8e0f580942502659222aaec7c43"
+  },
+  {
+    "id": "bixi",
+    "file": "bixi.webp",
+    "width": 960,
+    "height": 540,
+    "bytes": 148154,
+    "sha256": "33a11eeb77f77cd539dd32f314b0b0b2d13f049cca503de8c7e4a95e4564fc1f",
+    "original_sha256": "a556a1258d055d3d62c6ca94307b5f4fd2f07edebb86fcf407777286f5602327"
+  },
+  {
+    "id": "budgets-municipaux-quebec",
+    "file": "budgets-municipaux-quebec.webp",
+    "width": 960,
+    "height": 540,
+    "bytes": 143228,
+    "sha256": "ff7837b2d0fc48d20219cb4b96be33fbfe7aed398fe6864f31d6120cea2582df",
+    "original_sha256": "03c3d948c3f28def244328c5c0007a74dacdda1678cf02437ebb39fc61f8f5ad"
+  },
+  {
+    "id": "cohortes-diplomation",
+    "file": "cohortes-diplomation.webp",
+    "width": 960,
+    "height": 540,
+    "bytes": 157724,
+    "sha256": "6ed1d9fe711dbff87ff34343f3e22ae0f11086c1b1e91b418767191d5545fff5",
+    "original_sha256": "971ed915cf63277b75a2b1a48bc4a4b89f4342188990fd89dff42121a8678273"
+  },
+  {
+    "id": "condamnations-alimentaires-quebec",
+    "file": "condamnations-alimentaires-quebec.webp",
+    "width": 960,
+    "height": 540,
+    "bytes": 120772,
+    "sha256": "dd2098f195849db25e8b3c56eef97a647e5cfb71f210e1b8e49f88d66fb01905",
+    "original_sha256": "9f3efb80e615c387694bbb53767bef4740abafd0db8bfbe879a36da29e51abe4"
+  },
+  {
+    "id": "construction-quartiers-quebec",
+    "file": "construction-quartiers-quebec.webp",
+    "width": 960,
+    "height": 540,
+    "bytes": 179342,
+    "sha256": "9edc97910d368149ad960ac826c56a582526e0a87e73cdfeb45b620dbb8959e4",
+    "original_sha256": "897eebd87d378ae721ec0e365c5fea6a757ce6bfd7ff1ac16b4fccd243864d7f"
+  },
+  {
+    "id": "defavorisation-ecoles-primaires",
+    "file": "defavorisation-ecoles-primaires.webp",
+    "width": 960,
+    "height": 540,
+    "bytes": 107136,
+    "sha256": "a699e454ae1c72bcb13d40b6d13bed49445d8bae061989d2958b6408ef2f1b8c",
+    "original_sha256": "b54a11497b2eab3a222a3a634b47d05a61228aadc59c86c821dacfa94723b46a"
+  },
+  {
+    "id": "ecoles-quebec",
+    "file": "ecoles-quebec.webp",
+    "width": 960,
+    "height": 540,
+    "bytes": 156922,
+    "sha256": "ddc925bcd91e1eb278a7cdb5a6c48fd45698c30ac1535f53bca0a20b4087a262",
+    "original_sha256": "93aae2cea51c8359fb0a667fbfcca64b5a7d1ecf4177a2e4239c48657a9ec8fd"
+  },
+  {
+    "id": "emploi-regional-quebec",
+    "file": "emploi-regional-quebec.webp",
+    "width": 960,
+    "height": 540,
+    "bytes": 155448,
+    "sha256": "f5f795c9333235938ab3a3980fab569b8c8c74743003f15b92c10e27fd3c0766",
+    "original_sha256": "a22ea4a59715b4843e43bfdda9c21c8efe19f4f1b80e191754a3eb4a9049d858"
+  },
+  {
+    "id": "empress-of-ireland",
+    "file": "empress-of-ireland.webp",
+    "width": 960,
+    "height": 540,
+    "bytes": 83046,
+    "sha256": "0f3a881403cb48e24396e2d2d9851f6dd776d80f9b8fa4c982de83f6b82208f7",
+    "original_sha256": "1cb2bbff6973ec0e7e0b9cb17f01d5fe62ba06ebd1b045bfe6684cc41786e62a"
+  },
+  {
+    "id": "etablissements-enseignement",
+    "file": "etablissements-enseignement.webp",
+    "width": 960,
+    "height": 540,
+    "bytes": 179224,
+    "sha256": "be179d05470d222df4996ccedfa69f030e8c660b9d64c842f6bb810dbeefadc1",
+    "original_sha256": "91dc6cb8780a75328825e4e333cac66958d8cabb29c90fe40e05bf2561f40af8"
+  },
+  {
+    "id": "grhq",
+    "file": "grhq.webp",
+    "width": 960,
+    "height": 540,
+    "bytes": 162444,
+    "sha256": "f3de38019a0a915874d62546ea88310a6942134b72f0448d5d365985f6c330f4",
+    "original_sha256": "e188eac613983cc791bbf083943168dae2c6db498a18857a2a2894d5e82f6950"
+  },
+  {
+    "id": "hydro-quebec-temperature",
+    "file": "hydro-quebec-temperature.webp",
+    "width": 960,
+    "height": 540,
+    "bytes": 113150,
+    "sha256": "cf26cd38aac40d73b7536c0d3a5ac67afdd3a2893bacba708d244728806c0cdf",
+    "original_sha256": "cd32efb9c5fbadeb88cbc7c70b8239ee8586962102a480cd9ebadf06363aff51"
+  },
+  {
+    "id": "interventions-pompiers-montreal",
+    "file": "interventions-pompiers-montreal.webp",
+    "width": 960,
+    "height": 540,
+    "bytes": 155602,
+    "sha256": "ddd758cd3ce03cbf8a466add6cfe071483ff96578d6e2a344533e9e626c42d1a",
+    "original_sha256": "715f2c1c92a0a72bcf2473c610a718afa6bbdc9885fe001b95ac35f872f10fc2"
+  },
+  {
+    "id": "meteo-quebec",
+    "file": "meteo-quebec.webp",
+    "width": 960,
+    "height": 540,
+    "bytes": 139402,
+    "sha256": "f6623cfd002944175939ab400e07d677c09e54bbd4034f79079b84623f35b0fb",
+    "original_sha256": "b04162dc9a2eaa0f10fa00055501bd3c1fcfab204974147732e3a48c9f4f568d"
+  },
+  {
+    "id": "niveaux-eau-inondation",
+    "file": "niveaux-eau-inondation.webp",
+    "width": 960,
+    "height": 540,
+    "bytes": 138340,
+    "sha256": "3ccb3cf7aa62d5672a01d2d66ddd9d11b9bce272776922bf8dad6ad07a654bbe",
+    "original_sha256": "6447c78ed5054a05be1cc10ef84a31d6f007cd5b947430e5849649ba98e06b5d"
+  },
+  {
+    "id": "prelevements-eau-autorises",
+    "file": "prelevements-eau-autorises.webp",
+    "width": 960,
+    "height": 540,
+    "bytes": 142290,
+    "sha256": "942840940f1a1f30920b9bccf2c47edcefd015b3ef0ea2bb31ab66cddff0b77d",
+    "original_sha256": "954a68c7af9bb1bcff423e10d0ea888d5bd251973b5e6e681b3821d11d2a3ef8"
+  },
+  {
+    "id": "pyramides-ages",
+    "file": "pyramides-ages.webp",
+    "width": 960,
+    "height": 540,
+    "bytes": 167948,
+    "sha256": "7334dedb8037d73bbdeefa60ab717b63bc562a1cb868e5518f437fdc8738740e",
+    "original_sha256": "a11f9437f935cbf48c0ce46abbd3998579e2457786cfeb92257edcb848ffbb7b"
+  },
+  {
+    "id": "qualite-air",
+    "file": "qualite-air.webp",
+    "width": 960,
+    "height": 540,
+    "bytes": 147748,
+    "sha256": "a59d095923617a14788c943372309c44ddf95c92f7781507e546bf044cad16b7",
+    "original_sha256": "7d86e5b2726f54069a0927f8fdba2764ba12a9c0ccb17df3c8159977cc077f57"
+  },
+  {
+    "id": "qualite-air-horaire",
+    "file": "qualite-air-horaire.webp",
+    "width": 960,
+    "height": 540,
+    "bytes": 103298,
+    "sha256": "46bc5ae9a52eb84081f5aab3de24dc3ac55912d65f022ef810990f1a2541309a",
+    "original_sha256": "93a9d636b1eafc7d162b25f2b4a2192cd368c7e6d41f09f05c22852feebaea9a"
+  },
+  {
+    "id": "rapports-accident",
+    "file": "rapports-accident.webp",
+    "width": 960,
+    "height": 540,
+    "bytes": 149374,
+    "sha256": "a20613931226c45facfff0443cede22bff15d3b0c0cfe8b58f68df6bfddbd8f1",
+    "original_sha256": "391d82a1b04d4ea7cf4da91c885dcf96b3a3b460c27f2496bbebf2b9a314d522"
+  },
+  {
+    "id": "requetes-311",
+    "file": "requetes-311.webp",
+    "width": 960,
+    "height": 540,
+    "bytes": 171292,
+    "sha256": "6c91dcc52001de374c9a575be03424cbfa33dc5bd215fe3c6f9639993a45613c",
+    "original_sha256": "47669c6009cddc8ada1668c0fae60a693a9f85b773af893cb3267fdb2b07f048"
+  },
+  {
+    "id": "retards-transport-collectif",
+    "file": "retards-transport-collectif.webp",
+    "width": 960,
+    "height": 540,
+    "bytes": 146688,
+    "sha256": "e84462f6694bcaab3171a435ea4d161191beab9ce998d20d49b9b95397c979b9",
+    "original_sha256": "3903c5f329e5554a7a29e3b4ab138d86252d8575caaa62d60aaebe1747ff3806"
+  },
+  {
+    "id": "suivi-rivieres-fleuve",
+    "file": "suivi-rivieres-fleuve.webp",
+    "width": 960,
+    "height": 540,
+    "bytes": 152074,
+    "sha256": "1f56ad45127d26a2de384b94b40e9838165f6630c4830dc98f0ac40e05849f37",
+    "original_sha256": "3089883965fb43bbd52beeeb9139bef88292401d0cf9b5848ad59356b60fc586"
+  },
+  {
+    "id": "transport-collectif-gtfs",
+    "file": "transport-collectif-gtfs.webp",
+    "width": 960,
+    "height": 540,
+    "bytes": 162272,
+    "sha256": "81445ebb284d1f6c30414e04d02af982cd472d0cce599478dda0f9bfad9c5ae7",
+    "original_sha256": "139016e86684368eca6b263316561ec1961f30322be6b66e8d36bc890f9f3e59"
+  },
+  {
+    "id": "ulaval-programmes-cours",
+    "file": "ulaval-programmes-cours.webp",
+    "width": 960,
+    "height": 540,
+    "bytes": 165856,
+    "sha256": "041307aa509a5f7c232373542c7a673b820f21ce025097fc9de0a7a5253addd3",
+    "original_sha256": "3fb0021c35e50793b8be0e3369f1a80d37759d401057ff19ae554a1c4b6449a7"
+  },
+  {
+    "id": "vehicules-canada-2025",
+    "file": "vehicules-canada-2025.webp",
+    "width": 960,
+    "height": 540,
+    "bytes": 128016,
+    "sha256": "53d34cdab96fd293b783083275ad624ab82647b1514cf44f955031f84ea3dd4b",
+    "original_sha256": "dc8871376feedd777b1c4154e19770b3bb85f6f6cc93ced098227331d54d6330"
+  },
+  {
+    "id": "vols-montreal-trudeau",
+    "file": "vols-montreal-trudeau.webp",
+    "width": 960,
+    "height": 540,
+    "bytes": 85970,
+    "sha256": "f4b4a9f4844088830f46768fe71b0f13974f69b42163d8f9226ed7f035608d27",
+    "original_sha256": "674603c6d773b419d959848925317c9c981cae28098c8cd926db8e6d437f270c"
+  }
+]

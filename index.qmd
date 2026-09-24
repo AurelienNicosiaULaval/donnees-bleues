@@ -13,6 +13,7 @@ library(yaml)
 library(htmltools)
 source("R/utils_resources.R")
 source("R/utils_catalogue_ui.R")
+source("R/utils_card_images.R")
 items <- resource_catalogue()
 counts <- table(factor(vapply(items, function(x) x$type, character(1)), levels=c('donnees','activite','document','application')))
 metadata <- editorial_dataset_metadata()
@@ -60,8 +61,7 @@ cat('</nav>')
 cat('<div class="home-featured-grid">')
 for (id in c('arbres-quebec','bixi','empress-of-ireland')) {
   item <- metadata[[id]]
-  candidates <- file.path('assets/cards',paste0(id,c('.webp','.jpg','.jpeg','.png')))
-  image <- candidates[file.exists(candidates)][1]
+  image <- card_image_path(id)
   if (is.na(image)) image <- 'assets/cards/catalogue.png'
   cat('<article class="home-dataset-card"><img src="',catalogue_escape(image),'" alt="" loading="lazy" width="640" height="360">',
       '<h3><a href="datasets/',id,'/fiche.html">',catalogue_escape(item$title),'</a></h3>',

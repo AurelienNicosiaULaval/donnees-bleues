@@ -1,0 +1,169 @@
+{
+  "date": "2026-09-24",
+  "generator": "outil image_gen intégré",
+  "model": "non exposé par l’interface",
+  "common_prompt": "Use case: illustration-story. Asset: one new 16:9 landscape dataset-thumbnail illustration for Données bleues, a Québec statistics teaching website. Match the attached reference ONLY for its editorial illustration style, restrained blue/ivory palette, fine printed-paper texture and degree of realistic detail. Do not reproduce the reference's bicycle subject, exact composition or buildings unless specifically relevant to the new scene. This is a new standalone artwork in the same coherent collection, not an edit of the reference.\nStyle: polished contemporary editorial print, layered hand-painted/hand-cut shapes, fine subtle screenprint grain, elegant natural proportions, crisp readable focal silhouettes, atmospheric depth. Predominantly deep navy #153449, cobalt #285B9A, muted teal #4A8C94, pale blue #DCEAF0 and warm ivory #F5F3EC, with tiny muted ochre or warm-brick accents when appropriate. Quiet, intelligent and tangible; no childish cartoon, glossy 3D or photorealism.\nComposition: full-bleed landscape 16:9 around 1672x941, one unified scene, central focal subject legible at 350px wide, enough breathing room around the important forms. No border, panels or collage. No text, letters, numbers, logos, watermarks, graphs, fake statistics or charts. Illustrative interpretation, not evidence or an actual documentary photograph.\nNew scene: ",
+  "scenes": [
+    {
+      "id": "actes-criminels-montreal",
+      "title": "Actes criminels enregistrés à Montréal",
+      "scene": "An orderly municipal records desk in front of a wide window looking onto a quiet Montréal street of brick duplexes and exterior staircases. In the foreground, a few blue paper case folders, a plain unlettered clipboard, a pencil and a softly lit desk lamp suggest recorded incidents and documentation. Everyday calm urban context, no police action, no weapons, no crime scene, no distressed person, no crime hotspot map, no readable records, no surveillance screens. The desk and street together tell the story of administrative incident records."
+    },
+    {
+      "id": "arbres-publics-montreal",
+      "title": "Arbres publics de Montréal",
+      "scene": "An inviting Montréal sidewalk lined with mature public street trees in individual planting beds, brick triplexes with exterior stairs behind. One foreground tree trunk is gently wrapped with a plain measuring tape with no graduations, and a small blank blue inventory tag. A simple bench and tree grate establish the urban setting. Broad healthy crowns, long sidewalk perspective, varied tree sizes. Urban tree inventory is the focus, not a wilderness forest; no graph or map."
+    },
+    {
+      "id": "bibliotheques-quebec",
+      "title": "Bibliothèques publiques du Québec",
+      "scene": "Interior of an airy Québec public library with warm timber bookshelves, hundreds of simple unlettered book spines, a reading table with an open book, a comfortable blue chair and a restrained circulation counter. Tall windows look onto leafy Québec architecture. Compose the large bookshelf and welcoming reading area as the focal forms. No readable book titles, no university regalia, no screens or statistics, no imaginary famous building."
+    },
+    {
+      "id": "budgets-municipaux-quebec",
+      "title": "Profil financier des municipalités",
+      "scene": "A municipal finance desk with an open blank ledger, pen and simple calculator whose display and keys have no glyphs, looking out over a Québec small-town civic square with a modest stone town hall, a few homes and a tidy sidewalk. Integrate desk and town in one convincing wide scene. Civic services and municipal resources, understated and thoughtful. No fake bar charts, figures, coins raining, piles of wealth, dollar symbols, municipal logos or readable documents."
+    },
+    {
+      "id": "cohortes-diplomation",
+      "title": "Cohortes de diplomation",
+      "scene": "A small naturally diverse group of young adults leaving a Québec secondary-school building into a bright early-summer courtyard. A couple carry closed school folders and one holds a rolled plain completion certificate with a subtle blue ribbon. Friendly candid poses from a modest distance, no large faces, no university mortarboards, no triumphal posing, no numerical comparisons. Focus on completing a school pathway, using a welcoming brick school and leafy landscape."
+    },
+    {
+      "id": "condamnations-alimentaires-quebec",
+      "title": "Condamnations alimentaires",
+      "scene": "A quiet food-safety inspection scene in an anonymous Québec bakery kitchen: stainless preparation counter, bread racks, sink and orderly food containers, with a plain blank inspection clipboard and pen in the foreground. A subtle official-document feel, sober and factual without readable notices. No insects, spoiled food, filth, accusations about a real establishment, legible business branding, gavel, scales of justice or fake fines. Clear central counter and bakery setting."
+    },
+    {
+      "id": "construction-quartiers-quebec",
+      "title": "Construction et quartiers de Québec",
+      "scene": "An elevated three-quarter view of a Québec City residential neighbourhood with pitched roofs, mature street trees and a variety of building footprints. One building has modest scaffolding and a small construction crane behind; a pair of rolled unlettered architectural sheets lie on a foreground planning desk edge. One coherent perspective, not a collage or technical map. Architecture, neighbourhood planning and permits, not a claim about measured building growth. No readable plans or labels."
+    },
+    {
+      "id": "defavorisation-ecoles-primaires",
+      "title": "Indices de défavorisation des écoles",
+      "scene": "A welcoming Québec primary-school classroom resource table with a small stack of books, a school bag, a pencil case and a globe without geographic labels, with a broad window overlooking a modest schoolyard. The theme is educational resources and school context, handled with dignity. No impoverished or sad children, no damaged school, no comparison between rich and poor pupils, no social labels or demographic stereotypes. Strong simple foreground objects and a calm blue-ivory room."
+    },
+    {
+      "id": "ecoles-quebec",
+      "title": "Établissements scolaires du Québec",
+      "scene": "Exterior of a modest Québec public school built in red-brown brick interpreted through the restrained blue palette, generous blue windows, a simple central entrance, empty courtyard, bicycle rack and maple trees. Low three-quarter viewpoint, building fully visible. Everyday school location and premises as the subject. No readable school name, no school bus as dominant subject, no graduation costume, no claim to depict a particular real school."
+    },
+    {
+      "id": "emploi-regional-quebec",
+      "title": "Emploi régional au Québec",
+      "scene": "A Québec regional town during an ordinary working morning. A small open light-manufacturing workshop is the main subject with one worker arranging a workbench; nearby a café worker opens a terrace and another adult carrying a plain work bag walks along the street. Keep figures modest and naturally diverse, with believable anatomy, no close-up faces. Low hills and a few industrial roofs connect the street to a broader regional economy. No factory smoke, heroic labour propaganda, unemployment queue, job numbers or text."
+    },
+    {
+      "id": "etablissements-enseignement",
+      "title": "Localisation du réseau scolaire",
+      "scene": "A slightly elevated view of a small Québec educational district, with three different school buildings arranged along a curved street and connected by footpaths: a low primary school, a larger secondary school and a modest college building. A few leafy trees and schoolyard shapes give context. Make the geography of several educational premises legible as one illustrative landscape, not an accurate map. No map pins with symbols, no readable signs or duplicated architecture."
+    },
+    {
+      "id": "grhq",
+      "title": "Réseau hydrographique du Québec",
+      "scene": "A broad aerial oblique view of a Québec watershed: several narrow branching streams join a larger winding blue river, with a small lake, dark conifer forest and gently rolling terrain. The branching geometry of the river network is the clear focal shape. Coherent natural drainage and believable terrain, no impossible uphill river. This is a generic illustrative landscape, not a geographic map, so no place labels, border shapes, axes or numerical data."
+    },
+    {
+      "id": "interventions-pompiers-montreal",
+      "title": "Interventions des pompiers de Montréal",
+      "scene": "A municipal fire engine parked outside a brick Montréal fire station, with two firefighters in simple protective gear calmly checking a rolled hose beside the truck. Blue-toned illustration with only a very restrained warm accent on the vehicle. A quiet urban street with exterior stairs and leafy trees. Focus on emergency-service work and recorded interventions. No flames, smoke disaster, rescues, injuries, specific station number, logos, readable signs or distorted vehicles."
+    },
+    {
+      "id": "meteo-quebec",
+      "title": "Météo quotidienne à Québec",
+      "scene": "A small weather observation station in an open Québec meadow: a white louvered Stevenson screen on legs, a slender mast with a cup anemometer, and a simple rain gauge, against low wooded hills and a layered sky with both cloud and clear patches. Plausible distinct instrument shapes, plenty of space, everyday weather rather than severe storm. No airport, aircraft, terminal, control tower, station name, readable scales, thermometer icon or invented measurements."
+    },
+    {
+      "id": "niveaux-eau-inondation",
+      "title": "Niveaux d’eau lors d’une inondation",
+      "scene": "A Québec riverside in a quiet high-water episode. Water reaches partway over a low riverside path; a sturdy vertical observation staff with simple unnumbered horizontal marks stands beside a retaining wall, making a point water-level observation the main subject. A few undamaged houses and leafless trees sit farther back. Calm river reflections, thoughtful documentary mood, no dramatic disaster, people in danger, rescue, flood-extent map or fake numeric water height."
+    },
+    {
+      "id": "prelevements-eau-autorises",
+      "title": "Prélèvements d’eau autorisés",
+      "scene": "A modest water intake and pumping site beside a Québec reservoir: a tidy low pumphouse, a large curved steel intake pipe and a clearly visible valve, with water and a few agricultural fields beyond the wooded bank. One plausible unified landscape, water infrastructure as the central subject. Clear blue water, no pollution plume, no oversized factory, no claim about actual flow, no numbers, gauges with readings, signs or diagrams."
+    },
+    {
+      "id": "pyramides-ages",
+      "title": "Population selon l’âge",
+      "scene": "A quiet public park in Québec with a small naturally diverse multigenerational group spread along a curved walking path: a child with an adult, a young adult, a middle-aged adult, and an older couple near a bench. Natural everyday poses, modest distant faces, coherent anatomy. Trees, low urban homes and seasonal foliage in the background. The image evokes age diversity without implying proportions or counts. No pyramid diagram, chart, equal-sized row of icons, labels, stereotyped frailty or dramatic ageing sequence."
+    },
+    {
+      "id": "qualite-air",
+      "title": "Stations de qualité de l’air",
+      "scene": "An outdoor air-quality monitoring station near the edge of a Québec regional town: a small clean equipment shelter with two distinct roof-mounted sampling inlets and a slender mast, surrounded by grass and a few trees. Low buildings and wooded hills in the distance, pale clear sky. Focus on the physical station location and monitoring equipment. No Montréal skyline, factories belching smoke, smog alarm, satellite, readable display, station code or invented concentration."
+    },
+    {
+      "id": "qualite-air-horaire",
+      "title": "Mesures de qualité de l’air",
+      "scene": "A close three-quarter foreground view of environmental air-sampling equipment on a small work surface by a Québec urban observation site: a compact instrument with blank screen, neat sample components and a gloved hand adjusting an inlet. Roofs, street trees and a gently hazy layered sky in the distance. Calm careful measurement, softly rendered details rather than a technical diagram. No dramatic brown smog, respirators, emissions chart, molecules, numeric readings or fake scientific labels."
+    },
+    {
+      "id": "rapports-accident",
+      "title": "Accidents routiers",
+      "scene": "A Québec road junction after light rain, with damp reflective asphalt, a clearly shaped pedestrian crossing and two undamaged-looking cars stopped safely on the shoulder near a small safety cone. A plain blank clipboard on the edge of the foreground suggests documenting road conditions. Calm observational scene, no crash impact, injuries, emergency treatment, mangled vehicles, readable number plates, risk chart or invented accident counts."
+    },
+    {
+      "id": "requetes-311",
+      "title": "Demandes citoyennes à Montréal",
+      "scene": "A Montréal neighbourhood sidewalk with a hand holding a phone with an entirely blank pale screen in the foreground, while a municipal worker in the middle distance attends to a simple streetlight beside a tree planting bed and a small pavement repair. Brick duplexes, exterior stairs and a tidy everyday street. The scene suggests reporting and resolving local service needs. No readable phone interface, digits, speech bubbles, dramatic damage, garbage piles or real business branding."
+    },
+    {
+      "id": "retards-transport-collectif",
+      "title": "Flux temps réel des bus STM",
+      "scene": "A city bus paused at a Montréal bus shelter, with a few casually dressed waiting passengers and one looking at a phone whose screen is blank. Montréal duplex architecture and a cross-street give context. Large clearly readable bus and shelter, rich blue-ivory palette, understated everyday waiting. No readable route number, stop name, digital arrival board, specific delay, timetable, logo or angry crowd. Do not invent transit statistics."
+    },
+    {
+      "id": "suivi-rivieres-fleuve",
+      "title": "Suivi de la qualité de l’eau",
+      "scene": "A clear sample bottle and a gloved hand collecting river water from the bank in the foreground, with a flowing Québec river, low riparian vegetation, rocks and a broad wooded shoreline beyond. A small unlettered sample case rests on a rock. Elegant close-to-wide composition linking water sampling and landscape. No visibly toxic water, pollution accusation, chemical formulas, numeric scales, diagram, chart or readable sample labels."
+    },
+    {
+      "id": "transport-collectif-gtfs",
+      "title": "Arrêts et parcours du RTC",
+      "scene": "A slightly elevated view along a curved hilly Québec City street with a large blue city bus, two simple unlettered bus stops farther along the same road, leafy trees and a mix of older stone façades and modern modest buildings. The route and its stopping places form one readable visual path through the image. Subject is planned transit service and connected stops, not waiting time. No graph overlay, fake route map, route numbers, readable schedules, logos or inaccurate landmark collage."
+    },
+    {
+      "id": "ulaval-programmes-cours",
+      "title": "Programmes et cours à l’Université Laval",
+      "scene": "An evocative university campus courtyard in Québec: modern mid-century brick-and-stone academic pavilions around a green lawn, mature trees, broad windows and a few students walking with books or sitting at a study table. In the near foreground, two open unlettered course folders on the table suggest programmes and courses. Generic campus illustration inspired by Québec academic settings, not a literal architectural reconstruction. No university crest, readable signs, names, student records, grades, official-looking statistics or fabricated documents."
+    },
+    {
+      "id": "vehicules-canada-2025",
+      "title": "Véhicules et consommation",
+      "scene": "Three clearly different ordinary vehicles, a compact hatchback, a medium SUV and a pickup, arranged naturally on a clean vehicle-test forecourt in Québec, seen at a readable three-quarter angle. A simple fuel pump with a blank face at the edge introduces consumption as the theme, with low trees and hills beyond. Believable vehicles and wheels, no racing, luxury advertising, giant symbols, logos, readable number plates, numerical fuel economy or chart."
+    },
+    {
+      "id": "vols-montreal-trudeau",
+      "title": "Vols observés à Montréal-Trudeau",
+      "scene": "View from a modern airport terminal window onto the Montréal-Trudeau apron: one unbranded twin-engine passenger jet in clear side-three-quarter view at a gate with a jet bridge, a small baggage tug and a second distant plane. Broad glass terminal structure and quiet blue-grey sky, believable jet geometry with one engine on each wing and normal tail. Evoke observed aircraft movements without inventing flight schedules. No airline logo, airport name, route map, flight-board text, numbers, flag, control-tower landmark or data chart."
+    }
+  ],
+  "approved_examples": [
+    {
+      "id": "hydro-quebec-temperature",
+      "prompt": "Create one polished landscape 16:9 editorial illustration, about 1536x864, for a dataset thumbnail on Données bleues, a Québec university statistics teaching website. This belongs to a cohesive set of four illustrations.\nArt direction: sophisticated contemporary editorial print illustration, hand-cut shapes and restrained fine screenprint grain on warm ivory paper; strong elegant silhouettes, limited ink palette, deliberate negative space, flat layered perspective with subtle depth. Predominantly deep navy #153449, cobalt #285B9A, muted teal #4A8C94, pale blue #DCEAF0 and warm ivory #F5F3EC, with at most a tiny muted ochre accent. Quiet, intelligent and tangible; neither a cartoon for children nor glossy 3D nor photorealistic. Full bleed rectangular composition with no border. Distinct central focal subject readable when the image is only 350px wide. Keep every important part of the subject inside the central 70% height and 86% width so a slightly shorter website crop is safe. Let sky and foreground extend to the edges.\nNo text whatsoever, no letters, no numbers, no logo, no watermark, no graphs, no charts, no pretend statistics, no collage panels. This is an evocative illustration, not a diagram or a documentary photograph.\nSubject: electricity demand and outdoor temperature in Québec. Show a compact Québec neighbourhood of a few steep-roofed homes with warm lit windows, one elegant steel power transmission pylon and believable power lines connecting the neighbourhood to the larger grid in the middle distance. A curving band of pale snow at one side of the scene transitions naturally into bare ground and leafy vegetation at the other, suggesting changing seasons within ONE unified landscape rather than a divided comparison. Calm wide sky, low rolling hills, restrained cold-to-mild colour shift. The homes and grid together are the focus; avoid making this simply a picture of a dam. No thermometer icon, no sun face, no giant lightning bolt. Rich but controlled composition, 3-5 large shape groups, high visual clarity."
+    },
+    {
+      "id": "bixi",
+      "prompt": "Create one polished landscape 16:9 editorial illustration, about 1536x864, for a dataset thumbnail on Données bleues, a Québec university statistics teaching website. This belongs to a cohesive set of four illustrations.\nArt direction: sophisticated contemporary editorial print illustration, hand-cut shapes and restrained fine screenprint grain on warm ivory paper; strong elegant silhouettes, limited ink palette, deliberate negative space, flat layered perspective with subtle depth. Predominantly deep navy #153449, cobalt #285B9A, muted teal #4A8C94, pale blue #DCEAF0 and warm ivory #F5F3EC, with at most a tiny muted ochre accent. Quiet, intelligent and tangible; neither a cartoon for children nor glossy 3D nor photorealistic. Full bleed rectangular composition with no border. Distinct central focal subject readable when the image is only 350px wide. Keep every important part of the subject inside the central 70% height and 86% width so a slightly shorter website crop is safe. Let sky and foreground extend to the edges.\nNo text whatsoever, no letters, no numbers, no logo, no watermark, no graphs, no charts, no pretend statistics, no collage panels. This is an evocative illustration, not a diagram or a documentary photograph.\nSubject: the availability of shared bicycles at a Montréal docking station. A single large distinctive step-through city-sharing bicycle in three-quarter side view is docked in the foreground, with sturdy wheels, full fenders and a simple front basket; two smaller parked bicycles and several clearly EMPTY docking positions continue the row in the middle ground. The foreground bicycle is fully visible, with two anatomically correct round wheels, sound frame geometry and realistic docking. Suggest Montréal with a restrained backdrop of brick duplex façades and curved exterior metal stairs, plus a leafy street tree. No people needed. Make the visual about the station and available versus empty docks, not a cycling race. Strong readable shapes, limited fine architectural detail, no legible signs, no branding or imitation logo."
+    },
+    {
+      "id": "arbres-quebec",
+      "prompt": "Create one polished landscape 16:9 editorial illustration, about 1536x864, for a dataset thumbnail on Données bleues, a Québec university statistics teaching website. This belongs to a cohesive set of four illustrations.\nArt direction: sophisticated contemporary editorial print illustration, hand-cut shapes and restrained fine screenprint grain on warm ivory paper; strong elegant silhouettes, limited ink palette, deliberate negative space, flat layered perspective with subtle depth. Predominantly deep navy #153449, cobalt #285B9A, muted teal #4A8C94, pale blue #DCEAF0 and warm ivory #F5F3EC, with at most a tiny muted ochre accent. Quiet, intelligent and tangible; neither a cartoon for children nor glossy 3D nor photorealistic. Full bleed rectangular composition with no border. Distinct central focal subject readable when the image is only 350px wide. Keep every important part of the subject inside the central 70% height and 86% width so a slightly shorter website crop is safe. Let sky and foreground extend to the edges.\nNo text whatsoever, no letters, no numbers, no logo, no watermark, no graphs, no charts, no pretend statistics, no collage panels. This is an evocative illustration, not a diagram or a documentary photograph.\nSubject: Québec forest trees and forest inventory measurements. Create a balanced mixed forest scene with four clearly readable main trees: a white-barked paper birch, a broad-crowned red maple, a tall narrow black spruce, and a full pyramidal balsam fir. Use plausible natural silhouettes rather than botanical specimen precision. Main trees have different heights and trunk widths, with a few faint trees behind for depth. A subtle forest measurement detail: a plain narrow measuring band wrapped once horizontally around ONE foreground trunk, entirely blank with no graduations or numbers. A small exposed stump with a few natural growth rings can sit low in the foreground. Low ferns and simple ground contours, generous ivory sky, calm deep blues and muted teal. The forest remains the dominant subject. No axes, no charts, no infographic labels, no lumberjack, no logging machinery."
+    },
+    {
+      "id": "empress-of-ireland",
+      "prompt": "Create one polished landscape 16:9 editorial illustration, about 1536x864, for a dataset thumbnail on Données bleues, a Québec university statistics teaching website. This belongs to a cohesive set of four illustrations.\nArt direction: sophisticated contemporary editorial print illustration, hand-cut shapes and restrained fine screenprint grain on warm ivory paper; strong elegant silhouettes, limited ink palette, deliberate negative space, flat layered perspective with subtle depth. Predominantly deep navy #153449, cobalt #285B9A, muted teal #4A8C94, pale blue #DCEAF0 and warm ivory #F5F3EC, with at most a tiny muted ochre accent. Quiet, intelligent and tangible; neither a cartoon for children nor glossy 3D nor photorealistic. Full bleed rectangular composition with no border. Distinct central focal subject readable when the image is only 350px wide. Keep every important part of the subject inside the central 70% height and 86% width so a slightly shorter website crop is safe. Let sky and foreground extend to the edges.\nNo text whatsoever, no letters, no numbers, no logo, no watermark, no graphs, no charts, no pretend statistics, no collage panels. This is an evocative illustration, not a diagram or a documentary photograph.\nSubject: RMS Empress of Ireland, intact and afloat on the St Lawrence River in the early 1910s, treated as a respectful historical editorial illustration. Show a clear long side profile with a very slight three-quarter angle: a low dark ocean-liner hull, a light cream multi-deck superstructure, exactly TWO large cylindrical funnels with dark caps, and exactly TWO tall thin masts, one forward and one aft. Steamship proportions of the 1906 Canadian Pacific transatlantic liner, not a modern cruise ship. Ship is the single strong focal point across the central band; entire bow, stern, funnel tops and mast tops are visible with breathing room. Quiet slate-blue river, restrained horizontal ripple shapes, distant low shoreline fading into pale mist. The funnels may use the set's tiny ochre accent. Sober dignified mood, no dramatic sinking, no icebergs, no collision, no people in water, no sensational disaster imagery, no extra funnel, no sails, no modern bridge or skyline, no text on the hull."
+    }
+  ],
+  "reference_image": "bixi.webp (approved example, original PNG supplied to the generator)",
+  "interpretation": "Illustrations évocatrices, sans valeur documentaire ou statistique.",
+  "edits": [
+    {
+      "id": "suivi-rivieres-fleuve",
+      "prompt": "Edit this Données bleues editorial illustration, preserving the exact composition, landscape, palette, ink grain and all surrounding objects. Correct only the water-sampling bottle and its hand so the sampling action is physically coherent: the transparent small sample bottle must be OPEN, no screw cap on its neck. Tilt the open bottle so its mouth is just beneath the water surface and facing upstream, plausibly collecting river water. The blue gloved hand holds the bottle body securely above its submerged mouth, with anatomically correct fingers. There must not be a sealed bottle magically filling. Keep the bottle clean, blank and unlabelled. Keep all else unchanged, full 16:9 frame."
+    }
+  ]
+}

@@ -9,6 +9,7 @@ project:
     - assets/logo-donnees-bleues.svg
     - assets/logo-donnees-bleues-horizontal.svg
     - assets/illustrations/*.svg
+    - assets/illustrations/datasets/*.webp
     - assets/previews/*.csv
     - assets/previews/*.json
     - assets/charts/*.svg

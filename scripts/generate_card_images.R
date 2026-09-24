@@ -365,30 +365,18 @@ write_credits_page <- function(cards) {
     character(1)
   )
 
-  page <- c(
-    "---",
-    'title: "Crédits images"',
-    "embed-resources: true",
-    "---",
-    "",
-    "# Crédits images",
-    "",
-    "Les vignettes photographiques créditées ci-dessous sont des versions recadrées et recompressées en 16:9 de fichiers publiés sur Wikimedia Commons.",
-    "",
-    "| Carte | Image source | Auteur ou organisme | Licence |",
-    "|---|---|---|---|",
-    rows,
-    "",
-    "## Illustration météo",
-    "",
-    'La vignette « Météo quotidienne à Québec » est une illustration de ciel produite pour Données bleues. Elle ne représente pas une observation du jeu de données ni un lieu précis.',
-    "",
-    "## Vignette calculée à partir des données",
-    "",
-    'La vignette « Arbres du Québec » est un nuage diamètre-hauteur calculé par Aurélien Nicosia à partir du jeu pédagogique [Arbres du Québec, version 1.0.0](https://github.com/AurelienNicosiaULaval/arbres_quebec/releases/tag/v1.0.0). Figure originale sous CC BY 4.0 ; mesures MRNF / PET5 sous CC BY 4.0 et taxonomie VASCAN sous CC0. La vignette est produite par le script `scripts/build_arbres_quebec_card.R`.'
-  )
-
-  writeLines(page, "credits-images.qmd", useBytes = TRUE)
+  # Refresh only the photographic credits; preserve illustrations and portraits.
+  path <- "credits-images.qmd"
+  page <- readLines(path, warn = FALSE, encoding = "UTF-8")
+  start <- match("| Carte | Image source | Auteur ou organisme | Licence |", page)
+  if (is.na(start)) stop("Table des crédits photographiques introuvable.", call. = FALSE)
+  end <- start + 1L
+  while (end < length(page) && startsWith(page[[end + 1L]], "|")) end <- end + 1L
+  if (end >= length(page)) {
+    stop("Table des crédits photographiques introuvable.", call. = FALSE)
+  }
+  page <- c(page[seq_len(start + 1L)], rows, page[seq.int(end + 1L, length(page))])
+  writeLines(page, path, useBytes = TRUE)
 }
 
 selected_ids <- commandArgs(trailingOnly = TRUE)

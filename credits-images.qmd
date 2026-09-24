@@ -5,7 +5,13 @@ embed-resources: true
 
 # Crédits images
 
-Les vignettes photographiques créditées ci-dessous sont des versions recadrées et recompressées en 16:9 de fichiers publiés sur Wikimedia Commons.
+## Illustrations du catalogue
+
+Les 31 illustrations des jeux de données ont été créées pour Données bleues le 24 septembre 2026 avec l’outil de génération d’images d’OpenAI. Elles évoquent le sujet de chaque jeu de données et ne représentent ni des observations réelles ni des résultats statistiques. La scène de l’Empress of Ireland est une interprétation illustrée du navire.
+
+## Photographies conservées
+
+Les photographies ci-dessous ont servi aux premières vignettes du catalogue. Leurs fichiers sont conservés; certaines restent utilisées ailleurs sur le site, notamment pour le tutoriel BIXI. Il s’agit de versions recadrées et recompressées en 16:9 de fichiers publiés sur Wikimedia Commons.
 
 | Carte | Image source | Auteur ou organisme | Licence |
 |---|---|---|---|
@@ -39,11 +45,13 @@ Le portrait d’Aurélien Nicosia utilisé dans la page « À propos » provient
 
 Le portrait de Julien Miron dans la section « Contributeurs » provient de son [profil LinkedIn](https://www.linkedin.com/in/julien-miron-183606388/), consulté le 23 septembre 2026. La photographie conserve ses propres conditions de réutilisation.
 
-## Illustration météo
+## Autres images conservées
 
-La vignette « Météo quotidienne à Québec » est une illustration de ciel produite pour Données bleues. Elle ne représente pas une observation du jeu de données ni un lieu précis.
+L’ancienne vignette « Météo quotidienne à Québec » est une illustration de ciel produite pour Données bleues. Elle ne représente pas une observation du jeu de données ni un lieu précis.
 
-## Vignettes calculées à partir des données
+## Graphiques calculés à partir des données
+
+Ces graphiques, utilisés auparavant comme vignettes, sont conservés avec leurs sources.
 
 La vignette « Arbres du Québec » est un nuage diamètre-hauteur calculé par Aurélien Nicosia à partir du jeu pédagogique [Arbres du Québec, version 1.0.0](https://github.com/AurelienNicosiaULaval/arbres_quebec/releases/tag/v1.0.0). Figure originale sous CC BY 4.0 ; mesures MRNF / PET5 sous CC BY 4.0 et taxonomie VASCAN sous CC0. La vignette est produite par le script `scripts/build_arbres_quebec_card.R`.
 

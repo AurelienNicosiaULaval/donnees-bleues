@@ -13,6 +13,7 @@ library(readr)
 library(yaml)
 library(htmltools)
 source("R/utils_catalogue_ui.R")
+source("R/utils_card_images.R")
 catalogue <- read_csv("data/metadata/catalogue.csv", show_col_types = FALSE)
 metadata <- editorial_dataset_metadata()
 licences <- vapply(metadata[catalogue$id], function(x) editorial_license(x$license), character(1))
@@ -27,8 +28,7 @@ cat('<div class="dataset-grid" data-catalogue-results>')
 for (i in seq_len(nrow(catalogue))) {
   row <- catalogue[i, ]; item <- metadata[[row$id]]
   href <- sub('[.]qmd$', '.html', row$fiche)
-  candidates <- file.path('assets/cards', paste0(row$id, c('.webp','.jpg','.jpeg','.png')))
-  image <- candidates[file.exists(candidates)][1]
+  image <- card_image_path(row$id)
   if (is.na(image)) image <- 'assets/cards/catalogue.png'
   image_style <- if (identical(item$card_image_fit, 'contain')) ' style="object-fit: contain"' else ''
   attrs <- catalogue_attributes(c(title=row$title, theme=row$theme, level=row$level,
