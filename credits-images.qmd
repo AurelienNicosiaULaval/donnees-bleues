@@ -5,7 +5,7 @@ embed-resources: true
 
 # Crédits images
 
-Les vignettes photographiques des jeux de données sont des versions recadrées et recompressées en 16:9 de fichiers publiés sur Wikimedia Commons.
+Les vignettes photographiques créditées ci-dessous sont des versions recadrées et recompressées en 16:9 de fichiers publiés sur Wikimedia Commons.
 
 | Carte | Image source | Auteur ou organisme | Licence |
 |---|---|---|---|
@@ -30,7 +30,6 @@ Les vignettes photographiques des jeux de données sont des versions recadrées 
 | Flux temps réel STM et ponctualité des bus | [STM Bus back on line 114.jpg](https://commons.wikimedia.org/wiki/File:STM_Bus_back_on_line_114.jpg) | JustYou80 | [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) |
 | Emploi régional au Québec | [News. Men at Work Bleury and St. Catherine.jpg](https://commons.wikimedia.org/wiki/File:News._Men_at_Work_Bleury_and_St._Catherine.jpg) | Conrad Poirier | Domaine public |
 | Programmes et cours institutionnels ULaval | [ULaval campus.jpg](https://commons.wikimedia.org/wiki/File:ULaval_campus.jpg) | René Bélanger | [CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/) |
-| Météo quotidienne à Québec | [YQB terminal interior.jpg](https://commons.wikimedia.org/wiki/File:YQB_terminal_interior.jpg) | Quintin Soloviev | [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) |
 | Condamnations des établissements alimentaires au Québec | [Food at WIkimanian 2017 02.jpg](https://commons.wikimedia.org/wiki/File:Food_at_WIkimanian_2017_02.jpg) | Camelia.boban | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) |
 | Indices de défavorisation des écoles primaires du Québec | [École primaire Courval - Neuville.JPG](https://commons.wikimedia.org/wiki/File:%C3%89cole_primaire_Courval_-_Neuville.JPG) | Sylvainbrousseau | [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/) |
 
@@ -39,6 +38,10 @@ Les vignettes photographiques des jeux de données sont des versions recadrées 
 Le portrait d’Aurélien Nicosia utilisé dans la page « À propos » provient de son [profil LinkedIn](https://www.linkedin.com/in/aur%C3%A9lien-nicosia-6a52487b/), à sa demande. Image récupérée le 5 septembre 2026. Ce référencement ne constitue pas une attribution d’une licence ouverte distincte à la photographie.
 
 Le portrait de Julien Miron dans la section « Contributeurs » provient de son [profil LinkedIn](https://www.linkedin.com/in/julien-miron-183606388/), consulté le 23 septembre 2026. La photographie conserve ses propres conditions de réutilisation.
+
+## Illustration météo
+
+La vignette « Météo quotidienne à Québec » est une illustration de ciel produite pour Données bleues. Elle ne représente pas une observation du jeu de données ni un lieu précis.
 
 ## Vignettes calculées à partir des données
 

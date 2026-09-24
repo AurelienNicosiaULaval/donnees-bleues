@@ -39,10 +39,6 @@ Trois jours n'ont aucun événement retenu : le 26 janvier 2024 et les 5 et 6 ma
 
 Les heures sont des débuts ou fins de trajectoire observés; une perte du signal peut les éloigner de l'aéroport. Les trajectoires ne contiennent ni horaire prévu comparable ni statut d'annulation. Les données ne permettent pas de calculer retards, annulations ou taux absolu de couverture. Les comptes quotidiens et les classements de liaisons décrivent uniquement les observations retenues. Un changement de la couverture ADS-B ou de l'algorithme peut contribuer aux variations temporelles.
 
-## Rapport avec les données de Québec (YQB)
-
-Le projet YQB conserve des captures des tableaux d'horaires et de statuts publiés par l'Aéroport de Québec, avec une collecte programmée plusieurs fois par jour. Cette fiche YUL est un instantané historique ADS-B fixe. Les unités, les périodes et les biais de couverture diffèrent. Une comparaison directe des nombres de vols des deux aéroports serait trompeuse.
-
 ## Sources et droits
 
 MrAirspace, projet de Sebastiaan Menger, produit les archives trimestrielles à partir de données ADSB.lol. Les trajectoires et les tables dérivées sont soumises à l'[Open Database License 1.0](https://github.com/MrAirspace/aircraft-flight-schedules/blob/main/LICENSE-ODbL.txt). L'adaptation, la sélection CYUL et la documentation pédagogique sont réalisées par Aurélien Nicosia. Lire la [notice des données](DATA-LICENSE.md) avant de les redistribuer. Les conditions des données diffèrent de celles des textes et du code de Données bleues.
