@@ -40,7 +40,7 @@ Julien Miron rassemble l’historique de demande d’Hydro-Québec, les mesures 
 
 La demande moyenne de l’heure qui se termine à un instant donné est associée à la température observée à cet instant. La température n’est donc pas une moyenne sur le même intervalle. Les poids des stations reposent sur des populations approximatives inscrites dans le fichier de configuration; cette moyenne ne décrit pas uniformément tout le territoire québécois.
 
-Le bouton de téléchargement ouvre une version fixe du fichier hébergé chez Julien. Pour les mises à jour, consulter son [dépôt Donnees-hydro](https://github.com/JulienMiron/Donnees-hydro), ses [scripts de préparation](https://github.com/JulienMiron/Donnees-hydro/tree/0b048c00002a57c968294a5e956792c4ec610e69/R) et la [liste des stations et des poids](https://github.com/JulienMiron/Donnees-hydro/blob/0b048c00002a57c968294a5e956792c4ec610e69/config/stations.csv).
+Le bouton de téléchargement enregistre directement le fichier `demande_temperature_horaire.csv`, dans la version vérifiée du 23 septembre 2026 hébergée chez Julien. Pour les mises à jour, consulter son [dépôt Donnees-hydro](https://github.com/JulienMiron/Donnees-hydro), ses [scripts de préparation](https://github.com/JulienMiron/Donnees-hydro/tree/0b048c00002a57c968294a5e956792c4ec610e69/R) et la [liste des stations et des poids](https://github.com/JulienMiron/Donnees-hydro/blob/0b048c00002a57c968294a5e956792c4ec610e69/config/stations.csv).
 
 ## Contrôles et limites détaillées
 

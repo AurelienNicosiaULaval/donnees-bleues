@@ -705,9 +705,11 @@ render_dataset_detail_header <- function() {
     conditions_url <- '#sources-et-contributions'
   }
   download_url <- dataset_squish(metadata$download_url, '')
+  download_filename <- dataset_squish(metadata$download_filename, '')
   archive <- paste0(ctx$relative_root, '/assets/classroom/', metadata$id, '.zip')
   actions <- character()
-  if (nzchar(download_url)) actions <- c(actions, paste0('<a class="dataset-button" href="', escape(download_url), '">',
+  if (nzchar(download_url)) actions <- c(actions, paste0('<a class="dataset-button" href="', escape(download_url), '"',
+    if (nzchar(download_filename)) paste0(' download="', escape(download_filename), '" data-download-file="', escape(download_filename), '"') else '', '>',
     escape(dataset_squish(metadata$download_label, 'Télécharger les données (CSV)')), '</a>'))
   if (!is.null(receipt)) {
     label <- switch(receipt$mode, frozen = 'Télécharger la trousse (ZIP)',

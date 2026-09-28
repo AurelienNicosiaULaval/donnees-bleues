@@ -1,0 +1,49 @@
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('a[data-download-file]').forEach(link => {
+    const label = link.textContent;
+    const status = document.createElement('p');
+    status.className = 'dataset-download-status';
+    status.setAttribute('role', 'status');
+    status.hidden = true;
+    link.closest('.dataset-hero-actions').after(status);
+    let pending = false;
+
+    link.addEventListener('click', async event => {
+      event.preventDefault();
+      if (pending) return;
+      pending = true;
+      link.setAttribute('aria-disabled', 'true');
+      link.setAttribute('aria-busy', 'true');
+      link.textContent = 'Téléchargement en cours…';
+      status.hidden = false;
+      status.textContent = 'Préparation du fichier CSV…';
+      try {
+        // L’attribut download seul est ignoré pour les fichiers d’un autre domaine.
+        // Le fichier est récupéré sans transformation, puis enregistré depuis une URL locale.
+        const response = await fetch(link.href);
+        if (!response.ok) throw new Error('HTTP ' + response.status);
+        const file = await response.blob();
+        if (!file.size) throw new Error('Fichier vide');
+        const url = URL.createObjectURL(file);
+        const download = document.createElement('a');
+        download.href = url;
+        download.download = link.dataset.downloadFile;
+        document.body.append(download);
+        download.click();
+        download.remove();
+        // Laisser au navigateur le temps de démarrer l’enregistrement avant de libérer l’URL.
+        setTimeout(() => URL.revokeObjectURL(url), 60000);
+        status.textContent = 'Téléchargement lancé : ' + link.dataset.downloadFile;
+      } catch (error) {
+        status.textContent = 'Le téléchargement a échoué. Veuillez réessayer ou consulter le dépôt indiqué dans la source.';
+      } finally {
+        pending = false;
+        link.removeAttribute('aria-disabled');
+        link.removeAttribute('aria-busy');
+        link.textContent = label;
+      }
+    });
+  });
+});
+</script>

@@ -99,7 +99,9 @@ format:
       - assets/css/resource-identity.css
       - assets/css/editorial.css
     include-before-body: assets/skip-link.html
-    include-after-body: assets/resource-search.html
+    include-after-body:
+      - assets/resource-search.html
+      - assets/dataset-download.html
     embed-resources: true
     toc: true
     toc-depth: 3
