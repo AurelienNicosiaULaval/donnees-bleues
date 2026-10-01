@@ -1,0 +1,36 @@
+{
+  "dataset_id": "maisons-quebec",
+  "prepared_at_utc": "2026-10-01T18:20:30Z",
+  "prepared_file": "maisons_quebec.csv",
+  "prepared_sha256": "e631d863ddc48ef7371a1b9ad5993a0dbccd78c350e5558a9c7396054f886008",
+  "preview_sha256": "37cb76d0bfda74ca2e4f7f0cb0a4f3fdbd907aefed482da06351957cd9aa32b2",
+  "rows": 120,
+  "columns": ["maison_id", "superficie_terrain_m2", "aire_etages_m2", "annee_construction", "lien_physique", "valeur_fonciere_cad", "date_reference_marche", "annee_role"],
+  "selection": "Au plus 120 positions régulièrement espacées dans l'ordre de la table préparée; sélection déterministe non aléatoire",
+  "source_name": "Ministère des Affaires municipales et de l’Habitation (MAMH), rôle de Québec; sélection pédagogique par Aurélien Nicosia",
+  "source_url": "https://www.donneesquebec.ca/recherche/dataset/roles-d-evaluation-fonciere-du-quebec",
+  "license": "CC BY 4.0",
+  "license_url": "https://creativecommons.org/licenses/by/4.0/deed.fr",
+  "sources": [
+    {
+      "source_url": "https://donneesouvertes.affmunqc.net/role/indexRole2026.csv",
+      "acquisition_kind": "download",
+      "acquired_at_utc": "2026-10-01T18:20:07Z",
+      "started_at_utc": {},
+      "file": "indexRole2026.csv",
+      "bytes": 92869,
+      "sha256": "26f010fdb88c1bf4a513553310cd90c276f4cbf31a9a1864f317794870ef58f8",
+      "details": "Téléchargement officiel effectué le 1 octobre 2026, puis copie locale sans modification."
+    },
+    {
+      "source_url": "https://donneesouvertes.affmunqc.net/role/RL23027_2026.xml",
+      "acquisition_kind": "download",
+      "acquired_at_utc": "2026-10-01T18:20:06Z",
+      "started_at_utc": {},
+      "file": "role_quebec_2026.xml",
+      "bytes": 273232872,
+      "sha256": "971896db6bf6bcae5a711bbd4b2b33f945b770d237bd4164d8f4f5cd54feff9a",
+      "details": "Téléchargement officiel effectué le 1 octobre 2026, puis copie locale sans modification."
+    }
+  ]
+}

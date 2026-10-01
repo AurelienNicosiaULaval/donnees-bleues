@@ -1,0 +1,86 @@
+id: maisons-quebec
+title: 'Maisons du Québec : valeurs foncières à Québec'
+short_title: Maisons à Québec
+download_url: ../../assets/data/maisons-quebec.csv
+download_filename: maisons-quebec.csv
+download_label: Télécharger les 600 maisons (CSV)
+preview_note: '120 lignes régulièrement espacées dans le CSV de 600 maisons, avec huit colonnes parmi les 19. Cet aperçu n’est pas un second échantillon aléatoire.'
+theme: Habitation et évaluation foncière
+source_name: 'Ministère des Affaires municipales et de l’Habitation (MAMH), rôle de Québec; sélection pédagogique par Aurélien Nicosia'
+source_url: https://www.donneesquebec.ca/recherche/dataset/roles-d-evaluation-fonciere-du-quebec
+license: CC BY 4.0
+access_date: '2026-10-01'
+geography: Ville de Québec, code géographique 23027
+unit: Une unité d’évaluation à un logement, détachée, jumelée ou en rangée, hors genre unimodulaire
+data_type: Tabulaire; données administratives observationnelles
+format: CSV, dictionnaire et trousse RStudio
+n_rows: 600
+n_cols: 19
+processed_file: data/processed/maisons-quebec/maisons_quebec.csv
+update_frequency: Version figée 1.0.0; aucune actualisation pendant l’activité
+level: Introduction
+level_ids: [introduction, intermediaire]
+organisme: MAMH
+territoire: Ville de Québec
+taille_approximative: 600 maisons et 19 variables
+niveau_pedagogique_recommande: Introduction, avec activité intermédiaire de régression
+variables_principales: [superficie_terrain_m2, aire_etages_m2, annee_construction, lien_physique, valeur_fonciere_cad]
+idees_mini_projets:
+  - Décrire la distribution des valeurs évaluées et comparer les types de maisons.
+  - Comparer une association en échelle brute et en échelle logarithmique.
+  - Prédire la valeur foncière à partir de caractéristiques physiques et valider sur des voisinages réservés.
+tags: [maisons, habitation, Québec, MAMH, évaluation foncière, superficies, régression]
+concepts: [Analyse exploratoire, Comparaison de groupes, Statistiques descriptives, Régression linéaire, Prédiction, Validation entraînement-test, Visualisation]
+concept_ids: [analyse-exploratoire, comparaison-de-groupes, statistiques-descriptives, regression-lineaire, prediction, validation-entrainement-test, visualisation]
+zero_waste:
+  contexte_quebecois: 3
+  accessibilite_pedagogique: 3
+  qualite_documentaire: 3
+  potentiel_nettoyage: 1
+  potentiel_visualisation: 3
+  potentiel_statistique_descriptive: 3
+  potentiel_inference: 1
+  potentiel_modelisation: 3
+  potentiel_ethique: 2
+  reutilisabilite: 3
+status: 'Version 1.0.0; sources et scripts vérifiés, activités non testées en classe'
+notes: 'Valeurs au rôle, pas prix de vente. Tirage sans remise de 600 unités parmi 99 072 unités admissibles dans cet instantané de Québec. Aucun retrait selon la valeur, les superficies ou l’année; aucune imputation. Les 19 variables sont complètes dans le tirage obtenu. Les critères structurels réduisent le périmètre.'
+contributor_name: Aurélien Nicosia
+contributor_role: Sélection pédagogique, documentation et activités
+courses: []
+date_added: '2026-10-01'
+date_updated: '2026-10-01'
+publication:
+  preview: true
+  reviewed_on: '2026-10-01'
+  license_url: https://creativecommons.org/licenses/by/4.0/deed.fr
+  preview_columns: [maison_id, superficie_terrain_m2, aire_etages_m2, annee_construction, lien_physique, valeur_fonciere_cad, date_reference_marche, annee_role]
+  reason: 'Source MAMH sous CC BY 4.0. Attribution et sélection documentées. Les adresses, cadastres, matricules et renseignements de propriétaires ne sont pas exportés. Leur omission ne garantit pas l’anonymat.'
+  classroom:
+    mode: frozen
+    reason: 'Tirage aléatoire simple sans remise, graine 20261001, de 600 maisons parmi 99 072 unités admissibles à Québec. Usage 1000, un logement, lien physique 1 à 4, genre de construction différent de 3 ou inconnu. Les valeurs sources sont conservées.'
+    notices:
+      - datasets/maisons-quebec/DATA_LICENSES.md
+      - datasets/maisons-quebec/DICTIONNAIRE.md
+      - datasets/maisons-quebec/METHODE.md
+      - datasets/maisons-quebec/ACTIVITES.md
+    files:
+      - path: data/processed/maisons-quebec/maisons_quebec.csv
+        columns: [maison_id, municipalite, arrondissement_code, voisinage_code, superficie_terrain_m2, aire_etages_m2, nombre_etages_max, annee_construction, annee_construction_statut, lien_physique_code, lien_physique, genre_construction_code, nombre_logements, valeur_terrain_cad, valeur_batiment_cad, valeur_fonciere_cad, date_reference_marche, annee_role, annee_extraction]
+chart:
+  type: scatter
+  x_variable: aire_etages_m2
+  y_variable: valeur_fonciere_cad
+  x_label: Aire d’étages brute (m²)
+  y_label: Valeur foncière évaluée (CAD)
+  title: Aire d’étages et valeur foncière à Québec
+summary: '600 maisons de la ville de Québec, avec superficies, année de construction, type de bâtiment et valeur au rôle. Deux activités abordent l’exploration et la régression avec validation par voisinage.'
+observation_period: 'Rôle entré en vigueur en 2025; référence au marché le 1er juillet 2023; extraction 2026'
+essential_limits:
+  - Les valeurs inscrites au rôle sont des évaluations foncières, sans prix de vente observés.
+  - Le tirage porte sur les unités admissibles d’un instantané de Québec. Il ne représente pas toutes les habitations ni les maisons de la province.
+  - L’aire d’étages est brute et peut inclure un garage intégré; elle ne mesure pas une superficie habitable nette.
+  - La valeur totale est la somme des valeurs du terrain et du bâtiment. Ces composantes constituent une fuite de cible si elles servent à prédire le total.
+  - Une séparation des voisinages réduit leur chevauchement entre ensembles; elle ne prouve pas l’indépendance spatiale ni une performance sur des ventes futures.
+source_authors: [Ministère des Affaires municipales et de l’Habitation]
+data_version: 1.0.0

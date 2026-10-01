@@ -1,0 +1,66 @@
+---
+title: 'Maisons du Québec : valeurs foncières à Québec'
+page-layout: full
+toc: false
+embed-resources: true
+execute:
+  freeze: false
+  warning: false
+  message: false
+body-classes: hub-page resource-page dataset-resource
+---
+
+```{r}
+#| echo: false
+#| results: asis
+source(if (file.exists("R/utils_dataset_page.R")) "R/utils_dataset_page.R" else "../../R/utils_dataset_page.R")
+render_dataset_detail_header()
+```
+
+## Une première sélection à Québec
+
+Ce jeu contient 600 maisons de la ville de Québec et 19 variables. Il complète le catalogue avec une réponse économique continue et des caractéristiques physiques utilisables en régression. « Maisons du Québec » commence ici par une seule municipalité.
+
+Une ligne est une unité d’évaluation à un logement, détachée, jumelée ou en rangée, hors genre unimodulaire. Le périmètre administratif retenu ne couvre pas toutes les habitations.
+
+| Date | Ce qu’elle signifie |
+|:--|:--|
+| 1er juillet 2023 | Conditions du marché considérées pour les valeurs au rôle |
+| 2025 | Année d’entrée en vigueur du rôle |
+| 2026 | Année de l’extraction MAMH, téléchargée le 1er octobre 2026 |
+
+La réponse est une valeur foncière évaluée. Le fichier ne contient aucun prix de vente. L’année de construction est originelle; elle ne résume pas les rénovations.
+
+## Sélection reproductible
+
+Le XML officiel comporte 175 478 unités. Le filtre usage 1000 et un logement conserve 132 559 unités; le lien physique 1 à 4 en conserve 99 478; l’exclusion du genre unimodulaire donne 99 072 unités admissibles. Un tirage aléatoire simple sans remise en retient 600, avec la graine 20261001.
+
+Aucun seuil de valeur, de superficie ou d’année n’est appliqué. Les 19 variables sont complètes dans le tirage obtenu; aucune imputation n’est effectuée. Les adresses, matricules, cadastres et renseignements de propriétaires ne sont pas exportés. Leur omission ne garantit pas l’anonymat.
+
+L’aperçu montre 120 lignes régulièrement espacées et huit variables. Le CSV et la trousse conservent les 600 lignes et 19 variables. Ce sous-ensemble d’aperçu n’est pas un deuxième tirage aléatoire.
+
+```{r}
+#| echo: false
+#| results: asis
+render_dataset_minimal_result()
+```
+
+## Variables à interpréter avec soin
+
+- `aire_etages_m2` est une surface brute, pouvant inclure l’attique, un garage intégré ou une verrière intégrée. Ce n’est pas une superficie habitable nette.
+- `valeur_fonciere_cad` est la somme de `valeur_terrain_cad` et `valeur_batiment_cad`. Utiliser ces composantes pour prédire le total fournit directement la réponse.
+- `voisinage_code` permet une validation par groupes administratifs. Réserver des voisinages ne démontre pas l’indépendance spatiale.
+
+Le [dictionnaire](DICTIONNAIRE.md) définit les 19 variables. La [méthode](METHODE.md) décrit les filtres, les graines et les limites. Le [script de préparation](preparation.R) vérifie l’empreinte de la source avant de produire les données; une source modifiée exige une nouvelle version.
+
+## Sources et attribution
+
+MAMH (2026), [Rôles d’évaluation foncière du Québec](https://www.donneesquebec.ca/recherche/dataset/roles-d-evaluation-fonciere-du-quebec), extraction de Québec, sous [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/deed.fr). MAMH (2022), [guide des données ouvertes](https://www.donneesquebec.ca/recherche/dataset/061c8cb7-ca4e-45be-a990-61fce7e7d2dc/resource/6f2599be-e49d-4b9a-8702-b12ad0f56141/download/gui_donneesrolesformatouvert_vf20220627.pdf) et [répertoire des renseignements, version 2.5](https://www.donneesquebec.ca/recherche/dataset/061c8cb7-ca4e-45be-a990-61fce7e7d2dc/resource/427a72a7-f34c-495b-aa23-9de71a84a066/download/repertoire-des-renseignements-prescrits-du-role-devaluation-fonciere-version-2.5.pdf). Le XML porte la version 2.6; aucune certification du XML complet contre un schéma XSD 2.6 n’est revendiquée.
+
+Adaptation pédagogique par Aurélien Nicosia (2026). Les [attributions et transformations](DATA_LICENSES.md), le dictionnaire et la méthode sont inclus dans la trousse. Les scripts ont été exécutés techniquement; les activités n’ont pas été testées en classe.
+
+```{r}
+#| echo: false
+#| results: asis
+render_dataset_detail_footer()
+```

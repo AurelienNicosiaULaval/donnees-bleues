@@ -1,0 +1,153 @@
+---
+title: Explorer les valeurs foncières de 600 maisons à Québec
+author: Aurélien Nicosia
+page-layout: full
+toc: false
+embed-resources: true
+execute:
+  freeze: false
+  warning: false
+  message: false
+body-classes: hub-page resource-page activity-resource
+---
+
+```{r}
+#| echo: false
+#| results: asis
+source(if (file.exists("R/utils_activity_contract.R")) "R/utils_activity_contract.R" else "../../R/utils_activity_contract.R")
+render_activity_header()
+```
+
+## Préparation enseignante
+
+Extraire la trousse entière et ouvrir `Donnees-bleues.Rproj`. Avant la séance, exécuter `installer-packages.R` avec Internet. Le CSV est inclus; l’activité fonctionne ensuite hors ligne. Durée indicative : 60 à 90 minutes. Le script est exécuté techniquement; l’activité n’a pas été testée en classe.
+
+```{r}
+#| echo: false
+#| results: asis
+render_activity_resources()
+```
+
+## Contexte
+
+La [fiche](fiche.qmd) présente 600 unités d’évaluation à un logement dans la ville de Québec, tirées sans remise parmi 99 072 unités admissibles. La cible est une valeur au rôle, pas un prix de vente. La référence au marché est le 1er juillet 2023, le rôle est entré en vigueur en 2025 et l’extraction date de 2026.
+
+Les superficies sont en m², les valeurs en dollars canadiens. L’aire d’étages est brute et peut inclure un garage intégré. Les critères de sélection et les codes figurent dans le dictionnaire de la trousse.
+
+## Consignes
+
+1. Exécuter `datasets/maisons-quebec/activite-courte.R` depuis le projet de la trousse. Les tableaux et graphiques apparaissent dans RStudio; ils sont aussi enregistrés dans `outputs/`.
+2. Vérifier les effectifs, les unités et les valeurs manquantes. Distinguer les dates constantes des caractéristiques qui varient entre maisons.
+3. Comparer la moyenne, la médiane et l’écart interquartile des valeurs foncières entre types de maisons.
+4. Comparer les nuages sur des axes bruts et logarithmiques, puis répondre aux six exercices.
+
+```{r}
+#| include: false
+library(knitr)
+executer_trousse_maisons <- function() {
+  metadata <- activity_contract_metadata()
+  archive <- normalizePath(activity_project_path(metadata$classroom_archive))
+  stage <- tempfile("maisons-activite-")
+  dir.create(stage)
+  utils::unzip(archive, exdir = stage)
+  ancien <- setwd(stage)
+  on.exit({ setwd(ancien); unlink(stage, recursive = TRUE) })
+  resultats <- new.env(parent = globalenv())
+  source(metadata$script_file, local = resultats)
+  resultats
+}
+resultats <- executer_trousse_maisons()
+```
+
+## Résultats attendus
+
+Les 600 lignes du tirage sont complètes dans les 19 colonnes. Il n’y a aucune imputation. Cette complétude ne prouve pas l’absence de valeurs manquantes dans le rôle complet.
+
+```{r}
+#| echo: false
+kable(resultats$portrait, digits = 0,
+  col.names = c("Lien physique", "Effectif", "Valeurs connues", "Moyenne (CAD)", "Médiane (CAD)", "IQR (CAD)"),
+  format.args = list(big.mark = " ", scientific = FALSE))
+```
+
+```{r}
+#| echo: false
+#| fig-width: 9
+#| fig-height: 5
+#| fig-alt: Histogramme des valeurs foncières évaluées de 600 maisons à Québec, avec une longue queue vers les valeurs élevées.
+resultats$distribution_plot
+```
+
+La moyenne vaut `r format(round(resultats$resume_valeur$moyenne), big.mark = " ")` CAD et la médiane `r format(resultats$resume_valeur$mediane, big.mark = " ")` CAD. La moyenne est sensible aux valeurs élevées. Un point extrême n’est pas automatiquement une erreur.
+
+```{r}
+#| echo: false
+#| fig-width: 9
+#| fig-height: 5
+#| fig-alt: Points et boîtes à moustaches des valeurs foncières dans les quatre catégories de lien physique.
+resultats$group_plot
+```
+
+```{r}
+#| echo: false
+#| fig-width: 9
+#| fig-height: 6
+#| fig-alt: Nuage de l’aire d’étages brute et de la valeur évaluée, coloré par lien physique, en échelle brute.
+resultats$scatter_plot
+```
+
+```{r}
+#| echo: false
+#| fig-width: 9
+#| fig-height: 6
+#| fig-alt: Les mêmes maisons représentées avec des axes logarithmiques pour les superficies et les valeurs.
+resultats$log_plot
+```
+
+```{r}
+#| echo: false
+kable(resultats$correlations, digits = 3, col.names = c("Échelle", "Paires utilisées", "Corrélation"))
+```
+
+Changer d’échelle change l’association mesurée. Une corrélation plus élevée ne garantit ni une meilleure prédiction hors apprentissage ni une relation causale.
+
+## Six exercices
+
+1. Une maison a une valeur foncière de 400 000 CAD. Peut-on dire qu’elle a été vendue à ce prix en 2026 ? Expliquer le sens des trois dates.
+2. Comparer moyenne et médiane globales. Relier leur différence à l’histogramme, sans supprimer les maisons de grande valeur.
+3. Comparer les maisons détachées et jumelées par leur médiane et leur IQR. Peut-on attribuer causalement l’écart au lien physique ?
+4. La corrélation augmente-t-elle en passant aux logarithmes ? Que perd-on en résumant le nuage par un seul nombre ?
+5. Les effectifs des quatre types sont-ils des proportions des maisons de toute la province ? Nommer la population admissible et deux exclusions.
+6. Vérifier `valeur_fonciere_cad == valeur_terrain_cad + valeur_batiment_cad`. Pourquoi ces deux composantes seraient-elles de mauvais prédicteurs pédagogiques du total ?
+
+## Corrigé commenté
+
+1. Aucun prix de transaction n’est observé. Le rôle entre en vigueur en 2025, utilise les conditions du marché au 1er juillet 2023 et est extrait en 2026. Les 400 000 CAD décrivent une évaluation au rôle.
+2. Moyenne : `r format(resultats$resume_valeur$moyenne, big.mark = " ")` CAD; médiane : `r format(resultats$resume_valeur$mediane, big.mark = " ")` CAD. Les grandes valeurs contribuent à l’asymétrie vers la droite et à l’écart entre les deux indicateurs.
+3. Détachées : médiane 376 000 CAD et IQR 146 500 CAD; jumelées : médiane 313 500 CAD et IQR 85 250 CAD. Les groupes peuvent aussi différer par leur taille, leur âge ou leur localisation. Il n’y a aucune affectation aléatoire du type de maison.
+4. Non, la corrélation passe ici d’environ `r round(resultats$correlations$correlation[1], 3)` à `r round(resultats$correlations$correlation[2], 3)`. Le nombre ne montre pas les catégories, les variations de dispersion ni les observations influentes. Les logarithmes ne constituent pas une amélioration automatique.
+5. Le périmètre comprend les unités admissibles de cet instantané de Québec. Les unités intégrées en copropriété, les unités à plusieurs logements et le genre unimodulaire sont exclus. Le tirage ne représente pas les maisons de la province.
+6. L’égalité vaut pour les 600 maisons. Les composantes donnent la réponse par addition : les utiliser pour prédire le total produit une fuite de cible. La [seconde activité](activite-modeliser.qmd) utilise les caractéristiques physiques.
+
+## Limites à faire nommer
+
+- Une seule municipalité, un instantané et des critères administratifs explicites.
+- Une valeur évaluée, sans vente observée et sans mesure de rénovations.
+- Des superficies brutes et des catégories de taille inégale.
+- Des associations observationnelles, avec une dépendance spatiale possible.
+
+## Code complet et source
+
+```{r}
+#| echo: false
+#| results: asis
+render_activity_code()
+```
+
+MAMH (2026), [rôles d’évaluation foncière](https://www.donneesquebec.ca/recherche/dataset/roles-d-evaluation-fonciere-du-quebec), extraction de Québec, CC BY 4.0. Sélection pédagogique par Aurélien Nicosia (2026). Le dictionnaire, la méthode et l’attribution sont inclus dans la trousse.
+
+```{r}
+#| echo: false
+#| results: asis
+render_activity_contract()
+```

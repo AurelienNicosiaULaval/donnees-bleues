@@ -1,0 +1,49 @@
+id: maisons-quebec-regression
+title: Prédire une valeur foncière et valider par voisinage
+question: Un modèle plus élaboré prédit-il mieux la valeur évaluée sur des voisinages réservés au test ?
+dataset_id: maisons-quebec
+dataset_title: 'Maisons du Québec : valeurs foncières à Québec'
+activity_url: datasets/maisons-quebec/activite-modeliser.qmd
+script_file: datasets/maisons-quebec/activite-modeliser.R
+classroom_archive: assets/classroom/maisons-quebec.zip
+access_mode: frozen
+duration: 120 minutes, indicatives; validation croisée facultative
+level: Intermédiaire
+level_ids: [intermediaire]
+activity_type: [Laboratoire, Modélisation]
+concepts: [Régression linéaire, Prédiction, Résidus, Validation entraînement-test]
+concept_ids: [regression-lineaire, prediction, residus, validation-entrainement-test]
+context: Prédiction de valeurs au rôle d’évaluation de Québec
+hook: Le modèle simple peut-il battre le modèle multiple ? Le vérifier sur un test réservé.
+materials: [Trousse ZIP avec projet RStudio, Script R complet, CSV et dictionnaire, Diagnostics et scores calculés dans la page]
+advanced_math_stats: true
+teacher_notes: 'Activité non testée en classe. Modèles fixés, test séparé par code de voisinage et validation croisée limitée à l’apprentissage. Le résultat ne porte pas sur des ventes futures. La correction de retransformation du modèle logarithmique est globale.'
+pedagogical_status: pret_a_enseigner
+teacher_preparation: Extraire la trousse, ouvrir Donnees-bleues.Rproj, exécuter installer-packages.R puis datasets/maisons-quebec/activite-modeliser.R. Les entrées sont incluses; les sorties sont enregistrées dans outputs/.
+expected_output: Des scores MAE et RMSE en dollars sur le test, un tableau de coefficients, deux graphiques de diagnostic et une conclusion comparant les modèles aux références constantes.
+learning_objectives:
+  - Réserver des groupes entiers pour évaluer une prédiction.
+  - Ajuster une régression simple et une régression multiple sur l’échelle logarithmique.
+  - Estimer les références et la retransformation uniquement dans l’apprentissage.
+  - Repérer une fuite de cible entre valeur totale et composantes.
+  - Interpréter les résidus et les erreurs sans conclusion causale.
+prerequisites:
+  - Utiliser lm et predict dans R.
+  - Comprendre logarithmes, résidus et séparation apprentissage-test.
+success_criteria:
+  - Aucun code de voisinage n’apparaît dans l’apprentissage et le test.
+  - Les valeurs du terrain et du bâtiment ne sont pas des prédicteurs du total.
+  - Les scores comparent les mêmes 100 maisons de test en dollars.
+  - La comparaison conserve le résultat défavorable au modèle multiple logarithmique.
+  - La conclusion distingue valeurs au rôle, ventes et causalité.
+adaptations:
+  - Limiter la séance à la régression simple et au test réservé.
+  - Approfondir avec les cinq plis groupés dans l’apprentissage, sans retoucher le modèle après observation du test.
+requires_prepared_data: true
+requires_live_download: false
+recommended_use: Laboratoire de régression
+result_visible_in_page: true
+status: Script exécuté; validation interne à l’instantané, efficacité en classe non évaluée
+courses: []
+date_added: '2026-10-01'
+date_updated: '2026-10-01'

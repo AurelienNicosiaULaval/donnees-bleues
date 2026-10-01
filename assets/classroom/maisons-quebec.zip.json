@@ -1,0 +1,26 @@
+{
+  "dataset_id": "maisons-quebec",
+  "title": "Maisons du Québec : valeurs foncières à Québec",
+  "mode": "frozen",
+  "prepared_at_utc": "2026-10-01T18:20:30Z",
+  "source_name": "Ministère des Affaires municipales et de l’Habitation (MAMH), rôle de Québec; sélection pédagogique par Aurélien Nicosia",
+  "source_url": "https://www.donneesquebec.ca/recherche/dataset/roles-d-evaluation-fonciere-du-quebec",
+  "license_url": "https://creativecommons.org/licenses/by/4.0/deed.fr",
+  "original_licenses": {
+    "code": "MIT",
+    "content": "CC-BY-4.0",
+    "notices": ["LICENSE", "LICENCE-CONTENUS.md", "datasets/maisons-quebec/DATA_LICENSES.md", "datasets/maisons-quebec/DICTIONNAIRE.md", "datasets/maisons-quebec/METHODE.md", "datasets/maisons-quebec/ACTIVITES.md"]
+  },
+  "selection": "Tirage aléatoire simple sans remise, graine 20261001, de 600 maisons parmi 99 072 unités admissibles à Québec. Usage 1000, un logement, lien physique 1 à 4, genre de construction différent de 3 ou inconnu. Les valeurs sources sont conservées.",
+  "tables": [
+    {
+      "path": "data/processed/maisons-quebec/maisons_quebec.csv",
+      "rows": 600,
+      "columns": ["maison_id", "municipalite", "arrondissement_code", "voisinage_code", "superficie_terrain_m2", "aire_etages_m2", "nombre_etages_max", "annee_construction", "annee_construction_statut", "lien_physique_code", "lien_physique", "genre_construction_code", "nombre_logements", "valeur_terrain_cad", "valeur_batiment_cad", "valeur_fonciere_cad", "date_reference_marche", "annee_role", "annee_extraction"],
+      "sha256": "e631d863ddc48ef7371a1b9ad5993a0dbccd78c350e5558a9c7396054f886008",
+      "prepared_table_sha256": "e631d863ddc48ef7371a1b9ad5993a0dbccd78c350e5558a9c7396054f886008"
+    }
+  ],
+  "archive_sha256": "004af826ae44b7bcb99fd372aa5db816c931dfb5f84e51fb7609c7b166712eaa",
+  "archive_bytes": 30916
+}

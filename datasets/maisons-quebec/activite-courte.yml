@@ -1,0 +1,47 @@
+id: maisons-quebec-exploration
+title: Explorer les valeurs foncières de 600 maisons à Québec
+question: Comment les valeurs évaluées varient-elles avec le type de maison et l’aire d’étages ?
+dataset_id: maisons-quebec
+dataset_title: 'Maisons du Québec : valeurs foncières à Québec'
+activity_url: datasets/maisons-quebec/activite-courte.qmd
+script_file: datasets/maisons-quebec/activite-courte.R
+classroom_archive: assets/classroom/maisons-quebec.zip
+access_mode: frozen
+duration: 60-90 minutes, indicatives
+level: Introduction
+level_ids: [introduction]
+activity_type: [Laboratoire, Exploration de données]
+concepts: [Analyse exploratoire, Comparaison de groupes, Statistiques descriptives, Visualisation]
+concept_ids: [analyse-exploratoire, comparaison-de-groupes, statistiques-descriptives, visualisation]
+context: Habitation et rôle d’évaluation de la ville de Québec
+hook: Une maison plus grande a-t-elle toujours une valeur foncière plus élevée ?
+materials: [Trousse ZIP avec projet RStudio, Script R complet, CSV de 600 lignes et dictionnaire, Résultats et exercices corrigés]
+advanced_math_stats: false
+teacher_notes: 'Durée indicative, activité non testée en classe. Valeurs évaluées avec référence au 1er juillet 2023, pas prix de vente. Les colonnes du tirage sont complètes, sans imputation.'
+pedagogical_status: pret_a_enseigner
+teacher_preparation: Extraire la trousse, ouvrir Donnees-bleues.Rproj, exécuter installer-packages.R avant la séance puis datasets/maisons-quebec/activite-courte.R. Le CSV est inclus et l’activité fonctionne ensuite hors ligne.
+expected_output: Un tableau descriptif par type de maison, des graphiques en échelles brute et logarithmique, et six réponses justifiées.
+learning_objectives:
+  - Identifier une unité d’évaluation et distinguer les trois dates du jeu.
+  - Comparer moyenne, médiane et dispersion dans une distribution asymétrique.
+  - Explorer une association sur des axes bruts et logarithmiques.
+  - Distinguer association descriptive, prix de vente et effet causal.
+prerequisites:
+  - Exécuter un script dans RStudio.
+  - Reconnaître une variable numérique, une catégorie et une médiane.
+success_criteria:
+  - Le tableau et les graphiques décrivent les 600 lignes avec leurs unités.
+  - Les catégories en rangée conservent leurs effectifs distincts dans l’exploration.
+  - Une conclusion nomme le rôle 2025, la référence 2023 et le périmètre municipal.
+  - Aucun point extrême n’est retiré seulement parce qu’il se trouve au-delà d’une moustache.
+adaptations:
+  - Montrer les graphiques et faire répondre aux exercices collectivement sans programmation.
+  - Prolonger avec une facette par arrondissement codé, sans inventer les noms des codes.
+requires_prepared_data: true
+requires_live_download: false
+recommended_use: Exercice guidé
+result_visible_in_page: true
+status: Script exécuté; apprentissage en classe non évalué
+courses: []
+date_added: '2026-10-01'
+date_updated: '2026-10-01'

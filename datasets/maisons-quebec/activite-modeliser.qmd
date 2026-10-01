@@ -1,0 +1,174 @@
+---
+title: Prédire une valeur foncière et valider par voisinage
+author: Aurélien Nicosia
+page-layout: full
+toc: false
+embed-resources: true
+execute:
+  freeze: false
+  warning: false
+  message: false
+body-classes: hub-page resource-page activity-resource
+---
+
+```{r}
+#| echo: false
+#| results: asis
+source(if (file.exists("R/utils_activity_contract.R")) "R/utils_activity_contract.R" else "../../R/utils_activity_contract.R")
+render_activity_header()
+```
+
+## Préparation enseignante
+
+Extraire la trousse, ouvrir `Donnees-bleues.Rproj` et installer les packages avant la séance avec `installer-packages.R`. Exécuter ensuite `datasets/maisons-quebec/activite-modeliser.R`. Le script fonctionne hors ligne avec le CSV fourni. La durée de 120 minutes est indicative; la validation croisée est facultative. L’activité n’a pas été testée en classe.
+
+```{r}
+#| echo: false
+#| results: asis
+render_activity_resources()
+```
+
+## Contexte
+
+La [fiche](fiche.qmd) décrit 600 maisons à Québec et une cible continue : la valeur foncière évaluée au rôle 2025, avec référence au marché du 1er juillet 2023. Il n’y a aucun prix de vente. L’aire d’étages est brute, et les données sont observationnelles.
+
+Les valeurs terrain et bâtiment sont conservées pour faire reconnaître la fuite de cible : leur somme donne exactement le total. Elles sont exclues des formules de prédiction.
+
+## Consignes
+
+1. Vérifier les cas utilisables et la séparation des codes de voisinage. Un code doit se trouver dans un seul ensemble.
+2. Ajuster les deux modèles fixés et calculer les références constantes dans l’apprentissage uniquement.
+3. Comparer MAE et RMSE sur les mêmes maisons de test, en dollars, puis lire les diagnostics dans l’apprentissage.
+4. Répondre aux six exercices. Ne pas modifier les formules après observation du test pour améliorer son résultat.
+
+```{r}
+#| include: false
+library(knitr)
+executer_trousse_maisons <- function() {
+  metadata <- activity_contract_metadata()
+  archive <- normalizePath(activity_project_path(metadata$classroom_archive))
+  stage <- tempfile("maisons-activite-")
+  dir.create(stage)
+  utils::unzip(archive, exdir = stage)
+  ancien <- setwd(stage)
+  on.exit({ setwd(ancien); unlink(stage, recursive = TRUE) })
+  resultats <- new.env(parent = globalenv())
+  source(metadata$script_file, local = resultats)
+  resultats
+}
+resultats <- executer_trousse_maisons()
+```
+
+## Résultats attendus
+
+Les `r nrow(resultats$analyse)` cas utilisables sont séparés par voisinage, avec la graine 20261002. On réserve environ 20 % des codes, ce qui ne garantit pas 20 % des lignes. Aucun code n’est commun aux deux ensembles.
+
+```{r}
+#| echo: false
+kable(resultats$partage_resume, col.names = c("Ensemble", "Maisons", "Voisinages"))
+```
+
+### Deux modèles prédéfinis
+
+Le modèle simple utilise l’aire d’étages sur l’échelle brute. Le modèle multiple utilise le logarithme de la valeur, les logarithmes des deux superficies, l’année de construction centrée en 1970 et le type de maison. Les deux modalités en rangée sont regroupées selon leur définition, sans consulter leurs valeurs.
+
+```r
+valeur_fonciere_cad ~ aire_etages_m2
+log(valeur_fonciere_cad) ~ log(aire_etages_m2) +
+  log(superficie_terrain_m2) + annee_centree + type_maison
+```
+
+```{r}
+#| echo: false
+kable(resultats$coefficients, digits = 4, col.names = c("Terme du modèle logarithmique", "Estimation"))
+```
+
+Dans ce modèle, doubler l’aire d’étages multiplie la valeur ajustée par `r round(2^coef(resultats$modele_log)["log(aire_etages_m2)"], 3)`, à caractéristiques restantes fixées. Ce contraste décrit le modèle ajusté et ne représente pas l’effet causal d’un agrandissement. La catégorie de référence est « Détaché ».
+
+### Validation en dollars
+
+La médiane constante fournit une référence pour l’erreur absolue; la moyenne constante fournit une référence pour l’erreur quadratique. Toutes deux proviennent de l’apprentissage.
+
+Pour revenir de l’échelle logarithmique aux dollars, le script multiplie `exp(prédiction_log)` par la moyenne de `exp(résidu)` dans l’apprentissage (`r round(resultats$smearing, 4)`). Cette correction de retransformation suit [Duan (1983)](https://doi.org/10.1080/01621459.1983.10478017). Ce facteur global vise une moyenne; il ne garantit pas une moyenne conditionnelle correcte lorsque la dispersion change selon les caractéristiques.
+
+```{r}
+#| echo: false
+kable(resultats$scores, digits = 0,
+  col.names = c("Modèle", "Maisons de test", "MAE (CAD)", "RMSE (CAD)", "Biais (CAD)"),
+  format.args = list(big.mark = " ", scientific = FALSE))
+```
+
+Le modèle simple a ici une MAE et une RMSE plus faibles que le modèle multiple logarithmique. La complexité et la transformation ne garantissent pas une amélioration. Cette comparaison concerne une séparation prédéfinie de cet instantané, sans estimation de l’incertitude de l’écart de performance.
+
+```{r}
+#| echo: false
+#| fig-width: 8
+#| fig-height: 6
+#| fig-alt: Prédictions en dollars du modèle logarithmique et valeurs évaluées sur les maisons de test, avec une diagonale de concordance.
+resultats$prediction_plot
+```
+
+Le biais est calculé comme prédiction moins valeur observée. Un biais négatif correspond à une sous-estimation moyenne dans cet ensemble de test.
+
+### Diagnostics dans l’apprentissage
+
+```{r}
+#| echo: false
+#| fig-width: 9
+#| fig-height: 5
+#| fig-alt: Résidus du modèle logarithmique en fonction des valeurs ajustées dans l’apprentissage.
+resultats$residual_plot
+```
+
+```{r}
+#| echo: false
+kable(resultats$influence, digits = 4)
+```
+
+Les distances de Cook indiquent des observations à examiner, pas à supprimer automatiquement. Vérifier leur contexte, les unités et la plausibilité avant toute décision. Une analyse de sensibilité éventuelle doit rester dans l’apprentissage.
+
+## Prolongement facultatif : validation croisée
+
+Cinq plis regroupent les voisinages dans les 500 maisons d’apprentissage. Pour chaque pli, la référence et la correction de retransformation sont réestimées sur les quatre autres plis. Le test réservé n’y participe pas.
+
+```{r}
+#| echo: false
+kable(resultats$cv_scores, digits = 0,
+  col.names = c("Modèle", "Prédictions hors pli", "MAE (CAD)", "RMSE (CAD)"),
+  format.args = list(big.mark = " ", scientific = FALSE))
+```
+
+Ces scores portent sur d’autres observations que le test final. Leur différence ne mesure pas, à elle seule, un biais d’optimisme. Examiner les distributions et la variabilité des voisinages avant de proposer une explication.
+
+## Six exercices et corrigé
+
+1. Pourquoi les codes de voisinage sont-ils importés comme texte ? Ils sont des identifiants, sans signification arithmétique; préserver leur écriture facilite le regroupement.
+2. Pourquoi séparer par voisinage ? Pour éviter de retrouver le même groupe administratif des deux côtés. Cela ne prouve pas l’indépendance entre voisinages voisins.
+3. Pourquoi ne pas prédire avec les deux valeurs composantes ? Elles donnent le total par addition, ce qui constitue une fuite de cible.
+4. Identifier le modèle ayant les erreurs les plus faibles sur le test. Ici, le modèle simple parmi les deux régressions. Citer les deux indicateurs en dollars et conserver le résultat défavorable au modèle plus élaboré.
+5. Peut-on calculer la médiane de référence ou la retransformation avec les 600 maisons ? Non : cela utilise les réponses du test. Les estimer dans l’apprentissage seulement, et dans chaque pli d’apprentissage pour la validation croisée.
+6. Peut-on vendre une maison au prix prédit ou conclure que l’agrandir augmente sa valeur de la quantité ajustée ? Aucun de ces résultats n’est établi. Les prédictions portent sur des évaluations au rôle, sans validation des ventes ni identification causale.
+
+## Limites à faire nommer
+
+- Test interne à un seul instantané et une seule municipalité, sans validation temporelle.
+- Dépendance spatiale possible malgré l’absence de codes communs.
+- Variables de rénovations, état du bâtiment et transactions absentes du jeu.
+- Pas d’intervalle de performance ni de prix de vente prédit.
+- Les modèles restent fixés après consultation du test; une amélioration ultérieure demanderait une nouvelle évaluation indépendante.
+
+## Code complet et source
+
+```{r}
+#| echo: false
+#| results: asis
+render_activity_code()
+```
+
+MAMH (2026), [rôles d’évaluation foncière](https://www.donneesquebec.ca/recherche/dataset/roles-d-evaluation-fonciere-du-quebec), extraction de Québec, CC BY 4.0. Sélection et activités par Aurélien Nicosia (2026). Les notices incluses documentent les définitions et le périmètre.
+
+```{r}
+#| echo: false
+#| results: asis
+render_activity_contract()
+```

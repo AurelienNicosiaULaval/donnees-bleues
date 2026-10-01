@@ -13,6 +13,9 @@ project:
     - assets/previews/*.csv
     - assets/previews/*.json
     - assets/charts/*.svg
+    - assets/data/maisons-quebec.csv
+    - datasets/maisons-quebec/*.md
+    - datasets/maisons-quebec/*.R
     - assets/classroom/*.zip
     - assets/classroom/*.json
     - assets/cards/*.webp
