@@ -1,7 +1,7 @@
 ---
 title: "Explorer les maisons à Québec avec R"
-toc: true
-toc-depth: 2
+toc: false
+page-layout: full
 embed-resources: true
 execute:
   freeze: false
@@ -10,8 +10,17 @@ execute:
 body-classes: hub-page resource-page application-resource
 ---
 
-::: {.resource-detail-header}
+::: {.tool-page}
+[Outils et tutoriels](../applications.qmd) / Explorer les maisons à Québec avec R
+
+::: {.tool-hero}
+::: {.tool-hero-copy .resource-detail-header}
+::: {.resource-kind}
+QUÉBEC · HABITATION · R
+:::
+
 ```{r}
+#| label: resource-notice-identity
 #| echo: false
 #| results: asis
 source(if (file.exists("R/utils_resources.R")) "R/utils_resources.R" else "../R/utils_resources.R")
@@ -22,14 +31,31 @@ render_resource_notice_identity("tutoriel-maisons-quebec")
 
 Passer d’une exploration visuelle à une analyse reproductible : comprendre les données, choisir un groupe, comparer les graphiques et expliquer ce que les résultats permettent de dire.
 
-[Explorer sans écrire de code](https://donneesbleues.ca/outils/maisons-quebec/){.dataset-button}
+::: {.tool-actions}
+[Commencer le tutoriel](#comprendre-le-fichier){.dataset-button}
 [Télécharger le script R](../assets/tools/tutoriel-maisons-quebec.R){.dataset-button .secondary}
-[Télécharger le CSV](../assets/data/maisons-quebec.csv){.dataset-button .secondary}
 :::
 
+::: {.tool-author}
+Créé par [Aurélien Nicosia](../about.qmd#aurélien-nicosia) · Université Laval
+
+Tutoriel guidé · R et ggplot2.
+:::
+:::
+
+::: {.tool-visual}
+![Maisons dans une rue résidentielle de Québec](../assets/illustrations/datasets/maisons-quebec.webp){fig-alt="Illustration de maisons dans une rue résidentielle de Québec, dans les couleurs du catalogue."}
+
+Illustration créée pour Données bleues. [Crédits et provenance](../credits-images.qmd).
+:::
+:::
+
+::: {.tool-content}
 Ce tutoriel s’adresse à une première exploration avec R et ggplot2. Les quatre bibliothèques peuvent être installées une première fois avec `install.packages(c("readr", "dplyr", "ggplot2", "scales"))`.
 
-## 1. Comprendre le fichier
+[Explorer sans écrire de code](https://donneesbleues.ca/outils/maisons-quebec/) ou [télécharger le CSV](../assets/data/maisons-quebec.csv) pour reproduire les exemples.
+
+## 1. Comprendre le fichier {#comprendre-le-fichier}
 
 Une ligne décrit une unité d’évaluation à un logement dans la ville de Québec. Le fichier contient 600 unités tirées sans remise parmi 99 072 unités admissibles, selon les critères de la [méthode](../datasets/maisons-quebec/METHODE.md).
 
@@ -209,3 +235,5 @@ MAMH (2026), [Rôles d’évaluation foncière du Québec](https://www.donneesqu
 Wickham et collaborateurs, [documentation de ggplot2 : échelles continues](https://ggplot2.tidyverse.org/reference/scale_continuous.html) et [boîtes à moustaches](https://ggplot2.tidyverse.org/reference/geom_boxplot.html), consultée le 2 octobre 2026. Posit et contributeurs, [documentation de Shinylive](https://posit-dev.github.io/r-shinylive/), consultée le 2 octobre 2026.
 
 Données et texte : CC BY 4.0. Code original : MIT. Les adresses et matricules ont été omis; cette omission ne garantit pas l’anonymat. Le tutoriel a été exécuté techniquement; son utilisation en classe n’est pas documentée.
+:::
+:::

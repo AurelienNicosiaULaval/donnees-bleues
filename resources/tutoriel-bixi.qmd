@@ -6,11 +6,11 @@ embed-resources: true
 body-classes: hub-page resource-page application-resource
 ---
 
-::: {.bixi-page}
+::: {.tool-page}
 [Outils et tutoriels](../applications.qmd) / Tutoriel BIXI
 
-::: {.bixi-hero}
-::: {.bixi-hero-copy .resource-detail-header}
+::: {.tool-hero}
+::: {.tool-hero-copy .resource-detail-header}
 ::: {.resource-kind}
 MONTRÉAL · MOBILITÉ URBAINE · R
 :::
@@ -27,25 +27,26 @@ render_resource_notice_identity("tutoriel-bixi")
 
 Des exercices en R sur un échantillon de trajets BIXI de 2018 et la météo à Montréal.
 
-::: {.bixi-actions}
+::: {.tool-actions}
 [Ouvrir le tutoriel BIXI](https://aureliennicosia.shinyapps.io/TutorielBixi/){.dataset-button}
 [Consulter le code source](https://github.com/AurelienNicosiaULaval/Modele_etude_de_cas/blob/main/Exemples/Bixi/bixi.Rmd){.dataset-button .secondary}
 :::
 
-::: {.bixi-author}
+::: {.tool-author}
 Créé par [Aurélien Nicosia](../about.qmd#aurélien-nicosia) · Université Laval
 
 Utilisé dans STT-4230 et STT-6230, Programmation pour la science des données.
 :::
 :::
 
-::: {.bixi-photo}
+::: {.tool-visual}
 ![Une station BIXI à Montréal](../assets/cards/bixi.webp){fig-alt="Vélos BIXI alignés à une station dans une rue de Montréal"}
 
 Photo : [JasonVogel](https://commons.wikimedia.org/wiki/File:Bixi_bike_sharing_Montreal.jpg), [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/). Image recadrée.
 :::
 :::
 
+::: {.tool-content}
 ## Exercices proposés
 
 Importer les fichiers, relier les trajets aux stations et à la météo, comparer leur nombre selon l’heure et le statut d’abonnement, puis construire des graphiques et une carte.
@@ -57,4 +58,5 @@ Les exercices utilisent un échantillon préparé des trajets de 2018 et des obs
 La [fiche BIXI](../datasets/bixi/fiche.qmd) porte sur un autre fichier : un instantané de l’état des stations. Elle précise sa propre date de collecte et propose deux activités associées.
 
 Le code du tutoriel documente les traitements et les exercices. [Consulter le dépôt source](https://github.com/AurelienNicosiaULaval/Modele_etude_de_cas/blob/main/Exemples/Bixi/bixi.Rmd) et les [conditions des données BIXI](https://bixi.com/fr/donnees-ouvertes/) avant de redistribuer le matériel.
+:::
 :::

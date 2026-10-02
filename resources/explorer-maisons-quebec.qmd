@@ -8,8 +8,17 @@ execute:
 body-classes: hub-page resource-page application-resource
 ---
 
-::: {.resource-detail-header}
+::: {.tool-page}
+[Outils et tutoriels](../applications.qmd) / Explorer les maisons à Québec
+
+::: {.tool-hero}
+::: {.tool-hero-copy .resource-detail-header}
+::: {.resource-kind}
+QUÉBEC · HABITATION · SHINY
+:::
+
 ```{r}
+#| label: resource-notice-identity
 #| echo: false
 #| results: asis
 source(if (file.exists("R/utils_resources.R")) "R/utils_resources.R" else "../R/utils_resources.R")
@@ -20,12 +29,26 @@ render_resource_notice_identity("explorer-maisons-quebec")
 
 Choisir un graphique, filtrer les maisons et comparer les échelles. L’application utilise les 600 maisons de la version figée 1.0.0.
 
+::: {.tool-actions}
 [Ouvrir l’application](https://donneesbleues.ca/outils/maisons-quebec/){.dataset-button}
 [Suivre le tutoriel](tutoriel-maisons-quebec.qmd){.dataset-button .secondary}
 :::
 
-![Maisons dans une rue résidentielle de Québec](../assets/illustrations/datasets/maisons-quebec.webp){width=480 fig-alt="Illustration de maisons dans une rue résidentielle de Québec, dans les couleurs du catalogue."}
+::: {.tool-author}
+Créé par [Aurélien Nicosia](../about.qmd#aurélien-nicosia) · Université Laval
 
+Application Shiny · Exécution dans le navigateur.
+:::
+:::
+
+::: {.tool-visual}
+![Maisons dans une rue résidentielle de Québec](../assets/illustrations/datasets/maisons-quebec.webp){fig-alt="Illustration de maisons dans une rue résidentielle de Québec, dans les couleurs du catalogue."}
+
+Illustration créée pour Données bleues. [Crédits et provenance](../credits-images.qmd).
+:::
+:::
+
+::: {.tool-content}
 ## Ce que l’on peut faire
 
 - Construire un nuage de points, un histogramme ou des boîtes à moustaches.
@@ -57,3 +80,5 @@ MAMH (2026), [Rôles d’évaluation foncière du Québec](https://www.donneesqu
 Données et contenus pédagogiques : CC BY 4.0. Code original : MIT. [Attributions détaillées](../datasets/maisons-quebec/DATA_LICENSES.md). L’illustration reprend celle de la fiche; sa provenance figure dans les [crédits des images](../credits-images.qmd).
 
 Les calculs, filtres et scripts exportés ont été contrôlés techniquement. L’utilisation en classe n’est pas documentée.
+:::
+:::

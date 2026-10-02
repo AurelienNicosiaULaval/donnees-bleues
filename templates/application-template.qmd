@@ -6,10 +6,17 @@ toc: false
 embed-resources: true
 ---
 
-[Retour au catalogue](../applications.qmd)
+::: {.tool-page}
+[Outils et tutoriels](../applications.qmd) / Titre de l’outil ou du tutoriel
 
-::: {.resource-hero .resource-detail-header}
+::: {.tool-hero}
+::: {.tool-hero-copy .resource-detail-header}
+::: {.resource-kind}
+LIEU · THÈME · ENVIRONNEMENT
+:::
+
 ```{r}
+#| label: resource-notice-identity
 #| echo: false
 #| results: asis
 source(if (file.exists("R/utils_resources.R")) "R/utils_resources.R" else "../R/utils_resources.R")
@@ -20,9 +27,26 @@ render_resource_notice_identity("identifiant-unique")
 
 Présenter la question statistique illustrée avec des données québécoises.
 
+::: {.tool-actions}
 [Ouvrir la ressource](https://exemple.ca/ressource){.dataset-button}
+[Consulter le code source](https://exemple.ca/code){.dataset-button .secondary}
 :::
 
+::: {.tool-author}
+Créé par [Nom de l’auteur](../about.qmd#contributeurs) · Établissement
+
+Indiquer le format ou un usage en cours documenté.
+:::
+:::
+
+::: {.tool-visual}
+![Description de l’image](../assets/illustrations/datasets/identifiant-du-jeu.webp){fig-alt="Décrire le sujet représenté par l’image."}
+
+Indiquer la provenance et la licence de l’image.
+:::
+:::
+
+::: {.tool-content}
 ## Le parcours pédagogique
 
 Décrire les concepts, les préalables et la démarche proposée.
@@ -34,3 +58,5 @@ Expliquer ce que la ressource permet de comprendre et les limites d’interprét
 ## Auteur, sources et réutilisation
 
 Nommer l’auteur, la contribution au répertoire et les conditions de réutilisation. Indiquer seulement les usages en cours documentés. Relier les sources et, lorsqu’il existe, le code.
+:::
+:::

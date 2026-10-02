@@ -102,8 +102,8 @@ body.activity-resource .activity-contract {padding: 0; background: none; border:
 body.activity-resource .activity-contract :is(ul,p) {max-width: 80ch;}
 body .resource-card {box-shadow: none; padding: 1.1rem;}
 body .resource-card :is(.resource-authors,.resource-courses) {font-size: .86rem; color: #425461;}
-body .bixi-hero {padding: 1.5rem;}
-body .bixi-hero h1 {font-size: clamp(2rem,3.5vw,3.2rem);}
+body .tool-hero {padding: 1.5rem;}
+body .tool-hero h1 {font-size: clamp(2rem,3.5vw,3.2rem);}
 
 @media(max-width: 1000px) {
   .home-editorial .home-resource-links,.catalogue-editorial :is(.dataset-grid,.act-grid) {grid-template-columns: repeat(2,minmax(0,1fr));}

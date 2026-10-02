@@ -38,7 +38,7 @@
 
 - id: tutoriel-bixi
   date_added: "2026-09-05"
-  date_updated: "2026-09-13"
+  date_updated: "2026-10-02"
   type: application
   title: Tutoriel BIXI
   format: Tutoriel learnr / Shiny
