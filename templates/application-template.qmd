@@ -1,5 +1,5 @@
 ---
-title: "Titre de l’application"
+title: "Titre de l’outil ou du tutoriel"
 page-layout: full
 body-classes: hub-page resource-page application-resource
 toc: false
@@ -16,11 +16,11 @@ source(if (file.exists("R/utils_resources.R")) "R/utils_resources.R" else "../R/
 render_resource_notice_identity("identifiant-unique")
 ```
 
-# Titre de l’application
+# Titre de l’outil ou du tutoriel
 
 Présenter la question statistique illustrée avec des données québécoises.
 
-[Ouvrir l’application](https://exemple.ca/ressource){.dataset-button}
+[Ouvrir la ressource](https://exemple.ca/ressource){.dataset-button}
 :::
 
 ## Le parcours pédagogique

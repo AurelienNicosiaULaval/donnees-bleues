@@ -10,7 +10,7 @@ embed-resources: true
 
 ## Trouver une ressource
 
-Les pages [Données](catalogue.qmd), [Activités](activites.qmd), [Lectures et documents](lectures.qmd) et [Applications](applications.qmd) donnent accès aux quatre types de ressources. La loupe ouvre leur recherche commune par mots-clés, type, thème, auteur ou source et cours d’utilisation documenté.
+Les pages [Données](catalogue.qmd), [Activités](activites.qmd), [Lectures et documents](lectures.qmd) et [Outils et tutoriels](applications.qmd) donnent accès aux quatre types de ressources. La loupe ouvre leur recherche commune par mots-clés, type, thème, auteur ou source et cours d’utilisation documenté.
 
 Dans les catalogues, saisir un sujet ou ouvrir les filtres. Les résultats se mettent à jour dès qu’un choix change. Les filtres appliqués restent visibles et peuvent être retirés séparément.
 

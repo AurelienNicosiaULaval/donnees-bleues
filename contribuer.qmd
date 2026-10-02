@@ -10,7 +10,7 @@ embed-resources: true
 
 Pour toute question, écrivez à [info@donneesbleues.ca](mailto:info@donneesbleues.ca).
 
-Un jeu de données, une activité, un article, un billet, des notes de cours ou une application : partagez un lien et quelques mots sur son intérêt pour enseigner la science des données au Québec. Aucun compte GitHub n’est nécessaire.
+Un jeu de données, une activité, un article, un billet, des notes de cours, un outil en ligne ou un tutoriel : partagez un lien et quelques mots sur son intérêt pour enseigner la science des données au Québec. Aucun compte GitHub n’est nécessaire.
 
 [Voir les contributeurs du projet](about.qmd#contributeurs).
 
@@ -35,7 +35,7 @@ cat('<form id="contribution-form" class="contribution-form" data-recipient="', h
 ```{=html}
 <label>Votre nom *<input name="name" required maxlength="120" autocomplete="name"></label>
 <label>Votre courriel *<input name="email" type="email" required maxlength="254" autocomplete="email"></label>
-<label>Type de ressource *<select name="type" required><option value="">Choisir un type</option><option>Données</option><option>Activité pédagogique</option><option>Document</option><option>Application ou tutoriel</option><option>Correction ou collaboration</option></select></label>
+<label>Type de ressource *<select name="type" required><option value="">Choisir un type</option><option>Données</option><option>Activité pédagogique</option><option>Document</option><option value="Application ou tutoriel">Outil ou tutoriel</option><option>Correction ou collaboration</option></select></label>
 <label>Titre *<input name="title" required maxlength="180"></label>
 <label>Lien vers la ressource<input name="url" type="url" maxlength="2000" placeholder="https://…"></label>
 <label>Auteur, autrice ou organisme producteur<input name="author" maxlength="240"></label>
@@ -76,7 +76,7 @@ cat('<form id="contribution-form" class="contribution-form" data-recipient="', h
 
 - Fiche de données : `templates/fiche-dataset-template.qmd` et `templates/metadata-template.yml`.
 - Activité : `templates/activite-template.qmd` et `templates/activite-metadata-template.yml`, avec son script et sa trousse.
-- Document ou application : les gabarits correspondants et `templates/ressource-template.yml`.
+- Document, outil ou tutoriel : les gabarits correspondants et `templates/ressource-template.yml`.
 - Usage en classe : `templates/retour-classe-template.md`.
 
 Conserver les attributions et les conditions des sources. Une ressource soumise à un accès préalable ou à une restriction de redistribution doit l’indiquer près de son accès. Ne pas inclure de données personnelles étudiantes.

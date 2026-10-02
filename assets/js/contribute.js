@@ -14,8 +14,9 @@
     event.preventDefault();
     if (!form.reportValidity()) return;
     const values = Object.fromEntries(new FormData(form));
+    const displayValues = {...values, type: form.elements.namedItem('type').selectedOptions[0].textContent};
     const labels = {name:'Nom', email:'Courriel', type:'Type', title:'Titre', url:'Lien', author:'Auteur ou organisme', themes:'Thèmes', courses:'Cours et établissement', message:'Description'};
-    const body = Object.entries(labels).map(([key,label]) => `${label} : ${values[key] || 'Non renseigné'}`).join('\n\n');
+    const body = Object.entries(labels).map(([key,label]) => `${label} : ${displayValues[key] || 'Non renseigné'}`).join('\n\n');
     output.value = body;
     document.getElementById('contribution-draft').hidden = false;
     if (!endpoint) {

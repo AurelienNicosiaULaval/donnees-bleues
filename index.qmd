@@ -26,7 +26,7 @@ metadata <- editorial_dataset_metadata()
 # Des données québécoises à enseigner
 
 ::: {.home-subtitle}
-Des jeux de données québécois, des activités, des documents et des applications pour enseigner la statistique, R et la science des données.
+Des jeux de données québécois, des activités, des documents, des outils et des tutoriels pour enseigner la statistique, R et la science des données.
 :::
 :::
 
@@ -39,7 +39,7 @@ Des jeux de données québécois, des activités, des documents et des applicati
 #| echo: false
 #| results: asis
 links <- c(donnees='catalogue.html',activite='activites.html',document='lectures.html',application='applications.html')
-labels <- c(donnees='Jeux de données',activite='Activités',document='Lectures et documents',application='Applications')
+labels <- c(donnees='Jeux de données',activite='Activités',document='Lectures et documents',application='Outils et tutoriels')
 cat('<nav class="home-resource-links" aria-label="Types de ressources">')
 for (type in names(links)) cat('<a href="',links[type],'">',resource_type_badge(type),'<span>',labels[type],'</span><small>',as.integer(counts[type]),if(counts[type] == 1) ' ressource</small></a>' else ' ressources</small></a>',sep='')
 cat('</nav>')
@@ -50,7 +50,7 @@ cat('</nav>')
 ::: {.home-example-steps}
 [Fiche de données : état des stations](datasets/bixi/fiche.qmd){.home-example-step}
 [Activité : disponibilité des vélos dans un instantané](datasets/bixi/activite-courte.qmd){.home-example-step}
-[Application : trajets de 2018 et météo](resources/tutoriel-bixi.qmd){.home-example-step}
+[Tutoriel : trajets de 2018 et météo](resources/tutoriel-bixi.qmd){.home-example-step}
 :::
 
 ## Quelques jeux de données

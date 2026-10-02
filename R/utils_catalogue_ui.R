@@ -21,7 +21,7 @@ catalogue_controls <- function(kind, count, filters) {
   ids <- c(donnees = "dataset-search", activite = "activity-search",
            document = "document-search", application = "application-search")
   labels <- c(donnees = "jeux de données", activite = "activités",
-              document = "documents", application = "applications")
+              document = "documents", application = if (count == 1L) "outil ou tutoriel" else "outils et tutoriels")
   stopifnot(kind %in% names(ids))
   id <- unname(ids[[kind]])
   cat('<div class="catalogue-controls"><label class="catalogue-query" for="', id, '">',

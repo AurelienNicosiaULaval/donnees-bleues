@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded', () => {
   button.addEventListener('click', () => {
     if (!frame) {
       frame = document.createElement('iframe');
-      frame.title = 'Recherche de données, activités, lectures et applications';
+      frame.title = 'Recherche de données, activités, documents, outils et tutoriels';
       frame.src = destination.href;
       frame.addEventListener('load', () => frame.contentDocument.getElementById('resource-query')?.focus());
       dialog.append(frame);

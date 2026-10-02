@@ -1,5 +1,5 @@
 ---
-title: "Applications"
+title: "Outils et tutoriels"
 toc: false
 body-classes: hub-page
 page-layout: full
@@ -7,9 +7,9 @@ embed-resources: true
 ---
 
 ::: {.resource-hero}
-# Applications
+# Outils et tutoriels
 
-Des exercices interactifs à ouvrir dans le navigateur.
+Des outils en ligne et des tutoriels pour explorer des données et pratiquer R dans le navigateur.
 
 [Proposer une ressource](contribuer.qmd)
 :::

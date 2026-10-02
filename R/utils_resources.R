@@ -56,7 +56,7 @@ resource_catalogue <- function(root = ".") {
     x
   }))
 }
-resource_labels <- c(donnees = "Données", activite = "Activités", document = "Documents", application = "Applications")
+resource_labels <- c(donnees = "Données", activite = "Activités", document = "Documents", application = "Outils et tutoriels")
 render_resource_cards <- function(type = NULL, filterable = FALSE) {
   items <- resource_catalogue()
   if (!is.null(type)) items <- Filter(function(x) x$type %in% type, items)
@@ -103,7 +103,7 @@ render_resource_detail <- function(id, root = "..") {
     '<dt>Utilisé dans</dt><dd>', resource_escape(resource_text(x$courses, "Usage en cours non documenté")), '</dd>',
     '<dt>Réutilisation</dt><dd>', resource_escape(x$license), '</dd></dl>',
     '<p><a class="dataset-button" href="', resource_url(x$url), '">',
-    if (x$type == "application") 'Ouvrir l’application' else 'Lire le document', '</a></p>', sep = '')
+    if (x$type == "application") 'Ouvrir la ressource' else 'Lire le document', '</a></p>', sep = '')
   if (!is.null(x$code_url)) cat('<p><a href="', resource_url(x$code_url), '">Consulter le code source</a></p>', sep = '')
   cat('<p>', resource_escape(x$note), '</p>')
   for (dataset in x$related_datasets) {
@@ -112,7 +112,7 @@ render_resource_detail <- function(id, root = "..") {
   }
   cat('<p><a href="', resource_url(x$evidence_url), '">Source de la notice</a> · <a href="../',
       if (x$type == "application") "applications.html" else "lectures.html",
-      '">', if (x$type == "application") "Toutes les applications" else "Toutes les lectures et documents", '</a></p>', sep = '')
+      '">', if (x$type == "application") "Tous les outils et tutoriels" else "Toutes les lectures et documents", '</a></p>', sep = '')
 }
 
 # Shared masthead for authored document and application notices.

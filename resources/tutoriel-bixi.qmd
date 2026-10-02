@@ -7,7 +7,7 @@ body-classes: hub-page resource-page application-resource
 ---
 
 ::: {.bixi-page}
-[Applications](../applications.qmd) / Tutoriel BIXI
+[Outils et tutoriels](../applications.qmd) / Tutoriel BIXI
 
 ::: {.bixi-hero}
 ::: {.bixi-hero-copy .resource-detail-header}

@@ -28,7 +28,7 @@ Une fiche présente les données; une activité précise le travail à réaliser
 
 Supprimer ou fusionner avant de reformuler. Retirer les phrases qui répètent le titre ou les métadonnées, les superlatifs et les bénéfices non démontrés. Éviter les slogans et les tirets cadratins.
 
-Utiliser les mêmes termes : jeu de données, fiche, activité, document, application et trousse ZIP. « Ressource » désigne l’ensemble de ces contenus. Nommer les logiciels et formats lorsqu’ils aident à choisir ou à utiliser la ressource.
+Utiliser les mêmes termes : jeu de données, fiche, activité, document, outil, tutoriel et trousse ZIP. « Ressource » désigne l’ensemble de ces contenus. Nommer les logiciels et formats lorsqu’ils aident à choisir ou à utiliser la ressource.
 
 Avant de proposer une modification, vérifier les sources, les liens, les téléchargements et le rendu sur une fenêtre étroite. Corriger une répétition dans le modèle partagé lorsqu’il la produit sur plusieurs pages.
 

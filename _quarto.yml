@@ -71,7 +71,7 @@ website:
         href: activites.qmd
       - text: "Lectures et documents"
         href: lectures.qmd
-      - text: "Applications"
+      - text: "Outils et tutoriels"
         href: applications.qmd
       - text: "Guide du site"
         href: guide.qmd

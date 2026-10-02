@@ -73,7 +73,7 @@ Une question sur la plateforme, une ressource ou une collaboration ? Écrivez-no
 
 ## Participer au projet
 
-Le formulaire accepte des données, activités, documents, applications et corrections, sans compte GitHub.
+Le formulaire accepte des données, activités, documents, outils, tutoriels et corrections, sans compte GitHub.
 
 [Proposer une ressource](contribuer.qmd){.dataset-button}
 

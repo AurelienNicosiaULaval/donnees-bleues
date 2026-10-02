@@ -28,7 +28,7 @@ resource_date_label <- function(value) {
 }
 
 resource_type_badge <- function(type) {
-  labels <- c(donnees = "Données", activite = "Activité", document = "Document", application = "Application")
+  labels <- c(donnees = "Données", activite = "Activité", document = "Document", application = "Outil ou tutoriel")
   icons <- c(
     donnees = '<rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 10h18M9 10v10M15 10v10"/>',
     activite = '<path d="M9 5H6a2 2 0 0 0-2 2v13h16V7a2 2 0 0 0-2-2h-3"/><rect x="9" y="3" width="6" height="4" rx="1"/><path d="m8 13 3 3 5-6"/>',

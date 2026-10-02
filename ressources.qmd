@@ -9,7 +9,7 @@ embed-resources: true
 ::: {.resource-hero}
 # Rechercher dans les ressources
 
-Données québécoises, activités, documents et applications : trouvez une ressource par thème, auteur ou cours.
+Données québécoises, activités, documents, outils et tutoriels : trouvez une ressource par thème, auteur ou cours.
 
 [Catalogue détaillé des données](catalogue.qmd) · [Planifier une séance](activites.qmd) · [Proposer une ressource](contribuer.qmd)
 :::
@@ -17,7 +17,7 @@ Données québécoises, activités, documents et applications : trouvez une ress
 ```{=html}
 <form id="resource-filters" class="resource-filters" role="search" aria-label="Rechercher des ressources">
 <label for="resource-query">Rechercher<input id="resource-query" type="search" placeholder="BIXI, R, Montréal, STT-1100…"></label>
-<label for="resource-type">Type<select id="resource-type"><option value="">Tous les types</option><option value="donnees">Données</option><option value="activite">Activités</option><option value="document">Documents</option><option value="application">Applications</option></select></label>
+<label for="resource-type">Type<select id="resource-type"><option value="">Tous les types</option><option value="donnees">Données</option><option value="activite">Activités</option><option value="document">Documents</option><option value="application">Outils et tutoriels</option></select></label>
 <label for="resource-theme">Thème<select id="resource-theme"><option value="">Tous les thèmes</option></select></label>
 <label for="resource-author">Auteur ou source<select id="resource-author"><option value="">Tous les auteurs et sources</option></select></label>
 <label for="resource-course">Cours<select id="resource-course"><option value="">Tous les cours</option></select></label>

@@ -24,7 +24,7 @@ document.querySelectorAll('[data-resource-catalogue]').forEach(root => {
       donnees: ['jeu de données', 'jeux de données'],
       activite: ['activité', 'activités'],
       document: ['document', 'documents'],
-      application: ['application', 'applications']
+      application: ['outil ou tutoriel', 'outils et tutoriels']
     };
     const label = labels[root.dataset.resourceCatalogue][visible === 1 ? 0 : 1];
     count.textContent = `${visible} ${label} sur ${cards.length}`;
