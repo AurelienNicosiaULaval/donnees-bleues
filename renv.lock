@@ -3060,7 +3060,7 @@
     },
     "sourcetools": {
       "Package": "sourcetools",
-      "Version": "0.1.7.1",
+      "Version": "0.1.7-1",
       "Source": "Repository"
     },
     "stringi": {
@@ -3930,7 +3930,7 @@
     },
     "xtable": {
       "Package": "xtable",
-      "Version": "1.8.4",
+      "Version": "1.8-4",
       "Source": "Repository"
     },
     "yaml": {
