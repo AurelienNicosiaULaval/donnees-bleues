@@ -1,3 +1,22 @@
+- id: ggplot-builder-donnees-bleues
+  date_added: "2026-10-02"
+  date_updated: "2026-10-02"
+  type: application
+  title: 'ggplot builder : les arbres du Québec'
+  format: Atelier interactif · Shiny
+  description: Construire un graphique avec 200 arbres du Québec, comprendre les couches de ggplot2 et télécharger le code R, la figure et les données.
+  themes: Foresterie québécoise
+  concepts: [R, ggplot2, Visualisation, Comparaison de groupes, Distributions, Facettes, Valeurs manquantes]
+  authors: Aurélien Nicosia
+  contributor: Aurélien Nicosia
+  url: https://donneesbleues.ca/outils/ggplot-builder/
+  code_url: https://github.com/AurelienNicosiaULaval/donnees-bleues/tree/main/applications/ggplot-builder-donnees-bleues
+  evidence_url: https://donneesbleues.ca/datasets/arbres-quebec/fiche.html
+  courses: []
+  related_datasets: arbres-quebec
+  license: 'Données et contenus : CC BY 4.0; taxonomie VASCAN : CC0 1.0; code original : MIT.'
+  note: 'Jeu figé v1.0.0, équilibré pour l’enseignement : 50 arbres par espèce. Représentativité provinciale non établie. Âge manquant pour 52 arbres, dont tous les érables rouges. Utilisation en classe non documentée.'
+
 - id: explorer-maisons-quebec
   date_added: "2026-10-02"
   date_updated: "2026-10-02"

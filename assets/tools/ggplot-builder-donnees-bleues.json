@@ -1,0 +1,64 @@
+{
+  "version": "1.0.0",
+  "dataset": "arbres-quebec",
+  "dataset_sha256": "1af11ff0fc824f35286987928f0423441540ece1badb674f347ab05db07d4ccf",
+  "files": [
+    {
+      "path": "app.R",
+      "sha256": "31a14a5c44336db26469b8b9fe3c4b58369fafa4a0725818a8b4d5e6d342b446"
+    },
+    {
+      "path": "R/builder.R",
+      "sha256": "25ec91f6f388bebded6ee9c5a754b10fe27f20f6b86131414d68574ce516bf1c"
+    },
+    {
+      "path": "www/builder.css",
+      "sha256": "81ab0a45d9013e705c69a72bbc45d1c2d494645f207791a5811c4560d79f7968"
+    },
+    {
+      "path": "www/builder.js",
+      "sha256": "b037921a2d62c24304dc05e4f6763a959f40a6854bb474c7cbf039c0297d58fa"
+    },
+    {
+      "path": "www/favicon.svg",
+      "sha256": "9d6cf4495666cb97a4b4d956c163918f3e82bf29bfb6d791f3cde4f592ffac26"
+    },
+    {
+      "path": "data/arbres_quebec.csv",
+      "sha256": "1af11ff0fc824f35286987928f0423441540ece1badb674f347ab05db07d4ccf"
+    },
+    {
+      "path": "DATA_LICENSES.md",
+      "sha256": "55c358a5df503dde55a28bc5cdae898e046b60595520c3b3d7569d185a34cc90"
+    },
+    {
+      "path": "LICENSE",
+      "sha256": "873869a981876d18134a862478c0600e75387e52fbf7dc4769b61850f44b35e3"
+    },
+    {
+      "path": "LICENCE-CONTENUS.md",
+      "sha256": "b3396eb517be1fa273b70fc6ea6be31dc7e9d26b4a14446a1b325d36076fadca"
+    },
+    {
+      "path": "README.md",
+      "sha256": "466dbda1a18a8dae4bf886cdc3f203747dc59a651eeebe868d524c3efd5ac5cd"
+    },
+    {
+      "path": "INSTALLER.R",
+      "sha256": "daa48df98b66a2013b6ca5a1acaf8c6be5ccd7b083df6c29589e75616992d605"
+    },
+    {
+      "path": "LANCER.R",
+      "sha256": "496fcd0d83fcc6209a0c93d0764a2622cff976714a17c4b74df818cb678fd210"
+    },
+    {
+      "path": "verifier.R",
+      "sha256": "7d6de33593cf360da04efb0f44497880077d421f0edd1b116f01f693d74ba7e0"
+    },
+    {
+      "path": "exemple-graphique.R",
+      "sha256": "0b5817ac5aa44368c9822eef3191c2a7316a5401139807be16e6e634b9b4d150"
+    }
+  ],
+  "archive_sha256": "e2f14a49b7da9a860ec67a217246e0fa02b1e830c51381c4603628ad76a3741f"
+}
