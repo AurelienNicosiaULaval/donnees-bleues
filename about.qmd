@@ -38,6 +38,8 @@ Aurélien Nicosia, chargé d’enseignement en mathématiques et statistique à 
 
 Les contributions au répertoire sont présentées ci-dessous. Les organismes producteurs des données et les auteurs des documents externes sont crédités dans les notices des ressources.
 
+:::: {.contributor-grid}
+
 ::: {.founder-card .contributor-card #contributeur-julien-miron}
 ::: {.founder-photo}
 <img src="assets/julien-miron-linkedin.jpg" width="200" height="200" alt="Portrait de Julien Miron, contributeur à Données bleues">
@@ -55,7 +57,7 @@ Julien Miron enseigne la statistique à l’Université Laval. Il a assemblé et
 :::
 :::
 
-::: {.founder-card .contributor-card .contributor-card-no-photo #contributrice-anne-sophie-charest}
+::: {.founder-card .contributor-card #contributrice-anne-sophie-charest}
 ::: {.founder-bio}
 ### Anne-Sophie Charest
 
@@ -64,6 +66,8 @@ Anne-Sophie Charest est professeure agrégée en statistique à l’Université 
 [Profil à l’Université Laval](https://www.ulaval.ca/la-recherche/repertoire-corps-professoral/anne-sophie-charest)
 :::
 :::
+
+::::
 
 ```{r}
 #| echo: false

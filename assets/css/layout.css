@@ -34,9 +34,19 @@ body.hub-page .resource-hero > p {max-width:85ch;}
 body.hub-page .about-page > section {margin-block:2rem;}
 body.hub-page .about-page > section > p {max-width:95ch;}
 body.hub-page .founder-card {width:100%; box-sizing:border-box;}
-/* Les contributions occupent deux tiers de la largeur sur les grands écrans. */
-@media(min-width:1000px) {
- body.hub-page .contributor-card {width:calc(100% * 2 / 3);}
+/* Trois contributions par rangée sur grand écran, puis deux ou une. */
+.contributor-grid {
+ display:grid;
+ grid-template-columns:repeat(3,minmax(0,1fr));
+ align-items:start;
+ gap:1.25rem;
+ margin:1.25rem 0 2rem;
+}
+@media(max-width:1000px) {
+ .contributor-grid {grid-template-columns:repeat(2,minmax(0,1fr));}
+}
+@media(max-width:650px) {
+ .contributor-grid {grid-template-columns:minmax(0,1fr);}
 }
 body.hub-page.resource-search-embedded #quarto-content {width:calc(100% - 2rem);}
 @media(max-width:600px) {
