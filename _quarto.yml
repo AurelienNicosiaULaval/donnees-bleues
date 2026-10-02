@@ -18,6 +18,9 @@ project:
     - datasets/maisons-quebec/*.R
     - assets/classroom/*.zip
     - assets/classroom/*.json
+    - assets/tools/*.zip
+    - assets/tools/*.R
+    - assets/tools/*.json
     - assets/cards/*.webp
     - assets/cards/*.png
     - assets/cards/*.jpg

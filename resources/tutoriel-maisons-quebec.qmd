@@ -1,0 +1,211 @@
+---
+title: "Explorer les maisons à Québec avec R"
+toc: true
+toc-depth: 2
+embed-resources: true
+execute:
+  freeze: false
+  warning: false
+  message: false
+body-classes: hub-page resource-page application-resource
+---
+
+::: {.resource-detail-header}
+```{r}
+#| echo: false
+#| results: asis
+source(if (file.exists("R/utils_resources.R")) "R/utils_resources.R" else "../R/utils_resources.R")
+render_resource_notice_identity("tutoriel-maisons-quebec")
+```
+
+# Explorer les maisons à Québec avec R
+
+Passer d’une exploration visuelle à une analyse reproductible : comprendre les données, choisir un groupe, comparer les graphiques et expliquer ce que les résultats permettent de dire.
+
+[Explorer sans écrire de code](https://donneesbleues.ca/outils/maisons-quebec/){.dataset-button}
+[Télécharger le script R](../assets/tools/tutoriel-maisons-quebec.R){.dataset-button .secondary}
+[Télécharger le CSV](../assets/data/maisons-quebec.csv){.dataset-button .secondary}
+:::
+
+Ce tutoriel s’adresse à une première exploration avec R et ggplot2. Les quatre bibliothèques peuvent être installées une première fois avec `install.packages(c("readr", "dplyr", "ggplot2", "scales"))`.
+
+## 1. Comprendre le fichier
+
+Une ligne décrit une unité d’évaluation à un logement dans la ville de Québec. Le fichier contient 600 unités tirées sans remise parmi 99 072 unités admissibles, selon les critères de la [méthode](../datasets/maisons-quebec/METHODE.md).
+
+La valeur foncière est une évaluation administrative, sans prix de vente observé. L’aire d’étages est brute; elle peut inclure un garage intégré. Le rôle est entré en vigueur en 2025, avec une référence au marché le 1er juillet 2023. Le fichier a été extrait en 2026.
+
+```{r}
+# Charger explicitement les bibliothèques.
+library(readr)
+library(dplyr)
+library(ggplot2)
+library(scales)
+
+# Dans le dépôt, utiliser le CSV figé; ailleurs, utiliser le fichier
+# téléchargé ou récupérer cette même version publique.
+fichier <- "maisons-quebec.csv"
+if (file.exists("assets/data/maisons-quebec.csv")) {
+  fichier <- "assets/data/maisons-quebec.csv"
+} else if (file.exists("../assets/data/maisons-quebec.csv")) {
+  fichier <- "../assets/data/maisons-quebec.csv"
+}
+if (!file.exists(fichier)) {
+  download.file("https://donneesbleues.ca/assets/data/maisons-quebec.csv",
+                fichier, mode = "wb")
+}
+maisons <- read_csv(fichier, show_col_types = FALSE, col_types = cols(
+  maison_id = col_character(),
+  arrondissement_code = col_character(),
+  voisinage_code = col_character(),
+  lien_physique_code = col_character(),
+  genre_construction_code = col_character()
+))
+stopifnot(nrow(maisons) == 600L, ncol(maisons) == 19L,
+          !anyDuplicated(maisons$maison_id),
+          all(maisons$annee_role == 2025),
+          all(maisons$date_reference_marche == as.Date("2023-07-01")))
+
+maisons |>
+  summarise(
+    nombre = n(),
+    valeurs_manquantes = sum(is.na(pick(everything()))),
+    valeur_mediane_cad = median(valeur_fonciere_cad),
+    aire_mediane_m2 = median(aire_etages_m2)
+  )
+```
+
+Les 19 variables sont complètes dans ce tirage. Cela ne signifie pas que tous les champs du fichier administratif initial sont complets. Le [dictionnaire](../datasets/maisons-quebec/DICTIONNAIRE.md) définit chaque variable.
+
+Avant de tracer un graphique, identifier l’unité statistique, la population couverte et les dates. Quel énoncé serait incorrect si l’on remplaçait « valeur évaluée » par « prix de vente » ?
+
+## 2. Choisir un groupe et conserver son effectif
+
+Dans l’application, sélectionner les maisons détachées et jumelées, puis les années 1950 à 2000. Voici les mêmes choix dans R :
+
+```{r}
+maisons_filtrees <- maisons |>
+  filter(
+    lien_physique %in% c("Détaché", "Jumelé"),
+    between(annee_construction, 1950, 2000)
+  )
+
+resume_groupes <- maisons_filtrees |>
+  group_by(lien_physique) |>
+  summarise(
+    nombre = n(),
+    valeur_mediane_cad = median(valeur_fonciere_cad),
+    aire_mediane_m2 = median(aire_etages_m2),
+    .groups = "drop"
+  )
+resume_groupes
+stopifnot(nrow(maisons_filtrees) == 403L)
+```
+
+Le groupe retenu contient 403 maisons. Les bornes sont incluses. Aucun seuil de valeur ou de superficie n’est ajouté et aucune valeur extrême n’est retirée.
+
+Comparer les médianes sans regarder les effectifs peut masquer des groupes très différents. Le filtre définit la question descriptive; il ne fournit pas un effet causal du type de maison.
+
+## 3. Comparer deux échelles
+
+```{r}
+#| fig-width: 8
+#| fig-height: 5
+#| fig-alt: "Nuage des aires brutes et valeurs évaluées pour les 403 maisons détachées ou jumelées construites de 1950 à 2000, avec axes en échelle brute."
+# Conserver les observations utilisables pour les deux échelles.
+donnees_graphique <- maisons_filtrees |>
+  filter(if_all(c(aire_etages_m2, valeur_fonciere_cad),
+                ~ is.finite(.x) & .x > 0))
+nrow(maisons_filtrees) - nrow(donnees_graphique)
+
+nombres <- label_number(big.mark = " ", decimal.mark = ",")
+nuage <- ggplot(donnees_graphique,
+                aes(aire_etages_m2, valeur_fonciere_cad)) +
+  geom_point(colour = "#185b83", alpha = 0.45, size = 1.8) +
+  labs(x = "Aire d’étages brute (m²)",
+       y = "Valeur foncière évaluée (CAD)") +
+  theme_minimal(base_size = 14) +
+  theme(panel.grid.minor = element_blank())
+
+graphique_brut <- nuage +
+  scale_x_continuous(labels = nombres) +
+  scale_y_continuous(labels = nombres)
+graphique_brut
+```
+
+```{r}
+#| fig-width: 8
+#| fig-height: 5
+#| fig-alt: "Même nuage de 403 maisons, avec les deux axes logarithmiques; les étiquettes conservent les mètres carrés et dollars."
+graphique_log <- nuage +
+  scale_x_log10(labels = nombres) +
+  scale_y_log10(labels = nombres)
+graphique_log
+```
+
+Sur les axes logarithmiques, des rapports égaux occupent des distances égales. Les deux graphiques portent ici sur les mêmes observations et conservent les mêmes unités sur les étiquettes. L’échelle change leur représentation.
+
+L’aire est une caractéristique parmi d’autres. Même si les valeurs évaluées augmentent avec l’aire sur un graphique, ce constat ne mesure pas l’effet d’agrandir une maison.
+
+## 4. Comparer les types et reproduire l’exploration
+
+```{r}
+#| fig-width: 8
+#| fig-height: 5
+#| fig-alt: "Boîtes à moustaches des valeurs évaluées pour les maisons détachées et jumelées retenues, avec tous les points superposés."
+boites <- ggplot(donnees_graphique,
+                 aes(lien_physique, valeur_fonciere_cad)) +
+  geom_boxplot(outlier.shape = NA, fill = "#dceaf0", colour = "#185b83") +
+  geom_point(
+    position = position_jitter(width = 0.14, height = 0, seed = 20261001),
+    alpha = 0.35, colour = "#185b83", size = 1.2
+  ) +
+  scale_y_continuous(labels = nombres) +
+  labs(x = "Type de maison", y = "Valeur foncière évaluée (CAD)") +
+  theme_minimal(base_size = 14)
+boites
+```
+
+Les points affichent toutes les observations utilisables. L’option `outlier.shape = NA` évite de dessiner certains points deux fois; elle ne retire aucune maison du calcul. Dans l’application, les boîtes sont calculées dans l’échelle choisie.
+
+L’onglet « Code R » de l’application fournit un script autonome qui reprend les filtres, les variables, le type de graphique et l’échelle. L’exécuter dans un dossier contenant le CSV, puis comparer les effectifs et la figure. Le script écrit aussi le CSV filtré et le PNG.
+
+Pour enregistrer les résultats du présent tutoriel :
+
+```{r}
+#| eval: false
+write_csv(maisons_filtrees, "maisons-filtrees.csv")
+ggsave("maisons-graphique.png", graphique_log,
+       width = 9, height = 5.5, dpi = 160, bg = "white")
+```
+
+## À essayer
+
+1. Refaire les résumés pour toutes les années. Indiquer le nouvel effectif avant d’interpréter les médianes.
+2. Dans l’application, comparer un histogramme avec 10, 30 puis 60 classes. Garder les mêmes filtres et la même échelle. Quelles caractéristiques sont stables ?
+3. Passer à l’échelle logarithmique. Les classes sont alors équidistantes après transformation; elles n’ont plus une largeur constante en CAD.
+4. Rédiger trois phrases : un constat observable, une limite du fichier et une conclusion que ces données ne permettent pas d’établir.
+
+::: {.callout-note collapse="true"}
+## Repères pour la première question
+
+```{r}
+maisons |>
+  filter(lien_physique %in% c("Détaché", "Jumelé")) |>
+  group_by(lien_physique) |>
+  summarise(nombre = n(),
+            valeur_mediane_cad = median(valeur_fonciere_cad),
+            aire_mediane_m2 = median(aire_etages_m2),
+            .groups = "drop")
+```
+
+Les deux groupes totalisent 557 maisons. Un changement de médiane après filtrage décrit un changement de composition; il ne démontre pas une évolution du marché dans le temps.
+:::
+
+## Sources, limites et réutilisation
+
+MAMH (2026), [Rôles d’évaluation foncière du Québec](https://www.donneesquebec.ca/recherche/dataset/roles-d-evaluation-fonciere-du-quebec). Sélection et tutoriel par Aurélien Nicosia (2026), Université Laval. Le [dictionnaire](../datasets/maisons-quebec/DICTIONNAIRE.md), la [méthode](../datasets/maisons-quebec/METHODE.md) et les [attributions](../datasets/maisons-quebec/DATA_LICENSES.md) documentent la version 1.0.0.
+
+Wickham et collaborateurs, [documentation de ggplot2 : échelles continues](https://ggplot2.tidyverse.org/reference/scale_continuous.html) et [boîtes à moustaches](https://ggplot2.tidyverse.org/reference/geom_boxplot.html), consultée le 2 octobre 2026. Posit et contributeurs, [documentation de Shinylive](https://posit-dev.github.io/r-shinylive/), consultée le 2 octobre 2026.
+
+Données et texte : CC BY 4.0. Code original : MIT. Les adresses et matricules ont été omis; cette omission ne garantit pas l’anonymat. Le tutoriel a été exécuté techniquement; son utilisation en classe n’est pas documentée.

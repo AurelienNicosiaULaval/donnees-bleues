@@ -1,0 +1,59 @@
+---
+title: "Explorer les maisons à Québec"
+toc: false
+page-layout: full
+embed-resources: true
+execute:
+  freeze: false
+body-classes: hub-page resource-page application-resource
+---
+
+::: {.resource-detail-header}
+```{r}
+#| echo: false
+#| results: asis
+source(if (file.exists("R/utils_resources.R")) "R/utils_resources.R" else "../R/utils_resources.R")
+render_resource_notice_identity("explorer-maisons-quebec")
+```
+
+# Explorer les maisons à Québec
+
+Choisir un graphique, filtrer les maisons et comparer les échelles. L’application utilise les 600 maisons de la version figée 1.0.0.
+
+[Ouvrir l’application](https://donneesbleues.ca/outils/maisons-quebec/){.dataset-button}
+[Suivre le tutoriel](tutoriel-maisons-quebec.qmd){.dataset-button .secondary}
+:::
+
+![Maisons dans une rue résidentielle de Québec](../assets/illustrations/datasets/maisons-quebec.webp){width=480 fig-alt="Illustration de maisons dans une rue résidentielle de Québec, dans les couleurs du catalogue."}
+
+## Ce que l’on peut faire
+
+- Construire un nuage de points, un histogramme ou des boîtes à moustaches.
+- Retenir des types de maisons et une période de construction.
+- Comparer les échelles brute et logarithmique.
+- Lire l’effectif, la valeur médiane et l’aire médiane des maisons retenues.
+- Télécharger le graphique en PNG, les données filtrées en CSV et un script R qui reproduit les choix.
+
+Le graphique indique les observations inutilisables dans l’échelle choisie. Les résumés et le CSV portent sur toutes les maisons retenues par les filtres, dans les unités originales.
+
+## Utilisation
+
+L’application est exécutée dans le navigateur avec [Shinylive, par Posit et ses contributeurs](https://posit-dev.github.io/r-shinylive/). Le premier chargement télécharge R et les bibliothèques nécessaires et peut prendre un moment. Une connexion est nécessaire au chargement; le CSV figé est inclus dans l’application.
+
+Pour travailler avec R sur son ordinateur, télécharger [l’application complète](../assets/tools/explorer-maisons-quebec.zip). Le dossier comprend le code, les données, les notices et les instructions de lancement.
+
+## Interpréter avec soin
+
+Les valeurs sont des évaluations foncières au rôle, sans prix de vente observés. L’aire d’étages est brute et peut inclure un garage intégré. Une association entre deux variables ne démontre pas une relation causale.
+
+Le tirage décrit les unités admissibles de cet instantané de la ville de Québec. Filtrer change le groupe décrit; les maisons de la province ne sont pas couvertes par ce fichier.
+
+La [fiche des données](../datasets/maisons-quebec/fiche.qmd) documente les critères, les 19 variables, les sources et les limites.
+
+## Sources et réutilisation
+
+MAMH (2026), [Rôles d’évaluation foncière du Québec](https://www.donneesquebec.ca/recherche/dataset/roles-d-evaluation-fonciere-du-quebec), extraction 2026 de Québec, rôle entré en vigueur en 2025, référence au marché le 1er juillet 2023. Adaptation pédagogique et application par Aurélien Nicosia, Université Laval (2026).
+
+Données et contenus pédagogiques : CC BY 4.0. Code original : MIT. [Attributions détaillées](../datasets/maisons-quebec/DATA_LICENSES.md). L’illustration reprend celle de la fiche; sa provenance figure dans les [crédits des images](../credits-images.qmd).
+
+Les calculs, filtres et scripts exportés ont été contrôlés techniquement. L’utilisation en classe n’est pas documentée.

@@ -31,13 +31,17 @@ jobs:
       - name: Install system libraries
         run: |
           sudo apt-get update
-          sudo apt-get install -y libcurl4-openssl-dev libssl-dev libxml2-dev libgdal-dev libgeos-dev libproj-dev libudunits2-dev libfontconfig1-dev libfreetype6-dev libharfbuzz-dev libfribidi-dev libpng-dev libtiff-dev libjpeg-dev libmagick++-dev
+          sudo apt-get install -y libarchive-dev libcurl4-openssl-dev libssl-dev libxml2-dev libgdal-dev libgeos-dev libproj-dev libudunits2-dev libfontconfig1-dev libfreetype6-dev libharfbuzz-dev libfribidi-dev libpng-dev libtiff-dev libjpeg-dev libmagick++-dev
       - name: Restore locked R packages
         uses: r-lib/actions/setup-renv@v2
       - name: Set up Quarto
         uses: quarto-dev/quarto-actions/setup@v2
         with:
           version: '1.9.38'
+      - name: Set up Node for the WebAssembly checks
+        uses: actions/setup-node@v6
+        with:
+          node-version: '24'
       - name: Verify environment and publication rules
         run: |
           Rscript -e 'stopifnot(as.character(getRversion()) == "4.5.0"); renv::status(); for (f in list.files("tests", pattern="[.]R$", full.names=TRUE)) source(f)'
@@ -49,6 +53,11 @@ jobs:
         run: python3 -m unittest discover -s server -p 'test_*.py'
       - name: Test the distributed activities without downloads
         run: Rscript scripts/check_classroom_kits.R
+      - name: Test and package the house explorer
+        run: |
+          Rscript scripts/check_house_explorer.R
+          Rscript -e 'setwd("applications/explorer-maisons-quebec"); source("check-server.R")'
+          Rscript scripts/build_house_tools.R
       - name: Test activities that require source acquisition
         run: Rscript scripts/check_source_activities.R --acquire
       - name: Render a new site and verify the exact artifact
@@ -57,6 +66,11 @@ jobs:
           Rscript scripts/render_site.R
           Rscript scripts/check_site.R
           touch docs/.nojekyll
+      - name: Export and verify the browser Shiny application
+        run: |
+          Rscript scripts/export_house_app.R
+          Rscript scripts/check_house_static.R
+          node scripts/check_house_webr.mjs
       - name: Upload validated site for review
         uses: actions/upload-artifact@v4
         with:

@@ -1,0 +1,57 @@
+{
+  "version": "1.0.0",
+  "dataset": "maisons-quebec",
+  "dataset_sha256": "e631d863ddc48ef7371a1b9ad5993a0dbccd78c350e5558a9c7396054f886008",
+  "files": [
+    {
+      "path": "app.R",
+      "sha256": "3345db2194293b1e26551b5f2209a6fab8e12dac9e15931be7f593f152b44ef9"
+    },
+    {
+      "path": "R/helpers.R",
+      "sha256": "8b31a9d9524372572ba5898bc33fce4dd73ad0da378b6df397e836ea76bf09f4"
+    },
+    {
+      "path": "www/explorer.css",
+      "sha256": "df361e7348c1245a9d465642609fea7cb9dc29f45eba88c35ee17451cd375565"
+    },
+    {
+      "path": "www/maisons-quebec.webp",
+      "sha256": "579cff5859b82b8b05fd2e874a34b04716e01f26f5b9b470e54af91409ba0bde"
+    },
+    {
+      "path": "data/maisons-quebec.csv",
+      "sha256": "e631d863ddc48ef7371a1b9ad5993a0dbccd78c350e5558a9c7396054f886008"
+    },
+    {
+      "path": "DATA_LICENSES.md",
+      "sha256": "6a56ac1dae7fabb84c0c8c894cd5ce51ad7fe00f6b557b444ce7d2ec6f70cf26"
+    },
+    {
+      "path": "DICTIONNAIRE.md",
+      "sha256": "2e7d81ea98a301fd82f5ff5c5031942c8889717c6e49bae6bd39ba2c30a2183d"
+    },
+    {
+      "path": "METHODE.md",
+      "sha256": "fa845a895d551d7da099f43cc6922c57f802af68c6c546bbe2df760b0a466650"
+    },
+    {
+      "path": "LICENSE",
+      "sha256": "873869a981876d18134a862478c0600e75387e52fbf7dc4769b61850f44b35e3"
+    },
+    {
+      "path": "LICENCE-CONTENUS.md",
+      "sha256": "b3396eb517be1fa273b70fc6ea6be31dc7e9d26b4a14446a1b325d36076fadca"
+    },
+    {
+      "path": "README.md",
+      "sha256": "b72b5341f003095271c9bf528bae9b693292aebbb0f33bd39768e5e72a121a11"
+    },
+    {
+      "path": "check-server.R",
+      "sha256": "6793131ab9f15e893e421dc3b0f25d83f117d2463327d6241dc37f3a41cc9bd8"
+    }
+  ],
+  "archive_sha256": "5cd605389fb78d7e9cbfa19e0677acd78c3f61eacbdd2413db5416a3f88abae2",
+  "tutorial_sha256": "d2f38eac4fa7363b715366db5aa3536f28528a4efd44918f32a358b3c3bbf520"
+}

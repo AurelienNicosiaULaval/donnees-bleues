@@ -1,3 +1,41 @@
+- id: explorer-maisons-quebec
+  date_added: "2026-10-02"
+  date_updated: "2026-10-02"
+  type: application
+  title: Explorer les maisons à Québec
+  format: Application Shiny · Shinylive
+  description: Filtrer 600 maisons de Québec, comparer trois graphiques et les échelles, puis télécharger les données, la figure et le code R.
+  themes: Habitation et évaluation foncière
+  concepts: [Analyse exploratoire, Visualisation, Comparaison de groupes, Échelle logarithmique, R, Shiny]
+  authors: Aurélien Nicosia
+  contributor: Aurélien Nicosia
+  url: https://donneesbleues.ca/outils/maisons-quebec/
+  code_url: https://github.com/AurelienNicosiaULaval/donnees-bleues/tree/main/applications/explorer-maisons-quebec
+  evidence_url: https://donneesbleues.ca/datasets/maisons-quebec/fiche.html
+  courses: []
+  related_datasets: maisons-quebec
+  license: 'Données et contenus : CC BY 4.0; code original : MIT.'
+  note: 'Version figée 1.0.0. Valeurs évaluées, sans prix de vente. Calculs et exports contrôlés techniquement; utilisation en classe non documentée.'
+
+- id: tutoriel-maisons-quebec
+  date_added: "2026-10-02"
+  date_updated: "2026-10-02"
+  type: application
+  title: Explorer les maisons à Québec avec R
+  format: Tutoriel guidé · Quarto et R
+  description: Comprendre le fichier, filtrer les maisons, comparer les échelles et les groupes, puis reproduire son exploration dans R.
+  themes: Habitation et évaluation foncière
+  concepts: [R, ggplot2, Analyse exploratoire, Visualisation, Statistiques descriptives, Échelle logarithmique]
+  authors: Aurélien Nicosia
+  contributor: Aurélien Nicosia
+  url: https://donneesbleues.ca/resources/tutoriel-maisons-quebec.html
+  code_url: https://github.com/AurelienNicosiaULaval/donnees-bleues/blob/main/resources/tutoriel-maisons-quebec.qmd
+  evidence_url: https://donneesbleues.ca/datasets/maisons-quebec/fiche.html
+  courses: []
+  related_datasets: maisons-quebec
+  license: 'Données et texte : CC BY 4.0; code original : MIT.'
+  note: 'Même CSV de 600 maisons que l’application. Tutoriel exécuté techniquement; utilisation en classe non documentée.'
+
 - id: tutoriel-bixi
   date_added: "2026-09-05"
   date_updated: "2026-09-13"
