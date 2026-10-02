@@ -15,7 +15,7 @@ Une plateforme destinée aux personnes qui enseignent ou étudient la statistiqu
 
 ::: {.founder-card}
 ::: {.founder-photo}
-![Aurélien Nicosia, créateur et mainteneur de Données bleues](assets/aurelien-nicosia-linkedin.png){width=200 height=200 fig-alt="Portrait d’Aurélien Nicosia, créateur et mainteneur de Données bleues"}
+![Aurélien Nicosia, créateur et responsable de Données bleues](assets/aurelien-nicosia-linkedin.png){width=200 height=200 fig-alt="Portrait d’Aurélien Nicosia, créateur et responsable de Données bleues"}
 
 [Photo du profil LinkedIn](https://www.linkedin.com/in/aur%C3%A9lien-nicosia-6a52487b/)
 :::
@@ -23,7 +23,7 @@ Une plateforme destinée aux personnes qui enseignent ou étudient la statistiqu
 ## Aurélien Nicosia
 
 ::: {.founder-role}
-Créateur et mainteneur de la plateforme
+Créateur et responsable de la plateforme
 :::
 
 Aurélien Nicosia, chargé d’enseignement en mathématiques et statistique à l’Université Laval, a créé Données bleues. Il développe la plateforme, en assure la maintenance et conçoit ses ressources pédagogiques originales.
