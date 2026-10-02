@@ -153,6 +153,15 @@
     "original_sha256": "715f2c1c92a0a72bcf2473c610a718afa6bbdc9885fe001b95ac35f872f10fc2"
   },
   {
+    "id": "maisons-quebec",
+    "file": "maisons-quebec.webp",
+    "width": 960,
+    "height": 540,
+    "bytes": 200584,
+    "sha256": "579cff5859b82b8b05fd2e874a34b04716e01f26f5b9b470e54af91409ba0bde",
+    "original_sha256": "0f2cd08ce7fe9a65177a4e899be0158b692779fd5abe1178b9d04108e691e7ac"
+  },
+  {
     "id": "meteo-quebec",
     "file": "meteo-quebec.webp",
     "width": 960,

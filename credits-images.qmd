@@ -7,7 +7,7 @@ embed-resources: true
 
 ## Illustrations du catalogue
 
-Les 31 illustrations des jeux de données ont été créées pour Données bleues le 24 septembre 2026 avec l’outil de génération d’images d’OpenAI. Elles évoquent le sujet de chaque jeu de données et ne représentent ni des observations réelles ni des résultats statistiques. La scène de l’Empress of Ireland est une interprétation illustrée du navire.
+Les illustrations des jeux de données ont été créées pour Données bleues avec l’outil de génération d’images d’OpenAI : 31 le 24 septembre 2026, puis celle de « Maisons à Québec » le 2 octobre 2026. Elles évoquent le sujet de chaque jeu de données et ne représentent ni des observations réelles ni des résultats statistiques. La scène de l’Empress of Ireland est une interprétation illustrée du navire.
 
 ## Photographies conservées
 
@@ -53,7 +53,7 @@ L’ancienne vignette « Météo quotidienne à Québec » est une illustration 
 
 Ces graphiques, utilisés auparavant comme vignettes, sont conservés avec leurs sources.
 
-La vignette « Maisons à Québec » est un nuage de l’aire d’étages brute et de la valeur foncière évaluée des 600 maisons de la version 1.0.0. Ses axes sont logarithmiques. Elle est calculée à partir du rôle MAMH de Québec, extraction 2026, rôle entré en vigueur en 2025 et référence au marché du 1er juillet 2023. Source sous [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/deed.fr); sélection et figure originales par Aurélien Nicosia (2026). Le script `datasets/maisons-quebec/build-resources.R` produit la vignette à partir des observations.
+L’ancienne vignette « Maisons à Québec » est un nuage de l’aire d’étages brute et de la valeur foncière évaluée des 600 maisons de la version 1.0.0. Ses axes sont logarithmiques. Elle est calculée à partir du rôle MAMH de Québec, extraction 2026, rôle entré en vigueur en 2025 et référence au marché du 1er juillet 2023. Source sous [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/deed.fr); sélection et figure originales par Aurélien Nicosia (2026). Le script `datasets/maisons-quebec/build-resources.R` produit la vignette à partir des observations.
 
 La vignette « Arbres du Québec » est un nuage diamètre-hauteur calculé par Aurélien Nicosia à partir du jeu pédagogique [Arbres du Québec, version 1.0.0](https://github.com/AurelienNicosiaULaval/arbres_quebec/releases/tag/v1.0.0). Figure originale sous CC BY 4.0 ; mesures MRNF / PET5 sous CC BY 4.0 et taxonomie VASCAN sous CC0. La vignette est produite par le script `scripts/build_arbres_quebec_card.R`.
 
