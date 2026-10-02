@@ -34,6 +34,10 @@ body.hub-page .resource-hero > p {max-width:85ch;}
 body.hub-page .about-page > section {margin-block:2rem;}
 body.hub-page .about-page > section > p {max-width:95ch;}
 body.hub-page .founder-card {width:100%; box-sizing:border-box;}
+/* Les contributions occupent deux tiers de la largeur sur les grands écrans. */
+@media(min-width:1000px) {
+ body.hub-page .contributor-card {width:calc(100% * 2 / 3);}
+}
 body.hub-page.resource-search-embedded #quarto-content {width:calc(100% - 2rem);}
 @media(max-width:600px) {
  body.hub-page main.content {margin-top:1rem;}

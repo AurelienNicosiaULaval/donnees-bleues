@@ -26,6 +26,11 @@
 .founder-photo img {width:200px; height:200px; object-fit:cover; border-radius:50%;}
 .founder-photo {font-size:.8rem; text-align:center;}
 .founder-bio h2 {margin-top:0;}
+.founder-bio h3 {margin-top:0;}
+.founder-role {color:#123e58; font-size:1.08rem; margin-bottom:1rem;}
+.founder-role > p {margin:0;}
+.contributor-card-no-photo {grid-template-columns:minmax(0,1fr);}
+.contributor-card-no-photo .founder-bio > p:last-child {margin-bottom:0;}
 @media(max-width:650px) {.founder-card {grid-template-columns:1fr; padding:1.2rem;} .founder-photo {text-align:left;}}
 
 /* La loupe reste accessible à côté du menu, y compris sur téléphone. */
