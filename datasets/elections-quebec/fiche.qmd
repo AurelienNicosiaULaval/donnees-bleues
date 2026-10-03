@@ -1,0 +1,131 @@
+---
+title: "Élections provinciales au Québec"
+page-layout: full
+toc: false
+execute:
+  freeze: false
+embed-resources: true
+body-classes: hub-page resource-page dataset-resource
+---
+
+```{r}
+#| label: dataset-detail-header
+#| echo: false
+#| results: asis
+source_path <- if (file.exists("R/utils_dataset_page.R")) "R/utils_dataset_page.R" else "../../R/utils_dataset_page.R"
+source(source_path)
+render_dataset_detail_header()
+```
+
+## Choisir une table
+
+Le [dépôt des données électorales](https://github.com/AurelienNicosiaULaval/donnees-bleues-elections-qc) rassemble les fichiers d’Élections Québec et décrit leur préparation. Dans la [version examinée le 3 octobre 2026](https://github.com/AurelienNicosiaULaval/donnees-bleues-elections-qc/tree/341e671b4a48f4ac13e98144f8a0006952ca7b1d), son [catalogue des tables](https://github.com/AurelienNicosiaULaval/donnees-bleues-elections-qc/blob/341e671b4a48f4ac13e98144f8a0006952ca7b1d/metadata/table_catalog.csv) décrit 53 tables : 27 sont publiques et 26 nécessitent une reconstruction locale, selon les conditions des sources.
+
+| Table ou famille publique | Contenu | Usage possible |
+|---|---|---|
+| `candidates` | Candidatures de 2026 et captures successives de la liste officielle | Compter les candidatures par circonscription ou parti après sélection de la dernière capture. |
+| `registered_electors`, `parties`, `party_officials` | Électeurs inscrits, partis autorisés et fonctions officielles | Explorer les effectifs et les liens entre tables. |
+| `historical_candidate_results`, `historical_district_results`, `historical_party_results` | Résultats antérieurs à trois niveaux d’agrégation | Comparer les scrutins et distinguer votes, parts de voix et sièges. |
+| `historical_turnout` | Participation par scrutin et circonscription | Étudier les écarts de participation avec les dénominateurs documentés. |
+| `polling_division_results`, `polling_units` | Votes par candidature et unité de vote; description des unités | Travailler le format long, les agrégations et les clés de jointure. La table des votes contient 651 327 lignes dans la version examinée. |
+| Géométries et correspondances spatiales | Cartes électorales de 2017, 2022 et 2026 | Cartographier les données en tenant compte des changements de territoire. |
+
+Le [dictionnaire des variables](https://github.com/AurelienNicosiaULaval/donnees-bleues-elections-qc/blob/341e671b4a48f4ac13e98144f8a0006952ca7b1d/metadata/data_dictionary.csv) précise le type, l’unité, les valeurs manquantes et la provenance de chaque champ. Le [modèle de données](https://github.com/AurelienNicosiaULaval/donnees-bleues-elections-qc/blob/341e671b4a48f4ac13e98144f8a0006952ca7b1d/docs/data_model.md) décrit les relations entre tables.
+
+## Variables du CSV des candidatures
+
+Le fichier proposé en haut de la fiche contient 26 colonnes. Il conserve deux consultations de la liste officielle. La dernière capture contient 908 candidatures et 127 identifiants distincts de circonscription. Ces nombres décrivent le fichier examiné, à sa date de collecte.
+
+| Variables | Définition | Point à vérifier |
+|---|---|---|
+| `election_id`, `source_event_id` | Scrutin contextualisé et code d’événement du producteur | La date de consultation diffère de celle du scrutin. |
+| `district_id` | Identifiant de circonscription associé à une édition de la carte et des codes | Les noms seuls ne suffisent pas pour joindre deux éditions. |
+| `candidate_id`, `candidate_code` | Identifiant contextualisé et code source de la candidature | Une candidature ne constitue pas un identifiant de personne valable entre scrutins. |
+| `first_name`, `last_name` | Prénom et nom publiés dans la liste officielle | Ne pas déduire le sexe ou l’âge à partir d’un prénom. |
+| `party_id`, `party_code`, `party_name`, `party_abbreviation` | Identifiant contextualisé, code, nom et abréviation du groupe politique | Les codes ne sont pas présumés permanents entre élections. |
+| `independent_mention_source`, `status_source`, `state_source`, `outgoing_member_source` | Mentions et codes originaux de la source | Conserver les codes sans leur attribuer un sens non documenté. |
+| `official_agent_first_name`, `official_agent_last_name` | Prénom et nom de l’agent officiel | Ils décrivent une fonction politique publique. |
+| `sex_source`, `age_source` | Valeurs publiées par le producteur | Ces deux champs sont absents dans les candidatures de 2026 examinées. |
+| `row_source_updated_at`, `source_updated_at` | Dates de mise à jour annoncées par le producteur, lorsqu’elles existent | Une valeur absente ne devient pas une date de collecte. |
+| `source_id`, `snapshot_id`, `observed_at`, `retrieved_at` | Source, capture et horodatages de consultation et de récupération en UTC | Sélectionner la dernière capture de chaque source avant de compter. |
+| `data_status` | État de la donnée ou type de transformation explicite | Le fichier principal porte le statut `accepted_list`; il ne contient pas les résultats du vote. |
+
+Les valeurs manquantes sont écrites `NA`. Elles ne doivent pas être remplacées par zéro. Le dictionnaire précise leur interprétation; le fichier ne permet pas toujours de distinguer absence de publication et non-applicabilité.
+
+## Commencer dans R
+
+Cet exemple charge la version fixe du CSV et conserve la dernière capture par élection et par source. Il produit un tableau du nombre de candidatures par circonscription et un graphique de leur distribution.
+
+```{r}
+#| label: exemple-candidatures
+#| eval: false
+library(readr)
+library(dplyr)
+library(ggplot2)
+
+url <- paste0(
+  "https://raw.githubusercontent.com/AurelienNicosiaULaval/",
+  "donnees-bleues-elections-qc/",
+  "341e671b4a48f4ac13e98144f8a0006952ca7b1d/",
+  "data/processed/candidates.csv"
+)
+
+# Lire les identifiants comme du texte et préserver les valeurs de la source.
+candidatures <- read_csv(
+  url, col_types = cols(.default = col_character()),
+  na = "NA", trim_ws = FALSE
+)
+
+# Les horodatages ISO 8601 sont tous exprimés en UTC dans cette table.
+derniere_capture <- candidatures |>
+  group_by(election_id, source_id) |>
+  filter(observed_at == max(observed_at)) |>
+  ungroup()
+
+par_circonscription <- derniere_capture |>
+  count(district_id, name = "nombre_candidatures")
+
+print(par_circonscription)
+
+ggplot(par_circonscription, aes(nombre_candidatures)) +
+  geom_bar(fill = "#2879a3") +
+  scale_x_continuous(breaks = 5:13) +
+  labs(
+    x = "Nombre de candidatures",
+    y = "Nombre de circonscriptions",
+    title = "Candidatures par circonscription",
+    subtitle = "Dernière capture du 3 octobre 2026"
+  ) +
+  theme_minimal()
+```
+
+Pour charger les autres tables avec leurs types documentés, utiliser [`R/read_tables.R`](https://github.com/AurelienNicosiaULaval/donnees-bleues-elections-qc/blob/341e671b4a48f4ac13e98144f8a0006952ca7b1d/R/read_tables.R) après avoir récupéré le dépôt. Il sélectionne par défaut la dernière consultation de chaque source et de chaque événement. Un [exemple Python](https://github.com/AurelienNicosiaULaval/donnees-bleues-elections-qc/tree/341e671b4a48f4ac13e98144f8a0006952ca7b1d/examples) est également fourni.
+
+## Pistes pédagogiques et limites
+
+Le dépôt propose [30 pistes pédagogiques](https://github.com/AurelienNicosiaULaval/donnees-bleues-elections-qc/blob/341e671b4a48f4ac13e98144f8a0006952ca7b1d/docs/teaching_ideas.md), de la description des candidatures aux jointures spatiales et à l’analyse des résultats. Elles indiquent les tables et les précautions nécessaires. Les pistes utilisant des adaptations non diffusées exigent d’abord leur reconstruction locale et le respect des conditions applicables.
+
+Les données publiques permettent notamment de travailler les statistiques descriptives, les graphiques, les dénominateurs de participation, les agrégations et les jointures. Une association observée entre circonscriptions ne décrit pas les comportements individuels des électeurs et ne suffit pas à établir un effet causal.
+
+Les changements de carte imposent de vérifier l’édition des territoires avant une comparaison temporelle. Une correspondance spatiale n’est pas une correspondance exacte de populations. Les observations successives pendant un dépouillement ne constituent pas des scrutins indépendants.
+
+Les résultats du scrutin général de 2026 seront récupérés après leur publication officielle. Élections Québec annonce leur diffusion le 5 octobre, après la fermeture des bureaux à 20 h et le début du dépouillement, avec des actualisations pendant la soirée ([Élections Québec, 2026](https://www.dgeq.org/donnees.html)). Le dépôt distingue simulations, candidatures, résultats provisoires et finalité explicitement annoncée par la source.
+
+Les contrôles du CSV proposé ici sont reproductibles avec [`verification.R`](https://github.com/AurelienNicosiaULaval/donnees-bleues/blob/main/datasets/elections-quebec/verification.R). La [couverture du corpus](https://github.com/AurelienNicosiaULaval/donnees-bleues-elections-qc/blob/341e671b4a48f4ac13e98144f8a0006952ca7b1d/docs/coverage.md) et les [instructions de reproduction](https://github.com/AurelienNicosiaULaval/donnees-bleues-elections-qc/blob/341e671b4a48f4ac13e98144f8a0006952ca7b1d/docs/reproducibility.md) précisent les sources exploitées et les limites de validation.
+
+## Sources et droits
+
+Les candidatures, les résultats ouverts, les électeurs inscrits, les partis autorisés et les géométries publiques proviennent des fichiers référencés par le [portail de données ouvertes d’Élections Québec](https://www.dgeq.org/donnees.html) et ses [archives](https://www.dgeq.org/archives.html), consultés le 3 octobre 2026. Le [catalogue des sources](https://github.com/AurelienNicosiaULaval/donnees-bleues-elections-qc/blob/341e671b4a48f4ac13e98144f8a0006952ca7b1d/metadata/source_catalog.csv) donne leurs URL et leurs conditions; les captures et leurs empreintes assurent la traçabilité.
+
+Les documents hors de ce régime, notamment certaines sources financières et démographiques, conservent leurs conditions propres. Le dépôt publie leurs scripts et métadonnées, tandis que leurs adaptations restent locales. La licence MIT du code ne s’applique pas aux données. Consulter les [droits par source](https://github.com/AurelienNicosiaULaval/donnees-bleues-elections-qc/blob/341e671b4a48f4ac13e98144f8a0006952ca7b1d/DATA_LICENSES.md) avant toute réutilisation.
+
+```{r}
+#| label: dataset-detail-footer
+#| echo: false
+#| results: asis
+render_dataset_detail_footer()
+```
+
+Mention requise par la [licence des données ouvertes du directeur général des élections](https://www.dgeq.org/licence.html) :
+
+> Comprend des données ouvertes octroyées sous la licence d’utilisation des données ouvertes du directeur général des élections disponible à l’adresse Web dgeq.org. L’octroi de la licence n’implique aucune approbation par le directeur général des élections de l’utilisation des données ouvertes qui en est faite.

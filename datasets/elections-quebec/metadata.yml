@@ -1,0 +1,101 @@
+id: elections-quebec
+title: "Élections provinciales au Québec"
+short_title: "Élections du Québec"
+card_image_fit: contain
+summary: "Candidatures de 2026, résultats et participation des scrutins provinciaux antérieurs, partis politiques et cartes électorales. Tables documentées pour explorer les données électorales, leurs jointures et leurs limites."
+observation_period: "Élections générales de 2012, 2014, 2018 et 2022; élections partielles de 2013 à 2026; préparation du scrutin général de 2026"
+source_authors:
+  - Élections Québec
+theme: "Vie démocratique"
+source_name: "Élections Québec; préparation et documentation par Aurélien Nicosia"
+source_url: "https://github.com/AurelienNicosiaULaval/donnees-bleues-elections-qc"
+download_url: "https://raw.githubusercontent.com/AurelienNicosiaULaval/donnees-bleues-elections-qc/341e671b4a48f4ac13e98144f8a0006952ca7b1d/data/processed/candidates.csv"
+download_label: "Télécharger les candidatures 2026 (CSV)"
+download_filename: "candidatures-quebec-2026.csv"
+license: "Tables publiques : licence des données ouvertes du directeur général des élections, avec attribution obligatoire. Les autres sources conservent leurs conditions propres; leurs adaptations ne sont pas diffusées dans le dépôt. Code sous MIT."
+access_date: "2026-10-03"
+geography: "Québec; circonscriptions et unités de vote selon le scrutin et la carte électorale"
+unit: "Une candidature par capture dans le CSV principal; le grain des autres tables est indiqué dans leur catalogue"
+data_type: "Tables relationnelles, archives électorales et données spatiales"
+format: "CSV UTF-8, CSV compressé, GeoPackage et GeoJSON; métadonnées CSV et JSON"
+n_rows: "CSV principal : 1 816 lignes, soit deux captures de 908 candidatures"
+n_cols: "CSV principal : 26 colonnes; dimensions propres à chaque autre table"
+table_overview:
+  "Candidatures de 2026": "908 candidatures dans la dernière capture du 3 octobre 2026; CSV de 1 816 lignes et 26 colonnes avec deux captures conservées"
+  "Archives publiques": "Résultats, participation et votes par unité de vote : scrutins généraux de 2012 à 2022 et 17 élections partielles"
+  "Cartes électorales": "Géométries des éditions 2017, 2022 et 2026; correspondances spatiales documentées"
+  "Accès au corpus": "27 tables publiques dans la version examinée; dictionnaire, provenance, scripts R et Python et 30 pistes pédagogiques dans le dépôt"
+update_frequency: "Collecte automatisée dans le dépôt. Le CSV proposé ici est une version fixe du 3 octobre 2026; les versions récentes restent accessibles dans le dépôt."
+level: Intermédiaire
+level_ids:
+  - introduction
+  - intermediaire
+  - avance
+concepts:
+  - Analyse exploratoire
+  - Statistiques descriptives
+  - Données relationnelles
+  - Clés de jointure
+  - Format long
+  - Comparaison temporelle
+  - Cartographie
+  - Données spatiales
+  - Valeurs manquantes
+  - Reproductibilité
+concept_ids:
+  - analyse-exploratoire
+  - statistiques-descriptives
+  - donnees-relationnelles
+  - cles-de-jointure
+  - format-long
+  - comparaison-temporelle
+  - cartographie
+  - donnees-spatiales
+  - valeurs-manquantes
+  - reproductibilite
+variables_principales:
+  - election_id
+  - district_id
+  - candidate_id
+  - party_id
+  - observed_at
+  - snapshot_id
+  - data_status
+search_aliases:
+  - élections québécoises
+  - candidatures 2026
+  - participation électorale
+  - résultats électoraux
+zero_waste: null
+contributor_name: "Aurélien Nicosia"
+contributor_role: "Collecte, transformation, documentation et proposition au catalogue Données bleues"
+courses: []
+stt1100_contact: false
+status: "Version du 3 octobre 2026 vérifiée; résultats du scrutin général de 2026 attendus après leur publication officielle"
+essential_limits:
+  - "Le CSV principal conserve deux captures. Sélectionner la dernière par élection et par source avant de compter les candidatures."
+  - "Les résultats du scrutin général de 2026 ne sont pas disponibles dans cette version. La collecte les intégrera après leur publication officielle; les résultats provisoires seront distingués des résultats finaux."
+  - "Les identifiants de candidature et de parti sont contextualisés par scrutin. Les codes de circonscription dépendent de la carte électorale; une jointure par nom seul n’est pas fiable."
+  - "Les tables adaptées de finances, de contributions et de démographie sont réservées à une reconstruction locale selon les droits des sources. Les contributions nominatives ne sont pas diffusées."
+reference_note: "Les dimensions et contrôles portent sur la version fixe du 3 octobre 2026 proposée au téléchargement. Les captures sont des consultations successives de la source, pas des candidatures supplémentaires."
+publication:
+  preview: false
+  reason: "Référencement des tables et de leur documentation dans le dépôt électoral, avec téléchargement d’une version fixe du CSV des candidatures."
+  reviewed_on: "2026-10-03"
+  license_url: "https://github.com/AurelienNicosiaULaval/donnees-bleues-elections-qc/blob/341e671b4a48f4ac13e98144f8a0006952ca7b1d/DATA_LICENSES.md"
+  preview_columns: []
+  classroom:
+    mode: external
+    reason: "Tables, dictionnaire, scripts et pistes pédagogiques hébergés dans le dépôt électoral; aucune trousse locale associée à cette fiche."
+    files: []
+verification:
+  commit: "341e671b4a48f4ac13e98144f8a0006952ca7b1d"
+  sha256: "8e6b6a82f0656d0bca28b0cdd09e8f070d616677978a61504a7df9852b0223e4"
+  rows: 1816
+  columns: 26
+  captures: 2
+  latest_rows: 908
+  latest_districts: 127
+  latest_observed_at: "2026-10-03T16:53:00.820Z"
+date_added: "2026-10-03"
+date_updated: "2026-10-03"
