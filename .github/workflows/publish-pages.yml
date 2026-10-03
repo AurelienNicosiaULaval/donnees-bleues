@@ -60,6 +60,10 @@ jobs:
           Rscript scripts/build_house_tools.R
       - name: Test activities that require source acquisition
         run: Rscript scripts/check_source_activities.R --acquire
+      - name: Test and package the house bootstrap
+        run: |
+          Rscript scripts/build_bootstrap_tools.R
+          Rscript -e 'setwd("applications/bootstrap-maisons-quebec"); source("check-server.R")'
       - name: Test and package the ggplot builder
         run: |
           Rscript -e 'setwd("applications/ggplot-builder-donnees-bleues"); source("verifier.R")'
@@ -78,6 +82,9 @@ jobs:
           Rscript scripts/export_ggplot_app.R
           Rscript scripts/check_ggplot_static.R
           node scripts/check_ggplot_webr.mjs
+          Rscript scripts/export_bootstrap_app.R
+          Rscript scripts/check_bootstrap_static.R
+          node scripts/check_bootstrap_webr.mjs
       - name: Upload validated site for review
         uses: actions/upload-artifact@v4
         with:

@@ -1,0 +1,48 @@
+id: maisons-quebec-bootstrap
+title: Estimer une moyenne et une médiane par bootstrap
+question: Comment quantifier l’incertitude d’une statistique à partir des 600 maisons observées ?
+dataset_id: maisons-quebec
+dataset_title: 'Maisons du Québec : valeurs foncières à Québec'
+activity_url: datasets/maisons-quebec/activite-bootstrap.qmd
+script_file: datasets/maisons-quebec/activite-bootstrap.R
+classroom_archive: assets/classroom/maisons-quebec.zip
+access_mode: frozen
+duration: 60-90 minutes, indicatives
+level: Introduction
+level_ids: [introduction]
+activity_type: [Laboratoire, Simulation]
+concepts: [Bootstrap, Intervalles de confiance, Erreur-type, Échantillonnage, Simulation]
+concept_ids: [bootstrap, intervalles-de-confiance, erreur-type, echantillonnage, simulation]
+context: Incertitude des valeurs au rôle d’évaluation de Québec
+hook: Multiplier les tirages suffit-il à mieux connaître les maisons de Québec ?
+materials: [Trousse ZIP avec projet RStudio, Script R complet, Outil interactif, Lecture courte, Résultats et corrigé]
+advanced_math_stats: false
+teacher_notes: 'Durée indicative, activité non testée en classe. Bootstrap percentile ordinaire; approximation du plan initial sans remise. Couverture nominale non validée empiriquement. Valeurs administratives arrondies, avec ex æquo pour les médianes.'
+pedagogical_status: pret_a_enseigner
+teacher_preparation: Extraire la trousse, ouvrir Donnees-bleues.Rproj, exécuter installer-packages.R puis datasets/maisons-quebec/activite-bootstrap.R. Le CSV est inclus; aucune acquisition supplémentaire.
+expected_output: Deux intervalles percentiles, une comparaison de la stabilité numérique et six réponses justifiant la population cible et l’interprétation.
+learning_objectives:
+  - Distinguer dispersion des observations et erreur-type d’une statistique.
+  - Expliquer un tirage avec remise de même taille que l’échantillon initial.
+  - Construire un intervalle percentile pour une moyenne et une médiane.
+  - Distinguer incertitude d’échantillonnage et variabilité numérique liée à B.
+prerequisites:
+  - Comprendre moyenne, médiane, écart-type et quantile.
+  - Exécuter un script dans RStudio, ou utiliser l’outil interactif.
+success_criteria:
+  - Chaque tirage contient 600 positions, avec des identifiants répétés possibles.
+  - Les bornes à 95 % sont les quantiles 2,5 % et 97,5 % des statistiques rééchantillonnées.
+  - B est distingué du nombre de maisons observées.
+  - La conclusion nomme les unités admissibles de Québec et le caractère approximatif de l’intervalle.
+adaptations:
+  - Utiliser uniquement l’application pour une discussion sans programmation.
+  - Refaire le parcours sur l’aire d’étages brute, en m², sans changer la population.
+  - Comparer l’erreur-type bootstrap de la moyenne à son repère analytique, avec correction de population finie.
+requires_prepared_data: true
+requires_live_download: false
+recommended_use: Introduction à l’inférence par rééchantillonnage
+result_visible_in_page: true
+status: Calculs et script exécutés; utilisation en classe non documentée
+courses: []
+date_added: '2026-10-03'
+date_updated: '2026-10-03'

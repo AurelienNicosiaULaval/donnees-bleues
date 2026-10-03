@@ -1,0 +1,90 @@
+---
+title: "Bootstrap des maisons à Québec"
+toc: false
+page-layout: full
+embed-resources: true
+execute:
+  freeze: false
+body-classes: hub-page resource-page application-resource
+---
+
+::: {.tool-page}
+[Outils et tutoriels](../applications.qmd) / Bootstrap des maisons à Québec
+
+::: {.tool-hero}
+::: {.tool-hero-copy .resource-detail-header}
+::: {.resource-kind}
+QUÉBEC · HABITATION · BOOTSTRAP
+:::
+
+```{r}
+#| echo: false
+#| results: asis
+source(if (file.exists("R/utils_resources.R")) "R/utils_resources.R" else "../R/utils_resources.R")
+render_resource_notice_identity("bootstrap-maisons-quebec")
+```
+
+# Une estimation, quelle incertitude ?
+
+Rééchantillonner les 600 maisons de Québec, observer la variation d’une moyenne ou d’une médiane et construire un intervalle percentile.
+
+::: {.tool-actions}
+[Ouvrir l’application](https://donneesbleues.ca/outils/bootstrap-maisons/){.dataset-button}
+[Suivre l’activité](../datasets/maisons-quebec/activite-bootstrap.qmd){.dataset-button .secondary}
+:::
+
+::: {.tool-author}
+Créé par [Aurélien Nicosia](../about.qmd#aurélien-nicosia) · Université Laval
+
+Application Shiny · Exécution dans le navigateur.
+:::
+:::
+
+::: {.tool-visual}
+![Maisons dans une rue résidentielle de Québec](../assets/illustrations/datasets/maisons-quebec.webp){fig-alt="Illustration de maisons dans une rue résidentielle de Québec, dans les couleurs du catalogue."}
+
+Illustration créée pour Données bleues. [Crédits et provenance](../credits-images.qmd).
+:::
+:::
+
+::: {.tool-content}
+## Ce que l’on peut faire
+
+- Étudier la valeur foncière évaluée, en CAD, ou l’aire d’étages brute, en m².
+- Comparer moyenne et médiane sur les mêmes tirages avec remise.
+- Passer des valeurs individuelles aux statistiques rééchantillonnées.
+- Choisir 500, 2 000 ou 5 000 tirages et un niveau nominal de 90 %, 95 % ou 99 %.
+- Examiner les premières positions d’un tirage, ses répétitions et son nombre de maisons distinctes.
+- Télécharger le graphique, les statistiques et un script R complet qui reproduit les résultats affichés.
+
+Les réglages de calcul sont appliqués avec « Calculer le bootstrap ». Un message indique lorsque les résultats attendent une actualisation. La graine aléatoire est explicite; les exports reprennent le dernier calcul affiché.
+
+## Commencer
+
+Garder la valeur foncière, la moyenne et le niveau de 95 %. Observer l’histogramme des statistiques, puis ouvrir « Valeurs des maisons ». Chaque barre compte-t-elle les mêmes objets dans les deux vues ? Passer à la médiane, puis comparer les intervalles sans supposer qu’ils portent sur le même paramètre.
+
+La [lecture courte](comprendre-intervalle-confiance.qmd) précise l’interprétation. L’[activité avec six exercices corrigés](../datasets/maisons-quebec/activite-bootstrap.qmd) fournit les résultats calculés et la comparaison de la stabilité numérique.
+
+## Utilisation
+
+L’application utilise [Shinylive, par Posit et ses contributeurs](https://posit-dev.github.io/r-shinylive/) sur le site Données bleues. Le premier chargement télécharge R et les bibliothèques et peut prendre un moment. Le CSV figé est inclus dans l’application.
+
+Pour travailler localement, télécharger [l’application complète](../assets/tools/bootstrap-maisons-quebec.zip), installer les bibliothèques indiquées dans le README, puis lancer l’application dans RStudio. Pour l’activité R, utiliser la [trousse des maisons](../assets/classroom/maisons-quebec.zip), qui contient le script et les données dans leur arborescence.
+
+## Interpréter avec soin
+
+Le bootstrap réutilise les 600 observations; il ne crée aucune nouvelle maison observée. B règle le nombre de rééchantillonnages. L’erreur-type est l’écart-type des statistiques bootstrap; elle ne décrit pas la dispersion des valeurs individuelles.
+
+Le tirage initial est sans remise parmi 99 072 unités admissibles. Le bootstrap ordinaire avec remise en est une approximation : la fraction de sondage vaut environ 0,61 %. La couverture exacte des intervalles n’est pas établie. Les valeurs administratives arrondies produisent des ex æquo, surtout visibles dans la distribution des médianes.
+
+L’intervalle concerne la moyenne ou la médiane des unités admissibles de cet instantané de Québec. Il ne porte ni sur les prix de vente ni sur toutes les maisons de la province. Les critères et les trois dates figurent dans la [fiche](../datasets/maisons-quebec/fiche.qmd).
+
+## Sources et réutilisation
+
+MAMH (2026), [Rôles d’évaluation foncière du Québec](https://www.donneesquebec.ca/recherche/dataset/roles-d-evaluation-fonciere-du-quebec), extraction de Québec, rôle 2025, référence au marché le 1er juillet 2023. Données version 1.0.0 et [attributions détaillées](../datasets/maisons-quebec/DATA_LICENSES.md).
+
+Efron, B. (1979), [Bootstrap Methods: Another Look at the Jackknife](https://doi.org/10.1214/aos/1176344552), pour la méthode de rééchantillonnage. R Core Team, [documentation de `sample`](https://stat.ethz.ch/R-manual/R-devel/library/base/html/sample.html) et de [`quantile`](https://stat.ethz.ch/R-manual/R-devel/library/stats/html/quantile.html), consultée le 3 octobre 2026. Les quantiles utilisent le type 7 de R.
+
+Données et contenus originaux : CC BY 4.0. Code original : MIT. Calculs, exports et exécution dans le navigateur contrôlés techniquement; utilisation en classe non documentée.
+:::
+:::

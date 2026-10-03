@@ -1,4 +1,4 @@
-# Deux activités avec la trousse hors ligne
+# Trois activités avec la trousse hors ligne
 
 Extraire tout le ZIP, ouvrir `Donnees-bleues.Rproj`, installer les packages avec `installer-packages.R` avant la séance, puis ouvrir l’un des scripts ci-dessous et cliquer Source. Les sorties sont enregistrées dans `outputs/`. Les durées sont indicatives; les activités n’ont pas été testées en classe.
 
@@ -35,5 +35,20 @@ Corrigé : (1) identifiants sans interprétation arithmétique; (2) absence de m
 Le modèle reste fixé après consultation du test. Ne pas essayer plusieurs formules sur ce test pour retenir la meilleure. Une modification ultérieure exige une autre évaluation indépendante.
 
 Référence pour la retransformation : Duan, N. (1983), [Smearing Estimate: A Nonparametric Retransformation Method](https://doi.org/10.1080/01621459.1983.10478017), Journal of the American Statistical Association, 78(383), 605-610. Le facteur global du script ne garantit pas la moyenne conditionnelle lorsque la dispersion dépend des caractéristiques.
+
+## Bootstrap, 60 à 90 minutes
+
+Script : `datasets/maisons-quebec/activite-bootstrap.R`.
+
+Livrable : deux intervalles percentiles à 95 %, comparaison des 500, 2 000 et 5 000 premiers tirages d’une même suite, six réponses sur la remise, l’erreur-type et l’interprétation. La graine est 20261003; chaque tirage contient 600 lignes. L’application et la lecture associées sont accessibles depuis la page de l’activité.
+
+1. Comparer le nombre de lignes et de maisons distinctes dans le premier tirage.
+2. Distinguer l’écart-type des maisons de l’erreur-type de la moyenne.
+3. Donner les intervalles de la moyenne et de la médiane et leurs paramètres cibles.
+4. Comparer les bornes lorsque B augmente; identifier ce qui reste inchangé.
+5. Comparer les niveaux de confiance sur les mêmes tirages et interpréter le niveau nominal.
+6. Corriger un énoncé portant sur les prix de vente et les maisons de toute la province.
+
+Corrigé : (1) la remise permet de répéter des identifiants et d’omettre des maisons; (2) dispersion individuelle et variation d’une statistique répondent à deux questions; (3) les deux paramètres sont distincts, les bornes exactes sont calculées dans la page et dans outputs/bootstrap-resume.csv; (4) B ne change pas les 600 observations, les bornes fluctuent numériquement sans diminution monotone garantie de leur largeur; (5) les intervalles sont emboîtés à tirages fixes, le niveau nominal décrit une procédure répétée sans attribuer une probabilité au paramètre fixe dans un intervalle réalisé; (6) valeurs évaluées, population admissible de Québec, intervalle d’un paramètre et approximation bootstrap du plan sans remise, avec couverture exacte non établie.
 
 Voir `DICTIONNAIRE.md`, `METHODE.md` et `DATA_LICENSES.md` pour les définitions, la sélection et l’attribution MAMH.

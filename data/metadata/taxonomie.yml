@@ -11,6 +11,18 @@ levels:
   label: Avancé
   aliases: []
 concepts:
+- id: bootstrap
+  label: Bootstrap
+  aliases: [rééchantillonnage, bootstrap]
+- id: intervalles-de-confiance
+  label: Intervalles de confiance
+  aliases: [intervalle de confiance, intervalles de confiance]
+- id: erreur-type
+  label: Erreur-type
+  aliases: [erreur-type, erreur type]
+- id: simulation
+  label: Simulation
+  aliases: [simulation, simulations]
 - id: agregation
   label: Agrégation
   aliases:

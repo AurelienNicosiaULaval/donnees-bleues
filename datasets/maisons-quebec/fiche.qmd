@@ -59,6 +59,12 @@ L’[application interactive](https://donneesbleues.ca/outils/maisons-quebec/) u
 
 Le [tutoriel guidé](../../resources/tutoriel-maisons-quebec.qmd) accompagne l’exploration et sa reproduction dans R. La [notice de l’application](../../resources/explorer-maisons-quebec.qmd) donne les instructions et l’application complète à télécharger.
 
+## Estimer l’incertitude avec le bootstrap
+
+L’[atelier bootstrap](../../resources/bootstrap-maisons-quebec.qmd) rééchantillonne les mêmes 600 lignes pour comparer la variation d’une moyenne et d’une médiane. L’[activité guidée](activite-bootstrap.qmd) fournit le script, les résultats et six exercices corrigés. La [lecture courte](../../resources/comprendre-intervalle-confiance.qmd) distingue dispersion, erreur-type et niveau de confiance.
+
+Le bootstrap ordinaire est une approximation du plan initial sans remise; sa couverture exacte n’est pas établie. Il ne transforme pas les valeurs au rôle en prix de vente ni ce périmètre municipal en population provinciale.
+
 ## Sources et attribution
 
 MAMH (2026), [Rôles d’évaluation foncière du Québec](https://www.donneesquebec.ca/recherche/dataset/roles-d-evaluation-fonciere-du-quebec), extraction de Québec, sous [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/deed.fr). MAMH (2022), [guide des données ouvertes](https://www.donneesquebec.ca/recherche/dataset/061c8cb7-ca4e-45be-a990-61fce7e7d2dc/resource/6f2599be-e49d-4b9a-8702-b12ad0f56141/download/gui_donneesrolesformatouvert_vf20220627.pdf) et [répertoire des renseignements, version 2.5](https://www.donneesquebec.ca/recherche/dataset/061c8cb7-ca4e-45be-a990-61fce7e7d2dc/resource/427a72a7-f34c-495b-aa23-9de71a84a066/download/repertoire-des-renseignements-prescrits-du-role-devaluation-fonciere-version-2.5.pdf). Le XML porte la version 2.6; aucune certification du XML complet contre un schéma XSD 2.6 n’est revendiquée.

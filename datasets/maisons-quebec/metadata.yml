@@ -29,9 +29,10 @@ idees_mini_projets:
   - Décrire la distribution des valeurs évaluées et comparer les types de maisons.
   - Comparer une association en échelle brute et en échelle logarithmique.
   - Prédire la valeur foncière à partir de caractéristiques physiques et valider sur des voisinages réservés.
+  - Estimer une moyenne et une médiane par bootstrap et distinguer erreur-type et dispersion.
 tags: [maisons, habitation, Québec, MAMH, évaluation foncière, superficies, régression]
-concepts: [Analyse exploratoire, Comparaison de groupes, Statistiques descriptives, Régression linéaire, Prédiction, Validation entraînement-test, Visualisation]
-concept_ids: [analyse-exploratoire, comparaison-de-groupes, statistiques-descriptives, regression-lineaire, prediction, validation-entrainement-test, visualisation]
+concepts: [Analyse exploratoire, Comparaison de groupes, Statistiques descriptives, Régression linéaire, Prédiction, Validation entraînement-test, Visualisation, Bootstrap, Intervalles de confiance, Erreur-type]
+concept_ids: [analyse-exploratoire, comparaison-de-groupes, statistiques-descriptives, regression-lineaire, prediction, validation-entrainement-test, visualisation, bootstrap, intervalles-de-confiance, erreur-type]
 zero_waste:
   contexte_quebecois: 3
   accessibilite_pedagogique: 3
@@ -49,7 +50,7 @@ contributor_name: Aurélien Nicosia
 contributor_role: Sélection pédagogique, documentation et activités
 courses: []
 date_added: '2026-10-01'
-date_updated: '2026-10-02'
+date_updated: '2026-10-03'
 publication:
   preview: true
   reviewed_on: '2026-10-01'
@@ -74,7 +75,7 @@ chart:
   x_label: Aire d’étages brute (m²)
   y_label: Valeur foncière évaluée (CAD)
   title: Aire d’étages et valeur foncière à Québec
-summary: '600 maisons de la ville de Québec, avec superficies, année de construction, type de bâtiment et valeur au rôle. Deux activités abordent l’exploration et la régression avec validation par voisinage.'
+summary: '600 maisons de la ville de Québec, avec superficies, année de construction, type de bâtiment et valeur au rôle. Trois activités abordent l’exploration, la régression avec validation par voisinage et l’incertitude par bootstrap.'
 observation_period: 'Rôle entré en vigueur en 2025; référence au marché le 1er juillet 2023; extraction 2026'
 essential_limits:
   - Les valeurs inscrites au rôle sont des évaluations foncières, sans prix de vente observés.

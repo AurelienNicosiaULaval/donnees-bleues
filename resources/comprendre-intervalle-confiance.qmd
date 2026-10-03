@@ -1,0 +1,65 @@
+---
+title: "Que mesure un intervalle de confiance ?"
+toc: false
+page-layout: full
+embed-resources: true
+execute:
+  freeze: false
+body-classes: hub-page resource-page document-resource
+---
+
+[Lectures et documents](../lectures.qmd) / Incertitude et estimation
+
+::: {.resource-hero .resource-detail-header}
+```{r}
+#| echo: false
+#| results: asis
+source(if (file.exists("R/utils_resources.R")) "R/utils_resources.R" else "../R/utils_resources.R")
+render_resource_notice_identity("comprendre-intervalle-confiance")
+```
+
+# Que mesure un intervalle de confiance ?
+
+Les maisons ont des valeurs différentes. Une moyenne calculée sur un échantillon varie aussi d’un tirage à l’autre. Ces deux variations répondent à deux questions distinctes.
+
+[Expérimenter avec le bootstrap](bootstrap-maisons-quebec.qmd){.dataset-button}
+[Faire l’activité](../datasets/maisons-quebec/activite-bootstrap.qmd){.dataset-button .secondary}
+:::
+
+## Décrire les maisons, estimer un paramètre
+
+Le CSV comprend 600 unités d’évaluation à un logement, tirées sans remise parmi 99 072 unités admissibles de Québec. La [méthode](../datasets/maisons-quebec/METHODE.md) définit ce périmètre. Leur valeur au rôle est une évaluation administrative. Aucun prix de vente n’est observé.
+
+La moyenne du fichier décrit exactement ces 600 valeurs. Si la question porte sur la moyenne des 99 072 unités admissibles, ce nombre devient une estimation d’un paramètre inconnu dans l’activité. Un autre échantillon pourrait donner une autre moyenne. Choisir la médiane change le paramètre recherché; son intervalle n’est pas une autre méthode pour estimer la même moyenne.
+
+## Deux écarts-types, deux rôles
+
+L’écart-type des valeurs individuelles mesure la dispersion entre maisons. L’erreur-type mesure la variation d’une statistique entre échantillons. Une grande dispersion entre maisons peut coexister avec une estimation relativement précise de leur moyenne.
+
+Pour une moyenne de n observations indépendantes de même distribution, le repère usuel est s/√n, où s est l’écart-type de l’échantillon. Sous un tirage aléatoire simple sans remise dans une population finie de taille N, le repère estimé devient (s/√n)√(1 − n/N). Ici, √(1 − 600/99 072) vaut environ 0,997. Ce facteur concerne le repère de la moyenne; il n’est pas appliqué automatiquement à l’intervalle de la médiane. [Statistique Canada, 2019, formule de variance sous sondage aléatoire simple stratifié](https://www150.statcan.gc.ca/n1/pub/12-001-x/2019002/article/00006/02-eng.htm), ramenée à une seule strate.
+
+## Réutiliser l’échantillon avec le bootstrap
+
+Le bootstrap ordinaire tire 600 positions avec remise parmi les 600 lignes et recalcule la statistique. Certaines maisons reviennent, d’autres sont absentes. Répéter cette opération donne une distribution de statistiques. Son écart-type estime l’erreur-type.
+
+L’intervalle percentile à 95 % utilise les quantiles 2,5 % et 97,5 % de cette distribution. C’est une approximation; obtenir ces quantiles ne démontre pas une couverture réelle de 95 %. [Efron, 1979, méthode bootstrap](https://doi.org/10.1214/aos/1176344552).
+
+Augmenter B, le nombre de tirages bootstrap, stabilise les résultats numériques. Cela n’ajoute aucune observation et ne rend pas l’estimation arbitrairement précise. Une graine fixe permet de refaire les mêmes calculs.
+
+## Lire le niveau de confiance
+
+Le niveau nominal de 95 % décrit une procédure qui vise à couvrir le paramètre dans environ 95 % de nouveaux échantillons, sous des conditions appropriées. Pour les bornes déjà calculées, le paramètre fixe est couvert ou ne l’est pas. L’interprétation fréquentiste ne lui attribue pas une probabilité de 95 % d’appartenir à cet intervalle particulier. Celui-ci ne délimite pas non plus les valeurs de 95 % des maisons. [Ismay, Kim et Valdivia, 2026, ModernDive, chapitre 8](https://moderndive.com/v2/08-confidence-intervals.html).
+
+Dans l’outil, la petite fraction de sondage motive l’approximation avec remise du plan initial sans remise. La couverture exacte n’a pas été vérifiée par une étude de simulation. Les valeurs arrondies créent des ex æquo et une distribution des médianes moins lisse. Le bootstrap ne corrige ni les erreurs administratives, ni les exclusions du périmètre, ni une généralisation aux maisons de toute la province.
+
+## Une vérification rapide
+
+« Avec 5 000 tirages, l’intervalle contient 95 % des prix de vente à Québec. » Identifier trois problèmes avant d’ouvrir le repère.
+
+::: {.callout-note collapse="true"}
+## Repère
+
+Les données sont des valeurs évaluées, pas des prix de vente. L’intervalle vise une moyenne ou une médiane de la population admissible, pas les valeurs individuelles. Enfin, 5 000 indique B; il ne prouve ni une couverture réelle de 95 % ni une meilleure information que les 600 observations de départ.
+:::
+
+Texte original : Aurélien Nicosia (2026), Université Laval, CC BY 4.0. [Données MAMH et attribution](../datasets/maisons-quebec/DATA_LICENSES.md). Lecture accompagnée d’une activité dont les calculs sont exécutés; utilisation en classe non documentée. Les références sont proposées pour approfondir, sans reproduction de leurs exemples.

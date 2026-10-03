@@ -1,3 +1,41 @@
+- id: bootstrap-maisons-quebec
+  date_added: "2026-10-03"
+  date_updated: "2026-10-03"
+  type: application
+  title: Bootstrap des maisons à Québec
+  format: Application Shiny · Shinylive
+  description: Rééchantillonner 600 maisons, comparer moyenne et médiane, puis explorer l’erreur-type et les intervalles percentiles.
+  themes: Habitation et évaluation foncière
+  concepts: [Bootstrap, Intervalles de confiance, Erreur-type, Simulation, R]
+  authors: Aurélien Nicosia
+  contributor: Aurélien Nicosia
+  url: https://donneesbleues.ca/outils/bootstrap-maisons/
+  code_url: https://github.com/AurelienNicosiaULaval/donnees-bleues/tree/main/applications/bootstrap-maisons-quebec
+  evidence_url: https://donneesbleues.ca/datasets/maisons-quebec/fiche.html
+  courses: []
+  related_datasets: maisons-quebec
+  license: 'Données et contenus : CC BY 4.0; code original : MIT.'
+  note: 'Données figées v1.0.0. Bootstrap ordinaire, approximation du tirage initial sans remise. Couverture exacte non établie; utilisation en classe non documentée.'
+
+- id: comprendre-intervalle-confiance
+  date_added: "2026-10-03"
+  date_updated: "2026-10-03"
+  type: document
+  title: Que mesure un intervalle de confiance ?
+  format: Lecture courte · Statistique et bootstrap
+  description: Distinguer dispersion des maisons, erreur-type et niveau de confiance, puis interpréter un intervalle bootstrap sans généraliser au-delà du fichier.
+  themes: Habitation et évaluation foncière
+  concepts: [Inférence, Bootstrap, Intervalles de confiance, Échantillonnage, Erreur-type]
+  authors: Aurélien Nicosia
+  contributor: Aurélien Nicosia
+  url: https://donneesbleues.ca/resources/comprendre-intervalle-confiance.html
+  code_url: https://github.com/AurelienNicosiaULaval/donnees-bleues/blob/main/resources/comprendre-intervalle-confiance.qmd
+  evidence_url: https://donneesbleues.ca/datasets/maisons-quebec/fiche.html
+  courses: []
+  related_datasets: maisons-quebec
+  license: Texte original CC BY 4.0.
+  note: 'Lecture originale liée à l’activité des maisons. Niveau nominal distingué de la couverture réelle. Utilisation en classe non documentée.'
+
 - id: ggplot-builder-donnees-bleues
   date_added: "2026-10-02"
   date_updated: "2026-10-02"

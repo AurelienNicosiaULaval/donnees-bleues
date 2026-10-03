@@ -1,0 +1,161 @@
+---
+title: "Estimer une moyenne et une médiane par bootstrap"
+author: Aurélien Nicosia
+page-layout: full
+toc: false
+embed-resources: true
+execute:
+  freeze: false
+  warning: false
+  message: false
+body-classes: hub-page resource-page activity-resource
+---
+
+```{r}
+#| echo: false
+#| results: asis
+source(if (file.exists("R/utils_activity_contract.R")) "R/utils_activity_contract.R" else "../../R/utils_activity_contract.R")
+render_activity_header()
+```
+
+## Préparation enseignante
+
+Parcours proposé : 60 à 90 minutes, durée indicative. Extraire la trousse entière, ouvrir `Donnees-bleues.Rproj`, puis exécuter `installer-packages.R` avant la séance avec Internet. Le CSV est inclus et le script fonctionne ensuite hors ligne. Les calculs ont été exécutés; l’utilisation en classe n’est pas documentée.
+
+Sans programmation, utiliser l’[outil interactif](../../resources/bootstrap-maisons-quebec.qmd). La [lecture courte](../../resources/comprendre-intervalle-confiance.qmd) prépare la discussion sur le niveau de confiance.
+
+```{r}
+#| echo: false
+#| results: asis
+render_activity_resources()
+```
+
+## Contexte : une question et une population
+
+On cherche à estimer la moyenne ou la médiane des valeurs foncières des 99 072 unités admissibles de cet instantané de Québec. Le fichier contient 600 unités tirées sans remise. Les critères figurent dans la [méthode](METHODE.md). Aucune maison n’est retirée selon sa valeur; les 19 colonnes du tirage sont complètes.
+
+Les valeurs sont au rôle 2025, avec une référence au marché le 1er juillet 2023 et une extraction en 2026. Elles ne sont pas des prix de vente. Un intervalle pour la moyenne et un intervalle pour la médiane portent sur deux paramètres différents.
+
+## Consignes
+
+1. Exécuter `datasets/maisons-quebec/activite-bootstrap.R` depuis le projet de la trousse. Il conserve les 600 maisons et réalise 5 000 tirages avec remise, graine 20261003.
+2. Examiner le premier tirage et ses 12 premières positions. Comparer le nombre de lignes au nombre d’identifiants distincts dans le tirage complet.
+3. Comparer l’histogramme des valeurs individuelles aux histogrammes des moyennes et des médianes. Nommer ce que compte chaque axe vertical.
+4. Lire l’erreur-type bootstrap et les intervalles percentiles à 95 %. Vérifier les quantiles 2,5 % et 97,5 % dans le code.
+5. Comparer les 500, 2 000 et 5 000 premiers tirages d’une même suite. Puis comparer les niveaux 90 %, 95 % et 99 % sur les 5 000 tirages, sans changer la graine.
+6. Répondre aux six exercices avant de consulter le corrigé. Les sorties sont enregistrées dans `outputs/`.
+
+```{r}
+#| include: false
+library(knitr)
+metadata <- activity_contract_metadata()
+stage <- tempfile("maisons-bootstrap-")
+dir.create(stage)
+utils::unzip(activity_project_path(metadata$classroom_archive), exdir = stage)
+ancien <- getwd()
+resultats <- tryCatch({
+  setwd(stage)
+  env <- new.env(parent = globalenv())
+  source(metadata$script_file, local = env, encoding = "UTF-8")
+  env
+}, finally = { setwd(ancien); unlink(stage, recursive = TRUE) })
+```
+
+## Résultats calculés
+
+```{r}
+#| echo: false
+kable(resultats$resume, digits = 2,
+  col.names = c("Statistique", "Estimation (CAD)", "Erreur-type (CAD)",
+    "Borne basse (CAD)", "Borne haute (CAD)", "Niveau", "B", "n"),
+  format.args = list(big.mark = " ", decimal.mark = ",", scientific = FALSE))
+```
+
+`mean` désigne la moyenne; `median` désigne la médiane. Les deux statistiques utilisent les mêmes tirages. Le nombre de maisons observées reste 600.
+
+```{r}
+#| echo: false
+#| fig-width: 9
+#| fig-height: 5
+#| fig-alt: Histogramme des 600 valeurs foncières individuelles, avec la moyenne observée indiquée par un trait orange.
+resultats$graphique_maisons
+```
+
+```{r}
+#| echo: false
+#| fig-width: 9
+#| fig-height: 5
+#| fig-alt: Histogramme des 5000 moyennes bootstrap, estimation observée en orange et bornes percentiles à 95 pour cent en vert.
+resultats$graphique_moyennes
+```
+
+```{r}
+#| echo: false
+#| fig-width: 9
+#| fig-height: 5
+#| fig-alt: Histogramme des 5000 médianes bootstrap, avec les mêmes conventions de couleur et les ex æquo des valeurs administratives.
+resultats$graphique_medianes
+```
+
+Les graphiques adaptent leurs axes à chaque distribution. Comparer leurs unités et leurs étendues numériques. Les médianes présentent des ex æquo parce que les valeurs administratives sont arrondies.
+
+```{r}
+#| echo: false
+kable(resultats$stabilite[, c("statistic", "B", "standard_error", "lower", "upper")],
+  digits = 2, col.names = c("Statistique", "B", "Erreur-type (CAD)", "Borne basse (CAD)", "Borne haute (CAD)"),
+  format.args = list(big.mark = " ", decimal.mark = ","))
+```
+
+Une fluctuation des bornes avec B relève ici du calcul numérique. Leur largeur ne doit pas tendre vers zéro lorsque B augmente.
+
+## Six exercices
+
+1. Le premier tirage compte 600 lignes. Combien contient-il de maisons distinctes ? Pourquoi peut-il en contenir moins de 600 ?
+2. L’écart-type des valeurs et l’erreur-type de la moyenne sont-ils interchangeables ? Comparer leurs valeurs dans `repere_moyenne`.
+3. Donner les deux intervalles à 95 % et les paramètres qu’ils cherchent à estimer. L’intervalle de la médiane est-il une estimation de la moyenne ?
+4. Comparer les bornes avec B = 500, 2 000 et 5 000. Qu’est-ce qui reste inchangé ? Augmenter B revient-il à observer plus de maisons ?
+5. À tirages fixes, comment la largeur change-t-elle entre 90 %, 95 % et 99 % ? Peut-on conclure que le paramètre a une probabilité de 95 % d’être dans les bornes déjà calculées ?
+6. Expliquer pourquoi « 95 % des maisons du Québec se vendent dans cet intervalle » est incorrect. Nommer la population cible et une limite de l’approximation bootstrap.
+
+::: {.callout-note collapse="true"}
+## Corrigé commenté
+
+1. Le premier tirage contient `r length(unique(resultats$resultats$first_indices))` maisons distinctes. Le tirage avec remise permet des répétitions et omet certaines lignes originales. Il contient toujours 600 positions.
+2. L’écart-type des maisons vaut environ `r resultats$bootstrap_format(resultats$repere_moyenne$ecart_type_maisons)` CAD. L’erreur-type bootstrap de la moyenne vaut environ `r resultats$bootstrap_format(resultats$resume$standard_error[1])` CAD. Le premier décrit la dispersion individuelle; le second, la variation des moyennes rééchantillonnées.
+3. Moyenne : [`r resultats$bootstrap_format(resultats$resume$lower[1])`; `r resultats$bootstrap_format(resultats$resume$upper[1])`] CAD. Médiane : [`r resultats$bootstrap_format(resultats$resume$lower[2])`; `r resultats$bootstrap_format(resultats$resume$upper[2])`] CAD. Les cibles sont respectivement la moyenne et la médiane des valeurs évaluées dans la population admissible. Elles ne sont pas interchangeables.
+4. Les 600 observations, leur moyenne et leur médiane restent inchangées. B ajoute des rééchantillonnages de ces lignes. Les bornes fluctuent numériquement; augmenter B ne garantit pas une réduction monotone de leur largeur.
+5. Les intervalles percentiles sont emboîtés sur les mêmes tirages : un niveau plus élevé donne une largeur supérieure ou égale. Le niveau nominal décrit une procédure répétée; il n’attribue pas une probabilité fréquentiste au paramètre fixe dans cet intervalle réalisé.
+6. Les valeurs sont évaluées, sans transactions. L’intervalle porte sur une statistique, pas sur les valeurs individuelles. Le périmètre est celui des 99 072 unités admissibles de cet instantané de la ville de Québec, avec les exclusions documentées. Le bootstrap ordinaire néglige la faible fraction de sondage du plan initial sans remise; sa couverture exacte, surtout pour une médiane avec ex æquo, n’est pas établie.
+:::
+
+## Un repère pour approfondir
+
+Pour la moyenne seulement, comparer l’erreur-type bootstrap au repère s/√n, puis à (s/√n)√(1 − n/N) pour le plan initial sans remise. Ici n = 600 et N = 99 072. La correction multiplie le repère par environ `r resultats$bootstrap_format(resultats$repere_moyenne$correction_population_finie, 3)`; elle ne modifie pas les intervalles bootstrap affichés.
+
+```{r}
+#| echo: false
+kable(resultats$repere_moyenne, digits = 3,
+  col.names = c("Écart-type individuel (CAD)", "Repère avec remise (CAD)",
+    "Facteur de correction", "Repère sans remise (CAD)"),
+  format.args = list(big.mark = " ", decimal.mark = ","))
+```
+
+## Limites à faire nommer
+
+Le bootstrap ne transforme pas un mauvais périmètre ou des valeurs erronées en données représentatives. Ces calculs ne constituent pas une étude de couverture. Pour refaire le parcours dans l’application, sélectionner 5 000 tirages, 95 %, la graine 20261003, puis calculer.
+
+## Code complet et sources
+
+```{r}
+#| echo: false
+#| results: asis
+render_activity_code()
+```
+
+MAMH (2026), [Rôles d’évaluation foncière du Québec](https://www.donneesquebec.ca/recherche/dataset/roles-d-evaluation-fonciere-du-quebec), données CC BY 4.0; sélection par Aurélien Nicosia. Efron, B. (1979), [Bootstrap Methods: Another Look at the Jackknife](https://doi.org/10.1214/aos/1176344552). R Core Team, [`sample`](https://stat.ethz.ch/R-manual/R-devel/library/base/html/sample.html) et [`quantile`](https://stat.ethz.ch/R-manual/R-devel/library/stats/html/quantile.html), documentation consultée le 3 octobre 2026. Le repère avec correction de population finie découle de la [variance sous sondage aléatoire simple, Statistique Canada (2019)](https://www150.statcan.gc.ca/n1/pub/12-001-x/2019002/article/00006/02-eng.htm).
+
+```{r}
+#| echo: false
+#| results: asis
+render_activity_contract()
+```
