@@ -64,6 +64,10 @@ jobs:
         run: |
           Rscript scripts/build_bootstrap_tools.R
           Rscript -e 'setwd("applications/bootstrap-maisons-quebec"); source("check-server.R")'
+      - name: Test and package the accident permutations
+        run: |
+          Rscript scripts/build_permutation_tools.R
+          Rscript -e 'setwd("applications/permutations-accidents-quebec"); source("check-server.R")'
       - name: Test and package the ggplot builder
         run: |
           Rscript -e 'setwd("applications/ggplot-builder-donnees-bleues"); source("verifier.R")'
@@ -85,6 +89,9 @@ jobs:
           Rscript scripts/export_bootstrap_app.R
           Rscript scripts/check_bootstrap_static.R
           node scripts/check_bootstrap_webr.mjs
+          Rscript scripts/export_permutation_app.R
+          Rscript scripts/check_permutation_static.R
+          node scripts/check_permutation_webr.mjs
       - name: Upload validated site for review
         uses: actions/upload-artifact@v4
         with:

@@ -472,6 +472,12 @@ concepts:
   label: Politiques publiques
   aliases:
   - politiques publiques
+- id: tests-de-permutation
+  label: Tests de permutation
+  aliases: [Tests de permutation, tests de permutation]
+- id: p-valeur
+  label: P-valeur
+  aliases: [P-valeur, p-valeur]
 - id: proportions
   label: Proportions
   aliases:

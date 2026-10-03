@@ -1,0 +1,67 @@
+---
+title: "Que mesure une p-valeur ?"
+toc: false
+page-layout: full
+embed-resources: true
+execute:
+  freeze: false
+body-classes: hub-page resource-page document-resource
+---
+
+[Lectures et documents](../lectures.qmd) / Proportions et permutations
+
+::: {.resource-hero .resource-detail-header}
+```{r}
+#| echo: false
+#| results: asis
+source(if (file.exists("R/utils_resources.R")) "R/utils_resources.R" else "../R/utils_resources.R")
+render_resource_notice_identity("comprendre-p-valeur")
+```
+
+# Que mesure une p-valeur ?
+
+Deux proportions peuvent différer dans un fichier. Un test ajoute une autre question : cet écart serait-il inhabituel sous un modèle de référence précis ?
+
+[Expérimenter avec les permutations](permutations-accidents-quebec.qmd){.dataset-button}
+[Faire l’activité](../datasets/rapports-accident/activite-permutation.qmd){.dataset-button .secondary}
+:::
+
+## Commencer par le dénominateur
+
+Le CSV SAAQ de 2022 comprend 82 168 rapports en semaine, dont 16 740 accidents avec victimes, et 26 018 rapports de fin de semaine, dont 5 758 avec victimes. Cela donne 20,37 % et 22,13 %, soit un écart de 1,76 point de pourcentage, calculé avant l’arrondi.
+
+Ces nombres décrivent les accidents rapportés. Ils ne donnent pas la fréquence des accidents parmi les trajets, puisque leur nombre n’est pas observé. Une proportion avec victimes parmi les accidents et un risque d’avoir un accident par trajet ont des dénominateurs différents. [SAAQ, ressource 2022 et documentation](https://www.donneesquebec.ca/recherche/dataset/rapports-d-accident), acquises le 3 octobre 2026; [méthode de l’adaptation](../datasets/rapports-accident/METHODE.md).
+
+## Construire un monde de référence
+
+Dans ce parcours, le modèle nul suppose qu’à marges fixes les statuts de victime pourraient être mélangés entre tous les rapports. On conserve les tailles des deux groupes et le total des accidents avec victimes, puis on réaffecte les statuts sans remise. Chaque mélange produit une nouvelle différence de proportions.
+
+L’histogramme représente les écarts de ce monde de référence. Il ne représente ni les accidents individuels ni les différences de nouveaux échantillons représentatifs du Québec. La [méthode](../datasets/rapports-accident/METHODE.md) distingue ce modèle d’une collecte aléatoire. [Ismay, Kim et Valdivia, 2026, ModernDive, chapitre 9](https://moderndive.com/v2/09-hypothesis-testing.html), pour l’idée de permutation et de distribution nulle.
+
+## Lire la p-valeur dans le bon sens
+
+Pour le test bilatéral choisi, on compte les écarts dont la valeur absolue est au moins aussi grande que celle observée. Une p-valeur mesure la fréquence d’un résultat aussi extrême sous le modèle nul et ses hypothèses. Une petite valeur indique une incompatibilité avec ce modèle. Elle ne donne pas la probabilité que l’hypothèse nulle soit vraie ou que la conclusion soit fausse. [Ismay, Kim et Valdivia, 2026, chapitre 9](https://moderndive.com/v2/09-hypothesis-testing.html).
+
+L’écart de 1,76 point renseigne sur la taille de la différence. La p-valeur répond à une autre question. L’importance pratique doit être discutée avec le contexte, les incertitudes et les objectifs de l’analyse; elle ne se déduit pas d’un seuil de 0,05.
+
+## Pourquoi zéro mélange extrême ne donne pas p = 0
+
+Avec k résultats aussi extrêmes parmi B mélanges aléatoires, le parcours utilise (k + 1)/(B + 1). Si k = 0 et B = 5 000, cette valeur est 1/5 001, environ 0,00020. Cette résolution dépend du calcul. Augmenter B ne change pas les 108 186 rapports ni leurs proportions. [Phipson et Smyth, 2010](https://doi.org/10.2202/1544-6115.1585).
+
+L’outil donne aussi une référence par la loi hypergéométrique, pour le même critère. Elle somme directement les probabilités conditionnelles et permet de résoudre des événements trop rares pour quelques milliers de mélanges. Une référence exacte sous un modèle ne rend pas les hypothèses de ce modèle exactes pour les données. [R Core Team, loi hypergéométrique](https://stat.ethz.ch/R-manual/R-devel/library/stats/html/Hypergeometric.html), consultée le 3 octobre 2026.
+
+## Justifier le test avant de généraliser
+
+Les jours ne sont pas affectés aléatoirement. Les rapports peuvent partager des conditions de météo, de lieu ou d’heure. Le mélange global ignore ces structures, et son échangeabilité n’est pas établie ici. La faible p-valeur du modèle ne justifie pas automatiquement une généralisation ni une explication causale. Pour décrire le seul fichier publié, les deux proportions suffisent.
+
+## Une vérification rapide
+
+« Avec 20 000 permutations, on démontre que la fin de semaine cause davantage d’accidents. » Identifier trois problèmes avant d’ouvrir le repère.
+
+::: {.callout-note collapse="true"}
+## Repère
+
+B ajoute des calculs, sans ajouter de données. La comparaison concerne la présence de victimes parmi les accidents rapportés, sans mesurer le risque par trajet. Enfin, ni le mélange informatique ni une faible p-valeur ne créent une affectation aléatoire des jours ou ne contrôlent les différences de contexte. La conclusion doit rester conditionnelle au modèle.
+:::
+
+Texte original : Aurélien Nicosia (2026), Université Laval, CC BY 4.0. [Attribution des données](../datasets/rapports-accident/DATA_LICENSES.md). Utilisation en classe non documentée. Les références sont proposées pour approfondir, sans reproduction de leurs exemples.

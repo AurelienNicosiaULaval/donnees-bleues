@@ -1,0 +1,18 @@
+{
+  "version": "1.0.0",
+  "dataset": "rapports-accident",
+  "rows": 108186,
+  "columns": ["annee", "jour_semaine_code", "gravite"],
+  "source": {
+    "source_url": "https://dq-prd-bucket1.s3.ca-central-1.amazonaws.com/saaq/Rapport_Accident_2022.csv",
+    "acquisition_kind": "download",
+    "acquired_at_utc": "2026-10-03T13:50:59Z",
+    "started_at_utc": "2026-10-03T13:50:48Z",
+    "file": "Rapport_Accident_2022.csv",
+    "bytes": 20270782,
+    "sha256": "17fc60a26fb8ed8cc0fac871a7e4efc30cda95b93500e7a7f8213ba45008232a",
+    "details": {}
+  },
+  "prepared_at_utc": "2026-10-03T13:51:00Z",
+  "sha256": "51d155ce9eb66e86689e761518c7900063478834a507482d93f0ad043153d21b"
+}

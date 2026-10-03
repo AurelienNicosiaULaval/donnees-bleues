@@ -1,0 +1,50 @@
+id: rapports-accident-permutation
+title: Comparer deux proportions par permutation
+question: La proportion d’accidents avec victimes diffère-t-elle entre semaine et fin de semaine ?
+dataset_id: rapports-accident
+dataset_title: Rapports d’accident
+activity_url: datasets/rapports-accident/activite-permutation.qmd
+script_file: datasets/rapports-accident/activite-permutation.R
+classroom_archive: assets/classroom/rapports-accident.zip
+access_mode: frozen
+duration: 60-90 minutes, indicatives
+level: Intermédiaire
+level_ids: [intermediaire]
+activity_type: [Laboratoire, Simulation]
+concepts: [Proportions, Comparaison de groupes, Tests de permutation, P-valeur, Simulation, Limites d’exposition]
+concept_ids: [proportions, comparaison-de-groupes, tests-de-permutation, p-valeur, simulation, limites-d-exposition]
+context: Gravité des accidents rapportés au Québec en 2022
+hook: Une faible p-valeur permet-elle de conclure que la fin de semaine cause plus d’accidents ?
+materials: [Trousse ZIP avec projet RStudio, Script R complet, Outil interactif, Lecture courte, Résultats et corrigé]
+advanced_math_stats: false
+teacher_notes: 'Durée indicative; utilisation en classe non documentée. Modèle conditionnel à marges fixes, échangeabilité globale non établie pour ces rapports administratifs. Aucune estimation du risque par trajet ni interprétation causale.'
+pedagogical_status: pret_a_enseigner
+teacher_preparation: Extraire la trousse, ouvrir Donnees-bleues.Rproj, exécuter installer-packages.R puis datasets/rapports-accident/activite-permutation.R. Les rapports 2022 sont inclus, sans acquisition supplémentaire.
+expected_output: Tableau des deux proportions, distribution nulle simulée, p-valeur Monte-Carlo et référence exacte, puis six réponses commentées.
+learning_objectives:
+  - Définir le dénominateur d’une proportion et calculer un écart en points de pourcentage.
+  - Expliquer les quantités conservées dans une permutation.
+  - Calculer une p-valeur bilatérale et distinguer B du nombre de rapports.
+  - Formuler une conclusion conditionnelle aux hypothèses sans causalité ni risque par trajet.
+prerequisites:
+  - Comprendre proportion et tableau croisé.
+  - Lire un histogramme et distinguer différence relative et point de pourcentage.
+  - Exécuter un script R ou utiliser l’outil interactif.
+success_criteria:
+  - Les dénominateurs sont les 82168 rapports en semaine et les 26018 rapports de fin de semaine.
+  - Le mélange conserve le nombre total de rapports et d’accidents avec victimes.
+  - La p-valeur Monte-Carlo utilise (k + 1) / (B + 1), avec les égalités incluses.
+  - La conclusion nomme l’échangeabilité et l’absence de données d’exposition.
+adaptations:
+  - Suivre le parcours sans programmation dans l’application.
+  - Comparer 500, 2000 et 5000 mélanges d’une même suite.
+  - Vérifier la loi hypergéométrique sur un petit tableau et distinguer les conventions bilatérales.
+requires_prepared_data: true
+requires_live_download: false
+prepared_files: [data/processed/rapports-accident/rapports_accident_2022_prepares.csv]
+recommended_use: Comparaison de proportions et discussion des hypothèses d’un test
+result_visible_in_page: true
+status: Calculs et script exécutés; utilisation en classe non documentée
+courses: []
+date_added: '2026-10-03'
+date_updated: '2026-10-03'

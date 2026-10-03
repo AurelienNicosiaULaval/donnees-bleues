@@ -1,3 +1,41 @@
+- id: permutations-accidents-quebec
+  date_added: "2026-10-03"
+  date_updated: "2026-10-03"
+  type: application
+  title: 'Accidents au Québec : comparer par permutation'
+  format: Application Shiny · Shinylive
+  description: Comparer deux proportions d’accidents avec victimes, mélanger les statuts et interpréter un écart et une p-valeur.
+  themes: Transport et sécurité routière
+  concepts: [Proportions, Comparaison de groupes, Tests de permutation, P-valeur, Simulation, R]
+  authors: Aurélien Nicosia
+  contributor: Aurélien Nicosia
+  url: https://donneesbleues.ca/outils/permutations-accidents/
+  code_url: https://github.com/AurelienNicosiaULaval/donnees-bleues/tree/main/applications/permutations-accidents-quebec
+  evidence_url: https://donneesbleues.ca/datasets/rapports-accident/fiche.html
+  courses: []
+  related_datasets: rapports-accident
+  license: 'Données et contenus : CC BY 4.0; code original : MIT.'
+  note: 'Rapports 2022 figés v1.0.0. Échangeabilité globale supposée, sans validation pour ces données administratives. Aucun risque par trajet ni causalité. Utilisation en classe non documentée.'
+
+- id: comprendre-p-valeur
+  date_added: "2026-10-03"
+  date_updated: "2026-10-03"
+  type: document
+  title: Que mesure une p-valeur ?
+  format: Lecture courte · Proportions et permutations
+  description: Relier écart observé, modèle nul et permutations, puis distinguer p-valeur, taille d’effet et risque par trajet.
+  themes: Transport et sécurité routière
+  concepts: [Proportions, Inférence, Tests de permutation, P-valeur, Simulation]
+  authors: Aurélien Nicosia
+  contributor: Aurélien Nicosia
+  url: https://donneesbleues.ca/resources/comprendre-p-valeur.html
+  code_url: https://github.com/AurelienNicosiaULaval/donnees-bleues/blob/main/resources/comprendre-p-valeur.qmd
+  evidence_url: https://donneesbleues.ca/datasets/rapports-accident/fiche.html
+  courses: []
+  related_datasets: rapports-accident
+  license: Texte original CC BY 4.0.
+  note: Lecture liée au parcours des accidents, avec hypothèses explicites et distinction entre description et inférence. Utilisation en classe non documentée.
+
 - id: bootstrap-maisons-quebec
   date_added: "2026-10-03"
   date_updated: "2026-10-03"

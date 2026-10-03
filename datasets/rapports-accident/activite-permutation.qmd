@@ -1,0 +1,149 @@
+---
+title: "Comparer deux proportions par permutation"
+author: Aurélien Nicosia
+page-layout: full
+toc: false
+embed-resources: true
+execute:
+  freeze: false
+  warning: false
+  message: false
+body-classes: hub-page resource-page activity-resource
+---
+
+```{r}
+#| echo: false
+#| results: asis
+source(if (file.exists("R/utils_activity_contract.R")) "R/utils_activity_contract.R" else "../../R/utils_activity_contract.R")
+render_activity_header()
+```
+
+## Préparation enseignante
+
+Prévoir 60 à 90 minutes, durée indicative. Extraire la trousse entière, ouvrir `Donnees-bleues.Rproj`, puis exécuter `installer-packages.R` avant la séance avec Internet. Les rapports 2022 sont inclus; le script fonctionne ensuite hors ligne. L’utilisation en classe n’est pas documentée.
+
+Sans programmation, suivre l’[outil interactif](../../resources/permutations-accidents-quebec.qmd). La [lecture courte](../../resources/comprendre-p-valeur.qmd) prépare l’interprétation d’une p-valeur.
+
+```{r}
+#| echo: false
+#| results: asis
+render_activity_resources()
+```
+
+## Contexte : une question et une population
+
+La question porte sur la présence de victimes parmi les accidents rapportés en semaine et la fin de semaine. Le CSV annuel publié par la SAAQ contient 108 186 rapports pour 2022. Aucun tirage ni retrait de lignes n’est effectué. « Avec victimes » regroupe les gravités « Léger » et « Mortel ou grave ». Les codes `SEM` et `FDS` désignent lundi au vendredi et samedi ou dimanche.
+
+Le dénominateur de chaque proportion est le nombre de rapports du groupe. Sans nombre de trajets ou distance parcourue, ces données ne permettent pas d’estimer le risque d’avoir un accident. Les variables de jour et de gravité sont complètes dans cette version. Les [variables](DICTIONNAIRE.md) et la [méthode](METHODE.md) précisent les contrôles.
+
+L’écart du fichier est descriptif. Pour apprendre un test, on ajoute un modèle nul : à marges fixes, les statuts de victime seraient échangeables entre tous les rapports. Sous ce modèle, il n’y a pas d’association entre groupe de jours et présence de victimes. L’alternative permet une différence dans les deux directions. Cette échangeabilité globale n’est pas établie pour les rapports administratifs; régions, météo, heures et regroupements peuvent intervenir.
+
+## Consignes
+
+1. Exécuter `datasets/rapports-accident/activite-permutation.R`. Il utilise 5 000 permutations, graine 20261003.
+2. Identifier les numérateurs et dénominateurs, puis calculer l’écart fin de semaine moins semaine en points de pourcentage.
+3. Examiner le premier mélange. Vérifier les effectifs de groupes et le total des accidents avec victimes, avant et après.
+4. Lire l’histogramme des écarts simulés sous le modèle nul. Compter les valeurs dont l’écart absolu atteint ou dépasse celui observé.
+5. Calculer `(k + 1)/(B + 1)`. Comparer les 500, 2 000 et 5 000 premiers mélanges et la référence exacte.
+6. Répondre aux six exercices, puis consulter le corrigé. Les tableaux et figures sont enregistrés dans `outputs/`.
+
+```{r}
+#| include: false
+library(knitr)
+metadata <- activity_contract_metadata()
+stage <- tempfile("accidents-permutation-")
+dir.create(stage)
+utils::unzip(activity_project_path(metadata$classroom_archive), exdir = stage)
+ancien <- getwd()
+resultats <- tryCatch({
+  setwd(stage)
+  env <- new.env(parent = globalenv())
+  source(metadata$script_file, local = env, encoding = "UTF-8")
+  env
+}, finally = { setwd(ancien); unlink(stage, recursive = TRUE) })
+s <- resultats$resume
+fmt <- resultats$permutation_format
+pfmt <- resultats$permutation_p_format
+```
+
+## Résultats calculés
+
+```{r}
+#| echo: false
+table <- resultats$resultats$counts
+table$proportion <- 100 * table$proportion
+kable(table[, c("label", "n", "victims", "proportion")], digits = 2,
+  col.names = c("Groupe", "Rapports", "Avec victimes", "Proportion (%)"),
+  format.args = list(big.mark = " ", decimal.mark = ","))
+```
+
+L’écart est de `r fmt(s$difference_pp)` points de pourcentage. Il est calculé avec les proportions non arrondies, puis arrondi pour l’affichage.
+
+```{r}
+#| echo: false
+#| fig-width: 9
+#| fig-height: 5
+#| fig-alt: Deux proportions observées parmi les rapports de 2022, calculées séparément pour la semaine et la fin de semaine.
+resultats$graphique_observe
+```
+
+```{r}
+#| echo: false
+#| fig-width: 9
+#| fig-height: 5
+#| fig-alt: Histogramme des écarts simulés sous le modèle nul, avec les deux seuils du test bilatéral en orange.
+resultats$graphique_permutations
+```
+
+Le trait orange plein donne l’écart observé. Le trait orange pointillé donne le seuil de même amplitude dans l’autre direction. Les barres comptent des permutations. Ici, `r s$extreme` mélanges sur `r s$B` atteignent l’un des seuils. La p-valeur Monte-Carlo vaut `r pfmt(s$p_mc)`.
+
+```{r}
+#| echo: false
+table <- resultats$stabilite[, c("B", "extreme", "p_mc", "resolution", "p_exact")]
+for (name in c("p_mc", "resolution", "p_exact")) table[[name]] <- vapply(table[[name]], pfmt, character(1))
+kable(table, col.names = c("B", "Mélanges extrêmes", "p Monte-Carlo", "Résolution minimale", "p de référence exacte"))
+```
+
+La référence exacte vaut `r pfmt(s$p_exact)` pour le même critère bilatéral. Elle est calculée par la loi hypergéométrique, sans simulation; « exacte » qualifie le calcul sous le modèle, pas sa pertinence pour ces données. Elle conserve les mêmes hypothèses. Le détail avancé figure dans la [méthode](METHODE.md).
+
+## Six exercices
+
+1. Quels sont les numérateurs et dénominateurs des deux proportions ? Que mesure leur différence ?
+2. Dans le premier mélange, quelles quantités restent identiques et quelles quantités peuvent changer ?
+3. Pourquoi compter les valeurs positives et négatives dont l’écart absolu atteint l’écart observé ?
+4. Aucun mélange aussi extrême a-t-il été obtenu ? Peut-on écrire p = 0 ? Que vaut la p-valeur avec B = 5 000 ?
+5. Si B augmente, change-t-on le nombre de rapports ou l’écart observé ? Pourquoi la référence exacte est-elle beaucoup plus petite que la p-valeur simulée ?
+6. Évaluer la phrase : « La fin de semaine cause plus d’accidents et la probabilité que cette conclusion soit fausse est la p-valeur. » Formuler une conclusion acceptable et nommer une hypothèse à discuter.
+
+::: {.callout-note collapse="true"}
+## Corrigé commenté
+
+1. Semaine : `r s$victims_weekday` accidents avec victimes parmi `r s$n_weekday` rapports, soit `r fmt(100 * s$proportion_weekday)` %. Fin de semaine : `r s$victims_weekend` parmi `r s$n_weekend`, soit `r fmt(100 * s$proportion_weekend)` %. Leur différence de `r fmt(s$difference_pp)` points décrit ces rapports, sans mesurer un risque par trajet.
+2. Les groupes restent de tailles 82 168 et 26 018, pour 108 186 rapports. Le total reste 22 498 accidents avec victimes. La répartition des statuts entre groupes peut changer, donc leurs proportions et leur écart aussi.
+3. L’alternative est bilatérale, définie avant le calcul. On utilise la valeur absolue et on inclut les égalités. Le signe indique le sens de la différence observée; il ne transforme pas le test en test unilatéral.
+4. Avec cette graine, `r s$extreme` mélanges sont aussi extrêmes. Le calcul est (`r s$extreme` + 1)/(5 000 + 1), soit `r pfmt(s$p_mc)`. La formule empêche une p-valeur nulle. Zéro mélange extrême renseigne sur la résolution du calcul, sans donner une probabilité exactement nulle.
+5. Les rapports, les proportions et leur différence restent fixes. B contrôle les simulations. Quand les événements extrêmes sont très rares sous le modèle, quelques milliers de mélanges ne les résolvent pas : la p-valeur simulée peut atteindre son plancher. La référence exacte somme directement leurs probabilités et n’a pas ce plancher.
+6. Dans le fichier, la proportion avec victimes est supérieure de `r fmt(s$difference_pp)` points la fin de semaine. Cet écart est peu compatible avec le modèle nul de mélange global. Une généralisation suppose de justifier l’échangeabilité; les effets de contexte et les regroupements ne sont pas contrôlés ici. Les jours ne sont pas affectés aléatoirement et les données d’exposition manquent. La p-valeur n’est ni la probabilité que l’hypothèse nulle soit vraie ni celle que la conclusion soit fausse.
+:::
+
+## Limites à faire nommer
+
+Pour décrire uniquement le CSV publié, le tableau suffit; on n’a pas besoin d’un test pour montrer que ses deux proportions diffèrent. Le test apporte un modèle de référence hypothétique. Une faible p-valeur ne valide pas ce modèle, ne mesure pas l’importance de l’écart et ne supprime pas les différences de contexte entre groupes.
+
+Le rapport d’accident est l’unité. Un accident peut avoir plusieurs victimes; aucune somme du code de dénombrement des victimes n’est utilisée. Pour reproduire les résultats ci-dessus dans l’application, choisir 5 000 permutations et la graine 20261003, puis calculer.
+
+## Code complet et sources
+
+```{r}
+#| echo: false
+#| results: asis
+render_activity_code()
+```
+
+SAAQ, [Rapports d’accident, CSV 2022](https://www.donneesquebec.ca/recherche/dataset/rapports-d-accident), acquis le 3 octobre 2026; [attribution et licence](DATA_LICENSES.md). Phipson et Smyth (2010), [Permutation P-values Should Never Be Zero](https://doi.org/10.2202/1544-6115.1585), pour le calcul Monte-Carlo. R Core Team, [loi hypergéométrique](https://stat.ethz.ch/R-manual/R-devel/library/stats/html/Hypergeometric.html), consultée le 3 octobre 2026, pour la référence à marges fixes. Contenus originaux CC BY 4.0; code MIT.
+
+```{r}
+#| echo: false
+#| results: asis
+render_activity_contract()
+```

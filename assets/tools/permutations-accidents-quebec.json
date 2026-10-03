@@ -1,0 +1,61 @@
+{
+  "version": "1.0.0",
+  "dataset": "rapports-accident",
+  "dataset_version": "1.0.0",
+  "dataset_sha256": "51d155ce9eb66e86689e761518c7900063478834a507482d93f0ad043153d21b",
+  "archive_sha256": "1e901a0fe951a23f5863772c7bb2b44daa6a4c90de3ac08441f8fa8bf7b13b2d",
+  "files": [
+    {
+      "path": "app.R",
+      "sha256": "5bfb0a63a10b22f361dfdc017ad94b8bd761956af21d03fcb46f8beca154067f"
+    },
+    {
+      "path": "check-server.R",
+      "sha256": "b16fd44486653c9e59a388ea62993f4f4f80490d55f9e457aec01b512dcc3fc4"
+    },
+    {
+      "path": "DATA_LICENSES.md",
+      "sha256": "7e17f8bc47cf3c3d5826be528a1a30d0e94d7c2a6d379cf3b933d09384f654ce"
+    },
+    {
+      "path": "data/accidents-quebec-2022.csv",
+      "sha256": "51d155ce9eb66e86689e761518c7900063478834a507482d93f0ad043153d21b"
+    },
+    {
+      "path": "DICTIONNAIRE.md",
+      "sha256": "5d50b3e8f57b83b0f0e7bb0f4928a93811c1a94feba3e3839ce2ebc8140986c3"
+    },
+    {
+      "path": "LICENCE-CONTENUS.md",
+      "sha256": "b3396eb517be1fa273b70fc6ea6be31dc7e9d26b4a14446a1b325d36076fadca"
+    },
+    {
+      "path": "LICENSE",
+      "sha256": "873869a981876d18134a862478c0600e75387e52fbf7dc4769b61850f44b35e3"
+    },
+    {
+      "path": "METHODE.md",
+      "sha256": "aac5f9013df89b1432ac64a0838519a3359ac4177471af00a84e7693098f25c9"
+    },
+    {
+      "path": "R/permutations.R",
+      "sha256": "4282d7e4339837bf756c439b557c0eb546969197d151cc736ae4cf7f24032aee"
+    },
+    {
+      "path": "README.md",
+      "sha256": "3058427afc7491f826cb3ac2e26ffa887daa5b83a0499c8f9accce542605fbc7"
+    },
+    {
+      "path": "www/downloads.js",
+      "sha256": "f1daaaf5aff00dc9accdf9271e1c9f7835aecc007d209bb9749e69e0c72ce751"
+    },
+    {
+      "path": "www/permutations.css",
+      "sha256": "11715d1e891d9170291000fe7f03c51a7089df9de00933ea87b576aac7bc2662"
+    },
+    {
+      "path": "www/rapports-accident.webp",
+      "sha256": "a20613931226c45facfff0443cede22bff15d3b0c0cfe8b58f68df6bfddbd8f1"
+    }
+  ]
+}

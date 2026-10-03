@@ -1,0 +1,90 @@
+---
+title: "Accidents au Québec : comparer par permutation"
+toc: false
+page-layout: full
+embed-resources: true
+execute:
+  freeze: false
+body-classes: hub-page resource-page application-resource
+---
+
+::: {.tool-page}
+[Outils et tutoriels](../applications.qmd) / Accidents au Québec
+
+::: {.tool-hero}
+::: {.tool-hero-copy .resource-detail-header}
+::: {.resource-kind}
+QUÉBEC · SÉCURITÉ ROUTIÈRE · PERMUTATIONS
+:::
+
+```{r}
+#| echo: false
+#| results: asis
+source(if (file.exists("R/utils_resources.R")) "R/utils_resources.R" else "../R/utils_resources.R")
+render_resource_notice_identity("permutations-accidents-quebec")
+```
+
+# Deux proportions, un écart à comprendre
+
+Comparer la présence de victimes parmi les accidents rapportés en semaine et la fin de semaine. Mélanger les statuts, observer les écarts et discuter ce qu’une p-valeur permet de conclure.
+
+::: {.tool-actions}
+[Ouvrir l’application](https://donneesbleues.ca/outils/permutations-accidents/){.dataset-button}
+[Suivre l’activité](../datasets/rapports-accident/activite-permutation.qmd){.dataset-button .secondary}
+:::
+
+::: {.tool-author}
+Créé par [Aurélien Nicosia](../about.qmd#aurélien-nicosia) · Université Laval
+
+Application Shiny · Exécution dans le navigateur.
+:::
+:::
+
+::: {.tool-visual}
+![Scène de circulation routière au Québec](../assets/illustrations/datasets/rapports-accident.webp){fig-alt="Illustration des accidents routiers, reprise de la fiche du jeu de données dans le format du catalogue."}
+
+Illustration créée pour Données bleues. [Crédits et provenance](../credits-images.qmd).
+:::
+:::
+
+::: {.tool-content}
+## Ce que l’on peut faire
+
+- Lire les deux proportions et leur différence en points de pourcentage.
+- Examiner les statuts de victime avant et après un mélange sans remise.
+- Choisir 500, 2 000, 5 000 ou 20 000 permutations avec une graine explicite.
+- Repérer les deux seuils d’un test bilatéral et compter les mélanges aussi extrêmes.
+- Comparer la p-valeur Monte-Carlo à une référence exacte sous le même modèle.
+- Télécharger le graphique, le résumé, les permutations et un script R complet.
+
+Les exports reprennent le dernier calcul affiché. Un message signale les réglages qui attendent une actualisation; cliquer sur « Calculer les permutations » pour les appliquer.
+
+## Commencer
+
+Ouvrir « Proportions observées » et identifier les dénominateurs. Revenir aux permutations : que compte chaque barre ? Ouvrir « Un mélange » pour vérifier ce qui a été conservé. Passer de 500 à 5 000 permutations sans changer la graine, puis comparer la p-valeur et sa résolution minimale.
+
+La [lecture courte](comprendre-p-valeur.qmd) précise l’interprétation. L’[activité avec six exercices corrigés](../datasets/rapports-accident/activite-permutation.qmd) fournit les résultats calculés et les questions pour la classe.
+
+## Utilisation
+
+L’application utilise [Shinylive, par Posit et ses contributeurs](https://posit-dev.github.io/r-shinylive/) sur Données bleues. Le premier chargement télécharge R et ses bibliothèques et peut prendre un moment. Les 108 186 rapports de 2022 sont inclus, avec trois colonnes nécessaires au calcul.
+
+Pour travailler localement, télécharger [l’application complète](../assets/tools/permutations-accidents-quebec.zip), installer les bibliothèques du README et lancer l’application dans RStudio. Pour l’activité R, utiliser la [trousse des accidents](../assets/classroom/rapports-accident.zip), qui contient les données et les trois scripts d’activités dans leur arborescence.
+
+## Interpréter avec soin
+
+La comparaison porte sur les accidents rapportés de chaque groupe. Les nombres de trajets et les distances parcourues manquent : ces proportions ne sont pas des risques d’accident par exposition.
+
+Le modèle nul suppose l’échangeabilité des statuts de victime entre tous les rapports, conditionnellement aux marges. Cette hypothèse n’est pas établie pour ces données administratives. Les régions, la météo, les heures et les regroupements peuvent intervenir. Le parcours sert aussi à apprendre à critiquer les conditions d’un test.
+
+L’écart descriptif existe dans le fichier indépendamment d’un test. Une faible p-valeur indique son incompatibilité avec le modèle choisi; elle ne donne ni une probabilité de causalité, ni la probabilité que l’hypothèse nulle soit vraie. B change le nombre de calculs, sans ajouter d’accidents observés.
+
+## Sources et réutilisation
+
+SAAQ, [Rapports d’accident, CSV 2022](https://www.donneesquebec.ca/recherche/dataset/rapports-d-accident), acquis le 3 octobre 2026; [attribution détaillée](../datasets/rapports-accident/DATA_LICENSES.md), [variables](../datasets/rapports-accident/DICTIONNAIRE.md) et [méthode](../datasets/rapports-accident/METHODE.md).
+
+Phipson et Smyth (2010), [Permutation P-values Should Never Be Zero](https://doi.org/10.2202/1544-6115.1585). R Core Team, [loi hypergéométrique](https://stat.ethz.ch/R-manual/R-devel/library/stats/html/Hypergeometric.html), consultée le 3 octobre 2026. Le critère bilatéral repose sur la valeur absolue de l’écart, égalités incluses.
+
+Données et contenus originaux : CC BY 4.0. Code original : MIT. Utilisation en classe non documentée.
+:::
+:::
