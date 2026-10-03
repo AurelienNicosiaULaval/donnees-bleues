@@ -3,11 +3,11 @@
   "dataset": "maisons-quebec",
   "dataset_version": "1.0.0",
   "dataset_sha256": "e631d863ddc48ef7371a1b9ad5993a0dbccd78c350e5558a9c7396054f886008",
-  "archive_sha256": "35921be597785cfd378754b4ce818352148b2d986096c2701d74bbb9c0cf3518",
+  "archive_sha256": "16a8304b766b6aaac7d4612aca177d8ae225294c70d502ccb735ec4d46914e3d",
   "files": [
     {
       "path": "app.R",
-      "sha256": "8605c3f31848f4cb8f4055a02cbbdd46ea334f0bb43049271bc40d44d4307b0b"
+      "sha256": "7469524b1112fc92953953690f1ea6c327e0b38e30e54ce812f7337869b00c68"
     },
     {
       "path": "check-server.R",
@@ -48,6 +48,10 @@
     {
       "path": "www/bootstrap.css",
       "sha256": "11715d1e891d9170291000fe7f03c51a7089df9de00933ea87b576aac7bc2662"
+    },
+    {
+      "path": "www/downloads.js",
+      "sha256": "9299e4b5f4035eb4b42398766373c56caefacf438d6748698e69d4b605199b7f"
     },
     {
       "path": "www/maisons-quebec.webp",

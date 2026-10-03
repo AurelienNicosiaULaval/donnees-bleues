@@ -24,7 +24,8 @@ export_bootstrap_code <- function(settings, statistic = "mean") {
 
 ui <- fluidPage(
   title = "Bootstrap des maisons à Québec | Données bleues",
-  tags$head(tags$link(rel = "stylesheet", href = "bootstrap.css")),
+  tags$head(tags$link(rel = "stylesheet", href = "bootstrap.css"),
+            tags$script(src = "downloads.js", defer = NA)),
   tags$header(class = "app-header",
     tags$a(class = "brand", href = "https://donneesbleues.ca/", "Données bleues"),
     tags$nav("aria-label" = "Ressources associées",
@@ -69,7 +70,8 @@ ui <- fluidPage(
               tags$pre(textOutput("code", container = tags$code))))),
         tags$div(class = "download-row", downloadButton("plot_download", "Graphique PNG"),
           downloadButton("summary_download", "Résumé CSV"),
-          downloadButton("replicates_download", "Tirages CSV")))),
+          downloadButton("replicates_download", "Tirages CSV")),
+        tags$p(id = "download-status", class = "plot-caption", role = "status"))),
     tags$section(class = "interpretation",
       tags$h2("3. Interpréter"),
       tags$p(textOutput("interpretation", inline = TRUE)),
