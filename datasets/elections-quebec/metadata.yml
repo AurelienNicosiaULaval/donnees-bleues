@@ -1,7 +1,6 @@
 id: elections-quebec
 title: "Élections provinciales au Québec"
 short_title: "Élections du Québec"
-card_image_fit: contain
 summary: "Candidatures de 2026, résultats et participation des scrutins provinciaux antérieurs, partis politiques et cartes électorales. Tables documentées pour explorer les données électorales, leurs jointures et leurs limites."
 observation_period: "Élections générales de 2012, 2014, 2018 et 2022; élections partielles de 2013 à 2026; préparation du scrutin général de 2026"
 source_authors:

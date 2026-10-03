@@ -99,6 +99,15 @@
     "original_sha256": "93aae2cea51c8359fb0a667fbfcca64b5a7d1ecf4177a2e4239c48657a9ec8fd"
   },
   {
+    "id": "elections-quebec",
+    "file": "elections-quebec.webp",
+    "width": 960,
+    "height": 540,
+    "bytes": 72230,
+    "sha256": "f73f5bf5c70f313085c581f20babf64534c8118256a9d8f880130b3e39050539",
+    "original_sha256": "c80bbd91895b9e59c0e75ef7ef77b5e89d73e7953267b1899253d31285d25194"
+  },
+  {
     "id": "emploi-regional-quebec",
     "file": "emploi-regional-quebec.webp",
     "width": 960,

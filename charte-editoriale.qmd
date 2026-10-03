@@ -17,6 +17,12 @@ Une fiche présente les données; une activité précise le travail à réaliser
 - Préciser si la trousse contient les données, des scripts d’acquisition ou seulement de la documentation. Ne pas laisser une restriction déterminante dans un volet fermé.
 - Conserver les attributions, licences et usages en cours documentés. Si un renseignement manque, l’indiquer sans le remplacer par une promesse générale.
 
+## Illustration d’un jeu de données
+
+Chaque nouveau jeu doit avoir une illustration créée avec un outil de génération d’images, y compris lorsque ses données sont hébergées ailleurs. Prendre les autres vignettes du catalogue comme références : illustration éditoriale peinte, texture de papier, palette bleu, turquoise et ivoire, composition horizontale 16:9.
+
+La scène évoque le sujet sans présenter de texte, de logo ou de résultat statistique. Un graphique calculé, une photographie ou une capture d’écran ne remplace pas cette illustration. Consigner l’outil, la date et le prompt exact, ajouter les crédits, puis vérifier le rendu de la vignette avant publication.
+
 ## Activité
 
 - Poser une question précise et décrire une production : tableau, graphique, comparaison ou document à remettre.

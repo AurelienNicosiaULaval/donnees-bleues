@@ -9,6 +9,8 @@ embed-resources: true
 
 Les illustrations des jeux de données ont été créées pour Données bleues avec l’outil de génération d’images d’OpenAI : 31 le 24 septembre 2026, puis celle de « Maisons à Québec » le 2 octobre 2026. Elles évoquent le sujet de chaque jeu de données et ne représentent ni des observations réelles ni des résultats statistiques. La scène de l’Empress of Ireland est une interprétation illustrée du navire.
 
+L’illustration « Élections provinciales au Québec » a été créée le 3 octobre 2026 avec ce même outil. Elle évoque un bureau de vote québécois dans le style de la collection. La scène est fictive et ne représente ni un bureau de vote réel ni des observations ou des résultats du jeu de données.
+
 ## Photographies conservées
 
 Les photographies ci-dessous ont servi aux premières vignettes du catalogue. Leurs fichiers sont conservés; certaines restent utilisées ailleurs sur le site, notamment pour le tutoriel BIXI. Il s’agit de versions recadrées et recompressées en 16:9 de fichiers publiés sur Wikimedia Commons.
@@ -58,7 +60,3 @@ L’ancienne vignette « Maisons à Québec » est un nuage de l’aire d’éta
 La vignette « Arbres du Québec » est un nuage diamètre-hauteur calculé par Aurélien Nicosia à partir du jeu pédagogique [Arbres du Québec, version 1.0.0](https://github.com/AurelienNicosiaULaval/arbres_quebec/releases/tag/v1.0.0). Figure originale sous CC BY 4.0 ; mesures MRNF / PET5 sous CC BY 4.0 et taxonomie VASCAN sous CC0. La vignette est produite par le script `scripts/build_arbres_quebec_card.R`.
 
 La vignette « Demande d’électricité au Québec et température » représente les moyennes quotidiennes de 2024 pour les journées de 24 heures dont toutes les demandes et températures pondérées sont renseignées. Elle est calculée à partir du [jeu assemblé par Julien Miron](https://github.com/JulienMiron/Donnees-hydro/tree/0b048c00002a57c968294a5e956792c4ec610e69), avec le script `scripts/build_hydro_quebec_card.R`. Source de la demande : Hydro-Québec, sous [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/deed.fr). Source des températures : Environnement et Changement climatique Canada, sous la [licence des services de données d’ECCC](https://eccc-msc.github.io/open-data/licence/readme_fr/). Les moyennes quotidiennes sont calculées pour cette figure; elles ne figurent pas dans le CSV horaire.
-
-La vignette « Élections provinciales au Québec » représente la distribution du nombre de candidatures par circonscription dans la dernière capture du 3 octobre 2026. Aurélien Nicosia la calcule avec `scripts/build_elections_quebec_card.R`, à partir du [CSV des candidatures dans sa version examinée](https://github.com/AurelienNicosiaULaval/donnees-bleues-elections-qc/blob/341e671b4a48f4ac13e98144f8a0006952ca7b1d/data/processed/candidates.csv). Les données proviennent d’Élections Québec, sous la [licence des données ouvertes du directeur général des élections](https://www.dgeq.org/licence.html).
-
-Comprend des données ouvertes octroyées sous la licence d’utilisation des données ouvertes du directeur général des élections disponible à l’adresse Web dgeq.org. L’octroi de la licence n’implique aucune approbation par le directeur général des élections de l’utilisation des données ouvertes qui en est faite.
