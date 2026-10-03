@@ -1,5 +1,5 @@
 id: rapports-accident-modele-long
-title: Mini-projet - Modéliser prudemment la gravité des accidents
+title: Mini-projet - Comparer la composition des accidents entre régions
 question: Comment la composition des accidents diffère-t-elle entre régions?
 dataset_id: rapports-accident
 dataset_title: Rapports d'accident
@@ -12,14 +12,14 @@ activity_type:
 - Projet ou tâche longue
 - Étude de cas
 concepts:
-- Nettoyage
-- Modélisation
-- Validation
+- Statistiques descriptives
+- Proportions
+- Comparaison de groupes
 - Communication prudente
 concept_ids:
-- nettoyage
-- modelisation
-- validation
+- statistiques-descriptives
+- proportions
+- comparaison-de-groupes
 - communication-prudente
 context: Transport et sécurité routière
 hook: Sans dénominateur de trafic, les décomptes ne sont pas des risques. Les proportions portent sur les accidents
@@ -28,7 +28,7 @@ materials:
 - Trousse ZIP et projet RStudio
 - Script R complet
 - CSV préparés et provenance
-advanced_math_stats: true
+advanced_math_stats: false
 teacher_notes: Sans dénominateur de trafic, les décomptes ne sont pas des risques. Les proportions portent
   sur les accidents enregistrés dans chaque groupe.
 status: Documentation de source et ressources de classe fournies
@@ -60,4 +60,4 @@ script_file: datasets/rapports-accident/activite-longue.R
 classroom_archive: assets/classroom/rapports-accident.zip
 access_mode: frozen
 date_added: "2026-06-18"
-date_updated: "2026-09-13"
+date_updated: "2026-10-02"

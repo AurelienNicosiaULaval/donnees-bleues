@@ -9,7 +9,7 @@ source_csv_url: "https://www.donneesquebec.ca/recherche/dataset/a80757bd-d442-4d
 license: "Attribution (CC-BY 4.0) selon les métadonnées CKAN vérifiées le 2026-06-21"
 access_date: "2026-06-21"
 geography: "Québec"
-unit: "Mesure horaire de contaminant à une station RSQAQ"
+unit: "Résumé journalier d’un contaminant à une station RSQAQ dans la table de classe"
 data_type: "Table horaire, environnementale, temporelle et multi-contaminants"
 format: "CSV officiel 2025 préparé localement; une ressource CSV par année de 1975 à 2025"
 n_rows: "457 686 lignes horaires dans le CSV 2025; 65 306 résumés journaliers préparés"
@@ -106,6 +106,8 @@ publication:
   reason: Extrait pédagogique limité aux colonnes déclarées; attribution et conditions de la source conservées.
   classroom:
     mode: frozen
+    primary_file: data/processed/qualite-air-horaire/resume_journalier_contaminants_2025.csv
+    primary_label: Résumés journaliers par station et contaminant
     reason: Table de classe limitée aux colonnes déclarées, sans tirage supplémentaire de lignes. Attribution
       et conditions tierces conservées.
     files:
@@ -161,7 +163,7 @@ chart:
   y_label: Concentration moyenne de PM2,5 (µg/m³)
   title: PM2,5 aux jours retenus à Radisson
 date_added: "2026-06-19"
-date_updated: "2026-09-13"
+date_updated: "2026-10-02"
 
 summary: Mesures de contaminants du RSQAQ en 2025, avec des résumés journaliers préparés par station et contaminant.
 

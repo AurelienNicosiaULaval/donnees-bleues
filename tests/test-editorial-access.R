@@ -46,3 +46,37 @@ stopifnot(xml_attr(node, 'data-license') == 'CC BY 4.0',
           editorial_license('CC-BY 4.0, vérifiée le 2026-06-21') == 'CC BY 4.0',
           editorial_license('Aucune licence ouverte explicite') == 'Réutilisation à valider')
 message('Accès, versions, dates et encodage des fiches simplifiées : vérifiés.')
+
+# A dictionary or summary appearing first must not supply the observation count.
+local({
+  expected <- c('budgets-municipaux-quebec' = '1 105 lignes, 31 variables',
+                'pyramides-ages' = '84 lignes, 8 variables',
+                'qualite-air' = '245 lignes, 13 variables',
+                'qualite-air-horaire' = '46 723 lignes, 13 variables')
+  original_context <- dataset_current_context
+  on.exit(assign('dataset_current_context', original_context, envir = .GlobalEnv))
+  for (id in names(expected)) {
+    meta <- yaml::read_yaml(file.path('datasets', id, 'metadata.yml'))
+    receipt <- jsonlite::read_json(paste0('assets/classroom/', id, '.zip.json'))
+    primary <- dataset_primary_kit_table(meta, receipt)
+    reordered <- receipt
+    reordered$tables <- rev(receipt$tables)
+    stopifnot(identical(primary$path, meta$processed_file),
+              identical(primary, dataset_primary_kit_table(meta, reordered)))
+    assign('dataset_current_context', function() list(root = '.',
+      dataset_dir = file.path('datasets', id), relative_root = '../..'), envir = .GlobalEnv)
+    doc <- read_html(paste(capture.output(render_dataset_detail_header()), collapse = '\n'))
+    version <- xml_text(xml_find_first(doc, '//p[@class="dataset-version"]'))
+    stopifnot(grepl(expected[[id]], version, fixed = TRUE),
+              grepl(meta$publication$classroom$primary_label, version, fixed = TRUE))
+    if (id == 'qualite-air-horaire') {
+      unit <- xml_text(xml_find_first(doc, '//dl/div[dt="Une ligne"]/dd'))
+      stopifnot(grepl('Résumé journalier', unit, fixed = TRUE),
+                !grepl('Mesure horaire', unit, fixed = TRUE))
+    }
+    missing <- receipt
+    missing$tables <- Filter(function(table) table$path != primary$path, receipt$tables)
+    stopifnot(inherits(try(dataset_primary_kit_table(meta, missing), silent = TRUE), 'try-error'))
+  }
+})
+message('Tables principales et unités des données distribuées : vérifiées.')

@@ -677,13 +677,29 @@ dataset_kit_receipt <- function(metadata, ctx) {
   if (file.exists(path)) jsonlite::read_json(path) else NULL
 }
 
+# Select the declared observation table independently of the archive entry order.
+dataset_primary_kit_table <- function(metadata, receipt) {
+  if (is.null(receipt) || !length(receipt$tables)) return(NULL)
+  primary_file <- dataset_squish(metadata$publication$classroom$primary_file, '')
+  if (!nzchar(primary_file)) return(receipt$tables[[1L]])
+  paths <- vapply(receipt$tables, function(table) table$path, character(1))
+  match <- which(paths == primary_file)
+  if (length(match) != 1L) {
+    stop('Table principale absente ou ambiguë dans la trousse : ', metadata$id,
+         call. = FALSE)
+  }
+  receipt$tables[[match]]
+}
+
 dataset_version_html <- function(metadata, receipt) {
   escape <- dataset_html_escape
   if (is.null(receipt)) return('')
   parts <- character()
   if (length(receipt$tables)) {
-    table <- receipt$tables[[1L]]
+    table <- dataset_primary_kit_table(metadata, receipt)
     label <- if (receipt$mode == 'documentation') 'Document principal : ' else if (length(receipt$tables) > 1L) 'Table principale : ' else ''
+    table_label <- dataset_squish(metadata$publication$classroom$primary_label, '')
+    if (nzchar(table_label)) label <- paste0(label, table_label, ' · ')
     parts <- c(parts, paste0(label, format(table$rows, big.mark = ' '), ' lignes, ', length(table$columns), ' variables'))
   }
   if (length(metadata$data_version)) parts <- c(parts, paste('Version fixe', metadata$data_version))

@@ -26,6 +26,10 @@ classroom_policy <- function(metadata) {
   }
   paths <- vapply(policy$files, function(file) file$path, character(1))
   if (anyDuplicated(paths)) stop('Fichier de classe déclaré deux fois.', call. = FALSE)
+  if (length(policy$primary_file) &&
+      (length(policy$primary_file) != 1L || !policy$primary_file %in% paths)) {
+    stop('Table principale non déclarée dans la trousse : ', metadata$id, call. = FALSE)
+  }
   for (file in policy$files) {
     prefix <- paste0('data/processed/', metadata$id, '/')
     if (!startsWith(file$path, prefix) || grepl('..', file$path, fixed = TRUE) ||

@@ -105,6 +105,8 @@ publication:
   reason: Extrait pédagogique limité aux colonnes déclarées; attribution et conditions de la source conservées.
   classroom:
     mode: frozen
+    primary_file: data/processed/qualite-air/rsqaq_stations.csv
+    primary_label: Répertoire des stations
     reason: Table de classe limitée aux colonnes déclarées, sans tirage supplémentaire de lignes. Attribution
       et conditions tierces conservées.
     files:
@@ -150,7 +152,7 @@ chart:
   y_label: Milieu d’implantation
   title: Milieux des stations de l’extrait
 date_added: "2026-06-01"
-date_updated: "2026-09-13"
+date_updated: "2026-10-02"
 
 summary: 'Répertoire des stations de mesure de la qualité de l’air du RSQAQ : localisation, type de milieu et dates
   d’ouverture ou de fermeture.'

@@ -103,6 +103,8 @@ publication:
   reason: Extrait pédagogique limité aux colonnes déclarées; attribution et conditions de la source conservées.
   classroom:
     mode: frozen
+    primary_file: data/processed/pyramides-ages/population_pyramides_quebec_canada_latest.csv
+    primary_label: Population par groupe d’âge
     reason: Table de classe limitée aux colonnes déclarées, sans tirage supplémentaire de lignes. Attribution
       et conditions tierces conservées.
     files:
@@ -133,7 +135,7 @@ chart:
   filter:
     geography: Quebec
 date_added: "2026-06-18"
-date_updated: "2026-09-13"
+date_updated: "2026-10-02"
 
 summary: Estimations de population au 1er juillet par territoire, genre et groupe d’âge, avec des tables préparées
   pour comparer le Québec et le Canada.

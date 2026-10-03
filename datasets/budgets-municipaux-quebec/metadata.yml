@@ -108,6 +108,8 @@ publication:
   reason: Extrait pédagogique limité aux colonnes déclarées; attribution et conditions de la source conservées.
   classroom:
     mode: frozen
+    primary_file: data/processed/budgets-municipaux-quebec/profil_financier_municipalites_2025.csv
+    primary_label: Profil financier municipal
     reason: Table de classe limitée aux colonnes déclarées, sans tirage supplémentaire de lignes. Attribution
       et conditions tierces conservées.
     files:
@@ -192,7 +194,7 @@ chart:
   title: Distribution des populations municipales
   bins: 12
 date_added: "2026-06-19"
-date_updated: "2026-09-13"
+date_updated: "2026-10-02"
 
 summary: Profil financier des municipalités locales et agglomérations, avec des indicateurs de richesse foncière
   du rôle d’évaluation de 2025.

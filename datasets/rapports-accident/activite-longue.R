@@ -1,4 +1,4 @@
-# Mini-projet - Modéliser prudemment la gravité des accidents
+# Mini-projet - Comparer la composition des accidents entre régions
 # Ouvrir le projet RStudio de l’archive, puis exécuter ce script.
 # Source : https://www.donneesquebec.ca/recherche/dataset/rapports-d-accident
 # Les données de classe sont figées; ce script ne les télécharge pas.
