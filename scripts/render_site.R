@@ -71,3 +71,5 @@ for (input in site_inputs()) {
 
 source("scripts/build_demonstrations.R", local = TRUE)
 postprocess_site_headings("docs")
+source("R/utils_seo.R")
+postprocess_site_seo("docs")

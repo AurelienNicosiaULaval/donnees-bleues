@@ -25,6 +25,9 @@ html <- sub("<title>Shiny App</title>",
             "<title>Explorer les maisons à Québec | Données bleues</title>",
             html, fixed = TRUE)
 writeLines(html, index, useBytes = TRUE)
+source("R/utils_seo.R")
+postprocess_site_seo("docs", paste0(sub("^docs/", "", destination), "/",
+  list.files(destination, pattern = "[.]html$", recursive = TRUE)))
 files <- list.files(destination, recursive = TRUE, full.names = TRUE)
 receipt <- list(shinylive_version = as.character(packageVersion("shinylive")),
   assets_version = "0.10.12", app_version = "1.0.0",

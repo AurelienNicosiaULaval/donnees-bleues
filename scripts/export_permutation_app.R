@@ -20,6 +20,9 @@ html <- sub('lang="en"', 'lang="fr"', html, fixed = TRUE)
 html <- sub("<title>Shiny App</title>",
   "<title>Accidents au Québec : comparer par permutation | Données bleues</title>", html, fixed = TRUE)
 writeLines(html, index, useBytes = TRUE)
+source("R/utils_seo.R")
+postprocess_site_seo("docs", paste0(sub("^docs/", "", destination), "/",
+  list.files(destination, pattern = "[.]html$", recursive = TRUE)))
 files <- setdiff(list.files(destination, recursive = TRUE, full.names = TRUE),
                  file.path(destination, "publication.json"))
 write_json(list(app_version = "1.0.0", assets_version = "0.10.12",

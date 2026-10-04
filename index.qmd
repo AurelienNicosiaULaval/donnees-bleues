@@ -1,5 +1,7 @@
 ---
 title: "Données bleues"
+page-title: "Données bleues | Jeux de données québécois pour enseigner"
+description: "Jeux de données québécois, activités pédagogiques, documents et tutoriels pour enseigner la statistique, R et la science des données au cégep et à l’université."
 toc: false
 body-classes: hub-page
 page-layout: full

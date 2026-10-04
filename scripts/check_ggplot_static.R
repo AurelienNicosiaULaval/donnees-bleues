@@ -19,7 +19,7 @@ for (file in app) {
 }
 index <- paste(readLines(file.path(destination, "index.html")), collapse = "\n")
 stopifnot(grepl('lang="fr"', index, fixed = TRUE),
-  grepl("ggplot builder | Données bleues", index, fixed = TRUE),
+          grepl("ggplot builder : les arbres du Québec | Données bleues", index, fixed = TRUE),
   grepl("runExportedApp", index, fixed = TRUE),
   file.exists(file.path(destination, "shinylive/webr/R.wasm")))
 receipt <- read_json(file.path(destination, "publication.json"))

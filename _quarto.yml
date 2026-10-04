@@ -62,6 +62,9 @@ website:
   repo-actions: [source, issue]
   search: false
   open-graph: true
+  twitter-card: true
+  image: assets/cards/catalogue.png
+  image-alt: "Illustration du catalogue de ressources Données bleues"
   favicon: favicon.svg
   navbar:
     collapse-below: xl

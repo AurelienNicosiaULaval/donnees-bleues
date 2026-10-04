@@ -35,6 +35,9 @@ html <- sub('lang="en"', 'lang="fr"', html, fixed = TRUE)
 html <- sub("<title>Shiny App</title>", "<title>ggplot builder | Données bleues</title>", html, fixed = TRUE)
 html <- sub("</head>", '<link rel="icon" type="image/svg+xml" href="favicon.svg">\n</head>', html, fixed = TRUE)
 writeLines(html, index, useBytes = TRUE)
+source("R/utils_seo.R")
+postprocess_site_seo("docs", paste0(sub("^docs/", "", destination), "/",
+  list.files(destination, pattern = "[.]html$", recursive = TRUE)))
 stopifnot(file.copy(file.path(app_dir, "www/favicon.svg"),
   file.path(destination, "favicon.svg"), overwrite = TRUE))
 files <- list.files(destination, recursive = TRUE, full.names = TRUE)

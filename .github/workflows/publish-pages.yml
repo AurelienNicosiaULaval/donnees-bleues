@@ -92,6 +92,7 @@ jobs:
           Rscript scripts/export_permutation_app.R
           Rscript scripts/check_permutation_static.R
           node scripts/check_permutation_webr.mjs
+          Rscript scripts/check_seo.R
       - name: Upload validated site for review
         uses: actions/upload-artifact@v4
         with:
