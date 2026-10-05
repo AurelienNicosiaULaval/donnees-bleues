@@ -112,6 +112,7 @@ format:
       - assets/css/resource-identity.css
       - assets/css/editorial.css
     include-before-body: assets/skip-link.html
+    include-in-header: assets/google-site-verification.html
     include-after-body:
       - assets/resource-search.html
       - assets/dataset-download.html
