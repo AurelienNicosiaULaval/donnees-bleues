@@ -32,7 +32,7 @@ news_feed <- xml_new_root("rss", version = "2.0")
 news_channel <- xml_add_child(news_feed, "channel")
 xml_add_child(news_channel, "title", "Actualités de Données bleues")
 xml_add_child(news_channel, "link", url_absolute("actualites.html", news_base_url))
-xml_add_child(news_channel, "description", "Nouveaux jeux de données, mises à jour et pistes pédagogiques.")
+xml_add_child(news_channel, "description", "Jeux de données, pistes pédagogiques, publications et annonces de Données bleues.")
 xml_add_child(news_channel, "language", "fr-ca")
 for (post in news_posts) {
   stopifnot(file.exists(file.path("docs", post$path)))

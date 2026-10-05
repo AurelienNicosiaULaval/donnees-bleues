@@ -1,7 +1,7 @@
 ---
 title: "Actualités"
 page-title: "Actualités des jeux de données québécois | Données bleues"
-description: "Billets sur les nouveaux jeux de données de Données bleues, leurs mises à jour et des pistes pour les explorer et les utiliser en classe."
+description: "Billets, annonces et pistes pédagogiques de Données bleues : nouveaux jeux de données, mises à jour et publications à découvrir."
 toc: false
 page-layout: full
 body-classes: hub-page news-page
@@ -17,22 +17,76 @@ listing:
   image-height: 220px
   max-description-length: 240
   sort-ui: false
-  filter-ui: false
+  filter-ui: true
   page-size: 8
 ---
 
 ::: {.news-intro}
 # Actualités
 
-Les nouveaux jeux de données, leurs mises à jour et des idées pour les explorer en classe.
+Des jeux de données à découvrir, des idées pour la classe et les nouvelles de Données bleues.
 
-Chaque billet présente un sujet et renvoie vers la fiche du jeu pour les fichiers, les sources et les précautions d’utilisation.
+Retrouvez ici les nouveaux jeux, leurs mises à jour, nos publications et les annonces du projet. Recherchez un sujet, un titre ou une catégorie dans les billets.
 :::
 
 ::: {.news-list}
 ::: {#billets}
 :::
 :::
+
+```{=html}
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const nativeInput = document.querySelector('#listing-billets .quarto-listing-filter input');
+  const listing = window['quarto-listings']?.['listing-billets'];
+  if (!nativeInput || !listing) return;
+  // Conserver la pagination native, avec une recherche qui accepte les accents
+  // omis et inclut les catégories lisibles dans chaque encadré.
+  const search = nativeInput.cloneNode(true);
+  nativeInput.replaceWith(search);
+  search.classList.remove('search');
+  search.type = 'search';
+  search.id = 'news-search';
+  search.setAttribute('aria-label', 'Rechercher dans les billets');
+  search.setAttribute('placeholder', 'Rechercher un billet…');
+  const label = document.createElement('label');
+  label.htmlFor = search.id;
+  label.className = 'news-search-label';
+  label.textContent = 'Rechercher dans les billets';
+  search.closest('.quarto-listing-filter').before(label);
+  const normalize = text => text.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLocaleLowerCase('fr');
+  const texts = new Map(listing.items.map(item => [item, normalize(item.elm.textContent)]));
+  const status = document.createElement('p');
+  status.className = 'news-search-status';
+  status.setAttribute('role', 'status');
+  status.setAttribute('aria-live', 'polite');
+  search.closest('.listing-actions-group').after(status);
+  const updateStatus = () => {
+    const count = listing.matchingItems.length;
+    status.textContent = `${count} billet${count > 1 ? 's' : ''} sur ${listing.items.length}`;
+  };
+  const applySearch = () => {
+    const terms = normalize(search.value).trim().split(/\s+/).filter(Boolean);
+    listing.search(search.value, () => {
+      listing.items.forEach(item => { item.found = terms.every(term => texts.get(item).includes(term)); });
+    });
+    updateStatus();
+  };
+  search.addEventListener('input', applySearch);
+  document.querySelectorAll('#listing-billets .listing-category').forEach(badge => {
+    badge.setAttribute('role', 'button');
+    badge.setAttribute('tabindex', '0');
+    badge.setAttribute('aria-label', `Rechercher la catégorie ${badge.textContent}`);
+    badge.onclick = () => { search.value = badge.textContent; applySearch(); search.focus(); return false; };
+    badge.addEventListener('keydown', event => {
+      if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); badge.click(); }
+    });
+  });
+  listing.on('updated', updateStatus);
+  updateStatus();
+});
+</script>
+```
 
 ::: {.news-footer}
 [Explorer tous les jeux de données](catalogue.qmd) · [Suivre les billets par RSS](actualites.xml)

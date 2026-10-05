@@ -43,7 +43,7 @@ seo_tool_notices <- c(
 
 seo_root_descriptions <- c(
   "index.html" = "Jeux de données québécois, activités pédagogiques, documents et tutoriels pour enseigner la statistique, R et la science des données au cégep et à l’université.",
-  "actualites.html" = "Billets sur les nouveaux jeux de données de Données bleues, leurs mises à jour et des pistes pour les explorer et les utiliser en classe.",
+  "actualites.html" = "Billets, annonces et pistes pédagogiques de Données bleues : nouveaux jeux de données, mises à jour et publications à découvrir.",
   "catalogue.html" = "Explorez les jeux de données du Québec par thème, source et concept statistique. Consultez les fiches, les conditions de réutilisation et les ressources de classe.",
   "ressources.html" = "Recherchez les jeux de données, activités, documents, outils et tutoriels de Données bleues par thème, auteur ou source et cours d’utilisation.",
   "activites.html" = "Choisissez une activité de statistique ou de programmation R avec des données québécoises selon les concepts, les prérequis et la durée de la séance.",

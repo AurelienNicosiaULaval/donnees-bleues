@@ -5,7 +5,15 @@
 .news-intro > p:first-of-type {font-size: 1.15rem; line-height: 1.6;}
 .news-intro > p:last-of-type {color: #42576a;}
 .news-list .quarto-listing, .home-news .quarto-listing {margin-block: 1rem;}
-.news-list .quarto-post, .home-news .quarto-post {border-color: #cadce5; padding-block: 1.5rem; gap: 1.5rem;}
+.news-list .list.quarto-listing-default > div.quarto-post, .home-news .list.quarto-listing-default > div.quarto-post {border: 1px solid #bdd3de; border-radius: 14px; background: #fff; padding: clamp(1.1rem, 2.5vw, 1.75rem); margin-block: 0 1.5rem; gap: 1.5rem; box-shadow: 0 3px 12px rgb(23 64 89 / 5%);}
+.news-list .quarto-listing-default {padding: 0;}
+.news-list .listing-actions-group {display: block;}
+.news-list .quarto-listing-filter {max-width: 36rem; width: 100%; margin-left: 0; margin-bottom: 1.5rem;}
+.news-list .quarto-listing-filter input {min-height: 2.9rem; border-color: #9dbbc9; background: #fff; font-size: 1rem;}
+.news-search-label {display: block; width: 100%; color: var(--db-ink); font-weight: 600; margin-bottom: .5rem;}
+.news-search-status {color: #42576a; font-size: .9rem; margin-block: -.75rem 1.25rem;}
+.news-list .listing-category[role="button"] {cursor: pointer;}
+.news-list .listing-no-matching {padding: 1.25rem; border: 1px solid #bdd3de; border-radius: 10px; background: #fff;}
 .news-list .listing-title, .home-news .listing-title {font-family: var(--db-serif); font-size: clamp(1.45rem, 2.5vw, 1.9rem); line-height: 1.25;}
 .news-list .listing-title a, .home-news .listing-title a {color: var(--db-ink);}
 .news-list .listing-description, .home-news .listing-description {line-height: 1.6; max-width: 72ch;}
@@ -25,7 +33,44 @@
 .news-article-body {max-width: 78ch; margin-inline: auto;}
 .news-article-body p {line-height: 1.75;}
 .news-article-body h2 {margin-top: 2rem;}
+.news-comparator {max-width: 1040px; margin: 1.5rem auto 2rem; border: 1px solid #b9cfda; border-radius: 16px; overflow: hidden; background: #fff; box-shadow: 0 4px 16px rgb(23 64 89 / 5%);}
+.comparison-controls {padding: 1.1rem 1.25rem; background: #eef5f8; border-bottom: 1px solid #c5d9e3;}
+.comparison-views {display: flex; flex-wrap: wrap; gap: .5rem; margin-bottom: .85rem;}
+.comparison-views button {border: 1px solid #aac5d3; border-radius: 999px; background: #fff; color: #164b66; padding: .45rem .9rem; font-size: .9rem;}
+.comparison-views button[aria-pressed="true"] {background: #164b66; color: #fff; border-color: #164b66;}
+.comparison-differences {display: flex; align-items: center; gap: .5rem; font-size: .9rem; color: #294b61;}
+.comparison-differences input {width: 1rem; height: 1rem; accent-color: #164b66;}
+.comparison-scroll {overflow-x: auto;}
+.news-comparator table {width: 100%; min-width: 37rem; margin: 0; border-collapse: collapse; table-layout: fixed; font-size: .95rem; line-height: 1.55;}
+.news-comparator caption {caption-side: top; padding: 1rem 1.25rem; color: #42576a; text-align: left; font-size: .9rem;}
+.news-comparator th, .news-comparator td {padding: .95rem 1.25rem; border-bottom: 1px solid #d7e3e9; vertical-align: top;}
+.news-comparator thead th {width: 36%; padding-block: 1.75rem; background: #f8fbfc; border-top: 4px solid #c5d9e3;}
+.news-comparator thead th:first-child {width: 28%; background: #fff; border-top-color: transparent; color: #42576a; font-weight: 400; vertical-align: bottom;}
+.news-comparator thead th:nth-child(2) {background: #e9f4f7; border-top-color: #287c97;}
+.news-comparator td:nth-child(2) {background: #f4f9fb;}
+.news-comparator td + td, .news-comparator thead th + th {border-left: 1px solid #d7e3e9;}
+.news-comparator tbody th {font-weight: 500; color: #42576a;}
+.comparison-kicker, .comparison-version, .comparison-product {display: block;}
+.comparison-kicker {font-size: .75rem; text-transform: uppercase; letter-spacing: .06em; color: #35677e; margin-bottom: .55rem;}
+.comparison-product {font-family: var(--db-serif); font-size: clamp(1.35rem, 2.4vw, 2rem); line-height: 1.2; color: var(--db-ink); font-weight: 600; min-height: 2.5em;}
+.comparison-version {color: #42576a; font-size: .85rem; font-weight: 400; margin: .75rem 0 1rem;}
+.comparison-action {display: inline-block; background: #164b66; color: #fff; border-radius: 999px; padding: .4rem .8rem; font-size: .85rem; font-weight: 400; text-decoration: none;}
+.comparison-action:hover {background: #0d354a; color: #fff;}
+.comparison-figure {font-size: 1.35rem; font-weight: 600; color: #164b66; font-variant-numeric: tabular-nums;}
+.comparison-group th {background: #eef5f8; color: #164b66 !important; font-size: .85rem; font-weight: 600 !important; text-transform: uppercase; letter-spacing: .04em; padding-block: .55rem;}
+.comparison-status {margin: 0; padding: .85rem 1.25rem; color: #42576a; font-size: .85rem;}
+.news-comparison-note {font-size: .9rem; color: #42576a;}
+.news-takeaway {border-left: 4px solid #2a7897; background: #eaf3f7; border-radius: 0 10px 10px 0; padding: 1rem 1.25rem; margin-block: 1.5rem;}
+.news-takeaway p:last-child {margin-bottom: 0;}
 @media (max-width: 767.98px) {
+  .news-comparator table {min-width: 0;}
+  .news-comparator th, .news-comparator td {padding: .8rem .55rem; font-size: .85rem; overflow-wrap: anywhere;}
+  .comparison-product {font-size: 1.2rem; min-height: 3.6em;}
+  .comparison-kicker {font-size: .65rem;}
+  .comparison-version {font-size: .75rem; min-height: 3em;}
+  .comparison-action {font-size: .75rem; padding: .4rem .6rem;}
+  .news-comparator .comparison-figure {font-size: 1.1rem;}
+  .comparison-controls {padding-inline: 1rem;}
   .news-article-hero {grid-template-columns: minmax(0, 1fr); margin-bottom: 2rem;}
   .news-list .quarto-post, .home-news .quarto-post {flex-wrap: wrap; gap: 1rem;}
   .news-list .quarto-post .thumbnail, .home-news .quarto-post .thumbnail {flex: 0 0 100%; order: 0;}

@@ -89,11 +89,11 @@ La disponibilité technique d’une trousse n’établit pas son efficacité pé
 
 ## Billets et actualités
 
-La page `actualites.qmd` rassemble les billets `resources/billet-*.qmd`, du plus récent au plus ancien. L’accueil affiche automatiquement le dernier billet. Un flux RSS est généré dans `actualites.xml`.
+La page `actualites.qmd` rassemble les billets `resources/billet-*.qmd`, du plus récent au plus ancien, dans des encadrés distincts avec une recherche par mots-clés. Elle accueille aussi les annonces et les publications particulières du projet; les catégories restent libres. L’accueil affiche automatiquement le dernier billet. Un flux RSS est généré dans `actualites.xml`.
 
 Pour ajouter un billet, créer sa page dans `resources/` avec un nom commençant par `billet-`. Renseigner `title`, `description`, `author`, `date` au format `AAAA-MM-JJ`, `categories`, `image`, `image-alt` et `embed-resources: true` dans le YAML. Reprendre la structure de `resources/billet-elections-quebec-2026.qmd` et référencer l’illustration existante du jeu lorsque le billet lui est consacré.
 
-Ajouter sa notice de type `document` à `data/metadata/ressources.yml` et appeler `render_resource_notice_identity()` dans l’en-tête. Le billet apparaît ainsi dans les lectures et dans la recherche commune. Séparer la date du billet, les dates de la notice et la date de consultation des données; citer une version fixe pour les nombres issus d’un fichier évolutif. Une annonce de diffusion ne prouve pas l’intégration de nouveaux résultats au dépôt.
+Ajouter sa notice de type `document` à `data/metadata/ressources.yml` et appeler `render_resource_notice_identity()` dans l’en-tête. Le billet apparaît ainsi dans les lectures et dans la recherche commune. Séparer la date du billet, les dates de la notice et la date de consultation des données; citer une version fixe pour les nombres issus d’un fichier évolutif. Un billet rétrospectif peut reprendre la date d’ajout du jeu, en l’indiquant dans son texte; sa notice conserve la date réelle de création. Une annonce de diffusion ne prouve pas l’intégration de nouveaux résultats au dépôt.
 
 Rendre le site avec `scripts/render_site.R`, puis lancer `scripts/check_site.R`. Vérifier le classement, la carte d’accueil, le billet, le flux RSS et les liens sur une fenêtre étroite avant la publication.
 
