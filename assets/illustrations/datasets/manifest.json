@@ -295,5 +295,14 @@
     "bytes": 85970,
     "sha256": "f4b4a9f4844088830f46768fe71b0f13974f69b42163d8f9226ed7f035608d27",
     "original_sha256": "674603c6d773b419d959848925317c9c981cae28098c8cd926db8e6d437f270c"
+  },
+  {
+    "id": "camps-de-jour-quebec",
+    "file": "camps-de-jour-quebec.webp",
+    "width": 960,
+    "height": 540,
+    "bytes": 141890,
+    "sha256": "5723ff737a1d9149ef1bdf13a1cc818f205fc4edec9f531cf2996fe2a9bbb5f0",
+    "original_sha256": "b75add58934afaca0b3249330761cfa1ba1d50aa66d9e6a73050f0cee3f2ceb6"
   }
 ]

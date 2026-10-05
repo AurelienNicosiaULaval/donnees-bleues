@@ -1,0 +1,17 @@
+programme_id,composante,multiplicateur,tarif_id,variante,montant_min,montant_max,devise,montant_source,maximum_source,periode,base_facturation,residence,rang_min,rang_max,famille_min,famille_max,statut_unite,condition,preuve_id
+levis_municipal,camp_garde,4,T0061,general,119,119,CAD,119 $,119 $,semaine,enfant,resident,,,,,explicite,"Garde, activités, matériel et chandail inclus; aucune journée à l'unité.",P0119
+rimouski_municipal,camp,4,T0001,general,48.75,48.75,CAD,"48,75 $","48,75 $",semaine,enfant,resident,1,1,,,explicite,Enfants à la même adresse; forfait saison de sept semaines.,P0059
+rimouski_municipal,garde,4,T0017,general,44.5,44.5,CAD,"44,50 $","44,50 $",semaine,enfant,resident,1,1,,,explicite,Enfants à la même adresse; forfait saison de sept semaines.,P0075
+gatineau_municipal,camp_garde,4,T0073,general,138,138,CAD,138 $,138 $,semaine,enfant,resident,,,,,explicite,,P0131
+trois_rivieres_municipal,camp_garde,4,T0063,general,80,80,CAD,80 $,80 $,semaine,enfant,resident,1,1,,,explicite,Service de garde inclus.,P0121
+victoriaville_municipal,camp,4,T0076,general,60,60,CAD,60$,60$,semaine,enfant,resident,1,1,,,explicite,Parcs d'animation; également Saint-Christophe-d'Arthabaska; Club Ados hors périmètre du pilote.,P0134
+victoriaville_municipal,garde,4,T0082,general,20,20,CAD,20$,20$,semaine,enfant,resident,,,,,explicite,,P0140
+victoriaville_municipal,dossier,1,T0083,general,20,20,CAD,20$,20$,inscription,enfant,resident,,,,,explicite,,P0141
+la_malbaie_municipal,camp,4,T0045,general,82,82,CAD,82$,82$,semaine,enfant,resident,1,1,,,explicite,25 CAD supplémentaires pour une inscription tardive.,P0103
+la_malbaie_municipal,garde,4,T0047,general,33,33,CAD,33$,33$,semaine,enfant,resident,1,1,,,explicite,25 CAD supplémentaires pour une inscription tardive.,P0105
+sherbrooke_actifamille,camp,4,T0084,meli_melo,60,60,CAD,60 $,60 $,semaine,enfant,resident,,,,,explicite,,P0142
+sherbrooke_actifamille,activites,4,T0085,meli_melo,10,18,CAD,10$,18$,semaine,enfant,resident,,,,,explicite,,P0143
+sherbrooke_actifamille,autobus,4,T0086,meli_melo,11,11,CAD,11$,11$,semaine,enfant,resident,,,,,contextuelle,La phrase le rattache au supplément hebdomadaire; fréquence à reconfirmer au gestionnaire.,P0144
+sherbrooke_actifamille,garde,4,T0088,general,16.75,16.75,CAD,16.75 $,16.75 $,semaine,enfant,resident,,,,,explicite,,P0146
+sherbrooke_actifamille,garde_etendue_pm,4,T0089,general,12,12,CAD,12 $,12 $,semaine,enfant,resident,,,,,explicite,,P0147
+sherbrooke_actifamille,dossier,1,T0087,general,35,35,CAD,35$,35$,inscription,enfant,resident,,,,,explicite,"Payable une fois, peu importe le nombre de semaines.",P0145

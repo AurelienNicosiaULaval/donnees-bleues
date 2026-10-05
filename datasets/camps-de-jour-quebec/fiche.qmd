@@ -1,0 +1,77 @@
+---
+title: "Camps de jour au Québec"
+page-layout: full
+toc: false
+embed-resources: true
+body-classes: hub-page resource-page dataset-resource
+execute:
+  freeze: false
+---
+
+```{r}
+#| label: dataset-detail-header
+#| echo: false
+#| results: asis
+source(if (file.exists("R/utils_dataset_page.R")) "R/utils_dataset_page.R" else "../../R/utils_dataset_page.R")
+render_dataset_detail_header()
+```
+
+## Tables de la compilation
+
+Les prix sont publiés tantôt à la semaine, tantôt pour l'été, par enfant ou par famille. Les tables conservent ces distinctions et relient chaque observation à sa source. Elles décrivent dix programmes, et non l'ensemble des camps de chaque municipalité. Le [dictionnaire](downloads/20261005T182735Z/DICTIONNAIRE.md) précise les clés et les valeurs manquantes.
+
+```{r}
+#| echo: false
+#| results: asis
+library(jsonlite)
+library(knitr)
+racine <- if (file.exists("datasets/camps-de-jour-quebec/metadata.yml")) "." else "../.."
+manifest <- read_json(file.path(racine, "datasets/camps-de-jour-quebec/downloads/20261005T182735Z/manifest_publication.json"))
+tableaux <- do.call(rbind, lapply(manifest$tables, function(t) data.frame(
+  Fichier = paste0("[", t$file, "](downloads/20261005T182735Z/", t$file, ")"),
+  Lignes = t$rows, Colonnes = length(t$columns))))
+cat(knitr::kable(tableaux), sep = "\n")
+```
+
+La trousse proposée en haut de la fiche contient ces huit tables, le script d'activité, le dictionnaire et les notices de provenance. Les [empreintes des CSV](downloads/20261005T182735Z/empreintes.csv) et le [manifeste de la version](downloads/20261005T182735Z/manifest_publication.json) permettent de vérifier les fichiers. Les modalités de réutilisation sont décrites dans la [notice des droits](downloads/20261005T182735Z/DATA_LICENSE.md).
+
+## Lire les tarifs
+
+| Champs | Lecture |
+|---|---|
+| `programme_id`, `variante`, `composante` | Programme couvert, variante et service facturé. Un programme peut avoir plusieurs lignes de prix. |
+| `montant_min`, `montant_max`, `devise` | Prix affiché ou bornes de la fourchette publiée, en dollars canadiens. |
+| `periode`, `base_facturation` | Semaine, saison, jour ou frais ponctuel; par enfant, famille ou inscription. |
+| `residence`, `rang_min`, `rang_max` | Catégorie de résidence et rang de l'enfant. Une borne maximale vide avec un rang minimal renseigné signifie « et suivants ». |
+| `famille_min`, `famille_max` | Taille de famille, distincte du rang d'enfant. |
+| `statut_unite`, `condition` | Unité explicite, contextualisée ou à confirmer; restriction d'application. |
+| `preuve_id` | Jointure vers la source, sa date de collecte et sa localisation dans l'instantané. |
+
+À Tingwick, les 300 CAD pour deux enfants sont le prix de la famille pour l'été. Au CCA de Victoriaville, les 15,50 CAD par jour s'appliquent à chaque enfant d'une famille de deux enfants. Ces deux catégories ne sont pas des tarifs du deuxième enfant. [Municipalité de Tingwick, formulaire 2026](https://www.tingwick.ca/fr/activites-loisirs-et-tourisme/camp-de-jour-53735/formulaire-camp-de-jour/), [Ville de Victoriaville, animation estivale 2026](https://victoriaville.ca/inscriptions-sports-loisirs-et-camps-de-jour/animation-estivale-de-la-ville), consultations du 5 octobre 2026.
+
+## Construction et contrôles
+
+La compilation provient de quatorze pages publiques capturées le 5 octobre 2026. La collecte était automatisée, puis les observations ont été transcrites après lecture; les cellules tarifaires de Rimouski et de La Malbaie ont été extraites directement des tableaux HTML. Les numéros de lignes, cellules et empreintes des instantanés sont conservés dans `preuves.csv`. Les documents originaux restent auprès de leurs producteurs; les téléchargements contiennent la compilation structurée.
+
+Le [script de préparation](https://github.com/AurelienNicosiaULaval/donnees-bleues/blob/main/datasets/camps-de-jour-quebec/preparation.R) contrôle les empreintes et le schéma de cette version figée. Le [script de l'activité](https://github.com/AurelienNicosiaULaval/donnees-bleues/blob/main/datasets/camps-de-jour-quebec/activite-comparer-couts.R) refait les sommes à partir des tarifs et des multiplicateurs. Les clés, jointures, bornes et fichiers distribués sont vérifiés. Cette préparation ne reconstitue pas les archives historiques à partir de pages qui auraient changé.
+
+Les pages de Lévis, Gatineau et Victoriaville gardent des références d'âge au 30 septembre 2025. La base les conserve sans les remplacer par 2026. Le millésime du tarif de Gatineau est contextualisé par les dates de paiement 2026 présentes dans la page. La garde saisonnière du troisième enfant résident à Rimouski reste à 105 CAD, même si le prix hebdomadaire affiché est 21,75 CAD. Ces points se retrouvent dans `qualite.csv` et dans les [sources référencées](downloads/20261005T182735Z/sources.csv).
+
+## Comparer un besoin de garde
+
+Le scénario additionne les composantes connues pour un premier enfant résident de sept ans, quatre semaines ordinaires de cinq jours, avec une couverture de 7 h 30 à 17 h 30. Il exclut les sorties facultatives, les aides, les crédits fiscaux et les pénalités. Les montants sont des sous-totaux de prix affichés; les taxes et frais non mentionnés ne sont pas supposés nuls. Le calcul ne recherche pas le forfait d'achat le moins cher.
+
+Acti-Famille donne une fourchette conditionnelle : l'autobus est supposé facturé chaque semaine et les deux gardes sont cumulées. Québec manque du prix des services complémentaires hors de l'horaire 8 h à 17 h. Le CCSP ne précise pas la durée facturée à côté des montants du camp, et le formulaire de Tingwick ne documente pas l'horaire quotidien ni la garde. Les cas non calculables restent présents dans `scenario.csv`.
+
+La sélection ne permet pas d'estimer un prix moyen provincial, une proportion de familles exclues ou un effet causal des politiques municipales. Les scores pédagogiques de la fiche sont une appréciation éditoriale du potentiel de cette activité; aucun usage en classe n'est documenté. Le pilote ne fournit pas de cadre d'échantillonnage pour l'inférence ni la modélisation.
+
+## Sources et attribution
+
+Les municipalités et organismes cités dans le [catalogue des sources](downloads/20261005T182735Z/sources.csv) produisent les informations d'origine. La compilation, la normalisation, les calculs et la documentation ont été préparés pour Données bleues. Les pages concernent l'été 2026; une date de consultation ne transforme pas ces prix en offres ou places disponibles aujourd'hui.
+
+```{r}
+#| label: dataset-detail-footer
+#| echo: false
+#| results: asis
+render_dataset_detail_footer()
+```

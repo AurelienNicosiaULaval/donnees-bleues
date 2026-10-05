@@ -1,0 +1,254 @@
+id: camps-de-jour-quebec
+title: Camps de jour au Québec
+short_title: Camps de jour
+summary: Tarifs, horaires et conditions d'accès de dix programmes de camps de jour.
+  Compilation de pages publiques pour comparer les unités de facturation, les frais
+  de garde et les informations manquantes.
+observation_period: Été 2026; sources consultées le 5 octobre 2026
+source_authors:
+- Ville de Québec
+- Ville de Lévis
+- Ville de Rimouski
+- Ville de Gatineau
+- Ville de Trois-Rivières
+- Ville de Victoriaville
+- Ville de La Malbaie
+- Loisirs Acti-Famille
+- Centre communautaire Saint-Pierre
+- Ville de Drummondville
+- Municipalité de Tingwick
+theme: Loisirs et accès aux services
+source_name: Pages municipales et de gestionnaires; compilation par Données bleues
+source_url: https://github.com/AurelienNicosiaULaval/donnees-bleues/tree/main/datasets/camps-de-jour-quebec
+download_url: https://donneesbleues.ca/datasets/camps-de-jour-quebec/downloads/20261005T182735Z/tarifs.csv
+download_label: Télécharger les tarifs 2026 (CSV)
+download_filename: tarifs-camps-de-jour-quebec-2026.csv
+license: 'Compilation, documentation et activité originales : CC BY 4.0; code original
+  : MIT. Les contenus des sources municipales et des gestionnaires conservent leurs
+  conditions propres. Les pages intégrales ne sont pas incluses dans les téléchargements.'
+access_date: '2026-10-05'
+geography: Dix municipalités québécoises; un seul gestionnaire à Sherbrooke et à Drummondville
+unit: 'CSV principal : un tarif par programme, composante, période et catégorie; le
+  grain des autres tables est documenté'
+data_type: Tables relationnelles de tarifs et de conditions publiques
+format: CSV UTF-8, dictionnaire Markdown, provenance JSON et trousse ZIP
+n_rows: 108 lignes dans le CSV des tarifs; dix programmes; huit tables documentées
+n_cols: 19 colonnes dans le CSV des tarifs
+data_version: 20261005T182735Z
+processed_file: data/processed/camps-de-jour-quebec/tarifs.csv
+update_frequency: Pilote figé; une nouvelle édition exige une nouvelle collecte et
+  une révision des sources
+level: Introduction à intermédiaire
+level_ids:
+- introduction
+- intermediaire
+concepts:
+- Unité statistique
+- Clés de jointure
+- Format long
+- Valeurs manquantes
+- Statistiques descriptives
+- Reproductibilité
+concept_ids:
+- unite-statistique
+- cles-de-jointure
+- format-long
+- valeurs-manquantes
+- statistiques-descriptives
+- reproductibilite
+variables_principales:
+- programme_id
+- composante
+- montant_min
+- montant_max
+- periode
+- base_facturation
+- residence
+- preuve_id
+search_aliases:
+- camp de jour
+- camps d'été
+- frais de garde
+- budget familial
+- tarifs municipaux
+zero_waste:
+  contexte_quebecois: 3
+  accessibilite_pedagogique: 2
+  qualite_documentaire: 2
+  potentiel_nettoyage: 3
+  potentiel_visualisation: 2
+  potentiel_statistique_descriptive: 3
+  potentiel_inference: 0
+  potentiel_modelisation: 0
+  potentiel_ethique: 3
+  reutilisabilite: 2
+contributor_name: Aurélien Nicosia
+contributor_role: Compilation des sources, structuration, documentation et préparation
+  pédagogique
+courses: []
+stt1100_contact: no
+status: Pilote 2026 vérifié; couverture partielle et points à confirmer documentés
+essential_limits:
+- Dix programmes sélectionnés, sans échantillonnage représentatif. Sherbrooke couvre
+  Acti-Famille et Drummondville le CCSP uniquement.
+- Les prix à la semaine, pour la saison, par enfant et par famille restent distincts;
+  les champs manquants ne valent pas zéro.
+- Le scénario donne six sous-totaux documentés, un calcul conditionnel et trois cas
+  non calculables. Les taxes et certains frais restent inconnus.
+- 'Sources rétrospectives de 2026 : les places disponibles, l''accompagnement accordé
+  et les dépenses réellement payées ne sont pas observés.'
+table_overview:
+  Programmes et conditions: 10 programmes; 59 faits documentés et 44 champs non documentés
+  Tarifs: 108 lignes, 19 colonnes; catégories de résidence, rang d'enfant et taille
+    de famille distincts
+  Provenance: 166 preuves reliées à 14 pages sources, avec dates de collecte et empreintes
+  Calcul et qualité: 10 lignes de scénario, 16 composantes de calcul et 8 points de
+    qualité
+publication:
+  preview: yes
+  reason: Publication autorisée de la compilation structurée de faits tarifaires publics,
+    avec provenance et conditions; aucune information individuelle sur les enfants
+    ou familles.
+  reviewed_on: '2026-10-05'
+  license_url: https://github.com/AurelienNicosiaULaval/donnees-bleues/blob/main/datasets/camps-de-jour-quebec/DATA_LICENSE.md
+  preview_columns:
+  - tarif_id
+  - programme_id
+  - composante
+  - montant_min
+  - montant_max
+  - periode
+  - base_facturation
+  - residence
+  - preuve_id
+  classroom:
+    mode: frozen
+    reason: Huit tables figées du pilote 2026; script d'analyse hors ligne, dictionnaire
+      et conditions. Les archives intégrales des pages ne sont pas redistribuées.
+    primary_file: data/processed/camps-de-jour-quebec/tarifs.csv
+    primary_label: tarifs
+    notices:
+    - datasets/camps-de-jour-quebec/DATA_LICENSE.md
+    - datasets/camps-de-jour-quebec/DICTIONNAIRE.md
+    - datasets/camps-de-jour-quebec/README.md
+    files:
+    - path: data/processed/camps-de-jour-quebec/programmes.csv
+      columns:
+      - programme_id
+      - municipalite
+      - edition
+      - territoire
+      - type
+      - libelle
+      - portee
+    - path: data/processed/camps-de-jour-quebec/faits.csv
+      columns:
+      - programme_id
+      - variable
+      - valeur
+      - unite
+      - condition
+      - preuve_id
+      - statut
+    - path: data/processed/camps-de-jour-quebec/tarifs.csv
+      columns:
+      - tarif_id
+      - programme_id
+      - variante
+      - composante
+      - montant_min
+      - montant_max
+      - devise
+      - montant_source
+      - maximum_source
+      - periode
+      - base_facturation
+      - residence
+      - rang_min
+      - rang_max
+      - famille_min
+      - famille_max
+      - statut_unite
+      - condition
+      - preuve_id
+    - path: data/processed/camps-de-jour-quebec/scenario.csv
+      columns:
+      - programme_id
+      - montant_min
+      - montant_max
+      - tarifs_utilises
+      - municipalite
+      - statut
+      - reserve
+      - devise
+      - scenario_id
+    - path: data/processed/camps-de-jour-quebec/calculs_scenario.csv
+      columns:
+      - programme_id
+      - composante
+      - multiplicateur
+      - tarif_id
+      - variante
+      - montant_min
+      - montant_max
+      - devise
+      - montant_source
+      - maximum_source
+      - periode
+      - base_facturation
+      - residence
+      - rang_min
+      - rang_max
+      - famille_min
+      - famille_max
+      - statut_unite
+      - condition
+      - preuve_id
+    - path: data/processed/camps-de-jour-quebec/qualite.csv
+      columns:
+      - controle_id
+      - programme_id
+      - niveau
+      - description
+    - path: data/processed/camps-de-jour-quebec/preuves.csv
+      columns:
+      - preuve_id
+      - source_id
+      - ligne_txt
+      - localisation
+      - ancre
+      - methode
+      - run_id
+      - retrieved_at
+      - url_requested
+      - url_final
+      - http_status
+      - sha256
+      - sha256_txt
+      - organisme
+      - url
+    - path: data/processed/camps-de-jour-quebec/sources.csv
+      columns:
+      - source_id
+      - municipalite
+      - programme_id
+      - organisme
+      - role
+      - url
+      - run_id
+      - retrieved_at
+      - url_requested
+      - url_final
+      - http_status
+      - sha256
+      - sha256_txt
+chart:
+  type: count
+  x_variable: periode
+  x_label: Lignes de tarifs dans le fichier (nombre)
+  y_label: Période de facturation publiée
+  title: Unités des 108 lignes de tarifs
+preview_note: Les 108 lignes du fichier sont affichées avec neuf colonnes. Le graphique
+  compte les lignes par unité et ne mesure ni le nombre de camps ni un prix moyen.
+date_added: '2026-10-05'
+date_updated: '2026-10-05'

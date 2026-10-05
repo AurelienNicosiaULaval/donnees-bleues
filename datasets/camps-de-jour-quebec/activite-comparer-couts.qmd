@@ -1,0 +1,61 @@
+---
+title: "Comparer les coûts des camps de jour"
+embed-resources: true
+body-classes: hub-page resource-page activity-resource
+page-layout: full
+toc: false
+execute:
+  freeze: false
+---
+
+```{r}
+#| label: activity-resource-header
+#| echo: false
+#| results: asis
+source(if (file.exists("R/utils_activity_contract.R")) "R/utils_activity_contract.R" else "../../R/utils_activity_contract.R")
+render_activity_header()
+```
+
+## Préparation enseignante
+
+Extraire entièrement le ZIP, ouvrir `Donnees-bleues.Rproj` dans RStudio, puis exécuter `installer-packages.R` avec Internet avant la séance. Le script `datasets/camps-de-jour-quebec/activite-comparer-couts.R` utilise ensuite les huit tables fournies, sans téléchargement. Les consignes portent sur la version figée du 5 octobre 2026.
+
+```{r}
+#| label: activity-classroom-resources
+#| echo: false
+#| results: asis
+render_activity_resources()
+```
+
+## Contexte
+
+Le [pilote des camps de jour](fiche.qmd) rapproche des tarifs publiés dans dix municipalités. Les tables de la version du 5 octobre 2026 permettent de suivre chaque composante du scénario jusqu'à sa source; elles n'observent pas les dépenses réelles des familles.
+
+## Consignes
+
+1. Exécuter le script. Expliquer pourquoi ses 108 lignes de tarifs ne représentent pas 108 camps.
+2. À l'aide des champs `periode` et `base_facturation`, repérer les lignes qui ne sont pas des prix hebdomadaires par enfant.
+3. Refaire le scénario de quatre semaines pour un premier enfant résident de sept ans, avec une couverture de 7 h 30 à 17 h 30. Vérifier les identifiants de tarifs, les multiplicateurs et les frais de dossier.
+4. Interpréter le point et l'intervalle d'Acti-Famille. Indiquer quelles hypothèses rendent ce calcul conditionnel.
+5. Expliquer les trois cas non calculables sans remplacer les montants manquants par zéro. Comparer les deux grains de facturation affichés pour Victoriaville.
+6. Rédiger une conclusion de 150 à 200 mots sur ce que ces sous-totaux permettent de comparer. Nommer les frais inconnus, les unités et le périmètre territorial.
+
+## Limites à faire nommer
+
+Le scénario exclut les aides, crédits fiscaux, sorties facultatives et pénalités. Il additionne des montants affichés, dont le traitement fiscal n'est souvent pas précisé. Il ne recherche pas le forfait d'achat le moins cher. Une place disponible, une prise en charge effective ou un montant réellement payé n'est pas observé.
+
+```{r}
+#| label: activity-pedagogical-contract
+#| echo: false
+#| results: asis
+render_activity_contract()
+```
+
+## Script complet
+
+```{r}
+#| label: activity-code
+#| echo: false
+#| results: asis
+render_activity_code()
+```

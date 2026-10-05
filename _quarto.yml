@@ -32,6 +32,7 @@ project:
     - datasets/vols-montreal-trudeau/DATA-LICENSE.md
     - datasets/vols-montreal-trudeau/METHODE.md
     - datasets/vols-montreal-trudeau/source/archives_vols.csv
+    - datasets/camps-de-jour-quebec/downloads/**/*
   render:
     - "index.qmd"
     - "actualites.qmd"

@@ -1,0 +1,109 @@
+tarif_id,programme_id,variante,composante,montant_min,montant_max,devise,montant_source,maximum_source,periode,base_facturation,residence,rang_min,rang_max,famille_min,famille_max,statut_unite,condition,preuve_id
+T0001,rimouski_municipal,general,camp,48.75,48.75,CAD,"48,75 $","48,75 $",semaine,enfant,resident,1,1,,,explicite,Enfants à la même adresse; forfait saison de sept semaines.,P0059
+T0002,rimouski_municipal,general,camp,279.5,279.5,CAD,"279,50 $","279,50 $",saison,enfant,resident,1,1,,,explicite,Enfants à la même adresse; forfait saison de sept semaines.,P0060
+T0003,rimouski_municipal,general,camp,77.5,77.5,CAD,"77,50 $","77,50 $",semaine,enfant,non_resident,1,1,,,explicite,Enfants à la même adresse; forfait saison de sept semaines.,P0061
+T0004,rimouski_municipal,general,camp,396.5,396.5,CAD,"396,50 $","396,50 $",saison,enfant,non_resident,1,1,,,explicite,Enfants à la même adresse; forfait saison de sept semaines.,P0062
+T0005,rimouski_municipal,general,camp,41,41,CAD,41 $,41 $,semaine,enfant,resident,2,2,,,explicite,Enfants à la même adresse; forfait saison de sept semaines.,P0063
+T0006,rimouski_municipal,general,camp,236.25,236.25,CAD,"236,25 $","236,25 $",saison,enfant,resident,2,2,,,explicite,Enfants à la même adresse; forfait saison de sept semaines.,P0064
+T0007,rimouski_municipal,general,camp,66.25,66.25,CAD,"66,25 $","66,25 $",semaine,enfant,non_resident,2,2,,,explicite,Enfants à la même adresse; forfait saison de sept semaines.,P0065
+T0008,rimouski_municipal,general,camp,323,323,CAD,323 $,323 $,saison,enfant,non_resident,2,2,,,explicite,Enfants à la même adresse; forfait saison de sept semaines.,P0066
+T0009,rimouski_municipal,general,camp,32.75,32.75,CAD,"32,75 $","32,75 $",semaine,enfant,resident,3,3,,,explicite,Enfants à la même adresse; forfait saison de sept semaines.,P0067
+T0010,rimouski_municipal,general,camp,193,193,CAD,193 $,193 $,saison,enfant,resident,3,3,,,explicite,Enfants à la même adresse; forfait saison de sept semaines.,P0068
+T0011,rimouski_municipal,general,camp,54.5,54.5,CAD,"54,50 $","54,50 $",semaine,enfant,non_resident,3,3,,,explicite,Enfants à la même adresse; forfait saison de sept semaines.,P0069
+T0012,rimouski_municipal,general,camp,264.75,264.75,CAD,"264,75 $","264,75 $",saison,enfant,non_resident,3,3,,,explicite,Enfants à la même adresse; forfait saison de sept semaines.,P0070
+T0013,rimouski_municipal,general,camp,0,0,CAD,Gratuit,Gratuit,semaine,enfant,resident,4,,,,explicite,Enfants à la même adresse; forfait saison de sept semaines.,P0071
+T0014,rimouski_municipal,general,camp,0,0,CAD,Gratuit,Gratuit,saison,enfant,resident,4,,,,explicite,Enfants à la même adresse; forfait saison de sept semaines.,P0072
+T0015,rimouski_municipal,general,camp,41,41,CAD,41 $,41 $,semaine,enfant,non_resident,4,,,,explicite,Enfants à la même adresse; forfait saison de sept semaines.,P0073
+T0016,rimouski_municipal,general,camp,242.5,242.5,CAD,"242,50 $","242,50 $",saison,enfant,non_resident,4,,,,explicite,Enfants à la même adresse; forfait saison de sept semaines.,P0074
+T0017,rimouski_municipal,general,garde,44.5,44.5,CAD,"44,50 $","44,50 $",semaine,enfant,resident,1,1,,,explicite,Enfants à la même adresse; forfait saison de sept semaines.,P0075
+T0018,rimouski_municipal,general,garde,311.5,311.5,CAD,"311,50 $","311,50 $",saison,enfant,resident,1,1,,,explicite,Enfants à la même adresse; forfait saison de sept semaines.,P0076
+T0019,rimouski_municipal,general,garde,73.25,73.25,CAD,"73,25 $","73,25 $",semaine,enfant,non_resident,1,1,,,explicite,Enfants à la même adresse; forfait saison de sept semaines.,P0077
+T0020,rimouski_municipal,general,garde,512.75,512.75,CAD,"512,75 $","512,75 $",saison,enfant,non_resident,1,1,,,explicite,Enfants à la même adresse; forfait saison de sept semaines.,P0078
+T0021,rimouski_municipal,general,garde,29.75,29.75,CAD,"29,75 $","29,75 $",semaine,enfant,resident,2,2,,,explicite,Enfants à la même adresse; forfait saison de sept semaines.,P0079
+T0022,rimouski_municipal,general,garde,208.25,208.25,CAD,"208,25 $","208,25 $",saison,enfant,resident,2,2,,,explicite,Enfants à la même adresse; forfait saison de sept semaines.,P0080
+T0023,rimouski_municipal,general,garde,47.5,47.5,CAD,"47,50 $","47,50 $",semaine,enfant,non_resident,2,2,,,explicite,Enfants à la même adresse; forfait saison de sept semaines.,P0081
+T0024,rimouski_municipal,general,garde,332.25,332.25,CAD,"332,25 $","332,25 $",saison,enfant,non_resident,2,2,,,explicite,Enfants à la même adresse; forfait saison de sept semaines.,P0082
+T0025,rimouski_municipal,general,garde,21.75,21.75,CAD,"21,75 $","21,75 $",semaine,enfant,resident,3,3,,,explicite,Enfants à la même adresse; forfait saison de sept semaines.,P0083
+T0026,rimouski_municipal,general,garde,105,105,CAD,105 $,105 $,saison,enfant,resident,3,3,,,explicite,Enfants à la même adresse; forfait saison de sept semaines.,P0084
+T0027,rimouski_municipal,general,garde,35.5,35.5,CAD,"35,50 $","35,50 $",semaine,enfant,non_resident,3,3,,,explicite,Enfants à la même adresse; forfait saison de sept semaines.,P0085
+T0028,rimouski_municipal,general,garde,248.5,248.5,CAD,"248,50 $","248,50 $",saison,enfant,non_resident,3,3,,,explicite,Enfants à la même adresse; forfait saison de sept semaines.,P0086
+T0029,rimouski_municipal,general,garde,15,15,CAD,15 $,15 $,semaine,enfant,resident,4,,,,explicite,Enfants à la même adresse; forfait saison de sept semaines.,P0087
+T0030,rimouski_municipal,general,garde,105,105,CAD,105 $,105 $,saison,enfant,resident,4,,,,explicite,Enfants à la même adresse; forfait saison de sept semaines.,P0088
+T0031,rimouski_municipal,general,garde,24.25,24.25,CAD,"24,25 $","24,25 $",semaine,enfant,non_resident,4,,,,explicite,Enfants à la même adresse; forfait saison de sept semaines.,P0089
+T0032,rimouski_municipal,general,garde,169.75,169.75,CAD,"169,75 $","169,75 $",saison,enfant,non_resident,4,,,,explicite,Enfants à la même adresse; forfait saison de sept semaines.,P0090
+T0033,la_malbaie_municipal,general,camp,249,249,CAD,249$,249$,saison,enfant,resident,1,1,,,explicite,25 CAD supplémentaires pour une inscription tardive.,P0091
+T0034,la_malbaie_municipal,general,camp,324,324,CAD,324$,324$,saison,enfant,non_resident,1,1,,,explicite,25 CAD supplémentaires pour une inscription tardive.,P0092
+T0035,la_malbaie_municipal,general,garde,100,100,CAD,100$,100$,saison,enfant,resident,1,1,,,explicite,25 CAD supplémentaires pour une inscription tardive.,P0093
+T0036,la_malbaie_municipal,general,garde,131,131,CAD,131$,131$,saison,enfant,non_resident,1,1,,,explicite,25 CAD supplémentaires pour une inscription tardive.,P0094
+T0037,la_malbaie_municipal,general,camp,216,216,CAD,216$,216$,saison,enfant,resident,2,2,,,explicite,25 CAD supplémentaires pour une inscription tardive.,P0095
+T0038,la_malbaie_municipal,general,camp,281,281,CAD,281$,281$,saison,enfant,non_resident,2,2,,,explicite,25 CAD supplémentaires pour une inscription tardive.,P0096
+T0039,la_malbaie_municipal,general,garde,89,89,CAD,89$,89$,saison,enfant,resident,2,2,,,explicite,25 CAD supplémentaires pour une inscription tardive.,P0097
+T0040,la_malbaie_municipal,general,garde,115,115,CAD,115$,115$,saison,enfant,non_resident,2,2,,,explicite,25 CAD supplémentaires pour une inscription tardive.,P0098
+T0041,la_malbaie_municipal,general,camp,124,124,CAD,124$,124$,saison,enfant,resident,3,,,,explicite,25 CAD supplémentaires pour une inscription tardive.,P0099
+T0042,la_malbaie_municipal,general,camp,243,243,CAD,243$,243$,saison,enfant,non_resident,3,,,,explicite,25 CAD supplémentaires pour une inscription tardive.,P0100
+T0043,la_malbaie_municipal,general,garde,39,39,CAD,39$,39$,saison,enfant,resident,3,,,,explicite,25 CAD supplémentaires pour une inscription tardive.,P0101
+T0044,la_malbaie_municipal,general,garde,96,96,CAD,96$,96$,saison,enfant,non_resident,3,,,,explicite,25 CAD supplémentaires pour une inscription tardive.,P0102
+T0045,la_malbaie_municipal,general,camp,82,82,CAD,82$,82$,semaine,enfant,resident,1,1,,,explicite,25 CAD supplémentaires pour une inscription tardive.,P0103
+T0046,la_malbaie_municipal,general,camp,108,108,CAD,108$,108$,semaine,enfant,non_resident,1,1,,,explicite,25 CAD supplémentaires pour une inscription tardive.,P0104
+T0047,la_malbaie_municipal,general,garde,33,33,CAD,33$,33$,semaine,enfant,resident,1,1,,,explicite,25 CAD supplémentaires pour une inscription tardive.,P0105
+T0048,la_malbaie_municipal,general,garde,43,43,CAD,43$,43$,semaine,enfant,non_resident,1,1,,,explicite,25 CAD supplémentaires pour une inscription tardive.,P0106
+T0049,la_malbaie_municipal,general,camp,72,72,CAD,72$,72$,semaine,enfant,resident,2,2,,,explicite,25 CAD supplémentaires pour une inscription tardive.,P0107
+T0050,la_malbaie_municipal,general,camp,94,94,CAD,94$,94$,semaine,enfant,non_resident,2,2,,,explicite,25 CAD supplémentaires pour une inscription tardive.,P0108
+T0051,la_malbaie_municipal,general,garde,30,30,CAD,30$,30$,semaine,enfant,resident,2,2,,,explicite,25 CAD supplémentaires pour une inscription tardive.,P0109
+T0052,la_malbaie_municipal,general,garde,38,38,CAD,38$,38$,semaine,enfant,non_resident,2,2,,,explicite,25 CAD supplémentaires pour une inscription tardive.,P0110
+T0053,la_malbaie_municipal,general,camp,41,41,CAD,41$,41$,semaine,enfant,resident,3,,,,explicite,25 CAD supplémentaires pour une inscription tardive.,P0111
+T0054,la_malbaie_municipal,general,camp,81,81,CAD,81$,81$,semaine,enfant,non_resident,3,,,,explicite,25 CAD supplémentaires pour une inscription tardive.,P0112
+T0055,la_malbaie_municipal,general,garde,13,13,CAD,13$,13$,semaine,enfant,resident,3,,,,explicite,25 CAD supplémentaires pour une inscription tardive.,P0113
+T0056,la_malbaie_municipal,general,garde,32,32,CAD,32$,32$,semaine,enfant,non_resident,3,,,,explicite,25 CAD supplémentaires pour une inscription tardive.,P0114
+T0057,quebec_vacances_ete,general,camp,82,82,CAD,82 $,82 $,semaine,enfant,non_precisee,1,1,,,explicite,"Taxes incluses; jusqu'au 8 mai 2026 23:59; même famille, même semaine. Résidence non précisée dans cette fiche.",P0115
+T0058,quebec_vacances_ete,general,camp,77,77,CAD,77 $,77 $,semaine,enfant,non_precisee,2,2,,,explicite,"Taxes incluses; jusqu'au 8 mai 2026 23:59; même famille, même semaine. Résidence non précisée dans cette fiche.",P0116
+T0059,quebec_vacances_ete,general,camp,72,72,CAD,72 $,72 $,semaine,enfant,non_precisee,3,3,,,explicite,"Taxes incluses; jusqu'au 8 mai 2026 23:59; même famille, même semaine. Résidence non précisée dans cette fiche.",P0117
+T0060,quebec_vacances_ete,general,camp,41,41,CAD,41 $,41 $,semaine,enfant,non_precisee,4,4,,,explicite,"Taxes incluses; jusqu'au 8 mai 2026 23:59; même famille, même semaine. Résidence non précisée dans cette fiche.",P0118
+T0061,levis_municipal,general,camp_garde,119,119,CAD,119 $,119 $,semaine,enfant,resident,,,,,explicite,"Garde, activités, matériel et chandail inclus; aucune journée à l'unité.",P0119
+T0062,levis_municipal,general,camp_garde,72,72,CAD,72 $,72 $,semaine_partielle_3_jours,enfant,resident,,,,,explicite,,P0120
+T0063,trois_rivieres_municipal,general,camp_garde,80,80,CAD,80 $,80 $,semaine,enfant,resident,1,1,,,explicite,Service de garde inclus.,P0121
+T0064,trois_rivieres_municipal,general,camp_garde,74,74,CAD,74 $,74 $,semaine,enfant,resident,2,2,,,explicite,Service de garde inclus.,P0122
+T0065,trois_rivieres_municipal,general,camp_garde,69,69,CAD,69 $,69 $,semaine,enfant,resident,3,3,,,explicite,Service de garde inclus.,P0123
+T0066,trois_rivieres_municipal,general,camp_garde,65,65,CAD,65 $,65 $,semaine,enfant,resident,4,,,,explicite,Service de garde inclus.,P0124
+T0067,trois_rivieres_municipal,general,camp_garde,120,120,CAD,120 $,120 $,semaine,enfant,non_resident,1,1,,,explicite,Service de garde inclus.,P0125
+T0068,trois_rivieres_municipal,general,camp_garde,112,112,CAD,112 $,112 $,semaine,enfant,non_resident,2,2,,,explicite,Service de garde inclus.,P0126
+T0069,trois_rivieres_municipal,general,camp_garde,103,103,CAD,103 $,103 $,semaine,enfant,non_resident,3,3,,,explicite,Service de garde inclus.,P0127
+T0070,trois_rivieres_municipal,general,camp_garde,97,97,CAD,97 $,97 $,semaine,enfant,non_resident,4,,,,explicite,Service de garde inclus.,P0128
+T0071,trois_rivieres_municipal,general,camp_garde,32,32,CAD,32 $,32 $,semaine_partielle_2_jours,enfant,non_precisee,,,,,explicite,Première semaine; catégorie de résidence et rang non explicités pour ce montant.,P0129
+T0072,gatineau_municipal,general,camp,64,64,CAD,64 $,64 $,semaine,enfant,resident,,,,,explicite,,P0130
+T0073,gatineau_municipal,general,camp_garde,138,138,CAD,138 $,138 $,semaine,enfant,resident,,,,,explicite,,P0131
+T0074,gatineau_municipal,general,camp,139,139,CAD,139 $,139 $,semaine,enfant,non_resident,,,,,explicite,,P0132
+T0075,gatineau_municipal,general,camp_garde,310,310,CAD,310 $,310 $,semaine,enfant,non_resident,,,,,explicite,,P0133
+T0076,victoriaville_municipal,general,camp,60,60,CAD,60$,60$,semaine,enfant,resident,1,1,,,explicite,Parcs d'animation; également Saint-Christophe-d'Arthabaska; Club Ados hors périmètre du pilote.,P0134
+T0077,victoriaville_municipal,general,camp,55,55,CAD,55$,55$,semaine,enfant,resident,2,2,,,explicite,Parcs d'animation; également Saint-Christophe-d'Arthabaska; Club Ados hors périmètre du pilote.,P0135
+T0078,victoriaville_municipal,general,camp,50,50,CAD,50$,50$,semaine,enfant,resident,3,,,,explicite,Parcs d'animation; également Saint-Christophe-d'Arthabaska; Club Ados hors périmètre du pilote.,P0136
+T0079,victoriaville_municipal,cca_journee,camp,16,16,CAD,16$,16$,jour,enfant_selon_taille_famille,resident,,,1,1,explicite,Un enfant dans la famille,P0137
+T0080,victoriaville_municipal,cca_journee,camp,15.5,15.5,CAD,"15,50$","15,50$",jour,enfant_selon_taille_famille,resident,,,2,2,explicite,"Deux enfants: tarif par enfant, pas rang du deuxième enfant",P0138
+T0081,victoriaville_municipal,cca_journee,camp,15,15,CAD,15$,15$,jour,enfant_selon_taille_famille,resident,,,3,,explicite,Trois enfants ou plus: tarif par enfant,P0139
+T0082,victoriaville_municipal,general,garde,20,20,CAD,20$,20$,semaine,enfant,resident,,,,,explicite,,P0140
+T0083,victoriaville_municipal,general,dossier,20,20,CAD,20$,20$,inscription,enfant,resident,,,,,explicite,,P0141
+T0084,sherbrooke_actifamille,meli_melo,camp,60,60,CAD,60 $,60 $,semaine,enfant,resident,,,,,explicite,,P0142
+T0085,sherbrooke_actifamille,meli_melo,activites,10,18,CAD,10$,18$,semaine,enfant,resident,,,,,explicite,,P0143
+T0086,sherbrooke_actifamille,meli_melo,autobus,11,11,CAD,11$,11$,semaine,enfant,resident,,,,,contextuelle,La phrase le rattache au supplément hebdomadaire; fréquence à reconfirmer au gestionnaire.,P0144
+T0087,sherbrooke_actifamille,general,dossier,35,35,CAD,35$,35$,inscription,enfant,resident,,,,,explicite,"Payable une fois, peu importe le nombre de semaines.",P0145
+T0088,sherbrooke_actifamille,general,garde,16.75,16.75,CAD,16.75 $,16.75 $,semaine,enfant,resident,,,,,explicite,,P0146
+T0089,sherbrooke_actifamille,general,garde_etendue_pm,12,12,CAD,12 $,12 $,semaine,enfant,resident,,,,,explicite,,P0147
+T0090,sherbrooke_actifamille,zip_zap,camp_activites_autobus_dossier,626,626,CAD,626 $,626 $,saison,enfant,resident,,,,,explicite,"7 semaines; frais annuels, sorties et autobus inclus; garde distincte; semaine 8 exclue.",P0148
+T0091,drummondville_ccsp,general,camp,595,595,CAD,595 $,595 $,non_precisee,enfant,non_precisee,1,1,,,a_confirmer,La durée facturée du camp n'est pas explicitée à côté de ces montants; aucune conversion hebdomadaire.,P0149
+T0092,drummondville_ccsp,general,camp,510,510,CAD,510 $,510 $,non_precisee,enfant,non_precisee,2,2,,,a_confirmer,La durée facturée du camp n'est pas explicitée à côté de ces montants; aucune conversion hebdomadaire.,P0150
+T0093,drummondville_ccsp,general,camp,475,475,CAD,475 $,475 $,non_precisee,enfant,non_precisee,3,,,,a_confirmer,La durée facturée du camp n'est pas explicitée à côté de ces montants; aucune conversion hebdomadaire.,P0151
+T0094,drummondville_ccsp,general,garde,275,275,CAD,275 $,275 $,saison,enfant,non_precisee,,,,,explicite,"Par enfant pour l'été, matin et soir.",P0152
+T0095,tingwick_municipal,general,camp,175,175,CAD,175$,175$,saison,famille,non_precisee,,,1,1,explicite,Un enfant,P0153
+T0096,tingwick_municipal,general,camp,300,300,CAD,300$,300$,saison,famille,non_precisee,,,2,2,explicite,Deux enfants de la même famille: prix total,P0154
+T0097,tingwick_municipal,general,camp,450,450,CAD,450$,450$,saison,famille,non_precisee,,,3,,explicite,Trois enfants ou plus de la même famille: prix total,P0155
+T0098,tingwick_municipal,general,camp,12,12,CAD,12$,12$,jour,enfant,non_precisee,,,,,explicite,,P0156
+T0099,tingwick_municipal,general,retard_inscription,100,100,CAD,100$,100$,inscription,inscription,non_precisee,,,,,explicite,Après le 21 mai 2026 à 16:00.,P0157
+T0100,la_malbaie_municipal,general,retard_inscription,25,25,CAD,25$,25$,inscription,inscription,non_precisee,,,,,explicite,Après la période d'inscription; la phrase est située dans la section Camp de jour estival.,P0158
+T0101,gatineau_municipal,general,retard_depart,5,5,CAD,5 $,5 $,tranche_5_minutes,enfant,non_precisee,,,,,explicite,Tranche partielle ou complète après l'heure de fermeture.,P0159
+T0102,victoriaville_municipal,general,retard_depart,3,3,CAD,3$,3$,tranche_5_minutes,enfant,non_precisee,,,,,explicite,Après 17:30.,P0160
+T0103,tingwick_municipal,sortie_2026_07_01,sortie,35,35,CAD,35$,35$,sortie,enfant,non_precisee,,,,,contextuelle,Sortie choisie séparément; places limitées; base par enfant contextualisée par le formulaire.,P0161
+T0104,tingwick_municipal,sortie_2026_07_07,sortie,36,36,CAD,36$,36$,sortie,enfant,non_precisee,,,,,contextuelle,Sortie choisie séparément; places limitées; base par enfant contextualisée par le formulaire.,P0162
+T0105,tingwick_municipal,sortie_2026_07_15,sortie,40,40,CAD,40$,40$,sortie,enfant,non_precisee,,,,,contextuelle,Sortie choisie séparément; places limitées; base par enfant contextualisée par le formulaire.,P0163
+T0106,tingwick_municipal,sortie_2026_08_05,sortie,32,32,CAD,32$,32$,sortie,enfant,non_precisee,,,,,contextuelle,Sortie choisie séparément; places limitées; base par enfant contextualisée par le formulaire.,P0164
+T0107,tingwick_municipal,sortie_2026_08_11,sortie,37,37,CAD,37$,37$,sortie,enfant,non_precisee,,,,,contextuelle,Sortie choisie séparément; places limitées; base par enfant contextualisée par le formulaire.,P0165
+T0108,tingwick_municipal,sortie_2026_08_13,sortie,20,20,CAD,20$,20$,sortie,enfant,non_precisee,,,,,contextuelle,Sortie choisie séparément; places limitées; base par enfant contextualisée par le formulaire.,P0166

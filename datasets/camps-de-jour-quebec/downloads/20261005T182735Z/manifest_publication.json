@@ -1,0 +1,161 @@
+{
+  "dataset_id": "camps-de-jour-quebec",
+  "version": "20261005T182735Z",
+  "edition": 2026,
+  "acquired_on": "2026-10-05",
+  "prepared_at_utc": "2026-10-05T18:27:35Z",
+  "tables": [
+    {
+      "file": "programmes.csv",
+      "rows": 10,
+      "columns": [
+        "programme_id",
+        "municipalite",
+        "edition",
+        "territoire",
+        "type",
+        "libelle",
+        "portee"
+      ],
+      "sha256": "bbeef1077ff03364aadad7c0492fb2a3f5542b437aa20f7c35474f40e192ae4d"
+    },
+    {
+      "file": "faits.csv",
+      "rows": 103,
+      "columns": [
+        "programme_id",
+        "variable",
+        "valeur",
+        "unite",
+        "condition",
+        "preuve_id",
+        "statut"
+      ],
+      "sha256": "2605e94b202db270a9cff4fad480478639549e168ecb91e8fbad43b7a6736ced"
+    },
+    {
+      "file": "tarifs.csv",
+      "rows": 108,
+      "columns": [
+        "tarif_id",
+        "programme_id",
+        "variante",
+        "composante",
+        "montant_min",
+        "montant_max",
+        "devise",
+        "montant_source",
+        "maximum_source",
+        "periode",
+        "base_facturation",
+        "residence",
+        "rang_min",
+        "rang_max",
+        "famille_min",
+        "famille_max",
+        "statut_unite",
+        "condition",
+        "preuve_id"
+      ],
+      "sha256": "037250fbbbe3a1241646741fd579bccca68c28f6e32bde217acb1c1440391efc"
+    },
+    {
+      "file": "scenario.csv",
+      "rows": 10,
+      "columns": [
+        "programme_id",
+        "montant_min",
+        "montant_max",
+        "tarifs_utilises",
+        "municipalite",
+        "statut",
+        "reserve",
+        "devise",
+        "scenario_id"
+      ],
+      "sha256": "6eaea8b469d33eadfde659b410f22947e4b1bf71bc8dcac6691cee6ae94901dc"
+    },
+    {
+      "file": "calculs_scenario.csv",
+      "rows": 16,
+      "columns": [
+        "programme_id",
+        "composante",
+        "multiplicateur",
+        "tarif_id",
+        "variante",
+        "montant_min",
+        "montant_max",
+        "devise",
+        "montant_source",
+        "maximum_source",
+        "periode",
+        "base_facturation",
+        "residence",
+        "rang_min",
+        "rang_max",
+        "famille_min",
+        "famille_max",
+        "statut_unite",
+        "condition",
+        "preuve_id"
+      ],
+      "sha256": "4213fcf8ac4076efcfa0160c9d4bd2e863d8502e3a88a2b6cadcd7d310f58fcf"
+    },
+    {
+      "file": "qualite.csv",
+      "rows": 8,
+      "columns": [
+        "controle_id",
+        "programme_id",
+        "niveau",
+        "description"
+      ],
+      "sha256": "d9f22625ca4bdaf4e8e76e8584abeaee9ed9c74c2f8577695d273cc561fc3f4d"
+    },
+    {
+      "file": "preuves.csv",
+      "rows": 166,
+      "columns": [
+        "preuve_id",
+        "source_id",
+        "ligne_txt",
+        "localisation",
+        "ancre",
+        "methode",
+        "run_id",
+        "retrieved_at",
+        "url_requested",
+        "url_final",
+        "http_status",
+        "sha256",
+        "sha256_txt",
+        "organisme",
+        "url"
+      ],
+      "sha256": "05b31486ff1f3abae2f6ade808e125457e549ee6f16c133e7af381f09021000f"
+    },
+    {
+      "file": "sources.csv",
+      "rows": 14,
+      "columns": [
+        "source_id",
+        "municipalite",
+        "programme_id",
+        "organisme",
+        "role",
+        "url",
+        "run_id",
+        "retrieved_at",
+        "url_requested",
+        "url_final",
+        "http_status",
+        "sha256",
+        "sha256_txt"
+      ],
+      "sha256": "cc3ada26e153ebf896c16c006f0488955f967fa2ee60619209956a2824dc0c16"
+    }
+  ],
+  "selection": "Tables structurées du pilote validé; chemins internes et reçus techniques omis; instantanés HTML et texte originaux non redistribués.",
+  "original_snapshot_manifest": "Sources et empreintes originales dans sources.csv et preuves.csv."
+}

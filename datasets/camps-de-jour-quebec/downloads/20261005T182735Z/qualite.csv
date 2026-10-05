@@ -1,0 +1,9 @@
+controle_id,programme_id,niveau,description
+AGE_VIC,victoriaville_municipal,a_confirmer,La page saison 2026 conserve une référence d'âge au 30 septembre 2025. Ne pas la corriger sans confirmation.
+AGE_LEV,levis_municipal,a_confirmer,La page édition 2026 utilise le 30 septembre 2025 pour plusieurs groupes d'âge; référence antérieure conservée.
+AGE_GAT,gatineau_municipal,a_confirmer,La référence d'âge est le 30 septembre 2025 dans une page contextualisée 2026.
+ANNEE_GAT,gatineau_municipal,contextuel,Tarifs et calendrier sans millésime adjacent; page contenant les dates de paiement 2026. À reconfirmer avant usage 2027.
+GARDE_RIM,rimouski_municipal,valeur_conservee,"Troisième enfant résident: garde saison 105 CAD, contre 21,75 CAD par semaine. Pas d'égalité présumée avec sept semaines au tarif hebdomadaire."
+UNITE_DRU,drummondville_ccsp,bloque_calcul,Camp 595/510/475 CAD: durée facturée non explicitée; unité non précisée conservée.
+FRAIS_SHE,sherbrooke_actifamille,calcul_conditionnel,Fréquence de l'autobus et cumul des gardes à reconfirmer pour le scénario; fourchette des activités conservée.
+HORAIRE_TIN,tingwick_municipal,bloque_calcul,Le formulaire public ne documente pas l'horaire quotidien ni la garde.

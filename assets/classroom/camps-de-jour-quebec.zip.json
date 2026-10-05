@@ -1,0 +1,75 @@
+{
+  "dataset_id": "camps-de-jour-quebec",
+  "title": "Camps de jour au Québec",
+  "mode": "frozen",
+  "prepared_at_utc": "2026-10-05T18:27:35Z",
+  "source_name": "Pages municipales et de gestionnaires; compilation par Données bleues",
+  "source_url": "https://github.com/AurelienNicosiaULaval/donnees-bleues/tree/main/datasets/camps-de-jour-quebec",
+  "license_url": "https://github.com/AurelienNicosiaULaval/donnees-bleues/blob/main/datasets/camps-de-jour-quebec/DATA_LICENSE.md",
+  "original_licenses": {
+    "code": "MIT",
+    "content": "CC-BY-4.0",
+    "notices": ["LICENSE", "LICENCE-CONTENUS.md", "datasets/camps-de-jour-quebec/DATA_LICENSE.md", "datasets/camps-de-jour-quebec/DICTIONNAIRE.md", "datasets/camps-de-jour-quebec/README.md"]
+  },
+  "selection": "Huit tables figées du pilote 2026; script d'analyse hors ligne, dictionnaire et conditions. Les archives intégrales des pages ne sont pas redistribuées.",
+  "tables": [
+    {
+      "path": "data/processed/camps-de-jour-quebec/programmes.csv",
+      "rows": 10,
+      "columns": ["programme_id", "municipalite", "edition", "territoire", "type", "libelle", "portee"],
+      "sha256": "bbeef1077ff03364aadad7c0492fb2a3f5542b437aa20f7c35474f40e192ae4d",
+      "prepared_table_sha256": "bbeef1077ff03364aadad7c0492fb2a3f5542b437aa20f7c35474f40e192ae4d"
+    },
+    {
+      "path": "data/processed/camps-de-jour-quebec/faits.csv",
+      "rows": 103,
+      "columns": ["programme_id", "variable", "valeur", "unite", "condition", "preuve_id", "statut"],
+      "sha256": "319a8d199fc9e3f51e1733c76e188f87eb454f08a55016e279df81e5ec271c62",
+      "prepared_table_sha256": "2605e94b202db270a9cff4fad480478639549e168ecb91e8fbad43b7a6736ced"
+    },
+    {
+      "path": "data/processed/camps-de-jour-quebec/tarifs.csv",
+      "rows": 108,
+      "columns": ["tarif_id", "programme_id", "variante", "composante", "montant_min", "montant_max", "devise", "montant_source", "maximum_source", "periode", "base_facturation", "residence", "rang_min", "rang_max", "famille_min", "famille_max", "statut_unite", "condition", "preuve_id"],
+      "sha256": "99950106de7d424e51028244987c1a50f7480b0b968724bc6a75efc990c85217",
+      "prepared_table_sha256": "037250fbbbe3a1241646741fd579bccca68c28f6e32bde217acb1c1440391efc"
+    },
+    {
+      "path": "data/processed/camps-de-jour-quebec/scenario.csv",
+      "rows": 10,
+      "columns": ["programme_id", "montant_min", "montant_max", "tarifs_utilises", "municipalite", "statut", "reserve", "devise", "scenario_id"],
+      "sha256": "a5e1f582e51461b22fc248e9f5a2524fde66437602feb611df93a4ad73c25b26",
+      "prepared_table_sha256": "6eaea8b469d33eadfde659b410f22947e4b1bf71bc8dcac6691cee6ae94901dc"
+    },
+    {
+      "path": "data/processed/camps-de-jour-quebec/calculs_scenario.csv",
+      "rows": 16,
+      "columns": ["programme_id", "composante", "multiplicateur", "tarif_id", "variante", "montant_min", "montant_max", "devise", "montant_source", "maximum_source", "periode", "base_facturation", "residence", "rang_min", "rang_max", "famille_min", "famille_max", "statut_unite", "condition", "preuve_id"],
+      "sha256": "db6fc09c3b17a019076e2edb753da476e67d2030d480b9190353b221d83f2397",
+      "prepared_table_sha256": "4213fcf8ac4076efcfa0160c9d4bd2e863d8502e3a88a2b6cadcd7d310f58fcf"
+    },
+    {
+      "path": "data/processed/camps-de-jour-quebec/qualite.csv",
+      "rows": 8,
+      "columns": ["controle_id", "programme_id", "niveau", "description"],
+      "sha256": "d9f22625ca4bdaf4e8e76e8584abeaee9ed9c74c2f8577695d273cc561fc3f4d",
+      "prepared_table_sha256": "d9f22625ca4bdaf4e8e76e8584abeaee9ed9c74c2f8577695d273cc561fc3f4d"
+    },
+    {
+      "path": "data/processed/camps-de-jour-quebec/preuves.csv",
+      "rows": 166,
+      "columns": ["preuve_id", "source_id", "ligne_txt", "localisation", "ancre", "methode", "run_id", "retrieved_at", "url_requested", "url_final", "http_status", "sha256", "sha256_txt", "organisme", "url"],
+      "sha256": "ad4e96819d1bb938060293bd24557c8e2dbfd370db1e5286ee13084cd2872832",
+      "prepared_table_sha256": "05b31486ff1f3abae2f6ade808e125457e549ee6f16c133e7af381f09021000f"
+    },
+    {
+      "path": "data/processed/camps-de-jour-quebec/sources.csv",
+      "rows": 14,
+      "columns": ["source_id", "municipalite", "programme_id", "organisme", "role", "url", "run_id", "retrieved_at", "url_requested", "url_final", "http_status", "sha256", "sha256_txt"],
+      "sha256": "cc3ada26e153ebf896c16c006f0488955f967fa2ee60619209956a2824dc0c16",
+      "prepared_table_sha256": "cc3ada26e153ebf896c16c006f0488955f967fa2ee60619209956a2824dc0c16"
+    }
+  ],
+  "archive_sha256": "a59f9bd9e117f1f9541045e811d262829429f979df70358137148a8a6438996e",
+  "archive_bytes": 33576
+}

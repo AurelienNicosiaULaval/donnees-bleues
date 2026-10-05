@@ -1,0 +1,11 @@
+programme_id,municipalite,edition,territoire,type,libelle,portee
+quebec_vacances_ete,Québec,2026,Quebec,programme_municipal,Programme Vacances-Été,programme municipal de la source
+levis_municipal,Lévis,2026,Quebec,programme_municipal,Camp de jour municipal,programme municipal de la source
+rimouski_municipal,Rimouski,2026,Quebec,programme_municipal,Camp de jour municipal,programme municipal de la source
+gatineau_municipal,Gatineau,2026,Quebec,programme_municipal,Camp de jour municipal,programme municipal de la source
+trois_rivieres_municipal,Trois-Rivières,2026,Quebec,programme_municipal,Camp de jour municipal,programme municipal de la source
+victoriaville_municipal,Victoriaville,2026,Quebec,programme_municipal,Camp de jour municipal,programme municipal de la source
+la_malbaie_municipal,La Malbaie,2026,Quebec,programme_municipal,Camp de jour municipal,programme municipal de la source
+sherbrooke_actifamille,Sherbrooke,2026,Quebec,gestionnaire_communautaire,Loisirs Acti-Famille,un gestionnaire seulement
+drummondville_ccsp,Drummondville,2026,Quebec,gestionnaire_communautaire,Centre communautaire Saint-Pierre,un gestionnaire seulement
+tingwick_municipal,Tingwick,2026,Quebec,programme_municipal,Camp de jour municipal,programme municipal de la source

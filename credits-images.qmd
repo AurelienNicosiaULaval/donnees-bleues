@@ -11,6 +11,8 @@ Les illustrations des jeux de données ont été créées pour Données bleues a
 
 L’illustration « Élections provinciales au Québec » a été créée le 3 octobre 2026 avec ce même outil. Elle évoque un bureau de vote québécois dans le style de la collection. La scène est fictive et ne représente ni un bureau de vote réel ni des observations ou des résultats du jeu de données.
 
+L’illustration « Camps de jour au Québec » a été créée le 5 octobre 2026 avec l’outil de génération d’images d’OpenAI. Elle évoque une activité estivale dans un parc municipal québécois. Les personnes et le lieu sont fictifs; l’image ne représente pas un camp étudié ni des enfants observés.
+
 ## Photographies conservées
 
 Les photographies ci-dessous ont servi aux premières vignettes du catalogue. Leurs fichiers sont conservés; certaines restent utilisées ailleurs sur le site, notamment pour le tutoriel BIXI. Il s’agit de versions recadrées et recompressées en 16:9 de fichiers publiés sur Wikimedia Commons.

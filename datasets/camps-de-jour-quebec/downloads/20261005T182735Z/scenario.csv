@@ -1,0 +1,11 @@
+programme_id,montant_min,montant_max,tarifs_utilises,municipalite,statut,reserve,devise,scenario_id
+gatineau_municipal,552,552,T0073,Gatineau,somme_tarifs_documentes,"Sous-total des postes documentés; frais non mentionnés, disponibilité, dates précises et admissibilité à reconfirmer.",CAD,4_semaines_resident_7ans_0730_1730
+la_malbaie_municipal,460,460,T0045;T0047,La Malbaie,somme_tarifs_documentes,"Sous-total des postes documentés; frais non mentionnés, disponibilité, dates précises et admissibilité à reconfirmer.",CAD,4_semaines_resident_7ans_0730_1730
+levis_municipal,476,476,T0061,Lévis,somme_tarifs_documentes,"Sous-total des postes documentés; frais non mentionnés, disponibilité, dates précises et admissibilité à reconfirmer.",CAD,4_semaines_resident_7ans_0730_1730
+rimouski_municipal,373,373,T0001;T0017,Rimouski,somme_tarifs_documentes,"Sous-total des postes documentés; frais non mentionnés, disponibilité, dates précises et admissibilité à reconfirmer.",CAD,4_semaines_resident_7ans_0730_1730
+sherbrooke_actifamille,474,506,T0084;T0085;T0086;T0088;T0089;T0087,Sherbrooke,calcul_conditionnel,Suppose l'autobus facturé chaque semaine et les deux gardes cumulées; 4 semaines MÉLI-MÉLO. Activités: 10 à 18 CAD/semaine.,CAD,4_semaines_resident_7ans_0730_1730
+trois_rivieres_municipal,320,320,T0063,Trois-Rivières,somme_tarifs_documentes,"Sous-total des postes documentés; frais non mentionnés, disponibilité, dates précises et admissibilité à reconfirmer.",CAD,4_semaines_resident_7ans_0730_1730
+victoriaville_municipal,340,340,T0076;T0082;T0083,Victoriaville,somme_tarifs_documentes,"Sous-total des postes documentés; frais non mentionnés, disponibilité, dates précises et admissibilité à reconfirmer.",CAD,4_semaines_resident_7ans_0730_1730
+quebec_vacances_ete,,,,Québec,non_calculable,Horaire de base 08:00-17:00; prix de la garde supplémentaire inconnu.,CAD,4_semaines_resident_7ans_0730_1730
+drummondville_ccsp,,,,Drummondville,non_calculable,Durée facturée du camp non explicitée; pas de tarif hebdomadaire vérifié.,CAD,4_semaines_resident_7ans_0730_1730
+tingwick_municipal,,,,Tingwick,non_calculable,Horaire et service de garde non documentés dans la source retenue.,CAD,4_semaines_resident_7ans_0730_1730

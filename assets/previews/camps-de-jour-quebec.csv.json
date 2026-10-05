@@ -1,0 +1,114 @@
+{
+  "dataset_id": "camps-de-jour-quebec",
+  "prepared_at_utc": "2026-10-05T18:27:35Z",
+  "prepared_file": "tarifs.csv",
+  "prepared_sha256": "037250fbbbe3a1241646741fd579bccca68c28f6e32bde217acb1c1440391efc",
+  "preview_sha256": "3ed1741c38f675f03ae221fe3f6d399b8c64e2fde2709cd2494f34128753605f",
+  "rows": 108,
+  "columns": ["tarif_id", "programme_id", "composante", "montant_min", "montant_max", "periode", "base_facturation", "residence", "preuve_id"],
+  "selection": "Au plus 120 positions régulièrement espacées dans l'ordre de la table préparée; sélection déterministe non aléatoire",
+  "source_name": "Pages municipales et de gestionnaires; compilation par Données bleues",
+  "source_url": "https://github.com/AurelienNicosiaULaval/donnees-bleues/tree/main/datasets/camps-de-jour-quebec",
+  "license": "Compilation, documentation et activité originales : CC BY 4.0; code original : MIT. Les contenus des sources municipales et des gestionnaires conservent leurs conditions propres. Les pages intégrales ne sont pas incluses dans les téléchargements.",
+  "license_url": "https://github.com/AurelienNicosiaULaval/donnees-bleues/blob/main/datasets/camps-de-jour-quebec/DATA_LICENSE.md",
+  "sources": [
+    {
+      "source_id": "QC01",
+      "source_url": "https://www.ville.quebec.qc.ca/nous_joindre/311/banque-info/info.aspx?NoFiche=AC-000577",
+      "acquisition_kind": "transcription_de_source_publique_archivee",
+      "acquired_at_utc": "2026-10-05 18:10:17",
+      "sha256": "afd1a359f3b50e6143879b53ce84b80142421067228bb29e8dd209b9a865387a"
+    },
+    {
+      "source_id": "QC02",
+      "source_url": "https://www.ville.quebec.qc.ca/citoyens/loisirs_sports/camps-de-jour/index.aspx",
+      "acquisition_kind": "transcription_de_source_publique_archivee",
+      "acquired_at_utc": "2026-10-05 18:10:21",
+      "sha256": "1b2843145143ffd525a148a0cee351c58ae23eee9c8575de2b07958f52df8eb4"
+    },
+    {
+      "source_id": "LEV01",
+      "source_url": "https://levis.ca/fr/loisirs-et-communaute/camp-de-jour/modalites-horaires-et-tarifs",
+      "acquisition_kind": "transcription_de_source_publique_archivee",
+      "acquired_at_utc": "2026-10-05 18:10:21",
+      "sha256": "4a51ec454407ff9ba46bd580700143d2b7da01be0bd0536b0f35cc85cec4eb8e"
+    },
+    {
+      "source_id": "LEV02",
+      "source_url": "https://www.ville.levis.qc.ca/loisirs/camps-de-jour/inscription/",
+      "acquisition_kind": "transcription_de_source_publique_archivee",
+      "acquired_at_utc": "2026-10-05 18:10:22",
+      "sha256": "7f252c032b6be43f8fd2d20aebed13faa565a1f55da29a218af4131e061f7208"
+    },
+    {
+      "source_id": "RIM01",
+      "source_url": "https://rimouski.ca/loisirs-culture/activites/camps-dete",
+      "acquisition_kind": "transcription_de_source_publique_archivee",
+      "acquired_at_utc": "2026-10-05 18:10:22",
+      "sha256": "d83605e0ed9b790066df03612378ac91df6a65c66929000684101764c4b5dd94"
+    },
+    {
+      "source_id": "GAT01",
+      "source_url": "https://www.gatineau.ca/portail/default.aspx?p=guichet_municipal%2Fcamps_jour%2Fete",
+      "acquisition_kind": "transcription_de_source_publique_archivee",
+      "acquired_at_utc": "2026-10-05 18:14:45",
+      "sha256": "a2b20de0fc21e3f2a0cf77efee6e2116a36db27f13cf460e23e288dcb0840922"
+    },
+    {
+      "source_id": "TRV01",
+      "source_url": "https://www.v3r.net/activites-et-loisirs/camp-de-jour/information-generale",
+      "acquisition_kind": "transcription_de_source_publique_archivee",
+      "acquired_at_utc": "2026-10-05 18:10:25",
+      "sha256": "ad73e197c5c29fba860207ba1fa0f0eb46cd9ce0e3f477e4f432fd39b8105231"
+    },
+    {
+      "source_id": "VIC01",
+      "source_url": "https://victoriaville.ca/inscriptions-sports-loisirs-et-camps-de-jour/animation-estivale-de-la-ville",
+      "acquisition_kind": "transcription_de_source_publique_archivee",
+      "acquired_at_utc": "2026-10-05 18:10:26",
+      "sha256": "06c11a39185eb100661df2b0edea9b444249ccd9b96ecdc74db014b1203d7c7a"
+    },
+    {
+      "source_id": "MAL01",
+      "source_url": "https://www.ville.lamalbaie.qc.ca/loisirs-culture/sports-et-loisirs/dates-dinscription-et-tarifs/",
+      "acquisition_kind": "transcription_de_source_publique_archivee",
+      "acquired_at_utc": "2026-10-05 18:10:28",
+      "sha256": "398d32e51ab622898ddc5aefb05d6e6cb3fd498f864c4efc89f95440f41703ab"
+    },
+    {
+      "source_id": "MAL02",
+      "source_url": "https://www.ville.lamalbaie.qc.ca/loisirs-culture/sports-et-loisirs/camp-jour/",
+      "acquisition_kind": "transcription_de_source_publique_archivee",
+      "acquired_at_utc": "2026-10-05 18:10:33",
+      "sha256": "1bb959f83b5fd1b6c96016f59335960cc93284fdb20e799a1aad613e7109633c"
+    },
+    {
+      "source_id": "SHE01",
+      "source_url": "https://loisirsactifamille.com/pages/camps-de-jour",
+      "acquisition_kind": "transcription_de_source_publique_archivee",
+      "acquired_at_utc": "2026-10-05 18:10:33",
+      "sha256": "67d9776055f0b99af7e59f1db1be0a96021efa2cde6715f3bcc06c930fafad97"
+    },
+    {
+      "source_id": "DRU01",
+      "source_url": "https://ccsp.qc.ca/camp-de-jour-2026/",
+      "acquisition_kind": "transcription_de_source_publique_archivee",
+      "acquired_at_utc": "2026-10-05 18:10:34",
+      "sha256": "31d2c476df8f78c06e039cebf2bb2f8a82ac6eda933d73e0c5635b8e41f66835"
+    },
+    {
+      "source_id": "DRU02",
+      "source_url": "https://www.drummondville.ca/le-conseil-en-action-plus-de-650-000-pour-soutenir-laccompagnement-des-enfants-a-besoins-particuliers-dans-les-camps-de-jour/",
+      "acquisition_kind": "transcription_de_source_publique_archivee",
+      "acquired_at_utc": "2026-10-05 18:10:35",
+      "sha256": "4dd3df0fceebfa31ad4adc32d9be7b93cfed2f940f7d375692aa943c890c3fe1"
+    },
+    {
+      "source_id": "TIN01",
+      "source_url": "https://www.tingwick.ca/fr/activites-loisirs-et-tourisme/camp-de-jour-53735/formulaire-camp-de-jour/",
+      "acquisition_kind": "transcription_de_source_publique_archivee",
+      "acquired_at_utc": "2026-10-05 18:10:38",
+      "sha256": "7ff1effab7c34b63c8240d8e0fa7c00c126a997633ba3a845b3a54e93c13cfb5"
+    }
+  ]
+}

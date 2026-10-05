@@ -1,0 +1,46 @@
+id: camps-de-jour-quebec-comparer-couts
+title: "Comparer les coûts des camps de jour"
+question: "Quels tarifs peut-on additionner pour quatre semaines avec garde, et quels cas restent non comparables?"
+dataset_id: camps-de-jour-quebec
+dataset_title: "Camps de jour au Québec"
+activity_url: datasets/camps-de-jour-quebec/activite-comparer-couts.qmd
+script_file: datasets/camps-de-jour-quebec/activite-comparer-couts.R
+classroom_archive: assets/classroom/camps-de-jour-quebec.zip
+access_mode: frozen
+duration: "60 à 90 minutes"
+level: "Introduction à intermédiaire"
+level_ids: [introduction, intermediaire]
+activity_type: ["Exploration de données", "Laboratoire d'introduction"]
+concepts: ["Unité statistique", "Clés de jointure", "Valeurs manquantes", "Statistiques descriptives"]
+concept_ids: [unite-statistique, cles-de-jointure, valeurs-manquantes, statistiques-descriptives]
+context: "Loisirs, budget familial et accès aux services"
+hook: "Un forfait pour l'été, un prix par famille et un prix par enfant ne se comparent pas directement."
+materials: ["Trousse ZIP et projet RStudio", "Script R complet", "CSV figés et provenance"]
+advanced_math_stats: false
+teacher_notes: "Conserver les cas non calculables; les observations ne représentent ni toutes les municipalités ni les montants réellement payés."
+pedagogical_status: pret_a_enseigner
+teacher_preparation: "Extraire la trousse, installer les packages avant la séance et exécuter le script depuis le projet RStudio."
+expected_output: "Un tableau des unités, un tableau des sous-totaux recalculés, un graphique et une justification des exclusions."
+learning_objectives:
+  - "Relier un tarif à sa source avec une clé vérifiée."
+  - "Distinguer rang d'enfant, taille de famille et période de facturation."
+  - "Identifier les informations nécessaires pour un calcul comparable."
+prerequisites:
+  - "Savoir importer un CSV et exécuter un script R."
+  - "Comprendre une jointure et la propagation des valeurs manquantes."
+success_criteria:
+  - "Chaque somme comporte une période et une base de facturation explicites."
+  - "Le tableau conserve six sommes de postes documentés, un calcul conditionnel et trois cas non calculables."
+  - "Les trois cas exclus sont justifiés par une lacune précise des sources."
+  - "La conclusion évite une estimation provinciale et une interprétation de dépenses observées."
+adaptations:
+  - "Débuter avec les sorties du script et interpréter seulement les catégories de prix."
+  - "Approfondir en évaluant l'effet du choix semaine ou saison, sans présumer les règles d'inscription non documentées."
+requires_prepared_data: true
+requires_live_download: false
+recommended_use: "Laboratoire guidé sur les unités et la comparabilité"
+result_visible_in_page: false
+status: "Script exécuté dans la trousse; utilisation en classe non documentée"
+courses: []
+date_added: "2026-10-05"
+date_updated: "2026-10-05"

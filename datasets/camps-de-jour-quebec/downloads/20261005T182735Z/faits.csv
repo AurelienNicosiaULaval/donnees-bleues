@@ -1,0 +1,104 @@
+programme_id,variable,valeur,unite,condition,preuve_id,statut
+quebec_vacances_ete,horaire_regulier,08:00-17:00,,,P0001,documente
+quebec_vacances_ete,periode_camp,2026-06-29/2026-08-14,,,P0002,documente
+quebec_vacances_ete,admissibilite_age,5 ans au 30 septembre de l'année en cours; maximum 12 ans pendant le camp,,,P0003,documente
+quebec_vacances_ete,garde,"Services complémentaires, disponibilité et prix selon le gestionnaire",,,P0004,documente
+quebec_vacances_ete,aide_financiere,"Aide annoncée pour les familles à faible revenu; budget limité, admissibilité à vérifier",,,P0005,documente
+quebec_vacances_ete,accompagnement,"Programme d'intégration annoncé, capacité non documentée",,,P0006,documente
+levis_municipal,horaire_regulier,07:30-17:30,,,P0007,documente
+levis_municipal,horaire_avec_garde,07:30-17:30,,,P0008,documente
+levis_municipal,periode_camp,2026-06-29/2026-08-12,,,P0009,documente
+levis_municipal,admissibilite_age,"4 à 12 ans; à 4 ans, maternelle complétée; références d'âge au 30 septembre 2025",,,P0010,documente
+levis_municipal,residence,Lévis uniquement,,,P0011,documente
+levis_municipal,garde,Inclus dans le tarif,,,P0012,documente
+levis_municipal,rabais,10 % si le total des semaines d'inscription des enfants dépasse 14; remboursement en septembre,,,P0013,documente
+rimouski_municipal,horaire_regulier,09:00-16:00,,,P0014,documente
+rimouski_municipal,horaire_avec_garde,07:30-17:30,,,P0015,documente
+rimouski_municipal,admissibilite_age,5 à 12 ans au 30 septembre de l'année en cours,,,P0016,documente
+rimouski_municipal,garde,Payant; 07:30-09:00 et 16:00-17:30,,,P0017,documente
+rimouski_municipal,repas,Repas et collations non fournis,,,P0018,documente
+rimouski_municipal,duree_forfait,7,semaine,,P0019,documente
+rimouski_municipal,rabais,Enfants à la même adresse; prix saison distinct du prix hebdomadaire,,,P0020,documente
+gatineau_municipal,horaire_regulier,09:00-16:00,,,P0021,documente
+gatineau_municipal,horaire_avec_garde,07:00-17:30,,,P0022,documente
+gatineau_municipal,periode_camp,2026-06-29/2026-08-07,,Année contextualisée par les chèques datés de juin 2026; dates du calendrier sans année.,P0023,documente
+gatineau_municipal,admissibilite_age,5 ans au 30 septembre 2025 à 12 ans; maternelle 5 ans à temps plein à l'inscription,,,P0024,documente
+gatineau_municipal,residence,Résidents et non-résidents; avantage résident également pour L'Ange-Gardien,,,P0025,documente
+gatineau_municipal,inscription,"Non-résidents : du 29 mai à 9 h au 12 juin à 23 h 59, selon places",,,P0026,documente
+trois_rivieres_municipal,horaire_regulier,07:30-17:30,,,P0027,documente
+trois_rivieres_municipal,horaire_avec_garde,07:30-17:30,,,P0028,documente
+trois_rivieres_municipal,periode_camp,2026-06-25/2026-08-07,,,P0029,documente
+trois_rivieres_municipal,admissibilite_age,4 à 13 ans affichés; maternelle 4 ou 5 ans complétée et 5 ans au 30 septembre suivant,,,P0030,documente
+trois_rivieres_municipal,garde,Inclus dans l'inscription,,,P0031,documente
+trois_rivieres_municipal,fermeture,Fermé le 1er juillet 2026,,,P0032,documente
+victoriaville_municipal,horaire_regulier,08:00-16:30,,,P0033,documente
+victoriaville_municipal,horaire_avec_garde,07:00-17:30,,,P0034,documente
+victoriaville_municipal,periode_camp,2026-06-25/2026-08-11,,,P0035,documente
+victoriaville_municipal,admissibilite_age,5 à 12 ans au 30 septembre 2025; maternelle 5 ans fortement recommandée,,,P0036,documente
+victoriaville_municipal,residence,Victoriaville ou Saint-Christophe-d'Arthabaska,,,P0037,documente
+victoriaville_municipal,sorties,5 sorties payantes en option; activités locales incluses,,,P0038,documente
+victoriaville_municipal,accompagnement,Demande possible au programme d'intégration; capacité non documentée,,,P0039,documente
+la_malbaie_municipal,horaire_regulier,09:00-16:00,,,P0040,documente
+la_malbaie_municipal,horaire_avec_garde,07:30-17:30,,,P0041,documente
+la_malbaie_municipal,periode_camp,2026-06-23/2026-08-14,,,P0042,documente
+la_malbaie_municipal,admissibilite_age,5 à 12 ans; 5 ans au 30 septembre 2026,,,P0043,documente
+la_malbaie_municipal,duree_forfait,8,semaine,,P0044,documente
+sherbrooke_actifamille,horaire_regulier,08:00-16:00,,,P0045,documente
+sherbrooke_actifamille,horaire_avec_garde,07:00-18:00,,,P0046,documente
+sherbrooke_actifamille,periode_forfait,2026-06-22/2026-08-07,,Forfait ZIP-ZAP 7 semaines; semaine 8 exclue.,P0047,documente
+sherbrooke_actifamille,admissibilite_age,4 à 12 ans,,,P0048,documente
+sherbrooke_actifamille,residence,Sherbrooke uniquement,,,P0049,documente
+sherbrooke_actifamille,aide_financiere,Rabais accessibilité à demander; montant non documenté dans la page,,,P0050,documente
+drummondville_ccsp,horaire_regulier,09:00-16:00,,,P0051,documente
+drummondville_ccsp,horaire_avec_garde,07:00-17:30,,,P0052,documente
+drummondville_ccsp,periode_camp,2026-06-25/2026-08-14,,Année donnée par le titre Camp de jour 2026.,P0053,documente
+drummondville_ccsp,admissibilite_age,5 à 12 ans,,,P0054,documente
+drummondville_ccsp,activites_supplementaires,Activités spéciales du mardi à faible coût; tarifs non documentés,,,P0055,documente
+tingwick_municipal,edition_source,2026,,,P0056,documente
+tingwick_municipal,sorties,Sorties payantes à sélectionner séparément; capacité limitée,,,P0057,documente
+tingwick_municipal,retard_inscription,100 CAD par inscription après le 21 mai 2026 à 16:00,,,P0058,documente
+drummondville_ccsp,accompagnement,,,,,non_documente
+drummondville_ccsp,aide_financiere,,,,,non_documente
+drummondville_ccsp,garde,,,,,non_documente
+drummondville_ccsp,residence,,,,,non_documente
+drummondville_ccsp,statut_taxes,,,,,non_documente
+gatineau_municipal,accompagnement,,,,,non_documente
+gatineau_municipal,aide_financiere,,,,,non_documente
+gatineau_municipal,garde,,,,,non_documente
+gatineau_municipal,statut_taxes,,,,,non_documente
+la_malbaie_municipal,accompagnement,,,,,non_documente
+la_malbaie_municipal,aide_financiere,,,,,non_documente
+la_malbaie_municipal,garde,,,,,non_documente
+la_malbaie_municipal,residence,,,,,non_documente
+la_malbaie_municipal,statut_taxes,,,,,non_documente
+levis_municipal,accompagnement,,,,,non_documente
+levis_municipal,aide_financiere,,,,,non_documente
+levis_municipal,statut_taxes,,,,,non_documente
+quebec_vacances_ete,horaire_avec_garde,,,,,non_documente
+quebec_vacances_ete,residence,,,,,non_documente
+rimouski_municipal,accompagnement,,,,,non_documente
+rimouski_municipal,aide_financiere,,,,,non_documente
+rimouski_municipal,periode_camp,,,,,non_documente
+rimouski_municipal,residence,,,,,non_documente
+rimouski_municipal,statut_taxes,,,,,non_documente
+sherbrooke_actifamille,accompagnement,,,,,non_documente
+sherbrooke_actifamille,garde,,,,,non_documente
+sherbrooke_actifamille,periode_camp,,,,,non_documente
+sherbrooke_actifamille,statut_taxes,,,,,non_documente
+tingwick_municipal,accompagnement,,,,,non_documente
+tingwick_municipal,admissibilite_age,,,,,non_documente
+tingwick_municipal,aide_financiere,,,,,non_documente
+tingwick_municipal,garde,,,,,non_documente
+tingwick_municipal,horaire_avec_garde,,,,,non_documente
+tingwick_municipal,horaire_regulier,,,,,non_documente
+tingwick_municipal,periode_camp,,,,,non_documente
+tingwick_municipal,residence,,,,,non_documente
+tingwick_municipal,statut_taxes,,,,,non_documente
+trois_rivieres_municipal,accompagnement,,,,,non_documente
+trois_rivieres_municipal,aide_financiere,,,,,non_documente
+trois_rivieres_municipal,residence,,,,,non_documente
+trois_rivieres_municipal,statut_taxes,,,,,non_documente
+victoriaville_municipal,aide_financiere,,,,,non_documente
+victoriaville_municipal,garde,,,,,non_documente
+victoriaville_municipal,statut_taxes,,,,,non_documente
+quebec_vacances_ete,statut_taxes,Taxes incluses,,,P0115,documente

@@ -1,0 +1,13 @@
+{
+  "version": "20261005T182735Z",
+  "edition": 2026,
+  "programmes": 10,
+  "sources": 14,
+  "faits_documentes": 59,
+  "faits_non_documentes": 44,
+  "tarifs": 108,
+  "preuves": 166,
+  "scenarios_chiffres": 7,
+  "controles": "reussis",
+  "controles_manuels": "anomalies conservées dans qualite.csv"
+}
