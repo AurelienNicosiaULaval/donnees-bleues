@@ -1,3 +1,21 @@
+- id: billet-lancement-donnees-bleues
+  date_added: "2026-10-05"
+  date_updated: "2026-10-05"
+  type: document
+  title: 'Lancement de Données bleues : des données québécoises pour enseigner'
+  format: Billet · Lancement du site
+  description: 'Pourquoi Données bleues? Des données locales, des activités et du code R pour enseigner la statistique et la science des données.'
+  themes: Données québécoises et enseignement
+  concepts: [Statistique, Science des données, R, Sources, Reproductibilité]
+  authors: Données bleues
+  contributor: Données bleues
+  url: https://donneesbleues.ca/resources/billet-lancement-donnees-bleues.html
+  evidence_url: https://github.com/AurelienNicosiaULaval/donnees-bleues/actions/runs/26764169237
+  courses: []
+  related_datasets: []
+  license: 'Texte original : CC BY 4.0; illustration : identité visuelle existante du site.'
+  note: 'Billet rétrospectif daté du 1er juin 2026, première mise en ligne réussie sur GitHub Pages; texte et notice créés le 5 octobre 2026. Le catalogue initial comprenait BIXI, les bibliothèques publiques et les stations de qualité de l’air. Les liens internes conduisent aux ressources actuelles.'
+
 - id: billet-empress-of-ireland-titanic
   date_added: "2026-10-05"
   date_updated: "2026-10-05"

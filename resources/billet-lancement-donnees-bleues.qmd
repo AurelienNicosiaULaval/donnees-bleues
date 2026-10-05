@@ -1,0 +1,77 @@
+---
+title: "Lancement de Données bleues : des données québécoises pour enseigner"
+description: "Pourquoi Données bleues? Des données locales, des activités et du code R pour enseigner la statistique et la science des données."
+author: "Données bleues"
+date: "2026-06-01"
+date-format: long
+categories: [Lancement, Le projet]
+image: "../assets/illustrations/hero-territory.svg"
+image-alt: "Illustration abstraite de territoires et de données dans des tons bleus"
+toc: false
+page-layout: full
+body-classes: hub-page resource-page document-resource news-article
+embed-resources: true
+---
+
+[Actualités](../actualites.qmd) / Lancement du site
+
+::: {.news-article-hero}
+::: {.news-article-copy .resource-detail-header}
+```{r}
+#| echo: false
+#| results: asis
+source(if (file.exists("R/utils_resources.R")) "R/utils_resources.R" else "../R/utils_resources.R")
+render_resource_notice_identity("billet-lancement-donnees-bleues")
+```
+
+# Lancement de Données bleues : des données québécoises pour enseigner
+
+::: {.news-byline}
+Données bleues · <time datetime="2026-06-01">1er juin 2026</time> · Lancement
+:::
+
+Données bleues a été mis en ligne le 1er juin 2026. Son but : rassembler des jeux de données québécois et les accompagner de fiches, d’activités et de code R pour enseigner la statistique et la science des données.
+
+Ce billet rétrospectif porte la date de la première mise en ligne du site. Il a été rédigé le 5 octobre 2026 à partir de la version de lancement.
+
+[Explorer les jeux de données](../catalogue.qmd){.dataset-button}
+:::
+
+::: {.news-article-art}
+![Territoires et données, illustration du site Données bleues](../assets/illustrations/hero-territory.svg){fig-alt="Illustration abstraite de territoires et de données dans des tons bleus"}
+:::
+:::
+
+::: {.news-article-body}
+## Partir de questions proches de nous
+
+Les vélos disponibles dans une station BIXI, les services des bibliothèques publiques ou les stations de mesure de la qualité de l’air sont des points de départ pour travailler avec des données réelles. Ces trois sujets composaient le premier catalogue de Données bleues.
+
+Ils invitent à poser des questions avant de choisir une méthode : que représente une ligne? Quelles variables peut-on comparer? Sur quelle période les données ont-elles été recueillies? Que permet la source, et quelles conclusions dépasseraient ce qu’elle mesure?
+
+Le contexte québécois fait partie du travail d’analyse. Les lieux, les services et les organismes concernés donnent un sens aux variables et aux limites des données.
+
+## Accompagner les données jusqu’à l’activité
+
+Trouver un fichier est une première étape. Pour en faire une séance de cours, il faut aussi comprendre sa structure, préparer les données, choisir une question et prévoir ce que les personnes étudiantes devront produire.
+
+Dès son lancement, Données bleues associait les jeux à des fiches, à des activités courtes et longues et à des scripts R. L’objectif est de rendre ce travail de préparation partageable : une source à consulter, des variables à comprendre, du code à reprendre et des consignes à adapter.
+
+Un même jeu peut servir à plusieurs apprentissages. On peut commencer par importer un fichier et compter des observations, puis revenir aux mêmes données pour construire un graphique, comparer des groupes ou discuter un modèle. Le choix dépend du cours, des préalables et de la question étudiée.
+
+## Pour enseigner, apprendre et contribuer
+
+Le projet s’adresse aux personnes qui enseignent la statistique, R ou la science des données, ainsi qu’à celles qui apprennent à analyser des données réelles. Les ressources sont à choisir et à adapter selon le niveau du groupe et le temps disponible.
+
+Les sources, les conditions de réutilisation et les limites d’interprétation font partie de chaque ressource. Les textes et le code du site ont leurs propres licences; les données et les images conservent les conditions qui leur sont applicables. Le [guide de réutilisation](../guide.qmd) précise les règles actuelles.
+
+Aujourd’hui, on peut entrer dans le site par les [jeux de données](../catalogue.qmd), les [activités](../activites.qmd), les [lectures](../lectures.qmd) ou les [outils et tutoriels](../applications.qmd). La rubrique [Actualités](../actualites.qmd) présente les ajouts et la vie du projet.
+
+Vous avez une source québécoise à proposer, une activité à partager ou une correction à signaler? La page [Contribuer](../contribuer.qmd) explique comment participer.
+
+## Retrouver le lancement
+
+La date et le contenu initial sont documentés dans le [premier déploiement réussi du site, le 1er juin 2026](https://github.com/AurelienNicosiaULaval/donnees-bleues/actions/runs/26764169237) et dans la [page d’accueil de cette version](https://github.com/AurelienNicosiaULaval/donnees-bleues/blob/4f40ed15493ad194f878224d651bbe6c6a309794/index.qmd) (Données bleues, 2026). Les liens vers les ressources du site conduisent à leurs versions actuelles.
+
+[Tous les billets](../actualites.qmd) · [À propos de Données bleues](../about.qmd)
+:::
