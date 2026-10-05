@@ -21,7 +21,7 @@ embed-resources: true
 #| echo: false
 #| results: asis
 source(if (file.exists("R/utils_resources.R")) "R/utils_resources.R" else "../R/utils_resources.R")
-render_resource_notice_identity("billet-empress-of-ireland-titanic")
+render_resource_notice_identity("billet-empress-of-ireland-titanic", show_record_dates = FALSE)
 ```
 
 # Vous enseignez avec Titanic? Découvrez l’Empress of Ireland
@@ -32,7 +32,7 @@ Données bleues · <time datetime="2026-09-07">7 septembre 2026</time> · À dé
 
 Le tableau `Titanic` fait travailler les tableaux croisés, les proportions et les associations entre variables. Avec l’Empress of Ireland, on peut reprendre ces questions dans un contexte québécois, à partir des comptes du rapport canadien d’enquête.
 
-Ce billet revient sur le jeu ajouté à Données bleues le 7 septembre 2026 et porte la date de cet ajout.
+Données bleues accueille aujourd’hui ce jeu de données, avec sa fiche et une activité pour la classe.
 
 [Découvrir le jeu Empress of Ireland](../datasets/empress-of-ireland/fiche.qmd){.dataset-button}
 :::

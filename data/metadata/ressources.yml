@@ -14,7 +14,7 @@
   courses: []
   related_datasets: []
   license: 'Texte original : CC BY 4.0; illustration : identité visuelle existante du site.'
-  note: 'Billet rétrospectif daté du 1er juin 2026, première mise en ligne réussie sur GitHub Pages; texte et notice créés le 5 octobre 2026. Le catalogue initial comprenait BIXI, les bibliothèques publiques et les stations de qualité de l’air. Les liens internes conduisent aux ressources actuelles.'
+  note: 'Annonce du lancement de Données bleues, datée du 1er juin 2026. Le premier catalogue réunit BIXI, les bibliothèques publiques et les stations de qualité de l’air.'
 
 - id: billet-empress-of-ireland-titanic
   date_added: "2026-10-05"
@@ -32,7 +32,7 @@
   courses: []
   related_datasets: empress-of-ireland
   license: 'Texte original : CC BY 4.0; données Empress : CC0; illustration : voir les crédits du site.'
-  note: 'Billet rétrospectif daté du 7 septembre 2026, date d’ajout du jeu; notice créée le 5 octobre 2026. Comparaison avec datasets::Titanic, en excluant l’équipage pour les proportions des passagers. Aucune donnée individuelle reconstituée.'
+  note: 'Billet du 7 septembre 2026, date d’ajout du jeu. Comparaison avec datasets::Titanic, en excluant l’équipage pour les proportions des passagers. Aucune donnée individuelle reconstituée.'
 
 - id: billet-elections-quebec-2026
   date_added: "2026-10-05"

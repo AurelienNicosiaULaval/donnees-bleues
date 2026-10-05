@@ -116,12 +116,14 @@ render_resource_detail <- function(id, root = "..") {
 }
 
 # Shared masthead for authored document and application notices.
-render_resource_notice_identity <- function(id, root = if (file.exists("data/metadata/ressources.yml")) "." else "..") {
+render_resource_notice_identity <- function(id, root = if (file.exists("data/metadata/ressources.yml")) "." else "..", show_record_dates = TRUE) {
   items <- resource_extra(root)
   index <- match(id, vapply(items, function(x) x$id, character(1)))
   if (is.na(index)) stop("Notice inconnue : ", id, call. = FALSE)
   item <- items[[index]]
-  cat(resource_identity_html(item, item$type, show_dates = FALSE),
-      '<details class="resource-record-dates"><summary>Dates de la fiche</summary>',
-      resource_dates_html(item, compact = TRUE), '</details>')
+  cat(resource_identity_html(item, item$type, show_dates = FALSE))
+  if (show_record_dates) {
+    cat('<details class="resource-record-dates"><summary>Dates de la fiche</summary>',
+        resource_dates_html(item, compact = TRUE), '</details>')
+  }
 }

@@ -51,9 +51,19 @@ for (item in resource_catalogue()) {
   doc <- documents[[page]]
   identity <- xml2::xml_find_all(doc, paste0('//*[@data-resource-type="', item$type, '"]'))
   dates <- xml2::xml_attr(xml2::xml_find_all(doc, '//main//dl[contains(@class,"resource-dates")]//time'), 'datetime')
+  if (startsWith(item$id, 'billet-')) {
+    # Un billet porte sa date éditoriale; les dates du répertoire restent dans les métadonnées.
+    lines <- readLines(sub('[.]html$', '.qmd', item$url), warn = FALSE, encoding = 'UTF-8')
+    borders <- which(trimws(lines) == '---')
+    metadata <- yaml::yaml.load(paste(lines[2:(borders[2] - 1L)], collapse = '\n'))
+    article_dates <- xml2::xml_attr(xml2::xml_find_all(doc, '//main//*[contains(concat(" ", normalize-space(@class), " "), " news-byline ")]//time'), 'datetime')
+    dates_valid <- length(dates) == 0L && identical(article_dates, metadata$date)
+  } else {
+    dates_valid <- identical(dates, c(item$date_added, item$date_updated))
+  }
   title <- xml2::xml_find_all(doc, '//*[contains(concat(" ", normalize-space(@class), " "), " resource-detail-header ")]//h1')
   if (length(identity) != 1L || length(title) != 1L ||
-      !identical(dates, c(item$date_added, item$date_updated))) {
+      !dates_valid) {
     errors <- c(errors, paste(item$url, 'en-tête ou dates de ressource incohérents.'))
   }
 }
