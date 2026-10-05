@@ -73,7 +73,7 @@ document.addEventListener('DOMContentLoaded', () => {
     updateStatus();
   };
   search.addEventListener('input', applySearch);
-  document.querySelectorAll('#listing-billets .listing-category').forEach(badge => {
+  listing.items.flatMap(item => [...item.elm.querySelectorAll('.listing-category')]).forEach(badge => {
     badge.setAttribute('role', 'button');
     badge.setAttribute('tabindex', '0');
     badge.setAttribute('aria-label', `Rechercher la catégorie ${badge.textContent}`);
