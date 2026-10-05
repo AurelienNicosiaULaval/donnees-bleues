@@ -1,0 +1,7 @@
+controle,resultat,detail
+observations_historique,reussi,"2774 lignes, panneaux conservés"
+codes_panneau_20260908,reussi,648 codes uniques
+prix_et_produits,reussi,12650 lignes; 110 produits; fin juillet 2026
+annexes_et_taux,reussi,335 codes; taux identiques à la liste récapitulative
+codes_acier_aluminium,reussi,313 codes restants égaux au panneau antérieur acier/aluminium
+cles_prix,reussi,mois et vecteur uniques dans cette capture

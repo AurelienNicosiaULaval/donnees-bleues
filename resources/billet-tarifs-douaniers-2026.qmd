@@ -1,0 +1,55 @@
+---
+title: "Tarifs douaniers et actualité : que peut-on mesurer au Québec?"
+description: "Comparer les annonces, les contre-tarifs entrés en vigueur, les prix et les échanges québécois, avec quatre graphiques et des sources datées."
+author: "Données bleues"
+date: "2026-10-05"
+date-format: long
+categories: [Analyse, Économie, Nouveau jeu]
+image: "../assets/illustrations/datasets/tarifs-douaniers-quebec.webp"
+image-alt: "Illustration d'un port commercial fictif sur le Saint-Laurent avec cargaison et bureau de douane"
+embed-resources: true
+toc: false
+page-layout: full
+body-classes: hub-page resource-page document-resource news-article
+execute:
+  freeze: false
+  echo: false
+  warning: false
+  message: false
+---
+
+[Actualités](../actualites.qmd) / Tarifs douaniers
+
+::: {.news-article-hero}
+::: {.news-article-copy .resource-detail-header}
+```{r}
+#| results: asis
+source(if (file.exists("R/utils_resources.R")) "R/utils_resources.R" else "../R/utils_resources.R")
+render_resource_notice_identity("billet-tarifs-douaniers-2026")
+```
+
+# Tarifs douaniers et actualité : que peut-on mesurer au Québec?
+
+::: {.news-byline}
+Données bleues · <time datetime="2026-10-05">5 octobre 2026</time> · Analyse
+:::
+
+Les taux annoncés ne mesurent pas directement les prix en magasin. Ce dossier réunit des mesures douanières, des séries québécoises et une sélection de nouvelles pour examiner leurs dates, leurs unités et leurs limites.
+
+[Découvrir les données et la trousse R](../datasets/tarifs-douaniers-quebec/fiche.qmd){.dataset-button}
+:::
+
+::: {.news-article-art}
+![Port commercial fictif sur le Saint-Laurent](../assets/illustrations/datasets/tarifs-douaniers-quebec.webp){fig-alt="Port commercial fictif avec navire, cargaison et bureau de douane sur le Saint-Laurent"}
+
+[Crédits de l'illustration](../credits-images.qmd#illustrations-du-catalogue)
+:::
+:::
+
+::: {.news-article-body}
+{{< include ../datasets/tarifs-douaniers-quebec/analyse-contenu.md >}}
+
+Les [onze tables, dictionnaire et trousse](../datasets/tarifs-douaniers-quebec/fiche.qmd#fichiers-et-reproductibilite) permettent de refaire les graphiques. La sélection d'articles et la chronologie sont incluses dans les téléchargements. Les sources ont été consultées le 5 octobre 2026; aucune veille automatique n'est configurée.
+
+[Tous les billets](../actualites.qmd) · [Tous les jeux](../catalogue.qmd)
+:::
