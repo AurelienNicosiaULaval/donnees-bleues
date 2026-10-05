@@ -34,6 +34,7 @@ project:
     - datasets/vols-montreal-trudeau/source/archives_vols.csv
   render:
     - "index.qmd"
+    - "actualites.qmd"
     - "catalogue.qmd"
     - "ressources.qmd"
     - "lectures.qmd"
@@ -83,6 +84,8 @@ website:
         href: lectures.qmd
       - text: "Outils et tutoriels"
         href: applications.qmd
+      - text: "Actualités"
+        href: actualites.qmd
       - text: "Guide du site"
         href: guide.qmd
       - text: "À propos"
@@ -111,8 +114,11 @@ format:
       - assets/css/layout.css
       - assets/css/resource-identity.css
       - assets/css/editorial.css
+      - assets/css/news.css
     include-before-body: assets/skip-link.html
-    include-in-header: assets/google-site-verification.html
+    include-in-header:
+      - assets/google-site-verification.html
+      - assets/news-feed.html
     include-after-body:
       - assets/resource-search.html
       - assets/dataset-download.html

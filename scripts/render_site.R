@@ -25,6 +25,7 @@ clear_quarto_session_artifacts <- function() {
 site_inputs <- function() {
   root_pages <- c(
     "index.qmd",
+    "actualites.qmd",
     "catalogue.qmd",
     "ressources.qmd",
     "lectures.qmd",
@@ -70,6 +71,7 @@ for (input in site_inputs()) {
 }
 
 source("scripts/build_demonstrations.R", local = TRUE)
+source("scripts/build_news_feed.R", local = TRUE)
 postprocess_site_headings("docs")
 source("R/utils_seo.R")
 postprocess_site_seo("docs")

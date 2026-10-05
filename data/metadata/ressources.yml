@@ -1,3 +1,21 @@
+- id: billet-elections-quebec-2026
+  date_added: "2026-10-05"
+  date_updated: "2026-10-05"
+  type: document
+  title: 'Élections au Québec : un nouveau jeu de données à explorer'
+  format: Billet · Nouveau jeu de données
+  description: 'Candidatures, résultats historiques et cartes électorales : trois pistes pour travailler avec les données d’Élections Québec.'
+  themes: Élections et vie démocratique
+  concepts: [Statistique descriptive, Proportions, Visualisation, Jointures, Cartographie, R]
+  authors: Données bleues
+  contributor: Données bleues
+  url: https://donneesbleues.ca/resources/billet-elections-quebec-2026.html
+  evidence_url: https://www.dgeq.org/donnees.html
+  courses: []
+  related_datasets: elections-quebec
+  license: 'Texte original : CC BY 4.0; données : conditions des producteurs; illustration : voir les crédits du site.'
+  note: 'Billet du 5 octobre 2026. Distinguer les captures de candidatures, les résultats historiques et les résultats provisoires ou finaux du scrutin de 2026.'
+
 - id: permutations-accidents-quebec
   date_added: "2026-10-03"
   date_updated: "2026-10-03"

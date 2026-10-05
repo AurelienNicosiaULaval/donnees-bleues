@@ -1,0 +1,75 @@
+---
+title: "Élections au Québec : un nouveau jeu de données à explorer"
+description: "Candidatures, résultats historiques et cartes électorales : trois pistes pour travailler avec les données d’Élections Québec."
+author: "Données bleues"
+date: "2026-10-05"
+date-format: long
+categories: [Nouveau jeu, Élections]
+image: "../assets/illustrations/datasets/elections-quebec.webp"
+image-alt: "Illustration d’un bureau de vote québécois dans des tons bleus et turquoise"
+toc: false
+page-layout: full
+body-classes: hub-page resource-page document-resource news-article
+embed-resources: true
+---
+
+[Actualités](../actualites.qmd) / Élections au Québec
+
+::: {.news-article-hero}
+::: {.news-article-copy .resource-detail-header}
+```{r}
+#| echo: false
+#| results: asis
+source(if (file.exists("R/utils_resources.R")) "R/utils_resources.R" else "../R/utils_resources.R")
+render_resource_notice_identity("billet-elections-quebec-2026")
+```
+
+# Élections au Québec : un nouveau jeu de données à explorer
+
+::: {.news-byline}
+Données bleues · <time datetime="2026-10-05">5 octobre 2026</time> · Nouveau jeu
+:::
+
+À l’occasion du scrutin provincial du 5 octobre 2026, Données bleues propose un jeu consacré aux élections québécoises. Les candidatures, les résultats historiques et les cartes électorales offrent plusieurs points de départ pour une séance de statistique ou de programmation R.
+
+[Découvrir le jeu de données](../datasets/elections-quebec/fiche.qmd){.dataset-button}
+:::
+
+::: {.news-article-art}
+![Illustration d’un bureau de vote québécois](../assets/illustrations/datasets/elections-quebec.webp){fig-alt="Illustration d’un bureau de vote québécois dans des tons bleus et turquoise"}
+
+[Crédits de l’illustration](../credits-images.qmd#illustrations-du-catalogue)
+:::
+:::
+
+::: {.news-article-body}
+## Commencer par les candidatures
+
+Combien de candidatures trouve-t-on dans chaque circonscription? La distribution est-elle semblable d’un territoire à l’autre? La liste officielle permet de poser ces questions sans attendre les résultats du vote.
+
+Dans la [capture du 4 octobre 2026 conservée dans le dépôt et consultée pour ce billet](https://github.com/AurelienNicosiaULaval/donnees-bleues-elections-qc/blob/6166b766192f3223045e2335f588c09df53eda4b/data/processed/candidates.csv), la dernière consultation contient 908 candidatures et 127 identifiants de circonscription. Le fichier conserve aussi les consultations précédentes. Avant de compter, il faut donc sélectionner une seule capture : additionner toutes les lignes compterait plusieurs fois les mêmes candidatures.
+
+La [fiche du jeu](../datasets/elections-quebec/fiche.qmd#commencer-dans-r) fournit un exemple complet en R pour charger une version fixe, retenir la dernière capture et représenter le nombre de candidatures par circonscription.
+
+## Relier voix, sièges et territoires
+
+Les [tables historiques publiques](https://github.com/AurelienNicosiaULaval/donnees-bleues-elections-qc/blob/6166b766192f3223045e2335f588c09df53eda4b/metadata/table_catalog.csv) permettent d’explorer d’autres questions : comment se répartissent les voix entre les partis? Comment cette répartition se compare-t-elle à celle des sièges? Quels écarts de participation observe-t-on entre les circonscriptions?
+
+Ces questions font travailler les proportions et les dénominateurs. Une part des voix se calcule sur les votes retenus pour l’analyse; une part des sièges se calcule sur le nombre de sièges. Les deux mesures répondent à des questions différentes.
+
+Les cartes ouvrent aussi la voie à des jointures et à une représentation spatiale. Pour comparer deux scrutins, il faut vérifier l’édition de la carte : un territoire qui change ne constitue plus exactement la même unité d’observation. Les [limites documentées du corpus](https://github.com/AurelienNicosiaULaval/donnees-bleues-elections-qc/blob/6166b766192f3223045e2335f588c09df53eda4b/docs/coverage.md) précisent les correspondances disponibles.
+
+## Lire les données d’une soirée électorale
+
+Élections Québec [annonce la diffusion des résultats du 5 octobre après 20 h, une fois le dépouillement commencé](https://www.dgeq.org/donnees.html), avec des actualisations toutes les deux à cinq minutes pendant la soirée. Cette annonce indique le calendrier de la source; elle ne confirme pas que ces résultats sont déjà intégrés au fichier proposé dans Données bleues.
+
+Pour travailler avec une capture de résultats, conserver son heure de consultation et vérifier le statut annoncé par la source. Une mise à jour provisoire et un résultat final ne sont pas interchangeables. Plusieurs captures d’une même soirée suivent le même scrutin et ne constituent pas des élections indépendantes.
+
+## Choisir les fichiers pour sa séance
+
+La [fiche des élections provinciales](../datasets/elections-quebec/fiche.qmd) réunit les accès aux données, le dictionnaire, l’exemple R et les limites d’interprétation. Le [dépôt électoral](https://github.com/AurelienNicosiaULaval/donnees-bleues-elections-qc) documente les sources et les traitements. Certaines adaptations restent à reconstruire localement selon les droits des producteurs; leur présence dans le catalogue ne signifie pas qu’elles sont toutes téléchargeables.
+
+Sources consultées le 5 octobre 2026 : [Élections Québec, données ouvertes (2026)](https://www.dgeq.org/donnees.html) et [Données bleues, dépôt électoral, version examinée](https://github.com/AurelienNicosiaULaval/donnees-bleues-elections-qc/tree/6166b766192f3223045e2335f588c09df53eda4b).
+
+[Tous les billets](../actualites.qmd) · [Tous les jeux de données](../catalogue.qmd)
+:::

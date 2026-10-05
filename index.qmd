@@ -6,6 +6,19 @@ toc: false
 body-classes: hub-page
 page-layout: full
 embed-resources: true
+listing:
+  id: dernier-billet
+  contents: "resources/billet-*.qmd"
+  type: default
+  sort: "date desc"
+  max-items: 1
+  fields: [image, date, title, description, categories]
+  date-format: long
+  image-align: left
+  image-height: 200px
+  max-description-length: 240
+  sort-ui: false
+  filter-ui: false
 ---
 
 ```{r}
@@ -46,6 +59,15 @@ cat('<nav class="home-resource-links" aria-label="Types de ressources">')
 for (type in names(links)) cat('<a href="',links[type],'">',resource_type_badge(type),'<span>',labels[type],'</span><small>',as.integer(counts[type]),if(counts[type] == 1) ' ressource</small></a>' else ' ressources</small></a>',sep='')
 cat('</nav>')
 ```
+
+## À la une
+
+::: {.home-news}
+::: {#dernier-billet}
+:::
+
+[Tous les billets](actualites.qmd){.news-more}
+:::
 
 ## Un exemple avec BIXI
 

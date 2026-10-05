@@ -87,6 +87,16 @@ Un jeu peut aussi être référencé avec ses fichiers hébergés chez la person
 
 La disponibilité technique d’une trousse n’établit pas son efficacité pédagogique. La [fiche de retour de classe](templates/retour-classe-template.md) permet de documenter les usages et difficultés sans données personnelles étudiantes.
 
+## Billets et actualités
+
+La page `actualites.qmd` rassemble les billets `resources/billet-*.qmd`, du plus récent au plus ancien. L’accueil affiche automatiquement le dernier billet. Un flux RSS est généré dans `actualites.xml`.
+
+Pour ajouter un billet, créer sa page dans `resources/` avec un nom commençant par `billet-`. Renseigner `title`, `description`, `author`, `date` au format `AAAA-MM-JJ`, `categories`, `image`, `image-alt` et `embed-resources: true` dans le YAML. Reprendre la structure de `resources/billet-elections-quebec-2026.qmd` et référencer l’illustration existante du jeu lorsque le billet lui est consacré.
+
+Ajouter sa notice de type `document` à `data/metadata/ressources.yml` et appeler `render_resource_notice_identity()` dans l’en-tête. Le billet apparaît ainsi dans les lectures et dans la recherche commune. Séparer la date du billet, les dates de la notice et la date de consultation des données; citer une version fixe pour les nombres issus d’un fichier évolutif. Une annonce de diffusion ne prouve pas l’intégration de nouveaux résultats au dépôt.
+
+Rendre le site avec `scripts/render_site.R`, puis lancer `scripts/check_site.R`. Vérifier le classement, la carte d’accueil, le billet, le flux RSS et les liens sur une fenêtre étroite avant la publication.
+
 ## Publication
 
 Le workflow valide l’environnement, les règles de publication, les trousses et les analyses, puis construit et vérifie un site neuf. Le déploiement sur `main` dépend du succès de cette validation et utilise son artefact exact. Les demandes de fusion produisent un artefact de consultation sans déploiement.

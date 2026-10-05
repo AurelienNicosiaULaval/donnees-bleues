@@ -1,0 +1,39 @@
+---
+title: "Actualités"
+page-title: "Actualités des jeux de données québécois | Données bleues"
+description: "Billets sur les nouveaux jeux de données de Données bleues, leurs mises à jour et des pistes pour les explorer et les utiliser en classe."
+toc: false
+page-layout: full
+body-classes: hub-page news-page
+embed-resources: true
+listing:
+  id: billets
+  contents: "resources/billet-*.qmd"
+  type: default
+  sort: "date desc"
+  fields: [image, date, title, description, categories]
+  date-format: long
+  image-align: left
+  image-height: 220px
+  max-description-length: 240
+  sort-ui: false
+  filter-ui: false
+  page-size: 8
+---
+
+::: {.news-intro}
+# Actualités
+
+Les nouveaux jeux de données, leurs mises à jour et des idées pour les explorer en classe.
+
+Chaque billet présente un sujet et renvoie vers la fiche du jeu pour les fichiers, les sources et les précautions d’utilisation.
+:::
+
+::: {.news-list}
+::: {#billets}
+:::
+:::
+
+::: {.news-footer}
+[Explorer tous les jeux de données](catalogue.qmd) · [Suivre les billets par RSS](actualites.xml)
+:::
