@@ -1,0 +1,83 @@
+---
+title: "Tarifs douaniers, prix et commerce au Québec"
+embed-resources: true
+page-layout: full
+toc: false
+format:
+  html:
+    section-divs: false
+body-classes: hub-page resource-page dataset-resource
+execute:
+  freeze: false
+---
+
+```{r}
+#| label: dataset-detail-header
+#| echo: false
+#| results: asis
+source(if (file.exists("R/utils_dataset_page.R")) "R/utils_dataset_page.R" else "../../R/utils_dataset_page.R")
+# Le bloc Quarto ci-dessous délimite explicitement le contenu documentaire.
+entete <- paste(capture.output(render_dataset_detail_header()), collapse = "\n")
+cat(sub('<div class="dataset-detail-content">', '', entete, fixed = TRUE))
+```
+
+::: {.dataset-detail-content}
+
+## Trois ensembles à lire séparément
+
+Les droits de douane sont fédéraux. Leur pertinence pour le Québec dépend des marchandises, de leur origine et de la transaction. Cette édition rapproche des listes canadiennes, des prix observés au Québec et des échanges québécois, avec une provenance et des périodes distinctes.
+
+| Ensemble | Contenu de l'édition du 5 octobre 2026 | Unité |
+|---|---|---|
+| Contre-tarifs | 2774 observations dans trois panneaux historiques; 648 lignes dans le panneau du 8 septembre 2026 | Code canadien à huit chiffres et panneau |
+| Décret DORS/2026-186 | 335 codes des annexes 1 à 3, avec leurs taux rapprochés de la liste | Code et annexe |
+| Prix au Québec | 12650 observations, 110 produits, janvier 2017 à juillet 2026 | Produit, conditionnement et mois |
+| Commerce au Québec | 86710 observations, 13 catégories et 29 partenaires, janvier 2017 à juillet 2026 | Mois, catégorie SCPAN, partenaire et sens du commerce |
+| Documentation | Sources, captures, contrôles, actualité et chronologie | Grain propre à chaque table |
+
+Les fichiers de prix et de commerce proviennent des tableaux [18-10-0245-01](https://doi.org/10.25318/1810024501-fra) et [12-10-0175-01](https://doi.org/10.25318/1210017501-fra) de Statistique Canada (2026). La liste de contre-mesures provient du [ministère des Finances](https://www.canada.ca/fr/ministere-finances/programmes/politiques-finances-echanges-internationaux/reponse-canada-droits-douane-americains/liste-complete-produits-americains-assujettis-contre-mesures-tarifaires.html); les annexes sont extraites de la [Gazette du Canada, DORS/2026-186](https://gazette.gc.ca/rp-pr/p2/2026/2026-09-23/html/sor-dors186-fra.html).
+
+## Fichiers et reproductibilité {#fichiers-et-reproductibilite}
+
+```{r}
+#| echo: false
+#| results: asis
+library(jsonlite)
+library(knitr)
+racine <- if (file.exists("datasets/tarifs-douaniers-quebec/metadata.yml")) "." else "../.."
+version <- "20261005T200817Z"
+manifest <- read_json(file.path(racine, "datasets/tarifs-douaniers-quebec/downloads", version, "manifest_publication.json"))
+tableaux <- do.call(rbind, lapply(manifest$tables, function(t) data.frame(
+  Fichier = paste0("[", t$file, "](downloads/", version, "/", t$file, ")"), Lignes = t$rows, Colonnes = length(t$columns))))
+cat(kable(tableaux), sep = "\n")
+```
+
+La [base SQLite](downloads/20261005T200817Z/tarifs_quebec.sqlite) contient les onze tables. Le [dictionnaire](downloads/20261005T200817Z/DICTIONNAIRE.md), la [notice de réutilisation](downloads/20261005T200817Z/DATA_LICENSE.md) et les [empreintes](downloads/20261005T200817Z/empreintes.csv) accompagnent cette édition figée. La trousse de classe contient les CSV et un script qui refait quatre graphiques hors ligne.
+
+Le script de préparation contrôle les empreintes, les nombres de lignes, les colonnes et le rapprochement du décret avec la liste. Les scripts de collecte permettent de nouvelles acquisitions; une page actuelle ne suffit pas à reconstruire ses anciens états. Aucune veille automatique n'est activée.
+
+## Lire les graphiques dans le temps
+
+L'[activité](activite-lire-tarifs.qmd) construit une trajectoire en escalier de la surtaxe sur le code 7206.10.00, des indices de prix pour trois produits et des courbes mensuelles de commerce. Le [billet d'analyse](../../resources/billet-tarifs-douaniers-2026.qmd) confronte ces données à une sélection de nouvelles récentes.
+
+La surtaxe indiquée n'est pas la facture douanière effective : les exemptions, remises, traitements préférentiels et règles de cumul ne sont pas intégralement résolus. Les annexes du nouveau décret donnent 335 codes; les 313 autres lignes du panneau récapitulatif correspondent à l'ensemble acier/aluminium. Le panneau n'est donc pas une seule annexe juridique.
+
+## Limites de comparaison
+
+Une ligne absente dans un panneau ne signifie pas un taux nul. Les panneaux de périodes différentes ne doivent pas être additionnés. Une interdiction d'importation est un autre type de mesure et n'est pas convertie en taux fictif.
+
+Les prix moyens ne constituent pas un indice à panier constant. Statistique Canada signale notamment un élargissement de la couverture en janvier 2024. Les libellés ne renseignent pas l'origine douanière des marchandises; aucune correspondance avec les codes SH n'est imputée. Les dernières observations de juillet 2026 précèdent les contre-mesures de septembre.
+
+Le commerce est en milliers de dollars courants, sur base douanière et sans désaisonnalisation. Le tableau distingue les importations des exportations nationales, qui ne comprennent pas ici les réexportations. Les pays et groupes peuvent se recouvrir; le total ne doit pas être additionné à ses composantes. Les importations sont révisables, et leur attribution provinciale ne prouve pas une consommation finale dans cette province. Voir les [concepts du commerce international, Statistique Canada](https://www150.statcan.gc.ca/n1/pub/71-607-x/2021004/concepts-fra.htm).
+
+Le fichier `couverture.csv` conserve les travaux restant à réaliser : tarifs ordinaires, régimes étrangers complets, flux détaillés par code SH et résolution des exceptions. Cette édition documente les faits disponibles sans estimer l'effet causal des tarifs sur les ménages ou les entreprises.
+
+:::
+
+```{r}
+#| label: dataset-detail-footer
+#| echo: false
+#| results: asis
+pied <- paste(capture.output(render_dataset_detail_footer()), collapse = "\n")
+cat(sub('</div></details>', '</details>', pied, fixed = TRUE))
+```

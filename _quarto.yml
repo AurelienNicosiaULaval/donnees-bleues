@@ -33,6 +33,7 @@ project:
     - datasets/vols-montreal-trudeau/METHODE.md
     - datasets/vols-montreal-trudeau/source/archives_vols.csv
     - datasets/camps-de-jour-quebec/downloads/**/*
+    - datasets/tarifs-douaniers-quebec/downloads/**/*
   render:
     - "index.qmd"
     - "actualites.qmd"

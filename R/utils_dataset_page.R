@@ -262,7 +262,7 @@ dataset_relative_path <- function(path, root) {
   }
 }
 
-dataset_read_preview <- function(csv_path, n_max = 500L) {
+dataset_read_preview <- function(csv_path, n_max = 500L, col_classes = NA) {
   if (is.na(csv_path) || !file.exists(csv_path)) {
     return(NULL)
   }
@@ -271,7 +271,8 @@ dataset_read_preview <- function(csv_path, n_max = 500L) {
       csv_path,
       nrows = n_max,
       stringsAsFactors = FALSE,
-      check.names = FALSE
+      check.names = FALSE,
+      colClasses = col_classes
     )
     attr(data, "dataset_preview_n_max") <- n_max
     data
@@ -712,7 +713,8 @@ render_dataset_detail_header <- function() {
   metadata <- dataset_read_metadata(ctx$dataset_dir)
   escape <- dataset_html_escape
   receipt <- dataset_kit_receipt(metadata, ctx)
-  preview <- dataset_read_preview(dataset_processed_csv(metadata, ctx))
+  preview <- dataset_read_preview(dataset_processed_csv(metadata, ctx),
+    col_classes = unlist(metadata$publication$preview_column_classes %||% NA))
   activities <- dataset_activity_cards(metadata, ctx)
   source_url <- dataset_squish(metadata$source_url, '')
   conditions_url <- dataset_squish(metadata$publication$license_url, source_url)

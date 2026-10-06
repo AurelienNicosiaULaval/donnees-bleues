@@ -1,0 +1,83 @@
+---
+title: "Lire les tarifs, les prix et les échanges"
+embed-resources: true
+body-classes: hub-page resource-page activity-resource
+page-layout: full
+toc: false
+execute:
+  freeze: false
+  warning: false
+  message: false
+---
+
+```{r}
+#| label: activity-resource-header
+#| echo: false
+#| results: asis
+source(if (file.exists("R/utils_activity_contract.R")) "R/utils_activity_contract.R" else "../../R/utils_activity_contract.R")
+render_activity_header()
+```
+
+## Préparation enseignante
+
+Extraire entièrement la trousse, ouvrir `Donnees-bleues.Rproj` et installer les bibliothèques avant la séance. Exécuter ensuite `datasets/tarifs-douaniers-quebec/activite-lire-tarifs.R` depuis la racine du projet, sans téléchargement. La version est figée au 5 octobre 2026.
+
+```{r}
+#| label: activity-classroom-resources
+#| echo: false
+#| results: asis
+render_activity_resources()
+```
+
+## Contexte
+
+L'actualité décrit des annonces, des taux juridiques et des changements économiques. La [fiche](fiche.qmd) conserve ces objets séparément, avec les périodes, clés et sources nécessaires à leur interprétation.
+
+## Consignes
+
+1. Lire le dictionnaire et identifier l'unité de chaque table. Expliquer pourquoi 2774 lignes historiques ne représentent pas 2774 produits distincts.
+2. Vérifier que les 335 codes des annexes retrouvent les mêmes taux dans la liste de 648 codes. Expliquer pourquoi les deux nombres diffèrent.
+3. Lire la trajectoire de la surtaxe sur les lingots. Dire ce que le graphique renseigne sur les exemptions, remises et droits payés.
+4. Expliquer le calcul d'un indice égal à 100 en janvier 2025 dans chaque série de prix. Comparer des variations relatives sans comparer les conditionnements comme des quantités égales.
+5. Interpréter les courbes de commerce. Distinguer dollars courants, volumes réels et désaisonnalisation. Ne pas additionner le total et sa composante américaine.
+6. Choisir un article dans `actualite.csv`. Distinguer date affichée, date de mise à jour et date d'effet de la mesure. Vérifier l'annonce dans sa source officielle.
+7. Rédiger 150 à 200 mots : quels constats sont descriptifs, et quelles données manquent pour attribuer une variation aux tarifs de septembre 2026?
+
+## Exemple de résultat
+
+```{r}
+#| include: false
+racine <- if (file.exists("datasets/tarifs-douaniers-quebec/activite-lire-tarifs.R")) "." else "../.."
+ancien <- getwd()
+setwd(racine)
+invisible(capture.output(source("datasets/tarifs-douaniers-quebec/activite-lire-tarifs.R", local = knitr::knit_global())))
+setwd(ancien)
+```
+
+```{r}
+#| echo: false
+#| fig-alt: "Indices des prix du lait, du café et des œufs au Québec, janvier 2025 à juillet 2026, chacun rapporté à sa valeur de janvier 2025."
+plot_prix
+```
+
+Les prix s'arrêtent en juillet, avant les nouvelles mesures de septembre. Leur origine douanière est inconnue. Le graphique ne permet donc pas de mesurer l'effet de ces mesures.
+
+## Limites à faire nommer
+
+La trousse n'est pas un calculateur douanier. Les exemptions et remises restent à vérifier. Les pays et groupes commerciaux peuvent se recouvrir; les importations sont révisables. Un graphique temporel ne prouve pas une relation causale.
+
+```{r}
+#| label: activity-pedagogical-contract
+#| echo: false
+#| results: asis
+render_activity_contract()
+```
+
+## Script complet
+
+```{r}
+#| label: activity-code
+#| echo: false
+#| results: asis
+render_activity_code()
+```

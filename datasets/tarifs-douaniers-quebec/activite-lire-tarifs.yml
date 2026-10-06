@@ -1,0 +1,46 @@
+id: tarifs-douaniers-quebec-lire-tarifs
+title: Lire les tarifs, les prix et les échanges
+question: Que permettent de conclure trois séries dont les unités et les dates diffèrent?
+dataset_id: tarifs-douaniers-quebec
+dataset_title: Tarifs douaniers, prix et commerce au Québec
+activity_url: datasets/tarifs-douaniers-quebec/activite-lire-tarifs.qmd
+script_file: datasets/tarifs-douaniers-quebec/activite-lire-tarifs.R
+classroom_archive: assets/classroom/tarifs-douaniers-quebec.zip
+access_mode: frozen
+duration: 60 à 90 minutes
+level: Introduction à intermédiaire
+level_ids: [introduction, intermediaire]
+activity_type: [Exploration de données, Laboratoire d'introduction]
+concepts: [Unité statistique, Séries temporelles, Clés de jointure, Valeurs manquantes]
+concept_ids: [unite-statistique, series-temporelles, cles-de-jointure, valeurs-manquantes]
+context: Économie québécoise et lecture de l'actualité
+hook: Un tarif de 50 % ne signifie pas que tous les prix augmenteront de 50 %.
+materials: [Trousse ZIP et projet RStudio, Script R complet, Onze tables figées et dictionnaire]
+advanced_math_stats: false
+teacher_notes: Conserver les codes comme texte et distinguer annonce, entrée en vigueur et observation. Aucun effet causal n'est estimé.
+pedagogical_status: pret_a_enseigner
+teacher_preparation: Extraire la trousse, installer les bibliothèques avant la séance et exécuter le script hors ligne depuis la racine du projet.
+expected_output: Quatre graphiques, un comptage de codes et un rapprochement vérifié du décret avec la liste récapitulative.
+learning_objectives:
+  - Identifier le grain de chaque table et préserver ses clés.
+  - Lire une trajectoire en escalier et construire un indice par série.
+  - Distinguer une description temporelle d'une estimation causale.
+prerequisites:
+  - Savoir importer un CSV et exécuter un script R.
+  - Comprendre pourcentage, indice et jointure.
+success_criteria:
+  - Les codes à huit chiffres gardent leurs zéros initiaux.
+  - Les 335 lignes du décret retrouvent les mêmes taux dans le panneau de 648 lignes.
+  - Les quatre graphiques comportent unité, période, source et limite.
+  - La conclusion indique que juillet précède les nouvelles mesures de septembre.
+adaptations:
+  - Interpréter les graphiques fournis avant de modifier le script.
+  - Choisir une catégorie SCPAN et un partenaire en vérifiant les recouvrements.
+requires_prepared_data: true
+requires_live_download: false
+recommended_use: Laboratoire guidé sur les séries temporelles et les sources
+result_visible_in_page: true
+status: Édition figée; exécution de la trousse vérifiée avant livraison; usage en classe non documenté
+courses: []
+date_added: '2026-10-05'
+date_updated: '2026-10-05'

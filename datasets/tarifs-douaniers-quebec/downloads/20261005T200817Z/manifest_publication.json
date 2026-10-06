@@ -1,0 +1,76 @@
+{
+  "version": "20261005T200817Z",
+  "date_cutoff": "2026-10-05",
+  "source_capture_initiale": "20261005T190524Z_92397",
+  "prepared_at_utc": "2026-10-05T20:08:18Z",
+  "tables": [
+    {
+      "file": "observations_contre_tarifs.csv",
+      "rows": 2774,
+      "columns": ["collection_id", "source_id", "source_table", "source_row", "pays_percepteur", "pays_origine", "nomenclature", "code_tarifaire", "code_affiche_source", "code_sh6", "position_source", "description_source", "taux_surtaxe_pourcent", "date_application_initiale_source", "periode_table_source", "debut_periode_table_source", "fin_periode_table_source_inclusive", "statut_validation", "observed_at_utc"],
+      "sha256": "a36d2a69b3ebd054db2b21df48d3abbe731733518b4ee7580d59426b91c1e797"
+    },
+    {
+      "file": "contre_tarifs_20260908.csv",
+      "rows": 648,
+      "columns": ["collection_id", "source_id", "source_table", "source_row", "pays_percepteur", "pays_origine", "nomenclature", "code_tarifaire", "code_affiche_source", "code_sh6", "position_source", "description_source", "taux_surtaxe_pourcent", "date_application_initiale_source", "periode_table_source", "debut_periode_table_source", "fin_periode_table_source_inclusive", "statut_validation", "observed_at_utc"],
+      "sha256": "938e086b655bfb4f3fe7a7c4ebfbc21e3552883e78295842ed199e7f9c09d814"
+    },
+    {
+      "file": "prix_moyens_quebec.csv",
+      "rows": 12650,
+      "columns": ["mois", "geographie", "dguid", "produit", "unite", "unite_id", "facteur_scalaire", "scalaire_id", "vecteur", "coordonnees", "prix_cad", "statut_source", "symbole_source", "termine_source", "decimales_source", "collection_id", "source_id", "observed_at_utc"],
+      "sha256": "9c6193e4449a50f28f2dcfbc32eaaa1b5e1eedf2ebe63146ad994548fe01b9a6"
+    },
+    {
+      "file": "annexes_2026.csv",
+      "rows": 335,
+      "columns": ["annexe", "code_affiche", "code_tarifaire", "taux_surtaxe_pourcent", "instrument", "date_enregistrement", "date_publication", "date_effet", "source_url"],
+      "sha256": "496bc226af643bba53275a4dff1320634066c43281e9d2832421df53f1caebce"
+    },
+    {
+      "file": "commerce_quebec.csv",
+      "rows": 86710,
+      "columns": ["mois", "geographie", "dguid", "commerce", "produit_scpan", "partenaire", "unite", "unite_id", "facteur_scalaire", "scalaire_id", "vecteur", "coordonnees", "valeur_milliers_cad", "statut_source", "symbole_source", "termine_source", "decimales_source", "source_id", "date_capture_utc", "base_prix", "desaisonnalise", "base_commerce"],
+      "sha256": "99bc573b7329314519c40b7ed2ed0ac13c9236175b6772a6b748a8933f8d9cd2"
+    },
+    {
+      "file": "actualite.csv",
+      "rows": 4,
+      "columns": ["article_id", "auteur", "media", "date_affichee", "date_mise_a_jour", "date_evenement", "titre", "url", "lecture", "verification", "date_consultation", "selection"],
+      "sha256": "a0aef1950c41c6cae6869e8b2c16ff44cab1b2f4529e04913ec0f255b4dfbab8"
+    },
+    {
+      "file": "evenements.csv",
+      "rows": 6,
+      "columns": ["evenement_id", "date_annonce", "date_effet", "nature", "juridiction", "description", "source_url", "date_consultation", "portee"],
+      "sha256": "49be559e41d3482c59752d5a85b1e2cf8660b4610050745e0fb6267029b61c2d"
+    },
+    {
+      "file": "sources.csv",
+      "rows": 32,
+      "columns": ["source_id", "organisme", "volet", "titre", "url", "format_constate", "granularite", "frequence", "etat_integration", "limite"],
+      "sha256": "4a19697154b994eed330d18965a7ac1ca7a5c7e578570b299be00fb0a0edb4c1"
+    },
+    {
+      "file": "couverture.csv",
+      "rows": 7,
+      "columns": ["volet", "etat", "limite"],
+      "sha256": "752604a06a04a1a30f21ec0e48334b1677fc4d07830e88f26033012f78176a65"
+    },
+    {
+      "file": "captures_sources.csv",
+      "rows": 10,
+      "columns": ["source_id", "url", "observed_at_utc", "fichier", "sha256", "octets", "methode", "statut"],
+      "sha256": "5a728fe39e2e39c17631959af6c85e8722ce14fcaacc4dfefb1364c27cfb7caa"
+    },
+    {
+      "file": "controles_qualite.csv",
+      "rows": 6,
+      "columns": ["controle", "resultat", "detail"],
+      "sha256": "ec42d3779bad7a46898cfcf04e506d7e2c247ccbfb86486b4a6ecd9f2e37df18"
+    }
+  ],
+  "fichiers_bruts_redistribues": false,
+  "actualite_selection_exhaustive": false
+}

@@ -304,5 +304,14 @@
     "bytes": 141890,
     "sha256": "5723ff737a1d9149ef1bdf13a1cc818f205fc4edec9f531cf2996fe2a9bbb5f0",
     "original_sha256": "b75add58934afaca0b3249330761cfa1ba1d50aa66d9e6a73050f0cee3f2ceb6"
+  },
+  {
+    "id": "tarifs-douaniers-quebec",
+    "file": "tarifs-douaniers-quebec.webp",
+    "width": 960,
+    "height": 540,
+    "bytes": 84752,
+    "sha256": "595c24ecc2a6ec7071d571f439406784864220be4f7ef50cd382c2a94304b411",
+    "original_sha256": "265cdd77f99169ba7f177f12808cbf3f213396492632a628a96379b652edaba7"
   }
 ]

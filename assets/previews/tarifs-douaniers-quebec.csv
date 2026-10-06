@@ -1,0 +1,121 @@
+code_tarifaire,description_source,taux_surtaxe_pourcent,debut_periode_table_source,pays_origine,statut_validation
+04021010,"- En poudre, en granulés ou sous d'autres formes solides, d'une teneur en poids de matières grasses n'excédant pas 1,5 % : Dans les limites de l'engagement d'accès",50,2026-09-08,USA,table_recapitulative_extraite_conditions_non_resolues
+04022122,"- En poudre, en granulés ou sous d'autres formes solides, d'une teneur en poids de matières grasses excédant 1,5 % : Sans addition de sucre ou d'autres édulcorants : Crème : Au-dessus de l'engagement d'accès",50,2026-09-08,USA,table_recapitulative_extraite_conditions_non_resolues
+04041021,"- Lactosérum, modifié ou non, même concentré ou additionné de sucre ou d'autres édulcorants : Lactosérum en poudre : Dans les limites de l'engagement d'accès",50,2026-09-08,USA,table_recapitulative_extraite_conditions_non_resolues
+04061010,"- Fromages frais (non affinés), y compris le fromage de lactosérum, et caillebotte : Dans les limites de l'engagement d'accès",25,2026-09-08,USA,table_recapitulative_extraite_conditions_non_resolues
+04063010,"- Fromages fondus, autres que râpés ou en poudre : Dans les limites de l'engagement d'accès",25,2026-09-08,USA,table_recapitulative_extraite_conditions_non_resolues
+04069012,- Autres fromages : Cheddar et du type Cheddar : Au-dessus de l'engagement d'accès,25,2026-09-08,USA,table_recapitulative_extraite_conditions_non_resolues
+04069042,- Autres fromages : Gouda et du type Gouda : Au-dessus de l'engagement d'accès,25,2026-09-08,USA,table_recapitulative_extraite_conditions_non_resolues
+04069071,- Autres fromages : Suisse/Emmental et du type Suisse/Emmental : Dans les limites de l'engagement d'accès,25,2026-09-08,USA,table_recapitulative_extraite_conditions_non_resolues
+04069092,"- Autres fromages : Autres : Havarti et du type Havarti, au-dessus de l'engagement d'accès",25,2026-09-08,USA,table_recapitulative_extraite_conditions_non_resolues
+04069099,"- Autres fromages : Autres : Autres, au-dessus de l'engagement d'accès",25,2026-09-08,USA,table_recapitulative_extraite_conditions_non_resolues
+17039090,- Autres : Autres,50,2026-09-08,USA,table_recapitulative_extraite_conditions_non_resolues
+19012019,"- Mélanges et pâtes pour la préparation des produits de la boulangerie, de la pâtisserie ou de la biscuiterie du no 19.05 : En paquets d'un poids n'excédant pas 11,34 kg chacun : Autres",50,2026-09-08,USA,table_recapitulative_extraite_conditions_non_resolues
+19012029,"- Mélanges et pâtes pour la préparation des produits de la boulangerie, de la pâtisserie ou de la biscuiterie du no 19.05 : En vrac ou en paquets d'un poids excédant 11,34 kg chacun : Autres",50,2026-09-08,USA,table_recapitulative_extraite_conditions_non_resolues
+35011000,- Caséines,50,2026-09-08,USA,table_recapitulative_extraite_conditions_non_resolues
+39181010,"- En polymères du chlorure de vinyle : Revêtements de murs ou de plafonds combinés à des tissus, des étoffes de bonneterie, des nontissés ou des feutres",50,2026-09-08,USA,table_recapitulative_extraite_conditions_non_resolues
+44029010,"- Autres : Charbon de bois (autre que le charbon de coques ou de noix), contenant 10 % ou moins en poids de liant",50,2026-09-08,USA,table_recapitulative_extraite_conditions_non_resolues
+44071400,- De conifères : De Hem-fir (hemlock de l'Ouest (Tsuga heterophylla) et sapin (Abies spp.)),25,2026-09-08,USA,table_recapitulative_extraite_conditions_non_resolues
+44123400,"- Autres bois contre-plaqués, constitués exclusivement de feuilles de bois (autres que bambou) dont chacune a une épaisseur n'excédant pas 6 mm : Autres, ayant au moins un pli extérieur en bois autre que de conifères non dénommés dans le no 4412.33",50,2026-09-08,USA,table_recapitulative_extraite_conditions_non_resolues
+44125200,"- À âme panneautée, lattée ou lamellée : Autres, ayant au moins un pli extérieur en bois autres que de conifères",50,2026-09-08,USA,table_recapitulative_extraite_conditions_non_resolues
+48030000,NA,50,2026-09-08,USA,table_recapitulative_extraite_conditions_non_resolues
+48119000,"- Autres papiers, cartons, ouate de cellulose et nappes de fibres de cellulose",50,2026-09-08,USA,table_recapitulative_extraite_conditions_non_resolues
+48189000,- Autres,50,2026-09-08,USA,table_recapitulative_extraite_conditions_non_resolues
+49119100,"- Autres : Images, gravures et photographies",50,2026-09-08,USA,table_recapitulative_extraite_conditions_non_resolues
+57021000,"- Tapis dits « Kelim » ou « Kilim », « Schumacks » ou « Soumak », « Karamanie » et tapis similaires tissés à la main",25,2026-09-08,USA,table_recapitulative_extraite_conditions_non_resolues
+57024100,"- Autres, à velours, confectionnés : De laine ou de poils fins",25,2026-09-08,USA,table_recapitulative_extraite_conditions_non_resolues
+57029200,"- Autres, sans velours, confectionnés : De matières textiles synthétiques ou artificielles",25,2026-09-08,USA,table_recapitulative_extraite_conditions_non_resolues
+57032100,- De nylon ou d'autres polyamides : Gazon,25,2026-09-08,USA,table_recapitulative_extraite_conditions_non_resolues
+57039010,- D'autres matières textiles : Touffetés à la machine,25,2026-09-08,USA,table_recapitulative_extraite_conditions_non_resolues
+57050000,NA,25,2026-09-08,USA,table_recapitulative_extraite_conditions_non_resolues
+61169300,- Autres : De fibres synthétiques,50,2026-09-08,USA,table_recapitulative_extraite_conditions_non_resolues
+62033100,- Vestons : De laine ou de poils fins,50,2026-09-08,USA,table_recapitulative_extraite_conditions_non_resolues
+62104010,"- Autres vêtements pour hommes ou garçonnets : Scaphandres de protection, devant être utilisés dans l'air empoisonné",50,2026-09-08,USA,table_recapitulative_extraite_conditions_non_resolues
+62113300,"- Autres vêtements, pour hommes ou garçonnets : De fibres synthétiques ou artificielles",50,2026-09-08,USA,table_recapitulative_extraite_conditions_non_resolues
+72061000,- Lingots,50,2026-09-08,USA,table_recapitulative_extraite_conditions_non_resolues
+72081000,"- Enroulés, simplement laminés à chaud, présentant des motifs en relief",50,2026-09-08,USA,table_recapitulative_extraite_conditions_non_resolues
+72083700,"- Autres, enroulés, simplement laminés à chaud : D'une épaisseur de 4,75 mm ou plus mais n'excédant pas 10 mm",50,2026-09-08,USA,table_recapitulative_extraite_conditions_non_resolues
+72085300,"- Autres, non enroulés, simplement laminés à chaud : D'une épaisseur de 3 mm ou plus mais inférieure à 4,75 mm",50,2026-09-08,USA,table_recapitulative_extraite_conditions_non_resolues
+72091700,"- Enroulés, simplement laminés à froid : D'une épaisseur de 0,5 mm ou plus mais n'excédant pas 1 mm",50,2026-09-08,USA,table_recapitulative_extraite_conditions_non_resolues
+72099000,- Autres,50,2026-09-08,USA,table_recapitulative_extraite_conditions_non_resolues
+72104100,- Autrement zingués : Ondulés,50,2026-09-08,USA,table_recapitulative_extraite_conditions_non_resolues
+72107000,"- Peints, vernis ou revêtus de matières plastiques",50,2026-09-08,USA,table_recapitulative_extraite_conditions_non_resolues
+72112900,- Simplement laminés à froid : Autres,50,2026-09-08,USA,table_recapitulative_extraite_conditions_non_resolues
+72124000,"- Peints, vernis ou revêtus de matières plastiques",50,2026-09-08,USA,table_recapitulative_extraite_conditions_non_resolues
+72139900,- Autres : Autres,50,2026-09-08,USA,table_recapitulative_extraite_conditions_non_resolues
+72149900,- Autres : Autres,50,2026-09-08,USA,table_recapitulative_extraite_conditions_non_resolues
+72162200,"- Profilés en L ou en T, simplement laminés ou filés à chaud, d'une hauteur de moins de 80 mm : Profilés en T",50,2026-09-08,USA,table_recapitulative_extraite_conditions_non_resolues
+72165000,"- Autres profilés, simplement laminés ou filés à chaud",50,2026-09-08,USA,table_recapitulative_extraite_conditions_non_resolues
+72181000,- Lingots et autres formes primaires,50,2026-09-08,USA,table_recapitulative_extraite_conditions_non_resolues
+72191300,"- Simplement laminés à chaud, enroulés : D'une épaisseur de 3 mm ou plus mais inférieure à 4,75 mm",50,2026-09-08,USA,table_recapitulative_extraite_conditions_non_resolues
+72192400,"- Simplement laminés à chaud, non enroulés : D'une épaisseur inférieure à 3 mm",50,2026-09-08,USA,table_recapitulative_extraite_conditions_non_resolues
+72199000,- Autres,50,2026-09-08,USA,table_recapitulative_extraite_conditions_non_resolues
+72210000,NA,50,2026-09-08,USA,table_recapitulative_extraite_conditions_non_resolues
+72230000,NA,50,2026-09-08,USA,table_recapitulative_extraite_conditions_non_resolues
+72253000,"- Autres, simplement laminés à chaud, enroulés",50,2026-09-08,USA,table_recapitulative_extraite_conditions_non_resolues
+72261100,- En aciers au silicium dits « magnétiques » : À grains orientés,50,2026-09-08,USA,table_recapitulative_extraite_conditions_non_resolues
+72269900,- Autres : Autres,50,2026-09-08,USA,table_recapitulative_extraite_conditions_non_resolues
+72282000,- Barres en aciers silico-manganeux,50,2026-09-08,USA,table_recapitulative_extraite_conditions_non_resolues
+72288000,- Barres creuses pour le forage,50,2026-09-08,USA,table_recapitulative_extraite_conditions_non_resolues
+73021000,- Rails,50,2026-09-08,USA,table_recapitulative_extraite_conditions_non_resolues
+73041900,- Tubes et tuyaux des types utilisés pour oléoducs ou gazoducs : Autres,50,2026-09-08,USA,table_recapitulative_extraite_conditions_non_resolues
+73043100,"- Autres, de section circulaire, en fer ou en aciers non alliés : Étirés ou laminés à froid",50,2026-09-08,USA,table_recapitulative_extraite_conditions_non_resolues
+73049000,- Autres,50,2026-09-08,USA,table_recapitulative_extraite_conditions_non_resolues
+73053100,"- Autres, soudés : Soudés longitudinalement",50,2026-09-08,USA,table_recapitulative_extraite_conditions_non_resolues
+73062900,- Tubes et tuyaux de cuvelage ou de production des types utilisés pour l'extraction du pétrole ou du gaz : Autres,50,2026-09-08,USA,table_recapitulative_extraite_conditions_non_resolues
+73066900,"- Autres, soudés, de section non circulaire : De section non circulaire, autre que carrée ou rectangulaire",50,2026-09-08,USA,table_recapitulative_extraite_conditions_non_resolues
+73072910,"- Autres, en aciers inoxydables : Autres : Devant être introduits dans le front de taille pour abattre les minéraux dans les mines, dans les carrières ou à la mise en valeur de gisements",50,2026-09-08,USA,table_recapitulative_extraite_conditions_non_resolues
+73079300,- Autres : Accessoires à souder bout à bout,50,2026-09-08,USA,table_recapitulative_extraite_conditions_non_resolues
+73084000,"- Matériel d'échafaudage, de coffrage, d'étançonnement ou d'étayage",50,2026-09-08,USA,table_recapitulative_extraite_conditions_non_resolues
+73110000,NA,50,2026-09-08,USA,table_recapitulative_extraite_conditions_non_resolues
+73141400,"- Toiles métalliques tissées : Autres toiles métalliques tissées, en aciers inoxydables",50,2026-09-08,USA,table_recapitulative_extraite_conditions_non_resolues
+73144200,"- Autres toiles métalliques, grillages et treillis : Recouverts de matières plastiques",50,2026-09-08,USA,table_recapitulative_extraite_conditions_non_resolues
+73151900,- Chaînes à maillons articulés et leurs parties : Parties,50,2026-09-08,USA,table_recapitulative_extraite_conditions_non_resolues
+73159000,- Autres parties,50,2026-09-08,USA,table_recapitulative_extraite_conditions_non_resolues
+73181300,- Articles filetés : Crochets et pitons à pas de vis,50,2026-09-08,USA,table_recapitulative_extraite_conditions_non_resolues
+73182100,- Articles non filetés : Rondelles destinées à faire ressort et autres rondelles de blocage,50,2026-09-08,USA,table_recapitulative_extraite_conditions_non_resolues
+73194090,- Épingles de sûreté et autre épingles : Autres,50,2026-09-08,USA,table_recapitulative_extraite_conditions_non_resolues
+73209000,- Autres,50,2026-09-08,USA,table_recapitulative_extraite_conditions_non_resolues
+73218100,- Autres appareils : À combustibles gazeux ou à gaz et autres combustibles,25,2026-09-08,USA,table_recapitulative_extraite_conditions_non_resolues
+73219022,"- Parties : Pour poêles ou cuisinières non portable (y compris ceux spécialement conçus pour usage sur les bateaux), à combustibles gazeux ou à gaz et autres combustibles : Panneaux de face supérieure",25,2026-09-08,USA,table_recapitulative_extraite_conditions_non_resolues
+73229010,- Autres : Pour le chauffage des bâtiments,25,2026-09-08,USA,table_recapitulative_extraite_conditions_non_resolues
+73239390,- Autres : En aciers inoxydables : Autres,25,2026-09-08,USA,table_recapitulative_extraite_conditions_non_resolues
+73242990,- Baignoires : Autres : Autres,25,2026-09-08,USA,table_recapitulative_extraite_conditions_non_resolues
+73259999,- Autres : Autres : Autres : Autres,50,2026-09-08,USA,table_recapitulative_extraite_conditions_non_resolues
+73269010,"- Autres : Raccords pour les tiges de pompage ou les tiges polies pour les pompes conçues pour la production du pétrole; Outils de repêchage et leurs parties devant être utilisés dans les travaux d'exploration, de découverte, de mise en valeur, d'entretien, d'essai, d'épuisement ou de mise en exploitation de puits de pétrole et de gaz naturel ou pour les machines de forage devant être utilisées dans les travaux d'exploration, de découverte, de mise en valeur ou de mise en exploitation des gisements de potasse ou de sel gemme; Pour l'escalade ou l'alpinisme; Pour assurer l'ouverture des chalutes et émerillons, devant être utilisés dans la pêche commerciale ou dans la récolte commerciale de plantes aquatiques; Devant servir à la fabrication de détecteurs de vapeurs de propane et de vapeurs toxiques; Devant servir à la fabrication des voitures de lutte contre l'incendie; Devant servir à la fabrication des marchandises de la Section XVI ou du Chapitre 73, ces marchandises devant être utilisées dans la récupération ou la production de pétrole brut à partir de schistes, de sables pétrolifères ou de sables bitumineux; Devant servir à la fabrication ou à la réparation des moteurs ou de leurs parties pour les bateaux de pêche commerciale; Crochets de chaîne à manille et crochets fermés d'acier forgé devant servir à la fabrication de vide-ordures; Anneaux d'identification pour oiseaux migrateurs; Têtes de puits sans cavité et leurs parties; Conteneurs réutilisables, spécialement conçus pour le transport des éléments de véhicules automobiles qui sont en franchise des droits de douanes, présentés avec les marchandises qu'ils contiennent; Colliers de serrage de selle et étriers de câble devant servir à la fabrication des monocycles, des bicyclettes ou des tricycles; Têtes semi-elliptiques, d'un diamètre extérieur de 609,6 mm ou 762 mm, répondant à la spécification ASTM A455, devant servir dans des réservoirs de compresseurs d'air; Porte-mousquetons d'acier forgé, plaqués de zinc, de 12,5 cm à 23 cm de longuer, devant servir à la fabrication de vide-ordures et de palans pour vide-ordures; Carcans en aciers pour cantonner plusieurs animaux de ferme dans un parc; Ce qui suit, devant être utilisés dans l'exploration, la découverte, la mise en valeur, l'entretien, l'essai, l'épuisement ou l'exploration de puits d'huile ou de gaz naturel ou des gisements de potasse ou de sel gemme: Têtes de tubage à brides; Têtes de tubage taraudées, pour le tubage taraudées en surface d'un diamètre extérieur excédant 273 mm, ou conçus pour subir des pressions de service excédant 14 MPa E.P.G. (eau, pétrole, gaz); Packers de puits et leurs parties; Devant être utilisés pour la préparation, l'emmagasinage ou l'insémination de la semence animale; Chenilles devant servir à la fabrication des chargeuses à direction différentielle; Masques d'évaporation sous vide, en aciers inoxydables, à morsure avant de 90 % et une morsure arrière de 10 %, pour la production des photocellules; Porte-mèche devant servir à la fabrication de chandelles",50,2026-09-08,USA,table_recapitulative_extraite_conditions_non_resolues
+76011000,- Aluminium non allié,50,2026-09-08,USA,table_recapitulative_extraite_conditions_non_resolues
+76051100,- En aluminium non allié : Dont la plus grande dimension de la section transversale excède 7 mm,50,2026-09-08,USA,table_recapitulative_extraite_conditions_non_resolues
+76069100,- Autres : En aluminium non allié,50,2026-09-08,USA,table_recapitulative_extraite_conditions_non_resolues
+76081000,- En aluminium non allié,50,2026-09-08,USA,table_recapitulative_extraite_conditions_non_resolues
+76109090,- Autres : Autres,50,2026-09-08,USA,table_recapitulative_extraite_conditions_non_resolues
+76169910,"- Autres : Autres : Godets devant servir à la fabrication de chandelles; Bagues métalliques devant servir à la fabrication de crayons; Incubateurs pour oeufs de poissons, et leurs parties; Pour l'escalade ou l'alpinisme; Bandes d'identification pour oiseaux migrateurs; Bagues d'identification et de chonométrage pour pigeons; Devant être utilisé dans la fabrication de sérums et antisérums, toxoïdes, virus, toxines ou anti-toxines, vaccins antiviraux et vaccins bacteriens, bactériophages ou lysats bactériens, allergéniques, extraits de foie, extraits d'hypophysaires, épinéphrine ou ses solutions, insuline (avec ou sans zinc, globine ou protamine), et plasma sanguin ou sérum d'origine humaine ou fractions de ces substances, ou diluants ou succédanés de ces substances",50,2026-09-08,USA,table_recapitulative_extraite_conditions_non_resolues
+82055990,- Autres outils et outillage à main (y compris les diamants de vitriers) : Autres : Autres,50,2026-09-08,USA,table_recapitulative_extraite_conditions_non_resolues
+82111010,- Assortiments : Coutellerie,25,2026-09-08,USA,table_recapitulative_extraite_conditions_non_resolues
+82119300,"- Autres : Couteaux autres qu'à lame fixe, y compris les serpettes fermantes",25,2026-09-08,USA,table_recapitulative_extraite_conditions_non_resolues
+82152090,- Autres assortiments : Autres,25,2026-09-08,USA,table_recapitulative_extraite_conditions_non_resolues
+83021000,- Charnières de tous genres (y compris les paumelles et pentures),25,2026-09-08,USA,table_recapitulative_extraite_conditions_non_resolues
+84148090,- Autres : Autres,25,2026-09-08,USA,table_recapitulative_extraite_conditions_non_resolues
+84159030,"- Parties : Châssis, cadres de châssis ou cabinets extérieurs",15,2026-09-08,USA,table_recapitulative_extraite_conditions_non_resolues
+84182900,- Réfrigérateurs de type ménager : Autres,25,2026-09-08,USA,table_recapitulative_extraite_conditions_non_resolues
+84229020,- Parties : Assemblages de portes pour les machines à laver la vaisselle de type ménager,25,2026-09-08,USA,table_recapitulative_extraite_conditions_non_resolues
+84271010,"- Chariots autopropulsés à moteur électrique : Chariots-gerbeurs, autoporteurs, contrebalancés",15,2026-09-08,USA,table_recapitulative_extraite_conditions_non_resolues
+84312000,- De machines ou appareils du no 84.27,15,2026-09-08,USA,table_recapitulative_extraite_conditions_non_resolues
+84314900,"- De machines ou appareils des nos 84.26, 84.29 ou 84.30 : Autres",15,2026-09-08,USA,table_recapitulative_extraite_conditions_non_resolues
+84502000,- Machines d'une capacité unitaire exprimée en poids de linge sec excédant 10 kg,25,2026-09-08,USA,table_recapitulative_extraite_conditions_non_resolues
+84678100,- Autres outils : Tronçonneuses à chaîne,25,2026-09-08,USA,table_recapitulative_extraite_conditions_non_resolues
+85098010,- Autres appareils : Vaporisateurs aux ultrasons,25,2026-09-08,USA,table_recapitulative_extraite_conditions_non_resolues
+85176200,"- Autres appareils pour l'émission, la transmission ou la réception de la voix, d'images ou d'autres données, y compris les appareils pour la communication dans un réseau filaire ou sans fil (tel qu'un réseau local ou étendu) : Appareils pour la réception, la conversion et l'émission, la transmission ou la régénération de la voix, d'images ou d'autres données, y compris les appareils de commutation et de routage",50,2026-09-08,USA,table_recapitulative_extraite_conditions_non_resolues
+85299039,- Autres : Parties de téléviseurs qui suivent (y compris de moniteurs vidéo et de projecteurs vidéo) : systèmes de détection et d'amplification de fréquence vidéo intermédiaire (FI); systèmes d'amplification et de traitement vidéo; circuits de déviation et de synchronisation; syntonisateurs et systèmes de commande des syntonisateurs; et systèmes d'amplification et de détection audio : Autres,25,2026-09-08,USA,table_recapitulative_extraite_conditions_non_resolues
+86012000,- À accumulateurs électriques,25,2026-09-08,USA,table_recapitulative_extraite_conditions_non_resolues
+86040010,"- Régaleuses à ballast; Chariots pour le transport des équipes de travail et remorques pour le matériel de voie, n'excédant pas 20 tonnes métriques; Balayeuses de ballast et soufflantes d'aiguillage combinées; Cramponneuses à alimentation manuelle pour application de maintien ou de production; Débroussailleuses sur rails; Traveleuses; Chasse-neige; Chariots à matériel; Grues à traverses; Grues à rails",25,2026-09-08,USA,table_recapitulative_extraite_conditions_non_resolues
+86073010,"- Crochets et autres systèmes d'attelage, tampons de choc, et leurs parties : Pour les véhicules pour voies ferrées autopropulsés pour le transport des passagers, des bagages, de la poste ou des messageries; Devant servir à la réparation des tramways (à l'exclusion des voitures de métro) avec sabots-freins électromagnétiques glissant sur le rail; Parties devant servir à la fabrication de dispositifs d'amortisseurs hydrauliques des wagons de marchandises",25,2026-09-08,USA,table_recapitulative_extraite_conditions_non_resolues
+87032300,"- Autres véhicules, uniquement à moteur à piston à allumage par étincelles : D'une cylindrée excédant 1 500 cm³ mais n'excédant pas 3 000 cm³",25,2026-09-08,USA,table_recapitulative_extraite_conditions_non_resolues
+87034090,"- Autres véhicules, équipés à la fois, pour la propulsion, d'un moteur à piston à allumage par étincelles et d'un moteur électrique, autres que ceux pouvant être chargés en se branchant à une source externe d'alimentation électrique : Autres",25,2026-09-08,USA,table_recapitulative_extraite_conditions_non_resolues
+87038000,"- Autres véhicules, équipés uniquement d'un moteur électrique pour la propulsion",25,2026-09-08,USA,table_recapitulative_extraite_conditions_non_resolues
+87045100,"- Autres, équipés à la fois, pour la propulsion, d'un moteur à piston à allumage par étincelles et d'un moteur électrique : D'un poids en charge maximal n'excédant pas 5 tonnes",25,2026-09-08,USA,table_recapitulative_extraite_conditions_non_resolues
+87163990,- Autres remorques et semi-remorques pour le transport de marchandises : Autres : Autres,25,2026-09-08,USA,table_recapitulative_extraite_conditions_non_resolues
+94016910,"- Autres sièges, avec bâti en bois : Autres : Pour usages domestiques",50,2026-09-08,USA,table_recapitulative_extraite_conditions_non_resolues
+94032000,- Autres meubles en métal,50,2026-09-08,USA,table_recapitulative_extraite_conditions_non_resolues
+94037010,- Meubles en matières plastiques : Pour usages domestiques,50,2026-09-08,USA,table_recapitulative_extraite_conditions_non_resolues
+94059900,- Parties : Autres,50,2026-09-08,USA,table_recapitulative_extraite_conditions_non_resolues
+95071090,- Cannes à pêche : Autres,50,2026-09-08,USA,table_recapitulative_extraite_conditions_non_resolues

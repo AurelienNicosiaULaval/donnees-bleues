@@ -28,3 +28,8 @@ data/validation/
 
 # Local audit evidence is kept outside the published source.
 /output/
+
+# Sorties locales des analyses et nouvelles captures brutes du dossier douanier.
+/outputs/tarifs-douaniers-quebec/
+/Rplots.pdf
+/datasets/tarifs-douaniers-quebec/collectes/

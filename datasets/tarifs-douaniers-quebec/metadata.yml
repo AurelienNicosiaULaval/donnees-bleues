@@ -1,0 +1,294 @@
+id: tarifs-douaniers-quebec
+title: Tarifs douaniers, prix et commerce au Québec
+short_title: Tarifs douaniers
+summary: 'Contre-tarifs canadiens, prix mensuels au Québec et commerce international
+  : trois ensembles distincts pour examiner l''actualité avec des sources datées.'
+observation_period: Mesures documentées au 5 octobre 2026; prix et commerce de janvier
+  2017 à juillet 2026
+source_authors:
+- Ministère des Finances du Canada
+- Gazette du Canada
+- Statistique Canada
+theme: Économie, consommation et commerce
+source_name: Sources fédérales officielles; compilation Données bleues
+source_url: https://doi.org/10.25318/1210017501-fra
+download_url: https://donneesbleues.ca/datasets/tarifs-douaniers-quebec/downloads/20261005T200817Z/contre_tarifs_20260908.csv
+download_label: Télécharger les 648 lignes du panneau du 8 septembre (CSV)
+download_filename: contre-tarifs-20260908.csv
+license: 'Données Statistique Canada : Licence ouverte de Statistique Canada. Informations
+  fédérales : conditions de reproduction de la source. Documentation originale : CC
+  BY 4.0; code original : MIT. Articles de presse non redistribués.'
+access_date: '2026-10-05'
+geography: Québec pour les prix et le commerce; Canada pour les contre-tarifs
+unit: 'Fichier principal : un code tarifaire canadien à huit chiffres; les autres
+  grains sont documentés séparément'
+data_type: Tables temporelles et catalogue documentaire
+format: CSV UTF-8, SQLite, documentation et trousse ZIP
+n_rows: 648 lignes dans le fichier principal; 2774 observations tarifaires historiques,
+  12650 prix et 86710 observations de commerce
+n_cols: 19 colonnes dans le fichier principal
+data_version: 20261005T200817Z
+processed_file: data/processed/tarifs-douaniers-quebec/contre_tarifs_20260908.csv
+update_frequency: Édition figée; mises à jour par nouvelles captures datées, sans
+  écraser les éditions précédentes
+level: Introduction à intermédiaire
+level_ids:
+- introduction
+- intermediaire
+concepts:
+- Unité statistique
+- Séries temporelles
+- Clés de jointure
+- Valeurs manquantes
+- Statistiques descriptives
+- Reproductibilité
+concept_ids:
+- unite-statistique
+- series-temporelles
+- cles-de-jointure
+- valeurs-manquantes
+- statistiques-descriptives
+- reproductibilite
+variables_principales:
+- code_tarifaire
+- taux_surtaxe_pourcent
+- mois
+- produit
+- prix_cad
+- produit_scpan
+- partenaire
+- valeur_milliers_cad
+search_aliases:
+- tarifs
+- contre-tarifs
+- droits de douane
+- guerre commerciale
+- prix alimentaires
+- exportations
+- importations
+zero_waste:
+  contexte_quebecois: 3.0
+  accessibilite_pedagogique: 2.0
+  qualite_documentaire: 3.0
+  potentiel_nettoyage: 2.0
+  potentiel_visualisation: 3.0
+  potentiel_statistique_descriptive: 3.0
+  potentiel_inference: 1.0
+  potentiel_modelisation: 1.0
+  potentiel_ethique: 2.0
+  reutilisabilite: 3.0
+contributor_name: Aurélien Nicosia
+contributor_role: Compilation, analyse documentaire et préparation pédagogique
+courses: []
+stt1100_contact: no
+status: Édition documentaire du 5 octobre 2026; couverture partielle des régimes douaniers
+essential_limits:
+- Les taux sont des surtaxes avant exemptions et remises. La base ne calcule pas les
+  droits effectivement payés.
+- Une absence dans un panneau historique ne vaut pas taux nul. Les différents panneaux
+  ne doivent pas être additionnés.
+- Les prix et le commerce s'arrêtent en juillet 2026, avant les mesures de septembre;
+  aucun effet de celles-ci n'est estimé.
+- Les séries de prix ne renseignent pas l'origine douanière. Le commerce est agrégé
+  en catégories SCPAN, sans concordance SH imputée.
+- Les importations sont révisables; le lieu de dédouanement ne garantit pas le lieu
+  de consommation finale.
+table_overview:
+  Contre-tarifs: 2774 observations dans trois panneaux; 648 codes dans le panneau
+    du 8 septembre
+  Décret: 335 codes des annexes 1 à 3, rapprochés avec leurs taux
+  Prix: 110 produits et 115 mois au Québec; indicateurs de qualité conservés
+  Commerce: 86710 lignes; 13 catégories, 29 partenaires, importations et exportations
+    nationales
+  Documentation: Sources, captures, couverture, contrôles, actualité et chronologie
+publication:
+  preview: yes
+  reason: Faits tarifaires fédéraux publics et séries de Statistique Canada réutilisables
+    avec attribution; absence de données personnelles et de textes intégraux de presse.
+  reviewed_on: '2026-10-05'
+  license_url: https://donneesbleues.ca/datasets/tarifs-douaniers-quebec/downloads/20261005T200817Z/DATA_LICENSE.md
+  preview_columns:
+  - code_tarifaire
+  - description_source
+  - taux_surtaxe_pourcent
+  - debut_periode_table_source
+  - pays_origine
+  - statut_validation
+  preview_column_classes:
+    code_tarifaire: character
+  classroom:
+    mode: frozen
+    reason: Onze tables figées, analyse hors ligne, documentation et provenance; aucun
+      téléchargement requis pendant l'activité.
+    primary_file: data/processed/tarifs-douaniers-quebec/contre_tarifs_20260908.csv
+    primary_label: contre_tarifs
+    notices:
+    - datasets/tarifs-douaniers-quebec/DATA_LICENSE.md
+    - datasets/tarifs-douaniers-quebec/DICTIONNAIRE.md
+    - datasets/tarifs-douaniers-quebec/README.md
+    files:
+    - path: data/processed/tarifs-douaniers-quebec/observations_contre_tarifs.csv
+      columns:
+      - collection_id
+      - source_id
+      - source_table
+      - source_row
+      - pays_percepteur
+      - pays_origine
+      - nomenclature
+      - code_tarifaire
+      - code_affiche_source
+      - code_sh6
+      - position_source
+      - description_source
+      - taux_surtaxe_pourcent
+      - date_application_initiale_source
+      - periode_table_source
+      - debut_periode_table_source
+      - fin_periode_table_source_inclusive
+      - statut_validation
+      - observed_at_utc
+    - path: data/processed/tarifs-douaniers-quebec/contre_tarifs_20260908.csv
+      columns:
+      - collection_id
+      - source_id
+      - source_table
+      - source_row
+      - pays_percepteur
+      - pays_origine
+      - nomenclature
+      - code_tarifaire
+      - code_affiche_source
+      - code_sh6
+      - position_source
+      - description_source
+      - taux_surtaxe_pourcent
+      - date_application_initiale_source
+      - periode_table_source
+      - debut_periode_table_source
+      - fin_periode_table_source_inclusive
+      - statut_validation
+      - observed_at_utc
+    - path: data/processed/tarifs-douaniers-quebec/prix_moyens_quebec.csv
+      columns:
+      - mois
+      - geographie
+      - dguid
+      - produit
+      - unite
+      - unite_id
+      - facteur_scalaire
+      - scalaire_id
+      - vecteur
+      - coordonnees
+      - prix_cad
+      - statut_source
+      - symbole_source
+      - termine_source
+      - decimales_source
+      - collection_id
+      - source_id
+      - observed_at_utc
+    - path: data/processed/tarifs-douaniers-quebec/annexes_2026.csv
+      columns:
+      - annexe
+      - code_affiche
+      - code_tarifaire
+      - taux_surtaxe_pourcent
+      - instrument
+      - date_enregistrement
+      - date_publication
+      - date_effet
+      - source_url
+    - path: data/processed/tarifs-douaniers-quebec/commerce_quebec.csv
+      columns:
+      - mois
+      - geographie
+      - dguid
+      - commerce
+      - produit_scpan
+      - partenaire
+      - unite
+      - unite_id
+      - facteur_scalaire
+      - scalaire_id
+      - vecteur
+      - coordonnees
+      - valeur_milliers_cad
+      - statut_source
+      - symbole_source
+      - termine_source
+      - decimales_source
+      - source_id
+      - date_capture_utc
+      - base_prix
+      - desaisonnalise
+      - base_commerce
+    - path: data/processed/tarifs-douaniers-quebec/actualite.csv
+      columns:
+      - article_id
+      - auteur
+      - media
+      - date_affichee
+      - date_mise_a_jour
+      - date_evenement
+      - titre
+      - url
+      - lecture
+      - verification
+      - date_consultation
+      - selection
+    - path: data/processed/tarifs-douaniers-quebec/evenements.csv
+      columns:
+      - evenement_id
+      - date_annonce
+      - date_effet
+      - nature
+      - juridiction
+      - description
+      - source_url
+      - date_consultation
+      - portee
+    - path: data/processed/tarifs-douaniers-quebec/sources.csv
+      columns:
+      - source_id
+      - organisme
+      - volet
+      - titre
+      - url
+      - format_constate
+      - granularite
+      - frequence
+      - etat_integration
+      - limite
+    - path: data/processed/tarifs-douaniers-quebec/couverture.csv
+      columns:
+      - volet
+      - etat
+      - limite
+    - path: data/processed/tarifs-douaniers-quebec/captures_sources.csv
+      columns:
+      - source_id
+      - url
+      - observed_at_utc
+      - fichier
+      - sha256
+      - octets
+      - methode
+      - statut
+    - path: data/processed/tarifs-douaniers-quebec/controles_qualite.csv
+      columns:
+      - controle
+      - resultat
+      - detail
+chart:
+  type: count
+  x_variable: taux_surtaxe_pourcent
+  x_label: Nombre de lignes affichées
+  y_label: Surtaxe indiquée (%)
+  title: Taux du panneau du 8 septembre dans cet aperçu
+preview_note: Au plus 120 lignes espacées régulièrement parmi 648. Le graphique compte
+  les lignes de cet extrait; il ne mesure ni une part des importations ni un coût
+  économique.
+date_added: '2026-10-05'
+date_updated: '2026-10-05'

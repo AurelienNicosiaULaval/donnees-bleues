@@ -1,0 +1,86 @@
+{
+  "dataset_id": "tarifs-douaniers-quebec",
+  "prepared_at_utc": "2026-10-05T20:08:18Z",
+  "prepared_file": "contre_tarifs_20260908.csv",
+  "prepared_sha256": "938e086b655bfb4f3fe7a7c4ebfbc21e3552883e78295842ed199e7f9c09d814",
+  "preview_sha256": "1bf1aa79ef6f2d0cf95058e9a751e65d7d2c5f545d572f0d81525f19f6f264c4",
+  "rows": 120,
+  "columns": ["code_tarifaire", "description_source", "taux_surtaxe_pourcent", "debut_periode_table_source", "pays_origine", "statut_validation"],
+  "selection": "Au plus 120 positions régulièrement espacées dans l'ordre de la table préparée; sélection déterministe non aléatoire",
+  "source_name": "Sources fédérales officielles; compilation Données bleues",
+  "source_url": "https://doi.org/10.25318/1210017501-fra",
+  "license": "Données Statistique Canada : Licence ouverte de Statistique Canada. Informations fédérales : conditions de reproduction de la source. Documentation originale : CC BY 4.0; code original : MIT. Articles de presse non redistribués.",
+  "license_url": "https://donneesbleues.ca/datasets/tarifs-douaniers-quebec/downloads/20261005T200817Z/DATA_LICENSE.md",
+  "sources": [
+    {
+      "source_id": "finances_liste",
+      "source_url": "https://www.canada.ca/fr/ministere-finances/programmes/politiques-finances-echanges-internationaux/reponse-canada-droits-douane-americains/liste-complete-produits-americains-assujettis-contre-mesures-tarifaires.html",
+      "acquired_at_utc": "2026-10-05T18:47:45Z",
+      "sha256": "f3e96c45817cb85b5d9bedac359a015d0e5bc2bd34c8b21dc544a6c6019c4c15",
+      "acquisition_kind": "relecture_snapshot_empreinte_verifiee"
+    },
+    {
+      "source_id": "asfc_25_11",
+      "source_url": "https://www.cbsa-asfc.gc.ca/publications/cn-ad/cn25-11-fra.html",
+      "acquired_at_utc": "2026-10-05T18:47:46Z",
+      "sha256": "5dd859ecf7a08e91ff1fd71a402e2ca1510532689d0f50aca990a6b3749e695c",
+      "acquisition_kind": "relecture_snapshot_empreinte_verifiee"
+    },
+    {
+      "source_id": "statcan_prix",
+      "source_url": "https://www150.statcan.gc.ca/t1/tbl1/fr/tv.action?pid=1810024501",
+      "acquired_at_utc": "2026-10-05T18:47:46Z",
+      "sha256": "391b80a11405149cd0385bf10f9a1a2b3246a2b9803ddb1927c51a378f38db53",
+      "acquisition_kind": "relecture_snapshot_empreinte_verifiee"
+    },
+    {
+      "source_id": "statcan_prix_zip",
+      "source_url": "https://www150.statcan.gc.ca/n1/tbl/csv/18100245-fra.zip",
+      "acquired_at_utc": "2026-10-05T18:47:46Z",
+      "sha256": "3ae599538d327ebd4a2d95c48bc498161a39197bf154a704297d2c14cbbcc646",
+      "acquisition_kind": "relecture_snapshot_empreinte_verifiee"
+    },
+    {
+      "source_id": "gazette_dors186",
+      "source_url": "https://gazette.gc.ca/rp-pr/p2/2026/2026-09-23/html/sor-dors186-fra.html",
+      "acquired_at_utc": "2026-10-05T19:55:17Z",
+      "sha256": "51086026ccb5b0cade34db5f2a02ae46390ffd5b1116fc89e0d1a9a2d7c9b09f",
+      "acquisition_kind": "telechargement_curl_heure_fichier_local"
+    },
+    {
+      "source_id": "isq_juillet",
+      "source_url": "https://statistique.quebec.ca/fr/communique/hausse-7-virgule-2-pourcent-exportations-internationales-marchandises-juillet-2026",
+      "acquired_at_utc": "2026-10-05T19:55:17Z",
+      "sha256": "a300641fa18489670761194e9f7bda15d5b11495d5eccdebdbcd8316ed1fe372",
+      "acquisition_kind": "telechargement_curl_heure_fichier_local"
+    },
+    {
+      "source_id": "isq_semestre",
+      "source_url": "https://statistique.quebec.ca/fr/produit/publication/commerce-international-marchandises-balance-commerciale",
+      "acquired_at_utc": "2026-10-05T19:55:17Z",
+      "sha256": "3cbbc115d232ec585776fd1c1f194211ad024b4086000c638eae41298e327b0b",
+      "acquisition_kind": "telechargement_curl_heure_fichier_local"
+    },
+    {
+      "source_id": "banque_transmission",
+      "source_url": "https://www.banqueducanada.ca/2026/05/article-sparks-et-bank-2026-13/",
+      "acquired_at_utc": "2026-10-05T19:55:17Z",
+      "sha256": "9eabc2492dddd1a16070cd9104d9fc45b2cbc29edc9e856d952c85be8e4a7795",
+      "acquisition_kind": "telechargement_curl_heure_fichier_local"
+    },
+    {
+      "source_id": "banque_hypotheses_juillet",
+      "source_url": "https://www.banqueducanada.ca/publication/rpm/rpm-2026-07-15/hypotheses-tarifaires/",
+      "acquired_at_utc": "2026-10-05T19:55:17Z",
+      "sha256": "ede9c67ec4d6148df0f9cdd2fac9cfc77e2ce4a20ffc96d152b8b0c3f2a73881",
+      "acquisition_kind": "telechargement_curl_heure_fichier_local"
+    },
+    {
+      "source_id": "statcan_commerce_12100175",
+      "source_url": "https://www150.statcan.gc.ca/n1/tbl/csv/12100175-fra.zip",
+      "acquired_at_utc": "2026-10-05T20:07:03Z",
+      "sha256": "6a1c4d743bd98c2fbbfe9baab6399294465b5295b1b97d3824e3e37cbec3fb30",
+      "acquisition_kind": "telechargement_curl_heure_fichier_local"
+    }
+  ]
+}
