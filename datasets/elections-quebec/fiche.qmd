@@ -19,7 +19,7 @@ render_dataset_detail_header()
 
 ## Choisir une table
 
-Le [dépôt des données électorales](https://github.com/AurelienNicosiaULaval/donnees-bleues-elections-qc) rassemble les fichiers d’Élections Québec et décrit leur préparation. Dans la [version examinée le 6 octobre 2026](https://github.com/AurelienNicosiaULaval/donnees-bleues-elections-qc/tree/f18012eb5235056a2a8970dec315b8baec02bdd6), son [catalogue des tables](https://github.com/AurelienNicosiaULaval/donnees-bleues-elections-qc/blob/f18012eb5235056a2a8970dec315b8baec02bdd6/metadata/table_catalog.csv) décrit 55 tables : 29 sont publiques et 26 nécessitent une reconstruction locale, selon les conditions des sources.
+Le [dépôt des données électorales](https://github.com/AurelienNicosiaULaval/donnees-bleues-elections-qc) rassemble les fichiers d’Élections Québec et décrit leur préparation. Dans la [version examinée le 6 octobre 2026](https://github.com/AurelienNicosiaULaval/donnees-bleues-elections-qc/tree/81ffa49eafd7de70c0abc4341d25c3d91e4535b9), son [catalogue des tables](https://github.com/AurelienNicosiaULaval/donnees-bleues-elections-qc/blob/81ffa49eafd7de70c0abc4341d25c3d91e4535b9/metadata/table_catalog.csv) décrit 55 tables : 29 sont publiques et 26 nécessitent une reconstruction locale, selon les conditions des sources.
 
 | Table ou famille publique | Contenu | Usage possible |
 |---|---|---|
@@ -32,13 +32,15 @@ Le [dépôt des données électorales](https://github.com/AurelienNicosiaULaval/
 | `polling_division_results`, `polling_units` | Votes par candidature et unité de vote; description des unités | Travailler le format long, les agrégations et les clés de jointure. La table des votes contient 651 327 lignes dans la version examinée. |
 | Géométries et correspondances spatiales | Cartes électorales de 2017, 2022 et 2026 | Cartographier les données en tenant compte des changements de territoire. |
 
-Le [dictionnaire des variables](https://github.com/AurelienNicosiaULaval/donnees-bleues-elections-qc/blob/f18012eb5235056a2a8970dec315b8baec02bdd6/metadata/data_dictionary.csv) précise le type, l’unité, les valeurs manquantes et la provenance de chaque champ. Le [modèle de données](https://github.com/AurelienNicosiaULaval/donnees-bleues-elections-qc/blob/f18012eb5235056a2a8970dec315b8baec02bdd6/docs/data_model.md) décrit les relations entre tables.
+Le [dictionnaire des variables](https://github.com/AurelienNicosiaULaval/donnees-bleues-elections-qc/blob/81ffa49eafd7de70c0abc4341d25c3d91e4535b9/metadata/data_dictionary.csv) précise le type, l’unité, les valeurs manquantes et la provenance de chaque champ. Le [modèle de données](https://github.com/AurelienNicosiaULaval/donnees-bleues-elections-qc/blob/81ffa49eafd7de70c0abc4341d25c3d91e4535b9/docs/data_model.md) décrit les relations entre tables.
 
 ## Résultats du scrutin du 5 octobre 2026
 
-Élections Québec annonce des résultats finaux dans sa [source officielle JSON](https://donnees.electionsquebec.qc.ca/production/provincial/resultats/resultats.json), mise à jour le 6 octobre 2026 à 9 h 10, heure du Québec. La capture vérifiée couvre 908 candidatures dans 127 circonscriptions et 20 704 bureaux dépouillés sur 20 704. Les votes par candidature et par parti concordent avec le total de 4 282 551 votes valides; les bulletins rejetés sont comptés séparément.
+La [capture de référence](https://raw.githubusercontent.com/AurelienNicosiaULaval/donnees-bleues-elections-qc/81ffa49eafd7de70c0abc4341d25c3d91e4535b9/data/snapshots/results_2026/20261006141046208_ab667d6040b8.json) d’Élections Québec annonce des résultats finaux et une mise à jour le 6 octobre 2026 à 9 h 55, heure du Québec. Elle intègre une correction de trois bulletins rejetés à Chicoutimi, sans changement des votes des candidatures par rapport à la publication de 9 h 10. La capture vérifiée couvre 908 candidatures dans 127 circonscriptions et 20 704 bureaux dépouillés sur 20 704. Les votes par candidature et par parti concordent avec le total de 4 282 551 votes valides; les bulletins rejetés sont comptés séparément.
 
-Le CSV proposé en haut de la fiche contient 21 colonnes et 1 816 lignes. Il conserve deux consultations de la source : celle de la nuit, encore provisoire à l’échelle du Québec, et celle de 9 h 24 qui reprend les résultats finaux. Sélectionner la dernière capture avant tout comptage ou total. La [liste des candidatures](https://raw.githubusercontent.com/AurelienNicosiaULaval/donnees-bleues-elections-qc/f18012eb5235056a2a8970dec315b8baec02bdd6/data/processed/candidates.csv) reste accessible séparément.
+Le bouton en haut de la fiche donne accès au CSV actualisé du dépôt. Il conserve les consultations successives de la source; le nombre de lignes augmente à chaque capture. Sélectionner la dernière capture avant tout comptage ou total.
+
+La [version de référence fixe du 6 octobre 2026](https://raw.githubusercontent.com/AurelienNicosiaULaval/donnees-bleues-elections-qc/81ffa49eafd7de70c0abc4341d25c3d91e4535b9/data/processed/results_candidate_2026.csv) contient 21 colonnes et 2 724 lignes : trois captures de 908 candidatures, dont celle de la nuit et deux publications finales successives. La dernière a été collectée à 10 h 10. Les contrôles et l’exemple R ci-dessous utilisent cette version fixe. La [liste des candidatures](https://raw.githubusercontent.com/AurelienNicosiaULaval/donnees-bleues-elections-qc/81ffa49eafd7de70c0abc4341d25c3d91e4535b9/data/processed/candidates.csv) reste accessible séparément.
 
 | Variables | Définition | Point à vérifier |
 |---|---|---|
@@ -48,15 +50,15 @@ Le CSV proposé en haut de la fiche contient 21 colonnes et 1 816 lignes. Il con
 | `votes` | Votes valides attribués à la candidature | Les bulletins rejetés sont documentés dans `turnout`. |
 | `vote_share_source_pct`, `vote_share_pct` | Pourcentage publié et pourcentage calculé à partir des votes valides de la circonscription | Le premier peut être arrondi; le second est une valeur dérivée. |
 | `lead_votes_source`, `rank_descriptive` | Avance publiée et rang calculé selon le nombre de votes | Le rang est descriptif et ne remplace pas une déclaration officielle d’élection. |
-| `elected_source` | Indicateur nominatif d’élection lorsqu’il est publié | Absent de la source examinée, ce champ reste `NA`, même dans la capture finale. |
+| `elected_source` | Indicateur nominatif d’élection lorsqu’il est publié | Absent de la version de référence, ce champ reste `NA`, même dans la capture finale. |
 | `source_id`, `snapshot_id`, `observed_at`, `retrieved_at` | Source, capture et horodatages de consultation et de récupération en UTC | Sélectionner la dernière capture de chaque source avant d’additionner les votes. |
-| `source_updated_at`, `data_status` | Mise à jour annoncée par le producteur et statut de la donnée | La dernière capture porte `final`; la première peut différer selon la circonscription. |
+| `source_updated_at`, `data_status` | Mise à jour annoncée par le producteur et statut de la donnée | La dernière capture de référence porte `final`; la première peut différer selon la circonscription. |
 
 Les valeurs manquantes sont écrites `NA`. Elles ne doivent pas être remplacées par zéro. Le dictionnaire précise leur interprétation; le fichier ne permet pas toujours de distinguer absence de publication et non-applicabilité. Les sièges par parti figurent dans `results_party_2026`, avec une distinction entre circonscriptions en avance et sièges issus d’une source explicitement finale.
 
 ## Commencer dans R
 
-Cet exemple charge la version fixe du CSV, conserve la dernière capture par élection et par source, puis additionne les votes par groupe politique.
+Cet exemple charge la version de référence fixe du CSV, conserve la dernière capture par élection et par source, puis additionne les votes par groupe politique.
 
 ```{r}
 #| label: exemple-resultats
@@ -68,7 +70,7 @@ library(ggplot2)
 url <- paste0(
   "https://raw.githubusercontent.com/AurelienNicosiaULaval/",
   "donnees-bleues-elections-qc/",
-  "f18012eb5235056a2a8970dec315b8baec02bdd6/",
+  "81ffa49eafd7de70c0abc4341d25c3d91e4535b9/",
   "data/processed/results_candidate_2026.csv"
 )
 
@@ -104,16 +106,16 @@ ggplot(par_parti, aes(votes, reorder(party_abbreviation, votes))) +
     x = "Votes valides",
     y = "Groupe politique",
     title = "Votes par groupe politique",
-    subtitle = "Scrutin du 5 octobre 2026; source mise à jour le 6 octobre à 9 h 10"
+    subtitle = "Scrutin du 5 octobre 2026; source mise à jour le 6 octobre à 9 h 55"
   ) +
   theme_minimal()
 ```
 
-Pour charger les autres tables avec leurs types documentés, utiliser [`R/read_tables.R`](https://github.com/AurelienNicosiaULaval/donnees-bleues-elections-qc/blob/f18012eb5235056a2a8970dec315b8baec02bdd6/R/read_tables.R) après avoir récupéré le dépôt. Il sélectionne par défaut la dernière consultation de chaque source et de chaque événement. Un [exemple Python](https://github.com/AurelienNicosiaULaval/donnees-bleues-elections-qc/tree/f18012eb5235056a2a8970dec315b8baec02bdd6/examples) est également fourni.
+Pour charger les autres tables avec leurs types documentés, utiliser [`R/read_tables.R`](https://github.com/AurelienNicosiaULaval/donnees-bleues-elections-qc/blob/81ffa49eafd7de70c0abc4341d25c3d91e4535b9/R/read_tables.R) après avoir récupéré le dépôt. Il sélectionne par défaut la dernière consultation de chaque source et de chaque événement. Un [exemple Python](https://github.com/AurelienNicosiaULaval/donnees-bleues-elections-qc/tree/81ffa49eafd7de70c0abc4341d25c3d91e4535b9/examples) est également fourni.
 
 ## Pistes pédagogiques et limites
 
-Le dépôt propose [30 pistes pédagogiques](https://github.com/AurelienNicosiaULaval/donnees-bleues-elections-qc/blob/f18012eb5235056a2a8970dec315b8baec02bdd6/docs/teaching_ideas.md), de la description des candidatures aux jointures spatiales et à l’analyse des résultats. Elles indiquent les tables et les précautions nécessaires. Les pistes utilisant des adaptations non diffusées exigent d’abord leur reconstruction locale et le respect des conditions applicables.
+Le dépôt propose [30 pistes pédagogiques](https://github.com/AurelienNicosiaULaval/donnees-bleues-elections-qc/blob/81ffa49eafd7de70c0abc4341d25c3d91e4535b9/docs/teaching_ideas.md), de la description des candidatures aux jointures spatiales et à l’analyse des résultats. Elles indiquent les tables et les précautions nécessaires. Les pistes utilisant des adaptations non diffusées exigent d’abord leur reconstruction locale et le respect des conditions applicables.
 
 Les données publiques permettent notamment de travailler les statistiques descriptives, les graphiques, les dénominateurs de participation, les agrégations et les jointures. Une association observée entre circonscriptions ne décrit pas les comportements individuels des électeurs et ne suffit pas à établir un effet causal.
 
@@ -121,13 +123,13 @@ Les changements de carte imposent de vérifier l’édition des territoires avan
 
 Le statut final reprend l’indicateur explicite `isResultatsFinaux` d’Élections Québec. Un dépouillement à 100 % ne suffit pas, à lui seul, à établir ce statut. Le dépôt conserve les consultations antérieures et distingue simulations, candidatures, résultats provisoires et finalité annoncée par la source.
 
-Les contrôles du CSV proposé ici sont reproductibles avec [`verification.R`](https://github.com/AurelienNicosiaULaval/donnees-bleues/blob/main/datasets/elections-quebec/verification.R). La [couverture du corpus](https://github.com/AurelienNicosiaULaval/donnees-bleues-elections-qc/blob/f18012eb5235056a2a8970dec315b8baec02bdd6/docs/coverage.md) et les [instructions de reproduction](https://github.com/AurelienNicosiaULaval/donnees-bleues-elections-qc/blob/f18012eb5235056a2a8970dec315b8baec02bdd6/docs/reproducibility.md) précisent les sources exploitées et les limites de validation.
+Les contrôles de la version de référence sont reproductibles avec [`verification.R`](https://github.com/AurelienNicosiaULaval/donnees-bleues/blob/main/datasets/elections-quebec/verification.R). La [couverture du corpus](https://github.com/AurelienNicosiaULaval/donnees-bleues-elections-qc/blob/81ffa49eafd7de70c0abc4341d25c3d91e4535b9/docs/coverage.md) et les [instructions de reproduction](https://github.com/AurelienNicosiaULaval/donnees-bleues-elections-qc/blob/81ffa49eafd7de70c0abc4341d25c3d91e4535b9/docs/reproducibility.md) précisent les sources exploitées et les limites de validation.
 
 ## Sources et droits
 
-Les candidatures, les résultats ouverts, les électeurs inscrits, les partis autorisés et les géométries publiques proviennent des fichiers référencés par le [portail de données ouvertes d’Élections Québec](https://www.dgeq.org/donnees.html) et ses [archives](https://www.dgeq.org/archives.html), consultés lors de l’inventaire du 3 octobre 2026. Les résultats de 2026 ont été vérifiés à nouveau le 6 octobre 2026. Le [catalogue des sources](https://github.com/AurelienNicosiaULaval/donnees-bleues-elections-qc/blob/f18012eb5235056a2a8970dec315b8baec02bdd6/metadata/source_catalog.csv) donne leurs URL et leurs conditions; les captures et leurs empreintes assurent la traçabilité.
+Les candidatures, les résultats ouverts, les électeurs inscrits, les partis autorisés et les géométries publiques proviennent des fichiers référencés par le [portail de données ouvertes d’Élections Québec](https://www.dgeq.org/donnees.html) et ses [archives](https://www.dgeq.org/archives.html), consultés lors de l’inventaire du 3 octobre 2026. Les résultats de 2026 ont été vérifiés à nouveau le 6 octobre 2026. Le [catalogue des sources](https://github.com/AurelienNicosiaULaval/donnees-bleues-elections-qc/blob/81ffa49eafd7de70c0abc4341d25c3d91e4535b9/metadata/source_catalog.csv) donne leurs URL et leurs conditions; les captures et leurs empreintes assurent la traçabilité.
 
-Les documents hors de ce régime, notamment certaines sources financières et démographiques, conservent leurs conditions propres. Le dépôt publie leurs scripts et métadonnées, tandis que leurs adaptations restent locales. La licence MIT du code ne s’applique pas aux données. Consulter les [droits par source](https://github.com/AurelienNicosiaULaval/donnees-bleues-elections-qc/blob/f18012eb5235056a2a8970dec315b8baec02bdd6/DATA_LICENSES.md) avant toute réutilisation.
+Les documents hors de ce régime, notamment certaines sources financières et démographiques, conservent leurs conditions propres. Le dépôt publie leurs scripts et métadonnées, tandis que leurs adaptations restent locales. La licence MIT du code ne s’applique pas aux données. Consulter les [droits par source](https://github.com/AurelienNicosiaULaval/donnees-bleues-elections-qc/blob/81ffa49eafd7de70c0abc4341d25c3d91e4535b9/DATA_LICENSES.md) avant toute réutilisation.
 
 ```{r}
 #| label: dataset-detail-footer

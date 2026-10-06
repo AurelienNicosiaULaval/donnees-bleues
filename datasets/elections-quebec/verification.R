@@ -1,4 +1,4 @@
-# Vérifier la version fixe sans modifier les tables du dépôt électoral.
+# Vérifier la version de référence fixe sans modifier les tables du dépôt électoral.
 # Depuis la racine de Données bleues :
 # Rscript datasets/elections-quebec/verification.R [chemin-du-CSV]
 library(readr)
@@ -10,7 +10,7 @@ metadata <- read_yaml("datasets/elections-quebec/metadata.yml")
 arguments <- commandArgs(trailingOnly = TRUE)
 input <- if (length(arguments)) arguments[[1L]] else tempfile(fileext = ".csv")
 if (!length(arguments)) {
-  download.file(metadata$download_url, input, mode = "wb", quiet = TRUE)
+  download.file(metadata$verification$reference_url, input, mode = "wb", quiet = TRUE)
 }
 stopifnot(digest(file = input, algo = "sha256") == metadata$verification$sha256)
 

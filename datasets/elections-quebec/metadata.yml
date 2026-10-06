@@ -1,15 +1,15 @@
 id: elections-quebec
 title: "Élections provinciales au Québec"
 short_title: "Élections du Québec"
-summary: "Résultats du scrutin du 5 octobre 2026, candidatures, participation, archives provinciales, partis politiques et cartes électorales. La dernière capture des résultats porte le statut final annoncé par Élections Québec."
+summary: "Résultats du scrutin du 5 octobre 2026, candidatures, participation, archives provinciales, partis politiques et cartes électorales. Le CSV du dépôt est actualisé; une version de référence vérifiée est aussi documentée."
 observation_period: "Élections générales de 2012, 2014, 2018, 2022 et 2026; élections partielles de 2013 à 2026"
 source_authors:
   - Élections Québec
 theme: "Vie démocratique"
 source_name: "Élections Québec; préparation et documentation par Aurélien Nicosia"
 source_url: "https://github.com/AurelienNicosiaULaval/donnees-bleues-elections-qc"
-download_url: "https://raw.githubusercontent.com/AurelienNicosiaULaval/donnees-bleues-elections-qc/f18012eb5235056a2a8970dec315b8baec02bdd6/data/processed/results_candidate_2026.csv"
-download_label: "Télécharger les résultats 2026 (CSV)"
+download_url: "https://raw.githubusercontent.com/AurelienNicosiaULaval/donnees-bleues-elections-qc/main/data/processed/results_candidate_2026.csv"
+download_label: "Télécharger les résultats 2026 (CSV actualisé)"
 download_filename: "resultats-quebec-2026.csv"
 license: "Tables publiques : licence des données ouvertes du directeur général des élections, avec attribution obligatoire. Les autres sources conservent leurs conditions propres; leurs adaptations ne sont pas diffusées dans le dépôt. Code sous MIT."
 access_date: "2026-10-06"
@@ -17,16 +17,16 @@ geography: "Québec; circonscriptions et unités de vote selon le scrutin et la 
 unit: "Le résultat d’une candidature par capture dans le CSV principal; le grain des autres tables est indiqué dans leur catalogue"
 data_type: "Tables relationnelles, archives électorales et données spatiales"
 format: "CSV UTF-8, CSV compressé, GeoPackage et GeoJSON; métadonnées CSV et JSON"
-n_rows: "CSV principal : 1 816 lignes, soit deux captures de 908 résultats de candidature"
+n_rows: "Version de référence : 908 résultats par capture; nombre total de lignes variable dans le CSV actualisé"
 n_cols: "CSV principal : 21 colonnes; dimensions propres à chaque autre table"
 table_overview:
-  "Résultats de 2026": "908 candidatures dans 127 circonscriptions; résultats finaux annoncés par la source le 6 octobre à 9 h 10; deux captures conservées"
-  "Participation de 2026": "20 704 bureaux dépouillés sur 20 704; 4 282 551 votes valides et 63 306 bulletins rejetés dans la dernière capture"
+  "Résultats de 2026": "Version de référence du 6 octobre à 9 h 55 : 908 candidatures dans 127 circonscriptions; statut final annoncé par la source"
+  "Participation de 2026": "Version de référence : 20 704 bureaux dépouillés sur 20 704; 4 282 551 votes valides et 63 303 bulletins rejetés"
   "Candidatures de 2026": "Liste officielle et captures successives disponibles dans une table distincte"
   "Archives publiques": "Résultats, participation et votes par unité de vote : scrutins généraux de 2012 à 2022 et 17 élections partielles"
   "Cartes électorales": "Géométries des éditions 2017, 2022 et 2026; correspondances spatiales documentées"
   "Accès au corpus": "29 tables publiques dans la version examinée; dictionnaire, provenance, scripts R et Python et 30 pistes pédagogiques dans le dépôt"
-update_frequency: "Collecte automatisée dans le dépôt avec conservation des captures. Le CSV proposé ici est une version fixe vérifiée le 6 octobre 2026; les versions récentes restent accessibles dans le dépôt."
+update_frequency: "Collectes quotidiennes puis hebdomadaires dans le dépôt, y compris après l’annonce de la finalité. Le téléchargement principal suit le CSV actualisé; une version fixe vérifiée le 6 octobre 2026 permet de reproduire les exemples."
 level: Intermédiaire
 level_ids:
   - introduction
@@ -75,34 +75,35 @@ contributor_name: "Aurélien Nicosia"
 contributor_role: "Collecte, transformation, documentation et proposition au catalogue Données bleues"
 courses: []
 stt1100_contact: false
-status: "Résultats du 5 octobre 2026 vérifiés le 6 octobre; dernière mise à jour de la source à 9 h 10, statut final explicite"
+status: "Référence vérifiée le 6 octobre : source mise à jour à 9 h 55, statut final explicite; accès au CSV actualisé du dépôt"
 essential_limits:
-  - "Le CSV principal conserve une capture de la nuit et une capture finale. Sélectionner la dernière par élection et par source avant de compter les candidatures ou d’additionner les votes."
+  - "Le CSV principal conserve les consultations successives de la source. Sélectionner la dernière par élection et par source avant de compter les candidatures ou d’additionner les votes."
   - "Le statut final reprend l’indicateur explicite isResultatsFinaux du producteur. Un dépouillement à 100 % ne suffit pas, à lui seul, à établir ce statut."
-  - "Le champ elected_source est absent dans la source examinée et reste NA. Le rang descriptif ne remplace pas une déclaration nominative d’élection; les sièges par parti sont dans une table distincte."
+  - "Le champ elected_source est absent dans la version de référence et reste NA. Le rang descriptif ne remplace pas une déclaration nominative d’élection; les sièges par parti sont dans une table distincte."
   - "Les identifiants de candidature et de parti sont contextualisés par scrutin. Les codes de circonscription dépendent de la carte électorale; une jointure par nom seul n’est pas fiable."
   - "Les tables adaptées de finances, de contributions et de démographie sont réservées à une reconstruction locale selon les droits des sources. Les contributions nominatives ne sont pas diffusées."
-reference_note: "Les dimensions et contrôles portent sur la version fixe du 6 octobre 2026 proposée au téléchargement. La dernière capture a été collectée à 9 h 24, heure du Québec. Les captures sont des consultations successives, pas des votes ou des candidatures supplémentaires."
+reference_note: "Les contrôles portent sur la version fixe du 6 octobre 2026, collectée à 10 h 10 pour une source mise à jour à 9 h 55. Le téléchargement principal est actualisé dans le dépôt. Les captures sont des consultations successives, pas des votes ou des candidatures supplémentaires."
 publication:
   preview: false
-  reason: "Référencement des tables et de leur documentation dans le dépôt électoral, avec téléchargement d’une version fixe du CSV des résultats de 2026."
+  reason: "Référencement des tables et de leur documentation dans le dépôt électoral, avec téléchargement du CSV actualisé et accès à une version de référence fixe."
   reviewed_on: "2026-10-06"
-  license_url: "https://github.com/AurelienNicosiaULaval/donnees-bleues-elections-qc/blob/f18012eb5235056a2a8970dec315b8baec02bdd6/DATA_LICENSES.md"
+  license_url: "https://github.com/AurelienNicosiaULaval/donnees-bleues-elections-qc/blob/81ffa49eafd7de70c0abc4341d25c3d91e4535b9/DATA_LICENSES.md"
   preview_columns: []
   classroom:
     mode: external
     reason: "Tables, dictionnaire, scripts et pistes pédagogiques hébergés dans le dépôt électoral; aucune trousse locale associée à cette fiche."
     files: []
 verification:
-  commit: "f18012eb5235056a2a8970dec315b8baec02bdd6"
-  sha256: "4372f21a466b9cb6758f076232d37432635b0eb6a6cf5941e3ae3bbca51317fa"
-  rows: 1816
+  commit: "81ffa49eafd7de70c0abc4341d25c3d91e4535b9"
+  reference_url: "https://raw.githubusercontent.com/AurelienNicosiaULaval/donnees-bleues-elections-qc/81ffa49eafd7de70c0abc4341d25c3d91e4535b9/data/processed/results_candidate_2026.csv"
+  sha256: "5b0e91f07abe496bc1cbb266a74a20db6b2f287a0f906ee40b5b591593c79ea6"
+  rows: 2724
   columns: 21
-  captures: 2
+  captures: 3
   latest_rows: 908
   latest_districts: 127
-  latest_observed_at: "2026-10-06T13:24:31.492Z"
-  latest_source_updated_at: "2026-10-06T13:10:08.959Z"
+  latest_observed_at: "2026-10-06T14:10:46.208Z"
+  latest_source_updated_at: "2026-10-06T13:55:38.958Z"
   latest_valid_votes: 4282551
   latest_status: "final"
 date_added: "2026-10-03"
