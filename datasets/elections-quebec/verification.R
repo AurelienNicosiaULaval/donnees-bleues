@@ -14,19 +14,19 @@ if (!length(arguments)) {
 }
 stopifnot(digest(file = input, algo = "sha256") == metadata$verification$sha256)
 
-candidates <- read_csv(
+results <- read_csv(
   input, col_types = cols(.default = col_character()),
   na = "NA", trim_ws = FALSE, show_col_types = FALSE
 )
 expected <- metadata$verification
 stopifnot(
-  nrow(candidates) == expected$rows, ncol(candidates) == expected$columns,
-  n_distinct(candidates$snapshot_id) == expected$captures,
-  !anyNA(candidates[c("election_id", "source_id", "candidate_id", "observed_at")]),
-  !anyDuplicated(candidates[c("election_id", "source_id", "snapshot_id", "candidate_id")])
+  nrow(results) == expected$rows, ncol(results) == expected$columns,
+  n_distinct(results$snapshot_id) == expected$captures,
+  !anyNA(results[c("election_id", "source_id", "candidate_id", "observed_at")]),
+  !anyDuplicated(results[c("election_id", "source_id", "snapshot_id", "candidate_id")])
 )
 
-latest <- candidates |>
+latest <- results |>
   group_by(election_id, source_id) |>
   filter(observed_at == max(observed_at)) |>
   ungroup()
@@ -35,12 +35,16 @@ stopifnot(
   n_distinct(latest$district_id) == expected$latest_districts,
   all(latest$observed_at == expected$latest_observed_at),
   !anyDuplicated(latest$candidate_id),
-  all(latest$data_status == "accepted_list"),
-  all(is.na(latest$sex_source)), all(is.na(latest$age_source))
+  all(latest$data_status == expected$latest_status),
+  all(latest$source_updated_at == expected$latest_source_updated_at),
+  all(is.na(latest$elected_source)),
+  !anyNA(latest$votes),
+  sum(as.numeric(latest$votes)) == expected$latest_valid_votes
 )
-print(candidates |> count(observed_at, name = "candidatures_par_capture"))
+print(results |> count(observed_at, data_status, name = "resultats_par_capture"))
 print(latest |> summarise(
   candidatures = n(), circonscriptions = n_distinct(district_id),
+  votes_valides = sum(as.numeric(votes)),
   colonnes = ncol(latest)
 ))
-message("Empreinte, dimensions, captures, clés et dernière liste vérifiées.")
+message("Empreinte, dimensions, captures, clés, statut final et total des votes vérifiés.")
