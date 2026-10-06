@@ -25,7 +25,7 @@ execute:
 ```{r}
 #| results: asis
 source(if (file.exists("R/utils_resources.R")) "R/utils_resources.R" else "../R/utils_resources.R")
-render_resource_notice_identity("billet-tarifs-douaniers-2026")
+render_resource_notice_identity("billet-tarifs-douaniers-2026", show_record_dates = FALSE)
 ```
 
 # Tarifs douaniers et actualité : que peut-on mesurer au Québec?
