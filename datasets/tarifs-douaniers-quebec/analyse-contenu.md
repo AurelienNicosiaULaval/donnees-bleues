@@ -10,6 +10,7 @@ L'analyse distingue les faits documentés, les calculs descriptifs et les questi
 racine <- if (file.exists("datasets/tarifs-douaniers-quebec/activite-lire-tarifs.R")) "." else ".."
 ancien <- getwd()
 setwd(racine)
+source("datasets/tarifs-douaniers-quebec/preparation.R", local = knitr::knit_global())
 invisible(capture.output(source("datasets/tarifs-douaniers-quebec/activite-lire-tarifs.R", local = knitr::knit_global())))
 setwd(ancien)
 ```
