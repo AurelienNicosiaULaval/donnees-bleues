@@ -1,0 +1,82 @@
+{
+  "dataset_doi": "10.5061/dryad.4k275",
+  "depot_principal": "https://datadryad.org/dataset/doi:10.5061/dryad.4k275",
+  "copie_publique": "https://zenodo.org/records/4958113",
+  "licence": {
+    "id": "cc-zero"
+  },
+  "fichiers": [
+    {
+      "fichier": "NAO_AO_Data.xlsx",
+      "url": "https://zenodo.org/api/records/4958113/files/NAO_AO_Data.xlsx/content",
+      "url_finale": "https://zenodo.org/api/records/4958113/files/NAO_AO_Data.xlsx/content",
+      "acquisition_utc": "2026-10-08T17:31:40.077096+00:00",
+      "taille_octets": 22467,
+      "mime_type": "application/octet-stream",
+      "md5": "525a8aea1e7bfb4d68190cd9ee578833",
+      "sha256": "1ae5124034b3e661d34d5f4c4384a9ae41ecdef8d71104d6e39fb2d81fb5ec98",
+      "correspondance_md5_dryad": true,
+      "dryad_api": "https://datadryad.org/api/v2/files/28085"
+    },
+    {
+      "fichier": "WaterCross_Data.xlsx",
+      "url": "https://zenodo.org/api/records/4958113/files/WaterCross_Data.xlsx/content",
+      "url_finale": "https://zenodo.org/api/records/4958113/files/WaterCross_Data.xlsx/content",
+      "acquisition_utc": "2026-10-08T17:31:40.076848+00:00",
+      "taille_octets": 20988,
+      "mime_type": "application/octet-stream",
+      "md5": "26f0e6f08322257aa20655b795ecacf1",
+      "sha256": "304be18b472b4090a38cf404715181b4309efbdc9428e8db618aa27deb84893a",
+      "correspondance_md5_dryad": true,
+      "dryad_api": "https://datadryad.org/api/v2/files/28082"
+    },
+    {
+      "fichier": "Detour_Data.xlsx",
+      "url": "https://zenodo.org/api/records/4958113/files/Detour_Data.xlsx/content",
+      "url_finale": "https://zenodo.org/api/records/4958113/files/Detour_Data.xlsx/content",
+      "acquisition_utc": "2026-10-08T17:31:40.343692+00:00",
+      "taille_octets": 101138,
+      "mime_type": "application/octet-stream",
+      "md5": "2968901601deaaecc45fe0e4ea14e4cd",
+      "sha256": "987a40d879ce2f55bf444eca3a2b8ed9af622b3fc3f505e31b67aa463623c211",
+      "correspondance_md5_dryad": true,
+      "dryad_api": "https://datadryad.org/api/v2/files/28083"
+    },
+    {
+      "fichier": "IceCross_Data.xlsx",
+      "url": "https://zenodo.org/api/records/4958113/files/IceCross_Data.xlsx/content",
+      "url_finale": "https://zenodo.org/api/records/4958113/files/IceCross_Data.xlsx/content",
+      "acquisition_utc": "2026-10-08T17:31:40.077235+00:00",
+      "taille_octets": 65151,
+      "mime_type": "application/octet-stream",
+      "md5": "a03c8ed7fa0ccf4772f1b68c5411f701",
+      "sha256": "b177e49d795f9fe0a33b358cc4f5a5649ab7a79c477c6574987d37a3e7ef53c0",
+      "correspondance_md5_dryad": true,
+      "dryad_api": "https://datadryad.org/api/v2/files/28081"
+    },
+    {
+      "fichier": "Ice-Water_Proportion_Data.xlsx",
+      "url": "https://zenodo.org/api/records/4958113/files/Ice-Water_Proportion_Data.xlsx/content",
+      "url_finale": "https://zenodo.org/api/records/4958113/files/Ice-Water_Proportion_Data.xlsx/content",
+      "acquisition_utc": "2026-10-08T17:31:40.077073+00:00",
+      "taille_octets": 29778,
+      "mime_type": "application/octet-stream",
+      "md5": "5e7a383050ab07936f9f5bae46fb6d61",
+      "sha256": "f1800a031a8084cf01adf924653cc9194d7b5fc5949019443d08f5f04515429a",
+      "correspondance_md5_dryad": true,
+      "dryad_api": "https://datadryad.org/api/v2/files/28084"
+    },
+    {
+      "fichier": "Lakes_shapefile.zip",
+      "url": "https://zenodo.org/api/records/4958113/files/Lakes_shapefile.zip/content",
+      "url_finale": "https://zenodo.org/api/records/4958113/files/Lakes_shapefile.zip/content",
+      "acquisition_utc": "2026-10-08T17:31:40.332968+00:00",
+      "taille_octets": 142214,
+      "mime_type": "application/octet-stream",
+      "md5": "da108c88d9d7879f60a4c7295d636fe1",
+      "sha256": "81f6de6280e678aa999930539ebf4d70ba5977f930c8544c8e56a3ae9d7b731c",
+      "correspondance_md5_dryad": true,
+      "dryad_api": "https://datadryad.org/api/v2/files/28086"
+    }
+  ]
+}

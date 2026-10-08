@@ -180,6 +180,20 @@
       "scene": "Port commercial fictif sur le Saint-Laurent, cargaison et bureau de douane.",
       "prompt": "Use case: illustration-story. Asset: one new landscape 16:9 dataset thumbnail for Données bleues, a Québec statistics teaching website. Scene: a calm commercial port on the Saint Lawrence River, with a large cargo ship, neat containers, a simple dockside warehouse and a small customs desk in the near foreground bearing blank shipping papers and an unmarked parcel. Evoke international trade, customs and everyday imported goods in a single coherent scene. Style: refined contemporary editorial painted illustration, layered hand-painted shapes, subtle printed-paper grain, natural realistic proportions, crisp focal silhouettes and atmospheric depth. Palette dominated by deep navy, muted cobalt, turquoise, pale blue and warm ivory with small muted ochre accents, matching the Données bleues dataset illustrations. Horizontal 16:9 composition, important forms legible at thumbnail size, breathing room. No text, letters, numbers, flags, logos, watermarks, charts, arrows, fake statistics, price labels or documentary claims. No political figures, caricature, triumphalism or conflict imagery. Render at exact 16:9 aspect ratio; opaque background.",
       "original_file": "originals/tarifs-douaniers-quebec.png"
+    },
+    {
+      "id": "caribous-riviere-aux-feuilles",
+      "title": "Caribous de la Rivière-aux-Feuilles",
+      "date": "2026-10-08",
+      "generator": "outil image_gen intégré",
+      "model": "non exposé par l’interface",
+      "scene": "Deux caribous dans un paysage nordique fictif au bord d’un grand lac.",
+      "prompt": "Use case: illustration-story. Create one new 16:9 landscape editorial illustration for the Données bleues dataset catalogue, exactly 1536 × 864 pixels. Scene: two naturally proportioned migratory caribou with branched antlers walking on the rocky shore of a large northern Québec lake, quiet tundra vegetation and low distant hills, a few pale ice floes on the blue water. One coherent landscape, caribou as the clear central focal subjects, readable at thumbnail size. Style: sophisticated painted editorial print, subtle printed-paper grain, layered brush textures, realistic animal silhouettes, calm atmospheric depth. Palette predominantly deep navy #153449, cobalt #285B9A, muted turquoise #4A8C94, pale blue #DCEAF0 and warm ivory #F5F3EC, with restrained ochre accents. Full bleed horizontal composition with breathing room. This is an illustrative evocation, not an actual observation or documentary scene. No text, letters, numbers, logo, watermark, chart, map, GPS track, border, collage, glossy 3D or photographic rendering.",
+      "original_file": "originals/caribous-riviere-aux-feuilles.png",
+      "reference_images_inspected": [
+        "camps-de-jour-quebec.webp",
+        "hydro-quebec-temperature.webp"
+      ]
     }
   ],
   "approved_examples": [

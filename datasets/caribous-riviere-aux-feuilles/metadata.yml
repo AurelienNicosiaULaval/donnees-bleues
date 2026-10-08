@@ -1,0 +1,71 @@
+id: caribous-riviere-aux-feuilles
+title: Caribous de la Rivière-aux-Feuilles
+short_title: Déplacements de caribous
+summary: "Positions GPS et segments sélectionnés autour de grands plans d'eau du nord du Québec : traversées sur glace, à la nage et contournements. Carte interactive et fichiers documentés."
+observation_period: "Du 20 avril 2007 au 19 mai 2014"
+source_authors: [Mathieu Leblond, Martin-Hugues St-Laurent, Steeve D. Côté]
+theme: Environnement et faune
+source_name: "Leblond, St-Laurent et Côté; dépôt Dryad et copie publique Zenodo"
+source_url: https://datadryad.org/dataset/doi:10.5061/dryad.4k275
+download_url: https://donneesbleues.ca/datasets/caribous-riviere-aux-feuilles/downloads/20261008/positions_caribous.csv
+download_label: Télécharger les positions (CSV)
+download_filename: positions-caribous-riviere-aux-feuilles.csv
+license: "Données originales : CC0 1.0; code original : MIT; documentation originale : CC BY 4.0. Fond OpenStreetMap sous ses propres conditions, avec attribution."
+access_date: '2026-10-08'
+geography: "Nord du Québec; grands plans d'eau fréquentés par le troupeau migrateur de la Rivière-aux-Feuilles"
+unit: Une position GPS dans un segment sélectionné; un pas relie deux positions du même segment
+data_type: Positions GPS, segments et tables environnementales
+format: CSV UTF-8, GeoPackage, classeurs XLSX et shapefile; scripts R et ZIP
+n_rows: "1 911 positions; 52 individus; 319 segments; 1 592 pas"
+n_cols: "24 colonnes dans le CSV des positions"
+data_version: '20261008'
+processed_file: data/processed/caribous-riviere-aux-feuilles/positions_caribous.csv
+documentation_open: true
+update_frequency: Dépôt historique figé; aucune position actuelle
+level: Intermédiaire
+level_ids: [intermediaire, avance]
+concepts: [Analyse exploratoire, Cartographie, Données spatiales, Statistiques descriptives, Reproductibilité]
+concept_ids: [analyse-exploratoire, cartographie, donnees-spatiales, statistiques-descriptives, reproductibilite]
+variables_principales: [id_individu_source, cle_segment, type_deplacement, latitude, longitude, date_heure_source, id_coherent]
+search_aliases: [caribou, télémétrie, mouvement animalier, faune, Rivière-aux-Feuilles, GPS, migration]
+zero_waste:
+  contexte_quebecois: 3
+  accessibilite_pedagogique: 2
+  qualite_documentaire: 2
+  potentiel_nettoyage: 2
+  potentiel_visualisation: 3
+  potentiel_statistique_descriptive: 3
+  potentiel_inference: 1
+  potentiel_modelisation: 1
+  potentiel_ethique: 2
+  reutilisabilite: 3
+contributor_name: Aurélien Nicosia
+contributor_role: Vérification des fichiers, préparation descriptive, carte et documentation pour Données bleues
+courses: []
+stt1100_contact: false
+status: Fichiers vérifiés et activité exécutée; usage en classe non documenté
+essential_limits:
+  - "Extraits sélectionnés autour des plans d'eau, et non migrations complètes. Les effectifs ne représentent pas l'ensemble des caribous du Québec."
+  - "Datum GPS et fuseau horaire non documentés. La carte suppose WGS84; les durées sont des différences d'horloge civile."
+  - "Intervalles irréguliers; traits interpolés entre mesures. Distances et vitesses dérivées ne décrivent pas le trajet exact."
+  - "Six positions présentent une discordance entre ID et IDYR, conservée et signalée. Les observations répétées par individu ne sont pas indépendantes."
+table_overview:
+  Positions: 1 911 positions de 52 individus, avec 95 identifiants individu-année
+  Pas: 1 592 transitions à l'intérieur des 319 segments, sans liaison entre segments
+  Segments: 179 traversées sur glace, 11 à la nage et 129 contournements
+  Tables complémentaires: 401 lignes glace-eau et 68 lignes NAO/AO; pas de jointure automatique
+publication:
+  preview: false
+  reason: "Redistribution des données CC0 et de leur préparation documentée; carte dédiée plutôt qu'aperçu tabulaire."
+  reviewed_on: '2026-10-08'
+  license_url: https://creativecommons.org/publicdomain/zero/1.0/
+  preview_columns: []
+  classroom:
+    mode: frozen
+    reason: Trois tables figées et script descriptif; le suivi complet et les pas aléatoires de l'article ne sont pas inclus
+    primary_file: data/processed/caribous-riviere-aux-feuilles/positions_caribous.csv
+    primary_label: positions GPS
+    notices: [datasets/caribous-riviere-aux-feuilles/DATA_LICENSE.md, datasets/caribous-riviere-aux-feuilles/DICTIONNAIRE.md, datasets/caribous-riviere-aux-feuilles/README.md]
+    files: [{"path": "data/processed/caribous-riviere-aux-feuilles/pas_caribous.csv", "columns": ["cle_segment", "segment_source", "id_individu_source", "type_deplacement", "rang_arrivee", "date_heure_depart", "date_heure_arrivee", "longitude_depart", "latitude_depart", "longitude_arrivee", "latitude_arrivee", "duree_h", "distance_ligne_droite_m", "vitesse_pas_m_h", "angle_rotation_abs_deg", "intervalle_sup_13_1h"]}, {"path": "data/processed/caribous-riviere-aux-feuilles/positions_caribous.csv", "columns": ["id_individu_source", "id_annee_source", "id_depuis_idyr", "id_coherent", "segment_source", "cle_segment", "type_deplacement", "latitude", "longitude", "annee_source", "date_source", "heure_source", "date_heure_source", "jour_annee_source", "periode_modis_source", "code_periode_source", "etat_source", "comportement_source", "type_plan_eau_source", "fichier_source", "ligne_excel", "rang_dans_segment", "x_lambert_m", "y_lambert_m"]}, {"path": "data/processed/caribous-riviere-aux-feuilles/segments_caribous.csv", "columns": ["cle_segment", "segment_source", "id_individu_source", "type_deplacement", "id_annees_source", "n_positions", "n_pas", "date_heure_debut", "date_heure_fin", "duree_totale_h", "distance_cumulee_lignes_droites_m", "vitesse_moyenne_des_pas_m_h", "intervalle_min_h", "intervalle_max_h", "contient_intervalle_sup_13_1h"]}]
+date_added: '2026-10-08'
+date_updated: '2026-10-08'

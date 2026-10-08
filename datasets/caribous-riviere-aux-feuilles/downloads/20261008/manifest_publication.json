@@ -1,0 +1,212 @@
+{
+  "dataset_id": "caribous-riviere-aux-feuilles",
+  "version": "20261008",
+  "prepared_at_utc": "2026-10-08T18:02:50Z",
+  "source_doi": "10.5061/dryad.4k275",
+  "tables": [
+    {
+      "file": "glace_eau_table_source.csv",
+      "rows": 401,
+      "columns": [
+        "State",
+        "Season",
+        "Julian Date Centroid",
+        "Sum lake (MODIS 37)",
+        "Sum lake-ice (MODIS 100)",
+        "Proportion",
+        "ligne_excel"
+      ],
+      "sha256": "6fb94025416b99b7bbd3edabe32c31727a0ca644e00af78a0c755db92bf1b1dc"
+    },
+    {
+      "file": "nao_ao_table_source.csv",
+      "rows": 68,
+      "columns": [
+        "Area",
+        "Year",
+        "Breakup Date",
+        "Freeze Date",
+        "NAO January",
+        "NAO February",
+        "NAO March",
+        "NAO April",
+        "NAO May",
+        "NAO June",
+        "NAO July",
+        "NAO August",
+        "NAO September",
+        "NAO October",
+        "NAO November",
+        "NAO December",
+        "AO January",
+        "AO February",
+        "AO March",
+        "AO April",
+        "AO May",
+        "AO June",
+        "AO July",
+        "AO August",
+        "AO September",
+        "AO October",
+        "AO November",
+        "AO December",
+        "ligne_excel"
+      ],
+      "sha256": "3d3121a6807f05327d51e0aadd244531393b26acb33dc0987785dfb6aa013cca"
+    },
+    {
+      "file": "pas_caribous.csv",
+      "rows": 1592,
+      "columns": [
+        "cle_segment",
+        "segment_source",
+        "id_individu_source",
+        "type_deplacement",
+        "rang_arrivee",
+        "date_heure_depart",
+        "date_heure_arrivee",
+        "longitude_depart",
+        "latitude_depart",
+        "longitude_arrivee",
+        "latitude_arrivee",
+        "duree_h",
+        "distance_ligne_droite_m",
+        "vitesse_pas_m_h",
+        "angle_rotation_abs_deg",
+        "intervalle_sup_13_1h"
+      ],
+      "sha256": "37950512402b0a14304fa404a471dfedfb8621af875ffa255405134cb0ef3422"
+    },
+    {
+      "file": "positions_caribous.csv",
+      "rows": 1911,
+      "columns": [
+        "id_individu_source",
+        "id_annee_source",
+        "id_depuis_idyr",
+        "id_coherent",
+        "segment_source",
+        "cle_segment",
+        "type_deplacement",
+        "latitude",
+        "longitude",
+        "annee_source",
+        "date_source",
+        "heure_source",
+        "date_heure_source",
+        "jour_annee_source",
+        "periode_modis_source",
+        "code_periode_source",
+        "etat_source",
+        "comportement_source",
+        "type_plan_eau_source",
+        "fichier_source",
+        "ligne_excel",
+        "rang_dans_segment",
+        "x_lambert_m",
+        "y_lambert_m"
+      ],
+      "sha256": "94be942192554c746f8330fe9e42ed7965d25c729f0226376bbe8e402b996365"
+    },
+    {
+      "file": "resume_types.csv",
+      "rows": 3,
+      "columns": [
+        "type_deplacement",
+        "positions",
+        "individus",
+        "segments",
+        "date_debut",
+        "date_fin",
+        "pas",
+        "intervalle_median_h",
+        "intervalle_max_h"
+      ],
+      "sha256": "02200e8cfcaf835e7cdf620f6cc0b05ce6a8d2239dac956f47e0d86b694e3323"
+    },
+    {
+      "file": "segments_caribous.csv",
+      "rows": 319,
+      "columns": [
+        "cle_segment",
+        "segment_source",
+        "id_individu_source",
+        "type_deplacement",
+        "id_annees_source",
+        "n_positions",
+        "n_pas",
+        "date_heure_debut",
+        "date_heure_fin",
+        "duree_totale_h",
+        "distance_cumulee_lignes_droites_m",
+        "vitesse_moyenne_des_pas_m_h",
+        "intervalle_min_h",
+        "intervalle_max_h",
+        "contient_intervalle_sup_13_1h"
+      ],
+      "sha256": "83c1c65d4678c10b5b257004f296f98328495f2bf8dd3d18eafdbb1855a5d593"
+    }
+  ],
+  "files": [
+    {
+      "file": "DATA_LICENSE.md",
+      "sha256": "3faa5cc1b3e1fecd1ca1fffaa10be2918b2433b2153f6772b9575ddd78fef722",
+      "bytes": 1231
+    },
+    {
+      "file": "caribous-reproduction-20261008.zip",
+      "sha256": "bd1b42ac49dc03c57fdd38f8c074e6dc59464817157ab6faff88c59240e88f3f",
+      "bytes": 2898702
+    },
+    {
+      "file": "caribous_et_lacs.gpkg",
+      "sha256": "48ada75ba5be3c7f049fd0adf87b2207b83060d63dc72dd3d785cb60bc30b966",
+      "bytes": 929792
+    },
+    {
+      "file": "carte.htm",
+      "sha256": "ec3776db557b5dd1bb8982fb2599263c7b7f38a4fc8820c1046ad2c06e00c212",
+      "bytes": 1141880
+    },
+    {
+      "file": "dictionnaire.md",
+      "sha256": "1033968e62714065c58846014e4dd6d2f2545da3312e301241ea2fc51fdea314",
+      "bytes": 7047
+    },
+    {
+      "file": "glace_eau_table_source.csv",
+      "sha256": "6fb94025416b99b7bbd3edabe32c31727a0ca644e00af78a0c755db92bf1b1dc",
+      "bytes": 19862
+    },
+    {
+      "file": "nao_ao_table_source.csv",
+      "sha256": "3d3121a6807f05327d51e0aadd244531393b26acb33dc0987785dfb6aa013cca",
+      "bytes": 11671
+    },
+    {
+      "file": "pas_caribous.csv",
+      "sha256": "37950512402b0a14304fa404a471dfedfb8621af875ffa255405134cb0ef3422",
+      "bytes": 293586
+    },
+    {
+      "file": "positions_caribous.csv",
+      "sha256": "94be942192554c746f8330fe9e42ed7965d25c729f0226376bbe8e402b996365",
+      "bytes": 427805
+    },
+    {
+      "file": "provenance.json",
+      "sha256": "711cdeb518afa2172b56faae9adabbb28a1ab710f6c061ee7f370c857de4a4ac",
+      "bytes": 3921
+    },
+    {
+      "file": "resume_types.csv",
+      "sha256": "02200e8cfcaf835e7cdf620f6cc0b05ce6a8d2239dac956f47e0d86b694e3323",
+      "bytes": 321
+    },
+    {
+      "file": "segments_caribous.csv",
+      "sha256": "83c1c65d4678c10b5b257004f296f98328495f2bf8dd3d18eafdbb1855a5d593",
+      "bytes": 52992
+    }
+  ]
+}

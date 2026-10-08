@@ -1,0 +1,131 @@
+---
+title: "Caribous de la Rivière-aux-Feuilles"
+page-layout: full
+toc: false
+embed-resources: true
+body-classes: hub-page resource-page dataset-resource
+execute:
+  freeze: false
+---
+
+```{r}
+#| label: dataset-detail-header
+#| echo: false
+#| results: asis
+source(if (file.exists("R/utils_dataset_page.R")) "R/utils_dataset_page.R" else "../../R/utils_dataset_page.R")
+render_dataset_detail_header()
+```
+
+## Explorer les déplacements {#explorer-les-deplacements}
+
+Les cases affichent les traversées sur glace, à la nage et les contournements.
+Un clic sur un point ou un trait donne l'individu, le segment et les dates.
+Les traits relient seulement les positions d'un même segment : ils interpolent
+le déplacement entre mesures. Le fond OpenStreetMap se charge par Internet;
+les contours des plans d'eau proviennent du dépôt original.
+
+```{=html}
+<iframe src="downloads/20261008/carte.htm" data-external="1" referrerpolicy="strict-origin-when-cross-origin" title="Carte interactive des segments de caribous de la Rivière-aux-Feuilles" style="width:100%;height:600px;border:1px solid #d8e2e9;border-radius:10px" loading="lazy"></iframe>
+```
+
+[Ouvrir la carte en pleine page](downloads/20261008/carte.htm).
+Les coordonnées GPS sont traitées comme WGS84 par hypothèse : le datum des
+points n'est pas indiqué. Les contours des plans d'eau sont fournis en
+NAD83 / Québec Lambert (EPSG:32198).
+
+## Contenu des fichiers
+
+| Déplacement | Positions | Individus | Segments | Pas |
+|---|---:|---:|---:|---:|
+| Traversée sur glace | 653 | 48 | 179 | 474 |
+| Traversée à la nage | 139 | 9 | 11 | 128 |
+| Contournement | 1 119 | 37 | 129 | 990 |
+
+Un individu peut appartenir à plusieurs catégories. Le total est de 52
+individus distincts. Les données déposées couvrent le 20 avril 2007 au
+19 mai 2014. L'article complet a suivi 96 caribous; les 52 présents dans
+ces extraits sont ceux qui ont fréquenté les grands plans d'eau retenus.
+[Leblond, St-Laurent et Côté (2016)](https://doi.org/10.1186/s40462-016-0079-4).
+
+La trousse pédagogique en haut de page contient positions, pas, segments,
+dictionnaire et activité R. L'[archive de reproduction complète](downloads/20261008/caribous-reproduction-20261008.zip)
+comprend aussi les six fichiers originaux, les scripts d'acquisition et de
+préparation, les tables complémentaires, le rapport et les données spatiales.
+
+| Fichier | Unité et dimensions | Téléchargement |
+|---|---|---|
+| Positions GPS | 1 911 positions, 24 colonnes | [CSV](downloads/20261008/positions_caribous.csv) |
+| Pas | 1 592 transitions, 16 colonnes | [CSV](downloads/20261008/pas_caribous.csv) |
+| Segments | 319 segments, 15 colonnes | [CSV](downloads/20261008/segments_caribous.csv) |
+| Résumé | Trois catégories | [CSV](downloads/20261008/resume_types.csv) |
+| Glace-eau | 401 lignes sources, avec numéro de ligne Excel ajouté | [CSV](downloads/20261008/glace_eau_table_source.csv) |
+| NAO/AO | 68 lignes sources, avec numéro de ligne Excel ajouté | [CSV](downloads/20261008/nao_ao_table_source.csv) |
+| Données spatiales | Positions, segments et plans d'eau | [GeoPackage](downloads/20261008/caribous_et_lacs.gpkg) |
+
+Le [dictionnaire](downloads/20261008/dictionnaire.md) précise chaque champ.
+La [provenance](downloads/20261008/provenance.json) conserve les URL,
+dates d'acquisition et empreintes des originaux; le [manifeste de version](downloads/20261008/manifest_publication.json)
+donne les dimensions et empreintes des CSV préparés.
+
+## Préparation et points de qualité
+
+Les cinq classeurs et le shapefile ont été ouverts. Les six fichiers acquis
+sur [Zenodo](https://zenodo.org/records/4958113) correspondent aux empreintes
+MD5 du [dépôt Dryad (Leblond et al., 2017)](https://doi.org/10.5061/dryad.4k275).
+Les trois tables GPS n'ont aucune valeur manquante dans leurs 14 colonnes
+originales et aucun doublon individu-date-heure. Chaque segment appartient
+à un seul individu et comporte au moins trois positions.
+
+Six lignes portent `ID = 20000611000` et `IDYR = 20000611005_2007`.
+Les identifiants sont préservés; `id_coherent` signale la différence.
+Importer ces identifiants comme du texte. Le fuseau horaire est inconnu :
+`date_heure_source` ne comporte pas de suffixe UTC. Les durées sont des
+différences d'horloge civile.
+
+Les intervalles sont irréguliers et atteignent environ 33 heures. Dix-sept
+pas dépassent 13,1 heures, seuil de contrôle fondé sur la fréquence programmée
+maximale de 13 heures indiquée dans l'article, avec six minutes de tolérance.
+Ils restent dans les tables. Les distances et vitesses sont calculées par
+lignes droites après projection en Québec Lambert.
+
+Le type du segment vient du fichier d'origine; le code `STATE` décrit
+séparément la surface de chaque position. Les codes `OTHER`, `TRAV`, `CONT`
+et les périodes MODIS ne sont pas complétés par supposition.
+Le fichier glace-eau n'indique pas d'année et contient 30 valeurs non
+numériques pour le jour central. Le fichier NAO/AO comporte 16 lignes sans
+zone ni dates de gel/dégel. Aucune jointure automatique avec les GPS n'est faite.
+
+## Portée de l'analyse
+
+Ces extraits conviennent à la cartographie, aux regroupements par segment
+et à l'examen de la fréquence des observations. Ils ne permettent pas de
+reconstituer les migrations complètes ni d'estimer la proportion générale
+des comportements du troupeau. Le dépôt ne contient pas les pas aléatoires
+ni les 136 257 positions témoins utilisés dans certaines analyses de
+l'article. Aucun modèle HMM, modèle de sélection de pas ou résultat causal
+n'est reproduit ici. Les scores pédagogiques sont une appréciation éditoriale;
+l'usage en classe n'est pas documenté.
+
+## Références et réutilisation
+
+Leblond, M., St-Laurent, M.-H. et Côté, S. D. (2017). Data from: Caribou,
+water, and ice: fine-scale movements of a migratory arctic ungulate in the
+context of climate change. Dryad.
+[doi:10.5061/dryad.4k275](https://doi.org/10.5061/dryad.4k275).
+Copie publique : [Zenodo, record 4958113](https://zenodo.org/records/4958113).
+
+Leblond, M., St-Laurent, M.-H. et Côté, S. D. (2016). Caribou, water, and ice:
+fine-scale movements of a migratory arctic ungulate in the context of climate
+change. Movement Ecology, 4, 14.
+[doi:10.1186/s40462-016-0079-4](https://doi.org/10.1186/s40462-016-0079-4).
+
+Sources consultées le 8 octobre 2026. Données originales sous CC0;
+la [notice des droits](downloads/20261008/DATA_LICENSE.md) distingue les
+données, le code, la documentation et le fond cartographique.
+
+```{r}
+#| label: dataset-detail-footer
+#| echo: false
+#| results: asis
+render_dataset_detail_footer()
+```

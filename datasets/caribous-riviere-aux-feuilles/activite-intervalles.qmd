@@ -1,0 +1,70 @@
+---
+title: "Examiner les intervalles du suivi de caribous"
+embed-resources: true
+body-classes: hub-page resource-page activity-resource
+page-layout: full
+toc: false
+execute:
+  freeze: false
+---
+
+```{r}
+#| label: activity-resource-header
+#| echo: false
+#| results: asis
+source(if (file.exists("R/utils_activity_contract.R")) "R/utils_activity_contract.R" else "../../R/utils_activity_contract.R")
+render_activity_header()
+```
+
+## Préparation enseignante
+
+Extraire la trousse, ouvrir le projet RStudio et installer les packages avec
+`installer-packages.R`. Le script utilise ensuite les trois CSV sans téléchargement.
+La [carte de la fiche](fiche.qmd#explorer-les-deplacements) demande Internet pour son fond OpenStreetMap.
+
+```{r}
+#| label: activity-classroom-resources
+#| echo: false
+#| results: asis
+render_activity_resources()
+```
+
+## Contexte
+
+Les données décrivent des segments sélectionnés autour de grands plans d'eau
+du nord du Québec, entre 2007 et 2014. L'activité examine les unités
+d'observation et les intervalles entre positions de ce suivi historique.
+
+## Consignes
+
+1. Exécuter le script. Expliquer la relation entre 1 911 positions, 319 segments et 1 592 pas.
+2. Lire les effectifs par catégorie. Vérifier pourquoi les nombres d'individus ne s'additionnent pas.
+3. Comparer les intervalles minimaux, médians et maximaux. Repérer les pas dépassant 13,1 heures, sans les supprimer automatiquement.
+4. Examiner le graphique. Expliquer pourquoi une vitesse par ligne droite sur plusieurs heures ne mesure pas une vitesse instantanée.
+5. Comparer la moyenne non pondérée des vitesses par pas au rapport entre distance totale et durée totale d'un segment. Retrouver un cas où ces deux valeurs diffèrent.
+6. Rédiger une conclusion de 150 mots qui nomme les unités, la sélection des segments et les limites des coordonnées et des heures. Ne pas attribuer causalement les différences au mode de déplacement.
+
+## Limites à faire nommer
+
+Les segments sont des extraits sélectionnés autour des plans d'eau. Le datum
+GPS est traité comme WGS84 par hypothèse et le fuseau horaire reste inconnu.
+Les six discordances d'identité sont conservées. Le seuil de 13,1 heures est
+un contrôle de fréquence, pas une frontière écologique. Plusieurs pas
+appartiennent au même individu; les tailles des groupes sont inégales.
+Les scores de la fiche sont une appréciation éditoriale, sans essai en classe documenté.
+
+```{r}
+#| label: activity-pedagogical-contract
+#| echo: false
+#| results: asis
+render_activity_contract()
+```
+
+## Script complet
+
+```{r}
+#| label: activity-code
+#| echo: false
+#| results: asis
+render_activity_code()
+```

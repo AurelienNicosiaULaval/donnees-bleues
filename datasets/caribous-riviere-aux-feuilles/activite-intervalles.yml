@@ -1,0 +1,45 @@
+id: caribous-riviere-aux-feuilles-intervalles
+title: Examiner les intervalles du suivi de caribous
+question: Comment les intervalles entre positions influencent-ils la lecture des distances et des vitesses?
+dataset_id: caribous-riviere-aux-feuilles
+dataset_title: Caribous de la Rivière-aux-Feuilles
+activity_url: datasets/caribous-riviere-aux-feuilles/activite-intervalles.qmd
+script_file: datasets/caribous-riviere-aux-feuilles/activite-intervalles.R
+classroom_archive: assets/classroom/caribous-riviere-aux-feuilles.zip
+access_mode: frozen
+duration: 60 à 90 minutes
+level: Intermédiaire
+level_ids: [intermediaire]
+activity_type: [Exploration de données]
+concepts: [Analyse exploratoire, Statistiques descriptives, Reproductibilité]
+concept_ids: [analyse-exploratoire, statistiques-descriptives, reproductibilite]
+context: Déplacements d'animaux et fréquence des observations GPS
+hook: Entre deux points GPS, le trajet réellement suivi reste inconnu.
+materials: [Trousse ZIP, Script R complet, Trois CSV et dictionnaire]
+advanced_math_stats: false
+teacher_notes: Ne pas présenter les pas comme indépendants ni une comparaison descriptive comme un effet causal.
+pedagogical_status: pret_a_enseigner
+teacher_preparation: Extraire la trousse et installer les packages avant la séance; ouvrir la carte avec Internet.
+expected_output: Un tableau d'effectifs, un tableau d'intervalles, un graphique et une comparaison de deux résumés de vitesse.
+learning_objectives:
+  - Distinguer position, pas, segment et individu.
+  - Lire des intervalles irréguliers et des indicateurs de qualité.
+  - Comparer une moyenne de vitesses et un rapport distance sur durée.
+prerequisites:
+  - Importer un CSV dans R et utiliser group_by et summarise.
+success_criteria:
+  - Les 1 592 pas relient seulement des positions du même segment.
+  - Les effectifs d'individus par catégorie ne sont pas additionnés.
+  - La conclusion précise le poids des pas, les répétitions et la sélection des extraits.
+  - Les deux résumés de vitesse sont distingués et exprimés en km/h.
+adaptations:
+  - Commencer par les tableaux déjà produits, puis interpréter le graphique.
+  - Approfondir les résumés en donnant un poids égal aux individus.
+requires_prepared_data: true
+requires_live_download: false
+recommended_use: Laboratoire guidé sur les unités et l'échantillonnage temporel
+result_visible_in_page: false
+status: Script vérifié dans la trousse; utilisation en classe non documentée
+courses: []
+date_added: '2026-10-08'
+date_updated: '2026-10-08'

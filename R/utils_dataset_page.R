@@ -784,7 +784,9 @@ render_dataset_detail_header <- function() {
   }
   if (nzchar(activities)) cat('<section class="dataset-activities-panel" id="activites-pedagogiques">',
     '<h2>Activités associées</h2><div class="dataset-activity-grid">', activities, '</div></section>', sep = '')
-  cat('<details class="dataset-doc-panel" id="documentation"><summary>Variables, préparation et références détaillées</summary>',
+  cat('<details class="dataset-doc-panel" id="documentation"',
+      if (isTRUE(metadata$documentation_open)) ' open' else '',
+      '><summary>Variables, préparation et références détaillées</summary>',
       '<div class="dataset-detail-content">', sep = '')
   if (length(metadata$reference_note)) {
     cat('<p class="dataset-reference-note">', escape(metadata$reference_note), '</p>', sep = '')

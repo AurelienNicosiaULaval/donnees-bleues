@@ -313,5 +313,14 @@
     "bytes": 84752,
     "sha256": "595c24ecc2a6ec7071d571f439406784864220be4f7ef50cd382c2a94304b411",
     "original_sha256": "265cdd77f99169ba7f177f12808cbf3f213396492632a628a96379b652edaba7"
+  },
+  {
+    "id": "caribous-riviere-aux-feuilles",
+    "file": "caribous-riviere-aux-feuilles.webp",
+    "width": 960,
+    "height": 540,
+    "bytes": 137078,
+    "sha256": "ce74e0cf0f2e4521f96d350faaa8fcb1db20d717a365a0af54ae2fb3b9537818",
+    "original_sha256": "21d3731d4be3f38cefa477e4e3bf98527d4d2c1017ce6ef28cddb6da814d979a"
   }
 ]

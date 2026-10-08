@@ -1,0 +1,40 @@
+{
+  "dataset_id": "caribous-riviere-aux-feuilles",
+  "title": "Caribous de la Rivière-aux-Feuilles",
+  "mode": "frozen",
+  "prepared_at_utc": "2026-10-08T18:02:50Z",
+  "source_name": "Leblond, St-Laurent et Côté; dépôt Dryad et copie publique Zenodo",
+  "source_url": "https://datadryad.org/dataset/doi:10.5061/dryad.4k275",
+  "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "original_licenses": {
+    "code": "MIT",
+    "content": "CC-BY-4.0",
+    "notices": ["LICENSE", "LICENCE-CONTENUS.md", "datasets/caribous-riviere-aux-feuilles/DATA_LICENSE.md", "datasets/caribous-riviere-aux-feuilles/DICTIONNAIRE.md", "datasets/caribous-riviere-aux-feuilles/README.md"]
+  },
+  "selection": "Trois tables figées et script descriptif; le suivi complet et les pas aléatoires de l'article ne sont pas inclus",
+  "tables": [
+    {
+      "path": "data/processed/caribous-riviere-aux-feuilles/pas_caribous.csv",
+      "rows": 1592,
+      "columns": ["cle_segment", "segment_source", "id_individu_source", "type_deplacement", "rang_arrivee", "date_heure_depart", "date_heure_arrivee", "longitude_depart", "latitude_depart", "longitude_arrivee", "latitude_arrivee", "duree_h", "distance_ligne_droite_m", "vitesse_pas_m_h", "angle_rotation_abs_deg", "intervalle_sup_13_1h"],
+      "sha256": "37950512402b0a14304fa404a471dfedfb8621af875ffa255405134cb0ef3422",
+      "prepared_table_sha256": "37950512402b0a14304fa404a471dfedfb8621af875ffa255405134cb0ef3422"
+    },
+    {
+      "path": "data/processed/caribous-riviere-aux-feuilles/positions_caribous.csv",
+      "rows": 1911,
+      "columns": ["id_individu_source", "id_annee_source", "id_depuis_idyr", "id_coherent", "segment_source", "cle_segment", "type_deplacement", "latitude", "longitude", "annee_source", "date_source", "heure_source", "date_heure_source", "jour_annee_source", "periode_modis_source", "code_periode_source", "etat_source", "comportement_source", "type_plan_eau_source", "fichier_source", "ligne_excel", "rang_dans_segment", "x_lambert_m", "y_lambert_m"],
+      "sha256": "94be942192554c746f8330fe9e42ed7965d25c729f0226376bbe8e402b996365",
+      "prepared_table_sha256": "94be942192554c746f8330fe9e42ed7965d25c729f0226376bbe8e402b996365"
+    },
+    {
+      "path": "data/processed/caribous-riviere-aux-feuilles/segments_caribous.csv",
+      "rows": 319,
+      "columns": ["cle_segment", "segment_source", "id_individu_source", "type_deplacement", "id_annees_source", "n_positions", "n_pas", "date_heure_debut", "date_heure_fin", "duree_totale_h", "distance_cumulee_lignes_droites_m", "vitesse_moyenne_des_pas_m_h", "intervalle_min_h", "intervalle_max_h", "contient_intervalle_sup_13_1h"],
+      "sha256": "83c1c65d4678c10b5b257004f296f98328495f2bf8dd3d18eafdbb1855a5d593",
+      "prepared_table_sha256": "83c1c65d4678c10b5b257004f296f98328495f2bf8dd3d18eafdbb1855a5d593"
+    }
+  ],
+  "archive_sha256": "542f891dfe46a770440d120a05d49bea96b8ea5db3b69b9a2ac127648b86c208",
+  "archive_bytes": 199118
+}

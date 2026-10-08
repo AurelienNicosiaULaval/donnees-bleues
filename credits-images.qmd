@@ -15,6 +15,8 @@ L’illustration « Camps de jour au Québec » a été créée le 5 octobre 202
 
 L'illustration « Tarifs douaniers, prix et commerce au Québec » a été créée le 5 octobre 2026 avec l'outil de génération d'images d'OpenAI. Le port, la cargaison et le bureau de douane sont fictifs; cette scène ne représente ni une transaction réelle ni un résultat statistique.
 
+L’illustration « Caribous de la Rivière-aux-Feuilles » a été créée le 8 octobre 2026 avec l’outil de génération d’images d’OpenAI. Les animaux et le paysage sont fictifs; cette scène ne représente ni une position GPS réelle ni un résultat du suivi.
+
 ## Photographies conservées
 
 Les photographies ci-dessous ont servi aux premières vignettes du catalogue. Leurs fichiers sont conservés; certaines restent utilisées ailleurs sur le site, notamment pour le tutoriel BIXI. Il s’agit de versions recadrées et recompressées en 16:9 de fichiers publiés sur Wikimedia Commons.
