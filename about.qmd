@@ -58,16 +58,23 @@ Julien Miron enseigne la statistique à l’Université Laval. Il a assemblé et
 :::
 
 ::: {.founder-card .contributor-card #contributrice-anne-sophie-charest}
+::: {.founder-photo}
+<img src="assets/anne-sophie-charest-linkedin.jpg" width="200" height="200" alt="Portrait d’Anne-Sophie Charest, collaboratrice au développement et à la diffusion de Données bleues">
+
+[Photo du profil LinkedIn](https://www.linkedin.com/in/anne-sophie-charest-900a585b/)
+:::
 ::: {.founder-bio}
 ### Anne-Sophie Charest
 
-Anne-Sophie Charest est professeure agrégée en statistique à l’Université Laval et contributrice à Données bleues.
+::: {.founder-role}
+Collaboratrice au développement et à la diffusion
+:::
 
-Elle propose l’activité « Qui chante juste? », qui invite à discuter de l’échantillonnage et des sources de biais dans une collecte de données à partir d’un article de La Presse+.
+Anne-Sophie Charest est professeure agrégée en statistique à l’Université Laval. Elle collabore avec Aurélien au développement de la plateforme et à sa diffusion auprès des enseignants du Québec. Elle contribue également à son contenu en proposant des documents, des activités et des jeux de données. Elle maintient aussi un [site de ressources disciplinaires et pédagogiques pour l’enseignement de la statistique](https://ascharest-ulaval.github.io/RessourcesStat/), destiné notamment aux enseignants du cégep et du secondaire.
 
-[Lire son document](resources/collecte-chant.qmd) · [Ses contributions](ressources.html?query=Anne-Sophie%20Charest)
+[Ses contributions](ressources.html?query=Anne-Sophie%20Charest)
 
-[Profil à l’Université Laval](https://www.ulaval.ca/la-recherche/repertoire-corps-professoral/anne-sophie-charest)
+[Profil GitHub](https://github.com/ascharest-ulaval) · [LinkedIn](https://www.linkedin.com/in/anne-sophie-charest-900a585b/) · [Profil à l’Université Laval](https://www.ulaval.ca/la-recherche/repertoire-corps-professoral/anne-sophie-charest)
 :::
 :::
 
