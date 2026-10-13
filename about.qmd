@@ -63,6 +63,10 @@ Julien Miron enseigne la statistique à l’Université Laval. Il a assemblé et
 
 Anne-Sophie Charest est professeure agrégée en statistique à l’Université Laval et contributrice à Données bleues.
 
+Elle propose l’activité « Qui chante juste? », qui invite à discuter de l’échantillonnage et des sources de biais dans une collecte de données à partir d’un article de La Presse+.
+
+[Lire son document](resources/collecte-chant.qmd) · [Ses contributions](ressources.html?query=Anne-Sophie%20Charest)
+
 [Profil à l’Université Laval](https://www.ulaval.ca/la-recherche/repertoire-corps-professoral/anne-sophie-charest)
 :::
 :::

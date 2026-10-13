@@ -1,6 +1,6 @@
 # Licence des contenus de Données bleues
 
-Les textes, fiches et activités originales de Données bleues sont mis à disposition sous la licence Creative Commons Attribution 4.0 International (CC BY 4.0).
+Sauf mention différente dans la notice d’une ressource, les textes, fiches et activités originales de Données bleues sont mis à disposition sous la licence Creative Commons Attribution 4.0 International (CC BY 4.0).
 
 Cette licence permet leur partage et leur adaptation, y compris à des fins commerciales, à condition d’attribuer le contenu à ses auteurs, de fournir un lien vers la licence et d’indiquer les modifications.
 
@@ -9,6 +9,8 @@ Attribution suggérée : Données bleues, Aurélien Nicosia et les personnes con
 Résumé : https://creativecommons.org/licenses/by/4.0/deed.fr
 
 Texte juridique : https://creativecommons.org/licenses/by/4.0/legalcode.fr
+
+Le document « Qui chante juste? Exploration des sources de biais dans une collecte de données », d’Anne-Sophie Charest, et son fichier Quarto téléchargeable sont sous licence Creative Commons Attribution, Pas d’utilisation commerciale 4.0 International (CC BY-NC 4.0). Cette licence distincte est conservée dans le document et sa notice : https://creativecommons.org/licenses/by-nc/4.0/deed.fr.
 
 Les données, images, extraits et autres contenus de tiers conservent les licences ou conditions de leurs producteurs. Cette licence ne leur accorde aucun droit supplémentaire. Consulter les sources et crédits indiqués dans les fiches, les trousses et la page de crédits des images.
 

@@ -34,7 +34,9 @@ Lorsque les données sont incluses, les analyses peuvent ensuite utiliser les fi
 
 ## Licences et réutilisation
 
-Les textes, fiches et activités originales de Données bleues sont sous [Creative Commons Attribution 4.0 International (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/deed.fr). Vous pouvez les partager et les adapter, y compris à des fins commerciales, en attribuant le contenu à ses auteurs, en fournissant un lien vers la licence et en indiquant vos modifications.
+Sauf mention différente dans la notice d’une ressource, les textes, fiches et activités originales de Données bleues sont sous [Creative Commons Attribution 4.0 International (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/deed.fr). Vous pouvez les partager et les adapter, y compris à des fins commerciales, en attribuant le contenu à ses auteurs, en fournissant un lien vers la licence et en indiquant vos modifications.
+
+Le document [« Qui chante juste? », d’Anne-Sophie Charest](resources/collecte-chant.qmd), est sous [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/deed.fr), qui exclut l’utilisation commerciale. Toujours consulter la licence propre à la ressource avant de la réutiliser.
 
 Le code original est sous [licence MIT](https://github.com/AurelienNicosiaULaval/donnees-bleues/blob/main/LICENSE). Les notices de licence accompagnent chaque trousse téléchargée.
 

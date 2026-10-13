@@ -1,0 +1,103 @@
+---
+title: "Qui chante juste? Exploration des sources de biais dans une collecte de données"
+author: "Anne-Sophie Charest"
+lang: fr
+embed-resources: true
+format:
+  html:
+    toc: false
+    embed-resources: true
+---
+
+## Une lecture pour amorcer la discussion
+
+Dans un article de La Presse+, Marie Tison rapporte les propos d’Isabelle Peretz, professeure à l’Université de Montréal et alors titulaire de la Chaire de recherche du Canada en neurocognition de la musique. Selon la chercheuse, environ 90 % des personnes chantent juste. Pour arriver à ce chiffre, son équipe a réalisé une collecte durant laquelle un étudiant parcourait les parcs de Montréal et demandait aux personnes rencontrées de chanter Gens du pays, sous prétexte de son anniversaire.
+
+À lire : Marie Tison, [*Chanter faux : un cas désespéré?*](https://plus.lapresse.ca/screens/ef813962-3b94-48b3-9890-03c8de359be6__7C___0.html), *La Presse+*, 7 octobre 2017, section Pause week-end, écran 2.
+
+Cette lecture permet de discuter de la population visée, du choix des participants, de la non-réponse et de la mesure. La personne enseignante peut sélectionner les questions qui correspondent aux notions abordées dans son cours, après une lecture préalable ou comme amorce en classe.
+
+## Questions à discuter en classe
+
+1. À quelle population le chiffre de 90 % est-il censé s’appliquer? Les personnes rencontrées dans les parcs montréalais permettent-elles de la représenter?
+2. Quelle méthode d’échantillonnage semble avoir été utilisée? Le récit permet-il de parler d’un échantillon aléatoire?
+3. Qui risque de refuser de chanter? Pourquoi ces refus pourraient-ils influencer la proportion de personnes qui chantent juste, et dans quel sens?
+4. Qui décide qu’une personne chante juste? Si c’est l’étudiant qui recueille les données, comment son jugement pourrait-il influencer le résultat? Quels critères proposerait-on pour rendre l’évaluation plus reproductible?
+5. Quelles autres caractéristiques de la collecte pourraient influencer les résultats, notamment le choix des parcs, le moment de la collecte, la chanson ou la présence d’autres personnes?
+6. Comment organiserait-on une collecte plus rigoureuse? Quelles informations voudrait-on connaître avant de généraliser le chiffre de 90 %?
+
+## Pistes pour les personnes enseignantes
+
+Les pistes suivantes proposent des mécanismes à discuter, plutôt qu’un barème unique. L’article ne décrit pas nécessairement tout le protocole scientifique : une information absente du récit n’était pas forcément absente de l’étude.
+
+### 1. Population visée et couverture
+
+Le récit évoque la population en général sans préciser clairement son territoire, les âges concernés ni d’autres critères. La population visée n’est donc pas précisée. Pour la discussion, on peut choisir l’ensemble des Québécois comme population d’intérêt, en présentant ce choix comme une hypothèse.
+
+Les personnes présentes dans les parcs choisis, aux moments de la collecte, ne couvrent pas nécessairement toute cette population. Les personnes qui ne fréquentent pas ces lieux peuvent avoir des caractéristiques différentes de celles qui les fréquentent. Il n'est donc pas clair que l'échantillon soit représentatif de la population visée. En statistique, on parle d'une erreur de couverture lorsque certains individus de la population n’ont aucune possibilité d’être sélectionnés par la méthode d’échantillonnage utilisée. Cette erreur de couverture pourrait causer un biais pour la proportion étudiée si les personnes qui ne peuvent pas être sélectionnées ont une capacité à chanter juste différente de celle des personnes qui fréquentent ces parcs. Par exemple, si les personnes exclues chantent moins souvent juste, la proportion estimée à partir des participants pourrait être trop élevée. Si elles chantent plus souvent juste, elle pourrait être trop faible. Une erreur de couverture ne crée donc pas nécessairement un biais : cela dépend de son lien avec la caractéristique étudiée.
+
+### 2. Sélection des participants
+
+La démarche décrite ressemble à un échantillonnage de convenance : l’étudiant aborde des personnes accessibles dans les parcs. Aucun tirage aléatoire n’est mentionné. La manière de choisir les personnes à aborder pourrait aussi favoriser certains profils.
+
+Aborder des personnes rencontrées dans un parc peut sembler être une sélection « au hasard ». Pourtant, cela ne constitue pas un échantillonnage aléatoire simple de l’ensemble des Québécois : certaines personnes n’ont aucune chance d’être sélectionnées, puisqu’elles ne fréquentent pas les parcs choisis aux moments de la collecte. Même parmi les personnes présentes, le récit ne précise pas comment l’étudiant choisit celles qu’il aborde.
+
+Aborder une personne sur dix serait une forme de sélection systématique parmi les passants. Cela ne réglerait toutefois pas l’erreur de couverture de la population visée.
+
+Obtenir un échantillon représentatif de l’ensemble des Québécois serait difficile en abordant uniquement des personnes dans des parcs. Pour donner à une population plus large une chance d’être sélectionnée, les enquêtes auprès des ménages utilisent souvent des bases de sondage, comme des listes d’adresses. On peut alors sélectionner des adresses au hasard, puis des personnes selon une procédure définie. Cela ne garantit toutefois pas un échantillon représentatif : certaines personnes peuvent être difficiles à joindre ou refuser de participer, particulièrement lorsqu’on leur demande de chanter.
+
+### 3. Non-réponse et biais probable
+
+Un biais de non-réponse paraît très plausible : les personnes qui pensent chanter faux pourraient refuser plus souvent de chanter. Si cette perception correspond à leur capacité réelle, les participants compteraient proportionnellement davantage de personnes qui chantent juste. La proportion estimée serait alors trop élevée pour la population visée.
+
+Cette explication distingue la capacité réelle et la perception de cette capacité. Certaines personnes qui chantent juste peuvent manquer de confiance; inversement, certaines personnes qui chantent faux peuvent accepter volontiers. Les informations sur les refus manquent dans le récit : le mécanisme proposé est plausible, mais son ampleur n’est pas établie.
+
+Nuance de vocabulaire : la non-réponse correspond aux données qui ne sont pas obtenues auprès de personnes sélectionnées. L’erreur due à la non-réponse désigne ses effets sur l’estimation, qui peuvent comprendre une perte de précision et un biais. Le biais de non-réponse est une déformation systématique liée aux différences pertinentes entre participants et non-participants. Des refus, ou un faible taux de réponse, ne suffisent pas à eux seuls à démontrer ce biais.
+
+Pour approfondir : [Statistique Canada, *La non-réponse*](https://www150.statcan.gc.ca/n1/pub/62f0026m/2010002/section2-fra.htm).
+
+### 4. Mesure de la justesse
+
+Le jugement de l’étudiant, s’il est bien l’évaluateur, peut dépendre de son oreille, de ses attentes ou d’un seuil de tolérance. Il faudrait préciser ce que signifie « chanter juste » : respecter les intervalles de la mélodie, reproduire une hauteur donnée, maintenir les notes, ou une combinaison de critères.
+
+Une erreur de mesure ne crée pas nécessairement un biais. Un biais de mesure apparaît si la façon d’évaluer favorise systématiquement un classement ou déforme la proportion recherchée. Un évaluateur qui classe systématiquement comme justes des performances qui ne satisfont pas au critère retenu pourrait, par exemple, surestimer la proportion.
+
+On peut proposer une consigne uniforme, une grille définie à l’avance et des évaluations indépendantes de plusieurs personnes. Des enregistrements, avec l’accord des participants, permettraient de réexaminer les performances et de vérifier l’accord entre évaluateurs.
+
+Pour approfondir : [Statistique Canada, *Statistique 101 : biais statistique*](https://www.statcan.gc.ca/fr/afc/litteratie-donnees/catalogue/892000062022005), notamment les explications sur les biais de mesure.
+
+### 5. Conditions de collecte
+
+Le lieu et le moment peuvent influencer qui est accessible et qui accepte de participer. Chanter devant des proches ou des inconnus peut modifier la participation ou la performance. La familiarité avec *Gens du pays* peut aussi jouer un rôle : la tâche ne mesure peut-être pas uniquement la capacité à chanter juste.
+
+La [fiche Alloprof sur les sources de biais](https://www.alloprof.qc.ca/fr/eleves/bv/mathematiques/les-sources-de-biais-m1363) offre des repères accessibles : caractéristiques de l’échantillon, lieu et moment, attitude de l’enquêteur et faible taux de réponse. Ces repères peuvent servir à lancer la discussion; ils ne correspondent pas tous à un type de biais distinct.
+
+### 6. Améliorer la collecte et nuancer la conclusion
+
+Une proposition plus rigoureuse commencerait par définir la population et une façon de sélectionner les personnes qui ne dépend pas seulement de leur présence dans certains parcs. On pourrait envisager un échantillonnage probabiliste adapté à la population choisie, documenter les refus et uniformiser les consignes et la mesure.
+
+Les informations à demander comprennent la taille de l’échantillon, les effectifs, les lieux et moments, la sélection des personnes, les refus, les critères de justesse et l’identité des évaluateurs. Le récit disponible ne permet pas de calculer un intervalle de confiance défendable pour la proportion.
+
+Taille de l’échantillon et biais : un petit échantillon entraîne généralement moins de précision, mais pas automatiquement un biais. Augmenter le nombre de participants ne corrige pas à lui seul une sélection ou une mesure qui déforme systématiquement le résultat.
+
+Une conclusion prudente présenterait les 90 % comme une valeur rapportée dans l’article et préciserait que la généralisation dépend du protocole réel, dont plusieurs éléments ne sont pas décrits.
+
+#### Pour prolonger : davantage de données suffit-il?
+
+Une enquête menée auprès d’utilisateurs de Facebook recueillait environ 250 000 réponses par semaine, tout en surestimant la couverture vaccinale contre la COVID-19 aux États-Unis en 2021. Une enquête probabiliste beaucoup plus petite produisait des estimations plus proches de la référence utilisée. Cet exemple illustre le paradoxe des mégadonnées (*Big Data Paradox*) : un très grand échantillon peut donner une impression de grande précision sans corriger les biais de collecte. Les marges d’erreur liées à l’échantillonnage peuvent être très petites alors que l’estimation reste biaisée.
+
+Lecture complémentaire en français : Pascal Ardilly, [*Peut-on se fier aux sondages empiriques?*](https://www.insee.fr/fr/information/7722109#titre-bloc-26), Insee, 2023. Regarder la section « Le paradoxe des big data : un exemple catastrophique récent… »; l’article complet développe des notions plus techniques.
+
+Autre lecture, plus courte, en anglais : [*Key surveys overestimate COVID-19 vaccination rates in the USA*](https://www.ox.ac.uk/news/2021-12-08-key-surveys-overestimate-covid-19-vaccination-rates-usa), Université d’Oxford, 8 décembre 2021.
+
+À discuter : demander à l’étudiant de faire chanter dix fois plus de personnes dans les mêmes parcs réglerait-il les problèmes soulevés dans cette activité?
+
+Piste de réponse : recueillir davantage de performances pourrait réduire la variabilité due à la taille de l’échantillon, sans corriger l’exclusion des personnes qui ne fréquentent pas ces parcs, les refus liés à la capacité à chanter ou une évaluation systématiquement trop indulgente. La qualité de la collecte compte donc autant que le nombre de participants.
+
+## Attribution et réutilisation
+
+Lecture et questions proposées par Anne-Sophie Charest, Université Laval, à partir de son activité « Qui sait compter qui sait chanter? », utilisée dans STT-2902, Modélisation statistique.
+
+La présentation de la collecte est reformulée; l’article reste hébergé chez La Presse+. Le contexte reformulé, les questions et les pistes de discussion d’Anne-Sophie Charest sont proposés sous licence [Creative Commons Attribution, Pas d’utilisation commerciale 4.0 International (CC BY-NC 4.0)](https://creativecommons.org/licenses/by-nc/4.0/deed.fr). Cette licence permet leur partage et leur adaptation à des fins non commerciales, avec attribution et indication des modifications. Elle ne s’applique pas à l’article de La Presse+ ni aux autres ressources externes liées.
+
+Adaptation pour Données bleues, le 13 octobre 2026 : mise en page harmonisée et population d’intérêt présentée explicitement comme une hypothèse. Le contenu pédagogique et la licence d’Anne-Sophie Charest sont conservés.

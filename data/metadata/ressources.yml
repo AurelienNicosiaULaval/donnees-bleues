@@ -1,3 +1,23 @@
+- id: collecte-chant
+  date_added: "2026-10-13"
+  date_updated: "2026-10-13"
+  type: document
+  title: 'Qui chante juste? Exploration des sources de biais dans une collecte de données'
+  format: Activité de discussion · Collecte de données
+  description: 'Discuter de la population visée, de la couverture, de la sélection, de la non-réponse et de la mesure à partir d’un récit de collecte dans les parcs de Montréal.'
+  themes: Culture et musique
+  concepts: [Échantillonnage, Biais, Collecte de données, Proportions]
+  authors: Anne-Sophie Charest
+  contributor: Anne-Sophie Charest
+  url: https://donneesbleues.ca/resources/collecte-chant.html
+  code_url: https://github.com/AurelienNicosiaULaval/donnees-bleues/blob/main/assets/documents/collecte-chant/collecte-chant.qmd
+  evidence_url: https://plus.lapresse.ca/screens/ef813962-3b94-48b3-9890-03c8de359be6__7C___0.html
+  courses: ['STT-2902, Modélisation statistique, Université Laval']
+  course_evidence: 'Anne-Sophie Charest indique dans le document transmis le 13 octobre 2026 que son activité d’origine « Qui sait compter qui sait chanter? » a été utilisée dans STT-2902. Cette mention documente l’activité d’origine, sans établir un essai de cette adaptation.'
+  related_datasets: []
+  license: 'Contexte reformulé, questions et pistes d’Anne-Sophie Charest : CC BY-NC 4.0. Attribution et indication des modifications requises; utilisation commerciale exclue. Les articles et autres ressources liés conservent leurs propres conditions.'
+  note: 'Document proposé par Anne-Sophie Charest le 13 octobre 2026, adapté avec une mise en page harmonisée et une hypothèse explicite sur la population d’intérêt. Le chiffre de 90 % est rapporté dans l’article, sans fichier de données ni validation indépendante du protocole. Aucun jeu de données n’est distribué.'
+
 - id: billet-lancement-donnees-bleues
   date_added: "2026-10-05"
   date_updated: "2026-10-05"

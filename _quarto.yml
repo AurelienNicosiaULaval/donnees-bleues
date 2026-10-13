@@ -25,6 +25,7 @@ project:
     - assets/tools/*.zip
     - assets/tools/*.R
     - assets/tools/*.json
+    - assets/documents/**/*
     - assets/cards/*.webp
     - assets/cards/*.png
     - assets/cards/*.jpg
