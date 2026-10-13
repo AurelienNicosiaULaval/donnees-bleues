@@ -40,8 +40,20 @@
 .contributor-card .founder-photo {text-align:left;}
 .contributor-card .founder-photo img {width:144px; height:144px;}
 .contributor-card .founder-bio > p:last-child {margin-bottom:0;}
+.founder-card.collaborator-card {
+ grid-template-columns:144px minmax(0,1fr);
+ gap:1.5rem;
+ margin:0 0 2rem;
+ padding:1.5rem;
+ background:#fff;
+ border-color:#dedbd5;
+}
+.collaborator-card .founder-photo img {width:144px; height:144px;}
+.collaborator-card .founder-role {font-size:1rem; color:#4b5563;}
+.collaborator-card .founder-bio > p:last-child {margin-bottom:0;}
 @media(max-width:650px) {.founder-card {grid-template-columns:1fr; padding:1.2rem;} .founder-photo {text-align:left;}}
 @media(max-width:650px) {.founder-card.contributor-card {padding:1.2rem;}}
+@media(max-width:650px) {.founder-card.collaborator-card {grid-template-columns:minmax(0,1fr); padding:1.2rem;}}
 
 /* La loupe reste accessible à côté du menu, y compris sur téléphone. */
 .resource-search-trigger {border:0; background:transparent; color:#123e58; min-width:44px; min-height:44px; font-size:1.2rem; cursor:pointer; order:3;}
