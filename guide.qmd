@@ -10,9 +10,15 @@ embed-resources: true
 
 ## Trouver une ressource
 
-Les pages [Données](catalogue.qmd), [Activités](activites.qmd), [Lectures et documents](lectures.qmd) et [Outils et tutoriels](applications.qmd) donnent accès aux quatre types de ressources. La loupe ouvre leur recherche commune par mots-clés, type, thème, auteur ou source et cours d’utilisation documenté.
+Les pages [Données](catalogue.qmd), [Activités](activites.qmd), [Lectures et documents](lectures.qmd) et [Outils et tutoriels](applications.qmd) donnent accès aux quatre types de ressources. La loupe ouvre leur recherche commune par mots-clés, type de ressource, sujet et notion. Les auteurs, sources et cours d’utilisation documentés sont aussi recherchables par mots-clés.
 
-Dans les catalogues, saisir un sujet ou ouvrir les filtres. Les résultats se mettent à jour dès qu’un choix change. Les filtres appliqués restent visibles et peuvent être retirés séparément.
+Les filtres « Sujet » et « Notion » regroupent les étiquettes détaillées en grandes familles. Le sujet désigne le domaine des données; la notion désigne une méthode ou une tâche abordée. Une ressource peut relever de plusieurs notions. Pour une notion précise, saisir son nom dans la recherche, par exemple « bootstrap » ou « jointure spatiale ».
+
+Le filtre « Niveau » propose Introduction, Intermédiaire et Avancé. Une ressource indiquée « Introduction à intermédiaire » apparaît dans les deux niveaux. Pour les activités, « Temps à prévoir » utilise la durée maximale annoncée, hors prolongements facultatifs : jusqu’à 45 minutes, de 46 à 90 minutes ou plus de 90 minutes.
+
+Le menu « Trier par » propose les ajouts récents, les mises à jour récentes et le titre dans les deux sens. Les activités peuvent aussi être classées par durée croissante ou décroissante, selon la durée maximale annoncée. Les dates concernent les notices du répertoire, et non les observations ou la publication d’une source externe.
+
+Les résultats se mettent à jour dès qu’un choix change. Les filtres appliqués restent visibles et peuvent être retirés séparément. L’adresse de la page conserve la recherche, les filtres et le tri pour retrouver ou partager la même sélection.
 
 ## Choisir et télécharger les données
 

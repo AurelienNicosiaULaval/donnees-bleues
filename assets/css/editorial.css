@@ -40,12 +40,15 @@ body.hub-page .activities-page {background: transparent;}
 .catalogue-editorial > header h1 {font-family: var(--db-serif); font-size: clamp(2rem,3.5vw,3.1rem); line-height: 1.15; margin-block: 1rem;}
 .catalogue-controls {display: flex; flex-wrap: wrap; align-items: flex-end; gap: 1rem; padding: 1rem; background: #edf5f8; border-radius: 10px;}
 .catalogue-controls label {display: flex; flex-direction: column; gap: .35rem; font-size: .9rem;}
-.catalogue-query {flex: 1 1 22rem;}
+.catalogue-query {flex: 1 1 26rem;}
+.catalogue-sort {flex: 0 1 18rem; min-width: 0;}
+.catalogue-filter-help {font-size: .84rem; color: #425461; line-height: 1.4;}
 .catalogue-controls :is(input,select),.catalogue-results-bar select {min-height: 44px; width: 100%; padding: .5rem .7rem; border: 1px solid #849eab; border-radius: 5px; background: #fff; color: #172033;}
 .catalogue-controls .catalogue-filter-panel {border: 0; padding: 0; margin: 0; background: none;}
-.catalogue-filter-panel > summary {min-height: 44px;}
+.catalogue-filter-panel > summary {min-height: 44px; font-size: .95rem;}
 .catalogue-filter-panel[open] {flex: 1 0 100%; order: 3;}
-.catalogue-filter-fields {display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 1rem;}
+.catalogue-filter-fields {display: grid; grid-template-columns: repeat(auto-fit,minmax(13rem,1fr)); gap: 1rem;}
+.catalogue-filter-fields label {min-width: 0;}
 .catalogue-reset-link,.catalogue-close-filters {border: 0; background: transparent; color: #15516e; text-decoration: underline; padding: .65rem .3rem; min-height: 44px;}
 .catalogue-results-bar {display: flex; justify-content: space-between; align-items: center; gap: 1rem; margin-top: 1rem;}
 .catalogue-results-bar p {margin: 0;}
@@ -121,7 +124,7 @@ body .tool-hero h1 {font-size: clamp(2rem,3.5vw,3.2rem);}
   .home-resource-links > a > span {font-size: .96rem;}
   .home-resource-links .resource-badge {font-size: .7rem; padding: .3rem .4rem;}
   .catalogue-controls {gap: .5rem 1rem;}
-  .catalogue-query {flex-basis: 100%;}
+  .catalogue-query,.catalogue-sort {flex-basis: 100%;}
   .catalogue-filter-fields {grid-template-columns: minmax(0,1fr);}
   .catalogue-results-bar {font-size: .9rem;}
   body.resource-page .dataset-editorial .dataset-hero-actions {align-items: stretch;}

@@ -16,14 +16,13 @@ source("R/utils_catalogue_ui.R")
 source("R/utils_card_images.R")
 catalogue <- read_csv("data/metadata/catalogue.csv", show_col_types = FALSE)
 metadata <- editorial_dataset_metadata()
-licences <- vapply(metadata[catalogue$id], function(x) editorial_license(x$license), character(1))
+subjects <- lapply(catalogue$theme, catalogue_group, field = "subjects")
+concepts <- lapply(catalogue$concepts, catalogue_group, field = "concepts")
+levels <- lapply(catalogue$level_ids, catalogue_level)
 cat('<section class="catalogue-page catalogue-editorial" data-resource-catalogue="donnees">',
-    '<header><h1>Jeux de données</h1><p>Rechercher par sujet, niveau, notion ou licence.</p></header>')
-catalogue_controls('donnees', nrow(catalogue), list(
-  list(name='theme', label='Thème', values=catalogue$theme),
-  list(name='level', label='Niveau', values=catalogue$level),
-  list(name='concept', label='Notion', values=catalogue_tokens(catalogue$concepts)),
-  list(name='license', label='Licence', values=licences)))
+    '<header><h1>Jeux de données</h1><p>Trouver des données par sujet, notion et niveau, puis choisir leur ordre d’affichage.</p></header>')
+catalogue_controls('donnees', nrow(catalogue), catalogue_filter_definitions(
+  unlist(subjects), unlist(concepts), unlist(levels)))
 cat('<div class="dataset-grid" data-catalogue-results>')
 for (i in seq_len(nrow(catalogue))) {
   row <- catalogue[i, ]; item <- metadata[[row$id]]
@@ -31,8 +30,8 @@ for (i in seq_len(nrow(catalogue))) {
   image <- card_image_path(row$id)
   if (is.na(image)) image <- 'assets/cards/catalogue.png'
   image_style <- if (identical(item$card_image_fit, 'contain')) ' style="object-fit: contain"' else ''
-  attrs <- catalogue_attributes(c(title=row$title, theme=row$theme, level=row$level,
-    concept=paste(catalogue_tokens(row$concepts),collapse='||'), license=unname(licences[i]),
+  attrs <- catalogue_attributes(c(title=row$title, theme=paste(subjects[[i]],collapse='||'), level=paste(levels[[i]],collapse='||'),
+    concept=paste(concepts[[i]],collapse='||'), 'date-added'=item$date_added, 'date-updated'=item$date_updated,
     search=paste(row$title,row$short_title,item$summary,row$theme,row$source_name,row$geography,
                  row$unit,row$concepts,row$search_aliases,row$license,row$contributor_name)))
   cat('<article class="dataset-card" data-catalogue-card', attrs, '>',

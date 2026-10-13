@@ -14,26 +14,25 @@ library(yaml)
 library(htmltools)
 source("R/utils_catalogue_ui.R")
 activities <- read_csv("data/metadata/catalogue_activites.csv", show_col_types=FALSE)
-activities$filter_duration <- editorial_duration(activities$duration)
+activities$filter_duration <- catalogue_duration(activities$duration)
+datasets <- read_csv("data/metadata/catalogue.csv", show_col_types = FALSE)
+subjects <- lapply(datasets$theme[match(activities$dataset_id, datasets$id)], catalogue_group, field = "subjects")
+concepts <- lapply(activities$concepts, catalogue_group, field = "concepts")
+levels <- lapply(activities$level_ids, catalogue_level)
 cat('<section class="activities-page catalogue-editorial" id="catalogue-activites" data-resource-catalogue="activite">',
     '<header><h1>Planifier une activité</h1><p>Trouver une activité selon sa durée, son niveau et les notions abordées.</p></header>')
-catalogue_controls('activite', nrow(activities), list(
-  list(name='duration',label='Durée',values=activities$filter_duration),
-  list(name='level',label='Niveau',values=activities$level),
-  list(name='concept',label='Notion',values=catalogue_tokens(activities$concepts)),
-  list(name='use',label='Format',values=activities$recommended_use),
-  list(name='context',label='Thème',values=activities$context)))
+catalogue_controls('activite', nrow(activities), catalogue_filter_definitions(
+  unlist(subjects), unlist(concepts), unlist(levels), activities$filter_duration))
 cat('<div class="act-grid" data-catalogue-results>')
 for (i in seq_len(nrow(activities))) {
   row <- activities[i, ]
   item <- read_yaml(sub('[.]qmd$','.yml',row$activity_url))
   href <- sub('[.]qmd$','.html',row$activity_url)
   status <- switch(row$pedagogical_status,pret_a_enseigner='Fichiers inclus',a_consolider='Acquisition préalable',ebauche='Ébauche')
-  minimum <- as.numeric(sub('^([0-9]+).*','\\1',row$filter_duration))
-  if (grepl('heure',row$filter_duration)) minimum <- minimum*60
-  attrs <- catalogue_attributes(c(title=row$title,duration=row$filter_duration,minutes=minimum,
-    level=row$level,concept=paste(catalogue_tokens(row$concepts),collapse='||'),
-    use=row$recommended_use,context=row$context,
+  minutes <- catalogue_duration_minutes(row$duration)
+  attrs <- catalogue_attributes(c(title=row$title,duration=row$filter_duration,minutes=minutes,
+    theme=paste(subjects[[i]],collapse='||'),level=paste(levels[[i]],collapse='||'),
+    concept=paste(concepts[[i]],collapse='||'), 'date-added'=item$date_added,'date-updated'=item$date_updated,
     search=paste(row$title,row$question,row$dataset_title,row$concepts,row$search_aliases,row$context,item$expected_output)))
   cat('<article class="act-card" data-catalogue-card',attrs,'>',resource_type_badge('activite'),
       '<div class="act-card-meta"><span>',catalogue_escape(row$duration),'</span><span>',catalogue_escape(row$level),

@@ -14,27 +14,21 @@ Données québécoises, activités, documents, outils et tutoriels : trouvez une
 [Catalogue détaillé des données](catalogue.qmd) · [Planifier une séance](activites.qmd) · [Proposer une ressource](contribuer.qmd)
 :::
 
-```{=html}
-<form id="resource-filters" class="resource-filters" role="search" aria-label="Rechercher des ressources">
-<label for="resource-query">Rechercher<input id="resource-query" type="search" placeholder="BIXI, R, Montréal, STT-1100…"></label>
-<label for="resource-type">Type<select id="resource-type"><option value="">Tous les types</option><option value="donnees">Données</option><option value="activite">Activités</option><option value="document">Documents</option><option value="application">Outils et tutoriels</option></select></label>
-<label for="resource-theme">Thème<select id="resource-theme"><option value="">Tous les thèmes</option></select></label>
-<label for="resource-author">Auteur ou source<select id="resource-author"><option value="">Tous les auteurs et sources</option></select></label>
-<label for="resource-course">Cours<select id="resource-course"><option value="">Tous les cours</option></select></label>
-<button type="reset">Réinitialiser</button>
-</form>
-<p id="resource-count" role="status" aria-live="polite"></p>
-<p id="resource-empty" hidden>Aucune ressource ne correspond. Essayez un autre terme ou retirez un filtre.</p>
-<noscript>La liste complète reste disponible ci-dessous. Les filtres nécessitent JavaScript.</noscript>
-```
-
 ```{r}
 #| echo: false
 #| results: asis
 source("R/utils_resources.R")
-render_resource_cards()
+source("R/utils_catalogue_ui.R")
+items <- resource_catalogue()
+subjects <- unlist(lapply(items, function(x) catalogue_group(x$themes, "subjects")))
+concepts <- unlist(lapply(items, function(x) catalogue_group(x$concepts, "concepts")))
+filters <- c(list(list(name = "type", label = "Type de ressource", values = setNames(names(resource_labels), unname(resource_labels)),
+                       help = "Données, activité, document, outil ou tutoriel.")),
+             catalogue_filter_definitions(subjects, concepts))
+cat('<section class="catalogue-editorial" data-resource-catalogue="ressource">')
+catalogue_controls("ressource", length(items), filters)
+render_resource_cards(filterable = TRUE)
+cat('<p class="catalogue-empty" data-empty-catalogue hidden>Aucune ressource ne correspond. Essayez un autre terme ou retirez un filtre.</p></section>')
 ```
 
-```{=html}
-<script src="assets/js/resources.js"></script>
-```
+<script src="assets/js/catalogues.js"></script>

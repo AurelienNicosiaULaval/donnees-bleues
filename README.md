@@ -130,3 +130,5 @@ Le formulaire de contribution fonctionne avec un brouillon courriel sans compte 
 ## Rédiger une ressource
 
 La [charte éditoriale](charte-editoriale.qmd) précise le contenu des fiches et des activités. Les résumés, périodes, limites essentielles et producteurs sont renseignés dans `metadata.yml`. Les composants communs affichent les accès et les crédits; ne pas les recopier dans les textes.
+
+Les filtres des catalogues utilisent les regroupements explicites de `data/metadata/navigation.yml`, appliqués par `R/utils_catalogue_filters.R`. Les sujets et notions détaillés restent dans leurs métadonnées d’origine et dans le texte recherché. Lors d’un ajout, vérifier que son sujet est classé et que ses notions rejoignent les familles pertinentes; les termes de contexte sont déclarés dans `search_tags`. Les niveaux utilisent les identifiants de la taxonomie existante. Les dates de tri viennent des notices; une modification de la navigation ne les actualise pas.

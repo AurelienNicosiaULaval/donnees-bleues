@@ -36,7 +36,7 @@ resource_catalogue <- function(root = ".") {
   result <- lapply(seq_len(nrow(d)), function(i) list(
     id = paste0("donnees-", d$id[i]), type = "donnees", title = d$title[i],
     description = dataset_metadata[[i]]$summary,
-    themes = d$theme[i], concepts = paste(d$concepts[i], d$search_aliases[i]),
+    themes = d$theme[i], concepts = d$concepts[i], search_aliases = d$search_aliases[i],
     authors = editorial_sources(dataset_metadata[[i]]), author_label = "Source des données", contributor = d$contributor_name[i],
     date_added = dataset_metadata[[i]]$date_added, date_updated = dataset_metadata[[i]]$date_updated,
     courses = dataset_metadata[[i]]$courses, url = sub("[.]qmd$", ".html", d$fiche[i])))
@@ -45,7 +45,7 @@ resource_catalogue <- function(root = ".") {
     stopifnot(!is.na(j))
     activity_metadata <- read_yaml(file.path(root, sub("[.]qmd$", ".yml", a$activity_url[i])))
     list(id = a$id[i], type = "activite", title = a$title[i], description = a$question[i],
-      themes = d$theme[j], concepts = paste(a$concepts[i], a$search_aliases[i]),
+      themes = d$theme[j], concepts = a$concepts[i], search_aliases = a$search_aliases[i],
       authors = d$contributor_name[j], author_label = "Contribution pédagogique",
       date_added = activity_metadata$date_added, date_updated = activity_metadata$date_updated,
       contributor = d$contributor_name[j], courses = activity_metadata$courses,
@@ -63,12 +63,13 @@ render_resource_cards <- function(type = NULL, filterable = FALSE) {
   cat('<div class="resource-grid" id="resource-results"',
       if (filterable) ' data-catalogue-results' else '', '>')
   for (x in items) {
-    search <- resource_text(c(x$title, x$description, x$themes, x$concepts, x$authors, x$contributor, x$courses))
-    themes <- if (filterable) paste(x$themes, collapse = '||') else x$themes
+    search <- resource_text(c(x$title, x$description, x$themes, x$concepts, x$search_aliases, x$authors, x$contributor, x$courses))
+    themes <- if (filterable) paste(catalogue_group(x$themes, 'subjects'), collapse = '||') else x$themes
+    concepts <- if (filterable) paste(catalogue_group(x$concepts, 'concepts'), collapse = '||') else x$concepts
     authors <- if (filterable) paste(x$authors, collapse = '||') else x$authors
     cat('<article class="resource-card"', if (filterable) ' data-catalogue-card' else '',
       ' data-title="', resource_escape(x$title), '" data-type="', x$type, '" data-theme="',
-      resource_escape(themes), '" data-author="', resource_escape(authors),
+      resource_escape(themes), '" data-concept="', resource_escape(concepts), '" data-author="', resource_escape(authors),
       '" data-course="', resource_escape(x$courses),
       '" data-date-added="', x$date_added, '" data-date-updated="', x$date_updated,
       '" data-search="', resource_escape(search), '">', resource_type_badge(x$type),
@@ -84,11 +85,10 @@ render_resource_cards <- function(type = NULL, filterable = FALSE) {
 render_resource_catalogue <- function(type) {
   stopifnot(type %in% c("document", "application"))
   items <- Filter(function(x) x$type == type, resource_extra())
-  values <- function(field) unlist(lapply(items, `[[`, field), use.names = FALSE)
   cat('<section class="catalogue-editorial resource-catalogue" data-resource-catalogue="', type, '">', sep = '')
-  catalogue_controls(type, length(items), list(
-    list(name = 'theme', label = 'Thème', values = values('themes')),
-    list(name = 'author', label = 'Auteur ou source', values = values('authors'))))
+  subjects <- unlist(lapply(items, function(x) catalogue_group(x$themes, 'subjects')))
+  concepts <- unlist(lapply(items, function(x) catalogue_group(x$concepts, 'concepts')))
+  catalogue_controls(type, length(items), catalogue_filter_definitions(subjects, concepts))
   render_resource_cards(type, filterable = TRUE)
   cat('<p class="catalogue-empty" data-empty-catalogue hidden>Aucune ressource ne correspond aux filtres actuels.</p></section>')
 }

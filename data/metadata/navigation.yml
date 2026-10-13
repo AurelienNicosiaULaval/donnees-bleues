@@ -1,0 +1,252 @@
+# Regroupements de navigation. Les métadonnées détaillées restent inchangées.
+subjects:
+  Environnement et climat:
+    - Environnement
+    - Environnement et faune
+    - Foresterie québécoise
+    - Foresterie urbaine
+    - Hydrographie
+    - Inondations et sécurité civile
+    - Météorologie
+    - Prélèvements d'eau
+    - Qualité de l'eau
+    - Climat et territoire
+    - Eau et hydrologie
+  Transport et mobilité:
+    - Mobilité urbaine
+    - Mobilité et performance de service
+    - Mobilité et transport collectif
+    - Transport aérien
+    - Transport et consommation énergétique
+    - Transport et sécurité routière
+  Éducation:
+    - Éducation
+    - Éducation et équité
+    - Éducation et territoire
+    - Éducation supérieure
+    - Données québécoises et enseignement
+  Économie et travail:
+    - Finances et fiscalité municipales
+    - Marché du travail
+    - Économie, consommation et commerce
+  Territoire et services publics:
+    - Aménagement du territoire
+    - Habitation et évaluation foncière
+    - Loisirs et accès aux services
+    - Services municipaux
+    - Sécurité publique
+  Population et santé:
+    - Démographie
+    - Santé publique et alimentation
+    - Santé et démographie
+    - Population et territoire
+    - Vie démocratique
+    - Élections et vie démocratique
+  Histoire et culture:
+    - Culture et services publics
+    - Culture et musique
+    - Histoire maritime et données catégorielles
+    - Histoire maritime
+concepts:
+  Préparation des données:
+    - Agrégation
+    - Agrégation par quartier
+    - Clés de jointure
+    - Clés uniques
+    - Codes catégoriels
+    - Conversion numérique
+    - Filtrage
+    - Format long
+    - Formats normalisés
+    - Importation contrôlée
+    - Importation CSV
+    - Importation JSON
+    - Importation d'un ZIP
+    - Importation de données ouvertes
+    - Index de téléchargement
+    - Jointure
+    - Jointures
+    - Jointure GTFS
+    - Jointure spatiale
+    - Nettoyage
+    - Nettoyage de chaînes
+    - Nettoyage de données Excel
+    - Nettoyage de noms de variables
+    - Pivot long
+    - Standardisation
+    - Variables dérivées
+  Statistiques descriptives:
+    - Analyse exploratoire
+    - Exploration
+    - Catégories
+    - Classes de population
+    - Comparaison de groupes
+    - Comparaison descriptive
+    - Comparaison régionale
+    - Comparaison temporelle
+    - Comptage
+    - Corrélation
+    - Densité
+    - Distributions
+    - Groupes d'âge
+    - Indicateurs administratifs
+    - Indicateurs opérationnels
+    - Indicateurs socioéconomiques
+    - Indices
+    - Interprétation démographique
+    - Médiane
+    - Montants
+    - Pourcentages
+    - Proportions
+    - Quantile
+    - Ratios
+    - Statistique descriptive
+    - Statistiques descriptives
+    - Superficies
+    - Tableaux croisés
+    - Tableaux de fréquences
+    - Taux
+    - Variables catégorielles
+    - Variables numériques
+    - Volume autorisé
+  Visualisation et cartographie:
+    - Carte de points
+    - Cartographie
+    - Cartographie responsable
+    - Coordonnées
+    - Données spatiales
+    - Données spatiales simples
+    - Échelle logarithmique
+    - Facettes
+    - Géolocalisation
+    - ggplot2
+    - Index spatial
+    - Pyramide des âges
+    - sf
+    - Visualisation
+    - Visualisation spatiale
+  Probabilité et simulation:
+    - Bootstrap
+    - Échantillonnage
+    - Échantillonnage temporel
+    - Loi lognormale
+    - Période de retour
+    - Simulation
+  Inférence statistique:
+    - Bootstrap
+    - Erreur-type
+    - Estimation
+    - Incertitude
+    - Inférence
+    - Intervalles de confiance
+    - P-valeur
+    - Qualité des estimations
+    - Tests de permutation
+  Modélisation et prédiction:
+    - ACP
+    - Analyse en composantes principales
+    - Analyse multivariée
+    - Classification
+    - Classification simple
+    - Détection d'anomalies
+    - GAM
+    - GLM
+    - Intervalles de prévision
+    - k-means
+    - Modélisation catégorielle
+    - Modélisation et relations
+    - Prédiction
+    - Quasi-Poisson
+    - Regroupement
+    - Régression
+    - Régression binomiale
+    - Régression linéaire
+    - Résidus
+    - Sensibilité
+    - Surdispersion
+    - Validation entraînement-test
+  Séries temporelles:
+    - Comparaison temporelle
+    - Dates
+    - Données horaires
+    - Flux temps réel
+    - Résumé journalier
+    - Saisonnalité
+    - Séries temporelles
+    - Séries temporelles agrégées
+  Qualité et éthique des données:
+    - Biais
+    - Biais algorithmiques
+    - Biais de déclaration
+    - Collecte de données
+    - Communication
+    - Communication des limites
+    - Communication du risque
+    - Communication prudente
+    - Communication publique
+    - Coordonnées invalides
+    - Couverture de service
+    - Couverture territoriale
+    - Dates aberrantes
+    - Dictionnaire de variables
+    - Diffusion partielle
+    - Documentation des limites
+    - Données administratives
+    - Données d'enquête
+    - Données et mesure
+    - Données ouvertes
+    - Données ouvertes municipales
+    - Données privées
+    - Données publiques
+    - Données sensibles
+    - Double comptage
+    - Droits de réutilisation
+    - Éthique
+    - Interprétation prudente
+    - Limites computationnelles
+    - Limites d'exposition
+    - Limites d’exposition
+    - Limites d'interprétation
+    - Limites d'un instantané
+    - Limites des données administratives
+    - Métadonnées
+    - Précision de mesure
+    - Provenance
+    - Qualité de service
+    - Qualité des données
+    - Qualité des métadonnées
+    - Sources
+    - Statut préparé
+    - Unité statistique
+    - Unités de mesure
+    - Valeurs codées
+    - Valeurs extrêmes
+    - Valeurs manquantes
+    - Validation
+  Programmation et reproductibilité:
+    - Données relationnelles
+    - FGDB
+    - Flux GBFS
+    - GTFS
+    - Multi-ressources
+    - R
+    - Rapport reproductible
+    - Reproductibilité
+    - Shiny
+# Ces termes de contexte restent recherchables, sans devenir des notions.
+search_tags:
+  - Arbres
+  - Données environnementales
+  - Données météorologiques
+  - Eau
+  - Éducation
+  - Environnement urbain
+  - Événement extrême
+  - Hydrographie
+  - Montréal
+  - Politiques publiques
+  - Québec
+  - Réseau scolaire
+  - Science des données
+  - Statistique
+  - Vélopartage
