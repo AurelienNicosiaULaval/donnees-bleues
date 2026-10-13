@@ -1,0 +1,153 @@
+---
+title: "Une seule marge d’erreur pour plusieurs proportions?"
+author: "Anne-Sophie Charest"
+lang: fr
+format:
+  html:
+    toc: false
+    embed-resources: true
+---
+
+## Une lecture pour amorcer la discussion
+
+Dans un article publié à l’approche de l’élection fédérale de 2025, Dominique Scali rapporte les résultats d’un sondage Nanos commandé par CTV News. L’article indique que 86 % des Canadiens considèrent cette élection plus importante que les précédentes. Il présente aussi des résultats provinciaux, dont 79,2 % au Québec.
+
+La note méthodologique annonce 1 054 répondants adultes, interrogés du 29 mars au 1er avril 2025, et une marge d’erreur de plus ou moins 3 points de pourcentage, 19 fois sur 20. Comment interpréter cette marge unique lorsqu’on lit plusieurs pourcentages?
+
+Cette lecture peut commencer par une discussion sur la méthode, puis se poursuivre par des calculs. Les notions utiles sont la population, l’échantillon, la proportion estimée, le niveau de confiance et la marge d’erreur d’un intervalle pour une proportion.
+
+À lire : Dominique Scali, [*La plupart des Canadiens considèrent que cette élection-ci est « plus importante » que les autres*](https://www.journaldemontreal.com/2025/04/06/la-plupart-des-canadiens-considerent-que-cette-election-ci-est-plus-importante-que-les-autres), *Le Journal de Montréal*, 6 avril 2025.
+
+## Questions à discuter en classe
+
+### Lire la méthodologie
+
+1. Qui a réalisé le sondage et pour quel commanditaire?
+2. Quelle est la population visée?
+3. Quelle est la taille de l’échantillon?
+4. Quand les données ont-elles été recueillies?
+5. Quels modes de collecte l’article mentionne-t-il?
+6. L’article explique-t-il comment les participants ont été sélectionnés?
+7. Le 86 % est-il une estimation à partir de l’échantillon ou une valeur connue pour toute la population?
+8. Quel niveau de confiance correspond à « 19 fois sur 20 »?
+
+### Retrouver la marge annoncée
+
+**Modèle utilisé pour les calculs.** Dans toute l’activité, les marges et les intervalles sont calculés à partir de la formule usuelle pour un échantillonnage aléatoire simple, au niveau de confiance de 95 %. Le sondage Nanos comporte une stratification et une pondération qui peuvent modifier les erreurs-types : les calculs proposés illustrent donc la formule sans reconstituer les intervalles exacts du sondeur.
+
+9. Quelle marge d’erreur obtient-on pour la proportion nationale de 86 %, avec les 1 054 répondants? Retrouve-t-on les 3 points annoncés?
+10. Pour un échantillon de cette même taille, quelles marges d’erreur obtient-on pour des proportions de 10 %, 25 % et 50 %?
+11. Quelle proportion donne la plus grande marge d’erreur? Comment peut-on l’expliquer à partir de la formule?
+12. Quel est l’intérêt d’annoncer cette marge maximale plutôt qu’une marge associée à chaque proportion nationale?
+
+### Examiner les résultats provinciaux
+
+13. Peut-on appliquer la marge nationale de 3 points au résultat québécois de 79,2 %? Pourquoi?
+14. Quelle information manque dans l’article pour calculer la marge associée au résultat québécois?
+15. Le [rapport original de Nanos](https://nanos.co/wp-content/uploads/2025/04/2025-2808-CTV-March-Populated-Report.pdf) permet de trouver l’information manquante. Quelle marge d’erreur obtient-on alors pour la proportion québécoise de 79,2 %?
+16. Quelle est la marge d’erreur maximale pour ce sous-échantillon?
+17. Comment ces deux marges se comparent-elles aux 3 points de pourcentage annoncés pour l’ensemble du Canada?
+
+### Faire la synthèse
+
+18. De quels éléments dépend la marge d’erreur d’une proportion dans la formule utilisée?
+19. Que devrait préciser un article qui annonce une seule marge d’erreur tout en présentant plusieurs proportions et des résultats par sous-groupes?
+
+## Pistes pour les personnes enseignantes
+
+### 1 à 8. Population, collecte et niveau de confiance
+
+Nanos réalise le sondage pour CTV News. Le rapport présente une population adulte canadienne, un échantillon total de 1 054 personnes et la période indiquée dans l’article. Les 86 % sont une estimation nationale à partir des réponses, non une proportion connue par recensement.
+
+L’article mentionne le téléphone et Internet. Un mode de collecte ne suffit pas à définir un plan d’échantillonnage : un questionnaire en ligne peut notamment suivre un recrutement probabiliste. Le rapport Nanos décrit un recrutement téléphonique aléatoire sur lignes fixes et cellulaires, suivi d’un questionnaire en ligne. Il mentionne aussi une stratification géographique et une pondération selon l’âge et le genre (pages 9 et 10).
+
+« 19 fois sur 20 » correspond à un niveau de confiance de 95 %. Des intervalles construits de la même manière sur des échantillons répétés contiendraient le paramètre dans environ 95 % des cas. Ce n’est pas la proportion de réponses correctes, ni une garantie que 95 % des biais sont écartés.
+
+### 9. Pourquoi ne retrouve-t-on pas 3 points?
+
+La marge usuelle est
+
+$$
+m = 1{,}96\sqrt{\frac{\widehat p(1-\widehat p)}{n}}.
+$$
+
+Le facteur **1,96** est le quantile d’ordre 97,5 % de la loi normale centrée réduite : si $Z\sim\mathcal N(0,1)$, alors $P(-1{,}96\leq Z\leq1{,}96)\approx0{,}95$. Pour un intervalle bilatéral à 95 %, les 5 % restants sont répartis dans les deux queues, à raison de 2,5 % de chaque côté. L’approximation normale de la distribution de la proportion estimée conduit ainsi à multiplier son erreur-type estimée par 1,96.
+
+Pour revoir la formule et ses conditions d’utilisation : [OpenStax, *A Population Proportion*, section 8.3 de *Introductory Statistics 2e*](https://openstax.org/books/introductory-statistics-2e/pages/8-3-a-population-proportion) (en anglais).
+
+Avec $\widehat p=0{,}86$ et $n=1054$, on obtient $m\approx0{,}0209$, soit **2,09 points de pourcentage**. L’intervalle serait donc approximativement $[83{,}91\,\%;\ 88{,}09\,\%]$.
+
+Les questions 10 et 11 permettent d’expliquer cet écart en examinant comment la marge varie selon la proportion utilisée. La question 12 porte ensuite sur l’intérêt d’annoncer une marge maximale.
+
+**Correction pour population finie (complément facultatif).** Lors d’un échantillonnage aléatoire simple sans remise dans une population de taille $N$, l’erreur-type peut être multipliée par
+
+$$
+\sqrt{\frac{N-n}{N-1}}.
+$$
+
+Ici, les 1 054 participants représentent une fraction infime de la population adulte canadienne : ce facteur est pratiquement égal à 1. La correction serait également négligeable pour les 233 participants québécois par rapport à la population adulte du Québec. Elle n’explique donc pas l’écart entre les 2,09 points calculés et les 3 points annoncés.
+
+### 10 à 12. Une marge maximale pour l’échantillon total
+
+Pour $n=1054$, les calculs donnent :
+
+| Proportion utilisée | Marge approximative à 95 % |
+|:--|--:|
+| 10 % | 1,81 point |
+| 25 % | 2,61 points |
+| 50 % | 3,02 points |
+| 86 % | 2,09 points |
+
+Le produit $p(1-p)$ est maximal à $p=0{,}5$, puisque
+
+$$
+p(1-p)=\frac14-\left(p-\frac12\right)^2.
+$$
+
+La marge maximale est donc
+
+$$
+m_{\max}=1{,}96\sqrt{\frac{0{,}25}{1054}}\approx0{,}0302.
+$$
+
+Les 3 points annoncés correspondent, à l’arrondi près, à cette valeur. Cette concordance permet d’interpréter le chiffre comme une marge maximale conventionnelle; le rapport ne fournit toutefois pas une dérivation détaillée de son calcul.
+
+Pour des proportions calculées sur le même échantillon, cette marge maximale est une borne prudente. Elle n’est pas la marge associée à chaque estimation. Elle n’offre pas non plus une couverture simultanée de 95 % pour tous les résultats du sondage.
+
+Pour la question 12, annoncer une marge maximale permet de résumer l’incertitude pour plusieurs proportions nationales sans publier une marge différente pour chacune. Cela simplifie la présentation, à condition de préciser qu’il s’agit d’un maximum pour l’échantillon total.
+
+### 13 à 17. Une autre taille d’échantillon pour le Québec
+
+Le chiffre de 79,2 % concerne le Québec. Les 1 054 répondants couvrent le Canada; on ne doit pas tous les utiliser pour calculer l’incertitude d’un résultat provincial. L’article ne donne pas l’effectif québécois, mais le rapport indique $n_{\mathrm{QC}}=233$ à la page 5.
+
+Avec $\widehat p=0{,}792$ et $n=233$, la formule donne
+
+$$
+m_{\mathrm{QC}}=1{,}96\sqrt{\frac{0{,}792(1-0{,}792)}{233}}
+\approx0{,}0521,
+$$
+
+soit **5,21 points de pourcentage**. L’intervalle serait approximativement $[73{,}99\,\%;\ 84{,}41\,\%]$. La marge maximale pour 233 participants serait d’environ **6,42 points**.
+
+La marge maximale nationale de 3 points n’est donc pas une borne valable pour ce sous-échantillon.
+
+### 18 et 19. Synthèse
+
+La marge associée à une estimation dépend à la fois de **la proportion estimée** et de **la taille de l’échantillon concerné**. Une marge maximale peut résumer prudemment les résultats nationaux, mais elle ne s’étend pas automatiquement aux sous-groupes.
+
+Une note plus explicite pourrait dire : « La marge d’erreur annoncée est la marge maximale pour l’échantillon total, calculée avec une proportion de 50 %, puis arrondie. La marge associée à chaque résultat dépend de la proportion estimée et du nombre de répondants concernés. Les résultats par sous-groupes nécessitent donc des marges calculées avec leurs effectifs respectifs. »
+
+Une marge d’échantillonnage ne couvre pas les biais de couverture, de non-réponse ou de mesure.
+
+## Attribution et réutilisation
+
+Anne-Sophie Charest, Université Laval.
+
+Ce document est proposé sous licence [Creative Commons Attribution, Pas d’utilisation commerciale 4.0 International (CC BY-NC 4.0)](https://creativecommons.org/licenses/by-nc/4.0/deed.fr). Cette licence permet son partage et son adaptation à des fins non commerciales, avec attribution et indication des modifications. Elle ne s’applique pas à l’article du Journal de Montréal ni au rapport Nanos, qui restent hébergés à leur source.
+
+## Sources
+
+- Dominique Scali, *La plupart des Canadiens considèrent que cette élection-ci est « plus importante » que les autres*, *Le Journal de Montréal*, 6 avril 2025.
+- Nanos Research, [*Most Canadians think this upcoming election is more important than previous federal elections*](https://nanos.co/wp-content/uploads/2025/04/2025-2808-CTV-March-Populated-Report.pdf), avril 2025, particulièrement les pages 5, 9 et 10.
+
+Les proportions et effectifs utilisés sont ceux de ces publications datées.

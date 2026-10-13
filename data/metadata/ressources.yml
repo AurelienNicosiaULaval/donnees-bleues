@@ -1,3 +1,22 @@
+- id: marge-erreur
+  date_added: "2026-10-13"
+  date_updated: "2026-10-13"
+  type: document
+  title: 'Une seule marge d’erreur pour plusieurs proportions?'
+  format: Activité de discussion · Marge d’erreur
+  description: 'Lire la méthodologie d’un sondage Nanos, comprendre la marge maximale et comparer les résultats nationaux aux résultats québécois.'
+  themes: Élections et vie démocratique
+  concepts: [Échantillonnage, Proportions, Intervalles de confiance, Erreur-type]
+  authors: Anne-Sophie Charest
+  contributor: Anne-Sophie Charest
+  url: https://donneesbleues.ca/resources/marge-erreur.html
+  code_url: https://github.com/AurelienNicosiaULaval/donnees-bleues/blob/main/assets/documents/marge-erreur/marge-erreur.qmd
+  evidence_url: https://www.journaldemontreal.com/2025/04/06/la-plupart-des-canadiens-considerent-que-cette-election-ci-est-plus-importante-que-les-autres
+  courses: []
+  related_datasets: []
+  license: 'Document d’Anne-Sophie Charest : CC BY-NC 4.0. Attribution et indication des modifications requises; utilisation commerciale exclue. Les ressources externes liées conservent leurs propres conditions.'
+  note: 'Calculs sous un modèle d’échantillonnage aléatoire simple à 95 %, distinct du plan stratifié et pondéré de Nanos. Sources datées d’avril 2025; effectif québécois de 233 participants. Aucun fichier de données ni article tiers redistribué.'
+
 - id: collecte-chant
   date_added: "2026-10-13"
   date_updated: "2026-10-13"
