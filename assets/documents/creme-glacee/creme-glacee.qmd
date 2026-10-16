@@ -1,0 +1,77 @@
+---
+title: "La crème glacée au déjeuner rend-elle plus intelligent?"
+subtitle: "Comment vérifier cette affirmation?"
+author: "Anne-Sophie Charest"
+lang: fr
+format: html
+toc: false
+embed-resources: true
+body-classes: hub-page resource-page document-resource
+---
+
+[Lectures et documents](https://donneesbleues.ca/lectures.html) / Crème glacée
+
+## Une lecture pour amorcer la discussion
+
+Une nouvelle publiée dans La Presse le 23 novembre 2016 offre une occasion de discuter du choix des groupes de comparaison et de l'interprétation des résultats. Il s'agit d'un article publié au Québec qui rapporte des recherches réalisées au Japon.
+
+Selon la nouvelle, des participants ont mangé de la crème glacée dès leur réveil avant de passer des tests d'aptitudes mentales. Ils auraient présenté un meilleur temps de réaction et une facilité accrue à traiter l'information, comparativement aux participants du groupe témoin qui n'avaient pas mangé de crème glacée. Pour vérifier si le froid pouvait expliquer la stimulation du cerveau, le chercheur aurait repris les tests avec de l'eau froide à la place de la crème glacée. Les résultats aux tests auraient alors été moins élevés qu'avec la crème glacée.
+
+À lire : [*La crème glacée au déjeuner rend plus intelligent, selon une étude*](https://www.lapresse.ca/sciences/en-vrac/201611/23/01-5044345-la-creme-glacee-au-dejeuner-rend-plus-intelligent-selon-une-etude.php), La Presse, 23 novembre 2016.
+
+L'accès à l'article peut être limité. Le résumé ci-dessus permet d'utiliser les questions sans accéder au texte complet.
+
+## Questions à discuter en classe
+
+1. Que faudrait-il mesurer pour vérifier si la crème glacée « rend plus intelligent »? Les mesures rapportées dans l'article répondent-elles à cette question?
+2. Pourquoi le chercheur a-t-il repris les tests avec de l'eau froide? Qu'est-ce que cette comparaison permet de vérifier et quelles autres explications restent possibles?
+3. Le titre correspond-il à ce qui a été mesuré? Proposez un titre plus prudent.
+4. Comment feriez-vous une expérience pour mieux tester cette affirmation?
+
+## Pistes de solution
+
+### 1. Préciser la question et choisir les mesures
+
+L'expression « rendre plus intelligent » est difficile à traduire en une mesure. Parle-t-on d'une plus grande capacité à apprendre, à raisonner ou à résoudre des problèmes? Cherche-t-on un changement durable ou une amélioration dans les minutes suivant le déjeuner?
+
+L'article rapporte des tests d'aptitudes mentales et mentionne plus précisément le temps de réaction et le traitement de l'information. Ces mesures renseignent sur les performances à certaines tâches, sans suffire à établir une augmentation générale de l'intelligence.
+
+On pourrait donc reformuler la **question de recherche** : « Manger de la crème glacée au réveil améliore-t-il, à court terme, les performances à certains tests d'aptitudes mentales? » Il reste alors une précision essentielle : **par rapport à quoi?**
+
+### 2. Comparer pour départager des explications
+
+Le froid constitue une explication possible : la différence observée pourrait venir de la température plutôt que d'une propriété particulière de la crème glacée. La comparaison avec l'eau froide cherche à examiner cette possibilité. C'est une étape intéressante de la démarche : proposer une autre explication, puis modifier les conditions des tests pour la mettre à l'épreuve.
+
+Cependant, l'eau froide et la crème glacée diffèrent aussi par leur apport énergétique, leur teneur en sucre, leur texture et le plaisir qu'elles peuvent procurer. Même si les résultats sont meilleurs avec la crème glacée, cette comparaison ne permet pas de savoir laquelle de ces différences explique l'écart.
+
+Le choix du **groupe témoin** dépend donc de l'explication que l'on veut vérifier. Un aliment ayant un apport semblable en calories et en sucre aiderait à examiner le rôle de l'apport alimentaire. Comparer une même préparation à différentes températures aiderait à examiner celui du froid, même si la texture pourrait aussi changer.
+
+Il n'existe pas nécessairement un groupe témoin qui règle toutes les questions à la fois. **Chaque comparaison permet de préciser ce qu'on peut conclure.**
+
+### 3. Proposer un titre proportionné aux résultats
+
+Le titre dépasse ce que les mesures rapportées permettent de conclure : un meilleur temps de réaction ou une meilleure performance à certaines tâches ne démontre pas une augmentation générale de l'intelligence.
+
+Un titre plus prudent serait : « De meilleures performances à certains tests après avoir mangé de la crème glacée au réveil, selon une étude ».
+
+### 4. Concevoir une expérience qui répond à une question précise
+
+Plusieurs propositions sont défendables, à condition de préciser la comparaison recherchée. Pour savoir si la crème glacée améliore davantage les performances qu'un autre aliment, on pourrait former deux groupes recevant des portions ayant un apport semblable en calories et en sucre.
+
+Les participants seraient répartis au hasard entre les groupes : il s'agirait d'une **expérience randomisée**. Cette répartition aide à équilibrer, en moyenne, les caractéristiques susceptibles d'influencer les résultats, comme le sommeil ou les capacités initiales. Elle ne garantit pas des groupes identiques, particulièrement avec peu de participants. La nouvelle ne précise pas si une telle répartition au hasard a été utilisée dans les recherches rapportées.
+
+L'aliment attribué serait la **variable explicative**. Le temps de réaction et le nombre de bonnes réponses seraient les **variables réponses**. Mesurer les deux permettrait de vérifier si une plus grande rapidité s'accompagne d'une perte d'exactitude.
+
+Les groupes passeraient les tests dans des conditions semblables : mêmes consignes, même moment de la journée et même délai après avoir mangé. On pourrait aussi mesurer leurs performances avant la consommation, puis comparer les changements observés dans les deux groupes, en tenant compte de l'amélioration possible due à la répétition des tests. Des instructions neutres et une évaluation des résultats sans connaître le groupe des participants aideraient à limiter l'influence des attentes.
+
+Enfin, on examinerait **l'ampleur de la différence et l'incertitude qui l'entoure**, plutôt que de simplement constater qu'un groupe obtient une meilleure moyenne. Une petite différence pourrait être peu importante en pratique ou compatible avec la variabilité des résultats.
+
+Cette expérience répondrait à une question sur des performances précises à court terme. Conclure que la crème glacée « rend plus intelligent » demanderait une définition et des mesures beaucoup plus ambitieuses.
+
+## Limites de la source
+
+La nouvelle constitue le point de départ de la discussion. Elle ne fournit pas tous les détails nécessaires pour évaluer le protocole. La publication scientifique originale n'a pas été retrouvée lors de la préparation de cette ressource; les critiques portent donc sur les comparaisons et les conclusions rapportées dans la nouvelle.
+
+## Attribution et réutilisation
+
+Contexte reformulé, questions et pistes de solution proposés par **Anne-Sophie Charest, Université Laval**, sous licence [Creative Commons Attribution, Pas d'utilisation commerciale 4.0 International (CC BY-NC 4.0)](https://creativecommons.org/licenses/by-nc/4.0/deed.fr). Cette licence ne s'applique pas à l'article de La Presse, qui reste hébergé sur le site du journal.

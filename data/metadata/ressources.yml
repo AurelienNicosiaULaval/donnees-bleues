@@ -1,3 +1,23 @@
+- id: creme-glacee
+  date_added: "2026-10-16"
+  date_updated: "2026-10-16"
+  type: document
+  title: 'La crème glacée au déjeuner rend-elle plus intelligent?'
+  format: Activité de discussion · Démarche expérimentale
+  description: 'Préciser une question de recherche, examiner les groupes témoins et proposer une expérience randomisée à partir d’une nouvelle de La Presse.'
+  themes: Santé publique et alimentation
+  concepts: [Comparaison de groupes, Biais, Données et mesure]
+  search_aliases: [Expérience randomisée, Groupe témoin, Randomisation, Variable explicative, Variable réponse, Question de recherche]
+  authors: Anne-Sophie Charest
+  contributor: Anne-Sophie Charest
+  url: https://donneesbleues.ca/resources/creme-glacee.html
+  code_url: https://github.com/AurelienNicosiaULaval/donnees-bleues/blob/main/assets/documents/creme-glacee/creme-glacee.qmd
+  evidence_url: https://www.lapresse.ca/sciences/en-vrac/201611/23/01-5044345-la-creme-glacee-au-dejeuner-rend-plus-intelligent-selon-une-etude.php
+  courses: []
+  related_datasets: []
+  license: 'Contexte reformulé, questions et pistes d’Anne-Sophie Charest : CC BY-NC 4.0. Attribution et indication des modifications requises; utilisation commerciale exclue. L’article lié conserve les conditions de La Presse.'
+  note: 'Article publié au Québec sur des recherches réalisées au Japon. Accès à La Presse potentiellement limité; résumé autonome fourni. Publication scientifique originale non retrouvée. Aucun article tiers ni jeu de données redistribué. Usage de cet exemple en classe déclaré par l’autrice; cours non précisé, adaptation non documentée en classe.'
+
 - id: marge-erreur
   date_added: "2026-10-13"
   date_updated: "2026-10-13"
