@@ -2,7 +2,7 @@
 
 Autrice et contributrice : Anne-Sophie Charest, Université Laval.
 
-Le document, les questions, les pistes de solution et le fichier Quarto sont proposés sous licence Creative Commons Attribution — Pas d’utilisation commerciale 4.0 International (CC BY-NC 4.0).
+Le document, les questions, les pistes de solution et le fichier Quarto sont proposés sous licence Creative Commons Attribution, Pas d’utilisation commerciale 4.0 International (CC BY-NC 4.0).
 
 Cette licence permet le partage et l’adaptation à des fins non commerciales, avec attribution, lien vers la licence et indication des modifications. Elle ne s’applique pas à l’article de La Presse ni aux autres ressources externes liées.
 

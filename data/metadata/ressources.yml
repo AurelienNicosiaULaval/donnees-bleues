@@ -7,7 +7,7 @@
   description: 'Préciser une question de recherche, examiner les groupes témoins et proposer une expérience randomisée à partir d’une nouvelle de La Presse.'
   themes: Santé publique et alimentation
   concepts: [Comparaison de groupes, Biais, Données et mesure]
-  search_tags: [Expérience randomisée, Groupe témoin, Randomisation, Variable explicative, Variable réponse, Question de recherche]
+  search_aliases: [Expérience randomisée, Groupe témoin, Randomisation, Variable explicative, Variable réponse, Question de recherche]
   authors: Anne-Sophie Charest
   contributor: Anne-Sophie Charest
   url: https://donneesbleues.ca/resources/creme-glacee.html
