@@ -3,7 +3,7 @@
   "dataset": "rapports-accident",
   "dataset_version": "1.0.0",
   "dataset_sha256": "51d155ce9eb66e86689e761518c7900063478834a507482d93f0ad043153d21b",
-  "archive_sha256": "1e901a0fe951a23f5863772c7bb2b44daa6a4c90de3ac08441f8fa8bf7b13b2d",
+  "archive_sha256": "8c25029878de721e1f43961f8888b82be5e596dcadda8afc6cc0aead62db6de0",
   "files": [
     {
       "path": "app.R",
@@ -27,7 +27,7 @@
     },
     {
       "path": "LICENCE-CONTENUS.md",
-      "sha256": "b3396eb517be1fa273b70fc6ea6be31dc7e9d26b4a14446a1b325d36076fadca"
+      "sha256": "b4257edc45fefed1a52a3ffdf7de57f8c43cfdfdb45ac0faad89fa06e8dc0b38"
     },
     {
       "path": "LICENSE",

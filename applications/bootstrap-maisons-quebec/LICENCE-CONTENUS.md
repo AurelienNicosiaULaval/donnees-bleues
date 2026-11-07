@@ -4,7 +4,7 @@ Les textes, fiches et activités originales de Données bleues sont mis à dispo
 
 Cette licence permet leur partage et leur adaptation, y compris à des fins commerciales, à condition d’attribuer le contenu à ses auteurs, de fournir un lien vers la licence et d’indiquer les modifications.
 
-Attribution suggérée : Données bleues, Aurélien Nicosia et les personnes contributrices identifiées, version utilisée, https://aureliennicosiaulaval.github.io/donnees-bleues/.
+Attribution suggérée : Données bleues, Aurélien Nicosia et les personnes contributrices identifiées, version utilisée, https://donneesbleues.ca/.
 
 Résumé : https://creativecommons.org/licenses/by/4.0/deed.fr
 

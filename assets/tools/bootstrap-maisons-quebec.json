@@ -3,7 +3,7 @@
   "dataset": "maisons-quebec",
   "dataset_version": "1.0.0",
   "dataset_sha256": "e631d863ddc48ef7371a1b9ad5993a0dbccd78c350e5558a9c7396054f886008",
-  "archive_sha256": "16a8304b766b6aaac7d4612aca177d8ae225294c70d502ccb735ec4d46914e3d",
+  "archive_sha256": "568d623b1278c8bf1453f8e74ffe020bdd1910efae987d9f2e78dbc0df7a433c",
   "files": [
     {
       "path": "app.R",
@@ -27,7 +27,7 @@
     },
     {
       "path": "LICENCE-CONTENUS.md",
-      "sha256": "b3396eb517be1fa273b70fc6ea6be31dc7e9d26b4a14446a1b325d36076fadca"
+      "sha256": "b4257edc45fefed1a52a3ffdf7de57f8c43cfdfdb45ac0faad89fa06e8dc0b38"
     },
     {
       "path": "LICENSE",
