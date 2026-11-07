@@ -144,7 +144,7 @@ build_classroom_kit <- function(metadata, output_dir = 'assets/classroom') {
     if (policy$mode == 'source_required') '4. Ouvrir preparer-donnees.R et cliquer Source avec Internet.' else '4. Conserver les sous-dossiers de données à leur place.',
     paste0('5. Ouvrir ', paste(scripts, collapse = ' ou '), ', puis cliquer Source.'),
     '6. Lire les tableaux dans Console et les graphiques dans Plots. Les consignes propres à chaque activité sont sur le site.', '',
-    paste0('Activités : https://aureliennicosiaulaval.github.io/donnees-bleues/datasets/', id, '/fiche.html'), '',
+    paste0('Activités : https://donneesbleues.ca/datasets/', id, '/fiche.html'), '',
     '## Source et réutilisation', '', paste0('Producteur : ', metadata$source_name),
     paste0('Source : ', metadata$source_url), paste0('Conditions : ', metadata$publication$license_url),
     if (length(notices)) paste0('Attributions et documentation incluses : ', paste(notices, collapse = ', '), '.'),

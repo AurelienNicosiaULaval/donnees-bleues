@@ -41,7 +41,7 @@
     },
     {
       "path": "LICENCE-CONTENUS.md",
-      "sha256": "b3396eb517be1fa273b70fc6ea6be31dc7e9d26b4a14446a1b325d36076fadca"
+      "sha256": "b4257edc45fefed1a52a3ffdf7de57f8c43cfdfdb45ac0faad89fa06e8dc0b38"
     },
     {
       "path": "README.md",
@@ -52,6 +52,6 @@
       "sha256": "6793131ab9f15e893e421dc3b0f25d83f117d2463327d6241dc37f3a41cc9bd8"
     }
   ],
-  "archive_sha256": "5cd605389fb78d7e9cbfa19e0677acd78c3f61eacbdd2413db5416a3f88abae2",
+  "archive_sha256": "b519fd55cda075630e9e27678e412ae95a0ff9fc3122baa9d65faddf8ef5bd77",
   "tutorial_sha256": "d2f38eac4fa7363b715366db5aa3536f28528a4efd44918f32a358b3c3bbf520"
 }

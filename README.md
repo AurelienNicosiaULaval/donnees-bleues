@@ -1,10 +1,10 @@
 # Données bleues
 
-Données bleues rassemble des sources québécoises et canadiennes pour enseigner la statistique, R et la science des données. Le [site public](https://aureliennicosiaulaval.github.io/donnees-bleues/) présente les fiches, les activités et leurs limites d’interprétation.
+Données bleues rassemble des sources québécoises et canadiennes pour enseigner la statistique, R et la science des données. Le [site public](https://donneesbleues.ca/) présente les fiches, les activités et leurs limites d’interprétation.
 
 ## Utiliser une activité en classe
 
-1. Choisir une activité dans [Planifier](https://aureliennicosiaulaval.github.io/donnees-bleues/activites.html).
+1. Choisir une activité dans [Planifier](https://donneesbleues.ca/activites.html).
 2. Télécharger sa trousse ZIP et l’extraire entièrement.
 3. Ouvrir `Donnees-bleues.Rproj` dans RStudio.
 4. Avant la séance, ouvrir `installer-packages.R` et cliquer sur Source avec Internet.
@@ -18,7 +18,7 @@ Chaque archive contient les versions de packages testées, la source, les dates 
 
 Sauf mention différente dans la notice d’une ressource, les textes, fiches et activités originales sont sous [Creative Commons Attribution 4.0 International](LICENCE-CONTENUS.md). Le document « Qui chante juste? », d’Anne-Sophie Charest, conserve sa licence CC BY-NC 4.0, sans utilisation commerciale. Le code original est sous [licence MIT](LICENSE). Ces licences permettent le partage et l’adaptation dans les conditions indiquées dans les notices, également incluses dans chaque trousse.
 
-Les conditions des producteurs tiers restent applicables. Les liens figurent dans les fiches et dans chaque trousse; conserver l’attribution et mentionner les transformations. Une licence de données ne s’étend pas automatiquement aux textes, au code ou aux images du site. Les images possèdent leurs propres [crédits](https://aureliennicosiaulaval.github.io/donnees-bleues/credits-images.html).
+Les conditions des producteurs tiers restent applicables. Les liens figurent dans les fiches et dans chaque trousse; conserver l’attribution et mentionner les transformations. Une licence de données ne s’étend pas automatiquement aux textes, au code ou aux images du site. Les images possèdent leurs propres [crédits](https://donneesbleues.ca/credits-images.html).
 
 La référence bibliographique figure dans [CITATION.cff](CITATION.cff). Les [livraisons GitHub](https://github.com/AurelienNicosiaULaval/donnees-bleues/releases) permettent de retrouver une version figée. Pour citer un résultat de classe, ajouter la version de la trousse et sa date de préparation.
 

@@ -37,7 +37,7 @@
     },
     {
       "path": "LICENCE-CONTENUS.md",
-      "sha256": "b3396eb517be1fa273b70fc6ea6be31dc7e9d26b4a14446a1b325d36076fadca"
+      "sha256": "b4257edc45fefed1a52a3ffdf7de57f8c43cfdfdb45ac0faad89fa06e8dc0b38"
     },
     {
       "path": "README.md",
@@ -60,5 +60,5 @@
       "sha256": "0b5817ac5aa44368c9822eef3191c2a7316a5401139807be16e6e634b9b4d150"
     }
   ],
-  "archive_sha256": "e2f14a49b7da9a860ec67a217246e0fa02b1e830c51381c4603628ad76a3741f"
+  "archive_sha256": "12ca59b0d102e76c2da823add9e7476ddf24765190460f4ef4f944493a2e7a35"
 }
