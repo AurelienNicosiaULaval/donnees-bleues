@@ -22,7 +22,7 @@ render_activity_header()
 
 Parcours proposé : 60 à 90 minutes, durée indicative. Extraire la trousse entière, ouvrir `Donnees-bleues.Rproj`, puis exécuter `installer-packages.R` avant la séance avec Internet. Le CSV est inclus et le script fonctionne ensuite hors ligne. Les calculs ont été exécutés; l’utilisation en classe n’est pas documentée.
 
-Sans programmation, utiliser l’[outil interactif](../../resources/bootstrap-maisons-quebec.qmd). La [lecture courte](../../resources/comprendre-intervalle-confiance.qmd) prépare la discussion sur le niveau de confiance.
+Sans programmation, utiliser l’[outil interactif](../../resources/bootstrap-maisons-quebec.qmd). La [lecture sur les intervalles de confiance](../../resources/comprendre-intervalle-confiance.qmd) prépare la discussion sur le niveau de confiance.
 
 ```{r}
 #| echo: false

@@ -30,6 +30,8 @@ Les maisons ont des valeurs différentes. Une moyenne calculée sur un échantil
 
 Le CSV comprend 600 unités d’évaluation à un logement, tirées sans remise parmi 99 072 unités admissibles de Québec. La [méthode](../datasets/maisons-quebec/METHODE.md) définit ce périmètre. Leur valeur au rôle est une évaluation administrative. Aucun prix de vente n’est observé.
 
+La [fiche des maisons à Québec](../datasets/maisons-quebec/fiche.qmd) présente les données, leur provenance et leurs limites.
+
 La moyenne du fichier décrit exactement ces 600 valeurs. Si la question porte sur la moyenne des 99 072 unités admissibles, ce nombre devient une estimation d’un paramètre inconnu dans l’activité. Un autre échantillon pourrait donner une autre moyenne. Choisir la médiane change le paramètre recherché; son intervalle n’est pas une autre méthode pour estimer la même moyenne.
 
 ## Deux écarts-types, deux rôles

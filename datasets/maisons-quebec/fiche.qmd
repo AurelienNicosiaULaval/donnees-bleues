@@ -61,7 +61,7 @@ Le [tutoriel guidé](../../resources/tutoriel-maisons-quebec.qmd) accompagne l�
 
 ## Estimer l’incertitude avec le bootstrap
 
-L’[atelier bootstrap](../../resources/bootstrap-maisons-quebec.qmd) rééchantillonne les mêmes 600 lignes pour comparer la variation d’une moyenne et d’une médiane. L’[activité guidée](activite-bootstrap.qmd) fournit le script, les résultats et six exercices corrigés. La [lecture courte](../../resources/comprendre-intervalle-confiance.qmd) distingue dispersion, erreur-type et niveau de confiance.
+L’[atelier bootstrap](../../resources/bootstrap-maisons-quebec.qmd) rééchantillonne les mêmes 600 lignes pour comparer la variation d’une moyenne et d’une médiane. L’[activité guidée](activite-bootstrap.qmd) fournit le script, les résultats et six exercices corrigés. La [lecture sur les intervalles de confiance](../../resources/comprendre-intervalle-confiance.qmd) distingue dispersion, erreur-type et niveau de confiance.
 
 Le bootstrap ordinaire est une approximation du plan initial sans remise; sa couverture exacte n’est pas établie. Il ne transforme pas les valeurs au rôle en prix de vente ni ce périmètre municipal en population provinciale.
 

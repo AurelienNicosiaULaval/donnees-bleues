@@ -64,6 +64,8 @@ Une ligne représente une école primaire publique du Québec pour l'année scol
 
 Les lignes avec `Diffusion == "NON"` ne sont pas des observations numériques ordinaires. La description officielle indique que les écoles institutionnelles avec entente MEQ-MSSS ne sont pas diffusées et que les écoles de moins de 30 élèves présents au 30 septembre 2025 ne diffusent pas les indices. Ces lignes doivent donc être exclues d'un modèle numérique ou traitées dans une catégorie distincte.
 
+La [fiche sur les établissements scolaires du Québec](../ecoles-quebec/fiche.qmd) décrit les liens entre écoles publiques et immeubles scolaires. Les deux jeux ont des unités et des périmètres différents; leur rapprochement demande de vérifier les identifiants et les périodes.
+
 ## Variables principales
 
 | Variable | Type | Description | Exemple | Point de vigilance |

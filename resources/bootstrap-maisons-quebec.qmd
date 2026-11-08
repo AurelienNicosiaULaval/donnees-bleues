@@ -63,7 +63,7 @@ Les réglages de calcul sont appliqués avec « Calculer le bootstrap ». Un mes
 
 Garder la valeur foncière, la moyenne et le niveau de 95 %. Observer l’histogramme des statistiques, puis ouvrir « Valeurs des maisons ». Chaque barre compte-t-elle les mêmes objets dans les deux vues ? Passer à la médiane, puis comparer les intervalles sans supposer qu’ils portent sur le même paramètre.
 
-La [lecture courte](comprendre-intervalle-confiance.qmd) précise l’interprétation. L’[activité avec six exercices corrigés](../datasets/maisons-quebec/activite-bootstrap.qmd) fournit les résultats calculés et la comparaison de la stabilité numérique.
+La [lecture sur les intervalles de confiance](comprendre-intervalle-confiance.qmd) précise l’interprétation. L’[activité avec six exercices corrigés](../datasets/maisons-quebec/activite-bootstrap.qmd) fournit les résultats calculés et la comparaison de la stabilité numérique.
 
 ## Utilisation
 

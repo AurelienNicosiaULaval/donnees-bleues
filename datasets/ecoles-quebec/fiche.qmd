@@ -62,6 +62,8 @@ Cette distinction est l'intérêt statistique principal de la fiche. Selon le re
 
 Ces nombres ne répondent pas à la même question. Une carte de points construite à partir de toutes les lignes montre des liens école-immeuble, pas directement une carte des écoles uniques.
 
+Pour un autre regard sur le réseau scolaire, consulter la [fiche sur les indices de défavorisation des écoles primaires](../defavorisation-ecoles-primaires/fiche.qmd). Les deux jeux ont des unités et des périmètres différents; leur rapprochement demande de vérifier les identifiants et les périodes.
+
 ## Variables principales
 
 | Variable | Type | Description | Exemple | Point de vigilance |
