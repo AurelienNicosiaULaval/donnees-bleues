@@ -14,7 +14,12 @@ body-classes: hub-page resource-page dataset-resource
 #| results: asis
 source_path <- if (file.exists("R/utils_dataset_page.R")) "R/utils_dataset_page.R" else "../../R/utils_dataset_page.R"
 source(source_path)
-render_dataset_detail_header()
+render_dataset_detail_header(related_resource = list(
+  prefix = "Pour un autre regard sur le réseau scolaire, consulter la ",
+  href = "../defavorisation-ecoles-primaires/fiche.html",
+  label = "fiche sur les indices de défavorisation des écoles primaires",
+  suffix = ". Les deux jeux ont des unités et des périmètres différents; leur rapprochement demande de vérifier les identifiants et les périodes."
+))
 ```
 
 ## Ce qui a été vérifié
@@ -61,8 +66,6 @@ Cette distinction est l'intérêt statistique principal de la fiche. Selon le re
 - les 17 régions administratives.
 
 Ces nombres ne répondent pas à la même question. Une carte de points construite à partir de toutes les lignes montre des liens école-immeuble, pas directement une carte des écoles uniques.
-
-Pour un autre regard sur le réseau scolaire, consulter la [fiche sur les indices de défavorisation des écoles primaires](../defavorisation-ecoles-primaires/fiche.qmd). Les deux jeux ont des unités et des périmètres différents; leur rapprochement demande de vérifier les identifiants et les périodes.
 
 ## Variables principales
 

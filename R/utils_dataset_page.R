@@ -708,7 +708,7 @@ dataset_version_html <- function(metadata, receipt) {
   paste0('<p class="dataset-version">', escape(paste(parts, collapse = ' · ')), '</p>')
 }
 
-render_dataset_detail_header <- function() {
+render_dataset_detail_header <- function(related_resource = NULL) {
   ctx <- dataset_current_context()
   metadata <- dataset_read_metadata(ctx$dataset_dir)
   escape <- dataset_html_escape
@@ -770,6 +770,12 @@ render_dataset_detail_header <- function() {
   if (length(limits)) cat('<section class="dataset-essential-limits" aria-labelledby="limites-essentielles">',
     '<h2 id="limites-essentielles">À savoir avant l’analyse</h2><ul>',
     paste0('<li>', escape(limits), '</li>', collapse = ''), '</ul></section>', sep = '')
+  if (!is.null(related_resource)) {
+    cat('<section class="dataset-activities-panel dataset-related-panel" aria-labelledby="ressource-complementaire">',
+      '<h2 id="ressource-complementaire">Ressource complémentaire</h2><p>',
+      escape(related_resource$prefix), '<a href="', escape(related_resource$href), '">',
+      escape(related_resource$label), '</a>', escape(related_resource$suffix), '</p></section>', sep = '')
+  }
   if (!is.null(preview)) {
     csv_path <- dataset_processed_csv(metadata, ctx)
     cat('<section class="dataset-r-lab" id="apercu-interactif"><h2>Aperçu des données</h2>',
