@@ -97,6 +97,13 @@ publication:
     mode: documentation
     reason: Documentation et synthèses publiques seulement; aucune donnée privée, géodatabase ni observation
       de retard.
+    api_reference_is_default: false
+    api_files:
+    - datasets/grhq/preparation-api.R
+    - datasets/grhq/actualiser-api.R
+    - datasets/grhq/rejouer-api.R
+    - datasets/grhq/snapshots/20261110T162735Z/source-api.zip
+    - datasets/grhq/snapshots/20261110T162735Z/source-api.zip.sha256
     files:
     - path: data/processed/grhq/grhq_index_telechargement.csv
       columns:
@@ -125,7 +132,7 @@ chart:
   y_label: Unité du découpage
   title: Composition de l’index de téléchargement
 date_added: "2026-06-18"
-date_updated: "2026-09-13"
+date_updated: "2026-11-10"
 
 summary: Index de téléchargement de la Géobase du réseau hydrographique du Québec. Il permet de repérer une unité
   et les ressources spatiales à télécharger.
