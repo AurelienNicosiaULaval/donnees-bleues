@@ -7,6 +7,7 @@ app_dir <- "applications/ggplot-builder-donnees-bleues"
 files <- c("app.R", "R/builder.R", "www/builder.css", "www/builder.js",
   "www/favicon.svg", "data/arbres_quebec.csv", "DATA_LICENSES.md", "LICENSE",
   "LICENCE-CONTENUS.md", "README.md")
+files <- c(files, "R/donnees_quebec_citations.R", "CITATIONS.md")
 stage <- tempfile("ggplot-app-")
 dir.create(stage)
 for (path in files) {

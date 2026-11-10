@@ -7,7 +7,7 @@ destination <- "docs/outils/maisons-quebec"
 app <- read_json(file.path(destination, "app.json"))
 app_names <- vapply(app, function(file) file$name, character(1))
 stopifnot(!anyDuplicated(app_names),
-  all(c("app.R", "R/helpers.R", "www/explorer.css", "www/maisons-quebec.webp",
+  all(c("app.R", "R/donnees_quebec_citations.R", "CITATIONS.md", "R/helpers.R", "www/explorer.css", "www/maisons-quebec.webp",
         "data/maisons-quebec.csv", "DATA_LICENSES.md") %in% app_names),
   !any(grepl("rsconnect|\\.Renviron|check-server", app_names)))
 for (file in app) {

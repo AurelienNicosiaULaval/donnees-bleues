@@ -7,6 +7,7 @@ app_dir <- "applications/explorer-maisons-quebec"
 files <- c("app.R", "R/helpers.R", "www/explorer.css", "www/maisons-quebec.webp",
            "data/maisons-quebec.csv", "DATA_LICENSES.md", "DICTIONNAIRE.md",
            "METHODE.md", "LICENSE", "LICENCE-CONTENUS.md", "README.md")
+files <- c(files, "R/donnees_quebec_citations.R", "CITATIONS.md")
 stage <- tempfile("house-app-")
 dir.create(stage)
 for (path in files) {

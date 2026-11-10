@@ -4,6 +4,9 @@ library(jsonlite)
 library(digest)
 app_dir <- "applications/permutations-accidents-quebec"
 files <- sort(setdiff(list.files(app_dir, recursive = TRUE), "check-server.R"))
+# Les scripts d'acquisition réseau appartiennent au ZIP pour R local.
+# Le navigateur charge seulement le module de citations et les calculs existants.
+files <- files[!grepl("^R/utils_(ckan|donnees_quebec|downloads)[.]R$|^acquerir-donnees-quebec[.]R$|^data/metadata/", files)]
 stage <- tempfile("permutation-app-")
 dir.create(stage)
 for (path in files) {

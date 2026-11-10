@@ -7,7 +7,7 @@ destination <- "docs/outils/ggplot-builder"
 app <- read_json(file.path(destination, "app.json"))
 app_names <- vapply(app, function(file) file$name, character(1))
 stopifnot(!anyDuplicated(app_names),
-  all(c("app.R", "R/builder.R", "www/builder.css", "www/builder.js",
+  all(c("app.R", "R/donnees_quebec_citations.R", "CITATIONS.md", "R/builder.R", "www/builder.css", "www/builder.js",
         "data/arbres_quebec.csv", "DATA_LICENSES.md") %in% app_names),
   !any(grepl("rsconnect|\\.Renviron|verifier[.]R|Rplots", app_names)))
 stopifnot(app[[match("data/arbres_quebec.csv", app_names)]]$type == "binary")
