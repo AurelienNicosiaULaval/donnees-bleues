@@ -18,7 +18,7 @@ render_activity_header()
 
 Télécharger la trousse ci-dessous. Extraire le ZIP, puis double-cliquer sur `Donnees-bleues.Rproj`. Avant la séance, ouvrir `installer-packages.R` et cliquer sur Source avec une connexion Internet.
 
-Une fois les packages installés, les scripts utilisent les fichiers inclus et peuvent être exécutés hors ligne.
+Une fois les packages installés, les scripts utilisent les fichiers inclus et peuvent être exécutés hors ligne. Pour utiliser la copie des interventions obtenue par l’API de Données Québec le 10 novembre 2026, exécuter `datasets/interventions-pompiers-montreal/rejouer-api.R`, puis l’activité dans la même session R. Pour obtenir une nouvelle copie avec Internet, utiliser `actualiser-api.R`. Une observation de cette copie comporte une date sans heure : elle est conservée pour les dénombrements, mais exclue de l’analyse temporelle. La source courante et ses effectifs changent avec le temps; la table historique demeure utilisée par défaut.
 
 ```{r}
 #| label: activity-classroom-resources

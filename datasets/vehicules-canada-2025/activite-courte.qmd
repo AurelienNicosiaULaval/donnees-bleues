@@ -22,7 +22,7 @@ Activité adaptée par Aurélien Nicosia de la [version 1.0.0 de Véhicules](htt
 
 ## Préparation enseignante
 
-Télécharger la trousse, l’extraire entièrement et ouvrir `Donnees-bleues.Rproj`. Avant la séance, ouvrir `installer-packages.R` et cliquer sur Source avec Internet. Les deux CSV sont inclus; l’activité fonctionne ensuite hors ligne.
+Télécharger la trousse, l’extraire entièrement et ouvrir `Donnees-bleues.Rproj`. Avant la séance, ouvrir `installer-packages.R` et cliquer sur Source avec Internet. Les deux CSV sont inclus; l’activité fonctionne ensuite hors ligne. Pour charger la copie datée du tableau SAAQ, exécuter `datasets/vehicules-canada-2025/rejouer-api.R`, puis l’activité dans la même session R. Le script `actualiser-api.R` repère le fichier SAAQ par l’API, le télécharge et recalcule les comptes; il exige Internet et environ 905 Mo de téléchargement. Le CSV individuel reste local. La trousse contient les comptes agrégés, pas les données individuelles; la table canadienne RNCan demeure distincte.
 
 ```{r}
 #| echo: false

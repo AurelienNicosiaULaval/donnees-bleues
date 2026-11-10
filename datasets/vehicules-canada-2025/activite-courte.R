@@ -91,7 +91,7 @@ print(dispersion)
 print(produit_unites)
 
 # Volet Québec distinct : additionner les comptes, jamais les attribuer aux configurations RNCan.
-parc <- read_csv("data/processed/vehicules-canada-2025/parc_quebec_2022.csv",
+parc <- read_csv(Sys.getenv("DB_PARC_SAAQ_SNAPSHOT", unset = "data/processed/vehicules-canada-2025/parc_quebec_2022.csv"),
   col_types = cols(.default = col_guess(), region_qc = col_character(), saaq_fuel_code = col_character()))
 parc_carburant <- parc |>
   group_by(saaq_fuel_type) |>

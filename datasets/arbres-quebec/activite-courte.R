@@ -6,7 +6,7 @@ library(readr)
 library(dplyr)
 library(ggplot2)
 
-input <- "data/processed/arbres-quebec/arbres_quebec_small.csv"
+input <- Sys.getenv("DB_ARBRES_FOREST_SNAPSHOT", unset = "data/processed/arbres-quebec/arbres_quebec_small.csv")
 # Permet aussi l’exécution depuis la page Quarto du sous-dossier.
 if (!file.exists(input)) input <- file.path("../..", input)
 arbres <- read_csv(input,

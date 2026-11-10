@@ -21,6 +21,15 @@
       "prepared_table_sha256": "0bef88e330437b548ed5d0ff22ea51775acd28ce544b57c171fd439862eab370"
     }
   ],
-  "archive_sha256": "7e24eaa7dbff43462731f3b893dd98b8b55c6d652bf385d6392844ac7e64278b",
-  "archive_bytes": 1621914
+  "donnees_quebec": [
+    {
+      "page_url": "https://www.donneesquebec.ca/recherche/dataset/vmtl-interventions-service-securite-incendie-montreal",
+      "citation": "VILLE DE MONTRÉAL. Interventions des pompiers de Montréal, [Jeu de données], dans Données Québec, 2020, mis à jour le 10 novembre 2026. [https://www.donneesquebec.ca/recherche/dataset/vmtl-interventions-service-securite-incendie-montreal], (consulté le 10 novembre 2026).",
+      "verified_at_utc": "2026-11-10T19:59:50Z",
+      "license_title": "Attribution (CC-BY 4.0)",
+      "license_url": "https://www.donneesquebec.ca/licence/#cc-by"
+    }
+  ],
+  "archive_sha256": "d7f193d99ec3aa2d82039450b4d56dba31e0ac852a8fccc313afb2ddb3fb75f8",
+  "archive_bytes": 6714839
 }

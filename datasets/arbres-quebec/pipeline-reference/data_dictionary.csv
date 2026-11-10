@@ -1,0 +1,75 @@
+variable,label_fr,type,unit,role,source_table,source_field,transformation,allowed_values,missing_semantics,quality_rule,notes
+record_id,Identifiant unique de la ligne arbre-campagne,character,,observed_key,DENDRO_ARBRES,ID_ARBRE ou ID_ARB_MES,PET/PET5: ID_ARBRE; PEP: ID_ARB_MES,unique,Manquant interdit,Dupliqués signalés,Clé primaire analytique
+tree_id,Identifiant stable de l'arbre,character,,observed_key,DENDRO_ARBRES,ID_ARBRE,Conversion en texte,,Peut être manquant seulement si source invalide,,Permet le suivi longitudinal PEP
+plot_measurement_id,Identifiant placette-campagne,character,,observed_key,PLACETTE_MES ou PLACETTE,ID_PE_MES ou ID_PE,PEP: ID_PE_MES; PET: ID_PE,,Manquant interdit pour PEP,,Clé de campagne
+plot_id,Identifiant de placette,character,,observed_key,PLACETTE,ID_PE,Conversion en texte,,Manquant interdit,,Utiliser comme groupe de validation
+survey_year,Année de mesure,integer,année,derived,PLACETTE/PLACETTE_MES,DATE_SOND,Année extraite de measurement_date,,NA si date absente ou illisible,,Ne pas inférer d'une autre date
+measurement_date,Date de mesure,date,YYYY-MM-DD,observed,PLACETTE/PLACETTE_MES,DATE_SOND,Parsing déclaré sans imputation,,NA si source absente ou illisible,,Date de la campagne
+source_inventory,Inventaire source,character,,provenance,manifest,source_id,Constante d'exécution,PET5;PET4;PEP,Jamais manquant,,
+source_network,Réseau de placettes permanentes,character,,observed,PLACETTE,RESEAU,Aucune,codes MRNF,NA pour PET,,
+project_id,Numéro de projet,character,,observed,PLACETTE/PLACETTE_MES,NO_PRJ ou NO_PRJ_MES,Conversion en texte,,NA permis,,
+transect_id,Numéro de virée,character,,observed,PLACETTE,NO_VIREE,Conversion en texte,,NA permis,,
+plot_number,Numéro de placette,character,,observed,PLACETTE,NO_PE,Conversion en texte,,NA permis,,
+plot_type,Type de placette,character,,decoded_or_observed,PLACETTE,TYPE_PE,Code conservé,codes MRNF,NA permis,,
+species_code,Code d'essence MRNF,character,,observed,DENDRO_ARBRES,ESSENCE,Majuscules et espaces retirés,dictionnaire ESSENCES,NA signalé,Code inconnu signalé,Ne pas confondre avec un nom scientifique
+species_fr,Nom français source,character,,decoded,DICTIONNAIRE_PLACETTE.xlsx,ESSENCES,Jointure exacte sur species_code,dictionnaire MRNF,NA si code absent/inconnu,,
+species_latin,Nom scientifique accepté,character,,decoded_external,species_taxonomy_crosswalk.csv,scientific_name_accepted,Appariement taxonomique revu,,NA tant que non apparié,taxonomy_not_reviewed,VASCAN recommandé
+genus,Genre taxonomique,character,,decoded_external,species_taxonomy_crosswalk.csv,genus,Appariement revu,,NA tant que non apparié,taxonomy_not_reviewed,
+family,Famille taxonomique,character,,decoded_external,species_taxonomy_crosswalk.csv,family,Appariement revu,,NA tant que non apparié,taxonomy_not_reviewed,
+vascan_taxon_id,Identifiant taxonomique VASCAN,character,,decoded_external,species_taxonomy_crosswalk.csv,vascan_taxon_id,Aucune après revue,,NA si non apparié,,Version de VASCAN requise
+quebec_status,Statut de répartition au Québec,character,,decoded_external,VASCAN crosswalk,quebec_status,Aucune après revue,native;introduced;etc.,NA si non apparié,,
+taxonomy_match_method,Méthode d'appariement taxonomique,character,,provenance,species_taxonomy_crosswalk.csv,taxonomy_match_method,Appariement exact versionné ou décision manuelle,exact_vernacular_vascan;exact_scientific_name_vascan;manual;unmatched_reference;ambiguous_reference,NA si non apparié,,Aucun fuzzy match silencieux
+taxonomy_match_status,Statut de revue taxonomique,character,,quality_metadata,species_taxonomy_crosswalk.csv,taxonomy_match_status,Aucune,reviewed;exact_code;needs_review,NA si non apparié,taxonomy_not_reviewed,
+diameter_mm,DHP brut,double,mm,observed,DENDRO_ARBRES,DHP,Conversion numérique seulement,,NA conservé,<=0 invalide; >300 cm suspect après conversion,Diamètre à hauteur de poitrine
+diameter_cm,DHP harmonisé,double,cm,derived_unit_conversion,DENDRO_ARBRES,DHP,diameter_mm / 10,,NA si DHP manquant,<=0 signalé; >300 cm suspect,Aucune imputation
+height_observed_dm,Hauteur observée brute,double,dm,observed,DENDRO_ARBRES_ETUDES/DENDRO_ARBRES,HAUT_ARBRE,Priorité à la table des arbres d'étude,,NA fréquent et protocolaire,<=0 invalide; >70 m suspect après conversion,
+height_observed_m,Hauteur observée harmonisée,double,m,derived_unit_conversion,DENDRO_ARBRES_ETUDES/DENDRO_ARBRES,HAUT_ARBRE,height_observed_dm / 10,,NA si arbre non mesuré,<=0 signalé; >70 m suspect,
+height_estimated_dm,Hauteur estimée brute,double,dm,observed_estimate,DENDRO_ARBRES,HAUT_ESTI,Conversion numérique seulement,,NA permis,<=0 signalé,"Estimation source, pas observation"
+height_estimated_m,Hauteur estimée harmonisée,double,m,derived_unit_conversion,DENDRO_ARBRES,HAUT_ESTI,height_estimated_dm / 10,,NA permis,<=0 signalé,
+height_m,Hauteur analytique avec provenance,double,m,derived,multiple,HAUT_ARBRE;HAUT_ESTI,"coalesce(height_observed_m,height_estimated_m)",,NA si aucune hauteur,Toujours interpréter avec height_source,
+height_source,Origine de height_m,character,,derived_provenance,multiple,HAUT_ARBRE;HAUT_ESTI,observed si hauteur observée; sinon estimated; sinon missing,observed;estimated;missing,Jamais manquant,estimated signalé,
+age_years,Âge mesuré,double,années,observed,DENDRO_ARBRES_ETUDES/DENDRO_ARBRES,AGE,Priorité à la table des arbres d'étude,,NA fréquent,<0 invalide; >500 suspect,Âge publié par le MRNF au niveau de lecture de la carotte; pas nécessairement âge total. Voir SOURCE_AGE et NIVLECTAGE dans la provenance. Aucune imputation par le pipeline.
+age_class,Classe d'âge pédagogique,ordered factor,années,derived,age_years,AGE,"Bornes fixes <20,20–<40,40–<60,60–<80,80–<100,≥100",six classes,NA si âge manquant,,Ne remplace pas les classes officielles
+age_source_code,Code de source de l'âge,character,,observed,DENDRO_ARBRES_ETUDES/DENDRO_ARBRES,SOURCE_AGE,Aucune,dictionnaire SOURCE_AGE,NA si âge/source absent,,
+crown_class,Classe de cime,character,,unknown,,,Toujours NA dans la version initiale,,Toujours NA,,ETAGE_ARB n'est pas renommé en classe de cime
+canopy_stratum_code,Code d'étage de l'arbre,character,,observed,DENDRO_ARBRES,ETAGE_ARB,Code conservé,dictionnaire ETAGE,NA permis,,
+canopy_stratum,Étage relatif de l'arbre,character,,decoded,DICTIONNAIRE_PLACETTE.xlsx,ETAGE,Jointure exacte,Dominant;Codominant;Intermédiaire;Opprimé;etc.,NA si code absent/inconnu,,
+vitality_code,Code d'état de l'arbre,character,,observed,DENDRO_ARBRES,ETAT,Conversion en texte,dictionnaire ETAT,NA permis,,
+vitality_status,État vital décodé,character,,decoded,DICTIONNAIRE_PLACETTE.xlsx,ETAT,Jointure exacte,Vivant;Mort;Chicot;etc.,NA si code absent/inconnu,,Ne pas réduire automatiquement à vivant/mort
+cl_defol,Classe de défoliation source,character,,observed,DENDRO_ARBRES,CL_DEFOL,Code conservé,dictionnaire MRNF,NA permis,,Protocoles variables
+defol_min,Défoliation minimale,double,% ou classe source,observed,DENDRO_ARBRES,DEFOL_MIN,Conversion numérique,,NA permis,Bornes à vérifier selon norme,Principalement PEP
+defol_max,Défoliation maximale,double,% ou classe source,observed,DENDRO_ARBRES,DEFOL_MAX,Conversion numérique,,NA permis,Bornes à vérifier selon norme,Principalement PEP
+cl_qual,Classe de qualité de tige,character,,observed,DENDRO_ARBRES,CL_QUAL,Code conservé,dictionnaire MRNF,NA permis,,Applicable à certains feuillus/pins
+is_study_tree,Indicateur d'arbre d'étude,logical,,derived_from_join,DENDRO_ARBRES_ETUDES,clé arbre,TRUE si clé présente dans la table d'étude,TRUE;FALSE,Jamais manquant,,Explique la disponibilité de hauteur/âge
+study_selection_method,Méthode de sélection de l'arbre d'étude,character,,observed,DENDRO_ARBRES_ETUDES,MET_SELEC,Code conservé,dictionnaire MET_DE_SELECTION,NA hors arbres d'étude,,
+region,Région administrative,character,,unknown,,,Toujours NA sans jointure spatiale externe,,Toujours NA dans v0.1,,Ne pas déduire du feuillet
+ecological_region_code,Code de région écologique,character,,observed,CLASSI_ECO_PE,REG_ECO,Aucune,dictionnaire REG_ECO,NA permis,,
+ecological_region,Nom de région écologique,character,,decoded,DICTIONNAIRE_PLACETTE.xlsx,REG_ECO,Jointure exacte,,NA si code absent/inconnu,,
+ecological_subregion_code,Code de sous-région écologique,character,,observed,CLASSI_ECO_PE,SREG_ECO,Aucune,dictionnaire SREG_ECO,NA permis,,
+bioclimatic_domain_code,Code de domaine bioclimatique,character,,observed,CLASSI_ECO_PE,DOM_BIO,Aucune,dictionnaire DOM_BIO,NA permis,,
+bioclimatic_domain,Nom de domaine bioclimatique,character,,decoded,DICTIONNAIRE_PLACETTE.xlsx,DOM_BIO,Jointure exacte,,NA si code absent/inconnu,,
+ecological_district_code,Code de district écologique,character,,observed,CLASSI_ECO_PE,DIS_ECO,Aucune,dictionnaire DIS_ECO,NA permis,,
+latitude,Latitude de placette,double,degrés décimaux,observed,PLACETTE,LATITUDE,Conversion numérique,,NA à signaler,"[-90,90] à contrôler","Coordonnée de placette, pas de l'arbre"
+longitude,Longitude de placette,double,degrés décimaux,observed,PLACETTE,LONGITUDE,Conversion numérique,,NA à signaler,"[-180,180] à contrôler","Coordonnée de placette, pas de l'arbre"
+map_sheet,Feuillet cartographique,character,,observed,PLACETTE,FEUILLET,Aucune,,NA permis,,
+diameter_group,Groupe de diamètre pédagogique,ordered factor,cm,derived,diameter_cm,DHP,"Bornes fixes <10,10–<20,20–<30,30–<40,≥40",cinq classes,NA si diamètre manquant,,"Bornes didactiques, non norme sylvicole"
+height_group,Groupe de hauteur pédagogique,ordered factor,m,derived,height_m,HAUT_ARBRE;HAUT_ESTI,"Bornes fixes <5,5–<10,10–<15,15–<20,≥20",cinq classes,NA si hauteur manquante,,Bornes didactiques
+species_group,Groupe taxonomique ou fonctionnel,character,,derived_external,species_taxonomy_crosswalk.csv,species_group,Valeur revue dans le crosswalk,conifer;deciduous;other,NA si non apparié,,Ne pas inférer du code seul
+is_conifer,Indicateur résineux,logical,,derived_external,species_taxonomy_crosswalk.csv,is_conifer,Valeur revue taxonomiquement,TRUE;FALSE,NA si inconnu,,
+is_deciduous,Indicateur feuillu,logical,,derived_external,species_taxonomy_crosswalk.csv,is_deciduous,Valeur revue taxonomiquement,TRUE;FALSE,NA si inconnu,,Peut être FALSE pour espèces non classées comme arbre feuillu
+basal_area_m2,Surface terrière de la tige,double,m²,derived,diameter_cm,DHP,pi * (diameter_cm / 200)^2,,NA si diamètre manquant/non positif,Comparer au champ source si disponible,Déterministe à partir du DHP
+basal_area_source_m2,Surface terrière source convertie,double,m²,observed_unit_conversion,DENDRO_ARBRES,ST_TIGE,ST_TIGE / 10000,,NA si ST_TIGE absent,,Surtout PEP
+basal_area_difference_m2,Écart surface terrière source-calculée,double,m²,derived_validation,multiple,ST_TIGE;DHP,basal_area_source_m2 - basal_area_m2,,NA si l'une manque,Écart important à examiner,"Contrôle, pas prédicteur"
+measurement_source,Libellé de source de mesure,character,,provenance,manifest,source_id,MRNF_ + source_inventory,,Jamais manquant,,
+source_file,Nom du GeoPackage source,character,,provenance,filesystem,filename,basename du fichier,,Jamais manquant,,
+source_file_sha256,Empreinte du GeoPackage,character,SHA-256,provenance,filesystem,file bytes,digest SHA-256,64 caractères hexadécimaux,Jamais manquant,,Permet une reconstruction exacte
+source_table,Table source principale,character,,provenance,GeoPackage,table name,Constante DENDRO_ARBRES,DENDRO_ARBRES,Jamais manquant,,
+source_variable_names,Champs sources majeurs,character,,provenance,GeoPackage,field names,Liste séparée par point-virgule,,Jamais manquant,,Complète le dictionnaire détaillé
+species_is_aggregate,Code d'essence non spécifique,logical,,derived_quality,ESSENCES + exclusions,species_fr;species_code,Règles textuelles prudentes ou exclusion revue,TRUE;FALSE,Jamais manquant,aggregate_or_unresolved_species_code,Révision humaine requise avant publication
+data_quality_flag,Indicateurs de qualité,character,,derived_quality,multiple,multiple,Concaténation de drapeaux séparés par ;,liste documentée,NA signifie aucun drapeau selon les règles actuelles,,Un drapeau n'entraîne pas suppression automatique
+observation_quality,Classe synthétique d'observation,character,,derived_quality,multiple,multiple,A: hauteur observée+taxonomie revue; B: hauteur observée; C: hauteur estimée; D: diamètre seul; review/insufficient,A_observed_taxonomy_reviewed;B_observed_height;C_estimated_height;D_diameter_only;review_required;insufficient,Jamais manquant,,"Classe documentaire, pas score scientifique validé"
+notes,Notes de curation,character,,curation,multiple,,Texte explicatif,,NA permis,,N'ajoute aucune donnée biologique
+species,Cible de la petite version,character,,derived_label,species_fr/species_code,,species_fr si disponible sinon code,,Jamais manquant dans small,,Seulement dans arbres_quebec_small.csv
+small_sampling_seed,Graine de l'échantillonnage,integer,,provenance,script,SMALL_SEED,Constante d'exécution,,Jamais manquant dans small,,
+small_n_per_species,Effectif visé et obtenu par espèce,integer,observations,provenance,script,SMALL_N_PER_SPECIES,Minimum entre cible et plus petit effectif admissible,,Jamais manquant dans small,,
+small_sampling_rule,Règle d'échantillonnage,character,,provenance,script,,Description textuelle générée,,Jamais manquant dans small,,

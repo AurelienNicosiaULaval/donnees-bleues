@@ -23,7 +23,7 @@ Activité adaptée des [premiers pas de la version 1.0.0 d’Arbres du Québec](
 
 ## Préparation enseignante
 
-Télécharger la trousse ci-dessous, la décompresser et ouvrir `Donnees-bleues.Rproj`. Avant la séance, ouvrir `installer-packages.R` et cliquer sur Source avec une connexion Internet. Les données sont ensuite utilisables hors ligne.
+Télécharger la trousse ci-dessous, la décompresser et ouvrir `Donnees-bleues.Rproj`. Avant la séance, ouvrir `installer-packages.R` et cliquer sur Source avec une connexion Internet. Les données sont ensuite utilisables hors ligne. Pour recharger la copie datée des 200 arbres, exécuter `datasets/arbres-quebec/rejouer-api.R`, puis l’activité dans la même session R. Cette copie ne suffit pas à refaire le tirage. Le script `actualiser-api.R` repère et télécharge le fichier PET5 (environ 479 Mo) puis refait le traitement avec le dictionnaire de référence inclus. Le fichier complet demeure local. Pour utiliser une copie locale du PET5, définir `DB_ARBRES_PET5` avec son chemin avant d’exécuter `recalculer-api.R`.
 
 ```{r}
 #| echo: false

@@ -62,6 +62,21 @@ publication:
       - datasets/arbres-quebec/DATA_LICENSES.md
       - datasets/arbres-quebec/LICENCE-SOURCE.md
       - datasets/arbres-quebec/DICTIONNAIRE.md
+    api_reference_is_default: false
+    api_files:
+      - datasets/arbres-quebec/preparation-api.R
+      - datasets/arbres-quebec/actualiser-api.R
+      - datasets/arbres-quebec/recalculer-api.R
+      - datasets/arbres-quebec/rejouer-api.R
+      - datasets/arbres-quebec/snapshots/20261110T200718Z/source-api.zip
+      - datasets/arbres-quebec/snapshots/20261110T200718Z/source-api.zip.sha256
+      - datasets/arbres-quebec/pipeline-reference/R/helpers_io.txt
+      - datasets/arbres-quebec/pipeline-reference/R/helpers_validation.txt
+      - datasets/arbres-quebec/pipeline-reference/data_dictionary.csv
+      - datasets/arbres-quebec/pipeline-reference/data_raw/PET5/DICTIONNAIRE_PLACETTE.xlsx
+      - datasets/arbres-quebec/pipeline-reference/references/species_code_exclusions.csv
+      - datasets/arbres-quebec/pipeline-reference/references/species_taxonomy_crosswalk.csv
+      - datasets/arbres-quebec/pipeline-reference/scripts/02_clean_botanical_data.txt
     files:
       - path: data/processed/arbres-quebec/arbres_quebec_small.csv
         columns: [species, species_code, species_fr, species_latin, genus, family, diameter_cm, height_m, age_years, basal_area_m2, canopy_stratum, ecological_region, survey_year, plot_id, tree_id, record_id, data_quality_flag, observation_quality, small_sampling_seed, small_n_per_species, small_sampling_rule]
@@ -73,7 +88,7 @@ chart:
   y_label: Hauteur observée (m)
   title: Diamètre et hauteur dans l’extrait pédagogique
 date_added: "2026-09-05"
-date_updated: "2026-09-13"
+date_updated: "2026-11-10"
 
 summary: 200 arbres provenant de 200 placettes du Québec. Les mesures comprennent le diamètre, la hauteur observée
   et l’âge lorsqu’il est disponible.

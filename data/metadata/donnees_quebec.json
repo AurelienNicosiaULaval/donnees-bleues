@@ -2438,6 +2438,87 @@
     },
     {
       "status": "verified",
+      "requested_url": "https://www.donneesquebec.ca/recherche/dataset/vmtl-interventions-service-securite-incendie-montreal",
+      "aliases": "vmtl-interventions-service-securite-incendie-montreal",
+      "package_id": "2fc8a2b9-1556-410e-a118-c46e97e9f19e",
+      "package_name": "vmtl-interventions-service-securite-incendie-montreal",
+      "page_url": "https://www.donneesquebec.ca/recherche/dataset/vmtl-interventions-service-securite-incendie-montreal",
+      "title": "Interventions des pompiers de Montréal",
+      "citation": "VILLE DE MONTRÉAL. Interventions des pompiers de Montréal, [Jeu de données], dans Données Québec, 2020, mis à jour le 10 novembre 2026. [https://www.donneesquebec.ca/recherche/dataset/vmtl-interventions-service-securite-incendie-montreal], (consulté le 10 novembre 2026).",
+      "verified_at_utc": "2026-11-10T19:59:50Z",
+      "page_sha256": "803c0977a88659e58a7b412a22804ca782090fe6f150917752387be2692aa43a",
+      "license_title": "Attribution (CC-BY 4.0)",
+      "license_url": "https://www.donneesquebec.ca/licence/#cc-by",
+      "metadata_modified": "2026-11-10T05:02:54.842763",
+      "resources": [
+        {
+          "id": "71e86320-e35c-4b4c-878a-e52124294355",
+          "name": "Interventions du SIM - courant (2 dernières années)",
+          "format": "CSV",
+          "url": "https://donnees.montreal.ca/dataset/2fc8a2b9-1556-410e-a118-c46e97e9f19e/resource/71e86320-e35c-4b4c-878a-e52124294355/download/donneesouvertes-interventions-sim.csv",
+          "datastore_active": true
+        },
+        {
+          "id": "c42ff083-3002-4abe-aee3-951d17586dac",
+          "name": "Interventions du SIM - courant (2 dernières années)",
+          "format": "GeoJSON",
+          "url": "https://donnees.montreal.ca/dataset/2fc8a2b9-1556-410e-a118-c46e97e9f19e/resource/c42ff083-3002-4abe-aee3-951d17586dac/download/interventions-sim.json",
+          "datastore_active": false
+        },
+        {
+          "id": "c08b5a11-549f-409d-9d2a-04eb3a10b66a",
+          "name": "Interventions du SIM - courant (2 dernières années)",
+          "format": "SHP",
+          "url": "https://donnees.montreal.ca/dataset/2fc8a2b9-1556-410e-a118-c46e97e9f19e/resource/c08b5a11-549f-409d-9d2a-04eb3a10b66a/download/interventions-sim.zip",
+          "datastore_active": false
+        },
+        {
+          "id": "4a46d93f-9fd9-4cce-8952-424918edeafe",
+          "name": "Interventions du SIM - 2020 à 2024",
+          "format": "CSV",
+          "url": "https://donnees.montreal.ca/dataset/2fc8a2b9-1556-410e-a118-c46e97e9f19e/resource/4a46d93f-9fd9-4cce-8952-424918edeafe/download/donneesouvertes-interventions-sim2020.csv",
+          "datastore_active": true
+        },
+        {
+          "id": "63d406e8-b1c9-410e-a9c7-40d248fe9f94",
+          "name": "Interventions du SIM - 2020 à 2024",
+          "format": "GeoJSON",
+          "url": "https://donnees.montreal.ca/dataset/2fc8a2b9-1556-410e-a118-c46e97e9f19e/resource/63d406e8-b1c9-410e-a9c7-40d248fe9f94/download/interventions-sim2020.json",
+          "datastore_active": false
+        },
+        {
+          "id": "bc5a4f4b-dbcd-4aeb-99b1-49b764848567",
+          "name": "Interventions du SIM - 2020 à 2024",
+          "format": "SHP",
+          "url": "https://donnees.montreal.ca/dataset/2fc8a2b9-1556-410e-a118-c46e97e9f19e/resource/bc5a4f4b-dbcd-4aeb-99b1-49b764848567/download/interventions-sim2020.zip",
+          "datastore_active": false
+        },
+        {
+          "id": "005e4eb6-0377-45bf-a911-7077fd3b5ed0",
+          "name": "Interventions du SIM - 2015 à 2022",
+          "format": "CSV",
+          "url": "https://donnees.montreal.ca/dataset/2fc8a2b9-1556-410e-a118-c46e97e9f19e/resource/005e4eb6-0377-45bf-a911-7077fd3b5ed0/download/donneesouvertes-interventions-sim_2015_2022.csv",
+          "datastore_active": true
+        },
+        {
+          "id": "0a778ac0-9b5a-42cb-8557-167f7f9b8feb",
+          "name": "Interventions du SIM - 2005 à 2014",
+          "format": "CSV",
+          "url": "https://donnees.montreal.ca/dataset/2fc8a2b9-1556-410e-a118-c46e97e9f19e/resource/0a778ac0-9b5a-42cb-8557-167f7f9b8feb/download/donneesouvertes-interventions-sim-2005-2014.csv",
+          "datastore_active": true
+        },
+        {
+          "id": "4f236894-3fdc-4b04-8d11-80f451ffd70d",
+          "name": "Tableau concordance : Type incident - Description",
+          "format": "CSV",
+          "url": "https://donnees.montreal.ca/dataset/2fc8a2b9-1556-410e-a118-c46e97e9f19e/resource/4f236894-3fdc-4b04-8d11-80f451ffd70d/download/type-interventions-descriptions20161122.csv",
+          "datastore_active": true
+        }
+      ],
+      "dataset_ids": "interventions-pompiers-montreal"
+    },
+    {
+      "status": "verified",
       "requested_url": "https://www.donneesquebec.ca/recherche/dataset/061c8cb7-ca4e-45be-a990-61fce7e7d2dc",
       "aliases": ["roles-d-evaluation-fonciere-du-quebec", "061c8cb7-ca4e-45be-a990-61fce7e7d2dc"],
       "package_id": "061c8cb7-ca4e-45be-a990-61fce7e7d2dc",

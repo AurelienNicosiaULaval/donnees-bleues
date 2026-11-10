@@ -7,7 +7,7 @@ library(dplyr)
 library(readr)
 library(ggplot2)
 
-donnees <- read_csv("data/processed/interventions-pompiers-montreal/interventions_pompiers_montreal.csv", show_col_types = FALSE)
+donnees <- read_csv(Sys.getenv("DB_POMPIERS_SNAPSHOT", unset = "data/processed/interventions-pompiers-montreal/interventions_pompiers_montreal.csv"), show_col_types = FALSE)
 stopifnot(nrow(donnees) > 0)
 
 resume <- donnees |> count(description_groupe, sort = TRUE)

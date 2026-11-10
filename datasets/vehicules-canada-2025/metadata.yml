@@ -48,7 +48,7 @@ contributor_name: Aurélien Nicosia
 contributor_role: Construction du jeu dérivé, de l’activité et de son adaptation à Données bleues
 courses: []
 date_added: '2026-09-07'
-date_updated: "2026-09-13"
+date_updated: "2026-11-10"
 publication:
   preview: true
   reviewed_on: '2026-09-07'
@@ -62,6 +62,14 @@ publication:
       - datasets/vehicules-canada-2025/DATA_LICENSES.md
       - datasets/vehicules-canada-2025/LICENCE-SOURCE.md
       - datasets/vehicules-canada-2025/DICTIONNAIRE.md
+    api_reference_is_default: false
+    api_files:
+      - datasets/vehicules-canada-2025/preparation-api.R
+      - datasets/vehicules-canada-2025/actualiser-api.R
+      - datasets/vehicules-canada-2025/rejouer-api.R
+      - datasets/vehicules-canada-2025/saaq-fuel-codes.csv
+      - datasets/vehicules-canada-2025/snapshots/20261110T200805Z/source-api.zip
+      - datasets/vehicules-canada-2025/snapshots/20261110T200805Z/source-api.zip.sha256
     files:
       - path: data/processed/vehicules-canada-2025/vehicules_canada_2025.csv
         columns: [vehicle_id, make, model, model_year, vehicle_class, vehicle_class_group, engine_size_l, cylinders, transmission, transmission_type, fuel_type, city_l_per_100km, highway_l_per_100km, combined_l_per_100km, combined_mpg_imperial, combined_mpg_us, co2_g_per_km, co2_rating, smog_rating]

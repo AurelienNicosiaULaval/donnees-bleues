@@ -4,6 +4,8 @@ short_title: "Interventions SIM"
 theme: "Sécurité publique"
 source_name: "Données ouvertes de la Ville de Montréal / Service de sécurité incendie de Montréal"
 source_url: "https://donnees.montreal.ca/fr/dataset/interventions-service-securite-incendie-montreal"
+source_donnees_quebec_url: "https://www.donneesquebec.ca/recherche/dataset/vmtl-interventions-service-securite-incendie-montreal"
+source_api_url: "https://www.donneesquebec.ca/recherche/api/3/action/package_show?id=vmtl-interventions-service-securite-incendie-montreal"
 license: "Attribution (CC-BY 4.0)"
 access_date: "2026-06-21"
 geography: "Agglomération de Montréal"
@@ -101,6 +103,13 @@ publication:
     mode: frozen
     reason: Table de classe limitée aux colonnes déclarées, sans tirage supplémentaire de lignes. Attribution
       et conditions tierces conservées.
+    api_reference_is_default: false
+    api_files:
+    - datasets/interventions-pompiers-montreal/preparation-api.R
+    - datasets/interventions-pompiers-montreal/actualiser-api.R
+    - datasets/interventions-pompiers-montreal/rejouer-api.R
+    - datasets/interventions-pompiers-montreal/snapshots/20261110T200055Z/source-api.zip
+    - datasets/interventions-pompiers-montreal/snapshots/20261110T200055Z/source-api.zip.sha256
     files:
     - path: data/processed/interventions-pompiers-montreal/interventions_pompiers_montreal.csv
       columns:
@@ -116,7 +125,7 @@ chart:
   y_label: Groupe d’intervention
   title: Groupes d’interventions de l’extrait
 date_added: "2026-06-21"
-date_updated: "2026-09-13"
+date_updated: "2026-11-10"
 
 summary: Interventions consignées par le Service de sécurité incendie de Montréal, avec le type d’événement, la
   date et une localisation approximative.
