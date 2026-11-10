@@ -132,3 +132,21 @@ Le formulaire de contribution fonctionne avec un brouillon courriel sans compte 
 La [charte éditoriale](charte-editoriale.qmd) précise le contenu des fiches et des activités. Les résumés, périodes, limites essentielles et producteurs sont renseignés dans `metadata.yml`. Les composants communs affichent les accès et les crédits; ne pas les recopier dans les textes.
 
 Les filtres des catalogues utilisent les regroupements explicites de `data/metadata/navigation.yml`, appliqués par `R/utils_catalogue_filters.R`. Les sujets et notions détaillés restent dans leurs métadonnées d’origine et dans le texte recherché. Lors d’un ajout, vérifier que son sujet est classé et que ses notions rejoignent les familles pertinentes; les termes de contexte sont déclarés dans `search_tags`. Les niveaux utilisent les identifiants de la taxonomie existante. Les dates de tri viennent des notices; une modification de la navigation ne les actualise pas.
+
+
+## Citations et acquisitions Données Québec
+
+`data/metadata/donnees_quebec.json` conserve les citations officielles, leurs dates de vérification, les ressources et les liens avec les jeux locaux, y compris les sources multiples et dérivées. Les composants partagés les affichent dans les fiches et activités sans appel réseau. Les trousses contiennent `CITATIONS.md` et `acquerir-donnees-quebec.R`; les dates des données préparées sont conservées.
+
+```sh
+Rscript --vanilla scripts/collect_donnees_quebec.R
+Rscript --vanilla tests/test-donnees-quebec.R
+Rscript --vanilla scripts/acquire_donnees_quebec.R bibliotheques-quebec
+Rscript --vanilla scripts/acquire_donnees_quebec.R bibliotheques-quebec 01183d3e-c79c-4d09-915c-f35ffe4dfda8
+```
+
+La première commande actualise la documentation et requiert une revue du registre. La dernière acquiert la ressource 2024 dans un nouveau dossier, sans changer les données de classe. Les données API sont importées en texte pour préserver les identifiants; les conversions et transformations d’analyse restent explicites. Les pages JSON et les reçus permettent une réutilisation contrôlée hors ligne avec `DB_OFFLINE=true`. Une collecte paginée ne garantit pas une transaction atomique du serveur.
+
+Après révision du registre ou des fonctions d’acquisition, reconstruire les trousses depuis les sources préparées avec `scripts/build_classroom_kits.R`. Lorsque seules les archives distribuées sont disponibles, `scripts/update_dq_kits.R` ajoute la documentation et les scripts, vérifie que les analyses, données et licences sont identiques, puis recalcule les manifestes. Exécuter ensuite `scripts/check_classroom_kits.R`. Cette opération ne constitue pas une nouvelle préparation des données.
+
+Toute nouvelle source Données Québec doit être recensée, avoir sa citation officielle vérifiée et préciser son mode d’accès. `tests/test-donnees-quebec.R` signale les références découvertes sans notice. Les conditions propres au producteur et les attributions des adaptations restent applicables.

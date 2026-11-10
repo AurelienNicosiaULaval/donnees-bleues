@@ -37,6 +37,26 @@ for (page in pages) {
     }
   }
 }
+# Vérifier les références complètes, après la typographie automatique de Quarto.
+source('R/utils_donnees_quebec.R')
+registry <- dq_read_registry()
+dq_validate_registry(registry)
+normalize_citation <- function(x) trimws(gsub('[[:space:]]+', ' ', chartr('’‘“”', '\'\'""', x)))
+citation_pages <- 0L
+for (page in pages) {
+  relative <- substring(page, nchar(root) + 2L)
+  id <- if (startsWith(relative, 'datasets/')) strsplit(relative, '/', fixed = TRUE)[[1]][[2]] else
+    if (startsWith(relative, 'resources/')) sub('[.]html$', '', basename(relative)) else
+      if (identical(relative, 'demonstrations/01-ilots-chaleur.html')) 'demonstration-ilots-chaleur' else ''
+  entries <- dq_sources(id, registry)
+  if (!length(entries)) next
+  text <- normalize_citation(xml2::xml_text(documents[[page]]))
+  for (entry in entries) if (!grepl(normalize_citation(entry$citation), text, fixed = TRUE))
+    errors <- c(errors, paste(page, 'citation Données Québec absente :', entry$page_url))
+  citation_pages <- citation_pages + 1L
+}
+cat(citation_pages, 'pages : références Données Québec contrôlées.\n')
+
 # Exact archive and receipt bytes must be the ones that passed the classroom checks.
 for (source in list.files('assets/classroom', pattern = '[.]zip([.]json)?$', full.names = TRUE)) {
   dest <- file.path('docs', source)

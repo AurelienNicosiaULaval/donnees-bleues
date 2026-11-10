@@ -9,25 +9,67 @@
   "original_licenses": {
     "code": "MIT",
     "content": "CC-BY-4.0",
-    "notices": ["LICENSE", "LICENCE-CONTENUS.md", "datasets/vehicules-canada-2025/DATA_LICENSES.md", "datasets/vehicules-canada-2025/LICENCE-SOURCE.md", "datasets/vehicules-canada-2025/DICTIONNAIRE.md"]
+    "notices": [
+      "LICENSE",
+      "LICENCE-CONTENUS.md",
+      "datasets/vehicules-canada-2025/DATA_LICENSES.md",
+      "datasets/vehicules-canada-2025/LICENCE-SOURCE.md",
+      "datasets/vehicules-canada-2025/DICTIONNAIRE.md"
+    ]
   },
   "selection": "Les 64 configurations et leurs 19 colonnes sont conservées. Le tableau SAAQ distinct conserve ses 152 groupes et 5 colonnes. Aucune nouvelle sélection, imputation ou jointure.",
   "tables": [
     {
       "path": "data/processed/vehicules-canada-2025/vehicules_canada_2025.csv",
       "rows": 64,
-      "columns": ["vehicle_id", "make", "model", "model_year", "vehicle_class", "vehicle_class_group", "engine_size_l", "cylinders", "transmission", "transmission_type", "fuel_type", "city_l_per_100km", "highway_l_per_100km", "combined_l_per_100km", "combined_mpg_imperial", "combined_mpg_us", "co2_g_per_km", "co2_rating", "smog_rating"],
+      "columns": [
+        "vehicle_id",
+        "make",
+        "model",
+        "model_year",
+        "vehicle_class",
+        "vehicle_class_group",
+        "engine_size_l",
+        "cylinders",
+        "transmission",
+        "transmission_type",
+        "fuel_type",
+        "city_l_per_100km",
+        "highway_l_per_100km",
+        "combined_l_per_100km",
+        "combined_mpg_imperial",
+        "combined_mpg_us",
+        "co2_g_per_km",
+        "co2_rating",
+        "smog_rating"
+      ],
       "sha256": "170b7d662fe7ccf98ccf54c2a0e127648da36d0cb2d8554c5b7d39cefe238260",
       "prepared_table_sha256": "170b7d662fe7ccf98ccf54c2a0e127648da36d0cb2d8554c5b7d39cefe238260"
     },
     {
       "path": "data/processed/vehicules-canada-2025/parc_quebec_2022.csv",
       "rows": 152,
-      "columns": ["saaq_snapshot_year", "region_qc", "saaq_fuel_code", "saaq_fuel_type", "number_registered_qc"],
+      "columns": [
+        "saaq_snapshot_year",
+        "region_qc",
+        "saaq_fuel_code",
+        "saaq_fuel_type",
+        "number_registered_qc"
+      ],
       "sha256": "b576ef8f9c1b3c9818d2f70fbc7a87e90a4f8343261521e88f8c60438a901108",
       "prepared_table_sha256": "4fb91d7190b9c6c62d97c2d23168a1c318206a969bfe3d255bc0d1c42cf30dca"
     }
   ],
-  "archive_sha256": "8ebbf2d902613ce82932a3444c0c9a340e32008f43bd3122e169772d5c1e6579",
-  "archive_bytes": 17239
+  "archive_sha256": "b264dcfed4b0cc84c8dac02d80f5453cf0f4ceb203d234d993d005eb19e97b4d",
+  "archive_bytes": 29478,
+  "donnees_quebec": [
+    {
+      "page_url": "https://www.donneesquebec.ca/recherche/dataset/vehicules-en-circulation",
+      "citation": "SOCIÉTÉ DE L'ASSURANCE AUTOMOBILE DU QUÉBEC (SAAQ). Véhicules en circulation, [Jeu de données], dans Données Québec, 2017, mis à jour le 18 décembre 2023. [https://www.donneesquebec.ca/recherche/dataset/vehicules-en-circulation], (consulté le 10 novembre 2026).",
+      "verified_at_utc": "2026-11-10T13:28:51Z",
+      "license_title": "Attribution (CC-BY 4.0)",
+      "license_url": "https://www.donneesquebec.ca/licence/#cc-by"
+    }
+  ],
+  "documentation_updated_on": "2026-11-10"
 }

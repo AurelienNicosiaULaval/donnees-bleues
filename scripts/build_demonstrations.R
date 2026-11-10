@@ -11,6 +11,8 @@ local({
       digest::digest(file = path, algo = "sha256") == manifest$sha256[i])
   }
 
+  source('R/utils_donnees_quebec.R', local = TRUE)
+  dq_write_kit_resources(input_dir, 'demonstration-ilots-chaleur')
   previous_dir <- setwd(input_dir)
   on.exit(setwd(previous_dir))
   status <- system2("quarto", c("render", "--execute", "--no-cache"))
@@ -22,7 +24,8 @@ local({
   package_files <- c(paste0(stems, ".qmd"), paste0(stems, ".html"),
     "_quarto.yml", "_navigation.html", "styles.css", "INSTALLER.R", "README.md",
     "PROVENANCE.md", "LICENSE-CODE", "ENVIRONNEMENT.txt", "Demonstrations-Donnees-bleues.Rproj",
-    list.files("data", full.names = TRUE), list.files("sources", full.names = TRUE))
+    list.files("data", full.names = TRUE, recursive = TRUE), list.files("sources", full.names = TRUE),
+    setdiff(dq_kit_paths(), "data/metadata/donnees_quebec.json"))
   stopifnot(all(file.exists(package_files)), all(!dir.exists(package_files)))
   zip_path <- tempfile(fileext = ".zip")
   on.exit(unlink(zip_path), add = TRUE)

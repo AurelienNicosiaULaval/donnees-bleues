@@ -55,3 +55,15 @@ Les trois pages officielles ont répondu avec succès le 23 août 2026. Les lien
 ## Politique sur les outils génératifs
 
 Aucune exigence explicite de déclaration concernant les outils génératifs n'a été trouvée dans la page de renseignements, les normes de 2018 ou la politique de 2019 vérifiées le 23 août 2026. Cela ne prouve pas qu'aucune consigne plus récente ou communiquée directement aux auteurs n'existe. Une confirmation auprès de la rédaction reste indiquée au moment d'une éventuelle soumission.
+
+## Références Données Québec
+
+Citations des fiches officielles consultées à la date indiquée. Cette vérification documentaire ne constitue pas une nouvelle acquisition des données; les dates des fichiers et leurs transformations figurent dans les notices de provenance.
+
+BIXI MONTRÉAL. État des stations, [Jeu de données], dans Données Québec, 2016, mis à jour le 09 novembre 2026. [https://www.donneesquebec.ca/recherche/dataset/vmtl-bixi-etat-des-stations], (consulté le 10 novembre 2026).
+
+Licence de la fiche consultée : Attribution (CC-BY 4.0). [Fiche officielle](https://www.donneesquebec.ca/recherche/dataset/vmtl-bixi-etat-des-stations).
+
+SOCIÉTÉ DE L'ASSURANCE AUTOMOBILE DU QUÉBEC (SAAQ). Rapports d'accident, [Jeu de données], dans Données Québec, 2017, mis à jour le 18 décembre 2023. [https://www.donneesquebec.ca/recherche/dataset/rapports-d-accident], (consulté le 10 novembre 2026).
+
+Licence de la fiche consultée : Attribution (CC-BY 4.0). [Fiche officielle](https://www.donneesquebec.ca/recherche/dataset/rapports-d-accident).

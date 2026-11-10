@@ -9,18 +9,38 @@
   "original_licenses": {
     "code": "MIT",
     "content": "CC-BY-4.0",
-    "notices": ["LICENSE", "LICENCE-CONTENUS.md"]
+    "notices": [
+      "LICENSE",
+      "LICENCE-CONTENUS.md"
+    ]
   },
   "selection": "Table de classe limitée aux colonnes déclarées, sans tirage supplémentaire de lignes. Attribution et conditions tierces conservées.",
   "tables": [
     {
       "path": "data/processed/rapports-accident/rapports_accident_2022_prepares.csv",
       "rows": 108186,
-      "columns": ["annee", "gravite", "region_nom", "jour_semaine_code", "type_jour", "accident_avec_victime"],
+      "columns": [
+        "annee",
+        "gravite",
+        "region_nom",
+        "jour_semaine_code",
+        "type_jour",
+        "accident_avec_victime"
+      ],
       "sha256": "45ddaeff5620e780edb5909a5d2a1efb0e14ab4a3b905d880532205d2ad8cd89",
       "prepared_table_sha256": "b2f9d49a0627c692eb11dbd4e0849e3b545583dcb72c83ea1761937f6b6a8ec2"
     }
   ],
-  "archive_sha256": "20541fde39ef082df53a766581d84fd0c57067f0462cf31d327c9d4238dbc9a3",
-  "archive_bytes": 150623
+  "archive_sha256": "98c50f55ea39f4adc009fb834ca55cbcd3bfe17fa40c72f2ef57f8c2cbd664f5",
+  "archive_bytes": 135992,
+  "donnees_quebec": [
+    {
+      "page_url": "https://www.donneesquebec.ca/recherche/dataset/rapports-d-accident",
+      "citation": "SOCIÉTÉ DE L'ASSURANCE AUTOMOBILE DU QUÉBEC (SAAQ). Rapports d'accident, [Jeu de données], dans Données Québec, 2017, mis à jour le 18 décembre 2023. [https://www.donneesquebec.ca/recherche/dataset/rapports-d-accident], (consulté le 10 novembre 2026).",
+      "verified_at_utc": "2026-11-10T13:28:44Z",
+      "license_title": "Attribution (CC-BY 4.0)",
+      "license_url": "https://www.donneesquebec.ca/licence/#cc-by"
+    }
+  ],
+  "documentation_updated_on": "2026-11-10"
 }

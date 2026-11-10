@@ -1,0 +1,125 @@
+{
+  "schema_version": 1,
+  "verified_on": "2026-11-10",
+  "attribution_guidance": "https://www.donneesquebec.ca/licence/meilleures-pratiques-pour-donner-le-credit-dun-jeu/",
+  "api_documentation": "https://www.donneesquebec.ca/page-api/",
+  "sources": [
+    {
+      "status": "verified",
+      "requested_url": "https://www.donneesquebec.ca/recherche/dataset/8dd0ab9b-d45d-4526-9256-c598fbc4ff3a",
+      "aliases": [
+        "rapports-d-accident",
+        "8dd0ab9b-d45d-4526-9256-c598fbc4ff3a"
+      ],
+      "package_id": "8dd0ab9b-d45d-4526-9256-c598fbc4ff3a",
+      "package_name": "rapports-d-accident",
+      "page_url": "https://www.donneesquebec.ca/recherche/dataset/rapports-d-accident",
+      "title": "Rapports d'accident",
+      "citation": "SOCIÉTÉ DE L'ASSURANCE AUTOMOBILE DU QUÉBEC (SAAQ). Rapports d'accident, [Jeu de données], dans Données Québec, 2017, mis à jour le 18 décembre 2023. [https://www.donneesquebec.ca/recherche/dataset/rapports-d-accident], (consulté le 10 novembre 2026).",
+      "verified_at_utc": "2026-11-10T13:28:44Z",
+      "page_sha256": "9ca1e5e830797a48dd1522befc90b0a340030a6ec2239122086b099bc8e3769e",
+      "license_title": "Attribution (CC-BY 4.0)",
+      "license_url": "https://www.donneesquebec.ca/licence/#cc-by",
+      "metadata_modified": "2023-12-19T02:52:44.537047",
+      "resources": [
+        {
+          "id": "86cd3bcb-fe10-4ca5-992e-5bb80e5c534a",
+          "name": "Documentation sur les variables",
+          "format": "PDF",
+          "url": "https://www.donneesquebec.ca/recherche/dataset/8dd0ab9b-d45d-4526-9256-c598fbc4ff3a/resource/86cd3bcb-fe10-4ca5-992e-5bb80e5c534a/download/rapports-accident-documentation.pdf",
+          "datastore_active": false
+        },
+        {
+          "id": "be702e5c-a25e-421e-b00d-0360c73525f1",
+          "name": "Rapports d'accident, 2022",
+          "format": "CSV",
+          "url": "https://dq-prd-bucket1.s3.ca-central-1.amazonaws.com/saaq/Rapport_Accident_2022.csv",
+          "datastore_active": false
+        },
+        {
+          "id": "ada44698-f402-49aa-8524-26d224e61b49",
+          "name": "Rapports d'accident, 2021",
+          "format": "CSV",
+          "url": "https://dq-prd-bucket1.s3.ca-central-1.amazonaws.com/saaq/Rapport_Accident_2021.csv",
+          "datastore_active": false
+        },
+        {
+          "id": "50356277-13a1-49ce-9513-86a53bd234fc",
+          "name": "Rapports d'accident, 2020",
+          "format": "CSV",
+          "url": "https://dq-prd-bucket1.s3.ca-central-1.amazonaws.com/saaq/Rapport_Accident_2020.csv",
+          "datastore_active": false
+        },
+        {
+          "id": "a792a2fe-776f-4aa5-9a69-bf67227ada68",
+          "name": "Rapports d'accident, 2019",
+          "format": "CSV",
+          "url": "https://dq-prd-bucket1.s3.ca-central-1.amazonaws.com/saaq/Rapport_Accident_2019.csv",
+          "datastore_active": false
+        },
+        {
+          "id": "86cbda2c-3bb8-4efe-a397-17a33450618f",
+          "name": "Rapports d'accident, 2018",
+          "format": "CSV",
+          "url": "https://dq-prd-bucket1.s3.ca-central-1.amazonaws.com/saaq/Rapport_Accident_2018.csv",
+          "datastore_active": false
+        },
+        {
+          "id": "15470019-62a0-4e05-8c65-7c5e35d7dc8d",
+          "name": "Rapports d'accident, 2017",
+          "format": "CSV",
+          "url": "https://dq-prd-bucket1.s3.ca-central-1.amazonaws.com/saaq/Rapport_Accident_2017.csv",
+          "datastore_active": false
+        },
+        {
+          "id": "6de63859-2803-42f7-82a9-124dfe78eadf",
+          "name": "Rapports d'accident, 2016",
+          "format": "CSV",
+          "url": "https://dq-prd-bucket1.s3.ca-central-1.amazonaws.com/saaq/Rapport_Accident_2016.csv",
+          "datastore_active": false
+        },
+        {
+          "id": "5e970115-19f7-4dc7-8a20-13252b4ac5a1",
+          "name": "Rapports d'accident, 2015",
+          "format": "CSV",
+          "url": "https://dq-prd-bucket1.s3.ca-central-1.amazonaws.com/saaq/Rapport_Accident_2015.csv",
+          "datastore_active": false
+        },
+        {
+          "id": "ef09c2d9-84a0-4be5-98f8-311b03164f20",
+          "name": "Rapports d'accident, 2014",
+          "format": "CSV",
+          "url": "https://dq-prd-bucket1.s3.ca-central-1.amazonaws.com/saaq/Rapport_Accident_2014.csv",
+          "datastore_active": false
+        },
+        {
+          "id": "7cdb19ef-7151-484b-a6b7-509a14a4e612",
+          "name": "Rapports d'accident, 2013",
+          "format": "CSV",
+          "url": "https://dq-prd-bucket1.s3.ca-central-1.amazonaws.com/saaq/Rapport_Accident_2013.csv",
+          "datastore_active": false
+        },
+        {
+          "id": "6120b9e2-544c-445e-b773-94b673691b15",
+          "name": "Rapports d'accident, 2012",
+          "format": "CSV",
+          "url": "https://dq-prd-bucket1.s3.ca-central-1.amazonaws.com/saaq/Rapport_Accident_2012.csv",
+          "datastore_active": false
+        },
+        {
+          "id": "ae48049c-ab36-4e27-ab22-dc505c832ffe",
+          "name": "Rapports d'accident, 2011",
+          "format": "CSV",
+          "url": "https://dq-prd-bucket1.s3.ca-central-1.amazonaws.com/saaq/Rapport_Accident_2011.csv",
+          "datastore_active": false
+        }
+      ],
+      "dataset_ids": [
+        "rapports-accident",
+        "comprendre-p-valeur",
+        "permutations-accidents-quebec",
+        "article-amq-donnees-bleues"
+      ]
+    }
+  ]
+}

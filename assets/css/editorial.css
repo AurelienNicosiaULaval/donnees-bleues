@@ -133,3 +133,6 @@ body .tool-hero h1 {font-size: clamp(2rem,3.5vw,3.2rem);}
   .dataset-editorial .dataset-record-facts > div {display: grid; grid-template-columns: 5rem minmax(0,1fr); gap: .65rem;}
   .dataset-editorial .dataset-teacher-hero h1 {font-size: 2rem;}
 }
+
+/* Les URL des références restent lisibles sur une fenêtre étroite. */
+.dq-references { overflow-wrap: anywhere; }

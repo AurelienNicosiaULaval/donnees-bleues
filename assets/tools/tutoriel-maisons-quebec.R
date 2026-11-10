@@ -1,3 +1,5 @@
+# Références des fiches Données Québec consultées; les dates des données restent celles de leur provenance.
+# MINISTÈRE DES AFFAIRES MUNICIPALES ET DE L'HABITATION. Rôle d'évaluation foncière du Québec, [Jeu de données], dans Données Québec, 2022, mis à jour le 24 août 2026. [https://www.donneesquebec.ca/recherche/dataset/roles-d-evaluation-fonciere-du-quebec], (consulté le 10 novembre 2026).
 # Données bleues : tutoriel Maisons à Québec
 # Aurélien Nicosia (2026). Code MIT; données MAMH et contenus CC BY 4.0.
 # Valeurs au rôle 2025, référence au marché 2023-07-01, extraction 2026.

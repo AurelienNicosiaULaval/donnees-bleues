@@ -130,4 +130,7 @@ explorer_server <- function(input, output, session) {
     updateSliderInput(session, "bins", value = 30L)
   })
 }
+source("R/donnees_quebec_citations.R", local = TRUE)
+ui <- dq_app_citations(ui)
+
 shinyApp(ui, explorer_server)

@@ -9,18 +9,40 @@
   "original_licenses": {
     "code": "MIT",
     "content": "CC-BY-4.0",
-    "notices": ["LICENSE", "LICENCE-CONTENUS.md"]
+    "notices": [
+      "LICENSE",
+      "LICENCE-CONTENUS.md"
+    ]
   },
   "selection": "Table de classe limitée aux colonnes déclarées, sans tirage supplémentaire de lignes. Attribution et conditions tierces conservées.",
   "tables": [
     {
       "path": "data/processed/bibliotheques-quebec/statistiques_bibliotheques_quebec_2024_selection.csv",
       "rows": 188,
-      "columns": ["bibliotheque", "region_administrative", "population_desservie", "categorie_bibliotheque", "visites_total", "prets_total", "visites_par_habitant", "prets_par_habitant"],
+      "columns": [
+        "bibliotheque",
+        "region_administrative",
+        "population_desservie",
+        "categorie_bibliotheque",
+        "visites_total",
+        "prets_total",
+        "visites_par_habitant",
+        "prets_par_habitant"
+      ],
       "sha256": "837a01bf5bdad05a1f877bc59f97d9f481bc99562d50cb0cb1fef61e4c9ce64f",
       "prepared_table_sha256": "3a5211846ce1d886de509ac502d85120c9413e8f0f9f0f707e9890cb3b889a18"
     }
   ],
-  "archive_sha256": "b63b87d5eb8e17c394d0c2d268607c32ab403ef844405bbf555f64bd9ec4c062",
-  "archive_bytes": 14985
+  "archive_sha256": "a56faf189bfd81cc00274325f65cb96e9bb6a93a855b45186f0a8fbf2fb12ef1",
+  "archive_bytes": 27450,
+  "donnees_quebec": [
+    {
+      "page_url": "https://www.donneesquebec.ca/recherche/dataset/statistiques_des_bibliotheques_publiques_du_quebec",
+      "citation": "BIBLIOTHÈQUE ET ARCHIVES NATIONALES DU QUÉBEC. Statistiques des bibliothèques publiques du Québec, [Jeu de données], dans Données Québec, 2023, mis à jour le 03 novembre 2026. [https://www.donneesquebec.ca/recherche/dataset/statistiques_des_bibliotheques_publiques_du_quebec], (consulté le 10 novembre 2026).",
+      "verified_at_utc": "2026-11-10T13:27:59Z",
+      "license_title": "Attribution (CC-BY 4.0)",
+      "license_url": "https://www.donneesquebec.ca/licence/#cc-by"
+    }
+  ],
+  "documentation_updated_on": "2026-11-10"
 }

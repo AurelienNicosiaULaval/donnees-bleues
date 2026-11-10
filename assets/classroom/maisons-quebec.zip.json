@@ -9,18 +9,55 @@
   "original_licenses": {
     "code": "MIT",
     "content": "CC-BY-4.0",
-    "notices": ["LICENSE", "LICENCE-CONTENUS.md", "datasets/maisons-quebec/DATA_LICENSES.md", "datasets/maisons-quebec/DICTIONNAIRE.md", "datasets/maisons-quebec/METHODE.md", "datasets/maisons-quebec/ACTIVITES.md"]
+    "notices": [
+      "LICENSE",
+      "LICENCE-CONTENUS.md",
+      "datasets/maisons-quebec/DATA_LICENSES.md",
+      "datasets/maisons-quebec/DICTIONNAIRE.md",
+      "datasets/maisons-quebec/METHODE.md",
+      "datasets/maisons-quebec/ACTIVITES.md"
+    ]
   },
   "selection": "Tirage aléatoire simple sans remise, graine 20261001, de 600 maisons parmi 99 072 unités admissibles à Québec. Usage 1000, un logement, lien physique 1 à 4, genre de construction différent de 3 ou inconnu. Les valeurs sources sont conservées.",
   "tables": [
     {
       "path": "data/processed/maisons-quebec/maisons_quebec.csv",
       "rows": 600,
-      "columns": ["maison_id", "municipalite", "arrondissement_code", "voisinage_code", "superficie_terrain_m2", "aire_etages_m2", "nombre_etages_max", "annee_construction", "annee_construction_statut", "lien_physique_code", "lien_physique", "genre_construction_code", "nombre_logements", "valeur_terrain_cad", "valeur_batiment_cad", "valeur_fonciere_cad", "date_reference_marche", "annee_role", "annee_extraction"],
+      "columns": [
+        "maison_id",
+        "municipalite",
+        "arrondissement_code",
+        "voisinage_code",
+        "superficie_terrain_m2",
+        "aire_etages_m2",
+        "nombre_etages_max",
+        "annee_construction",
+        "annee_construction_statut",
+        "lien_physique_code",
+        "lien_physique",
+        "genre_construction_code",
+        "nombre_logements",
+        "valeur_terrain_cad",
+        "valeur_batiment_cad",
+        "valeur_fonciere_cad",
+        "date_reference_marche",
+        "annee_role",
+        "annee_extraction"
+      ],
       "sha256": "e631d863ddc48ef7371a1b9ad5993a0dbccd78c350e5558a9c7396054f886008",
       "prepared_table_sha256": "e631d863ddc48ef7371a1b9ad5993a0dbccd78c350e5558a9c7396054f886008"
     }
   ],
-  "archive_sha256": "d863316ad6cee3a347ff2d417f043a165c6ca76cbd133756994b5f0fd03b6d54",
-  "archive_bytes": 35149
+  "archive_sha256": "b7651935a3f590a44bed5a6fcf717b69564e70e042101d3111e41ecb19240f89",
+  "archive_bytes": 48330,
+  "donnees_quebec": [
+    {
+      "page_url": "https://www.donneesquebec.ca/recherche/dataset/roles-d-evaluation-fonciere-du-quebec",
+      "citation": "MINISTÈRE DES AFFAIRES MUNICIPALES ET DE L'HABITATION. Rôle d'évaluation foncière du Québec, [Jeu de données], dans Données Québec, 2022, mis à jour le 24 août 2026. [https://www.donneesquebec.ca/recherche/dataset/roles-d-evaluation-fonciere-du-quebec], (consulté le 10 novembre 2026).",
+      "verified_at_utc": "2026-11-10T13:28:26Z",
+      "license_title": "Attribution (CC-BY 4.0)",
+      "license_url": "https://www.donneesquebec.ca/licence/#cc-by"
+    }
+  ],
+  "documentation_updated_on": "2026-11-10"
 }

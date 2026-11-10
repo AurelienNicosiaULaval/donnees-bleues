@@ -1,0 +1,99 @@
+{
+  "schema_version": 1,
+  "verified_on": "2026-11-10",
+  "attribution_guidance": "https://www.donneesquebec.ca/licence/meilleures-pratiques-pour-donner-le-credit-dun-jeu/",
+  "api_documentation": "https://www.donneesquebec.ca/page-api/",
+  "sources": [
+    {
+      "status": "verified",
+      "requested_url": "https://www.donneesquebec.ca/recherche/dataset/placettes-echantillons-temporaires-du-cinquieme-inventaire",
+      "aliases": "placettes-echantillons-temporaires-du-cinquieme-inventaire",
+      "package_id": "18f26f05-e2a2-4066-8f7f-4ee0db894bdf",
+      "package_name": "placettes-echantillons-temporaires-du-cinquieme-inventaire",
+      "page_url": "https://www.donneesquebec.ca/recherche/dataset/placettes-echantillons-temporaires-du-cinquieme-inventaire",
+      "title": "Placette-échantillon temporaire du cinquième inventaire",
+      "citation": "MINISTÈRE DES RESSOURCES NATURELLES ET DES FORÊTS. Placette-échantillon temporaire du cinquième inventaire, [Jeu de données], dans Données Québec, 2018, mis à jour le 20 juillet 2026. [https://www.donneesquebec.ca/recherche/dataset/placettes-echantillons-temporaires-du-cinquieme-inventaire], (consulté le 10 novembre 2026).",
+      "verified_at_utc": "2026-11-10T13:27:56Z",
+      "page_sha256": "064eab980ea74c215ca544c1ad6ab2ccc9cc3fbcb62f0b0d67e03629163145fe",
+      "license_title": "Attribution (CC-BY 4.0)",
+      "license_url": "https://www.donneesquebec.ca/licence/#cc-by",
+      "metadata_modified": "2026-07-20T15:15:54.915400",
+      "resources": [
+        {
+          "id": "d09ae743-f3ca-4bfc-90d5-65c2614a679e",
+          "name": "Placette-échantillon temporaire du 5e",
+          "format": "GPKG",
+          "url": "https://diffusion.mffp.gouv.qc.ca/Diffusion/DonneeGratuite/Foret/DONNEES_FOR_ECO_SUD/Placettes_temporaires_5e/02-Donnees/PROV/PET5_GPKG.zip",
+          "datastore_active": false
+        },
+        {
+          "id": "cb3f3d62-3ac7-40ea-8c84-dca70ca396a3",
+          "name": "🌲Forêt ouverte",
+          "format": "HTML",
+          "url": "https://www.foretouverte.gouv.qc.ca/?context=_carte_forestiere&zoom=8&center=-72.91184,47.63646&invisiblelayers=*&visiblelayers=62a5bc5dc06f8081aa87738427d1f039,4746cf782ba04df285455846589b4316,1da64ddfeaf23710b8a9ad95133fb5d8&wmsUrl=https://geoegl.msp.gouv.qc.ca/ws/mffpecofor.fcgi&layers=(sond_pet5:igoz22)",
+          "datastore_active": false
+        },
+        {
+          "id": "0e44fc7e-6996-4f4e-957a-9505a8148bf3",
+          "name": "📍Service de cartographie Web",
+          "format": "WMS",
+          "url": "https://geoegl.msp.gouv.qc.ca/ws/mffpecofor.fcgi?",
+          "datastore_active": false
+        },
+        {
+          "id": "c2a07e66-118c-4a5e-9409-9197063b02d5",
+          "name": "LISEZ-MOI",
+          "format": "PDF",
+          "url": "https://diffusion.mffp.gouv.qc.ca/Diffusion/DonneeGratuite/Foret/DONNEES_FOR_ECO_SUD/Placettes_temporaires_5e/01-Documentation/LISEZ-MOI_pet5.pdf",
+          "datastore_active": false
+        },
+        {
+          "id": "6a2ab8ab-11b4-4e29-ab94-9afdf5567ccd",
+          "name": "Dictionnaire des codes des données",
+          "format": "XLSX",
+          "url": "https://diffusion.mffp.gouv.qc.ca/Diffusion/DonneeGratuite/Foret/DONNEES_FOR_ECO_SUD/Placettes_temporaires_5e/01-Documentation/DICTIONNAIRE_PLACETTE.xlsx",
+          "datastore_active": true
+        },
+        {
+          "id": "b378009b-009b-4bb6-b41a-d41008807987",
+          "name": "Disponibilité des résultats de l’échantillonnage en forêt ",
+          "format": "PDF",
+          "url": "https://mrnf.gouv.qc.ca/documents/forets/inventaire/sondage_PET_5e.pdf",
+          "datastore_active": false
+        },
+        {
+          "id": "1ab5b7c1-d943-4d4e-84b1-a43845f76cf9",
+          "name": "Réalisation de l’échantillonnage",
+          "format": "PDF",
+          "url": "https://cdn-contenu.quebec.ca/cdn-contenu/forets/documents/recherche/Realisation_PET.pdf",
+          "datastore_active": false
+        },
+        {
+          "id": "b56e1ff1-be47-4e21-8caa-bbd0000ca50f",
+          "name": "Guide d’utilisation de la carte écoforestière originale et résultats d’inventaire courants",
+          "format": "PDF",
+          "url": "https://mrnf.gouv.qc.ca/documents/forets/inventaire/guide-donnees-dendometriques.pdf",
+          "datastore_active": false
+        },
+        {
+          "id": "226786f3-7e46-420a-9b33-f1e5940f16aa",
+          "name": "Norme d’inventaire écoforestier – Placettes-échantillons temporaires (cinquième inventaire)",
+          "format": "PDF",
+          "url": "https://mrnf.gouv.qc.ca/documents/forets/inventaire/Norme_PET_5e.pdf",
+          "datastore_active": false
+        },
+        {
+          "id": "ba1671fd-f93f-4b4e-96f3-96b418d2ba8e",
+          "name": "Procédures pour utiliser un service Web ",
+          "format": "PDF",
+          "url": "https://mrnf.gouv.qc.ca/documents/forets/inventaire/Procedure_service_Web.pdf",
+          "datastore_active": false
+        }
+      ],
+      "dataset_ids": [
+        "arbres-quebec",
+        "ggplot-builder-donnees-bleues"
+      ]
+    }
+  ]
+}

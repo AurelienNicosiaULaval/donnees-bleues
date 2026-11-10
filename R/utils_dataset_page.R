@@ -1,3 +1,4 @@
+source(if (file.exists("R/utils_donnees_quebec.R")) "R/utils_donnees_quebec.R" else "../../R/utils_donnees_quebec.R")
 source(if (file.exists("R/utils_editorial.R")) "R/utils_editorial.R" else "../../R/utils_editorial.R")
 source(if (file.exists("R/utils_resource_identity.R")) "R/utils_resource_identity.R" else "../../R/utils_resource_identity.R")
 `%||%` <- function(x, y) {
@@ -823,6 +824,7 @@ render_dataset_detail_footer <- function() {
       resource_dates_html(metadata, compact = TRUE), sep = '')
   if (!is.null(receipt)) cat('<p><a href="', ctx$relative_root, '/assets/classroom/', escape(metadata$id),
     '.zip.json">Fichiers, dates et empreintes de la trousse</a></p>', sep = '')
+  cat(dq_sources_html(metadata$id, ctx$relative_root), sep = '')
   cat('</section></section>', dataset_datatable_script(), '\n', sep = '')
   invisible(NULL)
 }

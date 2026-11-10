@@ -9,25 +9,56 @@
   "original_licenses": {
     "code": "MIT",
     "content": "CC-BY-4.0",
-    "notices": ["LICENSE", "LICENCE-CONTENUS.md"]
+    "notices": [
+      "LICENSE",
+      "LICENCE-CONTENUS.md"
+    ]
   },
   "selection": "Documentation et synthèses publiques seulement; aucune donnée privée, géodatabase ni observation de retard.",
   "tables": [
     {
       "path": "data/processed/grhq/grhq_index_telechargement.csv",
       "rows": 16,
-      "columns": ["bloc", "region_hydrographique", "partie", "is_split_unit", "unit_kind", "zone", "fgdb_zip_file", "fgdb_directory", "fgdb_url", "source_index_url", "access_date"],
+      "columns": [
+        "bloc",
+        "region_hydrographique",
+        "partie",
+        "is_split_unit",
+        "unit_kind",
+        "zone",
+        "fgdb_zip_file",
+        "fgdb_directory",
+        "fgdb_url",
+        "source_index_url",
+        "access_date"
+      ],
       "sha256": "54dd15531140307d3d299be69748818c6746837c03f64f419839558ec1b634d5",
       "prepared_table_sha256": "54dd15531140307d3d299be69748818c6746837c03f64f419839558ec1b634d5"
     },
     {
       "path": "data/processed/grhq/ressources_grhq.csv",
       "rows": 9,
-      "columns": ["resource_id", "resource_name", "format", "url", "last_modified"],
+      "columns": [
+        "resource_id",
+        "resource_name",
+        "format",
+        "url",
+        "last_modified"
+      ],
       "sha256": "4ca87db0dccf7a9b4151214ad9bfd69953609700a3cfec9371b89b98cece2129",
       "prepared_table_sha256": "a01e8bc31784ebf4839efeed3ce7bff01ca6d4bf2dcd3653aacc9f2260270838"
     }
   ],
-  "archive_sha256": "f68e9f25c790ff155444226d5fe0bfa7ec7b6fa9c7566ae2c35d85012bd2e5d8",
-  "archive_bytes": 7973
+  "archive_sha256": "d6f89d2f4983a3120c633f94dea7be2d0217e80437de1c164a36379f9c21ec3c",
+  "archive_bytes": 20235,
+  "donnees_quebec": [
+    {
+      "page_url": "https://www.donneesquebec.ca/recherche/dataset/grhq",
+      "citation": "MINISTÈRE DES RESSOURCES NATURELLES ET DES FORÊTS. Géobase du réseau hydrographique du Québec (GRHQ), [Jeu de données], dans Données Québec, 2019, mis à jour le 09 octobre 2026. [https://www.donneesquebec.ca/recherche/dataset/grhq], (consulté le 10 novembre 2026).",
+      "verified_at_utc": "2026-11-10T13:28:21Z",
+      "license_title": "Attribution (CC-BY 4.0)",
+      "license_url": "https://www.donneesquebec.ca/licence/#cc-by"
+    }
+  ],
+  "documentation_updated_on": "2026-11-10"
 }

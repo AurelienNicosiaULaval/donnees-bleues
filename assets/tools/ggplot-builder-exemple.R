@@ -1,3 +1,5 @@
+# Références des fiches Données Québec consultées; les dates des données restent celles de leur provenance.
+# MINISTÈRE DES RESSOURCES NATURELLES ET DES FORÊTS. Placette-échantillon temporaire du cinquième inventaire, [Jeu de données], dans Données Québec, 2018, mis à jour le 20 juillet 2026. [https://www.donneesquebec.ca/recherche/dataset/placettes-echantillons-temporaires-du-cinquieme-inventaire], (consulté le 10 novembre 2026).
 # ggplot builder | Données bleues
 # Source : MRNF / PET5, jeu pédagogique d’Aurélien Nicosia, version 1.0.0.
 # Données et adaptations : CC BY 4.0. Taxonomie VASCAN : CC0 1.0.

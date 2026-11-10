@@ -1,3 +1,5 @@
+# Références des fiches Données Québec consultées; les dates des données restent celles de leur provenance.
+# SOCIÉTÉ DE L'ASSURANCE AUTOMOBILE DU QUÉBEC (SAAQ). Rapports d'accident, [Jeu de données], dans Données Québec, 2017, mis à jour le 18 décembre 2023. [https://www.donneesquebec.ca/recherche/dataset/rapports-d-accident], (consulté le 10 novembre 2026).
 # Comparer deux proportions par permutation. Aurélien Nicosia (2026).
 # Code MIT; données SAAQ et contenus originaux CC BY 4.0.
 # Rapports publiés pour 2022. Le modèle ne mesure pas un risque par trajet.

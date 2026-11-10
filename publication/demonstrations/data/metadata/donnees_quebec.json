@@ -1,0 +1,148 @@
+{
+  "schema_version": 1,
+  "verified_on": "2026-11-10",
+  "attribution_guidance": "https://www.donneesquebec.ca/licence/meilleures-pratiques-pour-donner-le-credit-dun-jeu/",
+  "api_documentation": "https://www.donneesquebec.ca/page-api/",
+  "sources": [
+    {
+      "status": "verified",
+      "requested_url": "https://www.donneesquebec.ca/recherche/dataset/533d0db2-399b-47a6-b397-0e6101e9a3a6",
+      "aliases": [
+        "ilots-de-chaleur-fraicheur-urbains-et-ecarts-de-temperature-relatifs-2020-2022",
+        "533d0db2-399b-47a6-b397-0e6101e9a3a6"
+      ],
+      "package_id": "533d0db2-399b-47a6-b397-0e6101e9a3a6",
+      "package_name": "ilots-de-chaleur-fraicheur-urbains-et-ecarts-de-temperature-relatifs-2020-2022",
+      "page_url": "https://www.donneesquebec.ca/recherche/dataset/ilots-de-chaleur-fraicheur-urbains-et-ecarts-de-temperature-relatifs-2020-2022",
+      "title": "Îlots de chaleur/fraîcheur urbains, écarts de température et indice d’intensité d’îlots de chaleur urbains 2020-2022",
+      "citation": "INSTITUT NATIONAL DE SANTÉ PUBLIQUE DU QUÉBEC (INSPQ). Îlots de chaleur/fraîcheur urbains, écarts de température et indice d’intensité d’îlots de chaleur urbains 2020-2022, [Jeu de données], dans Données Québec, 2023, mis à jour le 24 juillet 2026. [https://www.donneesquebec.ca/recherche/dataset/ilots-de-chaleur-fraicheur-urbains-et-ecarts-de-temperature-relatifs-2020-2022], (consulté le 10 novembre 2026).",
+      "verified_at_utc": "2026-11-10T13:46:18Z",
+      "page_sha256": "081215fa2b8359fd2264300fd4d53add37d71a9ddd5ab73c04e167d7e8f8ea96",
+      "license_title": "Attribution (CC-BY 4.0)",
+      "license_url": "https://www.donneesquebec.ca/licence/#cc-by",
+      "metadata_modified": "2026-07-24T18:41:55.750326",
+      "resources": [
+        {
+          "id": "143e5ecd-fbbf-4536-b4b7-563af63d3698",
+          "name": "Îlots de chaleur et de fraîcheur urbains 2020-2022 (Classes d'écarts de températures)",
+          "format": "HTML",
+          "url": "https://cartes.inspq.qc.ca/geoportail/?pos=%40-73.00925%2C46.56406%2C8z&ctx=climatadaptationchangementsclimatiques&urls=https%3A%2F%2Fcartes.inspq.qc.ca%2Fmapserver%2Fgeneral%2Finspq_ilotstemperature.map%2Chttps%3A%2F%2Fcartes.inspq.qc.ca%2Fmapserver%2Fgeneral%2Fulaval_ad2016climatisation_energie.map%2Chttps%3A%2F%2Fcartes.inspq.qc.ca%2Fmapserver%2Fgeneral%2Fcerfo_multicriteres_cons_energie.map%2Chttps%3A%2F%2Fwww.servicesgeo.enviroweb.gouv.qc.ca%2Fdonnees%2Fservices%2FPublic%2FThemes_publics%2FMapServer%2FWMSServer%3F&layers=0%2C%5Binspq_variation_thermique_PU_milieu_rural_2020_2022%5Dn%2C0t%2C100pid%2C0v%2C28z%3B0%2C%5Bvar_temp_pu_metadonnees_2020_2022%5Dn%2C0t%2C100pid%2C0v%2C27z%3B0%2C%5Binspq_temperature_surface_2020_2022%5Dn%2C0t%2C100pid%2C1v%2C26z%3B0%2C%5Binspq_ilot_chaleur_2020-2022_metadonnees%5Dn%2C0t%2C100pid%2C0v%2C25z%3B0%2C%5Binspq_temperature_surface_2013_2014%5Dn%2C0t%2C100pid%2C0v%2C24z%3B0%2C%5Binspq_ilot_chaleur_2013-2014_metadonnees%5Dn%2C0t%2C100pid%2C0v%2C23z%3B0%2C%5Binspq_temperature_surface_2012%5Dn%2C0t%2C100pid%2C0v%2C22z%3B0%2C%5Binspq_ilot_chaleur_2020_2022%5Dn%2C0t%2C100pid%2C0v%2C21z%3B0%2C%5Binspq_ilot_chaleur_2013_2014%5Dn%2C0t%2C100pid%2C0v%2C20z%3B0%2C%5Binspq_ilot_chaleur_2012%5Dn%2C0t%2C100pid%2C0v%2C19z%3B0%2C%5Binspq_ilot_fraicheur_2020_2022%5Dn%2C0t%2C100pid%2C0v%2C18z%3B0%2C%5Binspq_ilot_fraicheur_2013_2014%5Dn%2C0t%2C100pid%2C0v%2C17z%3B0%2C%5Binspq_ilot_fraicheur_2012%5Dn%2C0t%2C100pid%2C0v%2C16z%3B0%2C%5Binspq_analysechangement_difference_2022-2013%5Dn%2C0t%2C400pid%2C0v%2C14z%3B0%2C%5Binspq_ilot_chaleur_2020-2022_ecart%5Dn%2C0t%2C400pid%2C0v%2C13z%3B0%2C%5Binspq_ilot_chaleur_2013-2014_ecart%5Dn%2C0t%2C400pid%2C0v%2C12z%3B0%2C%5Binspq_analysechangement_suhii_2022-2013%5Dn%2C0t%2C500pid%2C0v%2C10z%3B0%2C%5Binspq_suhii_2020_2022%5Dn%2C0t%2C500pid%2C0v%2C9z%3B0%2C%5Binspq_suhii_2013_2014%5Dn%2C0t%2C500pid%2C0v%2C8z%3B1%2C%5Bulaval_ad2016climatisation_energie%5Dn%2C0t%2C600pid%2C0v%2C6z%3B2%2C%5Bcerfo_multicriteres_cons_energie%5Dn%2C0t%2C600pid%2C0v%2C5z%3B3%2C%5BPolygones_de_zones_inondables42752%5Dn%2C0t%2C700pid%2C0v%2C3z&groups=100id%2C%25C3%258Elots%2520de%2520chaleur%2520et%2520de%2520fra%25C3%25AEcheur%2520urbainst%2C15z%2C1v%2C1e",
+          "datastore_active": false
+        },
+        {
+          "id": "253492f6-96bc-44df-886f-44f819505f5e",
+          "name": "Îlots de chaleur et de fraîcheur urbains 2020-2022 (métadonnées) (Classes d'écarts de températures)",
+          "format": "HTML",
+          "url": "https://cartes.inspq.qc.ca/geoportail/?pos=%40-73.00925%2C46.56406%2C8z&ctx=climatadaptationchangementsclimatiques&urls=https%3A%2F%2Fcartes.inspq.qc.ca%2Fmapserver%2Fgeneral%2Finspq_ilotstemperature.map%2Chttps%3A%2F%2Fcartes.inspq.qc.ca%2Fmapserver%2Fgeneral%2Fulaval_ad2016climatisation_energie.map%2Chttps%3A%2F%2Fcartes.inspq.qc.ca%2Fmapserver%2Fgeneral%2Fcerfo_multicriteres_cons_energie.map%2Chttps%3A%2F%2Fwww.servicesgeo.enviroweb.gouv.qc.ca%2Fdonnees%2Fservices%2FPublic%2FThemes_publics%2FMapServer%2FWMSServer%3F&layers=0%2C%5Binspq_variation_thermique_PU_milieu_rural_2020_2022%5Dn%2C0t%2C100pid%2C0v%2C28z%3B0%2C%5Bvar_temp_pu_metadonnees_2020_2022%5Dn%2C0t%2C100pid%2C0v%2C27z%3B0%2C%5Binspq_temperature_surface_2020_2022%5Dn%2C0t%2C100pid%2C0v%2C26z%3B0%2C%5Binspq_ilot_chaleur_2020-2022_metadonnees%5Dn%2C0t%2C100pid%2C1v%2C25z%3B0%2C%5Binspq_temperature_surface_2013_2014%5Dn%2C0t%2C100pid%2C0v%2C24z%3B0%2C%5Binspq_ilot_chaleur_2013-2014_metadonnees%5Dn%2C0t%2C100pid%2C0v%2C23z%3B0%2C%5Binspq_temperature_surface_2012%5Dn%2C0t%2C100pid%2C0v%2C22z%3B0%2C%5Binspq_ilot_chaleur_2020_2022%5Dn%2C0t%2C100pid%2C0v%2C21z%3B0%2C%5Binspq_ilot_chaleur_2013_2014%5Dn%2C0t%2C100pid%2C0v%2C20z%3B0%2C%5Binspq_ilot_chaleur_2012%5Dn%2C0t%2C100pid%2C0v%2C19z%3B0%2C%5Binspq_ilot_fraicheur_2020_2022%5Dn%2C0t%2C100pid%2C0v%2C18z%3B0%2C%5Binspq_ilot_fraicheur_2013_2014%5Dn%2C0t%2C100pid%2C0v%2C17z%3B0%2C%5Binspq_ilot_fraicheur_2012%5Dn%2C0t%2C100pid%2C0v%2C16z%3B0%2C%5Binspq_analysechangement_difference_2022-2013%5Dn%2C0t%2C400pid%2C0v%2C14z%3B0%2C%5Binspq_ilot_chaleur_2020-2022_ecart%5Dn%2C0t%2C400pid%2C0v%2C13z%3B0%2C%5Binspq_ilot_chaleur_2013-2014_ecart%5Dn%2C0t%2C400pid%2C0v%2C12z%3B0%2C%5Binspq_analysechangement_suhii_2022-2013%5Dn%2C0t%2C500pid%2C0v%2C10z%3B0%2C%5Binspq_suhii_2020_2022%5Dn%2C0t%2C500pid%2C0v%2C9z%3B0%2C%5Binspq_suhii_2013_2014%5Dn%2C0t%2C500pid%2C0v%2C8z%3B1%2C%5Bulaval_ad2016climatisation_energie%5Dn%2C0t%2C600pid%2C0v%2C6z%3B2%2C%5Bcerfo_multicriteres_cons_energie%5Dn%2C0t%2C600pid%2C0v%2C5z%3B3%2C%5BPolygones_de_zones_inondables42752%5Dn%2C0t%2C700pid%2C0v%2C3z&groups=100id%2C%25C3%258Elots%2520de%2520chaleur%2520et%2520de%2520fra%25C3%25AEcheur%2520urbainst%2C15z%2C1v%2C1e",
+          "datastore_active": false
+        },
+        {
+          "id": "a64ba510-2a10-4a83-805a-f2ad1291e290",
+          "name": "Îlots de chaleur urbains 2020-2022",
+          "format": "HTML",
+          "url": "https://cartes.inspq.qc.ca/geoportail/?pos=%40-73.00925%2C46.56406%2C8z&ctx=climatadaptationchangementsclimatiques&urls=https%3A%2F%2Fcartes.inspq.qc.ca%2Fmapserver%2Fgeneral%2Finspq_ilotstemperature.map%2Chttps%3A%2F%2Fcartes.inspq.qc.ca%2Fmapserver%2Fgeneral%2Fulaval_ad2016climatisation_energie.map%2Chttps%3A%2F%2Fcartes.inspq.qc.ca%2Fmapserver%2Fgeneral%2Fcerfo_multicriteres_cons_energie.map%2Chttps%3A%2F%2Fwww.servicesgeo.enviroweb.gouv.qc.ca%2Fdonnees%2Fservices%2FPublic%2FThemes_publics%2FMapServer%2FWMSServer%3F&layers=0%2C%5Binspq_variation_thermique_PU_milieu_rural_2020_2022%5Dn%2C0t%2C100pid%2C0v%2C28z%3B0%2C%5Bvar_temp_pu_metadonnees_2020_2022%5Dn%2C0t%2C100pid%2C0v%2C27z%3B0%2C%5Binspq_temperature_surface_2020_2022%5Dn%2C0t%2C100pid%2C0v%2C26z%3B0%2C%5Binspq_ilot_chaleur_2020-2022_metadonnees%5Dn%2C0t%2C100pid%2C0v%2C25z%3B0%2C%5Binspq_temperature_surface_2013_2014%5Dn%2C0t%2C100pid%2C0v%2C24z%3B0%2C%5Binspq_ilot_chaleur_2013-2014_metadonnees%5Dn%2C0t%2C100pid%2C0v%2C23z%3B0%2C%5Binspq_temperature_surface_2012%5Dn%2C0t%2C100pid%2C0v%2C22z%3B0%2C%5Binspq_ilot_chaleur_2020_2022%5Dn%2C0t%2C100pid%2C1v%2C21z%3B0%2C%5Binspq_ilot_chaleur_2013_2014%5Dn%2C0t%2C100pid%2C0v%2C20z%3B0%2C%5Binspq_ilot_chaleur_2012%5Dn%2C0t%2C100pid%2C0v%2C19z%3B0%2C%5Binspq_ilot_fraicheur_2020_2022%5Dn%2C0t%2C100pid%2C0v%2C18z%3B0%2C%5Binspq_ilot_fraicheur_2013_2014%5Dn%2C0t%2C100pid%2C0v%2C17z%3B0%2C%5Binspq_ilot_fraicheur_2012%5Dn%2C0t%2C100pid%2C0v%2C16z%3B0%2C%5Binspq_analysechangement_difference_2022-2013%5Dn%2C0t%2C400pid%2C0v%2C14z%3B0%2C%5Binspq_ilot_chaleur_2020-2022_ecart%5Dn%2C0t%2C400pid%2C0v%2C13z%3B0%2C%5Binspq_ilot_chaleur_2013-2014_ecart%5Dn%2C0t%2C400pid%2C0v%2C12z%3B0%2C%5Binspq_analysechangement_suhii_2022-2013%5Dn%2C0t%2C500pid%2C0v%2C10z%3B0%2C%5Binspq_suhii_2020_2022%5Dn%2C0t%2C500pid%2C0v%2C9z%3B0%2C%5Binspq_suhii_2013_2014%5Dn%2C0t%2C500pid%2C0v%2C8z%3B1%2C%5Bulaval_ad2016climatisation_energie%5Dn%2C0t%2C600pid%2C0v%2C6z%3B2%2C%5Bcerfo_multicriteres_cons_energie%5Dn%2C0t%2C600pid%2C0v%2C5z%3B3%2C%5BPolygones_de_zones_inondables42752%5Dn%2C0t%2C700pid%2C0v%2C3z&groups=100id%2C%25C3%258Elots%2520de%2520chaleur%2520et%2520de%2520fra%25C3%25AEcheur%2520urbainst%2C15z%2C1v%2C1e",
+          "datastore_active": false
+        },
+        {
+          "id": "16006cc6-2ed7-415e-b6e2-bbc8a7316dfb",
+          "name": "Îlots de fraîcheur urbains 2020-2022",
+          "format": "HTML",
+          "url": "https://cartes.inspq.qc.ca/geoportail/?pos=%40-73.00925%2C46.56406%2C8z&ctx=climatadaptationchangementsclimatiques&urls=https%3A%2F%2Fcartes.inspq.qc.ca%2Fmapserver%2Fgeneral%2Finspq_ilotstemperature.map%2Chttps%3A%2F%2Fcartes.inspq.qc.ca%2Fmapserver%2Fgeneral%2Fulaval_ad2016climatisation_energie.map%2Chttps%3A%2F%2Fcartes.inspq.qc.ca%2Fmapserver%2Fgeneral%2Fcerfo_multicriteres_cons_energie.map%2Chttps%3A%2F%2Fwww.servicesgeo.enviroweb.gouv.qc.ca%2Fdonnees%2Fservices%2FPublic%2FThemes_publics%2FMapServer%2FWMSServer%3F&layers=0%2C%5Binspq_variation_thermique_PU_milieu_rural_2020_2022%5Dn%2C0t%2C100pid%2C0v%2C28z%3B0%2C%5Bvar_temp_pu_metadonnees_2020_2022%5Dn%2C0t%2C100pid%2C0v%2C27z%3B0%2C%5Binspq_temperature_surface_2020_2022%5Dn%2C0t%2C100pid%2C0v%2C26z%3B0%2C%5Binspq_ilot_chaleur_2020-2022_metadonnees%5Dn%2C0t%2C100pid%2C0v%2C25z%3B0%2C%5Binspq_temperature_surface_2013_2014%5Dn%2C0t%2C100pid%2C0v%2C24z%3B0%2C%5Binspq_ilot_chaleur_2013-2014_metadonnees%5Dn%2C0t%2C100pid%2C0v%2C23z%3B0%2C%5Binspq_temperature_surface_2012%5Dn%2C0t%2C100pid%2C0v%2C22z%3B0%2C%5Binspq_ilot_chaleur_2020_2022%5Dn%2C0t%2C100pid%2C0v%2C21z%3B0%2C%5Binspq_ilot_chaleur_2013_2014%5Dn%2C0t%2C100pid%2C0v%2C20z%3B0%2C%5Binspq_ilot_chaleur_2012%5Dn%2C0t%2C100pid%2C0v%2C19z%3B0%2C%5Binspq_ilot_fraicheur_2020_2022%5Dn%2C0t%2C100pid%2C1v%2C18z%3B0%2C%5Binspq_ilot_fraicheur_2013_2014%5Dn%2C0t%2C100pid%2C0v%2C17z%3B0%2C%5Binspq_ilot_fraicheur_2012%5Dn%2C0t%2C100pid%2C0v%2C16z%3B0%2C%5Binspq_analysechangement_difference_2022-2013%5Dn%2C0t%2C400pid%2C0v%2C14z%3B0%2C%5Binspq_ilot_chaleur_2020-2022_ecart%5Dn%2C0t%2C400pid%2C0v%2C13z%3B0%2C%5Binspq_ilot_chaleur_2013-2014_ecart%5Dn%2C0t%2C400pid%2C0v%2C12z%3B0%2C%5Binspq_analysechangement_suhii_2022-2013%5Dn%2C0t%2C500pid%2C0v%2C10z%3B0%2C%5Binspq_suhii_2020_2022%5Dn%2C0t%2C500pid%2C0v%2C9z%3B0%2C%5Binspq_suhii_2013_2014%5Dn%2C0t%2C500pid%2C0v%2C8z%3B1%2C%5Bulaval_ad2016climatisation_energie%5Dn%2C0t%2C600pid%2C0v%2C6z%3B2%2C%5Bcerfo_multicriteres_cons_energie%5Dn%2C0t%2C600pid%2C0v%2C5z%3B3%2C%5BPolygones_de_zones_inondables42752%5Dn%2C0t%2C700pid%2C0v%2C3z&groups=100id%2C%25C3%258Elots%2520de%2520chaleur%2520et%2520de%2520fra%25C3%25AEcheur%2520urbainst%2C15z%2C1v%2C1e",
+          "datastore_active": false
+        },
+        {
+          "id": "2df756bb-e461-4344-bfd1-9c5382b01862",
+          "name": "Écart de température 2020-2022 en °C",
+          "format": "HTML",
+          "url": "https://cartes.inspq.qc.ca/geoportail/?pos=%40-73.00925%2C46.56406%2C8z&ctx=climatadaptationchangementsclimatiques&urls=https%3A%2F%2Fcartes.inspq.qc.ca%2Fmapserver%2Fgeneral%2Finspq_ilotstemperature.map%2Chttps%3A%2F%2Fcartes.inspq.qc.ca%2Fmapserver%2Fgeneral%2Fulaval_ad2016climatisation_energie.map%2Chttps%3A%2F%2Fcartes.inspq.qc.ca%2Fmapserver%2Fgeneral%2Fcerfo_multicriteres_cons_energie.map%2Chttps%3A%2F%2Fwww.servicesgeo.enviroweb.gouv.qc.ca%2Fdonnees%2Fservices%2FPublic%2FThemes_publics%2FMapServer%2FWMSServer%3F&layers=0%2C%5Binspq_variation_thermique_PU_milieu_rural_2020_2022%5Dn%2C0t%2C100pid%2C0v%2C28z%3B0%2C%5Bvar_temp_pu_metadonnees_2020_2022%5Dn%2C0t%2C100pid%2C0v%2C27z%3B0%2C%5Binspq_temperature_surface_2020_2022%5Dn%2C0t%2C100pid%2C0v%2C26z%3B0%2C%5Binspq_ilot_chaleur_2020-2022_metadonnees%5Dn%2C0t%2C100pid%2C0v%2C25z%3B0%2C%5Binspq_temperature_surface_2013_2014%5Dn%2C0t%2C100pid%2C0v%2C24z%3B0%2C%5Binspq_ilot_chaleur_2013-2014_metadonnees%5Dn%2C0t%2C100pid%2C0v%2C23z%3B0%2C%5Binspq_temperature_surface_2012%5Dn%2C0t%2C100pid%2C0v%2C22z%3B0%2C%5Binspq_ilot_chaleur_2020_2022%5Dn%2C0t%2C100pid%2C0v%2C21z%3B0%2C%5Binspq_ilot_chaleur_2013_2014%5Dn%2C0t%2C100pid%2C0v%2C20z%3B0%2C%5Binspq_ilot_chaleur_2012%5Dn%2C0t%2C100pid%2C0v%2C19z%3B0%2C%5Binspq_ilot_fraicheur_2020_2022%5Dn%2C0t%2C100pid%2C0v%2C18z%3B0%2C%5Binspq_ilot_fraicheur_2013_2014%5Dn%2C0t%2C100pid%2C0v%2C17z%3B0%2C%5Binspq_ilot_fraicheur_2012%5Dn%2C0t%2C100pid%2C0v%2C16z%3B0%2C%5Binspq_analysechangement_difference_2022-2013%5Dn%2C0t%2C400pid%2C0v%2C14z%3B0%2C%5Binspq_ilot_chaleur_2020-2022_ecart%5Dn%2C0t%2C400pid%2C1v%2C13z%3B0%2C%5Binspq_ilot_chaleur_2013-2014_ecart%5Dn%2C0t%2C400pid%2C0v%2C12z%3B0%2C%5Binspq_analysechangement_suhii_2022-2013%5Dn%2C0t%2C500pid%2C0v%2C10z%3B0%2C%5Binspq_suhii_2020_2022%5Dn%2C0t%2C500pid%2C0v%2C9z%3B0%2C%5Binspq_suhii_2013_2014%5Dn%2C0t%2C500pid%2C0v%2C8z%3B1%2C%5Bulaval_ad2016climatisation_energie%5Dn%2C0t%2C600pid%2C0v%2C6z%3B2%2C%5Bcerfo_multicriteres_cons_energie%5Dn%2C0t%2C600pid%2C0v%2C5z%3B3%2C%5BPolygones_de_zones_inondables42752%5Dn%2C0t%2C700pid%2C0v%2C3z&groups=400id%2C%25C3%2589carts%2520de%2520temp%25C3%25A9ratures%2520en%2520%25C2%25B0Ct%2C11z%2C1v%2C1e",
+          "datastore_active": false
+        },
+        {
+          "id": "5baf55d6-b6db-45f8-8a1d-e2e72c40dde5",
+          "name": "Indice SUHII 2020-2022",
+          "format": "HTML",
+          "url": "https://cartes.inspq.qc.ca/geoportail/?pos=%40-73.00925%2C46.56406%2C8z&ctx=climatadaptationchangementsclimatiques&urls=https%3A%2F%2Fcartes.inspq.qc.ca%2Fmapserver%2Fgeneral%2Finspq_ilotstemperature.map%2Chttps%3A%2F%2Fcartes.inspq.qc.ca%2Fmapserver%2Fgeneral%2Fulaval_ad2016climatisation_energie.map%2Chttps%3A%2F%2Fcartes.inspq.qc.ca%2Fmapserver%2Fgeneral%2Fcerfo_multicriteres_cons_energie.map%2Chttps%3A%2F%2Fwww.servicesgeo.enviroweb.gouv.qc.ca%2Fdonnees%2Fservices%2FPublic%2FThemes_publics%2FMapServer%2FWMSServer%3F&layers=0%2C%5Binspq_variation_thermique_PU_milieu_rural_2020_2022%5Dn%2C0t%2C100pid%2C0v%2C28z%3B0%2C%5Bvar_temp_pu_metadonnees_2020_2022%5Dn%2C0t%2C100pid%2C0v%2C27z%3B0%2C%5Binspq_temperature_surface_2020_2022%5Dn%2C0t%2C100pid%2C0v%2C26z%3B0%2C%5Binspq_ilot_chaleur_2020-2022_metadonnees%5Dn%2C0t%2C100pid%2C0v%2C25z%3B0%2C%5Binspq_temperature_surface_2013_2014%5Dn%2C0t%2C100pid%2C0v%2C24z%3B0%2C%5Binspq_ilot_chaleur_2013-2014_metadonnees%5Dn%2C0t%2C100pid%2C0v%2C23z%3B0%2C%5Binspq_temperature_surface_2012%5Dn%2C0t%2C100pid%2C0v%2C22z%3B0%2C%5Binspq_ilot_chaleur_2020_2022%5Dn%2C0t%2C100pid%2C0v%2C21z%3B0%2C%5Binspq_ilot_chaleur_2013_2014%5Dn%2C0t%2C100pid%2C0v%2C20z%3B0%2C%5Binspq_ilot_chaleur_2012%5Dn%2C0t%2C100pid%2C0v%2C19z%3B0%2C%5Binspq_ilot_fraicheur_2020_2022%5Dn%2C0t%2C100pid%2C0v%2C18z%3B0%2C%5Binspq_ilot_fraicheur_2013_2014%5Dn%2C0t%2C100pid%2C0v%2C17z%3B0%2C%5Binspq_ilot_fraicheur_2012%5Dn%2C0t%2C100pid%2C0v%2C16z%3B0%2C%5Binspq_analysechangement_difference_2022-2013%5Dn%2C0t%2C400pid%2C0v%2C14z%3B0%2C%5Binspq_ilot_chaleur_2020-2022_ecart%5Dn%2C0t%2C400pid%2C0v%2C13z%3B0%2C%5Binspq_ilot_chaleur_2013-2014_ecart%5Dn%2C0t%2C400pid%2C0v%2C12z%3B0%2C%5Binspq_analysechangement_suhii_2022-2013%5Dn%2C0t%2C500pid%2C0v%2C10z%3B0%2C%5Binspq_suhii_2020_2022%5Dn%2C0t%2C500pid%2C1v%2C9z%3B0%2C%5Binspq_suhii_2013_2014%5Dn%2C0t%2C500pid%2C0v%2C8z%3B1%2C%5Bulaval_ad2016climatisation_energie%5Dn%2C0t%2C600pid%2C0v%2C6z%3B2%2C%5Bcerfo_multicriteres_cons_energie%5Dn%2C0t%2C600pid%2C0v%2C5z%3B3%2C%5BPolygones_de_zones_inondables42752%5Dn%2C0t%2C700pid%2C0v%2C3z&groups=500id%2CIndice%2520SUHIIt%2C7z%2C1v%2C1e",
+          "datastore_active": false
+        },
+        {
+          "id": "d4a09256-6f59-4449-8ce1-fb1b4912100a",
+          "name": "Îlots de chaleur et de fraîcheur urbains 2020-2022 (Classes d'écarts de températures)",
+          "format": "GeoTIFF",
+          "url": "https://dq-prd-bucket1.s3.ca-central-1.amazonaws.com/inspq/ICFU2022_CentresPopulation2021_buf2000m_9cl.tif",
+          "datastore_active": false
+        },
+        {
+          "id": "59764569-0a58-4a66-9106-514493711e35",
+          "name": "Îlots de chaleur et de fraîcheur urbains 2020-2022 (Classes d'écarts de températures)",
+          "format": "SHP",
+          "url": "https://www.donneesquebec.ca/recherche/dataset/533d0db2-399b-47a6-b397-0e6101e9a3a6/resource/59764569-0a58-4a66-9106-514493711e35/download/icfu2022_centrespopulation2021_buf2000m_9cl_shp.zip",
+          "datastore_active": false
+        },
+        {
+          "id": "2c382476-4c4f-4022-9d73-07d9e4e59fb1",
+          "name": "Écart de température 2020-2022 en °C",
+          "format": "GeoTIFF",
+          "url": "https://dq-prd-bucket1.s3.ca-central-1.amazonaws.com/inspq/EcartTemperatureRelatif2022_Ecoumene2021.tif",
+          "datastore_active": false
+        },
+        {
+          "id": "62089df3-3355-4c55-a6ff-4860715d237b",
+          "name": "Indice SUHII 2013-2014, 2020-2022 et variation de l’indice SUHII entre 2020-2022 et 2013-2014 (%)",
+          "format": "SHP",
+          "url": "https://www.donneesquebec.ca/recherche/dataset/533d0db2-399b-47a6-b397-0e6101e9a3a6/resource/62089df3-3355-4c55-a6ff-4860715d237b/download/suhii_2013_2022_ilots_diffusion.zip",
+          "datastore_active": false
+        },
+        {
+          "id": "278f0802-311d-4023-a290-15e0ed1b818a",
+          "name": "Symbologie proposée pour la représentation des données",
+          "format": "XLSX",
+          "url": "https://www.donneesquebec.ca/recherche/dataset/533d0db2-399b-47a6-b397-0e6101e9a3a6/resource/278f0802-311d-4023-a290-15e0ed1b818a/download/symbologiesuggeree_2013-2014_2020-2022_analysechang.xlsx",
+          "datastore_active": true
+        },
+        {
+          "id": "285927d4-125e-443a-b5fb-e7c11515b617",
+          "name": "Technote - Cartes des îlots de chaleur et de fraîcheur urbains : clés pour les interpréter et les utiliser",
+          "format": "PDF",
+          "url": "https://www.donneesquebec.ca/recherche/dataset/533d0db2-399b-47a6-b397-0e6101e9a3a6/resource/285927d4-125e-443a-b5fb-e7c11515b617/download/technote_2023-05_carto_icu.pdf",
+          "datastore_active": false
+        },
+        {
+          "id": "ef5f91cb-f6c9-48f4-ae06-bbfb3483e06e",
+          "name": "Rapport méthodologique",
+          "format": "PDF",
+          "url": "https://www.donneesquebec.ca/recherche/dataset/533d0db2-399b-47a6-b397-0e6101e9a3a6/resource/ef5f91cb-f6c9-48f4-ae06-bbfb3483e06e/download/rapport-metho-ilots-chaleur-fraicheur-2020-2022-inspq-cerfo_2023-01_21-0924.pdf",
+          "datastore_active": false
+        },
+        {
+          "id": "15e98474-c123-418f-9784-a82f49015484",
+          "name": "Métadonnées de production ",
+          "format": "GPKG",
+          "url": "https://www.donneesquebec.ca/recherche/dataset/533d0db2-399b-47a6-b397-0e6101e9a3a6/resource/15e98474-c123-418f-9784-a82f49015484/download/index_centrespopulation2021_dateimages2022.zip",
+          "datastore_active": false
+        },
+        {
+          "id": "e8c2b33a-9ca2-4f09-a2ef-61411539e9dc",
+          "name": "Article sur l’indice de ratio d’ICU (IRICU - Surface Urban Heat Island Ratio Index (SUHRI))",
+          "format": "PDF",
+          "url": "https://www.donneesquebec.ca/recherche/dataset/533d0db2-399b-47a6-b397-0e6101e9a3a6/resource/e8c2b33a-9ca2-4f09-a2ef-61411539e9dc/download/statistical-analysis-of-surface-urban-heat-island-intensity-variations-a-case-study-of-babol-cit.pdf",
+          "datastore_active": false
+        },
+        {
+          "id": "6a118258-9407-4e3d-97c2-b49ad8578507",
+          "name": "Site Web de l’INSPQ, Cartographie des îlots de chaleur urbains",
+          "format": "WEB",
+          "url": "https://www.inspq.qc.ca/changements-climatiques/actions/ilots-chaleur/cartographie-ilots-de-chaleur-urbains",
+          "datastore_active": false
+        },
+        {
+          "id": "2d75d323-c247-4379-b788-11809969cfcf",
+          "name": "La lutte contre les îlots de chaleur urbains dans le plan d’urbanisme du MAMH",
+          "format": "PDF",
+          "url": "https://cdn-contenu.quebec.ca/cdn-contenu/adm/min/affaires-municipales/publications/amenagement_territoire/documentation/GUI_ilots_chaleur_urbains.pdf",
+          "datastore_active": false
+        }
+      ],
+      "dataset_ids": "demonstration-ilots-chaleur"
+    }
+  ]
+}

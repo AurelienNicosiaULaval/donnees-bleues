@@ -63,3 +63,18 @@ Les métadonnées de citation se trouvent dans [`CITATION.cff`](CITATION.cff). L
 - [Méthode et grille de réutilisation](zero-waste.qmd) : consulter le cadre de conception et sa grille éditoriale, qui n’est pas une mesure scientifique validée.
 - [Références](references.qmd) : retrouver les références méthodologiques du projet.
 - [Charte éditoriale](charte-editoriale.qmd) : préparer une nouvelle fiche ou une activité.
+
+
+## Acquérir les données par API {#acquerir-par-api}
+
+Les trousses fondées sur des sources Données Québec contiennent un fichier `CITATIONS.md` avec les références recommandées sur les fiches officielles. Conserver ces références, les licences et les indications de transformation lors d’une réutilisation. La vérification d’une fiche ne change pas la date des données incluses dans l’activité.
+
+Pour acquérir une nouvelle source, extraire la trousse et ouvrir `acquerir-donnees-quebec.R` depuis le projet RStudio fourni. Installer les bibliothèques avec `installer-packages.R`, puis exécuter une première fois le script d’acquisition pour afficher les ressources. Choisir l’identifiant qui correspond au fichier, à la période et à l’unité souhaités, renseigner `resource_id` et relancer.
+
+Le script interroge l’API DataStore lorsque la ressource le permet et récupère toutes les pages. Pour les autres ressources, il obtient le lien officiel par l’API du catalogue puis acquiert le fichier ou le flux proposé. Les requêtes, réponses, dates et empreintes sont conservées dans un nouveau dossier sous `data/raw/api/`. La citation est relue sur la fiche officielle à cette acquisition. Une erreur de pagination ou une limite de volume interrompt la collecte au lieu de livrer un extrait incomplet.
+
+Les sources nouvellement acquises restent séparées des CSV de classe. Les analyses fournies utilisent leur instantané documenté. Avant d’analyser une nouvelle acquisition, appliquer et vérifier les transformations propres au jeu : le contenu de DataStore peut différer du fichier téléchargeable. Pour un jeu dérivé, l’acquisition d’une source brute ne reconstruit pas à elle seule la sélection pédagogique.
+
+La liste des ressources incluse dans une trousse correspond à sa vérification documentaire. Une ressource retirée provoque une erreur explicite; consulter alors la fiche officielle et actualiser la configuration avant de poursuivre. Aucun appel réseau n’est effectué pendant le rendu des pages pour obtenir les citations.
+
+Sources : Données Québec, sans date, [attribuer le crédit](https://www.donneesquebec.ca/licence/meilleures-pratiques-pour-donner-le-credit-dun-jeu/) et [utiliser les API](https://www.donneesquebec.ca/page-api/), consultées le 10 novembre 2026.

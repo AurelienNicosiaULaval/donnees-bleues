@@ -65,3 +65,11 @@ B ajoute des calculs, sans ajouter de données. La comparaison concerne la prés
 :::
 
 Texte original : Aurélien Nicosia (2026), Université Laval, CC BY 4.0. [Attribution des données](../datasets/rapports-accident/DATA_LICENSES.md). Utilisation en classe non documentée. Les références sont proposées pour approfondir, sans reproduction de leurs exemples.
+
+```{r}
+#| label: dq-citations
+#| echo: false
+#| results: asis
+source(if (file.exists("R/utils_donnees_quebec.R")) "R/utils_donnees_quebec.R" else "../R/utils_donnees_quebec.R")
+cat(dq_sources_html("comprendre-p-valeur", ".."))
+```

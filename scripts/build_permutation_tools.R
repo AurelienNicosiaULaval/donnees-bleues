@@ -26,10 +26,14 @@ stopifnot(file.copy("datasets/rapports-accident/activite-permutation.R",
   "assets/tools/permutations-accidents-quebec.R", overwrite = TRUE))
 files <- sort(list.files(app_dir, recursive = TRUE))
 stopifnot(!any(grepl("rsconnect|[.]Renviron|[.]Rhistory", files)))
+source("R/utils_donnees_quebec.R")
+dq_write_kit_resources(app_dir, "rapports-accident")
+files <- sort(unique(c(files, dq_kit_paths(include_application = TRUE))))
 archive <- file.path(normalizePath("assets/tools"), "permutations-accidents-quebec.zip")
 if (file.exists(archive)) unlink(archive)
 Sys.setFileTime(file.path(app_dir, files), as.POSIXct("2000-01-01", tz = "UTC"))
 zip::zipr(archive, files, root = app_dir, include_directories = FALSE, mode = "mirror")
+dq_annotate_script("assets/tools/permutations-accidents-quebec.R", "rapports-accident")
 write_json(list(version = "1.0.0", dataset = "rapports-accident", dataset_version = "1.0.0",
   dataset_sha256 = classroom_sha(file.path(app_dir, "data/accidents-quebec-2022.csv")),
   archive_sha256 = classroom_sha(archive),

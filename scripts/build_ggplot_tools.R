@@ -10,11 +10,15 @@ files <- c("app.R", "R/builder.R", "www/builder.css", "www/builder.js",
   "verifier.R", "exemple-graphique.R")
 stopifnot(all(file.exists(file.path(app_dir, files))))
 dir.create("assets/tools", recursive = TRUE, showWarnings = FALSE)
+source("R/utils_donnees_quebec.R")
+dq_write_kit_resources(app_dir, "arbres-quebec")
+files <- sort(unique(c(files, dq_kit_paths(include_application = TRUE))))
 archive <- file.path(normalizePath("assets/tools"), "ggplot-builder-donnees-bleues.zip")
 if (file.exists(archive)) unlink(archive)
 zip::zipr(archive, files, root = app_dir, include_directories = FALSE, mode = "mirror")
 stopifnot(file.copy(file.path(app_dir, "exemple-graphique.R"),
   "assets/tools/ggplot-builder-exemple.R", overwrite = TRUE))
+dq_annotate_script("assets/tools/ggplot-builder-exemple.R", "arbres-quebec")
 receipt <- list(version = "1.0.0", dataset = "arbres-quebec",
   dataset_sha256 = digest(file = file.path(app_dir, "data/arbres_quebec.csv"), algo = "sha256"),
   files = lapply(files, function(path) list(path = path,

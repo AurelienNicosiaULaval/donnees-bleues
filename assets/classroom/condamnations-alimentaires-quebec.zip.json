@@ -9,18 +9,39 @@
   "original_licenses": {
     "code": "MIT",
     "content": "CC-BY-4.0",
-    "notices": ["LICENSE", "LICENCE-CONTENUS.md"]
+    "notices": [
+      "LICENSE",
+      "LICENCE-CONTENUS.md"
+    ]
   },
   "selection": "Table de classe limitée aux colonnes déclarées, sans tirage supplémentaire de lignes. Attribution et conditions tierces conservées.",
   "tables": [
     {
       "path": "data/processed/condamnations-alimentaires-quebec/condamnations_alimentaires_quebec.csv",
       "rows": 1712,
-      "columns": ["Type_etablissement", "Date_infraction", "Date_jugement", "Date_publication", "amende_num", "delai_infraction_jugement_jours", "delai_jugement_publication_jours"],
+      "columns": [
+        "Type_etablissement",
+        "Date_infraction",
+        "Date_jugement",
+        "Date_publication",
+        "amende_num",
+        "delai_infraction_jugement_jours",
+        "delai_jugement_publication_jours"
+      ],
       "sha256": "7c373355365c912c057b9c333618f28763cdba9e7fb9dfb4869821e56d1ea853",
       "prepared_table_sha256": "23281ef15f72d9ccd1b83fa17e45ddca62682829d0637c0d0209edbcaaa5c996"
     }
   ],
-  "archive_sha256": "a07fe9a8b63158dc8d409d2b8292b426b49dab055c719cdfbb123d880c172cf5",
-  "archive_bytes": 24429
+  "archive_sha256": "2004580d6bb451eadde819776f2da10dffc0cf13a8582269e6860f949040087b",
+  "archive_bytes": 35278,
+  "donnees_quebec": [
+    {
+      "page_url": "https://www.donneesquebec.ca/recherche/dataset/condamnations-des-etablissements-alimentaires-et-condamnations-concernant-le-bien-etre-des-anim",
+      "citation": "MINISTÈRE DE L'AGRICULTURE, DES PÊCHERIES ET DE L'ALIMENTATION. Condamnations des établissements alimentaires et condamnations concernant le bien-être des animaux, [Jeu de données], dans Données Québec, 2012, mis à jour le 10 novembre 2026. [https://www.donneesquebec.ca/recherche/dataset/condamnations-des-etablissements-alimentaires-et-condamnations-concernant-le-bien-etre-des-anim], (consulté le 10 novembre 2026).",
+      "verified_at_utc": "2026-11-10T13:28:10Z",
+      "license_title": "Attribution (CC-BY 4.0)",
+      "license_url": "https://www.donneesquebec.ca/licence/#cc-by"
+    }
+  ],
+  "documentation_updated_on": "2026-11-10"
 }

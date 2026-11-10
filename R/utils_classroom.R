@@ -1,3 +1,4 @@
+source(if (file.exists('R/utils_donnees_quebec.R')) 'R/utils_donnees_quebec.R' else '../../R/utils_donnees_quebec.R')
 # Build and validate self-contained teaching kits from explicit publication policies.
 classroom_script_paths <- function(id, datasets_dir = 'datasets') {
   metadata_paths <- sort(list.files(file.path(datasets_dir, id),
@@ -111,6 +112,8 @@ build_classroom_kit <- function(metadata, output_dir = 'assets/classroom') {
     tables[[length(tables) + 1L]] <- list(path = file$path, rows = nrow(data), columns = cols,
       sha256 = classroom_sha(destination), prepared_table_sha256 = classroom_sha(file$path))
   }
+  has_dq <- dq_write_kit_resources(stage, id)
+  if (has_dq) source_paths <- c(source_paths, 'R/utils_ckan.R', 'R/utils_donnees_quebec.R', 'R/utils_downloads.R')
   packages <- classroom_packages(source_paths)
   package_code <- paste(sprintf('"%s"', packages), collapse = ', ')
   writeLines(c('# À exécuter une fois avec Internet avant la séance.',
@@ -131,7 +134,7 @@ build_classroom_kit <- function(metadata, output_dir = 'assets/classroom') {
       notices = c('LICENSE', 'LICENCE-CONTENUS.md', notices)),
     selection = policy$reason, r_version_tested = '4.5.0',
     packages_tested = setNames(lapply(packages, function(p) as.character(utils::packageVersion(p))), packages),
-    sources = sources, tables = tables)
+    sources = sources, tables = tables, donnees_quebec = dq_citation_records(id))
   jsonlite::write_json(manifest, file.path(stage, 'provenance.json'), auto_unbox = TRUE, pretty = TRUE)
   availability <- switch(policy$mode,
     frozen = 'Les CSV préparés sont inclus. Le script fonctionne hors ligne après installation des packages.',
@@ -145,6 +148,7 @@ build_classroom_kit <- function(metadata, output_dir = 'assets/classroom') {
     paste0('5. Ouvrir ', paste(scripts, collapse = ' ou '), ', puis cliquer Source.'),
     '6. Lire les tableaux dans Console et les graphiques dans Plots. Les consignes propres à chaque activité sont sur le site.', '',
     paste0('Activités : https://donneesbleues.ca/datasets/', id, '/fiche.html'), '',
+    if (has_dq) 'Acquisition facultative : ouvrir acquerir-donnees-quebec.R avec Internet pour consulter les ressources et en acquérir une par API lorsqu’elle est interrogeable. Les nouvelles sources restent séparées des CSV de classe. Lire CITATIONS.md pour les références officielles.', '',
     '## Source et réutilisation', '', paste0('Producteur : ', metadata$source_name),
     paste0('Source : ', metadata$source_url), paste0('Conditions : ', metadata$publication$license_url),
     if (length(notices)) paste0('Attributions et documentation incluses : ', paste(notices, collapse = ', '), '.'),
@@ -167,7 +171,7 @@ build_classroom_kit <- function(metadata, output_dir = 'assets/classroom') {
   archive <- file.path(normalizePath(output_dir), paste0(id, '.zip'))
   if (file.exists(archive)) unlink(archive)
   zip::zip(archive, files = files, root = stage, include_directories = FALSE, mode = "mirror")
-  receipt <- c(manifest[c('dataset_id', 'title', 'mode', 'prepared_at_utc', 'source_name', 'source_url', 'license_url', 'original_licenses', 'selection', 'tables')],
+  receipt <- c(manifest[c('dataset_id', 'title', 'mode', 'prepared_at_utc', 'source_name', 'source_url', 'license_url', 'original_licenses', 'selection', 'tables', 'donnees_quebec')],
     list(archive_sha256 = classroom_sha(archive), archive_bytes = unname(file.info(archive)$size)))
   jsonlite::write_json(receipt, paste0(archive, '.json'), auto_unbox = TRUE, pretty = TRUE)
   invisible(receipt)

@@ -1,3 +1,4 @@
+source(if (file.exists("R/utils_donnees_quebec.R")) "R/utils_donnees_quebec.R" else "../../R/utils_donnees_quebec.R")
 source(if (file.exists("R/utils_editorial.R")) "R/utils_editorial.R" else "../../R/utils_editorial.R")
 source(if (file.exists("R/utils_resource_identity.R")) "R/utils_resource_identity.R" else "../../R/utils_resource_identity.R")
 `%||%` <- function(x, y) {
@@ -132,7 +133,7 @@ render_activity_resources <- function() {
   if (metadata$dataset_id == 'meteo-quebec') {
     cat('<p>Données gratuites d’Environnement et Changement climatique Canada. Leur utilisation vaut acceptation des conditions liées ci-dessus; conserver ces conditions lors d’une redistribution.</p>')
   }
-  cat('</div>\n')
+  cat(dq_sources_html(metadata$dataset_id), '</div>\n', sep = '')
 }
 
 render_activity_code <- function() {

@@ -3,15 +3,23 @@
   "dataset": "maisons-quebec",
   "dataset_version": "1.0.0",
   "dataset_sha256": "e631d863ddc48ef7371a1b9ad5993a0dbccd78c350e5558a9c7396054f886008",
-  "archive_sha256": "568d623b1278c8bf1453f8e74ffe020bdd1910efae987d9f2e78dbc0df7a433c",
+  "archive_sha256": "82ba3bef9a8c776b37f84725df60d4ba53dec148ed97809a2de17103d1562409",
   "files": [
     {
+      "path": "acquerir-donnees-quebec.R",
+      "sha256": "02011b8d95d8d2f68cdb933f7b55bf2bca3318151033a5a523b1fdaca59e3e69"
+    },
+    {
       "path": "app.R",
-      "sha256": "7469524b1112fc92953953690f1ea6c327e0b38e30e54ce812f7337869b00c68"
+      "sha256": "81a920b6fce0b02ddae85a5011a33ff338e2ab1912b945bed4ff87f150f7d22c"
     },
     {
       "path": "check-server.R",
       "sha256": "ad2c5b6d1ea2c0e8e2db414a7f185647b7574f4e3c396f8187a9d98e5b541e11"
+    },
+    {
+      "path": "CITATIONS.md",
+      "sha256": "9616615d86dbcd4d9f6abfca793ecdd195c5c3d59acf89667f38b686cd8c561e"
     },
     {
       "path": "DATA_LICENSES.md",
@@ -20,6 +28,10 @@
     {
       "path": "data/maisons-quebec.csv",
       "sha256": "e631d863ddc48ef7371a1b9ad5993a0dbccd78c350e5558a9c7396054f886008"
+    },
+    {
+      "path": "data/metadata/donnees_quebec.json",
+      "sha256": "e5bd48d0f7c2081e3b62e5ce48902c7d1748a4c3dacd644c57c4ba9758e7de08"
     },
     {
       "path": "DICTIONNAIRE.md",
@@ -40,6 +52,22 @@
     {
       "path": "R/bootstrap.R",
       "sha256": "8a9142dd625d5e61a5a9e95f4b633dfbc22fdb28ce27381cafddfad5b2621ec2"
+    },
+    {
+      "path": "R/donnees_quebec_citations.R",
+      "sha256": "ec62c6d071939db786478f600bc5527b3ad96f75791417866552d7ba1b535b55"
+    },
+    {
+      "path": "R/utils_ckan.R",
+      "sha256": "916be4caf9134f965bda0ee240800a38d571fb3fbf1045bddddb30e013715e5b"
+    },
+    {
+      "path": "R/utils_donnees_quebec.R",
+      "sha256": "7cc68a9cf92188c53cebc249005661c5acb9d8a24dd146335742ca785d2ad08c"
+    },
+    {
+      "path": "R/utils_downloads.R",
+      "sha256": "9af3c264386c3304ec37a480de7e787cd87ac3f1de2cc1507eb4b7ce17c8e3ff"
     },
     {
       "path": "README.md",

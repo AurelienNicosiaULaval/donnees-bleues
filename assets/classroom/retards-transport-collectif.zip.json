@@ -9,32 +9,72 @@
   "original_licenses": {
     "code": "MIT",
     "content": "CC-BY-4.0",
-    "notices": ["LICENSE", "LICENCE-CONTENUS.md"]
+    "notices": [
+      "LICENSE",
+      "LICENCE-CONTENUS.md"
+    ]
   },
   "selection": "Documentation et synthèses publiques seulement; aucune donnée privée, géodatabase ni observation de retard.",
   "tables": [
     {
       "path": "data/processed/retards-transport-collectif/protocole_archivage_retards_transport.csv",
       "rows": 7,
-      "columns": ["step", "action", "point_de_controle"],
+      "columns": [
+        "step",
+        "action",
+        "point_de_controle"
+      ],
       "sha256": "f4db342d2ab1c113b82b0f349e443ae9a3192c5c9348866c27ee423ca8b89144",
       "prepared_table_sha256": "f4db342d2ab1c113b82b0f349e443ae9a3192c5c9348866c27ee423ca8b89144"
     },
     {
       "path": "data/processed/retards-transport-collectif/resume_retards_transport.csv",
       "rows": 1,
-      "columns": ["access_date", "package_id", "package_name", "title", "organization", "license_title", "license_id", "package_metadata_modified", "n_resources_ckan", "n_gtfs_resources", "n_developer_portal_resources", "n_direct_download_resources", "source_requires_developer_account", "historical_table_available_in_ckan", "source_url", "api_url", "developer_url"],
+      "columns": [
+        "access_date",
+        "package_id",
+        "package_name",
+        "title",
+        "organization",
+        "license_title",
+        "license_id",
+        "package_metadata_modified",
+        "n_resources_ckan",
+        "n_gtfs_resources",
+        "n_developer_portal_resources",
+        "n_direct_download_resources",
+        "source_requires_developer_account",
+        "historical_table_available_in_ckan",
+        "source_url",
+        "api_url",
+        "developer_url"
+      ],
       "sha256": "f0c868c17d360241f484f41243496550e1989ef23f3c10d96de3e71e5d9ebcef",
       "prepared_table_sha256": "f0c868c17d360241f484f41243496550e1989ef23f3c10d96de3e71e5d9ebcef"
     },
     {
       "path": "data/processed/retards-transport-collectif/variables_gtfs_realtime_retards_transport.csv",
       "rows": 10,
-      "columns": ["message_type", "field_pedagogique", "role_statistique", "status"],
+      "columns": [
+        "message_type",
+        "field_pedagogique",
+        "role_statistique",
+        "status"
+      ],
       "sha256": "5acafb9153ca791b93d7ea9bf2e70010f849f6ee72857d63b6e60ab7442e7f00",
       "prepared_table_sha256": "5acafb9153ca791b93d7ea9bf2e70010f849f6ee72857d63b6e60ab7442e7f00"
     }
   ],
-  "archive_sha256": "780963725d9bbd414f40157308edea1447128ac56c0acb886eec5dfaf036179b",
-  "archive_bytes": 8701
+  "archive_sha256": "4cc990a3372c221a36a4ebe8bba81415f74cd277dd4a03b51e069af9b3720b93",
+  "archive_bytes": 20430,
+  "donnees_quebec": [
+    {
+      "page_url": "https://www.donneesquebec.ca/recherche/dataset/vmtl-stm-bus-temps-reel-gtfs-realtime",
+      "citation": "SOCIÉTÉ DE TRANSPORT DE MONTRÉAL. Horaires et positionnement des bus en temps réel (GTFS-realtime), [Jeu de données], dans Données Québec, 2018, mis à jour le 09 novembre 2026. [https://www.donneesquebec.ca/recherche/dataset/vmtl-stm-bus-temps-reel-gtfs-realtime], (consulté le 10 novembre 2026).",
+      "verified_at_utc": "2026-11-10T13:28:46Z",
+      "license_title": "Attribution (CC-BY 4.0)",
+      "license_url": "https://www.donneesquebec.ca/licence/#cc-by"
+    }
+  ],
+  "documentation_updated_on": "2026-11-10"
 }

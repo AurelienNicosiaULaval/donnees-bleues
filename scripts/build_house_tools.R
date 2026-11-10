@@ -16,15 +16,19 @@ knitr::purl("resources/tutoriel-maisons-quebec.qmd",
             documentation = 0, quiet = TRUE)
 # La notice Quarto est le seul bloc spécifique au site.
 script <- readLines("assets/tools/tutoriel-maisons-quebec.R", warn = FALSE)
-script <- script[!grepl("utils_resources.R|render_resource_notice_identity", script)]
+script <- script[!grepl("utils_resources.R|render_resource_notice_identity|utils_donnees_quebec.R|dq_sources_html", script)]
 writeLines(c("# Données bleues : tutoriel Maisons à Québec",
   "# Aurélien Nicosia (2026). Code MIT; données MAMH et contenus CC BY 4.0.",
   "# Valeurs au rôle 2025, référence au marché 2023-07-01, extraction 2026.",
   script), "assets/tools/tutoriel-maisons-quebec.R", useBytes = TRUE)
 
+source("R/utils_donnees_quebec.R")
+dq_write_kit_resources(app_dir, "maisons-quebec")
+files <- sort(unique(c(files, dq_kit_paths(include_application = TRUE))))
 archive <- file.path(normalizePath("assets/tools", mustWork = TRUE), "explorer-maisons-quebec.zip")
 if (file.exists(archive)) unlink(archive)
 zip::zipr(archive, files, root = app_dir, include_directories = FALSE, mode = "mirror")
+dq_annotate_script("assets/tools/tutoriel-maisons-quebec.R", "maisons-quebec")
 receipt <- list(version = "1.0.0", dataset = "maisons-quebec",
   dataset_sha256 = digest(file = file.path(app_dir, "data/maisons-quebec.csv"), algo = "sha256"),
   files = lapply(files, function(path) list(path = path,

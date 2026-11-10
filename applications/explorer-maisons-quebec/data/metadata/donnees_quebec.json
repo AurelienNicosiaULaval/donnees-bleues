@@ -1,0 +1,398 @@
+{
+  "schema_version": 1,
+  "verified_on": "2026-11-10",
+  "attribution_guidance": "https://www.donneesquebec.ca/licence/meilleures-pratiques-pour-donner-le-credit-dun-jeu/",
+  "api_documentation": "https://www.donneesquebec.ca/page-api/",
+  "sources": [
+    {
+      "status": "verified",
+      "requested_url": "https://www.donneesquebec.ca/recherche/dataset/061c8cb7-ca4e-45be-a990-61fce7e7d2dc",
+      "aliases": [
+        "roles-d-evaluation-fonciere-du-quebec",
+        "061c8cb7-ca4e-45be-a990-61fce7e7d2dc"
+      ],
+      "package_id": "061c8cb7-ca4e-45be-a990-61fce7e7d2dc",
+      "package_name": "roles-d-evaluation-fonciere-du-quebec",
+      "page_url": "https://www.donneesquebec.ca/recherche/dataset/roles-d-evaluation-fonciere-du-quebec",
+      "title": "Rôle d'évaluation foncière du Québec",
+      "citation": "MINISTÈRE DES AFFAIRES MUNICIPALES ET DE L'HABITATION. Rôle d'évaluation foncière du Québec, [Jeu de données], dans Données Québec, 2022, mis à jour le 24 août 2026. [https://www.donneesquebec.ca/recherche/dataset/roles-d-evaluation-fonciere-du-quebec], (consulté le 10 novembre 2026).",
+      "verified_at_utc": "2026-11-10T13:28:26Z",
+      "page_sha256": "82009a264149957e2ab0d5ca57736d253bc59e1c0205c3511cf897e629b9075e",
+      "license_title": "Attribution (CC-BY 4.0)",
+      "license_url": "https://www.donneesquebec.ca/licence/#cc-by",
+      "metadata_modified": "2026-08-24T15:17:22.558193",
+      "resources": [
+        {
+          "id": "d441415e-7462-4a9b-8234-315a7bf157e5",
+          "name": "Rôle d'évaluation foncière du Québec géoréférencé 2026",
+          "format": "FGDB",
+          "url": "https://donneesouvertes.affmunqc.net/role/ROLE2026_FGDB.zip",
+          "datastore_active": false
+        },
+        {
+          "id": "8a79d011-0f0e-42fa-af68-049f741e8919",
+          "name": "Rôle d'évaluation foncière du Québec géoréférencé 2026",
+          "format": "GPKG",
+          "url": "https://donneesouvertes.affmunqc.net/role/ROLE2026_GEOPACKAGE.zip",
+          "datastore_active": false
+        },
+        {
+          "id": "c0e65c47-fcc1-40e4-bc2e-7baa74bc164a",
+          "name": "Index des rôles d'évaluation foncière 2026 par municipalité",
+          "format": "CSV",
+          "url": "https://donneesouvertes.affmunqc.net/role/indexRole2026.csv",
+          "datastore_active": true
+        },
+        {
+          "id": "32ac5079-ae14-460a-9a2d-b811b0fc56f3",
+          "name": "Tous les fichiers des rôles d'évaluation foncière du Québec 2026",
+          "format": "ZIP",
+          "url": "https://donneesouvertes.affmunqc.net/role/Roles_Donnees_Ouvertes_2026.zip",
+          "datastore_active": false
+        },
+        {
+          "id": "9707cf59-c49c-4685-a8b8-73fbdb7b1814",
+          "name": "Rôle d'évaluation foncière du Québec géoréférencé 2025",
+          "format": "GPKG",
+          "url": "https://donneesouvertes.affmunqc.net/role/ROLE2025_GEOPACKAGE.zip",
+          "datastore_active": false
+        },
+        {
+          "id": "de314af2-82d3-4e79-97f6-dc394492cb03",
+          "name": "Rôle d'évaluation foncière du Québec géoréférencé 2025",
+          "format": "FGDB",
+          "url": "https://donneesouvertes.affmunqc.net/role/ROLE2025_FGDB.zip",
+          "datastore_active": false
+        },
+        {
+          "id": "347f60d1-a1d9-406e-a5a8-d1672ece32fb",
+          "name": "Index de la mise à jour trimestrielle des rôles d’évaluation foncière par municipalité",
+          "format": "CSV",
+          "url": "https://mamh.gouv.qc.ca/role/indexRole.csv",
+          "datastore_active": true
+        },
+        {
+          "id": "d2db6102-9215-4abc-9b5b-2c37f2e12618",
+          "name": "Index des rôles d'évaluation foncière 2025 par municipalité",
+          "format": "CSV",
+          "url": "https://donneesouvertes.affmunqc.net/role/indexRole2025.csv",
+          "datastore_active": true
+        },
+        {
+          "id": "b52d3822-f3fa-4108-ab46-34581b57d041",
+          "name": "Tous les fichiers des rôles d'évaluation foncière du Québec 2025",
+          "format": "ZIP",
+          "url": "https://donneesouvertes.affmunqc.net/role/Roles_Donnees_Ouvertes_2025.zip",
+          "datastore_active": false
+        },
+        {
+          "id": "0278065d-1e9a-4daf-8252-523d4eed735e",
+          "name": "Index des rôles d'évaluation foncière 2024 par municipalité",
+          "format": "CSV",
+          "url": "https://donneesouvertes.affmunqc.net/role/indexRole2024.csv",
+          "datastore_active": true
+        },
+        {
+          "id": "79d20d4a-2cdb-406a-b768-70f4ef5e6c0e",
+          "name": "Tous les fichiers des rôles d'évaluation foncière du Québec 2024",
+          "format": "ZIP",
+          "url": "https://donneesouvertes.affmunqc.net/role/Roles_Donnees_Ouvertes_2024.zip",
+          "datastore_active": false
+        },
+        {
+          "id": "44f9b7e8-306e-4c7e-8497-6a1232ace32b",
+          "name": "Rôle d'évaluation foncière du Québec géoréférencé 2024",
+          "format": "GeoJSON",
+          "url": "https://donneesouvertes.affmunqc.net/role/role_unite_p_2024.json",
+          "datastore_active": false
+        },
+        {
+          "id": "fe31dfcd-0753-4769-9868-d897d9c5a0ba",
+          "name": "Rôle d'évaluation foncière du Québec géoréférencé 2024",
+          "format": "FGDB",
+          "url": "https://donneesouvertes.affmunqc.net/role/ROLE2024_FGDB.zip",
+          "datastore_active": false
+        },
+        {
+          "id": "427a72a7-f34c-495b-aa23-9de71a84a066",
+          "name": "Répertoire des renseignements prescrits du rôles d'évaluation foncière en format ouvert",
+          "format": "PDF",
+          "url": "https://www.donneesquebec.ca/recherche/dataset/061c8cb7-ca4e-45be-a990-61fce7e7d2dc/resource/427a72a7-f34c-495b-aa23-9de71a84a066/download/repertoire-des-renseignements-prescrits-du-role-devaluation-fonciere-version-2.5.pdf",
+          "datastore_active": false
+        },
+        {
+          "id": "6f2599be-e49d-4b9a-8702-b12ad0f56141",
+          "name": "Guide sur les données du rôle d'évaluation foncière en format ouvert",
+          "format": "PDF",
+          "url": "https://www.donneesquebec.ca/recherche/dataset/061c8cb7-ca4e-45be-a990-61fce7e7d2dc/resource/6f2599be-e49d-4b9a-8702-b12ad0f56141/download/gui_donneesrolesformatouvert_vf20220627.pdf",
+          "datastore_active": false
+        },
+        {
+          "id": "da52954e-5adf-437b-9679-3f9a7b3ee861",
+          "name": "Index des rôles d'évaluation foncière 2023 par municipalité",
+          "format": "CSV",
+          "url": "https://donneesouvertes.affmunqc.net/role/indexRole2023.csv",
+          "datastore_active": true
+        },
+        {
+          "id": "0223532f-2fb7-4242-a226-b2205c064b07",
+          "name": "Tous les fichiers des rôles d'évaluation foncière du Québec 2023",
+          "format": "ZIP",
+          "url": "https://donneesouvertes.affmunqc.net/role/Roles_Donnees_Ouvertes_2023.zip",
+          "datastore_active": false
+        },
+        {
+          "id": "b15f77c5-99ae-4455-8306-41e7e3cf1dda",
+          "name": "Rôle d'évaluation foncière du Québec géoréférencé 2023",
+          "format": "GeoJSON",
+          "url": "https://donneesouvertes.affmunqc.net/role/role_unite_p_2023.json",
+          "datastore_active": false
+        },
+        {
+          "id": "0366c463-5820-47e1-b70f-de5a6c777cef",
+          "name": "Rôle d'évaluation foncière du Québec géoréférencé 2023",
+          "format": "FGDB",
+          "url": "https://donneesouvertes.affmunqc.net/role/ROLE2023_FGDB.zip",
+          "datastore_active": false
+        },
+        {
+          "id": "7f97f97c-6ac3-4610-8e94-65375fad74bc",
+          "name": "Index des rôles d'évaluation foncière 2022 par municipalité",
+          "format": "CSV",
+          "url": "https://donneesouvertes.affmunqc.net/role/indexRole.csv",
+          "datastore_active": true
+        },
+        {
+          "id": "93548503-59b0-4721-b1a8-df98f447aa5c",
+          "name": "Tous les fichiers des rôles d'évaluation foncière du Québec 2022",
+          "format": "ZIP",
+          "url": "https://donneesouvertes.affmunqc.net/role/Roles_Donnees_Ouvertes_2022.zip",
+          "datastore_active": false
+        },
+        {
+          "id": "bab52bb2-caea-401f-af0a-62a09a8c5da3",
+          "name": "Rôle d'évaluation foncière du Québec géoréférencé 2022",
+          "format": "GeoJSON",
+          "url": "https://donneesouvertes.affmunqc.net/role/role_unite_p_2022.json",
+          "datastore_active": false
+        },
+        {
+          "id": "6e34aecd-6914-4791-8aff-452e554b9990",
+          "name": "Rôle d'évaluation foncière du Québec géoréférencé 2022",
+          "format": "SHP",
+          "url": "https://donneesouvertes.affmunqc.net/role/ROLE2022_SHP.zip",
+          "datastore_active": false
+        },
+        {
+          "id": "62c46738-6c05-4971-b598-d114db4e32cb",
+          "name": "Rôle d'évaluation foncière du Québec géoréférencé 2022",
+          "format": "FGDB",
+          "url": "https://donneesouvertes.affmunqc.net/role/ROLE2022_FGDB.zip",
+          "datastore_active": false
+        },
+        {
+          "id": "dec77845-1ab6-42bc-94ca-4f0a9580e60b",
+          "name": "Rôle d'évaluation foncière du Québec géoréférencé 2021",
+          "format": "GeoJSON",
+          "url": "https://donneesouvertes.affmunqc.net/role/role_unite_p_2021.json",
+          "datastore_active": false
+        },
+        {
+          "id": "6892a568-7f7c-4f52-82e8-00427eb98e48",
+          "name": "Rôle d'évaluation foncière du Québec géoréférencé 2021",
+          "format": "SHP",
+          "url": "https://donneesouvertes.affmunqc.net/role/ROLE2021_SHP.zip",
+          "datastore_active": false
+        },
+        {
+          "id": "74db5f6f-b41d-4c01-8a76-1f8efd6bc39a",
+          "name": "Rôle d'évaluation foncière du Québec géoréférencé 2021",
+          "format": "FGDB",
+          "url": "https://donneesouvertes.affmunqc.net/role/ROLE2021_FGDB.zip",
+          "datastore_active": false
+        },
+        {
+          "id": "1eacb835-a135-49c3-a562-cd43285eb5d7",
+          "name": "Rôle d'évaluation foncière du Québec géoréférencé 2020",
+          "format": "GeoJSON",
+          "url": "https://donneesouvertes.affmunqc.net/role/role_unite_p_2020.json",
+          "datastore_active": false
+        },
+        {
+          "id": "21267ba8-c00c-48d6-9e56-a5cffcbc39d7",
+          "name": "Rôle d'évaluation foncière du Québec géoréférencé 2020",
+          "format": "SHP",
+          "url": "https://donneesouvertes.affmunqc.net/role/ROLE2020_SHP.zip",
+          "datastore_active": false
+        },
+        {
+          "id": "517cfc2f-cccd-49a6-aaeb-5fad309a552a",
+          "name": "Rôle d'évaluation foncière du Québec géoréférencé 2020",
+          "format": "FGDB",
+          "url": "https://donneesouvertes.affmunqc.net/role/ROLE2020_FGDB.zip",
+          "datastore_active": false
+        },
+        {
+          "id": "70959321-087d-49d3-b7d5-6a83f2f5e445",
+          "name": "Rôle d'évaluation foncière du Québec géoréférencé 2019",
+          "format": "GeoJSON",
+          "url": "https://donneesouvertes.affmunqc.net/role/role_unite_p_2019.json",
+          "datastore_active": false
+        },
+        {
+          "id": "3284ee39-df24-404c-a57f-5b58e522ca40",
+          "name": "Rôle d'évaluation foncière du Québec géoréférencé 2019",
+          "format": "SHP",
+          "url": "https://donneesouvertes.affmunqc.net/role/ROLE2019_SHP.zip",
+          "datastore_active": false
+        },
+        {
+          "id": "97508896-0344-4377-9911-9122c6e55055",
+          "name": "Rôle d'évaluation foncière du Québec géoréférencé 2019",
+          "format": "FGDB",
+          "url": "https://donneesouvertes.affmunqc.net/role/ROLE2019_FGDB.zip",
+          "datastore_active": false
+        },
+        {
+          "id": "66e4bcd0-791a-4182-a0c3-e2129bd4a626",
+          "name": "Rôle d'évaluation foncière du Québec géoréférencé 2018",
+          "format": "GeoJSON",
+          "url": "https://donneesouvertes.affmunqc.net/role/role_unite_p_2018.json",
+          "datastore_active": false
+        },
+        {
+          "id": "5aa5c374-5ca8-482e-8294-d5827eb808d6",
+          "name": "Rôle d'évaluation foncière du Québec géoréférencé 2018",
+          "format": "SHP",
+          "url": "https://donneesouvertes.affmunqc.net/role/ROLE2018_SHP.zip",
+          "datastore_active": false
+        },
+        {
+          "id": "930b8eed-f913-433e-bc5f-9d2b43ed96f0",
+          "name": "Rôle d'évaluation foncière du Québec géoréférencé 2018",
+          "format": "FGDB",
+          "url": "https://donneesouvertes.affmunqc.net/role/ROLE2018_FGDB.zip",
+          "datastore_active": false
+        },
+        {
+          "id": "11453e4d-5a4e-49bb-985f-5543707ae6f8",
+          "name": "Rôle d'évaluation foncière du Québec géoréférencé 2017",
+          "format": "GeoJSON",
+          "url": "https://donneesouvertes.affmunqc.net/role/role_unite_p_2017.json",
+          "datastore_active": false
+        },
+        {
+          "id": "510fa221-e94f-4f56-8648-f9edc593df11",
+          "name": "Rôle d'évaluation foncière du Québec géoréférencé 2017",
+          "format": "SHP",
+          "url": "https://donneesouvertes.affmunqc.net/role/ROLE2017_SHP.zip",
+          "datastore_active": false
+        },
+        {
+          "id": "0b92fffb-c796-467e-8d28-d82c141ab78b",
+          "name": "Rôle d'évaluation foncière du Québec géoréférencé 2017",
+          "format": "FGDB",
+          "url": "https://donneesouvertes.affmunqc.net/role/ROLE2017_FGDB.zip",
+          "datastore_active": false
+        },
+        {
+          "id": "891acc20-cc05-4ed8-b658-8cdf105a82d2",
+          "name": "Rôle d'évaluation foncière du Québec géoréférencé 2016",
+          "format": "GeoJSON",
+          "url": "https://donneesouvertes.affmunqc.net/role/role_unite_p_2016.json",
+          "datastore_active": false
+        },
+        {
+          "id": "c90be224-ef40-4f8c-b0ee-046ff08a4d68",
+          "name": "Rôle d'évaluation foncière du Québec géoréférencé 2016",
+          "format": "SHP",
+          "url": "https://donneesouvertes.affmunqc.net/role/ROLE2016_SHP.zip",
+          "datastore_active": false
+        },
+        {
+          "id": "441a9192-3ae8-41b5-a4a6-97119bbf39b1",
+          "name": "Rôle d'évaluation foncière du Québec géoréférencé 2016",
+          "format": "FGDB",
+          "url": "https://donneesouvertes.affmunqc.net/role/ROLE2016_FGDB.zip",
+          "datastore_active": false
+        },
+        {
+          "id": "d20c51d7-ac35-47ed-a76e-455cf348c9ad",
+          "name": "Rôle d'évaluation foncière du Québec géoréférencé 2015",
+          "format": "GeoJSON",
+          "url": "https://donneesouvertes.affmunqc.net/role/role_unite_p_2015.json",
+          "datastore_active": false
+        },
+        {
+          "id": "5512fd4c-4c97-49fc-8df7-3a170e8bc808",
+          "name": "Rôle d'évaluation foncière du Québec géoréférencé 2015",
+          "format": "SHP",
+          "url": "https://donneesouvertes.affmunqc.net/role/ROLE2015_SHP.zip",
+          "datastore_active": false
+        },
+        {
+          "id": "d688b20b-22cf-4c0a-8aa8-e55f0d2b0a98",
+          "name": "Rôle d'évaluation foncière du Québec géoréférencé 2015",
+          "format": "FGDB",
+          "url": "https://donneesouvertes.affmunqc.net/role/ROLE2015_FGDB.zip",
+          "datastore_active": false
+        },
+        {
+          "id": "da378341-0008-4ee6-bfbb-1344159befe6",
+          "name": "Rôle d'évaluation foncière du Québec géoréférencé 2014",
+          "format": "GeoJSON",
+          "url": "https://donneesouvertes.affmunqc.net/role/role_unite_p_2014.json",
+          "datastore_active": false
+        },
+        {
+          "id": "09713023-d7ce-40d3-91f4-4290e4134ad2",
+          "name": "Rôle d'évaluation foncière du Québec géoréférencé 2014",
+          "format": "SHP",
+          "url": "https://donneesouvertes.affmunqc.net/role/ROLE2014_SHP.zip",
+          "datastore_active": false
+        },
+        {
+          "id": "9d99b599-915f-4e20-af68-fd5d25506832",
+          "name": "Rôle d'évaluation foncière du Québec géoréférencé 2014",
+          "format": "FGDB",
+          "url": "https://donneesouvertes.affmunqc.net/role/ROLE2014_FGDB.zip",
+          "datastore_active": false
+        },
+        {
+          "id": "86af14d6-6cb2-493f-a5f1-d2d5f63c87f0",
+          "name": "Rôle d'évaluation foncière du Québec géoréférencé 2013",
+          "format": "GeoJSON",
+          "url": "https://donneesouvertes.affmunqc.net/role/role_unite_p_2013.json",
+          "datastore_active": false
+        },
+        {
+          "id": "e096aa1a-2420-4b43-8fc7-cfc7e478f848",
+          "name": "Rôle d'évaluation foncière du Québec géoréférencé 2013",
+          "format": "SHP",
+          "url": "https://donneesouvertes.affmunqc.net/role/ROLE2013_SHP.zip",
+          "datastore_active": false
+        },
+        {
+          "id": "3d5cc996-95eb-4230-b321-7dd09b8979b9",
+          "name": "Rôle d'évaluation foncière du Québec géoréférencé 2013",
+          "format": "FGDB",
+          "url": "https://donneesouvertes.affmunqc.net/role/ROLE2013_FGDB.zip",
+          "datastore_active": false
+        },
+        {
+          "id": "68e64482-1208-4e13-832c-2fc63c2412f6",
+          "name": "Rôle d'évaluation foncière du Québec géoréférencé 2012",
+          "format": "SHP",
+          "url": "https://donneesouvertes.affmunqc.net/role/ROLE2012_SHP.zip",
+          "datastore_active": false
+        }
+      ],
+      "dataset_ids": [
+        "maisons-quebec",
+        "bootstrap-maisons-quebec",
+        "explorer-maisons-quebec",
+        "tutoriel-maisons-quebec"
+      ]
+    }
+  ]
+}

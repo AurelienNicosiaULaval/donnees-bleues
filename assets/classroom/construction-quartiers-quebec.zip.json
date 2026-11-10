@@ -9,18 +9,67 @@
   "original_licenses": {
     "code": "MIT",
     "content": "CC-BY-4.0",
-    "notices": ["LICENSE", "LICENCE-CONTENUS.md"]
+    "notices": [
+      "LICENSE",
+      "LICENCE-CONTENUS.md"
+    ]
   },
   "selection": "Table de classe limitée aux colonnes déclarées, sans tirage supplémentaire de lignes. Attribution et conditions tierces conservées.",
   "tables": [
     {
       "path": "data/processed/construction-quartiers-quebec/quebec_construction_quartiers.csv",
       "rows": 35,
-      "columns": ["id_quartier", "nom_quartier", "superficie_quartier_m2", "perimetre_quartier_m", "nombre_permis", "nombre_permis_construction_batiment_principal", "nombre_permis_renovation_agrandissement", "nombre_permis_constructions_amenagements_accessoires", "nombre_permis_lotissement", "annee_min_permis", "annee_max_permis", "nombre_batiments", "nombre_batiments_residence", "nombre_batiments_garage_annexe_remise", "nombre_batiments_commercial", "superficie_empreintes_batiments_m2", "superficie_moyenne_batiment_m2", "superficie_quartier_km2", "permis_par_km2", "batiments_par_km2", "part_superficie_batie"],
+      "columns": [
+        "id_quartier",
+        "nom_quartier",
+        "superficie_quartier_m2",
+        "perimetre_quartier_m",
+        "nombre_permis",
+        "nombre_permis_construction_batiment_principal",
+        "nombre_permis_renovation_agrandissement",
+        "nombre_permis_constructions_amenagements_accessoires",
+        "nombre_permis_lotissement",
+        "annee_min_permis",
+        "annee_max_permis",
+        "nombre_batiments",
+        "nombre_batiments_residence",
+        "nombre_batiments_garage_annexe_remise",
+        "nombre_batiments_commercial",
+        "superficie_empreintes_batiments_m2",
+        "superficie_moyenne_batiment_m2",
+        "superficie_quartier_km2",
+        "permis_par_km2",
+        "batiments_par_km2",
+        "part_superficie_batie"
+      ],
       "sha256": "69abb288d153b0980e8401a93e838d46301cf989ba5ccdabce8f7a9314242e2b",
       "prepared_table_sha256": "69abb288d153b0980e8401a93e838d46301cf989ba5ccdabce8f7a9314242e2b"
     }
   ],
-  "archive_sha256": "a6dc84774ba38b550fe6c64d2b24dd8e041a7f08b2eba8a775099422d16d4e05",
-  "archive_bytes": 10717
+  "archive_sha256": "c75ee5ac9254f3036fa570f84625549194b961d57556ee9c866a7c89bdc9580e",
+  "archive_bytes": 23138,
+  "donnees_quebec": [
+    {
+      "page_url": "https://www.donneesquebec.ca/recherche/dataset/permis-delivres-ville-de-quebec",
+      "citation": "VILLE DE QUÉBEC. Permis délivrés à la Ville de Québec, [Jeu de données], dans Données Québec, 2025, mis à jour le 08 novembre 2026. [https://www.donneesquebec.ca/recherche/dataset/permis-delivres-ville-de-quebec], (consulté le 10 novembre 2026).",
+      "verified_at_utc": "2026-11-10T13:28:11Z",
+      "license_title": "Attribution (CC-BY 4.0)",
+      "license_url": "https://www.donneesquebec.ca/licence/#cc-by"
+    },
+    {
+      "page_url": "https://www.donneesquebec.ca/recherche/dataset/empreintes-des-batiments",
+      "citation": "VILLE DE QUÉBEC. Empreintes des bâtiments, [Jeu de données], dans Données Québec, 2022, mis à jour le 01 novembre 2026. [https://www.donneesquebec.ca/recherche/dataset/empreintes-des-batiments], (consulté le 10 novembre 2026).",
+      "verified_at_utc": "2026-11-10T13:28:11Z",
+      "license_title": "Attribution (CC-BY 4.0)",
+      "license_url": "https://www.donneesquebec.ca/licence/#cc-by"
+    },
+    {
+      "page_url": "https://www.donneesquebec.ca/recherche/dataset/vque_9",
+      "citation": "VILLE DE QUÉBEC. Quartiers, [Jeu de données], dans Données Québec, 2012, mis à jour le 08 novembre 2026. [https://www.donneesquebec.ca/recherche/dataset/vque_9], (consulté le 10 novembre 2026).",
+      "verified_at_utc": "2026-11-10T13:28:12Z",
+      "license_title": "Attribution (CC-BY 4.0)",
+      "license_url": "https://www.donneesquebec.ca/licence/#cc-by"
+    }
+  ],
+  "documentation_updated_on": "2026-11-10"
 }

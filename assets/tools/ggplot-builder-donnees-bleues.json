@@ -4,12 +4,76 @@
   "dataset_sha256": "1af11ff0fc824f35286987928f0423441540ece1badb674f347ab05db07d4ccf",
   "files": [
     {
+      "path": "acquerir-donnees-quebec.R",
+      "sha256": "a8392d3ff4dc9233b7d259ad0bc0aa2f28093a977ed6de22ec0154e7d0bbf3d9"
+    },
+    {
       "path": "app.R",
-      "sha256": "31a14a5c44336db26469b8b9fe3c4b58369fafa4a0725818a8b4d5e6d342b446"
+      "sha256": "e1f3b47d0f638216b827aad6b791bb1e1408a5904ec4f6ff3197b9e451c3519c"
+    },
+    {
+      "path": "CITATIONS.md",
+      "sha256": "b9fed9e5238bd1d0629aa8dc6ec8737486d965bf9914d6feb38f5c28ea0f3e5a"
+    },
+    {
+      "path": "DATA_LICENSES.md",
+      "sha256": "55c358a5df503dde55a28bc5cdae898e046b60595520c3b3d7569d185a34cc90"
+    },
+    {
+      "path": "data/arbres_quebec.csv",
+      "sha256": "1af11ff0fc824f35286987928f0423441540ece1badb674f347ab05db07d4ccf"
+    },
+    {
+      "path": "data/metadata/donnees_quebec.json",
+      "sha256": "068123979f77308d0e23917a08c5bb31764792a3a2c0c0e878b0187ed79c4bf7"
+    },
+    {
+      "path": "exemple-graphique.R",
+      "sha256": "0b5817ac5aa44368c9822eef3191c2a7316a5401139807be16e6e634b9b4d150"
+    },
+    {
+      "path": "INSTALLER.R",
+      "sha256": "daa48df98b66a2013b6ca5a1acaf8c6be5ccd7b083df6c29589e75616992d605"
+    },
+    {
+      "path": "LANCER.R",
+      "sha256": "496fcd0d83fcc6209a0c93d0764a2622cff976714a17c4b74df818cb678fd210"
+    },
+    {
+      "path": "LICENCE-CONTENUS.md",
+      "sha256": "b4257edc45fefed1a52a3ffdf7de57f8c43cfdfdb45ac0faad89fa06e8dc0b38"
+    },
+    {
+      "path": "LICENSE",
+      "sha256": "873869a981876d18134a862478c0600e75387e52fbf7dc4769b61850f44b35e3"
     },
     {
       "path": "R/builder.R",
       "sha256": "25ec91f6f388bebded6ee9c5a754b10fe27f20f6b86131414d68574ce516bf1c"
+    },
+    {
+      "path": "R/donnees_quebec_citations.R",
+      "sha256": "54a48442a0900ef7cce40829a3c4917a63d0b16bc68e8a6350fa787ab55aeb70"
+    },
+    {
+      "path": "R/utils_ckan.R",
+      "sha256": "916be4caf9134f965bda0ee240800a38d571fb3fbf1045bddddb30e013715e5b"
+    },
+    {
+      "path": "R/utils_donnees_quebec.R",
+      "sha256": "7cc68a9cf92188c53cebc249005661c5acb9d8a24dd146335742ca785d2ad08c"
+    },
+    {
+      "path": "R/utils_downloads.R",
+      "sha256": "9af3c264386c3304ec37a480de7e787cd87ac3f1de2cc1507eb4b7ce17c8e3ff"
+    },
+    {
+      "path": "README.md",
+      "sha256": "466dbda1a18a8dae4bf886cdc3f203747dc59a651eeebe868d524c3efd5ac5cd"
+    },
+    {
+      "path": "verifier.R",
+      "sha256": "7d6de33593cf360da04efb0f44497880077d421f0edd1b116f01f693d74ba7e0"
     },
     {
       "path": "www/builder.css",
@@ -22,43 +86,7 @@
     {
       "path": "www/favicon.svg",
       "sha256": "9d6cf4495666cb97a4b4d956c163918f3e82bf29bfb6d791f3cde4f592ffac26"
-    },
-    {
-      "path": "data/arbres_quebec.csv",
-      "sha256": "1af11ff0fc824f35286987928f0423441540ece1badb674f347ab05db07d4ccf"
-    },
-    {
-      "path": "DATA_LICENSES.md",
-      "sha256": "55c358a5df503dde55a28bc5cdae898e046b60595520c3b3d7569d185a34cc90"
-    },
-    {
-      "path": "LICENSE",
-      "sha256": "873869a981876d18134a862478c0600e75387e52fbf7dc4769b61850f44b35e3"
-    },
-    {
-      "path": "LICENCE-CONTENUS.md",
-      "sha256": "b4257edc45fefed1a52a3ffdf7de57f8c43cfdfdb45ac0faad89fa06e8dc0b38"
-    },
-    {
-      "path": "README.md",
-      "sha256": "466dbda1a18a8dae4bf886cdc3f203747dc59a651eeebe868d524c3efd5ac5cd"
-    },
-    {
-      "path": "INSTALLER.R",
-      "sha256": "daa48df98b66a2013b6ca5a1acaf8c6be5ccd7b083df6c29589e75616992d605"
-    },
-    {
-      "path": "LANCER.R",
-      "sha256": "496fcd0d83fcc6209a0c93d0764a2622cff976714a17c4b74df818cb678fd210"
-    },
-    {
-      "path": "verifier.R",
-      "sha256": "7d6de33593cf360da04efb0f44497880077d421f0edd1b116f01f693d74ba7e0"
-    },
-    {
-      "path": "exemple-graphique.R",
-      "sha256": "0b5817ac5aa44368c9822eef3191c2a7316a5401139807be16e6e634b9b4d150"
     }
   ],
-  "archive_sha256": "12ca59b0d102e76c2da823add9e7476ddf24765190460f4ef4f944493a2e7a35"
+  "archive_sha256": "36a7d6ddd3af2db7af24d60745e2fe3b6cfea47a71fcf3c0f6b1a4f0a6e60259"
 }

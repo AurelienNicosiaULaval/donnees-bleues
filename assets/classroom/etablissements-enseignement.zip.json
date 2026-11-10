@@ -9,18 +9,44 @@
   "original_licenses": {
     "code": "MIT",
     "content": "CC-BY-4.0",
-    "notices": ["LICENSE", "LICENCE-CONTENUS.md"]
+    "notices": [
+      "LICENSE",
+      "LICENCE-CONTENUS.md"
+    ]
   },
   "selection": "Table de classe limitée aux colonnes déclarées, sans tirage supplémentaire de lignes. Attribution et conditions tierces conservées.",
   "tables": [
     {
       "path": "data/processed/etablissements-enseignement/etablissements_enseignement_quebec.csv",
       "rows": 14079,
-      "columns": ["source_resource", "resource_label", "network_category", "unit_kind", "code_organisme", "code_immeuble", "nom", "longitude", "latitude", "region_administrative", "has_region", "has_coordinates"],
+      "columns": [
+        "source_resource",
+        "resource_label",
+        "network_category",
+        "unit_kind",
+        "code_organisme",
+        "code_immeuble",
+        "nom",
+        "longitude",
+        "latitude",
+        "region_administrative",
+        "has_region",
+        "has_coordinates"
+      ],
       "sha256": "87ae7f226111932c514df26ebec9b4c63d56b493abca8ee13e52831cca5e64c3",
       "prepared_table_sha256": "c8d2fbb677934e11a698914d28d5e031ec503274b3873a1a546c644e2802020b"
     }
   ],
-  "archive_sha256": "8ee7f7c015fd596a236cf06ccff3923b9e0369d0a89e51f6d9f0b89fef47e80b",
-  "archive_bytes": 313649
+  "archive_sha256": "b65fd1db7fe553e21758f579e4405db8d494186f3b4cb1d836b9896d088d2d49",
+  "archive_bytes": 321391,
+  "donnees_quebec": [
+    {
+      "page_url": "https://www.donneesquebec.ca/recherche/dataset/localisation-des-etablissements-d-enseignement-du-reseau-scolaire-au-quebec",
+      "citation": "MINISTÈRE DE L'ÉDUCATION ET MINISTÈRE DE L'ENSEIGNEMENT SUPÉRIEUR. Localisation des établissements d'enseignement du réseau scolaire au Québec, [Jeu de données], dans Données Québec, 2017, mis à jour le 09 novembre 2026. [https://www.donneesquebec.ca/recherche/dataset/localisation-des-etablissements-d-enseignement-du-reseau-scolaire-au-quebec], (consulté le 10 novembre 2026).",
+      "verified_at_utc": "2026-11-10T13:28:20Z",
+      "license_title": "Attribution (CC-BY 4.0)",
+      "license_url": "https://www.donneesquebec.ca/licence/#cc-by"
+    }
+  ],
+  "documentation_updated_on": "2026-11-10"
 }

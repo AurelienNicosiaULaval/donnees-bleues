@@ -157,4 +157,7 @@ bootstrap_server <- function(input, output, session) {
     ggsave(file, bootstrap_plot(result(), statistic()), device = "png",
       width = 9, height = 5, dpi = 160, bg = "white"), contentType = "image/png")
 }
+source("R/donnees_quebec_citations.R", local = TRUE)
+ui <- dq_app_citations(ui)
+
 shinyApp(ui, bootstrap_server)

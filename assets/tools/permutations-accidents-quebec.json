@@ -3,15 +3,23 @@
   "dataset": "rapports-accident",
   "dataset_version": "1.0.0",
   "dataset_sha256": "51d155ce9eb66e86689e761518c7900063478834a507482d93f0ad043153d21b",
-  "archive_sha256": "8c25029878de721e1f43961f8888b82be5e596dcadda8afc6cc0aead62db6de0",
+  "archive_sha256": "e5962f80026312f2a8d39b190e34a81df120bce934ab100671814b74f6b6b0ee",
   "files": [
     {
+      "path": "acquerir-donnees-quebec.R",
+      "sha256": "f1a27c9e39cb3798064c500df63eebdeb3448d0150d15a13e3145f22032409b4"
+    },
+    {
       "path": "app.R",
-      "sha256": "5bfb0a63a10b22f361dfdc017ad94b8bd761956af21d03fcb46f8beca154067f"
+      "sha256": "b53529c6abdaa0dbbefaf8d410a10d6fff3732fb7a81289f03fad7ea1a5cc31f"
     },
     {
       "path": "check-server.R",
       "sha256": "b16fd44486653c9e59a388ea62993f4f4f80490d55f9e457aec01b512dcc3fc4"
+    },
+    {
+      "path": "CITATIONS.md",
+      "sha256": "99efc499c3822f6a17d566932e325dd1e35d0aae1bfe38bef9c709914f113ee4"
     },
     {
       "path": "DATA_LICENSES.md",
@@ -20,6 +28,10 @@
     {
       "path": "data/accidents-quebec-2022.csv",
       "sha256": "51d155ce9eb66e86689e761518c7900063478834a507482d93f0ad043153d21b"
+    },
+    {
+      "path": "data/metadata/donnees_quebec.json",
+      "sha256": "62b2310817ca405c8eba5bbc0fc9291145887cb108dd5bad9304d625ab6b2baf"
     },
     {
       "path": "DICTIONNAIRE.md",
@@ -38,8 +50,24 @@
       "sha256": "aac5f9013df89b1432ac64a0838519a3359ac4177471af00a84e7693098f25c9"
     },
     {
+      "path": "R/donnees_quebec_citations.R",
+      "sha256": "f669773e9f68eebaf173f47c5581e71d5307ce8ef2a514e8c06bcfc31ec8994d"
+    },
+    {
       "path": "R/permutations.R",
       "sha256": "4282d7e4339837bf756c439b557c0eb546969197d151cc736ae4cf7f24032aee"
+    },
+    {
+      "path": "R/utils_ckan.R",
+      "sha256": "916be4caf9134f965bda0ee240800a38d571fb3fbf1045bddddb30e013715e5b"
+    },
+    {
+      "path": "R/utils_donnees_quebec.R",
+      "sha256": "7cc68a9cf92188c53cebc249005661c5acb9d8a24dd146335742ca785d2ad08c"
+    },
+    {
+      "path": "R/utils_downloads.R",
+      "sha256": "9af3c264386c3304ec37a480de7e787cd87ac3f1de2cc1507eb4b7ce17c8e3ff"
     },
     {
       "path": "README.md",

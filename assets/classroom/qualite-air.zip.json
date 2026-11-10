@@ -9,39 +9,83 @@
   "original_licenses": {
     "code": "MIT",
     "content": "CC-BY-4.0",
-    "notices": ["LICENSE", "LICENCE-CONTENUS.md"]
+    "notices": [
+      "LICENSE",
+      "LICENCE-CONTENUS.md"
+    ]
   },
   "selection": "Table de classe limitée aux colonnes déclarées, sans tirage supplémentaire de lignes. Attribution et conditions tierces conservées.",
   "tables": [
     {
       "path": "data/processed/qualite-air/resume_decennies_ouverture_rsqaq_stations.csv",
       "rows": 6,
-      "columns": ["decennie_ouverture", "n_stations"],
+      "columns": [
+        "decennie_ouverture",
+        "n_stations"
+      ],
       "sha256": "b05123cc8cc34bb3799894d1f186b011e141d954673f43ce018810b787b948d4",
       "prepared_table_sha256": "b05123cc8cc34bb3799894d1f186b011e141d954673f43ce018810b787b948d4"
     },
     {
       "path": "data/processed/qualite-air/resume_regions_rsqaq_stations.csv",
       "rows": 16,
-      "columns": ["region_code", "region_administrative", "n_stations", "n_sans_date_fermeture", "n_fermees", "n_types_milieu", "premiere_ouverture", "derniere_ouverture"],
+      "columns": [
+        "region_code",
+        "region_administrative",
+        "n_stations",
+        "n_sans_date_fermeture",
+        "n_fermees",
+        "n_types_milieu",
+        "premiere_ouverture",
+        "derniere_ouverture"
+      ],
       "sha256": "91edd99031b67b30a46c9367f816e02210d5cbe147a3f4624b83d5bdd5a9f7e7",
       "prepared_table_sha256": "91edd99031b67b30a46c9367f816e02210d5cbe147a3f4624b83d5bdd5a9f7e7"
     },
     {
       "path": "data/processed/qualite-air/rsqaq_stations.csv",
       "rows": 245,
-      "columns": ["station_id", "station_name", "region_code", "region_administrative", "type_milieu", "date_ouverture", "date_fermeture", "latitude", "longitude", "annee_ouverture", "annee_fermeture", "decennie_ouverture", "station_sans_date_fermeture"],
+      "columns": [
+        "station_id",
+        "station_name",
+        "region_code",
+        "region_administrative",
+        "type_milieu",
+        "date_ouverture",
+        "date_fermeture",
+        "latitude",
+        "longitude",
+        "annee_ouverture",
+        "annee_fermeture",
+        "decennie_ouverture",
+        "station_sans_date_fermeture"
+      ],
       "sha256": "25a2457164e5ea8cd8ebbe553b1215d19449809aeabdcf4a1046f2f81fa61989",
       "prepared_table_sha256": "5f5b00ca4e5e4291eb1e8f05d135c906c651c12905982a936e15161e52bfc17b"
     },
     {
       "path": "data/processed/qualite-air/valeurs_manquantes_rsqaq_stations.csv",
       "rows": 20,
-      "columns": ["variable", "n_missing", "n_rows", "pct_missing"],
+      "columns": [
+        "variable",
+        "n_missing",
+        "n_rows",
+        "pct_missing"
+      ],
       "sha256": "7e869181ebd7285ff1e41128ace24946e82b6721b34f1f5a5f86648b22174c51",
       "prepared_table_sha256": "7e869181ebd7285ff1e41128ace24946e82b6721b34f1f5a5f86648b22174c51"
     }
   ],
-  "archive_sha256": "f4f76285d4cecad524fa096c375e923c08259f93505895f89c97c4a094568001",
-  "archive_bytes": 17039
+  "archive_sha256": "9a7c127f8a9efa39633692ca7e7322fe037b4d677e892b4038c551a34e094f5f",
+  "archive_bytes": 28886,
+  "donnees_quebec": [
+    {
+      "page_url": "https://www.donneesquebec.ca/recherche/dataset/rsqaq-stations",
+      "citation": "MINISTÈRE DE L'ENVIRONNEMENT, DE LA LUTTE CONTRE LES CHANGEMENTS CLIMATIQUES, DE LA PROTECTION DE LA BIODIVERSITÉ, DE LA FAUNE ET DES PARCS. RSQAQ - Stations de la qualité de l'air, [Jeu de données], dans Données Québec, 2022, mis à jour le 16 octobre 2026. [https://www.donneesquebec.ca/recherche/dataset/rsqaq-stations], (consulté le 10 novembre 2026).",
+      "verified_at_utc": "2026-11-10T13:28:33Z",
+      "license_title": "Attribution (CC-BY 4.0)",
+      "license_url": "https://www.donneesquebec.ca/licence/#cc-by"
+    }
+  ],
+  "documentation_updated_on": "2026-11-10"
 }

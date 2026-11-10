@@ -156,4 +156,7 @@ permutation_server <- function(input, output, session) {
     ggsave(file, permutation_plot(result()), device = "png", width = 9, height = 5,
       dpi = 160, bg = "white"), contentType = "image/png")
 }
+source("R/donnees_quebec_citations.R", local = TRUE)
+ui <- dq_app_citations(ui)
+
 shinyApp(ui, permutation_server)

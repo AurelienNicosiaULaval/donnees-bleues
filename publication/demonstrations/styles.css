@@ -16,3 +16,5 @@ pre.sourceCode { border-left: 3px solid #91c9cf; }
 .skip-to-content:focus {left:1rem;}
 /* Long file names should wrap within prose on small screens. */
 :not(pre) > code {white-space:normal; overflow-wrap:anywhere;}
+
+.dq-references { overflow-wrap: anywhere; }

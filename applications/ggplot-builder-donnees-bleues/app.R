@@ -215,4 +215,7 @@ server <- function(input, output, session) {
     contentType = "text/csv; charset=utf-8")
 }
 
+source("R/donnees_quebec_citations.R", local = TRUE)
+ui <- dq_app_citations(ui)
+
 shinyApp(ui, server)
