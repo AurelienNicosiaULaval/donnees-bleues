@@ -1,14 +1,14 @@
 # Vérifier l’accès aux données de ponctualité
 # Ouvrir le projet RStudio de l’archive, puis exécuter ce script.
 # Source : https://www.donneesquebec.ca/recherche/dataset/vmtl-stm-bus-temps-reel-gtfs-realtime
-# Les données de classe sont figées; ce script ne les télécharge pas.
+# Le résumé initial est figé; un résumé des métadonnées API peut être sélectionné avant l’activité.
 
 library(dplyr)
 library(readr)
 
 
 resume <- read_csv(
-  "data/processed/retards-transport-collectif/resume_retards_transport.csv",
+  Sys.getenv("DB_RETARDS_METADATA_SNAPSHOT", unset = "data/processed/retards-transport-collectif/resume_retards_transport.csv"),
   show_col_types = FALSE
 )
 

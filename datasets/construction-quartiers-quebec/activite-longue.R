@@ -1,14 +1,14 @@
 # Portrait des permis et de la forme bâtie par quartier
 # Ouvrir le projet RStudio de l’archive, puis exécuter ce script.
 # Source : https://www.donneesquebec.ca/recherche/dataset/permis-delivres-ville-de-quebec
-# Les données de classe sont figées; ce script ne les télécharge pas.
+# La copie de classe est figée; une copie API peut être sélectionnée avant l’activité.
 
 library(dplyr)
 library(ggplot2)
 library(readr)
 
 construction_quartiers <- read_csv(
-  "data/processed/construction-quartiers-quebec/quebec_construction_quartiers.csv",
+  Sys.getenv("DB_CONSTRUCTION_SNAPSHOT", unset = "data/processed/construction-quartiers-quebec/quebec_construction_quartiers.csv"),
   show_col_types = FALSE
 )
 

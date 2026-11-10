@@ -1,13 +1,13 @@
 # Mini-projet - Saisonnalité des demandes 311
 # Ouvrir le projet RStudio de l’archive, puis exécuter ce script.
 # Source : https://www.donneesquebec.ca/recherche/dataset/vmtl-requete-311
-# Les données de classe sont figées; ce script ne les télécharge pas.
+# La copie de classe est figée; une copie API peut être sélectionnée avant l’activité.
 
 library(dplyr)
 library(readr)
 library(ggplot2)
 
-donnees <- read_csv("data/processed/requetes-311/requetes_311_non_information_echantillon.csv", show_col_types = FALSE)
+donnees <- read_csv(Sys.getenv("DB_REQUETES_311_SNAPSHOT", unset = "data/processed/requetes-311/requetes_311_non_information_echantillon.csv"), show_col_types = FALSE)
 stopifnot(nrow(donnees) > 0)
 
 selection <- donnees |> filter(!is.na(date_creation)) |> mutate(mois = format(date_creation, "%Y-%m"))

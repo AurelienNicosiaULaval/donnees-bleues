@@ -105,6 +105,19 @@ publication:
     mode: frozen
     reason: Table de classe limitée aux colonnes déclarées, sans tirage supplémentaire de lignes. Attribution
       et conditions tierces conservées.
+    api_reference_is_default: false
+    api_files:
+    - datasets/construction-quartiers-quebec/ressources-api.R
+    - datasets/construction-quartiers-quebec/preparation-api.R
+    - datasets/construction-quartiers-quebec/enregistrer-api.R
+    - datasets/construction-quartiers-quebec/actualiser-api.R
+    - datasets/construction-quartiers-quebec/rejouer-api.R
+    - datasets/construction-quartiers-quebec/snapshots/permis/20261110T181014Z/source-api.zip
+    - datasets/construction-quartiers-quebec/snapshots/permis/20261110T181014Z/source-api.zip.sha256
+    - datasets/construction-quartiers-quebec/snapshots/batiments/20261110T181302Z/source-api.zip
+    - datasets/construction-quartiers-quebec/snapshots/batiments/20261110T181302Z/source-api.zip.sha256
+    - datasets/construction-quartiers-quebec/snapshots/quartiers/20261110T180945Z/source-api.zip
+    - datasets/construction-quartiers-quebec/snapshots/quartiers/20261110T180945Z/source-api.zip.sha256
     files:
     - path: data/processed/construction-quartiers-quebec/quebec_construction_quartiers.csv
       columns:
@@ -138,7 +151,7 @@ chart:
   title: Dix quartiers comptant le plus de permis
   top_n: 10
 date_added: "2026-06-21"
-date_updated: "2026-09-13"
+date_updated: "2026-11-10"
 
 summary: Permis délivrés, empreintes de bâtiments et limites des quartiers de la ville de Québec, avec un tableau
   agrégé par quartier.

@@ -99,6 +99,14 @@ publication:
     mode: documentation
     reason: Documentation et synthèses publiques seulement; aucune donnée privée, géodatabase ni observation
       de retard.
+    api_reference_is_default: false
+    api_files:
+    - datasets/retards-transport-collectif/preparation-api.R
+    - datasets/retards-transport-collectif/enregistrer-api.R
+    - datasets/retards-transport-collectif/actualiser-api.R
+    - datasets/retards-transport-collectif/rejouer-api.R
+    - datasets/retards-transport-collectif/snapshots/20261110T182250Z/source-api.zip
+    - datasets/retards-transport-collectif/snapshots/20261110T182250Z/source-api.zip.sha256
     files:
     - path: data/processed/retards-transport-collectif/protocole_archivage_retards_transport.csv
       columns:
@@ -139,7 +147,7 @@ chart:
 preview_note: Dictionnaire de champs attendus et dérivés, sans observation de retard. La lecture du flux STM exige
   un accès au portail développeur.
 date_added: "2026-06-19"
-date_updated: "2026-09-13"
+date_updated: "2026-11-10"
 
 summary: Documentation du flux temps réel de la STM et protocole pour vérifier son accès et archiver des observations.
   Aucune table historique de retards n’est fournie.

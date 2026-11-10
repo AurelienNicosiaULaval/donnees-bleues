@@ -1,13 +1,13 @@
 # Laboratoire - Catégories de requêtes 311 par arrondissement
 # Ouvrir le projet RStudio de l’archive, puis exécuter ce script.
 # Source : https://www.donneesquebec.ca/recherche/dataset/vmtl-requete-311
-# Les données de classe sont figées; ce script ne les télécharge pas.
+# La copie de classe est figée; une copie API peut être sélectionnée avant l’activité.
 
 library(dplyr)
 library(readr)
 library(ggplot2)
 
-donnees <- read_csv("data/processed/requetes-311/requetes_311_non_information_echantillon.csv", show_col_types = FALSE)
+donnees <- read_csv(Sys.getenv("DB_REQUETES_311_SNAPSHOT", unset = "data/processed/requetes-311/requetes_311_non_information_echantillon.csv"), show_col_types = FALSE)
 stopifnot(nrow(donnees) > 0)
 
 resume <- donnees |> count(activite, sort = TRUE) |> slice_head(n = 10)

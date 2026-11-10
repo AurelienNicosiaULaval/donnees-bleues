@@ -9,29 +9,18 @@
   "original_licenses": {
     "code": "MIT",
     "content": "CC-BY-4.0",
-    "notices": [
-      "LICENSE",
-      "LICENCE-CONTENUS.md"
-    ]
+    "notices": ["LICENSE", "LICENCE-CONTENUS.md"]
   },
   "selection": "Table de classe limitée aux colonnes déclarées, sans tirage supplémentaire de lignes. Attribution et conditions tierces conservées.",
   "tables": [
     {
       "path": "data/processed/requetes-311/requetes_311_non_information_echantillon.csv",
       "rows": 100000,
-      "columns": [
-        "nature",
-        "activite",
-        "arrondissement",
-        "date_creation",
-        "delai_statut_jours"
-      ],
+      "columns": ["nature", "activite", "arrondissement", "date_creation", "delai_statut_jours"],
       "sha256": "b072d32cf6bd2f89b6806bd97d4521701fbfd407ebf8e892ff9a22e71fdd170d",
       "prepared_table_sha256": "94f1b8c2827c1ba76de458651e066cfc847cbcfbdfc12d7bc228b521ce1ff03b"
     }
   ],
-  "archive_sha256": "246efd41db319b43682f402a014c57f010d1c3fb0730e624bd73ed30ce2b15ce",
-  "archive_bytes": 1671497,
   "donnees_quebec": [
     {
       "page_url": "https://www.donneesquebec.ca/recherche/dataset/vmtl-requete-311",
@@ -41,5 +30,6 @@
       "license_url": "https://www.donneesquebec.ca/licence/#cc-by"
     }
   ],
-  "documentation_updated_on": "2026-11-10"
+  "archive_sha256": "efaf24592cc91a6330ce9fa652a2f9817e512bd1459ec895ecd59e320e76cde7",
+  "archive_bytes": 3526556
 }

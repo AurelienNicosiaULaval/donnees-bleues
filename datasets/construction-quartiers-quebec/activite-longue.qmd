@@ -18,7 +18,7 @@ render_activity_header()
 
 Télécharger la trousse ci-dessous. Extraire le ZIP, puis double-cliquer sur `Donnees-bleues.Rproj`. Avant la séance, ouvrir `installer-packages.R` et cliquer sur Source avec une connexion Internet.
 
-Une fois les packages installés, les scripts utilisent les fichiers inclus et peuvent être exécutés hors ligne.
+Une fois les packages installés, les scripts utilisent les fichiers inclus et peuvent être exécutés hors ligne. Pour utiliser une nouvelle collecte API des permis, bâtiments et quartiers, ouvrir `datasets/construction-quartiers-quebec/actualiser-api.R` et cliquer sur Source avec Internet, puis exécuter l’activité dans la même session R. Pour refaire les calculs avec les trois copies API incluses, exécuter plutôt `datasets/construction-quartiers-quebec/rejouer-api.R` hors ligne avant l’activité. La copie initiale demeure disponible. Les trois sources comprennent des géométries et des coordonnées publiques nécessaires au recalcul; la trousse est volumineuse et la préparation spatiale peut prendre quelques minutes. Les versions de R et des outils spatiaux sont consignées avec le résultat.
 
 ```{r}
 #| label: activity-classroom-resources

@@ -18,7 +18,7 @@ render_activity_header()
 
 Télécharger la trousse ci-dessous. Extraire le ZIP, puis double-cliquer sur `Donnees-bleues.Rproj`. Avant la séance, ouvrir `installer-packages.R` et cliquer sur Source avec une connexion Internet.
 
-Une fois les packages installés, les scripts utilisent les fichiers inclus et peuvent être exécutés hors ligne.
+Une fois les packages installés, les scripts utilisent les fichiers inclus et peuvent être exécutés hors ligne. Pour obtenir un nouvel échantillon de 100 000 demandes par l’API, ouvrir `datasets/requetes-311/actualiser-api.R` et cliquer sur Source avec Internet, puis exécuter l’activité dans la même session R. La collecte parcourt toutes les demandes admissibles et peut prendre plusieurs minutes. Pour utiliser hors ligne l’échantillon API daté inclus, exécuter `datasets/requetes-311/rejouer-api.R` avant l’activité. La copie initiale demeure disponible; les effectifs et les résultats peuvent changer. Dans la collecte API du 10 novembre 2026, les demandes admissibles s’arrêtent au 20 juillet 2025; la trousse initiale contient des demandes de 2026. Une actualisation par cette API ne garantit donc pas les données les plus récentes. La collecte paginée ne constitue pas une photographie atomique du serveur. La trousse contient l’échantillon et les empreintes des pages consultées, mais pas toutes les réponses API : elle permet de refaire l’activité, pas de refaire le tirage depuis la population complète. Les pages complètes sont conservées sur l’ordinateur où la collecte est effectuée.
 
 ```{r}
 #| label: activity-classroom-resources

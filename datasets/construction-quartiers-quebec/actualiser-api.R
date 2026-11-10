@@ -1,0 +1,22 @@
+# Acquérir et conserver séparément les trois sources de construction.
+library(jsonlite)
+library(httr2)
+library(readr)
+library(digest)
+library(xml2)
+library(dplyr)
+library(janitor)
+library(sf)
+library(tidyr)
+source('R/utils_downloads.R')
+source('R/utils_ckan.R')
+source('R/utils_donnees_quebec.R')
+source('datasets/construction-quartiers-quebec/ressources-api.R')
+source('datasets/construction-quartiers-quebec/preparation-api.R')
+source('datasets/construction-quartiers-quebec/enregistrer-api.R')
+dossier <- file.path('data/raw/api/construction-quartiers-quebec', format(Sys.time(), '%Y%m%dT%H%M%SZ', tz = 'UTC'))
+fichiers <- setNames(lapply(ressources_api, function(r) dq_acquire('construction-quartiers-quebec', r$ressource,
+  directory = file.path(dossier, r$cle), page_size = 10000L, fields = r$champs)),
+  vapply(ressources_api, function(r) r$cle, character(1)))
+provenance <- lapply(fichiers, function(f) jsonlite::read_json(paste0(f, '.source.json')))
+enregistrer_construction_api(fichiers, dossier, provenance)

@@ -112,6 +112,15 @@ publication:
     mode: frozen
     reason: Table de classe limitée aux colonnes déclarées, sans tirage supplémentaire de lignes. Attribution
       et conditions tierces conservées.
+    api_reference_is_default: false
+    api_files:
+    - datasets/requetes-311/acquerir-api.R
+    - datasets/requetes-311/preparation-api.R
+    - datasets/requetes-311/enregistrer-api.R
+    - datasets/requetes-311/actualiser-api.R
+    - datasets/requetes-311/rejouer-api.R
+    - datasets/requetes-311/snapshots/20261110T181619Z/source-api.zip
+    - datasets/requetes-311/snapshots/20261110T181619Z/source-api.zip.sha256
     files:
     - path: data/processed/requetes-311/requetes_311_non_information_echantillon.csv
       columns:
@@ -127,7 +136,7 @@ chart:
   y_label: Nature de la demande
   title: Demandes autres que les demandes d’information
 date_added: "2026-06-18"
-date_updated: "2026-09-13"
+date_updated: "2026-11-10"
 
 summary: Demandes reçues par les services municipaux de Montréal, avec leur catégorie, leur date, leur statut et
   leur arrondissement. La trousse utilise un échantillon préparé.

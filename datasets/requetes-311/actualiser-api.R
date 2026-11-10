@@ -1,0 +1,18 @@
+# Acquérir les demandes par API et conserver les pages ainsi qu'un échantillon daté.
+library(jsonlite)
+library(httr2)
+library(readr)
+library(digest)
+library(dplyr)
+library(stringr)
+source('datasets/requetes-311/acquerir-api.R')
+source('datasets/requetes-311/preparation-api.R')
+source('datasets/requetes-311/enregistrer-api.R')
+dossier <- file.path('data/raw/api/requetes-311', format(Sys.time(), '%Y%m%dT%H%M%SZ', tz = 'UTC'))
+fichier <- acquerir_requetes_api(dossier)
+provenance <- jsonlite::read_json(file.path(dossier, 'provenance-api.json'))
+message('Dernière date de création dans les demandes API parcourues : ', provenance$date_creation_max_population)
+if (!is.null(provenance$date_creation_max_population) && !is.na(provenance$date_creation_max_population) &&
+    as.Date(substr(provenance$date_creation_max_population, 1, 10)) < Sys.Date() - 90)
+  warning('La dernière demande de la table API date de plus de 90 jours; vérifier sa couverture avant interprétation.')
+enregistrer_requetes_api(fichier, dossier, provenance)
