@@ -44,7 +44,7 @@ Source : [Données ouvertes de la Ville de Montréal / Service de sécurité inc
 
 ## Limites à faire nommer
 
-Les interventions ne constituent pas un risque par habitant; les pratiques de déclaration et la période de couverture influencent les nombres.
+Les interventions ne constituent pas un risque par habitant; les pratiques de déclaration et la période de couverture influencent les nombres. Le dernier mois peut être incomplet : vérifier la dernière date indiquée sous le graphique avant de comparer les mois.
 
 ```{r}
 #| label: activity-pedagogical-contract
