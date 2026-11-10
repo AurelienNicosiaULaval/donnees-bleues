@@ -109,6 +109,17 @@ publication:
     mode: frozen
     reason: Table de classe limitée aux colonnes déclarées, sans tirage supplémentaire de lignes. Attribution
       et conditions tierces conservées.
+    api_reference_is_default: false
+    notices:
+    - datasets/transport-collectif-gtfs/CITATION-RTC-API.md
+    api_files:
+    - datasets/transport-collectif-gtfs/acquerir-api.R
+    - datasets/transport-collectif-gtfs/preparation-api.R
+    - datasets/transport-collectif-gtfs/enregistrer-api.R
+    - datasets/transport-collectif-gtfs/actualiser-api.R
+    - datasets/transport-collectif-gtfs/rejouer-api.R
+    - datasets/transport-collectif-gtfs/snapshots/20261110T191550Z/source-api.zip
+    - datasets/transport-collectif-gtfs/snapshots/20261110T191550Z/source-api.zip.sha256
     files:
     - path: data/processed/transport-collectif-gtfs/arrets_gtfs_rtc.csv
       columns:
@@ -125,7 +136,7 @@ chart:
   y_label: Information GTFS
   title: Accessibilité déclarée des arrêts
 date_added: "2026-06-19"
-date_updated: "2026-09-13"
+date_updated: "2026-11-10"
 
 summary: 'Offre planifiée du RTC : arrêts, parcours, trajets, horaires et dates de service dans des fichiers GTFS
   reliés par des identifiants.'

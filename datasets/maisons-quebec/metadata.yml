@@ -50,7 +50,7 @@ contributor_name: Aurélien Nicosia
 contributor_role: Sélection pédagogique, documentation et activités
 courses: []
 date_added: '2026-10-01'
-date_updated: '2026-10-03'
+date_updated: "2026-11-10"
 publication:
   preview: true
   reviewed_on: '2026-10-01'
@@ -65,6 +65,15 @@ publication:
       - datasets/maisons-quebec/DICTIONNAIRE.md
       - datasets/maisons-quebec/METHODE.md
       - datasets/maisons-quebec/ACTIVITES.md
+    api_reference_is_default: false
+    api_files:
+    - datasets/maisons-quebec/preparation-api.R
+    - datasets/maisons-quebec/enregistrer-api.R
+    - datasets/maisons-quebec/actualiser-api.R
+    - datasets/maisons-quebec/rejouer-api.R
+    - datasets/maisons-quebec/recalculer-xml.R
+    - datasets/maisons-quebec/snapshots/20261110T191348Z/source-api.zip
+    - datasets/maisons-quebec/snapshots/20261110T191348Z/source-api.zip.sha256
     files:
       - path: data/processed/maisons-quebec/maisons_quebec.csv
         columns: [maison_id, municipalite, arrondissement_code, voisinage_code, superficie_terrain_m2, aire_etages_m2, nombre_etages_max, annee_construction, annee_construction_statut, lien_physique_code, lien_physique, genre_construction_code, nombre_logements, valeur_terrain_cad, valeur_batiment_cad, valeur_fonciere_cad, date_reference_marche, annee_role, annee_extraction]

@@ -7,7 +7,7 @@ library(tidyr)
 library(ggplot2)
 
 # 1. Comprendre les données, préserver les codes de voisinage comme du texte.
-maisons <- read_csv("data/processed/maisons-quebec/maisons_quebec.csv",
+maisons <- read_csv(Sys.getenv("DB_MAISONS_SNAPSHOT", unset = "data/processed/maisons-quebec/maisons_quebec.csv"),
   col_types = cols(maison_id = col_character(), arrondissement_code = col_character(),
     voisinage_code = col_character(), lien_physique_code = col_character(),
     genre_construction_code = col_character()), show_col_types = FALSE)

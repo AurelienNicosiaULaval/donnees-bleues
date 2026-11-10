@@ -18,7 +18,7 @@ render_activity_header()
 
 Télécharger la trousse ci-dessous. Extraire le ZIP, puis double-cliquer sur `Donnees-bleues.Rproj`. Avant la séance, ouvrir `installer-packages.R` et cliquer sur Source avec une connexion Internet.
 
-Une fois les packages installés, les scripts utilisent les fichiers inclus et peuvent être exécutés hors ligne.
+Une fois les packages installés, les scripts utilisent les fichiers inclus et peuvent être exécutés hors ligne. Pour reconstruire les arrêts à partir de la copie GTFS incluse, ouvrir `datasets/transport-collectif-gtfs/rejouer-api.R` et cliquer sur Source, puis exécuter l’activité dans la même session R. Pour obtenir une nouvelle copie, utiliser `actualiser-api.R` avec Internet : l’API de Données Québec identifie le fichier, ensuite téléchargé auprès du RTC. Le GTFS inclus a été mis à jour le 9 novembre 2026 selon le serveur du RTC; il contient 4 318 arrêts. La copie initiale de 4 323 arrêts demeure utilisée par défaut. Conserver la mention et la date de mise à jour précisées dans `CITATION-RTC-API.md`.
 
 ```{r}
 #| label: activity-classroom-resources

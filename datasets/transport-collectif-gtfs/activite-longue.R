@@ -1,13 +1,13 @@
 # Offre planifiée du RTC en GTFS
 # Ouvrir le projet RStudio de l’archive, puis exécuter ce script.
 # Source : https://www.donneesquebec.ca/recherche/dataset/rtc-gtfs-arrets-et-les-parcours
-# Les données de classe sont figées; ce script ne les télécharge pas.
+# La copie initiale est figée; une copie GTFS datée peut être sélectionnée avant l’activité.
 
 library(dplyr)
 library(readr)
 library(ggplot2)
 
-donnees <- read_csv("data/processed/transport-collectif-gtfs/arrets_gtfs_rtc.csv", show_col_types = FALSE)
+donnees <- read_csv(Sys.getenv("DB_RTC_GTFS_SNAPSHOT", unset = "data/processed/transport-collectif-gtfs/arrets_gtfs_rtc.csv"), show_col_types = FALSE)
 stopifnot(nrow(donnees) > 0)
 
 resume <- donnees |> count(wheelchair_boarding_label) |> mutate(proportion = n / sum(n))

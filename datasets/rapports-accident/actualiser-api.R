@@ -1,0 +1,21 @@
+# Résoudre le CSV 2022 par l'API, puis préparer les seuls champs des activités.
+library(jsonlite)
+library(httr2)
+library(readr)
+library(digest)
+library(xml2)
+library(dplyr)
+library(stringr)
+source('R/utils_downloads.R')
+source('R/utils_ckan.R')
+source('R/utils_donnees_quebec.R')
+source('datasets/rapports-accident/preparation-api.R')
+source('datasets/rapports-accident/enregistrer-api.R')
+dossier <- file.path('data/raw/api/rapports-accident',format(Sys.time(),'%Y%m%dT%H%M%SZ',tz='UTC'))
+brut <- dq_acquire('rapports-accident','be702e5c-a25e-421e-b00d-0360c73525f1',directory=file.path(dossier,'source'))
+projection <- file.path(dossier,'projection-api.csv')
+readr::write_csv(extraire_accidents_api(brut),projection,na='NA')
+provenance <- list(metadonnees=jsonlite::read_json(file.path(dirname(brut),'package.json.source.json')),
+  fichier_saaq=jsonlite::read_json(paste0(brut,'.source.json')),
+  limite='Le CSV complet demeure local; seule une projection des champs des activités est distribuée.')
+enregistrer_accidents_api(projection,provenance,dossier)

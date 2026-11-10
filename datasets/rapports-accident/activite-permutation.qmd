@@ -24,6 +24,9 @@ Prévoir 60 à 90 minutes, durée indicative. Extraire la trousse entière, ouvr
 
 Sans programmation, suivre l’[outil interactif](../../resources/permutations-accidents-quebec.qmd). La [lecture courte](../../resources/comprendre-p-valeur.qmd) prépare l’interprétation d’une p-valeur.
 
+Pour reconstruire la table des activités sans Internet à partir de la projection datée incluse, exécuter `datasets/rapports-accident/rejouer-api.R`, puis l’activité dans la même session R. Pour obtenir le fichier officiel, utiliser `actualiser-api.R` avec Internet : l’API de Données Québec repère le CSV SAAQ, ensuite téléchargé. Le fichier complet demeure local; la trousse ne contient que les champs nécessaires. Le script s’arrête si la source 2022 ne correspond plus à la version de référence. La table initiale reste disponible par défaut.
+
+
 ```{r}
 #| echo: false
 #| results: asis

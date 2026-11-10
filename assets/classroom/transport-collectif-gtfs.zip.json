@@ -9,30 +9,18 @@
   "original_licenses": {
     "code": "MIT",
     "content": "CC-BY-4.0",
-    "notices": [
-      "LICENSE",
-      "LICENCE-CONTENUS.md"
-    ]
+    "notices": ["LICENSE", "LICENCE-CONTENUS.md", "datasets/transport-collectif-gtfs/CITATION-RTC-API.md"]
   },
   "selection": "Table de classe limitée aux colonnes déclarées, sans tirage supplémentaire de lignes. Attribution et conditions tierces conservées.",
   "tables": [
     {
       "path": "data/processed/transport-collectif-gtfs/arrets_gtfs_rtc.csv",
       "rows": 4323,
-      "columns": [
-        "stop_id",
-        "stop_name",
-        "latitude",
-        "longitude",
-        "wheelchair_boarding",
-        "wheelchair_boarding_label"
-      ],
+      "columns": ["stop_id", "stop_name", "latitude", "longitude", "wheelchair_boarding", "wheelchair_boarding_label"],
       "sha256": "4bc0c4596cd211497329729d68039c21f2ecd09e62038755005f9331a4dfa05b",
       "prepared_table_sha256": "dcf5929aa4c69ba62446a1d392a07bf8cef65292a9d615aae9ee8b9799995f38"
     }
   ],
-  "archive_sha256": "8c32219257bb6707760280a1303851de8f4395b84f73bba6c755971c9e31f04c",
-  "archive_bytes": 87501,
   "donnees_quebec": [
     {
       "page_url": "https://www.donneesquebec.ca/recherche/dataset/rtc-gtfs-arrets-et-les-parcours",
@@ -42,5 +30,6 @@
       "license_url": "https://www.donneesquebec.ca/licence/#cc-by"
     }
   ],
-  "documentation_updated_on": "2026-11-10"
+  "archive_sha256": "30cfa1727b54e604912a0cc3ca1942c52527f0245b892f358a5a576638b8866b",
+  "archive_bytes": 37928938
 }

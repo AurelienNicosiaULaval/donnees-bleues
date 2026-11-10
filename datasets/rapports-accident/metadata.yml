@@ -113,6 +113,14 @@ publication:
     mode: frozen
     reason: Table de classe limitée aux colonnes déclarées, sans tirage supplémentaire de lignes. Attribution
       et conditions tierces conservées.
+    api_reference_is_default: false
+    api_files:
+    - datasets/rapports-accident/preparation-api.R
+    - datasets/rapports-accident/enregistrer-api.R
+    - datasets/rapports-accident/actualiser-api.R
+    - datasets/rapports-accident/rejouer-api.R
+    - datasets/rapports-accident/snapshots/20261110T192219Z/source-api.zip
+    - datasets/rapports-accident/snapshots/20261110T192219Z/source-api.zip.sha256
     files:
     - path: data/processed/rapports-accident/rapports_accident_2022_prepares.csv
       columns:
@@ -129,7 +137,7 @@ chart:
   y_label: Gravité déclarée
   title: Gravité des accidents de l’extrait
 date_added: "2026-06-18"
-date_updated: "2026-10-03"
+date_updated: "2026-11-10"
 
 summary: 'Rapports policiers d’accidents routiers au Québec en 2022 : date, gravité, région, conditions et catégories
   d’usagers ou de véhicules.'

@@ -140,7 +140,7 @@ permutation_plot <- function(result, observed = FALSE) {
 }
 
 # ACTIVITÉ : exécution autonome depuis le projet de la trousse.
-fichier <- "data/processed/rapports-accident/rapports_accident_2022_prepares.csv"
+fichier <- Sys.getenv("DB_ACCIDENTS_SNAPSHOT", unset = "data/processed/rapports-accident/rapports_accident_2022_prepares.csv")
 if (!file.exists(fichier)) stop("Extraire la trousse entière et ouvrir Donnees-bleues.Rproj.")
 accidents <- read_permutation_accidents(fichier)
 reglages <- permutation_settings(B = 5000L)

@@ -1,0 +1,12 @@
+# Actualiser le GTFS à partir de l'adresse officielle obtenue dans l'API de Données Québec.
+library(jsonlite)
+library(curl)
+library(readr)
+library(digest)
+library(dplyr)
+source('datasets/transport-collectif-gtfs/acquerir-api.R')
+source('datasets/transport-collectif-gtfs/preparation-api.R')
+source('datasets/transport-collectif-gtfs/enregistrer-api.R')
+dossier <- file.path('data/raw/api/transport-collectif-gtfs',format(Sys.time(),'%Y%m%dT%H%M%SZ',tz='UTC'))
+fichiers <- acquerir_gtfs_api(dossier)
+enregistrer_gtfs_api(fichiers$metadata,fichiers$gtfs,dossier)

@@ -7,7 +7,7 @@ library(dplyr)
 library(readr)
 library(ggplot2)
 
-donnees <- read_csv("data/processed/rapports-accident/rapports_accident_2022_prepares.csv", show_col_types = FALSE)
+donnees <- read_csv(Sys.getenv("DB_ACCIDENTS_SNAPSHOT", unset = "data/processed/rapports-accident/rapports_accident_2022_prepares.csv"), show_col_types = FALSE)
 stopifnot(nrow(donnees) > 0)
 
 resume <- donnees |> count(region_nom, gravite) |> group_by(region_nom) |> mutate(proportion = n / sum(n)) |> ungroup()

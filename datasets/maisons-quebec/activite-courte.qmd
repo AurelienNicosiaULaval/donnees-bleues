@@ -22,6 +22,9 @@ render_activity_header()
 
 Extraire la trousse entière et ouvrir `Donnees-bleues.Rproj`. Avant la séance, exécuter `installer-packages.R` avec Internet. Le CSV est inclus; l’activité fonctionne ensuite hors ligne. Durée indicative : 60 à 90 minutes. Le script est exécuté techniquement; l’activité n’a pas été testée en classe.
 
+La trousse contient aussi une copie pédagogique datée et l’index obtenu par l’API de Données Québec. Pour sélectionner cette copie sans Internet, exécuter `datasets/maisons-quebec/rejouer-api.R` avant l’activité, dans la même session R. Cela recharge les 600 maisons déjà préparées et ne recalcule pas le tirage depuis le XML. Pour le recalcul complet, utiliser `actualiser-api.R` avec Internet ou définir `DB_MAISONS_XML` avec le chemin du XML local avant d’exécuter `recalculer-xml.R`. Ces scripts s’arrêtent si l’empreinte du XML diffère de celle de la version 1.0.0. Le XML complet contient des champs exclus et n’est pas fourni dans la trousse. La table initiale demeure disponible par défaut.
+
+
 ```{r}
 #| echo: false
 #| results: asis

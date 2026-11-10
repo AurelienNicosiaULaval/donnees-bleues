@@ -110,7 +110,7 @@ bootstrap_format <- function(x, digits = 0L) {
 }
 
 # ACTIVITÉ : exécution autonome depuis le projet de la trousse.
-fichier <- "data/processed/maisons-quebec/maisons_quebec.csv"
+fichier <- Sys.getenv("DB_MAISONS_SNAPSHOT", unset = "data/processed/maisons-quebec/maisons_quebec.csv")
 if (!file.exists(fichier)) {
   stop("Extraire la trousse entière et ouvrir Donnees-bleues.Rproj avant d’exécuter ce script.")
 }
