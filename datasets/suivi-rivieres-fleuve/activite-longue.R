@@ -1,7 +1,7 @@
 # Mini-projet - Bassins versants et qualité de l'eau
 # Ouvrir le projet RStudio de l’archive, puis exécuter ce script.
 # Source : https://www.donneesquebec.ca/recherche/dataset/suivi-physicochimique-des-rivieres-et-du-fleuve
-# Les données de classe sont figées; ce script ne les télécharge pas.
+# La copie de classe est figée; une copie API peut être sélectionnée avant l’activité.
 
 library(dplyr)
 library(ggplot2)
@@ -9,7 +9,7 @@ library(readr)
 
 
 stations <- read_csv(
-  "data/processed/suivi-rivieres-fleuve/stations_qualite_eau_aires.csv",
+  Sys.getenv("DB_RIVIERES_SNAPSHOT", unset = "data/processed/suivi-rivieres-fleuve/stations_qualite_eau_aires.csv"),
   show_col_types = FALSE
 )
 

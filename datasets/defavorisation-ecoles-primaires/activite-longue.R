@@ -1,13 +1,13 @@
 # Mini-projet - Défavorisation des écoles
 # Ouvrir le projet RStudio de l’archive, puis exécuter ce script.
 # Source : https://www.donneesquebec.ca/recherche/dataset/indices-de-defavorisation/resource/6c5d4a5d-ba3b-40a6-b570-916f43ab622c
-# Les données de classe sont figées; ce script ne les télécharge pas.
+# La copie de classe est figée; une copie API peut être sélectionnée avant l’activité.
 
 library(dplyr)
 library(readr)
 library(ggplot2)
 
-donnees <- read_csv("data/processed/defavorisation-ecoles-primaires/defavorisation_ecoles_primaires.csv", show_col_types = FALSE)
+donnees <- read_csv(Sys.getenv("DB_DEFAVORISATION_SNAPSHOT", unset = "data/processed/defavorisation-ecoles-primaires/defavorisation_ecoles_primaires.csv"), show_col_types = FALSE)
 stopifnot(nrow(donnees) > 0)
 
 selection <- donnees |> filter(Diffusion == "OUI", is.finite(IMSE), is.finite(SFR), is.finite(Nbre_Eleves))

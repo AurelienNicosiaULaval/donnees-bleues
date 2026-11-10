@@ -1,7 +1,7 @@
 # Portrait descriptif des profils financiers municipaux
 # Ouvrir le projet RStudio de l’archive, puis exécuter ce script.
 # Source : https://www.donneesquebec.ca/recherche/dataset/profil-financier-des-municipalites-locales
-# Les données de classe sont figées; ce script ne les télécharge pas.
+# La copie de classe est figée; une copie API peut être sélectionnée avant l’activité.
 
 # Load libraries
 library(dplyr)
@@ -11,7 +11,7 @@ library(stringr)
 
 # Import prepared files
 municipalites <- read_csv(
-  "data/processed/budgets-municipaux-quebec/profil_financier_municipalites_2025.csv",
+  Sys.getenv("DB_BUDGETS_SNAPSHOT", unset = "data/processed/budgets-municipaux-quebec/profil_financier_municipalites_2025.csv"),
   show_col_types = FALSE
 )
 
@@ -29,6 +29,14 @@ valeurs_manquantes <- read_csv(
   "data/processed/budgets-municipaux-quebec/valeurs_manquantes_profil_financier_2025.csv",
   show_col_types = FALSE
 )
+
+# Reconstituer le tableau long avec les indicateurs de la copie API choisie.
+if (nzchar(Sys.getenv("DB_BUDGETS_SNAPSHOT"))) {
+  profil_long <- municipalites |>
+    tidyr::pivot_longer(cols = dplyr::starts_with("FIALX"),
+      names_to = "code_poste", values_to = "valeur") |>
+    left_join(dictionnaire, by = "code_poste")
+}
 
 # Choose a small set of interpretable indicators
 indicateurs_retenus <- c(

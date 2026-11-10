@@ -1,7 +1,7 @@
 # Types de milieu et statut préparé des stations
 # Ouvrir le projet RStudio de l’archive, puis exécuter ce script.
 # Source : https://www.donneesquebec.ca/recherche/dataset/rsqaq-stations
-# Les données de classe sont figées; ce script ne les télécharge pas.
+# La copie de classe est figée; une copie API peut être sélectionnée avant l’activité.
 
 # Load libraries
 library(dplyr)
@@ -10,7 +10,7 @@ library(readr)
 
 # Import prepared data
 stations <- read_csv(
-  "data/processed/qualite-air/rsqaq_stations.csv",
+  Sys.getenv("DB_AIR_SNAPSHOT", unset = "data/processed/qualite-air/rsqaq_stations.csv"),
   show_col_types = FALSE
 )
 

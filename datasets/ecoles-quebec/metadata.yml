@@ -95,6 +95,13 @@ publication:
     mode: frozen
     reason: Table de classe limitée aux colonnes déclarées, sans tirage supplémentaire de lignes. Attribution
       et conditions tierces conservées.
+    api_reference_is_default: false
+    api_files:
+    - datasets/ecoles-quebec/preparation-api.R
+    - datasets/ecoles-quebec/actualiser-api.R
+    - datasets/ecoles-quebec/rejouer-api.R
+    - datasets/ecoles-quebec/snapshots/20261110T151326Z/source-api.zip
+    - datasets/ecoles-quebec/snapshots/20261110T151326Z/source-api.zip.sha256
     files:
     - path: data/processed/ecoles-quebec/ecoles_publiques_quebec.csv
       columns:
@@ -112,7 +119,7 @@ chart:
   y_label: Réseau public
   title: Répartition des liens école-immeuble
 date_added: "2026-06-19"
-date_updated: "2026-09-13"
+date_updated: "2026-11-10"
 
 summary: Localisation des écoles publiques et de leurs immeubles scolaires au Québec, avec leurs identifiants et
   les ordres d’enseignement.

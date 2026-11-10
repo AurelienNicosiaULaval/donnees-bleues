@@ -109,6 +109,13 @@ publication:
     primary_label: Répertoire des stations
     reason: Table de classe limitée aux colonnes déclarées, sans tirage supplémentaire de lignes. Attribution
       et conditions tierces conservées.
+    api_reference_is_default: false
+    api_files:
+    - datasets/qualite-air/preparation-api.R
+    - datasets/qualite-air/actualiser-api.R
+    - datasets/qualite-air/rejouer-api.R
+    - datasets/qualite-air/snapshots/20261110T152954Z/source-api.zip
+    - datasets/qualite-air/snapshots/20261110T152954Z/source-api.zip.sha256
     files:
     - path: data/processed/qualite-air/resume_decennies_ouverture_rsqaq_stations.csv
       columns:
@@ -152,7 +159,7 @@ chart:
   y_label: Milieu d’implantation
   title: Milieux des stations de l’extrait
 date_added: "2026-06-01"
-date_updated: "2026-10-02"
+date_updated: "2026-11-10"
 
 summary: 'Répertoire des stations de mesure de la qualité de l’air du RSQAQ : localisation, type de milieu et dates
   d’ouverture ou de fermeture.'

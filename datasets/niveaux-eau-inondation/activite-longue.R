@@ -1,7 +1,7 @@
 # Mini-rapport sur les niveaux d'eau d'inondation
 # Ouvrir le projet RStudio de l’archive, puis exécuter ce script.
 # Source : https://www.donneesquebec.ca/recherche/dataset/niveaux-deau-inondation-msp
-# Les données de classe sont figées; ce script ne les télécharge pas.
+# La copie de classe est figée; une copie API peut être sélectionnée avant l’activité.
 
 # Load libraries
 library(dplyr)
@@ -12,7 +12,7 @@ library(readr)
 
 # Import prepared files
 niveaux <- read_csv(
-  "data/processed/niveaux-eau-inondation/niveaux_eau_inondation.csv",
+  Sys.getenv("DB_NIVEAUX_SNAPSHOT", unset = "data/processed/niveaux-eau-inondation/niveaux_eau_inondation.csv"),
   show_col_types = FALSE
 )
 
@@ -30,6 +30,24 @@ resume_type <- read_csv(
   "data/processed/niveaux-eau-inondation/resume_type_niveaux_eau_inondation.csv",
   show_col_types = FALSE
 )
+
+# Si une copie API est sélectionnée, recalculer les résumés avec ces marqueurs.
+if (nzchar(Sys.getenv("DB_NIVEAUX_SNAPSHOT"))) {
+  valeurs_manquantes <- data.frame(
+    variable = names(niveaux),
+    n_missing = vapply(niveaux, function(x) sum(is.na(x)), integer(1)),
+    n_rows = nrow(niveaux)) |>
+    mutate(pct_missing = round(100 * n_missing / n_rows, 2))
+  resume_annee <- niveaux |> count(annee_obs, type_obs, name = "n_observations")
+  resume_type <- niveaux |>
+    group_by(type_obs, type_observation) |>
+    summarise(n_observations = n(), altitude_min = min(alt_m_cgvd, na.rm = TRUE),
+      altitude_mediane = median(alt_m_cgvd, na.rm = TRUE),
+      altitude_max = max(alt_m_cgvd, na.rm = TRUE),
+      erreur_xy_mediane_cm = median(err_xy_cm, na.rm = TRUE),
+      erreur_z_mediane_cm = median(err_z_cm, na.rm = TRUE), .groups = "drop") |>
+    arrange(desc(n_observations))
+}
 
 # Basic checks
 print(niveaux |>

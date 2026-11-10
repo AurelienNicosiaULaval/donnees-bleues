@@ -18,7 +18,7 @@ render_activity_header()
 
 Télécharger la trousse ci-dessous. Extraire le ZIP, puis double-cliquer sur `Donnees-bleues.Rproj`. Avant la séance, ouvrir `installer-packages.R` et cliquer sur Source avec une connexion Internet.
 
-Une fois les packages installés, les scripts utilisent les fichiers inclus et peuvent être exécutés hors ligne.
+Une fois les packages installés, les scripts utilisent les fichiers inclus et peuvent être exécutés hors ligne. Pour utiliser un nouvel instantané obtenu par l’API, ouvrir `datasets/suivi-rivieres-fleuve/actualiser-api.R` et cliquer sur Source avec Internet, puis exécuter l’activité dans la même session R. La copie initiale demeure disponible; les effectifs peuvent changer. Dans la version API, les mesures proviennent de l’instantané choisi; le pourcentage agricole provient de la copie des aires de drainage préparée le 5 septembre 2026. Les nouvelles stations sans correspondance gardent une valeur manquante. Pour reconstruire hors ligne l’instantané API inclus, exécuter plutôt `datasets/suivi-rivieres-fleuve/rejouer-api.R` avant l’activité.
 
 ```{r}
 #| label: activity-classroom-resources

@@ -25,6 +25,7 @@ run_dq_tests <- function() {
       offset <- as.integer(sub('.*offset=([0-9]+).*', '\\1', url))
       rows <- lapply(seq.int(offset + 1L, min(offset + 2L, 5L)), function(id)
         list(`_id` = id, code = sprintf('%03d', id), valeur = if (id == 2L) NULL else as.character(id)))
+      if (problem == 'extra') rows[[1]]$non_demande <- 'champ à exclure'
       if (problem == 'empty' && offset > 0L) rows <- list()
       if (problem == 'duplicate' && offset > 0L) rows[[1]]$`_id` <- 1L
       total <- if (problem == 'changed' && offset > 0L) 6L else 5L
@@ -43,6 +44,16 @@ run_dq_tests <- function() {
   stopifnot(nrow(data) == 5L, identical(data$code, sprintf('%03d', 1:5)), is.na(data$valeur[[2]]))
   receipt <- jsonlite::read_json(paste0(path, '.source.json'))
   stopifnot(length(receipt$details$pages) == 3L)
+  selection <- file.path(stage, 'selection.csv')
+  ckan_datastore_download('test', selection, page_size = 2,
+    fields = c('code', 'valeur'), fetch = make_fetch())
+  selection_receipt <- jsonlite::read_json(paste0(selection, '.source.json'))
+  stopifnot(length(selection_receipt$details$pages) == 3L,
+    all(vapply(selection_receipt$details$pages, function(x) grepl('fields=', x$url, fixed = TRUE), logical(1))))
+  extra <- file.path(stage, 'extra.csv')
+  stopifnot(inherits(tryCatch(ckan_datastore_download('test', extra, page_size = 2,
+    fields = c('code', 'valeur'), fetch = make_fetch('extra')), error = identity), 'error'),
+    !file.exists(extra), !dir.exists(paste0(extra, '.pages')))
   Sys.setenv(DB_OFFLINE = 'true')
   ckan_datastore_download('test', path, page_size = 2)
   page <- file.path(dirname(path), receipt$details$pages[[1]]$file)

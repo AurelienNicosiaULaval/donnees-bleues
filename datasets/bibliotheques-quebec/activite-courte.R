@@ -1,13 +1,15 @@
 # Laboratoire - Visites par habitant dans les bibliothèques
 # Ouvrir le projet RStudio de l’archive, puis exécuter ce script.
 # Source : https://www.donneesquebec.ca/recherche/dataset/statistiques_des_bibliotheques_publiques_du_quebec
-# Les données de classe sont figées; ce script ne les télécharge pas.
+# Par défaut : instantané du 10 novembre 2026 obtenu avec l’API Données Québec.
+# actualiser-api.R prépare un nouvel instantané et le sélectionne pour cette session.
 
 library(dplyr)
 library(readr)
 library(ggplot2)
 
-donnees <- read_csv("data/processed/bibliotheques-quebec/statistiques_bibliotheques_quebec_2024_selection.csv", show_col_types = FALSE)
+fichier <- Sys.getenv("DB_BIBLIOTHEQUES_SNAPSHOT", unset = "data/processed/bibliotheques-quebec/statistiques_bibliotheques_quebec_2024_selection.csv")
+donnees <- read_csv(fichier, show_col_types = FALSE)
 stopifnot(nrow(donnees) > 0)
 
 selection <- donnees |> filter(!is.na(population_desservie), population_desservie > 0,

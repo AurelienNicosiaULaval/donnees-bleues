@@ -1,7 +1,7 @@
 # Couverture territoriale et temporelle des stations RSQAQ
 # Ouvrir le projet RStudio de l’archive, puis exécuter ce script.
 # Source : https://www.donneesquebec.ca/recherche/dataset/rsqaq-stations
-# Les données de classe sont figées; ce script ne les télécharge pas.
+# La copie de classe est figée; une copie API peut être sélectionnée avant l’activité.
 
 # Load libraries
 library(dplyr)
@@ -10,7 +10,7 @@ library(readr)
 
 # Import prepared files
 stations <- read_csv(
-  "data/processed/qualite-air/rsqaq_stations.csv",
+  Sys.getenv("DB_AIR_SNAPSHOT", unset = "data/processed/qualite-air/rsqaq_stations.csv"),
   show_col_types = FALSE
 )
 
@@ -28,6 +28,17 @@ valeurs_manquantes <- read_csv(
   "data/processed/qualite-air/valeurs_manquantes_rsqaq_stations.csv",
   show_col_types = FALSE
 )
+
+# Si une copie API est sélectionnée, recalculer les résumés avec ces stations.
+if (nzchar(Sys.getenv("DB_AIR_SNAPSHOT"))) {
+  resume_regions <- stations |>
+    group_by(region_code, region_administrative) |>
+    summarise(n_stations = n(),
+      n_sans_date_fermeture = sum(station_sans_date_fermeture),
+      n_fermees = sum(!station_sans_date_fermeture), .groups = "drop")
+  resume_decennies <- stations |>
+    count(decennie_ouverture, name = "n_stations")
+}
 
 # Regions with the most stations without a closing date
 print(resume_regions |>

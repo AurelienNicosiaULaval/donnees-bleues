@@ -84,6 +84,17 @@ build_classroom_kit <- function(metadata, output_dir = 'assets/classroom') {
     copy(path)
   }
   source_paths <- scripts
+  api_files <- unlist(policy$api_files, use.names = FALSE)
+  if (length(api_files)) {
+    copy('R/utils_rejouer_api.R')
+    source_paths <- c(source_paths, 'R/utils_rejouer_api.R')
+  }
+  for (path in api_files) {
+    if (!startsWith(path, paste0('datasets/', id, '/')) || grepl('..', path, fixed = TRUE) || !file.exists(path))
+      stop('Fichier de préparation API invalide : ', path, call. = FALSE)
+    copy(path)
+  }
+  source_paths <- c(source_paths, api_files[grepl('[.]R$', api_files)])
   if (policy$mode == 'source_required') {
     source_paths <- c(source_paths, file.path('datasets', id, 'preparation.R'),
                       'R/utils_downloads.R', 'R/utils_data_checks.R')
@@ -127,6 +138,21 @@ build_classroom_kit <- function(metadata, output_dir = 'assets/classroom') {
     file.path(stage, 'Donnees-bleues.Rproj'))
   prep_manifest <- jsonlite::read_json(file.path('data/processed', id, 'manifest.json'))
   sources <- lapply(prep_manifest$sources, function(source) source[c('source_url', 'acquisition_kind', 'acquired_at_utc', 'sha256')])
+  # Si la table de classe antérieure est identique, conserver aussi l'empreinte
+  # de la table complète dont elle provenait, même si seule la sélection est présente ici.
+  for (i in seq_along(tables)) {
+    anterieures <- Filter(function(x) identical(x$path, tables[[i]]$path), prep_manifest$tables)
+    if (length(anterieures) == 1L && identical(anterieures[[1]]$sha256, tables[[i]]$sha256) &&
+        !is.null(anterieures[[1]]$prepared_table_sha256))
+      tables[[i]]$prepared_table_sha256 <- anterieures[[1]]$prepared_table_sha256
+  }
+  archives_api <- api_files[grepl('/source-api[.]zip$', api_files)]
+  instantanes_api <- lapply(archives_api, function(path) {
+    date <- basename(dirname(path))
+    if (!grepl('^[0-9]{8}T[0-9]{6}Z$', date)) stop('Date d’instantané API invalide : ', path)
+    list(path = path, acquired_at_utc = format(as.POSIXct(date, format = '%Y%m%dT%H%M%SZ', tz = 'UTC'),
+      '%Y-%m-%dT%H:%M:%SZ', tz = 'UTC'), sha256 = classroom_sha(path))
+  })
   manifest <- list(dataset_id = id, title = metadata$title, mode = policy$mode,
     prepared_at_utc = prep_manifest$prepared_at_utc, source_name = metadata$source_name,
     source_url = metadata$source_url, license_url = metadata$publication$license_url,
@@ -134,7 +160,8 @@ build_classroom_kit <- function(metadata, output_dir = 'assets/classroom') {
       notices = c('LICENSE', 'LICENCE-CONTENUS.md', notices)),
     selection = policy$reason, r_version_tested = '4.5.0',
     packages_tested = setNames(lapply(packages, function(p) as.character(utils::packageVersion(p))), packages),
-    sources = sources, tables = tables, donnees_quebec = dq_citation_records(id))
+    sources = sources, tables = tables, instantanes_api = instantanes_api,
+    donnees_quebec = dq_citation_records(id))
   jsonlite::write_json(manifest, file.path(stage, 'provenance.json'), auto_unbox = TRUE, pretty = TRUE)
   availability <- switch(policy$mode,
     frozen = 'Les CSV préparés sont inclus. Le script fonctionne hors ligne après installation des packages.',
@@ -148,7 +175,8 @@ build_classroom_kit <- function(metadata, output_dir = 'assets/classroom') {
     paste0('5. Ouvrir ', paste(scripts, collapse = ' ou '), ', puis cliquer Source.'),
     '6. Lire les tableaux dans Console et les graphiques dans Plots. Les consignes propres à chaque activité sont sur le site.', '',
     paste0('Activités : https://donneesbleues.ca/datasets/', id, '/fiche.html'), '',
-    if (has_dq) 'Acquisition facultative : ouvrir acquerir-donnees-quebec.R avec Internet pour consulter les ressources et en acquérir une par API lorsqu’elle est interrogeable. Les nouvelles sources restent séparées des CSV de classe. Lire CITATIONS.md pour les références officielles.', '',
+    if (length(api_files)) paste0(if (isTRUE(policy$api_reference_is_default)) 'La table de classe provient de l’instantané API inclus. ' else 'La table de classe initiale est conservée. ', 'Pour utiliser la copie API incluse sans Internet, ouvrir datasets/', id, '/rejouer-api.R et cliquer Source. Pour acquérir une nouvelle copie, utiliser actualiser-api.R avec Internet. Ensuite, exécuter l’activité dans la même session R.'),
+    if (has_dq && !length(api_files)) 'Acquisition facultative : ouvrir acquerir-donnees-quebec.R avec Internet pour consulter les ressources et en acquérir une par API lorsqu’elle est interrogeable. Les nouvelles sources restent séparées des CSV de classe. Lire CITATIONS.md pour les références officielles.', '',
     '## Source et réutilisation', '', paste0('Producteur : ', metadata$source_name),
     paste0('Source : ', metadata$source_url), paste0('Conditions : ', metadata$publication$license_url),
     if (length(notices)) paste0('Attributions et documentation incluses : ', paste(notices, collapse = ', '), '.'),

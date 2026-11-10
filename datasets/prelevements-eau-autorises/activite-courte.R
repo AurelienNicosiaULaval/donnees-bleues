@@ -1,7 +1,7 @@
 # Volumes autorisés par provenance de l'eau
 # Ouvrir le projet RStudio de l’archive, puis exécuter ce script.
 # Source : https://www.donneesquebec.ca/recherche/dataset/prelevements-eau
-# Les données de classe sont figées; ce script ne les télécharge pas.
+# La copie de classe est figée; une copie API peut être sélectionnée avant l’activité.
 
 # Load libraries
 library(dplyr)
@@ -12,7 +12,7 @@ library(readr)
 
 # Import prepared data
 prelevements <- read_csv(
-  "data/processed/prelevements-eau-autorises/prelevements_eau_autorises.csv",
+  Sys.getenv("DB_PRELEVEMENTS_SNAPSHOT", unset = "data/processed/prelevements-eau-autorises/prelevements_eau_autorises.csv"),
   show_col_types = FALSE
 )
 

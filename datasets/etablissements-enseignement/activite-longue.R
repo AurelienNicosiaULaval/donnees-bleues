@@ -1,7 +1,7 @@
 # Portrait territorial prudent des établissements d'enseignement
 # Ouvrir le projet RStudio de l’archive, puis exécuter ce script.
 # Source : https://www.donneesquebec.ca/recherche/dataset/localisation-des-etablissements-d-enseignement-du-reseau-scolaire-au-quebec
-# Les données de classe sont figées; ce script ne les télécharge pas.
+# La copie de classe est figée; une copie API peut être sélectionnée avant l’activité.
 
 # Load libraries
 library(dplyr)
@@ -12,7 +12,7 @@ library(readr)
 
 # Import prepared data
 etablissements <- read_csv(
-  "data/processed/etablissements-enseignement/etablissements_enseignement_quebec.csv",
+  Sys.getenv("DB_ETABLISSEMENTS_SNAPSHOT", unset = "data/processed/etablissements-enseignement/etablissements_enseignement_quebec.csv"),
   show_col_types = FALSE
 )
 

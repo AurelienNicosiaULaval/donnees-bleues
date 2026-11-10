@@ -1,7 +1,7 @@
 # Cartographier des marqueurs de niveaux d'eau
 # Ouvrir le projet RStudio de l’archive, puis exécuter ce script.
 # Source : https://www.donneesquebec.ca/recherche/dataset/niveaux-deau-inondation-msp
-# Les données de classe sont figées; ce script ne les télécharge pas.
+# La copie de classe est figée; une copie API peut être sélectionnée avant l’activité.
 
 # Load libraries
 library(dplyr)
@@ -12,7 +12,7 @@ library(readr)
 
 # Import prepared data
 niveaux <- read_csv(
-  "data/processed/niveaux-eau-inondation/niveaux_eau_inondation.csv",
+  Sys.getenv("DB_NIVEAUX_SNAPSHOT", unset = "data/processed/niveaux-eau-inondation/niveaux_eau_inondation.csv"),
   show_col_types = FALSE
 )
 

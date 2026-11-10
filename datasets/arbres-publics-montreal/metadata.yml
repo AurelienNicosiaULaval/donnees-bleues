@@ -107,6 +107,13 @@ publication:
     mode: frozen
     reason: Table de classe limitée aux colonnes déclarées, sans tirage supplémentaire de lignes. Attribution
       et conditions tierces conservées.
+    api_reference_is_default: false
+    api_files:
+    - datasets/arbres-publics-montreal/preparation-api.R
+    - datasets/arbres-publics-montreal/actualiser-api.R
+    - datasets/arbres-publics-montreal/rejouer-api.R
+    - datasets/arbres-publics-montreal/snapshots/20261110T153551Z/source-api.zip
+    - datasets/arbres-publics-montreal/snapshots/20261110T153551Z/source-api.zip.sha256
     files:
     - path: data/processed/arbres-publics-montreal/arbres_publics_montreal.csv
       columns:
@@ -121,7 +128,7 @@ chart:
   title: Distribution du diamètre
   bins: 12
 date_added: "2026-06-18"
-date_updated: "2026-09-13"
+date_updated: "2026-11-10"
 
 summary: 'Inventaire des arbres publics de Montréal : essences, mesures, arrondissement et localisation.'
 

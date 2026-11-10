@@ -102,6 +102,13 @@ publication:
     mode: frozen
     reason: Table de classe limitée aux colonnes déclarées, sans tirage supplémentaire de lignes. Attribution
       et conditions tierces conservées.
+    api_reference_is_default: false
+    api_files:
+    - datasets/niveaux-eau-inondation/preparation-api.R
+    - datasets/niveaux-eau-inondation/actualiser-api.R
+    - datasets/niveaux-eau-inondation/rejouer-api.R
+    - datasets/niveaux-eau-inondation/snapshots/20261110T152955Z/source-api.zip
+    - datasets/niveaux-eau-inondation/snapshots/20261110T152955Z/source-api.zip.sha256
     files:
     - path: data/processed/niveaux-eau-inondation/niveaux_eau_inondation.csv
       columns:
@@ -144,7 +151,7 @@ chart:
   y_label: Type de niveau observé
   title: Types d’observations de niveau d’eau
 date_added: "2026-06-18"
-date_updated: "2026-09-13"
+date_updated: "2026-11-10"
 
 summary: Marqueurs ponctuels de niveaux d’eau observés lors d’inondations au Québec, avec leur localisation et le
   contexte de l’observation.

@@ -1,0 +1,18 @@
+# Acquérir les neuf ressources et conserver une copie datée de chacune.
+library(jsonlite)
+library(httr2)
+library(readr)
+library(digest)
+library(xml2)
+library(dplyr)
+source('R/utils_downloads.R')
+source('R/utils_ckan.R')
+source('R/utils_donnees_quebec.R')
+source('datasets/etablissements-enseignement/ressources-api.R')
+source('datasets/etablissements-enseignement/preparation-api.R')
+source('datasets/etablissements-enseignement/enregistrer-api.R')
+dossier <- file.path('data/raw/api/etablissements-enseignement', format(Sys.time(), '%Y%m%dT%H%M%SZ', tz = 'UTC'))
+fichiers <- setNames(lapply(ressources_api, function(r) dq_acquire('etablissements-enseignement', r$ressource,
+  directory = file.path(dossier, r$cle), fields = r$champs)), vapply(ressources_api, function(r) r$cle, character(1)))
+provenance <- lapply(fichiers, function(f) jsonlite::read_json(paste0(f, '.source.json')))
+enregistrer_etablissements_api(fichiers, dossier, provenance)

@@ -18,7 +18,7 @@ render_activity_header()
 
 Télécharger la trousse ci-dessous. Extraire le ZIP, puis double-cliquer sur `Donnees-bleues.Rproj`. Avant la séance, ouvrir `installer-packages.R` et cliquer sur Source avec une connexion Internet.
 
-Une fois les packages installés, les scripts utilisent les fichiers inclus et peuvent être exécutés hors ligne.
+Une fois les packages installés, les scripts utilisent les fichiers inclus et peuvent être exécutés hors ligne. Pour recueillir un nouvel instantané des flux GBFS BIXI, ouvrir `datasets/bixi/actualiser-api.R` et cliquer sur Source avec Internet, puis exécuter l’activité dans la même session R. Pour reconstruire hors ligne l’instantané GBFS inclus, exécuter plutôt `datasets/bixi/rejouer-api.R` avant l’activité. La copie initiale demeure disponible; la disponibilité change au fil du temps. Les dates de rapport antérieures au lancement de BIXI en mai 2009 ou postérieures à la collecte sont considérées comme manquantes.
 
 ```{r}
 #| label: activity-classroom-resources

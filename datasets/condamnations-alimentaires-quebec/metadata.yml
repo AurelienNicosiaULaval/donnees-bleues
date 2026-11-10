@@ -98,6 +98,13 @@ publication:
     mode: frozen
     reason: Table de classe limitée aux colonnes déclarées, sans tirage supplémentaire de lignes. Attribution
       et conditions tierces conservées.
+    api_reference_is_default: false
+    api_files:
+    - datasets/condamnations-alimentaires-quebec/preparation-api.R
+    - datasets/condamnations-alimentaires-quebec/actualiser-api.R
+    - datasets/condamnations-alimentaires-quebec/rejouer-api.R
+    - datasets/condamnations-alimentaires-quebec/snapshots/20261110T153456Z/source-api.zip
+    - datasets/condamnations-alimentaires-quebec/snapshots/20261110T153456Z/source-api.zip.sha256
     files:
     - path: data/processed/condamnations-alimentaires-quebec/condamnations_alimentaires_quebec.csv
       columns:
@@ -116,7 +123,7 @@ chart:
   title: Distribution des amendes
   bins: 12
 date_added: "2026-06-20"
-date_updated: "2026-09-13"
+date_updated: "2026-11-10"
 
 summary: 'Version pédagogique fixe des condamnations alimentaires publiées au Québec : catégories, descriptions,
   dates et amendes.'

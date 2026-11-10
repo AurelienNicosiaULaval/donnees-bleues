@@ -112,6 +112,13 @@ publication:
     primary_label: Profil financier municipal
     reason: Table de classe limitée aux colonnes déclarées, sans tirage supplémentaire de lignes. Attribution
       et conditions tierces conservées.
+    api_reference_is_default: false
+    api_files:
+    - datasets/budgets-municipaux-quebec/preparation-api.R
+    - datasets/budgets-municipaux-quebec/actualiser-api.R
+    - datasets/budgets-municipaux-quebec/rejouer-api.R
+    - datasets/budgets-municipaux-quebec/snapshots/20261110T154129Z/source-api.zip
+    - datasets/budgets-municipaux-quebec/snapshots/20261110T154129Z/source-api.zip.sha256
     files:
     - path: data/processed/budgets-municipaux-quebec/dictionnaire_postes_profil_financier_2025.csv
       columns:
@@ -194,7 +201,7 @@ chart:
   title: Distribution des populations municipales
   bins: 12
 date_added: "2026-06-19"
-date_updated: "2026-10-02"
+date_updated: "2026-11-10"
 
 summary: Profil financier des municipalités locales et agglomérations, avec des indicateurs de richesse foncière
   du rôle d’évaluation de 2025.

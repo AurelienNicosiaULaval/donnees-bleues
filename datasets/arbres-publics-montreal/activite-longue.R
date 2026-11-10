@@ -1,13 +1,13 @@
 # Carte et qualité des données des arbres publics
 # Ouvrir le projet RStudio de l’archive, puis exécuter ce script.
 # Source : https://www.donneesquebec.ca/recherche/dataset/vmtl-arbres
-# Les données de classe sont figées; ce script ne les télécharge pas.
+# La copie de classe est figée; une copie API peut être sélectionnée avant l’activité.
 
 library(dplyr)
 library(readr)
 library(ggplot2)
 
-donnees <- read_csv("data/processed/arbres-publics-montreal/arbres_publics_montreal.csv", col_types = cols(.default = col_skip(), arrondissement = col_character(), essence_fr = col_character(), dhp = col_double()), show_col_types = FALSE)
+donnees <- read_csv(Sys.getenv("DB_ARBRES_SNAPSHOT", unset = "data/processed/arbres-publics-montreal/arbres_publics_montreal.csv"), col_types = cols(.default = col_skip(), arrondissement = col_character(), essence_fr = col_character(), dhp = col_double()), show_col_types = FALSE)
 stopifnot(nrow(donnees) > 0)
 
 resume <- donnees |> group_by(arrondissement) |> summarise(

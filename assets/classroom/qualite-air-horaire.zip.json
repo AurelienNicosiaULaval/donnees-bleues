@@ -9,77 +9,32 @@
   "original_licenses": {
     "code": "MIT",
     "content": "CC-BY-4.0",
-    "notices": [
-      "LICENSE",
-      "LICENCE-CONTENUS.md"
-    ]
+    "notices": ["LICENSE", "LICENCE-CONTENUS.md"]
   },
   "selection": "Table de classe limitée aux colonnes déclarées, sans tirage supplémentaire de lignes. Attribution et conditions tierces conservées.",
   "tables": [
     {
       "path": "data/processed/qualite-air-horaire/episodes_pm25_2025.csv",
       "rows": 25,
-      "columns": [
-        "source_year",
-        "access_date",
-        "date",
-        "station_id",
-        "station_name",
-        "contaminant_source",
-        "contaminant",
-        "unite",
-        "n_heures_valides",
-        "moyenne",
-        "mediane",
-        "p95",
-        "maximum"
-      ],
+      "columns": ["source_year", "access_date", "date", "station_id", "station_name", "contaminant_source", "contaminant", "unite", "n_heures_valides", "moyenne", "mediane", "p95", "maximum"],
       "sha256": "a82dea17f5b511a8f51ce2ef70d441069b6df9552bee25e1cdf3e9fec0956a59",
       "prepared_table_sha256": "a82dea17f5b511a8f51ce2ef70d441069b6df9552bee25e1cdf3e9fec0956a59"
     },
     {
       "path": "data/processed/qualite-air-horaire/resume_contaminants_2025.csv",
       "rows": 11,
-      "columns": [
-        "contaminant_source",
-        "contaminant",
-        "unite",
-        "n_mesures",
-        "n_stations",
-        "premiere_mesure",
-        "derniere_mesure",
-        "moyenne",
-        "mediane",
-        "p95",
-        "maximum"
-      ],
+      "columns": ["contaminant_source", "contaminant", "unite", "n_mesures", "n_stations", "premiere_mesure", "derniere_mesure", "moyenne", "mediane", "p95", "maximum"],
       "sha256": "3019ddfa98c18b12f9987887fabd9704dc28ad81f71be95410a2fd5d9ea23c63",
       "prepared_table_sha256": "3019ddfa98c18b12f9987887fabd9704dc28ad81f71be95410a2fd5d9ea23c63"
     },
     {
       "path": "data/processed/qualite-air-horaire/resume_journalier_contaminants_2025.csv",
       "rows": 46723,
-      "columns": [
-        "source_year",
-        "access_date",
-        "date",
-        "station_id",
-        "station_name",
-        "contaminant_source",
-        "contaminant",
-        "unite",
-        "n_heures_valides",
-        "moyenne",
-        "mediane",
-        "p95",
-        "maximum"
-      ],
+      "columns": ["source_year", "access_date", "date", "station_id", "station_name", "contaminant_source", "contaminant", "unite", "n_heures_valides", "moyenne", "mediane", "p95", "maximum"],
       "sha256": "25bdf82632c2fff00c55517222e9171b950b7833cc3bc1c0455a3b4d08b3012f",
       "prepared_table_sha256": "25bdf82632c2fff00c55517222e9171b950b7833cc3bc1c0455a3b4d08b3012f"
     }
   ],
-  "archive_sha256": "68dc43a6945e8b1b3a7cf90c130cc398c661d20d0a5373d6b4ac3d53d6157663",
-  "archive_bytes": 1122893,
   "donnees_quebec": [
     {
       "page_url": "https://www.donneesquebec.ca/recherche/dataset/rsqaq-donnees-horaires-continues",
@@ -89,5 +44,6 @@
       "license_url": "https://www.donneesquebec.ca/licence/#cc-by"
     }
   ],
-  "documentation_updated_on": "2026-11-10"
+  "archive_sha256": "ad8cc7e88893463e42098b6f19e8b6a17c69be1b7d5543d436f9cbdfe1634fa7",
+  "archive_bytes": 12973124
 }

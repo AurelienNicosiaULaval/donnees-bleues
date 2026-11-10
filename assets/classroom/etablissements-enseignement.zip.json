@@ -9,36 +9,18 @@
   "original_licenses": {
     "code": "MIT",
     "content": "CC-BY-4.0",
-    "notices": [
-      "LICENSE",
-      "LICENCE-CONTENUS.md"
-    ]
+    "notices": ["LICENSE", "LICENCE-CONTENUS.md"]
   },
   "selection": "Table de classe limitée aux colonnes déclarées, sans tirage supplémentaire de lignes. Attribution et conditions tierces conservées.",
   "tables": [
     {
       "path": "data/processed/etablissements-enseignement/etablissements_enseignement_quebec.csv",
       "rows": 14079,
-      "columns": [
-        "source_resource",
-        "resource_label",
-        "network_category",
-        "unit_kind",
-        "code_organisme",
-        "code_immeuble",
-        "nom",
-        "longitude",
-        "latitude",
-        "region_administrative",
-        "has_region",
-        "has_coordinates"
-      ],
+      "columns": ["source_resource", "resource_label", "network_category", "unit_kind", "code_organisme", "code_immeuble", "nom", "longitude", "latitude", "region_administrative", "has_region", "has_coordinates"],
       "sha256": "87ae7f226111932c514df26ebec9b4c63d56b493abca8ee13e52831cca5e64c3",
       "prepared_table_sha256": "c8d2fbb677934e11a698914d28d5e031ec503274b3873a1a546c644e2802020b"
     }
   ],
-  "archive_sha256": "b65fd1db7fe553e21758f579e4405db8d494186f3b4cb1d836b9896d088d2d49",
-  "archive_bytes": 321391,
   "donnees_quebec": [
     {
       "page_url": "https://www.donneesquebec.ca/recherche/dataset/localisation-des-etablissements-d-enseignement-du-reseau-scolaire-au-quebec",
@@ -48,5 +30,6 @@
       "license_url": "https://www.donneesquebec.ca/licence/#cc-by"
     }
   ],
-  "documentation_updated_on": "2026-11-10"
+  "archive_sha256": "0f839372d8e46754f2ebd7bb14b9f5c8ea52132bc5de7ec03173251ff37d6c27",
+  "archive_bytes": 1004229
 }

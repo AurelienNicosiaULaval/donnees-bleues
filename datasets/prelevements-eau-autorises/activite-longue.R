@@ -1,7 +1,7 @@
 # Portrait spatial des prélèvements d'eau autorisés
 # Ouvrir le projet RStudio de l’archive, puis exécuter ce script.
 # Source : https://www.donneesquebec.ca/recherche/dataset/prelevements-eau
-# Les données de classe sont figées; ce script ne les télécharge pas.
+# La copie de classe est figée; une copie API peut être sélectionnée avant l’activité.
 
 # Load libraries
 library(dplyr)
@@ -12,7 +12,7 @@ library(readr)
 
 # Import prepared files
 prelevements <- read_csv(
-  "data/processed/prelevements-eau-autorises/prelevements_eau_autorises.csv",
+  Sys.getenv("DB_PRELEVEMENTS_SNAPSHOT", unset = "data/processed/prelevements-eau-autorises/prelevements_eau_autorises.csv"),
   show_col_types = FALSE
 )
 
@@ -30,6 +30,22 @@ valeurs_manquantes <- read_csv(
   "data/processed/prelevements-eau-autorises/valeurs_manquantes_prelevements_eau_autorises.csv",
   show_col_types = FALSE
 )
+
+# Les résumés sont recalculés à partir de la copie API choisie.
+# Les noms des intervenants ne font pas partie de cette copie.
+if (nzchar(Sys.getenv("DB_PRELEVEMENTS_SNAPSHOT"))) {
+  resume_provenance <- prelevements |>
+    group_by(provenance_eau) |>
+    summarise(n_sites = n(), n_documents = n_distinct(no_doc),
+      n_volume_manquant = sum(is.na(volume_autorise_l_j)),
+      volume_median_m3_j = median(volume_autorise_m3_j, na.rm = TRUE),
+      volume_max_m3_j = max(volume_autorise_m3_j, na.rm = TRUE), .groups = "drop") |>
+    arrange(desc(n_sites))
+  principaux_sites <- prelevements |>
+    filter(!is.na(volume_autorise_l_j)) |>
+    arrange(desc(volume_autorise_l_j)) |>
+    slice_head(n = 20)
+}
 
 # Key checks
 print(prelevements |>

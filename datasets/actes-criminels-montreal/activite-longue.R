@@ -1,13 +1,14 @@
 # Rapport descriptif et éthique sur les actes criminels
 # Ouvrir le projet RStudio de l’archive, puis exécuter ce script.
 # Source : https://www.donneesquebec.ca/recherche/dataset/vmtl-actes-criminels
-# Les données de classe sont figées; ce script ne les télécharge pas.
+# La copie de référence est figée. actualiser-api.R prépare une copie API sélectionnée pour la session.
 
 library(dplyr)
 library(readr)
 library(ggplot2)
 
-donnees <- read_csv("data/processed/actes-criminels-montreal/actes_criminels_montreal.csv", show_col_types = FALSE)
+fichier <- Sys.getenv("DB_ACTES_SNAPSHOT", unset = "data/processed/actes-criminels-montreal/actes_criminels_montreal.csv")
+donnees <- read_csv(fichier, show_col_types = FALSE)
 stopifnot(nrow(donnees) > 0)
 
 # La dernière année peut être incomplète. La série annuelle est descriptive.

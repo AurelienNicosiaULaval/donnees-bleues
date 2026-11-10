@@ -1,7 +1,7 @@
 # PM2.5 et journées élevées en 2025
 # Ouvrir le projet RStudio de l’archive, puis exécuter ce script.
 # Source : https://www.donneesquebec.ca/recherche/dataset/rsqaq-donnees-horaires-continues
-# Les données de classe sont figées; ce script ne les télécharge pas.
+# La copie de classe est figée; une copie API peut être sélectionnée avant l’activité.
 
 # Load libraries
 library(dplyr)
@@ -11,7 +11,7 @@ library(readr)
 # Prepare and import data
 
 air_jour <- read_csv(
-  "data/processed/qualite-air-horaire/resume_journalier_contaminants_2025.csv",
+  Sys.getenv("DB_AIR_HORAIRE_SNAPSHOT", unset = "data/processed/qualite-air-horaire/resume_journalier_contaminants_2025.csv"),
   show_col_types = FALSE
 )
 

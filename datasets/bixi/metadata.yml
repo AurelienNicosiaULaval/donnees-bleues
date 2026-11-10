@@ -112,6 +112,14 @@ publication:
     mode: frozen
     reason: Table de classe limitée aux colonnes déclarées, sans tirage supplémentaire de lignes. Attribution
       et conditions tierces conservées.
+    api_reference_is_default: false
+    api_files:
+    - datasets/bixi/preparation-api.R
+    - datasets/bixi/enregistrer-api.R
+    - datasets/bixi/actualiser-api.R
+    - datasets/bixi/rejouer-api.R
+    - datasets/bixi/snapshots/20261110T160032Z/source-api.zip
+    - datasets/bixi/snapshots/20261110T160032Z/source-api.zip.sha256
     files:
     - path: data/processed/bixi/stations_bixi_snapshot.csv
       columns:
@@ -133,7 +141,7 @@ chart:
   title: Distribution des capacités
   binwidth: 5
 date_added: "2026-06-01"
-date_updated: "2026-09-13"
+date_updated: "2026-11-10"
 
 summary: 'État des stations BIXI à Montréal : capacité, vélos disponibles et statut opérationnel au moment de la
   collecte.'

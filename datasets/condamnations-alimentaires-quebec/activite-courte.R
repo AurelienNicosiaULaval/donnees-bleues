@@ -1,13 +1,13 @@
 # Laboratoire - Condamnations alimentaires
 # Ouvrir le projet RStudio de l’archive, puis exécuter ce script.
 # Source : https://www.donneesquebec.ca/recherche/dataset/condamnations-des-etablissements-alimentaires-et-condamnations-concernant-le-bien-etre-des-anim
-# Les données de classe sont figées; ce script ne les télécharge pas.
+# La copie de classe est figée; une copie API peut être sélectionnée avant l’activité.
 
 library(dplyr)
 library(readr)
 library(ggplot2)
 
-donnees <- read_csv("data/processed/condamnations-alimentaires-quebec/condamnations_alimentaires_quebec.csv", show_col_types = FALSE)
+donnees <- read_csv(Sys.getenv("DB_CONDAMNATIONS_SNAPSHOT", unset = "data/processed/condamnations-alimentaires-quebec/condamnations_alimentaires_quebec.csv"), show_col_types = FALSE)
 stopifnot(nrow(donnees) > 0)
 
 resume <- donnees |> count(Type_etablissement, sort = TRUE)

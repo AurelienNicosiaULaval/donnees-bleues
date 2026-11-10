@@ -9,29 +9,18 @@
   "original_licenses": {
     "code": "MIT",
     "content": "CC-BY-4.0",
-    "notices": [
-      "LICENSE",
-      "LICENCE-CONTENUS.md"
-    ]
+    "notices": ["LICENSE", "LICENCE-CONTENUS.md"]
   },
   "selection": "Table de classe limitée aux colonnes déclarées, sans tirage supplémentaire de lignes. Attribution et conditions tierces conservées.",
   "tables": [
     {
       "path": "data/processed/actes-criminels-montreal/actes_criminels_montreal.csv",
       "rows": 358423,
-      "columns": [
-        "categorie",
-        "date",
-        "annee",
-        "mois",
-        "quart"
-      ],
+      "columns": ["categorie", "date", "annee", "mois", "quart"],
       "sha256": "21f502d118454ebafa368a79f817461be14d4dba6cced956f77c24868558a906",
       "prepared_table_sha256": "f1cc0b731cab16269f21d643d24867b650244ae0e6a545d8f8cb8aacf987cd7f"
     }
   ],
-  "archive_sha256": "2ad2e3feadbd04ffec5074e8abd7e88aa87590b2ec62b85d96eee9309ab00c9f",
-  "archive_bytes": 483695,
   "donnees_quebec": [
     {
       "page_url": "https://www.donneesquebec.ca/recherche/dataset/vmtl-actes-criminels",
@@ -41,5 +30,6 @@
       "license_url": "https://www.donneesquebec.ca/licence/#cc-by"
     }
   ],
-  "documentation_updated_on": "2026-11-10"
+  "archive_sha256": "451094e73f8196cce7a37025da9c0c2dcbb87d07bd13e45830dec2735120cf0a",
+  "archive_bytes": 3888170
 }

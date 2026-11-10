@@ -9,31 +9,18 @@
   "original_licenses": {
     "code": "MIT",
     "content": "CC-BY-4.0",
-    "notices": [
-      "LICENSE",
-      "LICENCE-CONTENUS.md"
-    ]
+    "notices": ["LICENSE", "LICENCE-CONTENUS.md"]
   },
   "selection": "Table de classe limitée aux colonnes déclarées, sans tirage supplémentaire de lignes. Attribution et conditions tierces conservées.",
   "tables": [
     {
       "path": "data/processed/ecoles-quebec/ecoles_publiques_quebec.csv",
       "rows": 5454,
-      "columns": [
-        "CD_ORGNS",
-        "CD_IMM",
-        "lien_ecole_immeuble_id",
-        "longitude",
-        "latitude",
-        "region_administrative",
-        "type_reseau_public"
-      ],
+      "columns": ["CD_ORGNS", "CD_IMM", "lien_ecole_immeuble_id", "longitude", "latitude", "region_administrative", "type_reseau_public"],
       "sha256": "2b32f84bc1659ede79d4d7c9e0355b7e999a95cc9894777417ceceffa2a466db",
       "prepared_table_sha256": "e14343f759c96cfda097db43bfaec4c1a8a6d0607fa3b76ae61250d0f6308ae7"
     }
   ],
-  "archive_sha256": "2d4d43487cb82963227d2a93995b57a2e1f111ce9c545ee9f1432ca22a2d6720",
-  "archive_bytes": 96802,
   "donnees_quebec": [
     {
       "page_url": "https://www.donneesquebec.ca/recherche/dataset/localisation-des-etablissements-d-enseignement-du-reseau-scolaire-au-quebec",
@@ -43,5 +30,6 @@
       "license_url": "https://www.donneesquebec.ca/licence/#cc-by"
     }
   ],
-  "documentation_updated_on": "2026-11-10"
+  "archive_sha256": "29a4f56f4a28c9c597393178c77ad85a53bd8a4c7f577f158142a8d81bde1e87",
+  "archive_bytes": 743837
 }

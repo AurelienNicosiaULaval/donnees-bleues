@@ -31,9 +31,13 @@ ckan_action <- function(action, query = list(), base_url = "https://www.donneesq
 ckan_datastore_download <- function(resource_id, destfile, page_size = 5000L,
                                     max_records = 1000000L,
                                     base_url = 'https://www.donneesquebec.ca/recherche',
-                                    fetch = NULL) {
+                                    fetch = NULL, fields = NULL) {
   stopifnot(length(resource_id) == 1L, nzchar(resource_id), page_size >= 1L,
             max_records >= 1L)
+  if (!is.null(fields) && (!length(fields) || anyNA(fields) || any(!nzchar(fields)) ||
+                           any(grepl(',', fields, fixed = TRUE)) || anyDuplicated(fields)))
+    stop('Sélection de champs invalide.', call. = FALSE)
+  requested_fields <- fields
   source(if (file.exists('R/utils_downloads.R')) 'R/utils_downloads.R' else '../../R/utils_downloads.R', local = TRUE)
   endpoint <- paste0(sub('/+$', '', base_url), '/api/3/action/datastore_search')
   if (identical(Sys.getenv('DB_OFFLINE'), 'true')) {
@@ -60,6 +64,7 @@ ckan_datastore_download <- function(resource_id, destfile, page_size = 5000L,
   repeat {
     query <- list(resource_id = resource_id, limit = page_size, offset = offset,
                   sort = '_id asc', include_total = 'true')
+    if (!is.null(requested_fields)) query$fields <- paste(unique(c('_id', requested_fields)), collapse = ',')
     request <- do.call(httr2::req_url_query, c(list(httr2::request(endpoint)), query))
     url <- request$url
     name <- paste0(basename(destfile), '.pages/page-', sprintf('%08d', offset), '.json')
@@ -76,11 +81,15 @@ ckan_datastore_download <- function(resource_id, destfile, page_size = 5000L,
     if (is.null(expected)) expected <- total
     if (total != expected) stop('Le nombre de lignes a changé pendant la collecte.', call. = FALSE)
     if (total > max_records) stop('Limite de sécurité dépassée; augmenter max_records explicitement.', call. = FALSE)
-    fields <- vapply(result$fields, function(x) x$id, character(1))
-    if (is.null(schema)) schema <- fields
-    if (!identical(schema, fields) || !'_id' %in% schema)
+    returned_fields <- vapply(result$fields, function(x) x$id, character(1))
+    if (is.null(schema)) schema <- returned_fields
+    if (!identical(schema, returned_fields) || !'_id' %in% schema ||
+        (!is.null(requested_fields) && !setequal(returned_fields, unique(c('_id', requested_fields)))))
       stop('Schéma API variable ou identifiant de pagination absent.', call. = FALSE)
     batch <- result$records
+    if (!is.null(requested_fields) && any(vapply(batch, function(row) {
+      length(setdiff(names(row), unique(c('_id', requested_fields)))) > 0L
+    }, logical(1)))) stop('La réponse contient des champs non demandés.', call. = FALSE)
     if (length(batch) > page_size || offset + length(batch) > total)
       stop('Pagination API incohérente.', call. = FALSE)
     if (!length(batch) && offset < total) stop('Page API vide avant la fin.', call. = FALSE)
@@ -116,7 +125,7 @@ ckan_datastore_download <- function(resource_id, destfile, page_size = 5000L,
 }
 
 ckan_resource_download <- function(package_id, resource_id, directory,
-                                   max_records = 1000000L, page_size = 5000L) {
+                                   max_records = 1000000L, page_size = 5000L, fields = NULL) {
   source('R/utils_downloads.R', local = TRUE)
   dir.create(directory, recursive = TRUE, showWarnings = FALSE)
   api <- paste0('https://www.donneesquebec.ca/recherche/api/3/action/package_show?id=',
@@ -130,7 +139,7 @@ ckan_resource_download <- function(package_id, resource_id, directory,
   resource <- matches[[1]]
   if (isTRUE(resource$datastore_active)) {
     path <- file.path(directory, 'donnees-api.csv')
-    ckan_datastore_download(resource_id, path, max_records = max_records, page_size = page_size)
+    ckan_datastore_download(resource_id, path, max_records = max_records, page_size = page_size, fields = fields)
   } else {
     # Le lien officiel est résolu depuis l'API; pas de sélection du premier fichier.
     format <- tolower(resource$format)

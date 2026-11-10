@@ -99,6 +99,31 @@ publication:
     mode: frozen
     reason: Table de classe limitée aux colonnes déclarées, sans tirage supplémentaire de lignes. Attribution
       et conditions tierces conservées.
+    api_reference_is_default: false
+    api_files:
+    - datasets/etablissements-enseignement/ressources-api.R
+    - datasets/etablissements-enseignement/preparation-api.R
+    - datasets/etablissements-enseignement/enregistrer-api.R
+    - datasets/etablissements-enseignement/actualiser-api.R
+    - datasets/etablissements-enseignement/rejouer-api.R
+    - datasets/etablissements-enseignement/snapshots/collegial/20261110T155708Z/source-api.zip
+    - datasets/etablissements-enseignement/snapshots/collegial/20261110T155708Z/source-api.zip.sha256
+    - datasets/etablissements-enseignement/snapshots/universitaire/20261110T155711Z/source-api.zip
+    - datasets/etablissements-enseignement/snapshots/universitaire/20261110T155711Z/source-api.zip.sha256
+    - datasets/etablissements-enseignement/snapshots/gouvernemental/20261110T155714Z/source-api.zip
+    - datasets/etablissements-enseignement/snapshots/gouvernemental/20261110T155714Z/source-api.zip.sha256
+    - datasets/etablissements-enseignement/snapshots/prive_etablissement/20261110T155716Z/source-api.zip
+    - datasets/etablissements-enseignement/snapshots/prive_etablissement/20261110T155716Z/source-api.zip.sha256
+    - datasets/etablissements-enseignement/snapshots/prive_installation/20261110T155720Z/source-api.zip
+    - datasets/etablissements-enseignement/snapshots/prive_installation/20261110T155720Z/source-api.zip.sha256
+    - datasets/etablissements-enseignement/snapshots/public_ecole/20261110T155725Z/source-api.zip
+    - datasets/etablissements-enseignement/snapshots/public_ecole/20261110T155725Z/source-api.zip.sha256
+    - datasets/etablissements-enseignement/snapshots/public_immeuble/20261110T155728Z/source-api.zip
+    - datasets/etablissements-enseignement/snapshots/public_immeuble/20261110T155728Z/source-api.zip.sha256
+    - datasets/etablissements-enseignement/snapshots/ssocial_cs/20261110T155730Z/source-api.zip
+    - datasets/etablissements-enseignement/snapshots/ssocial_cs/20261110T155730Z/source-api.zip.sha256
+    - datasets/etablissements-enseignement/snapshots/ssocial_org/20261110T155734Z/source-api.zip
+    - datasets/etablissements-enseignement/snapshots/ssocial_org/20261110T155734Z/source-api.zip.sha256
     files:
     - path: data/processed/etablissements-enseignement/etablissements_enseignement_quebec.csv
       columns:
@@ -121,7 +146,7 @@ chart:
   y_label: Ressource source
   title: Composition de l’extrait multi-ressources
 date_added: "2026-06-18"
-date_updated: "2026-09-13"
+date_updated: "2026-11-10"
 
 summary: 'Neuf ressources de localisation du réseau scolaire québécois, réunissant plusieurs unités : établissements,
   installations, immeubles et liens école-immeuble.'

@@ -113,6 +113,13 @@ publication:
     mode: frozen
     reason: Table de classe limitée aux colonnes déclarées, sans tirage supplémentaire de lignes. Attribution
       et conditions tierces conservées.
+    api_reference_is_default: false
+    api_files:
+    - datasets/suivi-rivieres-fleuve/preparation-api.R
+    - datasets/suivi-rivieres-fleuve/actualiser-api.R
+    - datasets/suivi-rivieres-fleuve/rejouer-api.R
+    - datasets/suivi-rivieres-fleuve/snapshots/20261110T154923Z/source-api.zip
+    - datasets/suivi-rivieres-fleuve/snapshots/20261110T154923Z/source-api.zip.sha256
     files:
     - path: data/processed/suivi-rivieres-fleuve/stations_qualite_eau_aires.csv
       columns:
@@ -140,7 +147,7 @@ chart:
   title: Distribution de l’IQBP médian
   binwidth: 10
 date_added: "2026-06-18"
-date_updated: "2026-09-13"
+date_updated: "2026-11-10"
 
 summary: Statistiques de qualité de l’eau par station et année de fin de suivi, accompagnées d’informations sur
   les aires de drainage.

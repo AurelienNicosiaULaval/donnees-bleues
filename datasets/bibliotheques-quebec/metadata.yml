@@ -109,6 +109,13 @@ publication:
     mode: frozen
     reason: Table de classe limitée aux colonnes déclarées, sans tirage supplémentaire de lignes. Attribution
       et conditions tierces conservées.
+    api_reference_is_default: true
+    api_files:
+    - datasets/bibliotheques-quebec/preparation-api.R
+    - datasets/bibliotheques-quebec/actualiser-api.R
+    - datasets/bibliotheques-quebec/rejouer-api.R
+    - datasets/bibliotheques-quebec/snapshots/20261110T133457Z/source-api.zip
+    - datasets/bibliotheques-quebec/snapshots/20261110T133457Z/source-api.zip.sha256
     files:
     - path: data/processed/bibliotheques-quebec/statistiques_bibliotheques_quebec_2024_selection.csv
       columns:
@@ -128,7 +135,7 @@ chart:
   y_label: Prêts en 2024 (nombre)
   title: Population desservie et prêts
 date_added: "2026-06-01"
-date_updated: "2026-09-13"
+date_updated: "2026-11-10"
 
 summary: Fréquentation, prêts, usagers inscrits, population desservie et dépenses des bibliothèques publiques québécoises
   dans la ressource annuelle 2024.

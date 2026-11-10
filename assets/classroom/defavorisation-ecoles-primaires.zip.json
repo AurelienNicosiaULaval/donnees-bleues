@@ -9,34 +9,18 @@
   "original_licenses": {
     "code": "MIT",
     "content": "CC-BY-4.0",
-    "notices": [
-      "LICENSE",
-      "LICENCE-CONTENUS.md"
-    ]
+    "notices": ["LICENSE", "LICENCE-CONTENUS.md"]
   },
   "selection": "Table de classe limitée aux colonnes déclarées, sans tirage supplémentaire de lignes. Attribution et conditions tierces conservées.",
   "tables": [
     {
       "path": "data/processed/defavorisation-ecoles-primaires/defavorisation_ecoles_primaires.csv",
       "rows": 1963,
-      "columns": [
-        "Code_Org",
-        "Nom_Org",
-        "IMSE",
-        "Rang_Decile_IMSE",
-        "SFR",
-        "Rang_Decile_SFR",
-        "Nbre_Eleves",
-        "Diffusion",
-        "Annee_Scol",
-        "groupe_imse"
-      ],
+      "columns": ["Code_Org", "Nom_Org", "IMSE", "Rang_Decile_IMSE", "SFR", "Rang_Decile_SFR", "Nbre_Eleves", "Diffusion", "Annee_Scol", "groupe_imse"],
       "sha256": "3289222f88065b4cdf86df23e45bc5b9650ffbd24c97658d13b09907b3a122bf",
       "prepared_table_sha256": "097afc59c3be59bce98280e25b8db88a6904e8d5227281ad20e84806d3b0698a"
     }
   ],
-  "archive_sha256": "e5a004ec69908a884dca18b11a626eb1a5883de59eba3f62397d40c28437d572",
-  "archive_bytes": 89669,
   "donnees_quebec": [
     {
       "page_url": "https://www.donneesquebec.ca/recherche/dataset/indices-de-defavorisation",
@@ -46,5 +30,6 @@
       "license_url": "https://www.donneesquebec.ca/licence/#cc-by"
     }
   ],
-  "documentation_updated_on": "2026-11-10"
+  "archive_sha256": "3385908614ef788f505c361630eaa7c22097fef3cbf4f36cf9772dd220e804a5",
+  "archive_bytes": 249397
 }

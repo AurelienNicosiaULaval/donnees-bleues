@@ -110,6 +110,13 @@ publication:
     primary_label: Résumés journaliers par station et contaminant
     reason: Table de classe limitée aux colonnes déclarées, sans tirage supplémentaire de lignes. Attribution
       et conditions tierces conservées.
+    api_reference_is_default: false
+    api_files:
+    - datasets/qualite-air-horaire/preparation-api.R
+    - datasets/qualite-air-horaire/actualiser-api.R
+    - datasets/qualite-air-horaire/rejouer-api.R
+    - datasets/qualite-air-horaire/snapshots/20261110T154506Z/source-api.zip
+    - datasets/qualite-air-horaire/snapshots/20261110T154506Z/source-api.zip.sha256
     files:
     - path: data/processed/qualite-air-horaire/episodes_pm25_2025.csv
       columns:
@@ -163,7 +170,7 @@ chart:
   y_label: Concentration moyenne de PM2,5 (µg/m³)
   title: PM2,5 aux jours retenus à Radisson
 date_added: "2026-06-19"
-date_updated: "2026-10-02"
+date_updated: "2026-11-10"
 
 summary: Mesures de contaminants du RSQAQ en 2025, avec des résumés journaliers préparés par station et contaminant.
 

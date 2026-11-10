@@ -36,13 +36,22 @@ for (path in paths) {
   }
   declared <- vapply(policy$files, function(file) file$path, character(1))
   csv_entries <- entries[grepl('[.]csv$', entries)]
-  if (!setequal(csv_entries, declared)) stop('CSV du ZIP différents de la politique : ', id)
+  api_csv <- unlist(policy$api_files, use.names = FALSE)
+  api_csv <- api_csv[grepl('[.]csv$', api_csv)]
+  if (!setequal(csv_entries, c(declared, api_csv))) stop('CSV du ZIP différents de la politique : ', id)
   for (file in policy$files) {
     data <- readr::read_csv(file.path(stage, file$path), col_types = readr::cols(.default = readr::col_character()), show_col_types = FALSE)
     if (!identical(names(data), unlist(file$columns, use.names = FALSE))) stop('Colonnes ZIP incorrectes : ', id)
   }
   for (script in classroom_script_paths(id)) {
     if (classroom_sha(script) != classroom_sha(file.path(stage, script))) stop('Script ZIP périmé : ', script)
+  }
+  api_files <- unlist(policy$api_files, use.names = FALSE)
+  if (length(api_files)) {
+    for (file in c(api_files, 'R/utils_rejouer_api.R')) {
+      if (!file %in% entries || classroom_sha(file) != classroom_sha(file.path(stage, file)))
+        stop('Fichier API absent ou périmé dans la trousse : ', id, ' / ', file)
+    }
   }
   if (policy$mode == 'source_required' && with_source_data) {
     # Private test input only, never added to the public ZIP or its manifest.

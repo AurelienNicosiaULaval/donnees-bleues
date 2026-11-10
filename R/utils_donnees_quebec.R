@@ -118,14 +118,14 @@ dq_resource_options <- function(dataset_id, registry = dq_read_registry()) {
   do.call(rbind, rows)
 }
 
-dq_acquire <- function(dataset_id, resource_id, directory = NULL, page_size = 5000L) {
+dq_acquire <- function(dataset_id, resource_id, directory = NULL, page_size = 5000L, fields = NULL) {
   resources <- dq_resource_options(dataset_id)
   selected <- resources[resources$resource_id == resource_id, , drop = FALSE]
   if (nrow(selected) != 1L) stop('Choisir exactement une ressource de la liste.', call. = FALSE)
   if (is.null(directory)) directory <- file.path('data/raw/api', dataset_id,
     format(Sys.time(), '%Y%m%dT%H%M%SZ', tz = 'UTC'))
   if (dir.exists(directory)) stop('Choisir un nouveau dossier d’acquisition.', call. = FALSE)
-  path <- ckan_resource_download(selected$package_id, selected$resource_id, directory, page_size = page_size)
+  path <- ckan_resource_download(selected$package_id, selected$resource_id, directory, page_size = page_size, fields = fields)
   package <- jsonlite::read_json(file.path(directory, 'package.json'))$result
   page_url <- paste0('https://www.donneesquebec.ca/recherche/dataset/', package$name)
   citation_path <- file.path(directory, 'fiche-officielle.html')
